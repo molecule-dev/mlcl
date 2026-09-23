@@ -242,79 +242,83 @@ export function Executions() {
           className={'rounded-2xl overflow-hidden'}
           style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)' }}
         >
-          <table className={'w-full text-sm'}>
-            <thead>
-              <tr
-                style={{
-                  background: 'var(--color-background-secondary)',
-                  borderBottom: '1px solid var(--color-border)',
-                }}
-              >
-                <Th>{t('nav.status', {}, { defaultValue: 'Status' })}</Th>
-                <Th>{t('executions.col.workflow', {}, { defaultValue: 'Workflow' })}</Th>
-                <Th>{t('executions.col.trigger', {}, { defaultValue: 'Trigger' })}</Th>
-                <Th>{t('executions.col.started', {}, { defaultValue: 'Started' })}</Th>
-                <Th align="right">{t('form.duration', {}, { defaultValue: 'Duration' })}</Th>
-                <Th align="right">{t('executions.col.id', {}, { defaultValue: 'Run id' })}</Th>
-              </tr>
-            </thead>
-            <tbody>
-              {visible.map((row) => (
+          <div className="overflow-x-auto">
+            <table className={'w-full text-sm'}>
+              <thead>
                 <tr
-                  key={row.id}
-                  className={'hover:bg-background-secondary transition-colors'}
-                  style={{ borderBottom: '1px solid var(--color-border)' }}
+                  style={{
+                    background: 'var(--color-background-secondary)',
+                    borderBottom: '1px solid var(--color-border)',
+                  }}
                 >
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <WorkflowStatusBadge status={statusToRunStatus(row.status)} size="sm" />
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.fontWeight('semibold'))}>
-                    <Link
-                      to={`/executions/${row.id}`}
-                      className={'hover:underline'}
-                      style={{ color: 'var(--color-foreground)' }}
-                    >
-                      {row.workflow_name ?? row.workflow_id}
-                    </Link>
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <span
-                      className={cm.cn(
-                        cm.sp('px', 2),
-                        cm.textSize('xs'),
-                        cm.fontWeight('semibold'),
-                        'rounded uppercase tracking-wider',
-                      )}
-                      style={{
-                        background: 'var(--color-background-secondary)',
-                        color: 'var(--color-foreground-secondary)',
-                        padding: '3px 8px',
-                      }}
-                    >
-                      {row.trigger_source}
-                    </span>
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.textMuted)}>
-                    {relativeTime(row.started_at)}
-                  </td>
-                  <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right font-mono')}>
-                    {formatDuration(row.started_at, row.finished_at)}
-                  </td>
-                  <td
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 3),
-                      'text-right font-mono',
-                      cm.textSize('xs'),
-                      cm.textMuted,
-                    )}
-                  >
-                    {row.id.slice(0, 8)}
-                  </td>
+                  <Th>{t('nav.status', {}, { defaultValue: 'Status' })}</Th>
+                  <Th>{t('executions.col.workflow', {}, { defaultValue: 'Workflow' })}</Th>
+                  <Th>{t('executions.col.trigger', {}, { defaultValue: 'Trigger' })}</Th>
+                  <Th>{t('executions.col.started', {}, { defaultValue: 'Started' })}</Th>
+                  <Th align="right">{t('form.duration', {}, { defaultValue: 'Duration' })}</Th>
+                  <Th align="right">{t('executions.col.id', {}, { defaultValue: 'Run id' })}</Th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {visible.map((row) => (
+                  <tr
+                    key={row.id}
+                    className={'hover:bg-background-secondary transition-colors'}
+                    style={{ borderBottom: '1px solid var(--color-border)' }}
+                  >
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <WorkflowStatusBadge status={statusToRunStatus(row.status)} size="sm" />
+                    </td>
+                    <td
+                      className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.fontWeight('semibold'))}
+                    >
+                      <Link
+                        to={`/executions/${row.id}`}
+                        className={'hover:underline'}
+                        style={{ color: 'var(--color-foreground)' }}
+                      >
+                        {row.workflow_name ?? row.workflow_id}
+                      </Link>
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
+                      <span
+                        className={cm.cn(
+                          cm.sp('px', 2),
+                          cm.textSize('xs'),
+                          cm.fontWeight('semibold'),
+                          'rounded uppercase tracking-wider',
+                        )}
+                        style={{
+                          background: 'var(--color-background-secondary)',
+                          color: 'var(--color-foreground-secondary)',
+                          padding: '3px 8px',
+                        }}
+                      >
+                        {row.trigger_source}
+                      </span>
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), cm.textMuted)}>
+                      {relativeTime(row.started_at)}
+                    </td>
+                    <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right font-mono')}>
+                      {formatDuration(row.started_at, row.finished_at)}
+                    </td>
+                    <td
+                      className={cm.cn(
+                        cm.sp('px', 4),
+                        cm.sp('py', 3),
+                        'text-right font-mono',
+                        cm.textSize('xs'),
+                        cm.textMuted,
+                      )}
+                    >
+                      {row.id.slice(0, 8)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
           {visible.length === 0 && (
             <div
               className={cm.cn(cm.sp('p', 12), 'text-center', cm.textMuted)}

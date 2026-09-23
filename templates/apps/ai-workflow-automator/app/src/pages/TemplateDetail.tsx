@@ -9,6 +9,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -83,6 +84,16 @@ export function TemplateDetail() {
       const res = await http.post<{ workflow_id?: string }>(`/api/templates/${tpl.id}/install`, {})
       const wfId = res.data?.workflow_id
       if (wfId) {
+        // Domain events at the conversion point: a template install creates a
+        // workflow AND configures its trigger from the blueprint.
+        track({
+          name: 'workflow.created',
+          properties: { workflow_id: wfId, template_id: tpl.id, source: 'template' },
+        })
+        track({
+          name: 'trigger.configured',
+          properties: { workflow_id: wfId, template_id: tpl.id, source: 'template' },
+        })
         navigate(`/workflows/${wfId}`)
       } else {
         setInstallMessage(

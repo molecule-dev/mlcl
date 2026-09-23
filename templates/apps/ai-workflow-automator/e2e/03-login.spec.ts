@@ -36,6 +36,12 @@ test.describe('/login', () => {
   })
 
   test('invalid credentials show an error and stay on /login', async ({ page }) => {
+    // The 403 from the failed log-in is the expected, asserted behavior —
+    // the browser logs it as a failed resource load, which is fine here.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page
       .locator('input[type="email"]')
@@ -46,8 +52,9 @@ test.describe('/login', () => {
       .getByRole('button', { name: /sign\s*in/i })
       .first()
       .click()
-    // Stay on /login (no redirect to /dashboard).
-    await page.waitForTimeout(1500)
+    // The inline error banner is shown (not a silent failure)…
+    await expect(page.locator('[data-mol-id="login-error"]')).toBeVisible({ timeout: 10_000 })
+    // …and the user stays on /login (no redirect to /dashboard).
     expect(page.url()).toMatch(/\/login/)
   })
 

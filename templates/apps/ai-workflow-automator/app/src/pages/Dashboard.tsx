@@ -333,85 +333,87 @@ export function Dashboard() {
             className={cm.cn('rounded-xl bg-surface overflow-hidden')}
             style={{ border: '1px solid var(--color-border)' }}
           >
-            <table className={'w-full'}>
-              <thead style={{ background: 'var(--color-background-secondary)' }}>
-                <tr>
-                  {[
-                    t('dashboard.run.col.run', {}, { defaultValue: 'Run' }),
-                    t('dashboard.run.col.workflow', {}, { defaultValue: 'Workflow' }),
-                    t('dashboard.run.col.trigger', {}, { defaultValue: 'Trigger' }),
-                    t('nav.status', {}, { defaultValue: 'Status' }),
-                    t('dashboard.run.col.started', {}, { defaultValue: 'Started' }),
-                  ].map((h) => (
-                    <th
-                      key={h}
-                      className={cm.cn(
-                        cm.sp('px', 5),
-                        cm.sp('py', 3),
-                        cm.textSize('xs'),
-                        cm.fontWeight('bold'),
-                        'uppercase tracking-widest text-left whitespace-nowrap',
-                      )}
-                      style={{ color: 'var(--color-foreground-secondary)' }}
-                    >
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y" style={{ borderColor: 'var(--color-border)' }}>
-                {summary.recent_runs.map((r) => (
-                  <tr key={r.id} className={'hover:bg-background/30 transition-colors'}>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 5),
-                        cm.sp('py', 3),
-                        cm.textSize('sm'),
-                        'font-mono',
-                      )}
-                    >
-                      <Link
-                        to={`/executions/${r.id}`}
-                        className={'hover:underline'}
-                        style={{ color: 'var(--color-accent-violet)' }}
+            <div className="overflow-x-auto">
+              <table className={'w-full'}>
+                <thead style={{ background: 'var(--color-background-secondary)' }}>
+                  <tr>
+                    {[
+                      t('dashboard.run.col.run', {}, { defaultValue: 'Run' }),
+                      t('dashboard.run.col.workflow', {}, { defaultValue: 'Workflow' }),
+                      t('dashboard.run.col.trigger', {}, { defaultValue: 'Trigger' }),
+                      t('nav.status', {}, { defaultValue: 'Status' }),
+                      t('dashboard.run.col.started', {}, { defaultValue: 'Started' }),
+                    ].map((h) => (
+                      <th
+                        key={h}
+                        className={cm.cn(
+                          cm.sp('px', 5),
+                          cm.sp('py', 3),
+                          cm.textSize('xs'),
+                          cm.fontWeight('bold'),
+                          'uppercase tracking-widest text-left whitespace-nowrap',
+                        )}
+                        style={{ color: 'var(--color-foreground-secondary)' }}
                       >
-                        #{r.id.slice(0, 8)}
-                      </Link>
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 5),
-                        cm.sp('py', 3),
-                        cm.textSize('sm'),
-                        cm.fontWeight('semibold'),
-                      )}
-                    >
-                      {r.workflow_name}
-                    </td>
-                    <td
-                      className={cm.cn(
-                        cm.sp('px', 5),
-                        cm.sp('py', 3),
-                        cm.textSize('sm'),
-                        'font-mono',
-                      )}
-                      style={{ color: 'var(--color-foreground-secondary)' }}
-                    >
-                      {r.trigger_source}
-                    </td>
-                    <td className={cm.cn(cm.sp('px', 5), cm.sp('py', 3))}>
-                      <WorkflowStatusBadge status={statusToRunStatus(r.status)} size="sm" />
-                    </td>
-                    <td
-                      className={cm.cn(cm.sp('px', 5), cm.sp('py', 3), cm.textSize('sm'))}
-                      style={{ color: 'var(--color-foreground-secondary)' }}
-                    >
-                      {relativeTime(r.started_at)}
-                    </td>
+                        {h}
+                      </th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y" style={{ borderColor: 'var(--color-border)' }}>
+                  {summary.recent_runs.map((r) => (
+                    <tr key={r.id} className={'hover:bg-background/30 transition-colors'}>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 5),
+                          cm.sp('py', 3),
+                          cm.textSize('sm'),
+                          'font-mono',
+                        )}
+                      >
+                        <Link
+                          to={`/executions/${r.id}`}
+                          className={'hover:underline'}
+                          style={{ color: 'var(--color-accent-violet)' }}
+                        >
+                          #{r.id.slice(0, 8)}
+                        </Link>
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 5),
+                          cm.sp('py', 3),
+                          cm.textSize('sm'),
+                          cm.fontWeight('semibold'),
+                        )}
+                      >
+                        {r.workflow_name}
+                      </td>
+                      <td
+                        className={cm.cn(
+                          cm.sp('px', 5),
+                          cm.sp('py', 3),
+                          cm.textSize('sm'),
+                          'font-mono',
+                        )}
+                        style={{ color: 'var(--color-foreground-secondary)' }}
+                      >
+                        {r.trigger_source}
+                      </td>
+                      <td className={cm.cn(cm.sp('px', 5), cm.sp('py', 3))}>
+                        <WorkflowStatusBadge status={statusToRunStatus(r.status)} size="sm" />
+                      </td>
+                      <td
+                        className={cm.cn(cm.sp('px', 5), cm.sp('py', 3), cm.textSize('sm'))}
+                        style={{ color: 'var(--color-foreground-secondary)' }}
+                      >
+                        {relativeTime(r.started_at)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
       </section>

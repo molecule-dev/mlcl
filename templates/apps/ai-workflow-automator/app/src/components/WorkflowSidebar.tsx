@@ -27,7 +27,8 @@ interface NavGroup {
   items: NavItem[]
 }
 
-const GROUPS: NavGroup[] = [
+/** Nav groups shared by the desktop sidebar and the mobile drawer. */
+export const GROUPS: NavGroup[] = [
   {
     labelKey: 'workflowSidebar.workspace',
     defaultLabel: 'Workspace',
@@ -117,7 +118,8 @@ export function WorkflowSidebar() {
     <aside
       className={cm.cn(
         cm.flex({ direction: 'col' }),
-        'fixed inset-y-0 left-0 w-[260px] z-30 border-r',
+        // Desktop-only: below `md` the MobileNavMenu drawer is the nav.
+        'hidden md:flex fixed inset-y-0 left-0 w-[260px] z-30 border-r',
       )}
       style={{
         background: 'var(--color-sidebar)',

@@ -26,8 +26,9 @@ test.describe('/executions/:id', () => {
     })
     const run = await triggerWorkflow(page, wf.id as string)
     await page.goto(APP_BASE + '/executions/' + (run.id as string))
-    await page.waitForLoadState('networkidle')
-    await expect(page.getByRole('heading').first()).toBeVisible()
+    // The run header card prints the run id verbatim — a run-specific anchor
+    // (a generic heading check passes on the shell alone, even mid-error).
+    await expect(page.getByText(run.id as string).first()).toBeVisible({ timeout: 15_000 })
   })
 
   test('GET /api/runs/:id returns run with step_results', async ({ page }) => {

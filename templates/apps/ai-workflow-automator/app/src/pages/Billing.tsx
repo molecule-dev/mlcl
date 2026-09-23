@@ -7,6 +7,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -113,6 +114,7 @@ export function Billing() {
       const res = await http.post<{ canceled?: boolean; error?: string }>('/api/billing/cancel', {})
       const data = res?.data ?? {}
       if (data.canceled) {
+        track({ name: 'billing.canceled', properties: {} })
         setFeedback({
           kind: 'ok',
           msg: t('billing.cancelOk', {}, { defaultValue: 'Subscription canceled.' }),

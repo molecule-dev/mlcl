@@ -10,6 +10,8 @@ import type { ReactNode } from 'react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { APP_NAME } from '../branding.js'
+import { MobileNavMenu } from './MobileNavMenu.js'
 import { SafeLink } from './SafeLink.js'
 import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
@@ -46,19 +48,33 @@ export function WorkflowAppShell({
     >
       <WorkflowSidebar />
 
-      <div className={'ml-[260px] min-h-screen flex flex-col'}>
+      <div className="ml-0 md:ml-[260px] min-h-screen flex flex-col">
         {/* Top bar */}
         <header
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-            cm.sp('px', 8),
+            cm.sp('px', 4),
+            'md:px-8',
             cm.sp('py', 4),
             'sticky top-0 z-20 bg-surface/80 backdrop-blur-md border-b',
           )}
           style={{ borderColor: 'var(--color-border)' }}
         >
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
-            <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0')}>
+            {/* Mobile: hamburger + brand (the sidebar is hidden below md) */}
+            <MobileNavMenu />
+            <div
+              className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'md:hidden min-w-0 shrink')}
+            >
+              <span
+                className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'truncate')}
+                style={{ color: 'var(--color-foreground)' }}
+              >
+                {t('workflowSidebar.brand', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
+              </span>
+            </div>
+            {/* Desktop global search */}
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'hidden md:flex')}>
               <span
                 className={cm.cn('material-symbols-outlined', cm.textSize('xl'))}
                 style={{ color: 'var(--color-foreground-secondary)' }}
@@ -81,7 +97,7 @@ export function WorkflowAppShell({
               />
             </div>
           </div>
-          <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0 shrink-0')}>
             <SafeLink
               to="/templates"
               className={cm.cn(
@@ -90,7 +106,7 @@ export function WorkflowAppShell({
                 cm.sp('py', 2),
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
-                'rounded-full text-white shadow-md transition-all hover:-translate-y-0.5',
+                'rounded-full text-white shadow-md transition-all hover:-translate-y-0.5 h-10',
               )}
               style={{
                 background:
@@ -105,7 +121,12 @@ export function WorkflowAppShell({
               >
                 bolt
               </span>
-              {t('workflowAppShell.newWorkflow', {}, { defaultValue: 'New workflow' })}
+              <span className="hidden sm:inline">
+                {t('workflowAppShell.newWorkflow', {}, { defaultValue: 'New workflow' })}
+              </span>
+              <span className="sm:hidden">
+                {t('workflowAppShell.newWorkflowShort', {}, { defaultValue: 'New' })}
+              </span>
             </SafeLink>
             <ThemeToggle />
             <UserMenu />
@@ -115,7 +136,7 @@ export function WorkflowAppShell({
         {/* Page header band */}
         {!flush && (
           <div
-            className={cm.cn(cm.sp('px', 8), cm.sp('pt', 8), cm.sp('pb', 4))}
+            className={cm.cn(cm.sp('px', 4), 'md:px-8', cm.sp('pt', 6), 'md:pt-8', cm.sp('pb', 4))}
             style={{ background: 'var(--color-background)' }}
           >
             <div className="max-w-7xl mx-auto">
@@ -160,7 +181,12 @@ export function WorkflowAppShell({
         )}
 
         {/* Content */}
-        <main className={cm.cn('flex-1', flush ? '' : cm.cn(cm.sp('px', 8), cm.sp('pb', 12)))}>
+        <main
+          className={cm.cn(
+            'flex-1',
+            flush ? '' : cm.cn(cm.sp('px', 4), 'md:px-8', cm.sp('pb', 12)),
+          )}
+        >
           {flush ? children : <div className="max-w-7xl mx-auto">{children}</div>}
         </main>
       </div>

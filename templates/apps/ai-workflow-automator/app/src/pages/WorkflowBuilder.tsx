@@ -12,6 +12,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -128,6 +129,12 @@ export function WorkflowBuilder() {
   const [busy, setBusy] = useState<string | null>(null)
   const [reload, setReload] = useState(0)
   const [selectedNodeId, setSelectedNodeId] = useState<string>('trigger')
+  // Canvas zoom (mind-mapping/family-tree's proven canvas approach, sized for
+  // this DOM-node canvas): the world scales via transform, the sizer div keeps
+  // the scroll area honest, and native touch scroll pans. Bounds 0.4–1.5.
+  const [zoom, setZoom] = useState(1)
+  const clampZoom = (z: number) => Math.min(1.5, Math.max(0.4, Math.round(z * 10) / 10))
+  const zoomBy = (delta: number) => setZoom((z) => clampZoom(z + delta))
 
   useEffect(() => {
     if (!id) return
@@ -164,6 +171,10 @@ export function WorkflowBuilder() {
     try {
       const res = await http.post<{ id?: string }>(`/api/workflows/${workflow.id}/trigger`, {})
       const runId = res.data?.id
+      track({
+        name: 'workflow.executed',
+        properties: { workflow_id: workflow.id, run_id: runId ?? null, trigger: 'manual' },
+      })
       if (runId) {
         navigate(`/executions/${runId}`)
       } else {
@@ -186,6 +197,10 @@ export function WorkflowBuilder() {
     setActionMessage(null)
     try {
       await http.patch<{ enabled?: boolean }>(`/api/workflows/${workflow.id}/toggle`, {})
+      track({
+        name: 'workflow.toggled',
+        properties: { workflow_id: workflow.id, enabled: !workflow.enabled },
+      })
       setReload((n) => n + 1)
       setActionMessage(
         t('workflowBuilder.toggled', {}, { defaultValue: 'Workflow status updated.' }),
@@ -209,6 +224,10 @@ export function WorkflowBuilder() {
       await http.put<unknown>(`/api/workflows/${workflow.id}`, {
         name: workflow.name,
         description: workflow.description,
+      })
+      track({
+        name: 'workflow.updated',
+        properties: { workflow_id: workflow.id, trigger_type: workflow.trigger_type },
       })
       setReload((n) => n + 1)
       setActionMessage(t('workflowBuilder.saved', {}, { defaultValue: 'Draft saved.' }))
@@ -286,20 +305,19 @@ export function WorkflowBuilder() {
       flush
       title={t('workflowBuilder.title', {}, { defaultValue: 'Workflow builder' })}
     >
-      <div
-        className={'grid h-[calc(100vh-64px)]'}
-        style={{ gridTemplateColumns: 'minmax(0, 1fr) 360px' }}
-      >
-        {/* Canvas pane */}
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] lg:h-[calc(100vh-64px)]">
+        {/* Canvas pane — toolbar pinned, dotted world pans/zooms inside */}
         <div
-          className="relative overflow-auto"
+          className="relative flex flex-col lg:h-full h-[60vh]"
           style={{ background: 'var(--color-canvas, var(--color-text))' }}
         >
           {/* Toolbar */}
           <div
             className={cm.cn(
-              cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-              cm.sp('px', 6),
+              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
+              'flex-wrap',
+              cm.sp('px', 3),
+              'md:px-6',
               cm.sp('py', 3),
               'sticky top-0 z-10 backdrop-blur-md',
             )}
@@ -308,16 +326,17 @@ export function WorkflowBuilder() {
               borderBottom: '1px solid var(--color-border)',
             }}
           >
-            <div className={cm.flex({ align: 'center', gap: 'md' })}>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0 shrink')}>
               <Link
                 to="/workflows"
+                aria-label={t('common.back', {}, { defaultValue: 'Back' })}
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'xs' }),
                   cm.sp('px', 3),
-                  cm.sp('py', 2),
+                  'h-9',
                   cm.textSize('xs'),
                   cm.fontWeight('bold'),
-                  'rounded-full uppercase tracking-widest',
+                  'rounded-full uppercase tracking-widest shrink-0',
                 )}
                 style={{
                   background: 'var(--color-surface)',
@@ -326,14 +345,16 @@ export function WorkflowBuilder() {
                 }}
               >
                 <span className={'material-symbols-outlined text-base'}>arrow_back</span>
-                {t('common.back', {}, { defaultValue: 'Back' })}
+                <span className="hidden sm:inline">
+                  {t('common.back', {}, { defaultValue: 'Back' })}
+                </span>
               </Link>
-              <div>
+              <div className="min-w-0">
                 <div
                   className={cm.cn(
                     cm.textSize('xs'),
                     cm.fontWeight('bold'),
-                    'uppercase tracking-widest',
+                    'uppercase tracking-widest truncate',
                   )}
                   style={{ color: 'var(--color-secondary)' }}
                 >
@@ -343,13 +364,19 @@ export function WorkflowBuilder() {
                     { defaultValue: 'Workflow · v{{v}}' },
                   )}
                 </div>
-                <h1 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'tracking-tight')}>
+                <h1
+                  className={cm.cn(
+                    cm.textSize('lg'),
+                    cm.fontWeight('bold'),
+                    'tracking-tight truncate max-w-[40vw] sm:max-w-none',
+                  )}
+                >
                   {workflow.name}
                 </h1>
               </div>
               <WorkflowStatusBadge status={statusFromWorkflow(workflow)} size="sm" />
             </div>
-            <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+            <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap shrink-0')}>
               <ToolbarButton
                 icon="bug_report"
                 label={t('workflowBuilder.test', {}, { defaultValue: 'Test run' })}
@@ -415,99 +442,161 @@ export function WorkflowBuilder() {
             </div>
           )}
 
-          {/* Dotted grid + nodes */}
-          <div
-            className="relative"
-            style={{
-              minWidth: canvasW + 80,
-              minHeight: canvasH + 80,
-              backgroundImage: 'radial-gradient(var(--color-canvas-dot) 1px, transparent 1px)',
-              backgroundSize: '20px 20px',
-            }}
-          >
-            {/* Bezier connection layer */}
-            {layout.length > 1 && (
-              <svg
-                className="absolute inset-0 pointer-events-none"
-                width={canvasW + 80}
-                height={canvasH + 80}
-                style={{ overflow: 'visible' }}
+          {/* Pannable/zoomable canvas area */}
+          <div className="relative flex-1 min-h-0">
+            <div className="absolute inset-0 overflow-auto">
+              {/* Dotted grid + nodes — scaled world inside a scroll-honest sizer */}
+              <div
+                className="relative"
+                style={{ width: (canvasW + 80) * zoom, height: (canvasH + 80) * zoom }}
               >
-                <defs>
-                  <marker
-                    id="arrow"
-                    markerWidth="8"
-                    markerHeight="8"
-                    refX="6"
-                    refY="4"
-                    orient="auto"
-                  >
-                    <path d="M0,0 L0,8 L6,4 z" fill="var(--color-accent-violet-light)" />
-                  </marker>
-                </defs>
-                {layout.slice(0, -1).map((from, i) => {
-                  const to = layout[i + 1]
-                  const a = { x: from.x + 280 + 40, y: from.y + 80 }
-                  const b = { x: to.x + 40, y: to.y + 80 }
-                  const midX = (a.x + b.x) / 2
-                  const path = `M${a.x},${a.y} C${midX},${a.y} ${midX},${b.y} ${b.x},${b.y}`
-                  return (
-                    <path
-                      key={`${from.id}-${to.id}`}
-                      d={path}
-                      fill="none"
-                      stroke="var(--color-accent-violet-light)"
-                      strokeWidth={2}
-                      markerEnd="url(#arrow)"
-                    />
-                  )
-                })}
-              </svg>
-            )}
-
-            {/* Nodes */}
-            {layout.map((node) => (
-              <button
-                key={node.id}
-                type="button"
-                onClick={() => setSelectedNodeId(node.id)}
-                data-mol-id={`workflowbuilder-node-${node.id}`}
-                className="absolute text-left"
-                style={{ left: node.x + 40, top: node.y + 40 }}
-              >
-                <WorkflowNode
-                  kind={node.kind}
-                  icon={node.icon}
-                  title={node.title}
-                  subtitle={node.subtitle}
-                  selected={selectedNodeId === node.id}
-                />
-              </button>
-            ))}
-
-            {layout.length === 1 && (
-              <div className={cm.cn(cm.sp('p', 6), 'absolute')} style={{ left: 380, top: 80 }}>
-                <p
-                  className={cm.cn(cm.textSize('sm'), cm.textMuted)}
-                  data-mol-id="workflowbuilder-no-steps"
+                <div
+                  className="relative origin-top-left"
+                  style={{
+                    width: canvasW + 80,
+                    minHeight: canvasH + 80,
+                    transform: `scale(${zoom})`,
+                    backgroundImage:
+                      'radial-gradient(var(--color-canvas-dot) 1px, transparent 1px)',
+                    backgroundSize: '20px 20px',
+                  }}
                 >
-                  {t(
-                    'workflowBuilder.noSteps',
-                    {},
-                    { defaultValue: 'No steps yet — install a template to seed steps.' },
+                  {/* Bezier connection layer */}
+                  {layout.length > 1 && (
+                    <svg
+                      className="absolute inset-0 pointer-events-none"
+                      width={canvasW + 80}
+                      height={canvasH + 80}
+                      style={{ overflow: 'visible' }}
+                    >
+                      <defs>
+                        <marker
+                          id="arrow"
+                          markerWidth="8"
+                          markerHeight="8"
+                          refX="6"
+                          refY="4"
+                          orient="auto"
+                        >
+                          <path d="M0,0 L0,8 L6,4 z" fill="var(--color-accent-violet-light)" />
+                        </marker>
+                      </defs>
+                      {layout.slice(0, -1).map((from, i) => {
+                        const to = layout[i + 1]
+                        const a = { x: from.x + 280 + 40, y: from.y + 80 }
+                        const b = { x: to.x + 40, y: to.y + 80 }
+                        const midX = (a.x + b.x) / 2
+                        const path = `M${a.x},${a.y} C${midX},${a.y} ${midX},${b.y} ${b.x},${b.y}`
+                        return (
+                          <path
+                            key={`${from.id}-${to.id}`}
+                            d={path}
+                            fill="none"
+                            stroke="var(--color-accent-violet-light)"
+                            strokeWidth={2}
+                            markerEnd="url(#arrow)"
+                          />
+                        )
+                      })}
+                    </svg>
                   )}
-                </p>
+
+                  {/* Nodes */}
+                  {layout.map((node) => (
+                    <button
+                      key={node.id}
+                      type="button"
+                      onClick={() => setSelectedNodeId(node.id)}
+                      data-mol-id={`workflowbuilder-node-${node.id}`}
+                      className="absolute text-left"
+                      style={{ left: node.x + 40, top: node.y + 40 }}
+                    >
+                      <WorkflowNode
+                        kind={node.kind}
+                        icon={node.icon}
+                        title={node.title}
+                        subtitle={node.subtitle}
+                        selected={selectedNodeId === node.id}
+                      />
+                    </button>
+                  ))}
+
+                  {layout.length === 1 && (
+                    <div
+                      className={cm.cn(cm.sp('p', 6), 'absolute')}
+                      style={{ left: 380, top: 80 }}
+                    >
+                      <p
+                        className={cm.cn(cm.textSize('sm'), cm.textMuted)}
+                        data-mol-id="workflowbuilder-no-steps"
+                      >
+                        {t(
+                          'workflowBuilder.noSteps',
+                          {},
+                          { defaultValue: 'No steps yet — install a template to seed steps.' },
+                        )}
+                      </p>
+                    </div>
+                  )}
+                </div>
               </div>
-            )}
+            </div>
+
+            {/* Zoom controls (mind-mapping's proven canvas-controls cluster) */}
+            <div
+              className="absolute bottom-3 left-3 z-10 flex items-center gap-1 rounded-full px-1 py-1 backdrop-blur-md"
+              style={{
+                background: 'color-mix(in srgb, var(--color-panel-bg) 85%, transparent)',
+                border: '1px solid var(--color-border)',
+              }}
+              role="group"
+              aria-label={t(
+                'workflowBuilder.zoom.label',
+                {},
+                { defaultValue: 'Canvas zoom controls' },
+              )}
+            >
+              <button
+                type="button"
+                onClick={() => zoomBy(-0.2)}
+                aria-label={t('workflowBuilder.zoom.out', {}, { defaultValue: 'Zoom out' })}
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'h-10 w-10 rounded-full cursor-pointer transition-colors hover:bg-surface',
+                )}
+                style={{ color: 'var(--color-foreground-secondary)' }}
+              >
+                <span className="material-symbols-outlined">zoom_out</span>
+              </button>
+              <span
+                className={cm.cn(cm.textSize('xs'), cm.fontWeight('bold'), 'w-10 text-center')}
+                style={{ color: 'var(--color-foreground-secondary)' }}
+                aria-live="polite"
+              >
+                {Math.round(zoom * 100)}%
+              </span>
+              <button
+                type="button"
+                onClick={() => zoomBy(0.2)}
+                aria-label={t('workflowBuilder.zoom.in', {}, { defaultValue: 'Zoom in' })}
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'h-10 w-10 rounded-full cursor-pointer transition-colors hover:bg-surface',
+                )}
+                style={{ color: 'var(--color-foreground-secondary)' }}
+              >
+                <span className="material-symbols-outlined">zoom_in</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Inspector rail */}
+        {/* Inspector rail — side rail on desktop, stacked section on mobile */}
         <aside
-          className="overflow-y-auto"
+          className="border-t lg:border-t-0 lg:border-l"
           style={{
             background: 'var(--color-surface)',
-            borderLeft: '1px solid var(--color-border)',
+            borderColor: 'var(--color-border)',
           }}
         >
           <div className={cm.cn(cm.sp('p', 6))}>
