@@ -25,9 +25,11 @@ const VITE_PORT = process.env.VITE_PORT
  * feedback loop, and a retry only replays the same result and multiplies the
  * run time — so retries are off there.
  *
- * Run the WHOLE suite — `npm run test:e2e`. `workers: 1` runs every spec file
- * in ONE worker process, so the suite costs one runner startup no matter how
- * many files it holds; a file per command pays that startup again each time.
+ * Run the WHOLE suite — `npm run test:e2e`. On a real browser the tests run in
+ * parallel on half the machine's cores (each worker has its own browser against
+ * the same dev server), so the suite costs roughly its slowest file, not the
+ * sum; over the preview there is one page, so it stays one worker. A file per
+ * command pays the runner startup again each time.
  * Narrow it only when you mean to: `npm run test:e2e -- e2e/home.spec.ts` (a
  * list of files is also one process), or `npm run test:e2e:changed`, which
  * runs the spec files that differ from HEAD, plus any spec that IMPORTS a
@@ -45,8 +47,8 @@ export default defineConfig({
   // Fails in seconds when nothing answers at the target (see e2e/global-setup.ts).
   globalSetup: './e2e/global-setup.ts',
   testMatch: /.*\.spec\.ts$/,
-  fullyParallel: false,
-  workers: 1,
+  fullyParallel: !preview,
+  workers: preview ? 1 : '50%',
   retries: sandbox ? 0 : 1,
   reporter: [['list']],
   timeout: 60_000,
