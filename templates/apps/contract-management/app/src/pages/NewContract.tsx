@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -88,6 +89,7 @@ export function NewContract() {
       }
       const created = await http.post<{ id: string }>('/api/contracts', payload)
       const id = unwrapSingle<{ id: string }>(created)?.id
+      if (id) void track({ name: 'contract.created', properties: { contractId: id } })
       navigate(id ? `/contracts/${id}` : '/contracts')
     } catch (err) {
       setError(
@@ -101,7 +103,15 @@ export function NewContract() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('2xl'), cm.mxAuto)}>
-      <Link to="/contracts" className={cm.cn(cm.textSize('sm'), cm.textPrimary, 'hover:underline')}>
+      <Link
+        to="/contracts"
+        className={cm.cn(
+          cm.textSize('sm'),
+          cm.textPrimary,
+          // Tap-target floor: bare text link measured 16px tall on phones.
+          'inline-flex items-center py-2 hover:underline',
+        )}
+      >
         ← {t('newContract.back', {}, { defaultValue: 'Contracts' })}
       </Link>
       <h1
@@ -110,12 +120,25 @@ export function NewContract() {
         {t('newContract.heading', {}, { defaultValue: 'New contract' })}
       </h1>
 
-      <ol className={cm.cn(cm.flex({ gap: 'sm', align: 'center' }), cm.sp('mb', 6))}>
+      <ol
+        className={cm.cn(
+          cm.flex({ gap: 'sm', align: 'center' }),
+          cm.sp('mb', 6),
+          // Four steps + connectors exceed a 390px column — scroll, never clip.
+          '-mx-1 overflow-x-auto px-1 pb-1',
+        )}
+      >
         {STEPS.map((s, i) => {
           const isActive = i === stepIndex
           const isDone = i < stepIndex
           return (
-            <li key={s} className={cm.flex({ align: 'center', gap: 'sm' })}>
+            <li
+              key={s}
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                'shrink-0',
+              )}
+            >
               <span
                 className={cm.cn(
                   'h-8 w-8 rounded-full grid place-items-center text-sm',

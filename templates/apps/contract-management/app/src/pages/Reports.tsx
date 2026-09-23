@@ -284,7 +284,8 @@ export function Reports() {
             {t('reports.empty', {}, { defaultValue: 'No upcoming renewals.' })}
           </p>
         ) : (
-          <table className={'w-full'}>
+          <div className="overflow-x-auto">
+            <table className={'w-full min-w-[420px]'}>
             <thead
               className={cm.cn(
                 cm.textSize('xs'),
@@ -324,6 +325,7 @@ export function Reports() {
               ))}
             </tbody>
           </table>
+          </div>
         )}
       </section>
     </div>

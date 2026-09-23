@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -138,6 +139,7 @@ export function ContractDetail() {
     setBusy('send')
     try {
       await http.post(`/api/contracts/${id}/send`, {})
+      void track({ name: 'contract.sent', properties: { contractId: id } })
       await reload()
     } catch (err) {
       logError('contractDetail.send', err)
@@ -155,6 +157,7 @@ export function ContractDetail() {
     setBusy('sign')
     try {
       await http.post(`/api/contracts/${id}/sign`, {})
+      void track({ name: 'contract.signed', properties: { contractId: id } })
       await reload()
     } catch (err) {
       logError('contractDetail.sign', err)
@@ -188,7 +191,11 @@ export function ContractDetail() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
-      <div className={cm.flex({ align: 'center', justify: 'between' })}>
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }),
+        )}
+      >
         <Link
           to="/contracts"
           className={cm.cn(

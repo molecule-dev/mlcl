@@ -80,7 +80,7 @@ export function Contracts() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+      <header className={cm.cn(cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }))}>
         <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
           {t('contracts.heading', {}, { defaultValue: 'Contracts' })}
         </h1>
@@ -98,7 +98,7 @@ export function Contracts() {
       </header>
 
       <div className={cm.cn(cm.card(), cm.sp('p', 4), 'space-y-3')}>
-        <div className={cm.flex({ gap: 'sm', align: 'center' })}>
+        <div className={cm.cn(cm.flex({ gap: 'sm', align: 'center', wrap: 'wrap' }))}>
           {STATUSES.map((s) => (
             <button
               key={s}
@@ -154,12 +154,46 @@ export function Contracts() {
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </p>
       ) : filtered.length === 0 ? (
-        <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
-          {t('contracts.empty', {}, { defaultValue: 'No contracts match.' })}
-        </p>
+        contracts.length === 0 ? (
+          // Nothing at all — friendly empty state with the primary CTA.
+          <div
+            className={cm.cn(
+              cm.card(),
+              cm.sp('py', 12),
+              cm.sp('px', 6),
+              cm.textCenter,
+              'space-y-4',
+            )}
+          >
+            <p className={cm.cn('text-on-surface-variant')}>
+              {t(
+                'contracts.emptyAll',
+                {},
+                { defaultValue: 'No contracts yet. Create your first one to get started.' },
+              )}
+            </p>
+            <Link
+              to="/contracts/new"
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                cm.fontWeight('semibold'),
+                'inline-block bg-primary text-on-primary rounded-md',
+              )}
+            >
+              {t('contracts.newCta', {}, { defaultValue: 'New contract' })}
+            </Link>
+          </div>
+        ) : (
+          <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
+            {t('contracts.empty', {}, { defaultValue: 'No contracts match.' })}
+          </p>
+        )
       ) : (
         <section className={cm.cn(cm.card(), 'overflow-hidden')}>
-          <table className={'w-full'}>
+          {/* 7 columns don't fit a 390px screen — scroll the table, never clip it. */}
+          <div className="overflow-x-auto">
+            <table className={'w-full min-w-[640px]'}>
             <thead
               className={cm.cn(
                 'bg-surface-container',
@@ -255,6 +289,7 @@ export function Contracts() {
               ))}
             </tbody>
           </table>
+          </div>
         </section>
       )}
     </div>

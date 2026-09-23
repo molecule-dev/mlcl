@@ -259,7 +259,8 @@ export function Dashboard() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('semibold'),
-                'text-primary hover:underline',
+                // Tap-target floor: bare text link measured 16px tall.
+                'inline-flex items-center py-2 text-primary hover:underline',
               )}
             >
               {t('dashboard.viewAll', {}, { defaultValue: 'View all \u2192' })}
@@ -321,7 +322,7 @@ export function Dashboard() {
               className={cm.cn(
                 cm.textSize('xs'),
                 cm.fontWeight('semibold'),
-                'text-primary hover:underline',
+                'inline-flex items-center py-2 text-primary hover:underline',
               )}
             >
               {t('dashboard.viewFeed', {}, { defaultValue: 'Open feed \u2192' })}

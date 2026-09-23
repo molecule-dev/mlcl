@@ -87,7 +87,8 @@ export function Landing() {
               className={cm.cn(
                 cm.textSize('sm'),
                 cm.fontWeight('semibold'),
-                'text-on-surface-variant hover:text-on-surface',
+                // Tap-target floor: bare text links measured 20px tall on phones.
+                'inline-flex items-center py-2 text-on-surface-variant hover:text-on-surface',
               )}
             >
               {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
@@ -111,7 +112,8 @@ export function Landing() {
                   className={cm.cn(
                     cm.textSize('sm'),
                     cm.fontWeight('semibold'),
-                    'text-on-surface-variant hover:text-on-surface',
+                    // Tap-target floor: bare text links measured 20px tall on phones.
+                    'inline-flex items-center py-2 text-on-surface-variant hover:text-on-surface',
                   )}
                 >
                   {t('auth.login.signInButton', {}, { defaultValue: 'Sign in' })}
@@ -424,12 +426,23 @@ export function Landing() {
           </p>
           <ul className={cm.cn(cm.flex({ gap: 'md', align: 'center' }), cm.textSize('sm'))}>
             <li>
-              <Link to="/about" className={'text-on-surface-variant hover:text-on-surface'}>
+              <Link
+                to="/about"
+                className={cm.cn(
+                  // Tap-target floor for footer links on phones.
+                  'inline-flex items-center py-2 text-on-surface-variant hover:text-on-surface',
+                )}
+              >
                 {t('nav.about', {}, { defaultValue: 'About' })}
               </Link>
             </li>
             <li>
-              <Link to="/pricing" className={'text-on-surface-variant hover:text-on-surface'}>
+              <Link
+                to="/pricing"
+                className={cm.cn(
+                  'inline-flex items-center py-2 text-on-surface-variant hover:text-on-surface',
+                )}
+              >
                 {t('nav.pricing', {}, { defaultValue: 'Pricing' })}
               </Link>
             </li>
@@ -437,9 +450,9 @@ export function Landing() {
               <button
                 type="button"
                 onClick={openPrivacy}
-                className={
-                  'cursor-pointer border-0 bg-transparent p-0 text-on-surface-variant hover:text-on-surface'
-                }
+                className={cm.cn(
+                  'cursor-pointer inline-flex items-center border-0 bg-transparent py-2 text-on-surface-variant hover:text-on-surface',
+                )}
               >
                 {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
               </button>
@@ -448,9 +461,9 @@ export function Landing() {
               <button
                 type="button"
                 onClick={openTerms}
-                className={
-                  'cursor-pointer border-0 bg-transparent p-0 text-on-surface-variant hover:text-on-surface'
-                }
+                className={cm.cn(
+                  'cursor-pointer inline-flex items-center border-0 bg-transparent py-2 text-on-surface-variant hover:text-on-surface',
+                )}
               >
                 {t('nav.terms', {}, { defaultValue: 'Terms' })}
               </button>

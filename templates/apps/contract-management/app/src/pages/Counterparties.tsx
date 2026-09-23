@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -171,10 +172,20 @@ export function Counterparties() {
         const res = await http.patch(`/api/counterparties/${editing.id}`, payload)
         const updated = unwrapSingle<Counterparty>(res)
         if (updated) setRows((prev) => prev.map((r) => (r.id === updated.id ? updated : r)))
+        if (updated)
+          void track({
+            name: 'counterparty.updated',
+            properties: { counterpartyId: updated.id },
+          })
       } else {
         const res = await http.post('/api/counterparties', payload)
         const created = unwrapSingle<Counterparty>(res)
         if (created) setRows((prev) => [...prev, created])
+        if (created)
+          void track({
+            name: 'counterparty.created',
+            properties: { counterpartyId: created.id },
+          })
       }
       setEditing(null)
     } catch (error) {
@@ -198,6 +209,7 @@ export function Counterparties() {
     if (!confirmed) return
     try {
       await http.delete(`/api/counterparties/${r.id}`)
+      void track({ name: 'counterparty.deleted', properties: { counterpartyId: r.id } })
       setRows((prev) => prev.filter((x) => x.id !== r.id))
     } catch (error) {
       logError('counterparties.remove', error)
@@ -207,7 +219,9 @@ export function Counterparties() {
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
-      <header className={cm.flex({ align: 'center', justify: 'between' })}>
+      <header
+        className={cm.cn(cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }))}
+      >
         <div>
           <h1 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
             {t('counterparties.heading', {}, { defaultValue: 'Counterparties' })}
@@ -274,7 +288,9 @@ export function Counterparties() {
         </p>
       ) : (
         <section className={cm.cn(cm.card(), 'overflow-hidden')}>
-          <table className={'w-full'} data-testid="counterparties-table">
+          {/* 6 columns don't fit a 390px screen — scroll the table, never clip it. */}
+          <div className="overflow-x-auto">
+            <table className={'w-full min-w-[640px]'} data-testid="counterparties-table">
             <thead
               className={cm.cn(
                 'bg-surface-container',
@@ -394,13 +410,14 @@ export function Counterparties() {
               ))}
             </tbody>
           </table>
+          </div>
         </section>
       )}
 
       {editing ? (
         <div
           role="presentation"
-          className="fixed inset-0 z-40 flex items-center justify-center bg-foreground/40"
+          className="fixed inset-0 z-40 flex items-center justify-center bg-foreground/40 p-4"
           onClick={(e) => {
             if (e.target === e.currentTarget) closeEditor()
           }}

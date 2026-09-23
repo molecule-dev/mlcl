@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -123,6 +124,7 @@ export function TemplateEditor() {
         const res = await http.post('/api/templates', payload)
         const created = unwrapSingle<TemplateDoc>(res)
         if (created) {
+          void track({ name: 'template.created', properties: { templateId: created.id } })
           navigate(`/templates/${created.id}`, { replace: true })
         } else {
           setSavedAt(new Date().toISOString())
@@ -130,7 +132,10 @@ export function TemplateEditor() {
       } else {
         const res = await http.patch(`/api/templates/${id}`, { ...payload, bumpVersion: true })
         const updated = unwrapSingle<TemplateDoc>(res)
-        if (updated) setTmpl(updated)
+        if (updated) {
+          setTmpl(updated)
+          void track({ name: 'template.updated', properties: { templateId: updated.id } })
+        }
         setSavedAt(new Date().toISOString())
       }
     } catch (error) {
@@ -149,6 +154,7 @@ export function TemplateEditor() {
     if (!ok) return
     try {
       await http.delete(`/api/templates/${id}`)
+      void track({ name: 'template.deleted', properties: { templateId: id } })
       navigate('/templates', { replace: true })
     } catch (error) {
       logError('templateEditor.remove', error)

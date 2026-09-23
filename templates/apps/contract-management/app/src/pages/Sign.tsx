@@ -1,6 +1,7 @@
 import { type ReactNode, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -70,6 +71,9 @@ export function Sign() {
     setError(null)
     try {
       await http.post(`/api/sign/${token}`, {})
+      // Public counterparty signature — the funnel's conversion point. No
+      // account exists here, so no ids travel beyond the (opaque) token path.
+      void track({ name: 'contract.signed_external', properties: { via: 'public-link' } })
       setSigned(true)
     } catch (err) {
       logError('sign.submit', err)
