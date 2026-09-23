@@ -38,6 +38,11 @@ vi.mock('@molecule/api-search', () => ({ deleteDocument: vi.fn(), index: vi.fn()
 
 import router from '../handlers/listings.js'
 
+// The /:id routes guard non-UUID ids with an early 404 (a non-UUID shape would
+// otherwise reach a UUID column and 500). Fixtures use a well-formed UUID so
+// the handler under test gets past the guard to the settlement logic.
+const TEST_LISTING_ID = '00000000-0000-4000-8000-000000000001'
+
 function endHandler(): (req: Request, res: Response) => Promise<void> {
   const layer = (
     router.stack as Array<{
@@ -50,8 +55,13 @@ function endHandler(): (req: Request, res: Response) => Promise<void> {
 }
 const makeRes = () => ({ json: vi.fn(), status: vi.fn().mockReturnThis() }) as unknown as Response
 const run = (listing: Record<string, unknown>) => {
-  db.findById.mockResolvedValue({ id: 'L1', seller_id: 'seller-1', status: 'active', ...listing })
-  return endHandler()({ params: { id: 'L1' } } as unknown as Request, makeRes())
+  db.findById.mockResolvedValue({
+    id: TEST_LISTING_ID,
+    seller_id: 'seller-1',
+    status: 'active',
+    ...listing,
+  })
+  return endHandler()({ params: { id: TEST_LISTING_ID } } as unknown as Request, makeRes())
 }
 const statusWritten = () =>
   (db.updateById.mock.calls[0]?.[2] as { status?: string } | undefined)?.status

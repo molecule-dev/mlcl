@@ -124,7 +124,7 @@ export function Help() {
                 gavel
               </span>
             </span>
-            <span style={{ color: 'var(--mol-color-primary)' }}>{APP_NAME}</span>
+            <span style={{ color: 'var(--color-primary)' }}>{APP_NAME}</span>
           </Link>
           <Link
             to="/auctions"

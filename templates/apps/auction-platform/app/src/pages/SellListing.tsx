@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -141,6 +142,17 @@ export function SellListing() {
       })
       .then(async (res) => {
         const newId = (res.data as { id?: string } | undefined)?.id
+        // Domain analytics — the listing went live; fire-and-forget.
+        track({
+          name: 'auction.created',
+          properties: {
+            listingId: newId ?? null,
+            category,
+            durationDays: duration,
+            hasReserve: reserve !== '',
+            hasBuyNow: buyNow !== '',
+          },
+        })
         if (newId && photos.length > 0) {
           for (const p of photos) {
             try {

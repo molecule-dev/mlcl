@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -142,6 +143,11 @@ export function WonAuctionCheckout() {
               {},
               { defaultValue: 'Redirecting to secure checkout…' },
             ),
+          })
+          // Conversion analytics — the checkout handoff to Stripe; fire-and-forget.
+          track({
+            name: 'checkout.started',
+            properties: { auctionId: data.auction_id, totalCents: total, shipping },
           })
           window.location.assign(body.checkoutUrl)
           return

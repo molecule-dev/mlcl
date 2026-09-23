@@ -188,7 +188,9 @@ export function Settings() {
       <nav
         className={cm.cn(
           cm.flex({ align: 'center', gap: 'sm' }),
-          'border-b border-outline-variant/40',
+          // The 4 section tabs overflow a 390px row — scroll horizontally
+          // instead of clipping the last tab.
+          'border-b border-outline-variant/40 overflow-x-auto',
         )}
         aria-label={t('nav.settingsSections', {}, { defaultValue: 'Settings sections' })}
       >
@@ -207,7 +209,7 @@ export function Settings() {
                 className={cm.cn(
                   cm.sp('px', 4),
                   cm.sp('py', 3),
-                  'text-sm font-bold tracking-tight border-b-2 text-primary',
+                  'shrink-0 whitespace-nowrap text-sm font-bold tracking-tight border-b-2 text-primary',
                 )}
                 style={{ borderBottomColor: 'var(--mol-color-primary)' }}
               >
@@ -223,7 +225,7 @@ export function Settings() {
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 3),
-                'text-sm font-bold tracking-tight border-b-2 transition-colors',
+                'shrink-0 whitespace-nowrap text-sm font-bold tracking-tight border-b-2 transition-colors',
                 'text-on-surface-variant border-transparent hover:text-on-surface',
               )}
             >

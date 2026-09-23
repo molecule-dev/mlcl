@@ -198,11 +198,17 @@ export function SellerDashboard() {
             'lg:col-span-8 rounded-xl bg-surface border border-outline-variant/40 stack-y space-y-4 overflow-hidden',
           )}
         >
-          <header className={cm.flex({ align: 'center', justify: 'between' })}>
+          <header
+            className={cm.cn(
+              // wrap: the 4 tab chips overflow a 390px row next to the heading —
+              // let them drop to their own line instead of clipping.
+              cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }),
+            )}
+          >
             <h2 className={cm.cn('text-lg font-extrabold tracking-tight')}>
               {t('sellerDashboard.listingsHeading', {}, { defaultValue: 'Your listings' })}
             </h2>
-            <div className={cm.flex({ align: 'center', gap: 'xs' })}>
+            <div className={cm.flex({ align: 'center', gap: 'xs', wrap: 'wrap' })}>
               {(['active', 'sold', 'ended', 'drafts'] as const).map((k) => {
                 const active = k === tab
                 const label = t(`sellerDashboard.tab.${k}`, {}, { defaultValue: k })
@@ -212,9 +218,9 @@ export function SellerDashboard() {
                       key={k}
                       aria-current="true"
                       className={cm.cn(
-                        cm.sp('px', 3),
-                        cm.sp('py', 1),
-                        'rounded-full text-xs font-bold uppercase tracking-widest text-white',
+                        cm.flex({ align: 'center' }),
+                        cm.sp('px', 4),
+                        'min-h-9 rounded-full text-xs font-bold uppercase tracking-widest text-white',
                       )}
                       style={{
                         background:
@@ -231,9 +237,9 @@ export function SellerDashboard() {
                     type="button"
                     onClick={() => setTab(k)}
                     className={cm.cn(
-                      cm.sp('px', 3),
-                      cm.sp('py', 1),
-                      'rounded-full text-xs font-bold uppercase tracking-widest transition-colors',
+                      cm.flex({ align: 'center' }),
+                      cm.sp('px', 4),
+                      'min-h-9 rounded-full text-xs font-bold uppercase tracking-widest transition-colors',
                       'text-on-surface-variant hover:text-on-surface',
                     )}
                   >
@@ -255,7 +261,14 @@ export function SellerDashboard() {
               </p>
               <Link
                 to="/sell/new"
-                className={cm.cn('text-sm font-semibold text-primary hover:underline')}
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  // Inline-flex + py keeps the empty-state CTA a 44px tap target.
+                  cm.sp('px', 5),
+                  cm.sp('py', 3),
+                  cm.mxAuto,
+                  'min-h-11 w-fit rounded-full text-sm font-semibold text-primary border border-primary/40 hover:bg-primary/10',
+                )}
               >
                 {t(
                   'sellerDashboard.createFirstCta',

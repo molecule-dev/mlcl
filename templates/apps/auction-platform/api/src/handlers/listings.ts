@@ -12,6 +12,7 @@ import { deleteDocument, index } from '@molecule/api-search'
 
 import type { AuctionPlatformLimits } from '../tiers.js'
 import { notificationEnabled } from './_notify.js'
+import { isUuid } from './_uuid.js'
 
 async function ensureWonOrder(args: {
   listingId: string
@@ -137,6 +138,14 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
 router.get('/:id', async (req: Request, res: Response) => {
   try {
     const id = getParamId(req)
+    // listings.id is a UUID column — a non-UUID shape would make the query
+    // throw 22P02 and surface as a 500. Not-a-UUID is simply not found.
+    if (!isUuid(id)) {
+      res
+        .status(404)
+        .json({ error: t('listing.notFound', {}, { defaultValue: 'Listing not found' }) })
+      return
+    }
     const listing = await findById<Record<string, unknown>>('listings', id)
     if (!listing) {
       res
@@ -223,6 +232,13 @@ router.post('/:id/images', validateBody(imageUploadSchema), async (req: Request,
     return
   }
   const id = getParamId(req)
+  // Same UUID-column guard as the other :id routes — 404, never a 22P02 500.
+  if (!isUuid(id)) {
+    res
+      .status(404)
+      .json({ error: t('listing.notFound', {}, { defaultValue: 'Listing not found' }) })
+    return
+  }
   const listing = await findById<Record<string, unknown>>('listings', id)
   if (!listing) {
     res
@@ -284,6 +300,14 @@ router.post('/:id/end', async (req: Request, res: Response) => {
       return
     }
     const id = getParamId(req)
+    // listings.id is a UUID column — a non-UUID shape would make the query
+    // throw 22P02 and surface as a 500. Not-a-UUID is simply not found.
+    if (!isUuid(id)) {
+      res
+        .status(404)
+        .json({ error: t('listing.notFound', {}, { defaultValue: 'Listing not found' }) })
+      return
+    }
     const listing = await findById<Record<string, unknown>>('listings', id)
     if (!listing) {
       res
@@ -365,6 +389,14 @@ router.post('/:id/end-now', async (req: Request, res: Response) => {
       return
     }
     const id = getParamId(req)
+    // listings.id is a UUID column — a non-UUID shape would make the query
+    // throw 22P02 and surface as a 500. Not-a-UUID is simply not found.
+    if (!isUuid(id)) {
+      res
+        .status(404)
+        .json({ error: t('listing.notFound', {}, { defaultValue: 'Listing not found' }) })
+      return
+    }
     const listing = await findById<Record<string, unknown>>('listings', id)
     if (!listing) {
       res
@@ -418,6 +450,14 @@ router.delete('/:id', async (req: Request, res: Response) => {
       return
     }
     const id = getParamId(req)
+    // listings.id is a UUID column — a non-UUID shape would make the query
+    // throw 22P02 and surface as a 500. Not-a-UUID is simply not found.
+    if (!isUuid(id)) {
+      res
+        .status(404)
+        .json({ error: t('listing.notFound', {}, { defaultValue: 'Listing not found' }) })
+      return
+    }
     const listing = await findById<Record<string, unknown>>('listings', id)
     if (!listing) {
       res

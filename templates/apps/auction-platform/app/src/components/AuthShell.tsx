@@ -119,7 +119,10 @@ export function AuthShell({
       </AuthShellPanel>
 
       {/* Form panel */}
-      <AuthShellCardColumn className={cm.cn('flex-1 relative')}>
+      {/* Form panel — min-w-0 lets the flex item shrink below its content
+          minimum on phones (the nowrap footer's min-content is wider than
+          390px, which otherwise forces 24px of horizontal overflow). */}
+      <AuthShellCardColumn className={cm.cn('flex-1 min-w-0 relative')}>
         <Link
           to="/"
           className={cm.cn('lg:hidden absolute top-6 left-6 inline-flex items-center gap-2')}
@@ -186,7 +189,7 @@ export function AuthShell({
 
           <footer
             className={cm.cn(
-              cm.flex({ align: 'center', justify: 'between' }),
+              cm.flex({ align: 'center', justify: 'between', wrap: 'wrap', gap: 'sm' }),
               'pt-6 border-t border-outline-variant/40 text-xs text-on-surface-variant',
             )}
           >

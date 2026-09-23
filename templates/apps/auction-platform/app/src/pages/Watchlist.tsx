@@ -163,7 +163,14 @@ export function Watchlist() {
           </p>
           <Link
             to="/auctions"
-            className={cm.cn('text-sm font-semibold text-primary hover:underline')}
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              // Inline-flex + py keeps the empty-state CTA a 44px tap target.
+              cm.sp('px', 5),
+              cm.sp('py', 3),
+              cm.mxAuto,
+              'min-h-11 rounded-full text-sm font-semibold text-primary border border-primary/40 hover:bg-primary/10',
+            )}
           >
             {t('watchlist.browseCta', {}, { defaultValue: 'Browse live auctions →' })}
           </Link>

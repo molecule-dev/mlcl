@@ -9,6 +9,7 @@ import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 
 import type { AuctionPlatformLimits } from '../tiers.js'
+import { isUuid } from './_uuid.js'
 
 const router = Router()
 
@@ -75,6 +76,14 @@ router.post(
         return
       }
       const { listingId } = req.body as z.infer<typeof addToWatchlistSchema>
+      // watchlist.listing_id is a UUID column — reject a non-UUID shape with a
+      // 400 before it can reach the database (otherwise 22P02 → 500).
+      if (!isUuid(listingId)) {
+        res
+          .status(400)
+          .json({ error: t('watchlistApi.notFound', {}, { defaultValue: 'Unknown listing' }) })
+        return
+      }
 
       const existing = await findMany<Record<string, unknown>>('watchlist', {
         where: [
@@ -110,6 +119,14 @@ router.delete('/:listingId', async (req: Request, res: Response) => {
     const userId = getUserId(res)
     if (!userId) {
       res.status(401).json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
+      return
+    }
+    // A non-UUID listing id can never be in the watchlist — same 404 contract
+    // as the not-found path, and it keeps 22P02 off the database.
+    if (!isUuid(req.params.listingId)) {
+      res
+        .status(404)
+        .json({ error: t('watchlistApi.notFound', {}, { defaultValue: 'Not in watchlist' }) })
       return
     }
     const existing = await findMany<Record<string, unknown>>('watchlist', {

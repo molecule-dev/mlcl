@@ -15,6 +15,8 @@ import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateQuery } from '@molecule/api-middleware-validation'
 
+import { isUuid } from './_uuid.js'
+
 const router = Router()
 
 const listQuerySchema = z.object({
@@ -92,6 +94,14 @@ router.get('/:id', async (req: Request, res: Response) => {
   try {
     const id = req.params.id
     const listingId = Array.isArray(id) ? id[0] : id
+    // listings.id is a UUID column — a non-UUID shape would make the query
+    // throw 22P02 and surface as a 500. Not-a-UUID is simply not found.
+    if (!isUuid(listingId)) {
+      res
+        .status(404)
+        .json({ error: t('listing.notFound', {}, { defaultValue: 'Listing not found' }) })
+      return
+    }
     const listing = await findById<Record<string, unknown>>('listings', listingId)
     if (!listing) {
       res

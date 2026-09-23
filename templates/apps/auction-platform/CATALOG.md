@@ -33,6 +33,7 @@ _Already created by the existing SQL in `api/migrations/` — do NOT add new mig
 _These endpoints already exist — open and extend the named file, never recreate it._
 
 - **\_notify** — `api/src/handlers/_notify.ts`
+- **\_uuid** — `api/src/handlers/_uuid.ts`
 - **auctions** — `api/src/handlers/auctions.ts`
 - **auth-reset-password** — `api/src/handlers/auth-reset-password.ts`
 - **bids** — `api/src/handlers/bids.ts`

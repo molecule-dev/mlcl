@@ -25,6 +25,8 @@ import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 import { getClient, verifyWebhookSignature } from '@molecule/api-payments-stripe'
 
+import { isUuid } from './_uuid.js'
+
 const router = Router()
 
 interface ListingRow {
@@ -100,6 +102,14 @@ router.get('/:id', async (req: Request, res: Response) => {
   }
   const id = req.params.id
   const listingId = Array.isArray(id) ? id[0] : id
+  // listings.id is a UUID column — a non-UUID shape would make the query
+  // throw 22P02 and surface as a 500. Not-a-UUID is simply not found.
+  if (!isUuid(listingId)) {
+    res
+      .status(404)
+      .json({ error: t('listing.notFound', {}, { defaultValue: 'Listing not found' }) })
+    return
+  }
   const listing = await findById<ListingRow>('listings', listingId)
   if (!listing) {
     res
@@ -165,6 +175,14 @@ router.post('/:id/pay', validateBody(paySchema), async (req: Request, res: Respo
   }
   const id = req.params.id
   const listingId = Array.isArray(id) ? id[0] : id
+  // listings.id is a UUID column — a non-UUID shape would make the query
+  // throw 22P02 and surface as a 500. Not-a-UUID is simply not found.
+  if (!isUuid(listingId)) {
+    res
+      .status(404)
+      .json({ error: t('listing.notFound', {}, { defaultValue: 'Listing not found' }) })
+    return
+  }
   const listing = await findById<ListingRow>('listings', listingId)
   if (!listing) {
     res
@@ -385,6 +403,14 @@ router.post('/:id/simulate', async (req: Request, res: Response) => {
   }
   const id = req.params.id
   const listingId = Array.isArray(id) ? id[0] : id
+  // listings.id is a UUID column — a non-UUID shape would make the query
+  // throw 22P02 and surface as a 500. Not-a-UUID is simply not found.
+  if (!isUuid(listingId)) {
+    res
+      .status(404)
+      .json({ error: t('listing.notFound', {}, { defaultValue: 'Listing not found' }) })
+    return
+  }
   const listing = await findById<ListingRow>('listings', listingId)
   if (!listing) {
     res

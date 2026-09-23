@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
@@ -179,6 +180,11 @@ export function AuctionDetail() {
         setData((prev) =>
           prev ? { ...prev, current_bid_cents: amountCents, bid_count: prev.bid_count + 1 } : prev,
         )
+        // Domain analytics — fire-and-forget (no-ops without a bonded provider).
+        track({
+          name: 'bid.placed',
+          properties: { listingId: data.id, amountCents },
+        })
       })
       .catch((e: unknown) => {
         setBidStatus({
@@ -208,6 +214,10 @@ export function AuctionDetail() {
             ? t('auctionDetail.watchRemoved', {}, { defaultValue: 'Removed from watchlist.' })
             : t('auctionDetail.watchAdded', {}, { defaultValue: 'Saved to watchlist.' }),
         })
+        track({
+          name: wasWatching ? 'watchlist.removed' : 'watchlist.added',
+          properties: { listingId: data.id },
+        })
       })
       .catch((e: unknown) => {
         setWatching(wasWatching)
@@ -233,6 +243,10 @@ export function AuctionDetail() {
           message: t('auctionDetail.buyNowSuccess', {}, { defaultValue: 'Purchase confirmed.' }),
         })
         setData((prev) => (prev ? { ...prev, status: 'closed' } : prev))
+        track({
+          name: 'auction.buy_now',
+          properties: { listingId: data.id, amountCents: data.buy_now_cents ?? null },
+        })
       })
       .catch((e: unknown) => {
         setBidStatus({
@@ -618,7 +632,7 @@ export function AuctionDetail() {
                   </div>
                   <span
                     className={cm.cn('text-base font-extrabold tabular-nums')}
-                    style={{ color: 'var(--mol-color-primary)' }}
+                    style={{ color: 'var(--color-primary)' }}
                   >
                     {fmt(b.amount_cents)}
                   </span>

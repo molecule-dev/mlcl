@@ -12,6 +12,7 @@ import { broadcast } from '@molecule/api-realtime'
 
 import type { AuctionPlatformLimits } from '../tiers.js'
 import { notificationEnabled } from './_notify.js'
+import { isUuid } from './_uuid.js'
 
 async function ensureWonOrder(args: {
   listingId: string
@@ -93,6 +94,12 @@ router.get(
   async (req: Request, res: Response) => {
     try {
       const { page, limit } = req.query as unknown as z.infer<typeof listQuerySchema>
+      // bids.listing_id is a UUID column — a non-UUID shape would throw 22P02
+      // and surface as a 500; a shape that can't exist simply has no bids.
+      if (!isUuid(req.params.listingId)) {
+        res.json({ data: [] })
+        return
+      }
       const bids = await findMany('bids', {
         where: [{ field: 'listing_id', operator: '=', value: req.params.listingId }],
         orderBy: [{ field: 'amount', direction: 'desc' }],
@@ -155,6 +162,14 @@ router.post(
         return
       }
       const { listingId, amount } = req.body as z.infer<typeof placeBidSchema>
+      // listings.id is a UUID column — reject a non-UUID shape with the same
+      // 404 the unknown-id path returns, before 22P02 can become a 500.
+      if (!isUuid(listingId)) {
+        res.status(404).json({
+          error: t('listing.notFound', {}, { defaultValue: 'Listing not found or ended' }),
+        })
+        return
+      }
 
       const listing = await findById<Record<string, unknown>>('listings', listingId)
       if (!listing || listing.status !== 'active') {
@@ -280,6 +295,14 @@ router.post('/buy-now', validateBody(buyNowSchema), async (req: Request, res: Re
       return
     }
     const { listingId } = req.body as z.infer<typeof buyNowSchema>
+    // Same UUID-column guard as POST / — a non-UUID shape gets the 404 path,
+    // never a 22P02-driven 500.
+    if (!isUuid(listingId)) {
+      res
+        .status(404)
+        .json({ error: t('listing.notFound', {}, { defaultValue: 'Listing not found or ended' }) })
+      return
+    }
 
     const listing = await findById<Record<string, unknown>>('listings', listingId)
     if (!listing || listing.status !== 'active') {

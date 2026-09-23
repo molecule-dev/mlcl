@@ -31,6 +31,11 @@ vi.mock('@molecule/api-payments-stripe', () => ({
 
 import router from '../handlers/checkout.js'
 
+// The checkout routes guard non-UUID ids with an early 404 (a non-UUID shape
+// would otherwise reach a UUID column and 500). Fixtures use a well-formed
+// UUID so the handler under test gets past the guard to the reserve gate.
+const TEST_LISTING_ID = '00000000-0000-4000-8000-000000000001'
+
 function route(
   path: string,
   method: 'get' | 'post',
@@ -61,7 +66,7 @@ const makeRes = () => {
 }
 const wonOrderCreated = () => db.create.mock.calls.some((c) => c[0] === 'won_orders')
 const listing = (status: string) => ({
-  id: 'L1',
+  id: TEST_LISTING_ID,
   status,
   highest_bidder_id: 'winner-1',
   seller_id: 's1',
@@ -82,7 +87,7 @@ describe('checkout is gated on a genuinely sold listing (reserve honored)', () =
       table === 'listings' ? listing('reserve_not_met') : { id, name: 'Seller' },
     )
     const res = makeRes()
-    await route('/:id', 'get')({ params: { id: 'L1' } } as unknown as Request, res)
+    await route('/:id', 'get')({ params: { id: TEST_LISTING_ID } } as unknown as Request, res)
     expect(res.statusCode).toBe(403)
     expect(wonOrderCreated()).toBe(false)
   })
@@ -92,7 +97,13 @@ describe('checkout is gated on a genuinely sold listing (reserve honored)', () =
       table === 'listings' ? listing('reserve_not_met') : { id, name: 'Buyer' },
     )
     const res = makeRes()
-    await route('/:id/pay', 'post')({ params: { id: 'L1' }, body: {} } as unknown as Request, res)
+    await route('/:id/pay', 'post')(
+      {
+        params: { id: TEST_LISTING_ID },
+        body: {},
+      } as unknown as Request,
+      res,
+    )
     expect(res.statusCode).toBe(403)
     expect(wonOrderCreated()).toBe(false)
   })
@@ -103,7 +114,7 @@ describe('checkout is gated on a genuinely sold listing (reserve honored)', () =
     )
     db.findMany.mockResolvedValue([{ id: 'wo1', status: 'pending_payment' }])
     const res = makeRes()
-    await route('/:id', 'get')({ params: { id: 'L1' } } as unknown as Request, res)
+    await route('/:id', 'get')({ params: { id: TEST_LISTING_ID } } as unknown as Request, res)
     expect(res.statusCode).toBe(200)
   })
 })

@@ -121,7 +121,8 @@ export function BidPanelCard({
                   onClick={() => setAmountCents(currentBidCents + inc)}
                   className={cm.cn(
                     cm.textSize('xs'),
-                    'px-3 py-1.5 rounded-full font-semibold border border-outline-variant hover:border-primary hover:text-primary transition-colors',
+                    // min-h-11 keeps the quick-increment chips tappable on phones.
+                    'px-4 min-h-11 rounded-full font-semibold border border-outline-variant hover:border-primary hover:text-primary transition-colors',
                   )}
                 >
                   +{fmt(inc)}

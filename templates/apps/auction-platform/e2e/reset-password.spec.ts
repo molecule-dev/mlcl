@@ -29,6 +29,9 @@ test.describe('/reset-password', () => {
     // Pass both token AND email so the form has every required field populated;
     // the password and confirm fields must match or the submit short-circuits
     // client-side without ever issuing the POST.
+    // The fake token is rejected with a 400 BY DESIGN — this spec only asserts
+    // the POST fires; the page surfaces the rejection inline.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 400' })
     await page.goto(APP_BASE + '/reset-password?token=test-token&email=tester@example.com')
     await page
       .getByLabel(/^new password$/i)

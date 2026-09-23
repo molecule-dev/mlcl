@@ -135,7 +135,7 @@ export function Landing() {
                 gavel
               </span>
             </span>
-            <span style={{ color: 'var(--mol-color-primary)' }}>{APP_NAME}</span>
+            <span style={{ color: 'var(--color-primary)' }}>{APP_NAME}</span>
           </Link>
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             {isAuthenticated ? (
@@ -502,7 +502,7 @@ export function Landing() {
                       </span>
                       <span
                         className={cm.cn('text-lg font-extrabold tabular-nums')}
-                        style={{ color: 'var(--mol-color-primary)' }}
+                        style={{ color: 'var(--color-primary)' }}
                       >
                         {fmt(p.current_bid_cents)}
                       </span>
