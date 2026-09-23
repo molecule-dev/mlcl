@@ -84,7 +84,11 @@ export function ParlanceLayout() {
         logoTo="/conversation"
         navItems={navItems}
         userMenu={<UserMenu />}
-        navAriaLabel={t('parlanceLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })}
+        navAriaLabel={t(
+          'parlanceLayout.primaryNavLabel',
+          {},
+          { defaultValue: 'Primary navigation' },
+        )}
       />
     )
   }

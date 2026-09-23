@@ -260,9 +260,7 @@ function Conversation() {
           properties: {
             conversationId: id,
             ...(requestedAgentId ? { agentId: requestedAgentId } : {}),
-            ...(durationMs && durationMs > 0
-              ? { durationMs: Math.round(durationMs) }
-              : {}),
+            ...(durationMs && durationMs > 0 ? { durationMs: Math.round(durationMs) } : {}),
           },
         })
         // Auto-play the assistant's reply for voice-first interaction.
