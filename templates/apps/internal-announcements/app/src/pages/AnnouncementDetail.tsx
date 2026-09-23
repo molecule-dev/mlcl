@@ -12,6 +12,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
+import { getProvider as getMarkdownProvider } from '@molecule/app-markdown'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -165,6 +167,23 @@ export function AnnouncementDetail() {
 
   const usersIndex = useMemo(() => Object.fromEntries(users.map((u) => [u.id, u])), [users])
 
+  // Rich body rendering — the Composer promises "Markdown supported", so
+  // render the body through the bonded markdown provider (sanitizes by
+  // default). Falls back to the plain-text whitespace-preserving render
+  // when no provider is bonded or rendering throws.
+  const bodyHtml = useMemo(() => {
+    if (!announcement?.body) return null
+    try {
+      const provider = getMarkdownProvider()
+      if (!provider) return null
+      // breaks:true so plain multi-line bodies (the common composer output)
+      // keep their line breaks instead of collapsing into one paragraph.
+      return provider.render(announcement.body, { breaks: true }).html
+    } catch (_error) {
+      return null
+    }
+  }, [announcement?.body])
+
   const accent = announcement
     ? PRIORITY_BORDER_COLOR[toCardPriority(announcement)]
     : 'var(--color-priority-normal)'
@@ -186,6 +205,11 @@ export function AnnouncementDetail() {
     setAcking(true)
     try {
       await http.post(`/announcements/${announcement.id}/acknowledge`, {})
+      // Domain event: the acknowledgment flow's success point.
+      track({
+        name: 'announcement.acknowledged',
+        properties: { announcement_id: announcement.id },
+      })
       await refresh()
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e))
@@ -199,10 +223,15 @@ export function AnnouncementDetail() {
     if (!announcement || !reply.trim() || submitting) return
     setSubmitting(true)
     try {
-      await http.post<ApiComment>(`/comments/${announcement.id}`, {
+      const created = await http.post<ApiComment>(`/comments/${announcement.id}`, {
         content: reply.trim(),
       })
       setReply('')
+      // Domain event: discussion participation.
+      track({
+        name: 'comment.created',
+        properties: { announcement_id: announcement.id, comment_id: created?.data?.id },
+      })
       await refresh()
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e))
@@ -216,6 +245,10 @@ export function AnnouncementDetail() {
     setSubmitting(true)
     try {
       await http.delete(`/comments/${announcement.id}/${commentId}`)
+      track({
+        name: 'comment.deleted',
+        properties: { announcement_id: announcement.id, comment_id: commentId },
+      })
       await refresh()
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e))
@@ -349,15 +382,26 @@ export function AnnouncementDetail() {
           </div>
         </div>
 
-        <p
-          data-testid="detail-body"
-          className={cm.cn(
-            cm.textSize('base'),
-            'leading-relaxed text-on-surface whitespace-pre-wrap',
-          )}
-        >
-          {announcement.body}
-        </p>
+        {bodyHtml ? (
+          <div
+            data-testid="detail-body"
+            className={cm.cn(
+              cm.textSize('base'),
+              'leading-relaxed text-on-surface [&_a]:text-primary [&_a]:underline [&_code]:rounded [&_code]:bg-surface-container [&_code]:px-1 [&_h2]:mt-4 [&_h2]:text-xl [&_h2]:font-bold [&_h3]:mt-3 [&_h3]:text-lg [&_h3]:font-bold [&_li]:ml-5 [&_ol]:list-decimal [&_p]:my-2 [&_blockquote]:border-l-4 [&_blockquote]:border-outline-variant/40 [&_blockquote]:pl-3 [&_blockquote]:text-on-surface-variant [&_ul]:list-disc',
+            )}
+            dangerouslySetInnerHTML={{ __html: bodyHtml }}
+          />
+        ) : (
+          <p
+            data-testid="detail-body"
+            className={cm.cn(
+              cm.textSize('base'),
+              'leading-relaxed text-on-surface whitespace-pre-wrap',
+            )}
+          >
+            {announcement.body}
+          </p>
+        )}
 
         {announcement.requires_acknowledgment && (
           <div

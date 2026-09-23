@@ -119,10 +119,12 @@ export function Search() {
   const [categories, setCategories] = useState<ApiCategory[]>([])
   const [team, setTeam] = useState<ApiTeamMember[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setError(null)
     Promise.all([
       http.get<ApiAnnouncement[]>('/announcements'),
       http.get<ApiCategory[]>('/categories'),
@@ -134,8 +136,10 @@ export function Search() {
         setCategories(catsR.data)
         setTeam(Array.isArray(teamR.data) ? teamR.data : [])
       })
-      .catch(() => {
-        // empty result set is rendered below
+      .catch((e) => {
+        // Surface the failure — an empty result must never masquerade as
+        // "no matches" when the data never loaded.
+        if (!cancelled) setError(e instanceof Error ? e.message : String(e))
       })
       .finally(() => {
         if (!cancelled) setLoading(false)
@@ -242,6 +246,22 @@ export function Search() {
           {t('search.title', { appName: APP_NAME }, { defaultValue: 'Search {{appName}}' })}
         </h1>
       </header>
+
+      {error && (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('p', 4),
+            'rounded-xl border border-error/40 bg-error-container/40 text-on-error-container',
+          )}
+        >
+          {t(
+            'search.loadError',
+            { message: error },
+            { defaultValue: 'Could not load search data: {{message}}' },
+          )}
+        </div>
+      )}
 
       <div
         className={cm.cn(
@@ -377,7 +397,7 @@ export function Search() {
                           className={cm.cn(
                             cm.fontWeight('semibold'),
                             cm.textSize('base'),
-                            'text-on-surface group-hover:text-primary transition-colors',
+                            'min-w-0 break-words text-on-surface group-hover:text-primary transition-colors',
                           )}
                           dangerouslySetInnerHTML={{ __html: highlight(r.title, query) }}
                         />

@@ -92,6 +92,12 @@ test.describe('announcement detail page', () => {
   })
 
   test('shows not-found for a non-existent announcement', async ({ page }) => {
+    // The 404s from /api/announcements/:id and /api/comments/:id are the
+    // very thing under test — allow them in the console-error guard.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page, uniqueEmail('detail-404'))
     await page.goto(APP_BASE + '/announcement/00000000-0000-0000-0000-000000000000')
     await expect(page.getByTestId('announcement-not-found')).toBeVisible({ timeout: 10000 })

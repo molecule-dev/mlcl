@@ -138,7 +138,7 @@ export function TeamDirectory() {
           placeholder={t('people.searchPlaceholder', {}, { defaultValue: 'Search teammates…' })}
           className={cm.cn(
             cm.textSize('base'),
-            'flex-1 bg-transparent text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none',
+            'min-w-0 flex-1 bg-transparent text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none',
           )}
         />
       </div>

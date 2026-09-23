@@ -15,6 +15,12 @@ test.describe('login page', () => {
   })
 
   test('login with bogus credentials stays on /login (network 4xx)', async ({ page }) => {
+    // Bad credentials returning 4xx is the contract — allow the expected
+    // console resource error in the console-error guard.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 403',
+    })
     await page.goto(APP_BASE + '/login')
     await page.locator('input[type="email"]').fill(`nobody-${Date.now()}@flagship.test`)
     await page.locator('input[type="password"]').fill('WrongPass!9999')

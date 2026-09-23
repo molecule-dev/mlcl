@@ -98,6 +98,26 @@ export function InternalAnnouncementsLayout() {
   const navigate = useNavigate()
   const http = useHttpClient()
 
+  // Mobile drawer state — below md: the 280px sidebar collapses into a
+  // sticky top bar + slide-over drawer (fleet mobile shell pattern).
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  // Close the drawer whenever the route changes (nav link tap).
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
+
+  // Lock body scroll while the drawer is open so the page behind does not
+  // scroll under the overlay.
+  useEffect(() => {
+    if (!menuOpen) return
+    const previous = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = previous
+    }
+  }, [menuOpen])
+
   const handleSignOut = async () => {
     await logout()
     navigate('/login')
@@ -153,12 +173,13 @@ export function InternalAnnouncementsLayout() {
 
   const activeChannelSlug = useMemo(() => searchParams.get('channel'), [searchParams])
 
-  const renderItem = (item: NavItem) => {
+  const renderItem = (item: NavItem, onNavigate?: () => void) => {
     const active = isActive(pathname, item)
     return (
       <Link
         key={item.to}
         to={item.to}
+        onClick={onNavigate}
         className={cm.cn(
           cm.flex({ align: 'center', gap: 'sm' }),
           cm.sp('px', 3),
@@ -184,8 +205,233 @@ export function InternalAnnouncementsLayout() {
     )
   }
 
+  // Sidebar inner content (nav + channels + profile footer), shared by the
+  // desktop rail and the mobile drawer so both stay in sync. `onNavigate`
+  // closes the mobile drawer after a link tap.
+  const sidebarBody = (onNavigate?: () => void) => (
+    <>
+      <nav
+        className={cm.cn(
+          cm.flex({ direction: 'col', gap: 'xs' }),
+          cm.flex1,
+          'min-h-0 overflow-y-auto',
+        )}
+      >
+        {NAV_ITEMS.map((item) => renderItem(item, onNavigate))}
+
+        <div className={cm.cn(cm.sp('mt', 4), cm.sp('mb', 2))}>
+          <span
+            className={cm.cn(
+              cm.fontWeight('bold'),
+              cm.sp('px', 3),
+              'text-[10px] uppercase tracking-widest text-on-surface-variant',
+            )}
+          >
+            {t('layout.channelsTitle', {}, { defaultValue: 'Channels' })}
+          </span>
+        </div>
+        <div className={cm.cn(cm.flex({ direction: 'col' }))}>
+          {channels.map((c) => {
+            const href = `/feed?channel=${c.slug}`
+            const active = pathname === '/feed' && activeChannelSlug === c.slug
+            return (
+              <Link
+                key={c.slug}
+                to={href}
+                onClick={onNavigate}
+                className={cm.cn(
+                  cm.flex({ align: 'center', gap: 'sm' }),
+                  cm.sp('px', 3),
+                  cm.sp('py', 2),
+                  'rounded-lg transition-colors',
+                  active
+                    ? 'bg-primary-container/20 text-primary font-semibold'
+                    : 'text-on-surface-variant hover:bg-surface-container-low/50 hover:text-on-surface',
+                )}
+              >
+                <span
+                  className={cm.cn('material-symbols-outlined text-base shrink-0')}
+                  style={{ color: c.color }}
+                  aria-hidden="true"
+                >
+                  {c.icon}
+                </span>
+                <span
+                  className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'flex-1 truncate')}
+                >
+                  {c.name}
+                </span>
+                {c.unread > 0 && (
+                  <span
+                    className={cm.cn(
+                      cm.fontWeight('bold'),
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'rounded-full text-[10px] min-w-[18px] h-[18px] px-1',
+                    )}
+                    style={{
+                      backgroundColor: 'var(--mol-color-primary, var(--color-priority-normal))',
+                      color: 'var(--mol-color-surface)',
+                    }}
+                  >
+                    {c.unread}
+                  </span>
+                )}
+              </Link>
+            )
+          })}
+        </div>
+
+        <div
+          className={cm.cn(
+            cm.sp('mt', 4),
+            cm.sp('pt', 4),
+            cm.flex({ direction: 'col', gap: 'xs' }),
+            'border-t border-outline-variant/30',
+          )}
+        >
+          {PROFILE_ITEMS.map((item) => renderItem(item, onNavigate))}
+        </div>
+      </nav>
+
+      <div
+        className={cm.cn(
+          cm.sp('pt', 4),
+          cm.flex({ direction: 'col', gap: 'sm' }),
+          'border-t border-outline-variant/30',
+        )}
+      >
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('px', 2))}>
+          <span
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              cm.w(8),
+              cm.h(8),
+              cm.roundedFull,
+              cm.fontWeight('bold'),
+              cm.textSize('sm'),
+            )}
+            style={{
+              backgroundColor:
+                'var(--color-priority-normal-light, var(--color-priority-normal-light))',
+              color: 'var(--color-priority-normal, var(--color-priority-normal))',
+            }}
+            aria-hidden="true"
+          >
+            {(user?.name ?? user?.email ?? 'C').slice(0, 1).toUpperCase()}
+          </span>
+          <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-0 flex-1')}>
+            <span
+              className={cm.cn(
+                cm.fontWeight('semibold'),
+                cm.textSize('xs'),
+                'truncate text-on-surface',
+              )}
+            >
+              {user?.name ?? t('layout.guestName', {}, { defaultValue: 'Team member' })}
+            </span>
+            <span className={cm.cn(cm.textSize('xs'), 'truncate text-on-surface-variant')}>
+              {user?.email ?? ''}
+            </span>
+          </div>
+        </div>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+          <button
+            type="button"
+            onClick={() => void handleSignOut()}
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              cm.sp('px', 3),
+              cm.sp('py', 2),
+              cm.flex1,
+              cm.fontWeight('semibold'),
+              'rounded-lg text-left text-on-surface-variant hover:text-error hover:bg-error/10 transition-colors',
+            )}
+          >
+            <span className={cm.cn('material-symbols-outlined text-base')}>logout</span>
+            <span className={cm.cn(cm.textSize('xs'), 'uppercase tracking-widest')}>
+              {t('settings.logOut', {}, { defaultValue: 'Sign out' })}
+            </span>
+          </button>
+          <UserMenu />
+          <ThemeToggle />
+        </div>
+      </div>
+    </>
+  )
+
+  const wordmark = (onNavigate?: () => void) => (
+    <Link
+      to="/feed"
+      onClick={onNavigate}
+      className={cm.cn(cm.flex({ direction: 'col' }), cm.sp('mb', 6))}
+    >
+      <span
+        className={cm.cn(cm.fontWeight('bold'), 'text-2xl tracking-tight')}
+        style={{ color: 'var(--mol-color-primary, var(--color-priority-normal))' }}
+      >
+        {APP_NAME}
+      </span>
+      <span
+        className={cm.cn(
+          cm.fontWeight('medium'),
+          'text-[10px] uppercase tracking-widest text-on-surface-variant',
+        )}
+      >
+        {APP_TAGLINE}
+      </span>
+    </Link>
+  )
+
   return (
-    <div className={cm.cn(cm.flex({ align: 'stretch' }), cm.minH('screen'), 'bg-background')}>
+    <div
+      className={cm.cn(
+        // Column below md (top bar above content), row from md up (rail
+        // beside content) — keeps the mobile bar OUT of the horizontal
+        // flex line that would otherwise squeeze main to a sliver.
+        'flex flex-col md:flex-row md:items-stretch',
+        cm.minH('screen'),
+        'bg-background',
+      )}
+    >
+      {/*
+        Mobile top bar (below md) — the sidebar is hidden here, so without
+        this bar the app has NO navigation at all on phones. Sticky, with a
+        hamburger that opens the drawer, the wordmark, and the theme toggle.
+      */}
+      <header
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'sm' }),
+          cm.sp('px', 4),
+          'md:hidden sticky top-0 z-40 h-14 shrink-0 items-center border-b border-outline-variant/30 bg-surface/95 backdrop-blur',
+        )}
+      >
+        <button
+          type="button"
+          data-testid="mobile-nav-open"
+          aria-label={t('layout.openMenu', {}, { defaultValue: 'Open navigation menu' })}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(true)}
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            'rounded-lg',
+            '-ml-2 h-10 w-10 text-on-surface-variant hover:bg-surface-container-low/60 hover:text-on-surface transition-colors',
+          )}
+        >
+          <span className={cm.cn('material-symbols-outlined text-2xl')} aria-hidden="true">
+            menu
+          </span>
+        </button>
+        <Link
+          to="/feed"
+          className={cm.cn(cm.fontWeight('bold'), 'text-lg tracking-tight flex-1 min-w-0 truncate')}
+          style={{ color: 'var(--mol-color-primary, var(--color-priority-normal))' }}
+        >
+          {APP_NAME}
+        </Link>
+        <ThemeToggle />
+      </header>
+
+      {/* Desktop rail (md and up) — unchanged 280px sidebar. */}
       <aside
         className={cm.cn(
           cm.flex({ direction: 'col' }),
@@ -193,169 +439,60 @@ export function InternalAnnouncementsLayout() {
           'sticky top-0 hidden md:flex w-[280px] h-screen shrink-0 border-r border-outline-variant/30 bg-surface',
         )}
       >
-        <Link to="/feed" className={cm.cn(cm.flex({ direction: 'col' }), cm.sp('mb', 6))}>
-          <span
-            className={cm.cn(cm.fontWeight('bold'), 'text-2xl tracking-tight')}
-            style={{ color: 'var(--mol-color-primary, var(--color-priority-normal))' }}
-          >
-            {APP_NAME}
-          </span>
-          <span
-            className={cm.cn(
-              cm.fontWeight('medium'),
-              'text-[10px] uppercase tracking-widest text-on-surface-variant',
-            )}
-          >
-            {APP_TAGLINE}
-          </span>
-        </Link>
+        {wordmark()}
+        {sidebarBody()}
+      </aside>
 
-        <nav
-          className={cm.cn(
-            cm.flex({ direction: 'col', gap: 'xs' }),
-            cm.flex1,
-            'min-h-0 overflow-y-auto',
-          )}
+      {/* Mobile drawer — slide-over with the same nav content as the rail. */}
+      {menuOpen && (
+        <div
+          className={cm.cn('fixed inset-0 z-50 md:hidden')}
+          role="dialog"
+          aria-modal="true"
+          aria-label={t('layout.navDialogLabel', {}, { defaultValue: 'Navigation' })}
         >
-          {NAV_ITEMS.map(renderItem)}
-
-          <div className={cm.cn(cm.sp('mt', 4), cm.sp('mb', 2))}>
-            <span
-              className={cm.cn(
-                cm.fontWeight('bold'),
-                cm.sp('px', 3),
-                'text-[10px] uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
-              {t('layout.channelsTitle', {}, { defaultValue: 'Channels' })}
-            </span>
-          </div>
-          <div className={cm.cn(cm.flex({ direction: 'col' }))}>
-            {channels.map((c) => {
-              const href = `/feed?channel=${c.slug}`
-              const active = pathname === '/feed' && activeChannelSlug === c.slug
-              return (
-                <Link
-                  key={c.slug}
-                  to={href}
-                  className={cm.cn(
-                    cm.flex({ align: 'center', gap: 'sm' }),
-                    cm.sp('px', 3),
-                    cm.sp('py', 2),
-                    'rounded-lg transition-colors',
-                    active
-                      ? 'bg-primary-container/20 text-primary font-semibold'
-                      : 'text-on-surface-variant hover:bg-surface-container-low/50 hover:text-on-surface',
-                  )}
-                >
-                  <span
-                    className={cm.cn('material-symbols-outlined text-base shrink-0')}
-                    style={{ color: c.color }}
-                    aria-hidden="true"
-                  >
-                    {c.icon}
-                  </span>
-                  <span
-                    className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'flex-1 truncate')}
-                  >
-                    {c.name}
-                  </span>
-                  {c.unread > 0 && (
-                    <span
-                      className={cm.cn(
-                        cm.fontWeight('bold'),
-                        cm.flex({ align: 'center', justify: 'center' }),
-                        'rounded-full text-[10px] min-w-[18px] h-[18px] px-1',
-                      )}
-                      style={{
-                        backgroundColor: 'var(--mol-color-primary, var(--color-priority-normal))',
-                        color: 'var(--mol-color-surface)',
-                      }}
-                    >
-                      {c.unread}
-                    </span>
-                  )}
-                </Link>
-              )
-            })}
-          </div>
-
+          <button
+            type="button"
+            aria-label={t('layout.closeMenu', {}, { defaultValue: 'Close navigation menu' })}
+            className={cm.cn('absolute inset-0 h-full w-full cursor-default bg-black/40')}
+            onClick={() => setMenuOpen(false)}
+          />
           <div
             className={cm.cn(
-              cm.sp('mt', 4),
-              cm.sp('pt', 4),
-              cm.flex({ direction: 'col', gap: 'xs' }),
-              'border-t border-outline-variant/30',
+              cm.flex({ direction: 'col' }),
+              cm.sp('p', 5),
+              'absolute left-0 top-0 h-full w-[290px] max-w-[85vw] overflow-y-auto border-r border-outline-variant/30 bg-surface shadow-xl',
             )}
           >
-            {PROFILE_ITEMS.map(renderItem)}
-          </div>
-        </nav>
-
-        <div
-          className={cm.cn(
-            cm.sp('pt', 4),
-            cm.flex({ direction: 'col', gap: 'sm' }),
-            'border-t border-outline-variant/30',
-          )}
-        >
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('px', 2))}>
-            <span
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                cm.w(8),
-                cm.h(8),
-                cm.roundedFull,
-                cm.fontWeight('bold'),
-                cm.textSize('sm'),
-              )}
-              style={{
-                backgroundColor:
-                  'var(--color-priority-normal-light, var(--color-priority-normal-light))',
-                color: 'var(--color-priority-normal, var(--color-priority-normal))',
-              }}
-              aria-hidden="true"
+            <div
+              className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}
             >
-              {(user?.name ?? user?.email ?? 'C').slice(0, 1).toUpperCase()}
-            </span>
-            <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-0 flex-1')}>
               <span
+                className={cm.cn(cm.fontWeight('bold'), 'text-2xl tracking-tight')}
+                style={{ color: 'var(--mol-color-primary, var(--color-priority-normal))' }}
+              >
+                {APP_NAME}
+              </span>
+              <button
+                type="button"
+                data-testid="mobile-nav-close"
+                aria-label={t('layout.closeMenu', {}, { defaultValue: 'Close navigation menu' })}
+                onClick={() => setMenuOpen(false)}
                 className={cm.cn(
-                  cm.fontWeight('semibold'),
-                  cm.textSize('xs'),
-                  'truncate text-on-surface',
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  'rounded-lg',
+                  '-mr-2 h-10 w-10 text-on-surface-variant hover:bg-surface-container-low/60 hover:text-on-surface transition-colors',
                 )}
               >
-                {user?.name ?? t('layout.guestName', {}, { defaultValue: 'Team member' })}
-              </span>
-              <span className={cm.cn(cm.textSize('xs'), 'truncate text-on-surface-variant')}>
-                {user?.email ?? ''}
-              </span>
+                <span className={cm.cn('material-symbols-outlined text-2xl')} aria-hidden="true">
+                  close
+                </span>
+              </button>
             </div>
-          </div>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            <button
-              type="button"
-              onClick={() => void handleSignOut()}
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 'sm' }),
-                cm.sp('px', 3),
-                cm.sp('py', 2),
-                cm.flex1,
-                cm.fontWeight('semibold'),
-                'rounded-lg text-left text-on-surface-variant hover:text-error hover:bg-error/10 transition-colors',
-              )}
-            >
-              <span className={cm.cn('material-symbols-outlined text-base')}>logout</span>
-              <span className={cm.cn(cm.textSize('xs'), 'uppercase tracking-widest')}>
-                {t('settings.logOut', {}, { defaultValue: 'Sign out' })}
-              </span>
-            </button>
-            <UserMenu />
-            <ThemeToggle />
+            {sidebarBody(() => setMenuOpen(false))}
           </div>
         </div>
-      </aside>
+      )}
 
       <main className={cm.cn(cm.flex1, 'min-w-0')}>
         <div className={cm.cn(cm.sp('px', 6), cm.sp('py', 8), 'max-w-[920px] mx-auto')}>

@@ -9,6 +9,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -126,6 +127,16 @@ export function Composer() {
       })
       const created = r.data
       if (created?.id) {
+        // Domain event: the compose→publish funnel's success point.
+        track({
+          name: 'announcement.created',
+          properties: {
+            announcement_id: created.id,
+            priority,
+            category_id: categoryId,
+            requires_acknowledgment: requiresAck,
+          },
+        })
         navigate(`/announcement/${created.id}`)
       } else {
         navigate('/feed')
@@ -400,7 +411,12 @@ export function Composer() {
                   },
                 )}
           </span>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', gap: 'sm' }),
+              'flex-wrap justify-end w-full',
+            )}
+          >
             <button
               type="button"
               data-testid="composer-cancel"

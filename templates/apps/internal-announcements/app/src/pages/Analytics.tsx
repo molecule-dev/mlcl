@@ -43,10 +43,12 @@ export function Analytics() {
   const [ackBuckets, setAckBuckets] = useState<AckPair[]>([])
   const [range, setRange] = useState<(typeof DATE_RANGES)[number]['id']>('7d')
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setError(null)
     Promise.all([
       http.get<ApiAnnouncement[]>('/announcements'),
       http.get<ApiCategory[]>('/categories'),
@@ -72,7 +74,9 @@ export function Analytics() {
         )
         if (!cancelled) setAckBuckets(buckets)
       })
-      .catch(() => {
+      .catch((e) => {
+        // Surface the failure instead of rendering a silent empty dashboard.
+        if (!cancelled) setError(e instanceof Error ? e.message : String(e))
         if (!cancelled) setAnnouncements([])
       })
       .finally(() => {
@@ -264,6 +268,22 @@ export function Analytics() {
           })}
         </div>
       </header>
+
+      {error && (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('p', 4),
+            'rounded-xl border border-error/40 bg-error-container/40 text-on-error-container',
+          )}
+        >
+          {t(
+            'analytics.loadError',
+            { message: error },
+            { defaultValue: 'Could not load analytics: {{message}}' },
+          )}
+        </div>
+      )}
 
       {loading ? (
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>

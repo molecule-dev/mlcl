@@ -1,3 +1,9 @@
+// Side-effect import: registers the app's feature bonds (markdown,
+// virtual-scroll, data-table) with the bond registry. Without this the
+// declarations in app-bonds.ts never run — the provider is declared but
+// no provider is actually bonded at startup.
+import './app-bonds.js'
+
 import { setupAllDefaultBonds } from '@molecule/app-bonds-default-react'
 
 import { setupAppAnalytics } from './app-analytics.js'

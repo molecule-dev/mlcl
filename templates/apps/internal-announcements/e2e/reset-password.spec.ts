@@ -35,6 +35,12 @@ test.describe('reset password page', () => {
   test('submitting an invalid token POSTs to /api/users/reset-password and stays on the page', async ({
     page,
   }) => {
+    // The invalid-token 4xx is the contract under test — allow the
+    // expected console resource error in the console-error guard.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 4',
+    })
     await page.goto(APP_BASE + '/reset-password?token=not-a-real-token')
     await page.locator('input[type=email]').first().fill('nobody@example.com')
     const passwordInputs = page.locator('input[type=password]')

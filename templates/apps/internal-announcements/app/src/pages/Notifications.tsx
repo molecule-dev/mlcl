@@ -86,10 +86,12 @@ export function Notifications() {
   const [allComments, setAllComments] = useState<ApiComment[]>([])
   const [readSet, setReadSet] = useState<Set<string>>(() => readReadSet())
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
     setLoading(true)
+    setError(null)
     Promise.all([http.get<ApiAnnouncement[]>('/announcements'), http.get<ApiUser[]>('/team')])
       .then(async ([annsR, teamR]) => {
         if (cancelled) return
@@ -108,7 +110,9 @@ export function Notifications() {
         )
         if (!cancelled) setAllComments(commentBuckets.flat())
       })
-      .catch(() => {
+      .catch((e) => {
+        // Surface the failure instead of rendering a silent empty inbox.
+        if (!cancelled) setError(e instanceof Error ? e.message : String(e))
         if (!cancelled) setAnnouncements([])
       })
       .finally(() => {
@@ -248,6 +252,22 @@ export function Notifications() {
           </button>
         )}
       </header>
+
+      {error && (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('p', 4),
+            'rounded-xl border border-error/40 bg-error-container/40 text-on-error-container',
+          )}
+        >
+          {t(
+            'notifications.loadError',
+            { message: error },
+            { defaultValue: 'Could not load notifications: {{message}}' },
+          )}
+        </div>
+      )}
 
       <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'flex-wrap')}>
         {FILTERS.map((current) => {

@@ -70,9 +70,11 @@ export function Profile() {
   const [allComments, setAllComments] = useState<ApiComment[]>([])
   const [commentCounts, setCommentCounts] = useState<Record<string, number>>({})
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   const refresh = useCallback(async () => {
     setLoading(true)
+    setError(null)
     try {
       // Fire `/users/me` alongside the other reads so the profile page
       // is reading authoritative server state for the current viewer
@@ -112,6 +114,9 @@ export function Profile() {
       }
       setCommentCounts(counts)
       setAllComments(flat)
+    } catch (e) {
+      // Surface the failure instead of rendering a silent empty profile.
+      setError(e instanceof Error ? e.message : String(e))
     } finally {
       setLoading(false)
     }
@@ -226,6 +231,21 @@ export function Profile() {
 
   return (
     <div className={cm.cn(cm.flex({ direction: 'col', gap: 'lg' }))}>
+      {error && (
+        <div
+          role="alert"
+          className={cm.cn(
+            cm.sp('p', 4),
+            'rounded-xl border border-error/40 bg-error-container/40 text-on-error-container',
+          )}
+        >
+          {t(
+            'profile.loadError',
+            { message: error },
+            { defaultValue: 'Could not load your profile data: {{message}}' },
+          )}
+        </div>
+      )}
       <div
         className={cm.cn('rounded-2xl overflow-hidden border border-outline-variant/40 bg-surface')}
       >

@@ -149,7 +149,7 @@ export function AnnouncementCard({ announcement: a }: AnnouncementCardProps) {
           className={cm.cn(
             cm.fontWeight('semibold'),
             cm.flex({ align: 'center', gap: 'xs' }),
-            'rounded-full px-2.5 py-0.5 text-[11px] hover:opacity-80 transition-opacity',
+            'min-h-[28px] rounded-full px-2.5 py-1 text-[11px] hover:opacity-80 transition-opacity',
           )}
           style={{
             backgroundColor: `${channelColor}1f`,
@@ -227,7 +227,7 @@ export function AnnouncementCard({ announcement: a }: AnnouncementCardProps) {
           className={cm.cn(
             cm.fontWeight('bold'),
             cm.flex({ align: 'center', gap: 'xs' }),
-            'ml-auto text-primary hover:underline',
+            'ml-auto min-h-[28px] items-center text-primary hover:underline',
           )}
         >
           {a.hasAcknowledged
