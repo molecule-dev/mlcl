@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -181,7 +182,13 @@ export function TaskDetail() {
   const onToggle = async () => {
     if (!task) return
     const updated = await toggleTaskCompleted(http, task.id).catch(() => null)
-    if (updated) setTask(updated)
+    if (updated) {
+      setTask(updated)
+      void track({
+        name: updated.completed ? 'task.completed' : 'task.reopened',
+        properties: { task_id: updated.id, source: 'detail' },
+      })
+    }
   }
 
   const onSaveTitle = async () => {
@@ -224,6 +231,10 @@ export function TaskDetail() {
     if (!window.confirm(t('taskDetail.deleteConfirm', {}, { defaultValue: 'Delete this task?' })))
       return
     await deleteTask(http, task.id).catch(() => null)
+    void track({
+      name: 'task.deleted',
+      properties: { task_id: task.id, had_project: Boolean(task.project) },
+    })
     navigate(task.project ? `/projects/${task.project.id}` : '/inbox')
   }
 
@@ -342,7 +353,9 @@ export function TaskDetail() {
           data-mol-id="task-detail-toggle"
           onClick={onToggle}
           className={cm.cn(
-            'h-7 w-7 mt-1 rounded-full border-2 grid place-items-center shrink-0',
+            // Visual circle stays 28px; the `before` pseudo extends the hit
+            // area to a 44px touch target without shifting the header.
+            "relative h-7 w-7 mt-1 rounded-full border-2 grid place-items-center shrink-0 before:content-[''] before:absolute before:-inset-2 before:rounded-full",
             PRIORITY_RING[task.priority],
             task.completed ? PRIORITY_BG[task.priority] : '',
           )}

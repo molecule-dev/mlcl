@@ -106,7 +106,9 @@ export function TaskList({ tasks, showProject = false, emptyMessage, onToggle }:
               data-mol-id={`task-toggle-${task.id}`}
               onClick={() => onToggle?.(task.id)}
               className={cm.cn(
-                'h-5 w-5 mt-0.5 rounded-full border-2 grid place-items-center shrink-0',
+                // Visual circle stays 20px; the `before` pseudo extends the
+                // hit area to a 44px touch target without shifting the row.
+                "relative h-5 w-5 mt-0.5 rounded-full border-2 grid place-items-center shrink-0 before:content-[''] before:absolute before:-inset-3 before:rounded-full",
                 PRIORITY_RING[task.priority],
                 task.completed ? PRIORITY_BG[task.priority] : '',
               )}

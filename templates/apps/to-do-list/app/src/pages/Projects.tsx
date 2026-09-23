@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -189,6 +190,10 @@ export function Projects() {
       if (created) {
         setProjects((prev) => [...prev, created].sort((a, b) => a.name.localeCompare(b.name)))
         setShowForm(false)
+        void track({
+          name: 'project.created',
+          properties: { project_id: created.id },
+        })
       } else {
         setCreateError(t('projects.createError', {}, { defaultValue: 'Could not create project.' }))
       }
@@ -237,6 +242,7 @@ export function Projects() {
     )
       return
     await deleteProject(http, id).catch(() => null)
+    void track({ name: 'project.deleted', properties: { project_id: id } })
     setProjects((prev) => prev.filter((p) => p.id !== id))
   }
 

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -60,6 +61,10 @@ export function Upcoming() {
     } else {
       setTasks((prev) => prev.map((t) => (t.id === id ? updated : t)))
     }
+    void track({
+      name: updated.completed ? 'task.completed' : 'task.reopened',
+      properties: { task_id: updated.id, source: 'upcoming' },
+    })
   }
 
   const days = useMemo(() => {
@@ -129,22 +134,48 @@ export function Upcoming() {
         </p>
       ) : (
         <div className={cm.cn('space-y-6')}>
-          {days.map((d) => (
-            <section key={dayKey(d.date)}>
-              <h2
-                className={cm.cn(
-                  cm.textSize('sm'),
-                  cm.fontWeight('semibold'),
-                  'uppercase tracking-wide',
-                  'text-on-surface-variant',
-                  cm.sp('mb', 2),
-                )}
+          {days.filter((d) => d.tasks.length > 0).length === 0 ? (
+            <div
+              className={cm.cn(
+                cm.sp('py', 12),
+                cm.textCenter,
+                'rounded-2xl bg-surface-container-low',
+              )}
+            >
+              <span
+                className={cm.cn('material-symbols-outlined text-5xl text-on-surface-variant/40')}
+                aria-hidden="true"
               >
-                {fmtDay(d.date.toISOString())}
-              </h2>
-              <TaskList tasks={d.tasks} showProject onToggle={onToggle} emptyMessage="—" />
-            </section>
-          ))}
+                event_available
+              </span>
+              <p className={cm.cn('text-sm text-on-surface-variant mt-3')}>
+                {t(
+                  'upcoming.emptyWeek',
+                  {},
+                  { defaultValue: 'Nothing scheduled this week — enjoy the open runway.' },
+                )}
+              </p>
+            </div>
+          ) : (
+            days
+              .filter((d) => d.tasks.length > 0)
+              .map((d) => (
+                <section key={dayKey(d.date)}>
+                  <h2
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      cm.fontWeight('semibold'),
+                      'uppercase tracking-wide',
+                      'text-on-surface-variant',
+                      cm.sp('mb', 2),
+                    )}
+                  >
+                    {fmtDay(d.date.toISOString())}
+                  </h2>
+                  <TaskList tasks={d.tasks} showProject onToggle={onToggle} />
+                </section>
+              ))
+          )}
         </div>
       )}
     </div>

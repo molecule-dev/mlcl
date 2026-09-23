@@ -116,7 +116,9 @@ export function TasksEditorial({ tasks, onToggle, emptyMessage }: TasksEditorial
                 }
                 data-mol-id={`task-toggle-editorial-${task.id}`}
                 className={cm.cn(
-                  'mt-0.5 w-5 h-5 rounded-full ring-2 ring-offset-1 ring-offset-surface-container-lowest flex items-center justify-center shrink-0 transition-colors',
+                  // Visual circle stays 20px; the `before` pseudo extends the
+                  // hit area to a 44px touch target without shifting the row.
+                  "relative mt-0.5 w-5 h-5 rounded-full ring-2 ring-offset-1 ring-offset-surface-container-lowest flex items-center justify-center shrink-0 transition-colors before:content-[''] before:absolute before:-inset-3 before:rounded-full",
                   task.completed
                     ? cm.cn('bg-success ring-success', 'text-white')
                     : cm.cn(tint.ring, 'bg-transparent hover:bg-surface-container-low'),

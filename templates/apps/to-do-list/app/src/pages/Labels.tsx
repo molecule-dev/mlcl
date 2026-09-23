@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -182,6 +183,7 @@ export function Labels() {
       if (created) {
         setLabels((prev) => [...prev, created].sort((a, b) => a.name.localeCompare(b.name)))
         setShowForm(false)
+        void track({ name: 'label.created', properties: { label_id: created.id } })
       } else {
         setCreateError(t('labels.createError', {}, { defaultValue: 'Could not create label.' }))
       }
@@ -231,6 +233,7 @@ export function Labels() {
     )
       return
     await deleteLabel(http, id).catch(() => null)
+    void track({ name: 'label.deleted', properties: { label_id: id } })
     setLabels((prev) => prev.filter((l) => l.id !== id))
   }
 

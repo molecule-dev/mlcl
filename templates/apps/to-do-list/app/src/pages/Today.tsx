@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -130,6 +131,11 @@ export function Today() {
     const updated = await toggleTaskCompleted(http, id).catch(() => null)
     if (!updated) return
     setTasks((prev) => prev.map((t) => (t.id === id ? updated : t)))
+    // Fire-and-forget domain analytics (no-ops without VITE_POSTHOG_KEY).
+    void track({
+      name: updated.completed ? 'task.completed' : 'task.reopened',
+      properties: { task_id: updated.id, source: 'today' },
+    })
   }
 
   const onQuickAdd = async (e: React.FormEvent) => {
@@ -143,7 +149,13 @@ export function Today() {
         due_date: todayIso(),
         priority: 4,
       })
-      if (created) setTasks((prev) => [...prev, created])
+      if (created) {
+        setTasks((prev) => [...prev, created])
+        void track({
+          name: 'task.created',
+          properties: { task_id: created.id, source: 'today' },
+        })
+      }
       setQuickAdd('')
     } finally {
       setSubmitting(false)
@@ -233,10 +245,10 @@ export function Today() {
               disabled={submitting || quickAdd.trim().length === 0}
               className={cm.cn(
                 cm.sp('px', 3),
-                cm.sp('py', 1),
+                // min-h keeps the submit a 36px tap target inside the pill.
                 cm.textSize('xs'),
                 cm.fontWeight('semibold'),
-                'rounded-full bg-primary text-on-primary disabled:opacity-40 disabled:cursor-not-allowed',
+                'rounded-full bg-primary text-on-primary min-h-9 disabled:opacity-40 disabled:cursor-not-allowed',
               )}
             >
               {submitting

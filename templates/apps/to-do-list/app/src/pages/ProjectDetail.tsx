@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -58,6 +59,10 @@ export function ProjectDetail() {
     const updated = await toggleTaskCompleted(http, taskId).catch(() => null)
     if (!updated) return
     setTasks((prev) => prev.map((t) => (t.id === taskId ? updated : t)))
+    void track({
+      name: updated.completed ? 'task.completed' : 'task.reopened',
+      properties: { task_id: updated.id, project_id: id ?? null, source: 'project' },
+    })
   }
 
   const onQuickAdd = async (e: React.FormEvent) => {
@@ -67,7 +72,13 @@ export function ProjectDetail() {
     setSubmitting(true)
     try {
       const created = await createTask(http, { title, project_id: id, priority: 4 })
-      if (created) setTasks((prev) => [...prev, created])
+      if (created) {
+        setTasks((prev) => [...prev, created])
+        void track({
+          name: 'task.created',
+          properties: { task_id: created.id, project_id: id, source: 'project' },
+        })
+      }
       setQuickAdd('')
     } finally {
       setSubmitting(false)
@@ -87,6 +98,7 @@ export function ProjectDetail() {
     )
       return
     await deleteProject(http, id).catch(() => null)
+    void track({ name: 'project.deleted', properties: { project_id: id } })
     setDeleted(true)
   }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -42,7 +43,13 @@ export function Inbox() {
     setSubmitting(true)
     try {
       const created = await createTask(http, { title, project_id: null, priority: 4 })
-      if (created) setTasks((prev) => [...prev, created])
+      if (created) {
+        setTasks((prev) => [...prev, created])
+        void track({
+          name: 'task.created',
+          properties: { task_id: created.id, source: 'inbox' },
+        })
+      }
       setQuickAdd('')
     } finally {
       setSubmitting(false)
@@ -53,6 +60,10 @@ export function Inbox() {
     const updated = await toggleTaskCompleted(http, id).catch(() => null)
     if (!updated) return
     setTasks((prev) => prev.map((t) => (t.id === id ? updated : t)))
+    void track({
+      name: updated.completed ? 'task.completed' : 'task.reopened',
+      properties: { task_id: updated.id, source: 'inbox' },
+    })
   }
 
   const inboxTasks = tasks

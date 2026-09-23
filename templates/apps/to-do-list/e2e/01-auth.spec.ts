@@ -1,6 +1,14 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { API_BASE, captureNetwork, cookieHeader, login, signup, uniqueEmail } from './_helpers.js'
+import {
+  APP_BASE,
+  API_BASE,
+  captureNetwork,
+  cookieHeader,
+  login,
+  signup,
+  uniqueEmail,
+} from './_helpers.js'
 
 test.describe('auth', () => {
   test('landing renders the marketing hero with a sign-up call to action', async ({ page }) => {
@@ -26,6 +34,13 @@ test.describe('auth', () => {
     const email = uniqueEmail('login')
     const password = 'TestPass123!'
     await signup(page, email, password)
+    // Load the login page BEFORE clearing cookies: the bearer token lives in
+    // memory, so the /today SPA mounted by signup() still "is" the user and
+    // its (StrictMode-doubled) data fetches can fire for a second or two.
+    // clearCookies() under that live document sends them without credentials
+    // → 401 console noise → console-guard failure. A fresh /login document
+    // has no in-flight data fetches, so the wipe is invisible to the app.
+    await page.goto(APP_BASE + '/login')
     await context.clearCookies()
     const reqs = await captureNetwork(page, async () => {
       await login(page, email, password)
@@ -111,6 +126,13 @@ test.describe('auth', () => {
   }) => {
     await page.goto('/reset-password?token=invalidtoken&email=user@example.com')
     await expect(page).toHaveURL(/\/reset-password/)
+    // The invalid token is EXPECTED to 401 — that non-2xx is the success
+    // signal below — so exempt the browser's "status of 401" console entry
+    // from the console guard before the submit fires.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 401',
+    })
     await expect(page.getByLabel(/^new password$/i).first()).toBeVisible()
     await page
       .getByLabel(/^new password$/i)
