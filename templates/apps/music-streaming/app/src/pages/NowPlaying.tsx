@@ -152,7 +152,12 @@ export function NowPlaying() {
   }
 
   return (
-    <div className="relative min-h-[calc(100vh-9rem)]">
+    // `overflow-hidden` clips the decorative bleed orbs below (-right-24 /
+    // -left-24): the shared ResponsiveAppShell scrolls the page at the BODY
+    // level (the old shells' inner `overflow-y-auto` containers computed
+    // overflow-x auto and hid them), so unclipped they widen the document by
+    // exactly their 96px overhang at every breakpoint.
+    <div className="relative min-h-[calc(100vh-9rem)] overflow-hidden">
       <div
         className="absolute inset-0 -z-10"
         style={{
