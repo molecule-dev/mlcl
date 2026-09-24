@@ -22,7 +22,7 @@ import { error as logError } from '@molecule/app-logger'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { AuthSection } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 interface UserRecord {
   id: string
@@ -76,7 +76,6 @@ function readPrefs(user: UserRecord | null): ForumPreferences {
 }
 
 interface ToggleProps {
-  id: string
   label: string
   description?: string
   checked: boolean
@@ -84,42 +83,31 @@ interface ToggleProps {
   disabled?: boolean
 }
 
-function Toggle({ id, label, description, checked, onChange, disabled }: ToggleProps) {
+function Toggle({ label, description, checked, onChange, disabled }: ToggleProps) {
   const cm = getClassMap()
   return (
     <div
       className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'md' }), cm.sp('py', 3))}
     >
-      <label
-        htmlFor={id}
-        className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), 'cursor-pointer flex-1')}
-      >
+      <span className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), 'flex-1')}>
         <span className={cm.cn(cm.fontWeight('semibold'), cm.textSize('sm'), 'text-on-surface')}>
           {label}
         </span>
         {description && (
           <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>{description}</span>
         )}
-      </label>
-      <button
-        id={id}
-        type="button"
-        role="switch"
-        aria-checked={checked}
+      </span>
+      {/* Shared accessible Switch (role=switch + aria-checked + 40×40 touch
+          hit-area). The visible label text sits to the left, so the control
+          gets its accessible name via aria-label. The shared Switch reports
+          the new value through a real change event on its hidden checkbox —
+          read it off `e.target.checked`. */}
+      <Switch
+        checked={checked}
         disabled={disabled}
-        onClick={() => onChange(!checked)}
-        className={cm.cn(
-          'relative inline-flex h-6 w-11 items-center rounded-full transition-colors disabled:opacity-50',
-          checked ? 'bg-primary' : 'bg-surface-container-high',
-        )}
-      >
-        <span
-          className={cm.cn(
-            'inline-block h-5 w-5 rounded-full bg-white shadow transition-transform',
-            checked ? 'translate-x-5' : 'translate-x-0.5',
-          )}
-        />
-      </button>
+        aria-label={label}
+        onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
+      />
     </div>
   )
 }
@@ -548,7 +536,6 @@ export function Settings() {
                   )}
                 >
                   <Toggle
-                    id="pref-email-replies"
                     label={t(
                       'settings.emailRepliesLabel',
                       {},
@@ -564,7 +551,6 @@ export function Settings() {
                     disabled={prefsStatus === 'saving'}
                   />
                   <Toggle
-                    id="pref-email-mentions"
                     label={t(
                       'settings.emailMentionsLabel',
                       {},
@@ -580,7 +566,6 @@ export function Settings() {
                     disabled={prefsStatus === 'saving'}
                   />
                   <Toggle
-                    id="pref-email-digest"
                     label={t('settings.emailDigestLabel', {}, { defaultValue: 'Weekly digest' })}
                     description={t(
                       'settings.emailDigestDesc',
@@ -594,14 +579,12 @@ export function Settings() {
                     disabled={prefsStatus === 'saving'}
                   />
                   <Toggle
-                    id="pref-push-replies"
                     label={t('settings.pushRepliesLabel', {}, { defaultValue: 'Push for replies' })}
                     checked={prefs.pushReplies}
                     onChange={(v) => togglePref('pushReplies', v)}
                     disabled={prefsStatus === 'saving'}
                   />
                   <Toggle
-                    id="pref-push-votes"
                     label={t(
                       'settings.pushVotesLabel',
                       {},
@@ -680,7 +663,6 @@ export function Settings() {
                   )}
                 >
                   <Toggle
-                    id="pref-show-flair"
                     label={t(
                       'settings.showFlair',
                       {},
@@ -691,7 +673,6 @@ export function Settings() {
                     disabled={prefsStatus === 'saving'}
                   />
                   <Toggle
-                    id="pref-show-thumbnails"
                     label={t(
                       'settings.showThumbnails',
                       {},
