@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 import { PhotoEditorLayout } from '../components/PhotoEditorLayout.js'
 import { type ApiImage, imageToSamplePhoto } from '../lib/image-adapter.js'
@@ -539,7 +540,7 @@ export function Export() {
                 </div>
               </div>
 
-              <label
+              <div
                 className={cm.cn(
                   cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
                   'cursor-pointer',
@@ -565,28 +566,14 @@ export function Export() {
                     )}
                   </span>
                 </span>
-                <button
-                  type="button"
-                  role="switch"
-                  aria-checked={stripExif}
-                  onClick={() => setStripExif((v) => !v)}
+                <Switch
+                  checked={stripExif}
+                  onChange={(e) => setStripExif((e.target as HTMLInputElement).checked)}
+                  size="sm"
+                  aria-label={t('export.exif.label', {}, { defaultValue: 'Strip EXIF metadata' })}
                   data-mol-id="export-strip-exif"
-                  data-checked={stripExif ? 'true' : 'false'}
-                  className={cm.cn('inline-flex h-6 w-11 shrink-0 rounded-full transition-colors')}
-                  style={{
-                    background: stripExif
-                      ? `linear-gradient(to right, var(--photo-accent), var(--photo-danger))`
-                      : 'var(--photo-panel-border)',
-                  }}
-                >
-                  <span
-                    className={cm.cn(
-                      'inline-block w-5 h-5 mt-0.5 rounded-full bg-surface shadow transform transition-transform',
-                      stripExif ? 'translate-x-[22px]' : 'translate-x-0.5',
-                    )}
-                  />
-                </button>
-              </label>
+                />
+              </div>
 
               {submitError && (
                 <p

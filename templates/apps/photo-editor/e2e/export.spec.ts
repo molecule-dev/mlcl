@@ -122,7 +122,7 @@ test.describe('export', () => {
 
     await page.locator('[data-mol-id="export-strip-exif"]').click()
     await expect(page.locator('[data-mol-id="export-strip-exif"]')).toHaveAttribute(
-      'data-checked',
+      'aria-checked',
       'true',
     )
 

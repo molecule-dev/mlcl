@@ -107,7 +107,7 @@ test.describe('99-user-journey', () => {
     await page.goto(APP_BASE + '/settings')
     await page.locator('[data-mol-id="settings-toggle-aiSuggest"]').click()
     await expect(page.locator('[data-mol-id="settings-toggle-aiSuggest"]')).toHaveAttribute(
-      'data-checked',
+      'aria-checked',
       'true',
     )
     const stored = await page.evaluate(() => window.localStorage.getItem('lustra:editorToggles'))

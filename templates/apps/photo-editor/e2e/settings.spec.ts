@@ -45,14 +45,14 @@ test.describe('settings', () => {
     await page.goto(APP_BASE + '/settings')
     // Autosave starts on; flip it off.
     const autosave = page.locator('[data-mol-id="settings-toggle-autosave"]')
-    await expect(autosave).toHaveAttribute('data-checked', 'true')
+    await expect(autosave).toHaveAttribute('aria-checked', 'true')
     await autosave.click()
-    await expect(autosave).toHaveAttribute('data-checked', 'false')
+    await expect(autosave).toHaveAttribute('aria-checked', 'false')
     // AI suggest starts off; flip it on.
     const aiSuggest = page.locator('[data-mol-id="settings-toggle-aiSuggest"]')
-    await expect(aiSuggest).toHaveAttribute('data-checked', 'false')
+    await expect(aiSuggest).toHaveAttribute('aria-checked', 'false')
     await aiSuggest.click()
-    await expect(aiSuggest).toHaveAttribute('data-checked', 'true')
+    await expect(aiSuggest).toHaveAttribute('aria-checked', 'true')
 
     const raw = await page.evaluate(() => window.localStorage.getItem('lustra:editorToggles'))
     const stored = JSON.parse(raw ?? '{}') as Record<string, boolean>
@@ -61,11 +61,11 @@ test.describe('settings', () => {
 
     await page.reload()
     await expect(page.locator('[data-mol-id="settings-toggle-autosave"]')).toHaveAttribute(
-      'data-checked',
+      'aria-checked',
       'false',
     )
     await expect(page.locator('[data-mol-id="settings-toggle-aiSuggest"]')).toHaveAttribute(
-      'data-checked',
+      'aria-checked',
       'true',
     )
   })

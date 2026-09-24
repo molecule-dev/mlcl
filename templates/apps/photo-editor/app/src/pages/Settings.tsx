@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { AccountSettings } from '../components/AccountSettings.js'
@@ -294,34 +294,19 @@ export function Settings() {
                     <span className={cm.cn('text-sm text-[var(--photo-text)] font-medium')}>
                       {toggleLabel}
                     </span>
-                    <button
-                      type="button"
-                      role="switch"
-                      aria-checked={on}
-                      aria-label={toggleLabel}
-                      onClick={() => {
-                        setToggles((prev) => ({ ...prev, [tog.id]: !prev[tog.id] }))
+                    <Switch
+                      checked={on}
+                      onChange={(e) => {
+                        const next = (e.target as HTMLInputElement).checked
+                        setToggles((prev) => ({ ...prev, [tog.id]: next }))
                         track({
                           name: 'settings.updated',
-                          properties: { setting: tog.id, value: !on },
+                          properties: { setting: tog.id, value: next },
                         })
                       }}
+                      aria-label={toggleLabel}
                       data-mol-id={`settings-toggle-${tog.id}`}
-                      data-checked={on ? 'true' : 'false'}
-                      className={cm.cn(
-                        'inline-flex h-8 w-14 shrink-0 items-center rounded-full transition-colors',
-                        on
-                          ? 'bg-gradient-to-r from-[var(--photo-accent)] to-[var(--photo-danger)]'
-                          : 'bg-[var(--photo-border)]',
-                      )}
-                    >
-                      <span
-                        className={cm.cn(
-                          'inline-block w-6 h-6 mx-1 rounded-full bg-white shadow transform transition-transform',
-                          on ? 'translate-x-6' : 'translate-x-0',
-                        )}
-                      />
-                    </button>
+                    />
                   </li>
                 )
               })}
