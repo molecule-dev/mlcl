@@ -139,8 +139,16 @@ test.describe('board page', () => {
       project_id: project.id,
     })
     await page.goto(APP_BASE + `/projects/${project.id}/board`)
-    page.once('dialog', (d) => d.accept())
-    await page.locator(`[data-task-id="${task.id}"] [data-testid="board-task-delete"]`).click()
+    // Two-step inline confirm (shared ConfirmButton): arm, assert the confirm
+    // label, then commit — no native dialog fires any more.
+    const deleteBtn = page.locator(`[data-task-id="${task.id}"] [data-mol-id="board-task-delete"]`)
+    await deleteBtn.click()
+    const armed = page.locator(
+      `[data-task-id="${task.id}"] [data-mol-id="board-task-delete"][data-state="armed"]`,
+    )
+    await expect(armed).toBeVisible()
+    await expect(armed).toContainText('Delete this task?')
+    await armed.click()
     await page.waitForTimeout(500)
 
     const after = await page.request.get(`${apiBase()}/tasks/${task.id}`, {

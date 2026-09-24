@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { MobileNav } from '../components/MobileNav.js'
@@ -195,13 +196,10 @@ export function Dashboard() {
     [http, loadAll],
   )
 
+  // Confirmation is handled inline by the two-step ConfirmButton (arm →
+  // confirm) — no blocking window.confirm dialog.
   const handleDeleteTask = useCallback(
     async (taskId: string) => {
-      if (
-        !window.confirm(t('dashboard.confirmDeleteTask', {}, { defaultValue: 'Delete this task?' }))
-      ) {
-        return
-      }
       setTasks((prev) => prev.filter((row) => row.id !== taskId))
       try {
         await http.delete(`/api/tasks/${taskId}`)
@@ -211,7 +209,7 @@ export function Dashboard() {
         loadAll()
       }
     },
-    [http, loadAll, t],
+    [http, loadAll],
   )
 
   const filteredTasks = useMemo(() => {
@@ -617,17 +615,28 @@ export function Dashboard() {
                                 </span>
                               </div>
                             )}
-                            <button
-                              type="button"
-                              aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
-                              onClick={() => handleDeleteTask(task.id)}
-                              className={cm.cn(
-                                'material-symbols-outlined text-on-surface-variant hover:text-error cursor-pointer text-[20px]',
+                            <ConfirmButton
+                              label={
+                                <span
+                                  className="material-symbols-outlined text-[20px]"
+                                  aria-hidden="true"
+                                >
+                                  delete
+                                </span>
+                              }
+                              confirmLabel={t(
+                                'dashboard.confirmDeleteTask',
+                                {},
+                                { defaultValue: 'Delete this task?' },
                               )}
-                              data-testid="dashboard-task-delete"
-                            >
-                              delete
-                            </button>
+                              aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                              onConfirm={() => handleDeleteTask(task.id)}
+                              data-mol-id="dashboard-task-delete"
+                              size="sm"
+                              color="error"
+                              variant="ghost"
+                              disarmSeconds={6}
+                            />
                           </div>
                         </li>
                       )

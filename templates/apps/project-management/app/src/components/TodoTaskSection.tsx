@@ -17,12 +17,7 @@ interface Task {
   project_name?: string | null
 }
 
-export default function TodoTaskSection({
-  tasks,
-}: {
-  tasks: Task[]
-  onDeleteTask?: (taskId: string) => void
-}) {
+export default function TodoTaskSection({ tasks }: { tasks: Task[] }) {
   const { t } = useTranslation()
   const cm = getClassMap()
   const { projectId } = useParams<{ projectId: string }>()

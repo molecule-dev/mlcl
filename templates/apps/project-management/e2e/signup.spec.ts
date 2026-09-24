@@ -49,8 +49,10 @@ test.describe('signup page', () => {
     await page.waitForURL('**/dashboard', { timeout: 15000 })
     // Land on a PUBLIC route BEFORE wiping credentials: the signed-in dashboard
     // fires authed fetches, and clearing cookies underneath it leaves 401 console
-    // noise that the console-guard (correctly) counts as unexpected.
-    await page.goto(APP_BASE + '/signup')
+    // noise that the console-guard (correctly) counts as unexpected. /signup is
+    // NOT public — it Navigate()s authed users back to /dashboard, so wiping
+    // credentials here happens under a live dashboard. /terms fires no fetches.
+    await page.goto(APP_BASE + '/terms')
     await signOut(page)
     await page.goto(APP_BASE + '/signup')
     await page.locator('input#name').fill('Dup2')

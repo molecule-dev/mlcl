@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
-import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -126,25 +125,6 @@ export default function TaskList({ projectId: projectIdProp }: TaskListPageProps
   const inProgressTasks = filteredTasks.filter((t) => t.status === 'in_progress')
   const reviewTasks = filteredTasks.filter((t) => t.status === 'in_review')
 
-  const handleDeleteTask = useCallback(
-    async (taskId: string) => {
-      if (!window.confirm(t('common.confirmDelete', {}, { defaultValue: 'Delete this task?' })))
-        return
-      try {
-        await http.delete(`/api/tasks/${taskId}`)
-        track({ name: 'task.deleted', properties: { taskId } })
-        setTasks((prev) => prev.filter((t) => t.id !== taskId))
-      } catch (err) {
-        setError(
-          err instanceof Error
-            ? err.message
-            : t('taskList.deleteError', {}, { defaultValue: 'Failed to delete task' }),
-        )
-      }
-    },
-    [http, t],
-  )
-
   if (loading) {
     return (
       <div className={cm.cn(cm.surface, 'antialiased')}>
@@ -207,9 +187,9 @@ export default function TaskList({ projectId: projectIdProp }: TaskListPageProps
         <div className={cm.cn(cm.sp('px', 8), cm.mxAuto, 'max-w-7xl', 'pb-20')}>
           <div className={cm.stack(12)}>
             <TaskListHeader dateString={dateString} remainingTasks={remainingTasks} />
-            <TodoTaskSection tasks={todoTasks} onDeleteTask={handleDeleteTask} />
-            <TaskInProgressSection tasks={inProgressTasks} onDeleteTask={handleDeleteTask} />
-            <TaskReviewSection tasks={reviewTasks} onDeleteTask={handleDeleteTask} />
+            <TodoTaskSection tasks={todoTasks} />
+            <TaskInProgressSection tasks={inProgressTasks} />
+            <TaskReviewSection tasks={reviewTasks} />
           </div>
         </div>
       </main>

@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { MobileNav } from '../components/MobileNav.js'
@@ -266,13 +267,10 @@ function Board({ projectId: projectIdProp }: BoardPageProps = {}) {
     [http, loadAll],
   )
 
+  // Confirmation is handled inline by the two-step ConfirmButton (arm →
+  // confirm) — no blocking window.confirm dialog.
   const handleDeleteTask = useCallback(
     async (taskId: string) => {
-      if (
-        !window.confirm(t('board.confirmDeleteTask', {}, { defaultValue: 'Delete this task?' }))
-      ) {
-        return
-      }
       setTasks((prev) => prev.filter((row) => row.id !== taskId))
       try {
         await http.delete(`/api/tasks/${taskId}`)
@@ -282,7 +280,7 @@ function Board({ projectId: projectIdProp }: BoardPageProps = {}) {
         loadAll()
       }
     },
-    [http, loadAll, t],
+    [http, loadAll],
   )
 
   const openAddTask = (col: StatusKey) => {
@@ -617,20 +615,28 @@ function Board({ projectId: projectIdProp }: BoardPageProps = {}) {
                                 >
                                   {task.priority}
                                 </span>
-                                <button
-                                  type="button"
-                                  data-testid="board-task-delete"
-                                  aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
-                                  onClick={(e) => {
-                                    e.stopPropagation()
-                                    handleDeleteTask(task.id)
-                                  }}
-                                  className={cm.cn(
-                                    'material-symbols-outlined text-on-surface-variant/50 hover:text-error cursor-pointer text-[18px]',
+                                <ConfirmButton
+                                  label={
+                                    <span
+                                      className="material-symbols-outlined text-[18px]"
+                                      aria-hidden="true"
+                                    >
+                                      delete
+                                    </span>
+                                  }
+                                  confirmLabel={t(
+                                    'board.confirmDeleteTask',
+                                    {},
+                                    { defaultValue: 'Delete this task?' },
                                   )}
-                                >
-                                  delete
-                                </button>
+                                  aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                                  onConfirm={() => handleDeleteTask(task.id)}
+                                  data-mol-id="board-task-delete"
+                                  size="sm"
+                                  color="error"
+                                  variant="ghost"
+                                  disarmSeconds={6}
+                                />
                               </header>
                               <h4
                                 className={cm.cn(

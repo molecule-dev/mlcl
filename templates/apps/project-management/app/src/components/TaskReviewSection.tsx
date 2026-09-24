@@ -18,7 +18,7 @@ interface Task {
   project_name?: string | null
 }
 
-function TaskReviewSection({ tasks }: { tasks: Task[]; onDeleteTask?: (taskId: string) => void }) {
+function TaskReviewSection({ tasks }: { tasks: Task[] }) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { projectId } = useParams<{ projectId: string }>()

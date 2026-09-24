@@ -17,12 +17,7 @@ interface Task {
   project_name?: string | null
 }
 
-export default function TaskInProgressSection({
-  tasks,
-}: {
-  tasks: Task[]
-  onDeleteTask?: (taskId: string) => void
-}) {
+export default function TaskInProgressSection({ tasks }: { tasks: Task[] }) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { projectId } = useParams<{ projectId: string }>()
