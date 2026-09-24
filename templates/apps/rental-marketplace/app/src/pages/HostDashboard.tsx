@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -55,36 +56,33 @@ export function HostDashboard() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    let cancelled = false
+  // Retryable load — the shared LoadErrorBanner's Retry button calls this
+  // and owns the pending/disabled state while it is in flight.
+  const load = useCallback(async (): Promise<void> => {
     setLoading(true)
     setError(null)
-    Promise.all([
+    const [hl, rv] = await Promise.all([
       http.get('/api/host-listings').catch(() => null),
       http.get('/api/reservations').catch(() => null),
     ])
-      .then(([hl, rv]) => {
-        if (cancelled) return
-        if (!hl && !rv) {
-          setError(
-            t(
-              'hostDashboard.loadError',
-              {},
-              { defaultValue: 'Failed to load your hosting data. Please try again.' },
-            ),
-          )
-          return
-        }
-        setHostListings(unwrapList<HostListing>(hl?.data))
-        setReservations(unwrapList<Reservation>(rv?.data))
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
-    return () => {
-      cancelled = true
+    if (!hl && !rv) {
+      setError(
+        t(
+          'hostDashboard.loadError',
+          {},
+          { defaultValue: 'Failed to load your hosting data. Please try again.' },
+        ),
+      )
+      return
     }
+    setHostListings(unwrapList<HostListing>(hl?.data))
+    setReservations(unwrapList<Reservation>(rv?.data))
+    setLoading(false)
   }, [http, t])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   const totals = useMemo(() => {
     // Earnings: confirmed/completed bookings paid out (subtotal minus
@@ -160,30 +158,12 @@ export function HostDashboard() {
       </header>
 
       {error ? (
-        <div
-          className={cm.cn(
-            cm.sp('p', 5),
-            cm.sp('mb', 8),
-            cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-            'rounded-2xl bg-surface-container-low border-l-4 border-error',
-          )}
-          role="alert"
-        >
-          <p className={cm.cn(cm.fontWeight('semibold'), 'text-error')}>{error}</p>
-          <button
-            type="button"
-            onClick={() => window.location.reload()}
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'rounded-full border border-outline-variant uppercase tracking-widest hover:border-primary hover:text-primary',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-        </div>
+        <LoadErrorBanner
+          message={error}
+          retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+          onRetry={load}
+          className={cm.sp('mb', 8)}
+        />
       ) : null}
 
       <section

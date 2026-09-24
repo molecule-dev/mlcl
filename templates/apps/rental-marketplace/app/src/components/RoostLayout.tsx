@@ -3,18 +3,20 @@
  * Bookings / Messages / Notifications / Settings / Host (with /host
  * sub-routes nested underneath).
  *
- * Template-local responsive shell (fleet pattern): one sticky header that
- * renders the brand + user menu at every breakpoint, the primary nav INLINE
- * at md+ (the shared TopNavLayout rhythm), and below md as a horizontally
- * scrollable chip row under the bar. The chip row scrolls WITHIN itself, so
- * the page never overflows at 390px — the shared top-nav layout crammed all
- * six items next to the brand and pushed the document to ~530px wide.
+ * The shared `ResponsiveAppShell` owns the responsive split this template
+ * used to hand-roll: a mobile-only top bar (<768px — brand + user menu +
+ * the shell-rendered 44px menu trigger), a ≥768px sidebar carrying the
+ * brand row and the primary nav, and a <768px dialog drawer over the SAME
+ * nav element (focus trap, Escape/backdrop close, scroll lock, auto-close
+ * on navigation). Only the mounted breakpoint's nav instantiates, so the
+ * landmarks never duplicate.
  */
 
 import { Link, NavLink, Outlet } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { UserMenu } from './UserMenu.js'
@@ -33,118 +35,115 @@ const NAV_KEYS = [
   },
 ] as const
 
+/**
+ * The nav links, shared by the desktop Sidebar and the mobile Drawer — the
+ * shell mounts only the breakpoint's copy. NavLink carries
+ * `aria-current="page"` on the active route itself (prefix match, so
+ * /host/listings keeps Host lit).
+ */
+function RoostNav() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  return (
+    <>
+      {NAV_KEYS.map((item) => (
+        <NavLink
+          key={item.key}
+          to={item.to}
+          className={({ isActive }) =>
+            cm.cn(
+              cm.flex({ align: 'center', gap: 'xs' }),
+              cm.sp('px', 3),
+              cm.sp('py', 2),
+              cm.sp('mx', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('medium'),
+              // 44px row — the fleet's minimum tap target in the drawer.
+              'min-h-[44px] whitespace-nowrap rounded-full transition-colors',
+              isActive
+                ? cm.cn('bg-primary-container', cm.textPrimary)
+                : cm.cn(cm.textMuted, 'hover:bg-surface-container hover:text-on-surface'),
+            )
+          }
+        >
+          <span className="material-symbols-outlined text-base" aria-hidden="true">
+            {item.icon}
+          </span>
+          <span>{t(`roostLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel })}</span>
+        </NavLink>
+      ))}
+    </>
+  )
+}
+
 export function RoostLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const navItems = NAV_KEYS.map((item) => ({
-    to: item.to,
-    key: item.key,
-    icon: item.icon,
-    label: t(`roostLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
-  }))
-  const navAriaLabel = t('roostLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
+  const navLabel = t('roostLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
+  const nav = <RoostNav />
 
   return (
-    <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
-      <header className={cm.cn('sticky top-0 z-40 bg-surface shadow-sm')}>
-        <div
-          className={cm.cn(
-            cm.maxW('7xl'),
-            cm.mxAuto,
-            'px-4 md:px-6',
-            cm.sp('py', 3),
-            cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-          )}
-        >
+    <ResponsiveAppShell sidebarWidth="md" className="antialiased">
+      {/*
+        Mobile top bar (<768px): brand + user menu + the shell-rendered menu
+        trigger. On desktop it does not mount — the sidebar carries the brand.
+      */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={
           <Link
             to="/"
-            className={cm.cn(
-              cm.textSize('2xl'),
-              cm.fontWeight('bold'),
-              'shrink-0 whitespace-nowrap',
-            )}
+            className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'whitespace-nowrap')}
           >
             {APP_NAME}
           </Link>
+        }
+        actions={<UserMenu />}
+      />
 
-          {/* Desktop: inline nav, same rhythm as the shared top-nav layout.
-              Raw `hidden md:flex` — cm.flex would emit an unconditional
-              `flex` that twMerge resolves against `hidden` (last wins),
-              un-hiding the row on mobile. Labels join at lg; below that the
-              six items stay icon-only so 768px tablets fit. */}
-          <nav className={cm.cn('hidden md:flex items-center gap-2')} aria-label={navAriaLabel}>
-            {navItems.map((item) => (
-              <NavLink
-                key={item.key}
-                to={item.to}
-                className={({ isActive }) =>
-                  cm.cn(
-                    cm.flex({ align: 'center', gap: 'xs' }),
-                    cm.sp('px', 3),
-                    cm.sp('py', 2),
-                    cm.textSize('sm'),
-                    cm.fontWeight('medium'),
-                    'rounded-md transition-colors whitespace-nowrap',
-                    isActive
-                      ? cm.cn('bg-primary-container', cm.textPrimary)
-                      : cm.cn(cm.textMuted, 'hover:bg-surface-container hover:text-on-surface'),
-                  )
-                }
-              >
-                {item.icon ? (
-                  <span className="material-symbols-outlined" aria-hidden="true">
-                    {item.icon}
-                  </span>
-                ) : null}
-                <span className="hidden lg:inline">{item.label}</span>
-              </NavLink>
-            ))}
-          </nav>
+      {/*
+        Desktop sidebar (>=768px): the brand row leads the nav column (the
+        shared Sidebar has no header slot, so it rides inside `children`),
+        and the user menu lives in the footer row below the nav.
+      */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        className={cm.sp('p', 4)}
+        footer={<UserMenu />}
+      >
+        <Link
+          to="/"
+          className={cm.cn(
+            cm.textSize('2xl'),
+            cm.fontWeight('bold'),
+            'block whitespace-nowrap',
+            cm.sp('px', 3),
+            cm.sp('mb', 4),
+          )}
+        >
+          {APP_NAME}
+        </Link>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
 
-          <UserMenu />
-        </div>
+      {/*
+        Mobile drawer (<768px): a full dialog panel over the same nav, with
+        the brand in the header row next to the shell's close button.
+      */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navLabel}
+        className="h-full"
+        header={
+          <span className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>{APP_NAME}</span>
+        }
+      >
+        {nav}
+      </ResponsiveAppShell.Drawer>
 
-        {/* Mobile: horizontally scrollable chip nav — scrolls within itself
-            so six destinations never push the document past the viewport. */}
-        <nav className={cm.cn('md:hidden overflow-x-auto')} aria-label={navAriaLabel}>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center' }),
-              'flex-nowrap gap-1 px-3 pb-2 w-max min-w-full',
-            )}
-          >
-            {navItems.map((item) => (
-              <NavLink
-                key={item.key}
-                to={item.to}
-                className={({ isActive }) =>
-                  cm.cn(
-                    cm.flex({ align: 'center', gap: 'xs' }),
-                    cm.sp('px', 3),
-                    'py-2',
-                    cm.textSize('sm'),
-                    cm.fontWeight('semibold'),
-                    'shrink-0 rounded-full transition-colors whitespace-nowrap',
-                    isActive
-                      ? cm.cn('bg-primary-container', cm.textPrimary)
-                      : cm.cn(cm.textMuted, 'bg-surface-container hover:text-on-surface'),
-                  )
-                }
-              >
-                {item.icon ? (
-                  <span className="material-symbols-outlined text-base" aria-hidden="true">
-                    {item.icon}
-                  </span>
-                ) : null}
-                <span>{item.label}</span>
-              </NavLink>
-            ))}
-          </div>
-        </nav>
-      </header>
-      <main>
+      {/* Bare <main> — page padding stays inside the pages. */}
+      <ResponsiveAppShell.Content>
         <Outlet />
-      </main>
-    </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
