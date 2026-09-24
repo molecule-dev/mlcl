@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-
-import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 interface Kpis {
   gross_revenue_cents: number
@@ -138,7 +137,16 @@ export function Reports() {
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </section>
       ) : error ? (
-        <LoadErrorBanner testId="reports-error" onRetry={() => setReloadKey((k) => k + 1)} />
+        <LoadErrorBanner
+          data-mol-id="reports-error"
+          retryMolId="reports-error-retry"
+          message={t(
+            'common.loadFailed',
+            {},
+            { defaultValue: 'Something went wrong loading your data. Please try again.' },
+          )}
+          onRetry={() => setReloadKey((k) => k + 1)}
+        />
       ) : (
         <>
           <section

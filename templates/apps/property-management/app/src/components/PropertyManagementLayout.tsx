@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { ThemeToggle } from './ThemeToggle.js'
@@ -26,38 +26,22 @@ const NAV_KEYS = [
 ] as const
 
 /**
- * Hearthstone authed shell — vertical sidebar nav over property portfolio
- * routes (Dashboard → Properties → Tenants → Maintenance → Leases →
- * Finances → Reports → Notifications → Settings).
+ * Hearthstone authed shell — the shared `ResponsiveAppShell`: brand + nav in
+ * a desktop sidebar (≥768px), a `mobileOnly` top bar whose menu trigger opens
+ * the dialog drawer (<768px) with the SAME nav element, around one content
+ * column (Dashboard → Properties → Tenants → Maintenance → Leases → Finances
+ * → Reports → Notifications → Settings).
  *
- * Desktop (≥768px): fixed 240px sidebar, template-local copy of the shared
- * SidebarLayout pattern. Below 768px the sidebar is hidden and a sticky top
- * bar + slide-in drawer take over — the fleet mobile-shell pattern (tap
- * targets ≥40px, drawer closes on navigation so the user never lands on a
- * page with the menu still open, Escape closes so keyboard users are never
- * trapped). The shared SidebarLayout has no mobile collapse, so this shell
- * is template-local by design.
+ * The shell owns the breakpoint split, the 44px menu trigger, the drawer's
+ * full APG dialog contract (focus trap, Escape/backdrop close, body scroll
+ * lock) and auto-close on navigation — the former template-local hamburger
+ * button, drawer open state and Escape handler are deleted with the
+ * hand-rolled shell.
  */
 export function PropertyManagementLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { pathname } = useLocation()
-  const [drawerOpen, setDrawerOpen] = useState(false)
-
-  // Close the drawer whenever the route changes (nav link was followed).
-  useEffect(() => {
-    setDrawerOpen(false)
-  }, [pathname])
-
-  // Close on Escape so keyboard users are never trapped in the overlay.
-  useEffect(() => {
-    if (!drawerOpen) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setDrawerOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [drawerOpen])
 
   const navItems = NAV_KEYS.map((item) => ({
     ...item,
@@ -95,191 +79,105 @@ export function PropertyManagementLayout() {
         : cm.cn(cm.textMuted, 'hover:bg-surface-container hover:text-on-surface'),
     )
 
-  const renderNav = (idPrefix: string): React.ReactNode[] =>
-    navItems.map((item) => {
-      const isActive = item.key === activeKey
-      return (
-        <Link
-          key={item.key}
-          to={safeTarget(item.to)}
-          data-mol-id={idPrefix + `nav-${item.key}`}
-          aria-current={isActive ? 'page' : undefined}
-          className={navLinkClass(isActive)}
-        >
-          <span className="material-symbols-outlined" aria-hidden="true">
-            {item.icon}
-          </span>
-          <span>{item.label}</span>
-        </Link>
-      )
-    })
+  // ONE nav element for both breakpoints — the Sidebar and the Drawer receive
+  // the same element, and only the mounted breakpoint instantiates it, so the
+  // links are never duplicated in the DOM. `aria-current="page"` marks the
+  // active link (the shell renders nav children pass-through).
+  const nav = (
+    <>
+      {navItems.map((item) => {
+        const isActive = item.key === activeKey
+        return (
+          <Link
+            key={item.key}
+            to={safeTarget(item.to)}
+            data-mol-id={`nav-${item.key}`}
+            aria-current={isActive ? 'page' : undefined}
+            className={navLinkClass(isActive)}
+          >
+            <span className="material-symbols-outlined" aria-hidden="true">
+              {item.icon}
+            </span>
+            <span>{item.label}</span>
+          </Link>
+        )
+      })}
+    </>
+  )
+
+  const primaryNavLabel = t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })
 
   return (
-    <div
-      className={cm.cn(
-        cm.minH('screen'),
-        cm.flex({ direction: 'col' }),
-        'bg-background text-on-surface antialiased',
-      )}
-      data-mol-id="property-management-layout"
+    <ResponsiveAppShell
+      sidebarWidth="md"
+      className="bg-background text-on-surface antialiased"
+      dataMolId="property-management-layout"
     >
-      <div className={cm.cn(cm.flex({ direction: 'row' }), cm.flex1, 'min-w-0')}>
-        {/* Desktop sidebar (≥ md) */}
-        <aside
-          className={cm.cn(
-            cm.sp('p', 4),
-            cm.shrink0,
-            cm.flex({ direction: 'col' }),
-            'hidden md:flex w-60 bg-surface border-r border-outline-variant',
-          )}
-          data-mol-id="side-nav"
-        >
+      {/* Mobile top bar (<768px, shell-mounted): the trigger renders itself;
+          on desktop this bar does not mount — the sidebar carries the brand. */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={
           <Link
             to={safeTarget('/dashboard')}
-            data-mol-id="nav-app-home"
+            data-mol-id="nav-app-home-mobile"
             className={cm.cn(
-              cm.textSize('xl'),
+              cm.textSize('lg'),
               cm.fontWeight('bold'),
-              cm.sp('mb', 6),
               'inline-flex min-h-[40px] items-center',
             )}
           >
             {APP_NAME}
           </Link>
+        }
+      />
 
-          <nav
-            className={cm.cn(cm.flex1, 'space-y-1')}
-            aria-label={t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })}
-          >
-            {renderNav('')}
-          </nav>
-
-          <div
-            className={cm.cn(
-              cm.sp('pt', 4),
-              cm.flex({ align: 'center', gap: 'sm', justify: 'end' }),
-              'border-t border-outline-variant',
-            )}
-          >
-            <ThemeToggle />
-          </div>
-
-          <div className={cm.sp('pt', 3)}>
+      {/* Desktop sidebar (≥768px): the brand row leads the nav column (the
+          shared Sidebar has no header slot, so it rides inside `children`),
+          with the theme toggle + user menu in the bordered footer row. */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={primaryNavLabel}
+        footer={
+          <>
+            <div className={cm.flex({ align: 'center', justify: 'end' })}>
+              <ThemeToggle />
+            </div>
             <UserMenu />
-          </div>
-        </aside>
-
-        {/* pt-14 clears the fixed mobile top bar (rendered after this row so
-            the first heading/button in DOM order is page content, never the
-            hidden-at-desktop bar chrome — the generated e2e smoke locators
-            resolve `.first()` in DOM order). */}
-        <main className={cm.cn(cm.flex1, 'min-w-0 overflow-y-auto', 'pt-14 md:pt-0')}>
-          <Outlet />
-        </main>
-      </div>
-
-      {/* Mobile top bar (below md). FIXED, not sticky, and deliberately placed
-          AFTER the sidebar/main row: at desktop it is display:none, and any
-          `.first()` DOM-order locator (generated smoke specs) must resolve to
-          page content rather than hidden chrome. */}
-      <header
-        className={cm.cn(
-          cm.flex({ align: 'center', gap: 'sm', justify: 'between' }),
-          cm.sp('px', 4),
-          'md:hidden fixed top-0 inset-x-0 z-30 h-14 bg-surface border-b border-outline-variant',
-        )}
-        data-mol-id="mobile-top-bar"
+          </>
+        }
       >
-        <button
-          type="button"
-          data-mol-id="nav-mobile-toggle"
-          aria-label={t('nav.openMenu', {}, { defaultValue: 'Open menu' })}
-          aria-expanded={drawerOpen}
-          aria-controls="mobile-drawer"
-          onClick={() => setDrawerOpen(true)}
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            'h-10 w-10 -ml-2 rounded-md text-on-surface hover:bg-surface-container',
-          )}
-        >
-          <span className="material-symbols-outlined" aria-hidden="true">
-            menu
-          </span>
-        </button>
         <Link
           to={safeTarget('/dashboard')}
-          data-mol-id="nav-app-home-mobile"
+          data-mol-id="nav-app-home"
           className={cm.cn(
-            cm.textSize('lg'),
+            cm.textSize('xl'),
             cm.fontWeight('bold'),
+            cm.sp('mb', 6),
             'inline-flex min-h-[40px] items-center',
           )}
         >
           {APP_NAME}
         </Link>
-        <div className="h-10 w-10" aria-hidden="true" />
-      </header>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
 
-      {/* Mobile drawer (below md) */}
-      {drawerOpen ? (
-        <div className="md:hidden fixed inset-0 z-40" data-mol-id="mobile-drawer-root">
-          <button
-            type="button"
-            aria-label={t('nav.closeMenu', {}, { defaultValue: 'Close menu' })}
-            onClick={() => setDrawerOpen(false)}
-            className="absolute inset-0 h-full w-full cursor-default bg-on-surface/40"
-            data-mol-id="mobile-drawer-backdrop"
-          />
-          <div
-            id="mobile-drawer"
-            role="dialog"
-            aria-modal="true"
-            aria-label={t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })}
-            className={cm.cn(
-              cm.flex({ direction: 'col' }),
-              cm.sp('p', 4),
-              'absolute left-0 top-0 h-full w-72 max-w-[85vw] bg-surface border-r border-outline-variant overflow-y-auto',
-            )}
-            data-mol-id="mobile-drawer"
-          >
-            <div
-              className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}
-            >
-              <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>{APP_NAME}</span>
-              <button
-                type="button"
-                data-mol-id="nav-mobile-close"
-                aria-label={t('nav.closeMenu', {}, { defaultValue: 'Close menu' })}
-                onClick={() => setDrawerOpen(false)}
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  'h-10 w-10 rounded-md text-on-surface hover:bg-surface-container',
-                )}
-              >
-                <span className="material-symbols-outlined" aria-hidden="true">
-                  close
-                </span>
-              </button>
-            </div>
-            <nav
-              className={cm.cn('space-y-1 flex-1')}
-              aria-label={t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })}
-            >
-              {renderNav('mobile-')}
-            </nav>
-            <div
-              className={cm.cn(
-                cm.sp('pt', 4),
-                cm.flex({ align: 'center', gap: 'sm', justify: 'between' }),
-                'border-t border-outline-variant',
-              )}
-            >
-              <ThemeToggle />
-              <UserMenu />
-            </div>
+      {/* Mobile drawer (<768px): the full dialog panel over the same nav. */}
+      <ResponsiveAppShell.Drawer
+        navLabel={primaryNavLabel}
+        header={<span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>{APP_NAME}</span>}
+        footer={
+          <div className={cm.flex({ align: 'center', justify: 'between' })}>
+            <ThemeToggle />
+            <UserMenu />
           </div>
-        </div>
-      ) : null}
-    </div>
+        }
+      >
+        {nav}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content>
+        <Outlet />
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }

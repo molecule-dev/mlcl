@@ -3,8 +3,8 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
-import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import type { MaintenanceTicket } from '../components/MaintenanceQueueList.js'
 
 interface MaintenanceApi {
@@ -167,7 +167,16 @@ export function Maintenance() {
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </div>
       ) : error ? (
-        <LoadErrorBanner testId="maintenance-error" onRetry={() => setReloadKey((k) => k + 1)} />
+        <LoadErrorBanner
+          data-mol-id="maintenance-error"
+          retryMolId="maintenance-error-retry"
+          message={t(
+            'common.loadFailed',
+            {},
+            { defaultValue: 'Something went wrong loading your data. Please try again.' },
+          )}
+          onRetry={() => setReloadKey((k) => k + 1)}
+        />
       ) : tickets.length === 0 ? (
         <div
           className={cm.cn(

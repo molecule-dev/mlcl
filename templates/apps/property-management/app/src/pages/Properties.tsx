@@ -3,8 +3,8 @@ import { Link, useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
-import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { PropertyListCard, type PropertySummary } from '../components/PropertyListCard.js'
 
 const FILTERS = [
@@ -189,7 +189,16 @@ export function Properties() {
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </div>
       ) : error ? (
-        <LoadErrorBanner testId="properties-error" onRetry={() => setReloadKey((k) => k + 1)} />
+        <LoadErrorBanner
+          data-mol-id="properties-error"
+          retryMolId="properties-error-retry"
+          message={t(
+            'common.loadFailed',
+            {},
+            { defaultValue: 'Something went wrong loading your data. Please try again.' },
+          )}
+          onRetry={() => setReloadKey((k) => k + 1)}
+        />
       ) : visible.length === 0 ? (
         <div
           className={cm.cn(

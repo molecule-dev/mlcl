@@ -3,8 +3,8 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
-import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { MaintenanceQueueList, type MaintenanceTicket } from '../components/MaintenanceQueueList.js'
 import { OccupancyKpiQuad } from '../components/OccupancyKpiQuad.js'
 import { PortfolioHeroCard } from '../components/PortfolioHeroCard.js'
@@ -125,7 +125,16 @@ export function Dashboard() {
       </header>
 
       {error ? (
-        <LoadErrorBanner testId="dashboard-error" onRetry={() => setReloadKey((k) => k + 1)} />
+        <LoadErrorBanner
+          data-mol-id="dashboard-error"
+          retryMolId="dashboard-error-retry"
+          message={t(
+            'common.loadFailed',
+            {},
+            { defaultValue: 'Something went wrong loading your data. Please try again.' },
+          )}
+          onRetry={() => setReloadKey((k) => k + 1)}
+        />
       ) : null}
 
       {isEmpty ? (

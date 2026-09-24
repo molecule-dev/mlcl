@@ -3,8 +3,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-
-import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 interface LeaseApi {
   id: string
@@ -195,7 +194,16 @@ export function Leases() {
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </section>
       ) : error ? (
-        <LoadErrorBanner testId="leases-error" onRetry={() => setReloadKey((k) => k + 1)} />
+        <LoadErrorBanner
+          data-mol-id="leases-error"
+          retryMolId="leases-error-retry"
+          message={t(
+            'common.loadFailed',
+            {},
+            { defaultValue: 'Something went wrong loading your data. Please try again.' },
+          )}
+          onRetry={() => setReloadKey((k) => k + 1)}
+        />
       ) : leases.length === 0 ? (
         <section
           className={cm.cn(

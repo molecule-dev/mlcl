@@ -3,8 +3,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-
-import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 interface NotificationItem {
   id: string
@@ -163,7 +162,16 @@ export function Notifications() {
           {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
         </div>
       ) : error ? (
-        <LoadErrorBanner testId="notifications-error" onRetry={load} />
+        <LoadErrorBanner
+          data-mol-id="notifications-error"
+          retryMolId="notifications-error-retry"
+          message={t(
+            'common.loadFailed',
+            {},
+            { defaultValue: 'Something went wrong loading your data. Please try again.' },
+          )}
+          onRetry={load}
+        />
       ) : items.length === 0 ? (
         <div
           className={cm.cn(
