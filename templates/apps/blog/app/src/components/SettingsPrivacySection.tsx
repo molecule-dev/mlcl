@@ -1,5 +1,6 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 interface SettingsPrivacySectionProps {
   profileVisible: boolean
   showEmail: boolean
@@ -65,30 +66,18 @@ function SettingsPrivacySection({
               )}
             </p>
           </div>
-          <button
-            className={cm.cn(
-              cm.w(12),
-              cm.h(6),
-              cm.roundedFull,
-              cm.flex({ align: 'center' }),
-              'relative transition-colors',
-              profileVisible ? 'bg-primary' : 'bg-surface-container-high',
-            )}
+          <Switch
+            checked={profileVisible}
+            onChange={() => onToggleVisibility()}
+            size="md"
+            color="primary"
             data-mol-id="toggle-visibility"
-            onClick={onToggleVisibility}
-            aria-checked={profileVisible}
-            role="switch"
-          >
-            <span
-              className={cm.cn(
-                cm.w(4),
-                cm.h(4),
-                cm.roundedFull,
-                'absolute bg-surface transition-all',
-                profileVisible ? 'right-1' : 'left-1',
-              )}
-            ></span>
-          </button>
+            aria-label={t(
+              'settingsPrivacySection.profileVisibilityLabel',
+              {},
+              { defaultValue: 'Public Profile Visibility' },
+            )}
+          />
         </div>
         <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('py', 2))}>
           <div>
@@ -107,30 +96,18 @@ function SettingsPrivacySection({
               )}
             </p>
           </div>
-          <button
-            className={cm.cn(
-              cm.w(12),
-              cm.h(6),
-              cm.roundedFull,
-              cm.flex({ align: 'center' }),
-              'relative transition-colors',
-              showEmail ? 'bg-primary' : 'bg-surface-container-high',
-            )}
+          <Switch
+            checked={showEmail}
+            onChange={() => onToggleShowEmail()}
+            size="md"
+            color="primary"
             data-mol-id="toggle-show-email"
-            onClick={onToggleShowEmail}
-            aria-checked={showEmail}
-            role="switch"
-          >
-            <span
-              className={cm.cn(
-                cm.w(4),
-                cm.h(4),
-                cm.roundedFull,
-                'absolute bg-surface shadow-sm transition-all',
-                showEmail ? 'right-1' : 'left-1',
-              )}
-            ></span>
-          </button>
+            aria-label={t(
+              'settingsPrivacySection.showEmailLabel',
+              {},
+              { defaultValue: 'Show Email on Profile' },
+            )}
+          />
         </div>
       </div>
     </section>
