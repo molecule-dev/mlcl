@@ -14,6 +14,7 @@ import { Link } from 'react-router'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { CourseHeroBanner } from '../components/CourseHeroBanner.js'
@@ -263,35 +264,18 @@ export function MyLearning() {
               {t('myLearning.loading', {}, { defaultValue: 'Loading your library…' })}
             </p>
           ) : loadError ? (
-            <div
+            <LoadErrorBanner
               data-mol-id="my-learning-error"
-              className={cm.cn(
-                'bg-surface-container-lowest rounded-2xl shadow-sm p-12 text-center',
+              message={t(
+                'myLearning.error.title',
+                {},
+                { defaultValue: 'Could not load your library' },
               )}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-5xl text-error mb-3')}
-                aria-hidden="true"
-              >
-                wifi_off
-              </span>
-              <p className={cm.cn('text-lg font-bold text-on-surface mb-2')}>
-                {t('myLearning.error.title', {}, { defaultValue: 'Could not load your library' })}
-              </p>
-              <p className={cm.cn('text-on-surface-variant text-sm mb-6')}>{loadError}</p>
-              <button
-                type="button"
-                onClick={() => {
-                  void load()
-                }}
-                data-mol-id="my-learning-retry"
-                className={cm.cn(
-                  'inline-block bg-primary-container text-on-primary px-5 py-2.5 rounded-xl font-bold hover:bg-primary transition-colors',
-                )}
-              >
-                {t('common.retry', {}, { defaultValue: 'Try again' })}
-              </button>
-            </div>
+              detail={loadError}
+              onRetry={load}
+              retryLabel={t('common.retry', {}, { defaultValue: 'Try again' })}
+              retryMolId="my-learning-retry"
+            />
           ) : filtered.length === 0 ? (
             <div
               data-mol-id="my-learning-empty"

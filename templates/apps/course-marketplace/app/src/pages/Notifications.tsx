@@ -13,6 +13,7 @@ import { Link } from 'react-router'
 import type { TranslateFunction } from '@molecule/app-i18n'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { Footer } from '../components/Footer.js'
 import { Header } from '../components/Header.js'
@@ -177,33 +178,18 @@ export function Notifications() {
             {t('nav.loadingNotifications', {}, { defaultValue: 'Loading notifications…' })}
           </p>
         ) : loadError ? (
-          <div
+          <LoadErrorBanner
             data-mol-id="notifications-error"
-            className={cm.cn('bg-surface-container-lowest rounded-2xl shadow-sm p-12 text-center')}
-          >
-            <span
-              className={cm.cn('material-symbols-outlined text-5xl text-error mb-3')}
-              aria-hidden="true"
-            >
-              wifi_off
-            </span>
-            <p className={cm.cn('text-lg font-bold text-on-surface mb-2')}>
-              {t('notifications.error.title', {}, { defaultValue: 'Could not load activity' })}
-            </p>
-            <p className={cm.cn('text-on-surface-variant text-sm mb-6')}>{loadError}</p>
-            <button
-              type="button"
-              onClick={() => {
-                void load()
-              }}
-              data-mol-id="notifications-retry"
-              className={cm.cn(
-                'inline-block bg-primary-container text-on-primary px-5 py-2.5 rounded-xl font-bold hover:bg-primary transition-colors',
-              )}
-            >
-              {t('common.retry', {}, { defaultValue: 'Try again' })}
-            </button>
-          </div>
+            message={t(
+              'notifications.error.title',
+              {},
+              { defaultValue: 'Could not load activity' },
+            )}
+            detail={loadError}
+            onRetry={load}
+            retryLabel={t('common.retry', {}, { defaultValue: 'Try again' })}
+            retryMolId="notifications-retry"
+          />
         ) : items.length === 0 ? (
           <div
             data-mol-id="notifications-empty"
