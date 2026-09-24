@@ -169,4 +169,63 @@ test.describe('instructor authoring flow', () => {
     expect(body.status).toBe('published')
     expect(body.published_at).not.toBeNull()
   })
+
+  test('delete lesson uses the shared two-click ConfirmButton (arm, then commit)', async ({
+    page,
+  }) => {
+    const { accessToken } = await signup(page, uniqueEmail('instructor-delete'))
+    await becomeInstructor(page, accessToken)
+    const created = await page.request.post(`${API_BASE}/courses`, {
+      headers: authHeaders(accessToken),
+      data: {
+        title: 'Delete Lesson Course',
+        description: '',
+        category: 'general',
+        price_cents: 0,
+      },
+    })
+    expect(created.status()).toBeLessThan(400)
+    const { id: courseId } = (await created.json()) as { id: string }
+    const postLesson = (title: string, sortOrder: number) =>
+      page.request.post(`${API_BASE}/lessons`, {
+        headers: authHeaders(accessToken),
+        data: {
+          course_id: courseId,
+          title,
+          duration_sec: 60,
+          sort_order: sortOrder,
+          free_preview: false,
+        },
+      })
+    const firstRes = await postLesson('Delete Me', 0)
+    expect(firstRes.status()).toBe(201)
+    const { id: lessonId } = (await firstRes.json()) as { id: string }
+    // A second lesson keeps the list non-empty after the first delete, so the
+    // disarm-back-to-idle behavior is observable.
+    const keepRes = await postLesson('Keep Me', 1)
+    expect(keepRes.status()).toBe(201)
+    const { id: keepId } = (await keepRes.json()) as { id: string }
+
+    await page.goto(`${APP_BASE}/instructor/courses/${courseId}/edit`)
+    const deleteButton = page.locator(`[data-mol-id="delete-lesson-${lessonId}"]`)
+    await expect(deleteButton).toBeVisible({ timeout: 10000 })
+
+    // The native window.confirm is GONE (migrated to the shared ConfirmButton):
+    // the first click ARMS the button and surfaces the confirm label — no
+    // dialog event fires, the lesson is not yet deleted.
+    await deleteButton.click()
+    await expect(deleteButton).toHaveAttribute('data-state', 'armed')
+    await expect(deleteButton).toHaveText(/Delete this lesson\?/)
+    await expect(page.locator(`[data-mol-id="course-editor-lesson-${lessonId}"]`)).toBeVisible()
+    await expect(page.locator(`[data-mol-id="course-editor-lesson-${keepId}"]`)).toBeVisible()
+
+    // The second click COMMITS: the row drops from the reloaded list while the
+    // untouched lesson stays, and the surviving button is disarmed back to idle.
+    await deleteButton.click()
+    await expect(page.locator(`[data-mol-id="course-editor-lesson-${lessonId}"]`)).toHaveCount(0)
+    await expect(page.locator(`[data-mol-id="course-editor-lesson-${keepId}"]`)).toBeVisible()
+    const keepButton = page.locator(`[data-mol-id="delete-lesson-${keepId}"]`)
+    await expect(keepButton).toHaveAttribute('data-state', 'idle')
+    await expect(keepButton).toHaveText(/Delete lecture/)
+  })
 })

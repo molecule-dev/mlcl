@@ -12,6 +12,7 @@ import { Link, useParams } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { PromptDialog } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { CertificateBadge } from '../components/CertificateBadge.js'
@@ -42,6 +43,8 @@ export function Certificate() {
   const [error, setError] = useState<string | null>(null)
   const [issuing, setIssuing] = useState(false)
   const [linkCopied, setLinkCopied] = useState(false)
+  const [shareFallbackOpen, setShareFallbackOpen] = useState(false)
+  const [shareLink, setShareLink] = useState('')
 
   const load = async () => {
     setLoading(true)
@@ -109,10 +112,12 @@ export function Certificate() {
       await navigator.clipboard.writeText(link)
       setLinkCopied(true)
       setTimeout(() => setLinkCopied(false), 2000)
-      // intentional noop: clipboard rejection falls through to window.prompt fallback
+      // intentional noop: clipboard rejection falls through to the PromptDialog fallback
     } catch (_error) {
-      // Fallback if clipboard API rejects (insecure context etc.)
-      window.prompt(t('certificate.copyPrompt', {}, { defaultValue: 'Copy this link:' }), link)
+      // Fallback if clipboard API rejects (insecure context etc.): surface the
+      // link in a real dialog so it can be copied manually.
+      setShareLink(link)
+      setShareFallbackOpen(true)
     }
   }
 
@@ -259,6 +264,23 @@ export function Certificate() {
           </div>
         )}
       </main>
+      <PromptDialog
+        open={shareFallbackOpen}
+        onClose={() => setShareFallbackOpen(false)}
+        title={t('certificate.copyPrompt', {}, { defaultValue: 'Copy this link:' })}
+        initialValue={shareLink}
+        confirmLabel={t('certificate.copy', {}, { defaultValue: 'Copy' })}
+        inputMolId="cert-share-link-input"
+        confirmMolId="cert-share-link-confirm"
+        cancelMolId="cert-share-link-cancel"
+        onSubmit={async (value) => {
+          // Resolve closes the dialog; a rejection (clipboard unavailable)
+          // keeps it open so the link can be selected and copied manually.
+          await navigator.clipboard.writeText(value)
+          setLinkCopied(true)
+          setTimeout(() => setLinkCopied(false), 2000)
+        }}
+      />
       <Footer />
     </div>
   )

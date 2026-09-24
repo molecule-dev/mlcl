@@ -13,6 +13,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { Footer } from '../components/Footer.js'
 import { Header } from '../components/Header.js'
@@ -173,12 +174,6 @@ export function InstructorCourseEditor() {
   }
 
   const removeLesson = async (lessonId: string) => {
-    if (
-      !window.confirm(
-        t('instructorEditor.confirmDelete', {}, { defaultValue: 'Delete this lesson?' }),
-      )
-    )
-      return
     try {
       await api(`/lessons/${lessonId}`, { method: 'DELETE' })
       await reload()
@@ -428,23 +423,23 @@ export function InstructorCourseEditor() {
                         >
                           {formatDuration(lesson.duration_sec ?? 0)}
                         </span>
-                        <button
-                          type="button"
-                          onClick={() => removeLesson(lesson.id)}
-                          aria-label={t(
+                        <ConfirmButton
+                          onConfirm={() => removeLesson(lesson.id)}
+                          label={t(
                             'instructorEditor.deleteLecture',
                             {},
                             { defaultValue: 'Delete lecture' },
                           )}
-                          data-mol-id={`delete-lesson-${lesson.id}`}
-                          className={cm.cn(
-                            'text-on-surface-variant hover:text-error p-1 rounded transition-colors',
+                          confirmLabel={t(
+                            'instructorEditor.confirmDelete',
+                            {},
+                            { defaultValue: 'Delete this lesson?' },
                           )}
-                        >
-                          <span className={cm.cn('material-symbols-outlined text-[18px]')}>
-                            delete
-                          </span>
-                        </button>
+                          disarmSeconds={6}
+                          size="sm"
+                          variant="ghost"
+                          data-mol-id={`delete-lesson-${lesson.id}`}
+                        />
                       </li>
                     ))}
                   </ul>
