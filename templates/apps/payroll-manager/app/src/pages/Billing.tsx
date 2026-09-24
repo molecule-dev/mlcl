@@ -7,6 +7,7 @@ import {
 } from '@molecule/app-billing-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface PayrollManagerLimits {
   maxEmployees?: number
@@ -77,16 +78,6 @@ export function Billing() {
   }
 
   const onCancel = async () => {
-    if (
-      !window.confirm(
-        t(
-          'billing.cancelConfirm',
-          {},
-          { defaultValue: 'Cancel subscription at the end of the current period?' },
-        ),
-      )
-    )
-      return
     const result = await cancel.cancel()
     if (result?.canceled) await statusResp.execute()
   }
@@ -172,23 +163,22 @@ export function Billing() {
             ) : null}
           </div>
           {currentTier && !statusResp.data?.isFree ? (
-            <button
-              type="button"
-              onClick={onCancel}
-              disabled={cancel.loading}
-              className={cm.cn(
-                cm.sp('px', 5),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                cm.fontWeight('semibold'),
-                cm.roundedFull,
-                'border border-error text-error hover:bg-error/10 disabled:opacity-50',
+            <ConfirmButton
+              variant="outline"
+              color="error"
+              size="sm"
+              label={t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
+              confirmLabel={t(
+                'billing.cancelConfirm',
+                {},
+                { defaultValue: 'Cancel subscription at the end of the current period?' },
               )}
-            >
-              {cancel.loading
-                ? t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })
-                : t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
-            </button>
+              pendingLabel={t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })}
+              onConfirm={onCancel}
+              disabled={cancel.loading}
+              disarmSeconds={6}
+              data-mol-id="billing-cancel-subscription"
+            />
           ) : null}
         </div>
       </section>
