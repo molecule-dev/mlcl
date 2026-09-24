@@ -1,5 +1,8 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+// Switch: shared accessible toggle — role="switch", aria-checked, 40x40 touch
+// hit-area, size/color variants (replaces the hand-rolled track+thumb pair).
+import { Switch } from '@molecule/app-ui-react'
 
 interface EmbedInteractionPanelProps {
   autoRotate: boolean
@@ -41,64 +44,40 @@ export default function EmbedInteractionPanel({
         {t('embedInteractionPanel.title', {}, { defaultValue: 'Interaction' })}
       </h3>
       <div className={cm.flex({ direction: 'col', gap: 3 })}>
-        <button
-          type="button"
-          role="switch"
-          aria-checked={autoRotate}
-          data-mol-id="embed-auto-rotate"
+        <div
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'between' }),
             cm.w('full'),
-            cm.cursorPointer,
-            'group',
           )}
-          onClick={() => setAutoRotate(!autoRotate)}
         >
-          <span
-            className={cm.cn(
-              cm.textSize('sm'),
-              'text-on-surface-variant group-hover:text-on-surface transition-colors',
-            )}
-          >
+          <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('embedInteractionPanel.autoRotate', {}, { defaultValue: 'Auto-rotate model' })}
           </span>
-          <span
-            className={`relative inline-flex h-5 w-9 items-center rounded-full ${autoRotate ? 'bg-primary-container' : 'bg-surface-container-lowest border border-outline-variant/30'}`}
-          >
-            <span
-              className={`inline-block h-3 w-3 ${autoRotate ? 'translate-x-5' : 'translate-x-1'} rounded-full ${autoRotate ? 'bg-on-primary-container' : 'bg-on-surface-variant'} transition`}
-            ></span>
-          </span>
-        </button>
-        <button
-          type="button"
-          role="switch"
-          aria-checked={showAnnotations}
-          data-mol-id="embed-show-annotations"
+          <Switch
+            checked={autoRotate}
+            size="sm"
+            aria-label={t('embedInteractionPanel.autoRotate', {}, { defaultValue: 'Auto-rotate model' })}
+            data-mol-id="embed-auto-rotate"
+            onChange={(e) => setAutoRotate((e.target as HTMLInputElement).checked)}
+          />
+        </div>
+        <div
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'between' }),
             cm.w('full'),
-            cm.cursorPointer,
-            'group',
           )}
-          onClick={() => setShowAnnotations(!showAnnotations)}
         >
-          <span
-            className={cm.cn(
-              cm.textSize('sm'),
-              'text-on-surface-variant group-hover:text-on-surface transition-colors',
-            )}
-          >
+          <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('embedInteractionPanel.showAnnotations', {}, { defaultValue: 'Show annotations' })}
           </span>
-          <span
-            className={`relative inline-flex h-5 w-9 items-center rounded-full ${showAnnotations ? 'bg-primary-container' : 'bg-surface-container-lowest border border-outline-variant/30'}`}
-          >
-            <span
-              className={`inline-block h-3 w-3 ${showAnnotations ? 'translate-x-5' : 'translate-x-1'} rounded-full ${showAnnotations ? 'bg-on-primary-container' : 'bg-on-surface-variant'} transition`}
-            ></span>
-          </span>
-        </button>
+          <Switch
+            checked={showAnnotations}
+            size="sm"
+            aria-label={t('embedInteractionPanel.showAnnotations', {}, { defaultValue: 'Show annotations' })}
+            data-mol-id="embed-show-annotations"
+            onChange={(e) => setShowAnnotations((e.target as HTMLInputElement).checked)}
+          />
+        </div>
       </div>
     </div>
   )

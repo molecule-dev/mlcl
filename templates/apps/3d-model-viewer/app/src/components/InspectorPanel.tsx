@@ -2,6 +2,9 @@ import { useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+// Switch: shared accessible toggle — role="switch", aria-checked, 40x40 touch
+// hit-area, size/color variants (replaces the hand-rolled track+thumb pair).
+import { Switch } from '@molecule/app-ui-react'
 
 function InspectorPanel({ modelName, modelId }: { modelName?: string; modelId?: string } = {}) {
   const cm = getClassMap()
@@ -304,39 +307,29 @@ function InspectorPanel({ modelName, modelId }: { modelName?: string; modelId?: 
               <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                 {t('inspectorPanel.castShadows', {}, { defaultValue: 'Cast Shadows' })}
               </span>
-              <button
-                type="button"
-                role="switch"
-                aria-checked={castShadows}
+              <Switch
+                checked={castShadows}
+                size="sm"
                 aria-label={t('inspectorPanel.castShadows', {}, { defaultValue: 'Cast Shadows' })}
-                onClick={() => setCastShadows((v) => !v)}
-                className={`w-8 h-4 rounded-full relative cursor-pointer border transition-colors ${castShadows ? 'bg-primary/30 border-primary/50' : 'bg-outline-variant/30 border-outline-variant/50'}`}
-              >
-                <span
-                  className={`absolute top-0.5 w-3 h-3 rounded-full transition-all ${castShadows ? 'right-0.5 bg-primary' : 'left-0.5 bg-on-surface-variant'}`}
-                ></span>
-              </button>
+                data-mol-id="inspector-cast-shadows"
+                onChange={(e) => setCastShadows((e.target as HTMLInputElement).checked)}
+              />
             </div>
             <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.h(8))}>
               <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                 {t('inspectorPanel.receiveShadows', {}, { defaultValue: 'Receive Shadows' })}
               </span>
-              <button
-                type="button"
-                role="switch"
-                aria-checked={receiveShadows}
+              <Switch
+                checked={receiveShadows}
+                size="sm"
                 aria-label={t(
                   'inspectorPanel.receiveShadows',
                   {},
                   { defaultValue: 'Receive Shadows' },
                 )}
-                onClick={() => setReceiveShadows((v) => !v)}
-                className={`w-8 h-4 rounded-full relative cursor-pointer border transition-colors ${receiveShadows ? 'bg-primary/30 border-primary/50' : 'bg-outline-variant/30 border-outline-variant/50'}`}
-              >
-                <span
-                  className={`absolute top-0.5 w-3 h-3 rounded-full transition-all ${receiveShadows ? 'right-0.5 bg-primary' : 'left-0.5 bg-on-surface-variant'}`}
-                ></span>
-              </button>
+                data-mol-id="inspector-receive-shadows"
+                onChange={(e) => setReceiveShadows((e.target as HTMLInputElement).checked)}
+              />
             </div>
           </div>
         </div>

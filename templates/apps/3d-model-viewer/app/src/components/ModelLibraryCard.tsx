@@ -3,6 +3,10 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+// ConfirmButton: shared two-step destructive-action button — first click arms
+// ("Confirm?"), second commits, 4s auto-disarm, Escape disarms, aria-live
+// (replaces the unguarded instant delete from the card menu).
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface ModelItem {
   id?: string | number
@@ -33,7 +37,10 @@ function ModelLibraryCard({
   const [deleting, setDeleting] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const handleDelete = async () => {
-    setMenuOpen(false)
+    // Confirmation is handled by the shared ConfirmButton (arm → confirm) that
+    // wraps this handler — the menu stays open through the arm step so the
+    // confirm prompt is visible, and closes when the row drops (or on an
+    // outside click, which also auto-disarms the button).
     if (!model?.id) return
     setDeleting(true)
     try {
@@ -130,18 +137,23 @@ function ModelLibraryCard({
                 'absolute right-0 top-full z-10 bg-surface-container border border-outline/20 rounded-lg shadow-lg min-w-[140px]',
               )}
             >
-              <button
-                className={cm.cn(
-                  cm.w('full'),
-                  cm.textSize('sm'),
-                  cm.sp('px', 3),
-                  'text-left py-1.5 text-error hover:bg-surface-container-high transition-colors',
+              <ConfirmButton
+                label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                confirmLabel={t(
+                  'modelEdit.deleteConfirm',
+                  {},
+                  { defaultValue: 'Delete this model?' },
                 )}
+                onConfirm={handleDelete}
+                {...(model?.id != null
+                  ? { testId: `library-delete-${model.id}`, 'data-mol-id': `library-delete-${model.id}` }
+                  : {})}
                 disabled={deleting}
-                onClick={handleDelete}
-              >
-                {t('common.delete', {}, { defaultValue: 'Delete' })}
-              </button>
+                size="sm"
+                color="error"
+                variant="ghost"
+                className={cm.w('full')}
+              />
             </div>
           )}
         </div>

@@ -147,8 +147,8 @@ function ModelEdit() {
 
   async function handleDelete() {
     if (!id) return
-    if (!window.confirm(t('modelEdit.deleteConfirm', {}, { defaultValue: 'Delete this model?' })))
-      return
+    // Confirmation is handled by the shared ConfirmButton (arm → confirm) that
+    // wraps this handler in ModelEditActionBar — no window.confirm here.
     try {
       await http.delete(`/api/models/${id}`)
       // Domain event: destructive action committed.

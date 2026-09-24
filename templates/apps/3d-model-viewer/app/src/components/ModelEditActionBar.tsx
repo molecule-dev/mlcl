@@ -3,6 +3,10 @@ import { useNavigate, useParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+// ConfirmButton: shared two-step destructive-action button — first click arms
+// ("Confirm?"), second commits, 4s auto-disarm, Escape disarms, aria-live
+// (replaces the unguarded instant delete).
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface ModelEditActionBarProps {
   onSave?: () => void | Promise<void>
@@ -67,24 +71,17 @@ function ModelEditActionBar(props: ModelEditActionBarProps = {}) {
         'fixed bottom-0 left-[260px] right-0 bg-surface/90 backdrop-blur-md border-t border-outline-variant/20 z-30 shadow-[0_-4px_24px_rgba(26,26,46,0.04)]',
       )}
     >
-      <button
+      <ConfirmButton
+        label={t('modelEditActionBar.deleteModel', {}, { defaultValue: 'Delete Model' })}
+        confirmLabel={t('modelEdit.deleteConfirm', {}, { defaultValue: 'Delete this model?' })}
+        onConfirm={handleDelete}
+        testId="model-edit-delete"
         data-mol-id="model-edit-delete"
-        className={cm.cn(
-          cm.flex({ align: 'center', gap: 2 }),
-          cm.sp('px', 4),
-          cm.sp('py', 2),
-          cm.textSize('sm'),
-          cm.fontWeight('semibold'),
-          'rounded-xl text-error hover:bg-error/10 transition-colors',
-        )}
-        onClick={handleDelete}
         disabled={loading}
-      >
-        <span className="material-symbols-outlined text-[18px]" data-icon="delete">
-          delete
-        </span>
-        {t('modelEditActionBar.deleteModel', {}, { defaultValue: 'Delete Model' })}
-      </button>
+        size="sm"
+        color="error"
+        variant="ghost"
+      />
       <div className={cm.flex({ align: 'center', gap: 4 })}>
         {props.savedAt ? (
           <span data-mol-id="model-edit-saved" className={cm.cn(cm.textSize('xs'), 'text-primary')}>

@@ -2,6 +2,9 @@ import { useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+// Switch: shared accessible toggle — role="switch", aria-checked, 40x40 touch
+// hit-area, size/color variants (replaces the hand-rolled track+thumb pair).
+import { Switch } from '@molecule/app-ui-react'
 
 function ModelInspectorPanel() {
   const cm = getClassMap()
@@ -298,67 +301,33 @@ function ModelInspectorPanel() {
               <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                 {t('modelInspectorPanel.castShadows', {}, { defaultValue: 'Cast Shadows' })}
               </span>
-              <button
-                type="button"
-                role="switch"
-                aria-checked={castShadows}
+              <Switch
+                checked={castShadows}
+                size="sm"
                 aria-label={t(
                   'modelInspectorPanel.castShadows',
                   {},
                   { defaultValue: 'Cast Shadows' },
                 )}
-                className={cm.cn(
-                  cm.roundedFull,
-                  cm.cursorPointer,
-                  cm.w(8),
-                  cm.h(4),
-                  'bg-primary/30 relative border border-primary/50',
-                )}
-                onClick={() => setCastShadows((v) => !v)}
-              >
-                <span
-                  className={cm.cn(
-                    cm.w(3),
-                    cm.h(3),
-                    cm.roundedFull,
-                    'block absolute top-0.5 bg-primary transition-all',
-                    castShadows ? 'right-0.5' : 'left-0.5',
-                  )}
-                ></span>
-              </button>
+                data-mol-id="model-inspector-cast-shadows"
+                onChange={(e) => setCastShadows((e.target as HTMLInputElement).checked)}
+              />
             </div>
             <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.h(8))}>
               <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                 {t('modelInspectorPanel.receiveShadows', {}, { defaultValue: 'Receive Shadows' })}
               </span>
-              <button
-                type="button"
-                role="switch"
-                aria-checked={receiveShadows}
+              <Switch
+                checked={receiveShadows}
+                size="sm"
                 aria-label={t(
                   'modelInspectorPanel.receiveShadows',
                   {},
                   { defaultValue: 'Receive Shadows' },
                 )}
-                className={cm.cn(
-                  cm.roundedFull,
-                  cm.cursorPointer,
-                  cm.w(8),
-                  cm.h(4),
-                  'bg-primary/30 relative border border-primary/50',
-                )}
-                onClick={() => setReceiveShadows((v) => !v)}
-              >
-                <span
-                  className={cm.cn(
-                    cm.w(3),
-                    cm.h(3),
-                    cm.roundedFull,
-                    'block absolute top-0.5 bg-primary transition-all',
-                    receiveShadows ? 'right-0.5' : 'left-0.5',
-                  )}
-                ></span>
-              </button>
+                data-mol-id="model-inspector-receive-shadows"
+                onChange={(e) => setReceiveShadows((e.target as HTMLInputElement).checked)}
+              />
             </div>
           </div>
         </div>

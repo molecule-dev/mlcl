@@ -4,6 +4,10 @@ import { Link, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+// ConfirmButton: shared two-step destructive-action button — first click arms
+// ("Confirm?"), second commits, 4s auto-disarm, Escape disarms, aria-live
+// (replaces the window.confirm dialog).
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { UserMenu } from '../components/UserMenu.js'
@@ -194,12 +198,8 @@ function Annotations() {
 
   async function deleteAnnotation(annotation: Annotation) {
     if (busy) return
-    if (
-      !window.confirm(
-        t('annotations.deleteConfirm', {}, { defaultValue: 'Delete this annotation?' }),
-      )
-    )
-      return
+    // Confirmation is handled by the shared ConfirmButton (arm → confirm)
+    // that wraps this handler — no window.confirm here.
     setBusy(`delete-${annotation.id}`)
     setError(null)
     try {
@@ -687,23 +687,38 @@ function Annotations() {
                         {isResolved ? 'check_circle' : 'check'}
                       </span>
                     </button>
-                    <button
-                      type="button"
-                      data-mol-id={`annotation-delete-${annotation.id}`}
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        void deleteAnnotation(annotation)
-                      }}
-                      disabled={busy === `delete-${annotation.id}`}
-                      className={cm.cn(
-                        cm.sp('p', 2),
-                        cm.roundedFull,
-                        'text-foreground-tertiary hover:text-error hover:bg-error-light transition-colors disabled:opacity-40',
-                      )}
-                      aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
-                    >
-                      <span className="material-symbols-outlined text-[18px]">delete_outline</span>
-                    </button>
+                    {/* stopPropagation wrapper: ConfirmButton owns its own
+                        click handling (arm → confirm), so the arm click must
+                        not bubble to the card's "show pin" button. This span
+                        is a pure event barrier, not a control — everything
+                        interactive inside it is the native <button> below. */}
+                    {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events -- event barrier only; the native button inside carries keyboard support */}
+                    <span onClick={(e) => e.stopPropagation()}>
+                      <ConfirmButton
+                        label={
+                          <span
+                            className="material-symbols-outlined text-[18px]"
+                            aria-hidden="true"
+                          >
+                            delete_outline
+                          </span>
+                        }
+                        confirmLabel={t(
+                          'annotations.deleteConfirm',
+                          {},
+                          { defaultValue: 'Delete this annotation?' },
+                        )}
+                        aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                        onConfirm={() => deleteAnnotation(annotation)}
+                        testId={`annotation-delete-${annotation.id}`}
+                        data-mol-id={`annotation-delete-${annotation.id}`}
+                        disabled={busy === `delete-${annotation.id}`}
+                        size="sm"
+                        color="error"
+                        variant="ghost"
+                        className={cm.roundedFull}
+                      />
+                    </span>
                   </div>
                 </div>
               )
