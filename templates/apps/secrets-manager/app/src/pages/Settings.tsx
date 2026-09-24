@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { ConfirmButton, LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
 import { SecretsManagerLayout } from '../components/SecretsManagerLayout.js'
 import { SecretStatusPill, type SecretStatusTone } from '../components/SecretStatusPill.js'
@@ -57,7 +57,6 @@ export function Settings() {
   const [savingAccount, setSavingAccount] = useState(false)
   const [orgSavedAt, setOrgSavedAt] = useState<number | null>(null)
   const [accountSavedAt, setAccountSavedAt] = useState<number | null>(null)
-  const [cancelling, setCancelling] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const reload = async () => {
@@ -130,27 +129,11 @@ export function Settings() {
   }
 
   const cancelSubscription = async () => {
-    if (
-      !window.confirm(
-        t(
-          'settings.cancelConfirm',
-          {},
-          {
-            defaultValue:
-              'Cancel your subscription? You will keep access until the end of the billing period.',
-          },
-        ),
-      )
-    )
-      return
-    setCancelling(true)
     try {
       await http.post('/api/billing/cancel', {})
       await reload()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'cancel failed')
-    } finally {
-      setCancelling(false)
     }
   }
 
@@ -386,23 +369,29 @@ export function Settings() {
                           : t('common.manage', {}, { defaultValue: 'Manage' })}
                       </Link>
                       {!billing.isFree ? (
-                        <button
-                          type="button"
-                          onClick={cancelSubscription}
-                          disabled={cancelling}
-                          data-mol-id="settings-billing-cancel"
-                          className={cm.cn(
-                            'inline-flex h-8 items-center gap-1 rounded border border-border bg-surface px-3 font-headline text-xs font-semibold text-muted transition-colors hover:border-error hover:text-error disabled:cursor-not-allowed disabled:opacity-50',
+                        // Two-step destructive confirm (arm → the old
+                        // window.confirm copy → commit, 6s auto-disarm,
+                        // Escape, aria-live) replacing window.confirm.
+                        <ConfirmButton
+                          label={t(
+                            'nav.cancelSubscription',
+                            {},
+                            { defaultValue: 'Cancel subscription' },
                           )}
-                        >
-                          {cancelling
-                            ? t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })
-                            : t(
-                                'nav.cancelSubscription',
-                                {},
-                                { defaultValue: 'Cancel subscription' },
-                              )}
-                        </button>
+                          confirmLabel={t(
+                            'settings.cancelConfirm',
+                            {},
+                            {
+                              defaultValue:
+                                'Cancel your subscription? You will keep access until the end of the billing period.',
+                            },
+                          )}
+                          onConfirm={cancelSubscription}
+                          color="error"
+                          size="sm"
+                          disarmSeconds={6}
+                          data-mol-id="settings-billing-cancel"
+                        />
                       ) : null}
                     </div>
                   </>

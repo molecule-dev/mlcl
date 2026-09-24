@@ -118,8 +118,12 @@ test.describe('user journey: signup → vault → secret → audit → settings 
       (t) => t.name === 'journey-token',
     )
     expect(tokenRow).toBeTruthy()
-    page.once('dialog', (d) => d.accept())
-    await page.locator(`[data-mol-id="api-token-revoke-${tokenRow!.id}"]`).click()
+    // Two-step ConfirmButton: first click arms ("Revoke this token?"),
+    // second commits. No native dialog exists any more.
+    const revokeBtn = page.locator(`[data-mol-id="api-token-revoke-${tokenRow!.id}"]`)
+    await revokeBtn.click()
+    await expect(revokeBtn).toContainText('Revoke this token?')
+    await revokeBtn.click()
     await page.waitForTimeout(1500)
     const tokensAfter = await apiFetch(page, 'GET', '/api-tokens')
     const revoked = (tokensAfter.json as Array<{ id: string; revoked_at: string | null }>).find(

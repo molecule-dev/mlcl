@@ -77,8 +77,12 @@ test.describe('/secrets/:id', () => {
     const secret = await createSecret(page, vault.id, 'DOOMED', 'rip')
     await page.goto(APP_BASE + '/secrets/' + secret.id)
     await page.waitForTimeout(1000)
-    page.once('dialog', (d) => d.accept())
-    await page.locator('[data-mol-id="secret-delete"]').click()
+    // Two-step ConfirmButton: first click arms ("Delete this secret?"),
+    // second commits. No native dialog exists any more.
+    const del = page.locator('[data-mol-id="secret-delete"]')
+    await del.click()
+    await expect(del).toContainText('Delete this secret?')
+    await del.click()
     await page.waitForTimeout(2000)
     // Confirm DB truth.
     const after = await apiFetch(page, 'GET', `/secrets/${secret.id}`)

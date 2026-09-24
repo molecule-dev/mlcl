@@ -47,8 +47,12 @@ test.describe('/tokens', () => {
     const id = (created.json as { id: string }).id
     await page.goto(APP_BASE + '/tokens')
     await page.waitForTimeout(1000)
-    page.once('dialog', (d) => d.accept())
-    await page.locator(`[data-mol-id="api-token-revoke-${id}"]`).click()
+    // Two-step ConfirmButton: first click arms ("Revoke this token?"),
+    // second commits. No native dialog exists any more.
+    const revoke = page.locator(`[data-mol-id="api-token-revoke-${id}"]`)
+    await revoke.click()
+    await expect(revoke).toContainText('Revoke this token?')
+    await revoke.click()
     await page.waitForTimeout(1500)
     const list = await apiFetch(page, 'GET', '/api-tokens')
     const arr = list.json as Array<{ id: string; revoked_at: string | null }>

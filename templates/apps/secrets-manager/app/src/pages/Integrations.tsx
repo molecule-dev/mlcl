@@ -3,6 +3,7 @@ import { type FormEvent, useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { SecretsManagerLayout } from '../components/SecretsManagerLayout.js'
 import { SecretStatusPill, type SecretStatusTone } from '../components/SecretStatusPill.js'
@@ -116,12 +117,6 @@ export function Integrations() {
   }
 
   const remove = async (id: string) => {
-    if (
-      !window.confirm(
-        t('integrations.confirmDelete', {}, { defaultValue: 'Disconnect this integration?' }),
-      )
-    )
-      return
     try {
       await http.delete(`/api/integrations/${id}`)
       void track({ name: 'integration.removed', properties: { integration_id: id } })
@@ -338,19 +333,22 @@ export function Integrations() {
                       </span>
                       {t('integrations.sync', {}, { defaultValue: 'Sync now' })}
                     </button>
-                    <button
-                      type="button"
-                      onClick={() => remove(integration.id)}
-                      data-mol-id={`integration-delete-${integration.id}`}
-                      className={cm.cn(
-                        'inline-flex h-7 items-center gap-1 rounded border border-border bg-surface px-2 font-headline text-[11px] font-semibold text-muted transition-colors hover:border-error hover:text-error',
+                    {/* Two-step destructive confirm (arm → "Disconnect this
+                        integration?" → commit, 6s auto-disarm, Escape,
+                        aria-live) replacing window.confirm. */}
+                    <ConfirmButton
+                      label={t('common.disconnect', {}, { defaultValue: 'Disconnect' })}
+                      confirmLabel={t(
+                        'integrations.confirmDelete',
+                        {},
+                        { defaultValue: 'Disconnect this integration?' },
                       )}
-                    >
-                      <span aria-hidden="true" className="material-symbols-outlined text-[14px]">
-                        link_off
-                      </span>
-                      {t('common.disconnect', {}, { defaultValue: 'Disconnect' })}
-                    </button>
+                      onConfirm={() => remove(integration.id)}
+                      color="error"
+                      size="sm"
+                      disarmSeconds={6}
+                      data-mol-id={`integration-delete-${integration.id}`}
+                    />
                   </div>
                 </article>
               )

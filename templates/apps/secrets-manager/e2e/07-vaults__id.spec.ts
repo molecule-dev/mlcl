@@ -46,8 +46,12 @@ test.describe('/vaults/:id', () => {
     const vault = await createVault(page, 'short-lived')
     await page.goto(APP_BASE + '/vaults/' + vault.id)
     await page.waitForTimeout(1000)
-    page.once('dialog', (d) => d.accept())
-    await page.locator('[data-mol-id="vault-delete"]').click()
+    // Two-step ConfirmButton: first click arms ("Delete this vault and all
+    // its secrets?"), second commits. No native dialog exists any more.
+    const del = page.locator('[data-mol-id="vault-delete"]')
+    await del.click()
+    await expect(del).toContainText('Delete this vault and all its secrets?')
+    await del.click()
     await expect(page).toHaveURL(/\/vaults$/, { timeout: 10_000 })
     // Confirm DB truth.
     const list = await apiFetch(page, 'GET', '/vaults')

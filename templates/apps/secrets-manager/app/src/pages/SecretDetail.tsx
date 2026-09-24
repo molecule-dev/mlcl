@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { SecretsManagerLayout } from '../components/SecretsManagerLayout.js'
 import { SecretStatusPill, type SecretStatusTone } from '../components/SecretStatusPill.js'
@@ -58,7 +59,6 @@ export function SecretDetail() {
   const [newValue, setNewValue] = useState('')
   const [rotateComment, setRotateComment] = useState('')
   const [rotating, setRotating] = useState(false)
-  const [deleting, setDeleting] = useState(false)
 
   const reload = async () => {
     if (!id) return
@@ -136,11 +136,6 @@ export function SecretDetail() {
 
   const onDelete = async () => {
     if (!id || !secret) return
-    if (
-      !window.confirm(t('secretDetail.confirmDelete', {}, { defaultValue: 'Delete this secret?' }))
-    )
-      return
-    setDeleting(true)
     try {
       await http.delete(`/api/secrets/${id}`)
       void track({ name: 'secret.deleted', properties: { secret_id: id } })
@@ -148,7 +143,6 @@ export function SecretDetail() {
       else navigate('/vaults')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'delete failed')
-      setDeleting(false)
     }
   }
 
@@ -232,20 +226,22 @@ export function SecretDetail() {
                 <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
                   <SecretStatusPill tone="active" />
                   <SecretStatusPill tone={envTone} />
-                  <button
-                    type="button"
-                    onClick={onDelete}
-                    disabled={deleting}
-                    data-mol-id="secret-delete"
-                    className={cm.cn(
-                      'inline-flex h-9 items-center gap-1 rounded border border-border bg-surface px-3 font-headline text-xs font-semibold text-muted transition-colors hover:border-error hover:text-error disabled:cursor-not-allowed disabled:opacity-50',
+                  {/* Two-step destructive confirm (arm → "Delete this
+                      secret?" → commit, 4s auto-disarm — secret deletion is
+                      the shortest-fuse case in the fleet — Escape, aria-live)
+                      replacing window.confirm. */}
+                  <ConfirmButton
+                    label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                    confirmLabel={t(
+                      'secretDetail.confirmDelete',
+                      {},
+                      { defaultValue: 'Delete this secret?' },
                     )}
-                  >
-                    <span aria-hidden="true" className="material-symbols-outlined text-[14px]">
-                      delete
-                    </span>
-                    {t('common.delete', {}, { defaultValue: 'Delete' })}
-                  </button>
+                    onConfirm={onDelete}
+                    color="error"
+                    disarmSeconds={4}
+                    data-mol-id="secret-delete"
+                  />
                 </div>
               </div>
             </header>

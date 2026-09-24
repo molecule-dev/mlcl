@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { NewSecretModal } from '../components/NewSecretModal.js'
 import { SecretRow, type SecretRowData } from '../components/SecretRow.js'
@@ -74,7 +75,6 @@ export function VaultDetail() {
   const [error, setError] = useState<string | null>(null)
   const [filter, setFilter] = useState<Filter>('all')
   const [showNew, setShowNew] = useState(false)
-  const [deleting, setDeleting] = useState(false)
 
   const reload = async () => {
     if (!id) return
@@ -126,24 +126,12 @@ export function VaultDetail() {
 
   const onDeleteVault = async () => {
     if (!id || !vault) return
-    if (
-      !window.confirm(
-        t(
-          'vaultDetail.confirmDelete',
-          {},
-          { defaultValue: 'Delete this vault and all its secrets?' },
-        ),
-      )
-    )
-      return
-    setDeleting(true)
     try {
       await http.delete(`/api/vaults/${id}`)
       void track({ name: 'vault.deleted', properties: { vault_id: id } })
       navigate('/vaults')
     } catch (e) {
       setError(e instanceof Error ? e.message : 'delete failed')
-      setDeleting(false)
     }
   }
 
@@ -236,20 +224,21 @@ export function VaultDetail() {
                     </span>
                     {t('vaultDetail.addSecret', {}, { defaultValue: 'Add secret' })}
                   </button>
-                  <button
-                    type="button"
-                    onClick={onDeleteVault}
-                    disabled={deleting}
-                    data-mol-id="vault-delete"
-                    className={cm.cn(
-                      'inline-flex h-9 items-center gap-1 rounded border border-border bg-surface px-3 font-headline text-xs font-semibold text-muted transition-colors hover:border-error hover:text-error disabled:cursor-not-allowed disabled:opacity-50',
+                  {/* Two-step destructive confirm (arm → "Delete this vault
+                      and all its secrets?" → commit, 5s auto-disarm, Escape,
+                      aria-live) replacing window.confirm. */}
+                  <ConfirmButton
+                    label={t('vaultDetail.delete', {}, { defaultValue: 'Delete vault' })}
+                    confirmLabel={t(
+                      'vaultDetail.confirmDelete',
+                      {},
+                      { defaultValue: 'Delete this vault and all its secrets?' },
                     )}
-                  >
-                    <span aria-hidden="true" className="material-symbols-outlined text-[14px]">
-                      delete
-                    </span>
-                    {t('vaultDetail.delete', {}, { defaultValue: 'Delete vault' })}
-                  </button>
+                    onConfirm={onDeleteVault}
+                    color="error"
+                    disarmSeconds={5}
+                    data-mol-id="vault-delete"
+                  />
                 </div>
               </div>
             </header>

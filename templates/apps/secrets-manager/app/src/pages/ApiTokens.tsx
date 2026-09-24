@@ -3,6 +3,7 @@ import { type FormEvent, useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { SecretsManagerLayout } from '../components/SecretsManagerLayout.js'
@@ -101,8 +102,6 @@ export function ApiTokens() {
   }
 
   const revoke = async (id: string) => {
-    if (!window.confirm(t('apiTokens.confirmRevoke', {}, { defaultValue: 'Revoke this token?' })))
-      return
     try {
       await http.post(`/api/api-tokens/${id}/revoke`, {})
       void track({ name: 'token.revoked', properties: { token_id: id } })
@@ -113,16 +112,6 @@ export function ApiTokens() {
   }
 
   const remove = async (id: string) => {
-    if (
-      !window.confirm(
-        t(
-          'apiTokens.confirmDelete',
-          {},
-          { defaultValue: 'Delete this token? This action cannot be undone.' },
-        ),
-      )
-    )
-      return
     try {
       await http.delete(`/api/api-tokens/${id}`)
       void track({ name: 'token.deleted', properties: { token_id: id } })
@@ -356,7 +345,7 @@ export function ApiTokens() {
               <span className={cm.cn('hidden w-44 text-right md:inline')}>
                 {t('apiTokens.col.lastUsed', {}, { defaultValue: 'Last used' })}
               </span>
-              <span className={cm.cn('w-32 text-right')}>
+              <span className={cm.cn('w-40 text-right')}>
                 {t('apiTokens.col.actions', {}, { defaultValue: '' })}
               </span>
             </header>
@@ -388,31 +377,45 @@ export function ApiTokens() {
                   >
                     {tok.last_used_at ? new Date(tok.last_used_at).toLocaleString() : '—'}
                   </span>
-                  <span className={cm.cn('flex w-32 items-center justify-end gap-1')}>
+                  <span className={cm.cn('flex w-40 items-center justify-end gap-1')}>
                     {!tok.revoked_at ? (
-                      <button
-                        type="button"
-                        onClick={() => revoke(tok.id)}
-                        data-mol-id={`api-token-revoke-${tok.id}`}
-                        aria-label={t('apiTokens.revoke', {}, { defaultValue: 'Revoke token' })}
-                        className={cm.cn(
-                          'inline-flex h-7 items-center rounded border border-border bg-surface px-2 font-mono text-[11px] text-muted transition-colors hover:border-error hover:text-error',
+                      // Two-step destructive confirm (arm → "Revoke this
+                      // token?" → commit, 6s auto-disarm, Escape, aria-live)
+                      // replacing window.confirm.
+                      <ConfirmButton
+                        label={t('common.revoke', {}, { defaultValue: 'Revoke' })}
+                        confirmLabel={t(
+                          'apiTokens.confirmRevoke',
+                          {},
+                          { defaultValue: 'Revoke this token?' },
                         )}
-                      >
-                        {t('common.revoke', {}, { defaultValue: 'Revoke' })}
-                      </button>
+                        onConfirm={() => revoke(tok.id)}
+                        aria-label={t('apiTokens.revoke', {}, { defaultValue: 'Revoke token' })}
+                        color="error"
+                        size="sm"
+                        disarmSeconds={6}
+                        data-mol-id={`api-token-revoke-${tok.id}`}
+                      />
                     ) : null}
-                    <button
-                      type="button"
-                      onClick={() => remove(tok.id)}
-                      data-mol-id={`api-token-delete-${tok.id}`}
-                      aria-label={t('apiTokens.delete', {}, { defaultValue: 'Delete token' })}
-                      className={cm.cn(
-                        'inline-flex h-7 w-7 items-center justify-center rounded border border-border bg-surface text-muted transition-colors hover:border-error hover:text-error',
+                    {/* Two-step destructive confirm (arm → "Delete this
+                        token? …" → commit, 4s auto-disarm — deletion is
+                        permanent — Escape, aria-live) replacing
+                        window.confirm; the old icon-only button's aria-label
+                        is preserved while the visible label shortens. */}
+                    <ConfirmButton
+                      label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                      confirmLabel={t(
+                        'apiTokens.confirmDelete',
+                        {},
+                        { defaultValue: 'Delete this token? This action cannot be undone.' },
                       )}
-                    >
-                      <span className="material-symbols-outlined text-[16px]">delete</span>
-                    </button>
+                      onConfirm={() => remove(tok.id)}
+                      aria-label={t('apiTokens.delete', {}, { defaultValue: 'Delete token' })}
+                      color="error"
+                      size="sm"
+                      disarmSeconds={4}
+                      data-mol-id={`api-token-delete-${tok.id}`}
+                    />
                   </span>
                 </li>
               ))}

@@ -3,6 +3,7 @@ import { type FormEvent, useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { SecretsManagerLayout } from '../components/SecretsManagerLayout.js'
 import { SecretStatusPill, type SecretStatusTone } from '../components/SecretStatusPill.js'
@@ -82,8 +83,6 @@ export function Team() {
   }
 
   const remove = async (id: string) => {
-    if (!window.confirm(t('team.confirmRemove', {}, { defaultValue: 'Remove this member?' })))
-      return
     try {
       await http.delete(`/api/team-members/${id}`)
       void track({ name: 'member.removed', properties: { member_id: id } })
@@ -248,7 +247,7 @@ export function Team() {
               <span className={cm.cn('hidden w-44 text-right md:inline')}>
                 {t('team.col.lastActive', {}, { defaultValue: 'Last active' })}
               </span>
-              <span className={cm.cn('w-20 text-right')}>
+              <span className={cm.cn('w-32 text-right')}>
                 {t('team.col.actions', {}, { defaultValue: '' })}
               </span>
             </header>
@@ -280,16 +279,24 @@ export function Team() {
                   >
                     {m.last_active_at ? new Date(m.last_active_at).toLocaleString() : '—'}
                   </span>
-                  <span className={cm.cn('w-20 text-right')}>
-                    <button
-                      type="button"
-                      onClick={() => remove(m.id)}
+                  <span className={cm.cn('w-32 flex justify-end')}>
+                    {/* Two-step destructive confirm (arm → "Remove this
+                        member?" → commit, 6s auto-disarm, Escape, aria-live)
+                        replacing window.confirm; the old icon-only button's
+                        aria-label is now the visible label. */}
+                    <ConfirmButton
+                      label={t('team.remove', {}, { defaultValue: 'Remove member' })}
+                      confirmLabel={t(
+                        'team.confirmRemove',
+                        {},
+                        { defaultValue: 'Remove this member?' },
+                      )}
+                      onConfirm={() => remove(m.id)}
+                      color="error"
+                      size="sm"
+                      disarmSeconds={6}
                       data-mol-id={`team-remove-${m.id}`}
-                      aria-label={t('team.remove', {}, { defaultValue: 'Remove member' })}
-                      className={cm.cn('text-muted transition-colors hover:text-error')}
-                    >
-                      <span className="material-symbols-outlined text-[18px]">person_remove</span>
-                    </button>
+                    />
                   </span>
                 </li>
               ))}
