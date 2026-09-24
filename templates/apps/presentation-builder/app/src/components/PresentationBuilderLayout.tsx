@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
 import { UserMenu } from './UserMenu.js'
@@ -33,11 +33,16 @@ const NAV_ITEMS: Array<{ to: string; icon: string; key: string; defaultLabel: st
 ]
 
 /**
- * Authenticated app shell — sticky left sidebar + glass-blur top bar.
+ * Authenticated app shell — the shared `ResponsiveAppShell` composed to this
+ * app's shape (fleet-canonical: brand row in the desktop sidebar, mobile-only
+ * top bar carrying the menu trigger + user menu, one nav element passed to
+ * both `.Sidebar` and `.Drawer` so only the mounted breakpoint instantiates).
  *
- * Translated from design-canvas's DesignCanvasLayout.tsx — same 260px sidebar
- * + sticky header pattern, retuned to the Overture wordmark with a Material
- * Symbols `co_present` mark and the violet→magenta brand gradient.
+ * The shell owns the breakpoint split, the drawer open state, the 44px menu
+ * trigger, focus/Escape/backdrop handling, the body scroll lock, and the
+ * auto-close-on-navigation; this component only supplies nav + brand. The
+ * per-page header (eyebrow / title / actions) stays inside `.Content`, exactly
+ * where the old hand-rolled `<main>` held it.
  */
 export function PresentationBuilderLayout({
   children,
@@ -51,27 +56,6 @@ export function PresentationBuilderLayout({
   const { logout } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
-  const [drawerOpen, setDrawerOpen] = useState(false)
-
-  // Close the mobile drawer whenever the route changes (nav link tap).
-  useEffect(() => {
-    setDrawerOpen(false)
-  }, [location.pathname])
-
-  // Escape closes the drawer; scroll is locked while it is open.
-  useEffect(() => {
-    if (!drawerOpen) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setDrawerOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
-    const prevOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => {
-      window.removeEventListener('keydown', onKey)
-      document.body.style.overflow = prevOverflow
-    }
-  }, [drawerOpen])
 
   const handleLogout = async () => {
     try {
@@ -174,47 +158,71 @@ export function PresentationBuilderLayout({
   }
 
   const isCanvas = variant === 'canvas'
+  const navAriaLabel = t('presentationBuilderLayout.navLabel', {}, { defaultValue: 'Main' })!
 
-  return (
-    <div
-      className={cm.cn(
-        cm.flex({ direction: 'col' }),
-        cm.minH('screen'),
-        'md:flex-row bg-surface text-on-surface antialiased',
-      )}
-    >
-      {/* Mobile top bar — the 260px sidebar is hidden below md; this bar hosts
-          the drawer toggle + wordmark + user menu instead. */}
-      {!isCanvas && (
-        <header
+  // Brand row — leads the desktop sidebar (the shared Sidebar has no header
+  // slot, so it rides inside `children`) and heads the mobile drawer.
+  const brandBlock = (
+    <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('p', 5))}>
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center', justify: 'center' }),
+          cm.w(10),
+          cm.h(10),
+          'bg-gradient-to-br from-primary to-secondary rounded-xl text-white shadow-lg',
+        )}
+      >
+        <span
+          className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}
+          style={{ fontVariationSettings: "'FILL' 1" }}
+        >
+          co_present
+        </span>
+      </div>
+      <div className={cm.flex({ direction: 'col' })}>
+        <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-on-surface')}>
+          {APP_NAME}
+        </span>
+        <span
           className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
-            cm.sp('px', 4),
-            cm.sp('py', 3),
-            'md:hidden sticky top-0 z-30 w-full h-14 bg-surface/90 backdrop-blur-xl border-b border-outline-variant/30',
+            cm.fontWeight('semibold'),
+            'text-[10px] uppercase tracking-widest text-on-surface-variant/70',
           )}
         >
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'min-w-0')}>
-            <button
-              type="button"
-              aria-label={t(
-                'presentationBuilderLayout.openMenu',
-                {},
-                { defaultValue: 'Open navigation menu' },
-              )!}
-              aria-expanded={drawerOpen}
-              aria-controls="pb-mobile-drawer"
-              data-testid="mobile-nav-toggle"
-              onClick={() => setDrawerOpen(true)}
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                cm.w(10),
-                cm.h(10),
-                'rounded-lg text-on-surface hover:bg-surface-container/60 shrink-0',
-              )}
-            >
-              <span className={cm.cn(cm.textSize('2xl'), 'material-symbols-outlined')}>menu</span>
-            </button>
+          {APP_TAGLINE}
+        </span>
+      </div>
+    </div>
+  )
+
+  // ONE nav element for both breakpoints — the Sidebar and the Drawer receive
+  // the same element, and only the mounted breakpoint instantiates it. The
+  // drawer closes itself on navigation (shell-owned), so links carry no
+  // onClick close.
+  const navBody = (
+    <div className={cm.cn(cm.flex1, cm.sp('px', 3), cm.stack(1), 'overflow-y-auto')}>
+      {navItems}
+    </div>
+  )
+
+  const shellFooter = (
+    <>
+      {newDeckButton()}
+      {signOutButton()}
+    </>
+  )
+
+  return (
+    <ResponsiveAppShell sidebarWidth={260} className="antialiased">
+      {/*
+        Mobile top bar (< md). The desktop brand row lives in the sidebar, so
+        this bar only exists below the breakpoint — it hosts the shell's menu
+        trigger + wordmark + user menu.
+      */}
+      {!isCanvas && (
+        <ResponsiveAppShell.TopBar
+          mobileOnly
+          brand={
             <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'min-w-0')}>
               <div
                 className={cm.cn(
@@ -241,143 +249,25 @@ export function PresentationBuilderLayout({
                 {APP_NAME}
               </span>
             </div>
-          </div>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'shrink-0')}>
-            <UserMenu />
-          </div>
-        </header>
+          }
+          actions={<UserMenu />}
+        />
       )}
 
-      {/* Mobile nav drawer (below md only). */}
-      {drawerOpen && (
-        <div className="md:hidden">
-          <button
-            type="button"
-            aria-label={t(
-              'presentationBuilderLayout.closeMenu',
-              {},
-              { defaultValue: 'Close navigation menu' },
-            )!}
-            onClick={() => setDrawerOpen(false)}
-            className="fixed inset-0 z-40 bg-black/40"
-          />
-          <nav
-            id="pb-mobile-drawer"
-            aria-label={t('presentationBuilderLayout.navLabel', {}, { defaultValue: 'Main' })!}
-            className={cm.cn(
-              cm.flex({ direction: 'col' }),
-              'fixed top-0 left-0 bottom-0 z-50 w-[280px] max-w-[85vw] bg-surface-container-low border-r border-outline-variant/30 shadow-2xl',
-            )}
-          >
-            <div
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 'sm' }),
-                cm.sp('px', 5),
-                cm.sp('py', 5),
-              )}
-            >
-              <div
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  cm.w(9),
-                  cm.h(9),
-                  'bg-gradient-to-br from-primary to-secondary rounded-xl text-white',
-                )}
-              >
-                <span
-                  className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}
-                  style={{ fontVariationSettings: "'FILL' 1" }}
-                >
-                  co_present
-                </span>
-              </div>
-              <div className={cm.flex({ direction: 'col' })}>
-                <span
-                  className={cm.cn(
-                    cm.textSize('lg'),
-                    cm.fontWeight('extrabold'),
-                    'tracking-tight text-on-surface',
-                  )}
-                >
-                  {APP_NAME}
-                </span>
-                <span
-                  className={cm.cn(
-                    cm.fontWeight('semibold'),
-                    'text-[10px] uppercase tracking-widest text-on-surface-variant/70',
-                  )}
-                >
-                  {APP_TAGLINE}
-                </span>
-              </div>
-            </div>
-            <div className={cm.cn(cm.flex1, cm.sp('px', 3), cm.stack(1), 'overflow-y-auto')}>
-              {navItems}
-            </div>
-            <div className={cm.cn(cm.sp('p', 4), 'border-t border-outline-variant/30')}>
-              {newDeckButton()}
-              {signOutButton()}
-            </div>
-          </nav>
-        </div>
+      {/* Desktop sidebar (>= md). */}
+      <ResponsiveAppShell.Sidebar navLabel={navAriaLabel} footer={shellFooter}>
+        {brandBlock}
+        {navBody}
+      </ResponsiveAppShell.Sidebar>
+
+      {/* Mobile nav drawer (< md): full APG dialog contract, shell-owned. */}
+      {!isCanvas && (
+        <ResponsiveAppShell.Drawer navLabel={navAriaLabel} header={brandBlock} footer={shellFooter}>
+          {navBody}
+        </ResponsiveAppShell.Drawer>
       )}
 
-      <aside
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          cm.h('screen'),
-          'hidden md:flex w-[260px] sticky top-0 left-0 bg-surface-container-low border-r border-outline-variant/30',
-        )}
-      >
-        <div
-          className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('px', 6), cm.sp('py', 8))}
-        >
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(10),
-              cm.h(10),
-              'bg-gradient-to-br from-primary to-secondary rounded-xl text-white shadow-lg',
-            )}
-          >
-            <span
-              className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              co_present
-            </span>
-          </div>
-          <div className={cm.flex({ direction: 'col' })}>
-            <span
-              className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-on-surface')}
-            >
-              {APP_NAME}
-            </span>
-            <span
-              className={cm.cn(
-                cm.fontWeight('semibold'),
-                'text-[10px] uppercase tracking-widest text-on-surface-variant/70',
-              )}
-            >
-              {APP_TAGLINE}
-            </span>
-          </div>
-        </div>
-
-        <nav
-          aria-label={t('presentationBuilderLayout.navLabel', {}, { defaultValue: 'Main' })!}
-          className={cm.cn(cm.flex1, cm.sp('px', 3), cm.stack(1))}
-        >
-          {navItems}
-        </nav>
-
-        <div className={cm.cn(cm.sp('p', 4), 'mt-auto border-t border-outline-variant/30')}>
-          {newDeckButton()}
-          {signOutButton()}
-        </div>
-      </aside>
-
-      <main className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }), 'min-w-0')}>
+      <ResponsiveAppShell.Content className={cm.flex({ direction: 'col' })}>
         {!isCanvas && (
           <header
             className={cm.cn(
@@ -414,8 +304,8 @@ export function PresentationBuilderLayout({
           </header>
         )}
         <div className={cm.cn(cm.flex1, isCanvas ? '' : 'p-4 md:p-8')}>{children}</div>
-      </main>
-    </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
 

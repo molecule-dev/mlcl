@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { DeckCard } from '../components/DeckCard.js'
 import { PresentationBuilderLayout } from '../components/PresentationBuilderLayout.js'
@@ -116,30 +117,12 @@ export function Shared() {
     >
       <div className={cm.cn(cm.stack(6))}>
         {error && (
-          <div
-            role="alert"
+          <LoadErrorBanner
             data-testid="shared-error"
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'between', gap: 'md' }),
-              cm.sp('p', 4),
-              'rounded-xl bg-error/10 text-error',
-            )}
-          >
-            <span>{error}</span>
-            <button
-              type="button"
-              onClick={() => void reload()}
-              className={cm.cn(
-                cm.sp('px', 3),
-                cm.sp('py', 2),
-                cm.fontWeight('bold'),
-                cm.textSize('xs'),
-                'rounded-lg bg-error/15 hover:bg-error/25 uppercase tracking-widest shrink-0',
-              )}
-            >
-              {t('common.retry', {}, { defaultValue: 'Retry' })}
-            </button>
-          </div>
+            message={error}
+            onRetry={() => void reload()}
+            retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+          />
         )}
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
           {TABS.map((tk) => (
