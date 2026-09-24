@@ -10,7 +10,7 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { SettingsPanel } from '../components/SettingsPanel.js'
@@ -155,42 +155,6 @@ function writeJSON<T>(key: string, value: T) {
   }
 }
 
-function Toggle({
-  on,
-  onChange,
-  disabled,
-  testId,
-}: {
-  on: boolean
-  onChange: (next: boolean) => void
-  disabled?: boolean
-  testId?: string
-}) {
-  const cm = getClassMap()
-  return (
-    <button
-      type="button"
-      onClick={() => !disabled && onChange(!on)}
-      role="switch"
-      aria-checked={on}
-      disabled={disabled}
-      data-testid={testId}
-      className={cm.cn(
-        'relative h-6 w-11 rounded-full transition-colors shrink-0',
-        on ? 'bg-primary' : 'bg-surface-container',
-        disabled ? 'opacity-50 cursor-not-allowed' : '',
-      )}
-    >
-      <span
-        className={cm.cn(
-          'absolute top-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform',
-          on ? 'translate-x-[22px]' : 'translate-x-0.5',
-        )}
-      />
-    </button>
-  )
-}
-
 export function Settings() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -322,11 +286,16 @@ export function Settings() {
                   {t(p.descKey, {}, { defaultValue: p.defaultDesc })}
                 </span>
               </div>
-              <Toggle
-                on={p.alwaysOn ? true : (notifPrefs[p.id] ?? false)}
+              <Switch
+                checked={p.alwaysOn ? true : (notifPrefs[p.id] ?? false)}
                 disabled={p.alwaysOn}
                 testId={`settings-notif-${p.id}`}
-                onChange={(next) => setNotifPrefs((prev) => ({ ...prev, [p.id]: next }))}
+                onChange={(e) =>
+                  setNotifPrefs((prev) => ({
+                    ...prev,
+                    [p.id]: (e.target as HTMLInputElement).checked,
+                  }))
+                }
               />
             </div>
           ))}
@@ -393,10 +362,15 @@ export function Settings() {
                       : t('common.following', {}, { defaultValue: 'Following' })}
                   </span>
                 </div>
-                <Toggle
-                  on={!channelMutes[c.id]}
+                <Switch
+                  checked={!channelMutes[c.id]}
                   testId={`settings-channel-${c.slug}`}
-                  onChange={(next) => setChannelMutes((prev) => ({ ...prev, [c.id]: !next }))}
+                  onChange={(e) =>
+                    setChannelMutes((prev) => ({
+                      ...prev,
+                      [c.id]: !(e.target as HTMLInputElement).checked,
+                    }))
+                  }
                 />
               </div>
             ))
