@@ -9,6 +9,7 @@ import { AuthGuard } from '@molecule/app-ui-react'
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { PreferencesApplier } from './components/PreferencesApplier.js'
 import { RootErrorBoundary } from './components/RootErrorBoundary.js'
+import { StudioLayout } from './components/StudioLayout.js'
 import { About } from './pages/About.js'
 import { Dashboard } from './pages/Dashboard.js'
 import { ForgotPassword } from './pages/ForgotPassword.js'
@@ -56,16 +57,20 @@ export function App() {
             {/* Public pricing page — outside AuthGuard so anonymous visitors can see plans */}
             <Route path="/pricing" element={<Pricing />} />
 
-            {/* Authenticated creator routes — each page renders its own chrome
-              (sidebar/topnav), so no layout wrapper. */}
+            {/* Authenticated creator routes — the shared ResponsiveAppShell
+              (StudioLayout) carries the sidebar/topbar/drawer chrome; pages
+              render their content only. PlanUpdated keeps the landing chrome
+              it had before the shell existed. */}
             <Route element={<AuthGuard />}>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/issues" element={<Issues />} />
-              <Route path="/issues/new" element={<IssueEditor />} />
-              <Route path="/issues/:id/edit" element={<IssueEditor />} />
-              <Route path="/issues/:id/detail" element={<IssueDetail />} />
-              <Route path="/subscribers" element={<Subscribers />} />
-              <Route path="/settings" element={<Settings />} />
+              <Route element={<StudioLayout />}>
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/issues" element={<Issues />} />
+                <Route path="/issues/new" element={<IssueEditor />} />
+                <Route path="/issues/:id/edit" element={<IssueEditor />} />
+                <Route path="/issues/:id/detail" element={<IssueDetail />} />
+                <Route path="/subscribers" element={<Subscribers />} />
+                <Route path="/settings" element={<Settings />} />
+              </Route>
               <Route path="/plan-updated" element={<PlanUpdated />} />
             </Route>
 

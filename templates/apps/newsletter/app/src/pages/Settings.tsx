@@ -12,8 +12,6 @@ import SettingsPageHeader from '../components/SettingsPageHeader.js'
 import SettingsPrivacySection from '../components/SettingsPrivacySection.js'
 import SettingsProfileSection from '../components/SettingsProfileSection.js'
 import SettingsPublicationSection from '../components/SettingsPublicationSection.js'
-import SettingsSideNavBar from '../components/SettingsSideNavBar.js'
-import SettingsTopNavBar from '../components/SettingsTopNavBar.js'
 
 interface ProfileResponse {
   id: string
@@ -173,118 +171,129 @@ function Settings() {
   }
 
   return (
-    <>
-      <SettingsTopNavBar onSave={handleSave} loading={loading} />
-      <SettingsSideNavBar />
-      <main
-        className={cm.cn(
-          'px-4 md:px-16',
-          'max-w-4xl',
-          // Sidebar hidden below md; bottom padding clears the mobile nav bar.
-          'md:ml-[240px] pt-24 md:pt-32 pb-28 md:pb-24',
-        )}
-      >
-        <SettingsPageHeader />
-        {message && (
-          <div
-            data-mol-id="settings-message"
-            className={cm.cn(
-              cm.sp('mb', 8),
-              cm.sp('p', 4),
-              'rounded-lg',
-              message.type === 'success'
-                ? 'bg-success-container text-on-success-container'
-                : 'bg-error-container text-on-error-container',
-            )}
-            role="alert"
-          >
-            {message.text}
-          </div>
-        )}
-        <div className={cm.stack(10)}>
-          <SettingsPublicationSection />
-          <SettingsProfileSection
-            name={name}
-            bio={bio}
-            setName={setName}
-            setBio={setBio}
-            email={email}
-            setEmail={setEmail}
-          />
-          <SettingsAppearanceSection
-            theme={theme === 'system' ? 'light' : theme}
-            fontSize={fontSize}
-            onThemeChange={(next) => handleThemeChange(next)}
-            onFontSizeChange={(next) => handleFontSizeChange(next)}
-          />
-          <section
-            data-mol-id="settings-language-section"
-            className={cm.cn(
-              cm.grid({ cols: 1, gap: 'none' }),
-              'md:grid-cols-12 items-start gap-x-10 gap-y-6',
-            )}
-          >
-            <div className={cm.cn('md:col-span-4')}>
-              <h3 className={cm.cn(cm.textSize('xl'), cm.fontWeight('semibold'), 'font-headline')}>
-                {t('footer.language', {}, { defaultValue: 'Language' })}
-              </h3>
-              <p
-                className={cm.cn(
-                  cm.textSize('sm'),
-                  cm.sp('mt', 2),
-                  'text-on-surface-variant font-label',
-                )}
-              >
-                {t(
-                  'common.chooseTheLanguage',
-                  {},
-                  { defaultValue: 'Choose the language used throughout the app.' },
-                )}
-              </p>
-            </div>
-            <div
+    // Chrome (sidebar/topbar/drawer) comes from StudioLayout; this is content
+    // only — padding stays inside the page. The global Save action (formerly
+    // the top nav's) lives here now, wired to the same handler and e2e id.
+    <div className={cm.cn('px-4 md:px-16', 'max-w-4xl', 'pt-6 md:pt-10 pb-16 md:pb-24')}>
+      <div className={cm.cn(cm.flex({ justify: 'end' }), cm.sp('mb', 4))}>
+        <button
+          className={cm.cn(
+            cm.sp('px', 6),
+            cm.sp('py', 2),
+            cm.roundedFull,
+            cm.textSize('xs'),
+            cm.fontWeight('semibold'),
+            'bg-primary text-on-primary font-label uppercase tracking-widest hover:scale-95 active:scale-90 transition-transform',
+          )}
+          data-mol-id="save-settings-top"
+          onClick={handleSave}
+          disabled={loading}
+        >
+          {loading
+            ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
+            : t('common.saveChanges', {}, { defaultValue: 'Save Changes' })}
+        </button>
+      </div>
+      <SettingsPageHeader />
+      {message && (
+        <div
+          data-mol-id="settings-message"
+          className={cm.cn(
+            cm.sp('mb', 8),
+            cm.sp('p', 4),
+            'rounded-lg',
+            message.type === 'success'
+              ? 'bg-success-container text-on-success-container'
+              : 'bg-error-container text-on-error-container',
+          )}
+          role="alert"
+        >
+          {message.text}
+        </div>
+      )}
+      <div className={cm.stack(10)}>
+        <SettingsPublicationSection />
+        <SettingsProfileSection
+          name={name}
+          bio={bio}
+          setName={setName}
+          setBio={setBio}
+          email={email}
+          setEmail={setEmail}
+        />
+        <SettingsAppearanceSection
+          theme={theme === 'system' ? 'light' : theme}
+          fontSize={fontSize}
+          onThemeChange={(next) => handleThemeChange(next)}
+          onFontSizeChange={(next) => handleFontSizeChange(next)}
+        />
+        <section
+          data-mol-id="settings-language-section"
+          className={cm.cn(
+            cm.grid({ cols: 1, gap: 'none' }),
+            'md:grid-cols-12 items-start gap-x-10 gap-y-6',
+          )}
+        >
+          <div className={cm.cn('md:col-span-4')}>
+            <h3 className={cm.cn(cm.textSize('xl'), cm.fontWeight('semibold'), 'font-headline')}>
+              {t('footer.language', {}, { defaultValue: 'Language' })}
+            </h3>
+            <p
               className={cm.cn(
-                cm.sp('p', 8),
-                'md:col-span-8 bg-surface-container-lowest rounded-xl editorial-shadow',
+                cm.textSize('sm'),
+                cm.sp('mt', 2),
+                'text-on-surface-variant font-label',
               )}
             >
-              <LanguagePicker />
-            </div>
-          </section>
-          <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>
-            <div className={cm.sp('mb', 6)}>
-              <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
-                {t('nav.appearance', {}, { defaultValue: 'Appearance' })}
-              </h3>
-              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                {t(
-                  'common.toggleLightDark',
-                  {},
-                  { defaultValue: 'Toggle between light and dark mode.' },
-                )}
-              </p>
-            </div>
-            <ThemeToggle />
-          </section>
-          <SettingsNotificationsSection
-            newFollowers={newFollowers}
-            commentsNotif={commentsNotif}
-            mentionsNotif={mentionsNotif}
-            onToggleNewFollowers={(checked) => setNewFollowers(checked)}
-            onToggleComments={(checked) => setCommentsNotif(checked)}
-            onToggleMentions={(checked) => setMentionsNotif(checked)}
-          />
-          <SettingsPrivacySection
-            profileVisible={profileVisible}
-            showEmail={showEmail}
-            onToggleVisibility={(checked) => setProfileVisible(checked)}
-            onToggleShowEmail={(checked) => setShowEmail(checked)}
-          />
-          <SettingsDangerZoneSection onDelete={handleDeleteAccount} />
-        </div>
-        <SettingsFormFooter onSave={handleSave} loading={loading} onCancel={handleCancel} />
-      </main>
-    </>
+              {t(
+                'common.chooseTheLanguage',
+                {},
+                { defaultValue: 'Choose the language used throughout the app.' },
+              )}
+            </p>
+          </div>
+          <div
+            className={cm.cn(
+              cm.sp('p', 8),
+              'md:col-span-8 bg-surface-container-lowest rounded-xl editorial-shadow',
+            )}
+          >
+            <LanguagePicker />
+          </div>
+        </section>
+        <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>
+          <div className={cm.sp('mb', 6)}>
+            <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
+              {t('nav.appearance', {}, { defaultValue: 'Appearance' })}
+            </h3>
+            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+              {t(
+                'common.toggleLightDark',
+                {},
+                { defaultValue: 'Toggle between light and dark mode.' },
+              )}
+            </p>
+          </div>
+          <ThemeToggle />
+        </section>
+        <SettingsNotificationsSection
+          newFollowers={newFollowers}
+          commentsNotif={commentsNotif}
+          mentionsNotif={mentionsNotif}
+          onToggleNewFollowers={(checked) => setNewFollowers(checked)}
+          onToggleComments={(checked) => setCommentsNotif(checked)}
+          onToggleMentions={(checked) => setMentionsNotif(checked)}
+        />
+        <SettingsPrivacySection
+          profileVisible={profileVisible}
+          showEmail={showEmail}
+          onToggleVisibility={(checked) => setProfileVisible(checked)}
+          onToggleShowEmail={(checked) => setShowEmail(checked)}
+        />
+        <SettingsDangerZoneSection onDelete={handleDeleteAccount} />
+      </div>
+      <SettingsFormFooter onSave={handleSave} loading={loading} onCancel={handleCancel} />
+    </div>
   )
 }
 

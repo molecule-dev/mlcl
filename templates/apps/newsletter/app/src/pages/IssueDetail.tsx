@@ -5,8 +5,6 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { SafeLink } from '../components/SafeLink.js'
-import SideNavBar from '../components/SideNavBar.js'
-import TopNavBar from '../components/TopNavBar.js'
 
 interface IssueStats {
   issue_id: string
@@ -83,204 +81,186 @@ function IssueDetail() {
     .filter(Boolean)
 
   return (
-    <>
-      <SideNavBar />
-      <TopNavBar />
-      <main
-        aria-label={issue?.subject ?? t('issueDetail.title', {}, { defaultValue: 'Issue detail' })}
-        className={cm.cn(
-          // Sidebar is hidden below md — content spans full width there.
-          'md:ml-[240px] pt-24 pb-28 md:pb-24 px-4 md:px-12',
-          'max-w-[1200px]',
-        )}
-      >
-        {loading ? (
-          <div
-            className={cm.cn(
-              cm.sp('py', 12),
-              cm.textCenter,
-              cm.textSize('sm'),
-              'text-on-surface-variant',
-            )}
-          >
-            {t('common.loading', {}, { defaultValue: 'Loading...' })}
-          </div>
-        ) : error ? (
-          <div
-            role="alert"
-            className={cm.cn(
-              cm.sp('p', 6),
-              'rounded-xl bg-error-container text-on-error-container',
-            )}
-          >
-            {error}
-          </div>
-        ) : issue ? (
-          <div
-            className={cm.cn(cm.flex({ direction: 'col' }), 'gap-10 lg:flex-row lg:items-start')}
-          >
-            {/* Rendered issue */}
-            <article data-mol-id="issue-detail-body" className={cm.cn(cm.flex1, 'max-w-[680px]')}>
+    // Chrome (sidebar/topbar/drawer) comes from StudioLayout; this is content
+    // only — padding stays inside the page.
+    <div className={cm.cn('px-4 pt-6 md:px-12 md:pt-10 pb-16 md:pb-24', 'max-w-[1200px]')}>
+      {loading ? (
+        <div
+          className={cm.cn(
+            cm.sp('py', 12),
+            cm.textCenter,
+            cm.textSize('sm'),
+            'text-on-surface-variant',
+          )}
+        >
+          {t('common.loading', {}, { defaultValue: 'Loading...' })}
+        </div>
+      ) : error ? (
+        <div
+          role="alert"
+          className={cm.cn(cm.sp('p', 6), 'rounded-xl bg-error-container text-on-error-container')}
+        >
+          {error}
+        </div>
+      ) : issue ? (
+        <div className={cm.cn(cm.flex({ direction: 'col' }), 'gap-10 lg:flex-row lg:items-start')}>
+          {/* Rendered issue */}
+          <article data-mol-id="issue-detail-body" className={cm.cn(cm.flex1, 'max-w-[680px]')}>
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                'uppercase tracking-widest text-on-surface-variant',
+              )}
+            >
+              {issue.publish_at
+                ? new Date(issue.publish_at).toLocaleDateString(undefined, {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })
+                : ''}
+            </p>
+            <h2
+              className={cm.cn(
+                cm.textSize('3xl'),
+                "font-black font-['Newsreader'] text-on-background mt-2",
+              )}
+            >
+              {issue.subject}
+            </h2>
+            {issue.preview_text && (
               <p
                 className={cm.cn(
-                  cm.textSize('xs'),
-                  'uppercase tracking-widest text-on-surface-variant',
+                  cm.textSize('lg'),
+                  cm.sp('mt', 2),
+                  'italic text-on-surface-variant',
                 )}
               >
-                {issue.publish_at
-                  ? new Date(issue.publish_at).toLocaleDateString(undefined, {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })
-                  : ''}
+                {issue.preview_text}
               </p>
-              <h2
-                className={cm.cn(
-                  cm.textSize('3xl'),
-                  "font-black font-['Newsreader'] text-on-background mt-2",
-                )}
-              >
-                {issue.subject}
-              </h2>
-              {issue.preview_text && (
-                <p
-                  className={cm.cn(
-                    cm.textSize('lg'),
-                    cm.sp('mt', 2),
-                    'italic text-on-surface-variant',
-                  )}
-                >
-                  {issue.preview_text}
+            )}
+            <div className={cm.cn('prose-editorial', cm.sp('mt', 8))}>
+              {sections.length > 0 ? (
+                sections.map((p, i) =>
+                  p.startsWith('## ') ? (
+                    <h3
+                      key={i}
+                      className={cm.cn(
+                        cm.textSize('xl'),
+                        cm.fontWeight('bold'),
+                        "font-['Newsreader'] text-on-surface mt-8 mb-4",
+                      )}
+                    >
+                      {p.slice(3)}
+                    </h3>
+                  ) : p.startsWith('- ') ? (
+                    <ul key={i} className="list-disc pl-6">
+                      {p.split('\n').map((li, j) => (
+                        <li key={j} className={cm.textSize('base')}>
+                          {li.replace(/^- /, '')}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p key={i} className={cm.textSize('base')}>
+                      {p}
+                    </p>
+                  ),
+                )
+              ) : (
+                <p className={cm.textSize('base')}>
+                  {t('issueDetail.empty', {}, { defaultValue: 'This issue has no body yet.' })}
                 </p>
               )}
-              <div className={cm.cn('prose-editorial', cm.sp('mt', 8))}>
-                {sections.length > 0 ? (
-                  sections.map((p, i) =>
-                    p.startsWith('## ') ? (
-                      <h3
-                        key={i}
-                        className={cm.cn(
-                          cm.textSize('xl'),
-                          cm.fontWeight('bold'),
-                          "font-['Newsreader'] text-on-surface mt-8 mb-4",
-                        )}
-                      >
-                        {p.slice(3)}
-                      </h3>
-                    ) : p.startsWith('- ') ? (
-                      <ul key={i} className="list-disc pl-6">
-                        {p.split('\n').map((li, j) => (
-                          <li key={j} className={cm.textSize('base')}>
-                            {li.replace(/^- /, '')}
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p key={i} className={cm.textSize('base')}>
-                        {p}
-                      </p>
-                    ),
-                  )
-                ) : (
-                  <p className={cm.textSize('base')}>
-                    {t('issueDetail.empty', {}, { defaultValue: 'This issue has no body yet.' })}
-                  </p>
-                )}
-              </div>
-              <SafeLink
-                to={`/issues/${issue.id}`}
-                className={cm.cn(
-                  cm.textSize('sm'),
-                  cm.fontWeight('medium'),
-                  'text-primary hover:underline mt-8 inline-block',
-                )}
-              >
-                {t('issueDetail.viewPublic', {}, { defaultValue: 'View the public page' })}
-              </SafeLink>
-            </article>
-
-            {/* Per-issue stats */}
-            <aside
-              data-mol-id="issue-detail-stats"
-              className={cm.cn('lg:w-[360px] w-full', cm.stack(6))}
+            </div>
+            <SafeLink
+              to={`/issues/${issue.id}`}
+              className={cm.cn(
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                'text-primary hover:underline mt-8 inline-block',
+              )}
             >
-              <div
+              {t('issueDetail.viewPublic', {}, { defaultValue: 'View the public page' })}
+            </SafeLink>
+          </article>
+
+          {/* Per-issue stats */}
+          <aside
+            data-mol-id="issue-detail-stats"
+            className={cm.cn('lg:w-[360px] w-full', cm.stack(6))}
+          >
+            <div
+              className={cm.cn(
+                cm.sp('p', 6),
+                'rounded-xl bg-surface-container-lowest',
+                cm.stack(4),
+              )}
+            >
+              <h3
+                className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), 'text-on-surface')}
+              >
+                {t('issueDetail.deliveryTitle', {}, { defaultValue: 'Delivery' })}
+              </h3>
+              <StatPill
+                label={t('dashboard.delivered', {}, { defaultValue: 'Delivered' })}
+                value={(stats?.delivered ?? 0).toLocaleString()}
+                dataMolId="issue-stats-delivered"
+              />
+              <StatPill
+                label={t('dashboard.opened', {}, { defaultValue: 'Opened' })}
+                value={`${(stats?.opened ?? 0).toLocaleString()} (${stats?.open_rate ?? 0}%)`}
+                dataMolId="issue-stats-opened"
+              />
+              <StatPill
+                label={t('dashboard.clicked', {}, { defaultValue: 'Clicked' })}
+                value={`${(stats?.clicked ?? 0).toLocaleString()} (${stats?.click_rate ?? 0}%)`}
+                dataMolId="issue-stats-clicked"
+              />
+              <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                {t(
+                  'issueDetail.demoNote',
+                  {},
+                  {
+                    defaultValue:
+                      'Demo delivery: sends are logged per subscriber; opens/clicks come from tokened public-issue visits.',
+                  },
+                )}
+              </p>
+            </div>
+
+            <div className={cm.cn(cm.sp('p', 6), 'rounded-xl bg-surface-container-lowest')}>
+              <h3
                 className={cm.cn(
-                  cm.sp('p', 6),
-                  'rounded-xl bg-surface-container-lowest',
-                  cm.stack(4),
+                  cm.textSize('lg'),
+                  cm.fontWeight('semibold'),
+                  'text-on-surface mb-4',
                 )}
               >
-                <h3
-                  className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), 'text-on-surface')}
-                >
-                  {t('issueDetail.deliveryTitle', {}, { defaultValue: 'Delivery' })}
-                </h3>
-                <StatPill
-                  label={t('dashboard.delivered', {}, { defaultValue: 'Delivered' })}
-                  value={(stats?.delivered ?? 0).toLocaleString()}
-                  dataMolId="issue-stats-delivered"
-                />
-                <StatPill
-                  label={t('dashboard.opened', {}, { defaultValue: 'Opened' })}
-                  value={`${(stats?.opened ?? 0).toLocaleString()} (${stats?.open_rate ?? 0}%)`}
-                  dataMolId="issue-stats-opened"
-                />
-                <StatPill
-                  label={t('dashboard.clicked', {}, { defaultValue: 'Clicked' })}
-                  value={`${(stats?.clicked ?? 0).toLocaleString()} (${stats?.click_rate ?? 0}%)`}
-                  dataMolId="issue-stats-clicked"
-                />
-                <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                  {t(
-                    'issueDetail.demoNote',
-                    {},
-                    {
-                      defaultValue:
-                        'Demo delivery: sends are logged per subscriber; opens/clicks come from tokened public-issue visits.',
-                    },
-                  )}
-                </p>
+                {t('issueDetail.opensOverTime', {}, { defaultValue: 'Opens over time' })}
+              </h3>
+              <div
+                className={cm.cn(cm.flex({ align: 'end', gap: 'sm' }), cm.h(24))}
+                role="img"
+                aria-label={t('issueDetail.opensOverTime', {}, { defaultValue: 'Opens over time' })}
+              >
+                {opens.map((point) => (
+                  <div
+                    key={point.date}
+                    title={`${point.date}: ${point.count}`}
+                    className={cm.cn(
+                      cm.flex1,
+                      'rounded-t bg-primary/70 hover:bg-primary transition-all',
+                    )}
+                    style={{ height: `${Math.max(4, (point.count / maxOpens) * 100)}%` }}
+                  />
+                ))}
               </div>
-
-              <div className={cm.cn(cm.sp('p', 6), 'rounded-xl bg-surface-container-lowest')}>
-                <h3
-                  className={cm.cn(
-                    cm.textSize('lg'),
-                    cm.fontWeight('semibold'),
-                    'text-on-surface mb-4',
-                  )}
-                >
-                  {t('issueDetail.opensOverTime', {}, { defaultValue: 'Opens over time' })}
-                </h3>
-                <div
-                  className={cm.cn(cm.flex({ align: 'end', gap: 'sm' }), cm.h(24))}
-                  role="img"
-                  aria-label={t(
-                    'issueDetail.opensOverTime',
-                    {},
-                    { defaultValue: 'Opens over time' },
-                  )}
-                >
-                  {opens.map((point) => (
-                    <div
-                      key={point.date}
-                      title={`${point.date}: ${point.count}`}
-                      className={cm.cn(
-                        cm.flex1,
-                        'rounded-t bg-primary/70 hover:bg-primary transition-all',
-                      )}
-                      style={{ height: `${Math.max(4, (point.count / maxOpens) * 100)}%` }}
-                    />
-                  ))}
-                </div>
-              </div>
-            </aside>
-          </div>
-        ) : null}
-      </main>
-    </>
+            </div>
+          </aside>
+        </div>
+      ) : null}
+    </div>
   )
 }
 

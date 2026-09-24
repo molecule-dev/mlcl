@@ -7,8 +7,6 @@ import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { SafeLink } from '../components/SafeLink.js'
-import SideNavBar from '../components/SideNavBar.js'
-import TopNavBar from '../components/TopNavBar.js'
 
 interface Issue {
   id: string
@@ -110,215 +108,201 @@ function Issues() {
   }
 
   return (
-    <>
-      <SideNavBar />
-      <TopNavBar />
-      <main
-        aria-label={t('sideNavBar.issues', {}, { defaultValue: 'Issues' })}
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          cm.stack(8),
-          cm.flex1,
-          // Sidebar is hidden below md — content spans full width there.
-          'md:ml-[240px] pt-24 pb-24 md:pb-16 px-4 md:px-12 max-w-[1100px]',
-        )}
+    // Chrome (sidebar/topbar/drawer) comes from StudioLayout; this is content
+    // only — padding stays inside the page.
+    <div
+      className={cm.cn(
+        cm.flex({ direction: 'col' }),
+        cm.stack(8),
+        'px-4 pt-6 md:px-12 md:pt-10 pb-16 max-w-[1100px]',
+      )}
+    >
+      <div className={cm.cn(cm.flex({ justify: 'between', align: 'center' }))}>
+        <div>
+          <h2
+            className={cm.cn(
+              cm.textSize('2xl'),
+              cm.fontWeight('bold'),
+              "font-['Newsreader'] text-on-background",
+            )}
+          >
+            {t('issues.title', {}, { defaultValue: 'Your issues' })}
+          </h2>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'issues.subhead',
+              {},
+              { defaultValue: 'Drafts, scheduled sends, and everything already delivered.' },
+            )}
+          </p>
+        </div>
+      </div>
+
+      {/* Filters */}
+      <div
+        data-mol-id="issues-filters"
+        className={cm.cn('flex flex-wrap items-center gap-2 md:gap-3')}
+        role="tablist"
       >
-        <div className={cm.cn(cm.flex({ justify: 'between', align: 'center' }))}>
-          <div>
-            <h2
-              className={cm.cn(
-                cm.textSize('2xl'),
-                cm.fontWeight('bold'),
-                "font-['Newsreader'] text-on-background",
-              )}
-            >
-              {t('issues.title', {}, { defaultValue: 'Your issues' })}
-            </h2>
-            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-              {t(
-                'issues.subhead',
-                {},
-                { defaultValue: 'Drafts, scheduled sends, and everything already delivered.' },
-              )}
-            </p>
-          </div>
-        </div>
+        {FILTER_VALUES.map((filter) => (
+          <button
+            key={filter}
+            type="button"
+            role="tab"
+            aria-selected={activeFilter === filter}
+            data-mol-id={`issues-filter-${filter}`}
+            className={cm.cn(
+              cm.sp('px', 4),
+              cm.sp('py', 2),
+              cm.roundedFull,
+              cm.textSize('sm'),
+              cm.fontWeight('medium'),
+              activeFilter === filter
+                ? 'bg-primary text-on-primary'
+                : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high',
+            )}
+            onClick={() => {
+              setActiveFilter(filter)
+              setReloadKey((k) => k + 1)
+            }}
+          >
+            {t(
+              `issues.filter_${filter}`,
+              {},
+              { defaultValue: filter.charAt(0).toUpperCase() + filter.slice(1) },
+            )}
+          </button>
+        ))}
+      </div>
 
-        {/* Filters */}
-        <div
-          data-mol-id="issues-filters"
-          className={cm.cn('flex flex-wrap items-center gap-2 md:gap-3')}
-          role="tablist"
-        >
-          {FILTER_VALUES.map((filter) => (
-            <button
-              key={filter}
-              type="button"
-              role="tab"
-              aria-selected={activeFilter === filter}
-              data-mol-id={`issues-filter-${filter}`}
+      {/* List */}
+      <section className={cm.flex1}>
+        <div className={cm.stack(4)}>
+          {loading ? (
+            <div
               className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                cm.roundedFull,
+                cm.sp('py', 12),
+                cm.textCenter,
                 cm.textSize('sm'),
-                cm.fontWeight('medium'),
-                activeFilter === filter
-                  ? 'bg-primary text-on-primary'
-                  : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high',
+                'text-on-surface-variant',
               )}
-              onClick={() => {
-                setActiveFilter(filter)
-                setReloadKey((k) => k + 1)
-              }}
             >
-              {t(
-                `issues.filter_${filter}`,
-                {},
-                { defaultValue: filter.charAt(0).toUpperCase() + filter.slice(1) },
+              {t('common.loading', {}, { defaultValue: 'Loading...' })}
+            </div>
+          ) : error ? (
+            <div
+              role="alert"
+              className={cm.cn(
+                cm.sp('p', 6),
+                'rounded-xl bg-error-container text-on-error-container',
               )}
-            </button>
-          ))}
-        </div>
-
-        {/* List */}
-        <section className={cm.flex1}>
-          <div className={cm.stack(4)}>
-            {loading ? (
-              <div
+            >
+              {error}
+            </div>
+          ) : issues.length === 0 ? (
+            <div
+              data-mol-id="issues-empty"
+              className={cm.cn(
+                cm.sp('py', 12),
+                cm.textCenter,
+                cm.textSize('sm'),
+                'text-on-surface-variant',
+              )}
+            >
+              {t('issues.none', {}, { defaultValue: 'No issues here yet — write your first one.' })}
+            </div>
+          ) : (
+            issues.map((issue) => (
+              <article
+                key={issue.id}
+                data-mol-id={`issue-row-${issue.id}`}
                 className={cm.cn(
-                  cm.sp('py', 12),
-                  cm.textCenter,
-                  cm.textSize('sm'),
-                  'text-on-surface-variant',
-                )}
-              >
-                {t('common.loading', {}, { defaultValue: 'Loading...' })}
-              </div>
-            ) : error ? (
-              <div
-                role="alert"
-                className={cm.cn(
+                  // Stack title above the actions on phones; row on md+.
+                  cm.flex({ direction: 'col', gap: 'sm' }),
                   cm.sp('p', 6),
-                  'rounded-xl bg-error-container text-on-error-container',
+                  'md:flex-row md:items-center md:justify-between md:gap-4',
+                  'rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all',
                 )}
               >
-                {error}
-              </div>
-            ) : issues.length === 0 ? (
-              <div
-                data-mol-id="issues-empty"
-                className={cm.cn(
-                  cm.sp('py', 12),
-                  cm.textCenter,
-                  cm.textSize('sm'),
-                  'text-on-surface-variant',
-                )}
-              >
-                {t(
-                  'issues.none',
-                  {},
-                  { defaultValue: 'No issues here yet — write your first one.' },
-                )}
-              </div>
-            ) : (
-              issues.map((issue) => (
-                <article
-                  key={issue.id}
-                  data-mol-id={`issue-row-${issue.id}`}
-                  className={cm.cn(
-                    // Stack title above the actions on phones; row on md+.
-                    cm.flex({ direction: 'col', gap: 'sm' }),
-                    cm.sp('p', 6),
-                    'md:flex-row md:items-center md:justify-between md:gap-4',
-                    'rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all',
-                  )}
-                >
-                  <div className={cm.flex({ direction: 'col' })}>
-                    <span
-                      className={cm.cn(
-                        cm.textSize('base'),
-                        cm.fontWeight('semibold'),
-                        "font-['Newsreader'] text-on-surface",
-                      )}
-                    >
-                      {issue.subject ??
-                        t('issues.untitled', {}, { defaultValue: 'Untitled issue' })}
-                    </span>
-                    <span
-                      className={cm.cn(
-                        cm.textSize('xs'),
-                        cm.sp('mt', 1),
-                        'text-on-surface-variant',
-                      )}
-                    >
-                      {issueDate(issue)}
-                    </span>
-                  </div>
-                  <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
-                    <span
-                      data-mol-id={`issue-status-${issue.id}`}
-                      className={cm.cn(
-                        cm.textSize('xs'),
-                        cm.fontWeight('semibold'),
-                        'uppercase tracking-widest',
-                        statusColor(issue.status),
-                      )}
-                    >
-                      {t(
-                        STATUS_KEY[issue.status ?? 'draft'] ?? 'issues.statusDraft',
-                        {},
-                        { defaultValue: issue.status ?? 'draft' },
-                      )}
-                    </span>
-                    {issue.status === 'published' && (
-                      <SafeLink
-                        to={`/issues/${issue.id}/detail`}
-                        className={cm.cn(
-                          cm.textSize('sm'),
-                          'px-2 py-1.5',
-                          cm.fontWeight('medium'),
-                          'text-primary hover:underline',
-                        )}
-                      >
-                        {t('issues.stats', {}, { defaultValue: 'Stats' })}
-                      </SafeLink>
+                <div className={cm.flex({ direction: 'col' })}>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('base'),
+                      cm.fontWeight('semibold'),
+                      "font-['Newsreader'] text-on-surface",
                     )}
-                    <button
-                      type="button"
-                      data-mol-id={`issue-edit-${issue.id}`}
+                  >
+                    {issue.subject ?? t('issues.untitled', {}, { defaultValue: 'Untitled issue' })}
+                  </span>
+                  <span
+                    className={cm.cn(cm.textSize('xs'), cm.sp('mt', 1), 'text-on-surface-variant')}
+                  >
+                    {issueDate(issue)}
+                  </span>
+                </div>
+                <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
+                  <span
+                    data-mol-id={`issue-status-${issue.id}`}
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('semibold'),
+                      'uppercase tracking-widest',
+                      statusColor(issue.status),
+                    )}
+                  >
+                    {t(
+                      STATUS_KEY[issue.status ?? 'draft'] ?? 'issues.statusDraft',
+                      {},
+                      { defaultValue: issue.status ?? 'draft' },
+                    )}
+                  </span>
+                  {issue.status === 'published' && (
+                    <SafeLink
+                      to={`/issues/${issue.id}/detail`}
                       className={cm.cn(
                         cm.textSize('sm'),
                         'px-2 py-1.5',
                         cm.fontWeight('medium'),
-                        'text-on-surface-variant hover:text-primary',
+                        'text-primary hover:underline',
                       )}
-                      onClick={() => navigate(`/issues/${issue.id}/edit`)}
                     >
-                      {t('issues.edit', {}, { defaultValue: 'Edit' })}
-                    </button>
-                    <ConfirmButton
-                      label={t('issues.delete', {}, { defaultValue: 'Delete' })}
-                      confirmLabel={t(
-                        'issues.deleteConfirm',
-                        {},
-                        { defaultValue: 'Delete this issue? This cannot be undone.' },
-                      )}
-                      onConfirm={() => handleDelete(issue.id)}
-                      color="error"
-                      size="sm"
-                      disarmSeconds={6}
-                      testId={`issue-delete-${issue.id}`}
-                      data-mol-id={`issue-delete-${issue.id}`}
-                    />
-                  </div>
-                </article>
-              ))
-            )}
-          </div>
-        </section>
-      </main>
-    </>
+                      {t('issues.stats', {}, { defaultValue: 'Stats' })}
+                    </SafeLink>
+                  )}
+                  <button
+                    type="button"
+                    data-mol-id={`issue-edit-${issue.id}`}
+                    className={cm.cn(
+                      cm.textSize('sm'),
+                      'px-2 py-1.5',
+                      cm.fontWeight('medium'),
+                      'text-on-surface-variant hover:text-primary',
+                    )}
+                    onClick={() => navigate(`/issues/${issue.id}/edit`)}
+                  >
+                    {t('issues.edit', {}, { defaultValue: 'Edit' })}
+                  </button>
+                  <ConfirmButton
+                    label={t('issues.delete', {}, { defaultValue: 'Delete' })}
+                    confirmLabel={t(
+                      'issues.deleteConfirm',
+                      {},
+                      { defaultValue: 'Delete this issue? This cannot be undone.' },
+                    )}
+                    onConfirm={() => handleDelete(issue.id)}
+                    color="error"
+                    size="sm"
+                    disarmSeconds={6}
+                    testId={`issue-delete-${issue.id}`}
+                    data-mol-id={`issue-delete-${issue.id}`}
+                  />
+                </div>
+              </article>
+            ))
+          )}
+        </div>
+      </section>
+    </div>
   )
 }
 
