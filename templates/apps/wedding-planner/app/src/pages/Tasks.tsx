@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface Task {
   id: string
@@ -122,12 +123,7 @@ export function Tasks() {
     }
   }
 
-  async function removeTask(id: string, title: string) {
-    if (
-      !window.confirm(t('tasks.deleteConfirm', { title }, { defaultValue: `Delete “${title}”?` }))
-    ) {
-      return
-    }
+  async function removeTask(id: string) {
     try {
       await http.delete(`/api/tasks/${id}`)
       await load()
@@ -390,21 +386,29 @@ export function Tasks() {
                     {t('tasks.overdue', {}, { defaultValue: 'Overdue' })}
                   </span>
                 ) : null}
-                <button
-                  type="button"
-                  onClick={() => removeTask(task.id, task.title)}
+                <ConfirmButton
+                  label={
+                    <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
+                      delete
+                    </span>
+                  }
+                  confirmLabel={t(
+                    'tasks.deleteConfirm',
+                    { title: task.title },
+                    { defaultValue: `Delete “${task.title}”?` },
+                  )}
                   aria-label={t(
                     'tasks.removeAria',
                     { title: task.title },
                     { defaultValue: 'Delete “{{title}}”' },
                   )}
+                  onConfirm={() => removeTask(task.id)}
                   data-mol-id={`task-remove-${task.id}`}
-                  className={cm.cn(
-                    'material-symbols-outlined inline-flex h-9 w-9 items-center justify-center rounded-full text-[20px] text-on-surface-variant hover:text-error hover:bg-error-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-error',
-                  )}
-                >
-                  delete
-                </button>
+                  disarmSeconds={5}
+                  size="sm"
+                  color="error"
+                  variant="ghost"
+                />
               </li>
             )
           })

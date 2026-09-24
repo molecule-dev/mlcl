@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 type VendorStatus = 'researching' | 'contacted' | 'booked' | 'paid'
 
@@ -135,14 +136,7 @@ export function Vendors() {
     }
   }
 
-  async function removeVendor(id: string, name: string) {
-    if (
-      !window.confirm(
-        t('vendors.deleteConfirm', { name }, { defaultValue: `Remove ${name} from the list?` }),
-      )
-    ) {
-      return
-    }
+  async function removeVendor(id: string) {
     try {
       await http.delete(`/api/vendors/${id}`)
       await load()
@@ -402,21 +396,32 @@ export function Vendors() {
                           </option>
                         ))}
                       </select>
-                      <button
-                        type="button"
-                        onClick={() => removeVendor(vendor.id, vendor.name)}
+                      <ConfirmButton
+                        label={
+                          <span
+                            className="material-symbols-outlined text-[20px]"
+                            aria-hidden="true"
+                          >
+                            delete
+                          </span>
+                        }
+                        confirmLabel={t(
+                          'vendors.deleteConfirm',
+                          { name: vendor.name },
+                          { defaultValue: `Remove ${vendor.name} from the list?` },
+                        )}
                         aria-label={t(
                           'vendors.removeAria',
                           { name: vendor.name },
                           { defaultValue: 'Remove {{name}}' },
                         )}
+                        onConfirm={() => removeVendor(vendor.id)}
                         data-mol-id={`vendor-remove-${vendor.id}`}
-                        className={cm.cn(
-                          'material-symbols-outlined inline-flex h-9 w-9 items-center justify-center rounded-full text-[20px] text-on-surface-variant hover:text-error hover:bg-error-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-error',
-                        )}
-                      >
-                        delete
-                      </button>
+                        disarmSeconds={5}
+                        size="sm"
+                        color="error"
+                        variant="ghost"
+                      />
                     </div>
                   </li>
                 ))}

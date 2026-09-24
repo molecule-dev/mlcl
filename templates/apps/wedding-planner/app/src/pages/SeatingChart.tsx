@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface SeatedGuest {
   id: string
@@ -79,18 +80,7 @@ export function SeatingChart() {
     }
   }
 
-  async function removeTable(id: string, name: string) {
-    if (
-      !window.confirm(
-        t(
-          'seating.deleteTableConfirm',
-          { name },
-          { defaultValue: `Remove ${name}? Its guests return to the pool.` },
-        ),
-      )
-    ) {
-      return
-    }
+  async function removeTable(id: string) {
     try {
       await http.delete(`/api/seating/tables/${id}`)
       void track({ name: 'seating.table_removed', properties: { table_id: id } })
@@ -360,21 +350,32 @@ export function SeatingChart() {
                           </option>
                         ))}
                       </select>
-                      <button
-                        type="button"
-                        onClick={() => removeTable(table.id, table.name)}
+                      <ConfirmButton
+                        label={
+                          <span
+                            className="material-symbols-outlined text-[20px]"
+                            aria-hidden="true"
+                          >
+                            delete
+                          </span>
+                        }
+                        confirmLabel={t(
+                          'seating.deleteTableConfirm',
+                          { name: table.name },
+                          { defaultValue: `Remove ${table.name}? Its guests return to the pool.` },
+                        )}
                         aria-label={t(
                           'seating.removeTableAria',
                           { name: table.name },
                           { defaultValue: 'Remove {{name}}' },
                         )}
+                        onConfirm={() => removeTable(table.id)}
                         data-mol-id={`seating-remove-table-${table.id}`}
-                        className={cm.cn(
-                          'material-symbols-outlined inline-flex h-9 w-9 items-center justify-center rounded-full text-[20px] text-on-surface-variant hover:text-error hover:bg-error-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-error',
-                        )}
-                      >
-                        delete
-                      </button>
+                        disarmSeconds={5}
+                        size="sm"
+                        color="error"
+                        variant="ghost"
+                      />
                     </div>
                   </section>
                 )

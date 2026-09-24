@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 type RsvpStatus = 'pending' | 'yes' | 'no' | 'maybe'
 type Side = 'partner_a' | 'partner_b' | 'both'
@@ -118,14 +119,7 @@ export function Guests() {
     }
   }
 
-  async function removeGuest(id: string, name: string) {
-    if (
-      !window.confirm(
-        t('guests.deleteConfirm', { name }, { defaultValue: `Remove ${name} from the list?` }),
-      )
-    ) {
-      return
-    }
+  async function removeGuest(id: string) {
     try {
       await http.delete(`/api/guests/${id}`)
       void track({ name: 'guest.deleted', properties: { guest_id: id } })
@@ -506,21 +500,29 @@ export function Guests() {
                     {guest.rsvp_status === 'no' ? '—' : guest.plus_ones}
                   </td>
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3))}>
-                    <button
-                      type="button"
-                      onClick={() => removeGuest(guest.id, guest.name)}
+                    <ConfirmButton
+                      label={
+                        <span className="material-symbols-outlined text-[20px]" aria-hidden="true">
+                          delete
+                        </span>
+                      }
+                      confirmLabel={t(
+                        'guests.deleteConfirm',
+                        { name: guest.name },
+                        { defaultValue: `Remove ${guest.name} from the list?` },
+                      )}
                       aria-label={t(
                         'guests.removeAria',
                         { name: guest.name },
                         { defaultValue: 'Remove {{name}}' },
                       )}
+                      onConfirm={() => removeGuest(guest.id)}
                       data-mol-id={`guest-remove-${guest.id}`}
-                      className={cm.cn(
-                        'material-symbols-outlined inline-flex h-9 w-9 items-center justify-center rounded-full text-[20px] text-on-surface-variant hover:text-error hover:bg-error-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-error',
-                      )}
-                    >
-                      delete
-                    </button>
+                      disarmSeconds={5}
+                      size="sm"
+                      color="error"
+                      variant="ghost"
+                    />
                   </td>
                 </tr>
               ))}

@@ -140,14 +140,18 @@ test.describe('/guests page', () => {
     const target = list.find((g) => g.name === name)
     expect(target).toBeTruthy()
 
-    // Arm the DELETE waiter BEFORE accepting the confirm — the API readback
-    // below must not race the page's own request.
+    // Two-step inline confirm: the first click ARMS the button, the second
+    // commits. The native window.confirm dialog is gone. Arm the DELETE
+    // waiter BEFORE the commit click — the API readback below must not race
+    // the page's own request.
+    const removeBtn = page.locator(`[data-mol-id="guest-remove-${target?.id}"]`)
+    await removeBtn.click()
+    await expect(removeBtn).toContainText(`Remove ${name} from the list?`, { timeout: 5000 })
     const deleted = page.waitForResponse(
       (r) => /\/api\/guests\/[^/]+(\?|$)/.test(r.url()) && r.request().method() === 'DELETE',
       { timeout: 15000 },
     )
-    page.once('dialog', (d) => d.accept())
-    await page.locator(`[data-mol-id="guest-remove-${target?.id}"]`).click()
+    await removeBtn.click()
     expect((await deleted).status()).toBeLessThan(400)
 
     const after = (await (

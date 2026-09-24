@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface BudgetItem {
   id: string
@@ -134,18 +135,7 @@ export function Budget() {
     }
   }
 
-  async function removeItem(id: string, label: string) {
-    if (
-      !window.confirm(
-        t(
-          'budget.deleteConfirm',
-          { label },
-          { defaultValue: `Remove “${label}” from the budget?` },
-        ),
-      )
-    ) {
-      return
-    }
+  async function removeItem(id: string) {
     try {
       await http.delete(`/api/budget/${id}`)
       void track({ name: 'budget_line.deleted', properties: { line_id: id } })
@@ -655,21 +645,32 @@ export function Budget() {
                             >
                               edit
                             </button>
-                            <button
-                              type="button"
-                              onClick={() => removeItem(item.id, item.label)}
+                            <ConfirmButton
+                              label={
+                                <span
+                                  className="material-symbols-outlined text-[20px]"
+                                  aria-hidden="true"
+                                >
+                                  delete
+                                </span>
+                              }
+                              confirmLabel={t(
+                                'budget.deleteConfirm',
+                                { label: item.label },
+                                { defaultValue: `Remove “${item.label}” from the budget?` },
+                              )}
                               aria-label={t(
                                 'budget.removeAria',
                                 { label: item.label },
                                 { defaultValue: 'Remove {{label}}' },
                               )}
+                              onConfirm={() => removeItem(item.id)}
                               data-mol-id={`budget-remove-${item.id}`}
-                              className={cm.cn(
-                                'material-symbols-outlined inline-flex h-9 w-9 items-center justify-center rounded-full text-[20px] text-on-surface-variant hover:text-error hover:bg-error-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-error',
-                              )}
-                            >
-                              delete
-                            </button>
+                              disarmSeconds={5}
+                              size="sm"
+                              color="error"
+                              variant="ghost"
+                            />
                           </div>
                         </td>
                       </>
