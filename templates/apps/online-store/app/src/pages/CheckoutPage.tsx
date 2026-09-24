@@ -4,6 +4,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import CheckoutPageFooter from '../components/CheckoutPageFooter.js'
 import StorefrontTopNavBar from '../components/StorefrontTopNavBar.js'
@@ -353,23 +354,12 @@ export function CheckoutPage() {
             className={cm.container()}
             style={{ maxWidth: '1280px', margin: '0 auto', padding: '48px 24px' }}
           >
-            <div className={cm.alert({ variant: 'error' })} style={{ marginBottom: '24px' }}>
-              <div className={cm.alertIconWrapper}>
-                <span className="material-symbols-outlined">error</span>
-              </div>
-              <div className={cm.alertContent}>
-                <p className={cm.alertDescription}>{loadError}</p>
-              </div>
-            </div>
-            <div className={cm.textCenter}>
-              <button
-                onClick={() => window.location.reload()}
-                className={cm.button({ variant: 'solid' })}
-                data-mol-id="error-retry"
-              >
-                {t('common.retry', {}, { defaultValue: 'Try Again' })}
-              </button>
-            </div>
+            <LoadErrorBanner
+              message={loadError}
+              onRetry={() => window.location.reload()}
+              retryLabel={t('common.retry', {}, { defaultValue: 'Try Again' })}
+              retryMolId="error-retry"
+            />
           </div>
         </div>
       </CheckoutChrome>

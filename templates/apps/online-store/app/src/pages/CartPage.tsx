@@ -5,6 +5,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import CartItem from '../components/CartItem.js'
 import CartOrderSummary from '../components/CartOrderSummary.js'
@@ -190,34 +191,15 @@ function CartPage() {
         <main className={cm.cn(cm.mxAuto, cm.sp('px', 6), cm.sp('py', 12), cm.maxW('[1280px]'))}>
           <div className={cm.stack(8)}>
             <CartPageHeader count={0} />
-            <div
-              className={cm.cn(
-                cm.sp('p', 6),
-                'bg-surface rounded-lg shadow-sm border border-border',
+            <LoadErrorBanner
+              message={t(
+                'cartPage.loadError',
+                {},
+                { defaultValue: 'Failed to load cart. Please try again.' },
               )}
-            >
-              <div className={cm.stack(3)}>
-                <p className={cm.cn('text-error')}>
-                  {t(
-                    'cartPage.loadError',
-                    {},
-                    { defaultValue: 'Failed to load cart. Please try again.' },
-                  )}
-                </p>
-                <button
-                  type="button"
-                  onClick={fetchCart}
-                  className={cm.cn(
-                    cm.textPrimary,
-                    cm.fontWeight('semibold'),
-                    cm.textSize('sm'),
-                    'hover:underline',
-                  )}
-                >
-                  {t('common.retry', {}, { defaultValue: 'Retry' })}
-                </button>
-              </div>
-            </div>
+              retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+              onRetry={fetchCart}
+            />
           </div>
         </main>
         <StoreFooter />

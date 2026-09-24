@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import StoreFooter from '../components/StoreFooter.js'
 import WishlistPageHeader from '../components/WishlistPageHeader.js'
@@ -102,7 +103,9 @@ function WishlistPage() {
   const fetchWishlist = useCallback(() => {
     setLoading(true)
     setError(null)
-    http
+    // Return the promise so LoadErrorBanner's retry button can own its
+    // pending/disabled state while the refetch is in flight.
+    return http
       .get<{ data: WishlistItem[] } | WishlistItem[]>('/api/wishlist')
       .then((res) => {
         const list = unpackListPayload(res).map((row, i) =>
@@ -192,7 +195,18 @@ function WishlistPage() {
               {t('wishlistPage.loading', {}, { defaultValue: 'Loading your wishlist...' })}
             </p>
           </div>
-        ) : error || items.length === 0 ? (
+        ) : error ? (
+          <LoadErrorBanner
+            message={t(
+              'wishlistPage.errorHeading',
+              {},
+              { defaultValue: 'Could not load wishlist' },
+            )}
+            detail={error}
+            onRetry={fetchWishlist}
+            retryLabel={t('common.tryAgain', {}, { defaultValue: 'Try Again' })}
+          />
+        ) : items.length === 0 ? (
           <div className={cm.cn(cm.textCenter, cm.sp('py', 16), cm.sp('px', 8))}>
             <div
               className={cm.cn(
@@ -229,9 +243,7 @@ function WishlistPage() {
                 'text-[var(--mol-color-secondary)]',
               )}
             >
-              {error
-                ? t('wishlistPage.errorHeading', {}, { defaultValue: 'Could not load wishlist' })
-                : t('wishlistPage.emptyHeading', {}, { defaultValue: 'Your wishlist is empty' })}
+              {t('wishlistPage.emptyHeading', {}, { defaultValue: 'Your wishlist is empty' })}
             </h3>
             <p
               className={cm.cn(
@@ -241,37 +253,23 @@ function WishlistPage() {
                 'text-foreground-secondary',
               )}
             >
-              {error ||
-                t(
-                  'wishlistPage.emptyDescription',
-                  {},
-                  {
-                    defaultValue:
-                      'Browse our products and save your favorites here for easy access later.',
-                  },
-                )}
+              {t(
+                'wishlistPage.emptyDescription',
+                {},
+                {
+                  defaultValue:
+                    'Browse our products and save your favorites here for easy access later.',
+                },
+              )}
             </p>
-            {error ? (
-              <button
-                onClick={fetchWishlist}
-                className={cm.cn(
-                  cm.sp('px', 5),
-                  cm.fontWeight('semibold'),
-                  'py-2.5 bg-primary text-white rounded-lg hover:bg-primary-hover transition-colors',
-                )}
-              >
-                {t('common.tryAgain', {}, { defaultValue: 'Try Again' })}
-              </button>
-            ) : (
-              <Link
-                to="/"
-                className={cm.cn(
-                  'inline-flex items-center justify-center px-5 py-2.5 bg-primary text-white rounded-lg font-semibold hover:bg-primary-hover transition-colors',
-                )}
-              >
-                {t('wishlistPage.browseProducts', {}, { defaultValue: 'Browse Products' })}
-              </Link>
-            )}
+            <Link
+              to="/"
+              className={cm.cn(
+                'inline-flex items-center justify-center px-5 py-2.5 bg-primary text-white rounded-lg font-semibold hover:bg-primary-hover transition-colors',
+              )}
+            >
+              {t('wishlistPage.browseProducts', {}, { defaultValue: 'Browse Products' })}
+            </Link>
           </div>
         ) : (
           <div
