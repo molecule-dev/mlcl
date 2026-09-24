@@ -5,14 +5,6 @@
 @source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
 @source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
 @source "../../../../../../node_modules/@molecule/app-ui-react/dist";
-/* TopNavLayout renders nav labels as `hidden md:inline` — without that class
-   generated, the labels stay display:none at every width (icon-only links with
-   no accessible name — axe `link-name`). The dist @source below is unreliable
-   through the symlinked node_modules some environments use, so the class is
-   also force-generated via @source inline(). */
-@source "../../../../../../node_modules/@molecule/app-top-nav-layout-react/dist";
-@source inline("md:inline");
-
 /*
  * Safelist for dynamically-generated UIClassMap utility classes.
  *

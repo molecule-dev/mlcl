@@ -263,10 +263,10 @@
   --color-surface-tint: #fb923c;
 }
 
-/* The shared TopNavLayout hardcodes the pair bg-primary-container + text-primary
-   for the active nav item, but brand orange (--color-primary) cannot reach 4.5:1
-   as 14px text on any light background. Re-pair the text to the M3-correct
-   on-primary-container token wherever that combination appears. */
+/* The active nav item uses the pair bg-primary-container + text-primary, but
+   brand orange (--color-primary) cannot reach 4.5:1 as 14px text on any light
+   background. Re-pair the text to the M3-correct on-primary-container token
+   wherever that combination appears. */
 .bg-primary-container.text-primary {
   color: var(--color-on-primary-container);
 }
