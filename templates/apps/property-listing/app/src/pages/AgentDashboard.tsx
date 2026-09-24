@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
-import AdminMobileNav from '../components/AdminMobileNav.js'
+import AdminShell from '../components/AdminShell.js'
 import AgentDashboardKpiSection from '../components/AgentDashboardKpiSection.js'
 import AgentDashboardPerformanceChart from '../components/AgentDashboardPerformanceChart.js'
 import AgentDashboardRecentLeadsCard from '../components/AgentDashboardRecentLeadsCard.js'
 import AgentDashboardShowingsCard from '../components/AgentDashboardShowingsCard.js'
-import AgentDashboardSideNavBar from '../components/AgentDashboardSideNavBar.js'
 import AgentDashboardTopAppBar from '../components/AgentDashboardTopAppBar.js'
 
 interface Lead {
@@ -132,62 +132,38 @@ function AgentDashboard() {
           cm.flex({ align: 'center', justify: 'center' }),
           cm.minH('screen'),
           'text-on-surface selection:bg-primary-fixed-dim',
+          cm.sp('p', 8),
         )}
       >
-        <div
-          className={cm.cn(
-            cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
-            cm.sp('p', 8),
-          )}
-        >
-          <span
-            className={cm.cn('material-symbols-outlined')}
-            style={{ fontSize: 48, color: 'var(--color-outline)' }}
-          >
-            error
-          </span>
-          <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'text-foreground')}>
-            {t('agentDashboard.errorTitle', {}, { defaultValue: 'Failed to load dashboard' })}
-          </p>
-          <p className={cm.cn(cm.textSize('xs'), 'text-foreground-secondary')}>{error}</p>
-          <button
-            onClick={() => window.location.reload()}
-            className={cm.cn(
-              cm.sp('px', 6),
-              cm.fontWeight('semibold'),
-              cm.textSize('sm'),
-              'bg-primary text-on-primary py-2.5 rounded-xl hover:opacity-90',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-        </div>
+        <LoadErrorBanner
+          message={t('agentDashboard.errorTitle', {}, { defaultValue: 'Failed to load dashboard' })}
+          detail={error}
+          onRetry={() => window.location.reload()}
+        />
       </div>
     )
   }
 
   return (
-    <div className={cm.cn('text-on-surface selection:bg-primary-fixed-dim')}>
-      <AgentDashboardSideNavBar />
-      <AdminMobileNav />
-      {/* Main Content Wrapper */}
-      <main className={cm.cn(cm.minH('screen'), 'md:ml-64')} data-mol-id="main_wrapper">
-        <AgentDashboardTopAppBar />
-        {/* Content Canvas */}
-        <div className={cm.cn(cm.sp('p', 8), cm.stack(8))} data-mol-id="canvas">
-          {/* KPI Cards Row */}
-          <AgentDashboardKpiSection stats={stats} />
-          {/* Main Grid: Bento Style */}
-          <div className={cm.grid({ cols: 12, gap: 'xl' })} data-mol-id="bento_layout">
-            <AgentDashboardPerformanceChart />
-            {/* Upcoming Showings */}
-            <AgentDashboardShowingsCard showings={showings} />
-            {/* Recent Leads List */}
-            <AgentDashboardRecentLeadsCard leads={leads} />
-          </div>
+    <AdminShell
+      className="text-on-surface selection:bg-primary-fixed-dim"
+      contentMolId="main_wrapper"
+    >
+      <AgentDashboardTopAppBar />
+      {/* Content Canvas */}
+      <div className={cm.cn(cm.sp('p', 8), cm.stack(8))} data-mol-id="canvas">
+        {/* KPI Cards Row */}
+        <AgentDashboardKpiSection stats={stats} />
+        {/* Main Grid: Bento Style */}
+        <div className={cm.grid({ cols: 12, gap: 'xl' })} data-mol-id="bento_layout">
+          <AgentDashboardPerformanceChart />
+          {/* Upcoming Showings */}
+          <AgentDashboardShowingsCard showings={showings} />
+          {/* Recent Leads List */}
+          <AgentDashboardRecentLeadsCard leads={leads} />
         </div>
-      </main>
-    </div>
+      </div>
+    </AdminShell>
   )
 }
 

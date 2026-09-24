@@ -34,7 +34,7 @@ export function TopAppBar() {
         cm.w('full'),
         cm.sp('pr', 12),
         cm.sp('py', 6),
-        'pl-4 md:pl-64 sticky top-0 z-30 bg-background/80 backdrop-blur-md',
+        'pl-4 sticky top-0 z-30 bg-background/80 backdrop-blur-md',
       )}
     >
       <div className={cm.cn('relative', cm.w(96))}>

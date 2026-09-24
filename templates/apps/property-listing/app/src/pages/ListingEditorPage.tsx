@@ -7,7 +7,7 @@ import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import AdminMobileNav from '../components/AdminMobileNav.js'
+import AdminShell from '../components/AdminShell.js'
 import ListingEditorAmenitiesSection from '../components/ListingEditorAmenitiesSection.js'
 import ListingEditorClassificationSection from '../components/ListingEditorClassificationSection.js'
 import ListingEditorFooter from '../components/ListingEditorFooter.js'
@@ -15,7 +15,6 @@ import ListingEditorHeader from '../components/ListingEditorHeader.js'
 import ListingEditorImageGallery from '../components/ListingEditorImageGallery.js'
 import ListingEditorPropertyDescriptionSection from '../components/ListingEditorPropertyDescriptionSection.js'
 import ListingEditorPropertyDetailsSection from '../components/ListingEditorPropertyDetailsSection.js'
-import ListingEditorSideNavBar from '../components/ListingEditorSideNavBar.js'
 
 interface ListingForm {
   title: string
@@ -276,9 +275,7 @@ function ListingEditorPage() {
   }
 
   return (
-    <div
-      className={cm.cn('bg-background text-on-surface font-body selection:bg-secondary-container')}
-    >
+    <AdminShell className="bg-background text-on-surface font-body selection:bg-secondary-container">
       {error && (
         <div
           role="alert"
@@ -293,9 +290,7 @@ function ListingEditorPage() {
           {error}
         </div>
       )}
-      <ListingEditorSideNavBar />
-      <AdminMobileNav />
-      <main className={cm.cn(cm.minH('screen'), 'md:ml-64 pb-24')}>
+      <div className={cm.cn(cm.minH('screen'), 'pb-24')}>
         <ListingEditorHeader />
         <div className={cm.cn(cm.mxAuto, cm.sp('px', 12), cm.sp('pt', 6), 'max-w-6xl')}>
           <h2
@@ -514,8 +509,8 @@ function ListingEditorPage() {
           onPublish={() => handleSave('active')}
           saving={saving}
         />
-      </main>
-    </div>
+      </div>
+    </AdminShell>
   )
 }
 

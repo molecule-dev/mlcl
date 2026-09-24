@@ -4,21 +4,20 @@ import { useNavigate } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import AdminMobileNav from '../components/AdminMobileNav.js'
+import AdminShell from '../components/AdminShell.js'
 import AgentAnalyticsFooter from '../components/AgentAnalyticsFooter.js'
-import AgentAnalyticsSideNavBar from '../components/AgentAnalyticsSideNavBar.js'
 
 function AgentAnalyticsChrome({ children }: { children: ReactNode }) {
   const cm = getClassMap()
   return (
-    <div className={cm.cn('text-on-surface selection:bg-primary-fixed-dim')}>
-      <AgentAnalyticsSideNavBar />
-      <AdminMobileNav />
-      <main className={cm.cn('md:ml-64 min-h-screen flex flex-col')} data-mol-id="main_wrapper">
-        <div className={cm.cn('flex-1')}>{children}</div>
-        <AgentAnalyticsFooter />
-      </main>
-    </div>
+    <AdminShell
+      className="text-on-surface selection:bg-primary-fixed-dim"
+      contentMolId="main_wrapper"
+      contentClassName={cm.cn('min-h-screen flex flex-col')}
+    >
+      <div className={cm.cn('flex-1')}>{children}</div>
+      <AgentAnalyticsFooter />
+    </AdminShell>
   )
 }
 

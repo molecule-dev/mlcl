@@ -7,11 +7,10 @@ import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton, LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
-import AdminMobileNav from '../components/AdminMobileNav.js'
+import AdminShell from '../components/AdminShell.js'
 import SettingsBottomActionBar from '../components/SettingsBottomActionBar.js'
 import SettingsPageHeader from '../components/SettingsPageHeader.js'
 import SettingsProfileCard from '../components/SettingsProfileCard.js'
-import SettingsSideNavBar from '../components/SettingsSideNavBar.js'
 import SettingsTopAppBar from '../components/SettingsTopAppBar.js'
 
 interface PropertyHubProfile {
@@ -222,13 +221,11 @@ function Settings() {
   }
 
   return (
-    <div className={cm.cn(cm.surface, 'font-body text-on-surface')}>
-      {/* Sidebar Navigation Shell */}
-      <SettingsSideNavBar />
+    <AdminShell className={cm.cn(cm.surface, 'font-body text-on-surface')}>
+      {/* Page top bar — desktop search/notifications chrome (fixed overlay) */}
       <SettingsTopAppBar />
-      <AdminMobileNav />
       {/* Main Content Area */}
-      <main className={cm.cn('px-4 md:px-12', 'md:ml-72 pt-20 md:pt-32 pb-24 min-h-screen')}>
+      <div className={cm.cn('px-4 md:px-12', 'pt-20 md:pt-32 pb-24 min-h-screen')}>
         <div className={cm.cn(cm.mxAuto, 'max-w-5xl')}>
           <SettingsPageHeader />
           <div className={cm.grid({ cols: 12, gap: 'xl' })}>
@@ -661,7 +658,7 @@ function Settings() {
             </aside>
           </div>
         </div>
-      </main>
+      </div>
       {/* Bottom Action Bar */}
       <SettingsBottomActionBar
         onSave={handleProfileSave}
@@ -670,7 +667,7 @@ function Settings() {
         successMessage={profileSuccess}
         errorMessage={profileError}
       />
-    </div>
+    </AdminShell>
   )
 }
 

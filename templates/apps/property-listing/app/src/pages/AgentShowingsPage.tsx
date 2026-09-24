@@ -18,7 +18,7 @@ import { Link } from 'react-router'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { ConfirmButton } from '@molecule/app-ui-react'
+import { ConfirmButton, LoadErrorBanner } from '@molecule/app-ui-react'
 
 interface Showing {
   id: string
@@ -257,28 +257,7 @@ function AgentShowingsPage() {
             />
           </div>
         ) : error ? (
-          <div
-            className={cm.cn(
-              cm.sp('p', 8),
-              'rounded-xl bg-error-container text-on-error-container',
-            )}
-            role="alert"
-          >
-            <p className={cm.fontWeight('semibold')}>{error}</p>
-            <button
-              onClick={fetchShowings}
-              className={cm.cn(
-                cm.sp('mt', 4),
-                cm.sp('px', 6),
-                cm.sp('py', 2),
-                cm.fontWeight('semibold'),
-                cm.textSize('sm'),
-                'bg-primary text-on-primary rounded-xl hover:opacity-90',
-              )}
-            >
-              {t('common.retry', {}, { defaultValue: 'Retry' })}
-            </button>
-          </div>
+          <LoadErrorBanner message={error} onRetry={fetchShowings} />
         ) : visibleShowings.length === 0 ? (
           <div
             className={cm.cn(

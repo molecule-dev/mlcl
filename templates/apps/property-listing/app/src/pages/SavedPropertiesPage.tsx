@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import SavedPropertiesEmptyState from '../components/SavedPropertiesEmptyState.js'
 import SavedPropertiesFooter from '../components/SavedPropertiesFooter.js'
@@ -129,37 +130,13 @@ function SavedPropertiesPage() {
           <div className={cm.cn('mb-24')}>
             <div className={cm.card()}>
               <div className={cm.cn(cm.cardContent, cm.sp('p', 8))}>
-                <div data-mol-id="error-state-01" className={cm.emptyState}>
-                  <div className={cm.emptyStateIcon}>
-                    <svg
-                      width="48"
-                      height="48"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="var(--color-text-muted)"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <line x1="12" y1="8" x2="12" y2="12" />
-                      <line x1="12" y1="16" x2="12.01" y2="16" />
-                    </svg>
-                  </div>
-                  <p className={cm.emptyStateTitle}>
-                    {t('saved.errorTitle', {}, { defaultValue: 'Something went wrong' })}
-                  </p>
-                  <p className={cm.emptyStateDescription}>{error}</p>
-                  <button
-                    onClick={fetchSaved}
-                    className={cm.cn(
-                      cm.button({ variant: 'solid', color: 'primary' }),
-                      cm.sp('mt', 4),
-                    )}
-                  >
-                    {t('saved.tryAgain', {}, { defaultValue: 'Try Again' })}
-                  </button>
-                </div>
+                <LoadErrorBanner
+                  data-mol-id="error-state-01"
+                  message={t('saved.errorTitle', {}, { defaultValue: 'Something went wrong' })}
+                  detail={error}
+                  onRetry={fetchSaved}
+                  retryLabel={t('saved.tryAgain', {}, { defaultValue: 'Try Again' })}
+                />
               </div>
             </div>
           </div>

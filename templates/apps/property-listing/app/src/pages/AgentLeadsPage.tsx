@@ -18,10 +18,9 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { ConfirmButton } from '@molecule/app-ui-react'
+import { ConfirmButton, LoadErrorBanner } from '@molecule/app-ui-react'
 
-import AdminMobileNav from '../components/AdminMobileNav.js'
-import SideNavBar from '../components/SideNavBar.js'
+import AdminShell from '../components/AdminShell.js'
 import TopAppBar from '../components/TopAppBar.js'
 
 interface Lead {
@@ -157,12 +156,10 @@ function AgentLeadsPage() {
   }
 
   return (
-    <div className={cm.cn(cm.surface, 'text-on-surface')} data-mol-id="page-agent-leads">
+    <AdminShell rootMolId="page-agent-leads" className={cm.cn(cm.surface, 'text-on-surface')}>
       <h1 className={cm.srOnly}>{t('agentLeads.pageTitle', {}, { defaultValue: 'Leads' })}</h1>
-      <SideNavBar />
-      <AdminMobileNav />
       <TopAppBar />
-      <main className={cm.cn(cm.sp('pr', 12), 'pl-4 md:pl-64 pb-20 pt-8')}>
+      <div className={cm.cn(cm.sp('pr', 12), 'pl-4 pb-20 pt-8')}>
         <div className={cm.stack(8)}>
           <header className={cm.cn(cm.flex({ justify: 'between', align: 'end' }))}>
             <div>
@@ -247,28 +244,7 @@ function AgentLeadsPage() {
               />
             </div>
           ) : error ? (
-            <div
-              className={cm.cn(
-                cm.sp('p', 8),
-                'rounded-xl bg-error-container text-on-error-container',
-              )}
-              role="alert"
-            >
-              <p className={cm.fontWeight('semibold')}>{error}</p>
-              <button
-                onClick={fetchLeads}
-                className={cm.cn(
-                  cm.sp('mt', 4),
-                  cm.sp('px', 6),
-                  cm.sp('py', 2),
-                  cm.fontWeight('semibold'),
-                  cm.textSize('sm'),
-                  'bg-primary text-on-primary rounded-xl hover:opacity-90',
-                )}
-              >
-                {t('common.retry', {}, { defaultValue: 'Retry' })}
-              </button>
-            </div>
+            <LoadErrorBanner message={error} onRetry={fetchLeads} />
           ) : filteredLeads.length === 0 ? (
             <div
               className={cm.cn(
@@ -425,8 +401,8 @@ function AgentLeadsPage() {
             </section>
           )}
         </div>
-      </main>
-    </div>
+      </div>
+    </AdminShell>
   )
 }
 

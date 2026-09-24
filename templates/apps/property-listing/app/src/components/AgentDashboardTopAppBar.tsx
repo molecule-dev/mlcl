@@ -115,8 +115,8 @@ export default function AgentDashboardTopAppBar() {
               cm.w(10),
               cm.roundedFull,
               cm.cursorPointer,
-              // Hidden below md: the drawer (AdminMobileNav) carries settings,
-              // and the extra 40px overflows a 390px header row.
+              // Hidden below md: the shell drawer carries settings, and the
+              // extra 40px overflows a 390px header row.
               'hidden sm:block overflow-hidden bg-border ring-2 ring-emerald-50',
             )}
             data-mol-id="profile_avatar"

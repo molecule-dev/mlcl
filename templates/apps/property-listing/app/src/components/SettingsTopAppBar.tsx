@@ -15,10 +15,12 @@ function SettingsTopAppBar() {
       <header
         className={cm.cn(
           cm.flex({ justify: 'between', align: 'center' }),
-          cm.w('full'),
           cm.sp('pr', 12),
           cm.sp('py', 6),
-          'fixed top-0 left-0 right-0 z-30 bg-background/80 backdrop-blur-xl pl-64 hidden md:flex',
+          // Anchored to the content column (left-64 = the shell sidebar's
+          // 256px) so the fixed bar never overlays the sidebar — the old
+          // z-50 sidebar used to paint over its left 256px.
+          'fixed top-0 right-0 left-64 z-30 bg-background/80 backdrop-blur-xl hidden md:flex',
         )}
       >
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
