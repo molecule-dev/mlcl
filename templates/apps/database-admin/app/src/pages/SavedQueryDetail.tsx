@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { DatabaseAdminLayout } from '../components/DatabaseAdminLayout.js'
 import { apiDelete, apiGet, apiPost, apiPut } from '../lib/api.js'
@@ -99,10 +100,6 @@ export function SavedQueryDetail() {
 
   const onDelete = useCallback(async () => {
     if (!queryId) return
-    if (
-      !window.confirm(t('savedQuery.confirmDelete', {}, { defaultValue: 'Delete this snippet?' }))
-    )
-      return
     try {
       await apiDelete(http, `/api/queries/saved/${queryId}`)
       track({ name: 'saved_query.deleted', properties: { saved_query_id: queryId } })
@@ -110,7 +107,7 @@ export function SavedQueryDetail() {
     } catch (e) {
       setError((e as Error).message ?? 'delete failed')
     }
-  }, [http, navigate, queryId, t])
+  }, [http, navigate, queryId])
 
   if (!row) {
     return (
@@ -196,14 +193,19 @@ export function SavedQueryDetail() {
               ? t('common.runningEllipsis', {}, { defaultValue: 'Running…' })
               : t('common.run', {}, { defaultValue: 'Run' })}
           </button>
-          <button
-            type="button"
+          <ConfirmButton
             data-mol-id="sqd-delete"
-            onClick={onDelete}
-            className={cm.cn('rounded border border-error/40 px-3 py-2 text-sm text-error')}
-          >
-            {t('common.delete', {}, { defaultValue: 'Delete' })}
-          </button>
+            label={t('common.delete', {}, { defaultValue: 'Delete' })}
+            confirmLabel={t(
+              'savedQuery.confirmDelete',
+              {},
+              { defaultValue: 'Delete this snippet?' },
+            )}
+            onConfirm={onDelete}
+            disarmSeconds={5}
+            color="error"
+            variant="outline"
+          />
           {savedOk && (
             <span data-mol-id="sqd-saved-ok" className={cm.cn('text-xs text-primary')}>
               {t('common.savedPeriod', {}, { defaultValue: 'Saved.' })}

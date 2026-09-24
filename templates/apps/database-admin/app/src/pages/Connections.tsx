@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { DatabaseAdminLayout } from '../components/DatabaseAdminLayout.js'
 import { apiDelete, apiGet, apiPost } from '../lib/api.js'
@@ -66,12 +67,6 @@ export function Connections() {
 
   const onDelete = useCallback(
     async (id: string) => {
-      if (
-        !window.confirm(
-          t('connections.confirmDelete', {}, { defaultValue: 'Delete this connection?' }),
-        )
-      )
-        return
       try {
         await apiDelete(http, `/api/connections/${id}`)
         track({ name: 'connection.deleted', properties: { connection_id: id } })
@@ -80,7 +75,7 @@ export function Connections() {
       }
       await refetch()
     },
-    [http, refetch, t],
+    [http, refetch],
   )
 
   return (
@@ -184,16 +179,19 @@ export function Connections() {
                   >
                     {t('common.edit', {}, { defaultValue: 'Edit' })}
                   </Link>
-                  <button
-                    type="button"
+                  <ConfirmButton
                     data-mol-id={`connection-delete-${c.id}`}
-                    onClick={() => onDelete(c.id)}
-                    className={cm.cn(
-                      'rounded border border-error/40 px-3 py-1.5 text-xs text-error',
+                    label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                    confirmLabel={t(
+                      'connections.confirmDelete',
+                      {},
+                      { defaultValue: 'Delete this connection?' },
                     )}
-                  >
-                    {t('common.delete', {}, { defaultValue: 'Delete' })}
-                  </button>
+                    onConfirm={() => onDelete(c.id)}
+                    disarmSeconds={4}
+                    color="error"
+                    variant="outline"
+                  />
                 </div>
                 {probeStatus[c.id] === 'ok' && (
                   <div data-mol-id="probe-ok" className={cm.cn('text-xs text-primary')}>

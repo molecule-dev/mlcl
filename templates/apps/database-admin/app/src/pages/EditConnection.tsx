@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { DatabaseAdminLayout } from '../components/DatabaseAdminLayout.js'
 import { apiDelete, apiGet, apiPut } from '../lib/api.js'
@@ -31,7 +32,6 @@ export function EditConnection() {
   const [error, setError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
-  const [deleting, setDeleting] = useState(false)
 
   useEffect(() => {
     if (!connectionId) return
@@ -80,20 +80,12 @@ export function EditConnection() {
 
   async function onDelete() {
     if (!connectionId) return
-    if (
-      !window.confirm(
-        t('editConnection.confirmDelete', {}, { defaultValue: 'Delete this connection?' }),
-      )
-    )
-      return
-    setDeleting(true)
     try {
       await apiDelete(http, `/api/connections/${connectionId}`)
       track({ name: 'connection.deleted', properties: { connection_id: connectionId } })
       navigate('/connections')
     } catch (e) {
       setError((e as Error).message ?? 'delete failed')
-      setDeleting(false)
     }
   }
 
@@ -187,17 +179,20 @@ export function EditConnection() {
                 ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
                 : t('common.saveChanges', {}, { defaultValue: 'Save changes' })}
             </button>
-            <button
-              type="button"
+            <ConfirmButton
               data-mol-id="edit-conn-delete"
-              onClick={onDelete}
-              disabled={deleting}
-              className={cm.cn('rounded border border-error/40 px-3 py-2 text-sm text-error')}
-            >
-              {deleting
-                ? t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
-                : t('editConnection.deleteButton', {}, { defaultValue: 'Delete connection' })}
-            </button>
+              label={t('editConnection.deleteButton', {}, { defaultValue: 'Delete connection' })}
+              confirmLabel={t(
+                'editConnection.confirmDelete',
+                {},
+                { defaultValue: 'Delete this connection?' },
+              )}
+              pendingLabel={t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })}
+              onConfirm={onDelete}
+              disarmSeconds={4}
+              color="error"
+              variant="outline"
+            />
           </div>
 
           {saved && !error && (

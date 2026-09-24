@@ -124,8 +124,11 @@ test.describe('Connections', () => {
     const card = page.locator('[data-conn-name="Demo Delete Me"]')
     await expect(card).toBeVisible()
 
-    page.once('dialog', (d) => d.accept())
-    await card.locator('[data-mol-id^="connection-delete-"]').click()
+    // ConfirmButton two-step flow: first click arms (confirm label), second commits.
+    const deleteBtn = card.locator('[data-mol-id^="connection-delete-"]')
+    await deleteBtn.click()
+    await expect(deleteBtn).toHaveText(/Delete this connection\?/)
+    await deleteBtn.click()
     await expect(page.locator('[data-conn-name="Demo Delete Me"]')).toHaveCount(0, {
       timeout: 5_000,
     })

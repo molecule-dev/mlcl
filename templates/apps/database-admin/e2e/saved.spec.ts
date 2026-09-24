@@ -62,8 +62,11 @@ test.describe('Saved query detail', () => {
     await expect(page.locator('[data-mol-id="sqd-result"]')).toBeVisible({ timeout: 10_000 })
     await expect(page.locator('[data-mol-id="sqd-result"]')).toContainText('5')
 
-    page.once('dialog', (d) => d.accept())
-    await page.locator('[data-mol-id="sqd-delete"]').click()
+    // ConfirmButton two-step flow: first click arms (confirm label), second commits.
+    const deleteBtn = page.locator('[data-mol-id="sqd-delete"]')
+    await deleteBtn.click()
+    await expect(deleteBtn).toHaveText(/Delete this snippet\?/)
+    await deleteBtn.click()
     await expect(page).toHaveURL(/\/history/, { timeout: 5_000 })
   })
 })
