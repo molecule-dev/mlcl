@@ -5,7 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { ConfirmButton, LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
 import AdminMobileNav from '../components/AdminMobileNav.js'
 import SettingsBottomActionBar from '../components/SettingsBottomActionBar.js'
@@ -36,7 +36,6 @@ function Settings() {
   const { user } = useAuth<UserRow>()
   const http = useHttpClient()
   const navigate = useNavigate()
-  const [deletingAccount, setDeletingAccount] = useState(false)
 
   const initialProfile = user?.oauthData?.propertyhub ?? {}
   const [firstName, setFirstName] = useState(user?.name?.split(' ')[0] ?? '')
@@ -209,32 +208,16 @@ function Settings() {
   }
 
   async function handleDeleteAccount() {
-    if (
-      !window.confirm(
-        t(
-          'settings.deleteAccountConfirmation',
-          {},
-          {
-            defaultValue:
-              'Are you sure you want to permanently delete your account? This action cannot be undone.',
-          },
-        ),
-      )
-    )
-      return
     if (!user?.id) {
       alert(t('settings.notSignedIn', {}, { defaultValue: 'You are not signed in.' }))
       return
     }
-    setDeletingAccount(true)
     try {
       await http.delete(`/api/users/${user.id}`)
       navigate('/login')
     } catch (error) {
       logError('settings.deleteAccount', error)
       alert(t('settings.failedToDeleteAccount', {}, { defaultValue: 'Failed to delete account.' }))
-    } finally {
-      setDeletingAccount(false)
     }
   }
 
@@ -623,17 +606,23 @@ function Settings() {
                     },
                   )}
                 </p>
-                <button
-                  onClick={handleDeleteAccount}
-                  disabled={deletingAccount}
-                  className={cm.cn(
-                    'w-full py-4 rounded-xl border border-error/20 text-error font-bold text-sm hover:bg-error hover:text-on-error transition-all duration-300',
+                <ConfirmButton
+                  label={t('settings.deleteAccountButton', {}, { defaultValue: 'Delete Account' })}
+                  confirmLabel={t(
+                    'settings.deleteAccountConfirmation',
+                    {},
+                    {
+                      defaultValue:
+                        'Are you sure you want to permanently delete your account? This action cannot be undone.',
+                    },
                   )}
-                >
-                  {deletingAccount
-                    ? t('settings.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
-                    : t('settings.deleteAccountButton', {}, { defaultValue: 'Delete Account' })}
-                </button>
+                  pendingLabel={t('settings.deletingEllipsis', {}, { defaultValue: 'Deleting…' })}
+                  onConfirm={handleDeleteAccount}
+                  color="error"
+                  size="sm"
+                  disarmSeconds={6}
+                  className="w-full"
+                />
               </div>
               {/* Ad Placement / Branding (Editorial touch) */}
               <div className={cm.cn('relative h-64 rounded-xl overflow-hidden group')}>

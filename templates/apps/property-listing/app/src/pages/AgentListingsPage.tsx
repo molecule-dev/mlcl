@@ -20,6 +20,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import AdminMobileNav from '../components/AdminMobileNav.js'
@@ -121,7 +122,6 @@ function AgentListingsPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [activeFilter, setActiveFilter] = useState<(typeof STATUS_FILTERS)[number]>('All')
   const [notificationsOpen, setNotificationsOpen] = useState(false)
-  const [deletingId, setDeletingId] = useState<string | null>(null)
   const notificationsRef = useRef<HTMLDivElement>(null)
 
   const fetchListings = async () => {
@@ -177,17 +177,6 @@ function AgentListingsPage() {
   }, [listings])
 
   const handleDelete = async (id: string) => {
-    if (
-      !window.confirm(
-        t(
-          'listings.deleteConfirm',
-          {},
-          { defaultValue: 'Delete this listing? This cannot be undone.' },
-        ),
-      )
-    )
-      return
-    setDeletingId(id)
     const previous = listings
     setListings((xs) => xs.filter((x) => x.id !== id))
     try {
@@ -197,8 +186,6 @@ function AgentListingsPage() {
       logError(err instanceof Error ? err : 'Failed to delete listing')
       setListings(previous)
       alert(t('listings.deleteError', {}, { defaultValue: 'Failed to delete listing.' }))
-    } finally {
-      setDeletingId(null)
     }
   }
 
@@ -683,24 +670,19 @@ function AgentListingsPage() {
                           >
                             <span className={cm.cn('material-symbols-outlined')}>edit</span>
                           </button>
-                          <button
-                            aria-label={t(
-                              'listings.deleteAria',
+                          <ConfirmButton
+                            label={t('listings.deleteAria', {}, { defaultValue: 'Delete listing' })}
+                            confirmLabel={t(
+                              'listings.deleteConfirm',
                               {},
-                              { defaultValue: 'Delete listing' },
+                              { defaultValue: 'Delete this listing? This cannot be undone.' },
                             )}
+                            onConfirm={() => handleDelete(listing.id)}
+                            color="error"
+                            size="sm"
+                            disarmSeconds={5}
                             data-mol-id={`delete-listing-${listing.id}`}
-                            disabled={deletingId === listing.id}
-                            className={cm.cn(
-                              'p-2 text-success/40 hover:text-error hover:bg-error-container/20 rounded-lg transition-all disabled:opacity-50',
-                            )}
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              handleDelete(listing.id)
-                            }}
-                          >
-                            <span className={cm.cn('material-symbols-outlined')}>delete</span>
-                          </button>
+                          />
                         </div>
                       </div>
                     </div>

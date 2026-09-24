@@ -18,6 +18,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import AdminMobileNav from '../components/AdminMobileNav.js'
 import SideNavBar from '../components/SideNavBar.js'
@@ -140,7 +141,6 @@ function AgentLeadsPage() {
   }
 
   const deleteLead = async (id: string) => {
-    if (!window.confirm(t('leads.deleteConfirm', {}, { defaultValue: 'Delete this lead?' }))) return
     setBusyId(id)
     const previous = leads
     setLeads((xs) => xs.filter((l) => l.id !== id))
@@ -405,19 +405,20 @@ function AgentLeadsPage() {
                       <option value="qualified">qualified</option>
                       <option value="lost">lost</option>
                     </select>
-                    <button
-                      type="button"
-                      disabled={busyId === lead.id}
-                      onClick={() => deleteLead(lead.id)}
-                      data-mol-id={`delete-lead-${lead.id}`}
-                      aria-label={t('leads.delete', {}, { defaultValue: 'Delete lead' })}
-                      className={cm.cn(
-                        cm.sp('p', 2),
-                        'bg-surface-container-low rounded-lg hover:bg-error-container/30 transition-colors text-error disabled:opacity-50',
+                    <ConfirmButton
+                      label={t('leads.delete', {}, { defaultValue: 'Delete lead' })}
+                      confirmLabel={t(
+                        'leads.deleteConfirm',
+                        {},
+                        { defaultValue: 'Delete this lead?' },
                       )}
-                    >
-                      <span className={cm.cn('material-symbols-outlined text-base')}>delete</span>
-                    </button>
+                      onConfirm={() => deleteLead(lead.id)}
+                      disabled={busyId === lead.id}
+                      color="error"
+                      size="sm"
+                      disarmSeconds={5}
+                      data-mol-id={`delete-lead-${lead.id}`}
+                    />
                   </div>
                 </article>
               ))}

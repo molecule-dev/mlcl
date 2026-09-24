@@ -18,6 +18,7 @@ import { Link } from 'react-router'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface Showing {
   id: string
@@ -164,8 +165,6 @@ function AgentShowingsPage() {
   }
 
   const deleteShowing = async (id: string) => {
-    if (!window.confirm(t('showings.deleteConfirm', {}, { defaultValue: 'Cancel this showing?' })))
-      return
     setBusyId(id)
     const previous = showings
     setShowings((xs) => xs.filter((s) => s.id !== id))
@@ -422,19 +421,20 @@ function AgentShowingsPage() {
                       <option value="canceled">canceled</option>
                       <option value="no_show">no_show</option>
                     </select>
-                    <button
-                      type="button"
-                      disabled={busyId === showing.id}
-                      onClick={() => deleteShowing(showing.id)}
-                      data-mol-id={`delete-showing-${showing.id}`}
-                      aria-label={t('showings.delete', {}, { defaultValue: 'Cancel showing' })}
-                      className={cm.cn(
-                        cm.sp('p', 2),
-                        'bg-surface-container-low rounded-lg hover:bg-error-container/30 transition-colors text-error disabled:opacity-50',
+                    <ConfirmButton
+                      label={t('showings.delete', {}, { defaultValue: 'Cancel showing' })}
+                      confirmLabel={t(
+                        'showings.deleteConfirm',
+                        {},
+                        { defaultValue: 'Cancel this showing?' },
                       )}
-                    >
-                      <span className={cm.cn('material-symbols-outlined text-base')}>delete</span>
-                    </button>
+                      onConfirm={() => deleteShowing(showing.id)}
+                      disabled={busyId === showing.id}
+                      color="error"
+                      size="sm"
+                      disarmSeconds={5}
+                      data-mol-id={`delete-showing-${showing.id}`}
+                    />
                   </div>
                 </article>
               )

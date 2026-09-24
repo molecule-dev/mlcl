@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 const DEMO_LISTING_ID = 'demo-azure-sky'
 
@@ -12,23 +13,11 @@ export default function ListingCardItem() {
   const http = useHttpClient()
   const navigate = useNavigate()
   const [isDeleted, setIsDeleted] = useState(false)
-  const [isDeleting, setIsDeleting] = useState(false)
   const cm = getClassMap()
 
   if (isDeleted) return null
 
   const handleDelete = async () => {
-    if (
-      !window.confirm(
-        t(
-          'listingCardItem.confirmDelete',
-          {},
-          { defaultValue: 'Are you sure you want to delete this listing?' },
-        ),
-      )
-    )
-      return
-    setIsDeleting(true)
     try {
       await http.delete(`/listings/${DEMO_LISTING_ID}`)
       setIsDeleted(true)
@@ -37,8 +26,6 @@ export default function ListingCardItem() {
         error instanceof Error ? error : 'Failed to delete listing',
         error instanceof Error ? '' : error,
       )
-    } finally {
-      setIsDeleting(false)
     }
   }
 
@@ -187,17 +174,18 @@ export default function ListingCardItem() {
             >
               <span className={cm.cn('material-symbols-outlined')}>edit</span>
             </button>
-            <button
-              aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
-              onClick={handleDelete}
-              disabled={isDeleting}
-              className={cm.cn(
-                cm.sp('p', 2),
-                'text-success/40 hover:text-error hover:bg-error-container/20 rounded-lg transition-all',
+            <ConfirmButton
+              label={t('common.delete', {}, { defaultValue: 'Delete' })}
+              confirmLabel={t(
+                'listingCardItem.confirmDelete',
+                {},
+                { defaultValue: 'Are you sure you want to delete this listing?' },
               )}
-            >
-              <span className={cm.cn('material-symbols-outlined')}>delete</span>
-            </button>
+              onConfirm={handleDelete}
+              color="error"
+              size="sm"
+              disarmSeconds={5}
+            />
           </div>
         </div>
       </div>
