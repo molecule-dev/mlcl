@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface WeatherLimits {
   maxLocations?: number
@@ -141,20 +142,6 @@ export function Billing() {
 
   async function handleCancel() {
     if (!status || status.isFree) return
-    if (
-      !window.confirm(
-        t(
-          'billing.confirmCancel',
-          {},
-          {
-            defaultValue:
-              'Cancel your subscription? Your plan will revert to Free at the end of the billing period.',
-          },
-        ),
-      )
-    ) {
-      return
-    }
     setActionPending('cancel')
     setError(null)
     setMessage(null)
@@ -471,10 +458,19 @@ export function Billing() {
               },
             )}
           </p>
-          <button
-            type="button"
-            onClick={handleCancel}
-            disabled={actionPending === 'cancel'}
+          <ConfirmButton
+            onConfirm={handleCancel}
+            label={t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
+            confirmLabel={t(
+              'billing.confirmCancel',
+              {},
+              {
+                defaultValue:
+                  'Cancel your subscription? Your plan will revert to Free at the end of the billing period.',
+              },
+            )}
+            pendingLabel={t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })}
+            disarmSeconds={8}
             className={cm.cn(
               cm.sp('mt', 4),
               cm.sp('px', 4),
@@ -483,11 +479,7 @@ export function Billing() {
               'rounded-lg border border-outline-variant/30 text-on-surface-variant hover:bg-error/10 hover:text-error text-sm disabled:opacity-50',
             )}
             data-test="billing-cancel"
-          >
-            {actionPending === 'cancel'
-              ? t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })
-              : t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
-          </button>
+          />
         </section>
       ) : null}
     </div>
