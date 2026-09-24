@@ -3,7 +3,7 @@
 // prerendered from the dev server as from the build — instead of waiting for
 // this module graph, and stays styled when a component fails to compile.
 import { StrictMode, useEffect } from 'react'
-import { createRoot, hydrateRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot, type Root } from 'react-dom/client'
 import { BrowserRouter } from 'react-router'
 
 import { App } from './App.js'
@@ -12,7 +12,11 @@ import { ROUTER_BASENAME } from './site.js'
 
 setupProviders()
 
-type HydrationWindow = Window & { __molHydrationErrors?: string[]; __molEntryUrls?: string[] }
+type HydrationWindow = Window & {
+  __molHydrationErrors?: string[]
+  __molEntryUrls?: string[]
+  __molRoot?: Root
+}
 
 /** Marks `<html data-mol-mounted>` once React has committed — the e2e specs wait for it. */
 function Mounted() {
@@ -32,30 +36,25 @@ const tree = (
   </StrictMode>
 )
 
-// This module evaluates once per document. If it ever evaluates twice, React
-// refuses the second root ("createRoot() on a container that has already been
-// passed to createRoot()") and re-hydrates a tree that is already live — which
-// is how a theme toggle came to be reported as a hydration mismatch. The mount
-// is therefore guarded, and every evaluation records its module URL on the
-// window, so a second one is diagnosable from the preview's console: two
-// entries with different URLs name the import that ran it again.
+// This module can evaluate more than once per document: it defines a
+// component (Mounted), so React Refresh makes it a hot-update boundary, and an
+// edit that bubbles up past App re-runs it in the live page. A second
+// createRoot()/hydrateRoot() on the same container is refused by React (and
+// re-hydrating a live tree reads as a hydration mismatch), so the root is kept
+// on the window and a re-run renders the new tree into it — which is what a
+// hot update means. Every evaluation still records its module URL on the
+// window, so an unexpected re-run is diagnosable from the preview's console.
 const entryWindow = window as HydrationWindow
 ;(entryWindow.__molEntryUrls ??= []).push(import.meta.url)
-if (entryWindow.__molEntryUrls.length > 1) {
-  console.error(
-    '[static-site] the app entry was evaluated again — mount skipped',
-    entryWindow.__molEntryUrls,
-  )
-}
 
 // A page arrives prerendered — scripts/prerender.mjs put this route's markup in
 // #root for the build, vite-static-site-plugin.ts does the same for the dev
 // server — so hydrate it. A route the entry does not know (the not-found page)
 // arrives as the empty shell and mounts from scratch.
-if (entryWindow.__molEntryUrls.length > 1) {
-  // already mounted by the first evaluation
+if (entryWindow.__molRoot) {
+  entryWindow.__molRoot.render(tree)
 } else if (root.hasChildNodes()) {
-  hydrateRoot(root, tree, {
+  entryWindow.__molRoot = hydrateRoot(root, tree, {
     // A mismatch between the server markup and the client render is recoverable
     // to React — it drops the markup and renders again on the client — and fatal
     // to the page: the second render has only what the client can produce. Keep
@@ -68,5 +67,6 @@ if (entryWindow.__molEntryUrls.length > 1) {
     },
   })
 } else {
-  createRoot(root).render(tree)
+  entryWindow.__molRoot = createRoot(root)
+  entryWindow.__molRoot.render(tree)
 }
