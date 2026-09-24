@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import MiniMap from '../components/MiniMap.js'
@@ -43,10 +44,6 @@ export function WatchAreasPage() {
   const [radius, setRadius] = useState<number>(10)
   const [saving, setSaving] = useState(false)
   const [formError, setFormError] = useState<string | null>(null)
-  // Destructive deletes get an inline two-step confirm plus a busy state —
-  // a single-tap Delete once silently destroyed an area on a stray tap.
-  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null)
-  const [deletingId, setDeletingId] = useState<string | null>(null)
 
   useEffect(() => {
     document.title = t(
@@ -120,12 +117,12 @@ export function WatchAreasPage() {
     }
   }
 
+  // Called only from ConfirmButton's confirming (second) click — the armed /
+  // pending arm states live in the shared component, so this handler just
+  // commits the delete and reports failures inline.
   async function handleDelete(id: string) {
-    if (deletingId) return
-    setDeletingId(id)
     try {
       await http.delete(`/api/watch-areas/${id}`)
-      setConfirmDeleteId(null)
       // Domain event: the watch area was removed.
       void track({ name: 'watch_area.removed', properties: { watch_area_id: id } })
       await fetchAreas()
@@ -134,8 +131,6 @@ export function WatchAreasPage() {
       setLoadError(
         t('watchAreas.deleteError', {}, { defaultValue: 'Could not delete watch area.' }),
       )
-    } finally {
-      setDeletingId(null)
     }
   }
 
@@ -335,52 +330,24 @@ export function WatchAreasPage() {
                       <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
                         {area.name}
                       </span>
-                      {confirmDeleteId === area.id ? (
-                        <span className={cm.flex({ align: 'center', gap: 2 })}>
-                          <button
-                            type="button"
-                            data-mol-id="watch-area-delete-confirm"
-                            onClick={() => void handleDelete(area.id)}
-                            disabled={deletingId === area.id}
-                            className={cm.cn(
-                              cm.sp('px', 3),
-                              'rounded-lg border border-error text-xs font-semibold py-1 text-error bg-error-container/30 disabled:opacity-50',
-                            )}
-                          >
-                            {deletingId === area.id
-                              ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
-                              : t(
-                                  'watchAreas.confirmDelete',
-                                  {},
-                                  { defaultValue: 'Confirm delete' },
-                                )}
-                          </button>
-                          <button
-                            type="button"
-                            data-mol-id="watch-area-delete-cancel"
-                            onClick={() => setConfirmDeleteId(null)}
-                            disabled={deletingId === area.id}
-                            className={cm.cn(
-                              cm.sp('px', 3),
-                              'rounded-lg border border-outline-variant text-xs font-medium py-1 text-on-surface-variant disabled:opacity-50',
-                            )}
-                          >
-                            {t('common.cancel', {}, { defaultValue: 'Cancel' })}
-                          </button>
-                        </span>
-                      ) : (
-                        <button
-                          type="button"
-                          data-mol-id="watch-area-delete"
-                          onClick={() => setConfirmDeleteId(area.id)}
-                          className={cm.cn(
-                            cm.sp('px', 3),
-                            'rounded-lg border border-outline-variant text-xs font-medium py-1 text-on-surface-variant hover:bg-error-container/20 hover:text-error',
-                          )}
-                        >
-                          {t('common.delete', {}, { defaultValue: 'Delete' })}
-                        </button>
-                      )}
+                      {/* Destructive delete: shared two-step confirm — first
+                          click arms ("Confirm delete", announced via
+                          aria-live), second commits, 4s auto-disarm +
+                          Escape. Replaces the hand-rolled arm/cancel pair
+                          with one ≥36px touch target. */}
+                      <ConfirmButton
+                        data-mol-id="watch-area-delete"
+                        color="secondary"
+                        size="sm"
+                        label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                        confirmLabel={t(
+                          'watchAreas.confirmDelete',
+                          {},
+                          { defaultValue: 'Confirm delete' },
+                        )}
+                        pendingLabel={t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })}
+                        onConfirm={() => handleDelete(area.id)}
+                      />
                     </div>
                     <div className={cm.cn(cm.w('[160px]'))}>
                       <MiniMap

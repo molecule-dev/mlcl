@@ -51,9 +51,14 @@ test.describe('civic-311: /watch-areas', () => {
     })
     await page.goto(APP_BASE + '/watch-areas')
     await expect(page.getByTestId('watch-area-item').first()).toBeVisible({ timeout: 15_000 })
-    await page.getByTestId('watch-area-delete').first().click()
-    // Delete is destructive — the UI asks for an inline confirmation first.
-    await page.getByTestId('watch-area-delete-confirm').first().click()
+    // Delete is destructive — the shared ConfirmButton arms on the first tap
+    // ("Confirm delete", announced via aria-live) and only the second tap
+    // commits. It auto-disarms after 4s, so the two taps run back-to-back.
+    const del = page.getByTestId('watch-area-delete').first()
+    await del.click()
+    await expect(del).toHaveAttribute('data-state', 'armed')
+    await expect(del).toContainText('Confirm delete')
+    await del.click()
     await expect(page.getByTestId('watch-areas-empty')).toBeVisible({ timeout: 15_000 })
   })
 })
