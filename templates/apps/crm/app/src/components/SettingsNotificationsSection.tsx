@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 function SettingsNotificationsSection() {
   const cm = getClassMap()
@@ -56,32 +57,10 @@ function SettingsNotificationsSection() {
               </p>
             </div>
           </div>
-          <div
-            className={cm.cn(cm.cursorPointer, 'relative inline-flex items-center')}
-            onClick={() => setEmailNotif((v) => !v)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault()
-                setEmailNotif((v) => !v)
-              }
-            }}
-            tabIndex={0}
-            role="switch"
-            aria-checked={emailNotif}
-          >
-            <div
-              className={cm.cn(
-                'w-10 h-5 rounded-full',
-                emailNotif ? 'bg-primary' : 'bg-surface-container-highest',
-              )}
-            ></div>
-            <div
-              className={cm.cn(
-                'absolute w-3 h-3 bg-surface rounded-full',
-                emailNotif ? 'right-1' : 'left-1',
-              )}
-            ></div>
-          </div>
+          <Switch
+            checked={emailNotif}
+            onChange={(e) => setEmailNotif((e.target as HTMLInputElement).checked)}
+          />
         </div>
         {/* Toggle Item 2 */}
         <div
@@ -109,32 +88,10 @@ function SettingsNotificationsSection() {
               </p>
             </div>
           </div>
-          <div
-            className={cm.cn(cm.cursorPointer, 'relative inline-flex items-center')}
-            onClick={() => setPushNotif((v) => !v)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault()
-                setPushNotif((v) => !v)
-              }
-            }}
-            tabIndex={0}
-            role="switch"
-            aria-checked={pushNotif}
-          >
-            <div
-              className={cm.cn(
-                'w-10 h-5 rounded-full',
-                pushNotif ? 'bg-primary' : 'bg-surface-container-highest',
-              )}
-            ></div>
-            <div
-              className={cm.cn(
-                'absolute w-3 h-3 bg-surface rounded-full',
-                pushNotif ? 'right-1' : 'left-1',
-              )}
-            ></div>
-          </div>
+          <Switch
+            checked={pushNotif}
+            onChange={(e) => setPushNotif((e.target as HTMLInputElement).checked)}
+          />
         </div>
         {/* Toggle Item 3 */}
         <div
@@ -162,32 +119,10 @@ function SettingsNotificationsSection() {
               </p>
             </div>
           </div>
-          <div
-            className={cm.cn(cm.cursorPointer, 'relative inline-flex items-center')}
-            onClick={() => setDealUpdates((v) => !v)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault()
-                setDealUpdates((v) => !v)
-              }
-            }}
-            tabIndex={0}
-            role="switch"
-            aria-checked={dealUpdates}
-          >
-            <div
-              className={cm.cn(
-                'w-10 h-5 rounded-full',
-                dealUpdates ? 'bg-primary' : 'bg-surface-container-highest',
-              )}
-            ></div>
-            <div
-              className={cm.cn(
-                'absolute w-3 h-3 bg-surface rounded-full',
-                dealUpdates ? 'right-1' : 'left-1',
-              )}
-            ></div>
-          </div>
+          <Switch
+            checked={dealUpdates}
+            onChange={(e) => setDealUpdates((e.target as HTMLInputElement).checked)}
+          />
         </div>
         {/* Toggle Item 4 */}
         <div
@@ -218,32 +153,10 @@ function SettingsNotificationsSection() {
               </p>
             </div>
           </div>
-          <div
-            className={cm.cn(cm.cursorPointer, 'relative inline-flex items-center')}
-            onClick={() => setActivityReminders((v) => !v)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault()
-                setActivityReminders((v) => !v)
-              }
-            }}
-            tabIndex={0}
-            role="switch"
-            aria-checked={activityReminders}
-          >
-            <div
-              className={cm.cn(
-                'w-10 h-5 rounded-full',
-                activityReminders ? 'bg-primary' : 'bg-surface-container-highest',
-              )}
-            ></div>
-            <div
-              className={cm.cn(
-                'absolute w-3 h-3 bg-surface rounded-full',
-                activityReminders ? 'right-1' : 'left-1',
-              )}
-            ></div>
-          </div>
+          <Switch
+            checked={activityReminders}
+            onChange={(e) => setActivityReminders((e.target as HTMLInputElement).checked)}
+          />
         </div>
       </div>
     </section>

@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface ContactRecord {
   id: string
@@ -191,12 +192,9 @@ export function ContactsPage() {
     }
   }
 
+  // Confirmation is handled inline by the two-step ConfirmButton (arm →
+  // confirm) — no blocking window.confirm dialog.
   async function handleDelete(id: string) {
-    if (
-      !window.confirm(t('contacts.confirmDelete', {}, { defaultValue: 'Delete this contact?' }))
-    ) {
-      return
-    }
     try {
       await http.delete(`/api/contacts/${id}`)
       track({ name: 'contact.deleted', properties: { contactId: id } })
@@ -662,20 +660,20 @@ export function ContactsPage() {
                       </span>
                     </td>
                     <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                      <button
-                        type="button"
+                      <ConfirmButton
                         data-mol-id="contact-delete"
                         aria-label={t('contacts.delete', {}, { defaultValue: 'Delete contact' })}
-                        onClick={() => void handleDelete(c.id)}
-                        className={cm.cn(
-                          cm.sp('px', 3),
-                          cm.sp('py', 2),
-                          cm.textSize('xs'),
-                          'rounded-md text-on-surface-variant hover:bg-error-container hover:text-on-error-container',
+                        label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                        confirmLabel={t(
+                          'contacts.confirmDelete',
+                          {},
+                          { defaultValue: 'Delete this contact?' },
                         )}
-                      >
-                        {t('common.delete', {}, { defaultValue: 'Delete' })}
-                      </button>
+                        onConfirm={() => handleDelete(c.id)}
+                        variant="ghost"
+                        color="error"
+                        size="sm"
+                      />
                     </td>
                   </tr>
                 )

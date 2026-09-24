@@ -66,7 +66,7 @@ test.describe('crm: contacts', () => {
     await expect(page.getByText('Halsey Bull')).toHaveCount(0)
   })
 
-  test('delete contact removes it from the list', async ({ page }) => {
+  test('delete contact arms then commits without a native dialog', async ({ page }) => {
     const session = await signup(page)
     const contact = await seedContact(page, session.accessToken, {
       first_name: 'Doomed',
@@ -74,9 +74,19 @@ test.describe('crm: contacts', () => {
       email: `doomed+${Date.now()}@example.com`,
     })
     await page.goto(APP_BASE + '/contacts')
-    page.on('dialog', (d) => d.accept())
-    await page.locator(`tr[data-contact-id="${contact.id}"] [data-mol-id="contact-delete"]`).click()
+    const del = page.locator(`tr[data-contact-id="${contact.id}"] [data-mol-id="contact-delete"]`)
+    // First click ARMS the ConfirmButton (native window.confirm is gone —
+    // no dialog handler here on purpose); a dialog appearing would now be a bug.
+    let nativeDialogFired = false
+    page.on('dialog', () => {
+      nativeDialogFired = true
+    })
+    await del.click()
+    await expect(del).toHaveText('Delete this contact?')
+    // Second click COMMITS the delete.
+    await del.click()
     await expect(page.getByText('Doomed Lead')).toHaveCount(0)
+    expect(nativeDialogFired).toBe(false)
   })
 
   test("IDOR: cannot read another user's contact via /api/contacts/:id", async ({ page }) => {

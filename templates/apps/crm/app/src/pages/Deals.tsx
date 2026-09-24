@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface DealRecord {
   id: string
@@ -202,8 +203,9 @@ export function DealsPage() {
     }
   }
 
+  // Confirmation is handled inline by the two-step ConfirmButton (arm →
+  // confirm) — no blocking window.confirm dialog.
   async function handleDelete(id: string) {
-    if (!window.confirm(t('deals.confirmDelete', {}, { defaultValue: 'Delete this deal?' }))) return
     try {
       await http.delete(`/api/deals/${id}`)
       track({ name: 'deal.deleted', properties: { dealId: id } })
@@ -503,20 +505,19 @@ export function DealsPage() {
                     {deal.company_id ? (companyName.get(deal.company_id) ?? '—') : '—'}
                   </td>
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                    <button
-                      type="button"
+                    <ConfirmButton
                       data-mol-id="deals-delete"
-                      onClick={() => handleDelete(deal.id)}
-                      className={cm.cn(
-                        cm.sp('px', 3),
-                        cm.sp('py', 2),
-                        cm.textSize('xs'),
-                        cm.fontWeight('semibold'),
-                        'rounded-lg text-error hover:bg-error-container/30',
+                      label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                      confirmLabel={t(
+                        'deals.confirmDelete',
+                        {},
+                        { defaultValue: 'Delete this deal?' },
                       )}
-                    >
-                      {t('common.delete', {}, { defaultValue: 'Delete' })}
-                    </button>
+                      onConfirm={() => handleDelete(deal.id)}
+                      variant="ghost"
+                      color="error"
+                      size="sm"
+                    />
                   </td>
                 </tr>
               ))}

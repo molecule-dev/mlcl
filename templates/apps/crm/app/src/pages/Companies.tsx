@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface CompanyRecord {
   id: string
@@ -103,9 +104,9 @@ export function CompaniesPage() {
     }
   }
 
+  // Confirmation is handled inline by the two-step ConfirmButton (arm →
+  // confirm) — no blocking window.confirm dialog.
   async function handleDelete(id: string) {
-    if (!window.confirm(t('companies.confirmDelete', {}, { defaultValue: 'Delete this company?' })))
-      return
     try {
       await http.delete(`/api/companies/${id}`)
       setCompanies((prev) => prev.filter((c) => c.id !== id))
@@ -365,20 +366,19 @@ export function CompaniesPage() {
                     {c.size || '—'}
                   </td>
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                    <button
-                      type="button"
+                    <ConfirmButton
                       data-mol-id="companies-delete"
-                      onClick={() => handleDelete(c.id)}
-                      className={cm.cn(
-                        cm.sp('px', 3),
-                        cm.sp('py', 2),
-                        cm.textSize('xs'),
-                        cm.fontWeight('semibold'),
-                        'rounded-lg text-error hover:bg-error-container/30',
+                      label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                      confirmLabel={t(
+                        'companies.confirmDelete',
+                        {},
+                        { defaultValue: 'Delete this company?' },
                       )}
-                    >
-                      {t('common.delete', {}, { defaultValue: 'Delete' })}
-                    </button>
+                      onConfirm={() => handleDelete(c.id)}
+                      variant="ghost"
+                      color="error"
+                      size="sm"
+                    />
                   </td>
                 </tr>
               ))}

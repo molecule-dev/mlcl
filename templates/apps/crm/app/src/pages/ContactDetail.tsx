@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface ContactRecord {
   id: string
@@ -115,14 +116,10 @@ export function ContactDetailPage() {
     [deals],
   )
 
+  // Confirmation is handled inline by the two-step ConfirmButton (arm →
+  // confirm) — no blocking window.confirm dialog.
   async function handleDelete() {
     if (!contact) return
-    if (
-      !window.confirm(
-        t('contactDetail.confirmDelete', {}, { defaultValue: 'Delete this contact?' }),
-      )
-    )
-      return
     try {
       await http.delete(`/api/contacts/${contact.id}`)
       navigate('/contacts')
@@ -171,20 +168,18 @@ export function ContactDetailPage() {
             {company ? ` · ${company.name}` : ''}
           </p>
         </div>
-        <button
-          type="button"
+        <ConfirmButton
           data-mol-id="contact-detail-delete"
-          onClick={handleDelete}
-          className={cm.cn(
-            cm.sp('px', 4),
-            cm.sp('py', 2),
-            cm.textSize('sm'),
-            cm.fontWeight('semibold'),
-            'rounded-lg text-error hover:bg-error-container/30 border border-outline-variant/30',
+          label={t('common.delete', {}, { defaultValue: 'Delete' })}
+          confirmLabel={t(
+            'contactDetail.confirmDelete',
+            {},
+            { defaultValue: 'Delete this contact?' },
           )}
-        >
-          {t('common.delete', {}, { defaultValue: 'Delete' })}
-        </button>
+          onConfirm={handleDelete}
+          variant="outline"
+          color="error"
+        />
       </header>
 
       <section

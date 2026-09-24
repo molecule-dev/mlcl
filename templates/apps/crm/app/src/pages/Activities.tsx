@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface ActivityRecord {
   id: string
@@ -203,11 +204,9 @@ export function ActivitiesPage() {
   const typeLabel = (type: ActivityType): string =>
     t(`activities.type.${type}`, {}, { defaultValue: TYPE_LABELS[type] })
 
+  // Confirmation is handled inline by the two-step ConfirmButton (arm →
+  // confirm) — no blocking window.confirm dialog.
   async function handleDelete(id: string) {
-    if (
-      !window.confirm(t('activities.confirmDelete', {}, { defaultValue: 'Delete this activity?' }))
-    )
-      return
     try {
       await http.delete(`/api/activities/${id}`)
       setActivities((prev) => prev.filter((a) => a.id !== id))
@@ -532,20 +531,19 @@ export function ActivitiesPage() {
               >
                 {a.due_date ? formatRelative(a.due_date) : '—'}
               </div>
-              <button
-                type="button"
+              <ConfirmButton
                 data-mol-id="activities-delete"
-                onClick={() => handleDelete(a.id)}
-                className={cm.cn(
-                  cm.sp('px', 3),
-                  cm.sp('py', 2),
-                  cm.textSize('xs'),
-                  cm.fontWeight('semibold'),
-                  'rounded-lg text-error hover:bg-error-container/30',
+                label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                confirmLabel={t(
+                  'activities.confirmDelete',
+                  {},
+                  { defaultValue: 'Delete this activity?' },
                 )}
-              >
-                {t('common.delete', {}, { defaultValue: 'Delete' })}
-              </button>
+                onConfirm={() => handleDelete(a.id)}
+                variant="ghost"
+                color="error"
+                size="sm"
+              />
             </li>
           ))}
         </ul>
