@@ -99,8 +99,11 @@ test.describe('03: projects — create, archive, budget burn-down, hours/revenue
     await page.goto(APP_BASE + '/projects/' + project.id)
     await page.waitForLoadState('domcontentloaded')
     await page.waitForTimeout(1000)
-    page.once('dialog', (d) => d.accept())
-    await page.locator('[data-test=project-archive]').click()
+    // Shared ConfirmButton: first click arms, second commits.
+    const archive = page.locator('[data-test=project-archive]')
+    await archive.click() // arm
+    await expect(archive).toHaveText(/archive this project\?/i)
+    await archive.click() // commit
     await page.waitForTimeout(2000)
     await page.goto(APP_BASE + '/projects')
     await page.waitForLoadState('domcontentloaded')

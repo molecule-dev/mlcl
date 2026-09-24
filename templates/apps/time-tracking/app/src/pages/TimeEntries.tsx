@@ -135,11 +135,6 @@ export function TimeEntries() {
   ]
 
   const onDelete = async (id: string) => {
-    if (
-      !window.confirm(t('timeEntries.deleteConfirm', {}, { defaultValue: 'Delete this entry?' }))
-    ) {
-      return
-    }
     try {
       await http.delete(`/api/entries/${id}`)
       void track({ name: 'entry.deleted', properties: { entry_id: id } })

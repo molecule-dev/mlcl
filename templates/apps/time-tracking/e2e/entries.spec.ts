@@ -134,16 +134,18 @@ test.describe('/entries page', () => {
     await page.waitForLoadState('domcontentloaded')
     await expect(page.locator('text=Doomed entry')).toBeVisible({ timeout: 10000 })
 
-    page.once('dialog', (d) => d.accept())
+    // Shared ConfirmButton: first click arms, second commits.
     const row = page
       .locator('text=Doomed entry')
       .locator('xpath=ancestor::div[contains(@class, "group")]')
       .first()
     await row.hover()
-    await row
+    const deleteBtn = row
       .locator('button[aria-label*="elete"], button[aria-label*="elete entry"]')
       .first()
-      .click()
+    await deleteBtn.click() // arm
+    await expect(deleteBtn).toHaveText(/delete this entry\?/i)
+    await deleteBtn.click() // commit
     await page.waitForTimeout(1500)
     await expect(page.locator('text=Doomed entry')).toHaveCount(0)
   })

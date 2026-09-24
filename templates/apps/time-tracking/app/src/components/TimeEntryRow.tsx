@@ -1,5 +1,6 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 /**
  * Editorial entry row — project color dot, description + project name,
@@ -126,18 +127,23 @@ export function TimeEntryRow({ entry, onEdit, onDelete }: TimeEntryRowProps) {
           >
             <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}>edit</span>
           </button>
-          <button
-            type="button"
-            aria-label={t('timeEntryRow.delete', {}, { defaultValue: 'Delete entry' })}
-            onClick={() => onDelete?.(entry.id)}
-            className={cm.cn(
-              cm.sp('p', 1),
-              cm.roundedFull,
-              'max-md:p-2 text-foreground-tertiary hover:text-error hover:bg-rose-50 transition-colors',
+          <ConfirmButton
+            label={t('timeEntryRow.delete', {}, { defaultValue: 'Delete entry' })}
+            confirmLabel={t(
+              'timeEntries.deleteConfirm',
+              {},
+              { defaultValue: 'Delete this entry?' },
             )}
-          >
-            <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}>delete</span>
-          </button>
+            onConfirm={() => onDelete?.(entry.id)}
+            disarmSeconds={6}
+            variant="ghost"
+            color="error"
+            size="sm"
+            className={cm.cn('max-md:p-2')}
+            aria-label={t('timeEntryRow.delete', {}, { defaultValue: 'Delete entry' })}
+            data-mol-id="entry-delete"
+            data-test="entry-delete"
+          />
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { ConfirmButton, LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
@@ -203,25 +203,12 @@ export function Settings() {
   }
 
   const onCancel = async () => {
-    if (
-      !window.confirm(
-        t(
-          'settings.billing.cancelConfirm',
-          {},
-          { defaultValue: 'Cancel subscription at period end?' },
-        ),
-      )
-    )
-      return
-    setActingTier('cancel')
     setBillingError(null)
     try {
       await http.post('/api/billing/cancel', {})
       setVersion((n) => n + 1)
     } catch (err: unknown) {
       setBillingError(err instanceof Error ? err.message : 'Failed to cancel')
-    } finally {
-      setActingTier(null)
     }
   }
 
@@ -457,28 +444,31 @@ export function Settings() {
                       </p>
                     )}
                     {!status?.isFree && (
-                      <button
-                        type="button"
-                        onClick={onCancel}
-                        disabled={actingTier === 'cancel'}
-                        className={cm.cn(
-                          cm.sp('mt', 3),
-                          cm.sp('px', 4),
-                          cm.sp('py', 2),
-                          cm.textSize('xs'),
-                          cm.fontWeight('bold'),
-                          'rounded-full uppercase tracking-widest bg-surface border border-outline-variant text-on-surface hover:bg-surface-container disabled:opacity-60',
+                      <ConfirmButton
+                        label={t(
+                          'nav.cancelSubscription',
+                          {},
+                          { defaultValue: 'Cancel subscription' },
                         )}
+                        confirmLabel={t(
+                          'settings.billing.cancelConfirm',
+                          {},
+                          { defaultValue: 'Cancel subscription at period end?' },
+                        )}
+                        pendingLabel={t(
+                          'common.cancellingEllipsis',
+                          {},
+                          { defaultValue: 'Cancelling…' },
+                        )}
+                        onConfirm={onCancel}
+                        disarmSeconds={8}
+                        variant="outline"
+                        color="secondary"
+                        size="sm"
+                        className={cm.cn(cm.sp('mt', 3), 'rounded-full uppercase tracking-widest')}
+                        data-mol-id="billing-cancel"
                         data-test="billing-cancel"
-                      >
-                        {actingTier === 'cancel'
-                          ? t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })
-                          : t(
-                              'nav.cancelSubscription',
-                              {},
-                              { defaultValue: 'Cancel subscription' },
-                            )}
-                      </button>
+                      />
                     )}
                   </div>
 

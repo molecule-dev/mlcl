@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { DurationKpiCard } from '../components/DurationKpiCard.js'
 import { type TimeEntry as RowEntry, TimeEntryRow } from '../components/TimeEntryRow.js'
@@ -26,7 +27,6 @@ export function ProjectDetail() {
   const [invoices, setInvoices] = useState<ReadonlyArray<ApiInvoice>>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [archiving, setArchiving] = useState(false)
 
   useEffect(() => {
     if (!id) return
@@ -146,17 +146,6 @@ export function ProjectDetail() {
 
   const onArchive = async () => {
     if (!project) return
-    if (
-      !window.confirm(
-        t(
-          'projectDetail.archiveConfirm',
-          {},
-          { defaultValue: 'Archive this project? It will hide from listings.' },
-        ),
-      )
-    )
-      return
-    setArchiving(true)
     try {
       await http.post(`/api/projects/${project.id}/archive`, {})
       void track({
@@ -166,8 +155,6 @@ export function ProjectDetail() {
       navigate('/projects')
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Failed to archive')
-    } finally {
-      setArchiving(false)
     }
   }
 
@@ -333,23 +320,21 @@ export function ProjectDetail() {
       </section>
 
       <section className={cm.cn(cm.flex({ justify: 'end', gap: 'sm' }))}>
-        <button
-          type="button"
-          onClick={onArchive}
-          disabled={archiving}
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'xs' }),
-            cm.sp('px', 4),
-            cm.sp('py', 2.5),
-            cm.fontWeight('semibold'),
-            cm.textSize('sm'),
-            'rounded-xl bg-surface border border-border text-foreground hover:bg-surface-secondary transition-colors disabled:opacity-60',
+        <ConfirmButton
+          label={t('projectDetail.archive', {}, { defaultValue: 'Archive project' })}
+          confirmLabel={t(
+            'projectDetail.archiveConfirm',
+            {},
+            { defaultValue: 'Archive this project? It will hide from listings.' },
           )}
+          onConfirm={onArchive}
+          disarmSeconds={6}
+          variant="outline"
+          color="secondary"
+          size="sm"
+          data-mol-id="project-archive"
           data-test="project-archive"
-        >
-          <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>archive</span>
-          {t('projectDetail.archive', {}, { defaultValue: 'Archive project' })}
-        </button>
+        />
       </section>
 
       {budgetHours != null && (
