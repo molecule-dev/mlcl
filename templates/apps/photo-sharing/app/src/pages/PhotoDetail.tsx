@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { ExifPanel } from '../components/ExifPanel.js'
 import { ApiError, deletePhoto, favoritePhoto, getPhoto, type Photo } from '../lib/api.js'
@@ -49,7 +50,6 @@ export function PhotoDetail() {
   const [photo, setPhoto] = useState<Photo | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [favPending, setFavPending] = useState(false)
-  const [deleting, setDeleting] = useState(false)
   const [me, setMe] = useState<CurrentUser | null>(null)
   const [downloadError, setDownloadError] = useState<string | null>(null)
 
@@ -104,17 +104,6 @@ export function PhotoDetail() {
 
   const onDelete = async () => {
     if (!id || !photo) return
-    if (
-      !window.confirm(
-        t(
-          'photoDetail.confirmDelete',
-          {},
-          { defaultValue: 'Delete this photo? This cannot be undone.' },
-        ),
-      )
-    )
-      return
-    setDeleting(true)
     try {
       await deletePhoto(id)
       void track({ name: 'photo.deleted', properties: { photo_id: id } })
@@ -127,7 +116,6 @@ export function PhotoDetail() {
             ? err.message
             : String(err)
       setError(detail)
-      setDeleting(false)
     }
   }
 
@@ -344,24 +332,24 @@ export function PhotoDetail() {
             )}
 
             {isOwner && (
-              <button
-                type="button"
-                onClick={onDelete}
-                disabled={deleting}
+              <ConfirmButton
+                label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                confirmLabel={t(
+                  'photoDetail.confirmDelete',
+                  {},
+                  { defaultValue: 'Delete this photo? This cannot be undone.' },
+                )}
+                pendingLabel={t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })}
+                onConfirm={onDelete}
+                disarmSeconds={6}
+                data-mol-id="photo-detail-delete"
                 data-testid="photo-detail-delete"
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'sm' }),
                   cm.sp('px', 4),
                   'py-2 rounded-full text-sm font-bold bg-error/10 text-error hover:bg-error/20 transition-colors disabled:opacity-50',
                 )}
-              >
-                <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                  delete
-                </span>
-                {deleting
-                  ? t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
-                  : t('common.delete', {}, { defaultValue: 'Delete' })}
-              </button>
+              />
             )}
           </div>
 

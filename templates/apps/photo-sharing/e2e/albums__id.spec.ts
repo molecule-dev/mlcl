@@ -50,6 +50,26 @@ test('Delete album removes it from /api/albums', async ({ page, request }) => {
   expect(after.status()).toBe(404)
 })
 
+test('Delete control arms with a confirm label, then commits through the UI', async ({ page }) => {
+  await signup(page)
+  const album = await createAlbum(page.request, `To-delete-${Date.now()}`)
+  await page.goto(`${APP_BASE}/albums/${album.id}`)
+  const del = page.getByTestId('album-detail-delete')
+  await expect(del).toBeVisible({ timeout: 15_000 })
+  // First click ARMS the shared ConfirmButton — the confirm label (with the
+  // album title interpolated) replaces the idle "Delete" label; the old
+  // native window.confirm is gone.
+  await del.click()
+  await expect(del).toHaveText(
+    `Delete album "${album.title}"? Photos in this album will not be deleted.`,
+  )
+  // Second click commits: the album is deleted and the page navigates to
+  // /albums.
+  await Promise.all([page.waitForURL(/\/albums$/), del.click()])
+  const after = await page.request.get(`${API_BASE}/albums/${album.id}`)
+  expect(after.status()).toBe(404)
+})
+
 test('Photo card in album grid → /photos/:id', async ({ page }) => {
   await signup(page)
   const album = await createAlbum(page.request)

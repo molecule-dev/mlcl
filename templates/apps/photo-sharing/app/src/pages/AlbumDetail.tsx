@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { PhotoMasonry } from '../components/PhotoMasonry.js'
 import { type Album, ApiError, apiGet, deleteAlbum, getAlbum } from '../lib/api.js'
@@ -42,7 +43,6 @@ export function AlbumDetail() {
   const [album, setAlbum] = useState<Album | null>(null)
   const [meId, setMeId] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [deleting, setDeleting] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -72,19 +72,6 @@ export function AlbumDetail() {
 
   const handleDelete = async () => {
     if (!id || !album) return
-    if (
-      !window.confirm(
-        t(
-          'albumDetail.confirmDelete',
-          { title: album.title },
-          {
-            defaultValue: 'Delete album "{{title}}"? Photos in this album will not be deleted.',
-          },
-        ),
-      )
-    )
-      return
-    setDeleting(true)
     try {
       await deleteAlbum(id)
       void track({ name: 'album.deleted', properties: { album_id: id } })
@@ -97,7 +84,6 @@ export function AlbumDetail() {
             ? err.message
             : String(err)
       setError(detail)
-      setDeleting(false)
     }
   }
 
@@ -238,24 +224,27 @@ export function AlbumDetail() {
                 </Link>
               )}
               {isOwner && (
-                <button
-                  type="button"
-                  onClick={handleDelete}
-                  disabled={deleting}
+                <ConfirmButton
+                  label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                  confirmLabel={t(
+                    'albumDetail.confirmDelete',
+                    { title: album.title },
+                    {
+                      defaultValue:
+                        'Delete album "{{title}}"? Photos in this album will not be deleted.',
+                    },
+                  )}
+                  pendingLabel={t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })}
+                  onConfirm={handleDelete}
+                  disarmSeconds={6}
+                  data-mol-id="album-detail-delete"
                   data-testid="album-detail-delete"
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 'sm' }),
                     cm.sp('px', 5),
                     'py-2.5 rounded-full text-sm font-bold border border-surface/30 text-white hover:bg-surface/10 transition-colors disabled:opacity-50',
                   )}
-                >
-                  <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                    delete
-                  </span>
-                  {deleting
-                    ? t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
-                    : t('common.delete', {}, { defaultValue: 'Delete' })}
-                </button>
+                />
               )}
             </div>
           </div>

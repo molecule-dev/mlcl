@@ -76,6 +76,23 @@ test('Delete button removes the photo (404 on subsequent GET)', async ({ page })
   expect(after.status()).toBe(404)
 })
 
+test('Delete control arms with a confirm label, then commits through the UI', async ({ page }) => {
+  await signup(page)
+  const { photoId } = await uploadAndCreatePhoto(page.request, { title: 'Delete via UI' })
+  await page.goto(`${APP_BASE}/photos/${photoId}`)
+  const del = page.getByTestId('photo-detail-delete')
+  await expect(del).toBeVisible({ timeout: 15_000 })
+  // First click ARMS the shared ConfirmButton — the confirm label replaces
+  // the idle "Delete" label (the old native window.confirm is gone).
+  await del.click()
+  await expect(del).toHaveText('Delete this photo? This cannot be undone.')
+  // Second click commits: the photo is deleted and the page navigates to
+  // /my-photos.
+  await Promise.all([page.waitForURL(/\/my-photos$/), del.click()])
+  const after = await page.request.get(`${API_BASE}/photos/${photoId}`)
+  expect(after.status()).toBe(404)
+})
+
 test('GET /api/photos/:id is fetched on photo-detail mount', async ({ page }) => {
   await signup(page)
   const { photoId } = await uploadAndCreatePhoto(page.request, { title: 'Mount fetch' })
