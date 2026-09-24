@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import {
   assignLabel,
@@ -228,8 +229,6 @@ export function TaskDetail() {
 
   const onDelete = async () => {
     if (!task) return
-    if (!window.confirm(t('taskDetail.deleteConfirm', {}, { defaultValue: 'Delete this task?' })))
-      return
     await deleteTask(http, task.id).catch(() => null)
     void track({
       name: 'task.deleted',
@@ -323,9 +322,11 @@ export function TaskDetail() {
           </span>
           {backLabel}
         </Link>
-        <button
-          type="button"
-          onClick={onDelete}
+        <ConfirmButton
+          onConfirm={onDelete}
+          label={t('common.delete', {}, { defaultValue: 'Delete' })}
+          confirmLabel={t('taskDetail.deleteConfirm', {}, { defaultValue: 'Delete this task?' })}
+          disarmSeconds={6}
           aria-label={t('taskDetail.deleteAria', {}, { defaultValue: 'Delete this task' })}
           data-mol-id="task-detail-delete"
           className={cm.cn(
@@ -335,9 +336,7 @@ export function TaskDetail() {
             cm.fontWeight('semibold'),
             'rounded-md border border-outline-variant text-on-surface-variant hover:bg-error/10 hover:text-error hover:border-error',
           )}
-        >
-          {t('common.delete', {}, { defaultValue: 'Delete' })}
-        </button>
+        />
       </div>
 
       <header className={cm.flex({ align: 'start', gap: 'md' })}>

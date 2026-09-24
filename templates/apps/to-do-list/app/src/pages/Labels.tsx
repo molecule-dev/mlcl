@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { createLabel, deleteLabel, type Label, listLabels, updateLabel } from '../lib/api.js'
 
@@ -221,17 +222,7 @@ export function Labels() {
     setRenamingId(null)
   }
 
-  const onDelete = async (id: string, name: string) => {
-    if (
-      !window.confirm(
-        t(
-          'labels.deleteConfirm',
-          { name },
-          { defaultValue: 'Delete label "{{name}}"? It will be removed from all tasks.' },
-        ),
-      )
-    )
-      return
+  const onDelete = async (id: string) => {
     await deleteLabel(http, id).catch(() => null)
     void track({ name: 'label.deleted', properties: { label_id: id } })
     setLabels((prev) => prev.filter((l) => l.id !== id))
@@ -396,20 +387,21 @@ export function Labels() {
                     { defaultValue: '{{count}} tasks' },
                   )}
                 </span>
-                <button
-                  type="button"
-                  onClick={() => onDelete(l.id, l.name)}
-                  aria-label={t(
+                <ConfirmButton
+                  onConfirm={() => onDelete(l.id)}
+                  label={t(
                     'labels.deleteAria',
                     { name: l.name },
                     { defaultValue: 'Delete label {{name}}' },
                   )}
-                  className={cm.cn('text-on-surface-variant hover:text-error')}
-                >
-                  <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
-                    delete
-                  </span>
-                </button>
+                  confirmLabel={t(
+                    'labels.deleteConfirm',
+                    { name: l.name },
+                    { defaultValue: 'Delete label "{{name}}"? It will be removed from all tasks.' },
+                  )}
+                  disarmSeconds={6}
+                  className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'))}
+                />
               </div>
             </li>
           ))}

@@ -104,7 +104,6 @@ test.describe('tasks', () => {
   })
 
   test('deleting a task from /tasks/:id navigates back and removes it', async ({ page }) => {
-    page.on('dialog', (d) => d.accept())
     await signup(page)
     const cookie = await cookieHeader(page)
     const created = await page.request
@@ -117,10 +116,12 @@ test.describe('tasks', () => {
 
     await page.goto(`/tasks/${task.id}`)
     await page.waitForLoadState('networkidle').catch(() => null)
-    await page
-      .getByRole('button', { name: /delete this task/i })
-      .first()
-      .click()
+    // Two-click arm/commit confirm (shared ConfirmButton): first click arms
+    // and shows the confirm label, second click commits the deletion.
+    const del = page.locator('[data-mol-id="task-detail-delete"]')
+    await del.click()
+    await expect(del).toHaveText(/delete this task\?/i)
+    await del.click()
     await expect(page).toHaveURL(/\/(inbox|today|projects)/, { timeout: 15_000 })
 
     const reread = await page.request.get(`${API_BASE}/tasks/${task.id}`, {

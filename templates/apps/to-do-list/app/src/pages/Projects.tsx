@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import {
   createProject,
@@ -230,17 +231,7 @@ export function Projects() {
     setRenamingId(null)
   }
 
-  const onDelete = async (id: string, name: string) => {
-    if (
-      !window.confirm(
-        t(
-          'projects.deleteConfirm',
-          { name },
-          { defaultValue: 'Delete project "{{name}}"? Its tasks will move to your inbox.' },
-        ),
-      )
-    )
-      return
+  const onDelete = async (id: string) => {
     await deleteProject(http, id).catch(() => null)
     void track({ name: 'project.deleted', properties: { project_id: id } })
     setProjects((prev) => prev.filter((p) => p.id !== id))
@@ -427,23 +418,24 @@ export function Projects() {
                       edit
                     </span>
                   </button>
-                  <button
-                    type="button"
-                    onClick={() => onDelete(p.id, p.name)}
-                    aria-label={t(
+                  <ConfirmButton
+                    onConfirm={() => onDelete(p.id)}
+                    label={t(
                       'projects.deleteAria',
                       { name: p.name },
                       { defaultValue: 'Delete project {{name}}' },
                     )}
-                    className={cm.cn('text-on-surface-variant hover:text-error')}
-                  >
-                    <span
-                      className={cm.cn('material-symbols-outlined text-base')}
-                      aria-hidden="true"
-                    >
-                      delete
-                    </span>
-                  </button>
+                    confirmLabel={t(
+                      'projects.deleteConfirm',
+                      { name: p.name },
+                      {
+                        defaultValue:
+                          'Delete project "{{name}}"? Its tasks will move to your inbox.',
+                      },
+                    )}
+                    disarmSeconds={6}
+                    className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'))}
+                  />
                 </div>
               </li>
             )

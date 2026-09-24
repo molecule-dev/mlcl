@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { TaskList } from '../components/TaskList.js'
 import {
@@ -87,16 +88,6 @@ export function ProjectDetail() {
 
   const onDeleteProject = async () => {
     if (!id) return
-    if (
-      !window.confirm(
-        t(
-          'projectDetail.deleteConfirm',
-          { name: project?.name ?? '' },
-          { defaultValue: 'Delete project "{{name}}"? Its tasks will move to your inbox.' },
-        ),
-      )
-    )
-      return
     await deleteProject(http, id).catch(() => null)
     void track({ name: 'project.deleted', properties: { project_id: id } })
     setDeleted(true)
@@ -225,14 +216,21 @@ export function ProjectDetail() {
               })()
             : null}
         </div>
-        <button
-          type="button"
-          onClick={onDeleteProject}
+        <ConfirmButton
+          onConfirm={onDeleteProject}
+          label={t('projectDetail.delete', {}, { defaultValue: 'Delete project' })}
+          confirmLabel={t(
+            'projectDetail.deleteConfirm',
+            { name: project.name },
+            { defaultValue: 'Delete project "{{name}}"? Its tasks will move to your inbox.' },
+          )}
+          disarmSeconds={6}
           aria-label={t(
             'projectDetail.deleteAria',
             { name: project.name },
             { defaultValue: 'Delete project {{name}}' },
           )}
+          data-mol-id="project-detail-delete"
           className={cm.cn(
             cm.sp('px', 3),
             cm.sp('py', 2),
@@ -240,9 +238,7 @@ export function ProjectDetail() {
             cm.fontWeight('semibold'),
             'rounded-md border border-outline-variant text-on-surface-variant hover:bg-error/10 hover:text-error hover:border-error',
           )}
-        >
-          {t('projectDetail.delete', {}, { defaultValue: 'Delete project' })}
-        </button>
+        />
       </header>
 
       <form
