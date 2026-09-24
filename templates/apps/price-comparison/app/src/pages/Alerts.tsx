@@ -4,9 +4,9 @@ import { Link } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { ConfirmButton } from '../components/ConfirmButton.js'
-import { ErrorBanner } from '../components/ErrorBanner.js'
 import { fmtUsd, unwrapList } from '../lib/unwrap.js'
 
 interface ApiAlert {
@@ -149,7 +149,12 @@ export function Alerts() {
       </header>
 
       {errorMsg ? (
-        <ErrorBanner message={errorMsg} onRetry={() => setRetryKey((k) => k + 1)} />
+        <LoadErrorBanner
+          data-test="error-banner"
+          message={errorMsg}
+          onRetry={() => setRetryKey((k) => k + 1)}
+          retryMolId="error-retry"
+        />
       ) : alerts.length === 0 ? (
         <div
           data-test="alerts-empty"

@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
-import { ErrorBanner } from '../components/ErrorBanner.js'
 import { type PriceDropEvent, PriceDropFeed } from '../components/PriceDropFeed.js'
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -176,7 +176,12 @@ export function Notifications() {
       </div>
 
       {errorMsg ? (
-        <ErrorBanner message={errorMsg} onRetry={() => setRetryKey((k) => k + 1)} />
+        <LoadErrorBanner
+          data-test="error-banner"
+          message={errorMsg}
+          onRetry={() => setRetryKey((k) => k + 1)}
+          retryMolId="error-retry"
+        />
       ) : loading ? (
         <div
           data-test="notifications-loading"

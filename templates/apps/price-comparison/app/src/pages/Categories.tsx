@@ -3,9 +3,9 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
-import { ErrorBanner } from '../components/ErrorBanner.js'
 import { unwrapList } from '../lib/unwrap.js'
 
 interface ApiCategory {
@@ -185,7 +185,12 @@ export function Categories() {
           {t('categories.allHeading', {}, { defaultValue: 'Every aisle, indexed' })}
         </h2>
         {errorMsg ? (
-          <ErrorBanner message={errorMsg} onRetry={() => setRetryKey((k) => k + 1)} />
+          <LoadErrorBanner
+            data-test="error-banner"
+            message={errorMsg}
+            onRetry={() => setRetryKey((k) => k + 1)}
+            retryMolId="error-retry"
+          />
         ) : categories.length === 0 ? (
           <div
             data-test="categories-empty"

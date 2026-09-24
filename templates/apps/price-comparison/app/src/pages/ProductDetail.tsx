@@ -4,8 +4,8 @@ import { Link, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
-import { ErrorBanner } from '../components/ErrorBanner.js'
 import { PriceHistoryChart, type PriceHistoryPoint } from '../components/PriceHistoryChart.js'
 import { type RetailerPriceRow, RetailerPriceTable } from '../components/RetailerPriceTable.js'
 import { fmtUsd, unwrapSingle } from '../lib/unwrap.js'
@@ -263,7 +263,12 @@ export function ProductDetail() {
   if (errorMsg && !product) {
     return (
       <div className={cm.cn(cm.sp('p', 8))} data-test="product-error">
-        <ErrorBanner message={errorMsg} onRetry={() => setRetryKey((k) => k + 1)} />
+        <LoadErrorBanner
+          data-test="error-banner"
+          message={errorMsg}
+          onRetry={() => setRetryKey((k) => k + 1)}
+          retryMolId="error-retry"
+        />
       </div>
     )
   }

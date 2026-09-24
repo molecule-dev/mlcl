@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
-import { ErrorBanner } from '../components/ErrorBanner.js'
 import { ProductPriceCard, type ProductPriceCardProduct } from '../components/ProductPriceCard.js'
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -136,7 +136,12 @@ export function Deals() {
       </header>
 
       {errorMsg ? (
-        <ErrorBanner message={errorMsg} onRetry={() => setRetryKey((k) => k + 1)} />
+        <LoadErrorBanner
+          data-test="error-banner"
+          message={errorMsg}
+          onRetry={() => setRetryKey((k) => k + 1)}
+          retryMolId="error-retry"
+        />
       ) : sorted.length === 0 ? (
         <div
           data-test="deals-empty"

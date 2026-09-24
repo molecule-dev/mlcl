@@ -3,9 +3,9 @@ import { useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
-import { ErrorBanner } from '../components/ErrorBanner.js'
 import { ProductPriceCard, type ProductPriceCardProduct } from '../components/ProductPriceCard.js'
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -243,7 +243,12 @@ export function Search() {
       </div>
 
       {errorMsg ? (
-        <ErrorBanner message={errorMsg} onRetry={() => setBumpKey((k) => k + 1)} />
+        <LoadErrorBanner
+          data-test="error-banner"
+          message={errorMsg}
+          onRetry={() => setBumpKey((k) => k + 1)}
+          retryMolId="error-retry"
+        />
       ) : filtered.length === 0 ? (
         <div
           data-test="search-empty"

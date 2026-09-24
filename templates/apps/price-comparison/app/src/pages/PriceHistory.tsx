@@ -3,8 +3,8 @@ import { Link, useParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
-import { ErrorBanner } from '../components/ErrorBanner.js'
 import { PriceHistoryChart, type PriceHistoryPoint } from '../components/PriceHistoryChart.js'
 import { fmtUsd } from '../lib/unwrap.js'
 
@@ -143,7 +143,12 @@ export function PriceHistory() {
   if (errorMsg && !data?.product) {
     return (
       <div className={cm.cn(cm.sp('p', 8))} data-test="history-error">
-        <ErrorBanner message={errorMsg} onRetry={() => setRetryKey((k) => k + 1)} />
+        <LoadErrorBanner
+          data-test="error-banner"
+          message={errorMsg}
+          onRetry={() => setRetryKey((k) => k + 1)}
+          retryMolId="error-retry"
+        />
       </div>
     )
   }
