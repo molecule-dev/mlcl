@@ -77,3 +77,18 @@ test('Theme toggle persists across reload', async ({ page }) => {
   expect(after.name, 'theme must be re-applied on reload').toBe(before.name)
   expect(after.mode, 'mode must match the persisted theme').toBe(before.mode)
 })
+
+test('Preferences switches flip through the shared Switch and save', async ({ page }) => {
+  await signup(page)
+  await page.goto(APP_BASE + '/settings', { waitUntil: 'domcontentloaded' })
+  await page.getByTestId('settings-nav-preferences').click()
+
+  const sw = page.getByTestId('settings-toggle-auto-rush')
+  await expect(sw).toBeVisible({ timeout: 15000 })
+  const before = await sw.getAttribute('aria-checked')
+  await sw.click()
+  await expect(sw).toHaveAttribute('aria-checked', before === 'true' ? 'false' : 'true')
+
+  await page.getByTestId('settings-save').click()
+  await expect(page.getByTestId('settings-success')).toBeVisible({ timeout: 15000 })
+})

@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
@@ -122,10 +123,6 @@ export function Billing() {
   )
 
   const handleCancel = useCallback(async () => {
-    if (
-      !window.confirm(t('billing.confirmCancel', {}, { defaultValue: 'Cancel your subscription?' }))
-    )
-      return
     setBusy(true)
     setError(null)
     setMessage(null)
@@ -298,20 +295,19 @@ export function Billing() {
                   </ul>
                 ) : null}
                 {isCurrent && !isFree ? (
-                  <button
-                    onClick={handleCancel}
-                    disabled={busy}
-                    type="button"
-                    data-testid={`billing-cancel-${tier.key}`}
-                    className={cm.cn(
-                      cm.sp('py', 3),
-                      cm.fontWeight('bold'),
-                      cm.roundedFull,
-                      'mt-2 transition-colors bg-on-primary text-primary hover:bg-surface disabled:opacity-50',
+                  <ConfirmButton
+                    label={t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
+                    confirmLabel={t(
+                      'billing.confirmCancel',
+                      {},
+                      { defaultValue: 'Cancel your subscription?' },
                     )}
-                  >
-                    {t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
-                  </button>
+                    disarmSeconds={6}
+                    disabled={busy}
+                    data-testid={`billing-cancel-${tier.key}`}
+                    onConfirm={handleCancel}
+                    className="mt-2 w-full"
+                  />
                 ) : isCurrent ? (
                   <p
                     className={cm.cn(

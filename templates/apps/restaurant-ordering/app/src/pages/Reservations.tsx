@@ -4,6 +4,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Alert, PromptDialog } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -64,6 +65,9 @@ export function Reservations() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
+  const [addStage, setAddStage] = useState<'idle' | 'name' | 'size' | 'when'>('idle')
+  const [pendingParty, setPendingParty] = useState({ name: '', size: 2 })
+  const [promptError, setPromptError] = useState<string | null>(null)
 
   const reload = useCallback(async () => {
     setLoading(true)
@@ -84,37 +88,100 @@ export function Reservations() {
     void reload()
   }, [reload])
 
-  const handleAdd = useCallback(async () => {
-    const partyName = window.prompt(
-      t('reservations.namePrompt', {}, { defaultValue: 'Party name' }),
-    )
-    if (!partyName) return
-    const partySize = Number(
-      window.prompt(t('reservations.partyPrompt', {}, { defaultValue: 'Party size' })) || '2',
-    )
-    if (!Number.isFinite(partySize) || partySize <= 0) return
-    const when = window.prompt(
-      t('reservations.whenPrompt', {}, { defaultValue: 'When? (e.g. 2026-05-10 19:00)' }),
-    )
-    const scheduled = when ? new Date(when) : new Date()
-    if (Number.isNaN(scheduled.getTime())) return
-    setBusy(true)
-    setError(null)
-    try {
-      await http.post('/api/reservations', {
-        party_name: partyName,
-        party_size: partySize,
-        scheduled_for: scheduled.toISOString(),
-      })
-      void track({ name: 'reservation.created', properties: { partySize } })
-      await reload()
-    } catch (error) {
-      logError('reservations.add', error)
-      setError(t('reservations.addError', {}, { defaultValue: 'Could not create reservation.' }))
-    } finally {
-      setBusy(false)
-    }
-  }, [http, reload, t])
+  const handleAdd = useCallback(() => {
+    setPendingParty({ name: '', size: 2 })
+    setPromptError(null)
+    setAddStage('name')
+  }, [])
+
+  const closeNameDialog = useCallback(() => {
+    // PromptDialog fires onClose after EVERY fulfilled submit — when the
+    // submit already advanced us to the next step, this must not undo it.
+    setAddStage((cur) => (cur === 'name' ? 'idle' : cur))
+  }, [])
+
+  const closeSizeDialog = useCallback(() => {
+    setAddStage((cur) => (cur === 'size' ? 'idle' : cur))
+  }, [])
+
+  const closeAdd = useCallback(() => {
+    setPromptError(null)
+    setAddStage('idle')
+  }, [])
+
+  const submitName = useCallback(
+    (value: string): void | Promise<void> => {
+      const name = value.trim()
+      if (!name) {
+        setPromptError(
+          t('reservations.nameRequired', {}, { defaultValue: 'Party name is required.' }),
+        )
+        return Promise.reject(new Error('party name is required'))
+      }
+      setPromptError(null)
+      setPendingParty({ name, size: 2 })
+      setAddStage('size')
+      return undefined
+    },
+    [t],
+  )
+
+  const submitSize = useCallback(
+    (value: string): void | Promise<void> => {
+      const size = Number(value.trim() || '2')
+      if (!Number.isFinite(size) || size <= 0) {
+        setPromptError(
+          t(
+            'reservations.partySizeInvalid',
+            {},
+            { defaultValue: 'Enter a party size of 1 or more.' },
+          ),
+        )
+        return Promise.reject(new Error('invalid party size'))
+      }
+      setPromptError(null)
+      setPendingParty((prev) => ({ ...prev, size }))
+      setAddStage('when')
+      return undefined
+    },
+    [t],
+  )
+
+  const submitWhen = useCallback(
+    (value: string): void | Promise<void> => {
+      const when = value.trim()
+      const scheduled = when ? new Date(when) : new Date()
+      if (Number.isNaN(scheduled.getTime())) {
+        setPromptError(
+          t('reservations.whenInvalid', {}, { defaultValue: 'Enter a valid date and time.' }),
+        )
+        return Promise.reject(new Error('invalid date'))
+      }
+      setPromptError(null)
+      setAddStage('idle')
+      setBusy(true)
+      setError(null)
+      return (async () => {
+        try {
+          await http.post('/api/reservations', {
+            party_name: pendingParty.name,
+            party_size: pendingParty.size,
+            scheduled_for: scheduled.toISOString(),
+          })
+          void track({ name: 'reservation.created', properties: { partySize: pendingParty.size } })
+          await reload()
+        } catch (error) {
+          logError('reservations.add', error)
+          setError(
+            t('reservations.addError', {}, { defaultValue: 'Could not create reservation.' }),
+          )
+        } finally {
+          setBusy(false)
+        }
+      })()
+    },
+    [http, pendingParty, reload, t],
+  )
 
   const handleStatus = useCallback(
     async (id: string, status: ReservationStatus) => {
@@ -345,6 +412,62 @@ export function Reservations() {
           ))}
         </div>
       )}
+
+      <PromptDialog
+        open={addStage === 'name'}
+        onClose={closeNameDialog}
+        title={t('reservations.addBooking', {}, { defaultValue: 'New booking' })}
+        description={t('reservations.namePrompt', {}, { defaultValue: 'Party name' })}
+        placeholder={t('reservations.namePrompt', {}, { defaultValue: 'Party name' })}
+        confirmLabel={t('common.confirm', {}, { defaultValue: 'Confirm' })}
+        cancelLabel={t('common.cancel', {}, { defaultValue: 'Cancel' })}
+        inputMolId="reservations-add-name-input"
+        confirmMolId="reservations-add-name-confirm"
+        cancelMolId="reservations-add-name-cancel"
+        onSubmit={submitName}
+      >
+        {promptError ? <Alert status="error">{promptError}</Alert> : null}
+      </PromptDialog>
+
+      <PromptDialog
+        open={addStage === 'size'}
+        onClose={closeSizeDialog}
+        title={t('reservations.addBooking', {}, { defaultValue: 'New booking' })}
+        description={t('reservations.partyPrompt', {}, { defaultValue: 'Party size' })}
+        placeholder={t('reservations.partyPrompt', {}, { defaultValue: 'Party size' })}
+        confirmLabel={t('common.confirm', {}, { defaultValue: 'Confirm' })}
+        cancelLabel={t('common.cancel', {}, { defaultValue: 'Cancel' })}
+        inputMolId="reservations-add-size-input"
+        confirmMolId="reservations-add-size-confirm"
+        cancelMolId="reservations-add-size-cancel"
+        onSubmit={submitSize}
+      >
+        {promptError ? <Alert status="error">{promptError}</Alert> : null}
+      </PromptDialog>
+
+      <PromptDialog
+        open={addStage === 'when'}
+        onClose={closeAdd}
+        title={t('reservations.addBooking', {}, { defaultValue: 'New booking' })}
+        description={t(
+          'reservations.whenPrompt',
+          {},
+          { defaultValue: 'When? (e.g. 2026-05-10 19:00)' },
+        )}
+        placeholder={t(
+          'reservations.whenPrompt',
+          {},
+          { defaultValue: 'When? (e.g. 2026-05-10 19:00)' },
+        )}
+        confirmLabel={t('common.confirm', {}, { defaultValue: 'Confirm' })}
+        cancelLabel={t('common.cancel', {}, { defaultValue: 'Cancel' })}
+        inputMolId="reservations-add-when-input"
+        confirmMolId="reservations-add-when-confirm"
+        cancelMolId="reservations-add-when-cancel"
+        onSubmit={submitWhen}
+      >
+        {promptError ? <Alert status="error">{promptError}</Alert> : null}
+      </PromptDialog>
     </div>
   )
 }

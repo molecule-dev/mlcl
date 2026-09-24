@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Alert, PromptDialog } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -50,6 +51,9 @@ export function Customers() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [creating, setCreating] = useState(false)
+  const [addStage, setAddStage] = useState<'idle' | 'name' | 'email'>('idle')
+  const [pendingName, setPendingName] = useState('')
+  const [addError, setAddError] = useState<string | null>(null)
 
   const reload = useCallback(
     async (q?: string) => {
@@ -76,24 +80,57 @@ export function Customers() {
     return () => clearTimeout(handle)
   }, [reload, search])
 
-  const handleAdd = useCallback(async () => {
-    setCreating(true)
-    setError(null)
-    try {
-      const name = window.prompt(t('customers.namePrompt', {}, { defaultValue: 'Guest name' }))
-      if (!name) return
-      const email =
-        window.prompt(t('auth.forgotPassword.email', {}, { defaultValue: 'Email' })) || ''
-      await http.post('/api/customers', { name, email })
-      void track({ name: 'customer.created', properties: { name } })
-      await reload()
-    } catch (error) {
-      logError('customers.add', error)
-      setError(t('customers.addError', {}, { defaultValue: 'Could not add guest.' }))
-    } finally {
-      setCreating(false)
-    }
-  }, [http, reload, t])
+  const handleAdd = useCallback(() => {
+    setPendingName('')
+    setAddError(null)
+    setAddStage('name')
+  }, [])
+
+  const closeNameDialog = useCallback(() => {
+    // PromptDialog fires onClose after EVERY fulfilled submit — so when the
+    // submit already advanced us to the email step, this must not undo it.
+    setAddStage((cur) => (cur === 'name' ? 'idle' : cur))
+  }, [])
+
+  const closeAdd = useCallback(() => {
+    setAddError(null)
+    setAddStage('idle')
+  }, [])
+
+  const submitName = useCallback(
+    (value: string): void | Promise<void> => {
+      const name = value.trim()
+      if (!name) {
+        setAddError(t('customers.nameRequired', {}, { defaultValue: 'Guest name is required.' }))
+        return Promise.reject(new Error('guest name is required'))
+      }
+      setAddError(null)
+      setPendingName(name)
+      setAddStage('email')
+      return undefined
+    },
+    [t],
+  )
+
+  const submitEmail = useCallback(
+    async (value: string) => {
+      setAddError(null)
+      setAddStage('idle')
+      setCreating(true)
+      setError(null)
+      try {
+        await http.post('/api/customers', { name: pendingName, email: value.trim() })
+        void track({ name: 'customer.created', properties: { name: pendingName } })
+        await reload()
+      } catch (error) {
+        logError('customers.add', error)
+        setError(t('customers.addError', {}, { defaultValue: 'Could not add guest.' }))
+      } finally {
+        setCreating(false)
+      }
+    },
+    [http, pendingName, reload, t],
+  )
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}>
@@ -291,6 +328,36 @@ export function Customers() {
           ))}
         </div>
       )}
+
+      <PromptDialog
+        open={addStage === 'name'}
+        onClose={closeNameDialog}
+        title={t('customers.addGuest', {}, { defaultValue: 'Add guest' })}
+        description={t('customers.namePrompt', {}, { defaultValue: 'Guest name' })}
+        placeholder={t('customers.namePrompt', {}, { defaultValue: 'Guest name' })}
+        confirmLabel={t('common.confirm', {}, { defaultValue: 'Confirm' })}
+        cancelLabel={t('common.cancel', {}, { defaultValue: 'Cancel' })}
+        inputMolId="customers-add-name-input"
+        confirmMolId="customers-add-name-confirm"
+        cancelMolId="customers-add-name-cancel"
+        onSubmit={submitName}
+      >
+        {addError ? <Alert status="error">{addError}</Alert> : null}
+      </PromptDialog>
+
+      <PromptDialog
+        open={addStage === 'email'}
+        onClose={closeAdd}
+        title={t('customers.addGuest', {}, { defaultValue: 'Add guest' })}
+        description={t('auth.forgotPassword.email', {}, { defaultValue: 'Email' })}
+        placeholder={t('auth.forgotPassword.email', {}, { defaultValue: 'Email' })}
+        confirmLabel={t('common.confirm', {}, { defaultValue: 'Confirm' })}
+        cancelLabel={t('common.cancel', {}, { defaultValue: 'Cancel' })}
+        inputMolId="customers-add-email-input"
+        confirmMolId="customers-add-email-confirm"
+        cancelMolId="customers-add-email-cancel"
+        onSubmit={submitEmail}
+      />
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Alert, ConfirmButton, PromptDialog } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -52,6 +53,9 @@ export function CustomerDetail() {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [status, setStatus] = useState<string | null>(null)
+  const [resStage, setResStage] = useState<'idle' | 'size' | 'when'>('idle')
+  const [pendingSize, setPendingSize] = useState(2)
+  const [promptError, setPromptError] = useState<string | null>(null)
 
   const reload = useCallback(async () => {
     if (!id) return
@@ -73,55 +77,94 @@ export function CustomerDetail() {
     void reload()
   }, [reload])
 
-  const handleAddReservation = useCallback(async () => {
+  const handleAddReservation = useCallback(() => {
     if (!customer) return
-    const partySize = Number(
-      window.prompt(t('customerDetail.partyPrompt', {}, { defaultValue: 'Party size' })) || '2',
-    )
-    if (!Number.isFinite(partySize) || partySize <= 0) return
-    const when = window.prompt(
-      t(
-        'customerDetail.whenPrompt',
-        {},
-        { defaultValue: 'When? (e.g. tomorrow 7pm — leave blank for now)' },
-      ),
-    )
-    const scheduled = when ? new Date(when) : new Date()
-    if (Number.isNaN(scheduled.getTime())) return
-    setBusy(true)
-    setError(null)
-    try {
-      await http.post('/api/reservations', {
-        party_name: customer.name,
-        party_size: partySize,
-        scheduled_for: scheduled.toISOString(),
-        customer_id: customer.id,
-      })
-      void track({
-        name: 'reservation.created',
-        properties: { partySize, customerId: customer.id },
-      })
-      setStatus(
-        t('customerDetail.reservationCreated', {}, { defaultValue: 'Reservation created.' }),
-      )
-    } catch (error) {
-      logError('customerDetail.addReservation', error)
-      setError(
-        t('customerDetail.reservationError', {}, { defaultValue: 'Could not create reservation.' }),
-      )
-    } finally {
-      setBusy(false)
-    }
-  }, [customer, http, t])
+    setPendingSize(2)
+    setPromptError(null)
+    setResStage('size')
+  }, [customer])
+
+  const closeSizeDialog = useCallback(() => {
+    // PromptDialog fires onClose after EVERY fulfilled submit — when the
+    // submit already advanced us to the "when" step, this must not undo it.
+    setResStage((cur) => (cur === 'size' ? 'idle' : cur))
+  }, [])
+
+  const closeAddReservation = useCallback(() => {
+    setPromptError(null)
+    setResStage('idle')
+  }, [])
+
+  const submitSize = useCallback(
+    (value: string): void | Promise<void> => {
+      const size = Number(value.trim() || '2')
+      if (!Number.isFinite(size) || size <= 0) {
+        setPromptError(
+          t(
+            'customerDetail.partySizeInvalid',
+            {},
+            { defaultValue: 'Enter a party size of 1 or more.' },
+          ),
+        )
+        return Promise.reject(new Error('invalid party size'))
+      }
+      setPromptError(null)
+      setPendingSize(size)
+      setResStage('when')
+      return undefined
+    },
+    [t],
+  )
+
+  const submitWhen = useCallback(
+    (value: string): void | Promise<void> => {
+      if (!customer) return undefined
+      const when = value.trim()
+      const scheduled = when ? new Date(when) : new Date()
+      if (Number.isNaN(scheduled.getTime())) {
+        setPromptError(
+          t('customerDetail.whenInvalid', {}, { defaultValue: 'Enter a valid date and time.' }),
+        )
+        return Promise.reject(new Error('invalid date'))
+      }
+      setPromptError(null)
+      setResStage('idle')
+      setBusy(true)
+      setError(null)
+      return (async () => {
+        try {
+          await http.post('/api/reservations', {
+            party_name: customer.name,
+            party_size: pendingSize,
+            scheduled_for: scheduled.toISOString(),
+            customer_id: customer.id,
+          })
+          void track({
+            name: 'reservation.created',
+            properties: { partySize: pendingSize, customerId: customer.id },
+          })
+          setStatus(
+            t('customerDetail.reservationCreated', {}, { defaultValue: 'Reservation created.' }),
+          )
+        } catch (error) {
+          logError('customerDetail.addReservation', error)
+          setError(
+            t(
+              'customerDetail.reservationError',
+              {},
+              { defaultValue: 'Could not create reservation.' },
+            ),
+          )
+        } finally {
+          setBusy(false)
+        }
+      })()
+    },
+    [customer, http, pendingSize, t],
+  )
 
   const handleDelete = useCallback(async () => {
     if (!customer) return
-    if (
-      !window.confirm(
-        t('customerDetail.confirmDelete', {}, { defaultValue: 'Delete this guest record?' }),
-      )
-    )
-      return
     setBusy(true)
     setError(null)
     try {
@@ -252,20 +295,18 @@ export function CustomerDetail() {
           >
             {t('customerDetail.book', {}, { defaultValue: 'Add reservation' })}
           </button>
-          <button
-            onClick={handleDelete}
-            disabled={busy}
-            type="button"
-            data-testid="customerdetail-delete"
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.fontWeight('semibold'),
-              'rounded-full border border-error text-error hover:bg-error-container hover:text-on-error-container transition-colors disabled:opacity-50',
+          <ConfirmButton
+            label={t('common.delete', {}, { defaultValue: 'Delete' })}
+            confirmLabel={t(
+              'customerDetail.confirmDelete',
+              {},
+              { defaultValue: 'Delete this guest record?' },
             )}
-          >
-            {t('common.delete', {}, { defaultValue: 'Delete' })}
-          </button>
+            disarmSeconds={6}
+            disabled={busy}
+            data-testid="customerdetail-delete"
+            onConfirm={handleDelete}
+          />
         </div>
       </header>
 
@@ -382,6 +423,46 @@ export function CustomerDetail() {
           </div>
         )}
       </section>
+
+      <PromptDialog
+        open={resStage === 'size'}
+        onClose={closeSizeDialog}
+        title={t('customerDetail.book', {}, { defaultValue: 'Add reservation' })}
+        description={t('customerDetail.partyPrompt', {}, { defaultValue: 'Party size' })}
+        placeholder={t('customerDetail.partyPrompt', {}, { defaultValue: 'Party size' })}
+        confirmLabel={t('common.confirm', {}, { defaultValue: 'Confirm' })}
+        cancelLabel={t('common.cancel', {}, { defaultValue: 'Cancel' })}
+        inputMolId="customerdetail-res-size-input"
+        confirmMolId="customerdetail-res-size-confirm"
+        cancelMolId="customerdetail-res-size-cancel"
+        onSubmit={submitSize}
+      >
+        {promptError ? <Alert status="error">{promptError}</Alert> : null}
+      </PromptDialog>
+
+      <PromptDialog
+        open={resStage === 'when'}
+        onClose={closeAddReservation}
+        title={t('customerDetail.book', {}, { defaultValue: 'Add reservation' })}
+        description={t(
+          'customerDetail.whenPrompt',
+          {},
+          { defaultValue: 'When? (e.g. tomorrow 7pm — leave blank for now)' },
+        )}
+        placeholder={t(
+          'customerDetail.whenPrompt',
+          {},
+          { defaultValue: 'When? (e.g. tomorrow 7pm — leave blank for now)' },
+        )}
+        confirmLabel={t('common.confirm', {}, { defaultValue: 'Confirm' })}
+        cancelLabel={t('common.cancel', {}, { defaultValue: 'Cancel' })}
+        inputMolId="customerdetail-res-when-input"
+        confirmMolId="customerdetail-res-when-confirm"
+        cancelMolId="customerdetail-res-when-cancel"
+        onSubmit={submitWhen}
+      >
+        {promptError ? <Alert status="error">{promptError}</Alert> : null}
+      </PromptDialog>
     </div>
   )
 }

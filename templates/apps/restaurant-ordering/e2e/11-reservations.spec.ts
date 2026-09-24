@@ -105,3 +105,42 @@ test('Reservations: status filter narrows results', async ({ page }) => {
   expect(confirmed.body.data.find((r) => r.id === a.body.id)).toBeTruthy()
   expect(confirmed.body.data.find((r) => r.id === b.body.id)).toBeFalsy()
 })
+
+test('Reservations: new-booking flow walks name → size → time through PromptDialog', async ({
+  page,
+}) => {
+  await signup(page)
+  await page.goto(APP_BASE + '/reservations', { waitUntil: 'domcontentloaded' })
+
+  await page.getByTestId('reservations-add').click()
+
+  // Step 1 — party name (required).
+  const nameInput = page.locator('[data-mol-id="reservations-add-name-input"]')
+  await expect(nameInput).toBeVisible({ timeout: 15000 })
+  await nameInput.fill('Prompt Party')
+  await page.locator('[data-mol-id="reservations-add-name-confirm"]').click()
+
+  // Step 2 — party size; an invalid value keeps the dialog open with an error.
+  const sizeInput = page.locator('[data-mol-id="reservations-add-size-input"]')
+  await expect(sizeInput).toBeVisible()
+  await sizeInput.fill('0')
+  await page.locator('[data-mol-id="reservations-add-size-confirm"]').click()
+  await expect(page.locator('[role="alert"]').first()).toBeVisible()
+  await expect(sizeInput).toBeVisible()
+
+  await sizeInput.fill('5')
+  await page.locator('[data-mol-id="reservations-add-size-confirm"]').click()
+
+  // Step 3 — when; blank means "now".
+  const whenInput = page.locator('[data-mol-id="reservations-add-when-input"]')
+  await expect(whenInput).toBeVisible()
+  await whenInput.fill(new Date(Date.now() + 3600_000).toISOString())
+  await page.locator('[data-mol-id="reservations-add-when-confirm"]').click()
+
+  // Post-commit outcome: the row renders AND the API has it (read-after-write).
+  await expect(page.getByText('Prompt Party').first()).toBeVisible({ timeout: 15000 })
+  const list = await apiRequest<{ data: ApiReservation[] }>(page, 'GET', '/api/reservations')
+  const created = list.body.data.find((r) => (r.notes ?? '').includes('Prompt Party'))
+  expect(created, 'reservation created through the dialogs must reach the API').toBeTruthy()
+  expect(created?.party_size).toBe(5)
+})

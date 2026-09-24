@@ -71,3 +71,41 @@ test('Menu item detail: deletion removes the row from /api/menu list', async ({ 
   const list = await apiRequest<{ data: Array<{ id: string }> }>(page, 'GET', '/api/menu?limit=200')
   expect(list.body.data.find((r) => r.id === item.id)).toBeFalsy()
 })
+
+test('Menu item detail: availability Switch flips and persists through save', async ({ page }) => {
+  await signup(page)
+  const item = await createMenuItem(page, { name: 'Switch Cake', price: 8 })
+  await page.goto(APP_BASE + `/menu/${item.id}`, { waitUntil: 'domcontentloaded' })
+
+  const sw = page.getByTestId('menuitem-available')
+  await expect(sw).toBeVisible({ timeout: 15000 })
+  await expect(sw).toHaveAttribute('aria-checked', 'true')
+  await sw.click()
+  await expect(sw).toHaveAttribute('aria-checked', 'false')
+
+  await page.getByTestId('menuitem-save').click()
+  await expect(page.getByTestId('menuitem-status')).toBeVisible({ timeout: 15000 })
+
+  const fresh = await apiRequest<{ available: boolean }>(page, 'GET', `/api/menu/${item.id}`)
+  expect(fresh.status).toBe(200)
+  expect(fresh.body.available).toBe(false)
+})
+
+test('Menu item detail: two-click ConfirmButton arms then deletes the item', async ({ page }) => {
+  await signup(page)
+  const item = await createMenuItem(page, { name: 'Confirm Tart', price: 6 })
+  await page.goto(APP_BASE + `/menu/${item.id}`, { waitUntil: 'domcontentloaded' })
+
+  const del = page.getByTestId('menuitem-delete')
+  await expect(del).toBeVisible({ timeout: 15000 })
+  await expect(del).toHaveText(/delete item/i)
+
+  // Arm, assert the confirm label, then commit.
+  await del.click()
+  await expect(del).toHaveText(/delete this menu item\?/i)
+  await del.click()
+
+  await expect(page).toHaveURL(/\/menu\/?$/, { timeout: 15000 })
+  const list = await apiRequest<{ data: Array<{ id: string }> }>(page, 'GET', '/api/menu?limit=200')
+  expect(list.body.data.find((r) => r.id === item.id)).toBeFalsy()
+})

@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton, Switch } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -125,12 +126,6 @@ export function MenuItemDetail() {
 
   const handleDelete = useCallback(async () => {
     if (!id) return
-    if (
-      !window.confirm(
-        t('menuItemDetail.confirmDelete', {}, { defaultValue: 'Delete this menu item?' }),
-      )
-    )
-      return
     setSaving(true)
     setError(null)
     try {
@@ -326,11 +321,12 @@ export function MenuItemDetail() {
             >
               {t('menuItemDetail.availability', {}, { defaultValue: 'Availability' })}
             </h3>
-            <Toggle
+            <Switch
               id="available"
               label={t('menuItemDetail.available', {}, { defaultValue: 'Available tonight' })}
               checked={form.available}
-              onChange={(v) => update('available', v)}
+              onChange={(e) => update('available', (e.target as HTMLInputElement).checked)}
+              data-testid="menuitem-available"
             />
           </div>
 
@@ -362,20 +358,18 @@ export function MenuItemDetail() {
               : t('common.saveChanges', {}, { defaultValue: 'Save changes' })}
           </button>
 
-          <button
-            onClick={handleDelete}
-            disabled={saving}
-            type="button"
-            data-testid="menuitem-delete"
-            className={cm.cn(
-              cm.sp('py', 3),
-              cm.textSize('sm'),
-              cm.fontWeight('semibold'),
-              'rounded-full border border-outline-variant hover:bg-error-container hover:text-on-error-container transition-colors disabled:opacity-50 disabled:cursor-not-allowed',
+          <ConfirmButton
+            label={t('menuItemDetail.delete', {}, { defaultValue: 'Delete item' })}
+            confirmLabel={t(
+              'menuItemDetail.confirmDelete',
+              {},
+              { defaultValue: 'Delete this menu item?' },
             )}
-          >
-            {t('menuItemDetail.delete', {}, { defaultValue: 'Delete item' })}
-          </button>
+            disarmSeconds={6}
+            disabled={saving}
+            data-testid="menuitem-delete"
+            onConfirm={handleDelete}
+          />
         </aside>
       </div>
     </div>
@@ -429,43 +423,5 @@ function Field({ id, label, value, onChange, multiline }: FieldProps) {
         />
       )}
     </div>
-  )
-}
-
-function Toggle({
-  id,
-  label,
-  checked,
-  onChange,
-}: {
-  id: string
-  label: string
-  checked: boolean
-  onChange: (v: boolean) => void
-}) {
-  const cm = getClassMap()
-  return (
-    <label className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'cursor-pointer')}>
-      <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>{label}</span>
-      <input
-        type="checkbox"
-        id={id}
-        checked={checked}
-        onChange={(e) => onChange(e.target.checked)}
-        className={cm.cn('sr-only peer')}
-      />
-      <span
-        className={cm.cn(
-          'relative inline-flex h-6 w-11 items-center rounded-full transition-colors bg-outline-variant peer-checked:bg-primary',
-        )}
-        aria-hidden="true"
-      >
-        <span
-          className={cm.cn(
-            'absolute left-1 inline-block h-4 w-4 rounded-full bg-on-primary transition-transform peer-checked:translate-x-5',
-          )}
-        />
-      </span>
-    </label>
   )
 }

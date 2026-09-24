@@ -94,3 +94,36 @@ test('Customers: visit count increments after a paid order', async ({ page }) =>
   expect(fresh.status).toBe(200)
   expect(fresh.body.id).toBe(c.body.id)
 })
+
+test('Customers: add-guest flow collects name + email through the shared PromptDialog', async ({
+  page,
+}) => {
+  await signup(page)
+  await page.goto(APP_BASE + '/customers', { waitUntil: 'domcontentloaded' })
+
+  await page.getByTestId('customers-add').click()
+
+  // Step 1 — guest name (required; an empty submit keeps the dialog open).
+  const nameInput = page.locator('[data-mol-id="customers-add-name-input"]')
+  await expect(nameInput).toBeVisible({ timeout: 15000 })
+  await page.locator('[data-mol-id="customers-add-name-confirm"]').click()
+  await expect(page.locator('[role="alert"]').first()).toBeVisible()
+  await expect(nameInput).toBeVisible()
+
+  await nameInput.fill('Prompt Pilot')
+  await expect(nameInput).toHaveValue('Prompt Pilot')
+  await page.locator('[data-mol-id="customers-add-name-confirm"]').click()
+
+  // Step 2 — optional email.
+  const emailInput = page.locator('[data-mol-id="customers-add-email-input"]')
+  await expect(emailInput).toBeVisible()
+  await emailInput.fill('prompt-pilot@test.local')
+  await page.locator('[data-mol-id="customers-add-email-confirm"]').click()
+
+  // Post-commit outcome: the row renders AND the API has it (read-after-write).
+  await expect(page.getByText('Prompt Pilot').first()).toBeVisible({ timeout: 15000 })
+  const list = await apiRequest<{ data: Array<ApiCustomer> }>(page, 'GET', '/api/customers')
+  const created = list.body.data.find((c) => c.name === 'Prompt Pilot')
+  expect(created, 'guest created through the dialog must reach the API').toBeTruthy()
+  expect(created?.email).toBe('prompt-pilot@test.local')
+})

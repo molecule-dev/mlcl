@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -93,8 +94,6 @@ export function TableDetail() {
 
   const handleDelete = useCallback(async () => {
     if (!id) return
-    if (!window.confirm(t('tableDetail.confirmDelete', {}, { defaultValue: 'Delete this table?' })))
-      return
     setBusy(true)
     setError(null)
     try {
@@ -226,21 +225,18 @@ export function TableDetail() {
                 </button>
               )
             })}
-            <button
-              type="button"
-              onClick={handleDelete}
+            <ConfirmButton
+              label={t('tableDetail.delete', {}, { defaultValue: 'Delete' })}
+              confirmLabel={t(
+                'tableDetail.confirmDelete',
+                {},
+                { defaultValue: 'Delete this table?' },
+              )}
+              disarmSeconds={6}
               disabled={busy}
               data-testid="tabledetail-delete"
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                cm.fontWeight('semibold'),
-                'rounded-full border border-error text-error hover:bg-error-container hover:text-on-error-container transition-colors disabled:opacity-50',
-              )}
-            >
-              {t('tableDetail.delete', {}, { defaultValue: 'Delete' })}
-            </button>
+              onConfirm={handleDelete}
+            />
           </div>
         </div>
         {error ? (

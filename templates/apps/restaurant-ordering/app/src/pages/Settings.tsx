@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation, useUser } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 const SECTIONS = ['profile', 'hours', 'preferences', 'appearance', 'language'] as const
 type Section = (typeof SECTIONS)[number]
@@ -286,45 +286,45 @@ export function Settings() {
               <h2 className={cm.cn(cm.textSize('xl'), 'font-extrabold font-display')}>
                 {t('settings.preferences.heading', {}, { defaultValue: 'Service preferences' })}
               </h2>
-              <Toggle
-                id="auto-rush"
+              <Switch
                 label={t(
                   'settings.preferences.autoRush',
                   {},
                   { defaultValue: 'Auto-flag rush after 10 min' },
                 )}
                 checked={prefAutoRush}
-                onChange={setPrefAutoRush}
+                onChange={(e) => setPrefAutoRush((e.target as HTMLInputElement).checked)}
+                data-testid="settings-toggle-auto-rush"
               />
-              <Toggle
-                id="bell"
+              <Switch
                 label={t(
                   'settings.preferences.bellSound',
                   {},
                   { defaultValue: 'Audible bell on Ready' },
                 )}
                 checked={prefBellSound}
-                onChange={setPrefBellSound}
+                onChange={(e) => setPrefBellSound((e.target as HTMLInputElement).checked)}
+                data-testid="settings-toggle-bell"
               />
-              <Toggle
-                id="receipts"
+              <Switch
                 label={t(
                   'settings.preferences.emailReceipts',
                   {},
                   { defaultValue: 'Email receipts to guests' },
                 )}
                 checked={prefEmailReceipts}
-                onChange={setPrefEmailReceipts}
+                onChange={(e) => setPrefEmailReceipts((e.target as HTMLInputElement).checked)}
+                data-testid="settings-toggle-receipts"
               />
-              <Toggle
-                id="qr"
+              <Switch
                 label={t(
                   'settings.preferences.qrOrdering',
                   {},
                   { defaultValue: 'Enable table-side QR ordering' },
                 )}
                 checked={prefQrOrdering}
-                onChange={setPrefQrOrdering}
+                onChange={(e) => setPrefQrOrdering((e.target as HTMLInputElement).checked)}
+                data-testid="settings-toggle-qr"
               />
             </section>
           )}
@@ -452,44 +452,5 @@ function Field({ id, label, value, onChange }: FieldProps) {
         )}
       />
     </div>
-  )
-}
-
-function Toggle({
-  id,
-  label,
-  checked,
-  onChange,
-}: {
-  id: string
-  label: string
-  checked: boolean
-  onChange: (v: boolean) => void
-}) {
-  const cm = getClassMap()
-  return (
-    <label className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'cursor-pointer')}>
-      <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>{label}</span>
-      <input
-        type="checkbox"
-        id={id}
-        data-testid={`settings-toggle-${id}`}
-        checked={checked}
-        onChange={(e) => onChange(e.target.checked)}
-        className={cm.cn('sr-only peer')}
-      />
-      <span
-        className={cm.cn(
-          'relative inline-flex h-6 w-11 items-center rounded-full transition-colors bg-outline-variant peer-checked:bg-primary',
-        )}
-        aria-hidden="true"
-      >
-        <span
-          className={cm.cn(
-            'absolute left-1 inline-block h-4 w-4 rounded-full bg-on-primary transition-transform peer-checked:translate-x-5',
-          )}
-        />
-      </span>
-    </label>
   )
 }

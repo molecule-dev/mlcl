@@ -47,3 +47,24 @@ test('Table detail: delete removes the row from /api/tables', async ({ page }) =
   const list = await apiRequest<{ data: Array<{ id: string }> }>(page, 'GET', '/api/tables')
   expect(list.body.data.find((r) => r.id === t.id)).toBeFalsy()
 })
+
+test('Table detail: two-click ConfirmButton arms then deletes the table', async ({ page }) => {
+  await signup(page)
+  const t = await createTable(page, { table_number: 77, seats: 2 })
+  await page.goto(APP_BASE + `/tables/${t.id}`, { waitUntil: 'domcontentloaded' })
+
+  const del = page.getByTestId('tabledetail-delete')
+  await expect(del).toBeVisible({ timeout: 15000 })
+  await expect(del).toHaveText('Delete')
+
+  // First click ARMS the button (no delete fires); the SAME element now
+  // shows the confirm label — the replacement for the old window.confirm.
+  await del.click()
+  await expect(del).toHaveText(/delete this table\?/i)
+
+  // Second click commits.
+  await del.click()
+  await expect(page).toHaveURL(/\/tables\/?$/, { timeout: 15000 })
+  const list = await apiRequest<{ data: Array<{ id: string }> }>(page, 'GET', '/api/tables')
+  expect(list.body.data.find((r) => r.id === t.id)).toBeFalsy()
+})
