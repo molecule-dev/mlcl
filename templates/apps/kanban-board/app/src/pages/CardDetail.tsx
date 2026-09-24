@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { PromptDialog } from '../components/PromptDialog.js'
 
@@ -156,15 +157,10 @@ export function CardDetail() {
     }
   }
 
+  // Confirmation is handled inline by the two-step ConfirmButton (arm →
+  // confirm) — no blocking window.confirm dialog.
   const handleDelete = async () => {
     if (!card) return
-    if (
-      !window.confirm(
-        t('cardDetail.deleteConfirm', {}, { defaultValue: 'Delete this card permanently?' }),
-      )
-    ) {
-      return
-    }
     setBusy(true)
     try {
       await http.delete(`/api/cards/${card.id}`)
@@ -550,18 +546,25 @@ export function CardDetail() {
                   {t('cardDetail.actions.archive', {}, { defaultValue: 'Archive card' })}
                 </button>
               ) : null}
-              <button
-                type="button"
-                onClick={() => void handleDelete()}
-                disabled={busy}
+              <ConfirmButton
+                data-mol-id="card-delete"
                 data-testid="card-delete"
-                className={cm.cn(
-                  'px-3 py-2 rounded-xl text-left text-sm font-semibold text-error hover:bg-error/5 flex items-center gap-2',
+                label={
+                  <>
+                    <span className="material-symbols-outlined text-[18px]">delete</span>
+                    {t('cardDetail.actions.delete', {}, { defaultValue: 'Delete card' })}
+                  </>
+                }
+                confirmLabel={t(
+                  'cardDetail.deleteConfirm',
+                  {},
+                  { defaultValue: 'Delete this card permanently?' },
                 )}
-              >
-                <span className="material-symbols-outlined text-[18px]">delete</span>
-                {t('cardDetail.actions.delete', {}, { defaultValue: 'Delete card' })}
-              </button>
+                onConfirm={handleDelete}
+                disabled={busy}
+                variant="ghost"
+                color="error"
+              />
             </div>
           </section>
         </aside>

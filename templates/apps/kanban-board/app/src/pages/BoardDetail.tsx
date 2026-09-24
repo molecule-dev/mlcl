@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { PromptDialog } from '../components/PromptDialog.js'
 import { getRealtimeConnection } from '../lib/realtime.js'
@@ -282,19 +283,10 @@ export function BoardDetail() {
     }
   }
 
+  // Confirmation is handled inline by the two-step ConfirmButton (arm →
+  // confirm) — no blocking window.confirm dialog.
   const handleDeleteList = async (listId: string) => {
     if (!board) return
-    if (
-      !window.confirm(
-        t(
-          'boardDetail.list.confirmDelete',
-          {},
-          { defaultValue: 'Delete this list and all its cards?' },
-        ),
-      )
-    ) {
-      return
-    }
     setBusy(true)
     try {
       await http.delete(`/api/lists/${listId}`)
@@ -615,15 +607,21 @@ export function BoardDetail() {
             </h3>
             <span className="text-[11px] font-bold text-on-surface-variant">{cards.length}</span>
           </div>
-          <button
-            type="button"
-            onClick={() => void handleDeleteList(list.id)}
-            disabled={busy}
-            className="text-on-surface-variant hover:text-error transition-colors"
+          <ConfirmButton
+            data-mol-id={`list-delete-${list.id}`}
             aria-label={t('boardDetail.list.delete', {}, { defaultValue: 'Delete list' })}
-          >
-            <span className="material-symbols-outlined text-[16px]">delete</span>
-          </button>
+            label={<span className="material-symbols-outlined text-[16px]">delete</span>}
+            confirmLabel={t(
+              'boardDetail.list.confirmDelete',
+              {},
+              { defaultValue: 'Delete this list and all its cards?' },
+            )}
+            onConfirm={() => handleDeleteList(list.id)}
+            disabled={busy}
+            variant="ghost"
+            color="error"
+            size="sm"
+          />
         </header>
         <div className={cm.flex({ direction: 'col', gap: 'sm' })}>
           {cards.length === 0 ? (
