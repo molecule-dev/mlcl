@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 
@@ -338,31 +338,12 @@ export function Settings() {
               )}
             </p>
           </div>
-          <button
-            type="button"
-            role="switch"
-            aria-checked={reminders}
+          <Switch
+            checked={reminders}
+            onChange={(e) => setReminders((e.target as HTMLInputElement).checked)}
             aria-label={t('settings.notifyDaily', {}, { defaultValue: 'Daily practice reminder' })}
             data-testid="settings-toggle-reminder"
-            onClick={() => setReminders((v) => !v)}
-            className={cm.cn(
-              cm.w(12),
-              cm.h(7),
-              cm.roundedFull,
-              'relative transition-colors',
-              reminders ? 'bg-primary' : 'bg-surface-container-high',
-            )}
-          >
-            <span
-              className={cm.cn(
-                cm.w(5),
-                cm.h(5),
-                cm.roundedFull,
-                'absolute top-1 bg-white shadow-md transition-all',
-                reminders ? 'right-1' : 'left-1',
-              )}
-            />
-          </button>
+          />
         </div>
 
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('py', 3))}>
@@ -393,62 +374,24 @@ export function Settings() {
           <p className={cm.cn(cm.fontWeight('semibold'))}>
             {t('settings.notifyStreak', {}, { defaultValue: 'Streak loss alert' })}
           </p>
-          <button
-            type="button"
-            role="switch"
-            aria-checked={pushStreak}
+          <Switch
+            checked={pushStreak}
+            onChange={(e) => setPushStreak((e.target as HTMLInputElement).checked)}
             aria-label={t('settings.notifyStreak', {}, { defaultValue: 'Streak loss alert' })}
             data-testid="settings-toggle-streak"
-            onClick={() => setPushStreak((v) => !v)}
-            className={cm.cn(
-              cm.w(12),
-              cm.h(7),
-              cm.roundedFull,
-              'relative transition-colors',
-              pushStreak ? 'bg-primary' : 'bg-surface-container-high',
-            )}
-          >
-            <span
-              className={cm.cn(
-                cm.w(5),
-                cm.h(5),
-                cm.roundedFull,
-                'absolute top-1 bg-white shadow-md transition-all',
-                pushStreak ? 'right-1' : 'left-1',
-              )}
-            />
-          </button>
+          />
         </div>
 
         <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('py', 3))}>
           <p className={cm.cn(cm.fontWeight('semibold'))}>
             {t('settings.notifyDigest', {}, { defaultValue: 'Weekly email digest' })}
           </p>
-          <button
-            type="button"
-            role="switch"
-            aria-checked={emailDigest}
+          <Switch
+            checked={emailDigest}
+            onChange={(e) => setEmailDigest((e.target as HTMLInputElement).checked)}
             aria-label={t('settings.notifyDigest', {}, { defaultValue: 'Weekly email digest' })}
             data-testid="settings-toggle-digest"
-            onClick={() => setEmailDigest((v) => !v)}
-            className={cm.cn(
-              cm.w(12),
-              cm.h(7),
-              cm.roundedFull,
-              'relative transition-colors',
-              emailDigest ? 'bg-primary' : 'bg-surface-container-high',
-            )}
-          >
-            <span
-              className={cm.cn(
-                cm.w(5),
-                cm.h(5),
-                cm.roundedFull,
-                'absolute top-1 bg-white shadow-md transition-all',
-                emailDigest ? 'right-1' : 'left-1',
-              )}
-            />
-          </button>
+          />
         </div>
       </section>
     </div>
