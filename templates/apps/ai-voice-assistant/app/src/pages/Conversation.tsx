@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 import { AmbientOrbs } from '../components/AmbientOrbs.js'
 import { ChatBubble } from '../components/ChatBubble.js'
@@ -432,43 +433,32 @@ function Conversation() {
           </h1>
         </div>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-          <button
-            type="button"
-            role="switch"
-            aria-checked={voicePlaybackEnabled}
+          {/* Shared a11y Switch — role=switch + aria-checked + 40×40 touch
+              hit-area. The visible label keeps the on/off wording the old
+              pill showed; the aria-label stays "Voice playback" so the
+              control's name is state-independent for screen readers. */}
+          <Switch
+            checked={voicePlaybackEnabled}
+            onChange={(e) => {
+              const next = (e.target as HTMLInputElement).checked
+              setVoicePlaybackEnabled(next)
+              // Persist asynchronously — losing this PUT shouldn't break
+              // the toggle, but the toggle MUST round-trip through the
+              // server so the next page-load and other devices see it.
+              void http.put('/preferences', { voicePlaybackEnabled: next }).catch(() => undefined)
+            }}
+            size="sm"
+            label={
+              voicePlaybackEnabled
+                ? t('conversation.voiceOn', {}, { defaultValue: 'Voice on' })
+                : t('conversation.voiceOff', {}, { defaultValue: 'Voice off' })
+            }
             aria-label={t(
               'conversation.toggleVoicePlayback',
               {},
               { defaultValue: 'Voice playback' },
             )}
-            onClick={() => {
-              setVoicePlaybackEnabled((v) => {
-                const next = !v
-                // Persist asynchronously — losing this PUT shouldn't break
-                // the toggle, but the toggle MUST round-trip through the
-                // server so the next page-load and other devices see it.
-                void http.put('/preferences', { voicePlaybackEnabled: next }).catch(() => undefined)
-                return next
-              })
-            }}
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'xs' }),
-              cm.roundedFull,
-              cm.fontWeight('bold'),
-              cm.textSize('xs'),
-              'px-3 py-1 uppercase tracking-widest transition-colors',
-              voicePlaybackEnabled
-                ? 'bg-primary/15 text-primary border border-primary/30'
-                : 'bg-surface text-foreground-tertiary border border-border',
-            )}
-          >
-            <span className="material-symbols-outlined text-[14px]">
-              {voicePlaybackEnabled ? 'volume_up' : 'volume_off'}
-            </span>
-            {voicePlaybackEnabled
-              ? t('conversation.voiceOn', {}, { defaultValue: 'Voice on' })
-              : t('conversation.voiceOff', {}, { defaultValue: 'Voice off' })}
-          </button>
+          />
           <span
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),

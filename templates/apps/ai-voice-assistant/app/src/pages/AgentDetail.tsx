@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton, Switch } from '@molecule/app-ui-react'
 
 interface AgentTools {
   tempo?: number
@@ -68,7 +69,6 @@ function AgentDetail() {
   })
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<Date | null>(null)
-  const [deleting, setDeleting] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -166,20 +166,9 @@ function AgentDetail() {
   }
 
   async function handleDelete() {
-    if (deleting || !agent) return
-    if (
-      typeof window !== 'undefined' &&
-      !window.confirm(
-        t(
-          'agentDetail.deleteConfirm',
-          {},
-          { defaultValue: 'Delete this persona? This cannot be undone.' },
-        ),
-      )
-    ) {
-      return
-    }
-    setDeleting(true)
+    if (!agent) return
+    // Confirmation is ConfirmButton's two-step arm/confirm (Escape +
+    // 4s auto-disarm, aria-live) — no more blocking window.confirm.
     setError(null)
     try {
       await http.delete(`/agents/${agent.id}`)
@@ -192,7 +181,6 @@ function AgentDetail() {
           ? e.message
           : t('agentDetail.deleteError', {}, { defaultValue: 'Could not delete persona.' }),
       )
-      setDeleting(false)
     }
   }
 
@@ -420,23 +408,20 @@ function AgentDetail() {
                     <span className={cm.cn(cm.textSize('sm'))}>
                       {t(`agentDetail.cap.${c.key}`, {}, { defaultValue: c.label })}
                     </span>
-                    <button
-                      type="button"
-                      onClick={() => setEnabled((s) => ({ ...s, [c.key]: !on }))}
-                      aria-pressed={on}
+                    {/* Shared a11y Switch — role=switch + aria-checked +
+                        40×40 touch hit-area (the old aria-pressed pill had
+                        no touch-target expansion at all). */}
+                    <Switch
+                      checked={on}
+                      onChange={(e) =>
+                        setEnabled((s) => ({
+                          ...s,
+                          [c.key]: (e.target as HTMLInputElement).checked,
+                        }))
+                      }
                       aria-label={t(`agentDetail.cap.${c.key}`, {}, { defaultValue: c.label })}
-                      className={cm.cn(
-                        'relative h-6 w-11 rounded-full transition-colors',
-                        on ? 'bg-gradient-to-r from-primary to-secondary' : 'bg-border',
-                      )}
-                    >
-                      <span
-                        className={cm.cn(
-                          'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-surface shadow transition-transform',
-                          on ? 'translate-x-5' : '',
-                        )}
-                      />
-                    </button>
+                      size="sm"
+                    />
                   </li>
                 )
               })}
@@ -473,23 +458,18 @@ function AgentDetail() {
               {t('agentDetail.talkNow', {}, { defaultValue: 'Talk now with this persona' })}
             </Link>
           ) : null}
-          <button
-            type="button"
-            onClick={handleDelete}
-            disabled={deleting || !agent}
-            data-mol-id="agent-delete"
-            className={cm.cn(
-              cm.roundedFull,
-              cm.fontWeight('semibold'),
-              cm.sp('py', 3),
-              cm.textCenter,
-              'border border-error/40 text-error hover:bg-error/10 active:scale-95 transition-all disabled:opacity-60',
-            )}
-          >
-            {deleting
-              ? t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
-              : t('agentDetail.delete', {}, { defaultValue: 'Delete persona' })}
-          </button>
+          {/* Two-step destructive action: arm → "Confirm delete?" → commit.
+              Escape disarms, 4s auto-disarm, aria-live announces the arm. */}
+          <ConfirmButton
+            label={t('agentDetail.delete', {}, { defaultValue: 'Delete persona' })}
+            confirmLabel={t('agentDetail.deleteConfirm', {}, { defaultValue: 'Confirm delete?' })}
+            onConfirm={handleDelete}
+            disabled={!agent}
+            testId="agent-delete"
+            color="error"
+            variant="outline"
+            className={cm.cn(cm.roundedFull, cm.fontWeight('semibold'), cm.sp('py', 3))}
+          />
           {savedAt ? (
             <p role="status" className={cm.cn(cm.textSize('xs'), cm.textCenter, cm.textMuted)}>
               {t(

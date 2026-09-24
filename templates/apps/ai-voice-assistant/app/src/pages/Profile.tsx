@@ -4,6 +4,7 @@ import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 interface ProfileUser extends UserProfile {
   name?: string
@@ -360,31 +361,17 @@ function Profile() {
                   )}
                 </span>
               </span>
-              <button
-                type="button"
-                role="switch"
-                aria-checked={publicProfile}
-                aria-label={t('profile.publicProfile', {}, { defaultValue: 'Public profile' })}
-                onClick={() => {
+              {/* Shared a11y Switch — role=switch, aria-checked, 40×40
+                  touch hit-area; name comes from the visible row text
+                  context, so an explicit aria-label keeps it stable. */}
+              <Switch
+                checked={publicProfile}
+                onChange={(e) => {
                   dirty.current.publicProfile = true
-                  setPublicProfile((p) => !p)
+                  setPublicProfile((e.target as HTMLInputElement).checked)
                 }}
-                className={cm.cn(
-                  'relative h-6 w-11 rounded-full transition-colors shrink-0',
-                  // Same ~40px invisible tap-target expansion as the
-                  // Settings switches — a 24px switch is under the
-                  // touch-target floor on mobile.
-                  'before:absolute before:left-1/2 before:top-1/2 before:h-10 before:w-10 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full',
-                  publicProfile ? 'bg-gradient-to-r from-primary to-secondary' : 'bg-border',
-                )}
-              >
-                <span
-                  className={cm.cn(
-                    'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-surface shadow transition-transform',
-                    publicProfile ? 'translate-x-5' : '',
-                  )}
-                />
-              </button>
+                aria-label={t('profile.publicProfile', {}, { defaultValue: 'Public profile' })}
+              />
             </label>
           </div>
         </section>

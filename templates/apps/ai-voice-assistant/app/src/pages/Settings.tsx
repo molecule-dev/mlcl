@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { ThemeToggle } from '@molecule/app-ui-react'
+import { Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 
@@ -78,41 +78,6 @@ const DEFAULT_PREFS: Preferences = {
   privacy: { transcripts: true, training: false, cloudBackup: true },
   notifications: { reminders: true, productUpdates: false, weeklyDigest: true },
   voicePlaybackEnabled: true,
-}
-
-function Toggle({
-  enabled,
-  onChange,
-  ariaLabel,
-}: {
-  enabled: boolean
-  onChange: (next: boolean) => void
-  ariaLabel: string
-}) {
-  const cm = getClassMap()
-  return (
-    <button
-      type="button"
-      role="switch"
-      aria-checked={enabled}
-      aria-label={ariaLabel}
-      onClick={() => onChange(!enabled)}
-      className={cm.cn(
-        'relative h-6 w-11 rounded-full transition-colors shrink-0',
-        // Expand the tap target to ~40px without changing the visual size:
-        // a 24px-tall switch is under the fleet's touch-target floor.
-        'before:absolute before:left-1/2 before:top-1/2 before:h-10 before:w-10 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full',
-        enabled ? 'bg-gradient-to-r from-primary to-secondary' : 'bg-border',
-      )}
-    >
-      <span
-        className={cm.cn(
-          'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform',
-          enabled ? 'translate-x-5' : '',
-        )}
-      />
-    </button>
-  )
 }
 
 function Settings() {
@@ -364,10 +329,14 @@ function Settings() {
                     )}
                   </span>
                 </div>
-                <Toggle
-                  enabled={!!prefs.privacy[row.key]}
-                  onChange={(next) => update({ privacy: { [row.key]: next } })}
-                  ariaLabel={t(
+                {/* Shared a11y Switch (role=switch + aria-checked + 40×40
+                    touch hit-area) — replaces the hand-rolled toggle. */}
+                <Switch
+                  checked={!!prefs.privacy[row.key]}
+                  onChange={(e) =>
+                    update({ privacy: { [row.key]: (e.target as HTMLInputElement).checked } })
+                  }
+                  aria-label={t(
                     `settings.privacy.${row.key}.label`,
                     {},
                     { defaultValue: row.defaultLabel },
@@ -407,10 +376,12 @@ function Settings() {
                     )}
                   </span>
                 </div>
-                <Toggle
-                  enabled={!!prefs.notifications[row.key]}
-                  onChange={(next) => update({ notifications: { [row.key]: next } })}
-                  ariaLabel={t(
+                <Switch
+                  checked={!!prefs.notifications[row.key]}
+                  onChange={(e) =>
+                    update({ notifications: { [row.key]: (e.target as HTMLInputElement).checked } })
+                  }
+                  aria-label={t(
                     `settings.notifications.${row.key}.label`,
                     {},
                     { defaultValue: row.defaultLabel },

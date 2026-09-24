@@ -45,7 +45,9 @@ test.describe('/agents/:id (persona editor)', () => {
 
     await page.locator('[data-mol-id="agent-voice-onyx"]').click()
     // Toggle the calendar capability (default false in the page state).
-    await page.getByRole('button', { name: /calendar access/i }).click()
+    // The capability toggle is the shared a11y Switch: role=switch +
+    // aria-checked (was a hand-rolled aria-pressed button).
+    await page.getByRole('switch', { name: /calendar access/i }).click()
     await page.getByRole('button', { name: /save persona/i }).click()
     await expect(page.getByText(/saved at/i)).toBeVisible({ timeout: 10_000 })
 
