@@ -9,6 +9,7 @@ import {
 } from '@molecule/app-billing-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 /** Mirror of the API's `MusicStreamingLimits` (api/src/tiers.ts). */
 interface MusicStreamingLimits {
@@ -34,7 +35,7 @@ export function Subscription() {
   } = usePricingTiers<MusicStreamingLimits>()
   const { data: billing, execute: refetchStatus } = useBillingStatus<MusicStreamingLimits>()
   const { start, loading: startingCheckout, error: startError } = useStartCheckout()
-  const { cancel, loading: canceling, error: cancelError } = useCancelSubscription()
+  const { cancel, error: cancelError } = useCancelSubscription()
 
   const [period, setPeriod] = useState<'month' | 'year'>('month')
   const [actionMessage, setActionMessage] = useState<string | null>(null)
@@ -103,19 +104,10 @@ export function Subscription() {
     }
   }
 
+  // Confirmation is handled inline by the two-step ConfirmButton
+  // (arm → click again); this handler runs only on the confirming click.
   const handleCancel = async (): Promise<void> => {
     setActionMessage(null)
-    if (
-      !window.confirm(
-        t(
-          'billing.confirmCancel',
-          {},
-          { defaultValue: 'Cancel your subscription at the end of the current period?' },
-        ),
-      )
-    ) {
-      return
-    }
     const response = await cancel()
     if (response?.canceled) {
       setActionMessage(
@@ -193,21 +185,19 @@ export function Subscription() {
           </div>
           {billing && !billing.isFree && (
             <div className={cm.cn('flex flex-col gap-3 md:items-end')}>
-              <button
-                type="button"
-                data-testid="cancel-subscription"
-                onClick={() => {
-                  void handleCancel()
-                }}
-                disabled={canceling}
-                className={cm.cn(
-                  'px-6 py-2.5 rounded-full text-sm font-bold bg-surface text-on-surface hover:bg-surface/90 transition-colors disabled:opacity-60',
+              <ConfirmButton
+                label={t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
+                confirmLabel={t(
+                  'billing.confirmCancel',
+                  {},
+                  { defaultValue: 'Cancel your subscription at the end of the current period?' },
                 )}
-              >
-                {canceling
-                  ? t('subscription.canceling', {}, { defaultValue: 'Canceling…' })
-                  : t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
-              </button>
+                pendingLabel={t('subscription.canceling', {}, { defaultValue: 'Canceling…' })}
+                onConfirm={handleCancel}
+                disarmSeconds={6}
+                data-testid="cancel-subscription"
+                className="px-6 py-2.5 rounded-full text-sm font-bold bg-surface text-on-surface hover:bg-surface/90 transition-colors disabled:opacity-60"
+              />
             </div>
           )}
         </div>
