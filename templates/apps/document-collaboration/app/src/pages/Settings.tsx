@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
@@ -565,33 +565,14 @@ function ToggleRow({
           {description}
         </p>
       </div>
-      {/* The button pads the 24px track out to a >=40px tap target without
-          visually enlarging the switch itself. */}
-      <button
-        type="button"
-        role="switch"
-        aria-checked={value}
-        aria-label={label}
-        onClick={() => onChange(!value)}
+      <Switch
+        checked={value}
+        onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
         disabled={disabled}
+        aria-label={label}
         data-testid={testId}
-        className={cm.cn('inline-flex h-10 shrink-0 items-center px-1 disabled:opacity-50')}
-      >
-        <span
-          className={cm.cn(
-            'relative inline-flex h-6 w-11 items-center rounded-full transition-colors',
-            value ? 'bg-primary' : 'bg-surface-container-high',
-          )}
-        >
-          <span
-            className={cm.cn(
-              'inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform',
-              value ? 'translate-x-5' : 'translate-x-1',
-            )}
-            aria-hidden="true"
-          />
-        </span>
-      </button>
+        className="shrink-0"
+      />
     </div>
   )
 }
