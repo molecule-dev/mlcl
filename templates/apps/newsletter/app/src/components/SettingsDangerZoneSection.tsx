@@ -1,10 +1,10 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 interface SettingsDangerZoneSectionProps {
-  onDelete: () => void
-  deleting: boolean
+  onDelete: () => void | Promise<void>
 }
-function SettingsDangerZoneSection({ onDelete, deleting }: SettingsDangerZoneSectionProps) {
+function SettingsDangerZoneSection({ onDelete }: SettingsDangerZoneSectionProps) {
   const { t } = useTranslation()
   const cm = getClassMap()
   return (
@@ -68,27 +68,27 @@ function SettingsDangerZoneSection({ onDelete, deleting }: SettingsDangerZoneSec
               )}
             </p>
           </div>
-          <button
-            className={cm.cn(
-              cm.sp('px', 6),
-              cm.sp('py', 3),
-              cm.textSize('sm'),
-              cm.fontWeight('bold'),
-              'bg-error text-on-error rounded-lg font-label hover:bg-error-container hover:text-on-error-container transition-colors shadow-sm whitespace-nowrap',
+          <ConfirmButton
+            label={t('settings.deleteAccountModal.title', {}, { defaultValue: 'Delete Account' })}
+            confirmLabel={t(
+              'settings.deleteAccountConfirm',
+              {},
+              {
+                defaultValue:
+                  'Are you sure you want to permanently delete your account? This cannot be undone.',
+              },
             )}
+            onConfirm={onDelete}
+            color="error"
+            disarmSeconds={8}
+            testId="delete-account"
             data-mol-id="delete-account"
             aria-label={t(
               'settingsDangerZoneSection.deleteAriaLabel',
               {},
               { defaultValue: 'Permanently delete my account' },
             )}
-            onClick={onDelete}
-            disabled={deleting}
-          >
-            {deleting
-              ? t('settings.deleteAccountModal.deleting', {}, { defaultValue: 'Deleting...' })
-              : t('settings.deleteAccountModal.title', {}, { defaultValue: 'Delete Account' })}
-          </button>
+          />
         </div>
       </div>
     </section>

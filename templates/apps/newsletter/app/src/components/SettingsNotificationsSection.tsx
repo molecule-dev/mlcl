@@ -1,12 +1,13 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 interface SettingsNotificationsSectionProps {
   newFollowers: boolean
   commentsNotif: boolean
   mentionsNotif: boolean
-  onToggleNewFollowers: () => void
-  onToggleComments: () => void
-  onToggleMentions: () => void
+  onToggleNewFollowers: (checked: boolean) => void
+  onToggleComments: (checked: boolean) => void
+  onToggleMentions: (checked: boolean) => void
 }
 function SettingsNotificationsSection({
   newFollowers,
@@ -69,35 +70,16 @@ function SettingsNotificationsSection({
               )}
             </p>
           </div>
-          <button
-            className={cm.cn(
-              cm.w(12),
-              'h-7',
-              cm.roundedFull,
-              cm.flex({ align: 'center' }),
-              'relative transition-colors',
-              newFollowers ? 'bg-primary' : 'bg-surface-container-high',
-            )}
+          <Switch
+            checked={newFollowers}
+            onChange={(e) => onToggleNewFollowers((e.target as HTMLInputElement).checked)}
             data-mol-id="toggle-followers"
-            onClick={onToggleNewFollowers}
-            aria-checked={newFollowers}
             aria-label={t(
               'settingsNotificationsSection.newFollowers',
               {},
               { defaultValue: 'New subscribers' },
             )}
-            role="switch"
-          >
-            <span
-              className={cm.cn(
-                cm.w(4),
-                cm.h(4),
-                cm.roundedFull,
-                'absolute bg-surface transition-all',
-                newFollowers ? 'right-1' : 'left-1',
-              )}
-            ></span>
-          </button>
+          />
         </div>
         <div
           className={cm.cn(
@@ -118,35 +100,16 @@ function SettingsNotificationsSection({
               )}
             </p>
           </div>
-          <button
-            className={cm.cn(
-              cm.w(12),
-              'h-7',
-              cm.roundedFull,
-              cm.flex({ align: 'center' }),
-              'relative transition-colors',
-              commentsNotif ? 'bg-primary' : 'bg-surface-container-high',
-            )}
+          <Switch
+            checked={commentsNotif}
+            onChange={(e) => onToggleComments((e.target as HTMLInputElement).checked)}
             data-mol-id="toggle-comments"
-            onClick={onToggleComments}
-            aria-checked={commentsNotif}
             aria-label={t(
               'settingsNotificationsSection.comments',
               {},
               { defaultValue: 'Issue delivered' },
             )}
-            role="switch"
-          >
-            <span
-              className={cm.cn(
-                cm.w(4),
-                cm.h(4),
-                cm.roundedFull,
-                'absolute bg-surface transition-all',
-                commentsNotif ? 'right-1' : 'left-1',
-              )}
-            ></span>
-          </button>
+          />
         </div>
         <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('py', 2))}>
           <div>
@@ -161,35 +124,16 @@ function SettingsNotificationsSection({
               )}
             </p>
           </div>
-          <button
-            className={cm.cn(
-              cm.w(12),
-              'h-7',
-              cm.roundedFull,
-              cm.flex({ align: 'center' }),
-              'relative transition-colors',
-              mentionsNotif ? 'bg-primary' : 'bg-surface-container-high',
-            )}
+          <Switch
+            checked={mentionsNotif}
+            onChange={(e) => onToggleMentions((e.target as HTMLInputElement).checked)}
             data-mol-id="toggle-mentions"
-            onClick={onToggleMentions}
-            aria-checked={mentionsNotif}
             aria-label={t(
               'settingsNotificationsSection.mentions',
               {},
               { defaultValue: 'Unsubscribes' },
             )}
-            role="switch"
-          >
-            <span
-              className={cm.cn(
-                cm.w(4),
-                cm.h(4),
-                cm.roundedFull,
-                'absolute bg-surface shadow-sm transition-all',
-                mentionsNotif ? 'right-1' : 'left-1',
-              )}
-            ></span>
-          </button>
+          />
         </div>
       </div>
     </section>

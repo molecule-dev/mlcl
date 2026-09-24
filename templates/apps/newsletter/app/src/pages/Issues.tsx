@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { SafeLink } from '../components/SafeLink.js'
 import SideNavBar from '../components/SideNavBar.js'
@@ -77,10 +78,6 @@ function Issues() {
   }, [activeFilter, reloadKey, http, t])
 
   async function handleDelete(id: string) {
-    const confirmed = window.confirm(
-      t('issues.deleteConfirm', {}, { defaultValue: 'Delete this issue? This cannot be undone.' }),
-    )
-    if (!confirmed) return
     try {
       await http.delete(`/api/issues/${id}`)
       void track({ name: 'issue.deleted', properties: { issue_id: id } })
@@ -300,19 +297,20 @@ function Issues() {
                     >
                       {t('issues.edit', {}, { defaultValue: 'Edit' })}
                     </button>
-                    <button
-                      type="button"
-                      data-mol-id={`issue-delete-${issue.id}`}
-                      className={cm.cn(
-                        cm.textSize('sm'),
-                        'px-2 py-1.5',
-                        cm.fontWeight('medium'),
-                        'text-on-surface-variant hover:text-error',
+                    <ConfirmButton
+                      label={t('issues.delete', {}, { defaultValue: 'Delete' })}
+                      confirmLabel={t(
+                        'issues.deleteConfirm',
+                        {},
+                        { defaultValue: 'Delete this issue? This cannot be undone.' },
                       )}
-                      onClick={() => void handleDelete(issue.id)}
-                    >
-                      {t('issues.delete', {}, { defaultValue: 'Delete' })}
-                    </button>
+                      onConfirm={() => handleDelete(issue.id)}
+                      color="error"
+                      size="sm"
+                      disarmSeconds={6}
+                      testId={`issue-delete-${issue.id}`}
+                      data-mol-id={`issue-delete-${issue.id}`}
+                    />
                   </div>
                 </article>
               ))

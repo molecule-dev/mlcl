@@ -65,7 +65,6 @@ function Settings() {
   const [theme, setTheme] = useState<'light' | 'dark' | 'system'>('system')
   const [fontSize, setFontSize] = useState<'small' | 'medium' | 'large'>('medium')
   const [loading, setLoading] = useState(false)
-  const [deleting, setDeleting] = useState(false)
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
   useEffect(() => {
@@ -155,20 +154,6 @@ function Settings() {
   }
 
   async function handleDeleteAccount() {
-    if (
-      !window.confirm(
-        t(
-          'settings.deleteAccountConfirm',
-          {},
-          {
-            defaultValue:
-              'Are you sure you want to permanently delete your account? This cannot be undone.',
-          },
-        ),
-      )
-    )
-      return
-    setDeleting(true)
     try {
       await http.delete(`/api/users/${userData?.id}`)
       window.location.href = '/'
@@ -184,7 +169,6 @@ function Settings() {
                 { defaultValue: 'Failed to delete account.' },
               ),
       })
-      setDeleting(false)
     }
   }
 
@@ -286,17 +270,17 @@ function Settings() {
             newFollowers={newFollowers}
             commentsNotif={commentsNotif}
             mentionsNotif={mentionsNotif}
-            onToggleNewFollowers={() => setNewFollowers((v) => !v)}
-            onToggleComments={() => setCommentsNotif((v) => !v)}
-            onToggleMentions={() => setMentionsNotif((v) => !v)}
+            onToggleNewFollowers={(checked) => setNewFollowers(checked)}
+            onToggleComments={(checked) => setCommentsNotif(checked)}
+            onToggleMentions={(checked) => setMentionsNotif(checked)}
           />
           <SettingsPrivacySection
             profileVisible={profileVisible}
             showEmail={showEmail}
-            onToggleVisibility={() => setProfileVisible((v) => !v)}
-            onToggleShowEmail={() => setShowEmail((v) => !v)}
+            onToggleVisibility={(checked) => setProfileVisible(checked)}
+            onToggleShowEmail={(checked) => setShowEmail(checked)}
           />
-          <SettingsDangerZoneSection onDelete={handleDeleteAccount} deleting={deleting} />
+          <SettingsDangerZoneSection onDelete={handleDeleteAccount} />
         </div>
         <SettingsFormFooter onSave={handleSave} loading={loading} onCancel={handleCancel} />
       </main>

@@ -41,6 +41,28 @@ test.describe('settings', () => {
     expect(row.publication_name).toBe(newName)
   })
 
+  test('privacy switches flip via aria-checked and persist after save', async ({ page }) => {
+    await signup(page, uniqueEmail('settings-switch'))
+    await page.goto(APP_BASE + '/settings')
+    // The shared Switch keeps the same data-mol-id; state reads aria-checked.
+    const toggle = page.locator('[data-mol-id="toggle-show-email"]')
+    await expect(toggle).toHaveAttribute('aria-checked', 'false', { timeout: 15000 })
+    await toggle.click()
+    await expect(toggle).toHaveAttribute('aria-checked', 'true')
+    // The GLOBAL save (top nav) persists preferences; the publication
+    // section's save button only writes the publication identity row.
+    await page.locator('[data-mol-id="save-settings-top"]').click()
+    await expect(page.getByText('Settings saved successfully.').first()).toBeVisible({
+      timeout: 15000,
+    })
+    await page.reload()
+    await expect(page.locator('[data-mol-id="toggle-show-email"]')).toHaveAttribute(
+      'aria-checked',
+      'true',
+      { timeout: 15000 },
+    )
+  })
+
   test('account sections render', async ({ page }) => {
     await signup(page, uniqueEmail('settings-sections'))
     await page.goto(APP_BASE + '/settings')

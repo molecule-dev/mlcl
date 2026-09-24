@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import SideNavBar from '../components/SideNavBar.js'
 import TopNavBar from '../components/TopNavBar.js'
@@ -140,14 +141,6 @@ function Subscribers() {
   }
 
   async function handleDelete(id: string) {
-    const confirmed = window.confirm(
-      t(
-        'subscribers.deleteConfirm',
-        {},
-        { defaultValue: 'Remove this subscriber? Their history is deleted too.' },
-      ),
-    )
-    if (!confirmed) return
     try {
       await http.delete(`/api/subscribers/${id}`)
       void track({ name: 'subscriber.deleted', properties: { subscriber_id: id } })
@@ -518,18 +511,23 @@ function Subscribers() {
                               {t('subscribers.resubscribe', {}, { defaultValue: 'Resubscribe' })}
                             </button>
                           )}
-                          <button
-                            type="button"
-                            data-mol-id={`subscriber-delete-${subscriber.id}`}
-                            className={cm.cn(
-                              cm.textSize('sm'),
-                              'px-2 py-1.5',
-                              'text-on-surface-variant hover:text-error',
+                          <ConfirmButton
+                            label={t('subscribers.delete', {}, { defaultValue: 'Delete' })}
+                            confirmLabel={t(
+                              'subscribers.deleteConfirm',
+                              {},
+                              {
+                                defaultValue:
+                                  'Remove this subscriber? Their history is deleted too.',
+                              },
                             )}
-                            onClick={() => void handleDelete(subscriber.id)}
-                          >
-                            {t('subscribers.delete', {}, { defaultValue: 'Delete' })}
-                          </button>
+                            onConfirm={() => handleDelete(subscriber.id)}
+                            color="error"
+                            size="sm"
+                            disarmSeconds={6}
+                            testId={`subscriber-delete-${subscriber.id}`}
+                            data-mol-id={`subscriber-delete-${subscriber.id}`}
+                          />
                         </span>
                       </td>
                     </tr>
