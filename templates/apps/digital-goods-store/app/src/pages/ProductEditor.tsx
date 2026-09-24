@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface ApiProduct {
   id: string
@@ -74,18 +75,6 @@ export function ProductEditor() {
 
   const handleDelete = async () => {
     if (isNew || !id) return
-    if (
-      typeof window !== 'undefined' &&
-      !window.confirm(
-        t(
-          'productEditor.confirmDelete',
-          {},
-          { defaultValue: 'Delete this product? This cannot be undone.' },
-        ),
-      )
-    ) {
-      return
-    }
     setSaving(true)
     setError(null)
     try {
@@ -202,21 +191,20 @@ export function ProductEditor() {
         </div>
         <div className={cm.cn(cm.flex({ gap: 'sm' }), 'flex-wrap')}>
           {!isNew && (
-            <button
-              type="button"
-              onClick={handleDelete}
+            <ConfirmButton
+              label={t('common.delete', {}, { defaultValue: 'Delete' })}
+              confirmLabel={t(
+                'productEditor.confirmDelete',
+                {},
+                { defaultValue: 'Delete this product? This cannot be undone.' },
+              )}
+              onConfirm={handleDelete}
+              disarmSeconds={6}
               disabled={saving}
               data-testid="product-delete"
               aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                cm.fontWeight('semibold'),
-                'rounded-xl bg-error-container text-on-error-container hover:bg-error hover:text-white transition-colors disabled:opacity-60',
-              )}
-            >
-              {t('common.delete', {}, { defaultValue: 'Delete' })}
-            </button>
+              color="error"
+            />
           )}
           <button
             type="button"

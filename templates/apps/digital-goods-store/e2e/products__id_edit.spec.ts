@@ -73,8 +73,10 @@ test.describe('Product editor — edit (/products/:id/edit)', () => {
       .then(() => true)
       .catch(() => false)
     if (!present) test.skip(true, 'no delete button on editor')
-    page.once('dialog', (d) => d.accept())
     const reqs = await captureNetwork(page, async () => {
+      // ConfirmButton: first click arms (shows the confirm label), second commits.
+      await del.first().click()
+      await expect(del.first()).toHaveText(/cannot be undone/i)
       await del.first().click()
       await page.waitForTimeout(1500)
     })
