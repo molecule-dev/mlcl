@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -148,10 +149,6 @@ export function TemplateEditor() {
 
   async function remove() {
     if (isNew || !id) return
-    const ok = window.confirm(
-      t('templateEditor.confirmDelete', {}, { defaultValue: 'Delete this template?' }),
-    )
-    if (!ok) return
     try {
       await http.delete(`/api/templates/${id}`)
       void track({ name: 'template.deleted', properties: { templateId: id } })
@@ -187,20 +184,24 @@ export function TemplateEditor() {
         </Link>
         <div className={cm.flex({ gap: 'sm' })}>
           {!isNew ? (
-            <button
-              type="button"
+            <ConfirmButton
               id="delete-template"
-              onClick={remove}
+              label={t('common.delete', {}, { defaultValue: 'Delete' })}
+              confirmLabel={t(
+                'templateEditor.confirmDelete',
+                {},
+                { defaultValue: 'Delete this template?' },
+              )}
+              onConfirm={() => remove()}
+              disarmSeconds={6}
               disabled={saving}
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),
                 cm.fontWeight('semibold'),
-                'rounded-md border border-error text-error hover:bg-error/10',
+                'rounded-md border border-error text-error',
               )}
-            >
-              {t('common.delete', {}, { defaultValue: 'Delete' })}
-            </button>
+            />
           ) : null}
           <button
             type="submit"

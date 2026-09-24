@@ -4,6 +4,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
@@ -199,14 +200,6 @@ export function Counterparties() {
   }
 
   async function remove(r: Counterparty) {
-    const confirmed = window.confirm(
-      t(
-        'counterparties.confirmDelete',
-        { name: r.organization },
-        { defaultValue: 'Delete {{name}}?' },
-      ),
-    )
-    if (!confirmed) return
     try {
       await http.delete(`/api/counterparties/${r.id}`)
       void track({ name: 'counterparty.deleted', properties: { counterpartyId: r.id } })
@@ -396,17 +389,17 @@ export function Counterparties() {
                       >
                         {t('common.edit', {}, { defaultValue: 'Edit' })}
                       </button>
-                      <button
-                        type="button"
-                        onClick={() => remove(r)}
-                        className={cm.cn(
-                          cm.sp('px', 2),
-                          cm.textSize('sm'),
-                          'text-error hover:underline',
+                      <ConfirmButton
+                        label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                        confirmLabel={t(
+                          'counterparties.confirmDelete',
+                          { name: r.organization },
+                          { defaultValue: 'Delete {{name}}?' },
                         )}
-                      >
-                        {t('common.delete', {}, { defaultValue: 'Delete' })}
-                      </button>
+                        onConfirm={() => remove(r)}
+                        disarmSeconds={6}
+                        className={cm.cn(cm.sp('px', 2), cm.textSize('sm'), 'text-error')}
+                      />
                     </td>
                   </tr>
                 ))}

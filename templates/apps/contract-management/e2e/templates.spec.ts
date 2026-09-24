@@ -83,10 +83,13 @@ test.describe('templates', () => {
   test('Delete template removes it from list', async ({ page }) => {
     const { accessToken } = await signup(page)
     const tmpl = await seedTemplate(page, accessToken, { name: 'To Delete Tpl' })
-    page.on('dialog', (d) => d.accept())
     await page.goto(`${APP_BASE}/templates/${tmpl.id}`)
     await page.waitForLoadState('networkidle')
-    await page.locator('#delete-template').click()
+    // Two-step ConfirmButton: first click arms, second commits.
+    const del = page.locator('#delete-template')
+    await del.click()
+    await expect(del).toHaveText(/Delete this template\?/)
+    await del.click()
     await page.waitForURL('**/templates', { timeout: 10_000 })
     await expect(page.getByText('To Delete Tpl')).toHaveCount(0)
   })

@@ -67,11 +67,14 @@ test.describe('counterparties', () => {
   test('Delete counterparty removes the row', async ({ page }) => {
     const { accessToken } = await signup(page)
     const cp = await seedCounterparty(page, accessToken, { organization: 'To Delete' })
-    page.on('dialog', (d) => d.accept())
     await page.goto(APP_BASE + '/counterparties')
     await page.waitForLoadState('networkidle')
     const row = page.locator(`[data-testid="counterparty-row-${cp.id}"]`)
-    await row.getByRole('button', { name: /Delete/i }).click()
+    // Two-step ConfirmButton: first click arms, second commits.
+    const del = row.getByRole('button', { name: /Delete/i })
+    await del.click()
+    await expect(del).toHaveText(/Delete To Delete\?/)
+    await del.click()
     await expect(row).toHaveCount(0, { timeout: 10_000 })
   })
 })
