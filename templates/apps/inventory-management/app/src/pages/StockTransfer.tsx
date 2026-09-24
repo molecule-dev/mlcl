@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { InventoryKpiCard } from '../components/InventoryKpiCard.js'
 
@@ -256,28 +257,14 @@ export function StockTransfer() {
       )}
 
       {!loading && loadError && (
-        <div
-          role="alert"
+        // data-testid rides along as a rest prop so the spec locator keeps
+        // working; the banner owns the retry pending/disabled state.
+        <LoadErrorBanner
           data-testid="transfers-load-error"
-          className={cm.cn(
-            cm.stack(2),
-            cm.sp('p', 4),
-            'rounded-lg border border-error/40 bg-error/10 text-sm text-error',
-          )}
-        >
-          <p>{loadError}</p>
-          <button
-            type="button"
-            onClick={() => void load()}
-            className={cm.cn(
-              cm.sp('px', 3),
-              cm.sp('py', 1),
-              'self-start rounded-md border border-error/40 text-xs font-bold uppercase tracking-wider hover:bg-error/10',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-        </div>
+          message={loadError}
+          retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+          onRetry={load}
+        />
       )}
 
       {!loading && !loadError && warehouses.length < 2 && (
