@@ -10,6 +10,7 @@ import { Link } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { WorkflowAppShell } from '../components/WorkflowAppShell.js'
 import { WorkflowStatCard } from '../components/WorkflowStatCard.js'
@@ -55,7 +56,6 @@ export function Billing() {
   const http = useHttpClient()
   const [summary, setSummary] = useState<DashboardSummary | null>(null)
   const [status, setStatus] = useState<BillingStatus>(DEFAULT_PLAN)
-  const [canceling, setCanceling] = useState(false)
   const [feedback, setFeedback] = useState<{ kind: 'ok' | 'err'; msg: string } | null>(null)
 
   async function refreshStatus() {
@@ -93,22 +93,6 @@ export function Billing() {
   }, [http])
 
   async function handleCancel() {
-    if (canceling) return
-    if (
-      typeof window !== 'undefined' &&
-      !window.confirm(
-        t(
-          'billing.cancelConfirm',
-          {},
-          {
-            defaultValue:
-              'Cancel your current subscription? You will retain access until the end of the period.',
-          },
-        ),
-      )
-    )
-      return
-    setCanceling(true)
     setFeedback(null)
     try {
       const res = await http.post<{ canceled?: boolean; error?: string }>('/api/billing/cancel', {})
@@ -131,8 +115,6 @@ export function Billing() {
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Cancel failed.'
       setFeedback({ kind: 'err', msg: message })
-    } finally {
-      setCanceling(false)
     }
   }
 
@@ -217,10 +199,19 @@ export function Billing() {
               {t('billing.changePlan', {}, { defaultValue: 'Change plan' })}
             </Link>
             {!isFree && (
-              <button
-                type="button"
-                onClick={handleCancel}
-                disabled={canceling}
+              <ConfirmButton
+                onConfirm={handleCancel}
+                label={t('billing.cancelPlan', {}, { defaultValue: 'Cancel plan' })}
+                confirmLabel={t(
+                  'billing.cancelConfirm',
+                  {},
+                  {
+                    defaultValue:
+                      'Cancel your current subscription? You will retain access until the end of the period.',
+                  },
+                )}
+                pendingLabel={t('billing.canceling', {}, { defaultValue: 'Canceling…' })}
+                disarmSeconds={8}
                 data-mol-id="billing-cancel-plan"
                 className={cm.cn(
                   cm.sp('px', 5),
@@ -232,13 +223,8 @@ export function Billing() {
                 style={{
                   background: 'var(--color-on-primary)',
                   color: 'var(--color-danger-btn)',
-                  opacity: canceling ? 0.6 : 1,
                 }}
-              >
-                {canceling
-                  ? t('billing.canceling', {}, { defaultValue: 'Canceling…' })
-                  : t('billing.cancelPlan', {}, { defaultValue: 'Cancel plan' })}
-              </button>
+              />
             )}
             <Link
               to="/settings"
