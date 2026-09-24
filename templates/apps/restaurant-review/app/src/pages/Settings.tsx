@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation, useUser } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { ConfirmButton, LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { unwrapSingle } from '../lib/unwrap.js'
@@ -83,7 +83,6 @@ export function Settings() {
   const [saving, setSaving] = useState(false)
   const [savedMessage, setSavedMessage] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [deleting, setDeleting] = useState(false)
 
   // Hydrate from the User record (name, email come from /users/:id) and the
   // local preference blob (bio + diet + notifications). The User table on
@@ -173,20 +172,7 @@ export function Settings() {
   }
 
   async function handleDeleteAccount() {
-    if (!user?.id || deleting) return
-    if (
-      typeof window !== 'undefined' &&
-      !window.confirm(
-        t(
-          'settings.danger.confirm',
-          {},
-          { defaultValue: 'Permanently delete your account, reviews, and lists?' },
-        ),
-      )
-    ) {
-      return
-    }
-    setDeleting(true)
+    if (!user?.id) return
     try {
       await http.delete(`/api/users/${user.id}`)
       await logout().catch(() => undefined)
@@ -194,8 +180,6 @@ export function Settings() {
     } catch (err) {
       console.error('[Settings] delete account failed', err)
       setError(t('settings.danger.error', {}, { defaultValue: 'Could not delete account.' }))
-    } finally {
-      setDeleting(false)
     }
   }
 
@@ -449,26 +433,17 @@ export function Settings() {
                 <span className={cm.cn(cm.fontWeight('semibold'), cm.textSize('sm'))}>
                   {t(`settings.notifications.${p.key}`, {}, { defaultValue: p.label })}
                 </span>
-                <button
-                  type="button"
+                <Switch
+                  checked={notif[p.key]}
+                  onChange={(e) =>
+                    setNotif((prev) => ({
+                      ...prev,
+                      [p.key]: (e.target as HTMLInputElement).checked,
+                    }))
+                  }
                   data-testid={`settings-notif-${p.key}`}
-                  onClick={() => setNotif((prev) => ({ ...prev, [p.key]: !prev[p.key] }))}
-                  className={cm.cn(
-                    'relative h-6 w-11 rounded-full transition-colors',
-                    notif[p.key] ? 'bg-primary' : 'bg-surface-container-high',
-                  )}
-                  role="switch"
-                  aria-checked={notif[p.key]}
                   aria-label={p.label}
-                >
-                  <span
-                    className={cm.cn(
-                      'block h-5 w-5 rounded-full bg-white shadow-sm transition-transform',
-                      notif[p.key] ? 'translate-x-5' : 'translate-x-0.5',
-                    )}
-                    style={{ marginTop: '0.125rem' }}
-                  />
-                </button>
+                />
               </li>
             ))}
           </ul>
@@ -494,24 +469,20 @@ export function Settings() {
               },
             )}
           </p>
-          <button
-            type="button"
-            onClick={handleDeleteAccount}
-            disabled={deleting}
-            data-testid="settings-delete"
-            className={cm.cn(
-              cm.sp('mt', 4),
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.textSize('sm'),
-              cm.fontWeight('bold'),
-              'rounded-full border border-error/40 text-error hover:bg-error/10 transition-colors disabled:opacity-50',
+          <ConfirmButton
+            label={t('settings.deleteAccount', {}, { defaultValue: 'Delete account' })}
+            confirmLabel={t(
+              'settings.danger.confirm',
+              {},
+              { defaultValue: 'Permanently delete your account, reviews, and lists?' },
             )}
-          >
-            {deleting
-              ? t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
-              : t('settings.deleteAccount', {}, { defaultValue: 'Delete account' })}
-          </button>
+            pendingLabel={t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })}
+            onConfirm={handleDeleteAccount}
+            disarmSeconds={6}
+            color="error"
+            className={cm.sp('mt', 4)}
+            data-testid="settings-delete"
+          />
         </section>
 
         {error ? (

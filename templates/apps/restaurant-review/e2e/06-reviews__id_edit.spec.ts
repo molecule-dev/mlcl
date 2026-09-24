@@ -36,7 +36,6 @@ test('Editing a review updates the body on the server', async ({ page }) => {
 })
 
 test('Deleting a review removes the row from the database', async ({ page }) => {
-  page.on('dialog', (d) => d.accept())
   await signup(page)
   const target = await pickRestaurant(page, 3)
 
@@ -49,7 +48,12 @@ test('Deleting a review removes the row from the database', async ({ page }) => 
   const reviewId = created.body.id
 
   await page.goto(APP_BASE + `/reviews/${reviewId}/edit`)
-  await page.locator('[data-testid="write-review-delete"]').click()
+  // ConfirmButton arms on the first click (no native dialog), then commits
+  // on the confirming click.
+  const del = page.locator('[data-testid="write-review-delete"]')
+  await del.click()
+  await expect(del).toHaveText('Delete this review? This cannot be undone.')
+  await del.click()
 
   await expect
     .poll(

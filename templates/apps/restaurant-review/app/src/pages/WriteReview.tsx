@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -47,7 +48,6 @@ export function WriteReview({ initial }: WriteReviewProps = {}) {
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [restaurantName, setRestaurantName] = useState<string | null>(null)
-  const [deleting, setDeleting] = useState(false)
 
   // Hydrate restaurant name so the page reads "Tasting notes for X" instead
   // of just an opaque id.
@@ -166,20 +166,7 @@ export function WriteReview({ initial }: WriteReviewProps = {}) {
   }
 
   async function handleDelete() {
-    if (!initial?.reviewId || deleting) return
-    if (
-      typeof window !== 'undefined' &&
-      !window.confirm(
-        t(
-          'writeReview.confirmDelete',
-          {},
-          { defaultValue: 'Delete this review? This cannot be undone.' },
-        ),
-      )
-    ) {
-      return
-    }
-    setDeleting(true)
+    if (!initial?.reviewId) return
     try {
       await http.delete(`/api/reviews/${initial.reviewId}`)
       void track({
@@ -190,8 +177,6 @@ export function WriteReview({ initial }: WriteReviewProps = {}) {
     } catch (err) {
       console.error('[WriteReview] delete failed', err)
       setSubmitError(t('writeReview.deleteError', {}, { defaultValue: 'Could not delete review.' }))
-    } finally {
-      setDeleting(false)
     }
   }
 
@@ -487,21 +472,20 @@ export function WriteReview({ initial }: WriteReviewProps = {}) {
         >
           <div>
             {initial?.showDelete ? (
-              <button
-                type="button"
-                onClick={handleDelete}
-                disabled={deleting}
-                data-testid="write-review-delete"
-                className={cm.cn(
-                  cm.textSize('sm'),
-                  cm.fontWeight('semibold'),
-                  'text-primary hover:underline disabled:opacity-50',
+              <ConfirmButton
+                label={t('writeReview.deleteReview', {}, { defaultValue: 'Delete review' })}
+                confirmLabel={t(
+                  'writeReview.confirmDelete',
+                  {},
+                  { defaultValue: 'Delete this review? This cannot be undone.' },
                 )}
-              >
-                {deleting
-                  ? t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
-                  : t('writeReview.deleteReview', {}, { defaultValue: 'Delete review' })}
-              </button>
+                pendingLabel={t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })}
+                onConfirm={handleDelete}
+                disarmSeconds={6}
+                color="error"
+                size="sm"
+                data-testid="write-review-delete"
+              />
             ) : (
               <Link
                 to={`/restaurants/${restaurantId ?? ''}`}
