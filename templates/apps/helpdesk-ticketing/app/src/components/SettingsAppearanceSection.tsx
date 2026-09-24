@@ -1,5 +1,6 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 interface SettingsAppearanceSectionProps {
   theme: 'light' | 'dark' | 'system'
@@ -165,24 +166,13 @@ function SettingsAppearanceSection({
         <div
           className={cm.cn(cm.flex({ direction: 'col', justify: 'end', gap: 3 }), cm.sp('pb', 2))}
         >
-          <label
+          <div
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'between' }),
               cm.sp('p', 4),
-              cm.cursorPointer,
               'bg-surface-container-low rounded-xl',
             )}
           >
-            {/* Real switch input: the label toggles it natively (click) and it is
-                keyboard-operable (Space) — the pill below is purely decorative. */}
-            <input
-              type="checkbox"
-              role="switch"
-              className="peer sr-only"
-              checked={compactMode}
-              onChange={(e) => setCompactMode(e.target.checked)}
-              data-mol-id="compact-mode-switch"
-            />
             <div>
               <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'block')}>
                 {t('settingsAppearance.compactModeLabel', {}, { defaultValue: 'Compact Mode' })}
@@ -195,30 +185,17 @@ function SettingsAppearanceSection({
                 )}
               </span>
             </div>
-            <div
-              aria-hidden="true"
-              className={cm.cn(
-                cm.w(10),
-                cm.h(5),
-                cm.roundedFull,
-                'relative peer-focus-visible:ring-2 peer-focus-visible:ring-primary/60 peer-focus-visible:ring-offset-2',
-                compactMode ? 'bg-primary' : 'bg-slate-300',
+            <Switch
+              checked={compactMode}
+              onChange={(e) => setCompactMode((e.target as HTMLInputElement).checked)}
+              aria-label={t(
+                'settingsAppearance.compactModeLabel',
+                {},
+                { defaultValue: 'Compact Mode' },
               )}
-            >
-              <div
-                className={cm.cn(
-                  'absolute',
-                  'top-1',
-                  cm.w(3),
-                  cm.h(3),
-                  'bg-white',
-                  cm.roundedFull,
-                  'transition-all',
-                  compactMode ? 'right-1' : 'left-1',
-                )}
-              ></div>
-            </div>
-          </label>
+              data-mol-id="compact-mode-switch"
+            />
+          </div>
         </div>
       </div>
     </section>
