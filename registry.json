@@ -1847,6 +1847,49 @@
         "api.deepl.com"
       ]
     },
+    "@molecule/api-ai-translation-google": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-translation",
+      "label": "Ai Translation",
+      "description": "Google Cloud Translation provider for molecule.dev — text translation via the Google Translate API",
+      "stack": "api",
+      "implements": "@molecule/api-ai-translation",
+      "exports": [
+        "createProvider",
+        "provider",
+        "aiTranslationGoogleSecretDefinitions",
+        "GoogleTranslateConfig"
+      ],
+      "secrets": [
+        {
+          "name": "GOOGLE_TRANSLATE_API_KEY",
+          "required": true,
+          "label": "Google Cloud Translation API key",
+          "setupUrl": "https://console.cloud.google.com/apis/credentials",
+          "instructions": "Create an API key in a Google Cloud project with the Cloud Translation API enabled.",
+          "example": "AIzaSy..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-translation",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-translation",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-translation/google",
+      "intentHints": [
+        "google translate",
+        "google translation",
+        "google cloud translation"
+      ],
+      "egressHosts": [
+        "translation.googleapis.com"
+      ]
+    },
     "@molecule/api-ai-vector-store": {
       "language": "typescript",
       "runtime": "node",
