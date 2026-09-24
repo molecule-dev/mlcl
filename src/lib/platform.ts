@@ -11,7 +11,14 @@ import { join } from 'node:path'
 
 const DEFAULT_BASE = 'https://api.molecule.dev/api'
 const DEFAULT_SITE = 'https://www.molecule.dev'
-const CREDENTIALS_FILE = join(homedir(), '.mlcl', 'credentials.json')
+/**
+ * Where the CLI keeps its token. `MLCL_CREDENTIALS_FILE` points it elsewhere — one
+ * file per environment (a production login beside a local-dev one) without
+ * changing HOME, which would also move the browser profile the login opens.
+ */
+function credentialsFile(): string {
+  return process.env.MLCL_CREDENTIALS_FILE || join(homedir(), '.mlcl', 'credentials.json')
+}
 
 /**
  * MOLECULE_ENV=local flips every default to the local dev stack — the alias
@@ -42,8 +49,8 @@ export interface StoredCredentials {
 
 export function readCredentials(): StoredCredentials | null {
   try {
-    if (!existsSync(CREDENTIALS_FILE)) return null
-    return JSON.parse(readFileSync(CREDENTIALS_FILE, 'utf8')) as StoredCredentials
+    if (!existsSync(credentialsFile())) return null
+    return JSON.parse(readFileSync(credentialsFile(), 'utf8')) as StoredCredentials
   } catch (_error) {
     // A missing/corrupt credentials file just means logged-out.
     return null
@@ -51,15 +58,15 @@ export function readCredentials(): StoredCredentials | null {
 }
 
 export function writeCredentials(creds: StoredCredentials): void {
-  mkdirSync(join(CREDENTIALS_FILE, '..'), { recursive: true, mode: 0o700 })
+  mkdirSync(join(credentialsFile(), '..'), { recursive: true, mode: 0o700 })
   // mode-at-creation: no world-readable TOCTOU window before a follow-up chmod.
-  writeFileSync(CREDENTIALS_FILE, `${JSON.stringify(creds, null, 2)}\n`, { mode: 0o600 })
-  chmodSync(CREDENTIALS_FILE, 0o600)
+  writeFileSync(credentialsFile(), `${JSON.stringify(creds, null, 2)}\n`, { mode: 0o600 })
+  chmodSync(credentialsFile(), 0o600)
 }
 
 export function clearCredentials(): void {
   // Unlink, not truncate — no empty inode lingers in page cache/fs slack.
-  if (existsSync(CREDENTIALS_FILE)) rmSync(CREDENTIALS_FILE, { force: true })
+  if (existsSync(credentialsFile())) rmSync(credentialsFile(), { force: true })
 }
 
 export class PlatformApiError extends Error {

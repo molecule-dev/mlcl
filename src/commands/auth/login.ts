@@ -141,6 +141,10 @@ export default class Login extends Command {
     const me = await whoami(token)
     writeCredentials({ token, email: me.email, savedAt: new Date().toISOString() })
     this.log(`${ui.check('Logged in')} as ${ui.id(me.email ?? me.id)}`)
-    this.log(ui.dim('Token stored at ~/.mlcl/credentials.json (chmod 600).'))
+    this.log(
+      ui.dim(
+        `Token stored at ${process.env.MLCL_CREDENTIALS_FILE || '~/.mlcl/credentials.json'} (chmod 600).`,
+      ),
+    )
   }
 }
