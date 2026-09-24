@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { ThreadRow, type ThreadStatus } from '../components/ThreadRow.js'
 
@@ -255,31 +256,7 @@ export function CategoryDetail() {
           {t('categoryDetail.loading', {}, { defaultValue: 'Loading threads…' })}
         </p>
       ) : threadsError ? (
-        <div
-          className={cm.cn(
-            cm.sp('p', 5),
-            cm.flex({ direction: 'col', align: 'center', gap: 'sm' }),
-            'rounded-2xl bg-surface-container-lowest border border-outline-variant/30',
-          )}
-        >
-          <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
-            {threadsError}
-          </p>
-          <button
-            type="button"
-            onClick={() => setReloadKey((k) => k + 1)}
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.fontWeight('bold'),
-              cm.roundedFull,
-              cm.textSize('sm'),
-              'bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-        </div>
+        <LoadErrorBanner message={threadsError} onRetry={() => setReloadKey((k) => k + 1)} />
       ) : list.length === 0 ? (
         <div
           className={cm.cn(

@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useStorage, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { renderMarkdown } from '../lib/render-markdown.js'
 
@@ -377,30 +378,10 @@ export function Compose() {
         </div>
 
         {categoriesError && (
-          <div
-            className={cm.cn(
-              cm.sp('p', 4),
-              cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
-              'flex-wrap rounded-2xl bg-error-light/40 border border-error/30',
-            )}
-            role="alert"
-          >
-            <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{categoriesError}</p>
-            <button
-              type="button"
-              onClick={() => setCategoriesReloadKey((k) => k + 1)}
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                cm.fontWeight('bold'),
-                cm.roundedFull,
-                cm.textSize('sm'),
-                'bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors',
-              )}
-            >
-              {t('common.retry', {}, { defaultValue: 'Retry' })}
-            </button>
-          </div>
+          <LoadErrorBanner
+            message={categoriesError}
+            onRetry={() => setCategoriesReloadKey((k) => k + 1)}
+          />
         )}
 
         {error && <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{error}</p>}
