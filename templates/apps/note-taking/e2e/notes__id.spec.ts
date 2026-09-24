@@ -80,8 +80,13 @@ test('move-to-trash navigates back to /notes', async ({ page }) => {
   await page.goto(APP_BASE + '/notes')
   await page.getByTestId('new-note').click()
   await page.waitForURL(/\/notes\/[0-9a-f-]+$/, { timeout: 15_000 })
-  page.once('dialog', (d) => d.accept())
-  await page.getByTestId('trash-page').click()
+
+  // ConfirmButton is a two-click arm/commit control (no native dialog).
+  const trash = page.getByTestId('trash-page')
+  await trash.click()
+  await expect(trash).toHaveAttribute('data-state', 'armed')
+  await expect(page.getByText(/move this note to trash\?/i)).toBeVisible()
+  await trash.click()
   await page.waitForURL(/\/notes$/, { timeout: 15_000 })
   await expect(page).toHaveURL(/\/notes$/)
 })

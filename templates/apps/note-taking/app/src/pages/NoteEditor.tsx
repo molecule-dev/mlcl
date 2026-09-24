@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface BlockRow {
   id: string
@@ -159,12 +160,6 @@ export function NoteEditor() {
 
   const trashPage = async () => {
     if (!page) return
-    if (
-      !window.confirm(
-        t('noteEditor.confirmTrash', {}, { defaultValue: 'Move this note to trash?' }),
-      )
-    )
-      return
     try {
       await http.post(`/pages/${page.id}/trash`)
       void track({ name: 'note.deleted', properties: { id: page.id, trashed: true } })
@@ -289,20 +284,20 @@ export function NoteEditor() {
                   star
                 </span>
               </button>
-              <button
-                type="button"
-                onClick={trashPage}
+              {/* Two-click confirm (shared ConfirmButton) replaces the former
+                  window.confirm: first click arms, second commits. */}
+              <ConfirmButton
+                label={t('noteEditor.trash', {}, { defaultValue: 'Move to trash' })}
+                confirmLabel={t(
+                  'noteEditor.confirmTrash',
+                  {},
+                  { defaultValue: 'Move this note to trash?' },
+                )}
+                onConfirm={trashPage}
+                disarmSeconds={6}
                 aria-label={t('noteEditor.trash', {}, { defaultValue: 'Move to trash' })}
                 data-testid="trash-page"
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  'h-11 w-11 rounded-full text-on-surface-variant hover:text-error hover:bg-error/10 transition-colors',
-                )}
-              >
-                <span className="material-symbols-outlined text-[22px]" aria-hidden="true">
-                  delete
-                </span>
-              </button>
+              />
             </div>
           </div>
 

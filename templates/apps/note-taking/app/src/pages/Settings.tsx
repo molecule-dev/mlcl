@@ -9,7 +9,7 @@ import {
   useTranslation,
 } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { useBillingStatus } from '../lib/api.js'
@@ -578,26 +578,18 @@ function ToggleRow({
         <p className={cm.cn('font-bold text-on-surface')}>{label}</p>
         <p className={cm.cn('text-sm text-on-surface-variant mt-1')}>{description}</p>
       </div>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={on}
+      {/* Shared Switch — controlled; the change arrives through its hidden
+          native checkbox, so read e.target.checked (flips only fire on real
+          state changes, hence the guard before the flip-style onToggle). */}
+      <Switch
+        checked={on}
+        onChange={(e) => {
+          if ((e.target as HTMLInputElement).checked === on) return
+          onToggle()
+        }}
         aria-label={label}
         data-testid={testId}
-        onClick={onToggle}
-        className={cm.cn(
-          'relative w-12 h-7 rounded-full transition-colors shrink-0',
-          on ? 'bg-primary' : 'bg-surface-container-high',
-        )}
-      >
-        <span
-          aria-hidden="true"
-          className={cm.cn(
-            'absolute top-1 left-1 w-5 h-5 rounded-full bg-white shadow-md transition-transform',
-            on ? 'translate-x-5' : 'translate-x-0',
-          )}
-        />
-      </button>
+      />
     </div>
   )
 }

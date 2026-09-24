@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Alert, PromptDialog } from '@molecule/app-ui-react'
 
 import type { VersoNote } from '../components/VersoNoteCard.js'
 import { VersoNoteCard } from '../components/VersoNoteCard.js'
@@ -63,6 +64,8 @@ export function Notes() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [filter, setFilter] = useState<'all' | 'pinned'>('all')
+  const [newNotebookOpen, setNewNotebookOpen] = useState(false)
+  const [notebookError, setNotebookError] = useState<string | null>(null)
 
   const ensureWorkspaces = useCallback(async () => {
     setLoading(true)
@@ -124,13 +127,21 @@ export function Notes() {
     return filtered.map((p) => pageToNote(p, activeWorkspace?.name ?? '', untitledLabel))
   }, [pages, filter, activeWorkspace, t])
 
-  const handleCreateWorkspace = async () => {
-    const proposedName = window.prompt(
-      t('notes.newNotebookPrompt', {}, { defaultValue: 'New notebook name' }),
-      '',
-    )
-    const name = proposedName?.trim()
-    if (!name) return
+  const closeNewNotebook = () => {
+    setNewNotebookOpen(false)
+    setNotebookError(null)
+  }
+
+  // Shared PromptDialog replaces the former window.prompt. A fulfilled submit
+  // resolves → the dialog auto-closes (onClose fires); a rejection keeps it
+  // open so the error Alert in `children` stays visible.
+  const handleCreateWorkspace = async (rawName: string) => {
+    const name = rawName.trim()
+    if (!name) {
+      const msg = t('notes.newNotebookRequired', {}, { defaultValue: 'Enter a notebook name.' })
+      setNotebookError(msg)
+      throw new Error(msg)
+    }
     try {
       const created = (await http.post<Workspace>('/workspaces', { name, icon: 'auto_stories' }))
         .data
@@ -138,7 +149,9 @@ export function Notes() {
       setActiveWorkspaceId(created.id)
       void track({ name: 'notebook.created', properties: { id: created.id } })
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to create notebook')
+      const msg = err instanceof Error ? err.message : 'Failed to create notebook'
+      setNotebookError(msg)
+      throw err instanceof Error ? err : new Error(msg)
     }
   }
 
@@ -177,7 +190,7 @@ export function Notes() {
             type="button"
             data-testid="new-notebook"
             aria-label={t('notes.newNotebook', {}, { defaultValue: 'New notebook' })}
-            onClick={handleCreateWorkspace}
+            onClick={() => setNewNotebookOpen(true)}
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center' }),
               'h-9 w-9 shrink-0 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors',
@@ -309,7 +322,7 @@ export function Notes() {
             type="button"
             data-testid="new-notebook-mobile"
             aria-label={t('notes.newNotebook', {}, { defaultValue: 'New notebook' })}
-            onClick={handleCreateWorkspace}
+            onClick={() => setNewNotebookOpen(true)}
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center' }),
               'shrink-0 min-h-[36px] w-9 rounded-full border border-dashed border-outline-variant/60 text-on-surface-variant hover:bg-surface-container transition-colors',
@@ -420,6 +433,22 @@ export function Notes() {
           )}
         </div>
       </div>
+
+      <PromptDialog
+        open={newNotebookOpen}
+        onClose={closeNewNotebook}
+        title={t('notes.newNotebook', {}, { defaultValue: 'New notebook' })}
+        description={t('notes.newNotebookPrompt', {}, { defaultValue: 'New notebook name' })}
+        placeholder={t('notes.newNotebookPrompt', {}, { defaultValue: 'New notebook name' })}
+        confirmLabel={t('common.create', {}, { defaultValue: 'Create' })}
+        cancelLabel={t('common.cancel', {}, { defaultValue: 'Cancel' })}
+        inputMolId="new-notebook-name"
+        confirmMolId="new-notebook-confirm"
+        cancelMolId="new-notebook-cancel"
+        onSubmit={handleCreateWorkspace}
+      >
+        {notebookError ? <Alert status="error">{notebookError}</Alert> : null}
+      </PromptDialog>
     </div>
   )
 }

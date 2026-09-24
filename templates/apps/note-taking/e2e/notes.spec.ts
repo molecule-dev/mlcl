@@ -5,7 +5,8 @@
  *
  * Outcomes asserted: /api/workspaces was hit (200), /api/pages POST
  * succeeded with a real UUID, the saved title round-trips through the API
- * (read-after-write), and the trash button removes the note from the list.
+ * (read-after-write), the trash button removes the note from the list, and
+ * the new-notebook prompt creates and selects a workspace.
  */
 
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
@@ -64,6 +65,30 @@ test('create a note → editable → persists across reload', async ({ page }) =
   await expect(page.getByTestId('note-body')).toHaveValue('This is the body of the note.')
 })
 
+test('new-notebook prompt creates a workspace and selects it', async ({ page }) => {
+  await signup(page)
+  await page.goto(APP_BASE + '/notes')
+  await page.waitForLoadState('networkidle')
+
+  // Open the shared PromptDialog (replaced window.prompt).
+  await page.getByTestId('new-notebook').click()
+  const nameInput = page.locator('[data-mol-id="new-notebook-name"]')
+  await expect(nameInput).toBeVisible()
+
+  // Cancel path: dialog closes, nothing is created.
+  await page.locator('[data-mol-id="new-notebook-cancel"]').click()
+  await expect(nameInput).toHaveCount(0)
+
+  // Create path: fill, confirm, dialog closes, notebook is active.
+  await page.getByTestId('new-notebook').click()
+  await expect(nameInput).toBeVisible()
+  await nameInput.fill('Research')
+  await page.locator('[data-mol-id="new-notebook-confirm"]').click()
+  await expect(page.getByRole('heading', { name: 'Research' })).toBeVisible({
+    timeout: 10_000,
+  })
+})
+
 test('trash a note → removed from list', async ({ page }) => {
   await signup(page)
   await page.goto(APP_BASE + '/notes')
@@ -73,8 +98,12 @@ test('trash a note → removed from list', async ({ page }) => {
   await page.getByTestId('note-title').fill('Trash me')
   await page.waitForTimeout(1200)
 
-  page.once('dialog', (dialog) => dialog.accept())
-  await page.getByTestId('trash-page').click()
+  // ConfirmButton: first click arms ("Move this note to trash?"), second commits.
+  const trash = page.getByTestId('trash-page')
+  await trash.click()
+  await expect(trash).toHaveAttribute('data-state', 'armed')
+  await expect(page.getByText(/move this note to trash\?/i)).toBeVisible()
+  await trash.click()
   await page.waitForURL(/\/notes$/, { timeout: 10_000 })
   await expect(page.locator('text=Trash me')).toHaveCount(0)
 })
