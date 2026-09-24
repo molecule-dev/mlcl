@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { unwrapSingle } from '../lib/unwrap.js'
@@ -541,25 +541,18 @@ function Toggle({
 }) {
   const cm = getClassMap()
   return (
-    <label className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'cursor-pointer')}>
+    <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
       <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>{label}</span>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={checked}
-        onClick={() => onChange(!checked)}
-        className={cm.cn(
-          'relative inline-flex h-6 w-11 items-center rounded-full transition-colors',
-          checked ? 'bg-primary' : 'bg-outline-variant',
-        )}
-      >
-        <span
-          className={cm.cn(
-            'inline-block h-4 w-4 rounded-full bg-on-primary transition-transform',
-            checked ? 'translate-x-6' : 'translate-x-1',
-          )}
-        />
-      </button>
-    </label>
+      {/* Shared accessible Switch (role=switch + aria-checked + 40×40 touch
+          hit-area). The visible label text sits to the left, so the control
+          gets its accessible name via aria-label. The shared Switch reports
+          the new value through a real change event on its hidden checkbox —
+          read it off `e.target.checked`. */}
+      <Switch
+        checked={checked}
+        aria-label={label}
+        onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
+      />
+    </div>
   )
 }

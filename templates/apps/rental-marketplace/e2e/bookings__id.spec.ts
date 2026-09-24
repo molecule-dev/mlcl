@@ -95,15 +95,19 @@ test('Cancel reservation flips status to cancelled and is visible on next GET', 
   await page.goto(APP_BASE + `/bookings/${booking.id}`)
   await page.waitForLoadState('networkidle')
 
-  // Hook the confirm() dialog so the cancel proceeds.
-  page.on('dialog', (d) => {
-    d.accept().catch(() => {})
-  })
+  // The cancel is a two-step ConfirmButton (no native dialog): the first
+  // click ARMS it and shows the inline confirm label, the second COMMITS.
+  // hasText /cancel/i matches both the idle ("Cancel reservation") and the
+  // armed ("Cancel this reservation? …") label, so one locator spans the
+  // whole interaction.
+  const cancelBtn = page
+    .getByRole('button')
+    .filter({ hasText: /cancel/i })
+    .first()
+  await cancelBtn.click()
+  await expect(cancelBtn).toHaveText(/cancel this reservation\?/i)
   const reqs = await captureNetwork(page, async () => {
-    await page
-      .getByRole('button', { name: /cancel reservation/i })
-      .first()
-      .click()
+    await cancelBtn.click()
     await page.waitForTimeout(2000)
   })
   const put = reqs.find((r) => /\/api\/bookings\/[^/]+\/cancel/.test(r.url) && r.method === 'PUT')

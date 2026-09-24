@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { unwrapSingle } from '../lib/unwrap.js'
@@ -62,7 +63,6 @@ export function BookingDetail() {
   const { id } = useParams<{ id: string }>()
   const [booking, setBooking] = useState<Booking | null>(null)
   const [loading, setLoading] = useState(true)
-  const [acting, setActing] = useState(false)
   const [actError, setActError] = useState<string | null>(null)
 
   const refresh = async (): Promise<void> => {
@@ -391,22 +391,18 @@ export function BookingDetail() {
           className={cm.cn(cm.sp('mt', 6), cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' }))}
         >
           {booking.cancellable ? (
-            <button
-              type="button"
-              disabled={acting}
-              onClick={async () => {
-                if (
-                  !booking ||
-                  !window.confirm(
-                    t(
-                      'bookingDetail.confirmCancel',
-                      {},
-                      { defaultValue: 'Cancel this reservation? This cannot be undone.' },
-                    ),
-                  )
-                )
-                  return
-                setActing(true)
+            <ConfirmButton
+              label={t('bookingDetail.cancel', {}, { defaultValue: 'Cancel reservation' })}
+              confirmLabel={t(
+                'bookingDetail.confirmCancel',
+                {},
+                { defaultValue: 'Cancel this reservation? This cannot be undone.' },
+              )}
+              pendingLabel={t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })}
+              color="error"
+              disarmSeconds={5}
+              onConfirm={async () => {
+                if (!booking) return
                 setActError(null)
                 try {
                   await http.put(`/api/bookings/${booking.id}/cancel`, {
@@ -427,21 +423,9 @@ export function BookingDetail() {
                         { defaultValue: 'Could not cancel — please try again.' },
                       ),
                   )
-                } finally {
-                  setActing(false)
                 }
               }}
-              className={cm.cn(
-                cm.sp('px', 5),
-                cm.sp('py', 2),
-                cm.fontWeight('semibold'),
-                'rounded-full border border-rose-300 text-error hover:bg-rose-50 disabled:opacity-60',
-              )}
-            >
-              {acting
-                ? t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })
-                : t('bookingDetail.cancel', {}, { defaultValue: 'Cancel reservation' })}
-            </button>
+            />
           ) : null}
         </div>
         {actError ? (
