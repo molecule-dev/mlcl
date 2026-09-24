@@ -23,6 +23,12 @@ test.describe('/login', () => {
     const email = uniqueEmail('login')
     const password = 'TestPass123!'
     await signup(page, email, password)
+    // Let the signup landing page's mount fetches finish BEFORE clearing
+    // cookies: clearCookies() races the URL flip, and if it lands between the
+    // navigation and the dashboard's first effect fetches those requests go
+    // out cookie-less and 401 — a console-guard failure unrelated to the
+    // login flow under test.
+    await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {})
     // Land somewhere authed; navigate to /login fresh and use the form.
     await page.context().clearCookies()
     await page.goto(APP_BASE + '/login')
