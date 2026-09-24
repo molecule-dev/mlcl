@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { PersonCard } from '../components/PersonCard.js'
 import { displayName, type TreePayload } from '../lib/people.js'
@@ -184,28 +185,19 @@ export function Tree() {
   if (error || !tree) {
     return (
       <div className={cm.cn(cm.sp('p', 8))} data-mol-id="page-tree">
-        <div
-          className={cm.cn(
-            cm.sp('py', 8),
-            cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
-          )}
-        >
-          <p className="text-error font-bold">{error}</p>
-          <button
-            type="button"
-            data-mol-id="tree-retry"
-            onClick={() => setReload((n) => n + 1)}
-            className={cm.cn(
-              cm.textSize('sm'),
-              cm.fontWeight('semibold'),
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              'rounded-lg border border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container transition-colors',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Try again' })}
-          </button>
-        </div>
+        {/* The banner owns the retry button's pending/disabled state; the
+            reload bump remounts the page into its loading branch, so the
+            promise only needs to hand the click off. `error` can be null on
+            the `!tree` path — the old block rendered the same empty line. */}
+        <LoadErrorBanner
+          message={error}
+          onRetry={() => {
+            setReload((n) => n + 1)
+            return Promise.resolve()
+          }}
+          retryLabel={t('common.retry', {}, { defaultValue: 'Try again' })}
+          retryMolId="tree-retry"
+        />
       </div>
     )
   }

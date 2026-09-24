@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { LifeTimeline } from '../components/LifeTimeline.js'
 import { PersonCard } from '../components/PersonCard.js'
@@ -105,23 +106,19 @@ export function PersonDetail() {
           <span className={cm.cn('material-symbols-outlined text-base')}>arrow_back</span>
           {t('personDetail.back', {}, { defaultValue: 'All people' })}
         </Link>
-        <p className={cm.cn(cm.sp('py', 8), 'text-error font-bold')}>{error}</p>
-        <div>
-          <button
-            type="button"
-            data-mol-id="person-detail-retry"
-            onClick={() => setReload((n) => n + 1)}
-            className={cm.cn(
-              cm.textSize('sm'),
-              cm.fontWeight('semibold'),
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              'rounded-lg border border-outline-variant/50 bg-surface-container-lowest hover:bg-surface-container transition-colors',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Try again' })}
-          </button>
-        </div>
+        {/* The banner owns the retry button's pending/disabled state; the
+            reload bump remounts the page into its loading branch, so the
+            promise only needs to hand the click off. */}
+        <LoadErrorBanner
+          className={cm.sp('py', 8)}
+          message={error}
+          onRetry={() => {
+            setReload((n) => n + 1)
+            return Promise.resolve()
+          }}
+          retryLabel={t('common.retry', {}, { defaultValue: 'Try again' })}
+          retryMolId="person-detail-retry"
+        />
       </div>
     )
   }
