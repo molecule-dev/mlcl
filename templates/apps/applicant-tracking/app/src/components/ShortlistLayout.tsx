@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { ThemeToggle } from './ThemeToggle.js'
@@ -62,31 +62,17 @@ const NAV_KEYS = [
 ] as const
 
 /**
- * Authenticated app shell. Desktop (≥768px): fixed sidebar. Below 768px the
- * sidebar is hidden and a sticky top bar + slide-in drawer take over —
- * the fleet mobile-shell pattern (tap targets ≥40px, drawer closes on
- * navigation so the user never lands on a page with the menu still open).
+ * Authenticated app shell — the shared `ResponsiveAppShell` composed to this
+ * app's shape: a mobile-only top bar (the desktop brand row lives in the
+ * sidebar), a ≥md sidebar, a <md dialog drawer, and one `<Outlet />` so pages
+ * mount exactly once at any width. The shell owns the breakpoint, the drawer
+ * open state, the menu trigger, focus/Escape/backdrop handling, and the
+ * auto-close-on-navigation; this component only supplies nav + brand.
  */
 export function ShortlistLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { pathname } = useLocation()
-  const [drawerOpen, setDrawerOpen] = useState(false)
-
-  // Close the drawer whenever the route changes (nav link was followed).
-  useEffect(() => {
-    setDrawerOpen(false)
-  }, [pathname])
-
-  // Close on Escape so keyboard users are never trapped in the overlay.
-  useEffect(() => {
-    if (!drawerOpen) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setDrawerOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [drawerOpen])
 
   const safeTarget = (to: string): string => {
     const samePath = pathname === to || pathname + '/' === to
@@ -106,172 +92,106 @@ export function ShortlistLayout() {
         : cm.cn(cm.textMuted, 'hover:bg-surface-container hover:text-on-surface'),
     )
 
-  const renderNav = (idPrefix: string): React.ReactNode[] =>
-    NAV_KEYS.map((item) => {
-      const isActive = pathname === item.to || pathname.startsWith(`${item.to}/`)
-      return (
-        <Link
-          key={item.key}
-          to={safeTarget(item.to)}
-          data-mol-id={idPrefix + item.molId}
-          aria-current={isActive ? 'page' : undefined}
-          className={navLinkClass(isActive)}
-        >
-          <span className="material-symbols-outlined" aria-hidden="true">
-            {item.icon}
-          </span>
-          <span>
-            {t(`shortlistLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel })}
-          </span>
-        </Link>
-      )
-    })
+  // ONE nav element for both breakpoints — the Sidebar and the Drawer receive
+  // the same element, and only the mounted breakpoint instantiates it, so the
+  // `nav-*` data-mol-ids are never duplicated in the DOM. The drawer closes
+  // itself on navigation (shell-owned), so links carry no onClick close.
+  const nav = (
+    <>
+      {NAV_KEYS.map((item) => {
+        const isActive = pathname === item.to || pathname.startsWith(`${item.to}/`)
+        return (
+          <Link
+            key={item.key}
+            to={safeTarget(item.to)}
+            data-mol-id={item.molId}
+            aria-current={isActive ? 'page' : undefined}
+            className={navLinkClass(isActive)}
+          >
+            <span className="material-symbols-outlined" aria-hidden="true">
+              {item.icon}
+            </span>
+            <span>
+              {t(`shortlistLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel })}
+            </span>
+          </Link>
+        )
+      })}
+    </>
+  )
+
+  const navLabel = t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })
 
   return (
-    <div
-      className={cm.cn(
-        cm.minH('screen'),
-        cm.flex({ direction: 'col' }),
-        'bg-background text-on-surface antialiased',
-      )}
-      data-mol-id="shortlist-layout"
+    // Root direction: the shell's flex-row base is overridden to the fleet's
+    // `flex-col md:flex-row` stack via className (top bar above the content
+    // column on mobile, sidebar beside it on desktop).
+    <ResponsiveAppShell
+      sidebarWidth="md"
+      dataMolId="shortlist-layout"
+      className={cm.cn('flex-col md:flex-row')}
     >
-      {/* Mobile top bar (below md) */}
-      <header
-        className={cm.cn(
-          cm.flex({ align: 'center', gap: 'sm', justify: 'between' }),
-          cm.sp('px', 4),
-          'md:hidden sticky top-0 z-30 h-14 shrink-0 bg-surface border-b border-outline-variant',
-        )}
-        data-mol-id="mobile-top-bar"
-      >
-        <button
-          type="button"
-          data-mol-id="nav-mobile-toggle"
-          aria-label={t('nav.openMenu', {}, { defaultValue: 'Open menu' })}
-          aria-expanded={drawerOpen}
-          aria-controls="mobile-drawer"
-          onClick={() => setDrawerOpen(true)}
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            'h-10 w-10 -ml-2 rounded-md text-on-surface hover:bg-surface-container',
-          )}
-        >
-          <span className="material-symbols-outlined" aria-hidden="true">
-            menu
-          </span>
-        </button>
-        <Link
-          to={safeTarget('/dashboard')}
-          data-mol-id="nav-app-home-mobile"
-          className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}
-        >
-          {APP_NAME}
-        </Link>
-        <div className="h-10 w-10" aria-hidden="true" />
-      </header>
-
-      <div className={cm.cn(cm.flex({ direction: 'row' }), cm.flex1, 'min-w-0')}>
-        {/* Desktop sidebar (≥ md) */}
-        <aside
-          className={cm.cn(
-            cm.sp('p', 4),
-            cm.shrink0,
-            cm.flex({ direction: 'col' }),
-            'hidden md:flex w-60 bg-surface border-r border-outline-variant',
-          )}
-          data-mol-id="side-nav"
-        >
+      {/* Mobile top bar (< md) — the shell renders the menu trigger itself. */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={
           <Link
             to={safeTarget('/dashboard')}
-            data-mol-id="nav-app-home"
-            className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 6), 'block')}
+            data-mol-id="nav-app-home-mobile"
+            className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}
           >
             {APP_NAME}
           </Link>
+        }
+      />
 
-          <nav
-            className={cm.cn(cm.flex1, 'space-y-1')}
-            aria-label={t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })}
-          >
-            {renderNav('')}
-          </nav>
-
-          <div
-            className={cm.cn(
-              cm.sp('pt', 4),
-              cm.flex({ align: 'center', gap: 'sm', justify: 'end' }),
-              'border-t border-outline-variant',
-            )}
-          >
-            <ThemeToggle />
-          </div>
-
-          <div className={cm.sp('pt', 3)}>
-            <UserMenu />
-          </div>
-        </aside>
-
-        <main className={cm.cn(cm.flex1, 'min-w-0 overflow-y-auto')}>
-          <Outlet />
-        </main>
-      </div>
-
-      {/* Mobile drawer (below md) */}
-      {drawerOpen ? (
-        <div className="md:hidden fixed inset-0 z-40" data-mol-id="mobile-drawer-root">
-          <button
-            type="button"
-            aria-label={t('nav.closeMenu', {}, { defaultValue: 'Close menu' })}
-            onClick={() => setDrawerOpen(false)}
-            className="absolute inset-0 h-full w-full cursor-default bg-on-surface/40"
-            data-mol-id="mobile-drawer-backdrop"
-          />
-          <div
-            id="mobile-drawer"
-            role="dialog"
-            aria-modal="true"
-            aria-label={t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })}
-            className={cm.cn(
-              cm.flex({ direction: 'col' }),
-              cm.sp('p', 4),
-              'absolute left-0 top-0 h-full w-72 max-w-[85vw] bg-surface border-r border-outline-variant overflow-y-auto',
-            )}
-            data-mol-id="mobile-drawer"
-          >
-            <div
-              className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 4))}
-            >
-              <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>{APP_NAME}</span>
-              <button
-                type="button"
-                data-mol-id="nav-mobile-close"
-                aria-label={t('nav.closeMenu', {}, { defaultValue: 'Close menu' })}
-                onClick={() => setDrawerOpen(false)}
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  'h-10 w-10 rounded-md text-on-surface hover:bg-surface-container',
-                )}
-              >
-                <span className="material-symbols-outlined" aria-hidden="true">
-                  close
-                </span>
-              </button>
-            </div>
-            <nav className={cm.cn('space-y-1 flex-1')}>{renderNav('mobile-')}</nav>
-            <div
-              className={cm.cn(
-                cm.sp('pt', 4),
-                cm.flex({ align: 'center', gap: 'sm', justify: 'between' }),
-                'border-t border-outline-variant',
-              )}
-            >
+      {/*
+        Desktop sidebar (≥ md). The brand row leads the nav column — the
+        shared Sidebar has no header slot, so it rides inside `children`.
+      */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        className={cm.sp('p', 4)}
+        footer={
+          <>
+            <div className={cm.flex({ justify: 'end' })}>
               <ThemeToggle />
-              <UserMenu dataMolId="user-menu-mobile" />
             </div>
+            <UserMenu />
+          </>
+        }
+      >
+        <Link
+          to={safeTarget('/dashboard')}
+          data-mol-id="nav-app-home"
+          className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 6), 'block')}
+        >
+          {APP_NAME}
+        </Link>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+
+      {/*
+        Mobile drawer (< md): a full dialog panel (focus trap, Escape,
+        backdrop click, body-scroll lock) over the same nav, with the theme
+        toggle + user menu in the footer.
+      */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navLabel}
+        header={<span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>{APP_NAME}</span>}
+        footer={
+          <div className={cm.flex({ align: 'center', justify: 'between' })}>
+            <ThemeToggle />
+            <UserMenu dataMolId="user-menu-mobile" />
           </div>
-        </div>
-      ) : null}
-    </div>
+        }
+      >
+        {nav}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content className="w-full overflow-y-auto">
+        <Outlet />
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
