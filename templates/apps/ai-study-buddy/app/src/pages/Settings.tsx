@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { PageBody, PageHeader } from '../components/PageHeader.js'
 
@@ -459,6 +459,7 @@ function RemindersPane({ pending, update }: PaneProps) {
       </div>
 
       <Toggle
+        molId="settings-toggle-streak-freeze"
         label={t('settings.reminders.freeze', {}, { defaultValue: 'Streak freeze available' })}
         help={t(
           'settings.reminders.freezeHelp',
@@ -469,6 +470,7 @@ function RemindersPane({ pending, update }: PaneProps) {
         onChange={(v) => update('streakFreeze', v)}
       />
       <Toggle
+        molId="settings-toggle-weekend-leniency"
         label={t('settings.reminders.weekend', {}, { defaultValue: 'Weekend leniency' })}
         help={t(
           'settings.reminders.weekendHelp',
@@ -487,9 +489,10 @@ interface ToggleProps {
   help?: string
   checked: boolean
   onChange: (next: boolean) => void
+  molId: string
 }
 
-function Toggle({ label, help, checked, onChange }: ToggleProps) {
+function Toggle({ label, help, checked, onChange, molId }: ToggleProps) {
   const cm = getClassMap()
   return (
     <div
@@ -509,24 +512,17 @@ function Toggle({ label, help, checked, onChange }: ToggleProps) {
           </p>
         ) : null}
       </div>
-      <button
-        type="button"
-        role="switch"
+      {/* Shared accessible switch (role=switch + aria-checked + 40x40 touch
+          hit-area). `aria-label` carries the accessible name because the
+          visible text sits left of the control, outside the shared
+          <Switch>'s own <label> wrapper. The change event is a native
+          checkbox Event — read `(e.target as HTMLInputElement).checked`. */}
+      <Switch
+        checked={checked}
+        onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
         aria-label={label}
-        aria-checked={checked}
-        onClick={() => onChange(!checked)}
-        className={cm.cn(
-          'relative h-6 w-11 rounded-full',
-          checked ? 'bg-primary' : 'bg-surface-container-high',
-        )}
-      >
-        <span
-          className={cm.cn(
-            'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white',
-            checked && 'translate-x-5',
-          )}
-        />
-      </button>
+        data-mol-id={molId}
+      />
     </div>
   )
 }
