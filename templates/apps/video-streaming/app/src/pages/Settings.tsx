@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { authClient } from '../bonds/index.js'
 import { ACCENT_COLOR, APP_NAME, BRAND_COLOR } from '../branding.js'
@@ -129,30 +129,12 @@ function ToggleRow({ toggle, value, onChange }: ToggleProps) {
           )}
         </p>
       </div>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={value}
+      <Switch
+        checked={value}
+        onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
         aria-label={label}
-        onClick={() => onChange(!value)}
-        className={cm.cn(
-          'relative w-12 h-7 rounded-full transition-colors shrink-0 mt-0.5',
-          value ? '' : 'bg-surface-container border border-outline-variant',
-        )}
-        style={
-          value
-            ? { background: `linear-gradient(135deg, ${BRAND_COLOR}, ${ACCENT_COLOR})` }
-            : undefined
-        }
-      >
-        <span
-          className={cm.cn(
-            'absolute top-0.5 w-6 h-6 rounded-full bg-white shadow transition-transform',
-            value ? 'translate-x-5' : 'translate-x-0.5',
-          )}
-          aria-hidden="true"
-        />
-      </button>
+        className={cm.cn('shrink-0 mt-0.5')}
+      />
     </li>
   )
 }
