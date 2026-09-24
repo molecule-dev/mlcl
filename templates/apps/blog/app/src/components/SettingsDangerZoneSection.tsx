@@ -1,10 +1,10 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 interface SettingsDangerZoneSectionProps {
-  onDelete: () => void
-  deleting: boolean
+  onConfirm: () => void | Promise<void>
 }
-function SettingsDangerZoneSection({ onDelete, deleting }: SettingsDangerZoneSectionProps) {
+function SettingsDangerZoneSection({ onConfirm }: SettingsDangerZoneSectionProps) {
   const { t } = useTranslation()
   const cm = getClassMap()
   return (
@@ -68,7 +68,23 @@ function SettingsDangerZoneSection({ onDelete, deleting }: SettingsDangerZoneSec
               )}
             </p>
           </div>
-          <button
+          <ConfirmButton
+            label={t('settings.deleteAccountModal.title', {}, { defaultValue: 'Delete Account' })}
+            confirmLabel={t(
+              'settings.deleteAccountConfirm',
+              {},
+              {
+                defaultValue:
+                  'Are you sure you want to permanently delete your account? This cannot be undone.',
+              },
+            )}
+            pendingLabel={t(
+              'settings.deleteAccountModal.deleting',
+              {},
+              { defaultValue: 'Deleting...' },
+            )}
+            onConfirm={onConfirm}
+            disarmSeconds={6}
             className={cm.cn(
               cm.sp('px', 6),
               cm.sp('py', 3),
@@ -82,13 +98,7 @@ function SettingsDangerZoneSection({ onDelete, deleting }: SettingsDangerZoneSec
               {},
               { defaultValue: 'Permanently delete my account' },
             )}
-            onClick={onDelete}
-            disabled={deleting}
-          >
-            {deleting
-              ? t('settings.deleteAccountModal.deleting', {}, { defaultValue: 'Deleting...' })
-              : t('settings.deleteAccountModal.title', {}, { defaultValue: 'Delete Account' })}
-          </button>
+          />
         </div>
       </div>
     </section>
