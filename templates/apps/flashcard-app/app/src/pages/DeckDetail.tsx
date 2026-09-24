@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
@@ -52,28 +53,14 @@ export function DeckDetail() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [stateFilter, setStateFilter] = useState<'all' | Card['state']>('all')
-  const [deleting, setDeleting] = useState(false)
 
   const onDeleteDeck = async () => {
-    if (
-      !window.confirm(
-        t(
-          'decks.confirmDelete',
-          {},
-          { defaultValue: 'Delete this deck and all its cards? This cannot be undone.' },
-        ),
-      )
-    ) {
-      return
-    }
-    setDeleting(true)
     try {
       await http.delete(`/api/decks/${deckId}`)
       void track({ name: 'deck.deleted', properties: { deck_id: deckId } })
       navigate('/decks')
     } catch (_error) {
       setError(t('deckDetail.deleteError', {}, { defaultValue: 'Failed to delete deck.' }))
-      setDeleting(false)
     }
   }
 
@@ -128,23 +115,21 @@ export function DeckDetail() {
           ← {t('deckDetail.backLink', {}, { defaultValue: 'All decks' })}
         </Link>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap gap-2')}>
-          <button
-            type="button"
-            onClick={onDeleteDeck}
-            disabled={deleting}
-            data-mol-id="deck-delete"
-            className={cm.cn(
-              cm.sp('px', 3),
-              cm.sp('py', 2),
-              cm.textSize('xs'),
-              cm.fontWeight('medium'),
-              'border border-error/40 text-error rounded hover:bg-error-container/30 disabled:opacity-50',
+          <ConfirmButton
+            label={t('decks.delete', {}, { defaultValue: 'Delete deck' })}
+            confirmLabel={t(
+              'decks.confirmDelete',
+              {},
+              { defaultValue: 'Delete this deck and all its cards? This cannot be undone.' },
             )}
-          >
-            {deleting
-              ? t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
-              : t('decks.delete', {}, { defaultValue: 'Delete deck' })}
-          </button>
+            pendingLabel={t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })}
+            onConfirm={onDeleteDeck}
+            disarmSeconds={6}
+            color="error"
+            variant="outline"
+            size="sm"
+            data-mol-id="deck-delete"
+          />
           <Link
             to={`/decks/${deck.id}/cards/new`}
             className={cm.cn(

@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -26,7 +27,6 @@ export function CardEditor({ mode }: { mode: 'new' | 'edit' }) {
   const [tagsInput, setTagsInput] = useState('')
   const [loading, setLoading] = useState(mode === 'edit')
   const [saving, setSaving] = useState(false)
-  const [deleting, setDeleting] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -93,14 +93,6 @@ export function CardEditor({ mode }: { mode: 'new' | 'edit' }) {
   }
 
   const onDelete = async () => {
-    if (
-      !window.confirm(
-        t('cards.confirmDelete', {}, { defaultValue: 'Delete this card? This cannot be undone.' }),
-      )
-    ) {
-      return
-    }
-    setDeleting(true)
     setError(null)
     try {
       await http.delete(`/api/cards/${cardId}`)
@@ -108,7 +100,6 @@ export function CardEditor({ mode }: { mode: 'new' | 'edit' }) {
       navigate(`/decks/${deckId}`)
     } catch (_error) {
       setError(t('cardEditor.deleteError', {}, { defaultValue: 'Failed to delete card.' }))
-      setDeleting(false)
     }
   }
 
@@ -243,23 +234,22 @@ export function CardEditor({ mode }: { mode: 'new' | 'edit' }) {
 
         <div className={cm.flex({ align: 'center', gap: 'sm', justify: 'end' })}>
           {mode === 'edit' && (
-            <button
-              type="button"
-              onClick={onDelete}
-              disabled={deleting || saving}
-              data-mol-id="card-delete"
-              className={cm.cn(
-                cm.sp('px', 5),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                cm.fontWeight('medium'),
-                'mr-auto border border-error/40 text-error rounded-md hover:bg-error-container/30 disabled:opacity-50',
+            <ConfirmButton
+              label={t('cards.delete', {}, { defaultValue: 'Delete card' })}
+              confirmLabel={t(
+                'cards.confirmDelete',
+                {},
+                { defaultValue: 'Delete this card? This cannot be undone.' },
               )}
-            >
-              {deleting
-                ? t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
-                : t('cards.delete', {}, { defaultValue: 'Delete card' })}
-            </button>
+              pendingLabel={t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })}
+              onConfirm={onDelete}
+              disarmSeconds={6}
+              color="error"
+              variant="outline"
+              size="sm"
+              disabled={saving}
+              data-mol-id="card-delete"
+            />
           )}
           <Link
             to={`/decks/${deckId}`}
