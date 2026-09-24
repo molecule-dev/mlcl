@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
@@ -358,28 +359,17 @@ export function CallSimulator() {
               </select>
             </label>
 
-            <button
-              type="button"
-              role="switch"
-              aria-checked={speakReplies}
+            {/* Shared accessible switch: role=switch + aria-checked carry the
+                on/off state, the 40px hit-area is built in. */}
+            <Switch
+              checked={speakReplies}
               disabled={callId !== null}
               data-mol-id="simulator-speak-toggle"
-              onClick={() => setSpeakReplies((v) => !v)}
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                cm.fontWeight('semibold'),
-                'rounded-xl border transition-colors w-fit disabled:opacity-60',
-                speakReplies
-                  ? 'bg-success/10 text-success border-success/40'
-                  : 'bg-surface text-on-surface-variant border-outline-variant',
-              )}
-            >
-              {speakReplies
-                ? t('simulator.speakOn', {}, { defaultValue: 'Speak replies: on' })
-                : t('simulator.speakOff', {}, { defaultValue: 'Speak replies: off' })}
-            </button>
+              label={t('simulator.speakReplies', {}, { defaultValue: 'Speak replies aloud' })}
+              aria-label={t('simulator.speakReplies', {}, { defaultValue: 'Speak replies aloud' })}
+              onChange={(e) => setSpeakReplies((e.target as HTMLInputElement).checked)}
+              className="w-fit"
+            />
 
             {callId === null ? (
               <button

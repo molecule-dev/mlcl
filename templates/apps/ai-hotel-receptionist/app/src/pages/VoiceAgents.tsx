@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -76,10 +77,14 @@ export function VoiceAgents() {
     }
   }
 
-  const toggleUpsell = async (agent: VoiceAgentRow) => {
+  const toggleUpsell = async (agent: VoiceAgentRow, upsellEnabled: boolean) => {
     setBusyId(agent.id)
     try {
-      await http.patch('/api/voice-agents/' + agent.id, { upsell_enabled: !agent.upsell_enabled })
+      await http.patch('/api/voice-agents/' + agent.id, { upsell_enabled: upsellEnabled })
+      void track({
+        name: 'voice-agent.upsell_toggled',
+        properties: { agent_id: agent.id, enabled: upsellEnabled },
+      })
       await load()
     } catch (_e) {
       setError(t('voiceAgents.updateError', {}, { defaultValue: 'Could not update the agent.' }))
@@ -190,10 +195,10 @@ export function VoiceAgents() {
                           onClick={() => void toggleLanguage(agent, lang)}
                           className={cm.cn(
                             cm.sp('px', 3),
-                            cm.sp('py', 1),
                             cm.textSize('sm'),
                             cm.fontWeight('semibold'),
-                            'rounded-full border transition-colors disabled:opacity-60',
+                            // Touch-first: every chip is a >=40px tall target.
+                            'inline-flex min-h-10 items-center justify-center rounded-full border transition-colors disabled:opacity-60',
                             on
                               ? 'bg-primary text-on-primary border-primary'
                               : 'bg-surface text-on-surface-variant border-outline-variant hover:border-primary',
@@ -208,28 +213,18 @@ export function VoiceAgents() {
 
                 {/* Rules */}
                 <div className={cm.cn(cm.sp('mt', 4), cm.flex({ gap: 'lg', wrap: 'wrap' }))}>
-                  <button
-                    type="button"
-                    role="switch"
-                    aria-checked={agent.upsell_enabled}
+                  {/* Shared accessible switch: role=switch + aria-checked carry
+                      the on/off state, the 40px hit-area is built in. */}
+                  <Switch
+                    checked={agent.upsell_enabled}
                     disabled={busyId === agent.id}
                     data-mol-id={'voice-agent-upsell-' + agent.id}
-                    onClick={() => void toggleUpsell(agent)}
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 2),
-                      cm.textSize('sm'),
-                      cm.fontWeight('semibold'),
-                      'rounded-xl border transition-colors',
-                      agent.upsell_enabled
-                        ? 'bg-success/10 text-success border-success/40'
-                        : 'bg-surface text-on-surface-variant border-outline-variant',
-                    )}
-                  >
-                    {agent.upsell_enabled
-                      ? t('voiceAgents.upsellOn', {}, { defaultValue: 'Upsell: on' })
-                      : t('voiceAgents.upsellOff', {}, { defaultValue: 'Upsell: off' })}
-                  </button>
+                    label={t('voiceAgents.upsell', {}, { defaultValue: 'Upsell upsells' })}
+                    aria-label={t('voiceAgents.upsell', {}, { defaultValue: 'Upsell upsells' })}
+                    onChange={(e) =>
+                      void toggleUpsell(agent, (e.target as HTMLInputElement).checked)
+                    }
+                  />
                   <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                     {t(
                       'voiceAgents.maxDiscount',
