@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import type { Reservation } from '../components/ReservationRow.js'
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
@@ -52,7 +53,6 @@ export function ReservationDetail() {
   const [reservation, setReservation] = useState<Reservation | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [canceling, setCanceling] = useState(false)
   const [cancelError, setCancelError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -109,20 +109,8 @@ export function ReservationDetail() {
     )
   }
 
-  const handleCancel = async () => {
-    if (!reservation || canceling) return
-    const confirmed =
-      typeof window !== 'undefined'
-        ? window.confirm(
-            t(
-              'reservationDetail.cancelConfirm',
-              {},
-              { defaultValue: 'Cancel this reservation? This cannot be undone.' },
-            ),
-          )
-        : true
-    if (!confirmed) return
-    setCanceling(true)
+  const cancelReservation = async () => {
+    if (!reservation) return
     setCancelError(null)
     try {
       const res = await http.put(`/api/reservations/${reservation.id}/cancel`)
@@ -138,8 +126,6 @@ export function ReservationDetail() {
       setCancelError(
         t('reservationDetail.cancelError', {}, { defaultValue: 'Failed to cancel — try again.' }),
       )
-    } finally {
-      setCanceling(false)
     }
   }
 
@@ -373,21 +359,18 @@ export function ReservationDetail() {
               {t('reservationDetail.messageHost', {}, { defaultValue: 'Message host' })}
             </button>
             {reservation.cancellable && reservation.status === 'upcoming' ? (
-              <button
-                type="button"
-                onClick={handleCancel}
-                disabled={canceling}
-                className={cm.cn(
-                  cm.sp('px', 5),
-                  cm.sp('py', 2),
-                  cm.fontWeight('semibold'),
-                  'rounded-full border border-rose-200 text-error hover:border-rose-400 transition-colors disabled:opacity-60',
+              <ConfirmButton
+                data-mol-id="reservation-detail-cancel"
+                label={t('reservationDetail.cancel', {}, { defaultValue: 'Cancel reservation' })}
+                confirmLabel={t(
+                  'reservationDetail.cancelConfirm',
+                  {},
+                  { defaultValue: 'Cancel this reservation? This cannot be undone.' },
                 )}
-              >
-                {canceling
-                  ? t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })
-                  : t('reservationDetail.cancel', {}, { defaultValue: 'Cancel reservation' })}
-              </button>
+                pendingLabel={t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })}
+                onConfirm={cancelReservation}
+                disarmSeconds={6}
+              />
             ) : null}
             {cancelError ? (
               <span role="alert" className={cm.cn(cm.textSize('xs'), 'text-error font-semibold')}>
