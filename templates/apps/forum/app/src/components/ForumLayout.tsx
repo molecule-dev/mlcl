@@ -1,26 +1,22 @@
 /**
- * ForumLayout — auth'd page shell.
+ * ForumLayout — auth'd page shell, composed from the shared
+ * `ResponsiveAppShell` (the shell owns the breakpoint split, the drawer open
+ * state, the APG dialog contract, and auto-close-on-navigation).
  *
- * Desktop (≥768px): 240px left sidebar nav (Feed / Categories / Compose
- * / Notifications / Profile / Settings / Mod), centered content column
- * (max-width 780px feed / 1120px other), and an optional right rail rendered
- * by individual pages via the `<Outlet context>` pattern (we just give pages
- * a wide content area and they inject a CommunitySidebar themselves on
- * sidebar-eligible routes).
+ * Desktop (≥768px): a 240px left sidebar (`sidebarWidth="md"`) — brand row,
+ * nav (Feed / Categories / Search / Notifications / Compose / Mod +
+ * Profile / Settings), and the identity/sign-out footer — beside a centered
+ * content column (max-width 1120px) that pages fill via `<Outlet />`.
  *
- * Mobile (<768px): the sidebar is replaced by a sticky top bar (menu button
- * + brand + compose shortcut) that opens a slide-over drawer with the same
- * nav items. The drawer closes on navigation, on backdrop tap, and on
- * Escape, and locks body scroll while open.
- *
- * Translated from blog/SideNavBar.tsx + blog/AppLayout.tsx left-rail
- * pattern fused with personal-finance/PageShell content gutter.
+ * Mobile (<768px): the shell mounts the drawer instead — a sticky top bar
+ * (menu trigger + brand + compose shortcut) opens a full-dialog slide-over
+ * with the SAME nav element; only the mounted breakpoint instantiates it.
  */
-import { useCallback, useEffect, useState } from 'react'
 import { Link, Outlet, useLocation, useNavigate } from 'react-router'
 
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
 
@@ -81,7 +77,6 @@ export function ForumLayout() {
     username?: string | null
   }>()
   const navigate = useNavigate()
-  const [menuOpen, setMenuOpen] = useState(false)
 
   // Profile nav item — resolve to the actual signed-in user. The API's
   // profiles endpoint accepts username, full UUID, or short id-prefix; we
@@ -102,25 +97,26 @@ export function ForumLayout() {
     navigate('/login')
   }
 
-  // Close the mobile drawer whenever the route changes.
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [pathname])
-
-  // Escape closes the drawer; body scroll locks while it is open.
-  useEffect(() => {
-    if (!menuOpen) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMenuOpen(false)
-    }
-    document.addEventListener('keydown', onKey)
-    const prevOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = prevOverflow
-    }
-  }, [menuOpen])
+  // Brand row — leads the desktop sidebar's nav children and the drawer's
+  // header slot (the shared Sidebar has no header, per the Meridian pattern).
+  const brandBlock = (
+    <Link to="/feed" className={cm.cn(cm.flex({ direction: 'col' }))}>
+      <span
+        className={cm.cn(cm.fontWeight('bold'), 'text-2xl tracking-tight')}
+        style={{ color: 'var(--color-primary, var(--color-pinned))' }}
+      >
+        {APP_NAME}
+      </span>
+      <span
+        className={cm.cn(
+          cm.fontWeight('medium'),
+          'text-[10px] uppercase tracking-widest text-on-surface-variant',
+        )}
+      >
+        {APP_TAGLINE}
+      </span>
+    </Link>
+  )
 
   const renderItem = (item: NavItem) => {
     const active = isActive(pathname, item)
@@ -128,7 +124,7 @@ export function ForumLayout() {
       <Link
         key={item.to}
         to={item.to}
-        onClick={() => setMenuOpen(false)}
+        aria-current={active ? 'page' : undefined}
         className={cm.cn(
           cm.flex({ align: 'center', gap: 'sm' }),
           cm.sp('px', 3),
@@ -154,247 +150,141 @@ export function ForumLayout() {
     )
   }
 
-  const navSection = (
+  // ONE nav element for both breakpoints — the Sidebar and the Drawer receive
+  // the same element and only the mounted breakpoint instantiates it; the
+  // shell closes the drawer on navigation, so links carry no onClick close.
+  const navList = (
     <>
-      <nav className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.flex1)}>
-        {NAV_ITEMS.map(renderItem)}
-        <div
-          className={cm.cn(
-            cm.sp('mt', 4),
-            cm.sp('pt', 4),
-            cm.flex({ direction: 'col', gap: 'xs' }),
-            'border-t border-outline-variant/30',
-          )}
-        >
-          {[profileItem, SETTINGS_NAV_ITEM].map(renderItem)}
-        </div>
-      </nav>
+      {NAV_ITEMS.map(renderItem)}
       <div
         className={cm.cn(
+          cm.sp('mt', 4),
           cm.sp('pt', 4),
-          cm.flex({ direction: 'col', gap: 'sm' }),
+          cm.flex({ direction: 'col', gap: 'xs' }),
           'border-t border-outline-variant/30',
         )}
       >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('px', 2))}>
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(8),
-              cm.h(8),
-              cm.roundedFull,
-              cm.fontWeight('bold'),
-              cm.textSize('sm'),
-            )}
-            style={{
-              backgroundColor: 'var(--color-primary-light, var(--color-pinned-light))',
-              color: 'var(--color-primary, var(--color-pinned))',
-            }}
-            aria-hidden="true"
-          >
-            {(user?.name ?? user?.email ?? APP_NAME).slice(0, 1).toUpperCase()}
-          </span>
-          <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-0 flex-1')}>
-            <span
-              className={cm.cn(
-                cm.fontWeight('semibold'),
-                cm.textSize('xs'),
-                'truncate text-on-surface',
-              )}
-            >
-              {user?.name ?? t('status.member', {}, { defaultValue: 'Member' })}
-            </span>
-            <span className={cm.cn(cm.textSize('xs'), 'truncate text-on-surface-variant')}>
-              {user?.email ?? ''}
-            </span>
-          </div>
-        </div>
-        <button
-          type="button"
-          onClick={() => void handleSignOut()}
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'sm' }),
-            cm.sp('px', 3),
-            cm.sp('py', 2),
-            cm.w('full'),
-            cm.fontWeight('semibold'),
-            'rounded-lg text-left text-on-surface-variant hover:text-error hover:bg-error/10 transition-colors',
-          )}
-        >
-          <span className={cm.cn('material-symbols-outlined', cm.textSize('base'))}>logout</span>
-          <span className={cm.cn(cm.textSize('xs'), 'uppercase tracking-widest')}>
-            {t('settings.logOut', {}, { defaultValue: 'Sign out' })}
-          </span>
-        </button>
+        {[profileItem, SETTINGS_NAV_ITEM].map(renderItem)}
       </div>
     </>
   )
 
-  const closeDrawer = useCallback(() => setMenuOpen(false), [])
-
-  return (
-    <div className={cm.cn('bg-background', cm.minH('screen'))}>
-      {/* Mobile top bar — the nav surface below md, where the sidebar is
-          hidden. Sticky so navigation is reachable from anywhere in a long
-          thread. */}
-      <header
-        data-mol-id="mobile-topbar"
+  // Identity card + sign out — the footer of both the desktop sidebar and
+  // the drawer (the shell provides the border + padding row).
+  const userFooter = (
+    <>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('px', 2))}>
+        <span
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            cm.w(8),
+            cm.h(8),
+            cm.roundedFull,
+            cm.fontWeight('bold'),
+            cm.textSize('sm'),
+          )}
+          style={{
+            backgroundColor: 'var(--color-primary-light, var(--color-pinned-light))',
+            color: 'var(--color-primary, var(--color-pinned))',
+          }}
+          aria-hidden="true"
+        >
+          {(user?.name ?? user?.email ?? APP_NAME).slice(0, 1).toUpperCase()}
+        </span>
+        <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-0 flex-1')}>
+          <span
+            className={cm.cn(
+              cm.fontWeight('semibold'),
+              cm.textSize('xs'),
+              'truncate text-on-surface',
+            )}
+          >
+            {user?.name ?? t('status.member', {}, { defaultValue: 'Member' })}
+          </span>
+          <span className={cm.cn(cm.textSize('xs'), 'truncate text-on-surface-variant')}>
+            {user?.email ?? ''}
+          </span>
+        </div>
+      </div>
+      <button
+        type="button"
+        onClick={() => void handleSignOut()}
         className={cm.cn(
           cm.flex({ align: 'center', gap: 'sm' }),
           cm.sp('px', 3),
-          'md:hidden sticky top-0 z-30 h-14 items-center border-b border-outline-variant/30 bg-surface',
+          cm.sp('py', 2),
+          cm.w('full'),
+          cm.fontWeight('semibold'),
+          'rounded-lg text-left text-on-surface-variant hover:text-error hover:bg-error/10 transition-colors',
         )}
       >
-        <button
-          type="button"
-          data-mol-id="mobile-menu-open"
-          aria-label={t('forumLayout.openMenu', {}, { defaultValue: 'Open navigation menu' })}
-          aria-expanded={menuOpen}
-          aria-haspopup="dialog"
-          onClick={() => setMenuOpen(true)}
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            cm.w(10),
-            cm.h(10),
-            'rounded-lg text-on-surface-variant hover:bg-surface-container-low/60 hover:text-on-surface transition-colors',
-          )}
-        >
-          <span
-            className={cm.cn('material-symbols-outlined', cm.textSize('xl'))}
-            aria-hidden="true"
-          >
-            menu
-          </span>
-        </button>
-        <Link
-          to="/feed"
-          className={cm.cn(cm.fontWeight('bold'), 'text-xl tracking-tight text-on-surface')}
-        >
-          {APP_NAME}
-        </Link>
-        <Link
-          to="/compose"
-          data-mol-id="mobile-compose-shortcut"
-          aria-label={t('forumLayout.compose', {}, { defaultValue: 'New post' })}
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            cm.w(10),
-            cm.h(10),
-            'ml-auto rounded-full bg-primary text-on-primary',
-          )}
-        >
-          <span
-            className={cm.cn('material-symbols-outlined', cm.textSize('xl'))}
-            aria-hidden="true"
-          >
-            edit_square
-          </span>
-        </Link>
-      </header>
+        <span className={cm.cn('material-symbols-outlined', cm.textSize('base'))}>logout</span>
+        <span className={cm.cn(cm.textSize('xs'), 'uppercase tracking-widest')}>
+          {t('settings.logOut', {}, { defaultValue: 'Sign out' })}
+        </span>
+      </button>
+    </>
+  )
 
-      <div className={cm.cn(cm.flex({ align: 'stretch' }))}>
-        <aside
-          className={cm.cn(
-            cm.flex({ direction: 'col' }),
-            cm.sp('p', 5),
-            'sticky top-0 hidden md:flex w-[240px] h-screen shrink-0 border-r border-outline-variant/30 bg-surface',
-          )}
-        >
-          <Link to="/feed" className={cm.cn(cm.flex({ direction: 'col' }), cm.sp('mb', 8))}>
+  return (
+    <ResponsiveAppShell sidebarWidth="md">
+      {/* Mobile top bar (<768px) — the shell renders the menu trigger itself;
+          the compose shortcut rides in the actions slot. */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={
+          <Link
+            to="/feed"
+            className={cm.cn(cm.fontWeight('bold'), 'text-xl tracking-tight text-on-surface')}
+          >
+            {APP_NAME}
+          </Link>
+        }
+        actions={
+          <Link
+            to="/compose"
+            data-mol-id="mobile-compose-shortcut"
+            aria-label={t('forumLayout.compose', {}, { defaultValue: 'New post' })}
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              cm.w(10),
+              cm.h(10),
+              'rounded-full bg-primary text-on-primary',
+            )}
+          >
             <span
-              className={cm.cn(cm.fontWeight('bold'), 'text-2xl tracking-tight')}
-              style={{ color: 'var(--color-primary, var(--color-pinned))' }}
+              className={cm.cn('material-symbols-outlined', cm.textSize('xl'))}
+              aria-hidden="true"
             >
-              {APP_NAME}
-            </span>
-            <span
-              className={cm.cn(
-                cm.fontWeight('medium'),
-                'text-[10px] uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
-              {APP_TAGLINE}
+              edit_square
             </span>
           </Link>
-          {navSection}
-        </aside>
-        <main className={cm.cn(cm.flex1, 'min-w-0')}>
-          <div
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 5),
-              'md:px-6 md:py-8 max-w-[1120px] mx-auto',
-            )}
-          >
-            <Outlet />
-          </div>
-        </main>
-      </div>
+        }
+      />
 
-      {/* Mobile slide-over drawer — shares navSection with the desktop
-          sidebar so the two surfaces can never diverge. */}
-      {menuOpen && (
-        <div className={cm.cn('md:hidden fixed inset-0 z-40')} data-mol-id="mobile-drawer-root">
-          <div className="absolute inset-0 bg-black/40" aria-hidden="true" onClick={closeDrawer} />
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-label={t('forumLayout.drawerLabel', {}, { defaultValue: 'Navigation' })}
-            data-mol-id="mobile-drawer"
-            className={cm.cn(
-              cm.flex({ direction: 'col' }),
-              cm.sp('p', 5),
-              'absolute left-0 top-0 h-full w-[280px] max-w-[85vw] overflow-y-auto bg-surface shadow-xl',
-            )}
-          >
-            <div
-              className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 6))}
-            >
-              <Link to="/feed" className={cm.cn(cm.flex({ direction: 'col' }))}>
-                <span
-                  className={cm.cn(cm.fontWeight('bold'), 'text-2xl tracking-tight')}
-                  style={{ color: 'var(--color-primary, var(--color-pinned))' }}
-                >
-                  {APP_NAME}
-                </span>
-                <span
-                  className={cm.cn(
-                    cm.fontWeight('medium'),
-                    'text-[10px] uppercase tracking-widest text-on-surface-variant',
-                  )}
-                >
-                  {APP_TAGLINE}
-                </span>
-              </Link>
-              <button
-                type="button"
-                data-mol-id="mobile-menu-close"
-                aria-label={t(
-                  'forumLayout.closeMenu',
-                  {},
-                  { defaultValue: 'Close navigation menu' },
-                )}
-                onClick={closeDrawer}
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center' }),
-                  cm.w(10),
-                  cm.h(10),
-                  'rounded-lg text-on-surface-variant hover:bg-surface-container-low/60 hover:text-on-surface transition-colors',
-                )}
-              >
-                <span
-                  className={cm.cn('material-symbols-outlined', cm.textSize('xl'))}
-                  aria-hidden="true"
-                >
-                  close
-                </span>
-              </button>
-            </div>
-            {navSection}
-          </div>
-        </div>
-      )}
-    </div>
+      {/* Desktop sidebar (≥768px) — brand row rides inside the nav children
+          (the shared Sidebar has no header slot). */}
+      <ResponsiveAppShell.Sidebar className={cm.sp('p', 5)} footer={userFooter}>
+        <div className={cm.cn(cm.flex({ direction: 'col' }), cm.sp('mb', 8))}>{brandBlock}</div>
+        {navList}
+      </ResponsiveAppShell.Sidebar>
+
+      {/* Mobile drawer (<768px) — same nav element, full dialog contract
+          (focus trap, Escape/backdrop close, body-scroll lock). */}
+      <ResponsiveAppShell.Drawer
+        className={cm.cn('h-full', cm.sp('p', 5))}
+        header={brandBlock}
+        footer={userFooter}
+      >
+        {navList}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content
+        className={cm.cn(cm.sp('px', 4), cm.sp('py', 5), 'md:px-6 md:py-8 max-w-[1120px] mx-auto')}
+      >
+        <Outlet />
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
 
