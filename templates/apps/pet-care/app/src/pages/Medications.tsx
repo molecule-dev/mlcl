@@ -2,9 +2,9 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { AddMedicationModal } from '../components/AddMedicationModal.js'
-import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { unwrapList } from '../lib/unwrap.js'
 
 interface ApiMedication {
@@ -150,7 +150,16 @@ export function Medications() {
       </div>
 
       {loadError && !loading ? (
-        <LoadErrorBanner onRetry={() => loadAll()} />
+        <LoadErrorBanner
+          data-mol-id="load-error-banner"
+          message={t('common.loadError.title', {}, { defaultValue: 'Something went wrong' })}
+          detail={t(
+            'common.loadError.body',
+            {},
+            { defaultValue: 'We could not load this content. Check your connection and retry.' },
+          )}
+          onRetry={() => loadAll()}
+        />
       ) : loading ? (
         <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
           {t('medications.loading', {}, { defaultValue: 'Loading meds…' })}

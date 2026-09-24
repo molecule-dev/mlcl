@@ -2,9 +2,9 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { AddPetModal } from '../components/AddPetModal.js'
-import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { type HealthStatus, PetProfileCard, type PetSpecies } from '../components/PetProfileCard.js'
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -180,7 +180,18 @@ export function Pets() {
       </div>
 
       {loadError && !loading ? (
-        <LoadErrorBanner onRetry={() => load()} />
+        <LoadErrorBanner
+          data-mol-id="load-error-banner"
+          message={t('common.loadError.title', {}, { defaultValue: 'Something went wrong' })}
+          detail={t(
+            'common.loadError.body',
+            {},
+            { defaultValue: 'We could not load this content. Check your connection and retry.' },
+          )}
+          onRetry={() => {
+            load()
+          }}
+        />
       ) : loading ? (
         <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
           {t('pets.loading', {}, { defaultValue: 'Loading pets…' })}

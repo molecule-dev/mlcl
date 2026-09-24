@@ -3,9 +3,9 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { AddVetRecordModal } from '../components/AddVetRecordModal.js'
-import { LoadErrorBanner } from '../components/LoadErrorBanner.js'
 import { unwrapList } from '../lib/unwrap.js'
 
 interface ApiVetRecord {
@@ -140,7 +140,16 @@ export function VetRecords() {
       </div>
 
       {loadError && !loading ? (
-        <LoadErrorBanner onRetry={() => loadAll()} />
+        <LoadErrorBanner
+          data-mol-id="load-error-banner"
+          message={t('common.loadError.title', {}, { defaultValue: 'Something went wrong' })}
+          detail={t(
+            'common.loadError.body',
+            {},
+            { defaultValue: 'We could not load this content. Check your connection and retry.' },
+          )}
+          onRetry={() => loadAll()}
+        />
       ) : loading ? (
         <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
           {t('vetRecords.loading', {}, { defaultValue: 'Loading records…' })}
