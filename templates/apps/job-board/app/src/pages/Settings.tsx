@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { unwrapSingle } from '../lib/unwrap.js'
@@ -183,8 +183,8 @@ export function Settings() {
     }
   }
 
-  function toggle(key: string) {
-    const next = { ...values, [key]: !values[key] }
+  function toggle(key: string, on: boolean) {
+    const next = { ...values, [key]: on }
     setValues(next)
     void persist(next)
   }
@@ -431,7 +431,7 @@ function ToggleSection({
   items: Toggle[]
   keyPrefix: string
   values: Record<string, boolean>
-  onToggle: (key: string) => void
+  onToggle: (key: string, on: boolean) => void
   disabled: boolean
 }) {
   const cm = getClassMap()
@@ -466,25 +466,12 @@ function ToggleSection({
                   )}
                 </p>
               </div>
-              <button
-                type="button"
-                role="switch"
-                aria-checked={on}
+              <Switch
+                checked={on}
                 aria-label={item.label}
                 disabled={disabled}
-                onClick={() => onToggle(item.key)}
-                className={cm.cn(
-                  'relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors disabled:opacity-50',
-                  on ? 'bg-primary' : 'bg-surface-container',
-                )}
-              >
-                <span
-                  className={cm.cn(
-                    'inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform',
-                    on ? 'translate-x-5' : 'translate-x-1',
-                  )}
-                />
-              </button>
+                onChange={(e) => onToggle(item.key, (e.target as HTMLInputElement).checked)}
+              />
             </li>
           )
         })}
