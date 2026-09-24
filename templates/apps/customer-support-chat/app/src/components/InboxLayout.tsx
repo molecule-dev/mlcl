@@ -1,25 +1,26 @@
 /**
- * Three-pane Inbox shell — 64px icon rail, 340px conversation list,
+ * Three-pane Inbox shell — nav sidebar, 340px conversation list,
  * fluid chat panel, optional 320px customer panel. Wraps page-level
- * children inside the AppLayout so the header / footer / locale chrome
- * stays consistent with the rest of the app.
+ * children so the chrome stays consistent across the signed-in routes.
  *
  * Layout per DESIGN.md "Layout > Agent Sidebar / Conversation List
  * Width / Customer Detail Panel".
  *
- * Mobile shell (<768px): the icon rail hides and a sticky top bar takes
- * over — hamburger opens a nav drawer (or a back arrow on detail routes
- * like /conversation/:id), the section title sits center, UserMenu right.
- * Panes collapse to one-at-a-time: list pages show the conversation list
- * full width, detail routes show the thread full width at viewport height
- * so the composer stays reachable without page scroll.
+ * Built on the shared `ResponsiveAppShell`: the shell owns the 768px
+ * breakpoint split (Sidebar ≥768px / dialog Drawer <768px), the mobile
+ * menu trigger, drawer focus/Escape/backdrop handling, and the
+ * auto-close-on-navigation — this component only supplies the nav, the
+ * brand/title, and the three panes. Panes collapse to one-at-a-time
+ * below md: list pages show the conversation list full width, detail
+ * routes show the thread full width at viewport height so the composer
+ * stays reachable without page scroll.
  */
 import type { ReactNode } from 'react'
-import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { UserMenu } from './UserMenu.js'
@@ -55,7 +56,7 @@ const NAV_ITEMS = [
 ]
 
 /** Routes that drill into one entity — on mobile they swap the list pane
- *  for the detail pane and the hamburger for a back arrow. */
+ *  for the detail pane and gain a back arrow in the top bar. */
 function detailBackTo(pathname: string): string | null {
   if (pathname.startsWith('/conversation/')) return '/inbox'
   if (/^\/contacts\/.+/.test(pathname)) return '/contacts'
@@ -66,7 +67,6 @@ function InboxLayout({ list, main, side }: InboxLayoutProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const location = useLocation()
-  const [drawerOpen, setDrawerOpen] = useState(false)
 
   const backTo = detailBackTo(location.pathname)
   const isDetail = backTo !== null
@@ -74,199 +74,167 @@ function InboxLayout({ list, main, side }: InboxLayoutProps) {
     .sort((a, b) => b.to.length - a.to.length)
     .find((item) => location.pathname === item.to || location.pathname.startsWith(`${item.to}/`))
 
-  // Close the drawer whenever the route changes (nav selection or back).
-  useEffect(() => {
-    setDrawerOpen(false)
-  }, [location.pathname])
+  const navLabel = t('inboxLayout.navDrawerLabel', {}, { defaultValue: 'Navigation' })
 
-  // Escape closes the drawer (keyboard equivalent of the backdrop click).
-  useEffect(() => {
-    if (!drawerOpen) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setDrawerOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [drawerOpen])
+  // ONE nav element for both surfaces — the Sidebar (≥768px) and the Drawer
+  // (<768px) receive the same array and only the mounted breakpoint
+  // instantiates it. The drawer closes itself on navigation (shell-owned),
+  // so links carry no onClick close.
+  const navItems = NAV_ITEMS.map((item) => {
+    const isActive =
+      location.pathname === item.to ||
+      (item.to === '/inbox' && location.pathname.startsWith('/conversation'))
+    return (
+      <Link
+        key={item.to}
+        to={item.to}
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 3 }),
+          cm.sp('px', 3),
+          cm.fontWeight('semibold'),
+          'min-h-11 rounded-lg transition-colors',
+          isActive
+            ? 'bg-primary/10 text-primary-dark'
+            : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container',
+        )}
+        aria-current={isActive ? 'page' : undefined}
+        data-mol-id={`nav-${item.to.slice(1) || 'root'}`}
+      >
+        <span className="material-symbols-outlined" style={{ fontSize: 20 }} aria-hidden="true">
+          {item.icon}
+        </span>
+        {t(item.key, {}, { defaultValue: item.defaultValue })}
+      </Link>
+    )
+  })
 
-  const iconButtonClass = cm.cn(
-    cm.flex({ align: 'center', justify: 'center' }),
-    cm.w(10),
-    cm.h(10),
-    'rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors',
-  )
+  const title = activeNav
+    ? t(activeNav.key, {}, { defaultValue: activeNav.defaultValue })
+    : APP_NAME
 
   return (
-    <div
-      className={cm.cn(
-        cm.flex({ gap: 0 }),
-        'flex-col md:flex-row md:min-h-[640px] bg-surface rounded-xl shadow-sm md:overflow-hidden border border-[color:var(--color-border)]',
-      )}
-    >
-      {/* Mobile top bar — replaces the icon rail below md. Sticky against
-          the page (the card only clips overflow on md+, where the bar is
-          hidden anyway). */}
-      <div
-        className={cm.cn(
-          cm.flex({ align: 'center', gap: 2 }),
-          cm.sp('px', 3),
-          'md:hidden sticky top-0 z-30 h-14 shrink-0 rounded-t-xl bg-secondary text-white border-b border-white/10',
-        )}
-      >
-        {isDetail ? (
-          <Link
-            to={backTo}
-            className={iconButtonClass}
-            aria-label={t('common.back', {}, { defaultValue: 'Back' })}
-            data-mol-id="mobile-bar-back"
-          >
-            <span className="material-symbols-outlined" style={{ fontSize: 22 }} aria-hidden="true">
-              arrow_back
-            </span>
-          </Link>
-        ) : (
-          <button
-            type="button"
-            onClick={() => setDrawerOpen(true)}
-            className={iconButtonClass}
-            aria-label={t('inboxLayout.openMenu', {}, { defaultValue: 'Open navigation menu' })}
-            aria-expanded={drawerOpen}
-            data-mol-id="mobile-bar-menu"
-          >
-            <span className="material-symbols-outlined" style={{ fontSize: 22 }} aria-hidden="true">
-              menu
-            </span>
-          </button>
-        )}
-        <span
-          className={cm.cn(cm.flex1, cm.fontWeight('bold'), 'min-w-0 truncate')}
-          data-mol-id="mobile-bar-title"
-        >
-          {activeNav ? t(activeNav.key, {}, { defaultValue: activeNav.defaultValue }) : APP_NAME}
-        </span>
-        <UserMenu className="text-white!" />
-      </div>
-
-      {/* Desktop icon rail */}
-      <nav
-        className={cm.cn(
-          cm.flex({ direction: 'col', align: 'center', gap: 2 }),
-          cm.sp('py', 4),
-          'hidden md:flex w-16 bg-secondary text-white shrink-0 md:rounded-l-xl',
-        )}
-      >
-        {NAV_ITEMS.map((item) => {
-          const isActive =
-            location.pathname === item.to ||
-            (item.to === '/inbox' && location.pathname.startsWith('/conversation'))
-          return (
-            <Link
-              key={item.to}
-              to={item.to}
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                cm.w(10),
-                cm.h(10),
-                'rounded-lg transition-colors',
-                isActive
-                  ? 'bg-surface/15 text-white'
-                  : 'text-white/60 hover:text-white hover:bg-surface/10',
-              )}
-              aria-label={t(item.key, {}, { defaultValue: item.defaultValue })}
-              aria-current={isActive ? 'page' : undefined}
-              data-mol-id={`rail-${item.to.slice(1) || 'root'}`}
-            >
-              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
-                {item.icon}
-              </span>
-            </Link>
-          )
-        })}
-        <div className={cm.cn(cm.flex1)} aria-hidden="true" />
-        <UserMenu className="text-white!" />
-      </nav>
-
-      {/* Conversation list pane — full width on mobile list pages, hidden
-          on mobile detail routes (the back arrow returns to it). */}
-      {list && (
-        <div
-          className={cm.cn(
-            isDetail ? 'hidden md:block' : 'w-full md:w-[340px]',
-            'shrink-0 md:border-r border-b md:border-b-0 border-[color:var(--color-border)] md:overflow-y-auto bg-surface',
-          )}
-        >
-          {list}
-        </div>
-      )}
-
-      {/* Main pane — on mobile list pages with a list pane, the detail body
-          waits behind navigation; detail routes get the full viewport height
-          so the chat thread scrolls internally and the composer stays put. */}
-      <div
-        className={cm.cn(
-          cm.flex1,
-          'min-w-0',
-          list && !isDetail ? 'hidden md:block' : undefined,
-          isDetail ? 'h-[calc(100dvh-3.5rem)] md:h-auto overflow-hidden' : undefined,
-        )}
-      >
-        {main}
-      </div>
-
-      {side && <div className={cm.cn('w-[320px] shrink-0 hidden xl:block')}>{side}</div>}
-
-      {/* Mobile nav drawer */}
-      {drawerOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={t('inboxLayout.navDrawerLabel', {}, { defaultValue: 'Navigation' })}
-          className="md:hidden fixed inset-0 z-50"
-          data-mol-id="mobile-drawer"
-        >
-          <div
-            aria-hidden="true"
-            onClick={() => setDrawerOpen(false)}
-            className="absolute inset-0 bg-foreground/50"
-          />
-          <nav
+    <ResponsiveAppShell sidebarWidth="md" className="bg-surface">
+      {/*
+        Mobile top bar (<768px): back arrow on detail routes, the active
+        section title, and the user menu. The shell renders the drawer menu
+        trigger itself; on desktop this bar does not mount (the sidebar
+        carries the brand).
+      */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        className="h-14 border-b border-[color:var(--color-border)]"
+        brand={
+          <span
             className={cm.cn(
-              cm.flex({ direction: 'col', gap: 1 }),
-              cm.sp('p', 3),
-              'absolute left-0 top-0 h-full w-72 max-w-[85%] bg-secondary text-white overflow-y-auto shadow-xl',
+              cm.flex({ align: 'center', gap: 2 }),
+              cm.fontWeight('bold'),
+              'min-w-0',
             )}
           >
-            {NAV_ITEMS.map((item) => {
-              const isActive =
-                location.pathname === item.to ||
-                (item.to === '/inbox' && location.pathname.startsWith('/conversation'))
-              return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className={cm.cn(
-                    cm.flex({ align: 'center', gap: 3 }),
-                    cm.sp('px', 3),
-                    cm.fontWeight('semibold'),
-                    'min-h-11 rounded-lg transition-colors',
-                    isActive
-                      ? 'bg-surface/15 text-white'
-                      : 'text-white/70 hover:text-white hover:bg-surface/10',
-                  )}
-                  aria-current={isActive ? 'page' : undefined}
-                  data-mol-id={`drawer-${item.to.slice(1) || 'root'}`}
+            {isDetail && (
+              <Link
+                to={backTo}
+                className={cm.cn(
+                  cm.flex({ align: 'center', justify: 'center' }),
+                  cm.w(10),
+                  cm.h(10),
+                  'shrink-0 rounded-lg text-on-surface-variant hover:text-on-surface transition-colors',
+                )}
+                aria-label={t('common.back', {}, { defaultValue: 'Back' })}
+                data-mol-id="mobile-bar-back"
+              >
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: 22 }}
+                  aria-hidden="true"
                 >
-                  <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
-                    {item.icon}
-                  </span>
-                  {t(item.key, {}, { defaultValue: item.defaultValue })}
-                </Link>
-              )
-            })}
-          </nav>
+                  arrow_back
+                </span>
+              </Link>
+            )}
+            <span className="min-w-0 truncate" data-mol-id="mobile-bar-title">
+              {title}
+            </span>
+          </span>
+        }
+        actions={<UserMenu />}
+      />
+
+      {/*
+        Desktop sidebar (≥768px): brand leads, user menu sits in the bordered
+        footer row (where the old icon rail kept it).
+      */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        className={cm.sp('p', 3)}
+        footer={<UserMenu />}
+      >
+        <Link
+          to="/inbox"
+          className={cm.cn(
+            cm.sp('px', 3),
+            cm.sp('py', 2),
+            cm.fontWeight('bold'),
+            cm.textSize('lg'),
+            'block truncate text-on-surface',
+          )}
+          data-mol-id="sidebar-brand"
+        >
+          {APP_NAME}
+        </Link>
+        {navItems}
+      </ResponsiveAppShell.Sidebar>
+
+      {/*
+        Mobile nav drawer (<768px): full dialog contract (focus trap,
+        Escape, backdrop click, scroll lock) over the same nav, with the
+        brand in the header row next to the shell's close button.
+      */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navLabel}
+        className="h-full"
+        header={
+          <span className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'truncate')}>
+            {APP_NAME}
+          </span>
+        }
+      >
+        {navItems}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content>
+        {/*
+          The three panes — app-level layout inside the shell's <main>.
+          Conversation list is full width on mobile list pages and hidden on
+          mobile detail routes (the back arrow returns to it); detail routes
+          get the full viewport height (100dvh minus the 3.5rem top bar) so
+          the chat thread scrolls internally and the composer stays put.
+        */}
+        <div className={cm.cn(cm.flex({ gap: 0 }), 'flex-col md:flex-row md:min-h-[640px]')}>
+          {list && (
+            <div
+              className={cm.cn(
+                isDetail ? 'hidden md:block' : 'w-full md:w-[340px]',
+                'shrink-0 md:border-r border-b md:border-b-0 border-[color:var(--color-border)] md:overflow-y-auto bg-surface',
+              )}
+            >
+              {list}
+            </div>
+          )}
+          <div
+            className={cm.cn(
+              cm.flex1,
+              'min-w-0',
+              list && !isDetail ? 'hidden md:block' : undefined,
+              isDetail ? 'h-[calc(100dvh-3.5rem)] md:h-auto overflow-hidden' : undefined,
+            )}
+          >
+            {main}
+          </div>
+          {side && <div className={cm.cn('w-[320px] shrink-0 hidden xl:block')}>{side}</div>}
         </div>
-      )}
-    </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
 

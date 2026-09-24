@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { get, post } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { ConversationListItem } from '../components/ConversationListItem.js'
 import { CustomerProfilePanel } from '../components/CustomerProfilePanel.js'
@@ -78,7 +79,7 @@ function ConversationList({
   rows: ConversationRow[]
   loading: boolean
   error: string | null
-  onRetry: () => void
+  onRetry: () => void | Promise<void>
   onSelect: (id: string) => void
   selectedId: string | null
   onSearch: (q: string) => void
@@ -147,33 +148,13 @@ function ConversationList({
         </div>
       </header>
       {error ? (
-        <div
-          role="alert"
-          className={cm.cn(
-            cm.sp('p', 4),
-            cm.textSize('sm'),
-            'text-[var(--color-status-error-text)]',
-          )}
-        >
-          <p className={cm.cn(cm.sp('mb', 2))}>
-            {t('inbox.loadError', {}, { defaultValue: 'Could not load conversations.' })}
-          </p>
-          <p className={cm.cn(cm.sp('mb', 2), cm.textSize('xs'), 'text-on-surface-variant')}>
-            {error}
-          </p>
-          <button
-            type="button"
-            onClick={onRetry}
-            className={cm.cn(
-              cm.sp('px', 3),
-              cm.sp('py', 1),
-              cm.fontWeight('semibold'),
-              cm.textSize('xs'),
-              'rounded-md bg-primary/10 text-primary-dark hover:bg-primary/15',
-            )}
-          >
-            {t('inbox.retry', {}, { defaultValue: 'Retry' })}
-          </button>
+        <div className={cm.sp('p', 4)}>
+          <LoadErrorBanner
+            message={t('inbox.loadError', {}, { defaultValue: 'Could not load conversations.' })}
+            detail={error}
+            onRetry={onRetry}
+            retryLabel={t('inbox.retry', {}, { defaultValue: 'Retry' })}
+          />
         </div>
       ) : loading ? (
         <div className={cm.cn(cm.sp('p', 4), cm.textSize('sm'), 'text-on-surface-variant')}>
@@ -608,7 +589,7 @@ function Inbox() {
             rows={filtered}
             loading={loading}
             error={error}
-            onRetry={() => void fetchConversations(search)}
+            onRetry={() => fetchConversations(search)}
             onSelect={handleSelect}
             selectedId={selectedId}
             onSearch={(q) => {
