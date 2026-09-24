@@ -62,9 +62,13 @@ test.describe('Team page', () => {
     const firstCard = page.getByTestId('team-list').locator('article').first()
     const teamId = (await firstCard.getAttribute('data-testid'))!.replace(/^team-/, '')
 
-    page.once('dialog', (d) => d.accept())
+    const deleteButton = page.locator(`[data-mol-id="team-delete-${teamId}"]`)
     const reqs = await captureNetwork(page, async () => {
-      await page.getByTestId(`team-delete-${teamId}`).click()
+      await deleteButton.click()
+      // First click arms the two-step ConfirmButton; the confirm label must
+      // be showing before the second click commits.
+      await expect(deleteButton).toContainText(/delete team "disposable team"\?/i)
+      await deleteButton.click()
       await expect(page.getByTestId('team-empty')).toBeVisible()
     })
     const deleted = reqs.find(

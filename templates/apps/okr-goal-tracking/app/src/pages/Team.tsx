@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useGet, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { ProgressRing } from '../components/ProgressRing.js'
 import { type ObjectiveRow, toNumber } from '../lib/api.js'
@@ -92,18 +93,9 @@ export function Team() {
     }
   }
 
+  // Confirmation is handled inline by the two-step ConfirmButton (arm →
+  // confirm) — no blocking window.confirm dialog.
   const handleDelete = async (team: TeamRow): Promise<void> => {
-    if (
-      !window.confirm(
-        t(
-          'team.confirmDelete',
-          { name: team.name },
-          { defaultValue: 'Delete team "{{name}}"? Objectives will be unlinked.' },
-        ),
-      )
-    ) {
-      return
-    }
     setError(null)
     try {
       await client.delete(`/api/teams/${team.id}`)
@@ -340,19 +332,29 @@ export function Team() {
                       {team.name}
                     </button>
                   )}
-                  <button
-                    type="button"
-                    onClick={() => handleDelete(team)}
-                    data-testid={`team-delete-${team.id}`}
+                  <ConfirmButton
+                    data-mol-id={`team-delete-${team.id}`}
                     aria-label={t(
                       'team.deleteAria',
                       { name: team.name },
                       { defaultValue: 'Delete {{name}}' },
                     )}
-                    className={cm.cn('text-on-surface-variant hover:text-error transition-colors')}
-                  >
-                    <span className="material-symbols-outlined text-[20px]">delete</span>
-                  </button>
+                    label={
+                      <span aria-hidden className="material-symbols-outlined text-[20px]">
+                        delete
+                      </span>
+                    }
+                    confirmLabel={t(
+                      'team.confirmDelete',
+                      { name: team.name },
+                      { defaultValue: 'Delete team "{{name}}"? Objectives will be unlinked.' },
+                    )}
+                    onConfirm={() => handleDelete(team)}
+                    disarmSeconds={6}
+                    color="error"
+                    variant="ghost"
+                    className={cm.cn('transition-colors')}
+                  />
                 </header>
                 <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }))}>
                   <div className={cm.cn(cm.stack(1))}>

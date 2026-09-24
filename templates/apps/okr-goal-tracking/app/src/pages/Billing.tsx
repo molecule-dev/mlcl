@@ -11,6 +11,7 @@ import {
 } from '@molecule/app-billing-react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface OkrLimits {
   maxObjectives: number
@@ -68,7 +69,7 @@ export function Billing() {
   } = usePricingTiers<OkrLimits>()
   const { data: status, execute: refetchStatus } = useBillingStatus<OkrLimits>()
   const { start, loading: startingCheckout, error: startError } = useStartCheckout()
-  const { cancel, loading: canceling, error: cancelError } = useCancelSubscription()
+  const { cancel, error: cancelError } = useCancelSubscription()
 
   const [billingPeriod, setBillingPeriod] = useState<'month' | 'year'>('month')
   const [actionMessage, setActionMessage] = useState<string | null>(null)
@@ -105,19 +106,10 @@ export function Billing() {
     }
   }
 
+  // Confirmation is handled inline by the two-step ConfirmButton (arm →
+  // confirm) — no blocking window.confirm dialog.
   const handleCancel = async (): Promise<void> => {
     setActionMessage(null)
-    if (
-      !window.confirm(
-        t(
-          'billing.confirmCancel',
-          {},
-          { defaultValue: 'Cancel your subscription at the end of the current period?' },
-        ),
-      )
-    ) {
-      return
-    }
     const response = await cancel()
     if (response?.canceled) {
       setActionMessage(
@@ -252,23 +244,26 @@ export function Billing() {
               : t('billing.downloadCurrent', {}, { defaultValue: 'Download summary' })}
           </button>
           {!status?.isFree && (
-            <button
-              type="button"
-              onClick={handleCancel}
-              disabled={canceling}
-              data-testid="cancel-subscription"
+            <ConfirmButton
+              data-mol-id="cancel-subscription"
+              label={t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
+              confirmLabel={t(
+                'billing.confirmCancel',
+                {},
+                { defaultValue: 'Cancel your subscription at the end of the current period?' },
+              )}
+              pendingLabel={t('billing.canceling', {}, { defaultValue: 'Canceling…' })}
+              onConfirm={handleCancel}
+              disarmSeconds={6}
+              color="error"
               className={cm.cn(
                 cm.sp('px', 5),
                 cm.sp('py', 3),
                 cm.fontWeight('bold'),
                 cm.textSize('sm'),
-                'rounded-xl bg-surface/15 backdrop-blur-md border border-surface/20 hover:bg-surface/25 transition-colors disabled:opacity-60',
+                'rounded-xl bg-surface/15 backdrop-blur-md border border-surface/20 hover:bg-surface/25 transition-colors',
               )}
-            >
-              {canceling
-                ? t('billing.canceling', {}, { defaultValue: 'Canceling…' })
-                : t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
-            </button>
+            />
           )}
         </div>
       </section>

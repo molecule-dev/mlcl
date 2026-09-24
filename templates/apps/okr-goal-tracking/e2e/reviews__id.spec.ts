@@ -133,9 +133,13 @@ test.describe('/reviews/:id', () => {
   test('Delete removes the draft and returns to /reviews', async ({ page }) => {
     const { accessToken } = await signup(page)
     const reviewId = await startDraft(page)
-    page.once('dialog', (d) => d.accept())
+    const deleteButton = page.locator('[data-mol-id="review-delete"]')
     const reqs = await captureNetwork(page, async () => {
-      await page.getByTestId('review-delete').click()
+      await deleteButton.click()
+      // First click arms the two-step ConfirmButton; the confirm label must
+      // be showing before the second click commits.
+      await expect(deleteButton).toContainText(/delete this review draft\?/i)
+      await deleteButton.click()
       await page.waitForURL(/\/reviews$/, { timeout: 10000 })
     })
     const deleted = reqs.find(

@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { backendMetricType, type ObjectiveWithKrs, toNumber, uiMetricType } from '../lib/api.js'
 
@@ -184,19 +185,10 @@ export function EditObjective() {
     }
   }
 
-  const handleArchive = async () => {
+  // Confirmation is handled inline by the two-step ConfirmButton (arm →
+  // confirm) — no blocking window.confirm dialog.
+  const handleArchive = async (): Promise<void> => {
     if (!objective) return
-    if (
-      !window.confirm(
-        t(
-          'editObjective.confirmArchive',
-          {},
-          { defaultValue: 'Archive this objective? You can find it later under archived view.' },
-        ),
-      )
-    ) {
-      return
-    }
     try {
       await http.post(`/api/objectives/${objective.id}/archive`, {})
       track({
@@ -291,19 +283,27 @@ export function EditObjective() {
           >
             {t('common.cancel', {}, { defaultValue: 'Cancel' })}
           </Link>
-          <button
-            type="button"
-            onClick={handleArchive}
+          <ConfirmButton
+            data-mol-id="objective-archive"
+            label={t('editObjective.archive', {}, { defaultValue: 'Archive objective' })}
+            confirmLabel={t(
+              'editObjective.confirmArchive',
+              {},
+              {
+                defaultValue: 'Archive this objective? You can find it later under archived view.',
+              },
+            )}
+            onConfirm={handleArchive}
+            disarmSeconds={6}
+            color="error"
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),
               cm.fontWeight('bold'),
               cm.textSize('sm'),
-              'rounded-xl text-error bg-error-light border border-red-100 hover:bg-error-light transition-colors',
+              'rounded-xl bg-error-light border border-red-100 hover:bg-error-light transition-colors',
             )}
-          >
-            {t('editObjective.archive', {}, { defaultValue: 'Archive objective' })}
-          </button>
+          />
         </div>
       </header>
 

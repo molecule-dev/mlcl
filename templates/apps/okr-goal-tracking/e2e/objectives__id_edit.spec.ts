@@ -97,8 +97,12 @@ test.describe('Edit objective /objectives/:id/edit', () => {
     const { accessToken } = await signup(page)
     const obj = await seedObjective(page, accessToken!, { title: 'Edit-archive' })
     await page.goto(APP_BASE + `/objectives/${obj.id}/edit`)
-    page.on('dialog', (d) => d.accept())
-    await page.getByRole('button', { name: /archive objective/i }).click()
+    const archiveButton = page.locator('[data-mol-id="objective-archive"]')
+    await archiveButton.click()
+    // First click arms the two-step ConfirmButton; the confirm label must be
+    // showing before the second click commits.
+    await expect(archiveButton).toContainText(/archive this objective\?/i)
+    await archiveButton.click()
     await page.waitForURL(/\/objectives$/, { timeout: 15000 })
     // Active list (default = archived=false) must not include the archived row.
     const list = await page.request.get(`${API_BASE}/objectives?archived=false`, {

@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useGet, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { ProgressRing } from '../components/ProgressRing.js'
 import { type ObjectiveRow, toNumber, uiStatus } from '../lib/api.js'
@@ -73,7 +74,6 @@ export function ReviewDetail() {
   const [draftRating, setDraftRating] = useState<number | null>(null)
   const [saving, setSaving] = useState(false)
   const [submitting, setSubmitting] = useState(false)
-  const [deleting, setDeleting] = useState(false)
   const [feedback, setFeedback] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
 
@@ -114,23 +114,16 @@ export function ReviewDetail() {
     }
   }
 
+  // Confirmation is handled inline by the two-step ConfirmButton (arm →
+  // confirm) — no blocking window.confirm dialog.
   const handleDelete = async (): Promise<void> => {
     if (!id) return
-    if (
-      !window.confirm(
-        t('reviewDetail.confirmDelete', {}, { defaultValue: 'Delete this review draft?' }),
-      )
-    )
-      return
-    setDeleting(true)
     setError(null)
     try {
       await client.delete(`/api/reviews/${id}`)
       navigate('/reviews')
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
-    } finally {
-      setDeleting(false)
     }
   }
 
@@ -524,23 +517,26 @@ export function ReviewDetail() {
             </button>
           </div>
           {!isCompleted && (
-            <button
-              type="button"
-              onClick={handleDelete}
-              disabled={deleting}
-              data-testid="review-delete"
+            <ConfirmButton
+              data-mol-id="review-delete"
+              label={t('reviewDetail.delete', {}, { defaultValue: 'Delete draft' })}
+              confirmLabel={t(
+                'reviewDetail.confirmDelete',
+                {},
+                { defaultValue: 'Delete this review draft?' },
+              )}
+              pendingLabel={t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })}
+              onConfirm={handleDelete}
+              disarmSeconds={6}
+              color="error"
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),
                 cm.fontWeight('bold'),
                 cm.textSize('xs'),
-                'rounded-xl text-error hover:bg-error-light transition-colors disabled:opacity-60',
+                'rounded-xl transition-colors',
               )}
-            >
-              {deleting
-                ? t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
-                : t('reviewDetail.delete', {}, { defaultValue: 'Delete draft' })}
-            </button>
+            />
           )}
         </aside>
       </section>
