@@ -5,7 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { SettingsPanel } from '../components/SettingsPanel.js'
 import { unwrapList, unwrapObject } from '../lib/api.js'
@@ -87,15 +87,15 @@ export function Settings() {
     }
   }, [http])
 
-  const toggleNotification = async (key: SettingsToggle['key']) => {
-    const next = { ...notifs, [key]: !notifs[key] }
-    setNotifs(next)
+  const toggleNotification = async (key: SettingsToggle['key'], next: boolean) => {
+    const nextNotifs = { ...notifs, [key]: next }
+    setNotifs(nextNotifs)
     setSavedKey(null)
     try {
-      await http.patch('/api/profile/me', { notifications: { [key]: !notifs[key] } })
+      await http.patch('/api/profile/me', { notifications: { [key]: next } })
       void track({
         name: 'preferences.updated',
-        properties: { preference: `notifications.${key}`, value: !notifs[key] },
+        properties: { preference: `notifications.${key}`, value: next },
       })
       setSavedKey(key)
       setTimeout(() => setSavedKey((k) => (k === key ? null : k)), 1500)
@@ -268,24 +268,14 @@ export function Settings() {
                   </p>
                 ) : null}
               </div>
-              <button
-                type="button"
-                role="switch"
-                data-testid={`toggle-${toggle.key}`}
-                aria-checked={toggle.enabled}
-                onClick={() => toggleNotification(toggle.key)}
-                className={cm.cn(
-                  'relative w-12 h-7 rounded-full transition-colors shrink-0',
-                  toggle.enabled ? 'bg-primary' : 'bg-surface-container',
-                )}
-              >
-                <span
-                  className={cm.cn(
-                    'absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow transition-transform',
-                    toggle.enabled ? 'translate-x-5' : '',
-                  )}
-                />
-              </button>
+              <Switch
+                checked={toggle.enabled}
+                onChange={(e) =>
+                  toggleNotification(toggle.key, (e.target as HTMLInputElement).checked)
+                }
+                testId={`toggle-${toggle.key}`}
+                className="shrink-0"
+              />
             </li>
           ))}
         </ul>
