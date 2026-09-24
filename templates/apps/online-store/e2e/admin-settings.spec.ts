@@ -31,4 +31,28 @@ test.describe('/admin/settings', () => {
       await expect(page.locator(`a[href="${href}"]`)).toBeVisible()
     }
   })
+
+  // The settings toggles are the shared @molecule Switch (role="switch" +
+  // aria-checked), not hand-rolled buttons — assert the REAL interaction:
+  // a click flips aria-checked through the native change event.
+  test('settings switches flip aria-checked on click', async ({ page }) => {
+    await signup(page)
+    await promoteToAdmin(page)
+    await page.goto(APP_BASE + '/admin/settings')
+    await page.waitForLoadState('networkidle', { timeout: 8_000 }).catch(() => {})
+
+    const stripe = page.locator('[data-mol-id="toggle-stripe"]')
+    await expect(stripe).toBeVisible({ timeout: 15_000 })
+    const stripeBefore = (await stripe.getAttribute('aria-checked')) === 'true'
+    await stripe.click()
+    await expect(stripe).toHaveAttribute('aria-checked', stripeBefore ? 'false' : 'true')
+    await stripe.click()
+    await expect(stripe).toHaveAttribute('aria-checked', stripeBefore ? 'true' : 'false')
+
+    const marketing = page.locator('[data-mol-id="notif-marketing"]')
+    await expect(marketing).toBeVisible()
+    const marketingBefore = (await marketing.getAttribute('aria-checked')) === 'true'
+    await marketing.click()
+    await expect(marketing).toHaveAttribute('aria-checked', marketingBefore ? 'false' : 'true')
+  })
 })

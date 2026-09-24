@@ -1,5 +1,6 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 interface PaymentSettings {
   stripeEnabled: boolean
   paypalEnabled: boolean
@@ -50,30 +51,16 @@ function AdminPaymentSettingsCard({
               </p>
             </div>
           </div>
-          <button
-            role="switch"
-            aria-checked={payment.stripeEnabled}
-            className={cm.cn(
-              cm.w(10),
-              cm.h(5),
-              cm.roundedFull,
-              cm.flex({ align: 'center' }),
-              cm.sp('px', 1),
-              'relative',
-            )}
+          <Switch
+            checked={payment.stripeEnabled}
+            onChange={(e) =>
+              onChange({ ...payment, stripeEnabled: (e.target as HTMLInputElement).checked })
+            }
+            size="md"
+            color="success"
             data-mol-id="toggle-stripe"
-            style={{
-              backgroundColor: payment.stripeEnabled
-                ? 'var(--color-in-stock)'
-                : 'var(--color-toggle-off)',
-            }}
-            onClick={() => onChange({ ...payment, stripeEnabled: !payment.stripeEnabled })}
-          >
-            <div
-              className={cm.cn(cm.w(3), cm.h(3), cm.roundedFull, 'bg-surface')}
-              style={{ marginLeft: payment.stripeEnabled ? 'auto' : '0' }}
-            ></div>
-          </button>
+            aria-label={t('adminPaymentSettingsCard.stripeName', {}, { defaultValue: 'Stripe' })}
+          />
         </div>
         <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }))}>
@@ -102,30 +89,16 @@ function AdminPaymentSettingsCard({
               </p>
             </div>
           </div>
-          <button
-            role="switch"
-            aria-checked={payment.paypalEnabled}
-            className={cm.cn(
-              cm.w(10),
-              cm.h(5),
-              cm.roundedFull,
-              cm.flex({ align: 'center' }),
-              cm.sp('px', 1),
-              'relative',
-            )}
+          <Switch
+            checked={payment.paypalEnabled}
+            onChange={(e) =>
+              onChange({ ...payment, paypalEnabled: (e.target as HTMLInputElement).checked })
+            }
+            size="md"
+            color="success"
             data-mol-id="toggle-paypal"
-            style={{
-              backgroundColor: payment.paypalEnabled
-                ? 'var(--color-in-stock)'
-                : 'var(--color-toggle-off)',
-            }}
-            onClick={() => onChange({ ...payment, paypalEnabled: !payment.paypalEnabled })}
-          >
-            <div
-              className={cm.cn(cm.w(3), cm.h(3), cm.roundedFull, 'bg-surface')}
-              style={{ marginLeft: payment.paypalEnabled ? 'auto' : '0' }}
-            ></div>
-          </button>
+            aria-label={t('adminPaymentSettingsCard.paypalName', {}, { defaultValue: 'PayPal' })}
+          />
         </div>
         <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }))}>
@@ -154,30 +127,20 @@ function AdminPaymentSettingsCard({
               </p>
             </div>
           </div>
-          <button
-            role="switch"
-            aria-checked={payment.applePayEnabled}
-            className={cm.cn(
-              cm.w(10),
-              cm.h(5),
-              cm.roundedFull,
-              cm.flex({ align: 'center' }),
-              cm.sp('px', 1),
-              'relative',
-            )}
+          <Switch
+            checked={payment.applePayEnabled}
+            onChange={(e) =>
+              onChange({ ...payment, applePayEnabled: (e.target as HTMLInputElement).checked })
+            }
+            size="md"
+            color="success"
             data-mol-id="toggle-apple-pay"
-            style={{
-              backgroundColor: payment.applePayEnabled
-                ? 'var(--color-in-stock)'
-                : 'var(--color-toggle-off)',
-            }}
-            onClick={() => onChange({ ...payment, applePayEnabled: !payment.applePayEnabled })}
-          >
-            <div
-              className={cm.cn(cm.w(3), cm.h(3), cm.roundedFull, 'bg-surface')}
-              style={{ marginLeft: payment.applePayEnabled ? 'auto' : '0' }}
-            ></div>
-          </button>
+            aria-label={t(
+              'adminPaymentSettingsCard.applePayName',
+              {},
+              { defaultValue: 'Apple Pay' },
+            )}
+          />
         </div>
       </div>
     </section>

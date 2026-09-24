@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { useDevice, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { unpackListPayload } from '../utils/httpUnpack.js'
 
@@ -28,8 +29,6 @@ function SettingsDevicesCard() {
   const { deviceInfo, isOnline } = useDevice()
   const [devices, setDevices] = useState<Device[]>([])
   const [loading, setLoading] = useState(true)
-  const [confirmingId, setConfirmingId] = useState<string | null>(null)
-  const [revokingId, setRevokingId] = useState<string | null>(null)
 
   const load = useCallback(async () => {
     try {
@@ -48,17 +47,14 @@ function SettingsDevicesCard() {
 
   // Revoke (sign out) a device: deleting the row server-side rejects that
   // device's session on its next request, so it is actually signed out — not
-  // just hidden. Refetch on success so the list reflects the change.
+  // just hidden. Refetch on success so the list reflects the change. Errors
+  // are best-effort — the row stays so the user can retry the revoke.
   const revoke = async (id: string) => {
-    setRevokingId(id)
     try {
       await http.delete(`/api/devices/${id}`)
-      setConfirmingId(null)
       await load()
     } catch (_error) {
-      // Best-effort — keep the row so the user can retry the revoke.
-    } finally {
-      setRevokingId(null)
+      // Keep the row so the user can retry the revoke.
     }
   }
 
@@ -154,70 +150,26 @@ function SettingsDevicesCard() {
                         {t('settingsDevices.pushEnabled', {}, { defaultValue: 'Notifications on' })}
                       </span>
                     )}
-                    {!device.isCurrent &&
-                      (confirmingId === device.id ? (
-                        <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-                          <button
-                            className={cm.cn(
-                              cm.textSize('xs'),
-                              cm.fontWeight('semibold'),
-                              'text-foreground-secondary hover:text-foreground transition-colors',
-                            )}
-                            type="button"
-                            onClick={() => setConfirmingId(null)}
-                            disabled={revokingId === device.id}
-                          >
-                            {t('common.cancel', {}, { defaultValue: 'Cancel' })}
-                          </button>
-                          <button
-                            className={cm.cn(
-                              cm.sp('px', 3),
-                              cm.sp('py', 1),
-                              cm.textSize('xs'),
-                              cm.fontWeight('semibold'),
-                              'bg-sale text-white rounded-md hover:bg-red-700 transition-all',
-                            )}
-                            type="button"
-                            data-mol-id="device-revoke-confirm"
-                            onClick={() => revoke(device.id)}
-                            disabled={revokingId === device.id}
-                          >
-                            {revokingId === device.id
-                              ? t(
-                                  'settingsDevices.signingOut',
-                                  {},
-                                  { defaultValue: 'Signing out…' },
-                                )
-                              : t('settingsDevices.signOut', {}, { defaultValue: 'Sign out' })}
-                          </button>
-                        </div>
-                      ) : (
-                        <button
-                          className={cm.cn(
-                            cm.textSize('xs'),
-                            cm.fontWeight('semibold'),
-                            'text-sale hover:underline transition-colors',
-                          )}
-                          type="button"
-                          data-mol-id="device-revoke"
-                          onClick={() => setConfirmingId(device.id)}
-                        >
-                          {t('settingsDevices.signOut', {}, { defaultValue: 'Sign out' })}
-                        </button>
-                      ))}
+                    {!device.isCurrent && (
+                      <ConfirmButton
+                        label={t('settingsDevices.signOut', {}, { defaultValue: 'Sign out' })}
+                        confirmLabel={t(
+                          'settingsDevices.signOutConfirm',
+                          {},
+                          { defaultValue: 'Confirm sign out?' },
+                        )}
+                        pendingLabel={t(
+                          'settingsDevices.signingOut',
+                          {},
+                          { defaultValue: 'Signing out…' },
+                        )}
+                        onConfirm={() => revoke(device.id)}
+                        disarmSeconds={6}
+                        testId="device-revoke"
+                      />
+                    )}
                   </div>
                 </div>
-                {confirmingId === device.id && (
-                  <p className={cm.cn(cm.textSize('xs'), cm.textMuted, cm.sp('mt', 1))}>
-                    {t(
-                      'settingsDevices.revokeWarning',
-                      {},
-                      {
-                        defaultValue: "This device's access will be revoked shortly. Sign it out?",
-                      },
-                    )}
-                  </p>
-                )}
               </li>
             ))}
           </ul>

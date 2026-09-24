@@ -6,6 +6,7 @@ interface NotificationSettings {
 }
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 function AdminNotificationsSettingsCard({
   notifications,
   onChange,
@@ -34,32 +35,23 @@ function AdminNotificationsSettingsCard({
               { defaultValue: 'Order Confirmation' },
             )}
           </span>
-          <button
-            role="switch"
-            aria-checked={notifications.orderConfirmation}
-            className={cm.cn(
-              cm.w(10),
-              cm.h(5),
-              cm.roundedFull,
-              cm.flex({ align: 'center' }),
-              cm.sp('px', 1),
-              'relative',
-            )}
-            data-mol-id="notif-order"
-            style={{
-              backgroundColor: notifications.orderConfirmation
-                ? 'var(--color-in-stock)'
-                : 'var(--color-toggle-off)',
-            }}
-            onClick={() =>
-              onChange({ ...notifications, orderConfirmation: !notifications.orderConfirmation })
+          <Switch
+            checked={notifications.orderConfirmation}
+            onChange={(e) =>
+              onChange({
+                ...notifications,
+                orderConfirmation: (e.target as HTMLInputElement).checked,
+              })
             }
-          >
-            <div
-              className={cm.cn(cm.w(3), cm.h(3), cm.roundedFull, 'bg-surface')}
-              style={{ marginLeft: notifications.orderConfirmation ? 'auto' : '0' }}
-            ></div>
-          </button>
+            size="md"
+            color="success"
+            data-mol-id="notif-order"
+            aria-label={t(
+              'adminNotificationsSettings.orderConfirmation',
+              {},
+              { defaultValue: 'Order Confirmation' },
+            )}
+          />
         </div>
         <div className={cm.flex({ align: 'center', justify: 'between' })}>
           <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}>
@@ -69,32 +61,23 @@ function AdminNotificationsSettingsCard({
               { defaultValue: 'Shipping Updates' },
             )}
           </span>
-          <button
-            role="switch"
-            aria-checked={notifications.shippingUpdates}
-            className={cm.cn(
-              cm.w(10),
-              cm.h(5),
-              cm.roundedFull,
-              cm.flex({ align: 'center' }),
-              cm.sp('px', 1),
-              'relative',
-            )}
-            data-mol-id="notif-shipping"
-            style={{
-              backgroundColor: notifications.shippingUpdates
-                ? 'var(--color-in-stock)'
-                : 'var(--color-toggle-off)',
-            }}
-            onClick={() =>
-              onChange({ ...notifications, shippingUpdates: !notifications.shippingUpdates })
+          <Switch
+            checked={notifications.shippingUpdates}
+            onChange={(e) =>
+              onChange({
+                ...notifications,
+                shippingUpdates: (e.target as HTMLInputElement).checked,
+              })
             }
-          >
-            <div
-              className={cm.cn(cm.w(3), cm.h(3), cm.roundedFull, 'bg-surface')}
-              style={{ marginLeft: notifications.shippingUpdates ? 'auto' : '0' }}
-            ></div>
-          </button>
+            size="md"
+            color="success"
+            data-mol-id="notif-shipping"
+            aria-label={t(
+              'adminNotificationsSettings.shippingUpdates',
+              {},
+              { defaultValue: 'Shipping Updates' },
+            )}
+          />
         </div>
         <div className={cm.flex({ align: 'center', justify: 'between' })}>
           <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}>
@@ -104,32 +87,23 @@ function AdminNotificationsSettingsCard({
               { defaultValue: 'Marketing Emails' },
             )}
           </span>
-          <button
-            role="switch"
-            aria-checked={notifications.marketingEmails}
-            className={cm.cn(
-              cm.w(10),
-              cm.h(5),
-              cm.roundedFull,
-              cm.flex({ align: 'center' }),
-              cm.sp('px', 1),
-              'relative',
-            )}
-            data-mol-id="notif-marketing"
-            style={{
-              backgroundColor: notifications.marketingEmails
-                ? 'var(--color-in-stock)'
-                : 'var(--color-toggle-off)',
-            }}
-            onClick={() =>
-              onChange({ ...notifications, marketingEmails: !notifications.marketingEmails })
+          <Switch
+            checked={notifications.marketingEmails}
+            onChange={(e) =>
+              onChange({
+                ...notifications,
+                marketingEmails: (e.target as HTMLInputElement).checked,
+              })
             }
-          >
-            <div
-              className={cm.cn(cm.w(3), cm.h(3), cm.roundedFull, 'bg-surface')}
-              style={{ marginLeft: notifications.marketingEmails ? 'auto' : '0' }}
-            ></div>
-          </button>
+            size="md"
+            color="success"
+            data-mol-id="notif-marketing"
+            aria-label={t(
+              'adminNotificationsSettings.marketingEmails',
+              {},
+              { defaultValue: 'Marketing Emails' },
+            )}
+          />
         </div>
         <div className={cm.flex({ align: 'center', justify: 'between' })}>
           <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}>
@@ -139,32 +113,23 @@ function AdminNotificationsSettingsCard({
               { defaultValue: 'Review Requests' },
             )}
           </span>
-          <button
-            role="switch"
-            aria-checked={notifications.reviewRequests}
-            className={cm.cn(
-              cm.w(10),
-              cm.h(5),
-              cm.roundedFull,
-              cm.flex({ align: 'center' }),
-              cm.sp('px', 1),
-              'relative',
-            )}
-            data-mol-id="notif-review"
-            style={{
-              backgroundColor: notifications.reviewRequests
-                ? 'var(--color-in-stock)'
-                : 'var(--color-toggle-off)',
-            }}
-            onClick={() =>
-              onChange({ ...notifications, reviewRequests: !notifications.reviewRequests })
+          <Switch
+            checked={notifications.reviewRequests}
+            onChange={(e) =>
+              onChange({
+                ...notifications,
+                reviewRequests: (e.target as HTMLInputElement).checked,
+              })
             }
-          >
-            <div
-              className={cm.cn(cm.w(3), cm.h(3), cm.roundedFull, 'bg-surface')}
-              style={{ marginLeft: notifications.reviewRequests ? 'auto' : '0' }}
-            ></div>
-          </button>
+            size="md"
+            color="success"
+            data-mol-id="notif-review"
+            aria-label={t(
+              'adminNotificationsSettings.reviewRequests',
+              {},
+              { defaultValue: 'Review Requests' },
+            )}
+          />
         </div>
       </div>
     </section>

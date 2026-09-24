@@ -1,5 +1,6 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 interface TaxSettings {
   automaticTax: boolean
   taxRate: number
@@ -42,30 +43,20 @@ function AdminTaxSettingsCard({
               )}
             </span>
           </div>
-          <button
-            role="switch"
-            aria-checked={tax.automaticTax}
-            className={cm.cn(
-              cm.w(10),
-              cm.h(5),
-              cm.roundedFull,
-              cm.flex({ align: 'center' }),
-              cm.sp('px', 1),
-              'relative',
-            )}
+          <Switch
+            checked={tax.automaticTax}
+            onChange={(e) =>
+              onChange({ ...tax, automaticTax: (e.target as HTMLInputElement).checked })
+            }
+            size="md"
+            color="success"
             data-mol-id="toggle-auto-tax"
-            style={{
-              backgroundColor: tax.automaticTax
-                ? 'var(--color-in-stock)'
-                : 'var(--color-toggle-off)',
-            }}
-            onClick={() => onChange({ ...tax, automaticTax: !tax.automaticTax })}
-          >
-            <div
-              className={cm.cn(cm.w(3), cm.h(3), cm.roundedFull, 'bg-surface')}
-              style={{ marginLeft: tax.automaticTax ? 'auto' : '0' }}
-            ></div>
-          </button>
+            aria-label={t(
+              'adminTaxSettingsCard.automaticTaxLabel',
+              {},
+              { defaultValue: 'Automatic Tax Calculation' },
+            )}
+          />
         </div>
         <div className={cm.grid({ cols: 2, gap: 'md' })}>
           <div>
