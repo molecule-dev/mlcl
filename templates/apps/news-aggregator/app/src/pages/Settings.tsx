@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 interface ToggleRowProps {
   id: string
@@ -34,27 +34,13 @@ function ToggleRow({ id, title, description, value, disabled, onChange }: Toggle
         </label>
         <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant mt-1')}>{description}</p>
       </div>
-      <button
+      <Switch
         id={id}
-        type="button"
-        role="switch"
-        aria-checked={value}
+        checked={value}
         disabled={disabled}
-        onClick={() => onChange(!value)}
-        className={cm.cn(
-          'relative inline-flex h-6 w-11 items-center rounded-full transition-colors flex-shrink-0',
-          disabled ? 'opacity-60 cursor-not-allowed' : '',
-          value ? 'bg-primary' : 'bg-on-surface/20',
-        )}
-      >
-        <span
-          aria-hidden="true"
-          className={cm.cn(
-            'inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform',
-            value ? 'translate-x-5' : 'translate-x-0.5',
-          )}
-        />
-      </button>
+        aria-label={title}
+        onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
+      />
     </div>
   )
 }
