@@ -4,6 +4,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -609,19 +610,19 @@ function PreferencesSection({
       >
         {t('nav.preferences', {}, { defaultValue: 'Preferences' })}
       </h2>
-      <Toggle
+      <Switch
         testId="pref-push"
         label={t('settings.pushNotifications', {}, { defaultValue: 'Push notifications' })}
         checked={preferences.pushEnabled}
-        onChange={(v) => onPatch({ pushEnabled: v })}
+        onChange={(e) => onPatch({ pushEnabled: (e.target as HTMLInputElement).checked })}
       />
-      <Toggle
+      <Switch
         testId="pref-email"
         label={t('account.preferences.email', {}, { defaultValue: 'Email updates' })}
         checked={preferences.emailEnabled}
-        onChange={(v) => onPatch({ emailEnabled: v })}
+        onChange={(e) => onPatch({ emailEnabled: (e.target as HTMLInputElement).checked })}
       />
-      <Toggle
+      <Switch
         testId="pref-price-drops"
         label={t(
           'account.preferences.priceDrops',
@@ -629,45 +630,8 @@ function PreferencesSection({
           { defaultValue: 'Price-drop alerts on saved properties' },
         )}
         checked={preferences.priceDropAlerts}
-        onChange={(v) => onPatch({ priceDropAlerts: v })}
+        onChange={(e) => onPatch({ priceDropAlerts: (e.target as HTMLInputElement).checked })}
       />
     </section>
-  )
-}
-
-function Toggle({
-  testId,
-  label,
-  checked,
-  onChange,
-}: {
-  testId: string
-  label: string
-  checked: boolean
-  onChange: (v: boolean) => void
-}) {
-  const cm = getClassMap()
-  return (
-    <label className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'cursor-pointer')}>
-      <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>{label}</span>
-      <button
-        type="button"
-        data-testid={testId}
-        role="switch"
-        aria-checked={checked}
-        onClick={() => onChange(!checked)}
-        className={cm.cn(
-          'relative inline-flex h-6 w-11 items-center rounded-full transition-colors',
-          checked ? 'bg-primary' : 'bg-outline-variant',
-        )}
-      >
-        <span
-          className={cm.cn(
-            'inline-block h-4 w-4 rounded-full bg-on-primary transition-transform',
-            checked ? 'translate-x-6' : 'translate-x-1',
-          )}
-        />
-      </button>
-    </label>
   )
 }
