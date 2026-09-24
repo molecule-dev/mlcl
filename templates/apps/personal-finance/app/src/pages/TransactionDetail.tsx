@@ -6,8 +6,8 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import FinanceShell from '../components/FinanceShell.js'
 import LocationInsightCard from '../components/LocationInsightCard.js'
-import SideNavBar from '../components/SideNavBar.js'
 import SimilarTransactionsCard from '../components/SimilarTransactionsCard.js'
 import TransactionActionButtons from '../components/TransactionActionButtons.js'
 import TransactionDetailBreadcrumb from '../components/TransactionDetailBreadcrumb.js'
@@ -106,146 +106,148 @@ function TransactionDetail() {
 
   if (loading) {
     return (
-      <div className={cm.cn('text-on-background bg-background antialiased')}>
-        <SideNavBar />
-        <TransactionDetailTopNavBar />
-        <main
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            cm.sp('p', 12),
-            'max-w-6xl',
-            cm.mxAuto,
-            'md:ml-64 py-32',
-          )}
-        >
-          <div className={cm.cn(cm.textSize('sm'), 'text-foreground-tertiary')}>
-            {t('transactionDetail.loading', {}, { defaultValue: 'Loading transaction...' })}
+      <FinanceShell>
+        <div className={cm.cn('text-on-background bg-background antialiased')}>
+          <TransactionDetailTopNavBar />
+          <div
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center' }),
+              cm.sp('p', 12),
+              'max-w-6xl',
+              cm.mxAuto,
+            )}
+          >
+            <div className={cm.cn(cm.textSize('sm'), 'text-foreground-tertiary')}>
+              {t('transactionDetail.loading', {}, { defaultValue: 'Loading transaction...' })}
+            </div>
           </div>
-        </main>
-      </div>
+        </div>
+      </FinanceShell>
     )
   }
 
   if (error || !transaction) {
     return (
-      <div className={cm.cn('text-on-background bg-background antialiased')}>
-        <SideNavBar />
-        <TransactionDetailTopNavBar />
-        <main className={cm.cn(cm.sp('p', 12), 'max-w-6xl', cm.mxAuto, 'md:ml-64')}>
-          <TransactionDetailBreadcrumb />
-          <div
-            className={cm.cn(
-              cm.sp('p', 10),
-              cm.textCenter,
-              'bg-surface-container-lowest rounded-[2rem] shadow-sm',
-            )}
-          >
-            <p className={cm.cn(cm.fontWeight('bold'), cm.sp('mb', 4), 'text-on-surface')}>
-              {error ??
-                t('transactionDetail.notFound', {}, { defaultValue: 'Transaction not found' })}
-            </p>
-            <Link
-              to="/transactions"
+      <FinanceShell>
+        <div className={cm.cn('text-on-background bg-background antialiased')}>
+          <TransactionDetailTopNavBar />
+          <div className={cm.cn(cm.sp('p', 12), 'max-w-6xl', cm.mxAuto)}>
+            <TransactionDetailBreadcrumb />
+            <div
               className={cm.cn(
-                cm.textPrimary,
-                cm.fontWeight('bold'),
-                cm.sp('py', 3),
-                cm.sp('px', 8),
-                'bg-surface-container-high font-manrope rounded-2xl',
+                cm.sp('p', 10),
+                cm.textCenter,
+                'bg-surface-container-lowest rounded-[2rem] shadow-sm',
               )}
             >
-              {t(
-                'transactionDetail.backToTransactions',
-                {},
-                { defaultValue: 'Back to Transactions' },
-              )}
-            </Link>
+              <p className={cm.cn(cm.fontWeight('bold'), cm.sp('mb', 4), 'text-on-surface')}>
+                {error ??
+                  t('transactionDetail.notFound', {}, { defaultValue: 'Transaction not found' })}
+              </p>
+              <Link
+                to="/transactions"
+                className={cm.cn(
+                  cm.textPrimary,
+                  cm.fontWeight('bold'),
+                  cm.sp('py', 3),
+                  cm.sp('px', 8),
+                  'bg-surface-container-high font-manrope rounded-2xl',
+                )}
+              >
+                {t(
+                  'transactionDetail.backToTransactions',
+                  {},
+                  { defaultValue: 'Back to Transactions' },
+                )}
+              </Link>
+            </div>
           </div>
-        </main>
-      </div>
+        </div>
+      </FinanceShell>
     )
   }
 
   return (
-    <div className={cm.cn('text-on-background bg-background antialiased')}>
-      <SideNavBar />
-      <TransactionDetailTopNavBar />
-      {/* Main Content Area */}
-      <main className={cm.cn(cm.sp('p', 12), 'max-w-6xl', cm.mxAuto, 'md:ml-64')}>
-        <TransactionDetailBreadcrumb />
-        {showDeleteConfirm && (
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'between' }),
-              cm.sp('mb', 8),
-              cm.sp('p', 6),
-              'bg-error-light border border-red-200 rounded-2xl',
-            )}
-          >
-            <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'text-error')}>
-              {t(
-                'transactionDetail.deleteConfirmMessage',
-                {},
-                {
-                  defaultValue:
-                    'Are you sure you want to delete this transaction? This cannot be undone.',
-                },
+    <FinanceShell>
+      <div className={cm.cn('text-on-background bg-background antialiased')}>
+        <TransactionDetailTopNavBar />
+        {/* Main Content Area */}
+        <div className={cm.cn(cm.sp('p', 12), 'max-w-6xl', cm.mxAuto)}>
+          <TransactionDetailBreadcrumb />
+          {showDeleteConfirm && (
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'between' }),
+                cm.sp('mb', 8),
+                cm.sp('p', 6),
+                'bg-error-light border border-red-200 rounded-2xl',
               )}
-            </p>
-            <div className={cm.cn(cm.flex({ gap: 'sm' }), cm.sp('ml', 6))}>
-              <button
-                onClick={() => setShowDeleteConfirm(false)}
-                className={cm.cn(
-                  cm.textSize('sm'),
-                  cm.fontWeight('bold'),
-                  cm.sp('px', 4),
-                  cm.sp('py', 2),
-                  'text-foreground-secondary rounded-xl hover:bg-surface-secondary transition-colors',
+            >
+              <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'text-error')}>
+                {t(
+                  'transactionDetail.deleteConfirmMessage',
+                  {},
+                  {
+                    defaultValue:
+                      'Are you sure you want to delete this transaction? This cannot be undone.',
+                  },
                 )}
-              >
-                {t('common.cancel', {}, { defaultValue: 'Cancel' })}
-              </button>
-              <button
-                onClick={handleDelete}
-                disabled={deleting}
-                className={cm.cn(
-                  cm.textSize('sm'),
-                  cm.fontWeight('bold'),
-                  cm.sp('px', 4),
-                  cm.sp('py', 2),
-                  'text-white bg-red-600 rounded-xl hover:bg-red-700 transition-colors disabled:opacity-50',
-                )}
-              >
-                {deleting
-                  ? t('settings.deleteAccountModal.deleting', {}, { defaultValue: 'Deleting...' })
-                  : t('transactionDetail.confirmDelete', {}, { defaultValue: 'Yes, Delete' })}
-              </button>
+              </p>
+              <div className={cm.cn(cm.flex({ gap: 'sm' }), cm.sp('ml', 6))}>
+                <button
+                  onClick={() => setShowDeleteConfirm(false)}
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.fontWeight('bold'),
+                    cm.sp('px', 4),
+                    cm.sp('py', 2),
+                    'text-foreground-secondary rounded-xl hover:bg-surface-secondary transition-colors',
+                  )}
+                >
+                  {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+                </button>
+                <button
+                  onClick={handleDelete}
+                  disabled={deleting}
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.fontWeight('bold'),
+                    cm.sp('px', 4),
+                    cm.sp('py', 2),
+                    'text-white bg-red-600 rounded-xl hover:bg-red-700 transition-colors disabled:opacity-50',
+                  )}
+                >
+                  {deleting
+                    ? t('settings.deleteAccountModal.deleting', {}, { defaultValue: 'Deleting...' })
+                    : t('transactionDetail.confirmDelete', {}, { defaultValue: 'Yes, Delete' })}
+                </button>
+              </div>
+            </div>
+          )}
+          <div className={cm.cn(cm.grid({ cols: 1, gap: 'xl' }), 'lg:grid-cols-12 items-start')}>
+            {/* Left Column: Primary Details */}
+            <div className={cm.cn(cm.stack(8), 'lg:col-span-7')}>
+              {/* Transaction Header Card */}
+              <TransactionHeaderCard transaction={transaction} formatCurrency={formatCurrency} />
+              {/* Details Card */}
+              <TransactionDetailsCard transaction={transaction} />
+            </div>
+            {/* Right Column: Secondary Context & Actions */}
+            <div className={cm.cn(cm.stack(8), 'lg:col-span-5')}>
+              {/* Action Buttons */}
+              <TransactionActionButtons
+                onEdit={() => navigate('/transactions')}
+                onDelete={() => setShowDeleteConfirm(true)}
+              />
+              {/* Similar Transactions */}
+              <SimilarTransactionsCard similar={similar} formatCurrency={formatCurrency} />
+              {/* Location Insight (Visual Anchor) */}
+              <LocationInsightCard location={transaction.merchant_location} />
             </div>
           </div>
-        )}
-        <div className={cm.cn(cm.grid({ cols: 1, gap: 'xl' }), 'lg:grid-cols-12 items-start')}>
-          {/* Left Column: Primary Details */}
-          <div className={cm.cn(cm.stack(8), 'lg:col-span-7')}>
-            {/* Transaction Header Card */}
-            <TransactionHeaderCard transaction={transaction} formatCurrency={formatCurrency} />
-            {/* Details Card */}
-            <TransactionDetailsCard transaction={transaction} />
-          </div>
-          {/* Right Column: Secondary Context & Actions */}
-          <div className={cm.cn(cm.stack(8), 'lg:col-span-5')}>
-            {/* Action Buttons */}
-            <TransactionActionButtons
-              onEdit={() => navigate('/transactions')}
-              onDelete={() => setShowDeleteConfirm(true)}
-            />
-            {/* Similar Transactions */}
-            <SimilarTransactionsCard similar={similar} formatCurrency={formatCurrency} />
-            {/* Location Insight (Visual Anchor) */}
-            <LocationInsightCard location={transaction.merchant_location} />
-          </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </FinanceShell>
   )
 }
 

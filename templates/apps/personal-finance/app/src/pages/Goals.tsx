@@ -7,12 +7,11 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import BottomNavBar from '../components/BottomNavBar.js'
+import FinanceShell from '../components/FinanceShell.js'
 import GoalsBentoGrid from '../components/GoalsBentoGrid.js'
 import GoalsEmptyStateCta from '../components/GoalsEmptyStateCta.js'
 import GoalsFooter from '../components/GoalsFooter.js'
 import GoalsPageHeader from '../components/GoalsPageHeader.js'
-import SideNavBar from '../components/SideNavBar.js'
 
 interface Goal {
   id: string
@@ -53,17 +52,8 @@ function Goals() {
   }, [http, t])
 
   return (
-    <div className={cm.cn(cm.flex(), cm.minH('screen'), 'bg-background text-on-background')}>
-      <SideNavBar />
-      <main
-        className={cm.cn(
-          cm.flex1,
-          cm.sp('p', 10),
-          'max-w-7xl pb-28 md:pb-10',
-          cm.mxAuto,
-          'md:ml-64',
-        )}
-      >
+    <FinanceShell>
+      <div className={cm.cn(cm.flex1, cm.sp('p', 10), 'max-w-7xl', cm.mxAuto)}>
         <GoalsPageHeader onAddGoal={() => navigate('/goals/new')} showForm={false} />
         {loading ? (
           <div
@@ -106,10 +96,8 @@ function Goals() {
           <GoalsEmptyStateCta onAddGoal={() => navigate('/goals/new')} />
         )}
         <GoalsFooter />
-      </main>
-      {/* Mobile Navigation (Fixed Bottom) */}
-      <BottomNavBar />
-    </div>
+      </div>
+    </FinanceShell>
   )
 }
 

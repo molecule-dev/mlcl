@@ -12,8 +12,8 @@ import AccountHeaderCard from '../components/AccountHeaderCard.js'
 import AccountRecentTransactions from '../components/AccountRecentTransactions.js'
 import AddTransactionFab from '../components/AddTransactionFab.js'
 import BalanceHistoryCard from '../components/BalanceHistoryCard.js'
+import FinanceShell from '../components/FinanceShell.js'
 import MonthlyCashFlowCard from '../components/MonthlyCashFlowCard.js'
-import SideNavBar from '../components/SideNavBar.js'
 interface Account {
   id: string
   name: string
@@ -121,9 +121,8 @@ function AccountDetail() {
   }
 
   return (
-    <div className={cm.cn('bg-background text-on-background selection:bg-primary-fixed-dim')}>
-      <SideNavBar />
-      <main className={cm.cn(cm.minH('screen'), 'md:ml-64')}>
+    <FinanceShell>
+      <div className={cm.cn('bg-background text-on-background selection:bg-primary-fixed-dim')}>
         <AccountDetailTopNavBar account={account} />
         <div
           className={cm.cn(cm.sp('px', 12), cm.sp('py', 8), 'max-w-7xl', cm.mxAuto, cm.stack(8))}
@@ -136,9 +135,9 @@ function AccountDetail() {
             <AccountDetailFooter account={account} />
           </div>
         </div>
-      </main>
-      <AddTransactionFab onClick={() => navigate('/transactions/new?accountId=' + id)} />
-    </div>
+        <AddTransactionFab onClick={() => navigate('/transactions/new?accountId=' + id)} />
+      </div>
+    </FinanceShell>
   )
 }
 

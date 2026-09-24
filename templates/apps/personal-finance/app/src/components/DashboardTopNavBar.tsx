@@ -36,7 +36,7 @@ function DashboardTopNavBar({
         cm.flex({ justify: 'between', align: 'center' }),
         cm.w('full'),
         cm.sp('py', 4),
-        'pl-4 pr-4 md:pr-8 md:pl-64 fixed top-0 z-50 bg-surface/80 backdrop-blur-xl',
+        'pl-4 pr-4 md:pr-8 sticky top-0 z-40 bg-surface/80 backdrop-blur-xl',
       )}
     >
       <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-4')}>

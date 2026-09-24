@@ -12,8 +12,8 @@ import AddTransactionFab from '../components/AddTransactionFab.js'
 import AddTransactionFormActions from '../components/AddTransactionFormActions.js'
 import AddTransactionHeader from '../components/AddTransactionHeader.js'
 import AddTransactionInfoPanels from '../components/AddTransactionInfoPanels.js'
+import FinanceShell from '../components/FinanceShell.js'
 import RecurringTransactionPanel from '../components/RecurringTransactionPanel.js'
-import SideNavBar from '../components/SideNavBar.js'
 
 interface Category {
   id: string
@@ -102,347 +102,355 @@ function AddTransaction() {
         'bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed',
       )}
     >
-      <SideNavBar />
-      <main className={cm.cn(cm.minH('screen'), 'md:ml-64 bg-surface-container')}>
-        <AddTransactionHeader />
-        <section
-          className={cm.cn(cm.sp('px', 12), cm.sp('py', 12), cm.flex({ justify: 'center' }))}
-        >
-          <div
-            className={cm.cn(
-              cm.w('full'),
-              'max-w-4xl',
-              cm.sp('p', 10),
-              'bg-surface-container-lowest rounded-3xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.04)]',
-            )}
+      <FinanceShell>
+        <div className={cm.cn('bg-surface-container')}>
+          <AddTransactionHeader />
+          <section
+            className={cm.cn(cm.sp('px', 12), cm.sp('py', 12), cm.flex({ justify: 'center' }))}
           >
-            <form className={cm.stack(10)} onSubmit={handleSubmit}>
-              {error && (
-                <div
-                  role="alert"
-                  className={cm.cn(
-                    cm.textSize('sm'),
-                    cm.fontWeight('medium'),
-                    cm.sp('p', 3),
-                    cm.sp('mb', 4),
-                    'text-error bg-error-light rounded-lg',
-                  )}
-                >
-                  {error}
-                </div>
+            <div
+              className={cm.cn(
+                cm.w('full'),
+                'max-w-4xl',
+                cm.sp('p', 10),
+                'bg-surface-container-lowest rounded-3xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.04)]',
               )}
-              <AddTransactionAmountSection
-                type={formData.type}
-                onTypeChange={(type) => setFormData((f) => ({ ...f, type }))}
-                amount={formData.amount}
-                onAmountChange={(amount) => setFormData((f) => ({ ...f, amount }))}
-              />
-              <div className={cm.cn(cm.grid({ cols: 2, gap: 'none' }), 'gap-x-12 gap-y-8')}>
-                <div className={cm.cn(cm.stack(2), 'relative input-active-bar')}>
-                  <label
-                    className={cm.cn(
-                      cm.fontWeight('bold'),
-                      cm.sp('px', 1),
-                      'text-[10px] tracking-widest uppercase text-outline',
-                    )}
-                  >
-                    {t('addTransaction.payeeLabel', {}, { defaultValue: 'Payee / Description' })}
-                  </label>
+            >
+              <form className={cm.stack(10)} onSubmit={handleSubmit}>
+                {error && (
                   <div
+                    role="alert"
                     className={cm.cn(
-                      cm.sp('p', 4),
-                      'bg-surface-container-low rounded-t-lg transition-colors focus-within:bg-surface-container-high',
+                      cm.textSize('sm'),
+                      cm.fontWeight('medium'),
+                      cm.sp('p', 3),
+                      cm.sp('mb', 4),
+                      'text-error bg-error-light rounded-lg',
                     )}
                   >
-                    <input
-                      data-mol-id="add-transaction-description"
+                    {error}
+                  </div>
+                )}
+                <AddTransactionAmountSection
+                  type={formData.type}
+                  onTypeChange={(type) => setFormData((f) => ({ ...f, type }))}
+                  amount={formData.amount}
+                  onAmountChange={(amount) => setFormData((f) => ({ ...f, amount }))}
+                />
+                <div className={cm.cn(cm.grid({ cols: 2, gap: 'none' }), 'gap-x-12 gap-y-8')}>
+                  <div className={cm.cn(cm.stack(2), 'relative input-active-bar')}>
+                    <label
                       className={cm.cn(
-                        cm.w('full'),
-                        cm.sp('p', 0),
-                        cm.fontWeight('medium'),
-                        'bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline-variant',
+                        cm.fontWeight('bold'),
+                        cm.sp('px', 1),
+                        'text-[10px] tracking-widest uppercase text-outline',
                       )}
-                      placeholder={t(
-                        'addTransaction.payeePlaceholder',
-                        {},
-                        { defaultValue: 'Who did you pay?' },
-                      )}
-                      type="text"
-                      value={formData.description}
-                      onChange={(e) => setFormData((f) => ({ ...f, description: e.target.value }))}
-                      required
-                    />
-                  </div>
-                </div>
-                <div className={cm.cn(cm.stack(2), 'relative input-active-bar')}>
-                  <label
-                    className={cm.cn(
-                      cm.fontWeight('bold'),
-                      cm.sp('px', 1),
-                      'text-[10px] tracking-widest uppercase text-outline',
-                    )}
-                  >
-                    {t('form.category', {}, { defaultValue: 'Category' })}
-                  </label>
-                  <div
-                    className={cm.cn(
-                      cm.sp('p', 4),
-                      cm.flex({ align: 'center', justify: 'between' }),
-                      'bg-surface-container-low rounded-t-lg transition-colors focus-within:bg-surface-container-high',
-                    )}
-                  >
-                    <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-                      <span className={cm.cn(cm.textPrimary, 'material-symbols-outlined')}>
-                        restaurant
-                      </span>
-                      <select
-                        data-mol-id="add-transaction-category"
-                        className={cm.cn(
-                          cm.sp('p', 0),
-                          cm.fontWeight('medium'),
-                          cm.cursorPointer,
-                          'bg-transparent border-none focus:ring-0 text-on-surface pr-8',
-                        )}
-                        value={formData.category_id}
-                        onChange={(e) =>
-                          setFormData((f) => ({ ...f, category_id: e.target.value }))
-                        }
-                      >
-                        <option value="">
-                          {t(
-                            'addTransaction.categoryPlaceholder',
-                            {},
-                            { defaultValue: 'Select category' },
-                          )}
-                        </option>
-                        {categories.map((c) => (
-                          <option key={c.id} value={c.id}>
-                            {c.name}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div className={cm.cn(cm.stack(2), 'relative input-active-bar')}>
-                  <label
-                    className={cm.cn(
-                      cm.fontWeight('bold'),
-                      cm.sp('px', 1),
-                      'text-[10px] tracking-widest uppercase text-outline',
-                    )}
-                  >
-                    {t('settings.account', {}, { defaultValue: 'Account' })}
-                  </label>
-                  <div
-                    className={cm.cn(
-                      cm.sp('p', 4),
-                      cm.flex({ align: 'center', justify: 'between' }),
-                      'bg-surface-container-low rounded-t-lg transition-colors focus-within:bg-surface-container-high',
-                    )}
-                  >
-                    <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-                      <span className={cm.cn('material-symbols-outlined text-secondary')}>
-                        credit_card
-                      </span>
-                      <select
-                        data-mol-id="add-transaction-account"
-                        className={cm.cn(
-                          cm.sp('p', 0),
-                          cm.fontWeight('medium'),
-                          cm.cursorPointer,
-                          'bg-transparent border-none focus:ring-0 text-on-surface pr-8',
-                        )}
-                        value={formData.account_id}
-                        onChange={(e) => setFormData((f) => ({ ...f, account_id: e.target.value }))}
-                      >
-                        <option value="">
-                          {t(
-                            'addTransaction.accountPlaceholder',
-                            {},
-                            { defaultValue: 'Select account' },
-                          )}
-                        </option>
-                        {accounts.map((a) => (
-                          <option key={a.id} value={a.id}>
-                            {a.name}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div className={cm.cn(cm.stack(2), 'relative input-active-bar')}>
-                  <label
-                    className={cm.cn(
-                      cm.fontWeight('bold'),
-                      cm.sp('px', 1),
-                      'text-[10px] tracking-widest uppercase text-outline',
-                    )}
-                  >
-                    {t('addTransaction.dateLabel', {}, { defaultValue: 'Transaction Date' })}
-                  </label>
-                  <div
-                    className={cm.cn(
-                      cm.sp('p', 4),
-                      cm.flex({ align: 'center' }),
-                      'bg-surface-container-low rounded-t-lg transition-colors focus-within:bg-surface-container-high',
-                    )}
-                  >
-                    <span
-                      className={cm.cn(cm.sp('mr', 3), 'material-symbols-outlined text-outline')}
                     >
-                      calendar_today
-                    </span>
-                    <input
+                      {t('addTransaction.payeeLabel', {}, { defaultValue: 'Payee / Description' })}
+                    </label>
+                    <div
                       className={cm.cn(
-                        cm.w('full'),
-                        cm.sp('p', 0),
-                        cm.fontWeight('medium'),
-                        'bg-transparent border-none focus:ring-0 text-on-surface',
+                        cm.sp('p', 4),
+                        'bg-surface-container-low rounded-t-lg transition-colors focus-within:bg-surface-container-high',
                       )}
-                      type="date"
-                      value={formData.date}
-                      onChange={(e) => setFormData((f) => ({ ...f, date: e.target.value }))}
-                      required
-                    />
-                  </div>
-                </div>
-                <div className={cm.cn(cm.stack(2), 'col-span-2 relative input-active-bar')}>
-                  <label
-                    className={cm.cn(
-                      cm.fontWeight('bold'),
-                      cm.sp('px', 1),
-                      'text-[10px] tracking-widest uppercase text-outline',
-                    )}
-                  >
-                    {t('form.tags', {}, { defaultValue: 'Tags' })}
-                  </label>
-                  <div
-                    className={cm.cn(
-                      cm.sp('p', 4),
-                      'bg-surface-container-low rounded-t-lg transition-colors focus-within:bg-surface-container-high',
-                    )}
-                  >
-                    <div className={cm.cn(cm.flex({ wrap: 'wrap', gap: 'sm' }), cm.sp('mb', 2))}>
-                      {formData.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className={cm.cn(
-                            cm.sp('px', 3),
-                            cm.sp('py', 1),
-                            cm.textSize('xs'),
-                            cm.fontWeight('bold'),
-                            cm.roundedFull,
-                            cm.flex({ align: 'center', gap: 'xs' }),
-                            cm.textPrimary,
-                            'bg-success-light',
-                          )}
-                        >
-                          #{tag}
-                          <button
-                            type="button"
-                            aria-label={t(
-                              'addTransaction.removeTag',
-                              { tag },
-                              { defaultValue: 'Remove tag {{tag}}' },
-                            )}
-                            className={cm.cn(
-                              cm.cursorPointer,
-                              'material-symbols-outlined text-[14px]',
-                            )}
-                            onClick={() =>
-                              setFormData((f) => ({ ...f, tags: f.tags.filter((t) => t !== tag) }))
-                            }
-                          >
-                            close
-                          </button>
-                        </span>
-                      ))}
-                    </div>
-                    <input
-                      className={cm.cn(
-                        cm.w('full'),
-                        cm.sp('p', 0),
-                        cm.fontWeight('medium'),
-                        'bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline-variant',
-                      )}
-                      placeholder={t(
-                        'addTransaction.tagsPlaceholder',
-                        {},
-                        { defaultValue: 'Add tags separated by comma...' },
-                      )}
-                      type="text"
-                      value={tagInput}
-                      onChange={(e) => setTagInput(e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ',') {
-                          e.preventDefault()
-                          const trimmed = tagInput.replace(/,/g, '').trim()
-                          if (trimmed && !formData.tags.includes(trimmed))
-                            setFormData((f) => ({ ...f, tags: [...f.tags, trimmed] }))
-                          setTagInput('')
+                    >
+                      <input
+                        data-mol-id="add-transaction-description"
+                        className={cm.cn(
+                          cm.w('full'),
+                          cm.sp('p', 0),
+                          cm.fontWeight('medium'),
+                          'bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline-variant',
+                        )}
+                        placeholder={t(
+                          'addTransaction.payeePlaceholder',
+                          {},
+                          { defaultValue: 'Who did you pay?' },
+                        )}
+                        type="text"
+                        value={formData.description}
+                        onChange={(e) =>
+                          setFormData((f) => ({ ...f, description: e.target.value }))
                         }
-                      }}
-                    />
+                        required
+                      />
+                    </div>
                   </div>
-                </div>
-                <div className={cm.cn(cm.stack(2), 'col-span-2 relative input-active-bar')}>
-                  <label
-                    className={cm.cn(
-                      cm.fontWeight('bold'),
-                      cm.sp('px', 1),
-                      'text-[10px] tracking-widest uppercase text-outline',
-                    )}
-                  >
-                    {t('addTransaction.notesLabel', {}, { defaultValue: 'Notes (Optional)' })}
-                  </label>
-                  <div
-                    className={cm.cn(
-                      cm.sp('p', 4),
-                      'bg-surface-container-low rounded-t-lg transition-colors focus-within:bg-surface-container-high',
-                    )}
-                  >
-                    <textarea
+                  <div className={cm.cn(cm.stack(2), 'relative input-active-bar')}>
+                    <label
                       className={cm.cn(
-                        cm.w('full'),
-                        cm.sp('p', 0),
-                        cm.fontWeight('medium'),
-                        'bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline-variant resize-none',
+                        cm.fontWeight('bold'),
+                        cm.sp('px', 1),
+                        'text-[10px] tracking-widest uppercase text-outline',
                       )}
-                      placeholder={t(
-                        'addTransaction.notesPlaceholder',
-                        {},
-                        { defaultValue: 'Add additional details about this transaction...' },
+                    >
+                      {t('form.category', {}, { defaultValue: 'Category' })}
+                    </label>
+                    <div
+                      className={cm.cn(
+                        cm.sp('p', 4),
+                        cm.flex({ align: 'center', justify: 'between' }),
+                        'bg-surface-container-low rounded-t-lg transition-colors focus-within:bg-surface-container-high',
                       )}
-                      rows={3}
-                      value={formData.notes}
-                      onChange={(e) => setFormData((f) => ({ ...f, notes: e.target.value }))}
-                    ></textarea>
+                    >
+                      <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+                        <span className={cm.cn(cm.textPrimary, 'material-symbols-outlined')}>
+                          restaurant
+                        </span>
+                        <select
+                          data-mol-id="add-transaction-category"
+                          className={cm.cn(
+                            cm.sp('p', 0),
+                            cm.fontWeight('medium'),
+                            cm.cursorPointer,
+                            'bg-transparent border-none focus:ring-0 text-on-surface pr-8',
+                          )}
+                          value={formData.category_id}
+                          onChange={(e) =>
+                            setFormData((f) => ({ ...f, category_id: e.target.value }))
+                          }
+                        >
+                          <option value="">
+                            {t(
+                              'addTransaction.categoryPlaceholder',
+                              {},
+                              { defaultValue: 'Select category' },
+                            )}
+                          </option>
+                          {categories.map((c) => (
+                            <option key={c.id} value={c.id}>
+                              {c.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div className={cm.cn(cm.stack(2), 'relative input-active-bar')}>
+                    <label
+                      className={cm.cn(
+                        cm.fontWeight('bold'),
+                        cm.sp('px', 1),
+                        'text-[10px] tracking-widest uppercase text-outline',
+                      )}
+                    >
+                      {t('settings.account', {}, { defaultValue: 'Account' })}
+                    </label>
+                    <div
+                      className={cm.cn(
+                        cm.sp('p', 4),
+                        cm.flex({ align: 'center', justify: 'between' }),
+                        'bg-surface-container-low rounded-t-lg transition-colors focus-within:bg-surface-container-high',
+                      )}
+                    >
+                      <div className={cm.flex({ align: 'center', gap: 'sm' })}>
+                        <span className={cm.cn('material-symbols-outlined text-secondary')}>
+                          credit_card
+                        </span>
+                        <select
+                          data-mol-id="add-transaction-account"
+                          className={cm.cn(
+                            cm.sp('p', 0),
+                            cm.fontWeight('medium'),
+                            cm.cursorPointer,
+                            'bg-transparent border-none focus:ring-0 text-on-surface pr-8',
+                          )}
+                          value={formData.account_id}
+                          onChange={(e) =>
+                            setFormData((f) => ({ ...f, account_id: e.target.value }))
+                          }
+                        >
+                          <option value="">
+                            {t(
+                              'addTransaction.accountPlaceholder',
+                              {},
+                              { defaultValue: 'Select account' },
+                            )}
+                          </option>
+                          {accounts.map((a) => (
+                            <option key={a.id} value={a.id}>
+                              {a.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div className={cm.cn(cm.stack(2), 'relative input-active-bar')}>
+                    <label
+                      className={cm.cn(
+                        cm.fontWeight('bold'),
+                        cm.sp('px', 1),
+                        'text-[10px] tracking-widest uppercase text-outline',
+                      )}
+                    >
+                      {t('addTransaction.dateLabel', {}, { defaultValue: 'Transaction Date' })}
+                    </label>
+                    <div
+                      className={cm.cn(
+                        cm.sp('p', 4),
+                        cm.flex({ align: 'center' }),
+                        'bg-surface-container-low rounded-t-lg transition-colors focus-within:bg-surface-container-high',
+                      )}
+                    >
+                      <span
+                        className={cm.cn(cm.sp('mr', 3), 'material-symbols-outlined text-outline')}
+                      >
+                        calendar_today
+                      </span>
+                      <input
+                        className={cm.cn(
+                          cm.w('full'),
+                          cm.sp('p', 0),
+                          cm.fontWeight('medium'),
+                          'bg-transparent border-none focus:ring-0 text-on-surface',
+                        )}
+                        type="date"
+                        value={formData.date}
+                        onChange={(e) => setFormData((f) => ({ ...f, date: e.target.value }))}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className={cm.cn(cm.stack(2), 'col-span-2 relative input-active-bar')}>
+                    <label
+                      className={cm.cn(
+                        cm.fontWeight('bold'),
+                        cm.sp('px', 1),
+                        'text-[10px] tracking-widest uppercase text-outline',
+                      )}
+                    >
+                      {t('form.tags', {}, { defaultValue: 'Tags' })}
+                    </label>
+                    <div
+                      className={cm.cn(
+                        cm.sp('p', 4),
+                        'bg-surface-container-low rounded-t-lg transition-colors focus-within:bg-surface-container-high',
+                      )}
+                    >
+                      <div className={cm.cn(cm.flex({ wrap: 'wrap', gap: 'sm' }), cm.sp('mb', 2))}>
+                        {formData.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className={cm.cn(
+                              cm.sp('px', 3),
+                              cm.sp('py', 1),
+                              cm.textSize('xs'),
+                              cm.fontWeight('bold'),
+                              cm.roundedFull,
+                              cm.flex({ align: 'center', gap: 'xs' }),
+                              cm.textPrimary,
+                              'bg-success-light',
+                            )}
+                          >
+                            #{tag}
+                            <button
+                              type="button"
+                              aria-label={t(
+                                'addTransaction.removeTag',
+                                { tag },
+                                { defaultValue: 'Remove tag {{tag}}' },
+                              )}
+                              className={cm.cn(
+                                cm.cursorPointer,
+                                'material-symbols-outlined text-[14px]',
+                              )}
+                              onClick={() =>
+                                setFormData((f) => ({
+                                  ...f,
+                                  tags: f.tags.filter((t) => t !== tag),
+                                }))
+                              }
+                            >
+                              close
+                            </button>
+                          </span>
+                        ))}
+                      </div>
+                      <input
+                        className={cm.cn(
+                          cm.w('full'),
+                          cm.sp('p', 0),
+                          cm.fontWeight('medium'),
+                          'bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline-variant',
+                        )}
+                        placeholder={t(
+                          'addTransaction.tagsPlaceholder',
+                          {},
+                          { defaultValue: 'Add tags separated by comma...' },
+                        )}
+                        type="text"
+                        value={tagInput}
+                        onChange={(e) => setTagInput(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ',') {
+                            e.preventDefault()
+                            const trimmed = tagInput.replace(/,/g, '').trim()
+                            if (trimmed && !formData.tags.includes(trimmed))
+                              setFormData((f) => ({ ...f, tags: [...f.tags, trimmed] }))
+                            setTagInput('')
+                          }
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className={cm.cn(cm.stack(2), 'col-span-2 relative input-active-bar')}>
+                    <label
+                      className={cm.cn(
+                        cm.fontWeight('bold'),
+                        cm.sp('px', 1),
+                        'text-[10px] tracking-widest uppercase text-outline',
+                      )}
+                    >
+                      {t('addTransaction.notesLabel', {}, { defaultValue: 'Notes (Optional)' })}
+                    </label>
+                    <div
+                      className={cm.cn(
+                        cm.sp('p', 4),
+                        'bg-surface-container-low rounded-t-lg transition-colors focus-within:bg-surface-container-high',
+                      )}
+                    >
+                      <textarea
+                        className={cm.cn(
+                          cm.w('full'),
+                          cm.sp('p', 0),
+                          cm.fontWeight('medium'),
+                          'bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline-variant resize-none',
+                        )}
+                        placeholder={t(
+                          'addTransaction.notesPlaceholder',
+                          {},
+                          { defaultValue: 'Add additional details about this transaction...' },
+                        )}
+                        rows={3}
+                        value={formData.notes}
+                        onChange={(e) => setFormData((f) => ({ ...f, notes: e.target.value }))}
+                      ></textarea>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <RecurringTransactionPanel
-                enabled={formData.recurring_enabled}
-                frequency={formData.recurring_frequency}
-                onChange={({ enabled, frequency }) =>
-                  setFormData((f) => ({
-                    ...f,
-                    recurring_enabled: enabled,
-                    recurring_frequency: frequency,
-                  }))
-                }
-              />
-              <AddTransactionFormActions
-                submitting={submitting}
-                onCancel={() => navigate('/transactions')}
-              />
-            </form>
-          </div>
-        </section>
-        <AddTransactionInfoPanels />
-      </main>
-      <AddTransactionFab />
+                <RecurringTransactionPanel
+                  enabled={formData.recurring_enabled}
+                  frequency={formData.recurring_frequency}
+                  onChange={({ enabled, frequency }) =>
+                    setFormData((f) => ({
+                      ...f,
+                      recurring_enabled: enabled,
+                      recurring_frequency: frequency,
+                    }))
+                  }
+                />
+                <AddTransactionFormActions
+                  submitting={submitting}
+                  onCancel={() => navigate('/transactions')}
+                />
+              </form>
+            </div>
+          </section>
+          <AddTransactionInfoPanels />
+        </div>
+        <AddTransactionFab />
+      </FinanceShell>
     </div>
   )
 }

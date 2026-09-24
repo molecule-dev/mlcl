@@ -27,7 +27,8 @@ function TopNavBar({
         cm.flex({ align: 'center', justify: 'between' }),
         cm.sp('px', 8),
         cm.sp('py', 4),
-        'fixed top-0 right-0 left-0 md:left-64 bg-surface/80 backdrop-blur-xl z-50',
+        cm.w('full'),
+        'sticky top-0 z-40 bg-surface/80 backdrop-blur-xl',
       )}
       data-mol-id="top-nav-1"
     >

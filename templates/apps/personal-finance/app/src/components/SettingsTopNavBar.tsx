@@ -22,7 +22,7 @@ function SettingsTopNavBar() {
         cm.flex({ justify: 'between', align: 'center' }),
         cm.sp('px', 8),
         cm.sp('py', 4),
-        'sticky top-0 z-50 bg-surface/80 backdrop-blur-xl',
+        'sticky top-0 z-40 bg-surface/80 backdrop-blur-xl',
       )}
     >
       <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), cm.flex1)}>

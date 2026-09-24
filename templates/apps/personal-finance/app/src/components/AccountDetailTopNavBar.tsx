@@ -20,7 +20,7 @@ function AccountDetailTopNavBar({ account }: { account: { name: string } }) {
         cm.w('full'),
         cm.sp('px', 8),
         cm.sp('py', 4),
-        'sticky top-0 z-50 bg-surface/80 backdrop-blur-xl transition-all',
+        'sticky top-0 z-40 bg-surface/80 backdrop-blur-xl transition-all',
       )}
     >
       <div className={cm.flex({ align: 'center', gap: 'md' })}>

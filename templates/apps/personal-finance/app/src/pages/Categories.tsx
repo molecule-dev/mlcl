@@ -3,10 +3,10 @@ import { type CSSProperties, type ReactNode, useEffect, useMemo, useState } from
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
-import BottomNavBar from '../components/BottomNavBar.js'
-import CategoriesSideNavBar from '../components/CategoriesSideNavBar.js'
 import CategoriesTopNavBar from '../components/CategoriesTopNavBar.js'
+import FinanceShell from '../components/FinanceShell.js'
 
 function CategoriesChrome({
   children,
@@ -18,15 +18,10 @@ function CategoriesChrome({
   onSearchChange?: (value: string) => void
 }) {
   return (
-    <div style={{ minHeight: '100vh' }}>
-      <CategoriesSideNavBar />
-      <div className="md:ml-64">
-        <CategoriesTopNavBar search={search} onSearchChange={onSearchChange} />
-        {children}
-        {/* Mobile Navigation (Fixed Bottom) */}
-        <BottomNavBar />
-      </div>
-    </div>
+    <FinanceShell>
+      <CategoriesTopNavBar search={search} onSearchChange={onSearchChange} />
+      {children}
+    </FinanceShell>
   )
 }
 
@@ -493,32 +488,19 @@ export function Categories() {
   if (fetchError) {
     return (
       <CategoriesChrome>
-        <div
-          className={cm.cn(
-            cm.flex({ direction: 'col', align: 'center', justify: 'center', gap: 'md' }),
-            cm.sp('py', 16),
-          )}
-        >
-          <div className={cm.emptyStateIcon}>
-            <CategoryIcon
-              name="alert-circle"
-              style={{ width: '48px', height: '48px', opacity: 0.4 }}
-            />
-          </div>
-          <h2 className={cm.emptyStateTitle}>
-            {t('errors.somethingWentWrong', undefined, { defaultValue: 'Something went wrong' })}
-          </h2>
-          <p className={cm.emptyStateDescription}>{fetchError}</p>
-          <button
-            onClick={() => {
+        <div style={{ padding: '24px' }}>
+          <LoadErrorBanner
+            message={t('errors.somethingWentWrong', undefined, {
+              defaultValue: 'Something went wrong',
+            })}
+            detail={fetchError}
+            retryLabel={t('common.retry', undefined, { defaultValue: 'Retry' })}
+            onRetry={() => {
               setIsLoading(true)
               setFetchError(null)
               window.location.reload()
             }}
-            className={cm.button()}
-          >
-            {t('common.retry', undefined, { defaultValue: 'Retry' })}
-          </button>
+          />
         </div>
       </CategoriesChrome>
     )

@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { useGet, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import SideNavBar from '../components/SideNavBar.js'
+import FinanceShell from '../components/FinanceShell.js'
 
 interface NotificationItem {
   id: string
@@ -53,10 +53,9 @@ export function Notifications() {
   const items: NotificationItem[] = data?.data ?? []
 
   return (
-    <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface')}>
-      <SideNavBar />
-      <div className="md:ml-64">
-        <main
+    <FinanceShell>
+      <div className="text-on-surface">
+        <div
           data-mol-id="page-notifications"
           className={cm.cn(cm.mxAuto, 'max-w-3xl', cm.sp('px', 6), cm.sp('py', 8))}
         >
@@ -145,9 +144,9 @@ export function Notifications() {
               ))}
             </ul>
           )}
-        </main>
+        </div>
       </div>
-    </div>
+    </FinanceShell>
   )
 }
 export default Notifications

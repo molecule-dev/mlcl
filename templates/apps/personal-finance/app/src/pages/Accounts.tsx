@@ -11,8 +11,7 @@ import AccountGrid from '../components/AccountGrid.js'
 import AccountsPageHeader from '../components/AccountsPageHeader.js'
 import AccountsTopNavBar from '../components/AccountsTopNavBar.js'
 import AccountSummaryBar from '../components/AccountSummaryBar.js'
-import BottomNavBar from '../components/BottomNavBar.js'
-import SideNavBar from '../components/SideNavBar.js'
+import FinanceShell from '../components/FinanceShell.js'
 interface Account {
   id: string
   name: string
@@ -52,15 +51,13 @@ function Accounts() {
   const netWorth = totalAssets - totalLiabilities
 
   return (
-    <div className={cm.cn(cm.page, 'text-on-surface')}>
-      {/* SideNavBar (Desktop) */}
-      <SideNavBar />
+    <FinanceShell>
       {/* Main Content Shell */}
-      <main className={cm.cn(cm.minH('screen'), 'md:pl-64')}>
+      <div className={cm.cn('text-on-surface')}>
         {/* TopNavBar */}
         <AccountsTopNavBar />
-        {/* Canvas — pb clears the fixed mobile bottom nav */}
-        <div className={cm.cn(cm.sp('p', 8), cm.stack(8), 'max-w-7xl pb-28 md:pb-8', cm.mxAuto)}>
+        {/* Canvas */}
+        <div className={cm.cn(cm.sp('p', 8), cm.stack(8), 'max-w-7xl', cm.mxAuto)}>
           {/* Page Header */}
           {error && (
             <div role="alert" className={cm.alert({ variant: 'error' })}>
@@ -87,10 +84,8 @@ function Accounts() {
             }
           />
         </div>
-      </main>
-      {/* BottomNavBar (Mobile) */}
-      <BottomNavBar />
-    </div>
+      </div>
+    </FinanceShell>
   )
 }
 

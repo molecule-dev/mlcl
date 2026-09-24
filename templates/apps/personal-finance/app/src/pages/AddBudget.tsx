@@ -5,7 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import SideNavBar from '../components/SideNavBar.js'
+import FinanceShell from '../components/FinanceShell.js'
 
 interface Category {
   id: string
@@ -103,106 +103,48 @@ function AddBudget() {
         'bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed',
       )}
     >
-      <SideNavBar />
-      <main className={cm.cn(cm.minH('screen'), 'md:ml-64 bg-surface-container')}>
-        <header className={cm.cn(cm.sp('px', 12), cm.sp('py', 8))}>
-          <h1
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              cm.textSize('3xl'),
-              'font-headline text-on-surface',
-            )}
+      <FinanceShell>
+        <div className={cm.cn('bg-surface-container')}>
+          <header className={cm.cn(cm.sp('px', 12), cm.sp('py', 8))}>
+            <h1
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                cm.textSize('3xl'),
+                'font-headline text-on-surface',
+              )}
+            >
+              {t('addBudget.title', {}, { defaultValue: 'New monthly budget' })}
+            </h1>
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t(
+                'addBudget.subtitle',
+                {},
+                { defaultValue: 'Set a spending cap for a category for a given month.' },
+              )}
+            </p>
+          </header>
+          <section
+            className={cm.cn(cm.sp('px', 12), cm.sp('pb', 12), cm.flex({ justify: 'center' }))}
           >
-            {t('addBudget.title', {}, { defaultValue: 'New monthly budget' })}
-          </h1>
-          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-            {t(
-              'addBudget.subtitle',
-              {},
-              { defaultValue: 'Set a spending cap for a category for a given month.' },
-            )}
-          </p>
-        </header>
-        <section
-          className={cm.cn(cm.sp('px', 12), cm.sp('pb', 12), cm.flex({ justify: 'center' }))}
-        >
-          <form
-            onSubmit={handleSubmit}
-            data-mol-id="add-budget-form"
-            className={cm.cn(
-              cm.w('full'),
-              'max-w-2xl',
-              cm.sp('p', 10),
-              cm.stack(6),
-              'bg-surface-container-lowest rounded-3xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.04)]',
-            )}
-          >
-            {error && (
-              <div role="alert" className={cm.alert({ variant: 'error' })}>
-                <div className={cm.alertDescription} data-mol-id="add-budget-error">
-                  {error}
+            <form
+              onSubmit={handleSubmit}
+              data-mol-id="add-budget-form"
+              className={cm.cn(
+                cm.w('full'),
+                'max-w-2xl',
+                cm.sp('p', 10),
+                cm.stack(6),
+                'bg-surface-container-lowest rounded-3xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.04)]',
+              )}
+            >
+              {error && (
+                <div role="alert" className={cm.alert({ variant: 'error' })}>
+                  <div className={cm.alertDescription} data-mol-id="add-budget-error">
+                    {error}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            <label className={cm.stack(2)}>
-              <span
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest',
-                )}
-              >
-                {t('form.category', {}, { defaultValue: 'Category' })}
-              </span>
-              <select
-                data-mol-id="add-budget-category"
-                value={categoryId}
-                onChange={(e) => setCategoryId(e.target.value)}
-                disabled={categories.length === 0}
-                className={cm.cn(cm.sp('p', 4), 'bg-surface-container-low rounded-lg')}
-              >
-                {categories.length === 0 ? (
-                  <option value="">
-                    {t(
-                      'addBudget.noCategoriesPlaceholder',
-                      {},
-                      { defaultValue: 'No categories — create one in Categories first' },
-                    )}
-                  </option>
-                ) : (
-                  categories.map((c) => (
-                    <option key={c.id} value={c.id}>
-                      {c.name}
-                    </option>
-                  ))
-                )}
-              </select>
-            </label>
-
-            <label className={cm.stack(2)}>
-              <span
-                className={cm.cn(
-                  cm.textSize('xs'),
-                  cm.fontWeight('bold'),
-                  'uppercase tracking-widest',
-                )}
-              >
-                {t('addBudget.amountLabel', {}, { defaultValue: 'Monthly amount' })}
-              </span>
-              <input
-                data-mol-id="add-budget-amount"
-                type="number"
-                min="0"
-                step="0.01"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-                className={cm.cn(cm.sp('p', 4), 'bg-surface-container-low rounded-lg')}
-                required
-              />
-            </label>
-
-            <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }))}>
               <label className={cm.stack(2)}>
                 <span
                   className={cm.cn(
@@ -211,21 +153,33 @@ function AddBudget() {
                     'uppercase tracking-widest',
                   )}
                 >
-                  {t('addBudget.monthLabel', {}, { defaultValue: 'Month' })}
+                  {t('form.category', {}, { defaultValue: 'Category' })}
                 </span>
                 <select
-                  data-mol-id="add-budget-month"
-                  value={month}
-                  onChange={(e) => setMonth(Number(e.target.value))}
+                  data-mol-id="add-budget-category"
+                  value={categoryId}
+                  onChange={(e) => setCategoryId(e.target.value)}
+                  disabled={categories.length === 0}
                   className={cm.cn(cm.sp('p', 4), 'bg-surface-container-low rounded-lg')}
                 >
-                  {Array.from({ length: 12 }).map((_, i) => (
-                    <option key={i + 1} value={i + 1}>
-                      {new Date(2024, i, 1).toLocaleString(undefined, { month: 'long' })}
+                  {categories.length === 0 ? (
+                    <option value="">
+                      {t(
+                        'addBudget.noCategoriesPlaceholder',
+                        {},
+                        { defaultValue: 'No categories — create one in Categories first' },
+                      )}
                     </option>
-                  ))}
+                  ) : (
+                    categories.map((c) => (
+                      <option key={c.id} value={c.id}>
+                        {c.name}
+                      </option>
+                    ))
+                  )}
                 </select>
               </label>
+
               <label className={cm.stack(2)}>
                 <span
                   className={cm.cn(
@@ -234,49 +188,96 @@ function AddBudget() {
                     'uppercase tracking-widest',
                   )}
                 >
-                  {t('addBudget.yearLabel', {}, { defaultValue: 'Year' })}
+                  {t('addBudget.amountLabel', {}, { defaultValue: 'Monthly amount' })}
                 </span>
                 <input
-                  data-mol-id="add-budget-year"
+                  data-mol-id="add-budget-amount"
                   type="number"
-                  value={year}
-                  onChange={(e) => setYear(Number(e.target.value))}
+                  min="0"
+                  step="0.01"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
                   className={cm.cn(cm.sp('p', 4), 'bg-surface-container-low rounded-lg')}
+                  required
                 />
               </label>
-            </div>
 
-            <div
-              className={cm.cn(cm.flex({ justify: 'between', align: 'center' }), cm.sp('pt', 4))}
-            >
-              <button
-                type="button"
-                data-mol-id="add-budget-cancel"
-                className={cm.cn(cm.sp('px', 6), cm.sp('py', 3), cm.fontWeight('semibold'))}
-                onClick={() => navigate('/budgets')}
+              <div className={cm.cn(cm.grid({ cols: 2, gap: 'md' }))}>
+                <label className={cm.stack(2)}>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('bold'),
+                      'uppercase tracking-widest',
+                    )}
+                  >
+                    {t('addBudget.monthLabel', {}, { defaultValue: 'Month' })}
+                  </span>
+                  <select
+                    data-mol-id="add-budget-month"
+                    value={month}
+                    onChange={(e) => setMonth(Number(e.target.value))}
+                    className={cm.cn(cm.sp('p', 4), 'bg-surface-container-low rounded-lg')}
+                  >
+                    {Array.from({ length: 12 }).map((_, i) => (
+                      <option key={i + 1} value={i + 1}>
+                        {new Date(2024, i, 1).toLocaleString(undefined, { month: 'long' })}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className={cm.stack(2)}>
+                  <span
+                    className={cm.cn(
+                      cm.textSize('xs'),
+                      cm.fontWeight('bold'),
+                      'uppercase tracking-widest',
+                    )}
+                  >
+                    {t('addBudget.yearLabel', {}, { defaultValue: 'Year' })}
+                  </span>
+                  <input
+                    data-mol-id="add-budget-year"
+                    type="number"
+                    value={year}
+                    onChange={(e) => setYear(Number(e.target.value))}
+                    className={cm.cn(cm.sp('p', 4), 'bg-surface-container-low rounded-lg')}
+                  />
+                </label>
+              </div>
+
+              <div
+                className={cm.cn(cm.flex({ justify: 'between', align: 'center' }), cm.sp('pt', 4))}
               >
-                {t('common.cancel', {}, { defaultValue: 'Cancel' })}
-              </button>
-              <button
-                type="submit"
-                data-mol-id="add-budget-submit"
-                disabled={submitting || categories.length === 0}
-                className={cm.cn(
-                  cm.sp('px', 8),
-                  cm.sp('py', 3),
-                  cm.fontWeight('bold'),
-                  cm.cursorPointer,
-                  'bg-primary text-on-primary rounded-xl disabled:opacity-50',
-                )}
-              >
-                {submitting
-                  ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
-                  : t('addBudget.submit', {}, { defaultValue: 'Create budget' })}
-              </button>
-            </div>
-          </form>
-        </section>
-      </main>
+                <button
+                  type="button"
+                  data-mol-id="add-budget-cancel"
+                  className={cm.cn(cm.sp('px', 6), cm.sp('py', 3), cm.fontWeight('semibold'))}
+                  onClick={() => navigate('/budgets')}
+                >
+                  {t('common.cancel', {}, { defaultValue: 'Cancel' })}
+                </button>
+                <button
+                  type="submit"
+                  data-mol-id="add-budget-submit"
+                  disabled={submitting || categories.length === 0}
+                  className={cm.cn(
+                    cm.sp('px', 8),
+                    cm.sp('py', 3),
+                    cm.fontWeight('bold'),
+                    cm.cursorPointer,
+                    'bg-primary text-on-primary rounded-xl disabled:opacity-50',
+                  )}
+                >
+                  {submitting
+                    ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
+                    : t('addBudget.submit', {}, { defaultValue: 'Create budget' })}
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </FinanceShell>
     </div>
   )
 }

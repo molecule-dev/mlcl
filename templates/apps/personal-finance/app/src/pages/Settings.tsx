@@ -7,6 +7,7 @@ import { ThemeToggle } from '@molecule/app-ui-react'
 import AppearanceSection from '../components/AppearanceSection.js'
 import CommunicationsSection from '../components/CommunicationsSection.js'
 import DataPrivacySection from '../components/DataPrivacySection.js'
+import FinanceShell from '../components/FinanceShell.js'
 import ProfileIdentitySection from '../components/ProfileIdentitySection.js'
 import RegionalPreferencesSection from '../components/RegionalPreferencesSection.js'
 import SecurityAccessSection from '../components/SecurityAccessSection.js'
@@ -14,7 +15,6 @@ import SettingsFooter from '../components/SettingsFooter.js'
 import SettingsPageHeader from '../components/SettingsPageHeader.js'
 import SettingsSaveButton from '../components/SettingsSaveButton.js'
 import SettingsTopNavBar from '../components/SettingsTopNavBar.js'
-import SideNavBar from '../components/SideNavBar.js'
 function Settings() {
   const cm = getClassMap()
   const { t, locale, setLocale } = useTranslation()
@@ -71,84 +71,82 @@ function Settings() {
   }
 
   return (
-    <div
-      className={cm.cn(
-        'bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container',
-      )}
-    >
-      {/* Sidebar Navigation */}
-      <SideNavBar />
-      {/* Main Viewport */}
-      <main
-        className={cm.cn(cm.flex({ direction: 'col' }), cm.minH('screen'), 'md:ml-64 relative')}
+    <FinanceShell>
+      <div
+        className={cm.cn(
+          'bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container',
+        )}
       >
-        {/* Top Navigation */}
-        <SettingsTopNavBar />
-        {/* Content Canvas */}
-        <div
-          className={cm.cn(
-            cm.flex1,
-            cm.sp('p', 8),
-            cm.stack(8),
-            'max-w-7xl',
-            cm.w('full'),
-            cm.mxAuto,
-          )}
-        >
-          <SettingsPageHeader onSave={handleSave} saving={saving} savedAt={savedAt} />
-          {/* Settings Grid Layout */}
-          <div className={cm.grid({ cols: 12, gap: 'xl' })}>
-            {/* Left Column */}
-            <div className={cm.cn(cm.stack(8), 'col-span-12 lg:col-span-7')}>
-              {/* Profile Section */}
-              <ProfileIdentitySection
-                name={name}
-                email={email}
-                onNameChange={setName}
-                onEmailChange={setEmail}
-              />
-              {/* Preferences Section */}
-              <RegionalPreferencesSection locale={locale} onLocaleChange={setLocale} />
-              {/* Security Section */}
-              <SecurityAccessSection />
-            </div>
-            {/* Right Column */}
-            <div className={cm.cn(cm.stack(8), 'col-span-12 lg:col-span-5')}>
-              {/* Appearance Section */}
-              <AppearanceSection />
-              <CommunicationsSection
-                emailAlerts={emailAlerts}
-                pushNotifications={pushNotifications}
-                weeklyDigest={weeklyDigest}
-                onEmailAlertsChange={setEmailAlerts}
-                onPushNotificationsChange={setPushNotifications}
-                onWeeklyDigestChange={setWeeklyDigest}
-              />
-              {/* Data Section */}
-              <DataPrivacySection onDeleteAccount={handleDeleteAccount} />
-            </div>
-          </div>
-          <SettingsSaveButton onSave={handleSave} saving={saving} />
-        </div>
-        {/* Footer Decoration */}
-        <SettingsFooter />
-      </main>
-      <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>
-        <div className={cm.sp('mb', 6)}>
-          <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
-            {t('settings.appearance.title', {}, { defaultValue: 'Appearance' })}
-          </h3>
-          <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-            {t(
-              'settings.appearance.description',
-              {},
-              { defaultValue: 'Toggle between light and dark mode.' },
+        {/* Main Viewport */}
+        <div className={cm.cn(cm.flex({ direction: 'col' }), 'relative')}>
+          {/* Top Navigation */}
+          <SettingsTopNavBar />
+          {/* Content Canvas */}
+          <div
+            className={cm.cn(
+              cm.flex1,
+              cm.sp('p', 8),
+              cm.stack(8),
+              'max-w-7xl',
+              cm.w('full'),
+              cm.mxAuto,
             )}
-          </p>
+          >
+            <SettingsPageHeader onSave={handleSave} saving={saving} savedAt={savedAt} />
+            {/* Settings Grid Layout */}
+            <div className={cm.grid({ cols: 12, gap: 'xl' })}>
+              {/* Left Column */}
+              <div className={cm.cn(cm.stack(8), 'col-span-12 lg:col-span-7')}>
+                {/* Profile Section */}
+                <ProfileIdentitySection
+                  name={name}
+                  email={email}
+                  onNameChange={setName}
+                  onEmailChange={setEmail}
+                />
+                {/* Preferences Section */}
+                <RegionalPreferencesSection locale={locale} onLocaleChange={setLocale} />
+                {/* Security Section */}
+                <SecurityAccessSection />
+              </div>
+              {/* Right Column */}
+              <div className={cm.cn(cm.stack(8), 'col-span-12 lg:col-span-5')}>
+                {/* Appearance Section */}
+                <AppearanceSection />
+                <CommunicationsSection
+                  emailAlerts={emailAlerts}
+                  pushNotifications={pushNotifications}
+                  weeklyDigest={weeklyDigest}
+                  onEmailAlertsChange={setEmailAlerts}
+                  onPushNotificationsChange={setPushNotifications}
+                  onWeeklyDigestChange={setWeeklyDigest}
+                />
+                {/* Data Section */}
+                <DataPrivacySection onDeleteAccount={handleDeleteAccount} />
+              </div>
+            </div>
+            <SettingsSaveButton onSave={handleSave} saving={saving} />
+          </div>
+          {/* Footer Decoration */}
+          <SettingsFooter />
         </div>
-        <ThemeToggle />
-      </section>
-    </div>
+        <section className={cm.cn(cm.sp('p', 8), 'bg-surface-container-low rounded-xl')}>
+          <div className={cm.sp('mb', 6)}>
+            <h3 className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'text-on-surface')}>
+              {t('settings.appearance.title', {}, { defaultValue: 'Appearance' })}
+            </h3>
+            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+              {t(
+                'settings.appearance.description',
+                {},
+                { defaultValue: 'Toggle between light and dark mode.' },
+              )}
+            </p>
+          </div>
+          <ThemeToggle />
+        </section>
+      </div>
+    </FinanceShell>
   )
 }
 

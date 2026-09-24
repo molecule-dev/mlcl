@@ -6,8 +6,7 @@ import { useSearchParams } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import BottomNavBar from '../components/BottomNavBar.js'
-import SideNavBar from '../components/SideNavBar.js'
+import FinanceShell from '../components/FinanceShell.js'
 import TopAppBar from '../components/TopAppBar.js'
 import TransactionFilters from '../components/TransactionFilters.js'
 import TransactionsPageHeader, {
@@ -87,35 +86,28 @@ function Transactions() {
   }
 
   return (
-    <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface')}>
-      {/* SideNavBar (Desktop) */}
-      <SideNavBar />
-      {/* Main Content Area */}
-      <main className={cm.cn(cm.minH('screen'), 'md:ml-64')}>
-        {/* TopAppBar */}
-        <TopAppBar />
-        {/* Content Canvas — pb clears the fixed mobile bottom nav */}
-        <div className={cm.cn(cm.sp('p', 8), 'max-w-7xl pb-28 md:pb-8', cm.mxAuto, cm.stack(8))}>
-          {/* Page Header */}
-          <TransactionsPageHeader activeRange={activeRange} onRangeChange={setActiveRange} />
-          {/* Filters & Stats Section */}
-          <TransactionFilters
-            activeTab={activeTab}
-            onTabChange={handleTabChange}
-            transactions={visibleTransactions}
-          />
-          {/* Transactions Table Container */}
-          <TransactionsTable
-            transactions={visibleTransactions}
-            loading={loading}
-            error={error}
-            onRetry={() => loadTransactions(activeTab, activeRange)}
-          />
-        </div>
-      </main>
-      {/* Mobile Navigation (Fixed Bottom) */}
-      <BottomNavBar />
-    </div>
+    <FinanceShell>
+      {/* TopAppBar */}
+      <TopAppBar />
+      {/* Content Canvas */}
+      <div className={cm.cn(cm.sp('p', 8), 'max-w-7xl', cm.mxAuto, cm.stack(8))}>
+        {/* Page Header */}
+        <TransactionsPageHeader activeRange={activeRange} onRangeChange={setActiveRange} />
+        {/* Filters & Stats Section */}
+        <TransactionFilters
+          activeTab={activeTab}
+          onTabChange={handleTabChange}
+          transactions={visibleTransactions}
+        />
+        {/* Transactions Table Container */}
+        <TransactionsTable
+          transactions={visibleTransactions}
+          loading={loading}
+          error={error}
+          onRetry={() => loadTransactions(activeTab, activeRange)}
+        />
+      </div>
+    </FinanceShell>
   )
 }
 

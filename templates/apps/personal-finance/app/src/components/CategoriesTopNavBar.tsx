@@ -32,7 +32,7 @@ function CategoriesTopNavBar({
         'md:px-8',
         cm.w('full'),
         cm.sp('py', 4),
-        'sticky top-0 z-50 bg-surface/80 backdrop-blur-xl',
+        'sticky top-0 z-40 bg-surface/80 backdrop-blur-xl',
       )}
     >
       <div className={cm.flex({ align: 'center', gap: 'md' })}>
