@@ -89,11 +89,14 @@ test.describe('/consult/:id — Live consult', () => {
     const items = (await list.json()) as Array<{ id: string }>
     const id = items[0]!.id
     await page.goto(`${APP_BASE}/consult/${id}`)
-    await expect(page.getByRole('button', { name: /End call/i })).toBeVisible({ timeout: 15000 })
-    page.once('dialog', async (d) => {
-      await d.accept()
-    })
-    await page.getByRole('button', { name: /End call/i }).click()
+    const endCall = page.getByRole('button', { name: /End call/i })
+    await expect(endCall).toBeVisible({ timeout: 15000 })
+    // ConfirmButton arm/commit: the first click arms (native confirm is gone),
+    // the button flips to the confirm label; the second click commits.
+    await endCall.click()
+    const armed = page.getByRole('button', { name: /End this consult/i })
+    await expect(armed).toBeVisible()
+    await armed.click()
     await expect(page).toHaveURL(/\/appointments$/, { timeout: 10000 })
   })
 

@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
@@ -132,8 +133,6 @@ export function Consult() {
     .padStart(2, '0')}:${(elapsed % 60).toString().padStart(2, '0')}`
 
   const endCall = async () => {
-    if (!window.confirm(t('consult.endCallConfirm', {}, { defaultValue: 'End this consult?' })))
-      return
     if (id) {
       try {
         if (notes && notes !== lastPersistedNotes.current) {
@@ -271,9 +270,18 @@ export function Consult() {
               onClick={() => setCaptionsOn((c) => !c)}
               label={t('consult.captions', {}, { defaultValue: 'Captions' })}
             />
-            <button
-              type="button"
-              onClick={endCall}
+            <ConfirmButton
+              label={
+                <>
+                  <span className="material-symbols-outlined" aria-hidden="true">
+                    call_end
+                  </span>
+                  {t('consult.endCallLabel', {}, { defaultValue: 'End call' })}
+                </>
+              }
+              confirmLabel={t('consult.endCallConfirm', {}, { defaultValue: 'End this consult?' })}
+              onConfirm={endCall}
+              disarmSeconds={6}
               className={cm.cn(
                 cm.sp('px', 5),
                 cm.sp('py', 3),
@@ -283,12 +291,7 @@ export function Consult() {
                 'rounded-full text-white',
               )}
               style={{ backgroundColor: 'var(--color-consult-end-call)' }}
-            >
-              <span className="material-symbols-outlined" aria-hidden="true">
-                call_end
-              </span>
-              {t('consult.endCallLabel', {}, { defaultValue: 'End call' })}
-            </button>
+            />
           </div>
 
           {/* Notes */}
