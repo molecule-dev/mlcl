@@ -46,4 +46,23 @@ test.describe('/settings', () => {
     await page.reload()
     await expect(page.getByTestId('settings-daily-goal')).toHaveValue('1234')
   })
+
+  test('editor preference toggle flips aria-checked and persists across reload', async ({
+    page,
+  }) => {
+    // Shared Switch: role="switch" with aria-checked reflects state; the
+    // value round-trips to localStorage like the other preferences.
+    const toggle = page.getByTestId('settings-toggle-spellCheck')
+    await expect(toggle).toHaveAttribute('role', 'switch')
+    await expect(toggle).toHaveAttribute('aria-checked', 'true')
+    await toggle.click()
+    await expect(toggle).toHaveAttribute('aria-checked', 'false')
+    const stored = await page.evaluate(() => window.localStorage.getItem('versal.editorToggles'))
+    expect(JSON.parse(stored ?? '{}')).toMatchObject({ spellCheck: false })
+    await page.reload()
+    await expect(page.getByTestId('settings-toggle-spellCheck')).toHaveAttribute(
+      'aria-checked',
+      'false',
+    )
+  })
 })

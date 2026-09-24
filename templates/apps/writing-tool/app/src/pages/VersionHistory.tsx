@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { type DocumentRow, type DocumentVersionRow, relativeLabel } from '../lib/types.js'
 
@@ -87,19 +88,11 @@ export function VersionHistory() {
     }
   }, [doc, http, reload, t])
 
-  const handleRestore = useCallback(async () => {
+  // ConfirmButton owns the arm/confirm step — this callback is only the
+  // commit path. Errors are swallowed into actionMsg here because
+  // ConfirmButton hands error reporting to the caller.
+  const commitRestore = useCallback(async () => {
     if (!doc || !active) return
-    if (
-      !window.confirm(
-        t(
-          'versionHistory.confirmRestore',
-          {},
-          { defaultValue: 'Replace the current document body with this version?' },
-        ),
-      )
-    ) {
-      return
-    }
     try {
       await http.post(`/documents/${doc.id}/versions/${active.id}/restore`, {})
       void track({
@@ -392,26 +385,21 @@ export function VersionHistory() {
               </div>
 
               <div className={cm.cn(cm.sp('mt', 8), 'flex flex-wrap items-center gap-3')}>
-                <button
-                  type="button"
-                  onClick={handleRestore}
-                  data-testid="versions-restore"
-                  className={cm.cn(
-                    cm.sp('px', 5),
-                    cm.sp('py', 2.5),
-                    cm.flex({ align: 'center', gap: 'xs' }),
-                    'rounded-xl text-sm font-bold text-white shadow-md',
-                    'bg-gradient-to-br from-primary to-primary-container hover:opacity-95 transition-opacity',
+                <ConfirmButton
+                  label={t(
+                    'versionHistory.restoreCta',
+                    {},
+                    { defaultValue: 'Restore this snapshot' },
                   )}
-                >
-                  <span
-                    className={cm.cn('material-symbols-outlined text-[18px]')}
-                    aria-hidden="true"
-                  >
-                    restore
-                  </span>
-                  {t('versionHistory.restoreCta', {}, { defaultValue: 'Restore this snapshot' })}
-                </button>
+                  confirmLabel={t(
+                    'versionHistory.confirmRestore',
+                    {},
+                    { defaultValue: 'Replace the current document body with this version?' },
+                  )}
+                  onConfirm={commitRestore}
+                  disarmSeconds={6}
+                  data-testid="versions-restore"
+                />
               </div>
             </>
           )}

@@ -59,8 +59,12 @@ test.describe('/editor/:id/history', () => {
     await page.goto(`${APP_BASE}/editor/${doc.id}/history`)
     // Latest snapshot is row v2 — pick the older one (v1).
     await page.getByTestId('version-row-1').click()
-    page.once('dialog', (d) => void d.accept())
-    await page.getByTestId('versions-restore').click()
+    // ConfirmButton is two-click arm/commit: the first click only reveals
+    // the confirm label (nothing restores yet), the second commits.
+    const restore = page.getByTestId('versions-restore')
+    await restore.click()
+    await expect(restore).toContainText('Replace the current document body with this version?')
+    await restore.click()
     // Restore returns the user to /editor/:id
     await page.waitForURL(new RegExp(`/editor/${doc.id}$`), { timeout: 10_000 })
     const fresh = await readDocument(page, doc.id)

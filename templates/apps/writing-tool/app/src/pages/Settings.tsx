@@ -4,7 +4,7 @@ import type { UserProfile } from '@molecule/app-auth'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { VersalInput } from '../components/VersalInput.js'
@@ -388,26 +388,12 @@ export function Settings() {
                   )}
                 </p>
               </div>
-              <button
-                type="button"
-                role="switch"
-                aria-checked={toggles[row.id]}
+              <Switch
+                checked={toggles[row.id]}
                 aria-label={row.label}
-                onClick={() => persistToggle(row.id, !toggles[row.id])}
                 data-testid={`settings-toggle-${row.id}`}
-                className={cm.cn(
-                  'relative w-11 h-6 rounded-full transition-colors flex-shrink-0',
-                  toggles[row.id] ? 'bg-primary' : 'bg-surface-container-high',
-                )}
-              >
-                <span
-                  className={cm.cn(
-                    'absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-[left]',
-                    toggles[row.id] ? 'left-[22px]' : 'left-0.5',
-                  )}
-                  aria-hidden="true"
-                />
-              </button>
+                onChange={(e) => persistToggle(row.id, (e.target as HTMLInputElement).checked)}
+              />
             </li>
           ))}
         </ul>

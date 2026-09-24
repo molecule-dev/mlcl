@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { readDefaultExportFormat } from '../lib/export-format.js'
 import { readDailyGoal } from '../lib/goal.js'
@@ -171,15 +172,11 @@ export function Editor() {
     }
   }, [doc, http, body, t])
 
-  const handleTrash = useCallback(async () => {
+  // ConfirmButton owns the arm/confirm step — this callback is only the
+  // commit path. Errors are swallowed into actionMsg here because
+  // ConfirmButton hands error reporting to the caller.
+  const commitTrash = useCallback(async () => {
     if (!doc) return
-    if (
-      !window.confirm(
-        t('editor.confirmTrash', {}, { defaultValue: 'Move this document to trash?' }),
-      )
-    ) {
-      return
-    }
     try {
       await http.post(`/documents/${doc.id}/trash`, {})
       void track({ name: 'doc.trashed', properties: { doc_id: doc.id } })
@@ -450,22 +447,20 @@ export function Editor() {
               </span>
               {t('editor.historyCta', {}, { defaultValue: 'Version history' })}
             </Link>
-            <button
-              type="button"
-              onClick={handleTrash}
-              data-testid="editor-trash"
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 2.5),
-                cm.flex({ align: 'center', gap: 'xs' }),
-                'rounded-xl text-sm font-semibold border border-error/40 text-error hover:bg-error/10 transition-colors mt-2',
+            <ConfirmButton
+              label={t('editor.trashCta', {}, { defaultValue: 'Move to trash' })}
+              confirmLabel={t(
+                'editor.confirmTrash',
+                {},
+                { defaultValue: 'Move this document to trash?' },
               )}
-            >
-              <span className={cm.cn('material-symbols-outlined text-[18px]')} aria-hidden="true">
-                delete
-              </span>
-              {t('editor.trashCta', {}, { defaultValue: 'Move to trash' })}
-            </button>
+              onConfirm={commitTrash}
+              disarmSeconds={6}
+              color="error"
+              variant="outline"
+              className={cm.sp('mt', 2)}
+              data-testid="editor-trash"
+            />
           </div>
         </div>
       </aside>
@@ -631,12 +626,6 @@ export function Editor() {
                 testid: 'editor-m-history',
                 href: `/editor/${doc.id}/history`,
               },
-              {
-                icon: 'delete',
-                label: t('editor.trashCta', {}, { defaultValue: 'Trash' }),
-                testid: 'editor-m-trash',
-                onClick: handleTrash,
-              },
             ] as ReadonlyArray<{
               icon: string
               label: string
@@ -669,7 +658,6 @@ export function Editor() {
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'xs' }),
                   'shrink-0 px-3 h-9 rounded-full text-[12px] font-semibold border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors whitespace-nowrap',
-                  a.testid === 'editor-m-trash' ? 'border-error/40 text-error' : undefined,
                 )}
               >
                 <span className={cm.cn('material-symbols-outlined text-[16px]')} aria-hidden="true">
@@ -679,6 +667,21 @@ export function Editor() {
               </button>
             ),
           )}
+          <ConfirmButton
+            label={t('editor.trashCta', {}, { defaultValue: 'Trash' })}
+            confirmLabel={t(
+              'editor.confirmTrash',
+              {},
+              { defaultValue: 'Move this document to trash?' },
+            )}
+            onConfirm={commitTrash}
+            disarmSeconds={6}
+            color="error"
+            variant="outline"
+            size="sm"
+            className="shrink-0 whitespace-nowrap"
+            data-testid="editor-m-trash"
+          />
         </div>
 
         {actionMsg ? (

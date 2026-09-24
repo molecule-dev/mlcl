@@ -135,11 +135,19 @@ test.describe('/editor/:id', () => {
     expect(body).toContain('body')
   })
 
-  test('trash CTA accepts confirm and routes back to /library', async ({ page }) => {
+  test('trash CTA arms, then commits on the confirming click and routes back to /library', async ({
+    page,
+  }) => {
     const doc = await createDocument(page, { title: 'To Trash', body_md: '' })
     await page.goto(`${APP_BASE}/editor/${doc.id}`)
-    page.once('dialog', (d) => void d.accept())
-    await page.getByTestId('editor-trash').click()
+    // ConfirmButton is two-click arm/commit: the first click must NOT
+    // trash anything, only reveal the confirm label.
+    const trash = page.getByTestId('editor-trash')
+    await trash.click()
+    await expect(trash).toContainText('Move this document to trash?')
+    const listBefore = await authedGet<ApiDocument[]>(page, '/documents')
+    expect(listBefore.some((d) => d.id === doc.id)).toBe(true)
+    await trash.click()
     await page.waitForURL(/\/library/, { timeout: 10_000 })
     // Trashed documents shouldn't appear in the default list (handler hides them).
     const list = await authedGet<ApiDocument[]>(page, '/documents')

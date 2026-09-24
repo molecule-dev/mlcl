@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 
@@ -128,15 +129,10 @@ export function Billing() {
     [http, reload, t],
   )
 
-  const handleCancel = useCallback(async () => {
-    if (
-      !window.confirm(
-        t('billing.cancelConfirm', {}, { defaultValue: 'Cancel your active subscription?' }),
-      )
-    ) {
-      return
-    }
-    setPendingKey('cancel')
+  // ConfirmButton owns the arm/confirm step (and its own pending state) —
+  // this callback is only the commit path. Errors are swallowed into
+  // actionMsg here because ConfirmButton hands error reporting to the caller.
+  const commitCancel = useCallback(async () => {
     try {
       await http.post('/billing/cancel', {})
       void track({ name: 'billing.subscription_cancelled' })
@@ -145,8 +141,6 @@ export function Billing() {
     } catch (error) {
       logError('billing.handleCancel', error)
       setActionMsg(t('billing.cancelFailed', {}, { defaultValue: 'Could not cancel.' }))
-    } finally {
-      setPendingKey(null)
     }
   }, [http, reload, t])
 
@@ -291,21 +285,20 @@ export function Billing() {
                 {t('billing.current.manage', {}, { defaultValue: 'Manage profile' })}
               </Link>
               {!status.isFree ? (
-                <button
-                  type="button"
-                  onClick={handleCancel}
-                  disabled={pendingKey === 'cancel'}
-                  data-testid="billing-cancel"
-                  className={cm.cn(
-                    cm.sp('px', 4),
-                    cm.sp('py', 2),
-                    'rounded-xl text-sm font-bold border border-error/40 text-error disabled:opacity-50',
+                <ConfirmButton
+                  label={t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
+                  confirmLabel={t(
+                    'billing.cancelConfirm',
+                    {},
+                    { defaultValue: 'Cancel your active subscription?' },
                   )}
-                >
-                  {pendingKey === 'cancel'
-                    ? t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })
-                    : t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
-                </button>
+                  pendingLabel={t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })}
+                  onConfirm={commitCancel}
+                  disarmSeconds={6}
+                  color="error"
+                  variant="outline"
+                  data-testid="billing-cancel"
+                />
               ) : null}
             </div>
           </div>
