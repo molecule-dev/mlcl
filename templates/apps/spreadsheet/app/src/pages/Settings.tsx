@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { WorkbenchLayout } from '../components/WorkbenchLayout.js'
 
@@ -134,14 +134,6 @@ export function Settings() {
     saveState(state)
   }, [state])
 
-  function toggle(id: string) {
-    setState((s) => {
-      const next = { ...s, [id]: !s[id] }
-      setSavedAt(Date.now())
-      return next
-    })
-  }
-
   const visible = TOGGLES.filter((tg) => tg.section === activeSection)
 
   return (
@@ -260,27 +252,16 @@ export function Settings() {
                       {t(`settings.toggle.${tg.id}.desc`, {}, { defaultValue: tg.desc })}
                     </p>
                   </div>
-                  <button
-                    type="button"
-                    role="switch"
-                    aria-checked={state[tg.id]}
+                  <Switch
+                    checked={state[tg.id]}
+                    onChange={(e) => {
+                      const next = (e.target as HTMLInputElement).checked
+                      setState((s) => ({ ...s, [tg.id]: next }))
+                      setSavedAt(Date.now())
+                    }}
                     aria-label={tg.label}
                     data-testid={`toggle-${tg.id}`}
-                    onClick={() => toggle(tg.id)}
-                    className={cm.cn(
-                      cm.flex({ align: 'center' }),
-                      'relative w-11 h-7 rounded-full transition-colors shrink-0',
-                      "after:content-[''] after:absolute after:-inset-2 after:rounded-full",
-                      state[tg.id] ? 'bg-primary' : 'bg-surface-container-high',
-                    )}
-                  >
-                    <span
-                      className={cm.cn(
-                        'absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white shadow-sm transition-transform',
-                        state[tg.id] ? 'translate-x-4' : 'translate-x-0',
-                      )}
-                    />
-                  </button>
+                  />
                 </li>
               ))}
             </ul>

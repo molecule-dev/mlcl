@@ -31,11 +31,24 @@ test.describe('automations', () => {
     // Toggle it off.
     const toggle = page.getByRole('switch', { name: /toggle daily snapshot/i }).first()
     await expect(toggle).toBeVisible()
+    await expect(toggle).toHaveAttribute('aria-checked', 'true')
     await toggle.click()
+    // The shared Switch drives the flip through its hidden native checkbox —
+    // assert the controlled state, not a class.
+    await expect(toggle).toHaveAttribute('aria-checked', 'false')
 
     // Reload and confirm name still there.
     await page.reload()
     await expect(page.getByText('Daily Snapshot')).toBeVisible({ timeout: 10000 })
+
+    // Delete via the shared ConfirmButton: first click arms the two-click
+    // confirm, the second commits. The old native window.confirm is gone.
+    const del = page.getByRole('button', { name: /delete daily snapshot/i }).first()
+    await expect(del).toBeVisible()
+    await del.click()
+    await expect(page.getByText('Delete "Daily Snapshot"?')).toBeVisible()
+    await del.click()
+    await expect(page.getByText('Daily Snapshot')).toBeHidden({ timeout: 10000 })
   })
 
   test('backend invariant: POST /automations persists, owner-scoped', async () => {

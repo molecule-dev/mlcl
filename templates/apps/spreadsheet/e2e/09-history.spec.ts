@@ -1,6 +1,6 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { APP_BASE, apiContext, apiSignup, uniqueEmail } from './_helpers.js'
+import { APP_BASE, apiContext, apiSignup, signup, uniqueEmail } from './_helpers.js'
 
 test.describe('history', () => {
   test('backend invariant: snapshot creates a version, restore wipes + re-creates', async () => {
@@ -108,5 +108,36 @@ test.describe('history', () => {
 
     await page.goto(APP_BASE + `/workbooks/${wbId}/history`)
     await expect(page.getByText(/fixture-v1/)).toBeVisible({ timeout: 10000 })
+  })
+
+  test('snapshot via UI uses the in-page prompt dialog', async ({ page }) => {
+    await signup(page, uniqueEmail('snap-prompt'), 'TestPass123!')
+    await page.goto(APP_BASE + '/workbooks')
+    await page
+      .getByRole('button', { name: /new workbook/i })
+      .first()
+      .click()
+    await expect(page).toHaveURL(/\/workbooks\/[0-9a-f-]{36}/, { timeout: 15000 })
+    const wbId = page.url().split('/').pop()!
+
+    await page.goto(APP_BASE + `/workbooks/${wbId}/history`)
+    await expect(page.getByTestId('snapshot-button')).toBeVisible({ timeout: 10000 })
+
+    // Cancel closes the shared PromptDialog without creating a version.
+    await page.getByTestId('snapshot-button').click()
+    const input = page.locator('[data-mol-id="history-snapshot-input"]')
+    await expect(input).toBeVisible()
+    await page.locator('[data-mol-id="history-snapshot-cancel"]').click()
+    await expect(input).toBeHidden()
+    await expect(page.getByText('e2e ui snapshot')).toBeHidden()
+
+    // Confirm creates the version and lists it under its summary.
+    await page.getByTestId('snapshot-button').click()
+    await expect(input).toBeVisible()
+    await input.fill('e2e ui snapshot')
+    await page.locator('[data-mol-id="history-snapshot-confirm"]').click()
+    await expect(page.getByText('e2e ui snapshot')).toBeVisible({ timeout: 10000 })
+    // The dialog auto-closed on the fulfilled submit.
+    await expect(input).toBeHidden()
   })
 })

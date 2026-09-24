@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { CalciteKpiTile } from '../components/CalciteKpiTile.js'
 import { WorkbenchLayout } from '../components/WorkbenchLayout.js'
@@ -134,12 +135,6 @@ export function Charts() {
   }
 
   async function deleteChart(chart: ChartRow): Promise<void> {
-    if (
-      !window.confirm(
-        t('charts.confirmDelete', { name: chart.name }, { defaultValue: 'Delete "{{name}}"?' }),
-      )
-    )
-      return
     try {
       await http.delete(`/charts/${chart.id}`)
       setCharts((prev) => prev.filter((c) => c.id !== chart.id))
@@ -462,20 +457,25 @@ export function Charts() {
                       {c.type}
                     </p>
                   </div>
-                  <button
-                    onClick={() => deleteChart(c)}
-                    type="button"
+                  <ConfirmButton
+                    label={
+                      <span className="material-symbols-outlined text-[18px]" aria-hidden="true">
+                        delete
+                      </span>
+                    }
+                    confirmLabel={t(
+                      'charts.confirmDelete',
+                      { name: c.name },
+                      { defaultValue: 'Delete "{{name}}"?' },
+                    )}
+                    disarmSeconds={6}
+                    onConfirm={() => deleteChart(c)}
                     aria-label={t(
                       'charts.delete',
                       { name: c.name },
                       { defaultValue: 'Delete {{name}}' },
                     )}
-                    className="inline-flex items-center justify-center w-7 h-7 rounded-full text-on-surface-variant hover:bg-error-container hover:text-error transition-colors"
-                  >
-                    <span className="material-symbols-outlined text-[18px]" aria-hidden="true">
-                      delete
-                    </span>
-                  </button>
+                  />
                 </li>
               ))}
             </ul>

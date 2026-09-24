@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton, Switch } from '@molecule/app-ui-react'
 
 import { CalciteKpiTile } from '../components/CalciteKpiTile.js'
 import { WorkbenchLayout } from '../components/WorkbenchLayout.js'
@@ -100,8 +101,7 @@ export function Automations() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [http]) // spreadsheetId intentionally omitted: only seed from workbooks on mount; form state manages it
 
-  async function toggleActive(item: AutomationRow): Promise<void> {
-    const next = !item.is_active
+  async function toggleActive(item: AutomationRow, next: boolean): Promise<void> {
     try {
       await http.patch(`/automations/${item.id}`, { is_active: next })
       setItems((prev) => prev.map((a) => (a.id === item.id ? { ...a, is_active: next } : a)))
@@ -115,12 +115,6 @@ export function Automations() {
   }
 
   async function deleteItem(item: AutomationRow): Promise<void> {
-    if (
-      !window.confirm(
-        t('automations.confirmDelete', { name: item.name }, { defaultValue: 'Delete "{{name}}"?' }),
-      )
-    )
-      return
     try {
       await http.delete(`/automations/${item.id}`)
       setItems((prev) => prev.filter((a) => a.id !== item.id))
@@ -447,43 +441,35 @@ export function Automations() {
                       {t('automations.lastUpdated', {}, { defaultValue: 'Last updated' })}
                     </span>
                   </div>
-                  <button
-                    onClick={() => toggleActive(a)}
-                    type="button"
-                    role="switch"
-                    aria-checked={a.is_active}
-                    data-testid={`toggle-${a.id}`}
-                    className={cm.cn(
-                      'relative w-11 h-6 rounded-full transition-colors shrink-0',
-                      a.is_active ? 'bg-primary' : 'bg-surface-container-high',
-                    )}
+                  <Switch
+                    checked={a.is_active}
+                    onChange={(e) => void toggleActive(a, (e.target as HTMLInputElement).checked)}
                     aria-label={t(
                       'automations.toggle',
                       { name: a.name },
                       { defaultValue: 'Toggle {{name}}' },
                     )}
-                  >
-                    <span
-                      className={cm.cn(
-                        'absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-surface shadow-sm transition-transform',
-                        a.is_active ? 'translate-x-5' : 'translate-x-0',
-                      )}
-                    />
-                  </button>
-                  <button
-                    onClick={() => deleteItem(a)}
-                    type="button"
+                    data-testid={`toggle-${a.id}`}
+                  />
+                  <ConfirmButton
+                    label={
+                      <span className="material-symbols-outlined text-[18px]" aria-hidden="true">
+                        delete
+                      </span>
+                    }
+                    confirmLabel={t(
+                      'automations.confirmDelete',
+                      { name: a.name },
+                      { defaultValue: 'Delete "{{name}}"?' },
+                    )}
+                    disarmSeconds={6}
+                    onConfirm={() => deleteItem(a)}
                     aria-label={t(
                       'automations.delete',
                       { name: a.name },
                       { defaultValue: 'Delete {{name}}' },
                     )}
-                    className="inline-flex items-center justify-center w-7 h-7 rounded-full text-on-surface-variant hover:bg-error-container hover:text-error transition-colors shrink-0"
-                  >
-                    <span className="material-symbols-outlined text-[18px]" aria-hidden="true">
-                      delete
-                    </span>
-                  </button>
+                  />
                 </li>
               )
             })}

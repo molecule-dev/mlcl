@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Alert, ConfirmButton, PromptDialog } from '@molecule/app-ui-react'
 
 import { WorkbenchLayout } from '../components/WorkbenchLayout.js'
 
@@ -45,7 +46,8 @@ export function History() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [snapshotting, setSnapshotting] = useState(false)
-  const [restoringId, setRestoringId] = useState<string | null>(null)
+  const [snapshotDialogOpen, setSnapshotDialogOpen] = useState(false)
+  const [snapshotError, setSnapshotError] = useState<string | null>(null)
 
   const spreadsheetId = routeId ?? null
 
@@ -80,40 +82,30 @@ export function History() {
     }
   }, [http, spreadsheetId])
 
-  async function takeSnapshot(): Promise<void> {
+  async function takeSnapshot(summary: string): Promise<void> {
     if (!spreadsheetId) return
     setSnapshotting(true)
+    setSnapshotError(null)
     setError(null)
     try {
-      const summary = window.prompt(
-        t('history.snapshotPrompt', {}, { defaultValue: 'Describe this snapshot (optional)' }),
-        '',
-      )
       const res = await http.post<VersionRow>('/spreadsheet-versions', {
         spreadsheet_id: spreadsheetId,
-        change_summary: summary?.trim() ? summary.trim() : null,
+        change_summary: summary.trim() ? summary.trim() : null,
       })
       if (res.data) setVersions((prev) => [res.data!, ...prev])
       track({ name: 'snapshot.created', properties: { workbook_id: spreadsheetId } })
     } catch (err) {
-      setError(err instanceof Error ? err.message : String(err))
+      const message = err instanceof Error ? err.message : String(err)
+      setSnapshotError(message)
+      // Reject so the shared PromptDialog STAYS OPEN with the entered
+      // summary intact — the error renders through its children Alert.
+      throw err
     } finally {
       setSnapshotting(false)
     }
   }
 
   async function restore(version: VersionRow): Promise<void> {
-    if (
-      !window.confirm(
-        t(
-          'history.confirmRestore',
-          {},
-          { defaultValue: 'Restore this version? Live cells will be replaced.' },
-        ),
-      )
-    )
-      return
-    setRestoringId(version.id)
     setError(null)
     try {
       await http.post(`/spreadsheet-versions/${version.id}/restore`, {})
@@ -123,8 +115,6 @@ export function History() {
       })
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
-    } finally {
-      setRestoringId(null)
     }
   }
 
@@ -173,7 +163,10 @@ export function History() {
           {spreadsheetId && (
             <button
               type="button"
-              onClick={takeSnapshot}
+              onClick={() => {
+                setSnapshotError(null)
+                setSnapshotDialogOpen(true)
+              }}
               disabled={snapshotting}
               data-testid="snapshot-button"
               className={
@@ -287,19 +280,18 @@ export function History() {
                     )}
                   </p>
                   <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), cm.sp('mt', 4))}>
-                    <button
-                      onClick={() => restore(v)}
-                      disabled={restoringId === v.id}
-                      type="button"
+                    <ConfirmButton
+                      label={t('history.restore', {}, { defaultValue: 'Restore' })}
+                      confirmLabel={t(
+                        'history.confirmRestore',
+                        {},
+                        { defaultValue: 'Restore this version? Live cells will be replaced.' },
+                      )}
+                      pendingLabel={t('history.restoring', {}, { defaultValue: 'Restoring…' })}
+                      disarmSeconds={6}
+                      onConfirm={() => restore(v)}
                       data-testid={`restore-${v.id}`}
-                      className={
-                        'text-[11px] font-bold uppercase tracking-widest text-primary hover:underline disabled:opacity-50'
-                      }
-                    >
-                      {restoringId === v.id
-                        ? t('history.restoring', {}, { defaultValue: 'Restoring…' })
-                        : t('history.restore', {}, { defaultValue: 'Restore' })}
-                    </button>
+                    />
                   </div>
                 </article>
               </li>
@@ -307,6 +299,29 @@ export function History() {
           })}
         </ol>
       )}
+
+      <PromptDialog
+        open={snapshotDialogOpen}
+        onClose={() => setSnapshotDialogOpen(false)}
+        title={t('history.takeSnapshot', {}, { defaultValue: 'Snapshot now' })}
+        description={t(
+          'history.snapshotPrompt',
+          {},
+          { defaultValue: 'Describe this snapshot (optional)' },
+        )}
+        placeholder={t(
+          'history.snapshotPrompt',
+          {},
+          { defaultValue: 'Describe this snapshot (optional)' },
+        )}
+        confirmLabel={t('history.takeSnapshot', {}, { defaultValue: 'Snapshot now' })}
+        inputMolId="history-snapshot-input"
+        confirmMolId="history-snapshot-confirm"
+        cancelMolId="history-snapshot-cancel"
+        onSubmit={takeSnapshot}
+      >
+        {snapshotError ? <Alert status="error">{snapshotError}</Alert> : null}
+      </PromptDialog>
     </WorkbenchLayout>
   )
 }
