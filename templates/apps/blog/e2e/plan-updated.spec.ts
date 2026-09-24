@@ -62,6 +62,13 @@ test.describe('/plan-updated', () => {
 
 test.describe('/plan-updated — checkout return', () => {
   test('confirms the purchase when the provider returns with a payment id', async ({ page }) => {
+    // The fake Stripe session id cannot be confirmed server-side, so the
+    // verify call comes back 404 — expected; the assertion below is only
+    // that the page ATTEMPTS the call. Annotate before the request fires.
+    await test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404',
+    })
     await signup(page)
     const confirmed = page
       .waitForResponse((r) => /\/verify-payment\//.test(r.url()), { timeout: 20_000 })

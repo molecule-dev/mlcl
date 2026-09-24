@@ -5,10 +5,8 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import AppShell from '../components/AppShell.js'
 import CommentsEmptyState from '../components/CommentsEmptyState.js'
-import CommentsTopNavBar from '../components/CommentsTopNavBar.js'
-import MobileTopBar from '../components/MobileTopBar.js'
-import SideNavBar from '../components/SideNavBar.js'
 
 interface Comment {
   id: string
@@ -197,268 +195,247 @@ function Comments() {
     )
 
   return (
-    <>
-      <SideNavBar />
-      <CommentsTopNavBar />
-      {/* Mobile chrome (renders nothing on desktop) */}
-      <MobileTopBar />
-      <main
-        aria-label={pageTitle}
-        className={cm.cn(cm.sp('px', 4), 'md:px-8 md:ml-[240px] pt-24 pb-16')}
-      >
-        {postFilter ? (
-          <div
-            data-mol-id="comments-post-filter-banner"
-            className={cm.cn(
-              cm.sp('p', 4),
-              cm.sp('mb', 6),
-              'rounded-lg bg-surface-container-low text-on-surface',
-            )}
-          >
-            {t(
-              'comments.filteredByPost',
-              { id: postFilter },
-              { defaultValue: 'Showing comments for post {{id}}.' },
-            )}
-          </div>
-        ) : null}
+    <AppShell title={pageTitle} contentClassName={cm.cn(cm.sp('px', 4), 'md:px-8 pt-8 pb-16')}>
+      {postFilter ? (
         <div
+          data-mol-id="comments-post-filter-banner"
           className={cm.cn(
-            cm.flex({ direction: 'col', justify: 'between', gap: 'lg' }),
-            cm.sp('mb', 10),
-            'md:flex-row md:items-center',
+            cm.sp('p', 4),
+            cm.sp('mb', 6),
+            'rounded-lg bg-surface-container-low text-on-surface',
           )}
         >
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', wrap: 'wrap', gap: 'xs' }),
-              cm.sp('p', 1),
-              cm.roundedFull,
-              'bg-surface-container-low w-fit max-w-full',
-            )}
-          >
-            {(['all', 'pending', 'approved', 'spam'] as Filter[]).map((f) => (
-              <button
-                key={f}
-                type="button"
-                data-mol-id={`comments-filter-${f}`}
-                onClick={() => setFilter(f)}
-                className={filterButtonClass(filter === f)}
-                aria-pressed={filter === f}
-              >
-                {t(
-                  `commentsFilterBar.${f}`,
-                  {},
-                  { defaultValue: f.charAt(0).toUpperCase() + f.slice(1) },
-                )}
-                <span className={cm.cn(cm.sp('ml', 1), 'opacity-60')}>{counts[f]}</span>
-              </button>
-            ))}
-          </div>
+          {t(
+            'comments.filteredByPost',
+            { id: postFilter },
+            { defaultValue: 'Showing comments for post {{id}}.' },
+          )}
         </div>
-
-        {postFilter ? (
-          <form
-            onSubmit={(e) => void submitComment(e)}
-            data-mol-id="comments-create-form"
-            className={cm.cn(
-              cm.sp('p', 6),
-              cm.sp('mb', 8),
-              cm.stack(4),
-              'rounded-xl bg-surface-container-lowest',
-            )}
-          >
-            <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
-              {t('comments.createTitle', {}, { defaultValue: 'Add a comment' })}
-            </h3>
-            <textarea
-              data-mol-id="comments-create-body"
-              value={newCommentBody}
-              onChange={(e) => setNewCommentBody(e.target.value)}
-              required
-              minLength={1}
-              maxLength={10000}
-              rows={3}
-              className={cm.cn(
-                cm.sp('p', 3),
-                cm.w('full'),
-                cm.textSize('sm'),
-                'rounded border border-outline-variant bg-surface-container-low',
-              )}
-              placeholder={t(
-                'comments.createPlaceholder',
-                {},
-                { defaultValue: 'Write your reply…' },
-              )}
-            />
-            {createError ? (
-              <p
-                role="alert"
-                data-mol-id="comments-create-error"
-                className={cm.cn(cm.textSize('xs'), 'text-error')}
-              >
-                {createError}
-              </p>
-            ) : null}
+      ) : null}
+      <div
+        className={cm.cn(
+          cm.flex({ direction: 'col', justify: 'between', gap: 'lg' }),
+          cm.sp('mb', 10),
+          'md:flex-row md:items-center',
+        )}
+      >
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', wrap: 'wrap', gap: 'xs' }),
+            cm.sp('p', 1),
+            cm.roundedFull,
+            'bg-surface-container-low w-fit max-w-full',
+          )}
+        >
+          {(['all', 'pending', 'approved', 'spam'] as Filter[]).map((f) => (
             <button
-              type="submit"
-              data-mol-id="comments-create-submit"
-              disabled={creating || !newCommentBody.trim()}
-              className={cm.cn(
-                cm.sp('px', 6),
-                cm.sp('py', 2),
-                cm.roundedFull,
-                cm.fontWeight('semibold'),
-                'bg-primary text-on-primary disabled:opacity-50 w-fit',
-              )}
+              key={f}
+              type="button"
+              data-mol-id={`comments-filter-${f}`}
+              onClick={() => setFilter(f)}
+              className={filterButtonClass(filter === f)}
+              aria-pressed={filter === f}
             >
-              {creating
-                ? t('common.postingEllipsis', {}, { defaultValue: 'Posting…' })
-                : t('comments.post', {}, { defaultValue: 'Post comment' })}
+              {t(
+                `commentsFilterBar.${f}`,
+                {},
+                { defaultValue: f.charAt(0).toUpperCase() + f.slice(1) },
+              )}
+              <span className={cm.cn(cm.sp('ml', 1), 'opacity-60')}>{counts[f]}</span>
             </button>
-          </form>
-        ) : null}
+          ))}
+        </div>
+      </div>
 
-        {error ? (
-          <div
-            role="alert"
-            data-mol-id="comments-error"
+      {postFilter ? (
+        <form
+          onSubmit={(e) => void submitComment(e)}
+          data-mol-id="comments-create-form"
+          className={cm.cn(
+            cm.sp('p', 6),
+            cm.sp('mb', 8),
+            cm.stack(4),
+            'rounded-xl bg-surface-container-lowest',
+          )}
+        >
+          <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+            {t('comments.createTitle', {}, { defaultValue: 'Add a comment' })}
+          </h3>
+          <textarea
+            data-mol-id="comments-create-body"
+            value={newCommentBody}
+            onChange={(e) => setNewCommentBody(e.target.value)}
+            required
+            minLength={1}
+            maxLength={10000}
+            rows={3}
             className={cm.cn(
-              cm.sp('p', 4),
-              cm.sp('mb', 6),
-              'rounded-lg bg-error-container text-on-error-container',
+              cm.sp('p', 3),
+              cm.w('full'),
+              cm.textSize('sm'),
+              'rounded border border-outline-variant bg-surface-container-low',
+            )}
+            placeholder={t('comments.createPlaceholder', {}, { defaultValue: 'Write your reply…' })}
+          />
+          {createError ? (
+            <p
+              role="alert"
+              data-mol-id="comments-create-error"
+              className={cm.cn(cm.textSize('xs'), 'text-error')}
+            >
+              {createError}
+            </p>
+          ) : null}
+          <button
+            type="submit"
+            data-mol-id="comments-create-submit"
+            disabled={creating || !newCommentBody.trim()}
+            className={cm.cn(
+              cm.sp('px', 6),
+              cm.sp('py', 2),
+              cm.roundedFull,
+              cm.fontWeight('semibold'),
+              'bg-primary text-on-primary disabled:opacity-50 w-fit',
             )}
           >
-            {error}
-          </div>
-        ) : null}
-        {loading ? (
-          <p
-            data-mol-id="comments-loading"
-            className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}
-          >
-            {t('comments.loading', {}, { defaultValue: 'Loading comments…' })}
-          </p>
-        ) : comments.length === 0 ? (
-          <CommentsEmptyState />
-        ) : (
-          <ul className={cm.stack(4)} data-mol-id="comments-list">
-            {comments.map((c) => (
-              <li
-                key={c.id}
-                data-mol-id={`comment-${c.id}`}
-                className={cm.cn(cm.sp('p', 6), 'rounded-xl bg-surface-container-lowest')}
-              >
-                {c.author_name ? (
-                  <div
-                    className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 3))}
-                    data-mol-id={`comment-${c.id}-author`}
+            {creating
+              ? t('common.postingEllipsis', {}, { defaultValue: 'Posting…' })
+              : t('comments.post', {}, { defaultValue: 'Post comment' })}
+          </button>
+        </form>
+      ) : null}
+
+      {error ? (
+        <div
+          role="alert"
+          data-mol-id="comments-error"
+          className={cm.cn(
+            cm.sp('p', 4),
+            cm.sp('mb', 6),
+            'rounded-lg bg-error-container text-on-error-container',
+          )}
+        >
+          {error}
+        </div>
+      ) : null}
+      {loading ? (
+        <p
+          data-mol-id="comments-loading"
+          className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}
+        >
+          {t('comments.loading', {}, { defaultValue: 'Loading comments…' })}
+        </p>
+      ) : comments.length === 0 ? (
+        <CommentsEmptyState />
+      ) : (
+        <ul className={cm.stack(4)} data-mol-id="comments-list">
+          {comments.map((c) => (
+            <li
+              key={c.id}
+              data-mol-id={`comment-${c.id}`}
+              className={cm.cn(cm.sp('p', 6), 'rounded-xl bg-surface-container-lowest')}
+            >
+              {c.author_name ? (
+                <div
+                  className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 3))}
+                  data-mol-id={`comment-${c.id}-author`}
+                >
+                  <span
+                    aria-hidden="true"
+                    className={cm.cn(
+                      cm.w(8),
+                      cm.h(8),
+                      cm.roundedFull,
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      cm.textSize('xs'),
+                      cm.fontWeight('bold'),
+                      'bg-primary-container text-on-primary',
+                    )}
                   >
-                    <span
-                      aria-hidden="true"
-                      className={cm.cn(
-                        cm.w(8),
-                        cm.h(8),
-                        cm.roundedFull,
-                        cm.flex({ align: 'center', justify: 'center' }),
-                        cm.textSize('xs'),
-                        cm.fontWeight('bold'),
-                        'bg-primary-container text-on-primary',
-                      )}
-                    >
-                      {c.author_name.slice(0, 1).toUpperCase()}
+                    {c.author_name.slice(0, 1).toUpperCase()}
+                  </span>
+                  <span
+                    className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'), 'font-headline')}
+                  >
+                    {c.author_name}
+                  </span>
+                  {(c.created_at ?? c.createdAt) ? (
+                    <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+                      {new Date(c.created_at ?? c.createdAt ?? '').toLocaleDateString(undefined, {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                      })}
                     </span>
-                    <span
-                      className={cm.cn(
-                        cm.textSize('sm'),
-                        cm.fontWeight('semibold'),
-                        'font-headline',
-                      )}
-                    >
-                      {c.author_name}
-                    </span>
-                    {(c.created_at ?? c.createdAt) ? (
-                      <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                        {new Date(c.created_at ?? c.createdAt ?? '').toLocaleDateString(undefined, {
-                          month: 'short',
-                          day: 'numeric',
-                          year: 'numeric',
-                        })}
-                      </span>
-                    ) : null}
-                  </div>
-                ) : null}
-                <p className={cm.cn(cm.textSize('sm'), 'font-body text-on-surface')}>{c.body}</p>
-                <p
+                  ) : null}
+                </div>
+              ) : null}
+              <p className={cm.cn(cm.textSize('sm'), 'font-body text-on-surface')}>{c.body}</p>
+              <p
+                className={cm.cn(
+                  cm.textSize('xs'),
+                  cm.sp('mt', 2),
+                  'text-on-surface-variant uppercase tracking-wide',
+                )}
+              >
+                {c.post_title ? `${c.post_title} · ` : c.resourceType ? `${c.resourceType} · ` : ''}
+                {c.status ?? 'pending'}
+              </p>
+              <div className={cm.cn(cm.flex({ gap: 'sm' }), cm.sp('mt', 4))}>
+                <button
+                  type="button"
+                  data-mol-id={`comment-${c.id}-approve`}
+                  onClick={() => void moderate(c.id, 'approved')}
+                  disabled={actioning === c.id || c.status === 'approved'}
                   className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 2),
                     cm.textSize('xs'),
-                    cm.sp('mt', 2),
-                    'text-on-surface-variant uppercase tracking-wide',
+                    cm.fontWeight('semibold'),
+                    cm.roundedFull,
+                    'bg-primary text-on-primary hover:opacity-90 disabled:opacity-50',
                   )}
                 >
-                  {c.post_title
-                    ? `${c.post_title} · `
-                    : c.resourceType
-                      ? `${c.resourceType} · `
-                      : ''}
-                  {c.status ?? 'pending'}
-                </p>
-                <div className={cm.cn(cm.flex({ gap: 'sm' }), cm.sp('mt', 4))}>
-                  <button
-                    type="button"
-                    data-mol-id={`comment-${c.id}-approve`}
-                    onClick={() => void moderate(c.id, 'approved')}
-                    disabled={actioning === c.id || c.status === 'approved'}
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 2),
-                      cm.textSize('xs'),
-                      cm.fontWeight('semibold'),
-                      cm.roundedFull,
-                      'bg-primary text-on-primary hover:opacity-90 disabled:opacity-50',
-                    )}
-                  >
-                    {t('comments.approve', {}, { defaultValue: 'Approve' })}
-                  </button>
-                  <button
-                    type="button"
-                    data-mol-id={`comment-${c.id}-spam`}
-                    onClick={() => void moderate(c.id, 'spam')}
-                    disabled={actioning === c.id || c.status === 'spam'}
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 2),
-                      cm.textSize('xs'),
-                      cm.fontWeight('semibold'),
-                      cm.roundedFull,
-                      'bg-surface-container text-on-surface hover:opacity-90 disabled:opacity-50',
-                    )}
-                  >
-                    {t('comments.markSpam', {}, { defaultValue: 'Mark spam' })}
-                  </button>
-                  <button
-                    type="button"
-                    data-mol-id={`comment-${c.id}-delete`}
-                    onClick={() => void remove(c.id)}
-                    disabled={actioning === c.id}
-                    className={cm.cn(
-                      cm.sp('px', 4),
-                      cm.sp('py', 2),
-                      cm.textSize('xs'),
-                      cm.fontWeight('semibold'),
-                      cm.roundedFull,
-                      'bg-error-container text-on-error-container hover:opacity-90 disabled:opacity-50',
-                    )}
-                  >
-                    {t('common.delete', {}, { defaultValue: 'Delete' })}
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-      </main>
-    </>
+                  {t('comments.approve', {}, { defaultValue: 'Approve' })}
+                </button>
+                <button
+                  type="button"
+                  data-mol-id={`comment-${c.id}-spam`}
+                  onClick={() => void moderate(c.id, 'spam')}
+                  disabled={actioning === c.id || c.status === 'spam'}
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 2),
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    cm.roundedFull,
+                    'bg-surface-container text-on-surface hover:opacity-90 disabled:opacity-50',
+                  )}
+                >
+                  {t('comments.markSpam', {}, { defaultValue: 'Mark spam' })}
+                </button>
+                <button
+                  type="button"
+                  data-mol-id={`comment-${c.id}-delete`}
+                  onClick={() => void remove(c.id)}
+                  disabled={actioning === c.id}
+                  className={cm.cn(
+                    cm.sp('px', 4),
+                    cm.sp('py', 2),
+                    cm.textSize('xs'),
+                    cm.fontWeight('semibold'),
+                    cm.roundedFull,
+                    'bg-error-container text-on-error-container hover:opacity-90 disabled:opacity-50',
+                  )}
+                >
+                  {t('common.delete', {}, { defaultValue: 'Delete' })}
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </AppShell>
   )
 }
 

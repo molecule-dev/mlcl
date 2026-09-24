@@ -6,12 +6,11 @@ import { useSearchParams } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import MobileTopBar from '../components/MobileTopBar.js'
+import AppShell from '../components/AppShell.js'
 import PostListFilterBar from '../components/PostListFilterBar.js'
 import PostListHeader from '../components/PostListHeader.js'
 import PostListItem from '../components/PostListItem.js'
 import PostListPagination from '../components/PostListPagination.js'
-import PostListSideNavBar from '../components/PostListSideNavBar.js'
 
 interface Post {
   id: string
@@ -106,102 +105,94 @@ function PostList() {
     setTotal((prev) => Math.max(0, prev - 1))
   }
   return (
-    <>
-      {/* SideNavBar Anchor */}
-      <PostListSideNavBar />
-      {/* Mobile chrome (renders nothing on desktop) */}
-      <MobileTopBar />
-      {/* Main Content Canvas */}
-      <main
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          cm.stack(10),
-          cm.flex1,
-          cm.surface,
-          cm.sp('px', 4),
-          'md:px-12 pt-6 md:pt-8 pb-8 md:ml-[240px]',
-          cm.minH('screen'),
-        )}
-      >
-        {/* Header Section */}
-        <PostListHeader />
-        {/* Filters & Search */}
-        <PostListFilterBar
-          activeFilter={activeFilter}
-          onFilterChange={(f) => {
-            setActiveFilter(f)
-            setPage(1)
-            setReloadKey((k) => k + 1)
-          }}
-          searchQuery={searchQuery}
-          onSearchChange={(q) => {
-            setSearchQuery(q)
-            setPage(1)
-            setReloadKey((k) => k + 1)
-          }}
-          totalCount={total}
-        />
-        {/* Post List (Tonal Layering Layout) */}
-        <section className={cm.flex1}>
-          <div className={cm.flex({ direction: 'col' })}>
-            {loading ? (
-              <div
-                className={cm.cn(
-                  cm.sp('py', 12),
-                  cm.textCenter,
-                  cm.textSize('sm'),
-                  'text-on-surface-variant',
-                )}
-              >
-                {t('common.loading', {}, { defaultValue: 'Loading...' })}
-              </div>
-            ) : error ? (
-              <div
-                className={cm.cn(cm.sp('py', 12), cm.textCenter, cm.textSize('sm'))}
-                role="alert"
-                style={{ color: 'var(--color-error, var(--color-error))' }}
-              >
-                {error}
-              </div>
-            ) : posts.length === 0 ? (
-              <div
-                className={cm.cn(
-                  cm.sp('py', 12),
-                  cm.textCenter,
-                  cm.textSize('sm'),
-                  'text-on-surface-variant',
-                )}
-              >
-                {t('postList.noPostsFound', {}, { defaultValue: 'No posts found.' })}
-              </div>
-            ) : (
-              posts.map((post) => (
-                <PostListItem
-                  key={post.id}
-                  id={post.id}
-                  title={post.title}
-                  status={post.status}
-                  excerpt={post.excerpt ?? post.description ?? post.body}
-                  views={post.views}
-                  comments={post.comments ?? post.commentCount}
-                  date={post.publishedAt ?? post.date ?? post.createdAt}
-                  onDelete={() => handleDelete(post.id)}
-                />
-              ))
-            )}
-          </div>
-        </section>
-        {/* Pagination Footer */}
-        <PostListPagination
-          total={total}
-          page={page}
-          onPageChange={(p) => {
-            setPage(p)
-            setReloadKey((k) => k + 1)
-          }}
-        />
-      </main>
-    </>
+    <AppShell
+      title={t('topNavBar.articles', {}, { defaultValue: 'Articles' })}
+      contentClassName={cm.cn(
+        cm.flex({ direction: 'col' }),
+        cm.stack(10),
+        cm.surface,
+        cm.sp('px', 4),
+        'md:px-12 pt-6 md:pt-8 pb-8',
+      )}
+    >
+      {/* Header Section */}
+      <PostListHeader />
+      {/* Filters & Search */}
+      <PostListFilterBar
+        activeFilter={activeFilter}
+        onFilterChange={(f) => {
+          setActiveFilter(f)
+          setPage(1)
+          setReloadKey((k) => k + 1)
+        }}
+        searchQuery={searchQuery}
+        onSearchChange={(q) => {
+          setSearchQuery(q)
+          setPage(1)
+          setReloadKey((k) => k + 1)
+        }}
+        totalCount={total}
+      />
+      {/* Post List (Tonal Layering Layout) */}
+      <section className={cm.flex1}>
+        <div className={cm.flex({ direction: 'col' })}>
+          {loading ? (
+            <div
+              className={cm.cn(
+                cm.sp('py', 12),
+                cm.textCenter,
+                cm.textSize('sm'),
+                'text-on-surface-variant',
+              )}
+            >
+              {t('common.loading', {}, { defaultValue: 'Loading...' })}
+            </div>
+          ) : error ? (
+            <div
+              className={cm.cn(cm.sp('py', 12), cm.textCenter, cm.textSize('sm'))}
+              role="alert"
+              style={{ color: 'var(--color-error, var(--color-error))' }}
+            >
+              {error}
+            </div>
+          ) : posts.length === 0 ? (
+            <div
+              className={cm.cn(
+                cm.sp('py', 12),
+                cm.textCenter,
+                cm.textSize('sm'),
+                'text-on-surface-variant',
+              )}
+            >
+              {t('postList.noPostsFound', {}, { defaultValue: 'No posts found.' })}
+            </div>
+          ) : (
+            posts.map((post) => (
+              <PostListItem
+                key={post.id}
+                id={post.id}
+                title={post.title}
+                status={post.status}
+                excerpt={post.excerpt ?? post.description ?? post.body}
+                views={post.views}
+                comments={post.comments ?? post.commentCount}
+                date={post.publishedAt ?? post.date ?? post.createdAt}
+                onDelete={() => handleDelete(post.id)}
+              />
+            ))
+          )}
+        </div>
+      </section>
+      {/* Pagination Footer */}
+      <PostListPagination
+        total={total}
+        page={page}
+        onPageChange={(p) => {
+          setPage(p)
+          setReloadKey((k) => k + 1)
+        }}
+      />
+    </AppShell>
   )
 }
 

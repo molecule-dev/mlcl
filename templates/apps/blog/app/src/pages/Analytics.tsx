@@ -4,9 +4,7 @@ import { KpiCard } from '@molecule/app-kpi-card-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import MobileTopBar from '../components/MobileTopBar.js'
-import SideNavBar from '../components/SideNavBar.js'
-import TopNavBar from '../components/TopNavBar.js'
+import AppShell from '../components/AppShell.js'
 import TopPostsTable from '../components/TopPostsTable.js'
 import TrafficSourcesSidebar from '../components/TrafficSourcesSidebar.js'
 import ViewsOverTimeChart from '../components/ViewsOverTimeChart.js'
@@ -65,70 +63,68 @@ function Analytics() {
   const formattedTotalViews = totalViews.toLocaleString()
 
   return (
-    <>
-      <SideNavBar />
-      <TopNavBar />
-      {/* Mobile chrome (renders nothing on desktop) */}
-      <MobileTopBar />
-      <main className={cm.cn(cm.stack(10), cm.sp('px', 4), 'md:px-10 md:ml-[240px] pt-24 pb-20')}>
-        <section
-          className={cm.cn(cm.grid({ cols: 1, gap: 'lg' }), 'md:grid-cols-2 lg:grid-cols-4')}
-          data-mol-id="analytics-kpis"
-        >
-          <div data-mol-id="kpi-total-views">
-            <KpiCard
-              title={t('analytics.totalViews', {}, { defaultValue: 'Total Views' })}
-              value={formattedTotalViews}
-              accentSide="left"
-              upperLabel
-              emphasizeValue
-            />
-          </div>
-          <div data-mol-id="kpi-published-posts">
-            <KpiCard
-              title={t('analytics.publishedPosts', {}, { defaultValue: 'Published Posts' })}
-              value={publishedPosts.toLocaleString()}
-              accentSide="left"
-              upperLabel
-              emphasizeValue
-            />
-          </div>
-          <div data-mol-id="kpi-total-claps">
-            <KpiCard
-              title={t('analytics.totalClaps', {}, { defaultValue: 'Claps' })}
-              value={claps.toLocaleString()}
-              accentSide="left"
-              upperLabel
-              emphasizeValue
-            />
-          </div>
-          <div data-mol-id="kpi-total-comments">
-            <KpiCard
-              title={t('analytics.totalComments', {}, { defaultValue: 'Comments' })}
-              value={comments.toLocaleString()}
-              accentSide="left"
-              upperLabel
-              emphasizeValue
-            />
-          </div>
-        </section>
-        {loading ? (
-          <p
-            data-mol-id="analytics-loading"
-            className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}
-          >
-            {t('analytics.loading', {}, { defaultValue: 'Loading analytics…' })}
-          </p>
-        ) : null}
-        {/* 12 tracks x 40px gaps alone exceed a phone's width — tighten the
-            gutter on small screens. */}
-        <div className={cm.cn(cm.grid({ cols: 12 }), 'gap-4 md:gap-10 items-start')}>
-          <ViewsOverTimeChart points={views?.points ?? []} totalViews={totalViews} />
-          <TrafficSourcesSidebar />
-          <TopPostsTable posts={topPosts} loading={loading} />
+    <AppShell
+      title={t('nav.analytics', {}, { defaultValue: 'Analytics' })}
+      search
+      contentClassName={cm.cn(cm.stack(10), cm.sp('px', 4), 'md:px-10 pt-8 pb-20')}
+    >
+      <section
+        className={cm.cn(cm.grid({ cols: 1, gap: 'lg' }), 'md:grid-cols-2 lg:grid-cols-4')}
+        data-mol-id="analytics-kpis"
+      >
+        <div data-mol-id="kpi-total-views">
+          <KpiCard
+            title={t('analytics.totalViews', {}, { defaultValue: 'Total Views' })}
+            value={formattedTotalViews}
+            accentSide="left"
+            upperLabel
+            emphasizeValue
+          />
         </div>
-      </main>
-    </>
+        <div data-mol-id="kpi-published-posts">
+          <KpiCard
+            title={t('analytics.publishedPosts', {}, { defaultValue: 'Published Posts' })}
+            value={publishedPosts.toLocaleString()}
+            accentSide="left"
+            upperLabel
+            emphasizeValue
+          />
+        </div>
+        <div data-mol-id="kpi-total-claps">
+          <KpiCard
+            title={t('analytics.totalClaps', {}, { defaultValue: 'Claps' })}
+            value={claps.toLocaleString()}
+            accentSide="left"
+            upperLabel
+            emphasizeValue
+          />
+        </div>
+        <div data-mol-id="kpi-total-comments">
+          <KpiCard
+            title={t('analytics.totalComments', {}, { defaultValue: 'Comments' })}
+            value={comments.toLocaleString()}
+            accentSide="left"
+            upperLabel
+            emphasizeValue
+          />
+        </div>
+      </section>
+      {loading ? (
+        <p
+          data-mol-id="analytics-loading"
+          className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}
+        >
+          {t('analytics.loading', {}, { defaultValue: 'Loading analytics…' })}
+        </p>
+      ) : null}
+      {/* 12 tracks x 40px gaps alone exceed a phone's width — tighten the
+            gutter on small screens. */}
+      <div className={cm.cn(cm.grid({ cols: 12 }), 'gap-4 md:gap-10 items-start')}>
+        <ViewsOverTimeChart points={views?.points ?? []} totalViews={totalViews} />
+        <TrafficSourcesSidebar />
+        <TopPostsTable posts={topPosts} loading={loading} />
+      </div>
+    </AppShell>
   )
 }
 

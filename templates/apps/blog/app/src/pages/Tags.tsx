@@ -5,9 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import MobileTopBar from '../components/MobileTopBar.js'
-import TagsSideNavBar from '../components/TagsSideNavBar.js'
-import TagsTopNavBar from '../components/TagsTopNavBar.js'
+import AppShell from '../components/AppShell.js'
 
 const TAG_COLORS = [
   '#6366f1',
@@ -267,20 +265,30 @@ export function Tags() {
   }
 
   return (
-    <div data-mol-id="page-tags">
-      <TagsSideNavBar />
-      <TagsTopNavBar onNewTag={openCreateModal} />
-      {/* Mobile chrome (renders nothing on desktop) */}
-      <MobileTopBar />
+    <AppShell
+      title={t('form.tags', {}, { defaultValue: 'Tags' })}
+      contentMolId="page-tags"
+      actions={
+        <button
+          type="button"
+          onClick={openCreateModal}
+          className={cm.cn(
+            cm.sp('px', 6),
+            cm.sp('py', 2),
+            cm.roundedFull,
+            cm.fontWeight('semibold'),
+            cm.textSize('xs'),
+            cm.flex({ align: 'center', gap: 'sm' }),
+            'bg-primary hover:bg-primary-container text-on-primary uppercase tracking-widest transition-all active:scale-95',
+          )}
+        >
+          <span className={cm.fv5b245ffa}>add</span>
+          {t('tagsTopNavBar.newTag', {}, { defaultValue: 'New Tag' })}
+        </button>
+      }
+    >
       {/* Content */}
-      <div
-        style={{
-          padding: '2rem 1rem',
-          maxWidth: '960px',
-          paddingTop: '6rem',
-        }}
-        className="mx-auto md:mx-0 md:ml-[240px] md:px-8"
-      >
+      <div style={{ padding: '2rem 1rem', maxWidth: '960px' }} className="mx-auto md:px-8">
         {loading ? (
           <div className={cm.cn(cm.flex({ align: 'center', justify: 'center' }), cm.sp('p', 16))}>
             <div className={cm.spinner()} />
@@ -1586,6 +1594,6 @@ export function Tags() {
           </div>
         </div>
       )}
-    </div>
+    </AppShell>
   )
 }
