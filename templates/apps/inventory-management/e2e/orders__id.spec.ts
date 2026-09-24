@@ -114,8 +114,12 @@ test.describe('order detail page', () => {
     const order = await fetchOpenOrder(page, accessToken)
     await page.goto(APP_BASE + `/orders/${order.id}`)
     await expect(page.getByRole('heading', { name: order.reference })).toBeVisible()
-    page.once('dialog', (d) => void d.accept())
-    await page.getByRole('button', { name: /Cancel order/i }).click()
+    // ConfirmButton is a two-click arm/commit control (no native dialog):
+    // the first click arms it, the second commits the cancel.
+    const cancelButton = page.getByRole('button', { name: /Cancel order/i })
+    await cancelButton.click()
+    await expect(page.getByRole('button', { name: /Cancel this order\?/i })).toBeVisible()
+    await page.getByRole('button', { name: /Cancel this order\?/i }).click()
     // Cancel button disappears once the load() refetch settles.
     await expect(page.getByRole('button', { name: /Cancel order/i })).toHaveCount(0, {
       timeout: 15_000,

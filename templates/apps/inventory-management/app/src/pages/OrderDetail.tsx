@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface ApiOrderItem {
   id: string
@@ -127,8 +128,6 @@ export function OrderDetail() {
 
   const onCancel = async () => {
     if (!order) return
-    if (!window.confirm(t('orderDetail.confirmCancel', {}, { defaultValue: 'Cancel this order?' })))
-      return
     setActionPending('cancel')
     try {
       await http.post(`/orders/${order.id}/cancel`)
@@ -252,29 +251,18 @@ export function OrderDetail() {
             </div>
             <div className={cm.cn(cm.flex({ gap: 'sm' }), 'flex-wrap')}>
               {!TERMINAL.has(order.status) && (
-                <button
-                  type="button"
-                  onClick={onCancel}
-                  disabled={actionPending !== null}
-                  className={cm.cn(
-                    cm.flex({ align: 'center', gap: 'xs' }),
-                    cm.sp('px', 4),
-                    cm.sp('py', 2),
-                    cm.fontWeight('semibold'),
-                    cm.textSize('sm'),
-                    'rounded-lg border border-outline-variant text-on-surface hover:bg-background-secondary disabled:opacity-60',
+                <ConfirmButton
+                  label={t('orderDetail.cancel', {}, { defaultValue: 'Cancel order' })}
+                  confirmLabel={t(
+                    'orderDetail.confirmCancel',
+                    {},
+                    { defaultValue: 'Cancel this order?' },
                   )}
-                >
-                  <span
-                    className={cm.cn('material-symbols-outlined text-[18px]')}
-                    data-icon="cancel"
-                  >
-                    cancel
-                  </span>
-                  {actionPending === 'cancel'
-                    ? t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })
-                    : t('orderDetail.cancel', {}, { defaultValue: 'Cancel order' })}
-                </button>
+                  pendingLabel={t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })}
+                  onConfirm={onCancel}
+                  disarmSeconds={6}
+                  disabled={actionPending !== null}
+                />
               )}
               {!TERMINAL.has(order.status) && (
                 <button
