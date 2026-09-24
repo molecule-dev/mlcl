@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
-import { ConfirmButton } from '../components/ConfirmButton.js'
 import { MeridianAppShell } from '../components/MeridianAppShell.js'
 import { MeridianThreadRow } from '../components/MeridianThreadRow.js'
 import type { EmailRow } from '../lib/api.js'
@@ -277,17 +277,17 @@ export function Drafts() {
                   {t('meridian.drafts.continue', {}, { defaultValue: 'Continue editing' })}
                 </button>
                 <ConfirmButton
-                  onConfirm={() => deleteDraft(selected.id)}
+                  label={t('meridian.drafts.delete', {}, { defaultValue: 'Delete draft' })}
                   confirmLabel={t(
                     'meridian.drafts.confirmDelete',
                     {},
                     { defaultValue: 'Tap again to delete' },
                   )}
+                  onConfirm={() => deleteDraft(selected.id)}
+                  disarmSeconds={6}
+                  color="error"
                   data-mol-id="drafts-delete"
-                  className="text-error hover:bg-error/10"
-                >
-                  {t('meridian.drafts.delete', {}, { defaultValue: 'Delete draft' })}
-                </ConfirmButton>
+                />
               </div>
             </div>
           ) : (

@@ -3,8 +3,8 @@ import { useCallback, useMemo, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
-import { ConfirmButton } from '../components/ConfirmButton.js'
 import { MeridianAppShell } from '../components/MeridianAppShell.js'
 import { MeridianMessageCard } from '../components/MeridianMessageCard.js'
 import { MeridianThreadRow } from '../components/MeridianThreadRow.js'
@@ -215,22 +215,26 @@ export function FolderView({ folder, heading, emptyMessage }: FolderViewProps) {
                 </div>
                 {folder === 'trash' ? (
                   <ConfirmButton
-                    onConfirm={() => remove(selected.id)}
+                    label={t(
+                      'meridian.folder.deleteForever',
+                      {},
+                      { defaultValue: 'Delete permanently' },
+                    )}
                     confirmLabel={t(
                       'meridian.folder.confirmDeleteForever',
                       {},
                       { defaultValue: 'Tap again to delete forever' },
                     )}
-                    data-mol-id={`${folder}-delete`}
                     aria-label={t(
                       'meridian.folder.delete',
                       {},
                       { defaultValue: 'Permanently delete' },
                     )}
-                    className="text-error hover:bg-error/10"
-                  >
-                    {t('meridian.folder.deleteForever', {}, { defaultValue: 'Delete permanently' })}
-                  </ConfirmButton>
+                    onConfirm={() => remove(selected.id)}
+                    disarmSeconds={6}
+                    color="error"
+                    data-mol-id={`${folder}-delete`}
+                  />
                 ) : (
                   <button
                     type="button"
