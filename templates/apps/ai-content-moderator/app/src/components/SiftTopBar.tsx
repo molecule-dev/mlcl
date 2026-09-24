@@ -15,144 +15,130 @@ interface Crumb {
   to?: string
 }
 
-interface SiftTopBarProps {
+interface SiftCrumbsProps {
+  /** Override breadcrumbs shown in the top bar. */
   crumbs?: Crumb[]
+}
+
+/**
+ * Breadcrumb trail — rendered as the `brand` slot of the shell TopBar.
+ * The hamburger trigger is GONE: `ResponsiveAppShell.TopBar` renders the
+ * mobile menu trigger itself when a Drawer is part of the composition.
+ */
+export function SiftCrumbs({ crumbs }: SiftCrumbsProps) {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const { pathname } = useLocation()
+
+  const trail = crumbs && crumbs.length > 0 ? crumbs : inferCrumbs(pathname, t)
+
+  return (
+    <nav
+      className={cm.cn(
+        cm.flex({ align: 'center' }),
+        'gap-2 text-sm font-medium font-inter min-w-0',
+      )}
+      aria-label={t('topbar.breadcrumbs', {}, { defaultValue: 'Breadcrumbs' })}
+    >
+      {trail.map((crumb, idx) => {
+        const isLast = idx === trail.length - 1
+        return (
+          <span key={`${crumb.label}-${idx}`} className={cm.flex({ align: 'center' })}>
+            {idx > 0 && <span className={cm.cn('mx-2 text-foreground-tertiary')}>/</span>}
+            {!isLast && crumb.to ? (
+              <SafeLink
+                to={crumb.to}
+                className={cm.cn(
+                  'text-foreground-secondary hover:text-primary transition-colors whitespace-nowrap',
+                )}
+              >
+                {crumb.label}
+              </SafeLink>
+            ) : (
+              <span
+                className={cm.cn(
+                  'text-primary font-bold border-b-2 border-primary pb-5 truncate max-w-[38vw] md:max-w-none',
+                )}
+              >
+                {crumb.label}
+              </span>
+            )}
+          </span>
+        )
+      })}
+    </nav>
+  )
+}
+
+interface SiftTopBarActionsProps {
   /** Right-side actions (e.g. filter toggle, "New rule" button). */
   actions?: ReactNode
   /** Show the search input on the left of actions. */
   showSearch?: boolean
-  /** Open the mobile navigation drawer (<768px). */
-  onOpenMobileNav?: () => void
 }
 
-export function SiftTopBar({
-  crumbs,
-  actions,
-  showSearch = true,
-  onOpenMobileNav,
-}: SiftTopBarProps) {
+/**
+ * Trailing top-bar content — search, page actions, notifications, theme and
+ * user menu — rendered as the `actions` slot of the shell TopBar.
+ */
+export function SiftTopBarActions({ actions, showSearch = true }: SiftTopBarActionsProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const { pathname } = useLocation()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const [query, setQuery] = useState(searchParams.get('q') ?? '')
 
-  const inferred = inferCrumbs(pathname, t)
-  const trail = crumbs && crumbs.length > 0 ? crumbs : inferred
-
   return (
-    <header
-      className={cm.cn(
-        cm.flex({ align: 'center', justify: 'between' }),
-        cm.sp('px', 4),
-        'md:px-8 sticky top-0 z-20 w-full h-16 bg-surface/80 backdrop-blur-xl border-b border-surface-container shadow-sm shadow-slate-200/40',
-      )}
-    >
-      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-1 min-w-0')}>
-        {onOpenMobileNav && (
-          <button
-            type="button"
-            data-mol-id="mobile-nav-trigger"
-            onClick={onOpenMobileNav}
-            aria-label={t('common.openMenu', {}, { defaultValue: 'Open navigation' })}
-            aria-expanded="false"
+    <>
+      {showSearch && (
+        <form
+          role="search"
+          className={cm.cn('relative hidden md:block')}
+          onSubmit={(event) => {
+            event.preventDefault()
+            const q = query.trim()
+            navigate(q ? `/queue?q=${encodeURIComponent(q)}` : '/queue')
+          }}
+        >
+          <span
+            aria-hidden="true"
             className={cm.cn(
-              'md:hidden text-foreground-secondary hover:text-primary transition-colors p-2 -ml-2',
+              'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-foreground-tertiary text-[20px] pointer-events-none',
             )}
           >
-            <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-[24px]')}>
-              menu
-            </span>
-          </button>
-        )}
-        <nav
-          className={cm.cn(
-            cm.flex({ align: 'center' }),
-            'gap-2 text-sm font-medium font-inter min-w-0',
-          )}
-          aria-label={t('topbar.breadcrumbs', {}, { defaultValue: 'Breadcrumbs' })}
-        >
-          {trail.map((crumb, idx) => {
-            const isLast = idx === trail.length - 1
-            return (
-              <span key={`${crumb.label}-${idx}`} className={cm.flex({ align: 'center' })}>
-                {idx > 0 && <span className={cm.cn('mx-2 text-foreground-tertiary')}>/</span>}
-                {!isLast && crumb.to ? (
-                  <SafeLink
-                    to={crumb.to}
-                    className={cm.cn(
-                      'text-foreground-secondary hover:text-primary transition-colors whitespace-nowrap',
-                    )}
-                  >
-                    {crumb.label}
-                  </SafeLink>
-                ) : (
-                  <span
-                    className={cm.cn(
-                      'text-primary font-bold border-b-2 border-primary pb-5 truncate max-w-[38vw] md:max-w-none',
-                    )}
-                  >
-                    {crumb.label}
-                  </span>
-                )}
-              </span>
-            )
-          })}
-        </nav>
-      </div>
-
-      <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-3 shrink-0')}>
-        {showSearch && (
-          <form
-            role="search"
-            className={cm.cn('relative hidden md:block')}
-            onSubmit={(event) => {
-              event.preventDefault()
-              const q = query.trim()
-              navigate(q ? `/queue?q=${encodeURIComponent(q)}` : '/queue')
-            }}
-          >
-            <span
-              aria-hidden="true"
-              className={cm.cn(
-                'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-foreground-tertiary text-[20px] pointer-events-none',
-              )}
-            >
-              search
-            </span>
-            <input
-              type="search"
-              data-mol-id="topbar-search"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder={t(
-                'topbar.searchHint',
-                {},
-                { defaultValue: 'Search queue, rules, users…' },
-              )}
-              aria-label={t('common.search', {}, { defaultValue: 'Search' })}
-              className={cm.cn(
-                'pl-10 pr-4 py-2 bg-surface-container-low border-b-2 border-transparent focus:border-primary outline-none text-sm w-40 lg:w-64 transition-colors font-inter text-on-surface rounded-md',
-              )}
-            />
-          </form>
-        )}
-        {actions}
-        <SafeLink
-          to="/notifications"
-          data-mol-id="nav-notifications"
-          className={cm.cn('text-foreground-secondary hover:text-primary transition-colors p-1')}
-          aria-label={t('settings.notifications', {}, { defaultValue: 'Notifications' })}
-        >
-          <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-[22px]')}>
-            notifications
+            search
           </span>
-        </SafeLink>
-        <ThemeToggle />
-        <UserMenu />
-      </div>
-    </header>
+          <input
+            type="search"
+            data-mol-id="topbar-search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={t(
+              'topbar.searchHint',
+              {},
+              { defaultValue: 'Search queue, rules, users…' },
+            )}
+            aria-label={t('common.search', {}, { defaultValue: 'Search' })}
+            className={cm.cn(
+              'pl-10 pr-4 py-2 bg-surface-container-low border-b-2 border-transparent focus:border-primary outline-none text-sm w-40 lg:w-64 transition-colors font-inter text-on-surface rounded-md',
+            )}
+          />
+        </form>
+      )}
+      {actions}
+      <SafeLink
+        to="/notifications"
+        data-mol-id="nav-notifications"
+        className={cm.cn('text-foreground-secondary hover:text-primary transition-colors p-1')}
+        aria-label={t('settings.notifications', {}, { defaultValue: 'Notifications' })}
+      >
+        <span aria-hidden="true" className={cm.cn('material-symbols-outlined text-[22px]')}>
+          notifications
+        </span>
+      </SafeLink>
+      <ThemeToggle />
+      <UserMenu />
+    </>
   )
 }
 

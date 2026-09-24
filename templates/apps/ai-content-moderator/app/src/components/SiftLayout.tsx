@@ -1,11 +1,13 @@
 import type { ReactNode } from 'react'
-import { useState } from 'react'
 
+import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { SiftMobileNav } from './SiftMobileNav.js'
-import { SiftSidebar } from './SiftSidebar.js'
-import { SiftTopBar } from './SiftTopBar.js'
+import { APP_NAME } from '../branding.js'
+import { SafeLink } from './SafeLink.js'
+import { SiftNav, SiftNavFooter } from './SiftNav.js'
+import { SiftCrumbs, SiftTopBarActions } from './SiftTopBar.js'
 
 interface SiftLayoutProps {
   children: ReactNode
@@ -18,40 +20,98 @@ interface SiftLayoutProps {
 }
 
 /**
- * Bespoke "Sift" console shell — dark slate sidebar + frosted top bar.
+ * Bespoke "Sift" console shell — dark slate sidebar + frosted top bar, built
+ * on the shared `ResponsiveAppShell`.
  *
  * Replaces the generic AppLayout for all signed-in pages so every screen
  * inherits the moderation console chrome with breadcrumbs, search, and
- * notifications/profile slots. Below 768px the sidebar is hidden and the
- * top bar grows a hamburger that opens the SiftMobileNav drawer.
+ * notifications/profile slots. The shell owns the breakpoint split: the
+ * Sidebar mounts only ≥768px, the mobile Drawer (same nav element, full
+ * dialog contract) only below it, and the TopBar renders the menu trigger
+ * itself — the app's own hamburger, drawer state and escape/backdrop
+ * handlers are deleted.
  */
 export function SiftLayout({ children, crumbs, actions, hideSearch }: SiftLayoutProps) {
   const cm = getClassMap()
-  const [mobileNavOpen, setMobileNavOpen] = useState(false)
-  return (
-    <div
-      className={cm.cn(cm.flex({}), cm.minH('screen'), 'bg-background text-on-surface antialiased')}
+
+  // The SAME nav element for both surfaces — only the mounted breakpoint
+  // instantiates it, so the badge fetch runs once on the live surface.
+  const nav = <SiftNav />
+  const footer = <SiftNavFooter />
+  const drawerBrand = (
+    <span
+      className={cm.cn(
+        'text-2xl font-black tracking-tighter text-white uppercase font-inter leading-none',
+      )}
     >
-      <SiftSidebar />
-      <SiftMobileNav open={mobileNavOpen} onClose={() => setMobileNavOpen(false)} />
-      <div className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }), 'min-w-0')}>
-        <SiftTopBar
-          crumbs={crumbs}
-          actions={actions}
-          showSearch={!hideSearch}
-          onOpenMobileNav={() => setMobileNavOpen(true)}
-        />
-        <main
-          className={cm.cn(
-            cm.flex1,
-            cm.sp('p', 8),
-            cm.stack(8),
-            'overflow-y-auto max-w-7xl mx-auto w-full',
-          )}
-        >
-          {children}
-        </main>
-      </div>
-    </div>
+      {APP_NAME}
+    </span>
+  )
+
+  return (
+    <ResponsiveAppShell
+      sidebarWidth={260}
+      // The shell root is a flex ROW (top bar, sidebar and main are direct
+      // siblings), so the bar has to wrap onto its own full-width row or it
+      // renders as a squeezed column beside the sidebar — `flex-wrap` on the
+      // root + `w-full` on the TopBar is the consumer-level geometry fix.
+      className="flex-wrap bg-background text-on-surface antialiased"
+    >
+      <ResponsiveAppShell.TopBar
+        className="w-full h-16 bg-surface/80 backdrop-blur-xl border-b border-surface-container shadow-sm shadow-slate-200/40 md:px-8"
+        brand={<SiftCrumbs crumbs={crumbs} />}
+        actions={<SiftTopBarActions showSearch={!hideSearch} actions={actions} />}
+      />
+      <ResponsiveAppShell.Sidebar footer={footer}>
+        <SiftSidebarBrand />
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+      <ResponsiveAppShell.Drawer
+        header={drawerBrand}
+        footer={footer}
+        // The shell's drawer panel is `position: static` while carrying an
+        // inline `zIndex: 40` — a dead combination that leaves the z-40
+        // overlay painting (and intercepting clicks) ABOVE the panel.
+        // `relative` makes the panel's own z-index apply so it sits above
+        // the backdrop. Fix the panel positioning in the shell itself when
+        // @molecule/app-ui-react can be touched.
+        className="relative"
+      >
+        {nav}
+      </ResponsiveAppShell.Drawer>
+      <ResponsiveAppShell.Content
+        className={cm.cn(cm.sp('p', 8), cm.stack(8), 'overflow-y-auto max-w-7xl mx-auto w-full')}
+      >
+        {children}
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
+  )
+}
+
+/** Sidebar-only brand block (name + tagline) linking home. */
+function SiftSidebarBrand() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  return (
+    <SafeLink
+      to="/"
+      className={cm.cn(cm.sp('px', 4), cm.sp('mb', 8), cm.flex({ direction: 'col' }))}
+      aria-label={APP_NAME}
+    >
+      <span
+        className={cm.cn(
+          'text-2xl font-black tracking-tighter text-white uppercase font-inter leading-none',
+        )}
+      >
+        {APP_NAME}
+      </span>
+      <span
+        className={cm.cn(
+          'text-secondary-fixed-dim text-[10px] tracking-widest uppercase font-bold mt-1',
+        )}
+      >
+        {t('sidebar.tagline', {}, { defaultValue: 'Content Moderation' })}
+      </span>
+    </SafeLink>
   )
 }
