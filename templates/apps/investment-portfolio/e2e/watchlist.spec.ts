@@ -68,12 +68,19 @@ test.describe('/watchlist', () => {
     })
     await page.goto(APP_BASE + '/watchlist')
     await page.waitForLoadState('networkidle').catch(() => {})
-    page.once('dialog', (d) => d.accept())
+
+    // First click arms the shared ConfirmButton — the confirm label appears,
+    // no DELETE fires yet.
+    await page
+      .getByRole('button', { name: /^Remove$/ })
+      .first()
+      .click()
+    const confirm = page.getByRole('button', { name: /Remove NVDA from watchlist\?/ })
+    await expect(confirm).toBeVisible()
+
+    // Second click commits.
     const calls = await captureNetwork(page, async () => {
-      await page
-        .getByRole('button', { name: /^Remove$/ })
-        .first()
-        .click()
+      await confirm.click()
       await page.waitForTimeout(1200)
     })
     const del = calls.find((c) => c.method === 'DELETE' && /\/api\/watchlist\//.test(c.url))

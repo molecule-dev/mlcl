@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { WatchlistAddModal } from '../components/WatchlistAddModal.js'
 import { unwrapList } from '../lib/unwrap.js'
@@ -54,7 +55,6 @@ export function Watchlist() {
   const [error, setError] = useState<string | null>(null)
   const [addOpen, setAddOpen] = useState(false)
   const [reloadCounter, setReloadCounter] = useState(0)
-  const [removingId, setRemovingId] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
@@ -78,21 +78,9 @@ export function Watchlist() {
 
   const handleSuccess = useCallback(() => setReloadCounter((c) => c + 1), [])
 
-  const handleRemove = useCallback(
+  const removeItem = useCallback(
     async (item: WatchedAsset) => {
       if (!item.id) return
-      if (
-        typeof window !== 'undefined' &&
-        !window.confirm(
-          t(
-            'watchlist.confirmRemove',
-            { symbol: item.symbol },
-            { defaultValue: `Remove ${item.symbol} from watchlist?` },
-          ),
-        )
-      )
-        return
-      setRemovingId(item.id)
       try {
         await http.delete(`/api/watchlist/${item.id}`)
         void track({ name: 'watchlist.removed', properties: { symbol: item.symbol } })
@@ -103,8 +91,6 @@ export function Watchlist() {
           msg ||
             t('watchlist.removeError', {}, { defaultValue: 'Failed to remove from watchlist.' }),
         )
-      } finally {
-        setRemovingId(null)
       }
     },
     [http, t],
@@ -250,19 +236,20 @@ export function Watchlist() {
                       : '—'}
                   </td>
                   <td className={cm.cn(cm.sp('px', 4), cm.sp('py', 3), 'text-right')}>
-                    <button
-                      type="button"
-                      disabled={removingId === r.id}
-                      onClick={() => handleRemove(r)}
-                      className={cm.cn(
-                        cm.textSize('sm'),
-                        'text-error hover:underline disabled:opacity-50 disabled:cursor-not-allowed',
+                    <ConfirmButton
+                      color="error"
+                      variant="link"
+                      size="sm"
+                      label={t('common.remove', {}, { defaultValue: 'Remove' })}
+                      confirmLabel={t(
+                        'watchlist.confirmRemove',
+                        { symbol: r.symbol },
+                        { defaultValue: `Remove ${r.symbol} from watchlist?` },
                       )}
-                    >
-                      {removingId === r.id
-                        ? t('watchlist.removing', {}, { defaultValue: 'Removing…' })
-                        : t('common.remove', {}, { defaultValue: 'Remove' })}
-                    </button>
+                      pendingLabel={t('watchlist.removing', {}, { defaultValue: 'Removing…' })}
+                      disarmSeconds={5}
+                      onConfirm={() => removeItem(r)}
+                    />
                   </td>
                 </tr>
               ))}
