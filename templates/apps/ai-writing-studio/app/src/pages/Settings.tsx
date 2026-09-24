@@ -5,7 +5,7 @@ import type { UserProfile } from '@molecule/app-auth'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 
@@ -522,25 +522,20 @@ function SettingToggle({ label, description, checked, onChange, dataMolId }: Set
           {description}
         </p>
       </div>
-      <button
-        type="button"
-        role="switch"
-        data-mol-id={dataMolId}
-        aria-checked={checked}
-        aria-label={label}
-        onClick={() => onChange(!checked)}
-        className={cm.cn(
-          'relative h-6 w-11 rounded-full transition-colors flex-shrink-0 mt-1',
-          checked ? 'bg-primary' : 'bg-surface-container-high',
-        )}
-      >
-        <span
-          className={cm.cn(
-            'absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-surface shadow transition-transform',
-            checked ? 'translate-x-5' : '',
-          )}
+      {/* Shared accessible Switch (role=switch + aria-checked + 40×40 touch
+          hit-area). The visible label text sits to the left, so the control
+          gets its accessible name via aria-label and keeps its data-mol-id
+          for the e2e contract (click flips aria-checked). The shared Switch
+          reports the new value through a real change event on its hidden
+          checkbox — read it off `e.target.checked`. */}
+      <div className={cm.sp('mt', 1)}>
+        <Switch
+          checked={checked}
+          aria-label={label}
+          data-mol-id={dataMolId}
+          onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
         />
-      </button>
+      </div>
     </div>
   )
 }

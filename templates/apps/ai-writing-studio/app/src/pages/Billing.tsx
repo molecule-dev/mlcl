@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface PlanInfo {
   planKey: string
@@ -61,7 +62,6 @@ export function Billing() {
   const [summary, setSummary] = useState<BillingSummary | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [actionMessage, setActionMessage] = useState<string | null>(null)
-  const [busy, setBusy] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -87,7 +87,6 @@ export function Billing() {
     typeof plan?.limits?.maxGenerate === 'number' ? (plan.limits.maxGenerate as number) : null
 
   async function handleCancel() {
-    setBusy(true)
     setActionMessage(null)
     try {
       await http.post('/billing/cancel', {})
@@ -103,8 +102,6 @@ export function Billing() {
       setActionMessage(
         t('billing.cancelFailed', {}, { defaultValue: 'Could not cancel subscription.' }),
       )
-    } finally {
-      setBusy(false)
     }
   }
 
@@ -221,10 +218,20 @@ export function Billing() {
                     : t('billing.changePlan', {}, { defaultValue: 'Change plan' })}
                 </button>
                 {plan && !plan.isFree ? (
-                  <button
-                    type="button"
-                    onClick={handleCancel}
-                    disabled={busy}
+                  <ConfirmButton
+                    label={t('billing.cancelPlan', {}, { defaultValue: 'Cancel plan' })}
+                    confirmLabel={t(
+                      'billing.cancelPlanConfirm',
+                      {},
+                      { defaultValue: 'Confirm cancel?' },
+                    )}
+                    pendingLabel={t(
+                      'common.cancellingEllipsis',
+                      {},
+                      { defaultValue: 'Cancelling…' },
+                    )}
+                    onConfirm={handleCancel}
+                    data-mol-id="billing-cancel-plan"
                     className={cm.cn(
                       cm.sp('px', 4),
                       cm.sp('py', 2),
@@ -232,11 +239,7 @@ export function Billing() {
                       cm.textSize('sm'),
                       'rounded-full bg-surface text-primary hover:bg-surface/90 transition-colors disabled:opacity-60',
                     )}
-                  >
-                    {busy
-                      ? t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })
-                      : t('billing.cancelPlan', {}, { defaultValue: 'Cancel plan' })}
-                  </button>
+                  />
                 ) : null}
               </div>
             </div>
