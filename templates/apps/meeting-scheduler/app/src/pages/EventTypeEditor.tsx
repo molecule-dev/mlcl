@@ -20,6 +20,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -92,7 +93,6 @@ export function EventTypeEditor() {
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<Date | null>(null)
   const [saveError, setSaveError] = useState<string | null>(null)
-  const [deleting, setDeleting] = useState(false)
   const [copyState, setCopyState] = useState<'idle' | 'copied'>('idle')
 
   const slugTouchedRef = useState(!isNew)[0]
@@ -273,18 +273,6 @@ export function EventTypeEditor() {
 
   async function handleDelete() {
     if (isNew) return
-    if (
-      !window.confirm(
-        t(
-          'eventTypeEditor.confirmDelete',
-          {},
-          { defaultValue: 'Delete this event type? Existing bookings remain.' },
-        ),
-      )
-    ) {
-      return
-    }
-    setDeleting(true)
     setSaveError(null)
     try {
       await http.delete(`/api/event-types/${encodeURIComponent(id ?? '')}`)
@@ -302,7 +290,6 @@ export function EventTypeEditor() {
           },
         ),
       )
-      setDeleting(false)
     }
   }
 
@@ -420,23 +407,18 @@ export function EventTypeEditor() {
               : t('common.saveChanges', {}, { defaultValue: 'Save changes' })}
           </button>
           {!isNew ? (
-            <button
-              type="button"
-              data-testid="delete-event-type"
-              onClick={handleDelete}
-              disabled={deleting}
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                cm.fontWeight('bold'),
-                cm.textSize('xs'),
-                'uppercase tracking-widest text-on-surface-variant hover:text-error transition-colors',
+            <ConfirmButton
+              label={t('common.delete', {}, { defaultValue: 'Delete' })}
+              confirmLabel={t(
+                'eventTypeEditor.confirmDelete',
+                {},
+                { defaultValue: 'Delete this event type? Existing bookings remain.' },
               )}
-            >
-              {deleting
-                ? t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })
-                : t('common.delete', {}, { defaultValue: 'Delete' })}
-            </button>
+              pendingLabel={t('common.deletingEllipsis', {}, { defaultValue: 'Deleting…' })}
+              onConfirm={handleDelete}
+              disarmSeconds={6}
+              data-mol-id="delete-event-type"
+            />
           ) : null}
         </div>
       </header>

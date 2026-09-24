@@ -11,6 +11,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -74,7 +75,6 @@ export function MeetingDetail() {
   const [eventType, setEventType] = useState<ApiEventType | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [cancelling, setCancelling] = useState(false)
   const [cancelError, setCancelError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -122,19 +122,7 @@ export function MeetingDetail() {
   }, [http, id, t])
 
   const handleCancel = useCallback(async () => {
-    if (!booking || cancelling) return
-    if (
-      !window.confirm(
-        t(
-          'meetingDetail.confirmCancel',
-          {},
-          { defaultValue: 'Cancel this meeting? The invitee will see it as cancelled.' },
-        ),
-      )
-    ) {
-      return
-    }
-    setCancelling(true)
+    if (!booking) return
     setCancelError(null)
     try {
       const res = await http.patch<ApiBooking>(`/api/bookings/${encodeURIComponent(booking.id)}`, {
@@ -158,10 +146,8 @@ export function MeetingDetail() {
           { defaultValue: 'Could not cancel — please try again.' },
         ),
       )
-    } finally {
-      setCancelling(false)
     }
-  }, [http, booking, cancelling, t])
+  }, [http, booking, t])
 
   if (loading) {
     return (
@@ -413,27 +399,18 @@ export function MeetingDetail() {
             {t('meetingDetail.viewAll', {}, { defaultValue: 'View all bookings' })}
           </button>
           {!isCancelled ? (
-            <button
-              type="button"
-              data-testid="meeting-cancel"
-              onClick={handleCancel}
-              disabled={cancelling}
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
-                cm.sp('py', 3),
-                cm.roundedFull,
-                cm.fontWeight('bold'),
-                cm.textSize('sm'),
-                'text-error border border-error/40 hover:bg-error-container/30 transition-colors disabled:opacity-50',
+            <ConfirmButton
+              label={t('meetingDetail.cancel', {}, { defaultValue: 'Cancel meeting' })}
+              confirmLabel={t(
+                'meetingDetail.confirmCancel',
+                {},
+                { defaultValue: 'Cancel this meeting? The invitee will see it as cancelled.' },
               )}
-            >
-              <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                event_busy
-              </span>
-              {cancelling
-                ? t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })
-                : t('meetingDetail.cancel', {}, { defaultValue: 'Cancel meeting' })}
-            </button>
+              pendingLabel={t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })}
+              onConfirm={handleCancel}
+              disarmSeconds={6}
+              data-mol-id="meeting-cancel"
+            />
           ) : null}
           <p className={cm.cn(cm.textSize('xs'), cm.sp('mt', 2), 'text-on-surface-variant')}>
             {t(

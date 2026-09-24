@@ -26,7 +26,8 @@ test.describe('Billing', () => {
     await signup(page)
     await page.goto(APP_BASE + '/settings/billing')
     await expect(page.getByTestId('billing-current-plan')).toBeVisible({ timeout: 10000 })
-    await expect(page.getByTestId('billing-cancel-subscription')).toHaveCount(0)
+    // Shared ConfirmButton carries the fleet data-mol-id locator, not data-testid.
+    await expect(page.locator('[data-mol-id="billing-cancel-subscription"]')).toHaveCount(0)
   })
 
   test('upgrade CTA fires POST /api/billing/checkout', async ({ page }) => {

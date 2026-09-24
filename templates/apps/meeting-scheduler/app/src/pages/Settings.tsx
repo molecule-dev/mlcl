@@ -12,7 +12,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { ConfirmButton, LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
 import { authClient } from '../bonds/index.js'
 import { unwrapSingle } from '../lib/unwrap.js'
@@ -204,24 +204,12 @@ export function Settings() {
   )
 
   const handleSignOutEverywhere = useCallback(async () => {
-    if (
-      !window.confirm(
-        t(
-          'settings.security.confirmSignOut',
-          {},
-          {
-            defaultValue: 'Sign out from this device? You will be redirected to login.',
-          },
-        ),
-      )
-    )
-      return
     try {
       await authClient.logout?.()
     } finally {
       window.location.href = '/login'
     }
-  }, [t])
+  }, [])
 
   return (
     <div className={cm.cn(cm.stack(8), cm.sp('p', 8), 'max-w-[1200px] mx-auto')}>
@@ -672,21 +660,18 @@ export function Settings() {
                   ) : null}
                 </div>
               </form>
-              <button
-                type="button"
-                data-testid="security-sign-out"
-                onClick={handleSignOutEverywhere}
-                className={cm.cn(
-                  cm.sp('px', 4),
-                  cm.sp('py', 2),
-                  cm.fontWeight('bold'),
-                  cm.textSize('sm'),
-                  cm.roundedFull,
-                  'self-start text-error border border-error/40 hover:bg-error-container/30 transition-colors',
+              <ConfirmButton
+                label={t('settings.logOut', {}, { defaultValue: 'Sign out' })}
+                confirmLabel={t(
+                  'settings.security.confirmSignOut',
+                  {},
+                  { defaultValue: 'Sign out from this device? You will be redirected to login.' },
                 )}
-              >
-                {t('settings.logOut', {}, { defaultValue: 'Sign out' })}
-              </button>
+                onConfirm={handleSignOutEverywhere}
+                disarmSeconds={6}
+                className="self-start"
+                data-mol-id="security-sign-out"
+              />
             </div>
           ) : null}
         </div>

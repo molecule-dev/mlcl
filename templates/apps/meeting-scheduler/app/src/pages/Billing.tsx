@@ -9,6 +9,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
@@ -140,18 +141,6 @@ export function Billing() {
   )
 
   const handleCancelSubscription = useCallback(async () => {
-    if (
-      !window.confirm(
-        t(
-          'billing.confirmCancel',
-          {},
-          {
-            defaultValue: 'Cancel your subscription? You will be downgraded to Free at period end.',
-          },
-        ),
-      )
-    )
-      return
     setCheckoutError(null)
     try {
       await http.post('/api/billing/cancel', {})
@@ -255,21 +244,21 @@ export function Billing() {
             </p>
           </div>
           {!status.isFree ? (
-            <button
-              type="button"
-              data-testid="billing-cancel-subscription"
-              onClick={handleCancelSubscription}
-              className={cm.cn(
-                cm.sp('px', 5),
-                cm.sp('py', 3),
-                cm.fontWeight('bold'),
-                cm.textSize('sm'),
-                cm.roundedFull,
-                'bg-surface/20 backdrop-blur-md hover:bg-surface/30 transition-colors',
+            <ConfirmButton
+              label={t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
+              confirmLabel={t(
+                'billing.confirmCancel',
+                {},
+                {
+                  defaultValue:
+                    'Cancel your subscription? You will be downgraded to Free at period end.',
+                },
               )}
-            >
-              {t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
-            </button>
+              onConfirm={handleCancelSubscription}
+              disarmSeconds={6}
+              color="secondary"
+              data-mol-id="billing-cancel-subscription"
+            />
           ) : null}
         </section>
       ) : null}

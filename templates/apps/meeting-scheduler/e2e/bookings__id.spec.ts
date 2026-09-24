@@ -33,8 +33,12 @@ test.describe('Meeting detail', () => {
     await expect(page.getByTestId('meeting-detail-invitee')).toBeVisible({ timeout: 10000 })
     await expect(page.getByTestId('meeting-detail-status')).toContainText(/scheduled/i)
 
-    page.once('dialog', (d) => d.accept())
-    await page.getByTestId('meeting-cancel').click()
+    // Shared ConfirmButton replaced the native confirm(): the first click
+    // arms, the confirm label replaces the idle label, the second commits.
+    const cancelBtn = page.locator('[data-mol-id="meeting-cancel"]')
+    await cancelBtn.click()
+    await expect(cancelBtn).toHaveText(/cancel this meeting\?/i)
+    await cancelBtn.click()
     await expect(page.getByTestId('meeting-detail-status')).toContainText(/cancelled/i, {
       timeout: 10000,
     })

@@ -72,8 +72,12 @@ test.describe('Event types — host CRUD', () => {
     })
     const et = await created.json()
     await page.goto(APP_BASE + `/event-types/${et.id}`)
-    page.once('dialog', (d) => d.accept())
-    await page.getByTestId('delete-event-type').click()
+    // Shared ConfirmButton replaced the native confirm(): the first click
+    // arms, the confirm label replaces the idle label, the second commits.
+    const deleteBtn = page.locator('[data-mol-id="delete-event-type"]')
+    await deleteBtn.click()
+    await expect(deleteBtn).toHaveText(/delete this event type\?/i)
+    await deleteBtn.click()
     await expect(page).toHaveURL(/\/event-types$/, { timeout: 10000 })
 
     const after = await api.get(`/event-types/${et.id}`)
