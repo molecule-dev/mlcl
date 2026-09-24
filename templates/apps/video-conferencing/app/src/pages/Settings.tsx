@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation, useUser } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 
@@ -371,29 +371,15 @@ function SettingsToggle({ label, defaultEnabled }: { label: string; defaultEnabl
   const cm = getClassMap()
   const [enabled, setEnabled] = useState(defaultEnabled)
   return (
-    <label
-      className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 4 }), cm.cursorPointer)}
-    >
+    <div className={cm.flex({ align: 'center', justify: 'between', gap: 4 })}>
       <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'), 'text-on-surface')}>
         {label}
       </span>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={enabled}
-        onClick={() => setEnabled((v) => !v)}
-        className={cm.cn(
-          'w-11 h-6 rounded-full transition-colors relative',
-          enabled ? 'bg-primary' : 'bg-surface-container-high',
-        )}
-      >
-        <span
-          className={cm.cn(
-            'absolute top-0.5 w-5 h-5 rounded-full bg-white shadow-md transition-transform',
-            enabled ? 'translate-x-[22px]' : 'translate-x-0.5',
-          )}
-        />
-      </button>
-    </label>
+      <Switch
+        checked={enabled}
+        onChange={(e) => setEnabled((e.target as HTMLInputElement).checked)}
+        aria-label={label}
+      />
+    </div>
   )
 }
