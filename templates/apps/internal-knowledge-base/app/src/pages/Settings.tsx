@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -666,48 +666,12 @@ function ToggleRow({
           {description}
         </p>
       </div>
-      <Switch ariaLabel={label} value={value} onChange={onChange} />
-    </div>
-  )
-}
-
-function Switch({
-  value,
-  onChange,
-  disabled = false,
-  ariaLabel,
-}: {
-  value: boolean
-  onChange: (v: boolean) => void
-  disabled?: boolean
-  ariaLabel: string
-}) {
-  const cm = getClassMap()
-  return (
-    <button
-      type="button"
-      role="switch"
-      aria-checked={value}
-      aria-label={ariaLabel}
-      disabled={disabled}
-      onClick={() => onChange(!value)}
-      className={cm.cn(
-        'relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors disabled:opacity-50',
-        // The visual switch is 24px tall — under the ~40px tap-target floor.
-        // An invisible ::after extends the hit area to the row's padding
-        // without changing how the control draws.
-        "after:absolute after:-inset-2 after:rounded-full after:content-['']",
-        value ? 'bg-primary' : 'bg-surface-container-high',
-      )}
-    >
-      <span
-        className={cm.cn(
-          'inline-block h-5 w-5 transform rounded-full bg-white shadow-sm transition-transform',
-          value ? 'translate-x-5' : 'translate-x-1',
-        )}
-        aria-hidden="true"
+      <Switch
+        aria-label={label}
+        checked={value}
+        onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
       />
-    </button>
+    </div>
   )
 }
 
