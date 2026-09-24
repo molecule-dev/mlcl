@@ -1,8 +1,9 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { PageHeader } from '../components/PageHeader.js'
 import { useFetchList } from '../lib/use-fetch.js'
@@ -50,8 +51,6 @@ export function Categories() {
   const [editingId, setEditingId] = useState<string | null>(null)
   const [formError, setFormError] = useState<string | null>(null)
   const [rowError, setRowError] = useState<string | null>(null)
-  const [confirmingDeleteId, setConfirmingDeleteId] = useState<string | null>(null)
-  const confirmTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const reset = () => {
     setName('')
@@ -61,12 +60,6 @@ export function Categories() {
     setEditingId(null)
     setFormError(null)
   }
-
-  const armDelete = useCallback((id: string) => {
-    setConfirmingDeleteId(id)
-    if (confirmTimer.current) clearTimeout(confirmTimer.current)
-    confirmTimer.current = setTimeout(() => setConfirmingDeleteId(null), 4000)
-  }, [])
 
   const handleSave = useCallback(
     async (e: React.FormEvent) => {
@@ -118,13 +111,9 @@ export function Categories() {
   const handleDelete = useCallback(
     async (id: string) => {
       if (busy) return
-      // Two-step inline confirm: first tap arms (auto-disarms after 4s).
-      if (confirmingDeleteId !== id) {
-        armDelete(id)
-        return
-      }
+      // Confirmation is owned by the shared ConfirmButton (arm → confirm,
+      // 4s auto-disarm, Escape, aria-live); this handler only commits.
       setBusy(true)
-      setConfirmingDeleteId(null)
       setRowError(null)
       try {
         await http.delete(`/api/categories/${id}`)
@@ -140,7 +129,7 @@ export function Categories() {
         setBusy(false)
       }
     },
-    [busy, http, cats, editingId, confirmingDeleteId, armDelete, t],
+    [busy, http, cats, editingId, t],
   )
 
   return (
@@ -412,7 +401,6 @@ export function Categories() {
             data-mol-id="categories-list"
           >
             {cats.data.map((row) => {
-              const confirming = confirmingDeleteId === row.id
               return (
                 <div
                   key={row.id}
@@ -455,34 +443,16 @@ export function Categories() {
                     >
                       {t('common.edit', {}, { defaultValue: 'Edit' })}
                     </button>
-                    <button
-                      type="button"
-                      onClick={() => void handleDelete(row.id)}
-                      aria-label={
-                        confirming
-                          ? t(
-                              'categories.confirmDelete',
-                              {},
-                              { defaultValue: 'Confirm delete category' },
-                            )
-                          : t('common.delete', {}, { defaultValue: 'Delete' })
-                      }
-                      data-mol-id={confirming ? 'category-delete-confirm' : 'category-delete'}
-                      className={cm.cn(
-                        cm.sp('px', 3),
-                        'min-h-[36px]',
-                        cm.textSize('xs'),
-                        cm.fontWeight('semibold'),
-                        'rounded-md transition-colors',
-                        confirming
-                          ? 'bg-error-container/50 text-error border border-error/40'
-                          : 'hover:bg-error-container/30 text-error',
-                      )}
-                    >
-                      {confirming
-                        ? t('common.confirmDelete', {}, { defaultValue: 'Confirm?' })
-                        : t('common.delete', {}, { defaultValue: 'Delete' })}
-                    </button>
+                    <ConfirmButton
+                      label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                      confirmLabel={t('common.confirmDelete', {}, { defaultValue: 'Confirm?' })}
+                      onConfirm={() => void handleDelete(row.id)}
+                      data-mol-id="category-delete"
+                      disabled={busy}
+                      size="sm"
+                      color="error"
+                      className={cm.touchTargetCompact}
+                    />
                   </div>
                 </div>
               )

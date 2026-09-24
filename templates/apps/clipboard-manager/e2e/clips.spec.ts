@@ -102,9 +102,11 @@ test.describe('clips page', () => {
     const seeded = await seedClip(page, accessToken, { content: 'delete-me ' + Date.now() })
     await page.goto(APP_BASE + '/clips')
     await page.getByText(seeded.content).first().click()
-    // Two-step inline confirm: arm, then confirm.
+    // Two-step inline confirm (shared ConfirmButton): arm, wait for the
+    // armed state, then confirm — one element carries all states, so the
+    // armed button is the same data-mol-id with data-state="armed".
     await page.locator('[data-mol-id="clip-delete"]').click()
-    const confirmBtn = page.locator('[data-mol-id="clip-delete-confirm"]')
+    const confirmBtn = page.locator('[data-mol-id="clip-delete"][data-state="armed"]')
     await expect(confirmBtn).toBeVisible()
     await confirmBtn.click()
     await page.waitForLoadState('networkidle')

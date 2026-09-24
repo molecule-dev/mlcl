@@ -82,8 +82,10 @@ test.describe('categories page', () => {
       .getByRole('button', { name: /^delete$/i })
       .first()
       .click()
-    // Two-step inline confirm: arm, then confirm.
-    const confirmBtn = page.locator('[data-mol-id="category-delete-confirm"]')
+    // Two-step inline confirm (shared ConfirmButton): arm, wait for the
+    // armed state, then confirm — one element carries all states, so the
+    // armed button is the same data-mol-id with data-state="armed".
+    const confirmBtn = page.locator('[data-mol-id="category-delete"][data-state="armed"]')
     await expect(confirmBtn).toBeVisible()
     await confirmBtn.click()
     await page.waitForLoadState('networkidle')

@@ -55,9 +55,13 @@ test.describe('signup page', () => {
     test.info().annotations.push({ type: 'allow-console-error', description: 'status of 403' })
     const email = uniqueEmail('dup')
     await signup(page, email)
-    // Sign out so we can hit the form again as anon
-    await page.context().clearCookies()
+    // Leave the authed /clips page BEFORE dropping the cookie: clearing
+    // cookies while /clips is still mounted lets its refetches hit the API
+    // unauthenticated, and those 401s trip the console guard (flaked once).
+    // The reload then re-boots the form anon, as the old ordering intended.
     await page.goto(APP_BASE + '/signup')
+    await page.context().clearCookies()
+    await page.reload()
     await page.locator('input#name').fill('Twin User')
     await page.locator('input#email').fill(email)
     await page.locator('input#password').fill('TestPass!1234')

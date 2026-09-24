@@ -3,9 +3,9 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
-import { APP_NAME, BRAND_COLOR } from '../branding.js'
+import { APP_NAME } from '../branding.js'
 import { KbdBadge } from '../components/KbdBadge.js'
 import { PageHeader } from '../components/PageHeader.js'
 import { useFetchOne } from '../lib/use-fetch.js'
@@ -344,35 +344,16 @@ export function Settings() {
                     )}
                   </p>
                 </div>
-                <button
-                  onClick={() => handleToggle(toggle.key)}
-                  type="button"
-                  role="switch"
+                <Switch
+                  checked={enabled}
+                  onChange={() => void handleToggle(toggle.key)}
                   data-mol-id={`toggle-${toggle.key}`}
-                  aria-checked={enabled}
                   aria-label={t(
                     `settings.toggle.${toggle.key}.label`,
                     {},
                     { defaultValue: toggle.defaultLabel },
                   )}
-                  className={cm.cn(
-                    'relative inline-flex items-center justify-center p-2 rounded-full flex-shrink-0 transition-colors hover:bg-surface-container/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
-                  )}
-                >
-                  <span
-                    className={cm.cn(
-                      'relative inline-flex h-6 w-11 items-center rounded-full transition-colors',
-                    )}
-                    style={{ background: enabled ? BRAND_COLOR : 'var(--color-surface-dim)' }}
-                  >
-                    <span
-                      className={cm.cn(
-                        'inline-block h-4 w-4 transform rounded-full bg-white transition-transform',
-                      )}
-                      style={{ transform: enabled ? 'translateX(24px)' : 'translateX(4px)' }}
-                    />
-                  </span>
-                </button>
+                />
               </div>
             )
           })}

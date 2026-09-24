@@ -33,16 +33,31 @@ test.describe('plan updated page', () => {
 
 test.describe('/plan-updated — checkout return', () => {
   test('confirms the purchase when the provider returns with a payment id', async ({ page }) => {
+    // Expected 4xx: 'cs_test_e2e' is not a real Stripe session, so the API
+    // answers 400 "could not verify". What this test pins is the wiring that
+    // actually grants a purchase: the return page must POST the confirmation
+    // through the bonded client (baseURL /api) at the API — an earlier
+    // regression sent it to the SPA origin, where vite answered 404 and no
+    // purchase was ever confirmed.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 400' })
     await signup(page)
     // 30s: on a cold dev server (fresh vite transform under load) the page
     // bundle can take a while before the mount effect fires the call — a
     // 20s cap flaked once under a loaded machine.
     const confirmed = page
-      .waitForResponse((r) => /\/verify-payment\//.test(r.url()), { timeout: 30_000 })
+      .waitForResponse((r) => /\/api\/users\/.+\/verify-payment\//.test(r.url()), {
+        timeout: 30_000,
+      })
       .catch(() => null)
     // The provider's success_url lands on the APP origin, so this page is what
     // finishes the purchase — without the call the paid plan is never granted.
     await page.goto(APP_BASE + '/plan-updated?provider=stripe&sessionId=cs_test_e2e')
-    expect(await confirmed).not.toBeNull()
+    const res = await confirmed
+    expect(res, 'no /api/users/:id/verify-payment request fired').not.toBeNull()
+    // The confirmation must reach the API, not the SPA fallback.
+    expect(res!.url()).toContain('/api/users/')
+    // The API processed the call (4xx = Stripe refused the fake session —
+    // expected; a 404/5xx would mean broken wiring or a server fault).
+    expect(res!.status()).toBeLessThan(500)
   })
 })

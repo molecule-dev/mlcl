@@ -4,6 +4,7 @@ import { track } from '@molecule/app-analytics'
 import { t } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { CategoryPill, type ClipCategory } from '../components/CategoryPill.js'
 import { KbdBadge } from '../components/KbdBadge.js'
@@ -124,14 +125,11 @@ export function Clips() {
   const [draftSensitive, setDraftSensitive] = useState(false)
   const [busy, setBusy] = useState(false)
   const [copied, setCopied] = useState(false)
-  const [confirmingDelete, setConfirmingDelete] = useState(false)
   const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const confirmTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     return () => {
       if (copyTimer.current) clearTimeout(copyTimer.current)
-      if (confirmTimer.current) clearTimeout(confirmTimer.current)
     }
   }, [])
 
@@ -158,7 +156,6 @@ export function Clips() {
 
   const selectClip = useCallback((id: string) => {
     setActiveId(id)
-    setConfirmingDelete(false)
   }, [])
 
   const handleAdd = useCallback(
@@ -272,17 +269,9 @@ export function Clips() {
 
   const handleDelete = useCallback(async () => {
     if (!active || busy) return
-    // Two-step inline confirm: first tap arms (and auto-disarms), second
-    // tap deletes. No native confirm() — that's unstylable and blocks the
-    // e2e browser.
-    if (!confirmingDelete) {
-      setConfirmingDelete(true)
-      if (confirmTimer.current) clearTimeout(confirmTimer.current)
-      confirmTimer.current = setTimeout(() => setConfirmingDelete(false), 4000)
-      return
-    }
+    // Confirmation is owned by the shared ConfirmButton (arm → confirm,
+    // 4s auto-disarm, Escape, aria-live); this handler only commits.
     setBusy(true)
-    setConfirmingDelete(false)
     try {
       await http.delete(`/api/clips/${active.id}`)
       void track({
@@ -294,7 +283,7 @@ export function Clips() {
     } finally {
       setBusy(false)
     }
-  }, [active, busy, confirmingDelete, http, clipsState])
+  }, [active, busy, http, clipsState])
 
   const iconBtn =
     'w-10 h-10 md:w-8 md:h-8 rounded-md hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
@@ -717,29 +706,29 @@ export function Clips() {
                     lock
                   </span>
                 </button>
-                <button
-                  onClick={() => void handleDelete()}
-                  type="button"
-                  aria-label={
-                    confirmingDelete
-                      ? t('clips.deleteConfirmAction', {}, { defaultValue: 'Confirm delete' })
-                      : t('clips.deleteAction', {}, { defaultValue: 'Delete clip' })
+                <ConfirmButton
+                  label={
+                    <span
+                      aria-hidden="true"
+                      className={cm.cn('material-symbols-outlined text-[18px]')}
+                    >
+                      delete
+                    </span>
                   }
-                  data-mol-id={confirmingDelete ? 'clip-delete-confirm' : 'clip-delete'}
-                  className={cm.cn(
-                    iconBtn,
-                    confirmingDelete
-                      ? 'bg-error-container/50 text-error border border-error/40'
-                      : 'hover:bg-error-container/30 hover:text-error',
+                  confirmLabel={t(
+                    'clips.deleteConfirmAction',
+                    {},
+                    { defaultValue: 'Confirm delete' },
                   )}
-                >
-                  <span
-                    aria-hidden="true"
-                    className={cm.cn('material-symbols-outlined text-[18px]')}
-                  >
-                    {confirmingDelete ? 'warning' : 'delete'}
-                  </span>
-                </button>
+                  aria-label={t('clips.deleteAction', {}, { defaultValue: 'Delete clip' })}
+                  onConfirm={() => void handleDelete()}
+                  data-mol-id="clip-delete"
+                  disabled={busy}
+                  size="sm"
+                  color="error"
+                  variant="ghost"
+                  className={cm.touchTargetCompact}
+                />
               </div>
             </header>
 
