@@ -72,11 +72,13 @@ test.describe('/alerts (PriceAlerts) page', () => {
     await page.goto(APP_BASE + '/alerts')
     await page.waitForTimeout(1500)
 
-    page.once('dialog', (d) => d.accept())
-    await page
-      .getByRole('button', { name: /Delete alert/i })
-      .first()
-      .click()
+    // ConfirmButton two-step confirm: first click arms, second commits.
+    // The button keeps its "Delete alert" aria-label in every state, so the
+    // locator is stable across arm and commit.
+    const delBtn = page.getByRole('button', { name: /Delete alert/i }).first()
+    await delBtn.click()
+    await expect(delBtn).toContainText(/remove this alert\?/i)
+    await delBtn.click()
     await page.waitForTimeout(1000)
 
     const fetched = await page.request.get(`${API_BASE}/alerts/${alert.id}`, {

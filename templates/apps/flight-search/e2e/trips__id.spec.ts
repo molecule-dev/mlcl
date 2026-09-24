@@ -121,8 +121,11 @@ test.describe('/trips/:id (TripDetail) page', () => {
     await page.goto(APP_BASE + `/trips/${trip.id}`)
     await page.waitForTimeout(1500)
 
-    page.once('dialog', (dialog) => dialog.accept())
-    await page.getByRole('button', { name: /cancel trip/i }).click()
+    // ConfirmButton two-step confirm: first click arms, second commits.
+    const cancelBtn = page.getByRole('button', { name: /cancel/i })
+    await cancelBtn.click()
+    await expect(cancelBtn).toContainText(/cancel this trip\?/i)
+    await cancelBtn.click()
     await page.waitForURL(/\/trips$/, { timeout: 6000 })
     await page.waitForTimeout(800)
 

@@ -19,6 +19,7 @@ import { Link } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 export interface PriceAlertSummary {
   id: string
@@ -68,7 +69,7 @@ export function PriceAlertCard({
 }: {
   alert: PriceAlertSummary
   onToggleActive?: (id: string, next: boolean) => void
-  onDelete?: (id: string) => void
+  onDelete?: (id: string) => void | Promise<void>
 }) {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -300,9 +301,23 @@ export function PriceAlertCard({
             </button>
           ) : null}
           {onDelete ? (
-            <button
-              type="button"
-              onClick={() => onDelete(alert.id)}
+            <ConfirmButton
+              label={
+                <>
+                  <span className={'material-symbols-outlined text-sm'} aria-hidden="true">
+                    delete
+                  </span>
+                  {t('common.remove', {}, { defaultValue: 'Remove' })}
+                </>
+              }
+              confirmLabel={t(
+                'priceAlerts.deleteConfirm',
+                {},
+                { defaultValue: 'Remove this alert?' },
+              )}
+              onConfirm={() => onDelete(alert.id)}
+              disarmSeconds={6}
+              aria-label={t('priceAlertCard.deleteAria', {}, { defaultValue: 'Delete alert' })}
               className={cm.cn(
                 cm.sp('px', 3),
                 cm.sp('py', 1),
@@ -311,13 +326,7 @@ export function PriceAlertCard({
                 cm.flex({ align: 'center', gap: 'xs' }),
                 'uppercase tracking-widest rounded-full text-on-surface-variant hover:text-error transition-colors',
               )}
-              aria-label={t('priceAlertCard.deleteAria', {}, { defaultValue: 'Delete alert' })}
-            >
-              <span className={'material-symbols-outlined text-sm'} aria-hidden="true">
-                delete
-              </span>
-              {t('common.remove', {}, { defaultValue: 'Remove' })}
-            </button>
+            />
           ) : null}
         </div>
       </div>

@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface TripPassenger {
   name: string
@@ -137,7 +138,6 @@ export function TripDetail() {
   const [trip, setTrip] = useState<TripModel | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [cancelling, setCancelling] = useState(false)
   const [checkingIn, setCheckingIn] = useState(false)
   const [shareStatus, setShareStatus] = useState<'idle' | 'copied' | 'shared' | 'error'>('idle')
 
@@ -168,18 +168,7 @@ export function TripDetail() {
   }, [http, id, t])
 
   async function handleCancel() {
-    if (!trip || cancelling) return
-    if (
-      !window.confirm(
-        t(
-          'tripDetail.cancelConfirm',
-          {},
-          { defaultValue: 'Cancel this trip? This cannot be undone.' },
-        ),
-      )
-    )
-      return
-    setCancelling(true)
+    if (!trip) return
     try {
       await http.put(`/api/trips/${encodeURIComponent(trip.id)}/cancel`, {})
       void track({ name: 'trip.cancelled', properties: { trip_id: trip.id } })
@@ -187,8 +176,6 @@ export function TripDetail() {
     } catch (err: unknown) {
       console.error('[TripDetail] cancel failed:', err)
       setError(t('tripDetail.cancelError', {}, { defaultValue: 'Could not cancel trip.' }))
-    } finally {
-      setCancelling(false)
     }
   }
 
@@ -759,10 +746,26 @@ export function TripDetail() {
                       ? t('tripDetail.shareError', {}, { defaultValue: 'Could not share' })
                       : t('tripDetail.share', {}, { defaultValue: 'Share itinerary' })}
               </button>
-              <button
-                type="button"
-                onClick={handleCancel}
-                disabled={cancelling || trip.status === 'cancelled'}
+              <ConfirmButton
+                label={
+                  <>
+                    <span className={'material-symbols-outlined text-base'} aria-hidden="true">
+                      cancel
+                    </span>
+                    {trip.status === 'cancelled'
+                      ? t('tripDetail.cancelled', {}, { defaultValue: 'Cancelled' })
+                      : t('tripDetail.cancel', {}, { defaultValue: 'Cancel trip' })}
+                  </>
+                }
+                confirmLabel={t(
+                  'tripDetail.cancelConfirm',
+                  {},
+                  { defaultValue: 'Cancel this trip? This cannot be undone.' },
+                )}
+                pendingLabel={t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })}
+                onConfirm={handleCancel}
+                disabled={trip.status === 'cancelled'}
+                disarmSeconds={6}
                 className={cm.cn(
                   cm.sp('px', 5),
                   cm.sp('py', 3),
@@ -770,16 +773,7 @@ export function TripDetail() {
                   cm.flex({ align: 'center', gap: 'sm', justify: 'center' }),
                   'rounded-xl text-error hover:bg-error/10 transition-colors disabled:opacity-50 disabled:cursor-not-allowed',
                 )}
-              >
-                <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                  cancel
-                </span>
-                {cancelling
-                  ? t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })
-                  : trip.status === 'cancelled'
-                    ? t('tripDetail.cancelled', {}, { defaultValue: 'Cancelled' })
-                    : t('tripDetail.cancel', {}, { defaultValue: 'Cancel trip' })}
-              </button>
+              />
             </div>
           </div>
 

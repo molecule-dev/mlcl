@@ -100,8 +100,6 @@ export function PriceAlerts() {
   }
 
   async function handleDelete(id: string) {
-    if (!window.confirm(t('priceAlerts.deleteConfirm', {}, { defaultValue: 'Remove this alert?' })))
-      return
     const before = alerts
     setAlerts((prev) => prev.filter((alert) => alert.id !== id))
     try {
