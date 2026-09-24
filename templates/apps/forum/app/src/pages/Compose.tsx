@@ -11,6 +11,7 @@ import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { PromptDialog } from '@molecule/app-ui-react'
 
 interface ApiCategory {
   id: string
@@ -42,6 +43,13 @@ const FALLBACK_CATEGORIES: CategoryOption[] = [
 
 const FLAIRS = ['Discussion', 'Help', 'Show & Tell', 'Meta', 'Resolved', 'PSA']
 
+/** Which URL the open toolbar prompt asks for, plus the captured textarea selection. */
+interface UrlPromptRequest {
+  kind: 'link' | 'image'
+  start: number
+  end: number
+}
+
 export function Compose() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -54,10 +62,15 @@ export function Compose() {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const bodyRef = useRef<HTMLTextAreaElement | null>(null)
+  // Open toolbar URL prompt (shared PromptDialog replaces window.prompt) —
+  // carries the selection captured when the toolbar button was clicked,
+  // because focus moves to the dialog input while it is open.
+  const [urlPrompt, setUrlPrompt] = useState<UrlPromptRequest | null>(null)
 
   /**
    * Wraps or prefixes the current textarea selection with markdown syntax.
    * Triggered by the formatting toolbar (bold/italic/quote/code/list/link/image).
+   * Link/image open the shared URL prompt dialog instead of window.prompt.
    */
   const applyMarkdown = useCallback(
     (icon: string) => {
@@ -103,26 +116,12 @@ export function Compose() {
             : '- '
           cursorOffset = inserted.length
           break
-        case 'link': {
-          const url = window.prompt(
-            t('compose.linkUrlPrompt', {}, { defaultValue: 'Link URL' }),
-            'https://',
-          )
-          if (!url) return
-          inserted = `[${sel || 'link text'}](${url})`
-          cursorOffset = inserted.length
-          break
-        }
-        case 'image': {
-          const url = window.prompt(
-            t('compose.imageUrlPrompt', {}, { defaultValue: 'Image URL' }),
-            'https://',
-          )
-          if (!url) return
-          inserted = `![${sel || 'alt text'}](${url})`
-          cursorOffset = inserted.length
-          break
-        }
+        case 'link':
+          setUrlPrompt({ kind: 'link', start, end })
+          return
+        case 'image':
+          setUrlPrompt({ kind: 'image', start, end })
+          return
         default:
           return
       }
@@ -134,7 +133,36 @@ export function Compose() {
         ta.setSelectionRange(pos, pos)
       })
     },
-    [body, t],
+    [body],
+  )
+
+  /**
+   * PromptDialog onSubmit for the toolbar URL prompt — inserts the markdown
+   * at the captured selection. Resolve closes the dialog (single-stage flow,
+   * so no stage-aware onClose is needed); an empty value behaves like
+   * window.prompt's falsy return: close with nothing inserted.
+   */
+  const applyPromptedUrl = useCallback(
+    (url: string) => {
+      if (!urlPrompt) return
+      if (!url) return
+      const { kind, start, end } = urlPrompt
+      const before = body.slice(0, start)
+      const sel = body.slice(start, end)
+      const after = body.slice(end)
+      const inserted =
+        kind === 'link' ? `[${sel || 'link text'}](${url})` : `![${sel || 'alt text'}](${url})`
+      setBody(before + inserted + after)
+      const ta = bodyRef.current
+      if (ta) {
+        const pos = start + inserted.length
+        requestAnimationFrame(() => {
+          ta.focus()
+          ta.setSelectionRange(pos, pos)
+        })
+      }
+    },
+    [body, urlPrompt],
   )
 
   useEffect(() => {
@@ -464,6 +492,28 @@ export function Compose() {
           </div>
         </div>
       </div>
+
+      {/* Shared URL prompt — replaces the toolbar's window.prompt calls. */}
+      <PromptDialog
+        open={urlPrompt !== null}
+        onClose={() => setUrlPrompt(null)}
+        title={
+          urlPrompt?.kind === 'image'
+            ? t('compose.imageUrlPrompt', {}, { defaultValue: 'Image URL' })
+            : t('compose.linkUrlPrompt', {}, { defaultValue: 'Link URL' })
+        }
+        placeholder="https://"
+        initialValue="https://"
+        confirmLabel={t('compose.insertUrl', {}, { defaultValue: 'Insert' })}
+        inputMolId={
+          urlPrompt?.kind === 'image' ? 'compose-image-url-input' : 'compose-link-url-input'
+        }
+        confirmMolId={
+          urlPrompt?.kind === 'image' ? 'compose-image-url-confirm' : 'compose-link-url-confirm'
+        }
+        cancelMolId="compose-url-cancel"
+        onSubmit={applyPromptedUrl}
+      />
     </div>
   )
 }

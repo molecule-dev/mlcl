@@ -3,13 +3,14 @@
  *
  * Backed by `GET /api/users/:id` (read) and `PATCH /api/users/:id` (write).
  * Username/name/email round-trip through the molecule user-resource update
- * handler. Notification + display toggles are persisted into the user's
- * `oauthData.forumPreferences` JSON bag — merged with whatever else lives
- * in `oauthData` so the OAuth tokens/state stored there by other flows are
- * preserved.
+ * handler. Notification + display toggles persist through the server-side
+ * `GET/PATCH /api/preferences` channel (a per-user jsonb bag in the
+ * `user_preferences` table) — NOT through the user resource's `oauthData`,
+ * which the platform user CRUD never returns on reads (values stored there
+ * silently vanish on reload).
  *
  * Every primary control:
- *   - reads its initial value from the freshly-loaded user record,
+ *   - reads its initial value from the freshly-loaded record,
  *   - on change, writes the change to the API,
  *   - confirms the write by checking the response payload, and
  *   - surfaces an inline status (saved / saving… / failed) so a user knows
@@ -22,7 +23,7 @@ import { error as logError } from '@molecule/app-logger'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { AuthSection } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 interface UserRecord {
   id: string
@@ -54,8 +55,7 @@ const DEFAULT_PREFS: ForumPreferences = {
   showThumbnails: true,
 }
 
-function readPrefs(user: UserRecord | null): ForumPreferences {
-  const stored = (user?.oauthData as Record<string, unknown> | null | undefined)?.forumPreferences
+function readPrefs(stored: unknown): ForumPreferences {
   if (!stored || typeof stored !== 'object') return { ...DEFAULT_PREFS }
   const obj = stored as Record<string, unknown>
   const pickBool = (key: keyof ForumPreferences, fallback: boolean): boolean =>
@@ -100,25 +100,17 @@ function Toggle({ id, label, description, checked, onChange, disabled }: ToggleP
           <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>{description}</span>
         )}
       </label>
-      <button
+      {/* Shared a11y Switch (role=switch + aria-checked + 40×40 touch
+          hit-area) — replaces the hand-rolled toggle. The change arrives
+          through the hidden native checkbox, so read e.target.checked. */}
+      <Switch
         id={id}
-        type="button"
-        role="switch"
-        aria-checked={checked}
+        checked={checked}
         disabled={disabled}
-        onClick={() => onChange(!checked)}
-        className={cm.cn(
-          'relative inline-flex h-6 w-11 items-center rounded-full transition-colors disabled:opacity-50',
-          checked ? 'bg-primary' : 'bg-surface-container-high',
-        )}
-      >
-        <span
-          className={cm.cn(
-            'inline-block h-5 w-5 rounded-full bg-white shadow transition-transform',
-            checked ? 'translate-x-5' : 'translate-x-0.5',
-          )}
-        />
-      </button>
+        aria-label={label}
+        data-mol-id={id}
+        onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
+      />
     </div>
   )
 }
@@ -191,7 +183,12 @@ export function Settings() {
       setUsername(props.username ?? '')
       setName(props.name ?? '')
       setEmail(props.email ?? '')
-      setPrefs(readPrefs(props))
+      try {
+        const prefRes = await http.get<{ prefs?: Record<string, unknown> }>('/api/preferences')
+        setPrefs(readPrefs(prefRes?.data?.prefs))
+      } catch (_error) {
+        // Intentional noop: a failed preferences read is non-fatal — defaults apply.
+      }
     } catch (e) {
       setLoadError(
         e instanceof Error
@@ -256,22 +253,15 @@ export function Settings() {
       setPrefsStatus('saving')
       try {
         const http = getHttpClient()
-        // Merge preferences into the existing oauthData bag — never
-        // clobber unrelated keys (oauth provider state, etc.).
-        const currentOauthData =
-          (record?.oauthData as Record<string, unknown> | null | undefined) ?? {}
-        const mergedOauthData = { ...currentOauthData, forumPreferences: next }
-        const res = await http.patch<{ props?: UserRecord; error?: string }>(
-          `/api/users/${userId}`,
-          { oauthData: mergedOauthData },
+        // The preferences channel merges server-side, so a partial write
+        // never clobbers unrelated stored keys.
+        const res = await http.patch<{ prefs?: ForumPreferences; error?: string }>(
+          '/api/preferences',
+          next,
         )
         if (res?.data?.error) {
           setPrefsStatus('error')
           return
-        }
-        const props = res?.data?.props
-        if (props) {
-          setRecord((prev) => (prev ? { ...prev, ...props } : props))
         }
         setPrefsStatus('saved')
         setTimeout(() => setPrefsStatus('idle'), 1500)
@@ -280,7 +270,7 @@ export function Settings() {
         setPrefsStatus('error')
       }
     },
-    [userId, record],
+    [userId],
   )
 
   const togglePref = (key: keyof ForumPreferences, value: ForumPreferences[typeof key]) => {

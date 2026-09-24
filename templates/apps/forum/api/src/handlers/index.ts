@@ -4,6 +4,7 @@ import bookmarks from './bookmarks.js'
 import categories from './categories.js'
 import moderation from './moderation.js'
 import notifications from './notifications.js'
+import preferences from './preferences.js'
 import profiles from './profiles.js'
 import threads from './threads.js'
 import votes from './votes.js'
@@ -17,5 +18,6 @@ router.use('/moderation', moderation)
 router.use('/profiles', profiles)
 router.use('/notifications', notifications)
 router.use('/bookmarks', bookmarks)
+router.use('/preferences', preferences)
 
 export default router
