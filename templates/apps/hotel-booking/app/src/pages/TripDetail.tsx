@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -52,7 +53,6 @@ export function TripDetail() {
   const [trip, setTrip] = useState<Trip | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [cancelling, setCancelling] = useState(false)
   const [cancelError, setCancelError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -78,19 +78,7 @@ export function TripDetail() {
   }, [id, http, t])
 
   async function handleCancel() {
-    if (!id || !trip || !trip.cancellable || cancelling) return
-    if (
-      !window.confirm(
-        t(
-          'tripDetail.cancelConfirm',
-          {},
-          { defaultValue: 'Cancel this booking? This cannot be undone.' },
-        ),
-      )
-    ) {
-      return
-    }
-    setCancelling(true)
+    if (!id || !trip || !trip.cancellable) return
     setCancelError(null)
     try {
       const res = await http.put(`/api/trips/${id}/cancel`, {})
@@ -106,8 +94,6 @@ export function TripDetail() {
       setCancelError(
         t('tripDetail.cancelFailed', { message }, { defaultValue: 'Cancel failed: {{message}}' }),
       )
-    } finally {
-      setCancelling(false)
     }
   }
 
@@ -276,22 +262,20 @@ export function TripDetail() {
               {t('tripDetail.viewPropertyCta', {}, { defaultValue: 'View property' })}
             </Link>
             {trip.cancellable ? (
-              <button
-                type="button"
-                data-testid="cancel-trip"
-                onClick={handleCancel}
-                disabled={cancelling}
-                className={cm.cn(
-                  cm.sp('px', 4),
-                  cm.sp('py', 2),
-                  cm.fontWeight('medium'),
-                  'border border-outline text-error rounded-full hover:bg-error/5 disabled:opacity-60',
+              <ConfirmButton
+                label={t('tripDetail.cancelCta', {}, { defaultValue: 'Cancel booking' })}
+                confirmLabel={t(
+                  'tripDetail.cancelConfirm',
+                  {},
+                  { defaultValue: 'Cancel this booking? This cannot be undone.' },
                 )}
-              >
-                {cancelling
-                  ? t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })
-                  : t('tripDetail.cancelCta', {}, { defaultValue: 'Cancel booking' })}
-              </button>
+                pendingLabel={t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })}
+                onConfirm={handleCancel}
+                disarmSeconds={6}
+                color="error"
+                data-testid="cancel-trip"
+                data-mol-id="cancel-trip"
+              />
             ) : null}
             <button
               type="button"

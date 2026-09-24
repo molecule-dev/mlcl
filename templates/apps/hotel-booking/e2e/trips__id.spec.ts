@@ -74,10 +74,14 @@ test.describe('/trips/:id (TripDetail)', () => {
     await signup(page)
     const trip = await createReservation(page)
     await page.goto(APP_BASE + '/trips/' + trip.id, { waitUntil: 'domcontentloaded' })
-    page.on('dialog', (dialog) => dialog.accept())
 
+    // ConfirmButton arm/commit: the first click ARMS (no native dialog anymore),
+    // the armed confirm label appears, the second click commits the cancellation.
     const reqs = await captureNetwork(page, async () => {
       await page.getByRole('button', { name: /Cancel booking/i }).click()
+      const armed = page.getByRole('button', { name: /Cancel this booking/i })
+      await expect(armed).toBeVisible()
+      await armed.click()
       await page.waitForLoadState('networkidle', { timeout: 5_000 }).catch(() => {})
     })
     expect(

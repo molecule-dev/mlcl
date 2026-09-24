@@ -78,10 +78,13 @@ test.describe('99-user-journey', () => {
     })
     await expect(page.getByRole('heading', { name: /Booking confirmed/i, level: 1 })).toBeVisible()
 
-    // 5. Trip detail → cancel → persists.
+    // 5. Trip detail → cancel → persists. ConfirmButton arm/commit: click once
+    // to arm, assert the confirm label, click again to commit.
     await page.goto(APP_BASE + '/trips/' + reservation.id, { waitUntil: 'domcontentloaded' })
-    page.on('dialog', (dialog) => dialog.accept())
     await page.getByRole('button', { name: /Cancel booking/i }).click()
+    const armedCancel = page.getByRole('button', { name: /Cancel this booking/i })
+    await expect(armedCancel).toBeVisible()
+    await armedCancel.click()
     await page.waitForLoadState('networkidle', { timeout: 5_000 }).catch(() => {})
     const after = await apiRequest<{ status: string }>(page, 'GET', '/api/trips/' + reservation.id)
     expect(after.body.status).toBe('cancelled')

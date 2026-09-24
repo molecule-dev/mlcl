@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -444,30 +445,30 @@ function PreferencesSection({
       <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
         {t('nav.preferences', {}, { defaultValue: 'Preferences' })}
       </h2>
-      <Toggle
+      <Switch
         label={t('settings.pushNotifications', {}, { defaultValue: 'Push notifications' })}
         checked={push}
-        onChange={(v) => update('push', v)}
+        onChange={(e) => update('push', (e.target as HTMLInputElement).checked)}
         disabled={saving}
-        testId="pref-push"
+        data-testid="pref-push"
       />
-      <Toggle
+      <Switch
         label={t('account.preferences.email', {}, { defaultValue: 'Email updates' })}
         checked={email}
-        onChange={(v) => update('email', v)}
+        onChange={(e) => update('email', (e.target as HTMLInputElement).checked)}
         disabled={saving}
-        testId="pref-email"
+        data-testid="pref-email"
       />
-      <Toggle
+      <Switch
         label={t(
           'account.preferences.priceDrops',
           {},
           { defaultValue: 'Price-drop alerts on saved properties' },
         )}
         checked={priceDrops}
-        onChange={(v) => update('price_drops', v)}
+        onChange={(e) => update('price_drops', (e.target as HTMLInputElement).checked)}
         disabled={saving}
-        testId="pref-price-drops"
+        data-testid="pref-price-drops"
       />
       {error ? (
         <p className={cm.cn(cm.textSize('sm'), 'text-error')} role="alert">
@@ -514,46 +515,6 @@ function Field({
           'w-full border border-outline-variant rounded-md',
         )}
       />
-    </label>
-  )
-}
-
-function Toggle({
-  label,
-  checked,
-  onChange,
-  disabled,
-  testId,
-}: {
-  label: string
-  checked: boolean
-  onChange: (v: boolean) => void
-  disabled?: boolean
-  testId?: string
-}) {
-  const cm = getClassMap()
-  return (
-    <label className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'cursor-pointer')}>
-      <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>{label}</span>
-      <button
-        type="button"
-        role="switch"
-        data-testid={testId}
-        aria-checked={checked}
-        onClick={() => onChange(!checked)}
-        disabled={disabled}
-        className={cm.cn(
-          'relative inline-flex h-6 w-11 items-center rounded-full transition-colors disabled:opacity-60',
-          checked ? 'bg-primary' : 'bg-outline-variant',
-        )}
-      >
-        <span
-          className={cm.cn(
-            'inline-block h-4 w-4 rounded-full bg-on-primary transition-transform',
-            checked ? 'translate-x-6' : 'translate-x-1',
-          )}
-        />
-      </button>
     </label>
   )
 }
