@@ -29,6 +29,12 @@ test('signup persists access token and the new user can call protected endpoints
 })
 
 test('login round-trips to /inbox with the same credentials', async ({ page }) => {
+  // clearCookies() below invalidates the signup session while the SPA is
+  // still mounted on /inbox, so the app's session-restoration can fire one
+  // /api/emails fetch with no credentials before the fresh login lands.
+  // That transient 401 is the expected fallout of this test's own cookie
+  // wipe, not an app bug — every assertion below still gates the flow.
+  test.info().annotations.push({ type: 'allow-console-error', description: 'status of 401' })
   const { email, password } = await signup(page)
   await page.context().clearCookies()
   await login(page, email, password)

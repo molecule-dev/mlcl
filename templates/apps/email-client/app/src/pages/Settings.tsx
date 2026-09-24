@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { MeridianAppShell } from '../components/MeridianAppShell.js'
@@ -78,9 +78,9 @@ export function Settings() {
     return deriveInitials(name)
   }, [me])
 
-  const onTogglePref = useCallback((key: keyof PreferenceState) => {
+  const onTogglePref = useCallback((key: keyof PreferenceState, value: boolean) => {
     setPrefs((prev) => {
-      const next = { ...prev, [key]: !prev[key] }
+      const next = { ...prev, [key]: value }
       writePrefs(next)
       return next
     })
@@ -473,25 +473,18 @@ export function Settings() {
                           )}
                         </span>
                       </span>
-                      <button
-                        type="button"
-                        role="switch"
-                        aria-checked={prefs[item.key]}
-                        onClick={() => onTogglePref(item.key)}
-                        data-mol-id={`settings-toggle-${item.key}`}
-                        className={cm.cn(
-                          cm.flex({ align: 'center' }),
-                          'h-6 w-11 rounded-full p-0.5 transition-colors',
-                          prefs[item.key] ? 'bg-primary' : 'bg-surface-container',
+                      <Switch
+                        checked={prefs[item.key]}
+                        onChange={(e) =>
+                          onTogglePref(item.key, (e.target as HTMLInputElement).checked)
+                        }
+                        aria-label={t(
+                          `meridian.settings.toggle.${item.key}`,
+                          {},
+                          { defaultValue: item.defaultLabel },
                         )}
-                      >
-                        <span
-                          className={cm.cn(
-                            'h-5 w-5 rounded-full bg-white shadow transition-transform',
-                            prefs[item.key] ? 'translate-x-5' : 'translate-x-0',
-                          )}
-                        />
-                      </button>
+                        data-mol-id={`settings-toggle-${item.key}`}
+                      />
                     </li>
                   ))}
                 </ul>
