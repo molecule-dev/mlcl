@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { AccountSection } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker } from '@molecule/app-ui-react'
+import { ConfirmButton, LanguagePicker } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { PresentationBuilderLayout } from '../components/PresentationBuilderLayout.js'
@@ -142,17 +142,13 @@ export function Settings() {
   const cancelSubscription = useCallback(async () => {
     if (!status || status.isFree) return
     try {
-      const ok = window.confirm(
-        t('settings.billing.confirmCancel', {}, { defaultValue: 'Cancel subscription?' })!,
-      )
-      if (!ok) return
       await http.post('/billing/cancel', {})
       const res = await http.get<BillingStatus>('/billing/status')
       setStatus(res.data)
     } catch (_error) {
       // cancellation errors surface via the subsequent status reload; silent here is intentional
     }
-  }, [http, status, t])
+  }, [http, status])
 
   const userName = useMemo(() => (user as { name?: string } | null)?.name ?? '', [user])
   const userEmail = useMemo(() => (user as { email?: string } | null)?.email ?? '', [user])
@@ -621,18 +617,26 @@ export function Settings() {
                     </span>
                   </Link>
                   {status && !status.isFree && (
-                    <button
-                      type="button"
+                    <ConfirmButton
                       data-testid="billing-cancel"
-                      onClick={() => void cancelSubscription()}
+                      label={t(
+                        'nav.cancelSubscription',
+                        {},
+                        { defaultValue: 'Cancel subscription' },
+                      )}
+                      confirmLabel={t(
+                        'settings.billing.confirmCancel',
+                        {},
+                        { defaultValue: 'Cancel subscription?' },
+                      )}
+                      onConfirm={cancelSubscription}
+                      disarmSeconds={6}
                       className={cm.cn(
                         cm.fontWeight('bold'),
                         cm.textSize('xs'),
                         'uppercase tracking-widest text-white/80 hover:text-white px-3 py-2 rounded-lg border border-white/30',
                       )}
-                    >
-                      {t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
-                    </button>
+                    />
                   )}
                 </div>
               </div>
