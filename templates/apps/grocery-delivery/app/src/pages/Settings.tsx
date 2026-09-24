@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -447,17 +447,17 @@ function PreferencesSection() {
         )}
       </h2>
 
-      <Toggle
+      <Switch
         label={t('settings.pushNotifications', {}, { defaultValue: 'Push notifications' })}
         checked={pushEnabled}
-        onChange={handlePushToggle}
-        testId="settings-push-toggle"
+        onChange={(e) => handlePushToggle((e.target as HTMLInputElement).checked)}
+        data-test="settings-push-toggle"
       />
-      <Toggle
+      <Switch
         label={t('settings.preferences.email', {}, { defaultValue: 'Email updates' })}
         checked={emailEnabled}
-        onChange={handleEmailToggle}
-        testId="settings-email-toggle"
+        onChange={(e) => handleEmailToggle((e.target as HTMLInputElement).checked)}
+        data-test="settings-email-toggle"
       />
 
       <label className="block">
@@ -505,42 +505,5 @@ function PreferencesSection() {
         {t('settings.preferences.note', {}, { defaultValue: 'Saved on this device.' })}
       </p>
     </section>
-  )
-}
-
-function Toggle({
-  label,
-  checked,
-  onChange,
-  testId,
-}: {
-  label: string
-  checked: boolean
-  onChange: (v: boolean) => void
-  testId?: string
-}) {
-  const cm = getClassMap()
-  return (
-    <label className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'cursor-pointer')}>
-      <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>{label}</span>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={checked}
-        data-test={testId}
-        onClick={() => onChange(!checked)}
-        className={cm.cn(
-          'relative inline-flex h-6 w-11 items-center rounded-full transition-colors',
-          checked ? 'bg-primary' : 'bg-outline-variant',
-        )}
-      >
-        <span
-          className={cm.cn(
-            'inline-block h-4 w-4 rounded-full bg-on-primary transition-transform',
-            checked ? 'translate-x-6' : 'translate-x-1',
-          )}
-        />
-      </button>
-    </label>
   )
 }
