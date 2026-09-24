@@ -4,6 +4,7 @@ import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { BRAND_COLOR } from '../branding.js'
 import { StatusPill } from '../components/StatusPill.js'
@@ -153,8 +154,6 @@ export function Team() {
   }
 
   const remove = async (id: string) => {
-    if (!window.confirm(t('team.confirmRemove', {}, { defaultValue: 'Remove this member?' })))
-      return
     try {
       const client = getHttpClient()
       await client.delete(`/team_members/${id}`)
@@ -522,17 +521,19 @@ export function Team() {
                               {t(`team.setRole.${r}`, {}, { defaultValue: `Set role: ${r}` })}
                             </button>
                           ))}
-                          <button
-                            type="button"
-                            onClick={() => remove(member.id)}
-                            className={cm.cn(
-                              'text-left px-3 py-1.5 rounded font-mono text-xs hover:bg-surface/5',
+                          <ConfirmButton
+                            label={t('team.remove', {}, { defaultValue: 'Remove member' })}
+                            confirmLabel={t(
+                              'team.confirmRemove',
+                              {},
+                              { defaultValue: 'Remove this member?' },
                             )}
-                            style={{ color: 'var(--mol-color-error)' }}
+                            onConfirm={() => remove(member.id)}
+                            disarmSeconds={5}
+                            color="error"
+                            size="sm"
                             data-mol-id={`team-member-remove-${member.id}`}
-                          >
-                            {t('team.remove', {}, { defaultValue: 'Remove member' })}
-                          </button>
+                          />
                         </div>
                       )}
                     </li>
@@ -609,15 +610,19 @@ export function Team() {
                     >
                       {t('team.resend', {}, { defaultValue: 'Resend' })}
                     </button>
-                    <button
-                      type="button"
-                      onClick={() => remove(invite.id)}
-                      className={cm.cn('font-mono text-[11px] font-bold tracking-wider uppercase')}
-                      style={{ color: 'var(--mol-color-error)' }}
+                    <ConfirmButton
+                      label={t('common.revoke', {}, { defaultValue: 'Revoke' })}
+                      confirmLabel={t(
+                        'team.confirmRemove',
+                        {},
+                        { defaultValue: 'Remove this member?' },
+                      )}
+                      onConfirm={() => remove(invite.id)}
+                      disarmSeconds={5}
+                      color="error"
+                      size="sm"
                       data-mol-id={`team-pending-revoke-${invite.id}`}
-                    >
-                      {t('common.revoke', {}, { defaultValue: 'Revoke' })}
-                    </button>
+                    />
                   </li>
                 ))}
               </ul>

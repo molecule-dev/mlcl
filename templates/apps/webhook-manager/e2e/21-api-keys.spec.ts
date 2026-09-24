@@ -55,8 +55,11 @@ test.describe('/settings/api-keys', () => {
     })
     const created = await r.json()
     await page.goto(APP_BASE + '/settings/api-keys')
-    page.once('dialog', (d) => d.accept())
-    await page.locator(`[data-mol-id="api-keys-revoke-${created.id}"]`).click()
+    // ConfirmButton: first click ARMS, the armed confirm label appears, second click COMMITS
+    const revoke = page.locator(`[data-mol-id="api-keys-revoke-${created.id}"]`)
+    await revoke.click()
+    await expect(revoke).toHaveText(/revoke this key/i)
+    await revoke.click()
     await page.waitForTimeout(1500)
     const list = await page.request.get(API_BASE + '/api_keys', {
       headers: { Authorization: `Bearer ${token}` },

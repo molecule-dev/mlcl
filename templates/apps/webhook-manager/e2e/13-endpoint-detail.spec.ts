@@ -80,8 +80,11 @@ test.describe('/endpoints/:id', () => {
     const token = await requireAccessToken(page)
     const wh = await createWebhookViaApi(page, token)
     await page.goto(APP_BASE + '/endpoints/' + wh.id)
-    page.once('dialog', (d) => d.accept())
+    // ConfirmButton: first click ARMS, the armed label appears, second click COMMITS
     await page.getByRole('button', { name: /^delete$/i }).click()
+    const armed = page.getByRole('button', { name: /delete this endpoint/i })
+    await expect(armed).toBeVisible()
+    await armed.click()
     await page.waitForURL(/\/endpoints$/, { timeout: 15_000 })
     const r = await page.request.get(API_BASE + '/webhooks/' + wh.id, {
       headers: { Authorization: `Bearer ${token}` },

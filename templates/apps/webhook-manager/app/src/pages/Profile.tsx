@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Alert, ConfirmButton, PromptDialog } from '@molecule/app-ui-react'
 
 import { APP_NAME, BRAND_COLOR } from '../branding.js'
 import { StatusPill } from '../components/StatusPill.js'
@@ -119,6 +120,8 @@ export function Profile() {
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [deleteOpen, setDeleteOpen] = useState(false)
+  const [deleteError, setDeleteError] = useState<string | null>(null)
 
   const sessions = useMemo(() => sessionsData ?? [], [sessionsData])
   const hydratedFromUserRef = useRef<string | null>(null)
@@ -190,12 +193,6 @@ export function Profile() {
   }
 
   const revokeSession = async (id: string) => {
-    if (
-      !window.confirm(
-        t('profile.confirmRevokeSession', {}, { defaultValue: 'Sign this device out?' }),
-      )
-    )
-      return
     try {
       const client = getHttpClient()
       await client.delete(`/profile/sessions/${id}`)
@@ -205,22 +202,27 @@ export function Profile() {
     }
   }
 
-  const deleteAccount = async () => {
+  const deleteAccount = async (entered: string) => {
     const confirmText = t('profile.deleteConfirmText', {}, { defaultValue: 'DELETE' })
-    const entered = window.prompt(
-      t(
-        'profile.deleteConfirmPrompt',
-        { confirm: confirmText },
-        { defaultValue: 'This is permanent. Type {{confirm}} to confirm:' },
-      ),
-    )
-    if (entered !== confirmText) return
+    if (entered !== confirmText) {
+      setDeleteError(
+        t(
+          'profile.deleteConfirmPrompt',
+          { confirm: confirmText },
+          { defaultValue: 'This is permanent. Type {{confirm}} to confirm:' },
+        ),
+      )
+      throw new Error('confirmation-text-mismatch')
+    }
+    setDeleteError(null)
     try {
       const client = getHttpClient()
       await client.delete('/profile')
       navigate('/login', { replace: true })
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Delete failed.')
+      const message = err instanceof Error ? err.message : 'Delete failed.'
+      setDeleteError(message)
+      throw new Error(message, { cause: err })
     }
   }
 
@@ -647,17 +649,19 @@ export function Profile() {
                       {isCurrent ? (
                         <StatusPill status="live" label="CURRENT" />
                       ) : (
-                        <button
-                          type="button"
-                          onClick={() => revokeSession(s.id)}
-                          className={cm.cn(
-                            'font-mono text-[11px] font-bold tracking-wider uppercase',
+                        <ConfirmButton
+                          label={t('common.revoke', {}, { defaultValue: 'Revoke' })}
+                          confirmLabel={t(
+                            'profile.confirmRevokeSession',
+                            {},
+                            { defaultValue: 'Sign this device out?' },
                           )}
-                          style={{ color: 'var(--mol-color-error)' }}
+                          onConfirm={() => revokeSession(s.id)}
+                          disarmSeconds={5}
+                          color="error"
+                          size="sm"
                           data-mol-id={`profile-session-revoke-${s.id}`}
-                        >
-                          {t('common.revoke', {}, { defaultValue: 'Revoke' })}
-                        </button>
+                        />
                       )}
                     </li>
                   )
@@ -695,7 +699,7 @@ export function Profile() {
             </p>
             <button
               type="button"
-              onClick={deleteAccount}
+              onClick={() => setDeleteOpen(true)}
               className={cm.cn('font-mono text-sm font-bold tracking-wider uppercase')}
               style={{ color: 'var(--mol-color-error)' }}
               data-mol-id="profile-delete-account"
@@ -705,6 +709,29 @@ export function Profile() {
           </section>
         </>
       )}
+
+      <PromptDialog
+        open={deleteOpen}
+        onClose={() => {
+          setDeleteOpen(false)
+          setDeleteError(null)
+        }}
+        title={t('settings.deleteAccount', {}, { defaultValue: 'Delete account' })}
+        description={t(
+          'profile.deleteConfirmPrompt',
+          { confirm: t('profile.deleteConfirmText', {}, { defaultValue: 'DELETE' }) },
+          { defaultValue: 'This is permanent. Type {{confirm}} to confirm:' },
+        )}
+        placeholder={t('profile.deleteConfirmText', {}, { defaultValue: 'DELETE' })}
+        confirmLabel={t('settings.deleteAccount', {}, { defaultValue: 'Delete account' })}
+        onSubmit={deleteAccount}
+        destructive
+        inputMolId="profile-delete-account-input"
+        confirmMolId="profile-delete-account-confirm"
+        cancelMolId="profile-delete-account-cancel"
+      >
+        {deleteError && <Alert status="error">{deleteError}</Alert>}
+      </PromptDialog>
     </div>
   )
 }

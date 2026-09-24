@@ -4,6 +4,7 @@ import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { BRAND_COLOR } from '../branding.js'
 import { DeliverySparkline } from '../components/DeliverySparkline.js'
@@ -142,19 +143,6 @@ export function Billing() {
   }
 
   const cancelPlan = async () => {
-    if (
-      !window.confirm(
-        t(
-          'billing.confirmCancel',
-          {},
-          {
-            defaultValue:
-              "Cancel your subscription? You'll be downgraded to Free at the end of the period.",
-          },
-        ),
-      )
-    )
-      return
     setSubmitting(true)
     setError(null)
     try {
@@ -276,24 +264,31 @@ export function Billing() {
                 : t('billing.changePlan', {}, { defaultValue: 'Change plan' })}
             </button>
             {!status?.isFree && (
-              <button
-                type="button"
-                onClick={cancelPlan}
-                disabled={submitting}
-                className={cm.cn(
-                  'inline-flex items-center gap-2 px-4 py-2 rounded-md font-mono font-semibold text-sm transition-colors disabled:opacity-60',
+              <ConfirmButton
+                label={
+                  <>
+                    <span
+                      className={cm.cn('material-symbols-outlined text-base')}
+                      aria-hidden="true"
+                    >
+                      cancel
+                    </span>
+                    {t('billing.cancel', {}, { defaultValue: 'Cancel plan' })}
+                  </>
+                }
+                confirmLabel={t(
+                  'billing.confirmCancel',
+                  {},
+                  {
+                    defaultValue:
+                      "Cancel your subscription? You'll be downgraded to Free at the end of the period.",
+                  },
                 )}
-                style={{
-                  backgroundColor: 'rgba(255,255,255,0.95)',
-                  color: '#065f46',
-                }}
+                onConfirm={cancelPlan}
+                disarmSeconds={6}
+                disabled={submitting}
                 data-mol-id="billing-cancel-plan"
-              >
-                <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
-                  cancel
-                </span>
-                {t('billing.cancel', {}, { defaultValue: 'Cancel plan' })}
-              </button>
+              />
             )}
           </div>
         </div>

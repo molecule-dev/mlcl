@@ -5,6 +5,7 @@ import { getClient as getHttpClient } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { APP_NAME, BRAND_COLOR } from '../branding.js'
 import { StatusPill } from '../components/StatusPill.js'
@@ -169,16 +170,6 @@ export function APIKeys() {
   }
 
   const revokeKey = async (id: string) => {
-    if (
-      !window.confirm(
-        t(
-          'apiKeys.confirmRevoke',
-          {},
-          { defaultValue: 'Revoke this key? Existing requests using it will fail.' },
-        ),
-      )
-    )
-      return
     try {
       const client = getHttpClient()
       await client.post(`/api_keys/${id}/revoke`, {})
@@ -626,21 +617,21 @@ export function APIKeys() {
                     {key.is_revoked ? (
                       <StatusPill status="disabled" label="REVOKED" />
                     ) : (
-                      <button
-                        type="button"
-                        onClick={() => revokeKey(key.id)}
-                        className={cm.cn(
-                          'inline-flex h-7 px-2 items-center justify-center rounded-md font-mono text-[10px] font-bold uppercase',
+                      <ConfirmButton
+                        label={t('common.revoke', {}, { defaultValue: 'Revoke' })}
+                        confirmLabel={t(
+                          'apiKeys.confirmRevoke',
+                          {},
+                          {
+                            defaultValue: 'Revoke this key? Existing requests using it will fail.',
+                          },
                         )}
-                        style={{
-                          color: 'var(--mol-color-error)',
-                          border:
-                            '1px solid color-mix(in srgb, var(--mol-color-error) 30%, transparent)',
-                        }}
+                        onConfirm={() => revokeKey(key.id)}
+                        disarmSeconds={5}
+                        color="error"
+                        size="sm"
                         data-mol-id={`api-keys-revoke-${key.id}`}
-                      >
-                        {t('common.revoke', {}, { defaultValue: 'Revoke' })}
-                      </button>
+                      />
                     )}
                   </div>
                 </li>

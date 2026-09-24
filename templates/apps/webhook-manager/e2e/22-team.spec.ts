@@ -60,8 +60,11 @@ test.describe('/settings/team', () => {
     expect(created.id).toBeTruthy()
 
     await page.goto(APP_BASE + '/settings/team')
-    page.once('dialog', (d) => d.accept())
-    await page.locator(`[data-mol-id="team-pending-revoke-${created.id}"]`).click()
+    // ConfirmButton: first click ARMS, the armed confirm label appears, second click COMMITS
+    const revoke = page.locator(`[data-mol-id="team-pending-revoke-${created.id}"]`)
+    await revoke.click()
+    await expect(revoke).toHaveText(/remove this member/i)
+    await revoke.click()
     await page.waitForTimeout(1500)
     // Read-after-write
     const list = await page.request.get(API_BASE + '/team_members', {

@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { APP_NAME, BRAND_COLOR } from '../branding.js'
 import { DeliveryRow } from '../components/DeliveryRow.js'
@@ -139,16 +140,6 @@ export function EndpointDetail() {
 
   const removeEndpoint = async () => {
     if (!id) return
-    if (
-      !window.confirm(
-        t(
-          'endpointDetail.confirmDelete',
-          {},
-          { defaultValue: 'Delete this endpoint? This cannot be undone.' },
-        ),
-      )
-    )
-      return
     setActionError(null)
     try {
       const client = getHttpClient()
@@ -294,22 +285,25 @@ export function EndpointDetail() {
               ? t('common.pause', {}, { defaultValue: 'Pause' })
               : t('common.resume', {}, { defaultValue: 'Resume' })}
           </button>
-          <button
-            type="button"
-            onClick={removeEndpoint}
-            className={cm.cn(
-              'inline-flex items-center gap-2 px-4 py-2 rounded-md font-mono font-semibold text-sm transition-colors',
+          <ConfirmButton
+            label={
+              <>
+                <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
+                  delete
+                </span>
+                {t('common.delete', {}, { defaultValue: 'Delete' })}
+              </>
+            }
+            confirmLabel={t(
+              'endpointDetail.confirmDelete',
+              {},
+              { defaultValue: 'Delete this endpoint? This cannot be undone.' },
             )}
-            style={{
-              border: '1px solid color-mix(in srgb, var(--mol-color-error) 30%, transparent)',
-              color: 'var(--mol-color-error)',
-            }}
-          >
-            <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
-              delete
-            </span>
-            {t('common.delete', {}, { defaultValue: 'Delete' })}
-          </button>
+            onConfirm={removeEndpoint}
+            disarmSeconds={6}
+            color="error"
+            data-mol-id="endpoint-detail-delete"
+          />
         </div>
       </div>
 

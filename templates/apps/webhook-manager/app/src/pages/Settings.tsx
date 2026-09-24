@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { Alert, LanguagePicker, PromptDialog, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME, BRAND_COLOR } from '../branding.js'
 import { StatusPill } from '../components/StatusPill.js'
@@ -78,6 +78,8 @@ export function Settings() {
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [deleteOpen, setDeleteOpen] = useState(false)
+  const [deleteError, setDeleteError] = useState<string | null>(null)
   const hydratedFromUserRef = useRef<string | null>(null)
 
   useEffect(() => {
@@ -128,18 +130,21 @@ export function Settings() {
     }
   }
 
-  const deleteWorkspace = async () => {
-    const text = window.prompt(
-      t(
-        'settings.deleteWorkspaceConfirm',
-        {},
-        {
-          defaultValue:
-            'Type DELETE to confirm. This deletes ALL endpoints, deliveries, and audit history.',
-        },
-      ),
-    )
-    if (text !== 'DELETE') return
+  const deleteWorkspace = async (entered: string) => {
+    if (entered !== 'DELETE') {
+      setDeleteError(
+        t(
+          'settings.deleteWorkspaceConfirm',
+          {},
+          {
+            defaultValue:
+              'Type DELETE to confirm. This deletes ALL endpoints, deliveries, and audit history.',
+          },
+        ),
+      )
+      throw new Error('confirmation-text-mismatch')
+    }
+    setDeleteError(null)
     try {
       const client = getHttpClient()
       // Best-effort: delete every webhook the user owns. The audit entries
@@ -151,7 +156,9 @@ export function Settings() {
       await Promise.all(webhooks.map((w) => client.delete(`/webhooks/${w.id}`)))
       setSavedAt(Date.now())
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Delete failed.')
+      const message = err instanceof Error ? err.message : 'Delete failed.'
+      setDeleteError(message)
+      throw new Error(message, { cause: err })
     }
   }
 
@@ -585,7 +592,7 @@ export function Settings() {
         </p>
         <button
           type="button"
-          onClick={deleteWorkspace}
+          onClick={() => setDeleteOpen(true)}
           className={cm.cn(
             'inline-flex items-center gap-2 px-4 py-2 rounded-md font-mono font-semibold text-sm transition-colors',
           )}
@@ -601,6 +608,32 @@ export function Settings() {
           {t('settings.deleteWorkspace', {}, { defaultValue: 'Delete workspace' })}
         </button>
       </section>
+
+      <PromptDialog
+        open={deleteOpen}
+        onClose={() => {
+          setDeleteOpen(false)
+          setDeleteError(null)
+        }}
+        title={t('settings.deleteWorkspace', {}, { defaultValue: 'Delete workspace' })}
+        description={t(
+          'settings.deleteWorkspaceConfirm',
+          {},
+          {
+            defaultValue:
+              'Type DELETE to confirm. This deletes ALL endpoints, deliveries, and audit history.',
+          },
+        )}
+        placeholder="DELETE"
+        confirmLabel={t('settings.deleteWorkspace', {}, { defaultValue: 'Delete workspace' })}
+        onSubmit={deleteWorkspace}
+        destructive
+        inputMolId="settings-delete-workspace-input"
+        confirmMolId="settings-delete-workspace-confirm"
+        cancelMolId="settings-delete-workspace-cancel"
+      >
+        {deleteError && <Alert status="error">{deleteError}</Alert>}
+      </PromptDialog>
     </div>
   )
 }
