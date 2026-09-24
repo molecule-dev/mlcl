@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import MobileNavMenu, { useMainNavItems } from '../components/MobileNavMenu.js'
@@ -569,25 +570,14 @@ function BotsList() {
                             >
                               {t('botsList.deploy', {}, { defaultValue: 'Deploy' })}
                             </Link>
-                            <button
-                              className={cm.cn(
-                                cm.textSize('sm'),
-                                cm.sp('px', 4),
-                                cm.sp('py', 2),
-                                'w-full text-left hover:bg-surface-container text-error border-t border-outline-variant/20',
+                            <ConfirmButton
+                              label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                              confirmLabel={t(
+                                'botsList.confirmDelete',
+                                { name: bot.name },
+                                { defaultValue: 'Delete "{{name}}"? This cannot be undone.' },
                               )}
-                              onClick={(e) => {
-                                e.preventDefault()
-                                if (
-                                  !window.confirm(
-                                    t(
-                                      'botsList.confirmDelete',
-                                      { name: bot.name },
-                                      { defaultValue: 'Delete "{{name}}"? This cannot be undone.' },
-                                    ),
-                                  )
-                                )
-                                  return
+                              onConfirm={() =>
                                 http
                                   .delete(`/api/bots/${bot.id}`)
                                   .then(() => {
@@ -611,10 +601,15 @@ function BotsList() {
                                       ),
                                     )
                                   })
-                              }}
-                            >
-                              {t('common.delete', {}, { defaultValue: 'Delete' })}
-                            </button>
+                              }
+                              testId="bot-delete"
+                              className={cm.cn(
+                                cm.textSize('sm'),
+                                cm.sp('px', 4),
+                                cm.sp('py', 2),
+                                'w-full justify-start text-left hover:bg-surface-container border-t border-outline-variant/20',
+                              )}
+                            />
                           </div>
                         )}
                       </div>

@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 
@@ -153,28 +154,16 @@ function BotEditorSideNavBar() {
             >
               {t('botEditorSideNavBar.activeBotLabel', {}, { defaultValue: 'Active Bot' })}
             </span>
-            <button
-              type="button"
-              role="switch"
-              aria-checked={botActive}
+            <Switch
+              checked={botActive}
+              onChange={(e) => setBotActive((e.target as HTMLInputElement).checked)}
+              size="sm"
               aria-label={t(
                 'botEditorSideNavBar.activeBotLabel',
                 {},
                 { defaultValue: 'Active Bot' },
               )}
-              className={cm.cn(
-                'w-8 h-4 rounded-full relative cursor-pointer',
-                botActive ? 'bg-primary/20' : 'bg-foreground/50',
-              )}
-              onClick={() => setBotActive((v) => !v)}
-            >
-              <div
-                className={cm.cn(
-                  'absolute top-0.5 w-3 h-3 rounded-full shadow-lg transition-all',
-                  botActive ? 'right-0.5 bg-primary' : 'left-0.5 bg-slate-500',
-                )}
-              ></div>
-            </button>
+            />
           </div>
           <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-2')}>
             <span

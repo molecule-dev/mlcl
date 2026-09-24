@@ -1,5 +1,6 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 interface AppearanceSectionProps {
   widgetColor: string
   position: string
@@ -206,23 +207,19 @@ export default function AppearanceSection({
                   )}
                 </p>
               </div>
-              <button
-                type="button"
-                role="switch"
-                aria-checked={typingIndicatorEnabled}
+              <Switch
+                checked={typingIndicatorEnabled}
+                onChange={(e) =>
+                  onChange('typingIndicatorEnabled', (e.target as HTMLInputElement).checked)
+                }
+                size="md"
                 aria-label={t(
                   'appearance-section.typing-indicator-title',
                   {},
                   { defaultValue: 'Typing Indicator' },
                 )}
-                className={`w-12 h-6 rounded-full relative cursor-pointer ${typingIndicatorEnabled ? 'bg-tertiary' : 'bg-surface-container-highest'}`}
-                onClick={() => onChange('typingIndicatorEnabled', !typingIndicatorEnabled)}
                 data-mol-id="typing-indicator-toggle"
-              >
-                <span
-                  className={`absolute top-1 w-4 h-4 bg-surface rounded-full transition-all ${typingIndicatorEnabled ? 'right-1' : 'left-1'}`}
-                ></span>
-              </button>
+              />
             </div>
           </div>
           <div

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface BillingStatus {
   planKey: string
@@ -39,7 +40,6 @@ function SettingsBillingSection() {
   const [bots, setBots] = useState<BotSummary[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [cancelBusy, setCancelBusy] = useState(false)
 
   async function loadAll() {
     setLoading(true)
@@ -78,20 +78,6 @@ function SettingsBillingSection() {
   }, [])
 
   async function handleCancel() {
-    if (
-      !window.confirm(
-        t(
-          'settingsBilling.confirmCancel',
-          {},
-          {
-            defaultValue:
-              'Cancel your subscription? You will keep access until the end of the billing period.',
-          },
-        ),
-      )
-    )
-      return
-    setCancelBusy(true)
     setError(null)
     try {
       await http.post('/api/billing/cancel', {})
@@ -102,8 +88,6 @@ function SettingsBillingSection() {
           ? err.message
           : t('settingsBilling.cancelError', {}, { defaultValue: 'Cancel failed.' }),
       )
-    } finally {
-      setCancelBusy(false)
     }
   }
 
@@ -190,23 +174,27 @@ function SettingsBillingSection() {
                       : t('settingsBilling.changePlan', {}, { defaultValue: 'Change plan' })}
                   </button>
                   {!status?.isFree && (
-                    <button
-                      type="button"
-                      disabled={cancelBusy}
+                    <ConfirmButton
+                      label={t('settingsBilling.cancelPlan', {}, { defaultValue: 'Cancel plan' })}
+                      confirmLabel={t(
+                        'settingsBilling.confirmCancel',
+                        {},
+                        {
+                          defaultValue:
+                            'Cancel your subscription? You will keep access until the end of the billing period.',
+                        },
+                      )}
+                      onConfirm={handleCancel}
+                      testId="billing-cancel-plan"
                       className={cm.cn(
                         cm.roundedFull,
                         cm.textSize('xs'),
                         cm.fontWeight('bold'),
                         cm.sp('px', 4),
                         cm.sp('py', 2),
-                        'bg-surface/20 hover:bg-surface/30 transition-all text-white backdrop-blur-sm disabled:opacity-50',
+                        'bg-surface/20 hover:bg-surface/30 transition-all text-white backdrop-blur-sm',
                       )}
-                      onClick={handleCancel}
-                    >
-                      {cancelBusy
-                        ? t('common.processing', {}, { defaultValue: 'Working…' })
-                        : t('settingsBilling.cancelPlan', {}, { defaultValue: 'Cancel plan' })}
-                    </button>
+                    />
                   )}
                 </div>
               </div>

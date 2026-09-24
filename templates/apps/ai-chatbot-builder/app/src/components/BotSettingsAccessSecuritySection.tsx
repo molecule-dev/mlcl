@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 function BotSettingsAccessSecuritySection() {
   const cm = getClassMap()
@@ -123,28 +124,16 @@ function BotSettingsAccessSecuritySection() {
                 )}
               </p>
             </div>
-            <button
-              type="button"
-              role="switch"
-              aria-checked={requireAuth}
+            <Switch
+              checked={requireAuth}
+              onChange={(e) => setRequireAuth((e.target as HTMLInputElement).checked)}
+              size="md"
               aria-label={t(
                 'botSettingsAccessSecurity.requireAuthTitle',
                 {},
                 { defaultValue: 'Require Authentication' },
               )}
-              className={cm.cn(
-                'w-12 h-6 rounded-full relative cursor-pointer transition-colors',
-                requireAuth ? 'bg-tertiary' : 'bg-surface-container-highest',
-              )}
-              onClick={() => setRequireAuth((v) => !v)}
-            >
-              <span
-                className={cm.cn(
-                  'absolute top-1 w-4 h-4 bg-surface rounded-full transition-all',
-                  requireAuth ? 'left-7' : 'left-1',
-                )}
-              ></span>
-            </button>
+            />
           </div>
           <div className={cm.stack(3)}>
             <label

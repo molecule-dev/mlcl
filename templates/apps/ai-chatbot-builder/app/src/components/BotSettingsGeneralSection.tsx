@@ -2,6 +2,7 @@ import { useRef } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 interface BotSettingsGeneralSectionProps {
   name: string
@@ -52,29 +53,16 @@ function BotSettingsGeneralSection({
           >
             {t('botSettingsGeneralSection.activeStatus', {}, { defaultValue: 'Active Status' })}
           </span>
-          <button
-            type="button"
-            onClick={() => setActive(!active)}
-            aria-pressed={active}
-            className={cm.cn(
-              cm.w(12),
-              cm.h(6),
-              cm.roundedFull,
-              cm.cursorPointer,
-              active ? 'bg-tertiary' : 'bg-surface-container-highest',
-              'relative transition-colors',
+          <Switch
+            checked={active}
+            onChange={(e) => setActive((e.target as HTMLInputElement).checked)}
+            size="md"
+            aria-label={t(
+              'botSettingsGeneralSection.activeStatus',
+              {},
+              { defaultValue: 'Active Status' },
             )}
-          >
-            <div
-              className={cm.cn(
-                cm.w(4),
-                cm.h(4),
-                cm.roundedFull,
-                'absolute top-1 bg-surface transition-all',
-                active ? 'right-1' : 'left-1',
-              )}
-            ></div>
-          </button>
+          />
         </div>
       </div>
       <div

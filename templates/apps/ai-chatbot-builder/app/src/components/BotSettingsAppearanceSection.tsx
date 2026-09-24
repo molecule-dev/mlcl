@@ -8,6 +8,7 @@ interface BotSettingsAppearanceSectionProps {
 }
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 function BotSettingsAppearanceSection({
   welcomeMessage,
   setWelcomeMessage,
@@ -162,22 +163,16 @@ function BotSettingsAppearanceSection({
                   )}
                 </p>
               </div>
-              <button
-                type="button"
-                onClick={() => setTypingIndicator(!typingIndicator)}
-                aria-pressed={typingIndicator}
-                className={cm.cn(
-                  'w-12 h-6 rounded-full relative cursor-pointer transition-colors',
-                  typingIndicator ? 'bg-tertiary' : 'bg-surface-container-highest',
+              <Switch
+                checked={typingIndicator}
+                onChange={(e) => setTypingIndicator((e.target as HTMLInputElement).checked)}
+                size="md"
+                aria-label={t(
+                  'botSettingsAppearance.typingIndicatorLabel',
+                  {},
+                  { defaultValue: 'Typing Indicator' },
                 )}
-              >
-                <div
-                  className={cm.cn(
-                    'absolute top-1 w-4 h-4 bg-surface rounded-full transition-all',
-                    typingIndicator ? 'right-1' : 'left-1',
-                  )}
-                ></div>
-              </button>
+              />
             </div>
           </div>
           {/* Preview Frame */}

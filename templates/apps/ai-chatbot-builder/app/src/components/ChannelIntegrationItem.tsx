@@ -1,5 +1,6 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 interface ChannelIntegrationItemProps {
   channelName: string
   iconName: string
@@ -79,14 +80,16 @@ export default function ChannelIntegrationItem({
           )}
         </div>
       </div>
-      <button
-        className={`w-12 h-6 rounded-full relative p-1 transition-colors ${isConnected ? 'bg-tertiary' : 'bg-outline-variant/30'}`}
-        onClick={onToggle}
-      >
-        <div
-          className={`w-4 h-4 bg-surface rounded-full shadow-sm${isConnected ? ' ml-auto' : ''}`}
-        ></div>
-      </button>
+      <Switch
+        checked={isConnected}
+        onChange={() => onToggle()}
+        size="md"
+        aria-label={t(
+          'channel-integration-item.toggleAria',
+          { channel: channelName },
+          { defaultValue: '{{channel}} connection' },
+        )}
+      />
     </div>
   )
 }

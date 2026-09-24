@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 function BotDeployChannelIntegrationsCard() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -99,21 +100,12 @@ function BotDeployChannelIntegrationsCard() {
               </div>
             </div>
           </div>
-          <button
-            className={cm.cn(
-              'w-12 h-6 rounded-full relative p-1 transition-colors',
-              channels.slack ? 'bg-tertiary' : 'bg-outline-variant/30',
-            )}
-            onClick={() => toggle('slack')}
-            aria-pressed={channels.slack}
-          >
-            <div
-              className={cm.cn(
-                'w-4 h-4 bg-surface rounded-full shadow-sm transition-transform',
-                channels.slack && 'ml-auto',
-              )}
-            ></div>
-          </button>
+          <Switch
+            checked={channels.slack}
+            onChange={() => toggle('slack')}
+            size="md"
+            aria-label={t('botDeployChannelIntegrationsCard.slack', {}, { defaultValue: 'Slack' })}
+          />
         </div>
         {/* Discord Not Connected */}
         <div
@@ -150,21 +142,16 @@ function BotDeployChannelIntegrationsCard() {
               </span>
             </div>
           </div>
-          <button
-            className={cm.cn(
-              'w-12 h-6 rounded-full relative p-1 transition-colors',
-              channels.discord ? 'bg-tertiary' : 'bg-outline-variant/30',
+          <Switch
+            checked={channels.discord}
+            onChange={() => toggle('discord')}
+            size="md"
+            aria-label={t(
+              'botDeployChannelIntegrationsCard.discord',
+              {},
+              { defaultValue: 'Discord' },
             )}
-            onClick={() => toggle('discord')}
-            aria-pressed={channels.discord}
-          >
-            <div
-              className={cm.cn(
-                'w-4 h-4 bg-surface rounded-full shadow-sm transition-transform',
-                channels.discord && 'ml-auto',
-              )}
-            ></div>
-          </button>
+          />
         </div>
         {/* WhatsApp Not Connected */}
         <div
@@ -199,21 +186,16 @@ function BotDeployChannelIntegrationsCard() {
               </span>
             </div>
           </div>
-          <button
-            className={cm.cn(
-              'w-12 h-6 rounded-full relative p-1 transition-colors',
-              channels.whatsapp ? 'bg-tertiary' : 'bg-outline-variant/30',
+          <Switch
+            checked={channels.whatsapp}
+            onChange={() => toggle('whatsapp')}
+            size="md"
+            aria-label={t(
+              'botDeployChannelIntegrationsCard.whatsapp',
+              {},
+              { defaultValue: 'WhatsApp' },
             )}
-            onClick={() => toggle('whatsapp')}
-            aria-pressed={channels.whatsapp}
-          >
-            <div
-              className={cm.cn(
-                'w-4 h-4 bg-surface rounded-full shadow-sm transition-transform',
-                channels.whatsapp && 'ml-auto',
-              )}
-            ></div>
-          </button>
+          />
         </div>
         {/* Telegram Not Connected */}
         <div
@@ -248,21 +230,16 @@ function BotDeployChannelIntegrationsCard() {
               </span>
             </div>
           </div>
-          <button
-            className={cm.cn(
-              'w-12 h-6 rounded-full relative p-1 transition-colors',
-              channels.telegram ? 'bg-tertiary' : 'bg-outline-variant/30',
+          <Switch
+            checked={channels.telegram}
+            onChange={() => toggle('telegram')}
+            size="md"
+            aria-label={t(
+              'botDeployChannelIntegrationsCard.telegram',
+              {},
+              { defaultValue: 'Telegram' },
             )}
-            onClick={() => toggle('telegram')}
-            aria-pressed={channels.telegram}
-          >
-            <div
-              className={cm.cn(
-                'w-4 h-4 bg-surface rounded-full shadow-sm transition-transform',
-                channels.telegram && 'ml-auto',
-              )}
-            ></div>
-          </button>
+          />
         </div>
       </div>
     </section>

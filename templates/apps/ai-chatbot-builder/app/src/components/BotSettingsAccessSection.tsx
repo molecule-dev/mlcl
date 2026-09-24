@@ -1,5 +1,6 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 interface BotSettingsAccessSectionProps {
   allowedDomains: string
@@ -113,22 +114,16 @@ function BotSettingsAccessSection({
               )}
             </p>
           </div>
-          <button
-            type="button"
-            onClick={() => setRequireAuth(!requireAuth)}
-            aria-pressed={requireAuth}
-            className={cm.cn(
-              'w-12 h-6 rounded-full relative cursor-pointer transition-colors',
-              requireAuth ? 'bg-tertiary' : 'bg-surface-container-highest',
+          <Switch
+            checked={requireAuth}
+            onChange={(e) => setRequireAuth((e.target as HTMLInputElement).checked)}
+            size="md"
+            aria-label={t(
+              'botSettingsAccess.requireAuthTitle',
+              {},
+              { defaultValue: 'Require Authentication' },
             )}
-          >
-            <div
-              className={cm.cn(
-                'absolute top-1 w-4 h-4 bg-surface rounded-full transition-all',
-                requireAuth ? 'right-1' : 'left-1',
-              )}
-            ></div>
-          </button>
+          />
         </div>
         <div className={cm.stack(3)}>
           <label

@@ -1,5 +1,6 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 interface AccessSecuritySectionProps {
   allowedDomains: string
   rateLimitPerMinute: number
@@ -150,22 +151,16 @@ export default function AccessSecuritySection({
               )}
             </p>
           </div>
-          <button
-            type="button"
-            role="switch"
-            aria-checked={requireAuth}
+          <Switch
+            checked={requireAuth}
+            onChange={(e) => onChange('requireAuth', (e.target as HTMLInputElement).checked)}
+            size="md"
             aria-label={t(
               'access-security.require-auth-title',
               {},
               { defaultValue: 'Require Authentication' },
             )}
-            className={`w-12 h-6 ${requireAuth ? 'bg-tertiary' : 'bg-surface-container-highest'} rounded-full relative cursor-pointer`}
-            onClick={() => onChange('requireAuth', !requireAuth)}
-          >
-            <span
-              className={`absolute ${requireAuth ? 'right-1' : 'left-1'} top-1 w-4 h-4 bg-surface rounded-full`}
-            ></span>
-          </button>
+          />
         </div>
         <div style={{ rowGap: '3*0.25rem' }} data-mol-id="api-key-field">
           <label

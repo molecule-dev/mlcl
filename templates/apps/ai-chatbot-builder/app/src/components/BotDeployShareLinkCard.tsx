@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 interface BotDeployShareLinkCardProps {
   shareUrl?: string
@@ -312,28 +313,16 @@ function BotDeployShareLinkCard({ shareUrl, botId }: BotDeployShareLinkCardProps
                 </p>
               </div>
             </div>
-            <button
-              className={cm.cn(
-                cm.w(12),
-                cm.h(6),
-                cm.roundedFull,
-                cm.sp('p', 1),
-                'relative transition-colors',
-                passwordProtect ? 'bg-tertiary' : 'bg-surface-container-highest',
+            <Switch
+              checked={passwordProtect}
+              onChange={(e) => setPasswordProtect((e.target as HTMLInputElement).checked)}
+              size="md"
+              aria-label={t(
+                'botDeployShareLinkCard.passwordProtectLabel',
+                {},
+                { defaultValue: 'Password Protect' },
               )}
-              onClick={() => setPasswordProtect((p) => !p)}
-              aria-pressed={passwordProtect}
-            >
-              <div
-                className={cm.cn(
-                  cm.w(4),
-                  cm.h(4),
-                  cm.roundedFull,
-                  'bg-surface shadow-sm transition-transform',
-                  passwordProtect ? 'ml-auto' : '',
-                )}
-              ></div>
-            </button>
+            />
           </div>
         </div>
       </section>
