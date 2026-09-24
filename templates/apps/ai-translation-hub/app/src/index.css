@@ -327,3 +327,17 @@
   outline: none;
 }
 /* polish-v2:stitch-styles:end */
+
+/* Upstream workaround — molecule 37bcf7369, ResponsiveAppShell.Drawer.
+   The drawer portal's click-catcher wrapper renders `position: fixed` with
+   z-index auto. Chrome forms a stacking context for fixed elements, so the
+   drawer panel's own z-index stays trapped inside it and the sibling
+   `cm.overlay` backdrop (z-40) paints above AND intercepts every pointer
+   event inside the drawer. Raise the wrapper — the element that directly
+   hosts [data-mol-id="shell-drawer"] — to the backdrop's z-level; DOM order
+   then paints the drawer above the backdrop and clicks reach the panel.
+   DELETE this rule once molecule moves the drawer's z-index onto the
+   wrapper itself (one-line upstream fix). */
+body > div:has(> [data-mol-id='shell-drawer']) {
+  z-index: 40;
+}
