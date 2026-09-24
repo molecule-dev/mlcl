@@ -18,7 +18,6 @@
     "@molecule/app-realtime-socketio",
     "@molecule/app-virtual-scroll",
     "@molecule/app-file-upload",
-    "@molecule/app-sidebar-layout-react",
     "@molecule/app-notification-feed-react",
     "@molecule/app-image-crop",
     "@molecule/api-resource-payment",

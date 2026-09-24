@@ -1153,8 +1153,6 @@ vi.mock('@molecule/app-routing-react-router', () => ({
   normalizePath: {},
 }))
 
-vi.mock('@molecule/app-sidebar-layout-react', () => ({}))
-
 vi.mock('@molecule/app-storage', () => ({
   StorageProvider: {},
   setProvider: vi.fn(),

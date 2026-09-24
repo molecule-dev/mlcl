@@ -34,8 +34,12 @@ const PRESENCE_DOT: Record<Contact['presence'], string> = {
 }
 
 const PRESENCE_PILL: Record<Contact['presence'], string> = {
-  online: 'bg-emerald-500/10 text-success',
-  away: 'bg-amber-500/10 text-warning',
+  // Text uses the themed *-text tokens (color-mix with the running theme's
+  // foreground), NOT the raw brand green/amber: those only reach 4.5:1 on the
+  // DARK surface — on the light card the raw green measured ~2:1 (axe
+  // serious). The *-text pair passes both themes on the 10% tint.
+  online: 'bg-emerald-500/10 text-success-text',
+  away: 'bg-amber-500/10 text-warning-text',
   offline: 'bg-slate-400/10 text-foreground-secondary',
 }
 
