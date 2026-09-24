@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTheme, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
+import { PromptDialog } from '@molecule/app-ui-react'
 
 import MobileTopBar from '../components/MobileTopBar.js'
 import SideNavBar from '../components/SideNavBar.js'
@@ -50,6 +51,7 @@ export function ChannelPage() {
   const [loading, setLoading] = useState(true)
   const [sending, setSending] = useState(false)
   const [sendError, setSendError] = useState<string | null>(null)
+  const [linkPromptOpen, setLinkPromptOpen] = useState(false)
 
   const toggleReaction = useCallback(
     async (messageId: string, emoji: string) => {
@@ -1300,14 +1302,7 @@ export function ChannelPage() {
               <button
                 type="button"
                 data-mol-id="toolbar-link"
-                onClick={() => {
-                  const url = window.prompt(
-                    t('channel.linkPrompt', {}, { defaultValue: 'Link URL' }),
-                    'https://',
-                  )
-                  if (!url) return
-                  wrapInTextarea('[', `](${url})`)
-                }}
+                onClick={() => setLinkPromptOpen(true)}
                 className="ch-toolbar-btn"
                 aria-label={t('channel.insertLink', {}, { defaultValue: 'Link' })}
               >
@@ -1446,6 +1441,21 @@ export function ChannelPage() {
           </p>
         </form>
       </div>
+      <PromptDialog
+        open={linkPromptOpen}
+        onClose={() => setLinkPromptOpen(false)}
+        title={t('channel.insertLink', {}, { defaultValue: 'Link' })}
+        description={t('channel.linkPrompt', {}, { defaultValue: 'Link URL' })}
+        placeholder="https://"
+        initialValue="https://"
+        inputMolId="link-prompt-input"
+        confirmMolId="link-prompt-confirm"
+        cancelMolId="link-prompt-cancel"
+        onSubmit={(url) => {
+          if (!url) return
+          wrapInTextarea('[', `](${url})`)
+        }}
+      />
     </ChannelChrome>
   )
 }

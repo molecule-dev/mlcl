@@ -9,7 +9,7 @@ import {
   useTranslation,
 } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import MobileTopBar from '../components/MobileTopBar.js'
@@ -97,11 +97,6 @@ function Settings() {
     } finally {
       navigate('/login')
     }
-  }
-
-  const togglePref = async (key: keyof NotificationPrefs) => {
-    const current = prefs ?? DEFAULT_PREFS
-    await setPrefs({ ...current, [key]: !current[key] })
   }
 
   const desktopNotifs = prefs?.desktop ?? DEFAULT_PREFS.desktop
@@ -394,29 +389,19 @@ function Settings() {
                         )}
                       </p>
                     </div>
-                    <button
-                      type="button"
+                    <Switch
+                      checked={row.value}
+                      onChange={(e) => {
+                        const checked = (e.target as HTMLInputElement).checked
+                        void setPrefs({ ...(prefs ?? DEFAULT_PREFS), [row.key]: checked })
+                      }}
                       data-mol-id={`settings-toggle-${row.key}`}
-                      role="switch"
-                      aria-checked={row.value}
                       aria-label={t(
                         `settings.notifications.${row.key}Title`,
                         {},
                         { defaultValue: row.defaultTitle },
                       )}
-                      onClick={() => togglePref(row.key)}
-                      className={cm.cn(
-                        'w-14 h-9 shrink-0 rounded-full relative transition-colors',
-                        row.value ? 'bg-primary-container' : 'bg-surface-container',
-                      )}
-                    >
-                      <span
-                        className={cm.cn(
-                          'absolute top-2 w-5 h-5 bg-white rounded-full shadow transition-all',
-                          row.value ? 'right-1' : 'left-1',
-                        )}
-                      ></span>
-                    </button>
+                    />
                   </div>
                 ))}
               </div>

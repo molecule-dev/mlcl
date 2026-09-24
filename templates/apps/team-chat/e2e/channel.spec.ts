@@ -39,6 +39,24 @@ test.describe('channel page', () => {
     expect(messages.filter((m) => m.content === 'hello world from spec')).toHaveLength(1)
   })
 
+  test('toolbar link button opens the shared prompt dialog and inserts markdown', async ({
+    page,
+  }) => {
+    const { accessToken } = await apiSignupAndPrime(page, uniqueEmail('ch-link'))
+    const ch = await seedChannel(page, accessToken, { name: 'qa-link' })
+    await page.goto(APP_BASE + `/channels/${ch.id}`)
+    await page.locator('[data-mol-id="toolbar-link"]').click()
+    const input = page.locator('[data-mol-id="link-prompt-input"]')
+    await expect(input).toBeVisible()
+    await expect(input).toHaveValue('https://')
+    await input.fill('https://molecule.dev')
+    await page.locator('[data-mol-id="link-prompt-confirm"]').click()
+    await expect(page.locator('[data-mol-id="link-prompt-input"]')).toBeHidden()
+    await expect(page.locator('[data-mol-id="input-message"]')).toHaveValue(
+      '[](https://molecule.dev)',
+    )
+  })
+
   test('messages render with the actual sender name (not "Unknown")', async ({ page }) => {
     const { accessToken, name } = await apiSignupAndPrime(
       page,

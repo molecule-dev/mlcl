@@ -32,6 +32,14 @@ test.describe('plan-updated page', () => {
 
 test.describe('/plan-updated — checkout return', () => {
   test('confirms the purchase when the provider returns with a payment id', async ({ page }) => {
+    // The fake checkout session id makes the verify call land on the API's 404
+    // path on some runs (the hook surfaces its "could not confirm yet" state);
+    // this test only asserts the call was MADE. The browser logs that 404 as a
+    // console error — allow exactly that, nothing broader.
+    test.info().annotations.push({
+      type: 'allow-console-error',
+      description: 'status of 404.*verify-payment',
+    })
     await apiSignupAndPrime(page, uniqueEmail('planup'))
     const confirmed = page
       .waitForResponse((r) => /\/verify-payment\//.test(r.url()), { timeout: 20_000 })
