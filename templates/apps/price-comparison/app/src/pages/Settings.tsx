@@ -11,6 +11,7 @@ import {
   LanguagePicker,
   Modal,
   Spinner,
+  Switch,
   ThemeToggle,
 } from '@molecule/app-ui-react'
 
@@ -171,9 +172,9 @@ export function Settings() {
     }
   }
 
-  const togglePref = (key: string) => {
+  const togglePref = (key: string, checked: boolean) => {
     editedPrefs.current = true
-    setPrefs((p) => ({ ...p, [key]: !p[key] }))
+    setPrefs((p) => ({ ...p, [key]: checked }))
   }
 
   const save = async () => {
@@ -454,24 +455,12 @@ export function Settings() {
                   {t(`settings.pref.${p.key}.body`, {}, { defaultValue: p.body })}
                 </p>
               </div>
-              <button
-                type="button"
-                role="switch"
+              <Switch
+                checked={prefs[p.key]}
+                onChange={(e) => togglePref(p.key, (e.target as HTMLInputElement).checked)}
                 data-test={`settings-toggle-${p.key}`}
-                aria-checked={prefs[p.key]}
-                onClick={() => togglePref(p.key)}
-                className={cm.cn(
-                  'relative h-6 w-11 rounded-full transition-colors',
-                  prefs[p.key] ? 'bg-primary' : 'bg-surface-container-high',
-                )}
-              >
-                <span
-                  className={cm.cn(
-                    'absolute top-0.5 h-5 w-5 rounded-full bg-surface shadow-sm transition-transform',
-                    prefs[p.key] ? 'left-5' : 'left-0.5',
-                  )}
-                />
-              </button>
+                aria-label={t(`settings.pref.${p.key}.title`, {}, { defaultValue: p.title })}
+              />
             </li>
           ))}
         </ul>
