@@ -102,6 +102,163 @@
         "post activity events"
       ]
     },
+    "@molecule/api-agent-transcript": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "agent-transcript",
+      "label": "Agent transcript reader",
+      "description": "Reads a coding agent's session export (Claude Code, Codex, Molecule IDE) into one normalized session: turns, models and the files the agent wrote",
+      "stack": "api",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "canReadTranscript",
+        "readTranscript",
+        "AgentTurnRole",
+        "AgentFileWrite",
+        "AgentTurn",
+        "AgentSession",
+        "TranscriptInput",
+        "AgentTranscriptReader"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "path": "packages/api/core/agent-transcript",
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "intentHints": [
+        "read a claude code export",
+        "parse an ai chat transcript",
+        "parse a codex session export",
+        "coding agent session transcript",
+        "agent conversation log",
+        "ai session export",
+        "which files the agent wrote"
+      ]
+    },
+    "@molecule/api-agent-transcript-autodetect": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "agent-transcript",
+      "label": "Agent transcript autodetect",
+      "description": "Picks the reader that recognizes a transcript and delegates to it; bundles the Claude Code, Codex and Molecule IDE readers",
+      "stack": "api",
+      "implements": "@molecule/api-agent-transcript",
+      "exports": [
+        "createReader",
+        "provider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-transcript",
+        "@molecule/api-agent-transcript-claude-code",
+        "@molecule/api-agent-transcript-codex",
+        "@molecule/api-agent-transcript-molecule-ide"
+      ],
+      "path": "packages/api/bonds/agent-transcript/autodetect",
+      "moleculePeers": [
+        "@molecule/api-agent-transcript"
+      ],
+      "intentHints": [
+        "read transcripts from several ai harnesses",
+        "detect transcript format"
+      ]
+    },
+    "@molecule/api-agent-transcript-claude-code": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "agent-transcript",
+      "label": "Claude Code transcript reader",
+      "description": "Reads Claude Code sessions — the /export text and the session .jsonl — into a normalized agent session",
+      "stack": "api",
+      "implements": "@molecule/api-agent-transcript",
+      "exports": [
+        "looksLikeExportText",
+        "readExportText",
+        "looksLikeSessionJsonl",
+        "readSessionJsonl",
+        "provider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-transcript"
+      ],
+      "path": "packages/api/bonds/agent-transcript/claude-code",
+      "moleculePeers": [
+        "@molecule/api-agent-transcript"
+      ],
+      "intentHints": [
+        "claude code /export",
+        "claude code session jsonl"
+      ]
+    },
+    "@molecule/api-agent-transcript-codex": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "agent-transcript",
+      "label": "Codex CLI transcript reader",
+      "description": "Reads Codex CLI sessions — the Markdown export and the rollout .jsonl — into a normalized agent session",
+      "stack": "api",
+      "implements": "@molecule/api-agent-transcript",
+      "exports": [
+        "looksLikeMarkdownExport",
+        "readMarkdownExport",
+        "findPatches",
+        "writesOfPatch",
+        "provider",
+        "looksLikeRollout",
+        "readRollout"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-transcript"
+      ],
+      "path": "packages/api/bonds/agent-transcript/codex",
+      "moleculePeers": [
+        "@molecule/api-agent-transcript"
+      ],
+      "intentHints": [
+        "codex cli export",
+        "codex rollout jsonl"
+      ]
+    },
+    "@molecule/api-agent-transcript-molecule-ide": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "agent-transcript",
+      "label": "Molecule IDE transcript reader",
+      "description": "Reads a Molecule IDE conversation (its stored JSON) into a normalized agent session",
+      "stack": "api",
+      "implements": "@molecule/api-agent-transcript",
+      "exports": [
+        "looksLikeConversation",
+        "readConversation",
+        "provider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-transcript"
+      ],
+      "path": "packages/api/bonds/agent-transcript/molecule-ide",
+      "moleculePeers": [
+        "@molecule/api-agent-transcript"
+      ],
+      "intentHints": [
+        "molecule ide conversation",
+        "synthase conversation export"
+      ]
+    },
     "@molecule/api-ai": {
       "language": "typescript",
       "runtime": "node",
@@ -21790,6 +21947,79 @@
         "test helpers",
         "vitest helpers",
         "integration test helpers"
+      ]
+    },
+    "@molecule/api-text-provenance": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "text-provenance",
+      "label": "Text provenance",
+      "description": "Attributes a document's paragraphs to the agent sessions that wrote them: human or AI, the prompt and model behind each, and the AI word share",
+      "stack": "api",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "attributeText",
+        "ParagraphOrigin",
+        "AttributionOptions",
+        "AttributionInput",
+        "ParagraphAttribution",
+        "Attribution",
+        "TextProvenanceProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-transcript",
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "path": "packages/api/core/text-provenance",
+      "moleculePeers": [
+        "@molecule/api-agent-transcript",
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "intentHints": [
+        "which paragraphs the ai wrote",
+        "ai written paragraphs",
+        "mark ai generated text",
+        "provenance of a blog post",
+        "ai word share",
+        "prompt behind each paragraph",
+        "human or ai authorship",
+        "written with ai disclosure"
+      ]
+    },
+    "@molecule/api-text-provenance-overlap": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "text-provenance",
+      "label": "Text provenance by word overlap",
+      "description": "Attributes paragraphs to agent turns by overlapping word sequences, tolerant of light human edits and never crediting the user's own words to the AI",
+      "stack": "api",
+      "implements": "@molecule/api-text-provenance",
+      "exports": [
+        "provider",
+        "SHINGLE",
+        "words",
+        "shingles"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-agent-transcript",
+        "@molecule/api-text-provenance"
+      ],
+      "path": "packages/api/bonds/text-provenance/overlap",
+      "moleculePeers": [
+        "@molecule/api-agent-transcript",
+        "@molecule/api-text-provenance"
+      ],
+      "intentHints": [
+        "attribute paragraphs to a transcript",
+        "match text against an ai transcript"
       ]
     },
     "@molecule/api-trash": {
