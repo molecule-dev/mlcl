@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { PromptDialog } from '@molecule/app-ui-react'
 
 import { PageHeader } from '../components/PageHeader.js'
 
@@ -30,6 +31,13 @@ export function ToolLibrary() {
   const [rows, setRows] = useState<ToolRow[]>([])
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
+  // Register flow lives in a shared PromptDialog (replaces the old
+  // window.prompt, which is broken headless). The suggested name is seeded
+  // ONCE at open time — PromptDialog re-seeds from `initialValue` whenever it
+  // changes, so computing it inline would clobber the user's typing on every
+  // keystroke re-render.
+  const [registerOpen, setRegisterOpen] = useState(false)
+  const [suggestedName, setSuggestedName] = useState('')
 
   const refresh = useCallback(async () => {
     setLoading(true)
@@ -48,24 +56,29 @@ export function ToolLibrary() {
     void refresh()
   }, [refresh])
 
-  async function registerTool(): Promise<void> {
-    const name = window.prompt(
-      t('toolLibrary.namePrompt', {}, { defaultValue: 'New tool name' }),
-      `tool_${Date.now().toString(36)}`,
-    )
-    if (!name) return
+  function openRegister(): void {
+    setSuggestedName(`tool_${Date.now().toString(36)}`)
+    setRegisterOpen(true)
+  }
+
+  async function registerTool(rawName: string): Promise<void> {
+    // Empty input behaves like the old prompt's cancel (window.prompt
+    // returned "" → bail without POSTing).
+    if (!rawName) return
     setError(null)
     try {
       const res = await http.post<ToolRow>('/tools', {
-        name,
+        name: rawName,
         description: t('toolLibrary.defaultDescription', {}, { defaultValue: 'Custom tool' }),
         type: 'http',
         schema_json: {},
         handler_config_json: {},
       })
-      track({ name: 'tool.registered', properties: { toolId: res.data?.id, name } })
+      track({ name: 'tool.registered', properties: { toolId: res.data?.id, name: rawName } })
       await refresh()
     } catch (err) {
+      // The page-level banner keeps showing POST failures exactly as before;
+      // resolving (not rejecting) closes the dialog like an accepted prompt.
       setError(err instanceof Error ? err.message : String(err))
     }
   }
@@ -95,7 +108,7 @@ export function ToolLibrary() {
               'btn-primary-gradient rounded text-on-primary-fixed font-mono uppercase tracking-wider',
             )}
             data-mol-id="tool-library-register"
-            onClick={registerTool}
+            onClick={openRegister}
             type="button"
           >
             <span className="material-symbols-outlined text-[16px]">add</span>
@@ -218,6 +231,18 @@ export function ToolLibrary() {
           })}
         </div>
       )}
+
+      <PromptDialog
+        confirmLabel={t('toolLibrary.registerTool', {}, { defaultValue: 'Register Tool' })}
+        confirmMolId="tool-library-register-confirm"
+        initialValue={suggestedName}
+        inputMolId="tool-library-name-input"
+        onClose={() => setRegisterOpen(false)}
+        onSubmit={registerTool}
+        open={registerOpen}
+        placeholder={t('toolLibrary.namePrompt', {}, { defaultValue: 'New tool name' })}
+        title={t('toolLibrary.namePrompt', {}, { defaultValue: 'New tool name' })}
+      />
     </div>
   )
 }

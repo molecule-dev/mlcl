@@ -68,8 +68,13 @@ test.describe('Profile page', () => {
   test('"Regenerate" assigns a new API token (read-after-write)', async ({ page, request }) => {
     const session = await signup(page)
     await page.goto(APP_BASE + '/profile')
-    page.once('dialog', (dialog) => void dialog.accept())
-    await page.locator('[data-mol-id="profile-token-regenerate"]').click()
+    // Regenerate is the shared ConfirmButton now — the old native confirm()
+    // dialog is gone. First click arms (confirm label appears), second
+    // click commits.
+    const regenerate = page.locator('[data-mol-id="profile-token-regenerate"]')
+    await regenerate.click()
+    await expect(regenerate).toContainText('Regenerate API token?')
+    await regenerate.click()
     await expect(page.locator('[data-mol-id="profile-info"]')).toBeVisible({ timeout: 8000 })
     const prefs = await authedApi(request, session.accessToken!).get('/user-preferences')
     const body = await prefs.json()
@@ -105,9 +110,12 @@ test.describe('Profile page', () => {
     await signup(page)
     await page.goto(APP_BASE + '/profile')
     // The Copy button is disabled until an apiToken exists. Generate one
-    // first via the regenerate affordance, then verify Copy clicks fine.
-    page.once('dialog', (d) => void d.accept())
-    await page.locator('[data-mol-id="profile-token-regenerate"]').click()
+    // first via the regenerate affordance (shared ConfirmButton: arm, then
+    // commit), then verify Copy clicks fine.
+    const regenerate = page.locator('[data-mol-id="profile-token-regenerate"]')
+    await regenerate.click()
+    await expect(regenerate).toContainText('Regenerate API token?')
+    await regenerate.click()
     await expect(page.locator('[data-mol-id="profile-info"]')).toBeVisible({ timeout: 8000 })
     await expect(page.locator('[data-mol-id="profile-token-copy"]')).toBeEnabled({
       timeout: 8000,

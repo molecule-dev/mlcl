@@ -34,4 +34,27 @@ test.describe('Knowledge bases page', () => {
     await expect(page.locator('[data-mol-id="kb-card"]').first()).toBeVisible({ timeout: 10000 })
     await expect(page.getByText('Customer FAQ')).toBeVisible()
   })
+
+  test('"New Index" opens the shared PromptDialog and POSTs the entered name', async ({
+    page,
+    request,
+  }) => {
+    const session = await signup(page)
+    const api = authedApi(request, session.accessToken!)
+    await page.goto(APP_BASE + '/knowledge-bases')
+    await expect(page.locator('[data-mol-id="kb-new"]')).toBeVisible()
+
+    // New Index opens the shared PromptDialog (replaces window.prompt): the
+    // input is pre-seeded with a suggested kb_ name, fill + confirm POSTs.
+    await page.locator('[data-mol-id="kb-new"]').click()
+    const nameInput = page.locator('[data-mol-id="kb-name-input"]')
+    await expect(nameInput).toBeVisible()
+    await expect(nameInput).toHaveValue(/^kb_/)
+    await nameInput.fill('e2e_corpus_kb')
+    await page.locator('[data-mol-id="kb-create-confirm"]').click()
+
+    await expect(page.getByText('e2e_corpus_kb')).toBeVisible({ timeout: 10000 })
+    const rows = (await (await api.get('/knowledge-bases')).json()) as Array<{ name: string }>
+    expect(rows.some((row) => row.name === 'e2e_corpus_kb')).toBe(true)
+  })
 })

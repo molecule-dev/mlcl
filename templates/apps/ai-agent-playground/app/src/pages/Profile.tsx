@@ -10,6 +10,7 @@ import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { PageHeader } from '../components/PageHeader.js'
 
@@ -171,14 +172,6 @@ export function Profile() {
 
   async function regenerateToken(): Promise<void> {
     if (!userId) return
-    const ok = window.confirm(
-      t(
-        'profile.regenerateConfirm',
-        {},
-        { defaultValue: 'Regenerate API token? Existing integrations will stop working.' },
-      ),
-    )
-    if (!ok) return
     const next = generateToken()
     try {
       const nextPrefs = { ...userData, apiToken: next }
@@ -466,19 +459,19 @@ export function Profile() {
               >
                 {t('common.copy', {}, { defaultValue: 'Copy' })}
               </button>
-              <button
-                className={cm.cn(
-                  cm.sp('px', 3),
-                  cm.sp('py', 2),
-                  cm.textSize('xs'),
-                  'font-mono uppercase tracking-wider text-error bg-surface-container-high rounded hover:bg-surface-container-highest transition-colors',
+              <ConfirmButton
+                confirmLabel={t(
+                  'profile.regenerateConfirm',
+                  {},
+                  {
+                    defaultValue: 'Regenerate API token? Existing integrations will stop working.',
+                  },
                 )}
                 data-mol-id="profile-token-regenerate"
-                onClick={regenerateToken}
-                type="button"
-              >
-                {t('profile.regenerate', {}, { defaultValue: 'Regenerate' })}
-              </button>
+                disarmSeconds={6}
+                label={t('profile.regenerate', {}, { defaultValue: 'Regenerate' })}
+                onConfirm={regenerateToken}
+              />
             </div>
           </div>
         </div>

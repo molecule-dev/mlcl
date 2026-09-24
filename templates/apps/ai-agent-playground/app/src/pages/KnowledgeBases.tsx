@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { PromptDialog } from '@molecule/app-ui-react'
 
 import { PageHeader } from '../components/PageHeader.js'
 
@@ -35,6 +36,13 @@ export function KnowledgeBases() {
   const [rows, setRows] = useState<KnowledgeBaseRow[]>([])
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
+  // New-index flow lives in a shared PromptDialog (replaces the old
+  // window.prompt, which is broken headless). The suggested name is seeded
+  // ONCE at open time — PromptDialog re-seeds from `initialValue` whenever it
+  // changes, so computing it inline would clobber the user's typing on every
+  // keystroke re-render.
+  const [createOpen, setCreateOpen] = useState(false)
+  const [suggestedName, setSuggestedName] = useState('')
 
   const refresh = useCallback(async () => {
     setLoading(true)
@@ -53,21 +61,29 @@ export function KnowledgeBases() {
     void refresh()
   }, [refresh])
 
-  async function newIndex(): Promise<void> {
-    const name = window.prompt(
-      t('knowledgeBases.namePrompt', {}, { defaultValue: 'New knowledge base name' }),
-      `kb_${Date.now().toString(36)}`,
-    )
-    if (!name) return
+  function openCreate(): void {
+    setSuggestedName(`kb_${Date.now().toString(36)}`)
+    setCreateOpen(true)
+  }
+
+  async function newIndex(rawName: string): Promise<void> {
+    // Empty input behaves like the old prompt's cancel (window.prompt
+    // returned "" → bail without POSTing).
+    if (!rawName) return
     setError(null)
     try {
       const res = await http.post<KnowledgeBaseRow>('/knowledge-bases', {
-        name,
+        name: rawName,
         description: t('knowledgeBases.defaultDescription', {}, { defaultValue: 'Vector index' }),
       })
-      track({ name: 'knowledge_base.created', properties: { kbId: res.data?.id, name } })
+      track({
+        name: 'knowledge_base.created',
+        properties: { kbId: res.data?.id, name: rawName },
+      })
       await refresh()
     } catch (err) {
+      // The page-level banner keeps showing POST failures exactly as before;
+      // resolving (not rejecting) closes the dialog like an accepted prompt.
       setError(err instanceof Error ? err.message : String(err))
     }
   }
@@ -96,7 +112,7 @@ export function KnowledgeBases() {
               'btn-primary-gradient rounded text-on-primary-fixed font-mono uppercase tracking-wider',
             )}
             data-mol-id="kb-new"
-            onClick={newIndex}
+            onClick={openCreate}
             type="button"
           >
             <span className="material-symbols-outlined text-[16px]">add</span>
@@ -239,6 +255,22 @@ export function KnowledgeBases() {
           ))}
         </div>
       )}
+
+      <PromptDialog
+        confirmLabel={t('knowledgeBases.newIndex', {}, { defaultValue: 'New Index' })}
+        confirmMolId="kb-create-confirm"
+        initialValue={suggestedName}
+        inputMolId="kb-name-input"
+        onClose={() => setCreateOpen(false)}
+        onSubmit={newIndex}
+        open={createOpen}
+        placeholder={t(
+          'knowledgeBases.namePrompt',
+          {},
+          { defaultValue: 'New knowledge base name' },
+        )}
+        title={t('knowledgeBases.namePrompt', {}, { defaultValue: 'New knowledge base name' })}
+      />
     </div>
   )
 }
