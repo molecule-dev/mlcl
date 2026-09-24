@@ -7,10 +7,10 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import AgentPerformanceTable from '../components/AgentPerformanceTable.js'
+import AppShell from '../components/AppShell.js'
 import PriorityBreakdownCard from '../components/PriorityBreakdownCard.js'
 import ReportsKpiSection from '../components/ReportsKpiSection.js'
 import ReportsTicketVolumeChart from '../components/ReportsTicketVolumeChart.js'
-import SideNavBar from '../components/SideNavBar.js'
 import TopAppBar from '../components/TopAppBar.js'
 import { enrichTicketListRow, reportsAgentRows } from '../lib/demo-ticket-display.js'
 import { computeSlaCompliance } from '../lib/sla.js'
@@ -112,41 +112,30 @@ function Reports() {
   }).length
 
   return (
-    <div className={cm.cn('text-on-surface antialiased overflow-hidden')}>
-      {/* SideNavBar (Authority: JSON & Design System) */}
-      <SideNavBar />
-      {/* Main Content Shell */}
-      <main className={cm.cn(cm.flex({ direction: 'col' }), 'md:ml-[240px] min-h-screen')}>
-        {/* TopAppBar (Authority: JSON & Design System) */}
-        <TopAppBar />
-        {/* Content Canvas */}
-        <div
-          className={cm.cn(
-            cm.stack(10),
-            'mt-16 px-4 md:p-8 overflow-y-auto h-[calc(100vh-64px)] no-scrollbar',
-          )}
-        >
-          {/* KPI Section (Editorial Typography & Tonal Depth) */}
-          <ReportsKpiSection
-            loading={loading}
-            avgResolutionTime={avgResolutionTime}
-            slaCompliance={slaCompliance}
-            ticketsThisWeek={ticketsThisWeek > 0 ? ticketsThisWeek : tickets.length}
-          />
-          {/* Main Analytics Section (Asymmetric Layout) */}
-          <div className={cm.cn(cm.grid({ cols: 12 }), 'gap-4 md:gap-10')}>
-            <div className={cm.cn('col-span-12 lg:col-span-8')}>
-              <ReportsTicketVolumeChart volumeData={loading ? [] : volumeData} loading={loading} />
-            </div>
-            <div className={cm.cn('col-span-12 lg:col-span-4')}>
-              <PriorityBreakdownCard priorityData={loading ? [] : priorityData} loading={loading} />
-            </div>
+    <AppShell topBar={<TopAppBar />}>
+      {/* Content Canvas — the top bar is in flow (sticky), so the page
+          scrolls naturally with no fixed-bar clearance offsets. */}
+      <div className={cm.cn(cm.stack(10), 'px-4 md:p-8')}>
+        {/* KPI Section (Editorial Typography & Tonal Depth) */}
+        <ReportsKpiSection
+          loading={loading}
+          avgResolutionTime={avgResolutionTime}
+          slaCompliance={slaCompliance}
+          ticketsThisWeek={ticketsThisWeek > 0 ? ticketsThisWeek : tickets.length}
+        />
+        {/* Main Analytics Section (Asymmetric Layout) */}
+        <div className={cm.cn(cm.grid({ cols: 12 }), 'gap-4 md:gap-10')}>
+          <div className={cm.cn('col-span-12 lg:col-span-8')}>
+            <ReportsTicketVolumeChart volumeData={loading ? [] : volumeData} loading={loading} />
           </div>
-          {/* Bottom Section: Agent Performance Table (Tonal Separation) */}
-          <AgentPerformanceTable agents={loading ? [] : agents} loading={loading} />
+          <div className={cm.cn('col-span-12 lg:col-span-4')}>
+            <PriorityBreakdownCard priorityData={loading ? [] : priorityData} loading={loading} />
+          </div>
         </div>
-      </main>
-    </div>
+        {/* Bottom Section: Agent Performance Table (Tonal Separation) */}
+        <AgentPerformanceTable agents={loading ? [] : agents} loading={loading} />
+      </div>
+    </AppShell>
   )
 }
 

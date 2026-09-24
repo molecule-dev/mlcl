@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import AppShell from '../components/AppShell.js'
 import FloatingHelpButton from '../components/FloatingHelpButton.js'
 import KnowledgeArticleItem from '../components/KnowledgeArticleItem.js'
 import KnowledgeCategoriesHeader from '../components/KnowledgeCategoriesHeader.js'
@@ -13,7 +14,6 @@ import KnowledgeCategoryCard from '../components/KnowledgeCategoryCard.js'
 import KnowledgeHeroSearch from '../components/KnowledgeHeroSearch.js'
 import KnowledgeRecentArticlesHeader from '../components/KnowledgeRecentArticlesHeader.js'
 import KnowledgeTopNavBar from '../components/KnowledgeTopNavBar.js'
-import SideNav from '../components/SideNav.js'
 
 interface Article {
   id: string
@@ -79,103 +79,88 @@ function KnowledgeBase() {
   })()
 
   return (
-    <div className={cm.cn('bg-background text-on-surface antialiased')}>
-      {/* SideNavBar Component */}
-      <SideNav />
-      {/* TopNavBar Component */}
-      <KnowledgeTopNavBar />
+    <AppShell topBar={<KnowledgeTopNavBar />} contentMolId="main-canvas">
       {/* Main Content Canvas */}
-      <main
-        className={cm.cn(cm.sp('pt', 16), cm.surface, 'md:ml-[240px] min-h-screen')}
-        data-mol-id="main-canvas"
+      <div
+        className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.sp('py', 12), cm.stack(10), 'px-4 md:px-10')}
+        data-mol-id="main-container"
       >
-        <div
-          className={cm.cn(
-            cm.maxW('7xl'),
-            cm.mxAuto,
-            cm.sp('py', 12),
-            cm.stack(10),
-            'px-4 md:px-10',
-          )}
-          data-mol-id="main-container"
-        >
-          {/* Hero Search Section */}
-          <KnowledgeHeroSearch search={search} onSearchChange={setSearch} />
-          {/* Category Cards (Asymmetric Bento Grid Inspired) */}
-          <section className={cm.stack(6)} data-mol-id="categories-section">
-            <KnowledgeCategoriesHeader />
-            <div
-              className={cm.cn(cm.grid({ cols: 1, gap: 10 }), 'md:grid-cols-2 lg:grid-cols-4')}
-              data-mol-id="category-grid"
-            >
-              {/* Getting Started */}
-              <KnowledgeCategoryCard
-                variant="getting-started"
-                onClick={() => navigate('/knowledge-base/category/getting-started')}
-              />
-              {/* Account & Billing */}
-              <KnowledgeCategoryCard
-                variant="account-billing"
-                onClick={() => navigate('/knowledge-base/category/account-billing')}
-              />
-              {/* API & Integrations */}
-              <KnowledgeCategoryCard
-                variant="api-integrations"
-                onClick={() => navigate('/knowledge-base/category/api-integrations')}
-              />
-              {/* Troubleshooting */}
-              <KnowledgeCategoryCard
-                variant="troubleshooting"
-                onClick={() => navigate('/knowledge-base/category/troubleshooting')}
-              />
-            </div>
-          </section>
-          {/* Recent Articles Table-less Layout */}
-          <section className={cm.stack(6)} data-mol-id="recent-articles-section">
-            <KnowledgeRecentArticlesHeader
-              activeFilter={activeFilter}
-              onFilterChange={setActiveFilter}
+        {/* Hero Search Section */}
+        <KnowledgeHeroSearch search={search} onSearchChange={setSearch} />
+        {/* Category Cards (Asymmetric Bento Grid Inspired) */}
+        <section className={cm.stack(6)} data-mol-id="categories-section">
+          <KnowledgeCategoriesHeader />
+          <div
+            className={cm.cn(cm.grid({ cols: 1, gap: 10 }), 'md:grid-cols-2 lg:grid-cols-4')}
+            data-mol-id="category-grid"
+          >
+            {/* Getting Started */}
+            <KnowledgeCategoryCard
+              variant="getting-started"
+              onClick={() => navigate('/knowledge-base/category/getting-started')}
             />
-            <div className={cm.stack(4)} data-mol-id="articles-list">
-              {loading ? (
-                <>
-                  {Array.from({ length: 6 }).map((_, i) => (
-                    <div
-                      key={i}
-                      aria-hidden="true"
-                      className={cm.cn(
-                        cm.h(20),
-                        'rounded-2xl bg-surface-container-low animate-pulse',
-                      )}
-                    />
-                  ))}
-                </>
-              ) : error ? (
-                <p role="alert" className={cm.cn(cm.textSize('sm'), cm.sp('p', 4), 'text-error')}>
-                  {error}
-                </p>
-              ) : filtered.length === 0 ? (
-                <p className={cm.cn(cm.textSize('sm'), cm.sp('p', 4), 'text-on-surface-variant')}>
-                  {t('knowledgeBase.noResults', {}, { defaultValue: 'No articles found.' })}
-                </p>
-              ) : (
-                filtered.map((article, i) => (
-                  <KnowledgeArticleItem
-                    key={article.id}
-                    article={{
-                      ...article,
-                      views: article.views ?? 820 + ((i * 137 + article.id.length * 11) % 2400),
-                    }}
+            {/* Account & Billing */}
+            <KnowledgeCategoryCard
+              variant="account-billing"
+              onClick={() => navigate('/knowledge-base/category/account-billing')}
+            />
+            {/* API & Integrations */}
+            <KnowledgeCategoryCard
+              variant="api-integrations"
+              onClick={() => navigate('/knowledge-base/category/api-integrations')}
+            />
+            {/* Troubleshooting */}
+            <KnowledgeCategoryCard
+              variant="troubleshooting"
+              onClick={() => navigate('/knowledge-base/category/troubleshooting')}
+            />
+          </div>
+        </section>
+        {/* Recent Articles Table-less Layout */}
+        <section className={cm.stack(6)} data-mol-id="recent-articles-section">
+          <KnowledgeRecentArticlesHeader
+            activeFilter={activeFilter}
+            onFilterChange={setActiveFilter}
+          />
+          <div className={cm.stack(4)} data-mol-id="articles-list">
+            {loading ? (
+              <>
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <div
+                    key={i}
+                    aria-hidden="true"
+                    className={cm.cn(
+                      cm.h(20),
+                      'rounded-2xl bg-surface-container-low animate-pulse',
+                    )}
                   />
-                ))
-              )}
-            </div>
-          </section>
-        </div>
-      </main>
+                ))}
+              </>
+            ) : error ? (
+              <p role="alert" className={cm.cn(cm.textSize('sm'), cm.sp('p', 4), 'text-error')}>
+                {error}
+              </p>
+            ) : filtered.length === 0 ? (
+              <p className={cm.cn(cm.textSize('sm'), cm.sp('p', 4), 'text-on-surface-variant')}>
+                {t('knowledgeBase.noResults', {}, { defaultValue: 'No articles found.' })}
+              </p>
+            ) : (
+              filtered.map((article, i) => (
+                <KnowledgeArticleItem
+                  key={article.id}
+                  article={{
+                    ...article,
+                    views: article.views ?? 820 + ((i * 137 + article.id.length * 11) % 2400),
+                  }}
+                />
+              ))
+            )}
+          </div>
+        </section>
+      </div>
       {/* Floating Help Button (Contextual Support) */}
       <FloatingHelpButton />
-    </div>
+    </AppShell>
   )
 }
 

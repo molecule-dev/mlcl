@@ -6,7 +6,7 @@
       "name": "Dashboard",
       "templateFile": "app/pages/Dashboard.tsx",
       "components": [
-        "app/components/SideNavBar.tsx",
+        "app/components/AppShell.tsx",
         "app/components/TopNavBar.tsx"
       ],
       "route": "/",
@@ -31,7 +31,7 @@
       "name": "KnowledgeBase",
       "templateFile": "app/pages/KnowledgeBase.tsx",
       "components": [
-        "app/components/SideNav.tsx",
+        "app/components/AppShell.tsx",
         "app/components/KnowledgeTopNavBar.tsx"
       ],
       "route": "/knowledge-base",
@@ -56,7 +56,7 @@
       "name": "Reports",
       "templateFile": "app/pages/Reports.tsx",
       "components": [
-        "app/components/SideNavBar.tsx",
+        "app/components/AppShell.tsx",
         "app/components/TopAppBar.tsx"
       ],
       "route": "/reports",
@@ -81,7 +81,7 @@
       "name": "Settings",
       "templateFile": "app/pages/Settings.tsx",
       "components": [
-        "app/components/SideNavBar.tsx",
+        "app/components/AppShell.tsx",
         "app/components/SettingsTopBar.tsx"
       ],
       "route": "/settings",
@@ -106,7 +106,7 @@
       "name": "TicketDetail",
       "templateFile": "app/pages/TicketDetail.tsx",
       "components": [
-        "app/components/SideNavBar.tsx",
+        "app/components/AppShell.tsx",
         "app/components/TicketDetailTopNavBar.tsx"
       ],
       "route": "/tickets/:id",
@@ -120,7 +120,7 @@
       "name": "Tickets",
       "templateFile": "app/pages/Tickets.tsx",
       "components": [
-        "app/components/SideNavBar.tsx",
+        "app/components/AppShell.tsx",
         "app/components/TicketsTopNavBar.tsx"
       ],
       "route": "/tickets",

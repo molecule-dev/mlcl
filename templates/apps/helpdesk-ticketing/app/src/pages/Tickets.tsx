@@ -7,7 +7,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import SideNavBar from '../components/SideNavBar.js'
+import AppShell from '../components/AppShell.js'
 import TicketsFab from '../components/TicketsFab.js'
 import TicketsFilterBar from '../components/TicketsFilterBar.js'
 import TicketsPagination from '../components/TicketsPagination.js'
@@ -98,60 +98,57 @@ function Tickets() {
   const paginatedTickets = filteredTickets.slice((page - 1) * itemsPerPage, page * itemsPerPage)
 
   return (
-    <div className={cm.cn(cm.surface, 'text-on-surface')}>
-      <SideNavBar />
-      {/* Main Content Area */}
-      <main className={cm.cn(cm.flex({ direction: 'col' }), cm.minH('screen'), 'md:ml-[240px]')}>
-        {/* TopNavBar (Authority: JSON) */}
+    <AppShell
+      topBar={
         <TicketsTopNavBar
           search={search}
           onSearchChange={setSearch}
           viewTab={viewTab}
           onViewTabChange={setViewTab}
         />
-        {/* Content Canvas — clears the (taller, wrapped) fixed top bar on mobile */}
-        <section
-          className={cm.cn(cm.flex1, cm.stack(10), 'mt-32 md:mt-16 px-4 md:p-8 pt-2 md:pt-8')}
-        >
-          {/* Filter Bar */}
-          <TicketsFilterBar
-            statusFilter={statusFilter}
-            onStatusChange={setStatusFilter}
-            priorityFilter={priorityFilter}
-            onPriorityChange={setPriorityFilter}
-            assigneeId={assigneeId}
-            onAssigneeChange={(v) => {
-              setAssigneeId(v)
-              setPage(1)
-            }}
-            assigneeOptions={assigneeOptions}
-            onClear={() => {
-              setStatusFilter('')
-              setPriorityFilter('')
-              setAssigneeId('')
-              setSearch('')
-              setViewTab('all')
-              setPage(1)
-            }}
-          />
-          {/* Ticket Table Container */}
-          <TicketsTable
-            tickets={paginatedTickets}
-            loading={loading}
-            onRowClick={(ticket) => navigate(`/tickets/${ticket.id}`)}
-          />
-          {/* Pagination */}
-          <TicketsPagination
-            page={page}
-            onPageChange={setPage}
-            totalItems={filteredTickets.length}
-            itemsPerPage={itemsPerPage}
-          />
-        </section>
-      </main>
+      }
+    >
+      {/* Content Canvas — the top bar is in flow (sticky), so no fixed-bar
+          clearance offsets are needed. */}
+      <section className={cm.cn(cm.flex1, cm.stack(10), 'px-4 md:p-8 pt-4 md:pt-8')}>
+        {/* Filter Bar */}
+        <TicketsFilterBar
+          statusFilter={statusFilter}
+          onStatusChange={setStatusFilter}
+          priorityFilter={priorityFilter}
+          onPriorityChange={setPriorityFilter}
+          assigneeId={assigneeId}
+          onAssigneeChange={(v) => {
+            setAssigneeId(v)
+            setPage(1)
+          }}
+          assigneeOptions={assigneeOptions}
+          onClear={() => {
+            setStatusFilter('')
+            setPriorityFilter('')
+            setAssigneeId('')
+            setSearch('')
+            setViewTab('all')
+            setPage(1)
+          }}
+        />
+        {/* Ticket Table Container */}
+        <TicketsTable
+          tickets={paginatedTickets}
+          loading={loading}
+          onRowClick={(ticket) => navigate(`/tickets/${ticket.id}`)}
+        />
+        {/* Pagination */}
+        <TicketsPagination
+          page={page}
+          onPageChange={setPage}
+          totalItems={filteredTickets.length}
+          itemsPerPage={itemsPerPage}
+        />
+      </section>
       {/* Contextual FAB (Suppressed on details/settings as per rules, but showing for main list) */}
       <TicketsFab />
-    </div>
+    </AppShell>
   )
 }
 

@@ -6,8 +6,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
-import { MobilePageHeader } from '../components/MobileNavDrawer.js'
-import SideNavBar from '../components/SideNavBar.js'
+import AppShell from '../components/AppShell.js'
 
 interface NotifTicket {
   id: string
@@ -154,110 +153,104 @@ export function Notifications() {
   const items = useMemo(() => deriveNotifications(tickets, t), [tickets, t])
 
   return (
-    <div className={cm.cn(cm.surface, 'text-on-surface')}>
-      <SideNavBar />
-      <main data-mol-id="page-notifications" className={cm.cn(cm.minH('screen'), 'md:ml-[240px]')}>
-        <MobilePageHeader
-          title={t('settings.notifications', {}, { defaultValue: 'Notifications' })}
-        />
-        <div className={cm.cn(cm.mxAuto, 'max-w-3xl', cm.sp('px', 6), cm.sp('py', 8))}>
-          <header className={cm.stack(2)}>
-            <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
-              {t('settings.notifications', {}, { defaultValue: 'Notifications' })}
-            </h1>
-            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-              {t(
-                'notifications.subtitle',
-                {},
-                {
-                  defaultValue:
-                    'Synthesised from ticket activity — open, pending, and recently updated tickets surface here.',
-                },
-              )}
-            </p>
-          </header>
-
-          <section
-            className={cm.cn(cm.sp('mt', 6), cm.stack(3))}
-            data-mol-id="notifications-list"
-            data-loaded={!loading}
-          >
-            {loading ? (
-              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
-              </p>
-            ) : error ? (
-              <p
-                className={cm.cn(cm.textSize('sm'), 'text-error')}
-                data-mol-id="notifications-error"
-              >
-                {error}
-              </p>
-            ) : items.length === 0 ? (
-              <p
-                className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}
-                data-mol-id="notifications-empty"
-              >
-                {t('notifications.empty', {}, { defaultValue: "You're all caught up." })}
-              </p>
-            ) : (
-              items.map((n) => (
-                <Link
-                  key={n.id}
-                  to={`/tickets/${n.ticketId}`}
-                  data-mol-id="notification-item"
-                  data-kind={n.kind}
-                  data-priority={n.priority}
-                  data-ticket-id={n.ticketId}
-                  className={cm.cn(
-                    cm.flex({ align: 'start', gap: 4 }),
-                    cm.sp('p', 4),
-                    'rounded-lg bg-surface-container-low/40 hover:bg-surface-container-low transition-colors border border-outline-variant/40',
-                  )}
-                >
-                  <span
-                    className={cm.cn(
-                      cm.w(2),
-                      cm.h(2),
-                      cm.roundedFull,
-                      cm.sp('mt', 2),
-                      n.priority === 'critical' || n.priority === 'high'
-                        ? 'bg-error'
-                        : n.priority === 'medium'
-                          ? 'bg-primary'
-                          : 'bg-secondary-container',
-                    )}
-                    aria-hidden
-                  />
-                  <div className={cm.cn(cm.flex1, cm.stack(1))}>
-                    <div className={cm.flex({ align: 'center', justify: 'between', gap: 2 })}>
-                      <span
-                        className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}
-                        data-mol-id="notification-subject"
-                      >
-                        {n.subject}
-                      </span>
-                      <span
-                        className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}
-                        data-mol-id="notification-priority"
-                      >
-                        {n.priority}
-                      </span>
-                    </div>
-                    <p
-                      className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}
-                      data-mol-id="notification-message"
-                    >
-                      {n.message}
-                    </p>
-                  </div>
-                </Link>
-              ))
+    <AppShell
+      mobileTitle={t('settings.notifications', {}, { defaultValue: 'Notifications' })}
+      contentMolId="page-notifications"
+    >
+      <div className={cm.cn(cm.mxAuto, 'max-w-3xl', cm.sp('px', 6), cm.sp('py', 8))}>
+        <header className={cm.stack(2)}>
+          <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
+            {t('settings.notifications', {}, { defaultValue: 'Notifications' })}
+          </h1>
+          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+            {t(
+              'notifications.subtitle',
+              {},
+              {
+                defaultValue:
+                  'Synthesised from ticket activity — open, pending, and recently updated tickets surface here.',
+              },
             )}
-          </section>
-        </div>
-      </main>
-    </div>
+          </p>
+        </header>
+
+        <section
+          className={cm.cn(cm.sp('mt', 6), cm.stack(3))}
+          data-mol-id="notifications-list"
+          data-loaded={!loading}
+        >
+          {loading ? (
+            <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+              {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+            </p>
+          ) : error ? (
+            <p className={cm.cn(cm.textSize('sm'), 'text-error')} data-mol-id="notifications-error">
+              {error}
+            </p>
+          ) : items.length === 0 ? (
+            <p
+              className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}
+              data-mol-id="notifications-empty"
+            >
+              {t('notifications.empty', {}, { defaultValue: "You're all caught up." })}
+            </p>
+          ) : (
+            items.map((n) => (
+              <Link
+                key={n.id}
+                to={`/tickets/${n.ticketId}`}
+                data-mol-id="notification-item"
+                data-kind={n.kind}
+                data-priority={n.priority}
+                data-ticket-id={n.ticketId}
+                className={cm.cn(
+                  cm.flex({ align: 'start', gap: 4 }),
+                  cm.sp('p', 4),
+                  'rounded-lg bg-surface-container-low/40 hover:bg-surface-container-low transition-colors border border-outline-variant/40',
+                )}
+              >
+                <span
+                  className={cm.cn(
+                    cm.w(2),
+                    cm.h(2),
+                    cm.roundedFull,
+                    cm.sp('mt', 2),
+                    n.priority === 'critical' || n.priority === 'high'
+                      ? 'bg-error'
+                      : n.priority === 'medium'
+                        ? 'bg-primary'
+                        : 'bg-secondary-container',
+                  )}
+                  aria-hidden
+                />
+                <div className={cm.cn(cm.flex1, cm.stack(1))}>
+                  <div className={cm.flex({ align: 'center', justify: 'between', gap: 2 })}>
+                    <span
+                      className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}
+                      data-mol-id="notification-subject"
+                    >
+                      {n.subject}
+                    </span>
+                    <span
+                      className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}
+                      data-mol-id="notification-priority"
+                    >
+                      {n.priority}
+                    </span>
+                  </div>
+                  <p
+                    className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}
+                    data-mol-id="notification-message"
+                  >
+                    {n.message}
+                  </p>
+                </div>
+              </Link>
+            ))
+          )}
+        </section>
+      </div>
+    </AppShell>
   )
 }
 

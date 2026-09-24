@@ -5,8 +5,9 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
-import SideNavBar from '../components/SideNavBar.js'
+import AppShell from '../components/AppShell.js'
 import TicketBreadcrumbHeader from '../components/TicketBreadcrumbHeader.js'
 import TicketConversationThread from '../components/TicketConversationThread.js'
 import TicketCustomerInfoCard from '../components/TicketCustomerInfoCard.js'
@@ -189,97 +190,61 @@ function TicketDetail() {
           'bg-surface text-on-surface selection:bg-primary-fixed',
         )}
       >
-        <div
-          className={cm.cn(
-            cm.flex({ direction: 'col', align: 'center', gap: 4 }),
-            cm.sp('p', 8),
-            cm.maxW('md'),
-            cm.textCenter,
-          )}
-          role="alert"
-        >
-          <h1 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), 'text-on-surface')}>
-            {t('ticketDetail.errorTitle', {}, { defaultValue: 'Something went wrong' })}
-          </h1>
-          <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-            {error ?? t('ticketDetail.notFound', {}, { defaultValue: 'Ticket not found' })}
-          </p>
-          <button
-            type="button"
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.textSize('sm'),
-              cm.fontWeight('medium'),
-              'rounded-lg bg-primary text-on-primary hover:opacity-90',
-            )}
-            onClick={() => void fetchTicket()}
-          >
-            {t('ticketDetail.retry', {}, { defaultValue: 'Try again' })}
-          </button>
-        </div>
+        {/* Shared load-failure banner — the retry button owns its pending
+            state (fetchTicket's promise); the old hand-rolled block is gone. */}
+        <LoadErrorBanner
+          className={cm.maxW('md')}
+          message={t('ticketDetail.errorTitle', {}, { defaultValue: 'Something went wrong' })}
+          detail={error ?? t('ticketDetail.notFound', {}, { defaultValue: 'Ticket not found' })}
+          onRetry={() => fetchTicket()}
+          retryLabel={t('ticketDetail.retry', {}, { defaultValue: 'Try again' })}
+        />
       </div>
     )
   }
 
   return (
-    <div className={cm.cn(cm.surface, 'text-on-surface selection:bg-primary-fixed')}>
-      <div className={cm.cn(cm.flex(), cm.minH('screen'))}>
-        <SideNavBar />
-        <main className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0 md:ml-[240px]')}>
-          <TicketDetailTopNavBar />
+    <AppShell topBar={<TicketDetailTopNavBar />}>
+      <div className={cm.cn(cm.maxW('7xl'), cm.mxAuto, cm.w('full'), cm.stack(10), 'p-4 md:p-8')}>
+        {replyError && (
           <div
             className={cm.cn(
-              cm.maxW('7xl'),
-              cm.mxAuto,
-              cm.w('full'),
-              cm.stack(10),
-              'p-4 pt-24 md:p-8',
+              cm.sp('p', 4),
+              'rounded-lg bg-error-container text-on-error-container',
             )}
+            role="status"
           >
-            {replyError && (
-              <div
-                className={cm.cn(
-                  cm.sp('p', 4),
-                  'rounded-lg bg-error-container text-on-error-container',
-                )}
-                role="status"
-              >
-                <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>{replyError}</p>
-              </div>
-            )}
-            <TicketBreadcrumbHeader ticket={ticket} />
-            {/* Two-column desktop layout stacks below lg so the 65/35 split
-                never crams side-by-side on a phone. */}
-            <div
-              className={cm.cn(cm.flex({ align: 'start' }), 'gap-4 lg:gap-10 flex-col lg:flex-row')}
-            >
-              <div className={cm.cn(cm.stack(10), 'w-full lg:w-[65%] min-w-0')}>
-                <TicketInfoBar
-                  ticket={ticket}
-                  statusUpdating={statusUpdating}
-                  onStatusChange={handleStatusChange}
-                />
-                <TicketConversationThread replies={ticket.replies ?? []} />
-                <TicketReplyEditor
-                  replyBody={replyBody}
-                  setReplyBody={setReplyBody}
-                  isInternal={isInternal}
-                  setIsInternal={setIsInternal}
-                  submitting={submitting}
-                  onSubmit={handleReply}
-                />
-              </div>
-              <div className={cm.cn(cm.stack(10), 'w-full lg:w-[35%] min-w-0')}>
-                <TicketDetailsCard ticket={ticket} />
-                <TicketCustomerInfoCard ticket={ticket} />
-                <TicketRelatedArticles articles={ticket.related_articles ?? []} />
-              </div>
-            </div>
+            <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>{replyError}</p>
           </div>
-        </main>
+        )}
+        <TicketBreadcrumbHeader ticket={ticket} />
+        {/* Two-column desktop layout stacks below lg so the 65/35 split
+                never crams side-by-side on a phone. */}
+        <div className={cm.cn(cm.flex({ align: 'start' }), 'gap-4 lg:gap-10 flex-col lg:flex-row')}>
+          <div className={cm.cn(cm.stack(10), 'w-full lg:w-[65%] min-w-0')}>
+            <TicketInfoBar
+              ticket={ticket}
+              statusUpdating={statusUpdating}
+              onStatusChange={handleStatusChange}
+            />
+            <TicketConversationThread replies={ticket.replies ?? []} />
+            <TicketReplyEditor
+              replyBody={replyBody}
+              setReplyBody={setReplyBody}
+              isInternal={isInternal}
+              setIsInternal={setIsInternal}
+              submitting={submitting}
+              onSubmit={handleReply}
+            />
+          </div>
+          <div className={cm.cn(cm.stack(10), 'w-full lg:w-[35%] min-w-0')}>
+            <TicketDetailsCard ticket={ticket} />
+            <TicketCustomerInfoCard ticket={ticket} />
+            <TicketRelatedArticles articles={ticket.related_articles ?? []} />
+          </div>
+        </div>
       </div>
-    </div>
+    </AppShell>
   )
 }
 

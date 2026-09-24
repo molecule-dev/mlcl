@@ -4,6 +4,7 @@ import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import AppShell from '../components/AppShell.js'
 import SettingsAppearanceSection from '../components/SettingsAppearanceSection.js'
 import SettingsDangerZone from '../components/SettingsDangerZone.js'
 import SettingsNotificationsSection from '../components/SettingsNotificationsSection.js'
@@ -12,7 +13,6 @@ import SettingsProfileSection from '../components/SettingsProfileSection.js'
 import SettingsSecuritySection from '../components/SettingsSecuritySection.js'
 import SettingsTeamSection from '../components/SettingsTeamSection.js'
 import SettingsTopBar from '../components/SettingsTopBar.js'
-import SideNavBar from '../components/SideNavBar.js'
 import { applyThemeAttribute } from '../lib/theme.js'
 
 interface MeResponse {
@@ -233,101 +233,86 @@ function Settings() {
   }
 
   return (
-    <div className={cm.cn(cm.surface, 'selection:bg-primary-fixed')}>
-      {/* Shell Layout */}
-      <div className={cm.cn(cm.flex(), cm.minH('screen'))}>
-        <SideNavBar />
-        {/* Main Content Area */}
-        <main className={cm.cn(cm.flex1, cm.minH('screen'), 'md:ml-[240px] bg-surface')}>
-          {/* TopAppBar */}
-          <SettingsTopBar />
+    <AppShell topBar={<SettingsTopBar />}>
+      <div
+        className={cm.cn(cm.mxAuto, cm.sp('py', 12), cm.maxW('4xl'), cm.stack(10), 'px-4 md:px-8')}
+      >
+        <SettingsPageHeader />
+        {message && (
           <div
+            data-mol-id="settings-message"
+            data-mol-message-type={message.type}
             className={cm.cn(
-              cm.mxAuto,
-              cm.sp('py', 12),
-              cm.maxW('4xl'),
-              cm.stack(10),
-              'px-4 md:px-8',
+              cm.sp('px', 4),
+              cm.sp('py', 3),
+              cm.textSize('sm'),
+              'rounded-lg',
+              message.type === 'success'
+                ? 'bg-tertiary-container text-on-tertiary-container'
+                : 'bg-error-container text-on-error-container',
+              cm.flex({ justify: 'between', align: 'center' }),
             )}
           >
-            <SettingsPageHeader />
-            {message && (
-              <div
-                data-mol-id="settings-message"
-                data-mol-message-type={message.type}
-                className={cm.cn(
-                  cm.sp('px', 4),
-                  cm.sp('py', 3),
-                  cm.textSize('sm'),
-                  'rounded-lg',
-                  message.type === 'success'
-                    ? 'bg-tertiary-container text-on-tertiary-container'
-                    : 'bg-error-container text-on-error-container',
-                  cm.flex({ justify: 'between', align: 'center' }),
-                )}
-              >
-                {message.text}
-                <button
-                  onClick={() => setMessage(null)}
-                  className={cm.cn(
-                    cm.sp('ml', 4),
-                    cm.textSize('xs'),
-                    'underline opacity-80 hover:opacity-100',
-                  )}
-                >
-                  {t('common.dismiss', {}, { defaultValue: 'Dismiss' })}
-                </button>
-              </div>
-            )}
-            {/* 1. Profile Settings */}
-            <SettingsProfileSection
-              name={name}
-              setName={setName}
-              email={email}
-              setEmail={setEmail}
-              jobTitle={jobTitle}
-              setJobTitle={setJobTitle}
-              timezone={timezone}
-              setTimezone={setTimezone}
-              saving={saving}
-              onSave={handleProfileSave}
-            />
-            {/* 2. Notification Preferences */}
-            <SettingsNotificationsSection
-              newTicketsEmail={newTicketsEmail}
-              setNewTicketsEmail={setNewTicketsEmail}
-              dailySummaryEmail={dailySummaryEmail}
-              setDailySummaryEmail={setDailySummaryEmail}
-              mentionsEmail={mentionsEmail}
-              setMentionsEmail={setMentionsEmail}
-              urgentPush={urgentPush}
-              setUrgentPush={setUrgentPush}
-              slaBreachPush={slaBreachPush}
-              setSlaBreachPush={setSlaBreachPush}
-              digestFrequency={digestFrequency}
-              setDigestFrequency={setDigestFrequency}
-              saving={savingNotifications}
-              onSave={handleNotificationsSave}
-            />
-            {/* 3. Appearance */}
-            <SettingsAppearanceSection
-              theme={theme}
-              setTheme={setTheme}
-              language={language}
-              setLanguage={setLanguage}
-              compactMode={compactMode}
-              setCompactMode={setCompactMode}
-              saving={savingAppearance}
-              onSave={handleAppearanceSave}
-            />
-            <SettingsSecuritySection />
-            <SettingsTeamSection />
-            {/* Danger Zone */}
-            <SettingsDangerZone onDeactivate={handleDeactivate} deactivating={deactivating} />
+            {message.text}
+            <button
+              onClick={() => setMessage(null)}
+              className={cm.cn(
+                cm.sp('ml', 4),
+                cm.textSize('xs'),
+                'underline opacity-80 hover:opacity-100',
+              )}
+            >
+              {t('common.dismiss', {}, { defaultValue: 'Dismiss' })}
+            </button>
           </div>
-        </main>
+        )}
+        {/* 1. Profile Settings */}
+        <SettingsProfileSection
+          name={name}
+          setName={setName}
+          email={email}
+          setEmail={setEmail}
+          jobTitle={jobTitle}
+          setJobTitle={setJobTitle}
+          timezone={timezone}
+          setTimezone={setTimezone}
+          saving={saving}
+          onSave={handleProfileSave}
+        />
+        {/* 2. Notification Preferences */}
+        <SettingsNotificationsSection
+          newTicketsEmail={newTicketsEmail}
+          setNewTicketsEmail={setNewTicketsEmail}
+          dailySummaryEmail={dailySummaryEmail}
+          setDailySummaryEmail={setDailySummaryEmail}
+          mentionsEmail={mentionsEmail}
+          setMentionsEmail={setMentionsEmail}
+          urgentPush={urgentPush}
+          setUrgentPush={setUrgentPush}
+          slaBreachPush={slaBreachPush}
+          setSlaBreachPush={setSlaBreachPush}
+          digestFrequency={digestFrequency}
+          setDigestFrequency={setDigestFrequency}
+          saving={savingNotifications}
+          onSave={handleNotificationsSave}
+        />
+        {/* 3. Appearance */}
+        <SettingsAppearanceSection
+          theme={theme}
+          setTheme={setTheme}
+          language={language}
+          setLanguage={setLanguage}
+          compactMode={compactMode}
+          setCompactMode={setCompactMode}
+          saving={savingAppearance}
+          onSave={handleAppearanceSave}
+        />
+        <SettingsSecuritySection />
+        <SettingsTeamSection />
+        {/* Danger Zone */}
+        <SettingsDangerZone onDeactivate={handleDeactivate} deactivating={deactivating} />
       </div>
-    </div>
+    </AppShell>
   )
 }
 

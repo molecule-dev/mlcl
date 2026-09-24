@@ -8,11 +8,11 @@ import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
 import ActiveAgentsCard from '../components/ActiveAgentsCard.js'
+import AppShell from '../components/AppShell.js'
 import DashboardHeroHeader from '../components/DashboardHeroHeader.js'
 import DashboardKpiRow from '../components/DashboardKpiRow.js'
 import PriorityBreakdownCard from '../components/PriorityBreakdownCard.js'
 import RecentTicketsTable from '../components/RecentTicketsTable.js'
-import SideNavBar from '../components/SideNavBar.js'
 import TicketVolumeChart from '../components/TicketVolumeChart.js'
 import TopNavBar from '../components/TopNavBar.js'
 import { dashboardRequesterLabel, enrichTicketListRow } from '../lib/demo-ticket-display.js'
@@ -163,60 +163,54 @@ function Dashboard() {
   }, [http, t])
 
   return (
-    <div className={cm.cn(cm.surface, 'text-on-surface selection:bg-secondary-container')}>
-      {/* SideNavBar (Execution from JSON) */}
-      <SideNavBar />
-      {/* Main Content Shell */}
-      <main className={cm.cn(cm.minH('screen'), 'md:ml-[240px]')}>
-        {/* TopNavBar (Execution from JSON) */}
-        <TopNavBar />
-        {/* Canvas Body */}
-        <div
-          className={cm.cn(
-            cm.stack(10),
-            cm.sp('pb', 12),
-            cm.maxW('7xl'),
-            cm.mxAuto,
-            'pt-28 px-4 md:px-10',
-          )}
-        >
-          <DashboardHeroHeader />
-          {/* KPI Row: Bento Style */}
-          <DashboardKpiRow
-            counts={counts}
-            slaCompliance={slaCompliance ?? undefined}
-            loading={loading}
-          />
-          {/* Asymmetric Dashboard Content */}
-          <div className={cm.cn(cm.grid({ cols: 12 }), 'gap-4 md:gap-10')}>
-            {/* Left: Ticket Volume & Table (8 columns) */}
-            <div className={cm.cn(cm.stack(10), 'col-span-12 lg:col-span-8')}>
-              {/* Chart Placeholder Section */}
-              <TicketVolumeChart tickets={allTickets} loading={loading} />
-              {/* Recent Tickets Table */}
-              <RecentTicketsTable tickets={recentTickets} loading={loading} />
-            </div>
-            {/* Right: Priority Breakdown & Team (4 columns) */}
-            <div className={cm.cn(cm.stack(8), 'col-span-12 lg:col-span-4')}>
-              <PriorityBreakdownCard
-                priorityData={Object.entries(
-                  recentTickets.reduce(
-                    (acc, ticket) => {
-                      const key = (ticket.priority || 'medium').toLowerCase()
-                      acc[key] = (acc[key] || 0) + 1
-                      return acc
-                    },
-                    {} as Record<string, number>,
-                  ),
-                ).map(([priority, count]) => ({ priority, count }))}
-                loading={loading}
-              />
-              <ActiveAgentsCard />
-            </div>
+    <AppShell topBar={<TopNavBar />}>
+      {/* Canvas Body — the top bar is in flow (sticky), so no fixed-bar
+          clearance offset is needed. */}
+      <div
+        className={cm.cn(
+          cm.stack(10),
+          cm.sp('pb', 12),
+          cm.maxW('7xl'),
+          cm.mxAuto,
+          'pt-8 px-4 md:px-10',
+        )}
+      >
+        <DashboardHeroHeader />
+        {/* KPI Row: Bento Style */}
+        <DashboardKpiRow
+          counts={counts}
+          slaCompliance={slaCompliance ?? undefined}
+          loading={loading}
+        />
+        {/* Asymmetric Dashboard Content */}
+        <div className={cm.cn(cm.grid({ cols: 12 }), 'gap-4 md:gap-10')}>
+          {/* Left: Ticket Volume & Table (8 columns) */}
+          <div className={cm.cn(cm.stack(10), 'col-span-12 lg:col-span-8')}>
+            {/* Chart Placeholder Section */}
+            <TicketVolumeChart tickets={allTickets} loading={loading} />
+            {/* Recent Tickets Table */}
+            <RecentTicketsTable tickets={recentTickets} loading={loading} />
+          </div>
+          {/* Right: Priority Breakdown & Team (4 columns) */}
+          <div className={cm.cn(cm.stack(8), 'col-span-12 lg:col-span-4')}>
+            <PriorityBreakdownCard
+              priorityData={Object.entries(
+                recentTickets.reduce(
+                  (acc, ticket) => {
+                    const key = (ticket.priority || 'medium').toLowerCase()
+                    acc[key] = (acc[key] || 0) + 1
+                    return acc
+                  },
+                  {} as Record<string, number>,
+                ),
+              ).map(([priority, count]) => ({ priority, count }))}
+              loading={loading}
+            />
+            <ActiveAgentsCard />
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </AppShell>
   )
 }
 
