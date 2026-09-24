@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { ConfirmButton, LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { type ApiSubscription, unwrapSingle } from '../lib/api.js'
@@ -235,18 +235,6 @@ export function Settings() {
 
   const cancelSubscription = async () => {
     if (!subscription) return
-    if (
-      typeof window !== 'undefined' &&
-      !window.confirm(
-        t(
-          'settings.danger.confirm',
-          {},
-          { defaultValue: 'Cancel your subscription? You can resubscribe anytime.' },
-        ),
-      )
-    ) {
-      return
-    }
     setCancelling(true)
     setPauseFeedback(null)
     setPauseError(null)
@@ -518,25 +506,12 @@ export function Settings() {
                   {t(pref.descriptionKey, {}, { defaultValue: pref.descriptionDefault })}
                 </span>
               </div>
-              <button
-                type="button"
-                role="switch"
-                aria-checked={prefs[pref.id]}
+              <Switch
+                checked={prefs[pref.id]}
+                onChange={() => togglePref(pref.id)}
                 aria-label={t(pref.labelKey, {}, { defaultValue: pref.labelDefault })}
-                onClick={() => togglePref(pref.id)}
                 data-testid={`settings-pref-${pref.id}`}
-                className={cm.cn(
-                  'relative inline-flex h-7 w-12 rounded-full transition-colors',
-                  prefs[pref.id] ? 'bg-primary' : 'bg-surface-container-high',
-                )}
-              >
-                <span
-                  className={cm.cn(
-                    'absolute top-0.5 left-0.5 h-6 w-6 rounded-full bg-white shadow-sm transition-transform',
-                    prefs[pref.id] ? 'translate-x-5' : 'translate-x-0',
-                  )}
-                />
-              </button>
+              />
             </li>
           ))}
         </ul>
@@ -664,10 +639,17 @@ export function Settings() {
               ? t('settings.danger.pausing', {}, { defaultValue: 'Pausing…' })
               : t('settings.danger.pause', {}, { defaultValue: 'Pause subscription' })}
           </button>
-          <button
-            type="button"
-            onClick={cancelSubscription}
+          <ConfirmButton
+            label={t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
+            confirmLabel={t(
+              'settings.danger.confirm',
+              {},
+              { defaultValue: 'Cancel your subscription? You can resubscribe anytime.' },
+            )}
+            pendingLabel={t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })}
+            onConfirm={cancelSubscription}
             disabled={cancelling || !subscription || subscription.status === 'cancelled'}
+            disarmSeconds={6}
             data-testid="settings-cancel"
             className={cm.cn(
               cm.sp('px', 5),
@@ -676,11 +658,7 @@ export function Settings() {
               cm.roundedFull,
               'text-sm bg-error text-on-error hover:bg-error/90 transition-all disabled:opacity-60',
             )}
-          >
-            {cancelling
-              ? t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })
-              : t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
-          </button>
+          />
         </div>
       </section>
     </div>

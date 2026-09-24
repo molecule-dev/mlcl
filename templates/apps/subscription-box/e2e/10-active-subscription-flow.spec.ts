@@ -124,10 +124,13 @@ test('Full subscriber journey: signup → subscribe → customize → settings �
   await page.goto(APP_BASE + '/shipments')
   await expect(page.getByTestId('shipments-page')).toBeVisible({ timeout: 10_000 })
 
-  // 10. Cancel — confirm dialog auto-accepts in headless mode
+  // 10. Cancel — the shared ConfirmButton arms on the first click, commits
+  // on the second (no native confirm dialog any more)
   await page.goto(APP_BASE + '/settings')
-  page.once('dialog', (d) => d.accept())
-  await page.getByTestId('settings-cancel').click()
+  const cancelBtn = page.getByTestId('settings-cancel')
+  await cancelBtn.click()
+  await expect(cancelBtn).toHaveText('Cancel your subscription? You can resubscribe anytime.')
+  await cancelBtn.click()
   await expect(page.getByTestId('settings-danger-feedback')).toBeVisible({ timeout: 10_000 })
   const cancelled = await fetchMineSubscription(page, accessToken)
   // After cancel, the active mine query may return null OR a cancelled record

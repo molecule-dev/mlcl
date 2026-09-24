@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import {
   type ApiBillingStatus,
@@ -144,17 +145,6 @@ export function Billing() {
 
   const cancel = async () => {
     if (!subscription) return
-    if (
-      typeof window !== 'undefined' &&
-      !window.confirm(
-        t(
-          'billing.actions.confirmCancel',
-          {},
-          { defaultValue: 'Cancel your subscription? You can resubscribe anytime.' },
-        ),
-      )
-    )
-      return
     setActioning(true)
     setFeedback(null)
     setError(null)
@@ -335,18 +325,27 @@ export function Billing() {
                   </button>
                 ) : null}
                 {subscription && subscription.status !== 'cancelled' && (
-                  <button
-                    type="button"
-                    onClick={cancel}
+                  <ConfirmButton
+                    label={t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
+                    confirmLabel={t(
+                      'billing.actions.confirmCancel',
+                      {},
+                      { defaultValue: 'Cancel your subscription? You can resubscribe anytime.' },
+                    )}
+                    pendingLabel={t(
+                      'common.cancellingEllipsis',
+                      {},
+                      { defaultValue: 'Cancelling…' },
+                    )}
+                    onConfirm={cancel}
                     disabled={actioning}
+                    disarmSeconds={6}
                     data-testid="billing-cancel"
                     className={cm.cn(
                       cm.sp('py', 2),
                       'text-xs font-bold text-on-primary/70 hover:text-on-primary underline transition-colors disabled:opacity-60',
                     )}
-                  >
-                    {t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
-                  </button>
+                  />
                 )}
               </div>
               <div
