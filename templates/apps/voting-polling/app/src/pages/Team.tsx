@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { QuorumKpiCard } from '../components/QuorumKpiCard.js'
 
@@ -117,16 +118,6 @@ export function Team() {
   }
 
   async function removeMember(m: MemberRow) {
-    if (
-      !window.confirm(
-        t(
-          'team.confirmRemove',
-          { name: m.email ?? m.name ?? 'this member' },
-          { defaultValue: 'Remove {{name}} from the team?' },
-        ),
-      )
-    )
-      return
     try {
       await http.delete(`/api/team/${m.id}`)
       await refresh()
@@ -358,14 +349,20 @@ export function Team() {
                       {timeAgo(m.invited_at)}
                     </td>
                     <td className={cm.cn('px-6 py-4 text-right')}>
-                      <button
-                        type="button"
-                        onClick={() => void removeMember(m)}
-                        className={cm.cn('text-xs font-semibold text-error hover:underline')}
+                      <ConfirmButton
+                        label={t('common.remove', {}, { defaultValue: 'Remove' })}
+                        confirmLabel={t(
+                          'team.confirmRemove',
+                          { name: m.email ?? m.name ?? 'this member' },
+                          { defaultValue: 'Remove {{name}} from the team?' },
+                        )}
+                        onConfirm={() => removeMember(m)}
+                        disarmSeconds={6}
+                        color="error"
+                        variant="ghost"
+                        size="sm"
                         data-test={`team-remove-${m.id}`}
-                      >
-                        {t('common.remove', {}, { defaultValue: 'Remove' })}
-                      </button>
+                      />
                     </td>
                   </tr>
                 ))}

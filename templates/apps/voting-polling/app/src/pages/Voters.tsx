@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { QuorumKpiCard } from '../components/QuorumKpiCard.js'
 
@@ -126,16 +127,6 @@ export function Voters() {
   }
 
   async function handleDelete(v: VoterRow) {
-    if (
-      !window.confirm(
-        t(
-          'voters.confirmDelete',
-          { name: v.name },
-          { defaultValue: 'Remove {{name}} from the eligibility roll?' },
-        ),
-      )
-    )
-      return
     try {
       await http.delete(`/api/voters/${v.id}`)
       track({ name: 'voter.deleted', properties: { voterId: v.id } })
@@ -449,14 +440,20 @@ export function Voters() {
                           >
                             {t('common.edit', {}, { defaultValue: 'Edit' })}
                           </button>
-                          <button
-                            type="button"
-                            onClick={() => void handleDelete(v)}
-                            className={cm.cn('text-xs font-semibold text-error hover:underline')}
+                          <ConfirmButton
+                            label={t('common.remove', {}, { defaultValue: 'Remove' })}
+                            confirmLabel={t(
+                              'voters.confirmDelete',
+                              { name: v.name },
+                              { defaultValue: 'Remove {{name}} from the eligibility roll?' },
+                            )}
+                            onConfirm={() => handleDelete(v)}
+                            disarmSeconds={6}
+                            color="error"
+                            variant="ghost"
+                            size="sm"
                             data-test={`voter-delete-${v.id}`}
-                          >
-                            {t('common.remove', {}, { defaultValue: 'Remove' })}
-                          </button>
+                          />
                         </div>
                       </td>
                     </tr>

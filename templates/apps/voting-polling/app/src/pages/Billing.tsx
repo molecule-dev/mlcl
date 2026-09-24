@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { QuorumKpiCard } from '../components/QuorumKpiCard.js'
 import { unwrap } from '../lib/api.js'
@@ -126,19 +127,6 @@ export function Billing() {
 
   async function handleCancel() {
     if (!status || status.isFree) return
-    if (
-      !window.confirm(
-        t(
-          'billing.confirmCancel',
-          {},
-          {
-            defaultValue:
-              'Cancel your subscription? Your plan will revert to Free at the end of the billing period.',
-          },
-        ),
-      )
-    )
-      return
     setActionPending('cancel')
     setError(null)
     setMessage(null)
@@ -415,22 +403,26 @@ export function Billing() {
               },
             )}
           </p>
-          <button
-            type="button"
-            onClick={handleCancel}
-            disabled={actionPending === 'cancel'}
-            className={cm.cn(
-              cm.sp('mt', 4),
-              cm.sp('px', 4),
-              cm.sp('py', 3),
-              'rounded-lg border border-outline-variant/30 text-on-surface-variant hover:bg-error/10 hover:text-error text-sm font-bold disabled:opacity-50',
+          <ConfirmButton
+            label={t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
+            confirmLabel={t(
+              'billing.confirmCancel',
+              {},
+              {
+                defaultValue:
+                  'Cancel your subscription? Your plan will revert to Free at the end of the billing period.',
+              },
             )}
+            pendingLabel={t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })}
+            onConfirm={handleCancel}
+            disarmSeconds={8}
+            disabled={actionPending === 'cancel'}
+            color="error"
+            variant="outline"
+            size="sm"
+            className={cm.sp('mt', 4)}
             data-test="billing-cancel"
-          >
-            {actionPending === 'cancel'
-              ? t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })
-              : t('nav.cancelSubscription', {}, { defaultValue: 'Cancel subscription' })}
-          </button>
+          />
         </section>
       ) : null}
     </div>

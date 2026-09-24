@@ -62,6 +62,28 @@ test('Deleting a voter removes them from the list', async ({ page }) => {
   expect(fresh.data.find((v) => v.id === created.id)).toBeUndefined()
 })
 
+test('Row Remove is a two-step confirm: arm shows the confirm label, second click commits', async ({
+  page,
+}) => {
+  await signup(page)
+  const created = await api<{ id: string; name: string }>(page, 'POST', '/voters', {
+    name: 'Two-Step Delete',
+    email: `twostep-delete-${Date.now()}@example.org`,
+  })
+  await page.goto(APP_BASE + '/voters')
+  const row = page.locator(`[data-test="voter-row-${created.id}"]`)
+  await expect(row).toBeVisible({ timeout: 15_000 })
+
+  const removeBtn = page.locator(`[data-test="voter-delete-${created.id}"]`)
+  // First click ARMS the shared ConfirmButton — no native dialog, no DELETE yet.
+  await removeBtn.click()
+  await expect(removeBtn).toContainText('Two-Step Delete')
+  await expect(removeBtn).toContainText('from the eligibility roll?')
+  // Second click COMMITS the delete and the row disappears.
+  await removeBtn.click()
+  await expect(row).toHaveCount(0, { timeout: 15_000 })
+})
+
 test('/voters page renders a row per voter on the roll', async ({ page }) => {
   await signup(page)
   // Read the roll from the same endpoint the page reads — the starter voters
