@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 
@@ -533,31 +533,15 @@ export function Settings() {
                           )}
                         </p>
                       </div>
-                      <button
-                        type="button"
-                        role="switch"
-                        aria-checked={on}
-                        data-mol-id={`pref-${p.key}`}
-                        onClick={() =>
-                          saveNotifications({ [p.key]: !on } as Partial<
-                            ProfileShape['notifications']
-                          >)
+                      <Switch
+                        checked={on}
+                        onChange={(e) =>
+                          saveNotifications({
+                            [p.key]: (e.target as HTMLInputElement).checked,
+                          } as Partial<ProfileShape['notifications']>)
                         }
-                        className={cm.cn('w-11 h-6 rounded-full relative transition-colors')}
-                        style={{
-                          background: on
-                            ? 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))'
-                            : 'var(--color-toggle-off)',
-                        }}
-                      >
-                        <span
-                          className={cm.cn(
-                            'absolute top-0.5 w-5 h-5 rounded-full bg-white shadow-sm transition-all',
-                          )}
-                          style={{ left: on ? '1.375rem' : '0.125rem' }}
-                          aria-hidden="true"
-                        />
-                      </button>
+                        data-mol-id={`pref-${p.key}`}
+                      />
                     </li>
                   )
                 })}
