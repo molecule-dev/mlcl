@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 
@@ -716,23 +716,23 @@ function PreferencesSection() {
       <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
         {t('nav.notificationPreferences', {}, { defaultValue: 'Notification preferences' })}
       </h2>
-      <Toggle
+      <Switch
         label={t('settings.pushNotifications', {}, { defaultValue: 'Push notifications' })}
         checked={prefs.push}
-        onChange={(v) => update({ ...prefs, push: v })}
-        name="push"
+        onChange={(e) => update({ ...prefs, push: (e.target as HTMLInputElement).checked })}
+        testId="toggle-push"
       />
-      <Toggle
+      <Switch
         label={t('settings.preferences.email', {}, { defaultValue: 'Email updates' })}
         checked={prefs.email}
-        onChange={(v) => update({ ...prefs, email: v })}
-        name="email"
+        onChange={(e) => update({ ...prefs, email: (e.target as HTMLInputElement).checked })}
+        testId="toggle-email"
       />
-      <Toggle
+      <Switch
         label={t('settings.preferences.sms', {}, { defaultValue: 'SMS alerts' })}
         checked={prefs.sms}
-        onChange={(v) => update({ ...prefs, sms: v })}
-        name="sms"
+        onChange={(e) => update({ ...prefs, sms: (e.target as HTMLInputElement).checked })}
+        testId="toggle-sms"
       />
       {savedAt ? (
         <p data-testid="preferences-saved" className="text-sm text-success">
@@ -796,43 +796,6 @@ function Field({
           'w-full border border-outline-variant rounded-md',
         )}
       />
-    </label>
-  )
-}
-
-function Toggle({
-  label,
-  checked,
-  onChange,
-  name,
-}: {
-  label: string
-  checked: boolean
-  onChange: (v: boolean) => void
-  name?: string
-}) {
-  const cm = getClassMap()
-  return (
-    <label className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'cursor-pointer')}>
-      <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>{label}</span>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={checked}
-        data-testid={name ? `toggle-${name}` : undefined}
-        onClick={() => onChange(!checked)}
-        className={cm.cn(
-          'relative inline-flex h-6 w-11 items-center rounded-full transition-colors',
-          checked ? 'bg-primary' : 'bg-outline-variant',
-        )}
-      >
-        <span
-          className={cm.cn(
-            'inline-block h-4 w-4 rounded-full bg-on-primary transition-transform',
-            checked ? 'translate-x-6' : 'translate-x-1',
-          )}
-        />
-      </button>
     </label>
   )
 }
