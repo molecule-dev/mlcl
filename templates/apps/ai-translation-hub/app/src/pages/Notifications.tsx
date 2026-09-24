@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 import { PageHeading } from '../components/PageHeading.js'
 import {
@@ -425,24 +426,17 @@ export function Notifications() {
                     )}
                   </p>
                 </div>
-                <button
-                  type="button"
-                  role="switch"
+                <Switch
+                  checked={prefs[p.key]}
                   data-mol-id={`notifications-pref-${p.key}`}
-                  aria-checked={prefs[p.key]}
-                  onClick={() => togglePref(p.key)}
-                  className={cm.cn(
-                    'relative inline-flex h-6 w-11 items-center rounded-full transition-colors flex-shrink-0',
-                    prefs[p.key] ? 'bg-primary' : 'bg-surface-container-high',
+                  aria-label={t(
+                    `notifications.pref.${p.key}.label`,
+                    {},
+                    { defaultValue: p.defaultLabel },
                   )}
-                >
-                  <span
-                    className={cm.cn(
-                      'inline-block h-5 w-5 transform rounded-full bg-surface shadow transition-transform',
-                      prefs[p.key] ? 'translate-x-5' : 'translate-x-0.5',
-                    )}
-                  />
-                </button>
+                  onChange={() => togglePref(p.key)}
+                  className="flex-shrink-0"
+                />
               </li>
             ))}
           </ul>

@@ -2,6 +2,7 @@ import { type FormEvent, useEffect, useMemo, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { LanguagePairBadge } from '../components/LanguagePairBadge.js'
 import { PageHeading } from '../components/PageHeading.js'
@@ -173,13 +174,9 @@ export function Team() {
     }
   }
 
+  // Confirmation is handled inline by the two-step ConfirmButton (arm →
+  // confirm) — no blocking window.confirm dialog.
   const removeMember = async (memberId: string) => {
-    if (
-      !window.confirm(
-        t('team.removeConfirm', {}, { defaultValue: 'Remove this member from the workspace?' }),
-      )
-    )
-      return
     try {
       await http.delete(`/team/${encodeURIComponent(memberId)}`)
       setActionStatus(t('team.removed', {}, { defaultValue: 'Member removed.' }))
@@ -534,21 +531,18 @@ export function Team() {
                             >
                               {t('common.save', {}, { defaultValue: 'Save' })}
                             </button>
-                            <button
-                              type="button"
-                              onClick={() => {
-                                void removeMember(m.id)
-                              }}
-                              className={cm.cn(
-                                cm.sp('px', 3),
-                                cm.sp('py', 1),
-                                cm.fontWeight('semibold'),
-                                cm.textSize('xs'),
-                                'rounded-full text-error hover:bg-error-container/30',
+                            <ConfirmButton
+                              data-mol-id={`team-remove-${m.id}`}
+                              label={t('common.remove', {}, { defaultValue: 'Remove' })}
+                              confirmLabel={t(
+                                'team.removeConfirm',
+                                {},
+                                { defaultValue: 'Remove this member from the workspace?' },
                               )}
-                            >
-                              {t('common.remove', {}, { defaultValue: 'Remove' })}
-                            </button>
+                              onConfirm={() => removeMember(m.id)}
+                              color="error"
+                              size="sm"
+                            />
                           </div>
                         </div>
                       )}

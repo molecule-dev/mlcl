@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { LanguagePairBadge } from '../components/LanguagePairBadge.js'
 import { PageHeading } from '../components/PageHeading.js'
@@ -460,24 +460,13 @@ function SettingToggle({ label, description, value, onChange }: SettingTogglePro
           {description}
         </p>
       </div>
-      <button
-        type="button"
-        role="switch"
+      <Switch
+        checked={value}
         data-mol-id={id}
-        aria-checked={value}
-        onClick={() => onChange(!value)}
-        className={cm.cn(
-          'relative inline-flex h-6 w-11 items-center rounded-full transition-colors flex-shrink-0',
-          value ? 'bg-primary' : 'bg-surface-container-high',
-        )}
-      >
-        <span
-          className={cm.cn(
-            'inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform',
-            value ? 'translate-x-5' : 'translate-x-0.5',
-          )}
-        />
-      </button>
+        aria-label={label}
+        onChange={() => onChange(!value)}
+        className="flex-shrink-0"
+      />
     </li>
   )
 }
