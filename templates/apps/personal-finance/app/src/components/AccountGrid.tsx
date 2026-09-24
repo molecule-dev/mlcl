@@ -2,6 +2,7 @@ import { Link } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface Account {
   id: string
@@ -204,33 +205,21 @@ function AccountGrid({ accounts = [], loading = false, onDeleteAccount }: Accoun
               )}
             </Link>
             {onDeleteAccount && (
-              <button
-                type="button"
+              <ConfirmButton
                 data-mol-id="accounts-grid-card-delete"
-                onClick={(e) => {
-                  e.preventDefault()
-                  if (
-                    window.confirm(
-                      t(
-                        'accountsGrid.deleteConfirm',
-                        {},
-                        { defaultValue: 'Delete this account? Transactions will be kept.' },
-                      ),
-                    )
-                  ) {
-                    void onDeleteAccount(account.id)
-                  }
-                }}
-                className={cm.cn(
-                  cm.sp('mt', 4),
-                  cm.textSize('xs'),
-                  cm.fontWeight('semibold'),
-                  cm.cursorPointer,
-                  'text-tertiary hover:underline',
+                label={t('accountsGrid.deleteCta', {}, { defaultValue: 'Remove account' })}
+                confirmLabel={t(
+                  'accountsGrid.deleteConfirm',
+                  {},
+                  { defaultValue: 'Delete this account? Transactions will be kept.' },
                 )}
-              >
-                {t('accountsGrid.deleteCta', {}, { defaultValue: 'Remove account' })}
-              </button>
+                onConfirm={() => onDeleteAccount(account.id)}
+                disarmSeconds={5}
+                size="sm"
+                color="error"
+                variant="link"
+                className={cm.cn(cm.sp('mt', 4), cm.textSize('xs'), cm.fontWeight('semibold'))}
+              />
             )}
           </article>
         )

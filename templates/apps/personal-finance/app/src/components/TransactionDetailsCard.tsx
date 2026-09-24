@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 interface Transaction {
   notes: string
@@ -98,31 +99,17 @@ function TransactionDetailsCard({ transaction }: Props) {
               </div>
             </div>
           </div>
-          <div
-            className={cm.cn(
-              'w-12 h-6 rounded-full relative p-1 cursor-pointer transition-colors',
-              recurring ? 'bg-primary' : 'bg-border-secondary',
+          <Switch
+            checked={recurring}
+            size="md"
+            aria-label={t(
+              'transactionDetailsCard.recurringTitle',
+              {},
+              { defaultValue: 'Recurring Transaction' },
             )}
-            onClick={() => {
-              setRecurring((v) => !v)
-            }}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault()
-                setRecurring((v) => !v)
-              }
-            }}
-            tabIndex={0}
-            role="switch"
-            aria-checked={recurring}
-          >
-            <div
-              className={cm.cn(
-                'w-4 h-4 bg-surface rounded-full absolute top-1 transition-transform',
-                recurring ? 'right-1' : 'left-1',
-              )}
-            ></div>
-          </div>
+            data-mol-id="transaction-details-recurring-switch"
+            onChange={(e) => setRecurring((e.target as HTMLInputElement).checked)}
+          />
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router'
 
 import { useTranslation, type UseTranslationResult } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 interface Goal {
   id: string
@@ -111,7 +112,12 @@ function DynamicGoalCard({ goal, onDelete }: { goal: Goal; onDelete?: (id: strin
         cm.cursorPointer,
         'rounded-3xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden',
       )}
-      onClick={() => navigate(`/goals/${goal.id}`)}
+      onClick={(e) => {
+        // ConfirmButton omits DOM handlers, so the delete control can't stop
+        // propagation itself — ignore any click originating from it here.
+        if ((e.target as HTMLElement).closest('button')) return
+        navigate(`/goals/${goal.id}`)
+      }}
       onKeyDown={(e) => {
         // Ignore keys bubbling from the inner delete button.
         if (e.target !== e.currentTarget) return
@@ -122,33 +128,27 @@ function DynamicGoalCard({ goal, onDelete }: { goal: Goal; onDelete?: (id: strin
       }}
     >
       {onDelete && (
-        <button
-          type="button"
+        <ConfirmButton
+          data-mol-id="goals-grid-goal-delete"
+          aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
+          label="×"
+          confirmLabel={t(
+            'goalsGrid.deleteConfirm',
+            { name: goal.name },
+            { defaultValue: 'Delete the goal "{{name}}"?' },
+          )}
+          onConfirm={() => onDelete(goal.id)}
+          disarmSeconds={5}
+          size="sm"
+          color="error"
+          variant="ghost"
           className={cm.cn(
             cm.position('absolute'),
             cm.sp('p', 2),
             cm.textSize('xs'),
             'top-2 right-2 z-20 rounded-lg text-on-surface-variant hover:bg-surface-container-highest',
           )}
-          aria-label={t('common.delete', {}, { defaultValue: 'Delete' })}
-          onClick={(e) => {
-            e.stopPropagation()
-            // Destructive: confirm before deleting (matches the accounts grid).
-            if (
-              window.confirm(
-                t(
-                  'goalsGrid.deleteConfirm',
-                  { name: goal.name },
-                  { defaultValue: 'Delete the goal "{{name}}"?' },
-                ),
-              )
-            ) {
-              onDelete(goal.id)
-            }
-          }}
-        >
-          ×
-        </button>
+        />
       )}
       <div className={cm.cn(cm.flex({ justify: 'between', align: 'start' }), 'relative z-10')}>
         <div className={cm.flex({ gap: 'lg' })}>

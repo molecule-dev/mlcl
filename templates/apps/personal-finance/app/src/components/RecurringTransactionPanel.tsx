@@ -1,5 +1,6 @@
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 export type RecurringPanelValue = { enabled: boolean; frequency: string }
 
@@ -69,40 +70,17 @@ function RecurringTransactionPanel({
             {t('common.frequency.yearly', {}, { defaultValue: 'Yearly' })}
           </option>
         </select>
-        <div
-          className={cm.cn(
-            cm.w(12),
-            cm.h(6),
-            cm.roundedFull,
-            cm.cursorPointer,
-            'relative transition-colors',
+        <Switch
+          checked={enabled}
+          size="md"
+          aria-label={t(
+            'recurringTransactionPanel.title',
+            {},
+            { defaultValue: 'Recurring Transaction' },
           )}
-          style={{
-            backgroundColor: enabled
-              ? 'var(--color-primary, var(--mol-color-primary))'
-              : 'var(--mol-color-text-secondary)',
-          }}
-          onClick={() => onChange({ enabled: !enabled, frequency })}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault()
-              onChange({ enabled: !enabled, frequency })
-            }
-          }}
-          tabIndex={0}
-          role="switch"
-          aria-checked={enabled}
-        >
-          <div
-            className={cm.cn(
-              cm.w(4),
-              cm.h(4),
-              cm.roundedFull,
-              'absolute top-1 bg-surface transition-all duration-200',
-              enabled ? 'right-1' : 'left-1',
-            )}
-          ></div>
-        </div>
+          data-mol-id="recurring-panel-switch"
+          onChange={(e) => onChange({ enabled: (e.target as HTMLInputElement).checked, frequency })}
+        />
       </div>
     </div>
   )

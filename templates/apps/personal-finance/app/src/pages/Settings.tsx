@@ -60,16 +60,8 @@ function Settings() {
 
   async function handleDeleteAccount() {
     if (!user || !(user as { id?: string }).id) return
-    if (
-      !window.confirm(
-        t(
-          'settings.deleteAccountConfirm',
-          {},
-          { defaultValue: 'Are you sure? This action cannot be undone.' },
-        ),
-      )
-    )
-      return
+    // Confirmation is owned by the DataPrivacySection ConfirmButton (two-click
+    // arm/commit) — this handler only runs on the committing click.
     try {
       await http.delete(`/api/users/${(user as { id: string }).id}`)
       window.location.href = '/login'

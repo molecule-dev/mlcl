@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 function DataPrivacySection({ onDeleteAccount }: { onDeleteAccount: () => void }) {
   const cm = getClassMap()
@@ -67,35 +68,48 @@ function DataPrivacySection({ onDeleteAccount }: { onDeleteAccount: () => void }
             chevron_right
           </span>
         </button>
-        <button
+        <ConfirmButton
+          data-mol-id="settings-delete-account"
+          onConfirm={onDeleteAccount}
+          disarmSeconds={6}
+          size="sm"
+          color="error"
+          variant="ghost"
           className={cm.cn(
             cm.w('full'),
             cm.flex({ align: 'center', justify: 'between' }),
             cm.sp('p', 4),
             'bg-surface-container-low rounded-xl group hover:bg-tertiary/10 transition-all',
           )}
-          onClick={onDeleteAccount}
-        >
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            <span
-              className={cm.cn('material-symbols-outlined text-tertiary')}
-              data-icon="delete_forever"
-            >
-              delete_forever
-            </span>
-            <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-tertiary')}>
-              {t('settings.deleteAccountModal.title', {}, { defaultValue: 'Delete Account' })}
-            </span>
-          </div>
-          <span
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              'text-[10px] text-tertiary/60 uppercase tracking-tighter',
-            )}
-          >
-            {t('dataPrivacy.permanent', {}, { defaultValue: 'Permanent' })}
-          </span>
-        </button>
+          confirmLabel={t(
+            'settings.deleteAccountConfirm',
+            {},
+            { defaultValue: 'Are you sure? This action cannot be undone.' },
+          )}
+          label={
+            <>
+              <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+                <span
+                  className={cm.cn('material-symbols-outlined text-tertiary')}
+                  data-icon="delete_forever"
+                >
+                  delete_forever
+                </span>
+                <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-tertiary')}>
+                  {t('settings.deleteAccountModal.title', {}, { defaultValue: 'Delete Account' })}
+                </span>
+              </div>
+              <span
+                className={cm.cn(
+                  cm.fontWeight('bold'),
+                  'text-[10px] text-tertiary/60 uppercase tracking-tighter',
+                )}
+              >
+                {t('dataPrivacy.permanent', {}, { defaultValue: 'Permanent' })}
+              </span>
+            </>
+          }
+        />
       </div>
     </section>
   )
