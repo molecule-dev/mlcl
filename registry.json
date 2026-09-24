@@ -128,11 +128,11 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
-      "path": "packages/api/core/agent-transcript",
       "moleculePeers": [
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "path": "packages/api/core/agent-transcript",
       "intentHints": [
         "read a claude code export",
         "parse an ai chat transcript",
@@ -163,10 +163,10 @@
         "@molecule/api-agent-transcript-codex",
         "@molecule/api-agent-transcript-molecule-ide"
       ],
-      "path": "packages/api/bonds/agent-transcript/autodetect",
       "moleculePeers": [
         "@molecule/api-agent-transcript"
       ],
+      "path": "packages/api/bonds/agent-transcript/autodetect",
       "intentHints": [
         "read transcripts from several ai harnesses",
         "detect transcript format"
@@ -192,10 +192,10 @@
       "runtimeDependencies": [
         "@molecule/api-agent-transcript"
       ],
-      "path": "packages/api/bonds/agent-transcript/claude-code",
       "moleculePeers": [
         "@molecule/api-agent-transcript"
       ],
+      "path": "packages/api/bonds/agent-transcript/claude-code",
       "intentHints": [
         "claude code /export",
         "claude code session jsonl"
@@ -223,10 +223,10 @@
       "runtimeDependencies": [
         "@molecule/api-agent-transcript"
       ],
-      "path": "packages/api/bonds/agent-transcript/codex",
       "moleculePeers": [
         "@molecule/api-agent-transcript"
       ],
+      "path": "packages/api/bonds/agent-transcript/codex",
       "intentHints": [
         "codex cli export",
         "codex rollout jsonl"
@@ -250,10 +250,10 @@
       "runtimeDependencies": [
         "@molecule/api-agent-transcript"
       ],
-      "path": "packages/api/bonds/agent-transcript/molecule-ide",
       "moleculePeers": [
         "@molecule/api-agent-transcript"
       ],
+      "path": "packages/api/bonds/agent-transcript/molecule-ide",
       "intentHints": [
         "molecule ide conversation",
         "synthase conversation export"
@@ -1264,6 +1264,7 @@
         "provider",
         "aiOpenaiSecretDefinitions",
         "OpenaiConfig",
+        "OpenaiApi",
         "ProcessEnv"
       ],
       "secrets": [
@@ -21975,12 +21976,12 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
-      "path": "packages/api/core/text-provenance",
       "moleculePeers": [
         "@molecule/api-agent-transcript",
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "path": "packages/api/core/text-provenance",
       "intentHints": [
         "which paragraphs the ai wrote",
         "ai written paragraphs",
@@ -22012,11 +22013,11 @@
         "@molecule/api-agent-transcript",
         "@molecule/api-text-provenance"
       ],
-      "path": "packages/api/bonds/text-provenance/overlap",
       "moleculePeers": [
         "@molecule/api-agent-transcript",
         "@molecule/api-text-provenance"
       ],
+      "path": "packages/api/bonds/text-provenance/overlap",
       "intentHints": [
         "attribute paragraphs to a transcript",
         "match text against an ai transcript"
