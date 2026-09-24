@@ -25,3 +25,23 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
+
+/*
+ * ResponsiveAppShell drawer stacking fix — works around an upstream
+ * `@molecule/app-ui-react` bug (ResponsiveAppShell.Drawer, molecule
+ * 37bcf7369). The drawer portals `<div class="overlay fixed inset-0
+ * bg-black/50 z-40">` followed by its click-wrapper (`fixed inset-0`, no
+ * z-index). A z-index-auto `position: fixed` element forms a stacking
+ * context at level 0, so the z-40 backdrop paints above the wrapper's ENTIRE
+ * subtree — the panel's own z-40 is trapped inside it and the backdrop
+ * swallows every pointer event: close button, nav links, even the
+ * backdrop-tap-to-close are dead (only Escape works). Raising the WRAPPER
+ * above its backdrop restores the intended order: the backdrop dims the
+ * page while the panel and its contents sit on top and receive clicks.
+ * Scoped by adjacency so it can never catch another portal (Modal's overlay
+ * uses `z-[1300] bg-overlay pointer-events-none`, not these classes).
+ * DELETE once the shared shell fixes its drawer stacking.
+ */
+body > div.fixed.inset-0.bg-black\/50.z-40 + div.fixed.inset-0 {
+  z-index: 41;
+}
