@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { ForjaTopBar } from '../components/ForjaTopBar.js'
 
@@ -153,17 +154,6 @@ export function Templates() {
   }
 
   async function handleDelete(routine: RoutineRow) {
-    if (
-      !window.confirm(
-        t(
-          'forja.templates.delete.confirm',
-          { name: routine.name },
-          { defaultValue: `Delete "${routine.name}"?` },
-        ),
-      )
-    ) {
-      return
-    }
     try {
       await http.delete(`/routines/${routine.id}`)
       await load()
@@ -502,23 +492,21 @@ export function Templates() {
                       </span>
                       {t('forja.templates.start', {}, { defaultValue: 'Start workout' })}
                     </button>
-                    <button
-                      type="button"
+                    <ConfirmButton
+                      label={t('forja.templates.delete', {}, { defaultValue: 'Delete template' })}
+                      confirmLabel={t(
+                        'forja.templates.delete.confirm',
+                        { name: tpl.name },
+                        { defaultValue: `Delete "${tpl.name}"?` },
+                      )}
+                      onConfirm={() => handleDelete(tpl)}
+                      disarmSeconds={5}
                       aria-label={t(
                         'forja.templates.delete',
                         {},
                         { defaultValue: 'Delete template' },
                       )}
-                      onClick={() => handleDelete(tpl)}
-                      className={cm.cn(
-                        cm.flex({ align: 'center', justify: 'center' }),
-                        'w-12 rounded-lg border border-outline text-on-surface-variant hover:bg-error-container/40 hover:text-error transition-colors',
-                      )}
-                    >
-                      <span aria-hidden="true" className={cm.cn('material-symbols-outlined')}>
-                        delete_outline
-                      </span>
-                    </button>
+                    />
                   </div>
                 </article>
               </li>

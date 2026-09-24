@@ -5,7 +5,7 @@ import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { ForjaTopBar } from '../components/ForjaTopBar.js'
 import { primeWeightUnit } from '../lib/weight.js'
@@ -721,7 +721,6 @@ function NotifyRow({
   saving,
 }: NotifyRowProps) {
   const { t } = useTranslation()
-  const id = `notify-${testId}`
   return (
     <li
       className={cm.cn(
@@ -741,23 +740,19 @@ function NotifyRow({
         </span>
       </span>
       <div className={cm.cn(cm.flex({ direction: 'col' }), 'flex-1 min-w-0')}>
-        <label htmlFor={id} className={cm.cn('font-bold text-on-surface')}>
+        <span className={cm.cn('font-bold text-on-surface')}>
           {t(titleKey, {}, { defaultValue: titleDefault })}
-        </label>
+        </span>
         <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
           {t(bodyKey, {}, { defaultValue: bodyDefault })}
         </span>
       </div>
-      <input
-        id={id}
-        type="checkbox"
-        role="switch"
-        aria-checked={checked}
+      <Switch
         checked={checked}
+        onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
         disabled={saving}
-        data-testid={testId}
-        onChange={(e) => onChange(e.target.checked)}
-        className={cm.cn('w-6 h-6 accent-primary')}
+        testId={testId}
+        aria-label={t(titleKey, {}, { defaultValue: titleDefault })}
       />
     </li>
   )
