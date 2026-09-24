@@ -9,7 +9,7 @@ import {
   useTranslation,
 } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { ConfirmButton, LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -563,21 +563,25 @@ function NotificationsPrefs() {
         label={t('settings.notifications.push', {}, { defaultValue: 'Push notifications' })}
         checked={pushEnabled}
         onChange={(v) => void togglePush(v)}
+        dataMolId="settings-notif-push"
       />
       <Toggle
         label={t('settings.notifications.tx', {}, { defaultValue: 'Transaction alerts' })}
         checked={tx}
         onChange={setTx}
+        dataMolId="settings-notif-tx"
       />
       <Toggle
         label={t('settings.notifications.security', {}, { defaultValue: 'Security events' })}
         checked={security}
         onChange={setSecurity}
+        dataMolId="settings-notif-security"
       />
       <Toggle
         label={t('settings.notifications.statements', {}, { defaultValue: 'Statements ready' })}
         checked={statements}
         onChange={setStatements}
+        dataMolId="settings-notif-statements"
       />
     </section>
   )
@@ -587,37 +591,29 @@ function Toggle({
   label,
   checked,
   onChange,
+  dataMolId,
 }: {
   label: string
   checked: boolean
   onChange: (v: boolean) => void
+  dataMolId: string
 }) {
   const cm = getClassMap()
   return (
-    <label className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'cursor-pointer')}>
+    <div className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'md' }))}>
       <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>{label}</span>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={checked}
-        onClick={() => onChange(!checked)}
-        className={cm.cn(
-          'relative inline-flex h-6 w-11 items-center',
-          cm.roundedFull,
-          'transition-colors',
-          checked ? 'bg-primary' : 'bg-outline-variant',
-        )}
-      >
-        <span
-          className={cm.cn(
-            'inline-block h-4 w-4',
-            cm.roundedFull,
-            'bg-on-primary transition-transform',
-            checked ? 'translate-x-6' : 'translate-x-1',
-          )}
-        />
-      </button>
-    </label>
+      {/* Shared accessible Switch (role=switch + aria-checked + 40×40 touch
+          hit-area). The visible label text sits to the left, so the control
+          gets its accessible name via aria-label. The shared Switch reports
+          the new value through a real change event on its hidden checkbox —
+          read it off `e.target.checked`. */}
+      <Switch
+        checked={checked}
+        aria-label={label}
+        data-mol-id={dataMolId}
+        onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
+      />
+    </div>
   )
 }
 
@@ -1006,8 +1002,6 @@ function TrustedDevicesPanel() {
   const http = useHttpClient()
   const [devices, setDevices] = useState<TrustedDevice[]>([])
   const [loading, setLoading] = useState(true)
-  const [confirmingId, setConfirmingId] = useState<string | null>(null)
-  const [revokingId, setRevokingId] = useState<string | null>(null)
 
   const load = useCallback(async () => {
     try {
@@ -1025,15 +1019,12 @@ function TrustedDevicesPanel() {
   }, [load])
 
   async function revoke(id: string) {
-    setRevokingId(id)
     try {
       await http.delete(`/api/devices/${id}`)
-      setConfirmingId(null)
       await load()
     } catch (_error) {
-      // Best-effort — keep the row so the user can retry the revoke.
-    } finally {
-      setRevokingId(null)
+      // Best-effort — the row stays and the ConfirmButton reverts to its
+      // idle state, so the user can retry the revoke.
     }
   }
 
@@ -1060,7 +1051,6 @@ function TrustedDevicesPanel() {
         ) : null
       ) : (
         devices.map((d) => {
-          const confirming = confirmingId === d.id
           return (
             <div key={d.id} className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}>
               <div>
@@ -1088,58 +1078,25 @@ function TrustedDevicesPanel() {
                     { defaultValue: 'Last seen {{when}}' },
                   )}
                 </p>
-                {confirming ? (
-                  <p className={cm.cn(cm.textSize('xs'), cm.textMuted, cm.sp('mt', 1))}>
-                    {t(
-                      'settings.security.revokeDeviceWarning',
-                      {},
-                      {
-                        defaultValue: "This device's access will be revoked shortly. Sign it out?",
-                      },
-                    )}
-                  </p>
-                ) : null}
               </div>
               {!d.current ? (
-                confirming ? (
-                  <div className={cm.flex({ align: 'center', gap: 'sm' })}>
-                    <button
-                      type="button"
-                      disabled={revokingId === d.id}
-                      onClick={() => setConfirmingId(null)}
-                      className={cm.cn(
-                        cm.textSize('sm'),
-                        'text-on-surface-variant hover:underline disabled:opacity-50',
-                      )}
-                    >
-                      {t('common.cancel', {}, { defaultValue: 'Cancel' })}
-                    </button>
-                    <button
-                      type="button"
-                      data-mol-id="device-revoke-confirm"
-                      disabled={revokingId === d.id}
-                      onClick={() => void revoke(d.id)}
-                      className={cm.cn(
-                        cm.textSize('sm'),
-                        cm.fontWeight('medium'),
-                        'text-error hover:underline disabled:opacity-50',
-                      )}
-                    >
-                      {revokingId === d.id
-                        ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
-                        : t('settings.signOutDevice', {}, { defaultValue: 'Sign out' })}
-                    </button>
-                  </div>
-                ) : (
-                  <button
-                    type="button"
-                    data-mol-id="device-revoke"
-                    onClick={() => setConfirmingId(d.id)}
-                    className={cm.cn(cm.textSize('sm'), 'text-error hover:underline')}
-                  >
-                    {t('settings.signOutDevice', {}, { defaultValue: 'Sign out' })}
-                  </button>
-                )
+                /* Shared two-step confirm (arm → "Confirm sign-out?" → commit,
+                   4s auto-disarm, Escape, aria-live, pending state) replacing
+                   the hand-rolled confirmingId flip — one accessible element
+                   for every state. */
+                <ConfirmButton
+                  label={t('settings.signOutDevice', {}, { defaultValue: 'Sign out' })}
+                  confirmLabel={t(
+                    'settings.security.revokeDeviceConfirm',
+                    {},
+                    { defaultValue: 'Confirm sign-out?' },
+                  )}
+                  pendingLabel={t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })}
+                  onConfirm={() => revoke(d.id)}
+                  color="error"
+                  size="sm"
+                  data-mol-id="device-revoke"
+                />
               ) : null}
             </div>
           )
