@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import { Link } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Alert, PromptDialog } from '@molecule/app-ui-react'
 
 import { fmtCount, fmtRelativeShort, type SamplePost, vividGradient } from '../lib/sample-feed.js'
 
@@ -16,7 +18,7 @@ interface PostCardProps {
   onToggleSave?: (postId: string) => void
 }
 
-async function copyPostLink(postId: string): Promise<void> {
+async function copyPostLink(postId: string, openManualCopy: (url: string) => void): Promise<void> {
   const url = `${window.location.origin}/posts/${postId}`
   try {
     if (navigator.share) {
@@ -29,8 +31,9 @@ async function copyPostLink(postId: string): Promise<void> {
   try {
     await navigator.clipboard.writeText(url)
   } catch (_error) {
-    // clipboard blocked — last-ditch fallback so the click is never a no-op
-    window.prompt('Copy this link', url)
+    // clipboard blocked — open the shared prompt dialog so the URL stays
+    // reachable (window.prompt hangs headless e2e and is awkward on touch)
+    openManualCopy(url)
   }
 }
 
@@ -50,7 +53,37 @@ async function copyPostLink(postId: string): Promise<void> {
 export function PostCard({ post, compact = false, onToggleLike, onToggleSave }: PostCardProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const [shareUrl, setShareUrl] = useState<string | null>(null)
+  const [shareError, setShareError] = useState<string | null>(null)
   const cover = vividGradient(post.cover_index)
+
+  const handleShare = (): void => {
+    void copyPostLink(post.id, (url) => {
+      setShareError(null)
+      setShareUrl(url)
+    })
+  }
+
+  const submitShareCopy = async (value: string): Promise<void> => {
+    try {
+      await navigator.clipboard.writeText(value)
+      setShareError(null)
+    } catch (_error) {
+      const message = t(
+        'postCard.copyFailed',
+        {},
+        { defaultValue: 'Automatic copy failed — select the link and copy it manually.' },
+      )
+      setShareError(message)
+      throw new Error(message, { cause: _error })
+    }
+  }
+
+  const closeShareDialog = (): void => {
+    setShareUrl(null)
+    setShareError(null)
+  }
+
   const aspectClass =
     post.aspect === 'tall'
       ? 'aspect-[4/5]'
@@ -117,9 +150,7 @@ export function PostCard({ post, compact = false, onToggleLike, onToggleSave }: 
           )}
           <button
             type="button"
-            onClick={() => {
-              void copyPostLink(post.id)
-            }}
+            onClick={handleShare}
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'center' }),
               'h-10 w-10 rounded-full text-on-surface-variant hover:text-on-surface transition-colors',
@@ -224,9 +255,7 @@ export function PostCard({ post, compact = false, onToggleLike, onToggleSave }: 
             </Link>
             <button
               type="button"
-              onClick={() => {
-                void copyPostLink(post.id)
-              }}
+              onClick={handleShare}
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),
                 cm.textSize('sm'),
@@ -310,6 +339,26 @@ export function PostCard({ post, compact = false, onToggleLike, onToggleSave }: 
           </span>
         </div>
       )}
+
+      <PromptDialog
+        open={shareUrl !== null}
+        onClose={closeShareDialog}
+        title={t('postCard.copyLinkTitle', {}, { defaultValue: 'Copy this link' })}
+        description={t(
+          'postCard.copyLinkDescription',
+          {},
+          { defaultValue: 'Copy the link below to share this post.' },
+        )}
+        initialValue={shareUrl ?? ''}
+        confirmLabel={t('common.copy', {}, { defaultValue: 'Copy' })}
+        cancelLabel={t('common.cancel', {}, { defaultValue: 'Cancel' })}
+        inputMolId="post-share-link-input"
+        confirmMolId="post-share-link-confirm"
+        cancelMolId="post-share-link-cancel"
+        onSubmit={submitShareCopy}
+      >
+        {shareError ? <Alert status="error">{shareError}</Alert> : null}
+      </PromptDialog>
     </article>
   )
 }

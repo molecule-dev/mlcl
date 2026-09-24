@@ -1,5 +1,8 @@
+import { useState } from 'react'
+
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Alert, PromptDialog } from '@molecule/app-ui-react'
 
 import { fmtCount, type SampleAuthor, vividGradient } from '../lib/sample-feed.js'
 
@@ -21,7 +24,7 @@ interface ProfileHeaderCardProps {
   eyebrow?: string
 }
 
-async function shareProfile(handle: string): Promise<void> {
+async function shareProfile(handle: string, openManualCopy: (url: string) => void): Promise<void> {
   const url = `${window.location.origin}/profile/${handle}`
   try {
     if (navigator.share) {
@@ -34,8 +37,9 @@ async function shareProfile(handle: string): Promise<void> {
   try {
     await navigator.clipboard.writeText(url)
   } catch (_error) {
-    // clipboard blocked — last-ditch fallback so the click is never a no-op
-    window.prompt('Copy this profile link', url)
+    // clipboard blocked — open the shared prompt dialog so the URL stays
+    // reachable (window.prompt hangs headless e2e and is awkward on touch)
+    openManualCopy(url)
   }
 }
 
@@ -61,7 +65,36 @@ export function ProfileHeaderCard({
 }: ProfileHeaderCardProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const [shareUrl, setShareUrl] = useState<string | null>(null)
+  const [shareError, setShareError] = useState<string | null>(null)
   const cover = vividGradient(author.cover_index)
+
+  const handleShare = (): void => {
+    void shareProfile(author.handle, (url) => {
+      setShareError(null)
+      setShareUrl(url)
+    })
+  }
+
+  const submitShareCopy = async (value: string): Promise<void> => {
+    try {
+      await navigator.clipboard.writeText(value)
+      setShareError(null)
+    } catch (_error) {
+      const message = t(
+        'profileHeaderCard.copyFailed',
+        {},
+        { defaultValue: 'Automatic copy failed — select the link and copy it manually.' },
+      )
+      setShareError(message)
+      throw new Error(message, { cause: _error })
+    }
+  }
+
+  const closeShareDialog = (): void => {
+    setShareUrl(null)
+    setShareError(null)
+  }
 
   return (
     <section
@@ -193,9 +226,7 @@ export function ProfileHeaderCard({
             )}
             <button
               type="button"
-              onClick={() => {
-                void shareProfile(author.handle)
-              }}
+              onClick={handleShare}
               className={cm.cn(
                 'h-10 w-10 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center justify-center',
               )}
@@ -206,6 +237,26 @@ export function ProfileHeaderCard({
           </div>
         </div>
       </div>
+
+      <PromptDialog
+        open={shareUrl !== null}
+        onClose={closeShareDialog}
+        title={t('profileHeaderCard.copyLinkTitle', {}, { defaultValue: 'Copy this profile link' })}
+        description={t(
+          'profileHeaderCard.copyLinkDescription',
+          {},
+          { defaultValue: 'Copy the link below to share this profile.' },
+        )}
+        initialValue={shareUrl ?? ''}
+        confirmLabel={t('common.copy', {}, { defaultValue: 'Copy' })}
+        cancelLabel={t('common.cancel', {}, { defaultValue: 'Cancel' })}
+        inputMolId="profile-share-link-input"
+        confirmMolId="profile-share-link-confirm"
+        cancelMolId="profile-share-link-cancel"
+        onSubmit={submitShareCopy}
+      >
+        {shareError ? <Alert status="error">{shareError}</Alert> : null}
+      </PromptDialog>
     </section>
   )
 }
