@@ -139,9 +139,13 @@ test.describe('/flags/:key', () => {
     const flag = await pickFlag(page)
     await page.goto(APP_BASE + '/flags/' + flag.key)
     await page.waitForTimeout(1500)
-    page.once('dialog', (d) => d.accept())
+    // ConfirmButton two-step: first click arms (confirm label appears),
+    // second click commits the deletion.
+    const deleteBtn = page.locator('[data-mol-id="flag-detail-delete"]')
+    await deleteBtn.click()
+    await expect(deleteBtn).toContainText(/This cannot be undone/)
     const reqs = await captureNetwork(page, async () => {
-      await page.locator('[data-mol-id="flag-detail-delete"]').click()
+      await deleteBtn.click()
       await page.waitForTimeout(2000)
     })
     const del = reqs.find((r) => r.method === 'DELETE' && /\/api\/flags\/[0-9a-f-]+/.test(r.url))

@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { type AuditAction, AuditEntry, type AuditEntryData } from '../components/AuditEntry.js'
 
@@ -247,16 +248,6 @@ export function SegmentDetail() {
 
   const onDelete = async () => {
     if (!segment) return
-    if (
-      !window.confirm(
-        t(
-          'segmentDetail.deleteConfirm',
-          { key: segment.key },
-          { defaultValue: 'Delete segment {{key}}?' },
-        ),
-      )
-    )
-      return
     await http.delete(`/api/segments/${segment.id}`)
     void track({
       name: 'segment.deleted',
@@ -384,23 +375,21 @@ export function SegmentDetail() {
           <div
             className={cm.cn(cm.flex({ direction: 'col', align: 'end', gap: 'sm' }), 'shrink-0')}
           >
-            <button
-              type="button"
-              onClick={() => void onDelete()}
-              className={cm.cn(
-                'inline-flex items-center gap-1 rounded-md px-2.5 py-1 font-mono text-[11px] font-bold',
+            {/* Two-step destructive action: arm → confirm label → commit.
+                Escape disarms, 6s auto-disarm, aria-live announces the arm. */}
+            <ConfirmButton
+              label={t('segmentDetail.delete', {}, { defaultValue: 'Delete segment' })}
+              confirmLabel={t(
+                'segmentDetail.deleteConfirm',
+                { key: segment.key },
+                { defaultValue: 'Delete segment {{key}}?' },
               )}
-              style={{
-                backgroundColor: 'var(--color-error-chip-bg)',
-                color: 'var(--color-error-chip-text)',
-              }}
+              onConfirm={onDelete}
+              color="error"
+              size="sm"
+              disarmSeconds={6}
               data-mol-id="segment-detail-delete"
-            >
-              <span className={cm.cn('material-symbols-outlined text-[14px]')} aria-hidden="true">
-                delete
-              </span>
-              {t('segmentDetail.delete', {}, { defaultValue: 'Delete segment' })}
-            </button>
+            />
           </div>
         </div>
       </div>

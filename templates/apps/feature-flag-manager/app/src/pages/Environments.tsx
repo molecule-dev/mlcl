@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { EnvironmentBadge, type EnvTone } from '../components/EnvironmentBadge.js'
 import { SDKKeyDisplay } from '../components/SDKKeyDisplay.js'
@@ -100,19 +101,6 @@ export function Environments() {
   }
 
   const onRotateKeys = async (env: EnvApi) => {
-    if (
-      !window.confirm(
-        t(
-          'environments.rotateConfirm',
-          { name: env.name },
-          {
-            defaultValue:
-              'Rotate SDK + client keys for {{name}}? Existing integrations will need to be updated.',
-          },
-        ),
-      )
-    )
-      return
     setActionError(null)
     try {
       await http.put(`/api/environments/${env.id}`, { rotate_keys: true })
@@ -127,16 +115,6 @@ export function Environments() {
   }
 
   const onDelete = async (env: EnvApi) => {
-    if (
-      !window.confirm(
-        t(
-          'environments.deleteConfirm',
-          { name: env.name },
-          { defaultValue: 'Delete environment {{name}}?' },
-        ),
-      )
-    )
-      return
     setActionError(null)
     try {
       await http.delete(`/api/environments/${env.id}`)
@@ -380,46 +358,38 @@ export function Environments() {
                 </div>
 
                 <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mt', 4))}>
-                  <button
-                    type="button"
-                    onClick={() => void onRotateKeys(env)}
-                    className={cm.cn(
-                      'inline-flex items-center gap-1 rounded-md px-3 py-1.5 font-mono text-xs font-bold',
+                  {/* Two-step actions: arm → confirm label → commit. Escape
+                      disarms, 6s auto-disarm, aria-live announces the arm. */}
+                  <ConfirmButton
+                    label={t('environments.rotateKeys', {}, { defaultValue: 'Rotate keys' })}
+                    confirmLabel={t(
+                      'environments.rotateConfirm',
+                      { name: env.name },
+                      {
+                        defaultValue:
+                          'Rotate SDK + client keys for {{name}}? Existing integrations will need to be updated.',
+                      },
                     )}
-                    style={{
-                      backgroundColor: 'var(--color-accent-chip-bg)',
-                      color: 'var(--color-accent-chip-text)',
-                    }}
+                    onConfirm={() => onRotateKeys(env)}
+                    color="info"
+                    size="sm"
+                    disarmSeconds={6}
                     data-mol-id={`env-rotate-${env.key}`}
-                  >
-                    <span
-                      className={cm.cn('material-symbols-outlined text-[14px]')}
-                      aria-hidden="true"
-                    >
-                      refresh
-                    </span>
-                    {t('environments.rotateKeys', {}, { defaultValue: 'Rotate keys' })}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => void onDelete(env)}
-                    className={cm.cn(
-                      'ml-auto inline-flex items-center gap-1 rounded-md px-3 py-1.5 font-mono text-xs font-bold',
+                  />
+                  <ConfirmButton
+                    label={t('common.delete', {}, { defaultValue: 'Delete' })}
+                    confirmLabel={t(
+                      'environments.deleteConfirm',
+                      { name: env.name },
+                      { defaultValue: 'Delete environment {{name}}?' },
                     )}
-                    style={{
-                      backgroundColor: 'var(--color-error-chip-bg)',
-                      color: 'var(--color-error-chip-text)',
-                    }}
+                    onConfirm={() => onDelete(env)}
+                    color="error"
+                    size="sm"
+                    disarmSeconds={6}
+                    className={cm.cn('ml-auto')}
                     data-mol-id={`env-delete-${env.key}`}
-                  >
-                    <span
-                      className={cm.cn('material-symbols-outlined text-[14px]')}
-                      aria-hidden="true"
-                    >
-                      delete
-                    </span>
-                    {t('common.delete', {}, { defaultValue: 'Delete' })}
-                  </button>
+                  />
                 </div>
               </article>
             )

@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ConfirmButton } from '@molecule/app-ui-react'
 
 import { type AuditAction, AuditEntry, type AuditEntryData } from '../components/AuditEntry.js'
 import { EnvironmentBadge, type EnvTone } from '../components/EnvironmentBadge.js'
@@ -242,16 +243,6 @@ export function FlagDetail() {
 
   const onDeleteFlag = async () => {
     if (!flag) return
-    if (
-      !window.confirm(
-        t(
-          'flagDetail.deleteConfirm',
-          { key: flag.key },
-          { defaultValue: 'Delete flag {{key}}? This cannot be undone.' },
-        ),
-      )
-    )
-      return
     try {
       await http.delete(`/api/flags/${flag.id}`)
       void track({ name: 'flag.deleted', properties: { flag_id: flag.id, key: flag.key } })
@@ -400,23 +391,21 @@ export function FlagDetail() {
                 { defaultValue: 'edited by {{who}} · {{when}}' },
               )}
             </p>
-            <button
-              type="button"
-              onClick={() => void onDeleteFlag()}
-              className={cm.cn(
-                'inline-flex min-h-[28px] items-center gap-1 rounded-md px-2.5 py-1.5 font-mono text-[11px] font-bold',
+            {/* Two-step destructive action: arm → confirm label → commit.
+                Escape disarms, 6s auto-disarm, aria-live announces the arm. */}
+            <ConfirmButton
+              label={t('flagDetail.delete', {}, { defaultValue: 'Delete flag' })}
+              confirmLabel={t(
+                'flagDetail.deleteConfirm',
+                { key: flag.key },
+                { defaultValue: 'Delete flag {{key}}? This cannot be undone.' },
               )}
-              style={{
-                backgroundColor: 'var(--color-error-chip-bg)',
-                color: 'var(--color-error-chip-text)',
-              }}
+              onConfirm={onDeleteFlag}
+              color="error"
+              size="sm"
+              disarmSeconds={6}
               data-mol-id="flag-detail-delete"
-            >
-              <span className={cm.cn('material-symbols-outlined text-[14px]')} aria-hidden="true">
-                delete
-              </span>
-              {t('flagDetail.delete', {}, { defaultValue: 'Delete flag' })}
-            </button>
+            />
           </div>
         </div>
       </div>

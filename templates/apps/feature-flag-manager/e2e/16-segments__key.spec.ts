@@ -128,9 +128,13 @@ test.describe('/segments/:key', () => {
     const seg = created.json as { id: string; key: string }
     await page.goto(APP_BASE + `/segments/${seg.key}`)
     await page.waitForTimeout(1500)
-    page.once('dialog', (d) => d.accept())
+    // ConfirmButton two-step: first click arms (confirm label appears),
+    // second click commits the deletion.
+    const deleteBtn = page.locator('[data-mol-id="segment-detail-delete"]')
+    await deleteBtn.click()
+    await expect(deleteBtn).toContainText(/Delete segment .+\?/)
     const reqs = await captureNetwork(page, async () => {
-      await page.locator('[data-mol-id="segment-detail-delete"]').click()
+      await deleteBtn.click()
       await page.waitForTimeout(2000)
     })
     const del = reqs.find((r) => r.method === 'DELETE' && /\/api\/segments\/[0-9a-f-]+/.test(r.url))

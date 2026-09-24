@@ -80,9 +80,13 @@ test.describe('/environments', () => {
     const oldSdk = target.sdk_key
     const oldClient = target.client_key
     await page.goto(APP_BASE + '/environments')
-    page.once('dialog', (d) => d.accept())
+    // ConfirmButton two-step: first click arms (confirm label appears),
+    // second click commits the rotation.
+    const rotateBtn = page.locator(`[data-mol-id="env-rotate-${target.key}"]`)
+    await rotateBtn.click()
+    await expect(rotateBtn).toContainText(/Existing integrations/)
     const reqs = await captureNetwork(page, async () => {
-      await page.locator(`[data-mol-id="env-rotate-${target.key}"]`).click()
+      await rotateBtn.click()
       await page.waitForTimeout(2000)
     })
     const put = reqs.find(
@@ -111,9 +115,13 @@ test.describe('/environments', () => {
     const created = list.json as { id: string; key: string }
     await page.goto(APP_BASE + '/environments')
     await expect(page.locator(`[data-mol-id="env-card-${created.key}"]`)).toBeVisible()
-    page.once('dialog', (d) => d.accept())
+    // ConfirmButton two-step: first click arms (confirm label appears),
+    // second click commits the deletion.
+    const deleteBtn = page.locator(`[data-mol-id="env-delete-${created.key}"]`)
+    await deleteBtn.click()
+    await expect(deleteBtn).toContainText(/Delete environment .+\?/)
     const reqs = await captureNetwork(page, async () => {
-      await page.locator(`[data-mol-id="env-delete-${created.key}"]`).click()
+      await deleteBtn.click()
       await page.waitForTimeout(2000)
     })
     const del = reqs.find(
