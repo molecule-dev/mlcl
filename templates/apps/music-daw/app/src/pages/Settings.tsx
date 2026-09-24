@@ -5,7 +5,7 @@ import { unwrapSingle } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
+import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 
@@ -265,7 +265,7 @@ export function Settings() {
                 { defaultValue: 'Click track plays through monitor only.' },
               )}
               on={prefs.metronome ?? DEFAULTS.metronome}
-              onToggle={() => updateField('metronome', !(prefs.metronome ?? DEFAULTS.metronome))}
+              onToggle={(next) => updateField('metronome', next)}
             />
           </SettingsSection>
 
@@ -359,7 +359,7 @@ export function Settings() {
                 { defaultValue: 'Keep your work safe even if a tab crashes.' },
               )}
               on={prefs.autoSave ?? DEFAULTS.autoSave}
-              onToggle={() => updateField('autoSave', !(prefs.autoSave ?? DEFAULTS.autoSave))}
+              onToggle={(next) => updateField('autoSave', next)}
             />
             <ToggleRow
               label={t('settings.pushNotifications', {}, { defaultValue: 'Push notifications' })}
@@ -369,12 +369,7 @@ export function Settings() {
                 { defaultValue: 'Get notified when collaborators leave a comment.' },
               )}
               on={prefs.pushNotifications ?? DEFAULTS.pushNotifications}
-              onToggle={() =>
-                updateField(
-                  'pushNotifications',
-                  !(prefs.pushNotifications ?? DEFAULTS.pushNotifications),
-                )
-              }
+              onToggle={(next) => updateField('pushNotifications', next)}
             />
           </SettingsSection>
 
@@ -580,7 +575,7 @@ function ToggleRow({
   label: string
   description?: string
   on: boolean
-  onToggle: () => void
+  onToggle: (next: boolean) => void
 }) {
   const cm = getClassMap()
   return (
@@ -595,28 +590,11 @@ function ToggleRow({
           <p className={cm.cn('text-xs text-on-surface-variant mt-0.5')}>{description}</p>
         )}
       </div>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={on}
+      <Switch
+        checked={on}
+        onChange={(e) => onToggle((e.target as HTMLInputElement).checked)}
         aria-label={label}
-        onClick={onToggle}
-        className={cm.cn(
-          'w-11 h-6 rounded-full relative transition-colors shrink-0 before:content-[""] before:absolute before:-inset-2',
-        )}
-        style={{
-          // Token (not a white alpha) so the off state stays visible in light mode.
-          backgroundColor: on ? 'var(--daw-primary)' : 'var(--mol-color-border-secondary)',
-        }}
-      >
-        <span
-          className={cm.cn(
-            'absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform',
-          )}
-          style={{ transform: on ? 'translateX(22px)' : 'translateX(2px)' }}
-          aria-hidden="true"
-        />
-      </button>
+      />
     </div>
   )
 }
