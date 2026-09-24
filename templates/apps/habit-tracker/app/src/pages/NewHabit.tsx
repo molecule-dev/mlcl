@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 const CATEGORIES = [
   { id: 'health', label: 'Health', emoji: '💪', color: '#10b981' },
@@ -284,37 +285,16 @@ export function NewHabit() {
               )}
             />
           </div>
-          <label className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'cursor-pointer')}>
+          <div className={cm.flex({ align: 'center', gap: 'sm' })}>
             <span className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'), 'text-on-surface')}>
               {t('newHabit.remindersLabel', {}, { defaultValue: 'Remind me' })}
             </span>
-            <button
-              type="button"
-              role="switch"
-              aria-checked={reminders}
+            <Switch
+              checked={reminders}
+              onChange={(e) => setReminders((e.target as HTMLInputElement).checked)}
               aria-label={t('newHabit.remindersLabel', {}, { defaultValue: 'Remind me' })}
-              onClick={() => setReminders((r) => !r)}
-              className={cm.cn(
-                'relative w-14 h-8 rounded-full transition-colors',
-                reminders ? '' : 'bg-surface-container border border-outline-variant',
-              )}
-              style={
-                reminders
-                  ? {
-                      background:
-                        'linear-gradient(90deg, var(--color-gradient-hero-start), var(--color-gradient-hero-end))',
-                    }
-                  : undefined
-              }
-            >
-              <span
-                className={cm.cn(
-                  'absolute top-1 w-6 h-6 rounded-full bg-surface shadow-sm transition-all',
-                )}
-                style={{ left: reminders ? '1.75rem' : '0.25rem' }}
-              />
-            </button>
-          </label>
+            />
+          </div>
         </div>
 
         <div>
