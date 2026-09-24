@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { useHttpClient, useTranslation, useUser } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { Switch } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 
@@ -663,27 +664,15 @@ function Toggle({
           <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>{hint}</p>
         ) : null}
       </div>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={checked}
-        aria-label={label}
+      {/* Shared accessible switch (role=switch, 40x40 touch hit-area). The
+          visible label/hint above is the row's text; aria-label gives the
+          control its accessible name, data-mol-id keeps the e2e contract. */}
+      <Switch
         data-mol-id={molId}
-        onClick={() => onChange(!checked)}
-        className={cm.cn(
-          'relative h-6 w-11 rounded-full transition-colors',
-          checked ? 'bg-primary' : 'bg-surface-container-high',
-        )}
-      >
-        <span
-          className={cm.cn(
-            'absolute top-0.5 left-0.5 h-5 w-5 bg-surface-container-lowest shadow transition-transform',
-            cm.roundedFull,
-            checked ? 'translate-x-5' : '',
-          )}
-          aria-hidden="true"
-        />
-      </button>
+        aria-label={label}
+        checked={checked}
+        onChange={(e) => onChange((e.target as HTMLInputElement).checked)}
+      />
     </div>
   )
 }

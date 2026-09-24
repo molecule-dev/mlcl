@@ -633,6 +633,11 @@ function AccountManagementSection() {
             {t('settings.pushNotifications', {}, { defaultValue: 'Enable push notifications' })}
           </span>
           <Switch
+            aria-label={t(
+              'settings.pushNotifications',
+              {},
+              { defaultValue: 'Enable push notifications' },
+            )}
             checked={pushEnabled}
             disabled={pushBusy}
             onChange={(e) => handleTogglePush((e.target as HTMLInputElement).checked)}
