@@ -13,8 +13,8 @@
  * Read-heavy tools are safe by construction; the scaffold tool only ever runs
  * `mlcl create --no-interactive` with explicit arguments.
  */
-import { readFileSync } from 'node:fs'
-import { dirname, join } from 'node:path'
+import { existsSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import { basename, dirname, extname, join, resolve } from 'node:path'
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 
@@ -524,6 +524,115 @@ server.registerTool(
           ...(source_lang ? { sourceLang: source_lang } : {}),
           ...(protect?.length ? { protect } : {}),
           ...(context ? { context } : {}),
+        },
+        directory,
+      )
+      return JSON.stringify(result)
+    }),
+  ),
+)
+
+const AUDIO_FORMATS = ['mp3', 'opus', 'aac', 'flac', 'wav', 'pcm'] as const
+
+server.registerTool(
+  'text_to_speech',
+  {
+    title: 'Text to speech with molecule.dev',
+    description:
+      'Synthesize speech on molecule.dev (OpenAI tts-1 / tts-1-hd, no OpenAI account; metered to the project whose MOLECULE_API_KEY is used) and write the audio to output_file. Up to 4096 characters per call. The same service backs @molecule/api-ai-speech-molecule in app code.',
+    inputSchema: {
+      text: z.string().min(1).max(4096),
+      output_file: z
+        .string()
+        .describe('Where to write the audio; its extension must match the format (e.g. out.mp3)'),
+      voice: z
+        .enum(['alloy', 'ash', 'coral', 'echo', 'fable', 'nova', 'onyx', 'sage', 'shimmer'])
+        .optional(),
+      model: z.enum(['tts-1', 'tts-1-hd']).optional(),
+      format: z.enum(AUDIO_FORMATS).optional().describe('Default mp3'),
+      speed: z.number().min(0.25).max(4).optional(),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked(
+    'text_to_speech',
+    async ({ text: input, output_file, voice, model, format, speed, directory }) =>
+      serviceResult(async () => {
+        const responseFormat = format ?? 'mp3'
+        const target = resolve(output_file)
+        if (extname(target).toLowerCase() !== `.${responseFormat}`) {
+          throw new ServiceCallError(
+            `output_file must end in .${responseFormat} for format ${responseFormat}.`,
+          )
+        }
+        if (!existsSync(dirname(target))) {
+          throw new ServiceCallError(`Directory ${dirname(target)} does not exist.`)
+        }
+        const result = (await callHostedService(
+          'speech',
+          'synthesize',
+          {
+            input,
+            responseFormat,
+            ...(voice ? { voice } : {}),
+            ...(model ? { model } : {}),
+            ...(speed ? { speed } : {}),
+          },
+          directory,
+        )) as { audio: string; contentType: string }
+        const audio = Buffer.from(result.audio, 'base64')
+        writeFileSync(target, audio)
+        return JSON.stringify({
+          wroteTo: target,
+          bytes: audio.length,
+          contentType: result.contentType,
+        })
+      }),
+  ),
+)
+
+server.registerTool(
+  'transcribe_audio',
+  {
+    title: 'Transcribe audio with molecule.dev',
+    description:
+      'Transcribe a local audio file (mp3, mp4, m4a, wav, webm, ogg, flac; up to 12 MB) to text on molecule.dev with whisper-1, metered to the project whose MOLECULE_API_KEY is used. Returns text, language, duration and segments.',
+    inputSchema: {
+      file: z.string().describe('Path of the audio file'),
+      language: z
+        .string()
+        .regex(/^[a-z]{2}$/)
+        .optional()
+        .describe('ISO 639-1 hint, e.g. en'),
+      prompt: z.string().max(2000).optional().describe('Spelling hints: names, jargon'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('transcribe_audio', async ({ file, language, prompt, directory }) =>
+    serviceResult(async () => {
+      const path = resolve(file)
+      if (!existsSync(path)) throw new ServiceCallError(`No file at ${path}.`)
+      const size = statSync(path).size
+      if (size > 12 * 1024 * 1024) {
+        throw new ServiceCallError(
+          `The file is ${size} bytes; the limit is 12 MB. Split it into shorter clips.`,
+        )
+      }
+      const name = basename(path)
+      const result = await callHostedService(
+        'speech',
+        'transcribe',
+        {
+          audio: readFileSync(path).toString('base64'),
+          filename: /^[\w.-]{1,100}$/.test(name) ? name : `audio${extname(path) || '.mp3'}`,
+          ...(language ? { language } : {}),
+          ...(prompt ? { prompt } : {}),
         },
         directory,
       )

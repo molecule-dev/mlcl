@@ -98,12 +98,12 @@ export async function callHostedService(
     const err = data as { error?: string; errorKey?: string }
     const hint =
       response.status === 401
-        ? ` The key from ${found.source} was rejected — it may be revoked; create a new one with create_api_key.`
+        ? ` The key from ${found.source} was rejected: it is revoked, or its scopes do not include this service. Create one with create_api_key (the default scope covers every service).`
         : response.status === 402
           ? ' The project owner has used their included allowance; they can enable usage billing on molecule.dev.'
           : ''
     throw new ServiceCallError(
-      `${service}/${operation} failed (${response.status} ${err.errorKey ?? ''}): ${err.error ?? 'error'}.${hint}`,
+      `${service}/${operation} failed (${response.status} ${err.errorKey ?? ''}): ${(err.error ?? 'error').replace(/[.\s]+$/, '')}.${hint}`,
     )
   }
   return data

@@ -78,6 +78,8 @@ registry listings (one-click), and for Claude Code the full plugin —
 | `list_projects`        | Your molecule.dev projects (ids for `create_api_key`)                 |
 | `create_api_key`       | Mint a project API key into the project `.env` (never shown in chat)  |
 | `embed_text`           | Embeddings on molecule.dev, billed to the project — no OpenAI account |
+| `text_to_speech`       | Speech audio from text on molecule.dev, written to a local file       |
+| `transcribe_audio`     | Text from a local audio file on molecule.dev (whisper-1)              |
 
 Plus the `molecule://conventions` resource — the molecule doctrine
 (packages before hand-rolled code, bonds for providers, ClassMap, i18n) that
@@ -120,7 +122,7 @@ project, through that project's API key:
 2. `create_api_key` with `env_file` pointing at the project's `.env`. The
    key is written there as `MOLECULE_API_KEY` (file mode 0600) and is not
    returned to the agent. Check that the file is gitignored.
-3. Service tools (`embed_text`) read the key from that `.env` (pass
+3. Service tools (`embed_text`, `text_to_speech`, `transcribe_audio`, …) read the key from that `.env` (pass
    `directory`) or from `MOLECULE_API_KEY` in this server's environment.
 
 The same HTTP API (`POST https://api.molecule.dev/api/v1/services/<service>/<operation>`,
