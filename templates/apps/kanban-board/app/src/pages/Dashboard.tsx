@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router'
 import type { TranslateFunction } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { KpiTile } from '../components/KpiTile.js'
@@ -185,27 +186,10 @@ export function Dashboard() {
       </header>
 
       {loadError ? (
-        <div
-          role="alert"
-          className={cm.cn(
-            cm.sp('p', 4),
-            'flex flex-wrap items-center gap-3 rounded-xl border border-error/40 bg-error/5',
-          )}
-        >
-          <p className="text-error font-semibold flex-1">
-            {t('dashboard.loadError', {}, { defaultValue: 'Could not load your dashboard.' })}
-          </p>
-          <button
-            type="button"
-            onClick={() => void refresh()}
-            className={cm.cn(
-              'px-4 py-2 rounded-xl text-sm font-bold text-white',
-              'bg-gradient-to-br from-primary to-primary-container hover:opacity-95 transition-opacity',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-        </div>
+        <LoadErrorBanner
+          message={t('dashboard.loadError', {}, { defaultValue: 'Could not load your dashboard.' })}
+          onRetry={refresh}
+        />
       ) : null}
 
       {loading && boards.length === 0 ? (
