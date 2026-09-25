@@ -4899,7 +4899,7 @@
       "intentHints": [
         "openai moderation",
         "content moderation classifier",
-        "flag toxic content"
+        "detect toxic content"
       ],
       "egressHosts": [
         "api.openai.com"
