@@ -36,9 +36,13 @@ test.describe('redirect-only routes', () => {
   for (const r of REDIRECTS) {
     test(`route ${r.from} redirects off itself`, async ({ page }) => {
       await page.goto(APP_BASE + r.from)
-      await page.waitForLoadState('networkidle')
-      const url = new URL(page.url())
-      expect(url.pathname).not.toBe(r.mustNotEqual)
+      // The redirect is a client-side <Navigate>: the SPA can still be
+      // hydrating when the network goes idle, so a one-shot URL read races
+      // the mount (seen as a flake under load). Poll until the URL settles
+      // off the redirect path instead.
+      await expect
+        .poll(() => new URL(page.url()).pathname, { timeout: 10_000 })
+        .not.toBe(r.mustNotEqual)
     })
   }
 })

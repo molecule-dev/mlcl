@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import MobileTopBar from '../components/MobileTopBar.js'
-import SideNavBar from '../components/SideNavBar.js'
+import { ChatShell } from '../components/ChatShell.js'
 import TopNavBar from '../components/TopNavBar.js'
 
 interface MessageRow {
@@ -45,66 +44,55 @@ export function Notifications() {
   }, [http])
 
   return (
-    <div
+    <ChatShell
       className={cm.cn(cm.surface, cm.h('screen'), cm.w('full'), 'text-on-surface overflow-hidden')}
+      contentMolId="page-notifications"
+      contentClassName={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, cm.surface, 'min-h-0')}
     >
-      <SideNavBar />
-      <div
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          cm.h('screen'),
-          'ml-0 w-full md:ml-[260px] md:w-[calc(100%-260px)]',
-        )}
-      >
-        <MobileTopBar />
-        <TopNavBar />
-        <main
-          data-mol-id="page-notifications"
-          className={cm.cn(cm.flex1, cm.surface, 'overflow-y-auto', cm.sp('px', 6), cm.sp('py', 8))}
-        >
-          <div className={cm.cn(cm.mxAuto, 'max-w-3xl')}>
-            <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 6))}>
-              {t('settings.notifications', {}, { defaultValue: 'Notifications' })}
-            </h1>
-            {mentions === null && (
-              <p data-mol-id="notifications-loading" className={cm.textMuted}>
-                {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
-              </p>
-            )}
-            {mentions !== null && mentions.length === 0 && (
-              <p data-mol-id="notifications-empty" className={cm.textMuted}>
-                {t('notifications.empty', {}, { defaultValue: "You're all caught up." })}
-              </p>
-            )}
-            {mentions && mentions.length > 0 && (
-              <ul
-                data-mol-id="notifications-list"
-                className={cm.cn(cm.stack(3))}
-                style={{ listStyle: 'none', padding: 0, margin: 0 }}
-              >
-                {mentions.map((m) => (
-                  <li
-                    key={String(m.id)}
-                    data-mol-id="notifications-item"
-                    className={cm.cn(cm.card({ variant: 'default' }), cm.sp('p', 4))}
-                  >
-                    <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
-                      {String(
-                        m.user_name ??
-                          t('notifications.unknownUser', {}, { defaultValue: 'Someone' }),
-                      )}
-                    </p>
-                    <p className={cm.textMuted} style={{ marginTop: 4 }}>
-                      {String(m.content ?? '')}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </main>
+      <TopNavBar />
+      <div className={cm.cn(cm.flex1, 'min-h-0 overflow-y-auto', cm.sp('px', 6), cm.sp('py', 8))}>
+        <div className={cm.cn(cm.mxAuto, 'max-w-3xl')}>
+          <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 6))}>
+            {t('settings.notifications', {}, { defaultValue: 'Notifications' })}
+          </h1>
+          {mentions === null && (
+            <p data-mol-id="notifications-loading" className={cm.textMuted}>
+              {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
+            </p>
+          )}
+          {mentions !== null && mentions.length === 0 && (
+            <p data-mol-id="notifications-empty" className={cm.textMuted}>
+              {t('notifications.empty', {}, { defaultValue: "You're all caught up." })}
+            </p>
+          )}
+          {mentions && mentions.length > 0 && (
+            <ul
+              data-mol-id="notifications-list"
+              className={cm.cn(cm.stack(3))}
+              style={{ listStyle: 'none', padding: 0, margin: 0 }}
+            >
+              {mentions.map((m) => (
+                <li
+                  key={String(m.id)}
+                  data-mol-id="notifications-item"
+                  className={cm.cn(cm.card({ variant: 'default' }), cm.sp('p', 4))}
+                >
+                  <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
+                    {String(
+                      m.user_name ??
+                        t('notifications.unknownUser', {}, { defaultValue: 'Someone' }),
+                    )}
+                  </p>
+                  <p className={cm.textMuted} style={{ marginTop: 4 }}>
+                    {String(m.content ?? '')}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
-    </div>
+    </ChatShell>
   )
 }
 

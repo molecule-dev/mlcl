@@ -52,7 +52,7 @@ export default function TopNavBar() {
         cm.sp('px', 6),
         cm.h(14),
         'sticky top-0 z-40 w-full glass-header shadow-[0_1px_0_0_rgba(0,0,0,0.05)]',
-        // <768px the drawer (SideNavBar) + MobileTopBar own navigation; the
+        // <768px the shared shell's drawer + TopBar own navigation; the
         // desktop utility bar would duplicate them and overflow 390px.
         'max-md:hidden',
       )}

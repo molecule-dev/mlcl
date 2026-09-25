@@ -8,12 +8,11 @@ import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { ChatShell } from '../components/ChatShell.js'
 import DashboardRightColumn from '../components/DashboardRightColumn.js'
 import FloatingActionButton from '../components/FloatingActionButton.js'
 import MessagePreviewCard from '../components/MessagePreviewCard.js'
-import MobileTopBar from '../components/MobileTopBar.js'
 import QuickActionCard from '../components/QuickActionCard.js'
-import SideNavBar from '../components/SideNavBar.js'
 import TopNavBar from '../components/TopNavBar.js'
 import WelcomeHero from '../components/WelcomeHero.js'
 
@@ -127,181 +126,166 @@ function Dashboard() {
   }
 
   return (
-    <div
+    <ChatShell
       className={cm.cn(
         cm.surface,
         cm.h('screen'),
         cm.w('full'),
         'text-on-surface antialiased overflow-hidden',
       )}
+      contentClassName={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, cm.surface, 'min-h-0')}
     >
-      <SideNavBar />
-      <div
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          cm.h('screen'),
-          'ml-0 w-full md:ml-[260px] md:w-[calc(100%-260px)]',
-        )}
-      >
-        <MobileTopBar />
-        <TopNavBar />
-        <main className={cm.cn(cm.flex1, cm.surface, 'overflow-y-auto p-4 sm:p-6 md:p-12')}>
-          <div className={cm.cn(cm.mxAuto, cm.stack(12), cm.maxW('5xl'))}>
-            {/* Welcome Hero Section */}
-            <WelcomeHero />
-            <div className={cm.cn(cm.grid({ cols: 1, gap: 'xl' }), 'xl:grid-cols-3')}>
-              {/* Left Column: Quick Actions & Activity */}
-              <div className={cm.cn(cm.stack(8), 'xl:col-span-2')}>
-                {/* Quick Actions Grid */}
-                <div>
+      <TopNavBar />
+      <div className={cm.cn(cm.flex1, 'min-h-0 overflow-y-auto p-4 sm:p-6 md:p-12')}>
+        <div className={cm.cn(cm.mxAuto, cm.stack(12), cm.maxW('5xl'))}>
+          {/* Welcome Hero Section */}
+          <WelcomeHero />
+          <div className={cm.cn(cm.grid({ cols: 1, gap: 'xl' }), 'xl:grid-cols-3')}>
+            {/* Left Column: Quick Actions & Activity */}
+            <div className={cm.cn(cm.stack(8), 'xl:col-span-2')}>
+              {/* Quick Actions Grid */}
+              <div>
+                <h3
+                  className={cm.cn(
+                    cm.textSize('sm'),
+                    cm.fontWeight('bold'),
+                    cm.sp('mb', 6),
+                    'text-on-surface-variant uppercase tracking-widest',
+                  )}
+                >
+                  {t('dashboard.quickActions', {}, { defaultValue: 'Quick Actions' })}
+                </h3>
+                <div className={cm.cn(cm.grid({ cols: 1, gap: 'md' }), 'sm:grid-cols-2')}>
+                  <QuickActionCard
+                    icon="add_circle"
+                    title={t('dashboard.createChannel', {}, { defaultValue: 'Create Channel' })}
+                    description={t(
+                      'dashboard.createChannelDesc',
+                      {},
+                      { defaultValue: 'Setup a new space for collaboration' },
+                    )}
+                    onClick={() => setShowCreate(true)}
+                  />
+                  <QuickActionCard
+                    icon="chat"
+                    title={t('dashboard.startDm', {}, { defaultValue: 'Start DM' })}
+                    description={t(
+                      'dashboard.startDmDesc',
+                      {},
+                      { defaultValue: 'Message a team member directly' },
+                    )}
+                    onClick={() => setShowCreate(true)}
+                  />
+                  <QuickActionCard
+                    icon="search_check"
+                    title={t('dashboard.browseChannels', {}, { defaultValue: 'Browse Channels' })}
+                    description={t(
+                      'dashboard.browseChannelsDesc',
+                      {},
+                      { defaultValue: 'Explore existing public discussions' },
+                    )}
+                    onClick={() => {
+                      const el = document.querySelector('[data-mol-id="side-nav-channels"]')
+                      if (el && 'scrollIntoView' in el)
+                        (el as HTMLElement).scrollIntoView({ behavior: 'smooth' })
+                    }}
+                  />
+                  <QuickActionCard
+                    icon="person_add"
+                    title={t('dashboard.inviteMembers', {}, { defaultValue: 'Invite Members' })}
+                    description={t(
+                      'dashboard.inviteMembersDesc',
+                      {},
+                      { defaultValue: 'Grow your workspace' },
+                    )}
+                    onClick={() => navigate('/settings')}
+                  />
+                </div>
+              </div>
+              {/* Unread Messages Preview */}
+              <div>
+                <div
+                  className={cm.cn(
+                    cm.flex({ align: 'center', justify: 'between' }),
+                    cm.sp('mb', 6),
+                  )}
+                >
                   <h3
                     className={cm.cn(
                       cm.textSize('sm'),
                       cm.fontWeight('bold'),
-                      cm.sp('mb', 6),
                       'text-on-surface-variant uppercase tracking-widest',
                     )}
                   >
-                    {t('dashboard.quickActions', {}, { defaultValue: 'Quick Actions' })}
+                    {t('dashboard.unreadMessages', {}, { defaultValue: 'Unread Messages' })}
                   </h3>
-                  <div className={cm.cn(cm.grid({ cols: 1, gap: 'md' }), 'sm:grid-cols-2')}>
-                    <QuickActionCard
-                      icon="add_circle"
-                      title={t('dashboard.createChannel', {}, { defaultValue: 'Create Channel' })}
-                      description={t(
-                        'dashboard.createChannelDesc',
-                        {},
-                        { defaultValue: 'Setup a new space for collaboration' },
-                      )}
-                      onClick={() => setShowCreate(true)}
-                    />
-                    <QuickActionCard
-                      icon="chat"
-                      title={t('dashboard.startDm', {}, { defaultValue: 'Start DM' })}
-                      description={t(
-                        'dashboard.startDmDesc',
-                        {},
-                        { defaultValue: 'Message a team member directly' },
-                      )}
-                      onClick={() => setShowCreate(true)}
-                    />
-                    <QuickActionCard
-                      icon="search_check"
-                      title={t('dashboard.browseChannels', {}, { defaultValue: 'Browse Channels' })}
-                      description={t(
-                        'dashboard.browseChannelsDesc',
-                        {},
-                        { defaultValue: 'Explore existing public discussions' },
-                      )}
-                      onClick={() => {
-                        const el = document.querySelector('[data-mol-id="side-nav-channels"]')
-                        if (el && 'scrollIntoView' in el)
-                          (el as HTMLElement).scrollIntoView({ behavior: 'smooth' })
-                      }}
-                    />
-                    <QuickActionCard
-                      icon="person_add"
-                      title={t('dashboard.inviteMembers', {}, { defaultValue: 'Invite Members' })}
-                      description={t(
-                        'dashboard.inviteMembersDesc',
-                        {},
-                        { defaultValue: 'Grow your workspace' },
-                      )}
-                      onClick={() => navigate('/settings')}
-                    />
-                  </div>
-                </div>
-                {/* Unread Messages Preview */}
-                <div>
-                  <div
+                  <Link
                     className={cm.cn(
-                      cm.flex({ align: 'center', justify: 'between' }),
-                      cm.sp('mb', 6),
+                      cm.textSize('xs'),
+                      cm.fontWeight('bold'),
+                      cm.textPrimary,
+                      'flex min-h-[36px] items-center px-2 hover:underline',
                     )}
+                    to="/channels"
                   >
-                    <h3
+                    {t('common.viewAll', {}, { defaultValue: 'View All' })}
+                  </Link>
+                </div>
+                <div className={cm.stack(3)}>
+                  {loading ? (
+                    Array.from({ length: 3 }).map((_, i) => (
+                      <div
+                        key={i}
+                        aria-hidden="true"
+                        className={cm.cn(
+                          cm.sp('p', 5),
+                          cm.h('[72px]'),
+                          'bg-surface-container-lowest rounded-xl animate-pulse',
+                        )}
+                      />
+                    ))
+                  ) : messages.length === 0 ? (
+                    <p
                       className={cm.cn(
                         cm.textSize('sm'),
-                        cm.fontWeight('bold'),
-                        'text-on-surface-variant uppercase tracking-widest',
+                        cm.textCenter,
+                        cm.sp('py', 8),
+                        'text-on-surface-variant',
                       )}
                     >
-                      {t('dashboard.unreadMessages', {}, { defaultValue: 'Unread Messages' })}
-                    </h3>
-                    <Link
-                      className={cm.cn(
-                        cm.textSize('xs'),
-                        cm.fontWeight('bold'),
-                        cm.textPrimary,
-                        'flex min-h-[36px] items-center px-2 hover:underline',
-                      )}
-                      to="/channels"
-                    >
-                      {t('common.viewAll', {}, { defaultValue: 'View All' })}
-                    </Link>
-                  </div>
-                  <div className={cm.stack(3)}>
-                    {loading ? (
-                      Array.from({ length: 3 }).map((_, i) => (
-                        <div
-                          key={i}
-                          aria-hidden="true"
-                          className={cm.cn(
-                            cm.sp('p', 5),
-                            cm.h('[72px]'),
-                            'bg-surface-container-lowest rounded-xl animate-pulse',
-                          )}
-                        />
-                      ))
-                    ) : messages.length === 0 ? (
-                      <p
-                        className={cm.cn(
-                          cm.textSize('sm'),
-                          cm.textCenter,
-                          cm.sp('py', 8),
-                          'text-on-surface-variant',
-                        )}
+                      {t('dashboard.noUnreadMessages', {}, { defaultValue: 'No unread messages' })}
+                    </p>
+                  ) : (
+                    messages.slice(0, 3).map((msg) => (
+                      <Link
+                        key={String(msg.id)}
+                        to={`/channels/${msg.channelId ?? msg.channel_id ?? String(msg.id)}`}
+                        className={cm.cn('contents')}
                       >
-                        {t(
-                          'dashboard.noUnreadMessages',
-                          {},
-                          { defaultValue: 'No unread messages' },
-                        )}
-                      </p>
-                    ) : (
-                      messages.slice(0, 3).map((msg) => (
-                        <Link
-                          key={String(msg.id)}
-                          to={`/channels/${msg.channelId ?? msg.channel_id ?? String(msg.id)}`}
-                          className={cm.cn('contents')}
-                        >
-                          <MessagePreviewCard
-                            channel={String(
-                              msg.channel_name ||
-                                msg.channel ||
-                                t(
-                                  'messagePreviewCard.unknownChannel',
-                                  {},
-                                  { defaultValue: '#channel' },
-                                ),
-                            )}
-                            time={String(msg.time || msg.created_at || '')}
-                            author={String(msg.author || msg.user || msg.user_name || '')}
-                            message={String(
-                              msg.content || msg.message || msg.body || msg.text || '',
-                            )}
-                          />
-                        </Link>
-                      ))
-                    )}
-                  </div>
+                        <MessagePreviewCard
+                          channel={String(
+                            msg.channel_name ||
+                              msg.channel ||
+                              t(
+                                'messagePreviewCard.unknownChannel',
+                                {},
+                                { defaultValue: '#channel' },
+                              ),
+                          )}
+                          time={String(msg.time || msg.created_at || '')}
+                          author={String(msg.author || msg.user || msg.user_name || '')}
+                          message={String(msg.content || msg.message || msg.body || msg.text || '')}
+                        />
+                      </Link>
+                    ))
+                  )}
                 </div>
               </div>
-              {/* Right Column: Stats & Profile */}
-              <DashboardRightColumn />
             </div>
+            {/* Right Column: Stats & Profile */}
+            <DashboardRightColumn />
           </div>
-        </main>
+        </div>
       </div>
       <FloatingActionButton onClick={() => setShowCreate(true)} />
       {showCreate && (
@@ -442,7 +426,7 @@ function Dashboard() {
           </div>
         </div>
       )}
-    </div>
+    </ChatShell>
   )
 }
 

@@ -7,8 +7,7 @@ import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 import { PromptDialog } from '@molecule/app-ui-react'
 
-import MobileTopBar from '../components/MobileTopBar.js'
-import SideNavBar from '../components/SideNavBar.js'
+import { ChatShell } from '../components/ChatShell.js'
 import {
   appendMessage,
   isMessageRow,
@@ -20,15 +19,12 @@ import { getRealtimeConnection } from '../lib/realtime.js'
 
 function ChannelChrome({ children }: { children: ReactNode }) {
   return (
-    <div style={{ height: '100%', width: '100%' }}>
-      <SideNavBar />
-      {/* <768px: the sidebar becomes an overlay drawer (see SideNavBar), so the
-          content column takes the full width and carries the mobile top bar. */}
-      <div className="ml-0 flex h-full w-full flex-col md:ml-[260px] md:w-[calc(100%-260px)]">
-        <MobileTopBar />
-        <div className="min-h-0 w-full flex-1">{children}</div>
-      </div>
-    </div>
+    /* The chat two-pane is page content; the shell owns only the nav chrome.
+       Content is a bounded flex column so the page's `height: 100%` panes
+       (message feed, members sidebar) fill the viewport exactly. */
+    <ChatShell className="h-screen overflow-hidden" contentClassName="flex min-h-0 flex-1 flex-col">
+      {children}
+    </ChatShell>
   )
 }
 
