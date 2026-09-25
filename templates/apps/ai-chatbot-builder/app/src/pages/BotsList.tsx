@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { ConfirmButton } from '@molecule/app-ui-react'
+import { ConfirmButton, LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import MobileNavMenu, { useMainNavItems } from '../components/MobileNavMenu.js'
@@ -374,22 +374,11 @@ function BotsList() {
             />
           </div>
           {loadError && (
-            <div
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 3),
-                cm.flex({ align: 'center', justify: 'between' }),
-                'rounded-lg bg-error-container text-on-error-container',
-              )}
-            >
-              <span className={cm.cn(cm.textSize('sm'))}>{loadError}</span>
-              <button
-                className={cm.cn(cm.textSize('sm'), 'underline underline-offset-2')}
-                onClick={() => window.location.reload()}
-              >
-                {t('common.retry', {}, { defaultValue: 'Retry' })}
-              </button>
-            </div>
+            <LoadErrorBanner
+              message={loadError}
+              retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+              onRetry={() => window.location.reload()}
+            />
           )}
           {actionError && (
             <div
