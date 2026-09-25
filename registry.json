@@ -4679,7 +4679,13 @@
         "PaginationOptions",
         "PaginatedResult",
         "ContentModerationProvider",
-        "ContentModerationConfig"
+        "ContentModerationConfig",
+        "setClassifier",
+        "getClassifier",
+        "hasClassifier",
+        "requireClassifier",
+        "ImageModerationOptions",
+        "ContentClassifierProvider"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -4698,6 +4704,100 @@
         "abuse reports",
         "moderate user content",
         "toxicity detection"
+      ]
+    },
+    "@molecule/api-content-moderation-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "moderation",
+      "label": "Moderation",
+      "stack": "api",
+      "implements": "@molecule/api-content-moderation",
+      "runtimeDependencies": [
+        "@molecule/api-content-moderation",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-content-moderation",
+        "@molecule/api-secrets"
+      ],
+      "description": "molecule.dev hosted content classifier — text and image moderation billed to your molecule project, no vendor account",
+      "exports": [
+        "classifier",
+        "DEFAULT_SERVICES_URL",
+        "MODERATION_SERVICE_LIMITS",
+        "MoleculeServiceError",
+        "MoleculeContentClassifier",
+        "createClassifier",
+        "contentModerationMoleculeSecretDefinitions",
+        "MoleculeModerationConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "path": "packages/api/bonds/moderation/molecule",
+      "intentHints": [
+        "hosted content moderation",
+        "moderate user content without an openai key"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
+      ]
+    },
+    "@molecule/api-content-moderation-openai": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "moderation",
+      "label": "Moderation",
+      "stack": "api",
+      "implements": "@molecule/api-content-moderation",
+      "runtimeDependencies": [
+        "@molecule/api-content-moderation",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-content-moderation",
+        "@molecule/api-secrets"
+      ],
+      "description": "OpenAI content classifier for molecule.dev — text and image moderation with omni-moderation",
+      "exports": [
+        "classifier",
+        "OpenaiModerationError",
+        "toModerationResult",
+        "OpenaiContentClassifier",
+        "createClassifier",
+        "contentModerationOpenaiSecretDefinitions",
+        "OpenaiModerationConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "OPENAI_API_KEY",
+          "required": true,
+          "label": "OpenAI API key",
+          "setupUrl": "https://platform.openai.com/api-keys",
+          "instructions": "Create a secret key on the OpenAI platform (API keys page).",
+          "example": "sk-proj-..."
+        }
+      ],
+      "path": "packages/api/bonds/moderation/openai",
+      "intentHints": [
+        "openai moderation",
+        "content moderation classifier",
+        "flag toxic content"
+      ],
+      "egressHosts": [
+        "api.openai.com"
       ]
     },
     "@molecule/api-cron": {
