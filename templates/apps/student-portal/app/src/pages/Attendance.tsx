@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { type ApiAttendance, weekdayLabel } from '../lib/format.js'
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
@@ -39,32 +40,31 @@ export function Attendance() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
-  const load = useCallback(() => {
-    let cancelled = false
+  // Returns the promise so the shared LoadErrorBanner's retry button owns
+  // the pending/disabled state while a refetch is in flight.
+  const load = useCallback((): Promise<void> => {
     setLoading(true)
     setError(false)
-    Promise.all([
+    return Promise.all([
       http.get('/api/attendance').then((r) => unwrapList<ApiAttendance>(r)),
       http.get('/api/attendance/summary').then((r) => unwrapSingle<AttendanceSummary>(r)),
     ])
       .then(([list, sum]) => {
-        if (cancelled) return
         setRows(list)
         if (sum) setSummary(sum)
       })
       .catch(() => {
         // Surface the failure — never a silent blank.
-        if (!cancelled) setError(true)
+        setError(true)
       })
       .finally(() => {
-        if (!cancelled) setLoading(false)
+        setLoading(false)
       })
-    return () => {
-      cancelled = true
-    }
   }, [http])
 
-  useEffect(load, [load])
+  useEffect(() => {
+    void load()
+  }, [load])
 
   const presentPct = summary ? Math.round(summary.presentRate * 100) : 0
 
@@ -176,32 +176,16 @@ export function Attendance() {
             {t('attendance.loading', {}, { defaultValue: 'Loading attendance…' })}
           </p>
         ) : error ? (
-          <div
-            role="alert"
-            className={cm.cn(
-              cm.flex({ direction: 'col', align: 'center', gap: 'sm' }),
-              cm.sp('py', 10),
-              'text-on-surface-variant',
+          <LoadErrorBanner
+            message={t(
+              'attendance.loadError',
+              {},
+              { defaultValue: 'Couldn’t load attendance records.' },
             )}
-          >
-            <p className={cm.textSize('sm')}>
-              {t('attendance.loadError', {}, { defaultValue: 'Couldn’t load attendance records.' })}
-            </p>
-            <button
-              type="button"
-              data-mol-id="attendance-retry"
-              onClick={load}
-              className={cm.cn(
-                cm.sp('px', 5),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                cm.roundedFull,
-                'bg-primary text-on-primary font-semibold hover:bg-primary/90 transition-colors',
-              )}
-            >
-              {t('common.retry', {}, { defaultValue: 'Try again' })}
-            </button>
-          </div>
+            onRetry={load}
+            retryLabel={t('common.retry', {}, { defaultValue: 'Try again' })}
+            retryMolId="attendance-retry"
+          />
         ) : rows.length === 0 ? (
           <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-on-surface-variant')}>
             {t('attendance.empty', {}, { defaultValue: 'No attendance records yet.' })}

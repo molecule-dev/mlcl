@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { GpaHeroCard } from '../components/GpaHeroCard.js'
 import { GradeBadge, type GradeLetter } from '../components/GradeBadge.js'
@@ -50,32 +51,31 @@ export function Grades() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
-  const load = useCallback(() => {
-    let cancelled = false
+  // Returns the promise so the shared LoadErrorBanner's retry button owns
+  // the pending/disabled state while a refetch is in flight.
+  const load = useCallback((): Promise<void> => {
     setLoading(true)
     setError(false)
-    Promise.all([
+    return Promise.all([
       http.get('/api/grades').then((r) => unwrapList<ApiGrade>(r)),
       http.get('/api/schedule').then((r) => unwrapList<ApiScheduleEntry>(r)),
     ])
       .then(([gs, sc]) => {
-        if (cancelled) return
         setGrades(gs)
         setSchedule(sc)
       })
       .catch(() => {
         // Surface the failure — never a silent blank.
-        if (!cancelled) setError(true)
+        setError(true)
       })
       .finally(() => {
-        if (!cancelled) setLoading(false)
+        setLoading(false)
       })
-    return () => {
-      cancelled = true
-    }
   }, [http])
 
-  useEffect(load, [load])
+  useEffect(() => {
+    void load()
+  }, [load])
 
   const courses: CourseGrade[] = useMemo(() => {
     const groups = new Map<string, ApiGrade[]>()
@@ -187,32 +187,12 @@ export function Grades() {
             {t('grades.loading', {}, { defaultValue: 'Loading grades…' })}
           </p>
         ) : error ? (
-          <div
-            role="alert"
-            className={cm.cn(
-              cm.flex({ direction: 'col', align: 'center', gap: 'sm' }),
-              cm.sp('py', 10),
-              'text-on-surface-variant',
-            )}
-          >
-            <p className={cm.textSize('sm')}>
-              {t('grades.loadError', {}, { defaultValue: 'Couldn’t load your grades.' })}
-            </p>
-            <button
-              type="button"
-              data-mol-id="grades-retry"
-              onClick={load}
-              className={cm.cn(
-                cm.sp('px', 5),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                cm.roundedFull,
-                'bg-primary text-on-primary font-semibold hover:bg-primary/90 transition-colors',
-              )}
-            >
-              {t('common.retry', {}, { defaultValue: 'Try again' })}
-            </button>
-          </div>
+          <LoadErrorBanner
+            message={t('grades.loadError', {}, { defaultValue: 'Couldn’t load your grades.' })}
+            onRetry={load}
+            retryLabel={t('common.retry', {}, { defaultValue: 'Try again' })}
+            retryMolId="grades-retry"
+          />
         ) : courses.length === 0 ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('grades.empty', {}, { defaultValue: 'No grades posted yet.' })}

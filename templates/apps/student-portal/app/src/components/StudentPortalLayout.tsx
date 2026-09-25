@@ -3,22 +3,24 @@ import { NavLink, Outlet } from 'react-router'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
 import { UserMenu } from './UserMenu.js'
 
 /**
- * Authenticated app shell — sidebar + topbar + scrolling content area on
- * desktop; a sticky top bar with a slide-in drawer below `md` (768px).
- * Translated visual treatment from lms/StudentLayout.tsx (sidebar +
- * topbar pattern) but rewritten through ClassMap so it inherits the
- * Chalk palette via theme tokens (no hardcoded colors).
- *
- * Responsive contract: the fixed sidebar and its twin chrome (search,
- * user block) are `hidden md:…`; the mobile top bar + drawer are `md:hidden`.
- * The drawer renders ONLY while open, so `nav-*` data-mol-ids stay unique
- * in the DOM at any moment (strict-mode locator safety).
+ * Authenticated app shell — the shared `ResponsiveAppShell`, composed the
+ * fleet-canonical way: the brand leads the desktop Sidebar, the mobile-only
+ * TopBar carries the menu trigger (rendered by the shell) plus the unread
+ * badge and user menu, and the SAME nav element is passed to `.Sidebar` and
+ * `.Drawer` so only the mounted breakpoint's copy ever instantiates (no
+ * duplicate nav landmarks or `nav-*` data-mol-ids). The drawer is the
+ * shell's full APG dialog: focus trap, Escape/backdrop close, scroll lock,
+ * auto-close on navigation — the former hand-rolled hamburger + drawer
+ * state + backdrop button is deleted with it. Translated visual treatment
+ * from lms/StudentLayout.tsx (sidebar + topbar pattern) through ClassMap so
+ * it inherits the Chalk palette via theme tokens (no hardcoded colors).
  */
 export function StudentPortalLayout() {
   const cm = getClassMap()
@@ -27,7 +29,6 @@ export function StudentPortalLayout() {
   const http = useHttpClient()
   const [gpa, setGpa] = useState<number | null>(null)
   const [unreadMessages, setUnreadMessages] = useState(0)
-  const [drawerOpen, setDrawerOpen] = useState(false)
 
   useEffect(() => {
     if (!user) return
@@ -119,6 +120,55 @@ export function StudentPortalLayout() {
         : 'border-transparent text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface',
     )
 
+  // ONE nav element for both breakpoints — the Sidebar (≥768px) and the
+  // Drawer (<768px) each render it, but only the mounted breakpoint's copy
+  // instantiates. react-router's NavLink sets `aria-current="page"` on the
+  // active link.
+  const nav = (
+    <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.flex1)}>
+      {navItems.map((item) => (
+        <NavLink
+          key={item.to}
+          to={item.to}
+          end={item.end}
+          data-mol-id={`nav-${item.to.replace(/\//g, '-').replace(/^-/, '')}`}
+          className={({ isActive }) => navLinkClass(isActive)}
+        >
+          <span
+            className={cm.cn('material-symbols-outlined', cm.textSize('xl'))}
+            aria-hidden="true"
+          >
+            {item.icon}
+          </span>
+          <span>{item.label}</span>
+        </NavLink>
+      ))}
+    </div>
+  )
+
+  // Brand — leads the desktop sidebar, rides in the mobile-only TopBar and
+  // the Drawer header. Breakpoint-exclusive mounts, so never duplicated.
+  const brand = (
+    <NavLink to="/dashboard" className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+      <span
+        className={cm.cn(
+          cm.w(10),
+          cm.h(10),
+          cm.roundedFull,
+          cm.flex({ align: 'center', justify: 'center' }),
+          'bg-primary/10 text-primary',
+        )}
+      >
+        <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
+          menu_book
+        </span>
+      </span>
+      <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-primary')}>
+        {APP_NAME}
+      </span>
+    </NavLink>
+  )
+
   const gpaCard = (
     <div
       className={cm.cn(
@@ -139,289 +189,114 @@ export function StudentPortalLayout() {
     </div>
   )
 
-  return (
-    <div
-      data-mol-id="student-portal-layout"
-      className={cm.cn(cm.minH('screen'), 'bg-background text-on-background antialiased')}
-    >
-      {/* ── Desktop sidebar (≥768px) ─────────────────────────────────── */}
-      <aside
-        data-mol-id="student-portal-sidebar"
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          cm.sp('p', 5),
-          'fixed left-0 top-0 h-full w-[260px] z-40 bg-surface border-r border-outline-variant/40 hidden md:flex',
-        )}
-      >
+  // Desktop user row — re-homed from the old fixed top bar into the sidebar
+  // footer (the shared Sidebar has no header slot).
+  const sidebarUser = (
+    <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mt', 4), cm.sp('pt', 4))}>
+      {unreadMessages > 0 && (
         <NavLink
-          to="/dashboard"
-          className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 8))}
-        >
-          <span
-            className={cm.cn(
-              cm.w(10),
-              cm.h(10),
-              cm.roundedFull,
-              cm.flex({ align: 'center', justify: 'center' }),
-              'bg-primary/10 text-primary',
-            )}
-          >
-            <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
-              menu_book
-            </span>
-          </span>
-          <span className={cm.cn(cm.textSize('xl'), 'font-extrabold tracking-tight text-primary')}>
-            {APP_NAME}
-          </span>
-        </NavLink>
-
-        <nav className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.flex1)}>
-          {navItems.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.end}
-              data-mol-id={`nav-${item.to.replace(/\//g, '-').replace(/^-/, '')}`}
-              className={({ isActive }) => navLinkClass(isActive)}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined', cm.textSize('xl'))}
-                aria-hidden="true"
-              >
-                {item.icon}
-              </span>
-              <span>{item.label}</span>
-            </NavLink>
-          ))}
-        </nav>
-
-        {gpaCard}
-      </aside>
-
-      {/* ── Desktop topbar (≥768px) ──────────────────────────────────── */}
-      <header
-        data-mol-id="student-portal-topbar"
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between' }),
-          cm.sp('px', 8),
-          'fixed left-[260px] right-0 top-0 h-14 z-30 bg-surface/95 backdrop-blur-md border-b border-outline-variant/40 hidden md:flex',
-        )}
-      >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'relative w-80 max-w-full')}>
-          <span
-            className={cm.cn('material-symbols-outlined', cm.textSize('lg'))}
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              left: 12,
-              top: 8,
-              color: 'var(--color-on-surface-variant)',
-            }}
-          >
-            search
-          </span>
-          <input
-            data-mol-id="student-portal-search"
-            type="text"
-            placeholder={t(
-              'topbar.searchPlaceholder',
-              {},
-              { defaultValue: 'Search classes, assignments…' },
-            )}
-            className={cm.cn(
-              cm.w('full'),
-              cm.sp('py', 2),
-              cm.textSize('sm'),
-              'rounded-full bg-surface-container-low pl-10 pr-4 text-on-surface placeholder:text-on-surface-variant border-none focus:outline-none focus:ring-2 focus:ring-primary/40',
-            )}
-          />
-        </div>
-
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }))}>
-          {unreadMessages > 0 && (
-            <NavLink
-              to="/messages"
-              data-mol-id="topbar-notifications"
-              className={cm.cn(
-                cm.flex({ align: 'center', gap: 'xs' }),
-                cm.sp('px', 3),
-                cm.sp('py', 1),
-                cm.textSize('xs'),
-                'rounded-full bg-error/10 font-bold text-error',
-              )}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined', cm.textSize('sm'))}
-                aria-hidden="true"
-              >
-                notifications_active
-              </span>
-              <span>
-                {t('common.countNew', { count: unreadMessages }, { defaultValue: '{{count}} new' })}
-              </span>
-            </NavLink>
-          )}
-          <div className={cm.cn(cm.textRight, 'leading-tight')}>
-            <p className={cm.cn(cm.textSize('sm'), 'font-bold text-on-surface')}>
-              {user?.name || user?.email || t('topbar.guestName', {}, { defaultValue: 'Student' })}
-            </p>
-            <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-              {user?.id
-                ? t(
-                    'topbar.studentTag',
-                    { id: user.id.slice(0, 6) },
-                    { defaultValue: 'Student · #{{id}}' },
-                  )
-                : t('topbar.studentRole', {}, { defaultValue: 'Student' })}
-            </p>
-          </div>
-          <UserMenu />
-        </div>
-      </header>
-
-      {/* ── Mobile top bar (<768px) — sticky, 56px ───────────────────── */}
-      <header
-        data-mol-id="student-portal-mobile-topbar"
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between' }),
-          cm.sp('px', 3),
-          'sticky top-0 z-40 h-14 bg-surface/95 backdrop-blur-md border-b border-outline-variant/40 md:hidden',
-        )}
-      >
-        <button
-          type="button"
-          data-mol-id="mobile-nav-toggle"
-          aria-label={t('nav.openMenu', {}, { defaultValue: 'Open navigation menu' })}
-          aria-expanded={drawerOpen}
-          onClick={() => setDrawerOpen(true)}
+          to="/messages"
+          data-mol-id="topbar-notifications"
           className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            cm.w(11),
-            cm.h(11),
-            cm.roundedFull,
-            cm.textSize('xl'),
-            'text-on-surface hover:bg-surface-container-low transition-colors',
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.sp('px', 3),
+            cm.sp('py', 1),
+            cm.textSize('xs'),
+            'rounded-full bg-error/10 font-bold text-error',
           )}
         >
-          <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
-            menu
+          <span
+            className={cm.cn('material-symbols-outlined', cm.textSize('sm'))}
+            aria-hidden="true"
+          >
+            notifications_active
           </span>
-        </button>
-
-        <NavLink
-          to="/dashboard"
-          className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}
-          data-mol-id="mobile-home-link"
-        >
-          <span className={cm.cn('material-symbols-outlined text-primary')} aria-hidden="true">
-            menu_book
-          </span>
-          <span className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-primary')}>
-            {APP_NAME}
+          <span>
+            {t('common.countNew', { count: unreadMessages }, { defaultValue: '{{count}} new' })}
           </span>
         </NavLink>
+      )}
+      <div className={cm.cn(cm.flex1, 'min-w-0 leading-tight')}>
+        <p className={cm.cn(cm.textSize('sm'), 'font-bold text-on-surface truncate')}>
+          {user?.name || user?.email || t('topbar.guestName', {}, { defaultValue: 'Student' })}
+        </p>
+        <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant truncate')}>
+          {user?.id
+            ? t(
+                'topbar.studentTag',
+                { id: user.id.slice(0, 6) },
+                { defaultValue: 'Student · #{{id}}' },
+              )
+            : t('topbar.studentRole', {}, { defaultValue: 'Student' })}
+        </p>
+      </div>
+      <UserMenu />
+    </div>
+  )
 
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-          {unreadMessages > 0 && (
-            <NavLink
-              to="/messages"
-              data-mol-id="topbar-notifications"
-              aria-label={t('nav.unreadMessages', {}, { defaultValue: 'Unread messages' })}
-              className={cm.cn(
-                cm.flex({ align: 'center', justify: 'center' }),
-                cm.w(10),
-                cm.h(10),
-                cm.roundedFull,
-                'bg-error/10 text-error',
-              )}
-            >
-              <span
-                className={cm.cn('material-symbols-outlined', cm.textSize('lg'))}
-                aria-hidden="true"
-              >
-                notifications_active
-              </span>
-            </NavLink>
-          )}
-          <UserMenu />
-        </div>
-      </header>
-
-      {/* ── Mobile drawer — rendered only while open ─────────────────── */}
-      {drawerOpen && (
-        <div className={cm.cn('fixed inset-0 z-50 md:hidden')} data-mol-id="mobile-nav-drawer">
-          <button
-            type="button"
-            aria-label={t('nav.closeMenu', {}, { defaultValue: 'Close navigation menu' })}
-            onClick={() => setDrawerOpen(false)}
-            className={cm.cn('absolute inset-0 w-full h-full bg-on-surface/40 backdrop-blur-sm')}
-          />
-          <div
-            className={cm.cn(
-              cm.flex({ direction: 'col' }),
-              cm.sp('p', 5),
-              'absolute left-0 top-0 h-full w-[280px] max-w-[85vw] overflow-y-auto bg-surface shadow-2xl',
-            )}
-          >
-            <div
-              className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 6))}
-            >
-              <span
-                className={cm.cn(cm.textSize('lg'), 'font-extrabold tracking-tight text-primary')}
-              >
-                {APP_NAME}
-              </span>
-              <button
-                type="button"
-                data-mol-id="mobile-nav-close"
-                aria-label={t('nav.closeMenu', {}, { defaultValue: 'Close navigation menu' })}
-                onClick={() => setDrawerOpen(false)}
+  return (
+    <ResponsiveAppShell sidebarWidth="lg" dataMolId="student-portal-layout">
+      {/*
+        Mobile top bar (<768px): brand + the drawer menu trigger (rendered by
+        the shell when a Drawer is composed), plus the unread badge and user
+        menu. Desktop returns null — the sidebar carries the chrome there.
+      */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={brand}
+        actions={
+          <>
+            {unreadMessages > 0 && (
+              <NavLink
+                to="/messages"
+                data-mol-id="topbar-notifications"
+                aria-label={t('nav.unreadMessages', {}, { defaultValue: 'Unread messages' })}
                 className={cm.cn(
                   cm.flex({ align: 'center', justify: 'center' }),
-                  cm.w(11),
-                  cm.h(11),
+                  cm.w(10),
+                  cm.h(10),
                   cm.roundedFull,
-                  cm.textSize('xl'),
-                  'text-on-surface-variant hover:bg-surface-container-low transition-colors',
+                  'bg-error/10 text-error',
                 )}
               >
-                <span className={cm.cn('material-symbols-outlined')} aria-hidden="true">
-                  close
-                </span>
-              </button>
-            </div>
-            <nav className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-              {navItems.map((item) => (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  end={item.end}
-                  onClick={() => setDrawerOpen(false)}
-                  data-mol-id={`nav-${item.to.replace(/\//g, '-').replace(/^-/, '')}`}
-                  className={({ isActive }) => navLinkClass(isActive)}
+                <span
+                  className={cm.cn('material-symbols-outlined', cm.textSize('lg'))}
+                  aria-hidden="true"
                 >
-                  <span
-                    className={cm.cn('material-symbols-outlined', cm.textSize('xl'))}
-                    aria-hidden="true"
-                  >
-                    {item.icon}
-                  </span>
-                  <span>{item.label}</span>
-                </NavLink>
-              ))}
-            </nav>
-            {gpaCard}
-          </div>
-        </div>
-      )}
+                  notifications_active
+                </span>
+              </NavLink>
+            )}
+            <UserMenu />
+          </>
+        }
+      />
 
-      <main
-        data-mol-id="student-portal-main"
-        className={cm.cn(cm.sp('px', 3), 'md:ml-[260px] md:px-8 pb-12 pt-4 md:pt-20')}
+      <ResponsiveAppShell.Sidebar
+        dataMolId="student-portal-sidebar"
+        className={cm.sp('p', 5)}
+        footer={
+          <>
+            {sidebarUser}
+            {gpaCard}
+          </>
+        }
+      >
+        <div className={cm.cn(cm.sp('mb', 8))}>{brand}</div>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+
+      <ResponsiveAppShell.Drawer header={brand} footer={gpaCard}>
+        {nav}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content
+        dataMolId="student-portal-main"
+        className={cm.cn(cm.sp('px', 3), 'md:px-8 pb-12 pt-6')}
       >
         <Outlet />
-      </main>
-    </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
 
