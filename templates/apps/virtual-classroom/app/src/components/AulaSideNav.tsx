@@ -6,11 +6,15 @@ import { getClassMap } from '@molecule/app-ui'
 import { APP_NAME, APP_TAGLINE } from '../branding.js'
 
 /**
- * Fixed left sidebar navigation for Aula's authenticated shell.
+ * Building blocks for the shared `ResponsiveAppShell` — brand block, nav
+ * links, and the weekly-quota footer card. The layout hands the SAME nav
+ * element to `ResponsiveAppShell.Sidebar` (≥768px) and `.Drawer` (<768px),
+ * so only the mounted breakpoint instantiates it and the nav `data-mol-id`s
+ * never duplicate in the DOM.
  *
- * Translated from lms/SideNavBar.tsx — same width/structure with
- * Aula brand mark + tagline at the top, lavender-tinted active state,
- * and a per-week class-quota progress card pinned to the bottom.
+ * Formerly a self-contained fixed sidebar + mobile drawer (backdrop div,
+ * off-canvas transforms, Escape handler, close button, open/onClose props);
+ * the shell owns all of that now.
  */
 type NavItem = {
   to: string
@@ -72,13 +76,54 @@ const NAV_ITEMS: NavItem[] = [
   },
 ]
 
-export interface AulaSideNavProps {
-  /** Mobile drawer state — ignored at md+ where the sidebar is always visible. */
-  open?: boolean
-  onClose?: () => void
+/**
+ * Brand block — gradient mark + app name, with the tagline unless `compact`
+ * (the mobile top bar slot). Links home like the old sidebar brand row.
+ */
+export function AulaBrand({ compact = false }: { compact?: boolean }) {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  return (
+    <Link to="/dashboard" className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
+      <div
+        className={cm.cn(
+          'h-9 w-9 rounded-xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center shadow-md shadow-primary/20',
+        )}
+        aria-hidden="true"
+      >
+        <span
+          className={cm.cn('material-symbols-outlined text-[20px] text-on-primary')}
+          style={{ fontVariationSettings: "'FILL' 1" }}
+        >
+          cast_for_education
+        </span>
+      </div>
+      <div className={cm.flex({ direction: 'col' })}>
+        <span
+          className={cm.cn(
+            cm.textSize('xl'),
+            cm.fontWeight('bold'),
+            'text-primary leading-none tracking-tight',
+          )}
+        >
+          {APP_NAME}
+        </span>
+        {!compact ? (
+          <span className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant leading-none mt-1')}>
+            {t('aulaSideNav.tagline', {}, { defaultValue: APP_TAGLINE })}
+          </span>
+        ) : null}
+      </div>
+    </Link>
+  )
 }
 
-export function AulaSideNav({ open = false, onClose }: AulaSideNavProps) {
+/**
+ * The nav links — handed to BOTH shell surfaces (`ResponsiveAppShell.Sidebar`
+ * and `.Drawer`); only the mounted breakpoint instantiates it. The shell
+ * closes the drawer on navigation, so the links no longer carry an onClick.
+ */
+export function AulaNav() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { pathname } = useLocation()
@@ -102,135 +147,75 @@ export function AulaSideNav({ open = false, onClose }: AulaSideNavProps) {
 
   return (
     <>
-      {/* Mobile backdrop — tap to dismiss the drawer. md+ never shows it. */}
-      {open ? (
-        <div
-          className={cm.cn('fixed inset-0 z-30 bg-black/40 md:hidden')}
-          onClick={onClose}
-          aria-hidden="true"
-        />
-      ) : null}
-      <aside
-        aria-label={t('aulaSideNav.label', {}, { defaultValue: 'Primary navigation' })}
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          cm.sp('p', 6),
-          'fixed inset-y-0 left-0 z-40 w-[260px] overflow-y-auto bg-surface-container-lowest border-r border-outline-variant/20',
-          'transition-transform duration-200 ease-out',
-          // Off-canvas AND out of the a11y tree when closed (md+ is permanent).
-          open ? 'translate-x-0 shadow-2xl visible' : '-translate-x-full invisible md:visible',
-          'md:translate-x-0 md:shadow-none',
-        )}
-      >
-        <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 10))}>
-          <Link to="/dashboard" className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-            <div
-              className={cm.cn(
-                'h-9 w-9 rounded-xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center shadow-md shadow-primary/20',
-              )}
-              aria-hidden="true"
-            >
-              <span
-                className={cm.cn('material-symbols-outlined text-[20px] text-on-primary')}
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                cast_for_education
-              </span>
-            </div>
-            <div className={cm.flex({ direction: 'col' })}>
-              <span
-                className={cm.cn(
-                  cm.textSize('xl'),
-                  cm.fontWeight('bold'),
-                  'text-primary leading-none tracking-tight',
-                )}
-              >
-                {APP_NAME}
-              </span>
-              <span
-                className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant leading-none mt-1')}
-              >
-                {t('aulaSideNav.tagline', {}, { defaultValue: APP_TAGLINE })}
-              </span>
-            </div>
-          </Link>
-          {/* Close affordance for the mobile drawer. */}
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label={t('aulaSideNav.closeMenu', {}, { defaultValue: 'Close navigation menu' })}
-            className={cm.cn(
-              'h-10 w-10 -mr-2 rounded-xl flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low md:hidden',
-            )}
+      {NAV_ITEMS.map((item) => {
+        const isActive = item.matches(pathname)
+        return (
+          <Link
+            key={item.to}
+            to={item.to}
+            className={isActive ? itemActive : itemInactive}
+            data-mol-id={`nav-${item.icon}`}
+            aria-current={isActive ? 'page' : undefined}
           >
-            <span className={cm.cn('material-symbols-outlined text-[22px]')}>close</span>
-          </button>
-        </div>
-        <nav className={cm.cn(cm.flex1, cm.stack(1))}>
-          {NAV_ITEMS.map((item) => {
-            const isActive = item.matches(pathname)
-            return (
-              <Link
-                key={item.to}
-                to={item.to}
-                onClick={onClose}
-                className={isActive ? itemActive : itemInactive}
-                data-mol-id={`nav-${item.icon}`}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                <span
-                  className={cm.cn('material-symbols-outlined text-[20px]')}
-                  style={isActive ? { fontVariationSettings: "'FILL' 1" } : undefined}
-                >
-                  {item.icon}
-                </span>
-                <span>{t(item.labelKey, {}, { defaultValue: item.defaultLabel })}</span>
-              </Link>
-            )
-          })}
-        </nav>
-        <div
-          className={cm.cn(
-            cm.sp('p', 4),
-            cm.sp('mt', 6),
-            'rounded-2xl bg-gradient-to-br from-primary-container to-secondary-container/60 text-on-primary-container',
-          )}
-        >
-          <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 2))}>
             <span
-              className={cm.cn(
-                cm.textSize('xs'),
-                cm.fontWeight('bold'),
-                'uppercase tracking-widest opacity-80',
-              )}
+              className={cm.cn('material-symbols-outlined text-[20px]')}
+              style={isActive ? { fontVariationSettings: "'FILL' 1" } : undefined}
             >
-              {t('aulaSideNav.weeklyClasses', {}, { defaultValue: 'This week' })}
+              {item.icon}
             </span>
-            <span className={cm.cn(cm.textSize('xs'), cm.fontWeight('bold'))}>
-              {t(
-                'aulaSideNav.weeklyClassesCount',
-                { done: 7, total: 12 },
-                { defaultValue: '{{done}} / {{total}}' },
-              )}
-            </span>
-          </div>
-          <div className={cm.cn(cm.w('full'), cm.roundedFull, 'h-2 bg-surface/30 overflow-hidden')}>
-            <div
-              className={cm.cn(cm.h('full'), 'bg-gradient-to-r from-primary to-secondary')}
-              style={{ width: '58%' }}
-            ></div>
-          </div>
-          <p className={cm.cn(cm.textSize('xs'), cm.sp('mt', 3), 'opacity-90 leading-snug')}>
-            {t(
-              'aulaSideNav.weeklyHelp',
-              {},
-              { defaultValue: "You're on track to finish this week's lessons. Keep going!" },
-            )}
-          </p>
-        </div>
-      </aside>
+            <span>{t(item.labelKey, {}, { defaultValue: item.defaultLabel })}</span>
+          </Link>
+        )
+      })}
     </>
   )
 }
 
-export default AulaSideNav
+/**
+ * Per-week class-quota progress card — the shell surfaces' `footer` slot
+ * (below the `<nav>` landmark on the Sidebar; the Drawer's bordered footer).
+ */
+export function AulaNavFooter() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  return (
+    <div
+      className={cm.cn(
+        cm.sp('p', 4),
+        'rounded-2xl bg-gradient-to-br from-primary-container to-secondary-container/60 text-on-primary-container',
+      )}
+    >
+      <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 2))}>
+        <span
+          className={cm.cn(
+            cm.textSize('xs'),
+            cm.fontWeight('bold'),
+            'uppercase tracking-widest opacity-80',
+          )}
+        >
+          {t('aulaSideNav.weeklyClasses', {}, { defaultValue: 'This week' })}
+        </span>
+        <span className={cm.cn(cm.textSize('xs'), cm.fontWeight('bold'))}>
+          {t(
+            'aulaSideNav.weeklyClassesCount',
+            { done: 7, total: 12 },
+            { defaultValue: '{{done}} / {{total}}' },
+          )}
+        </span>
+      </div>
+      <div className={cm.cn(cm.w('full'), cm.roundedFull, 'h-2 bg-surface/30 overflow-hidden')}>
+        <div
+          className={cm.cn(cm.h('full'), 'bg-gradient-to-r from-primary to-secondary')}
+          style={{ width: '58%' }}
+        ></div>
+      </div>
+      <p className={cm.cn(cm.textSize('xs'), cm.sp('mt', 3), 'opacity-90 leading-snug')}>
+        {t(
+          'aulaSideNav.weeklyHelp',
+          {},
+          { defaultValue: "You're on track to finish this week's lessons. Keep going!" },
+        )}
+      </p>
+    </div>
+  )
+}

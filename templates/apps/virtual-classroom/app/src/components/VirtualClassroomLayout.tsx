@@ -1,53 +1,109 @@
-import { useEffect, useState } from 'react'
-import { Outlet, useLocation } from 'react-router'
+import type { ReactElement } from 'react'
+import { Link, Outlet } from 'react-router'
 
+import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { AulaSideNav } from './AulaSideNav.js'
-import { AulaTopBar } from './AulaTopBar.js'
+import { AulaBrand, AulaNav, AulaNavFooter } from './AulaSideNav.js'
+import { ThemeToggle } from './ThemeToggle.js'
+import { UserMenu } from './UserMenu.js'
 
 /**
- * Authenticated dashboard shell — fixed left sidebar (260px), sticky
- * top bar (64px), padded content area.
+ * Authenticated dashboard shell — the shared `ResponsiveAppShell`.
  *
- * Mobile (<768px): the sidebar collapses off-canvas into a slide-in
- * drawer behind a backdrop, opened from a hamburger in the top bar; the
- * main content runs full-width. The drawer closes on route change, on
- * backdrop tap, on Escape, and via its own close button.
+ * Desktop (≥768px): the Sidebar mounts — brand block, nav links and the
+ * weekly-quota footer card at 260px. Below 768px the Sidebar unmounts and a
+ * `mobileOnly` TopBar carries the brand + actions (bell, theme, user menu)
+ * alongside the shell-rendered menu trigger; the nav opens in the Drawer
+ * (full APG dialog contract — focus trap, Escape/backdrop close, scroll
+ * lock, auto-close on navigation).
  *
- * Pattern source: lms/Dashboard.tsx (ml-[260px] pt-24 main offset).
+ * `.Sidebar` and `.Drawer` receive the SAME nav/footer elements, so only the
+ * mounted breakpoint instantiates them and the nav `data-mol-id`s never
+ * duplicate. The drawer open state, hamburger button, Escape/backdrop
+ * handlers and close button this layout used to hand-roll are the shell's
+ * now (`shell-drawer-open` / `shell-drawer` / `shell-drawer-close`).
+ *
+ * Pattern source: lms/Dashboard.tsx (sidebar + offset main), recolored to
+ * Aula's lavender surface.
  */
-export function VirtualClassroomLayout() {
+export function VirtualClassroomLayout(): ReactElement {
   const cm = getClassMap()
-  const [navOpen, setNavOpen] = useState(false)
-  const { pathname } = useLocation()
+  const { t } = useTranslation()
 
-  // Navigating (drawer link, back button, redirect) must always dismiss
-  // the mobile drawer — a drawer that survives navigation traps the user.
-  useEffect(() => {
-    setNavOpen(false)
-  }, [pathname])
+  const navLabel = t('aulaSideNav.label', {}, { defaultValue: 'Primary navigation' })
 
-  // Escape closes the drawer while it is open.
-  useEffect(() => {
-    if (!navOpen) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setNavOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [navOpen])
+  // The SAME elements for both surfaces — only the mounted breakpoint
+  // instantiates them.
+  const nav = <AulaNav />
+  const footer = <AulaNavFooter />
+  const brand = <AulaBrand />
+  const mobileBrand = <AulaBrand compact />
 
   return (
-    <div className={cm.cn('min-h-screen bg-background text-on-surface antialiased')}>
-      <AulaSideNav open={navOpen} onClose={() => setNavOpen(false)} />
-      <AulaTopBar onMenu={() => setNavOpen(true)} />
-      <main
-        className={cm.cn('px-4 md:px-8', cm.sp('pb', 12), 'ml-0 md:ml-[260px]', 'pt-20 md:pt-24')}
+    <ResponsiveAppShell
+      // The old hand-rolled rail was 260px — keep its exact geometry.
+      sidebarWidth={260}
+      className="bg-background text-on-surface antialiased"
+    >
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={mobileBrand}
+        actions={
+          <>
+            <AulaBell />
+            <ThemeToggle />
+            <UserMenu />
+          </>
+        }
+      />
+      <ResponsiveAppShell.Sidebar navLabel={navLabel} className={cm.sp('p', 6)} footer={footer}>
+        <div className={cm.sp('mb', 6)}>{brand}</div>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+      <ResponsiveAppShell.Drawer
+        navLabel={navLabel}
+        header={brand}
+        footer={footer}
+        // The shared panel ships no height token (its content would size it);
+        // `h-full` restores the documented full-height left-panel geometry.
+        className="h-full"
+      >
+        {nav}
+      </ResponsiveAppShell.Drawer>
+      <ResponsiveAppShell.Content
+        className={cm.cn('px-4 md:px-8', cm.sp('pt', 6), cm.sp('pb', 12))}
       >
         <Outlet />
-      </main>
-    </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
+  )
+}
+
+/**
+ * Notification bell — the old top bar's link, kept for the mobile TopBar
+ * (desktop reaches /notifications through the sidebar's nav link).
+ */
+function AulaBell() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  return (
+    <Link
+      to="/notifications"
+      aria-label={t('settings.notifications', {}, { defaultValue: 'Notifications' })}
+      className={cm.cn(
+        'relative h-10 w-10 rounded-xl flex items-center justify-center bg-surface-container-low text-on-surface-variant hover:text-primary hover:bg-primary-container transition-colors',
+      )}
+    >
+      <span className={cm.cn('material-symbols-outlined text-[20px]')}>notifications</span>
+      <span
+        className={cm.cn(
+          'absolute top-2 right-2 h-2 w-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest',
+        )}
+        aria-hidden="true"
+      ></span>
+    </Link>
   )
 }
 
