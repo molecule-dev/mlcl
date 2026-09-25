@@ -90,20 +90,3 @@
   background-size: 60px 60px;
 }
 /* polish-v2:stitch-styles:end */
-
-/*
- * ResponsiveAppShell drawer stacking fix.
- *
- * The shared <ResponsiveAppShell.Drawer> renders its backdrop (cm.overlay,
- * z-40) as a SIBLING of the panel's position:fixed click-catcher wrapper.
- * A fixed-position element forms a stacking context at z:auto, so the panel
- * (inline z-40 INSIDE that context) cannot outrank the sibling overlay —
- * the backdrop paints above the open drawer and every pointer event on it
- * (close button, nav links, backdrop click-to-close) is intercepted.
- * Raise the wrapper to the overlay's level; DOM order then puts the drawer
- * above the backdrop. Shared-component bug (molecule ResponsiveAppShell,
- * 37bcf7369) — remove this rule once the shell itself carries the fix.
- */
-body > div.fixed.inset-0:has(> [data-mol-id='shell-drawer']) {
-  z-index: 40;
-}
