@@ -123,14 +123,7 @@ export function ShortlistLayout() {
   const navLabel = t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })
 
   return (
-    // Root direction: the shell's flex-row base is overridden to the fleet's
-    // `flex-col md:flex-row` stack via className (top bar above the content
-    // column on mobile, sidebar beside it on desktop).
-    <ResponsiveAppShell
-      sidebarWidth="md"
-      dataMolId="shortlist-layout"
-      className={cm.cn('flex-col md:flex-row')}
-    >
+    <ResponsiveAppShell sidebarWidth="md" dataMolId="shortlist-layout">
       {/* Mobile top bar (< md) — the shell renders the menu trigger itself. */}
       <ResponsiveAppShell.TopBar
         mobileOnly

@@ -29,21 +29,6 @@
 /* Global defaults — inside /* polish-v2:theme:start */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/*
- * ResponsiveAppShell drawer stacking fix (remove when molecule fixes
- * `37bcf7369` upstream). The shell's drawer backdrop (`cm.overlay`, z-40)
- * is a SIBLING of the click-catching wrapper that hosts the dialog panel —
- * and that wrapper is `position: fixed` with no z-index, which Chromium
- * treats as its own stacking context. The panel's inline z-index stays
- * trapped inside it, so the backdrop paints ON TOP and every tap (nav
- * links, close button, backdrop-to-close) hits the inert backdrop instead.
- * Lift the wrapper above the backdrop; `:has()` selects only the wrapper,
- * never the backdrop itself.
- */
-div.fixed.inset-0:has(> [data-mol-id='shell-drawer']) {
-  z-index: 45;
-}
-
 @theme {
   /* Stitch palette — drives bg-*, text-*, border-* for custom tokens. */
   --color-background: #f7f9fb;
