@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
-import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { UserMenu } from './UserMenu.js'
@@ -28,220 +27,105 @@ const NAV_KEYS = [
 ] as const
 
 /**
- * Template-local shell. Desktop (≥768px) renders the shared SidebarLayout
- * unchanged; below 768px — where a fixed 240px sidebar would eat most of a
- * 390px phone — a template-local mobile shell takes over: sticky top bar
- * (brand + hamburger) and a slide-in drawer carrying the same nav items and
- * user menu, with an overlay, Escape-to-close, and close-on-navigate.
+ * Meridian shell — the shared `ResponsiveAppShell` composed to this app's
+ * shape: a mobile-only top bar (the desktop brand row lives in the sidebar),
+ * a ≥md sidebar, a <md dialog drawer, and one `<Outlet />` so pages mount
+ * exactly once at any width. The shell owns the breakpoint, the drawer open
+ * state, the menu trigger, focus/Escape/backdrop handling, and the
+ * auto-close-on-navigation; this component only supplies nav + brand.
  */
 export function MeridianLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const location = useLocation()
-  const [isMobile, setIsMobile] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  const [drawerOpen, setDrawerOpen] = useState(false)
+  const { pathname } = useLocation()
 
-  useEffect(() => {
-    setMounted(true)
-    const mq = window.matchMedia('(max-width: 768px)')
-    setIsMobile(mq.matches)
-    const onChange = (e: MediaQueryListEvent): void => setIsMobile(e.matches)
-    mq.addEventListener('change', onChange)
-    return () => mq.removeEventListener('change', onChange)
-  }, [])
+  const navLabel = t('meridianLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
 
-  // Close the drawer whenever the route changes (nav link click, back button).
-  useEffect(() => {
-    setDrawerOpen(false)
-  }, [location.pathname])
-
-  useEffect(() => {
-    if (!drawerOpen) return
-    const onKeyDown = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape') setDrawerOpen(false)
-    }
-    document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
-  }, [drawerOpen])
-
-  const navItems = NAV_KEYS.map((item) => ({
-    to: item.to,
-    key: item.key,
-    icon: item.icon,
-    label: t(`meridianLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
-  }))
-
-  if (!mounted) {
-    // One silent frame while matchMedia resolves — prevents a desktop-sidebar
-    // flash on phones (and the reverse) without shifting any page content.
-    return <div className={cm.cn(cm.minH('screen'))} data-mol-id="meridian-shell" />
-  }
-
-  if (!isMobile) {
+  // ONE nav element for both breakpoints — the Sidebar and the Drawer receive
+  // the same array, and only the mounted breakpoint instantiates it. The
+  // drawer closes itself on navigation (shell-owned), so links carry no
+  // onClick close.
+  const navItems = NAV_KEYS.map((item) => {
+    const isActive = pathname === item.to || pathname.startsWith(`${item.to}/`)
     return (
-      <SidebarLayout
-        appName={APP_NAME}
-        logoTo="/dashboard"
-        navItems={navItems}
-        userMenu={<UserMenu />}
-        navAriaLabel={t(
-          'meridianLayout.primaryNavLabel',
-          {},
-          {
-            defaultValue: 'Primary navigation',
-          },
+      <Link
+        key={item.key}
+        to={item.to}
+        data-mol-id={`nav-${item.key}`}
+        aria-current={isActive ? 'page' : undefined}
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'sm' }),
+          cm.sp('px', 3),
+          cm.sp('py', 3),
+          cm.textSize('sm'),
+          cm.fontWeight('medium'),
+          cm.roundedFull,
+          isActive
+            ? cm.cn(cm.bgPrimaryContainer, cm.textOnPrimaryContainer)
+            : cm.cn(cm.textMuted, cm.link),
         )}
-        sidebarWidthClass="w-64"
-      />
+        style={{ minHeight: '44px' }}
+      >
+        <span className="material-symbols-outlined" aria-hidden="true">
+          {item.icon}
+        </span>
+        <span>{t(`meridianLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel })}</span>
+      </Link>
     )
-  }
-
-  const navAriaLabel = t(
-    'meridianLayout.primaryNavLabel',
-    {},
-    {
-      defaultValue: 'Primary navigation',
-    },
-  )
+  })
 
   return (
-    <div
-      className={cm.cn(cm.minH('screen'), cm.flex({ direction: 'col' }))}
-      data-mol-id="meridian-shell"
-    >
-      {/* Sticky top bar */}
-      <header
-        className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
-          cm.sp('px', 4),
-          cm.sp('py', 3),
-          cm.surface,
-          cm.borderB,
-        )}
-        style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 40,
-          minHeight: '56px',
-        }}
-      >
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.flex1, 'min-w-0')}>
-          <button
-            type="button"
-            onClick={() => setDrawerOpen((v) => !v)}
-            aria-label={t('meridianLayout.openMenu', {}, { defaultValue: 'Open navigation menu' })}
-            aria-expanded={drawerOpen}
-            aria-controls="meridian-drawer-nav"
-            data-mol-id="nav-toggle"
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.roundedFull,
-              cm.shrink0,
-            )}
-            style={{ width: '44px', height: '44px', color: 'var(--color-on-surface)' }}
-          >
-            <span className="material-symbols-outlined" aria-hidden="true">
-              {drawerOpen ? 'close' : 'menu'}
-            </span>
-          </button>
+    <ResponsiveAppShell sidebarWidth="md" dataMolId="meridian-shell">
+      {/*
+        Mobile top bar (< md). The desktop sidebar is hidden below md, so the
+        brand + user menu need a home that does not eat the viewport; the
+        shell renders the menu trigger itself.
+      */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={
           <Link
             to="/dashboard"
             className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'truncate')}
           >
             {APP_NAME}
           </Link>
-        </div>
-        <div className={cm.cn(cm.shrink0)} style={{ minHeight: '44px' }}>
-          <UserMenu />
-        </div>
-      </header>
+        }
+        actions={<UserMenu />}
+      />
 
-      {/* Overlay */}
-      {drawerOpen && (
-        <div
-          role="presentation"
-          onClick={() => setDrawerOpen(false)}
-          data-mol-id="nav-overlay"
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(0,0,0,0.4)',
-            zIndex: 50,
-          }}
-        />
-      )}
-
-      {/* Slide-in drawer */}
-      <aside
-        id="meridian-drawer-nav"
-        className={cm.cn(cm.sp('p', 4), cm.flex({ direction: 'col' }), cm.surface, cm.borderR)}
-        style={{
-          position: 'fixed',
-          top: 0,
-          bottom: 0,
-          left: drawerOpen ? 0 : '-280px',
-          width: '272px',
-          maxWidth: '85vw',
-          zIndex: 60,
-          transition: 'left 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-          overflowY: 'auto',
-          visibility: drawerOpen ? 'visible' : 'hidden',
-        }}
-        aria-label={navAriaLabel}
-      >
+      {/*
+        Desktop sidebar (>= md). The brand row leads the nav column — the
+        shared Sidebar has no header slot, so it rides inside `children`.
+      */}
+      <ResponsiveAppShell.Sidebar navLabel={navLabel} className={cm.sp('p', 4)}>
         <Link
           to="/dashboard"
           className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 6), 'block')}
         >
           {APP_NAME}
         </Link>
-        <nav
-          id="meridian-drawer-nav-list"
-          className={cm.cn(cm.flex1, cm.stack(1))}
-          aria-label={navAriaLabel}
-        >
-          {navItems.map((item) => {
-            const isActive =
-              location.pathname === item.to || location.pathname.startsWith(`${item.to}/`)
-            return (
-              <Link
-                key={item.key}
-                to={item.to}
-                data-mol-id={`nav-${item.key}`}
-                aria-current={isActive ? 'page' : undefined}
-                onClick={() => setDrawerOpen(false)}
-                className={cm.cn(
-                  cm.flex({ align: 'center', gap: 'sm' }),
-                  cm.sp('px', 3),
-                  cm.sp('py', 3),
-                  cm.textSize('sm'),
-                  cm.fontWeight('medium'),
-                  cm.roundedFull,
-                  isActive
-                    ? cm.cn(cm.bgPrimaryContainer, cm.textOnPrimaryContainer)
-                    : cm.cn(cm.textMuted, cm.link),
-                )}
-                style={{ minHeight: '44px' }}
-              >
-                {item.icon ? (
-                  <span className="material-symbols-outlined" aria-hidden="true">
-                    {item.icon}
-                  </span>
-                ) : null}
-                <span>{item.label}</span>
-              </Link>
-            )
-          })}
-        </nav>
-        <div className={cm.cn(cm.sp('pt', 4), cm.borderT)}>
-          <UserMenu />
-        </div>
-      </aside>
+        {navItems}
+      </ResponsiveAppShell.Sidebar>
 
-      <main className={cm.cn(cm.flex1, 'min-w-0')} style={{ minWidth: 0 }}>
+      {/*
+        Mobile drawer (< md): a full dialog panel (focus trap, Escape,
+        backdrop click, body-scroll lock) over the same nav, with the user
+        menu in the footer.
+      */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navLabel}
+        // The shared panel ships no height token (its content would size it);
+        // `h-full` restores the documented full-height left-panel geometry.
+        className="h-full"
+        footer={<UserMenu />}
+      >
+        {navItems}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content>
         <Outlet />
-      </main>
-    </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
