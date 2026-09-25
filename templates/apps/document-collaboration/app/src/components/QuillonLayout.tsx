@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { UserMenu } from './UserMenu.js'
@@ -23,48 +23,29 @@ const NAV_KEYS = [
 ] as const
 
 /**
- * App shell — desktop keeps a vertical sidebar; below the md breakpoint the
- * shared sidebar has nowhere to go (it is a fixed-width flex row), so this
- * template-local shell swaps in a sticky top bar + hamburger drawer instead.
- * Both shells share ONE <Outlet /> so pages mount exactly once at any width.
+ * App shell — the shared `ResponsiveAppShell` composed to this app's shape:
+ * a mobile-only top bar (the desktop brand row lives in the sidebar), a ≥md
+ * sidebar, a <md dialog drawer, and one `<Outlet />` so pages mount exactly
+ * once at any width. The shell owns the breakpoint, the drawer open state,
+ * the menu trigger, focus/Escape/backdrop handling, and the auto-close on
+ * navigation; this component only supplies nav + brand.
  */
 export function QuillonLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { pathname } = useLocation()
-  const [drawerOpen, setDrawerOpen] = useState(false)
-
-  // Any navigation closes the drawer (including same-route clicks).
-  useEffect(() => {
-    setDrawerOpen(false)
-  }, [pathname])
-
-  // Escape closes the drawer.
-  useEffect(() => {
-    if (!drawerOpen) return
-    const onKey = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape') setDrawerOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [drawerOpen])
-
-  const navItems = NAV_KEYS.map((item) => ({
-    to: item.to,
-    key: item.key,
-    icon: item.icon,
-    label: t(`quillonLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
-  }))
 
   // Single-active-item resolution: the nav item whose `to` is the longest
   // prefix of the current pathname (mirrors the shared SidebarLayout).
-  const activeKey = navItems.reduce<string | null>((bestKey, item) => {
+  const activeKey = NAV_KEYS.reduce<string | null>((bestKey, item) => {
     const isMatch = pathname === item.to || pathname.startsWith(`${item.to}/`)
     if (!isMatch) return bestKey
     if (bestKey === null) return item.key
-    const best = navItems.find((i) => i.key === bestKey)
+    const best = NAV_KEYS.find((i) => i.key === bestKey)
     return best && item.to.length > best.to.length ? item.key : bestKey
   }, null)
+
+  const navLabel = t('quillonLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
 
   const navLinkClass = (isActive: boolean): string =>
     cm.cn(
@@ -79,92 +60,57 @@ export function QuillonLayout() {
         : cm.cn(cm.textMuted, cm.link),
     )
 
-  return (
-    <div className={cm.cn(cm.page, 'flex flex-col md:flex-row')}>
-      {/* ——— Mobile top bar (< md) ——— */}
-      <header
-        className={cm.cn(
-          'sticky top-0 z-40 flex h-14 items-center justify-between gap-2 border-b border-outline-variant bg-surface/95 backdrop-blur md:hidden',
-        )}
-        data-testid="layout-topbar"
+  // ONE nav element for both breakpoints — the Sidebar and the Drawer receive
+  // the same array, and only the mounted breakpoint instantiates it. The
+  // drawer closes itself on navigation (shell-owned), so links carry no
+  // onClick close.
+  const navItems = NAV_KEYS.map((item) => {
+    const isActive = item.key === activeKey
+    return (
+      <Link
+        key={item.key}
+        to={item.to}
+        data-mol-id={`nav-${item.key}`}
+        aria-current={isActive ? 'page' : undefined}
+        className={navLinkClass(isActive)}
       >
-        <button
-          type="button"
-          onClick={() => setDrawerOpen((o) => !o)}
-          aria-label={t('quillonLayout.menu', {}, { defaultValue: 'Menu' })}
-          aria-expanded={drawerOpen}
-          aria-controls="mobile-nav-drawer"
-          data-testid="layout-drawer-toggle"
-          className="flex h-11 w-11 items-center justify-center rounded-full text-on-surface hover:bg-surface-container focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
-        >
+        {item.icon ? (
           <span className="material-symbols-outlined" aria-hidden="true">
-            {drawerOpen ? 'close' : 'menu'}
+            {item.icon}
           </span>
-        </button>
-        <Link
-          to="/dashboard"
-          className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'tracking-tight')}
-        >
-          {APP_NAME}
-        </Link>
-        <span aria-hidden="true" className="h-11 w-11 shrink-0" />
-      </header>
+        ) : null}
+        <span>{t(`quillonLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel })}</span>
+      </Link>
+    )
+  })
 
-      {/* ——— Mobile drawer (< md) ——— */}
-      {drawerOpen ? (
-        <div className="md:hidden" data-testid="layout-drawer">
-          <div
-            className="fixed inset-x-0 bottom-0 top-14 z-30 bg-black/40"
-            aria-hidden="true"
-            data-testid="layout-drawer-scrim"
-            onClick={() => setDrawerOpen(false)}
-          />
-          <nav
-            id="mobile-nav-drawer"
-            aria-label={t(
-              'quillonLayout.mobileNavLabel',
-              {},
-              { defaultValue: 'Mobile navigation' },
-            )}
-            className="fixed inset-x-0 bottom-0 top-14 z-40 overflow-y-auto bg-surface px-4 pb-6 pt-3 shadow-xl"
+  return (
+    <ResponsiveAppShell sidebarWidth="md">
+      {/*
+        Mobile top bar (< md): the brand + the shell's own menu trigger. The
+        desktop sidebar is unmounted below md, so the brand needs this home.
+      */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={
+          <Link
+            to="/dashboard"
+            className={cm.cn(cm.fontWeight('bold'), cm.textSize('lg'), 'tracking-tight')}
           >
-            <ul className="space-y-1">
-              {navItems.map((item) => {
-                const isActive = item.key === activeKey
-                return (
-                  <li key={item.key}>
-                    <Link
-                      to={item.to}
-                      data-mol-id={`mnav-${item.key}`}
-                      aria-current={isActive ? 'page' : undefined}
-                      className={navLinkClass(isActive)}
-                    >
-                      {item.icon ? (
-                        <span className="material-symbols-outlined" aria-hidden="true">
-                          {item.icon}
-                        </span>
-                      ) : null}
-                      <span>{item.label}</span>
-                    </Link>
-                  </li>
-                )
-              })}
-            </ul>
-            <div className={cm.cn('mt-4 border-t border-outline-variant pt-4')}>
-              <UserMenu />
-            </div>
-          </nav>
-        </div>
-      ) : null}
+            {APP_NAME}
+          </Link>
+        }
+      />
 
-      {/* ——— Desktop sidebar (>= md) ——— */}
-      <aside
-        className={cm.cn(
-          'hidden md:flex md:w-60 md:shrink-0 md:flex-col',
-          cm.sp('p', 4),
-          cm.surface,
-          'border-r border-outline-variant',
-        )}
+      {/*
+        Desktop sidebar (>= md). The brand row leads the nav column — the
+        shared Sidebar has no header slot, so it rides inside `children`; the
+        user menu sits in the bordered footer row.
+      */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        className={cm.sp('p', 4)}
+        footer={<UserMenu />}
       >
         <Link
           to="/dashboard"
@@ -177,43 +123,27 @@ export function QuillonLayout() {
         >
           {APP_NAME}
         </Link>
-        <nav
-          className={cm.cn(cm.flex1, cm.stack(1))}
-          aria-label={t(
-            'quillonLayout.primaryNavLabel',
-            {},
-            { defaultValue: 'Primary navigation' },
-          )}
-        >
-          {navItems.map((item) => {
-            const isActive = item.key === activeKey
-            return (
-              <Link
-                key={item.key}
-                to={item.to}
-                data-mol-id={`nav-${item.key}`}
-                aria-current={isActive ? 'page' : undefined}
-                className={navLinkClass(isActive)}
-              >
-                {item.icon ? (
-                  <span className="material-symbols-outlined" aria-hidden="true">
-                    {item.icon}
-                  </span>
-                ) : null}
-                <span>{item.label}</span>
-              </Link>
-            )
-          })}
-        </nav>
-        <div className={cm.cn(cm.sp('pt', 4), cm.borderT)}>
-          <UserMenu />
-        </div>
-      </aside>
+        {navItems}
+      </ResponsiveAppShell.Sidebar>
 
-      {/* ——— Shared content area ——— */}
-      <main className="min-w-0 flex-1">
+      {/*
+        Mobile drawer (< md): the same nav in a full APG dialog panel
+        (focus trap, Escape, backdrop click, body-scroll lock), with the
+        user menu in the footer.
+      */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navLabel}
+        // The shared panel ships no height token (its content would size it);
+        // `h-full` restores the documented full-height left-panel geometry.
+        className="h-full"
+        footer={<UserMenu />}
+      >
+        {navItems}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content>
         <Outlet />
-      </main>
-    </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
