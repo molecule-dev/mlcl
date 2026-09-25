@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { EmailKpiTriad } from '../components/EmailKpiTriad.js'
@@ -221,33 +222,15 @@ export function Dashboard() {
       </header>
 
       {error && (
-        <div
+        <LoadErrorBanner
           data-mol-id="dashboard-error"
-          role="alert"
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
-            'flex-wrap gap-y-2',
-            cm.sp('px', 4),
-            cm.sp('py', 3),
-            cm.textSize('sm'),
-            'bg-error-container text-on-error-container rounded-xl',
-          )}
-        >
-          <span>{error}</span>
-          <button
-            type="button"
-            data-mol-id="dashboard-retry"
-            onClick={() => setReloadKey((k) => k + 1)}
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.fontWeight('semibold'),
-              'rounded-lg border border-current hover:bg-surface-container-low transition-colors',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-        </div>
+          message={error}
+          retryMolId="dashboard-retry"
+          onRetry={() => {
+            setReloadKey((k) => k + 1)
+            return Promise.resolve()
+          }}
+        />
       )}
 
       <section
