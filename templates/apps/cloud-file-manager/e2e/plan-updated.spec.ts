@@ -35,6 +35,10 @@ test.describe('/plan-updated', () => {
 test.describe('/plan-updated — checkout return', () => {
   test('confirms the purchase when the provider returns with a payment id', async ({ page }) => {
     await signup(page)
+    // The fake session id cannot actually verify, so the API's 400 is the
+    // CORRECT answer here; this test asserts the call happens (below), so
+    // allow the browser's console noise for that expected 4xx.
+    test.info().annotations.push({ type: 'allow-console-error', description: 'status of 400' })
     const confirmed = page
       .waitForResponse((r) => /\/verify-payment\//.test(r.url()), { timeout: 20_000 })
       .catch(() => null)
