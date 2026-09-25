@@ -28,12 +28,6 @@ export function AiImageGeneratorLayout({ children }: AiImageGeneratorLayoutProps
         {nav}
       </ResponsiveAppShell.Sidebar>
       <ResponsiveAppShell.Drawer
-        // Stacking: the shared drawer renders its panel inside a fixed
-        // wrapper at z-index:auto while the backdrop sibling is z-40, so the
-        // backdrop covers the panel and swallows every tap (the panel's own
-        // inline z-index is scoped INSIDE the wrapper's stacking context and
-        // cannot win). index.css raises the wrapper above the backdrop until
-        // the shared component fixes its stacking.
         className="bg-surface-container-low shadow-2xl"
         header={<BrandLogo showTagline={false} />}
         footer={footer}
