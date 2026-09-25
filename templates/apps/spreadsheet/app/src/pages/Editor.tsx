@@ -7,7 +7,7 @@ import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 
 import { PromptDialog } from '../components/PromptDialog.js'
-import { SpreadsheetSidebar } from '../components/SpreadsheetSidebar.js'
+import { SpreadsheetShell } from '../components/SpreadsheetShell.js'
 import { getRealtimeConnection } from '../lib/realtime.js'
 
 interface SheetRow {
@@ -448,371 +448,344 @@ export function Editor() {
 
   if (loading) {
     return (
-      <div
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          'md:flex-row min-h-screen bg-surface text-on-surface',
-        )}
-      >
-        <SpreadsheetSidebar />
-        <main className={cm.cn(cm.flex1, cm.sp('p', 6), 'md:p-12')}>
+      <SpreadsheetShell>
+        <div className={cm.cn(cm.sp('p', 6), 'md:p-12')}>
           <p>{t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}</p>
-        </main>
-      </div>
+        </div>
+      </SpreadsheetShell>
     )
   }
 
   if (error || !workbook) {
     return (
-      <div
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          'md:flex-row min-h-screen bg-surface text-on-surface',
-        )}
-      >
-        <SpreadsheetSidebar />
-        <main className={cm.cn(cm.flex1, cm.sp('p', 6), 'md:p-12')}>
+      <SpreadsheetShell>
+        <div className={cm.cn(cm.sp('p', 6), 'md:p-12')}>
           <p className="text-error" role="alert">
             {error ?? t('editor.notFound', {}, { defaultValue: 'Workbook not found' })}
           </p>
           <Link to="/workbooks" className="text-primary underline mt-4 inline-block">
             {t('editor.back', {}, { defaultValue: 'Back to workbooks' })}
           </Link>
-        </main>
-      </div>
+        </div>
+      </SpreadsheetShell>
     )
   }
 
   return (
-    <div
-      className={cm.cn(
-        cm.flex({}),
-        'flex-col md:flex-row min-h-screen bg-surface text-on-surface antialiased',
-      )}
-    >
-      <SpreadsheetSidebar />
-      <main className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }), 'min-w-0')}>
-        <header
+    <SpreadsheetShell>
+      <header
+        className={cm.cn(
+          cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' }),
+          cm.sp('px', 4),
+          'md:px-8 py-4',
+          'border-b border-outline-variant/40 bg-surface-container-lowest',
+        )}
+      >
+        <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+          <p
+            className={cm.cn(
+              'text-[10px] uppercase tracking-[0.25em] font-bold text-on-surface-variant',
+            )}
+          >
+            {t(
+              'editor.eyebrow',
+              { id: workbook.id.slice(0, 8) },
+              { defaultValue: 'Workbook · {{id}}' },
+            )}
+          </p>
+          {renamingTitle ? (
+            <input
+              aria-label={t('editor.workbookTitle', {}, { defaultValue: 'Workbook title' })}
+              value={titleDraft}
+              onChange={(e) => setTitleDraft(e.target.value)}
+              onBlur={persistTitle}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') persistTitle()
+                if (e.key === 'Escape') {
+                  setTitleDraft(workbook.title)
+                  setRenamingTitle(false)
+                }
+              }}
+              className={cm.cn(
+                cm.textSize('2xl'),
+                'font-extrabold tracking-tight text-on-surface bg-transparent border-b border-primary outline-none',
+              )}
+            />
+          ) : (
+            <button
+              type="button"
+              onClick={() => setRenamingTitle(true)}
+              className={cm.cn(
+                cm.textSize('2xl'),
+                'font-extrabold tracking-tight text-on-surface text-left hover:opacity-80 transition-opacity',
+              )}
+            >
+              {workbook.title}
+            </button>
+          )}
+        </div>
+        <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+          <Link
+            to={`/workbooks/${workbook.id}/history`}
+            className={
+              'inline-flex items-center gap-1 px-3 py-2 text-xs font-bold text-on-surface-variant rounded-full hover:bg-surface-container transition-colors'
+            }
+          >
+            <span className={'material-symbols-outlined text-base'} aria-hidden="true">
+              history
+            </span>
+            {t('nav.history', {}, { defaultValue: 'History' })}
+          </Link>
+          <Link
+            to={`/workbooks/${workbook.id}/charts`}
+            className={
+              'inline-flex items-center gap-1 px-3 py-2 text-xs font-bold text-primary rounded-full bg-primary-fixed hover:opacity-90 transition-opacity'
+            }
+          >
+            <span className={'material-symbols-outlined text-base'} aria-hidden="true">
+              insights
+            </span>
+            {t('editor.charts', {}, { defaultValue: 'Charts' })}
+          </Link>
+        </div>
+      </header>
+
+      <div
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'xs', wrap: 'wrap' }),
+          cm.sp('px', 6),
+          cm.sp('py', 3),
+          'border-b border-outline-variant/40 bg-surface-container-low',
+        )}
+      >
+        <button
+          type="button"
+          onClick={addColumn}
           className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between', gap: 'sm', wrap: 'wrap' }),
-            cm.sp('px', 4),
-            'md:px-8 py-4',
-            'border-b border-outline-variant/40 bg-surface-container-lowest',
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.sp('px', 3),
+            cm.sp('py', 1),
+            'text-xs font-bold rounded-full transition-colors text-on-surface-variant hover:bg-surface-container',
           )}
         >
-          <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-            <p
-              className={cm.cn(
-                'text-[10px] uppercase tracking-[0.25em] font-bold text-on-surface-variant',
-              )}
-            >
-              {t(
-                'editor.eyebrow',
-                { id: workbook.id.slice(0, 8) },
-                { defaultValue: 'Workbook · {{id}}' },
-              )}
-            </p>
-            {renamingTitle ? (
-              <input
-                aria-label={t('editor.workbookTitle', {}, { defaultValue: 'Workbook title' })}
-                value={titleDraft}
-                onChange={(e) => setTitleDraft(e.target.value)}
-                onBlur={persistTitle}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') persistTitle()
-                  if (e.key === 'Escape') {
-                    setTitleDraft(workbook.title)
-                    setRenamingTitle(false)
-                  }
-                }}
-                className={cm.cn(
-                  cm.textSize('2xl'),
-                  'font-extrabold tracking-tight text-on-surface bg-transparent border-b border-primary outline-none',
-                )}
-              />
-            ) : (
-              <button
-                type="button"
-                onClick={() => setRenamingTitle(true)}
-                className={cm.cn(
-                  cm.textSize('2xl'),
-                  'font-extrabold tracking-tight text-on-surface text-left hover:opacity-80 transition-opacity',
-                )}
-              >
-                {workbook.title}
-              </button>
-            )}
-          </div>
-          <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
-            <Link
-              to={`/workbooks/${workbook.id}/history`}
-              className={
-                'inline-flex items-center gap-1 px-3 py-2 text-xs font-bold text-on-surface-variant rounded-full hover:bg-surface-container transition-colors'
-              }
-            >
-              <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                history
-              </span>
-              {t('nav.history', {}, { defaultValue: 'History' })}
-            </Link>
-            <Link
-              to={`/workbooks/${workbook.id}/charts`}
-              className={
-                'inline-flex items-center gap-1 px-3 py-2 text-xs font-bold text-primary rounded-full bg-primary-fixed hover:opacity-90 transition-opacity'
-              }
-            >
-              <span className={'material-symbols-outlined text-base'} aria-hidden="true">
-                insights
-              </span>
-              {t('editor.charts', {}, { defaultValue: 'Charts' })}
-            </Link>
-          </div>
-        </header>
-
-        <div
+          <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
+            view_column
+          </span>
+          {t('editor.addColumn', {}, { defaultValue: 'Add column' })}
+        </button>
+        <button
+          type="button"
+          onClick={addRow}
           className={cm.cn(
-            cm.flex({ align: 'center', gap: 'xs', wrap: 'wrap' }),
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.sp('px', 3),
+            cm.sp('py', 1),
+            'text-xs font-bold rounded-full transition-colors text-on-surface-variant hover:bg-surface-container',
+          )}
+        >
+          <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
+            table_rows
+          </span>
+          {t('editor.addRow', {}, { defaultValue: 'Add row' })}
+        </button>
+      </div>
+
+      {error && (
+        <div
+          role="alert"
+          className={cm.cn(
             cm.sp('px', 6),
             cm.sp('py', 3),
-            'border-b border-outline-variant/40 bg-surface-container-low',
+            'text-sm text-error bg-error-container/40',
           )}
         >
-          <button
-            type="button"
-            onClick={addColumn}
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'xs' }),
-              cm.sp('px', 3),
-              cm.sp('py', 1),
-              'text-xs font-bold rounded-full transition-colors text-on-surface-variant hover:bg-surface-container',
-            )}
-          >
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
-              view_column
-            </span>
-            {t('editor.addColumn', {}, { defaultValue: 'Add column' })}
-          </button>
-          <button
-            type="button"
-            onClick={addRow}
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'xs' }),
-              cm.sp('px', 3),
-              cm.sp('py', 1),
-              'text-xs font-bold rounded-full transition-colors text-on-surface-variant hover:bg-surface-container',
-            )}
-          >
-            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
-              table_rows
-            </span>
-            {t('editor.addRow', {}, { defaultValue: 'Add row' })}
-          </button>
+          {error}
         </div>
+      )}
 
-        {error && (
+      <div className={cm.cn(cm.sp('px', 6), cm.sp('py', 6), cm.stack(4))}>
+        {sortedColumns.length === 0 ? (
           <div
-            role="alert"
             className={cm.cn(
-              cm.sp('px', 6),
-              cm.sp('py', 3),
-              'text-sm text-error bg-error-container/40',
+              cm.sp('p', 12),
+              'rounded-2xl border border-dashed border-outline-variant/60 text-center text-on-surface-variant',
             )}
           >
-            {error}
-          </div>
-        )}
-
-        <div className={cm.cn(cm.sp('px', 6), cm.sp('py', 6), cm.stack(4))}>
-          {sortedColumns.length === 0 ? (
-            <div
-              className={cm.cn(
-                cm.sp('p', 12),
-                'rounded-2xl border border-dashed border-outline-variant/60 text-center text-on-surface-variant',
+            <p className="font-bold text-on-surface mb-2">
+              {t('editor.empty.headline', {}, { defaultValue: 'This sheet has no columns yet' })}
+            </p>
+            <p className="text-sm mb-4">
+              {t(
+                'editor.empty.subhead',
+                {},
+                { defaultValue: 'Add a column to start entering data.' },
               )}
-            >
-              <p className="font-bold text-on-surface mb-2">
-                {t('editor.empty.headline', {}, { defaultValue: 'This sheet has no columns yet' })}
-              </p>
-              <p className="text-sm mb-4">
-                {t(
-                  'editor.empty.subhead',
-                  {},
-                  { defaultValue: 'Add a column to start entering data.' },
-                )}
-              </p>
-              <button
-                type="button"
-                onClick={addColumn}
-                className={cm.cn(
-                  'inline-flex items-center gap-2 px-4 py-2 text-sm font-bold text-on-primary rounded-full bg-primary hover:opacity-90 transition-opacity',
-                )}
-              >
-                <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
-                  add
-                </span>
-                {t('editor.addFirstColumn', {}, { defaultValue: 'Add first column' })}
-              </button>
-            </div>
-          ) : (
-            <div className="overflow-x-auto rounded-2xl border border-outline-variant/40 bg-surface-container-lowest">
-              <table className="w-full text-sm" data-testid="grid-table">
-                <thead className="bg-surface-container-low">
-                  <tr>
-                    <th className="px-3 py-2 text-left text-[10px] uppercase tracking-widest font-bold text-on-surface-variant w-12">
-                      #
-                    </th>
-                    {sortedColumns.map((c) => (
-                      <th
-                        key={c.id}
-                        scope="col"
-                        className="px-3 py-2 text-left text-[11px] uppercase tracking-widest font-bold text-on-surface-variant"
-                        style={{ minWidth: c.width_px }}
-                      >
-                        {c.name}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-outline-variant/40">
-                  {sortedRows.length === 0 ? (
-                    <tr>
-                      <td
-                        colSpan={sortedColumns.length + 1}
-                        className="px-3 py-6 text-center text-on-surface-variant"
-                      >
-                        {t('editor.noRows', {}, { defaultValue: 'No rows yet — click "Add row".' })}
-                      </td>
-                    </tr>
-                  ) : (
-                    sortedRows.map((r, i) => (
-                      <tr key={r.id} className="hover:bg-surface-container-low transition-colors">
-                        <td className="px-3 py-2 text-[11px] font-mono tabular-nums text-on-surface-variant">
-                          {i + 1}
-                        </td>
-                        {sortedColumns.map((c) => {
-                          const isEditing =
-                            editingCell?.rowId === r.id && editingCell?.columnId === c.id
-                          const value = r.cells[c.id]
-                          return (
-                            <td
-                              key={c.id}
-                              className={cm.cn(
-                                'px-3 py-1 align-top',
-                                isEditing && 'bg-cell-editing',
-                              )}
-                              data-testid={`cell-${r.id}-${c.id}`}
-                              onDoubleClick={() => startEdit(r.id, c.id, value)}
-                            >
-                              {isEditing ? (
-                                <input
-                                  aria-label={t(
-                                    'editor.editCell',
-                                    {},
-                                    { defaultValue: 'Edit cell' },
-                                  )}
-                                  value={editingValue}
-                                  onChange={(e) => setEditingValue(e.target.value)}
-                                  onBlur={commitEdit}
-                                  onKeyDown={(e) => {
-                                    if (e.key === 'Enter') commitEdit()
-                                    if (e.key === 'Escape') {
-                                      editingCellRef.current = null
-                                      setEditingCell(null)
-                                      setEditingValue('')
-                                    }
-                                  }}
-                                  className="w-full bg-transparent border-b-2 border-primary outline-none text-sm"
-                                />
-                              ) : (
-                                <button
-                                  type="button"
-                                  onClick={() => startEdit(r.id, c.id, value)}
-                                  className={cm.cn(
-                                    'text-left w-full block text-sm text-on-surface min-h-9 rounded-sm',
-                                    'focus-visible:bg-cell-selected focus-visible:outline focus-visible:outline-1 focus-visible:outline-primary',
-                                  )}
-                                >
-                                  {value == null || value === '' ? (
-                                    <span className="text-on-surface-variant/60">—</span>
-                                  ) : (
-                                    String(value)
-                                  )}
-                                </button>
-                              )}
-                            </td>
-                          )
-                        })}
-                      </tr>
-                    ))
-                  )}
-                </tbody>
-              </table>
-            </div>
-          )}
-
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 'xs', wrap: 'wrap' }),
-              cm.sp('px', 5),
-              cm.sp('py', 3),
-              'bg-surface-container-low rounded-full',
-            )}
-          >
-            {workbook.sheets.map((sheet) => (
-              <button
-                key={sheet.id}
-                type="button"
-                onClick={() => setActiveSheetId(sheet.id)}
-                className={cm.cn(
-                  cm.sp('px', 4),
-                  cm.sp('py', 2),
-                  'text-xs font-bold rounded-full transition-colors',
-                  activeSheetId === sheet.id
-                    ? 'bg-surface-container-lowest text-primary border-b-2 border-primary'
-                    : 'text-on-surface-variant hover:bg-surface-container',
-                )}
-              >
-                {sheet.name}
-              </button>
-            ))}
+            </p>
             <button
-              onClick={addSheet}
               type="button"
-              aria-label={t('editor.addSheet', {}, { defaultValue: 'Add sheet' })}
-              className={
-                'ml-2 inline-flex items-center justify-center w-9 h-9 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors'
-              }
+              onClick={addColumn}
+              className={cm.cn(
+                'inline-flex items-center gap-2 px-4 py-2 text-sm font-bold text-on-primary rounded-full bg-primary hover:opacity-90 transition-opacity',
+              )}
             >
               <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
                 add
               </span>
+              {t('editor.addFirstColumn', {}, { defaultValue: 'Add first column' })}
             </button>
           </div>
-        </div>
+        ) : (
+          <div className="overflow-x-auto rounded-2xl border border-outline-variant/40 bg-surface-container-lowest">
+            <table className="w-full text-sm" data-testid="grid-table">
+              <thead className="bg-surface-container-low">
+                <tr>
+                  <th className="px-3 py-2 text-left text-[10px] uppercase tracking-widest font-bold text-on-surface-variant w-12">
+                    #
+                  </th>
+                  {sortedColumns.map((c) => (
+                    <th
+                      key={c.id}
+                      scope="col"
+                      className="px-3 py-2 text-left text-[11px] uppercase tracking-widest font-bold text-on-surface-variant"
+                      style={{ minWidth: c.width_px }}
+                    >
+                      {c.name}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-outline-variant/40">
+                {sortedRows.length === 0 ? (
+                  <tr>
+                    <td
+                      colSpan={sortedColumns.length + 1}
+                      className="px-3 py-6 text-center text-on-surface-variant"
+                    >
+                      {t('editor.noRows', {}, { defaultValue: 'No rows yet — click "Add row".' })}
+                    </td>
+                  </tr>
+                ) : (
+                  sortedRows.map((r, i) => (
+                    <tr key={r.id} className="hover:bg-surface-container-low transition-colors">
+                      <td className="px-3 py-2 text-[11px] font-mono tabular-nums text-on-surface-variant">
+                        {i + 1}
+                      </td>
+                      {sortedColumns.map((c) => {
+                        const isEditing =
+                          editingCell?.rowId === r.id && editingCell?.columnId === c.id
+                        const value = r.cells[c.id]
+                        return (
+                          <td
+                            key={c.id}
+                            className={cm.cn('px-3 py-1 align-top', isEditing && 'bg-cell-editing')}
+                            data-testid={`cell-${r.id}-${c.id}`}
+                            onDoubleClick={() => startEdit(r.id, c.id, value)}
+                          >
+                            {isEditing ? (
+                              <input
+                                aria-label={t('editor.editCell', {}, { defaultValue: 'Edit cell' })}
+                                value={editingValue}
+                                onChange={(e) => setEditingValue(e.target.value)}
+                                onBlur={commitEdit}
+                                onKeyDown={(e) => {
+                                  if (e.key === 'Enter') commitEdit()
+                                  if (e.key === 'Escape') {
+                                    editingCellRef.current = null
+                                    setEditingCell(null)
+                                    setEditingValue('')
+                                  }
+                                }}
+                                className="w-full bg-transparent border-b-2 border-primary outline-none text-sm"
+                              />
+                            ) : (
+                              <button
+                                type="button"
+                                onClick={() => startEdit(r.id, c.id, value)}
+                                className={cm.cn(
+                                  'text-left w-full block text-sm text-on-surface min-h-9 rounded-sm',
+                                  'focus-visible:bg-cell-selected focus-visible:outline focus-visible:outline-1 focus-visible:outline-primary',
+                                )}
+                              >
+                                {value == null || value === '' ? (
+                                  <span className="text-on-surface-variant/60">—</span>
+                                ) : (
+                                  String(value)
+                                )}
+                              </button>
+                            )}
+                          </td>
+                        )
+                      })}
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        )}
 
-        <PromptDialog
-          open={nameDialog !== null}
-          title={
-            nameDialog === 'sheet'
-              ? t('editor.prompt.sheetName', {}, { defaultValue: 'Sheet name' })
-              : t('editor.addDialogTitle', {}, { defaultValue: 'Add column' })
-          }
-          label={
-            nameDialog === 'sheet'
-              ? t('editor.prompt.sheetName', {}, { defaultValue: 'Sheet name' })
-              : t('editor.prompt.columnName', {}, { defaultValue: 'Column name' })
-          }
-          initialValue={
-            nameDialog === 'sheet'
-              ? `Sheet ${workbook.sheets.length + 1}`
-              : `Column ${columns.length + 1}`
-          }
-          confirmLabel={t('common.add', {}, { defaultValue: 'Add' })}
-          onConfirm={(value) => void confirmNameDialog(value)}
-          onClose={() => setNameDialog(null)}
-        />
-      </main>
-    </div>
+        <div
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs', wrap: 'wrap' }),
+            cm.sp('px', 5),
+            cm.sp('py', 3),
+            'bg-surface-container-low rounded-full',
+          )}
+        >
+          {workbook.sheets.map((sheet) => (
+            <button
+              key={sheet.id}
+              type="button"
+              onClick={() => setActiveSheetId(sheet.id)}
+              className={cm.cn(
+                cm.sp('px', 4),
+                cm.sp('py', 2),
+                'text-xs font-bold rounded-full transition-colors',
+                activeSheetId === sheet.id
+                  ? 'bg-surface-container-lowest text-primary border-b-2 border-primary'
+                  : 'text-on-surface-variant hover:bg-surface-container',
+              )}
+            >
+              {sheet.name}
+            </button>
+          ))}
+          <button
+            onClick={addSheet}
+            type="button"
+            aria-label={t('editor.addSheet', {}, { defaultValue: 'Add sheet' })}
+            className={
+              'ml-2 inline-flex items-center justify-center w-9 h-9 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors'
+            }
+          >
+            <span className="material-symbols-outlined text-[16px]" aria-hidden="true">
+              add
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <PromptDialog
+        open={nameDialog !== null}
+        title={
+          nameDialog === 'sheet'
+            ? t('editor.prompt.sheetName', {}, { defaultValue: 'Sheet name' })
+            : t('editor.addDialogTitle', {}, { defaultValue: 'Add column' })
+        }
+        label={
+          nameDialog === 'sheet'
+            ? t('editor.prompt.sheetName', {}, { defaultValue: 'Sheet name' })
+            : t('editor.prompt.columnName', {}, { defaultValue: 'Column name' })
+        }
+        initialValue={
+          nameDialog === 'sheet'
+            ? `Sheet ${workbook.sheets.length + 1}`
+            : `Column ${columns.length + 1}`
+        }
+        confirmLabel={t('common.add', {}, { defaultValue: 'Add' })}
+        onConfirm={(value) => void confirmNameDialog(value)}
+        onClose={() => setNameDialog(null)}
+      />
+    </SpreadsheetShell>
   )
 }
 
