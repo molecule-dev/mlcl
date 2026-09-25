@@ -1,23 +1,28 @@
 /**
  * Rushes dark-workspace shell — left sidebar with mono-uppercase nav rail,
- * top app bar with breadcrumb + search + utility icons, full-bleed canvas
- * slot. Used by every authenticated screen.
+ * per-page app bar with breadcrumb + search + utility icons, full-bleed
+ * canvas slot. Used by every authenticated screen.
  *
  * Bespoke per Rushes DESIGN.md (dark-first, full-bleed, 1024px min-width).
- * Pattern source: animation-tool/AnimationToolLayout.tsx adapted to the
- * Rushes brand palette and editor-centric nav targets.
- *
- * Mobile (<768px): the sidebar collapses into a sticky top bar (hamburger +
- * wordmark) plus a slide-in navigation drawer; the ⌘K search chip is hidden
- * (keyboard-only affordance). Desktop layout is unchanged. Drawer nav rows
- * carry `drawer-*` data-mol-ids so they never collide with the desktop
- * `rushes-*` ids the e2e suite targets.
+ * Built on the shared `ResponsiveAppShell` from @molecule/app-ui-react, which
+ * owns the responsive split: the Sidebar mounts ≥768px (brand + nav + plan
+ * card), the mobileOnly TopBar renders the menu trigger below it, and the
+ * Drawer carries the SAME nav element under the full APG dialog contract
+ * (focus trap, Escape/backdrop close, scroll lock, auto-close on
+ * navigation). Only the mounted breakpoint instantiates the nav, so the
+ * `rushes-*` data-mol-ids stay unique in the DOM across both surfaces. The
+ * shell owns the breakpoint split, drawer open state, root direction, and
+ * trigger sizing — no app-side shims. The ⌘K search chip stays a desktop-only
+ * affordance (`hidden md:flex`, a non-duplicating surface swap); page
+ * padding stays in this layout's content column (pages opt out via
+ * `fullBleed`).
  */
 import { type ReactNode, useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { RushesWordmark } from './RushesWordmark.js'
 import { UserMenu } from './UserMenu.js'
@@ -94,7 +99,6 @@ export function RushesLayout({
   const http = useHttpClient()
   const location = useLocation()
   const [billing, setBilling] = useState<BillingStatus | null>(null)
-  const [navOpen, setNavOpen] = useState(false)
 
   useEffect(() => {
     if (!user) return
@@ -115,212 +119,173 @@ export function RushesLayout({
     }
   }, [http, user])
 
-  // Any navigation (drawer link, wordmark, CTA) closes the drawer.
-  useEffect(() => {
-    setNavOpen(false)
-  }, [location.pathname])
-
-  // Escape closes the drawer.
-  useEffect(() => {
-    if (!navOpen) return
-    const onKey = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape') setNavOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [navOpen])
-
-  // Lock body scroll while the drawer is open.
-  useEffect(() => {
-    if (!navOpen) return
-    const prev = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.body.style.overflow = prev
-    }
-  }, [navOpen])
-
   const planLabel = billing?.name
     ? t('rushesLayout.planLabel', { name: billing.name }, { defaultValue: `${billing.name} plan` })
     : t('rushesLayout.planFree', {}, { defaultValue: 'Free plan' })
 
-  /**
-   * The nav column shared by the desktop sidebar and the mobile drawer.
-   * `variant` only changes the data-mol-id prefix so the e2e-anchored
-   * desktop ids stay unique when the drawer copy is in the DOM.
-   */
-  const navColumn = (variant: 'sidebar' | 'drawer') => {
-    const id = (key: string): string => `${variant === 'drawer' ? 'drawer' : 'rushes'}-${key}`
-    return (
-      <>
-        <div className={cm.cn(cm.sp('px', 6), cm.sp('mb', 8))}>
-          <RushesWordmark size="md" to="/" />
-          <p
-            className={cm.cn(
-              'mt-1 font-mono text-[10px] uppercase tracking-widest text-[var(--video-text-dim)]',
-            )}
-          >
-            {t('rushesLayout.tagline', {}, { defaultValue: 'Cinematic timeline' })}
-          </p>
-        </div>
+  // Rushes dark NLE chrome — the shell's `cm.page`/`cm.surface` tokens resolve
+  // to the theme bond's `bg-background`/`bg-surface`; these pass the Rushes
+  // palette through the same className slots (tailwind-merge keeps the last
+  // bg/border of each group).
+  const panelClasses = cm.cn('bg-[var(--video-panel-bg)] border-[var(--video-border-subtle)]')
+  const navAriaLabel = t('rushesLayout.navDialog', {}, { defaultValue: 'Navigation' })
 
-        <NavLink
-          to="/projects/new"
-          data-mol-id={id('new-project')}
-          className={cm.cn(
-            cm.fontWeight('semibold'),
-            cm.flex({ align: 'center', justify: 'center', gap: 2 }),
-            cm.sp('mx', 4),
-            cm.sp('mb', 6),
-            cm.sp('px', 3),
-            'min-h-[40px] rounded-lg text-white bg-gradient-to-r from-[var(--video-cta-from)] to-[var(--video-cta-to)] hover:opacity-90 transition-opacity',
-            cm.textSize('sm'),
-          )}
-        >
-          <span className={cm.cn('material-symbols-outlined text-[18px]')}>add</span>
-          <span>{t('nav.newProject', {}, { defaultValue: 'New project' })}</span>
-        </NavLink>
-
-        <nav className={cm.cn(cm.flex1, cm.sp('px', 4), cm.stack(1))}>
-          {NAV.map((item) => {
-            const active =
-              location.pathname === item.to || location.pathname.startsWith(`${item.to}/`)
-            return (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                data-mol-id={id(`nav-${item.icon}`)}
-                className={cm.cn(
-                  cm.flex({ align: 'center', gap: 3 }),
-                  cm.sp('px', 3),
-                  'min-h-[40px] rounded-md transition-colors',
-                  cm.textSize('sm'),
-                  active
-                    ? 'bg-[var(--video-cta-from)]/15 text-[var(--video-link)] border-l-2 border-[var(--video-cta-from)]'
-                    : 'text-[var(--video-text-muted-alt)] hover:bg-[var(--video-panel-bg-alt)] hover:text-[var(--video-text-primary)]',
-                )}
-              >
-                <span className={cm.cn('material-symbols-outlined text-[18px]')}>{item.icon}</span>
-                <span className={cm.fontWeight('medium')}>
-                  {t(item.labelKey, {}, { defaultValue: item.defaultLabel })}
-                </span>
-              </NavLink>
-            )
-          })}
-        </nav>
-
-        <div className={cm.cn(cm.sp('px', 6), cm.sp('mt', 4))}>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', gap: 3 }),
-              cm.sp('pt', 4),
-              'border-t border-[var(--video-border-subtle)]',
-            )}
-          >
-            <div
-              className={cm.cn(
-                cm.w(8),
-                cm.h(8),
-                cm.flex({ align: 'center', justify: 'center' }),
-                'rounded-full bg-gradient-to-br from-[var(--video-cta-from)] to-[var(--video-cta-to)] text-white font-bold text-sm',
-              )}
-            >
-              {user?.email?.[0]?.toUpperCase() ?? 'R'}
-            </div>
-            <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-0')}>
-              <span
-                className={cm.cn(
-                  cm.textSize('sm'),
-                  cm.fontWeight('medium'),
-                  'text-[var(--video-text-primary)] truncate',
-                )}
-              >
-                {user?.email ?? t('rushesLayout.guest', {}, { defaultValue: 'Editor' })}
-              </span>
-              <span
-                data-mol-id={id('plan-label')}
-                className={cm.cn(
-                  'text-[10px] font-mono uppercase tracking-widest text-[var(--video-text-dim)]',
-                )}
-              >
-                {planLabel}
-              </span>
-            </div>
-          </div>
-        </div>
-      </>
-    )
-  }
-
-  return (
-    <div
-      className={cm.cn(
-        cm.flex({ direction: 'row' }),
-        cm.minH('screen'),
-        'bg-[var(--video-input-bg)] text-[var(--video-text-primary)] font-body',
-      )}
-    >
-      {/* Desktop sidebar (collapsed below md into the top bar + drawer). */}
-      <aside
+  /** Brand block for the desktop sidebar (rides inside the sidebar children). */
+  const sidebarBrand = (
+    <div className={cm.cn(cm.sp('px', 6), cm.sp('mb', 8))}>
+      <RushesWordmark size="md" to="/" />
+      <p
         className={cm.cn(
-          'hidden md:flex md:flex-col',
-          cm.sp('py', 6),
-          'w-[260px] border-r border-[var(--video-border-subtle)] bg-[var(--video-panel-bg)] shrink-0',
+          'mt-1 font-mono text-[10px] uppercase tracking-widest text-[var(--video-text-dim)]',
         )}
       >
-        {navColumn('sidebar')}
-      </aside>
+        {t('rushesLayout.tagline', {}, { defaultValue: 'Cinematic timeline' })}
+      </p>
+    </div>
+  )
 
-      {/* Mobile drawer + backdrop. */}
-      {navOpen && (
-        <div className="md:hidden fixed inset-0 z-50">
-          <button
-            type="button"
-            data-mol-id="drawer-backdrop"
-            aria-label={t('rushesLayout.closeMenu', {}, { defaultValue: 'Close navigation' })}
-            onClick={() => setNavOpen(false)}
-            className="absolute inset-0 w-full h-full bg-black/60 backdrop-blur-sm cursor-default"
-          />
-          <aside
-            role="dialog"
-            aria-modal="true"
-            aria-label={t('rushesLayout.navDialog', {}, { defaultValue: 'Navigation' })}
-            className={cm.cn(
-              'absolute left-0 top-0 bottom-0 w-[280px] max-w-[85vw] flex flex-col overflow-y-auto',
-              cm.sp('py', 6),
-              'border-r border-[var(--video-border-subtle)] bg-[var(--video-panel-bg)]',
-            )}
-          >
-            {navColumn('drawer')}
-          </aside>
-        </div>
-      )}
+  /** Brand block for the drawer header row (next to the shell's close button). */
+  const drawerBrand = (
+    <div className={cm.cn(cm.sp('px', 3))}>
+      <RushesWordmark size="md" to="/" />
+      <p
+        className={cm.cn(
+          'mt-1 font-mono text-[10px] uppercase tracking-widest text-[var(--video-text-dim)]',
+        )}
+      >
+        {t('rushesLayout.tagline', {}, { defaultValue: 'Cinematic timeline' })}
+      </p>
+    </div>
+  )
 
-      <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
-        {/* Mobile sticky top bar. */}
-        <div
+  /**
+   * The nav column shared by the desktop sidebar and the mobile drawer —
+   * ONE element passed to both, so only the mounted breakpoint instantiates
+   * it and the `rushes-*` ids stay unique in the DOM.
+   */
+  const navColumn = (
+    <>
+      <NavLink
+        to="/projects/new"
+        data-mol-id="rushes-new-project"
+        className={cm.cn(
+          cm.fontWeight('semibold'),
+          cm.flex({ align: 'center', justify: 'center', gap: 2 }),
+          cm.sp('mx', 4),
+          cm.sp('mb', 6),
+          cm.sp('px', 3),
+          'min-h-[40px] rounded-lg text-white bg-gradient-to-r from-[var(--video-cta-from)] to-[var(--video-cta-to)] hover:opacity-90 transition-opacity',
+          cm.textSize('sm'),
+        )}
+      >
+        <span className={cm.cn('material-symbols-outlined text-[18px]')}>add</span>
+        <span>{t('nav.newProject', {}, { defaultValue: 'New project' })}</span>
+      </NavLink>
+
+      <div className={cm.cn(cm.flex1, cm.sp('px', 4), cm.stack(1))}>
+        {NAV.map((item) => {
+          const active =
+            location.pathname === item.to || location.pathname.startsWith(`${item.to}/`)
+          // NavLink carries aria-current="page" on the active link.
+          return (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              data-mol-id={`rushes-nav-${item.icon}`}
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 3 }),
+                cm.sp('px', 3),
+                'min-h-[40px] rounded-md transition-colors',
+                cm.textSize('sm'),
+                active
+                  ? 'bg-[var(--video-cta-from)]/15 text-[var(--video-link)] border-l-2 border-[var(--video-cta-from)]'
+                  : 'text-[var(--video-text-muted-alt)] hover:bg-[var(--video-panel-bg-alt)] hover:text-[var(--video-text-primary)]',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-[18px]')}>{item.icon}</span>
+              <span className={cm.fontWeight('medium')}>
+                {t(item.labelKey, {}, { defaultValue: item.defaultLabel })}
+              </span>
+            </NavLink>
+          )
+        })}
+      </div>
+    </>
+  )
+
+  /** Account card — the shell footer slot renders it after the nav landmark. */
+  const userCard = (
+    <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }))}>
+      <div
+        className={cm.cn(
+          cm.w(8),
+          cm.h(8),
+          cm.flex({ align: 'center', justify: 'center' }),
+          'rounded-full bg-gradient-to-br from-[var(--video-cta-from)] to-[var(--video-cta-to)] text-white font-bold text-sm',
+        )}
+      >
+        {user?.email?.[0]?.toUpperCase() ?? 'R'}
+      </div>
+      <div className={cm.cn(cm.flex({ direction: 'col' }), 'min-w-0')}>
+        <span
           className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between' }),
-            'md:hidden sticky top-0 z-40 h-14 px-3 border-b border-[var(--video-border-subtle)] bg-[var(--video-panel-bg)]/95 backdrop-blur-md',
+            cm.textSize('sm'),
+            cm.fontWeight('medium'),
+            'text-[var(--video-text-primary)] truncate',
           )}
         >
-          <button
-            type="button"
-            data-mol-id="rushes-menu"
-            aria-label={t('rushesLayout.openMenu', {}, { defaultValue: 'Open navigation' })}
-            aria-expanded={navOpen}
-            onClick={() => setNavOpen(true)}
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'w-11 h-11 rounded-md text-[var(--video-text-muted-alt)] hover:bg-[var(--video-panel-bg-alt)] hover:text-[var(--video-text-primary)] transition-colors',
-            )}
-          >
-            <span className={cm.cn('material-symbols-outlined text-[22px]')}>menu</span>
-          </button>
-          <RushesWordmark size="sm" to="/" />
-          <span className="w-11 shrink-0" aria-hidden="true" />
-        </div>
+          {user?.email ?? t('rushesLayout.guest', {}, { defaultValue: 'Editor' })}
+        </span>
+        <span
+          data-mol-id="rushes-plan-label"
+          className={cm.cn(
+            'text-[10px] font-mono uppercase tracking-widest text-[var(--video-text-dim)]',
+          )}
+        >
+          {planLabel}
+        </span>
+      </div>
+    </div>
+  )
 
+  return (
+    <ResponsiveAppShell
+      sidebarWidth={260}
+      className="bg-[var(--video-input-bg)] text-[var(--video-text-primary)] font-body"
+    >
+      {/* Mobile-only top bar (< md): the shell renders the menu trigger; the
+          desktop keeps its brand in the sidebar, so the bar mounts nowhere
+          else. */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={<RushesWordmark size="sm" to="/" />}
+        // The /95 bg stays LAST — tailwind-merge keeps the last bg-* of the
+        // group, so the translucent bar must not precede the solid panel bg.
+        className={cm.cn(panelClasses, 'bg-[var(--video-panel-bg)]/95 backdrop-blur-md')}
+      />
+
+      {/* Desktop sidebar (≥768px): brand + nav, plan card in the footer slot. */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navAriaLabel}
+        className={cm.cn(cm.sp('py', 6), panelClasses)}
+        footer={userCard}
+      >
+        {sidebarBrand}
+        {navColumn}
+      </ResponsiveAppShell.Sidebar>
+
+      {/* Mobile drawer (< md): the same nav element under the shell's full
+          dialog contract; brand in the header row, plan card in the footer. */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navAriaLabel}
+        className={cm.cn('h-full', cm.sp('py', 6), panelClasses)}
+        header={drawerBrand}
+        footer={userCard}
+      >
+        {navColumn}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content className={cm.cn(cm.flex({ direction: 'col' }))}>
         <header
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'between' }),
@@ -374,11 +339,11 @@ export function RushesLayout({
           </div>
         </header>
 
-        <main className={cm.cn(cm.flex1, 'overflow-y-auto', fullBleed ? '' : cm.sp('p', 6))}>
+        <div className={cm.cn(cm.flex1, 'overflow-y-auto', fullBleed ? '' : cm.sp('p', 6))}>
           {children}
-        </main>
-      </div>
-    </div>
+        </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
 
