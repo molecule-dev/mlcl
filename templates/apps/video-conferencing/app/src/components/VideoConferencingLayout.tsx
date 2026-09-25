@@ -1,21 +1,23 @@
 /**
- * Convoke shell layout.
- *
- * Desktop (>= md): fixed left side-nav (260px) + sticky frosted topbar with
- * search + theme toggle + user menu, and a scrollable main column.
- * Mobile (< md): the shared-sidebar pattern eats two thirds of the viewport,
- * so a template-local shell swaps in a sticky top bar + hamburger drawer
- * (scrim, Escape-to-close, auto-close on navigation, 44px targets).
- *
- * Translated from team-chat's SideNavBar + dashboard shell, adapted for
- * video-conferencing's information architecture (Dashboard / Schedule /
- * Recordings / Notifications / Team / Settings / Billing).
+ * Convoke shell layout — the shared `ResponsiveAppShell`
+ * (`@molecule/app-ui-react`), composed the fleet-canonical way: the brand
+ * leads the desktop Sidebar, the mobile-only TopBar carries the menu trigger
+ * (rendered by the shell when a Drawer is composed) plus the user menu, and
+ * the SAME nav element is passed to `.Sidebar` and `.Drawer` so only the
+ * mounted breakpoint's copy ever instantiates. The drawer is the shell's full
+ * APG dialog (focus trap, Escape/backdrop close, scroll lock, auto-close on
+ * navigation) — the former hand-rolled hamburger button, drawer open state
+ * and scrim/Escape handlers are deleted with it. The ≥md desktop chrome
+ * (page title + search + theme toggle + user menu) rides at the top of the
+ * content region as md+-only non-duplicating chrome, exactly where the old
+ * sticky top bar sat.
  */
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { ThemeToggle } from './ThemeToggle.js'
@@ -60,249 +62,168 @@ export function VideoConferencingLayout() {
   const location = useLocation()
   const [searchQuery, setSearchQuery] = useState('')
   const [pageTitle, setPageTitle] = useState<string>('')
-  const [drawerOpen, setDrawerOpen] = useState(false)
 
   useEffect(() => {
     const match = NAV_ITEMS.find((item) => location.pathname.startsWith(item.to))
     setPageTitle(match ? t(match.key, {}, { defaultValue: match.defaultLabel }) : APP_NAME)
   }, [location.pathname, t])
 
-  // Any navigation closes the mobile drawer.
-  useEffect(() => {
-    setDrawerOpen(false)
-  }, [location.pathname])
-
-  // Escape closes the drawer.
-  useEffect(() => {
-    if (!drawerOpen) return
-    const onKey = (e: KeyboardEvent): void => {
-      if (e.key === 'Escape') setDrawerOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [drawerOpen])
-
-  return (
-    <div
+  // New-meeting quick action — the sidebar and the drawer share one element;
+  // only the mounted breakpoint's copy ever instantiates.
+  const newMeetingButton = (
+    <button
+      type="button"
+      onClick={() => navigate('/schedule')}
       className={cm.cn(
-        cm.flex({ direction: 'col' }),
-        'lg:flex-row',
-        cm.minH('screen'),
-        'bg-surface-container-lowest',
+        cm.flex({ align: 'center', justify: 'center', gap: 2 }),
+        cm.sp('px', 4),
+        cm.fontWeight('semibold'),
+        cm.textSize('sm'),
+        'w-full py-2.5 rounded-lg text-on-primary bg-gradient-to-r from-primary to-secondary shadow-md shadow-primary/25 hover:shadow-lg hover:shadow-primary/40 transition-all active:scale-95',
       )}
     >
-      {/* ——— Mobile top bar (< md) ——— */}
-      <header
-        data-testid="layout-topbar"
+      <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}>add</span>
+      {t('nav.newMeeting', {}, { defaultValue: 'New meeting' })}
+    </button>
+  )
+
+  // ONE nav element for both breakpoints — the Sidebar (≥768px) and the
+  // Drawer (<768px) each render it, but only the mounted breakpoint's copy
+  // instantiates. NavLink sets `aria-current="page"` on the active link.
+  const nav = (
+    <>
+      {NAV_ITEMS.map((item) => (
+        <NavLink
+          key={item.to}
+          to={item.to}
+          className={({ isActive }) => navLinkClass(cm, isActive)}
+        >
+          <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}>{item.icon}</span>
+          <span>{t(item.key, {}, { defaultValue: item.defaultLabel })}</span>
+        </NavLink>
+      ))}
+    </>
+  )
+
+  const footerNav = (
+    <>
+      {FOOTER_NAV.map((item) => (
+        <NavLink
+          key={item.to}
+          to={item.to}
+          className={({ isActive }) => navLinkClass(cm, isActive)}
+        >
+          <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}>{item.icon}</span>
+          <span>{t(item.key, {}, { defaultValue: item.defaultLabel })}</span>
+        </NavLink>
+      ))}
+    </>
+  )
+
+  // Brand — leads the desktop sidebar and rides in the mobile-only TopBar.
+  // Breakpoint-exclusive mounts, so never duplicated on one screen.
+  const desktopBrand = (
+    <Link to="/dashboard" className={cm.cn(cm.flex({ align: 'center', gap: 3 }), cm.sp('p', 6))}>
+      <div
         className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between' }),
-          'sticky top-0 z-40 h-14 shrink-0 border-b border-outline-variant/40 bg-surface/90 backdrop-blur-xl lg:hidden',
+          cm.flex({ align: 'center', justify: 'center' }),
+          'w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary shadow-lg shadow-primary/30',
         )}
       >
-        <button
-          type="button"
-          onClick={() => setDrawerOpen((o) => !o)}
-          aria-label={t('nav.menu', {}, { defaultValue: 'Menu' })}
-          aria-expanded={drawerOpen}
-          aria-controls="mobile-nav-drawer"
-          data-testid="layout-drawer-toggle"
+        <span className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined text-on-primary')}>
+          videocam
+        </span>
+      </div>
+      <div>
+        <h1
           className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            'h-11 w-11 shrink-0 rounded-full text-on-surface hover:bg-surface-container',
+            cm.textSize('xl'),
+            'font-extrabold tracking-tight leading-none text-on-surface',
           )}
         >
-          <span
-            className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}
-            aria-hidden="true"
-          >
-            {drawerOpen ? 'close' : 'menu'}
-          </span>
-        </button>
-        <Link to="/dashboard" className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary shadow-md shadow-primary/30',
-            )}
-          >
-            <span className={'material-symbols-outlined text-[18px] text-on-primary'}>
-              videocam
-            </span>
-          </div>
-          <span
-            className={cm.cn(cm.textSize('base'), 'font-extrabold tracking-tight text-on-surface')}
-          >
-            {APP_NAME}
-          </span>
-        </Link>
-        <UserMenu />
-      </header>
+          {APP_NAME}
+        </h1>
+        <p
+          className={cm.cn(
+            cm.fontWeight('semibold'),
+            cm.sp('mt', 1),
+            'text-[10px] uppercase tracking-widest text-on-surface-variant',
+          )}
+        >
+          {t('nav.organization', {}, { defaultValue: 'Acme Workspace' })}
+        </p>
+      </div>
+    </Link>
+  )
 
-      {/* ——— Mobile drawer (< md) ——— */}
-      {drawerOpen ? (
-        <div className={cm.cn('lg:hidden')} data-testid="layout-drawer">
-          <button
-            type="button"
-            onClick={() => setDrawerOpen(false)}
-            aria-label={t('nav.closeMenu', {}, { defaultValue: 'Close menu' })}
-            data-testid="layout-drawer-scrim"
-            className={cm.cn('fixed inset-0 z-40 cursor-default bg-black/50 backdrop-blur-sm')}
-          />
-          <aside
-            id="mobile-nav-drawer"
-            className={cm.cn(
-              cm.flex({ direction: 'col' }),
-              'fixed left-0 top-14 bottom-0 z-40 w-72 overflow-y-auto bg-surface shadow-2xl',
-            )}
-          >
-            <div className={cm.cn(cm.sp('p', 4))}>
-              <button
-                type="button"
-                onClick={() => navigate('/schedule')}
-                className={cm.cn(
-                  cm.flex({ align: 'center', justify: 'center', gap: 2 }),
-                  cm.sp('px', 4),
-                  cm.fontWeight('semibold'),
-                  cm.textSize('sm'),
-                  'w-full py-3 rounded-lg text-on-primary bg-gradient-to-r from-primary to-secondary shadow-md shadow-primary/25 transition-all active:scale-95',
-                )}
-              >
-                <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}>add</span>
-                {t('nav.newMeeting', {}, { defaultValue: 'New meeting' })}
-              </button>
-            </div>
-            <nav className={cm.cn(cm.flex1, cm.sp('px', 3), cm.sp('pb', 4), cm.stack(1))}>
-              {NAV_ITEMS.map((item) => (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  className={({ isActive }) => navLinkClass(cm, isActive)}
-                >
-                  <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}>
-                    {item.icon}
-                  </span>
-                  <span>{t(item.key, {}, { defaultValue: item.defaultLabel })}</span>
-                </NavLink>
-              ))}
-            </nav>
-            <div
-              className={cm.cn(
-                cm.sp('p', 3),
-                cm.sp('pb', 6),
-                cm.stack(1),
-                'border-t border-outline-variant/40',
-              )}
-            >
-              {FOOTER_NAV.map((item) => (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  className={({ isActive }) => navLinkClass(cm, isActive)}
-                >
-                  <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}>
-                    {item.icon}
-                  </span>
-                  <span>{t(item.key, {}, { defaultValue: item.defaultLabel })}</span>
-                </NavLink>
-              ))}
-            </div>
-          </aside>
-        </div>
-      ) : null}
-
-      {/* ——— Desktop side-nav (>= md) ——— */}
-      <aside
+  const mobileBrand = (
+    <Link to="/dashboard" className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
+      <div
         className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          'hidden lg:flex fixed left-0 top-0 h-screen w-[260px] bg-surface border-r border-outline-variant/40 z-40',
+          cm.flex({ align: 'center', justify: 'center' }),
+          'w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary shadow-md shadow-primary/30',
         )}
       >
-        <Link
-          to="/dashboard"
-          className={cm.cn(cm.flex({ align: 'center', gap: 3 }), cm.sp('p', 6))}
+        <span
+          className={cm.cn(
+            cm.textSize('lg'),
+            'material-symbols-outlined text-[18px] text-on-primary',
+          )}
         >
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary shadow-lg shadow-primary/30',
-            )}
-          >
-            <span className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined text-on-primary')}>
-              videocam
-            </span>
-          </div>
-          <div>
-            <h1
-              className={cm.cn(
-                cm.textSize('xl'),
-                'font-extrabold tracking-tight leading-none text-on-surface',
-              )}
-            >
-              {APP_NAME}
-            </h1>
-            <p
-              className={cm.cn(
-                cm.fontWeight('semibold'),
-                cm.sp('mt', 1),
-                'text-[10px] uppercase tracking-widest text-on-surface-variant',
-              )}
-            >
-              {t('nav.organization', {}, { defaultValue: 'Acme Workspace' })}
-            </p>
-          </div>
-        </Link>
-        <div className={cm.cn(cm.sp('px', 4), cm.sp('mb', 4))}>
-          <button
-            type="button"
-            onClick={() => navigate('/schedule')}
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center', gap: 2 }),
-              cm.sp('px', 4),
-              cm.fontWeight('semibold'),
-              cm.textSize('sm'),
-              'w-full py-2.5 rounded-lg text-on-primary bg-gradient-to-r from-primary to-secondary shadow-md shadow-primary/25 hover:shadow-lg hover:shadow-primary/40 transition-all active:scale-95',
-            )}
-          >
-            <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}>add</span>
-            {t('nav.newMeeting', {}, { defaultValue: 'New meeting' })}
-          </button>
-        </div>
-        <nav className={cm.cn(cm.flex1, cm.sp('px', 3), cm.stack(1), 'overflow-y-auto')}>
-          {NAV_ITEMS.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) => navLinkClass(cm, isActive)}
-            >
-              <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}>
-                {item.icon}
-              </span>
-              <span>{t(item.key, {}, { defaultValue: item.defaultLabel })}</span>
-            </NavLink>
-          ))}
-        </nav>
-        <div className={cm.cn(cm.sp('p', 3), cm.stack(1), 'border-t border-outline-variant/40')}>
-          {FOOTER_NAV.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) => navLinkClass(cm, isActive)}
-            >
-              <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')}>
-                {item.icon}
-              </span>
-              <span>{t(item.key, {}, { defaultValue: item.defaultLabel })}</span>
-            </NavLink>
-          ))}
-        </div>
-      </aside>
+          videocam
+        </span>
+      </div>
+      <span className={cm.cn(cm.textSize('base'), 'font-extrabold tracking-tight text-on-surface')}>
+        {APP_NAME}
+      </span>
+    </Link>
+  )
 
-      <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'lg:ml-[260px] min-h-screen')}>
+  return (
+    <ResponsiveAppShell sidebarWidth="lg">
+      {/*
+        Mobile top bar (<768px): the drawer menu trigger (rendered by the
+        shell) + brand + user menu. Desktop returns null — the sidebar and
+        the content-region chrome carry the shell there.
+      */}
+      <ResponsiveAppShell.TopBar mobileOnly brand={mobileBrand} actions={<UserMenu />} />
+
+      {/*
+        Desktop sidebar (>=768px): brand row, quick action and the primary
+        nav; the shared Sidebar's footer slot carries the settings/billing
+        links below its own bordered divider.
+      */}
+      <ResponsiveAppShell.Sidebar footer={footerNav}>
+        {desktopBrand}
+        <div className={cm.cn(cm.sp('px', 4), cm.sp('mb', 4))}>{newMeetingButton}</div>
+        <div className={cm.cn(cm.flex1, cm.sp('px', 3), cm.sp('pb', 4))}>{nav}</div>
+      </ResponsiveAppShell.Sidebar>
+
+      {/*
+        Mobile drawer (<768px): the shell's full dialog panel over the same
+        nav, with the quick action on top and the footer links below.
+      */}
+      <ResponsiveAppShell.Drawer
+        // The shared panel ships no height token (its content would size it);
+        // `h-full` restores the documented full-height left-panel geometry.
+        className="h-full"
+        footer={footerNav}
+      >
+        <div className={cm.cn(cm.sp('p', 4), cm.sp('pb', 0))}>{newMeetingButton}</div>
+        <div className={cm.cn(cm.sp('px', 3), cm.sp('pb', 4))}>{nav}</div>
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content>
+        {/*
+          Desktop chrome — page title + search + theme + user menu, the old
+          sticky content top bar. md+-only: the shell's mobile TopBar replaces
+          it below the breakpoint (non-duplicating surface swap).
+        */}
         <header
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'between' }),
             cm.sp('px', 8),
-            'sticky top-0 z-30 hidden lg:flex h-14 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/40',
+            'sticky top-0 z-30 hidden h-14 shrink-0 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/40 md:flex',
           )}
         >
           <div className={cm.flex({ align: 'center', gap: 4 })}>
@@ -349,12 +270,12 @@ export function VideoConferencingLayout() {
             <UserMenu />
           </div>
         </header>
-        <main className={cm.cn(cm.flex1, cm.sp('p', 4), 'lg:p-8 overflow-y-auto')}>
+        <div className={cm.cn('w-full p-4 md:p-8')}>
           <div className={cm.cn(cm.mxAuto, cm.maxW('2xl'), 'w-full max-w-[1400px]')}>
             <Outlet />
           </div>
-        </main>
-      </div>
-    </div>
+        </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
