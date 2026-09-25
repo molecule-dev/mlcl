@@ -1,74 +1,194 @@
-import { useState } from 'react'
-import { Link, Outlet } from 'react-router'
+import { Link, Outlet, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
+import { APP_NAME, APP_TAGLINE } from '../branding.js'
 import { useWeightPreference } from '../lib/weight.js'
-import { ForjaMobileNav } from './ForjaMobileNav.js'
-import { ForjaSidebar } from './ForjaSidebar.js'
+
+interface NavItem {
+  to: string
+  icon: string
+  labelKey: string
+  defaultLabel: string
+  filledIcon?: boolean
+}
+
+const PRIMARY_ITEMS: NavItem[] = [
+  {
+    to: '/dashboard',
+    icon: 'dashboard',
+    labelKey: 'forja.nav.dashboard',
+    defaultLabel: 'Dashboard',
+  },
+  {
+    to: '/workout/active',
+    icon: 'fitness_center',
+    labelKey: 'forja.nav.activeWorkout',
+    defaultLabel: 'Active Workout',
+    filledIcon: true,
+  },
+  {
+    to: '/exercises',
+    icon: 'sports_gymnastics',
+    labelKey: 'forja.nav.exercises',
+    defaultLabel: 'Exercises',
+  },
+  {
+    to: '/templates',
+    icon: 'list_alt',
+    labelKey: 'forja.nav.templates',
+    defaultLabel: 'Templates',
+  },
+  { to: '/history', icon: 'event_note', labelKey: 'forja.nav.history', defaultLabel: 'History' },
+  { to: '/records', icon: 'emoji_events', labelKey: 'forja.nav.records', defaultLabel: 'Records' },
+  {
+    to: '/measurements',
+    icon: 'monitor_weight',
+    labelKey: 'forja.nav.measurements',
+    defaultLabel: 'Measurements',
+  },
+]
+
+const SECONDARY_ITEMS: NavItem[] = [
+  { to: '/settings', icon: 'settings', labelKey: 'forja.nav.settings', defaultLabel: 'Settings' },
+]
 
 /**
- * Layout wrapper for Forja's signed-in routes.
- *
- * Desktop (≥768px): dark accent sidebar on the left and an offset main
- * canvas on the right (Outlet). Pages render their own ForjaTopBar inside
- * the canvas so each screen controls its own title and actions.
- *
- * Mobile (<768px): the sidebar is hidden, so the shell renders a sticky
- * top bar (hamburger + wordmark) and a slide-in drawer (ForjaMobileNav) —
- * without them a phone would have no navigation at all.
- *
- * Translated from calorie-counter's NoshAppShell.tsx.
+ * A Forja nav link list (primary or secondary) — the SAME element serves the
+ * desktop Sidebar (≥768px) and the mobile Drawer (<768px); only the mounted
+ * breakpoint instantiates it, so the links are never duplicated in the DOM.
+ * Marking the current item is the consumer's job: `aria-current="page"` on
+ * the active route (exact or child-prefix match).
+ */
+function ForjaNavLinks({ items }: { items: NavItem[] }) {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const { pathname } = useLocation()
+
+  const isActive = (to: string) => pathname === to || pathname.startsWith(`${to}/`)
+
+  return (
+    <ul className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), 'list-none')}>
+      {items.map((item) => {
+        const active = isActive(item.to)
+        return (
+          <li key={item.to}>
+            <Link
+              to={item.to}
+              data-mol-id={`mobile-nav-${item.icon}`}
+              aria-current={active ? 'page' : undefined}
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                cm.sp('px', 4),
+                cm.sp('py', 3),
+                'rounded-xl transition-colors duration-200 active:scale-95',
+                active
+                  ? 'bg-primary text-on-primary font-semibold shadow-sm'
+                  : 'text-white/80 font-medium hover:bg-surface/5 hover:text-white',
+              )}
+            >
+              <span
+                aria-hidden="true"
+                className={cm.cn('material-symbols-outlined text-[22px] shrink-0')}
+                style={item.filledIcon ? { fontVariationSettings: "'FILL' 1" } : undefined}
+              >
+                {item.icon}
+              </span>
+              <span>{t(item.labelKey, {}, { defaultValue: item.defaultLabel })}</span>
+            </Link>
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
+
+/**
+ * The Forja wordmark + tagline — the Sidebar's brand block and the Drawer's
+ * header row (only the mounted breakpoint instantiates it).
+ */
+function ForjaBrand() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+
+  return (
+    <Link to="/dashboard" className={cm.cn(cm.sp('px', 2), cm.sp('mb', 6), 'block')}>
+      <span className={cm.cn('block text-3xl font-black text-primary tracking-tight')}>
+        {APP_NAME}
+      </span>
+      <span
+        className={cm.cn(
+          cm.textSize('xs'),
+          'block text-white/60 font-bold tracking-[0.18em] uppercase mt-1',
+        )}
+      >
+        {t('forja.nav.tagline', {}, { defaultValue: APP_TAGLINE })}
+      </span>
+    </Link>
+  )
+}
+
+/**
+ * Layout wrapper for Forja's signed-in routes — the shared
+ * `ResponsiveAppShell`. It owns the breakpoint split: the Sidebar mounts only
+ * ≥768px (brand + primary nav, Settings in the footer row), the mobile Drawer
+ * (same nav element, full dialog contract — focus trap, Escape/backdrop
+ * close, scroll lock, auto-close on navigation) only below it, and the
+ * mobile-only TopBar renders the menu trigger itself. Desktop keeps Forja's
+ * charcoal accent chrome; pages render their own ForjaTopBar inside the
+ * canvas with their own title and actions.
  */
 export function ForjaAppShell() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [navOpen, setNavOpen] = useState(false)
+  const navLabel = t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })
   // Load the weight-unit preference once for the whole signed-in tree; this
   // re-renders the pages when it resolves so kg/lbs displays pick it up.
   useWeightPreference()
+
   return (
-    <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
-      <ForjaSidebar />
-      {/* Sticky mobile top bar — the drawer trigger for <768px. */}
-      <header
-        className={cm.cn(
-          cm.flex({ align: 'center', gap: 'sm' }),
-          cm.sp('px', 4),
-          'sticky top-0 z-30 h-14 md:hidden bg-accent text-white items-center shadow-sm',
-        )}
+    <ResponsiveAppShell
+      sidebarWidth={260}
+      className={cm.cn('bg-background text-on-surface antialiased')}
+    >
+      {/* Mobile-only: carries the drawer trigger + wordmark; the desktop brand
+          lives in the Sidebar and pages render their own headers. */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        className={cm.cn('bg-accent text-white shadow-sm')}
+        brand={
+          <Link to="/dashboard" className={cm.cn('text-xl font-black text-primary tracking-tight')}>
+            {APP_NAME}
+          </Link>
+        }
+      />
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        className={cm.cn('bg-accent text-white')}
+        footer={<ForjaNavLinks items={SECONDARY_ITEMS} />}
       >
-        <button
-          type="button"
-          data-mol-id="mobile-nav-open"
-          onClick={() => setNavOpen(true)}
-          aria-label={t('nav.openMenu', {}, { defaultValue: 'Open navigation' })}
-          aria-expanded={navOpen}
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            '-ml-2 w-11 h-11 rounded-full text-white/90 hover:bg-surface/5',
-          )}
-        >
-          <span aria-hidden="true" className={cm.cn('material-symbols-outlined')}>
-            menu
-          </span>
-        </button>
-        <Link to="/dashboard" className={cm.cn('text-xl font-black text-primary tracking-tight')}>
-          {APP_NAME}
-        </Link>
-      </header>
-      <ForjaMobileNav open={navOpen} onClose={() => setNavOpen(false)} />
-      <main
+        <ForjaBrand />
+        <ForjaNavLinks items={PRIMARY_ITEMS} />
+      </ResponsiveAppShell.Sidebar>
+      <ResponsiveAppShell.Drawer
+        navLabel={navLabel}
+        header={<ForjaBrand />}
+        className={cm.cn('h-full bg-accent text-white')}
+        footer={<ForjaNavLinks items={SECONDARY_ITEMS} />}
+      >
+        <ForjaNavLinks items={PRIMARY_ITEMS} />
+      </ResponsiveAppShell.Drawer>
+      <ResponsiveAppShell.Content
         className={cm.cn(
           cm.flex({ direction: 'col', gap: 'lg' }),
           cm.sp('p', 4),
-          'md:ml-[260px] md:p-8 min-h-screen tabular-nums max-w-[1200px]',
+          'md:p-8 tabular-nums max-w-[1200px]',
         )}
       >
         <Outlet />
-      </main>
-    </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
