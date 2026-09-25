@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { ContentPageShell } from '@molecule/app-legal-pages-react'
 import { useTranslation, useVerifyPaymentReturn } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { Button, Flex, Spinner } from '@molecule/app-ui-react'
+import { Button, Flex, LoadErrorBanner, Spinner } from '@molecule/app-ui-react'
 
 import { Footer } from '../components/Footer.js'
 import { Header } from '../components/Header.js'
@@ -45,18 +45,17 @@ export function PlanUpdated() {
           { defaultValue: 'We could not confirm your payment yet.' },
         )}
       >
-        <div className={cm.cn(cm.textCenter, cm.stack(4))} data-mol-id="plan-updated-error">
-          <p className={cm.cn(cm.prose, 'text-on-surface-variant')}>
-            {t(
-              'planUpdated.verifyFailedBody',
-              {},
-              { defaultValue: 'Your payment may still be processing. Try again in a moment.' },
-            )}
-          </p>
-          <Button onClick={verification.retry} data-mol-id="plan-updated-retry">
-            {t('planUpdated.retry', {}, { defaultValue: 'Try again' })}
-          </Button>
-        </div>
+        <LoadErrorBanner
+          data-mol-id="plan-updated-error"
+          message={t(
+            'planUpdated.verifyFailedBody',
+            {},
+            { defaultValue: 'Your payment may still be processing. Try again in a moment.' },
+          )}
+          onRetry={verification.retry}
+          retryLabel={t('planUpdated.retry', {}, { defaultValue: 'Try again' })}
+          retryMolId="plan-updated-retry"
+        />
       </ContentPageShell>
     )
   }
