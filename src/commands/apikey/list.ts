@@ -16,6 +16,6 @@ export default class ApikeyListCmd extends Command {
     const { flags } = await this.parse(ApikeyListCmd)
     const keys = await listApiKeys(flags.project)
     this.log(ui.heading(`${keys.length} keys`))
-    for (const k of keys) this.log(`  ${k.id}  ${k.name ?? ''}  ${k.key ?? ''}`)
+    for (const k of keys) this.log(`  ${k.id}  ${k.name ?? ''}  ${k.masked ?? ''}`)
   }
 }

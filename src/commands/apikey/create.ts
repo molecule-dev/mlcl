@@ -19,6 +19,9 @@ export default class ApikeyCreateCmd extends Command {
     const { flags } = await this.parse(ApikeyCreateCmd)
     const k = await createApiKey(flags.project, flags.name)
     this.log(ui.check('Created — copy it now, it will not be shown again:'))
-    this.log(k.key ?? k.id)
+    // The API returns the plaintext as `token`, once. Printing the id here
+    // (the old fallback) left the user with no usable key.
+    if (!k.token) this.error('The platform did not return a key. Revoke it and try again.')
+    this.log(k.token)
   }
 }

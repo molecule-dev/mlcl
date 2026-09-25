@@ -473,7 +473,11 @@ export function removeDomain(
 export interface ProjectApiKey {
   id: string
   name?: string
-  key?: string
+  /** Masked display form, e.g. `mk_…a1b2`. */
+  masked?: string
+  /** The plaintext key — present ONLY in the mint response, exactly once. */
+  token?: string
+  scopes?: string[]
   createdAt?: string
 }
 
