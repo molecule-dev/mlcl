@@ -1712,11 +1712,20 @@
       "type": "provider",
       "category": "ai-summarization",
       "label": "Ai Summarization",
-      "description": "LLM-backed summarization provider for molecule.dev — composes the swappable ai chat bond to condense text into a summary",
+      "description": "LLM-backed summarization for molecule.dev over the swappable ai chat bond: one-sentence TL;DRs with a word cap enforced in code (whole sentences, re-asks when long) and a hashed file cache",
       "stack": "api",
       "implements": "@molecule/api-ai-summarization",
       "exports": [
-        "provider"
+        "CachedSummary",
+        "SummaryCache",
+        "summaryKey",
+        "createFileSummaryCache",
+        "summarizeCached",
+        "provider",
+        "countWords",
+        "cleanSummary",
+        "firstSentences",
+        "meetsCap"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -1734,7 +1743,13 @@
         "summarize",
         "summarization",
         "tldr",
-        "condense text"
+        "condense text",
+        "tldr per section",
+        "one sentence summary",
+        "summary word limit",
+        "build time summaries",
+        "cache summaries by hash",
+        "ai generated summaries"
       ]
     },
     "@molecule/api-ai-tools": {
