@@ -1,21 +1,20 @@
 /**
- * Glint shell — left sidebar with primary nav + main content + Header/Footer.
+ * Glint shell — the shared `ResponsiveAppShell`: brand top bar with the mobile
+ * menu trigger (mobile only), a desktop sidebar (≥768px), a dialog drawer
+ * (<768px) and one content column.
  *
- * Translated from team-chat's SideNavBar shell pattern (260px fixed sidebar
- * + main column), retuned for the Glint purple→cyan palette and remixed
- * with the polished brand-mark from DESIGN.md.
- *
- * Mobile (<768px): the fixed sidebar does not fit a phone, so the shell
- * switches to a sticky top bar (menu toggle + brand + record shortcut) with
- * the same nav in a slide-in drawer. The drawer closes on navigation, on
- * backdrop tap and on Escape; every control keeps a ≥40px tap target.
+ * The shell owns the breakpoint split, the drawer's open/close lifecycle
+ * (navigation, Escape, backdrop tap), the APG dialog contract and the menu
+ * trigger — the app's own hamburger, drawer state and escape/backdrop
+ * handlers are gone. The SAME nav element feeds `.Sidebar` and `.Drawer`, so
+ * only the mounted breakpoint instantiates it.
  */
-import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { Footer } from './Footer.js'
@@ -60,25 +59,9 @@ export function ScreenSharingLayout() {
   const { t } = useTranslation()
   const location = useLocation()
   const { user } = useAuth<UserProfile>()
-  const [menuOpen, setMenuOpen] = useState(false)
 
   const isActive = (to: string) =>
     location.pathname === to || location.pathname.startsWith(`${to}/`)
-
-  // Any navigation closes the mobile drawer.
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [location.pathname])
-
-  // Escape closes the mobile drawer.
-  useEffect(() => {
-    if (!menuOpen) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMenuOpen(false)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [menuOpen])
 
   const navLabel = (link: NavLinkDef) => {
     const [key, fallback] = PRIMARY_LABEL_KEYS[link.to] ??
@@ -94,17 +77,15 @@ export function ScreenSharingLayout() {
         label={navLabel(link)}
         icon={link.icon}
         active={isActive(link.to)}
-        onNavigate={() => setMenuOpen(false)}
       />
     ))
 
-  const sidebarBody = (onNavigate?: () => void) => (
+  // One nav element for BOTH surfaces — the shell mounts exactly one per
+  // breakpoint (Sidebar ≥768px, Drawer below), so it instantiates once. The
+  // shell auto-closes the drawer on navigation, so rows need no close wiring.
+  const nav = (
     <>
-      <Link
-        to="/library"
-        onClick={onNavigate}
-        className={cm.cn(cm.flex({ align: 'center', gap: 3 }), cm.sp('p', 6))}
-      >
+      <Link to="/library" className={cm.cn(cm.flex({ align: 'center', gap: 3 }), cm.sp('p', 6))}>
         <div
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'center' }),
@@ -140,7 +121,6 @@ export function ScreenSharingLayout() {
       <div className={cm.cn(cm.sp('px', 4), cm.sp('mb', 4))}>
         <Link
           to="/record"
-          onClick={onNavigate}
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'center', gap: 2 }),
             cm.fontWeight('semibold'),
@@ -158,9 +138,8 @@ export function ScreenSharingLayout() {
         </Link>
       </div>
 
-      <nav
+      <div
         className={cm.cn(
-          cm.flex1,
           cm.fontWeight('medium'),
           cm.textSize('sm'),
           cm.sp('px', 3),
@@ -175,172 +154,123 @@ export function ScreenSharingLayout() {
           <SidebarSectionHeader label={t('settings.account', {}, { defaultValue: 'Account' })} />
           {renderLinks(WORKSPACE_LINKS)}
         </div>
-      </nav>
-
-      <div
-        className={cm.cn(
-          cm.sp('p', 4),
-          cm.flex({ align: 'center', gap: 3 }),
-          'border-t border-outline-variant',
-        )}
-      >
-        <NavLink
-          to="/profile"
-          onClick={onNavigate}
-          className={cm.cn(
-            cm.flex1,
-            cm.flex({ align: 'center', gap: 3 }),
-            cm.cursorPointer,
-            cm.sp('p', 2),
-            'rounded-lg hover:bg-surface-container transition-colors',
-          )}
-        >
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(9),
-              cm.h(9),
-              cm.fontWeight('bold'),
-              'rounded-full bg-gradient-to-br from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)] text-white text-sm',
-            )}
-          >
-            {(user?.name || user?.email || 'G').slice(0, 1).toUpperCase()}
-          </div>
-          <div className={cm.cn(cm.flex1, 'min-w-0')}>
-            <div
-              className={cm.cn(
-                cm.fontWeight('semibold'),
-                cm.textSize('sm'),
-                'truncate text-on-surface',
-              )}
-            >
-              {user?.name || user?.email || t('nav.you', {}, { defaultValue: 'You' })}
-            </div>
-            <div className={cm.cn('text-[10px] uppercase tracking-widest text-on-surface-variant')}>
-              {t('nav.viewProfile', {}, { defaultValue: 'View profile' })}
-            </div>
-          </div>
-        </NavLink>
-        <ThemeToggle />
-        <UserMenu />
       </div>
     </>
   )
 
-  return (
-    <div className={cm.cn(cm.surface, 'min-h-screen w-full antialiased text-on-surface')}>
-      {/* Mobile top bar — sticky, mirrors the sidebar brand + record action */}
-      <header
-        data-mol-id="mobile-top-bar"
+  const footer = (
+    <div className={cm.cn(cm.flex({ align: 'center', gap: 3 }), cm.w('full'))}>
+      <NavLink
+        to="/profile"
         className={cm.cn(
-          cm.flex({ align: 'center', justify: 'between', gap: 2 }),
-          'md:hidden sticky top-0 z-40 h-14 border-b border-outline-variant bg-surface-container-lowest/95 backdrop-blur px-2',
+          cm.flex1,
+          cm.flex({ align: 'center', gap: 3 }),
+          cm.cursorPointer,
+          cm.sp('p', 2),
+          'rounded-lg hover:bg-surface-container transition-colors',
         )}
       >
-        <button
-          type="button"
-          data-mol-id="mobile-nav-toggle"
-          onClick={() => setMenuOpen(true)}
-          aria-label={t('nav.openMenu', {}, { defaultValue: 'Open navigation menu' })}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-nav-drawer"
+        <div
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'center' }),
-            'min-h-[40px] min-w-[40px] rounded-lg text-on-surface hover:bg-surface-container transition-colors',
+            cm.w(9),
+            cm.h(9),
+            cm.fontWeight('bold'),
+            'rounded-full bg-gradient-to-br from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)] text-white text-sm',
           )}
         >
-          <span className={cm.cn('material-symbols-outlined text-2xl')}>menu</span>
-        </button>
-        <Link
-          to="/library"
-          className={cm.cn(cm.flex({ align: 'center', gap: 2 }), 'min-w-0 flex-1 justify-center')}
-        >
-          <span
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'w-7 h-7 shrink-0 rounded-lg bg-gradient-to-br from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)]',
-            )}
-          >
-            <span className={cm.cn('material-symbols-outlined text-white text-lg')}>
-              graphic_eq
-            </span>
-          </span>
-          <span
-            className={cm.cn(
-              cm.fontWeight('bold'),
-              cm.textSize('lg'),
-              'text-on-surface tracking-tight truncate',
-            )}
-          >
-            {APP_NAME}
-          </span>
-        </Link>
-        <Link
-          to="/record"
-          aria-label={t('nav.startRecording', {}, { defaultValue: 'Start recording' })}
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center', gap: 1 }),
-            cm.textSize('xs'),
-            cm.fontWeight('semibold'),
-            'min-h-[40px] px-3 rounded-full text-white bg-gradient-to-r from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)] active:scale-[0.98] transition-transform',
-          )}
-        >
-          <span
-            className={cm.cn('material-symbols-outlined text-base animate-pulse')}
-            style={{ color: 'var(--color-live-indicator)' }}
-          >
-            radio_button_checked
-          </span>
-          {t('nav.record', {}, { defaultValue: 'Record' })}
-        </Link>
-      </header>
-
-      {/* Mobile drawer + backdrop */}
-      {menuOpen ? (
-        <div className="md:hidden fixed inset-0 z-50">
-          <div
-            data-mol-id="mobile-nav-backdrop"
-            aria-hidden="true"
-            onClick={() => setMenuOpen(false)}
-            className="absolute inset-0 bg-black/50 backdrop-blur-[2px]"
-          />
-          <aside
-            id="mobile-nav-drawer"
-            role="dialog"
-            aria-modal="true"
-            aria-label={t('nav.openMenu', {}, { defaultValue: 'Navigation menu' })}
-            className={cm.cn(
-              cm.flex({ direction: 'col' }),
-              'absolute left-0 top-0 h-full w-[290px] max-w-[85vw] border-r border-outline-variant bg-surface-container-lowest shadow-2xl',
-            )}
-          >
-            {sidebarBody(() => setMenuOpen(false))}
-          </aside>
+          {(user?.name || user?.email || 'G').slice(0, 1).toUpperCase()}
         </div>
-      ) : null}
-
-      {/* Desktop sidebar */}
-      <aside
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          'hidden md:flex fixed left-0 top-0 z-40 h-screen w-[260px] border-r border-outline-variant bg-surface-container-lowest',
-        )}
-      >
-        {sidebarBody()}
-      </aside>
-
-      <div
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          'md:ml-[260px] md:w-[calc(100%-260px)] min-h-screen w-full',
-        )}
-      >
-        <main className={cm.cn(cm.flex1, cm.sp('p', 4), 'md:p-8 overflow-y-auto')}>
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
+        <div className={cm.cn(cm.flex1, 'min-w-0')}>
+          <div
+            className={cm.cn(
+              cm.fontWeight('semibold'),
+              cm.textSize('sm'),
+              'truncate text-on-surface',
+            )}
+          >
+            {user?.name || user?.email || t('nav.you', {}, { defaultValue: 'You' })}
+          </div>
+          <div className={cm.cn('text-[10px] uppercase tracking-widest text-on-surface-variant')}>
+            {t('nav.viewProfile', {}, { defaultValue: 'View profile' })}
+          </div>
+        </div>
+      </NavLink>
+      <ThemeToggle />
+      <UserMenu />
     </div>
+  )
+
+  return (
+    <ResponsiveAppShell sidebarWidth={260} className="bg-surface text-on-surface antialiased">
+      {/* Mobile top bar — the shell renders the menu trigger itself. */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        className="bg-surface-container-lowest/95 backdrop-blur border-outline-variant"
+        brand={
+          <Link to="/library" className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
+            <span
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                'w-7 h-7 shrink-0 rounded-lg bg-gradient-to-br from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)]',
+              )}
+            >
+              <span className={cm.cn('material-symbols-outlined text-white text-lg')}>
+                graphic_eq
+              </span>
+            </span>
+            <span
+              className={cm.cn(
+                cm.fontWeight('bold'),
+                cm.textSize('lg'),
+                'text-on-surface tracking-tight truncate',
+              )}
+            >
+              {APP_NAME}
+            </span>
+          </Link>
+        }
+        actions={
+          <Link
+            to="/record"
+            aria-label={t('nav.startRecording', {}, { defaultValue: 'Start recording' })}
+            className={cm.cn(
+              cm.flex({ align: 'center', justify: 'center', gap: 1 }),
+              cm.textSize('xs'),
+              cm.fontWeight('semibold'),
+              'min-h-[40px] px-3 rounded-full text-white bg-gradient-to-r from-[var(--color-brand-gradient-from)] to-[var(--color-brand-gradient-to)] active:scale-[0.98] transition-transform',
+            )}
+          >
+            <span
+              className={cm.cn('material-symbols-outlined text-base animate-pulse')}
+              style={{ color: 'var(--color-live-indicator)' }}
+            >
+              radio_button_checked
+            </span>
+            {t('nav.record', {}, { defaultValue: 'Record' })}
+          </Link>
+        }
+      />
+
+      <ResponsiveAppShell.Sidebar
+        className="bg-surface-container-lowest border-outline-variant"
+        footer={footer}
+      >
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+
+      <ResponsiveAppShell.Drawer
+        className="bg-surface-container-lowest border-outline-variant"
+        footer={footer}
+      >
+        {nav}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content className={cm.cn(cm.sp('p', 4), 'md:p-8')}>
+        <Outlet />
+        <Footer />
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
 
@@ -365,19 +295,16 @@ function SidebarLink({
   label,
   icon,
   active,
-  onNavigate,
 }: {
   to: string
   label: string
   icon: string
   active: boolean
-  onNavigate?: () => void
 }) {
   const cm = getClassMap()
   return (
     <Link
       to={to}
-      onClick={onNavigate}
       aria-current={active ? 'page' : undefined}
       className={cm.cn(
         cm.flex({ align: 'center', gap: 3 }),
