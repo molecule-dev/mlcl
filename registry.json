@@ -2040,6 +2040,111 @@
         "self-hosted translation"
       ]
     },
+    "@molecule/api-ai-translation-bergamot": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-translation",
+      "label": "Ai Translation",
+      "stack": "api",
+      "implements": "@molecule/api-ai-translation",
+      "description": "Self-hosted translation provider for molecule.dev — Mozilla's Firefox Translations (Bergamot) models on the CPU, in-process, no API key",
+      "exports": [
+        "WorkerEngineOptions",
+        "createWorkerEngine",
+        "toBergamotLanguage",
+        "languageName",
+        "escapeHtml",
+        "decodeEntities",
+        "ProtectedSpan",
+        "findProtected",
+        "maskTokens",
+        "tokensIntact",
+        "unmaskTokens",
+        "maskHtml",
+        "unmaskHtml",
+        "createProvider",
+        "provider",
+        "DEFAULT_RECORDS_URL",
+        "DEFAULT_ATTACHMENTS_URL",
+        "BERGAMOT_RUNTIME",
+        "MAX_MODEL_MAJOR_VERSION",
+        "ModelRecord",
+        "ModelSet",
+        "matchesServer",
+        "selectModelSet",
+        "availablePairs",
+        "downloadVerified",
+        "ModelStoreOptions",
+        "ModelStore",
+        "BergamotConfig",
+        "BergamotModelFiles",
+        "BergamotModelSpec",
+        "BergamotRequest",
+        "BergamotEngine"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-ai-translation"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-translation"
+      ],
+      "path": "packages/api/bonds/ai-translation/bergamot",
+      "intentHints": [
+        "bergamot",
+        "firefox translations",
+        "offline translation",
+        "self-hosted translation",
+        "free translation",
+        "translate without api key"
+      ],
+      "egressHosts": [
+        "firefox.settings.services.mozilla.com",
+        "firefox-settings-attachments.cdn.mozilla.net",
+        "raw.githubusercontent.com"
+      ]
+    },
+    "@molecule/api-ai-translation-madlad": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-translation",
+      "label": "Ai Translation",
+      "stack": "api",
+      "implements": "@molecule/api-ai-translation",
+      "description": "Self-hosted translation provider for molecule.dev — Google MADLAD-400 (400+ languages) through a small CTranslate2 sidecar server, shipped with the package",
+      "exports": [
+        "toMadladLanguage",
+        "languageName",
+        "MarkerForm",
+        "MARKER_FORMS",
+        "splitProtected",
+        "maskWith",
+        "markersIntact",
+        "unmaskWith",
+        "isTranslatable",
+        "assemblePieces",
+        "createProvider",
+        "provider",
+        "MadladConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-ai-translation"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-translation"
+      ],
+      "path": "packages/api/bonds/ai-translation/madlad",
+      "intentHints": [
+        "madlad",
+        "madlad-400",
+        "self-hosted translation",
+        "translate 400 languages",
+        "low-resource language translation"
+      ]
+    },
     "@molecule/api-ai-translation-molecule": {
       "language": "typescript",
       "runtime": "node",
