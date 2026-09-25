@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapList } from '../lib/unwrap.js'
 
@@ -161,31 +162,14 @@ export function Search() {
           {t('search.empty', {}, { defaultValue: 'Type to search transcripts.' })}
         </p>
       ) : error ? (
-        <div
-          role="alert"
-          className={cm.cn(
-            cm.card(),
-            cm.sp('p', 5),
-            cm.flex({ direction: 'col', align: 'center', gap: 'sm' }),
-            cm.textCenter,
-          )}
-        >
-          <p className={cm.cn(cm.textSize('sm'), 'text-error')}>{error}</p>
-          <button
-            type="button"
-            onClick={() => setRetryNonce((n) => n + 1)}
-            data-mol-id="search-retry"
-            className={cm.cn(
-              cm.sp('px', 4),
-              cm.sp('py', 2),
-              cm.textSize('sm'),
-              cm.fontWeight('semibold'),
-              'bg-primary text-on-primary rounded-md hover:opacity-90 transition-opacity',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-        </div>
+        <LoadErrorBanner
+          message={error}
+          retryMolId="search-retry"
+          onRetry={() => {
+            setRetryNonce((n) => n + 1)
+            return Promise.resolve()
+          }}
+        />
       ) : loading ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('common.searchingEllipsis', {}, { defaultValue: 'Searching…' })}
