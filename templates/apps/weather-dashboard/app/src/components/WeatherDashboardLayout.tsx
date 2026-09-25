@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react'
-import { NavLink, Outlet } from 'react-router'
+import { Link, Outlet, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
-import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { UserMenu } from './UserMenu.js'
@@ -19,133 +18,121 @@ const NAV_KEYS = [
   { to: '/settings', key: 'settings', defaultLabel: 'Settings', icon: 'settings' },
 ] as const
 
-const DESKTOP_QUERY = '(min-width: 768px)'
-
 /**
- * True when the viewport is md+ (768px). Drives which chrome is MOUNTED —
- * both shells own a `<main>` landmark (and the user menu), so rendering
- * both and hiding one with CSS would leave duplicate landmarks in the
- * accessibility tree and break every `locator('main')` query.
- */
-function useIsDesktop(): boolean {
-  const [isDesktop, setIsDesktop] = useState(() =>
-    typeof window !== 'undefined' ? window.matchMedia(DESKTOP_QUERY).matches : true,
-  )
-  useEffect(() => {
-    const mq = window.matchMedia(DESKTOP_QUERY)
-    const onChange = (event: MediaQueryListEvent): void => setIsDesktop(event.matches)
-    mq.addEventListener('change', onChange)
-    return () => mq.removeEventListener('change', onChange)
-  }, [])
-  return isDesktop
-}
-
-/**
- * Tempest auth'd shell.
+ * Tempest auth'd shell — the shared `ResponsiveAppShell` (from
+ * `@molecule/app-ui-react`).
  *
- * - **md+ (≥768px)**: the shared vertical `SidebarLayout` (from
- *   `@molecule/app-sidebar-layout-react`) wrapped around the outlet —
- *   dashboard / locations / radar / alerts / trends / compare / billing /
- *   settings primary nav.
- * - **<768px**: a template-local mobile shell — sticky top bar (brand +
- *   user menu) above a horizontally scrollable chip nav — because the
- *   shared sidebar has no small-viewport collapse. Exactly one shell is
- *   mounted per breakpoint (see {@link useIsDesktop}).
+ * The shell owns the breakpoint split (desktop Sidebar ≥768px, mobile Drawer
+ * below it), the menu trigger, and the full drawer dialog contract (focus
+ * trap, Escape/backdrop close, auto-close on navigation). Exactly ONE shell
+ * is mounted per breakpoint, so the duplicate-`<main>`-landmark class of bug
+ * the earlier two-shell layout guarded against is structurally impossible.
  *
- * Pattern source: smart-home-dashboard's SmartHomeDashboardLayout.
+ * Fleet-canonical composition: the brand lives in the Sidebar on desktop and
+ * the TopBar is `mobileOnly` — below the breakpoint it carries the brand +
+ * user menu exactly like the previous hand-rolled mobile header, plus the
+ * shell's own menu trigger. The SAME nav element is passed to `.Sidebar` and
+ * `.Drawer` — only the mounted breakpoint instantiates it.
  */
 export function WeatherDashboardLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const isDesktop = useIsDesktop()
+  const { pathname } = useLocation()
+
   const navItems = NAV_KEYS.map((item) => ({
     to: item.to,
     key: item.key,
     icon: item.icon,
     label: t(`weatherDashboardLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
   }))
-  const navAriaLabel = t(
+
+  // Single-active-item resolution: the nav item whose `to` is the longest
+  // prefix of the current pathname (mirrors the shared SidebarLayout this
+  // shell replaces).
+  const activeKey = navItems.reduce<string | null>((bestKey, item) => {
+    const isMatch = pathname === item.to || pathname.startsWith(`${item.to}/`)
+    if (!isMatch) return bestKey
+    if (bestKey === null) return item.key
+    const best = navItems.find((i) => i.key === bestKey)
+    return best && item.to.length > best.to.length ? item.key : bestKey
+  }, null)
+
+  const navLinkClass = (isActive: boolean): string =>
+    cm.cn(
+      cm.flex({ align: 'center', gap: 'sm' }),
+      cm.sp('px', 3),
+      cm.sp('py', 2),
+      cm.textSize('sm'),
+      cm.fontWeight('medium'),
+      cm.roundedFull,
+      isActive
+        ? cm.cn(cm.bgPrimaryContainer, cm.textOnPrimaryContainer)
+        : cm.cn(cm.textMuted, cm.link),
+    )
+
+  const navLabel = t(
     'weatherDashboardLayout.primaryNavLabel',
     {},
     { defaultValue: 'Primary navigation' },
   )
 
-  if (isDesktop) {
-    // Desktop shell — the shared sidebar owns <main> + <Outlet />. Don't
-    // wrap a second <main><Outlet /> around it or pages render twice.
-    return (
-      <SidebarLayout
-        appName={APP_NAME}
-        logoTo="/dashboard"
-        navItems={navItems}
-        userMenu={<UserMenu />}
-        navAriaLabel={navAriaLabel}
-      />
-    )
-  }
+  // The SAME nav element for Sidebar and Drawer — only the mounted
+  // breakpoint instantiates it. The current item carries aria-current="page".
+  const nav = (
+    <>
+      {navItems.map((item) => {
+        const isActive = item.key === activeKey
+        return (
+          <Link
+            key={item.key}
+            to={item.to}
+            data-mol-id={`nav-${item.key}`}
+            aria-current={isActive ? 'page' : undefined}
+            className={navLinkClass(isActive)}
+          >
+            <span className="material-symbols-outlined" aria-hidden="true">
+              {item.icon}
+            </span>
+            <span>{item.label}</span>
+          </Link>
+        )
+      })}
+    </>
+  )
+
+  const brand = (
+    <Link
+      to="/dashboard"
+      className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 6), cm.displayBlock)}
+    >
+      {APP_NAME}
+    </Link>
+  )
 
   return (
-    <div className={cm.cn('flex min-h-dvh flex-col', cm.page)}>
-      <div className="sticky top-0 z-20 border-b bg-surface-container-lowest/95 backdrop-blur-md border-outline-variant/40">
-        <header
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
-            cm.sp('px', 4),
-            cm.sp('py', 3),
-          )}
-        >
-          <NavLink
+    <ResponsiveAppShell sidebarWidth="md">
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={
+          <Link
             to="/dashboard"
             className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'tracking-tight')}
           >
             {APP_NAME}
-          </NavLink>
-          <UserMenu />
-        </header>
-        <nav
-          aria-label={navAriaLabel}
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'sm' }),
-            cm.sp('px', 3),
-            cm.sp('pb', 2),
-            'overflow-x-auto',
-          )}
-        >
-          {navItems.map((item) => {
-            return (
-              <NavLink
-                key={item.key}
-                to={item.to}
-                data-mol-id={`nav-${item.key}`}
-                className={({ isActive }) =>
-                  cm.cn(
-                    cm.flex({ align: 'center', gap: 'xs' }),
-                    cm.sp('px', 3),
-                    cm.sp('py', 2),
-                    cm.textSize('sm'),
-                    cm.fontWeight('medium'),
-                    'whitespace-nowrap rounded-full border transition-colors',
-                    isActive
-                      ? 'bg-primary-container text-on-primary-container border-primary-container font-bold'
-                      : 'bg-surface-container-lowest text-on-surface-variant border-outline-variant/40 hover:bg-surface-container-low',
-                  )
-                }
-              >
-                <span className="material-symbols-outlined" aria-hidden="true">
-                  {item.icon}
-                </span>
-                {item.label}
-              </NavLink>
-            )
-          })}
-        </nav>
-      </div>
-      {/* flex-1 + min-w-0: the content column fills the viewport and may
-          shrink below its content width so page-level overflow-x-auto
-          strips scroll, not the whole shell. */}
-      <main className={cm.cn('flex-1 min-w-0')}>
+          </Link>
+        }
+        actions={<UserMenu />}
+      />
+      <ResponsiveAppShell.Sidebar navLabel={navLabel} footer={<UserMenu />}>
+        {brand}
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+      <ResponsiveAppShell.Drawer navLabel={navLabel} header={brand}>
+        {nav}
+      </ResponsiveAppShell.Drawer>
+      <ResponsiveAppShell.Content>
         <Outlet />
-      </main>
-    </div>
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
