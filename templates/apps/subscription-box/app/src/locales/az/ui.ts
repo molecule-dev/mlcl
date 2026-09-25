@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Nəşr, göndəriş və ya abunəliyinizlə bağlı suallarınız var? Komandadan real bir insana hello@crate.example ünvanından çata bilərsiniz — hər mesajı oxuyuruq.',
+  'about.contactTitle': 'Kuratorla danışın',
+  'about.feature1':
+    'Müstəqil istehsalçılar tərəfindən seçilmiş aylıq nəşrlər, hər məhsulun arxasındakı hekayə ilə birlikdə.',
+  'about.feature2':
+    'Hər qutuya tam nəzarət — içindəkiləri fərdiləşdirin, məhsulları dəyişdirin və ya çıxarın, bir ayı ötürün və ya tezliyinizi dəyişin.',
+  'about.feature3':
+    'Götürülmədən qapıya qədər tam göndəriş izləmə, plastiksiz qablaşdırma və canlı daşıyıcı yeniləmələri ilə.',
+  'about.feature4':
+    'Çevik planlar və şəffaf ödəniş — istənilən vaxt idarə panelinizdən yüksəldin, endirin, fasilə verin və ya ləğv edin.',
+  'about.intro':
+    '{{app}} hər ay qapınıza əl ilə seçilmiş, kiçik partiyalı sevinc qutusu çatdıran kurasiyalı abunə qutusu xidmətidir. Hər nəşr alqoritm deyil, işləyən istehsalçılar — müstəqil rəssamlar, aşpazlar və kiçik brendlər tərəfindən hazırlanır.',
+  'about.missionBody':
+    'Biz inanırıq ki, abunəlik tələ deyil, hədiyyə kimi hiss olunmalıdır. {{app}} elə qurulub ki, gələnləri sevdiyiniz üçün qalırsınız — istənilən vaxt fasilə verin, istədiyinizi dəyişdirin və bir kliklə ləğv edin. Heç vaxt saxlama skriptləri yoxdur.',
+  'about.missionTitle': 'Missiyamız',
   'about.pageTitle': '{{app}} haqqında',
   'appNav.mobileLabel': 'Əsas naviqasiya',
   'appNav.primaryLabel': 'Əsas naviqasiya',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Faktura əlaqəsini redaktə edin',
   'billing.contact.eyebrow': 'Faktura əlaqəsi',
   'billing.eyebrow': 'Plan və ödənişlər',
+  'billing.loading': 'Faktura yüklənir…',
   'billing.payment.body':
     'Ödəniş Stripe Checkout tərəfindən həyata keçirilir — tam kart nömrəniz heç vaxt serverlərimizə toxunmur. Kartınızı əlavə etmək və ya yeniləmək üçün aşağıdakı istənilən səviyyəni klikləyin.',
   'billing.payment.linked': 'Kart Stripe vasitəsilə arxivləşdirilib',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Abunəliyi davam etdirin',
   'billing.plan.eyebrow': 'Aktiv plan',
   'billing.plan.next': 'Avtomatik olaraq yenilənir {{date}} .',
+  'billing.plan.status': 'Status: {{status}}',
   'billing.subtitle':
     'Səviyyənizi, ödəniş metodunuzu idarə edin və keçmiş fəaliyyətinizi nəzərdən keçirin.',
   'billing.tiers.body': 'Bir səviyyə seçin və biz sizi Stripe Checkout-a yönləndirəcəyik.',
   'billing.tiers.choose': 'Seçin',
+  'billing.tiers.empty': 'Hələ heç bir səviyyə konfiqurasiya edilməyib.',
   'billing.tiers.heading': 'Mövcud səviyyələr',
   'boxDetail.backToBoxes': 'Bütün nəşrlərə qayıt',
   'boxDetail.crumb.boxes': 'Nəşrlər',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Seçilmiş əsər',
   'boxDetail.items.heading': '{{count}} seçilmiş parçalar',
   'boxDetail.itemsBadge': '{{count}} qutuya görə seçilmiş elementlər',
+  'boxDetail.loading': 'Nəşr yüklənir…',
   'boxDetail.notFound': 'Həmin nəşr artıq mövcud deyil.',
   'boxDetail.subscribe.success': 'Abunə olunub — ilk nəşriniz növbəyə qoyulub.',
   'boxDetail.swapBadge': 'Dəyişdirin {{count}} qutu başına əşya(lar)',
@@ -44,14 +64,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Uyğun nəşr yoxdur.',
   'boxes.eyebrow': 'Crate arxivi',
   'boxes.heading': 'Hər nəşrə baxın',
+  'boxes.loadError': 'Nəşrləri yükləyə bilmədik. Bağlantınızı yoxlayın və yenidən cəhd edin.',
   'boxes.loading': 'Buraxılışlar yüklənir…',
+  'boxes.search.label': 'Nəşrləri axtar',
   'boxes.search.placeholder': 'Nəşrləri axtarın…',
   'boxes.subtitle':
     'Hər səviyyə kiçik bir hekayədən ibarətdir. Növbənizə birini əlavə edin və ya növbəti aya dəyişdirin.',
+  'boxThemeCard.itemCount': '{{count}} əşyalar',
   'boxThemeCard.perMonth': '/ ay',
+  'boxThemeCard.retailValue': 'Pərakəndə dəyəri {{value}}',
   'common.goToDashboard': 'İdarə panelinə keç',
+  'common.retry': 'Təkrar cəhd edin',
   'customize.eyebrow': 'Özünüzə məxsus edin',
   'customize.heading': 'Növbəti xəzinənizi fərdiləşdirin',
+  'customize.items.empty': 'Bu səviyyə üçün hələ heç bir məhsul konfiqurasiya edilməyib.',
   'customize.items.exclude': 'Bunu keçin',
   'customize.items.eyebrow': 'Bu qutunu fərdiləşdirin',
   'customize.items.heading': 'İçindəki əşyalar {{box}}',
@@ -60,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Geri əlavə edin',
   'customize.items.save': 'Fərdiləşdirməni yadda saxla',
   'customize.items.swapsLeft': '{{used}} -ın {{max}} istifadə olunan svoplar',
+  'customize.loading': 'Fərdiləşdirmə yüklənir…',
   'customize.noSub.body':
     'Əvvəlcə bir səviyyəyə abunə olun, sonra qutunuzdakı əşyaları dəyişdirmək üçün geri qayıdın.',
+  'customize.noSub.cta': 'Nəşrlərə bax',
   'customize.noSub.heading': 'Aktiv abunə yoxdur',
   'customize.saved': 'Fərdiləşdirmə yadda saxlanıldı.',
   'customize.subtitle':
@@ -75,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Göndərməni izləyin',
   'dashboard.eyebrow': 'Sizin xəzinəniz',
   'dashboard.greeting': 'Xoş gəlmisiniz, {{name}} .',
+  'dashboard.loadError':
+    'İdarə panelinizi yükləyə bilmədik. Bağlantınızı yoxlayın və yenidən cəhd edin.',
   'dashboard.loading': 'İdarəetmə paneli yüklənir…',
   'dashboard.next.eyebrow': 'Növbəti nəşriniz',
   'dashboard.onboarding.body':
     'Hələ aktiv abunəliyiniz yoxdur. Hər ay bir Crate göndərməyə başlamaq üçün bir səviyyə seçin.',
   'dashboard.onboarding.cta': 'Bütün nəşrlərə baxın',
+  'dashboard.onboarding.empty': 'Hazırda heç bir plan mövcud deyil. Tezliklə yenidən yoxlayın.',
   'dashboard.onboarding.heading': 'İlk nəşrinizi seçin',
   'dashboard.renewal.amount': 'Şarj edilib',
   'dashboard.renewal.cadence': 'Kadens',
@@ -87,18 +118,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Yeniləmə',
   'dashboard.renewal.heading': 'Avtomatik yeniləmə aktivdir {{date}}',
   'dashboard.renewal.plan': 'Plan açarı',
+  'dashboard.renewal.tbd': 'Yeniləmə cədvəli tezliklə',
   'dashboard.renewal.tier': 'Səviyyə',
   'dashboard.stats.days': 'günlər',
   'dashboard.stats.daysToNext': 'Göndərmə yeri',
   'dashboard.stats.items': 'Seçilmiş elementlər',
   'dashboard.stats.shipDate': 'Göndərmə tarixi',
   'dashboard.stats.tbd': 'TBD',
+  'dashboard.subtitle.active': 'Növbəti nəşriniz yoldadır. Gözlənilənlər bunlardır.',
+  'dashboard.subtitle.idle': 'Hər ay {{appName}} göndərməyə başlamaq üçün bir səviyyə seçin.',
   'forgotPassword.subtitle': 'E-poçtunuzu bizə bildirin və biz sıfırlama linki göndərəcəyik.',
   'forgotPassword.success.body':
     'Əgər {{email}} qeydiyyatdan keçibsə, bir neçə dəqiqə ərzində sıfırlama linki alacaqsınız.',
   'forgotPassword.success.title': 'Gələnlər qutunuzu yoxlayın.',
   'landing.editions.eyebrow': 'Bu mövsüm',
   'landing.editions.heading': 'Kuratorlarımızın sevdiyi nəşrlər',
+  'landing.editions.viewAll': 'Bütün nəşrlərə bax →',
   'landing.footer.contact': 'Kuratorla danışın',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Qutuya başlayın →',
@@ -108,6 +143,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Üzvlərin idarəetmə panelinə nəzər salın — geri sayım, məzmun və izləmə.',
   'landing.hero.social.count': 'Sevilən {{count}} + abunəçilər',
+  'landing.hero.social.rating': '{{rating}} orta açma reytinqi',
+  'landing.hero.subhead':
+    '{{appName}} sizə müstəqil istehsalçılardan əl ilə seçilmiş, kiçik partiyalı sevinc qutusu göndərir. İstənilən vaxt fasilə verin. İstədiyinizi dəyişdirin. Sevdiyinizi saxlayın.',
   'landing.nav.start': 'Qutuya başlayın',
   'landing.tiers.eyebrow': 'Öz kadensinizi seçin',
   'landing.tiers.heading':
@@ -118,6 +156,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Növbəti ayın qutusuna baxmaq üçün daxil olun.',
   'login.welcomeBack': 'Xoş gəlmisiniz, kurator.',
   'nextBoxHeroCard.eyebrow': 'NÖVBƏTİ SİZİN XƏZİNƏNİZ',
+  'nextBoxHeroCard.itemCount': 'İçində {{count}} ədəd',
   'nextBoxHeroCard.itemsLabel': 'Seçilmiş elementlər',
   'nextBoxHeroCard.shipsOnLabel': 'Göndərmə tarixi',
   'notFound.body':
@@ -142,8 +181,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Abunəliyi dayandırın',
   'settings.danger.paused': 'Abunəlik dayandırıldı.',
   'settings.danger.pausing': 'Dayandırılır…',
+  'settings.danger.status': 'Abunəlik statusu: {{status}}',
   'settings.danger.subtitle':
     'Dayandırmaq səviyyənizi və tarixçənizi toxunulmaz saxlayır. Ləğv etmək gələcək göndərişləri dayandırır və dövrün sonunda saxlanılan ödəniş metodlarınızı silir.',
+  'settings.notifications.saving': '· yadda saxlanılır…',
   'settings.notifications.subtitle':
     'Crate-dan istədiyiniz siqnalları seçin. Varsayılan parametrlər məqbuldur.',
   'settings.subtitle':
@@ -159,11 +200,17 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Hələlik aktiv çatdırılma yoxdur',
   'shipments.live.eyebrow': 'Aktiv göndərmə',
   'shipments.live.unnamed': 'Növbəti qutunuz',
+  'shipments.loadError':
+    'Göndərişlərinizi yükləyə bilmədik. Bağlantınızı yoxlayın və yenidən cəhd edin.',
+  'shipments.loading': 'Göndərişlər yüklənir…',
+  'shipments.step.delivered': 'Çatdırıldı',
   'shipments.step.deliveredBody': 'Kəşf etdiklərinizi paylaşmaq üçün #crateunbox etiketini qoyun.',
   'shipments.step.ordered': 'Sifariş verildi',
   'shipments.step.orderedBody': 'Abunəliyiniz bu nəşri növbəti göndərmə dövrü üçün növbəyə qoydu.',
+  'shipments.step.packed': 'Əl ilə qablaşdırılıb',
   'shipments.step.packedBody':
     'Hər bir parça bükülmüş və əl ilə yazılmış bir qeydlə qutuya qoyulmuşdur.',
+  'shipments.step.transit': 'Yolda',
   'shipments.step.transitNot': 'Qutunuz daşınmaya göndərildikdən sonra izləmə burada görünəcək.',
   'shipments.subtitle':
     'Qutunu sizə tərəf gedəndə izləyin, sonra əvvəllər qutudan çıxardığınız hər nəşrə yenidən baxın.',

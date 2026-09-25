@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Galderak, iritzia edo izango zenukeen funtzio bat? Jarri harremanetan taldearekin zure kontuaren ezarpenetatik — benetako pertsona batek irakurtzen du mezu bakoitza.',
   'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'about.missionTitle': 'Gure misioa',
+  'about.whatYouGetTitle': 'Zer lortzen duzun',
   'analytics.empty': 'Sortu karta-sortak hemen analisiak ikusteko.',
   'analytics.stats.acrossDecks': 'Mahai guztietan zehar',
   'analytics.stats.allTime': 'Zure estudioan.',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Sortaren izenburua',
   'landing.features.eyebrow': 'Zergatik Obertura',
   'landing.features.heading': 'Eszenatokira igotzeko behar duzun guztia prest.',
+  'landing.finalCta.body':
+    'Abiarazi zure estudioa minutu bat baino lehen. Kreditu-txartelik gabe. Utzi nahi duzunean.',
   'landing.finalCta.cta': 'Sortu zure doako estudioa',
   'landing.finalCta.eyebrow': 'Doan hasteko.',
   'landing.finalCta.heading': 'Igo zaitez eszenatokira zure ibilbideko karta-sorta onenarekin.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Duela 12 minutu editatua',
   'notifications.created': 'sortua',
   'notifications.edited': 'editatu',
+  'notifications.empty.body':
+    'Zure sorten jarduera — iruzkinak, aipamenak, esportazioak — hemen agertuko da.',
   'notifications.empty.title': 'Oraindik ez dago jakinarazpenik',
   'notifications.eyebrow': 'Eszenatokiko jarduera',
   'notifications.loading': 'Kargatzen…',
   'notifications.shared': 'publikoki partekatua',
+  'planUpdated.retry': 'Saiatu berriro',
+  'planUpdated.verifyFailed': 'Ezin izan dugu oraindik zure ordainketa baieztatu.',
+  'planUpdated.verifyFailedBody':
+    'Baliteke zure ordainketa prozesatzen ari izatea oraindik. Saiatu berriro une batean.',
   'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'present.addSlides': 'Gehitu diapositibak',
   'present.backToDecks': 'Itzuli karta-sortetara',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Eszenatokiko artista',
   'settings.security.notSet': 'Ezarri gabe',
   'settings.security.passwordBody': 'Zure pasahitza enkriptatuta dago geldirik dagoenean.',
+  'settings.security.reset': 'Berrezarri',
   'settings.security.title': 'Kontua + saioak',
   'shared.empty.body':
     'Publikoki partekatzen dituzun sorta-sortak hemen agertuko dira. Ireki sorta bat eta aktibatu publiko moduan partekatzeko.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Kargatzen…',
   'shared.title': 'Partekatutako terrazak',
   'templateCard.slideCount': '{{count}} diapositibak',
+  'templateCard.usageCount': '{{count}} erabilerak',
+  'templates.empty.body': 'Probatu beste iragazki bat — hilero txantiloi berriak gehitzen ditugu.',
+  'templates.empty.title': 'Oraindik ez dago txantiloirik kategoria honetan',
+  'templates.hero.body':
+    'Gai aurrez ezarritako diapositiba-diseinuak, grafiko-blokeekin, demo-markoekin, aurkezlearen oharrekin eta tenporizadore-aurrezarpenekin — txantiloi guztiak grabatzeko prest.',
   'templates.hero.eyebrow': 'Etapa zainduak',
   'templates.hero.heading': 'Lurreratu behar duzun unerako eraikitako etapak.',
 }

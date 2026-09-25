@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Cysylltwch â ni',
   'about.eyebrow': 'Amdanom ni',
+  'about.missionTitle': 'Ein cenhadaeth',
   'account.notifications.save': 'Cadw dewisiadau',
   'account.notifications.saved': "Dewisiadau wedi'u cadw.",
   'account.notifications.saveFailed': "Methwyd cadw'r dewisiadau.",
@@ -11,7 +12,10 @@ export const ui: UiTranslations = {
   'account.payments.freeDescription': 'Talu fesul sesiwn • Uwchraddio am ostyngiadau archebu',
   'account.payments.helper':
     'Cesglir eich dull talu wrth y ddesg dalu. Nid ydym byth yn storio rhifau cerdyn llawn — mae Stripe yn trin yr holl ddata cerdyn.',
+  'account.payments.paidDescription': 'Tanysgrifiad gweithredol — rheolwch ar Stripe.',
   'account.payments.planFree': 'Cynllun am ddim',
+  'account.payments.title': 'Cynllun a thaliad',
+  'account.payments.viewPlans': 'Gweld cynlluniau {{appName}} →',
   'account.profile.title': 'Proffil',
   'account.role.body':
     "Newidiwch rhwng modd dysgwr a thiwtor unrhyw bryd. Mae eich sesiynau gweithredol yn aros yn gyfan yn y naill fodd neu'r llall.",
@@ -24,6 +28,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Addysgu ar Sialc',
   'becomeTutor.form.error': 'Methwyd cyflwyno cais.',
+  'becomeTutor.form.pitch': 'Eich cais (dewisol)',
   'becomeTutor.form.pitchPlaceholder':
     'Ychydig o frawddegau y byddai myfyrwyr yn eu gweld ar eich proffil. Cadwch ef yn benodol ac yn gynnes.',
   'becomeTutor.form.rate': 'Cyfradd fesul awr ($/awr): {{rate}}',
@@ -33,6 +38,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.title': 'Dywedwch wrthym amdanoch chi',
   'becomeTutor.headline':
     "Ennillwch drwy wneud yr hyn rydych chi'n ei garu. Addysgwch ar eich amserlen.",
+  'becomeTutor.subhead':
+    'Gwnewch gais mewn 5 munud. Ar ôl i ni ddilysu, byddwch yn ymddangos yn y chwiliad ac yn dechrau derbyn sesiynau.',
+  'booking.duration.title': '3. Pa mor hir?',
   'booking.error.createFailed': 'Methwyd creu archeb.',
   'booking.error.loadFailed': "Methwyd llwytho'r tiwtor — ceisiwch eto.",
   'booking.error.noSlot': 'Dewiswch ddiwrnod ac amser yn gyntaf.',
@@ -47,6 +55,7 @@ export const ui: UiTranslations = {
     'Gellir aildrefnu sesiynau hyd at 12 awr ymlaen llaw. Dim ond pan fydd y sesiwn yn dod i ben y codir tâl ar eich cerdyn.',
   'booking.summary.assurance':
     'Dim tâl tan ddiwedd y sesiwn • Canslo am ddim hyd at 12 awr cyn y sesiwn',
+  'booking.summary.back': '← Yn ôl i broffil y tiwtor',
   'booking.summary.cta': 'Cadarnhau archeb',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'Dewiswch slot',
@@ -73,18 +82,27 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'Tiwtor',
   'bookingConfirm.subject': 'Pwnc',
   'bookingConfirm.title': "Rydych chi wedi archebu. Byddwn ni'n delio â'r gweddill.",
+  'bookingConfirm.viewSessions': 'Gweld pob sesiwn →',
   'bookingConfirm.with': 'Gyda thiwtor',
   'common.goToDashboard': "Mynd i'r Dangosfwrdd",
+  'earningsHero.change': "{{sign}}{{percent}}% o gymharu â'r mis diwethaf",
   'earningsHero.eyebrow': 'Enillion • {{month}}',
+  'earningsHero.greeting': "Croeso'n ôl, {{name}} — cadwch ati.",
   'forgotPassword.heading': 'Wedi anghofio eich cyfrinair?',
   'forgotPassword.subheading':
     "Rhowch yr e-bost sy'n gysylltiedig â'ch cyfrif a byddwn yn anfon dolen ailosod atoch.",
   'forgotPassword.success.body':
     "Fe wnaethon ni anfon dolen ailosod i {{email}} — mae'n dod i ben ymhen 30 munud.",
   'heroSearchSection.eyebrow': "12,000+ o diwtoriaid wedi'u gwirio • ers 2018",
+  'heroSearchSection.headline': "Lle mae meddyliau chwilfrydig yn cwrdd â'r tiwtoriaid iawn.",
+  'heroSearchSection.searchCta': 'Dod o hyd i diwtor',
+  'heroSearchSection.searchPlaceholder': 'Chwilio pynciau, tiwtoriaid neu bynciau…',
   'heroSearchSection.stat.rating': 'Sgôr sesiwn gyfartalog',
+  'heroSearchSection.stat.sessions': "Sesiynau wedi'u cyflwyno",
   'heroSearchSection.stat.subjects': 'Pynciau a gwmpesir',
   'heroSearchSection.stat.tutors': "Tiwtoriaid wedi'u gwirio",
+  'heroSearchSection.subhead':
+    "Tiwtoriaid wedi'u dilysu. Prisiau clir. Sesiynau sy'n ffitio'ch wythnos.",
   'landing.featured.eyebrow': 'Tiwtoriaid dan sylw',
   'landing.featured.headline':
     "Wedi'i ddewis â llaw, wedi'i raddio uchaf, ac yn barod yr wythnos hon.",
@@ -92,8 +110,11 @@ export const ui: UiTranslations = {
   'landing.nav.becomeTutor': 'Addysgu ar Sialc',
   'landing.nav.findTutors': 'Dod o hyd i diwtoriaid',
   'landing.pillars.eyebrow': 'Pam Sialc',
+  'landing.pillars.headline': '{{tagline}} — heb yr ymdrech.',
   'landing.testimonials.eyebrow': 'Gan fyfyrwyr diweddar',
   'landing.testimonials.headline': 'Canlyniadau go iawn, yn eu geiriau eu hunain.',
+  'landing.tutorCta.body':
+    "Gosodwch eich cyfraddau eich hun, adeiladwch enw da gydag adolygiadau wedi'u dilysu, a byddwn ni'n ymdrin ag amserlennu, taliadau a nodiadau atgoffa.",
   'landing.tutorCta.button': 'Gwneud cais i addysgu',
   'landing.tutorCta.eyebrow': 'Dod yn diwtor',
   'landing.tutorCta.headline':
@@ -105,6 +126,7 @@ export const ui: UiTranslations = {
   'login.signup': 'Creu cyfrif →',
   'login.subheading':
     'Parhewch lle gwnaethoch chi adael — mae eich sesiynau, negeseuon a thiwtoriaid yn aros.',
+  'login.support': 'Angen help?',
   'messages.draftPlaceholder': 'Teipiwch neges…',
   'messages.empty.body':
     "Bydd edafedd yn ymddangos yma pan fyddwch chi'n anfon neges at diwtor neu pan fydd un yn anfon neges atoch chi.",
@@ -116,9 +138,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'Dim negeseuon eto.',
   'messages.selectThread': 'Dewiswch edau ar y chwith.',
   'messages.send': 'Anfon neges',
+  'messages.startThreadHint':
+    'Ewch i broffil tiwtor a thapiwch "Anfon neges at diwtor" i ddechrau sgwrs.',
   'messages.thread.empty': 'Dywedwch helo — dechreuwch y sgwrs.',
   'messages.title': "Edau gyda'ch tiwtoriaid.",
   'nav.primary': 'Cynradd',
+  'planUpdated.body':
+    "Mae eich newid bilio bellach yn weithredol. Gallwch reoli eich cynllun ar unrhyw adeg o'r dudalen filio.",
+  'pricing.advancedFeatures': 'Nodweddion uwch:',
   'pricing.dataExport': 'Allforio data:',
   'pricing.headingDefault': 'Nodweddion uwch:',
   'resetPassword.heading': 'Dewiswch gyfrinair newydd cryf.',
@@ -128,6 +155,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Dangos cyfrinair',
   'resetPassword.subheading': "Byddwn yn eich mewngofnodi'n awtomatig ar ôl i'r ailosodiad lwyddo.",
   'resetPassword.submit': 'Ailosod a mewngofnodi',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body': "Rhowch gynnig ar ehangu'r hidlydd pwnc neu lacio'r trothwy sgôr.",
   'search.empty.title': 'Dim tiwtoriaid yn cyfateb eto.',
@@ -138,7 +166,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'Sgôr',
   'search.filter.subject': 'Pwnc',
   'search.results.count': "{{count}} mae tiwtoriaid yn cyfateb i'ch hidlwyr",
+  'search.results.fallback': "Yn dangos tiwtoriaid demo wedi'u curadu",
   'search.results.loading': "Wrthi'n llwytho tiwtoriaid…",
+  'search.searchPlaceholder': 'Pwnc, enw neu destun…',
   'search.subtitle': "Hidlo yn ôl pwnc, sgôr ac argaeledd. Tiwtoriaid wedi'u gwirio yn unig.",
   'search.title': "Dod o hyd i diwtor sy'n clicio",
   'sessionCard.avatarAlt': '{{name}} avatar',
@@ -170,18 +200,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'Dechreuodd y sesiwn — dysgu hapus.',
   'sessionDetail.startError': 'Methwyd cychwyn y sesiwn.',
   'sessionDetail.subtitle': 'gyda {{name}} • {{when}} • {{mins}} munud',
+  'sessionDetail.timeline': 'Llinell amser y statws',
   'sessionDetail.timeline.afterEnd': "Ar ôl i'r sesiwn ddod i ben",
   'sessionDetail.timeline.auto': 'Auto',
   'sessionDetail.timeline.booked': "Wedi'i archebu",
   'sessionDetail.timeline.confirmed': "Wedi'i gadarnhau",
   'sessionDetail.timeline.inSession': 'Mewn sesiwn',
   'sessionDetail.timeline.now': 'Nawr',
+  'sessionDetail.timeline.receipt': "Derbynneb wedi'i chyhoeddi",
   'sessionDetail.timeline.review': 'Anogwr adolygu',
   'sessions.empty.body':
     "Poriwch Mentor i ddod o hyd i diwtor a bwcio lle. Mae sesiynau wedi'u cadarnhau yn ymddangos yma.",
   'sessions.empty.title': "Dim byd wedi'i drefnu yma eto.",
   'sessions.error': 'Methwyd llwytho eich sesiynau — ceisiwch eto.',
   'sessions.eyebrow': 'Eich sesiynau',
+  'sessions.loading': "Wrthi'n llwytho sesiynau…",
   'sessions.subtitle':
     "Traciwch archebion sydd ar ddod, neidiwch i mewn i'r ystafell sesiynau weithredol, ac ailymwelwch â gwersi wedi'u cwblhau.",
   'sessions.title': 'Pob gwers, mewn un lle.',
@@ -196,22 +229,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'Creu fy {{role}} cyfrif',
   'signup.subheading':
     'Crëwch gyfrif i archebu sesiynau, anfon neges at diwtoriaid, ac olrhain eich cynnydd.',
+  'signup.terms': "Drwy gofrestru rydych yn cytuno i'n Telerau.",
   'tutorCard.avatarAlt': 'Portread o {{name}}',
   'tutorCard.perHour': '/ awr',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'Y sgôr uchaf',
   'tutorCard.verified': "Tiwtor wedi'i wirio",
+  'tutorDashboard.empty.body':
+    "Gosodwch eich pynciau, eich cyfradd awr a'ch argaeledd — yna dechreuwch ennill.",
+  'tutorDashboard.empty.cta': 'Dod yn diwtor →',
   'tutorDashboard.empty.title': 'Dewch yn diwtor i ddatgloi eich dangosfwrdd.',
   'tutorDashboard.fallbackName': 'Tiwtor',
   'tutorDashboard.loading': "Wrthi'n llwytho'r dangosfwrdd…",
   'tutorDashboard.recentReviews': 'Adolygiadau diweddar',
   'tutorDashboard.reviewsEmpty':
     'Nid oes gennych unrhyw adolygiadau eto — byddant yn ymddangos yma unwaith y bydd myfyrwyr yn rhoi sgôr i chi.',
+  'tutorDashboard.stats.rating': 'Sgôr gyfartalog',
   'tutorDashboard.stats.sessions': "Sesiynau'r mis hwn",
+  'tutorDashboard.stats.totalSessions': 'Sesiynau erioed',
+  'tutorDashboard.studentFallback': 'Myfyriwr',
   'tutorDashboard.tutoringFallback': 'Sesiwn tiwtora',
   'tutorDashboard.upcoming': 'Sesiynau sydd i ddod',
   'tutorDashboard.upcomingEmpty':
     "Dim sesiynau sydd ar ddod eto — bydd myfyrwyr sy'n archebu eich slotiau yn ymddangos yma.",
+  'tutorProfile.availability': 'Argaeledd yr wythnos hon',
   'tutorProfile.availabilityHeadline': 'Dewiswch slot i ddechrau',
   'tutorProfile.bookCta': 'Archebu sesiwn',
   'tutorProfile.bookFull': 'Gweler yr amserlen lawn',
@@ -224,6 +265,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / awr',
   'tutorProfile.reviews': 'Adolygiadau diweddar',
   'tutorProfile.reviews.empty': 'Dim adolygiadau eto — byddwch y cyntaf.',
+  'tutorProfile.stat.repeats': "Myfyrwyr sy'n dychwelyd",
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'Ymateb cyfartalog',
   'tutorProfile.stat.responseValue': '{{mins}} munud',

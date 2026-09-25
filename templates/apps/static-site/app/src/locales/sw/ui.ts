@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Mpango wako umesasishwa.',
   'planUpdated.returnHome': 'Rudi nyumbani',
   'planUpdated.thankYou': 'Asante!',
+  'post.markdown': 'Tazama chapisho hili kama markdown',
+  'post.readingTime': '{{minutes}} kusoma kwa dakika',
   'post.tags': 'Lebo',
   'project.error.nameAndTypeRequired': 'name na projectType zinahitajika',
   'project.error.notFound': 'Haijapatikana',

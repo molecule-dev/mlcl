@@ -1,13 +1,28 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε ερωτήσεις για μια διαμονή, σχόλια ή μια ιδέα συνεργασίας; Επικοινωνήστε με την ομάδα από τον λογαριασμό σας ή από τον concierge εντός της εφαρμογής — κάθε μήνυμα φτάνει σε έναν πραγματικό άνθρωπο που ταξιδεύει κι εκείνος.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.featureBooking.body':
+    'Συγκρίνετε δωμάτια, τιμές και παροχές δίπλα-δίπλα και κάντε κράτηση σε λίγα δευτερόλεπτα με δωρεάν ακύρωση σε κάθε διαδρομή.',
+  'about.featureBooking.title': 'Αναζήτηση, σύγκριση και κράτηση',
+  'about.featureDiscover.body':
+    'Προορισμοί επιλεγμένοι από τη σύνταξη και ταξιδιωτικοί οδηγοί αναδεικνύουν τα μέρη που αξίζει να πακετάρετε — χωρίς θόρυβο από aggregators, χωρίς χορηγούμενες διαφημίσεις.',
   'about.featureDiscover.title': 'Έμπνευση, επιλεγμένη με το χέρι',
+  'about.featureItineraries.body':
+    'Κρατήστε πτήσεις, διαμονές και σχέδια σε ένα μέρος, αποθηκεύστε προορισμούς για αργότερα και συνεχίστε το ταξίδι σας ακριβώς από εκεί που το αφήσατε.',
+  'about.featureItineraries.title': 'Δρομολόγια που μένουν οργανωμένα',
+  'about.featureStays.title': 'Αξιόπιστες διαμονές',
+  'about.missionTitle': 'Η αποστολή μας',
+  'about.subtitle':
+    'Έμπνευση, αξιόπιστες διαμονές και μια απρόσκοπτη διαδρομή από το όνειρο στην κράτηση.',
+  'about.whatYouGetTitle': 'Τι αποκτάτε',
   'account.addPaymentCta': 'Προσθήκη μεθόδου πληρωμής',
   'account.addPaymentError': 'Δεν ήταν δυνατή η προσθήκη μεθόδου πληρωμής.',
   'account.confirmRemove': 'Επιβεβαίωση διαγραφής',
   'account.defaultBadge': 'Αθέτηση',
-  'account.loyalty.pointsTowardNext': '{{πόντοι}} του {{επόμενος}} μίλια προς {{επόμενη βαθμίδα}}',
+  'account.loyalty.pointsTowardNext': '{{points}} από {{next}} μίλια έως {{nextTier}}',
   'account.loyalty.tier': 'Τρέχουσα βαθμίδα',
   'account.navLabel': 'Ενότητες λογαριασμού',
   'account.payments.empty': 'Δεν έχουν αποθηκευτεί ακόμη μέθοδοι πληρωμής.',
@@ -28,6 +43,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} νύχτες',
   'booking.lineTaxes': 'Φόροι και τέλη',
   'booking.loadError': 'Αποτυχία φόρτωσης ιδιότητας.',
+  'booking.noChargeYet': 'Δεν θα χρεωθείτε ακόμη.',
   'booking.noPaymentMethods': 'Δεν υπάρχουν αποθηκευμένες μέθοδοι πληρωμής.',
   'booking.noPaymentSelected': 'Επιλέξτε μια μέθοδο πληρωμής πριν από την επιβεβαίωση.',
   'booking.noRoomError': 'Επιλέξτε ένα δωμάτιο πριν από την επιβεβαίωση.',
@@ -39,6 +55,7 @@ export const ui: UiTranslations = {
   'booking.policy1': 'Δωρεάν ακύρωση έως 7 ημέρες πριν από την άφιξη.',
   'booking.policy2': 'Δεν υπάρχει χρέωση σήμερα — η κάρτα σας κρατείται μόνο για επιβεβαίωση.',
   'booking.policy3': 'Η ασφάλεια ταξιδιού καλύπτεται από την Sojourn — υποστήριξη θυρωρού 24/7.',
+  'booking.policyHeading': 'Ακύρωση & όροι',
   'booking.roomHeading': 'Διάλεξε το δωμάτιό σου',
   'booking.specialRequests': 'Ειδικά αιτήματα',
   'booking.specialRequestsPlaceholder': 'Κάτι που πρέπει να γνωρίζει ο οικοδεσπότης;',
@@ -67,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Μέλη Sojorn',
   'landing.cta.heading': 'Περιπλανηθείτε χωρίς ανησυχία. Κάθε δρομολόγιο, κάθε φορά.',
   'landing.cta.signup': 'Δημιουργήστε δωρεάν λογαριασμό',
+  'landing.cta.subheading':
+    'Δωρεάν ακύρωση, τιμές αποκλειστικά για μέλη και concierge ταξιδιού 24/7 — κερδίστε μίλια σε κάθε κράτηση και αποκτήστε πρώτοι πρόσβαση σε νέα καταλύματα.',
   'landing.destinations.eyebrow': 'Πού θα πάμε στη συνέχεια',
   'landing.destinations.heading': 'Προτεινόμενοι προορισμοί',
   'landing.destinations.seeAll': 'Δείτε όλους τους προορισμούς',
@@ -75,27 +94,45 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Ιστορίες που αξίζει να τις κουβαλάς μαζί σου',
   'landing.nav.join': 'Γίνετε μέλος του Sojourn',
   'landing.nav.search': 'Αναζήτηση διαμονής',
+  'landing.preview.browseAll': 'Περιηγηθείτε στη συλλογή',
   'landing.preview.eyebrow': 'Μια ματιά στο εσωτερικό',
   'landing.preview.heading': 'Επιλεγμένες καταλύματα αυτόν τον μήνα',
+  'landing.preview.subheading':
+    'Κάθε κατάλυμα στο {{appName}} ελέγχεται προσωπικά από τη συντακτική μας ομάδα — χωρίς απόθεμα από aggregators, χωρίς παραπλανητικές καταχωρίσεις και δωρεάν ακύρωση σε κάθε διαδρομή.',
   'login.eyebrow': 'Περιοχή μελών',
+  'login.noAccount': 'Νέος στο Tessera;',
   'login.signupLink': 'Δημιουργήστε έναν δωρεάν λογαριασμό',
   'login.subheading':
     'Συνδεθείτε για να διαχειριστείτε τα ταξίδια σας, να δείτε επιβεβαιώσεις και να συνεχίσετε από εκεί που σταματήσατε.',
   'nav.legal': 'Νομικά',
   'notifications.loading': 'Φόρτωση…',
   'notifications.subheading': '{{count}} αδιάβαστα · όλα σε ένα ήρεμο φάκελο εισερχομένων',
+  'planUpdated.body':
+    'Η αλλαγή χρέωσής σας είναι πλέον ενεργή. Μπορείτε να διαχειρίζεστε το πλάνο σας οποιαδήποτε στιγμή από τη σελίδα χρέωσης.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.accommodationsLabel': 'καταλύματα',
   'pricing.bookingsLabel': 'κρατήσεις',
   'pricing.destinationsLabel': 'αποθηκευμένοι προορισμοί',
   'pricing.exportLabel': 'Εξαγωγή δεδομένων ταξιδιού',
   'pricing.itinerariesLabel': 'δρομολόγια',
+  'privacy.intro':
+    'Το {{appName}} προστατεύει τα δεδομένα του ταξιδιού σας. Αντικαταστήστε αυτό το πρότυπο με την πραγματική πολιτική απορρήτου σας πριν από τη δημοσίευση σε παραγωγή.',
   'propertyDetail.allPhotos': 'Ολοι {{count}} φωτογραφίες',
   'propertyDetail.amenitiesHeading': 'Τι προσφέρει αυτό το μέρος',
   'propertyDetail.backLink': 'Επιστροφή στην αναζήτηση',
   'propertyDetail.bookCta': 'Απόθεμα',
   'propertyDetail.bookmarkAria': 'Αποθήκευση ακινήτου',
   'propertyDetail.freeCancellation': 'Δωρεάν ακύρωση',
+  'propertyDetail.galleryAria': 'Συλλογή φωτογραφιών καταλύματος',
+  'propertyDetail.galleryCloseAria': 'Κλείσιμο συλλογής',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': '{{name}} φωτογραφία {{n}}',
+  'propertyDetail.galleryNextAria': 'Επόμενη φωτογραφία',
+  'propertyDetail.galleryPrevAria': 'Προηγούμενη φωτογραφία',
   'propertyDetail.heroImageAlt': '{{name}} φωτογραφία ήρωα',
   'propertyDetail.lineCleaning': 'Τέλος καθαρισμού',
   'propertyDetail.lineRate': '{{price}} × {{nights}} νύχτες',
@@ -104,6 +141,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'νύχτα',
   'propertyDetail.noChargeYet': 'Δεν θα χρεωθείτε ακόμα',
   'propertyDetail.notFound': 'Η ιδιότητα δεν βρέθηκε.',
+  'propertyDetail.pickDatesHint':
+    'Επιλέξτε τις ημερομηνίες σας για να δείτε την πλήρη ανάλυση τιμής.',
   'propertyDetail.reviewCount': '( {{count}} κριτικές)',
   'propertyDetail.reviewsHeading': 'Πρόσφατες κριτικές',
   'propertyDetail.verified': 'Ακίνητο με επαλήθευση διαμονής',
@@ -112,6 +151,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Νέος κωδικός πρόσβασης',
   'resetPassword.subheading':
     'Επιλέξτε έναν νέο κωδικό πρόσβασης για τον λογαριασμό σας στο Sojourn. Χρησιμοποιήστε τουλάχιστον 8 χαρακτήρες. Συνιστούμε μια φράση πρόσβασης.',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'Δεν υπάρχουν ακίνητα που να ταιριάζουν με την αναζήτησή σας.',
   'search.emptyHint':
     'Δοκιμάστε να διευρύνετε τα φίλτρα σας ή να καταργήσετε το ανώτατο όριο τιμών — η Sojourn προσφέρει διαμονή σε 14 χώρες.',
@@ -119,6 +159,9 @@ export const ui: UiTranslations = {
   'search.heading': 'Επιλεγμένες διαμονές για την περιπλάνησή σας',
   'search.headingForQuery': 'Μένει για " {{q}} "',
   'search.loadError': 'Αποτυχία φόρτωσης ιδιοτήτων.',
+  'search.mapHint':
+    'Περάστε τον δείκτη πάνω από μια κάρτα για να επισημάνετε τη θέση της στον χάρτη.',
+  'search.mapPinAria': '{{name}} — {{price}} ανά διανυκτέρευση',
   'search.sortLabel': 'Ταξινόμηση κατά',
   'search.subheading': '{{count}} ιδιότητες · {{guests}} επισκέπτες',
   'settings.openAccount': 'Άνοιγμα πλήρους λογαριασμού',
@@ -127,15 +170,22 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Δωρεάν ακύρωση, τιμές μόνο για μέλη και υπηρεσία θυρωρείου 24/7 — κερδίστε μίλια με κάθε κράτηση.',
   'sojournAuthShell.brand.eyebrow': 'Περιπλανηθείτε χωρίς ανησυχία',
+  'sojournAuthShell.brand.heading': 'Μια απρόσκοπτη διαδρομή από το όνειρο στην κράτηση.',
   'sojournHeroSearchCard.checkInAria': 'Ημερομηνία άφιξης',
   'sojournHeroSearchCard.checkOutAria': 'Ημερομηνία αναχώρησης',
+  'sojournHeroSearchCard.destAria': 'Προορισμός',
+  'sojournHeroSearchCard.destLabel': 'Πού',
   'sojournHeroSearchCard.destPlaceholder': 'Πόλη, περιοχή ή ακίνητο',
   'sojournHeroSearchCard.eyebrow': 'Επιλεγμένες διαμονές · Τιμές μόνο για μέλη',
   'sojournHeroSearchCard.guestsOption': '{{n}} επισκέπτες',
   'sojournHeroSearchCard.subtitle':
     'Έμπνευση, αξιόπιστες διαμονές και μια απρόσκοπτη διαδρομή από το όνειρο στο να έχετε κάνει κράτηση — σε 14 χώρες και πάνω από 200 ελεγμένα καταλύματα.',
+  'sojournHeroSearchCard.title': 'Περιπλανηθείτε χωρίς ανησυχία',
+  'sojournHeroSearchCard.trustLoyalty': 'Κερδίστε μίλια σε κάθε διαδρομή',
   'sojournHeroSearchCard.trustProtected': 'Δωρεάν ακύρωση, πλήρως προστατευμένη',
   'sojournHeroSearchCard.trustVetted': 'Μόνο ακίνητα που έχουν ελεγχθεί χειροκίνητα',
+  'terms.intro':
+    'Αντικαταστήστε αυτό το πρότυπο με τους πραγματικούς όρους χρήσης του {{appName}} πριν από τη δημοσίευση σε παραγωγή.',
   'travelBookingLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'tripDetail.backLink': 'Επιστροφή στα ταξίδια',
   'tripDetail.cancelCta': 'Ακύρωση κράτησης',
@@ -145,6 +195,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'Προαιρετικό — λόγος ακύρωσης',
   'tripDetail.checkInLabel': 'Άφιξη',
   'tripDetail.checkOutLabel': 'Αποχώρηση',
+  'tripDetail.confCode': 'Κωδικός · {{code}}',
   'tripDetail.confirmCancelCta': 'Ακύρωση ταξιδιού',
   'tripDetail.hostInfo':
     'Φιλοξενείται από {{name}} Δωρεάν ακύρωση έως 7 ημέρες πριν από την άφιξη.',
@@ -152,6 +203,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'Συνέχιση κράτησης',
   'tripDetail.lengthLabel': 'Μήκος',
   'tripDetail.loadError': 'Η φόρτωση του ταξιδιού απέτυχε.',
+  'tripDetail.messageHostHeading': 'Στείλτε μήνυμα στον οικοδεσπότη σας',
   'tripDetail.messagePlaceholder':
     'Ενημερώστε τον οικοδεσπότη σας για την ώρα άφιξής σας, τις διατροφικές σας ανάγκες ή οτιδήποτε άλλο.',
   'tripDetail.messageSend': 'Αποστολή μηνύματος',
@@ -162,9 +214,11 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'Σύνοψη τιμών',
   'tripDetail.taxes': 'Φόροι και τέλη',
   'tripItineraryRow.nights': '{{count}} νύχτες',
+  'trips.empty.past': 'Τα προηγούμενα ταξίδια θα εμφανιστούν εδώ μόλις περιπλανηθείτε.',
   'trips.empty.upcoming': 'Δεν υπάρχουν ακόμη επερχόμενα ταξίδια — ας το διορθώσουμε.',
   'trips.eyebrow': 'Οι περιπλανήσεις σου',
   'trips.heading': 'Ταξίδια',
   'trips.loadError': 'Αποτυχία φόρτωσης ταξιδιών.',
+  'trips.searchCta': 'Σχεδιάστε ένα άλλο ταξίδι',
   'trips.subheading': '{{upcoming}} επερχόμενο · {{past}} το παρελθόν',
 }

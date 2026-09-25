@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Het jy terugvoer, het jy 'n fout raakgesien, of wil jy 'n funksie voorstel? Kontak ons vanuit jou rekeninginstellings — elke boodskap gaan na 'n regte mens op die span.",
+  'about.contactTitle': 'Praat met ons',
+  'about.featureDatabases':
+    'Ligte databasisse en hergebruikbare sjablone om los notas in gestruktureerde, herhaalbare werkvloeie te omskep.',
+  'about.featureEditor':
+    "'n Stille blokredigeerder — opskrifte, lyste, kode, uitroepe en take — met skuinsstreep-opdragte wanneer jy dit wil hê en uit die pad wanneer jy dit nie wil hê nie.",
+  'about.featureGraph':
+    "Terugskakels en 'n kennisgrafiek: tik [[ om 'n nota te skakel en sien hoe jou idees mettertyd verbind.",
+  'about.featureNotebooks':
+    'Geneste notaboeke en bladsye sodat projekte, onderwerpe en daaglikse notas presies georganiseer bly soos jy dink.',
+  'about.featureSearch':
+    'Volteksoektog onder 50ms regdeur elke notaboek, plus etikette wat saam met notaboeke werk eerder as om daarteen te veg.',
+  'about.missionTitle': 'Ons missie',
   'common.goToDashboard': 'Gaan na Dashboard',
   'forgot.eyebrow': 'Die pad terug in verloor?',
   'forgot.formSubtitle': 'Vertel ons van die e-posadres wat ons op lêer het.',
+  'forgot.formTitle': 'Wagwoord vergeet',
   'forgot.headline': 'Stel jou wagwoord terug.',
   'forgot.subline':
     "Ons sal 'n eenmalige skakel na jou inboks stuur sodat jy 'n nuwe een kan kies.",
+  'forgot.successDetail':
+    "Ons het 'n herstel-skakel na jou e-pos gestuur. Dit verval oor 30 minute.",
   'graph.eyebrow': 'Grafiek',
+  'graph.goToNotes': 'Blaai deur notas →',
+  'graph.loadError': 'Kon nie die grafiek laai nie: {{message}}',
   'graph.placeholderBody':
     "Wanneer notas aan mekaar begin skakel (met [[wiki]]-sintaksis), sal 'n interaktiewe, geforseerde grafiek hier vertoon word.",
+  'graph.placeholderTitle': 'Terugskakel-grafiek kom binnekort',
   'graph.subtitle':
     '{{count}} notas in hierdie werkspasie. Terugskakelgrafiekweergawe sal hier verskyn sodra notas na mekaar skakel.',
   'graph.title': 'Kennisgrafiek',
   'home.empty': 'Geen notas nog nie — begin jou eerste een.',
   'home.favoritesHeading': 'Vasgepen',
   'home.guest': 'vriend',
+  'home.loadError': 'Kon nie jou notas laai nie: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': "Speld 'n nota in die redigeerder vas om dit hier te hou.",
   'home.recentHeading': 'Onlangs opgedateer',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Notaboek',
   'home.stats.pinned.label': 'Vasgepen',
   'home.stats.updatedToday.label': 'Vandag opgedateer',
+  'home.subtitle': "Gaan voort waar jy opgehou het, of begin 'n nuwe nota.",
   'home.viewAll': 'Bekyk alle notas',
   'landing.cta.body':
     'Gratis vir persoonlike gebruik. Pro vir spanne. Bring jou bestaande afslag of begin vars — Verso ontmoet jou waar jou notas ook al is.',
+  'landing.cta.button': 'Skep my werkspasie',
   'landing.cta.heading': 'Maak vandag se bladsy oop.',
   'landing.features.eyebrow': 'Elke primitief wat jou tweede brein benodig',
+  'landing.features.heading': 'Gebou vir die werk, nie die metawerk nie.',
   'landing.hero.eyebrow': "'n Stil skryfoppervlak",
   'landing.hero.headlineAccent': 'vorm aanneem.',
   'landing.hero.headlineLeading': 'Waar gedagtes',
   'landing.hero.primaryCta': 'Begin jou kennisbasis',
   'landing.hero.secondaryCta': "Ek het reeds 'n rekening",
+  'landing.hero.socialProof': "12 800+ skrywers, studente en PhD's dink met {{appName}}",
   'landing.hero.subline':
     "Verso is 'n gestruktureerde nota-neem-oppervlak vir kenniswerkers en studente. Blokredigeerder, geneste notaboeke, terugskakels en 'n kennisgrafiek — alles agter 'n tipografie-eerste leeservaring.",
+  'landing.preview.notebook': 'Kennis · Skryfproses',
+  'landing.preview.title': 'Om konsepte te laat asemhaal',
   'login.eyebrow': 'Welkom terug na Verso',
   'login.formSubtitle': 'Gebruik jou e-pos of enige gekoppelde verskaffer.',
   'login.headline': 'Gaan voort waar die bladsy gepauseer het.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Maak navigasiekieslys toe',
   'mobileNav.openMenu': 'Maak navigasiekieslys oop',
   'noteEditor.backToNotes': 'Terug na notas',
+  'noteEditor.bodyLabel': 'Nota-inhoud',
   'noteEditor.bodyPlaceholder': 'Begin skryf — jou nota word outomaties gestoor terwyl jy tik.',
   'noteEditor.confirmTrash': 'Skuif hierdie nota na die asblik?',
   'noteEditor.pinToggle': 'Wissel gunsteling',
@@ -51,17 +79,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Skuif na asblik',
   'noteEditor.updated': 'Opgedateer',
   'notes.defaultWorkspaceName': 'My notaboek',
+  'notes.empty': 'Nog geen notas hier nie — begin een om die notaboek te vul.',
   'notes.eyebrow': 'Notaboek',
   'notes.filterAll': 'Alle notas',
   'notes.filterPinned': 'Vasgepen',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Nuwe notaboek',
   'notes.newNotebookPrompt': 'Nuwe notaboeknaam',
+  'notes.newNotebookRequired': "Voer 'n notaboeknaam in.",
   'notes.notebooksHeading': 'Notaboeke',
   'notes.subtitle':
     "Kies 'n notaboek aan die linkerkant en druk dan die Nuwe nota-knoppie om 'n nuwe inskrywing te begin.",
+  'planUpdated.body': 'Jou intekening is nou aktief.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Gevorderde kenmerke',
   'pricing.heading': 'Kies jou Nota-neemplan',
+  'reset.changedMind': 'Van gedagte verander?',
   'reset.eyebrow': 'Amper terug in',
   'reset.formSubtitle': 'Jy sal aangemeld wees sodra dit gestoor is.',
   'reset.headline': "Kies 'n nuwe wagwoord.",
@@ -71,19 +104,28 @@ export const ui: UiTranslations = {
     'Voer die kode in wat ons so pas vir jou per e-pos gestuur het en kies iets onvergeetliks.',
   'reset.submit': 'Stoor en teken aan',
   'reset.tokenHint': 'Geplak uit jou inboks.',
+  'search.empty': 'Nog geen notas stem met hierdie soektog ooreen nie.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Soek Refraktasie',
   'search.loading': 'Soek tans…',
   'search.noRecent': "Tik 'n navraag hierbo om deur jou notas te begin soek.",
   'search.recentLabel': 'Onlangse soektogte',
   'search.subtitle': 'Volle teks oor elke notaboek. Tik om te soek; resultate verfris soos jy tik.',
   'search.title': 'Soek die tweede brein.',
   'settings.account.logout': 'Meld af',
+  'settings.account.title': 'Rekeningbesonderhede',
+  'settings.editor.graphHover.body':
+    "Wys 'n klein voorskoukaart wanneer jy oor 'n [[wikilink]] in die redigeerder sweef.",
+  'settings.editor.graphHover.label': 'Terugskakel-grafiek sweefvoorskou',
   'settings.editor.lineHeight.body':
     'Hoeveel lug tussen liggaamslyne? 170% is die standaard leesritme.',
+  'settings.editor.lineHeight.label': 'Lynhoogte',
   'settings.editor.serif.body':
     'Gebruik Georgië vir die leeskolom. Sans-serif bly in die sybalk en nutsbalke.',
+  'settings.editor.serif.label': 'Serif-teks',
   'settings.editor.title': 'Tipografie en skryfoppervlak',
   'settings.eyebrow': 'Verso · Instellings',
+  'settings.passwordModal.current': 'Huidige wagwoord',
   'settings.passwordModal.error':
     'Kon nie wagwoord verander nie — kontroleer asseblief u huidige wagwoord.',
   'settings.passwordModal.next': 'Nuwe wagwoord',
@@ -93,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Druk elke toetsaanslag deur die intydse kanaal. Deaktiveer vir stadiger verbindings.',
   'settings.sync.auto.label': 'Intydse sinchronisasie',
+  'settings.sync.title': 'Hoe jou notas reis',
   'settings.theme.body':
     'Lig hou die redaksionele rubriek helder. Sepia verwarm die bladsy vir die aande.',
   'settings.theme.dark': 'Donker',
@@ -112,8 +155,12 @@ export const ui: UiTranslations = {
     'Voeg #hashtags by \'n notatitel (bv. "Leeslys #boeke") en hulle sal outomaties hier verskyn.',
   'tags.emptyTitle': 'Geen etikette nog nie',
   'tags.eyebrow': 'Indeks',
+  'tags.goToNotes': 'Gaan na notas →',
+  'tags.loadError': 'Kon nie etikette laai nie: {{message}}',
   'tags.subtitle':
     "{{tags}} etikette oor {{notes}} notas. Voeg #hashtags by 'n notatitel en hulle sal hier verskyn.",
+  'versoAuthShell.sample.body':
+    "'n Tweede deurlees môre lees altyd beter as 'n eerste deurlees vanaand. Parkeer die rowwe weergawe in die diepwerk-gids…",
   'versoAuthShell.sample.label': 'Daaglikse nota',
   'versoAuthShell.sample.timestamp': 'Vandag · 9:14 vm.',
   'versoAuthShell.sample.title': 'Om konsepte te laat asemhaal',
@@ -125,8 +172,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Gaan voort met skryf',
   'versoTodayHero.createCta': 'Begin vandag se nota',
   'versoTodayHero.dailyLabel': 'Daaglikse nota',
+  'versoTodayHero.emptyHeadline': "Vandag is 'n leë bladsy.",
   'versoTodayHero.emptySubline':
     "Vang 'n gedagte vas, maak 'n aantekening van 'n vergadering of skets môre. Verso hou die struktuur stil sodat die skrif hard bly.",
+  'versoTodayHero.outlineLabel': 'Vandag se uiteensetting',
   'versoTodayHero.streak': '{{count}} -dag reeks',
+  'versoTodayHero.unwritten': 'Nog geen woorde nie — maak die nota oop om te begin.',
   'versoTodayHero.wordCount': '{{count}} woorde vandag',
 }

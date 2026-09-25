@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fikr-mulohazangiz bormi, xatolik topdingizmi yoki ligangiz uchun {{app}} xohlaysizmi? Hisob sozlamalaringizdan bizga murojaat qiling — har bir xabar jamoamizdagi haqiqiy insonga yetib boradi.',
+  'about.contactTitle': "Bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.featureAlerts':
+    "Hisob yangilanishlari, savdo ogohlantirishlari, jarohatlar hisobotlari va liga e'lonlari uchun push-bildirishnomalar.",
+  'about.featureRosters':
+    "To'liq tarkiblar, mavsum yakunlari, issiq/sovuq seriyalar va har bir o'yinchi uchun o'zaro to'qnashuv natijalari bilan jamoa sahifalari.",
+  'about.featureSchedule':
+    "Har bir o'yin va natijani rejalashtirishingiz uchun mavsum taqvimi va jadval ko'rinishi.",
+  'about.featureScoreboard':
+    "Har bir sahifaning yuqorisiga qadab qo'yilgan translyatsiya darajasidagi hisob taxtasi — hech qachon golni o'tkazib yubormaysiz.",
+  'about.featureStandings':
+    "Jonli turnir jadvali — real vaqtda g'alaba-mag'lubiyat-durang qaydlari, ochkolar, g'alaba foizi va pleyoff chizig'i, har bir hushtakda yangilanadi.",
+  'about.intro':
+    '{{app}} — ligangiz uchun translyatsiya sifatidagi uy. Jamoalar, jadvallar, jonli hisoblar va turnir jadvali bitta tez, ortiqcha narsalarsiz boshqaruv panelida birlashadi — shunda muxlislar, murabbiylar va liga tashkilotchilari mavsum qayerda turganini doim biladi.',
+  'about.missionBody':
+    'Ligani kuzatish besh xil uchinchi tomon hisob taxtasini yangilashni anglatmasligi kerak. Biz uni har bir ligaga turnir jadvali, jadval va haqiqatan muhim statistikalar uchun yagona haqiqat manbasini berish uchun yaratdik — har bir hushtakda yangilanadi, mavsum davomida bepul.',
+  'about.missionTitle': 'Bizning vazifamiz',
+  'about.whatYouGet': 'Sizga nima beriladi',
   'appShell.closeNav': 'Navigatsiyani yopish',
   'appShell.openNav': 'Navigatsiyani ochish',
   'common.dashboard': 'Boshqaruv paneli',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': "Barcha mosliklarni ko'rish \\u2192",
   'dashboard.viewAllStandings': "To'liq turnir jadvali \\u2192",
   'dashboard.viewAllStats': "Barcha statistika rahbarlarini ko'rish \\u2192",
+  'forgot.submitting': 'Tiklash havolasi yuborilmoqda…',
   'forgot.subtitle': 'Qayta tiklash havolasini olish uchun elektron pochta manzilingizni kiriting.',
   'forgot.success': 'Qayta tiklash havolasi yuborildi {{email}} Pochta qutingizni tekshiring.',
+  'landing.copyright': '© {{year}} {{app}}. Turnir jadvali ortidan quv.',
+  'landing.ctaBody':
+    "Sizning ligangiz. Sizning turnir jadvalingiz. Sevimli jamoangiz — yuqoriga qadab qo'yilgan. Sozlash uchun ikki daqiqa, mavsum davomida bepul.",
   'landing.ctaHeading': "Uchinchi tomon reyting jadvallarini yangilashni to'xtating",
   'landing.eyebrow': 'Muxlislar, murabbiylar va liga tashkilotchilari uchun yaratilgan',
   'landing.featuresHeading': "Har bir turgan odam uchun oldingi qator o'rindig'i",
   'landing.getStarted': "Ligaga qo'shiling",
   'landing.heroCta': "Ligaga qo'shiling",
+  'landing.heroSubtitle':
+    '{{app}} turnir jadvali, jadvallar va statistik yetakchilarni bitta translyatsiya sifatidagi boshqaruv paneliga birlashtiradi. Jonli hisoblar. Haqiqiy qaydlar. Ortiqcha narsalarsiz.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': "Bugun kechqurun liga bo'ylab",
   'landing.statFans': 'Muxlislar kuzatib bormoqda',
   'landing.statGames': "Bu mavsumdagi o'yinlar",
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Mosliklarga qaytish',
   'matchDetail.eventsHeading': "O'yinma-o'yin",
+  'matchDetail.final': 'YAKUNIY',
   'matchDetail.finalScore': 'Yakuniy',
   'matchDetail.live': 'JONLI',
   'matchDetail.liveNow': 'Hozir jonli efirda',
   'matchDetail.noEvents': 'Hali hech qanday hodisa qayd etilmagan.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': "Bu ko'rinishda o'yinlar yo'q — boshqa filtrni sinab ko'ring.",
   'matches.eyebrow': 'Uchrashuv kuni',
   'matches.loading': 'Shiferni tortib olish…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Bildirishnomalar yuklanmadi',
   'notifications.loading': 'Bildirishnomalar yuklanmoqda…',
   'pennantHeroCard.eyebrow': 'Stolning yuqori qismida',
+  'pennantHeroCard.formLabel': 'Oxirgi 10',
   'pennantHeroCard.gamesAhead': "{{value}} ta'qibdan oldingi o'yinlar",
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Asosiy navigatsiya',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': "O'rindiqni tanlang",
   'pricing.heading': 'Boyroq jadval, ballar va reyting uchun yangilang.',
   'pricing.limits.schedule': '{{count}} jadval yozuvlari',
+  'pricing.limits.scores': '{{count}} hisoblari',
+  'pricing.limits.standings': '{{count}} turnir jadvali',
+  'pricing.limits.teams': '{{count}} jamoalari',
+  'pricing.subtitle': 'Boyroq jadval, hisoblar va turnir jadvali uchun yangilang.',
   'pricing.upgradeCta': 'Yangilash {{tierName}}',
   'profile.eyebrow': 'Muxlis profili',
   'profile.favoritesCount': 'Kuzatuv ostidagi jamoalar',
   'profile.favoritesHeading': 'Sevimli jamoalar',
   'profile.noFavorites': "Hali sevimlilar ro'yxati yo'q — jamoalar sahifasidan jamoalarni tanlang.",
   'profile.rankRecord': 'Daraja # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Qayd {{record}}',
   'reset.confirmPlaceholder': 'Parolni takrorlang',
+  'reset.mismatch': 'Parollar mos kelmayapti.',
   'reset.newLabel': 'Yangi parol',
   'reset.subtitle': 'Kamida 12 ta belgidan iborat kuchli parolni tanlang.',
   'reset.tokenPlaceholder': 'Elektron pochtadan joylash',
   'schedule.eyebrow': 'Shifer',
+  'schedule.moreGames': "+ {{count}} Ko'proq",
   'schedule.subtitle':
     "Mavsum davomidagi o'yinlarning taqvim ko'rinishi — ochkolarni ko'rish uchun istalgan kunga teging.",
   'scoreboardTicker.empty':
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Shaxsiylashtirish',
   'settings.favoritesBody':
     'Bu jamoalar boshqaruv panelingizga biriktiriladi va ochkolar haqida ogohlantirishlarni ishga tushiradi.',
+  'settings.favoritesHeading': 'Sevimli jamoalar',
   'settings.loading': 'Sozlamalaringiz yuklanmoqda\\u2026',
   'settings.noFavorites':
     "Hali sevimlilar ro'yxati yo'q \\u2014 Jamoalar sahifasidan jamoalarni tanlang.",
@@ -117,6 +154,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Umumiy',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     "Eng yaxshi to'rttalik mavsumoldi pley-offga yo'llanma oladi — ochkolar bo'yicha durang o'ynaydi, keyin esa g'alaba foizi.",
   'standings.title': 'Liga turnir jadvali',
@@ -135,6 +173,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': "O'yinchi",
   'teamDetail.colPos': 'Pos',
+  'teamDetail.pointsLabel': 'Ballar',
   'teamDetail.rankLabel': 'Daraja # {{rank}}',
   'teamDetail.rosterHeading': 'Tarkib',
   'teamDetail.statGD': 'Gol farqi',

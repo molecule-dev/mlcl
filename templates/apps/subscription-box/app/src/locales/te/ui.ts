@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ఒక ఎడిషన్, షిప్మెంట్ లేదా మీ సబ్స్క్రిప్షన్ గురించి ప్రశ్నలు ఉన్నాయా? hello@crate.example వద్ద టీమ్లోని నిజమైన వ్యక్తిని సంప్రదించండి — మేము ప్రతి సందేశాన్ని చదువుతాము.',
+  'about.contactTitle': 'క్యూరేటర్‌తో మాట్లాడండి',
+  'about.feature1':
+    'స్వతంత్ర మేకర్లు ఎంపిక చేసిన నెలవారీ క్యూరేటెడ్ ఎడిషన్లు, ప్రతి వస్తువు వెనుక ఉన్న కథతో.',
+  'about.feature2':
+    'ప్రతి బాక్స్పై పూర్తి నియంత్రణ — కంటెంట్ను అనుకూలీకరించండి, వస్తువులను మార్చుకోండి లేదా మినహాయించండి, ఒక నెల దాటవేయండి లేదా మీ క్యాడెన్స్ను మార్చండి.',
+  'about.feature3':
+    'పికప్ నుండి మీ ఇంటి ముందు వరకు ఎండ్-టు-ఎండ్ షిప్మెంట్ ట్రాకింగ్, ప్లాస్టిక్-రహిత ప్యాకేజింగ్ మరియు లైవ్ క్యారియర్ అప్డేట్లతో.',
+  'about.feature4':
+    'సౌకర్యవంతమైన ప్లాన్లు మరియు పారదర్శక బిల్లింగ్ — మీ డాష్బోర్డ్ నుండి ఎప్పుడైనా అప్గ్రేడ్, డౌన్గ్రేడ్, పాజ్ లేదా రద్దు చేయండి.',
+  'about.intro':
+    '{{app}} అనేది ప్రతి నెలా మీ ఇంటి ముందుకు ఎంపిక చేసిన, చిన్న-బ్యాచ్ ఆనందపు బాక్స్ను అందించే క్యూరేటెడ్ సబ్స్క్రిప్షన్-బాక్స్ సేవ. ప్రతి ఎడిషన్ పనిచేసే మేకర్లు — స్వతంత్ర కళాకారులు, చెఫ్లు మరియు చిన్న బ్రాండ్లు — అసెంబుల్ చేస్తారు, అల్గోరిథం కాదు.',
+  'about.missionBody':
+    'సబ్స్క్రిప్షన్ ఒక బహుమతిలా అనిపించాలి, ఉచ్చులా కాదు అని మేము నమ్ముతాము. {{app}} అలా నిర్మించబడింది — మీకు వచ్చేది నచ్చినందునే మీరు ఉంటారు — ఎప్పుడైనా పాజ్ చేయండి, కావాల్సినవి మార్చుకోండి, ఒక క్లిక్తో రద్దు చేయండి. రిటెన్షన్ స్క్రిప్ట్లు ఎప్పటికీ ఉండవు.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'about.pageTitle': '{{app}} గురించి',
   'appNav.mobileLabel': 'ప్రాథమిక నావిగేషన్',
   'appNav.primaryLabel': 'ప్రాథమిక నావిగేషన్',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'బిల్లింగ్ సంప్రదింపును సవరించండి',
   'billing.contact.eyebrow': 'బిల్లింగ్ సంప్రదింపు',
   'billing.eyebrow': 'ప్రణాళిక & చెల్లింపులు',
+  'billing.loading': 'బిల్లింగ్ లోడ్ అవుతోంది…',
   'billing.payment.body':
     'చెల్లింపు స్ట్రైప్ చెక్అవుట్ ద్వారా నిర్వహించబడుతుంది — మీ పూర్తి కార్డ్ నంబర్ మా సర్వర్‌లకు చేరదు. మీ కార్డ్‌ను జోడించడానికి లేదా అప్‌డేట్ చేయడానికి దిగువన ఉన్న ఏదైనా శ్రేణిపై క్లిక్ చేయండి.',
   'billing.payment.linked': 'స్ట్రైప్ ద్వారా ఫైల్‌లో ఉన్న కార్డ్',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'సభ్యత్వాన్ని పునఃప్రారంభించండి',
   'billing.plan.eyebrow': 'క్రియాశీల ప్రణాళిక',
   'billing.plan.next': 'స్వయంచాలకంగా పునరుద్ధరించబడుతుంది {{date}} .',
+  'billing.plan.status': 'స్థితి: {{status}}',
   'billing.subtitle':
     'మీ శ్రేణి, చెల్లింపు పద్ధతిని నిర్వహించండి మరియు గత కార్యకలాపాలను సమీక్షించండి.',
   'billing.tiers.body': 'ఒక శ్రేణిని ఎంచుకోండి, మేము మిమ్మల్ని స్ట్రైప్ చెక్అవుట్‌కు మళ్లిస్తాము.',
   'billing.tiers.choose': 'ఎంచుకోండి',
+  'billing.tiers.empty': 'ఇంకా ఏ టియర్లు కాన్ఫిగర్ చేయబడలేదు.',
   'billing.tiers.heading': 'అందుబాటులో ఉన్న శ్రేణులు',
   'boxDetail.backToBoxes': 'అన్ని ఎడిషన్‌లకు తిరిగి వెళ్లండి',
   'boxDetail.crumb.boxes': 'ఎడిషన్లు',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'ఎంపిక చేసిన భాగం',
   'boxDetail.items.heading': '{{count}} ఎంపిక చేసిన కళాఖండాలు',
   'boxDetail.itemsBadge': '{{count}} ప్రతి పెట్టెలో ఎంపిక చేసిన వస్తువులు',
+  'boxDetail.loading': 'ఎడిషన్ లోడ్ అవుతోంది…',
   'boxDetail.notFound': 'ఆ ఎడిషన్ ఇప్పుడు అందుబాటులో లేదు.',
   'boxDetail.subscribe.success': 'సభ్యత్వం తీసుకున్నారు — మీ మొదటి సంచిక క్యూలో చేర్చబడింది.',
   'boxDetail.swapBadge': 'పైకి మార్చండి {{count}} ఒక్కో పెట్టెకు వస్తువులు',
@@ -44,14 +64,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'ఏ ఎడిషన్‌లు సరిపోలడం లేదు.',
   'boxes.eyebrow': 'ట్రోవ్ ఆర్కైవ్',
   'boxes.heading': 'ప్రతి ఎడిషన్‌ను బ్రౌజ్ చేయండి',
+  'boxes.loadError':
+    'మేము ఎడిషన్లను లోడ్ చేయలేకపోయాము. మీ కనెక్షన్ను తనిఖీ చేసి మళ్లీ ప్రయత్నించండి.',
   'boxes.loading': 'ఎడిషన్‌లు లోడ్ అవుతున్నాయి…',
+  'boxes.search.label': 'ఎడిషన్లను వెతకండి',
   'boxes.search.placeholder': 'ఎడిషన్‌లను శోధించండి…',
   'boxes.subtitle':
     'ప్రతి శ్రేణి ఒక చిన్న-విడత కథ. ఒకదాన్ని మీ క్యూకి జోడించండి లేదా మీ తదుపరి నెలకు మార్చుకోండి.',
+  'boxThemeCard.itemCount': '{{count}} వస్తువులు',
   'boxThemeCard.perMonth': '/ నెల',
+  'boxThemeCard.retailValue': 'రిటైల్ విలువ {{value}}',
   'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
   'customize.eyebrow': 'దీన్ని మీదిగా చేసుకోండి',
   'customize.heading': 'మీ తదుపరి ట్రోవ్‌ను అనుకూలీకరించండి',
+  'customize.items.empty': 'ఈ టియర్ కోసం ఇంకా ఏ వస్తువులు కాన్ఫిగర్ చేయబడలేదు.',
   'customize.items.exclude': 'దీన్ని దాటవేయండి',
   'customize.items.eyebrow': 'ఈ పెట్టెను వ్యక్తిగతీకరించండి',
   'customize.items.heading': 'వస్తువులు {{box}}',
@@ -60,8 +87,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'తిరిగి జోడించండి',
   'customize.items.save': 'అనుకూలీకరణను సేవ్ చేయండి',
   'customize.items.swapsLeft': '{{used}} యొక్క {{max}} మార్పిడులు ఉపయోగించబడ్డాయి',
+  'customize.loading': 'అనుకూలీకరణ లోడ్ అవుతోంది…',
   'customize.noSub.body':
     'ముందుగా ఒక శ్రేణికి సబ్‌స్క్రయిబ్ చేసుకోండి, ఆ తర్వాత మీ బాక్స్‌లోని వస్తువులను మార్చుకోవడానికి తిరిగి రండి.',
+  'customize.noSub.cta': 'ఎడిషన్లను బ్రౌజ్ చేయండి',
   'customize.noSub.heading': 'యాక్టివ్ సబ్‌స్క్రిప్షన్ లేదు',
   'customize.saved': 'అనుకూలీకరణ సేవ్ చేయబడింది.',
   'customize.subtitle':
@@ -75,11 +104,15 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'రవాణాను ట్రాక్ చేయండి',
   'dashboard.eyebrow': 'మీ నిధి',
   'dashboard.greeting': 'తిరిగి స్వాగతం, {{name}} .',
+  'dashboard.loadError':
+    'మేము మీ డాష్బోర్డ్ను లోడ్ చేయలేకపోయాము. మీ కనెక్షన్ను తనిఖీ చేసి మళ్లీ ప్రయత్నించండి.',
   'dashboard.loading': 'డాష్‌బోర్డ్ లోడ్ అవుతోంది…',
   'dashboard.next.eyebrow': 'మీ తదుపరి సంచిక',
   'dashboard.onboarding.body':
     'మీకు ఇంకా యాక్టివ్ సబ్‌స్క్రిప్షన్ లేదు. ప్రతి నెలా ట్రోవ్‌ను షిప్పింగ్ చేయడం ప్రారంభించడానికి ఒక శ్రేణిని ఎంచుకోండి.',
   'dashboard.onboarding.cta': 'అన్ని ఎడిషన్‌లను బ్రౌజ్ చేయండి',
+  'dashboard.onboarding.empty':
+    'ప్రస్తుతం ఏ ప్లాన్లు అందుబాటులో లేవు. కొద్దిసేపటి తర్వాత మళ్లీ చూడండి.',
   'dashboard.onboarding.heading': 'మీ మొదటి ఎడిషన్‌ను ఎంచుకోండి',
   'dashboard.renewal.amount': 'ఛార్జ్ చేయబడింది',
   'dashboard.renewal.cadence': 'కేడెన్స్',
@@ -87,18 +120,23 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'పునరుద్ధరణ',
   'dashboard.renewal.heading': 'ఆటో-రిన్యూస్ ఆన్ {{date}}',
   'dashboard.renewal.plan': 'ప్రణాళిక కీలకం',
+  'dashboard.renewal.tbd': 'పునరుద్ధరణ షెడ్యూల్ త్వరలో',
   'dashboard.renewal.tier': 'శ్రేణి',
   'dashboard.stats.days': 'రోజులు',
   'dashboard.stats.daysToNext': 'ఓడలు లో',
   'dashboard.stats.items': 'ఎంపిక చేసిన వస్తువులు',
   'dashboard.stats.shipDate': 'రవాణా తేదీ',
   'dashboard.stats.tbd': 'నిర్ణయించబడలేదు',
+  'dashboard.subtitle.active': 'మీ తదుపరి ఎడిషన్ మీ వైపు వస్తోంది. ఏమి ఆశించాలో ఇక్కడ ఉంది.',
+  'dashboard.subtitle.idle':
+    'ప్రతి నెలా {{appName}} షిప్ చేయడం ప్రారంభించడానికి ఒక టియర్ను ఎంచుకోండి.',
   'forgotPassword.subtitle': 'మీ ఇమెయిల్ మాకు తెలియజేయండి, మేము మీకు రీసెట్ లింక్‌ను పంపుతాము.',
   'forgotPassword.success.body':
     'ఒకవేళ {{email}} నమోదు చేసుకున్న తర్వాత, మీకు కొన్ని నిమిషాల్లో రీసెట్ లింక్ వస్తుంది.',
   'forgotPassword.success.title': 'మీ ఇన్‌బాక్స్‌ను తనిఖీ చేయండి.',
   'landing.editions.eyebrow': 'ఈ సీజన్‌లో',
   'landing.editions.heading': 'మా క్యూరేటర్లు ఇష్టపడుతున్న ఎడిషన్లు',
+  'landing.editions.viewAll': 'అన్ని ఎడిషన్లను బ్రౌజ్ చేయండి →',
   'landing.footer.contact': 'క్యూరేటర్‌తో మాట్లాడండి',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'మీ బాక్స్‌ను ప్రారంభించండి →',
@@ -108,6 +146,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'మెంబర్ డాష్‌బోర్డ్ యొక్క సంగ్రహావలోకనం — కౌంట్‌డౌన్, కంటెంట్‌లు మరియు ట్రాకింగ్.',
   'landing.hero.social.count': 'ప్రేమించబడిన {{count}} + చందాదారులు',
+  'landing.hero.social.rating': '{{rating}} సగటు అన్బాక్సింగ్ రేటింగ్',
+  'landing.hero.subhead':
+    '{{appName}} స్వతంత్ర మేకర్ల నుండి ఎంపిక చేసిన, చిన్న-బ్యాచ్ ఆనందపు బాక్స్ను మీకు పంపుతుంది. ఎప్పుడైనా పాజ్ చేయండి. కావాల్సినవి మార్చుకోండి. నచ్చినవి ఉంచుకోండి.',
   'landing.nav.start': 'మీ పెట్టెను ప్రారంభించండి',
   'landing.tiers.eyebrow': 'మీ లయను ఎంచుకోండి',
   'landing.tiers.heading':
@@ -118,6 +159,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'వచ్చే నెల బాక్స్‌ను చూడటానికి సైన్ ఇన్ చేయండి.',
   'login.welcomeBack': 'తిరిగి స్వాగతం, క్యూరేటర్.',
   'nextBoxHeroCard.eyebrow': 'మీ తదుపరి నిధి',
+  'nextBoxHeroCard.itemCount': 'లోపల {{count}} ముక్కలు',
   'nextBoxHeroCard.itemsLabel': 'ఎంపిక చేసిన వస్తువులు',
   'nextBoxHeroCard.shipsOnLabel': 'ఓడలు',
   'notFound.body':
@@ -143,8 +185,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'సభ్యత్వాన్ని నిలిపివేయండి',
   'settings.danger.paused': 'సభ్యత్వం తాత్కాలికంగా నిలిపివేయబడింది.',
   'settings.danger.pausing': 'ఆగుతూ…',
+  'settings.danger.status': 'సబ్స్క్రిప్షన్ స్థితి: {{status}}',
   'settings.danger.subtitle':
     'పాజ్ చేయడం వలన మీ శ్రేణి మరియు చరిత్ర చెక్కుచెదరకుండా ఉంటాయి. రద్దు చేయడం వలన భవిష్యత్ షిప్‌మెంట్‌లు ఆగిపోతాయి మరియు సైకిల్ ముగింపులో మీరు నిల్వ చేసిన చెల్లింపు పద్ధతులు తొలగించబడతాయి.',
+  'settings.notifications.saving': '· సేవ్ అవుతోంది…',
   'settings.notifications.subtitle':
     'ట్రోవ్ నుండి మీకు ఏ సంకేతాలు కావాలో ఎంచుకోండి. డిఫాల్ట్‌లు సహేతుకంగా ఉంటాయి.',
   'settings.subtitle':
@@ -161,12 +205,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'ఇంకా యాక్టివ్ షిప్‌మెంట్ ఏదీ లేదు',
   'shipments.live.eyebrow': 'యాక్టివ్ షిప్‌మెంట్',
   'shipments.live.unnamed': 'మీ తదుపరి పెట్టె',
+  'shipments.loadError':
+    'మేము మీ షిప్మెంట్లను లోడ్ చేయలేకపోయాము. మీ కనెక్షన్ను తనిఖీ చేసి మళ్లీ ప్రయత్నించండి.',
+  'shipments.loading': 'సరుకులను లోడ్ చేస్తున్నారు…',
+  'shipments.step.delivered': 'పంపిణీ చేయబడింది',
   'shipments.step.deliveredBody':
     'మీరు కనుగొన్న వాటిని పంచుకోవడానికి #crateunbox అని ట్యాగ్ చేయండి.',
   'shipments.step.ordered': 'ఆర్డర్ ఇవ్వబడింది',
   'shipments.step.orderedBody':
     'మీ సబ్‌స్క్రిప్షన్ ఈ ఎడిషన్‌ను తదుపరి షిప్ సైకిల్ కోసం క్యూలో ఉంచింది.',
+  'shipments.step.packed': 'చేతితో ప్యాక్ చేయబడింది',
   'shipments.step.packedBody': 'ప్రతి భాగాన్ని చేతితో రాసిన గమనికతో పాటు చుట్టి పెట్టెలో పెట్టారు.',
+  'shipments.step.transit': 'దారిలో ఉంది',
   'shipments.step.transitNot': 'మీ బాక్స్ రవాణాలో ఉన్నప్పుడు ట్రాకింగ్ వివరాలు ఇక్కడ కనిపిస్తాయి.',
   'shipments.subtitle':
     'మీ వద్దకు వస్తున్న బాక్సును ట్రాక్ చేయండి, ఆపై మీరు ఇంతకు ముందు అన్‌బాక్స్ చేసిన ప్రతి ఎడిషన్‌ను తిరిగి చూడండి.',

@@ -1,6 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'एखाद्या आवृत्ती, शिपमेंट किंवा तुमच्या सदस्यत्वाबद्दल प्रश्न आहेत? hello@crate.example वर टीममधील खऱ्या व्यक्तीशी संपर्क साधा — आम्ही प्रत्येक संदेश वाचतो.',
+  'about.contactTitle': 'क्युरेटरशी बोला',
+  'about.feature1': 'स्वतंत्र निर्मात्यांनी निवडलेल्या मासिक आवृत्त्या, प्रत्येक वस्तूमागील कथेसह.',
+  'about.feature2':
+    'प्रत्येक बॉक्सवर पूर्ण नियंत्रण — सामग्री सानुकूलित करा, वस्तू बदला किंवा वगळा, एक महिना वगळा किंवा तुमची वारंवारता बदला.',
+  'about.feature3':
+    'पिकअपपासून दारापर्यंत संपूर्ण शिपमेंट ट्रॅकिंग, प्लास्टिक-मुक्त पॅकेजिंग आणि थेट कुरिअर अपडेट्ससह.',
+  'about.feature4':
+    'लवचिक योजना आणि पारदर्शक बिलिंग — तुमच्या डॅशबोर्डवरून कधीही अपग्रेड, डाउनग्रेड, थांबवा किंवा रद्द करा.',
+  'about.intro':
+    '{{app}} ही एक क्युरेटेड सदस्यत्व-बॉक्स सेवा आहे जी दर महिन्याला तुमच्या दारात आनंदाचा हाताने निवडलेला, लहान-बॅच बॉक्स पोहोचवते. प्रत्येक आवृत्ती कार्यरत निर्मात्यांनी — स्वतंत्र कलाकार, आचारी आणि लहान ब्रँड्स — एकत्र केलेली असते, अल्गोरिदमने नाही.',
+  'about.missionBody':
+    'आमचा विश्वास आहे की सदस्यत्व हे सापळ्यासारखे नाही तर भेटवस्तूसारखे वाटले पाहिजे. {{app}} अशा प्रकारे तयार केले आहे की तुम्ही जे येते ते आवडल्यामुळेच राहता — कधीही थांबवा, हवे ते बदला आणि एका क्लिकमध्ये रद्द करा. कधीही रिटेन्शन स्क्रिप्ट्स नाहीत.',
+  'about.missionTitle': 'आमचे ध्येय',
   'about.pageTitle': '{{app}} बद्दल',
   'appNav.mobileLabel': 'प्राथमिक नेव्हिगेशन',
   'appNav.primaryLabel': 'प्राथमिक नेव्हिगेशन',
@@ -11,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'बिलिंग संपर्क संपादित करा',
   'billing.contact.eyebrow': 'बिलिंग संपर्क',
   'billing.eyebrow': 'योजना आणि पेमेंट',
+  'billing.loading': 'बिलिंग लोड होत आहे…',
   'billing.payment.body':
     'पेमेंटची प्रक्रिया स्ट्राइप चेकआउटद्वारे हाताळली जाते — तुमचा संपूर्ण कार्ड नंबर आमच्या सर्व्हरवर कधीही येत नाही. तुमचे कार्ड जोडण्यासाठी किंवा अपडेट करण्यासाठी खालीलपैकी कोणत्याही टियरवर क्लिक करा.',
   'billing.payment.linked': 'स्ट्राइपद्वारे कार्डची माहिती उपलब्ध आहे',
@@ -20,10 +36,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'सदस्यता पुन्हा सुरू करा',
   'billing.plan.eyebrow': 'सक्रिय योजना',
   'billing.plan.next': 'यावर आपोआप नूतनीकरण होते {{date}} ...',
+  'billing.plan.status': 'स्थिती: {{status}}',
   'billing.subtitle':
     'तुमचा टियर, पेमेंट पद्धत व्यवस्थापित करा आणि मागील व्यवहारांचे पुनरावलोकन करा.',
   'billing.tiers.body': 'एक टियर निवडा आणि आम्ही तुम्हाला स्ट्राइप चेकआउटवर घेऊन जाऊ.',
   'billing.tiers.choose': 'निवडा',
+  'billing.tiers.empty': 'अद्याप कोणतेही स्तर कॉन्फिगर केलेले नाहीत.',
   'billing.tiers.heading': 'उपलब्ध स्तर',
   'boxDetail.backToBoxes': 'सर्व आवृत्त्यांकडे परत जा',
   'boxDetail.crumb.boxes': 'आवृत्त्या',
@@ -36,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'निवडक कलाकृती',
   'boxDetail.items.heading': '{{count}} निवडक वस्तू',
   'boxDetail.itemsBadge': '{{count}} प्रत्येक बॉक्समधील निवडक वस्तू',
+  'boxDetail.loading': 'आवृत्ती लोड होत आहे…',
   'boxDetail.notFound': 'ती आवृत्ती आता उपलब्ध नाही.',
   'boxDetail.subscribe.success': 'तुम्ही सदस्यत्व घेतले आहे — तुमचा पहिला अंक रांगेत आहे.',
   'boxDetail.swapBadge': 'वर बदला {{count}} प्रत्येक बॉक्समधील वस्तू',
@@ -44,21 +63,33 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'कोणत्याही आवृत्त्या जुळत नाहीत.',
   'boxes.eyebrow': 'ट्रोव्ह संग्रह',
   'boxes.heading': 'प्रत्येक आवृत्ती ब्राउझ करा',
+  'boxes.loadError':
+    'आम्हाला आवृत्त्या लोड करता आल्या नाहीत. तुमचे कनेक्शन तपासा आणि पुन्हा प्रयत्न करा.',
   'boxes.loading': 'आवृत्त्या लोड होत आहेत…',
+  'boxes.search.label': 'आवृत्त्या शोधा',
   'boxes.search.placeholder': 'आवृत्त्या शोधा…',
   'boxes.subtitle':
     'प्रत्येक टियर ही एका छोट्या बॅचची स्टोरी आहे. ती तुमच्या रांगेत जोडा किंवा पुढच्या महिन्यात समाविष्ट करा.',
+  'boxThemeCard.itemCount': '{{count}} वस्तू',
   'boxThemeCard.perMonth': '/ महिना',
+  'boxThemeCard.retailValue': 'किरकोळ मूल्य {{value}}',
   'common.goToDashboard': 'डॅशबोर्डवर जा',
+  'common.retry': 'पुन्हा प्रयत्न करा',
   'customize.eyebrow': 'ते तुमचे बनवा',
   'customize.heading': 'तुमचा पुढील ट्रोव्ह सानुकूलित करा',
+  'customize.items.empty': 'या स्तरासाठी अद्याप कोणत्याही वस्तू कॉन्फिगर केलेल्या नाहीत.',
   'customize.items.exclude': 'हे वगळा',
   'customize.items.eyebrow': 'हा बॉक्स वैयक्तिकृत करा',
   'customize.items.heading': 'वस्तूंमध्ये {{box}}',
+  'customize.items.helper':
+    '{{total}} पैकी {{count}} वस्तू समाविष्ट. वगळलेल्या वस्तू आम्ही क्युरेटरच्या निवडींनी बदलतो.',
   'customize.items.include': 'परत जोडा',
   'customize.items.save': 'सानुकूलन जतन करा',
+  'customize.items.swapsLeft': '{{max}} पैकी {{used}} स्वॅप वापरले',
+  'customize.loading': 'सानुकूलन लोड होत आहे…',
   'customize.noSub.body':
     'आधी एका टियरचे सदस्यत्व घ्या, त्यानंतर तुमच्या बॉक्समधील वस्तूंची अदलाबदल करण्यासाठी परत या.',
+  'customize.noSub.cta': 'आवृत्त्या ब्राउझ करा',
   'customize.noSub.heading': 'कोणतेही सक्रिय सदस्यत्व नाही',
   'customize.saved': 'सानुकूलन जतन केले.',
   'customize.subtitle':
@@ -72,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'शिपमेंटचा मागोवा घ्या',
   'dashboard.eyebrow': 'तुमचा खजिना',
   'dashboard.greeting': 'तुमचे पुन्हा स्वागत आहे. {{name}} ...',
+  'dashboard.loadError':
+    'आम्हाला तुमचा डॅशबोर्ड लोड करता आला नाही. तुमचे कनेक्शन तपासा आणि पुन्हा प्रयत्न करा.',
   'dashboard.loading': 'डॅशबोर्ड लोड होत आहे…',
   'dashboard.next.eyebrow': 'तुमची पुढील आवृत्ती',
   'dashboard.onboarding.body':
     'तुमचे सदस्यत्व अद्याप सक्रिय नाही. दर महिन्याला एक ट्रोव्ह पाठवणे सुरू करण्यासाठी एक टियर निवडा.',
   'dashboard.onboarding.cta': 'सर्व आवृत्त्या पहा',
+  'dashboard.onboarding.empty': 'सध्या कोणत्याही योजना उपलब्ध नाहीत. लवकरच पुन्हा तपासा.',
   'dashboard.onboarding.heading': 'तुमची पहिली आवृत्ती निवडा',
   'dashboard.renewal.amount': 'शुल्क आकारले',
   'dashboard.renewal.cadence': 'ताल',
@@ -84,18 +118,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'नूतनीकरण',
   'dashboard.renewal.heading': 'स्वयं-नूतनीकरण {{date}}',
   'dashboard.renewal.plan': 'योजनेची गुरुकिल्ली',
+  'dashboard.renewal.tbd': 'नूतनीकरण शेड्यूलिंग लवकरच',
   'dashboard.renewal.tier': 'स्तर',
   'dashboard.stats.days': 'दिवस',
   'dashboard.stats.daysToNext': 'जहाजांमध्ये',
   'dashboard.stats.items': 'निवडक वस्तू',
   'dashboard.stats.shipDate': 'पाठवण्याची तारीख',
   'dashboard.stats.tbd': 'ठरवलेले',
+  'dashboard.subtitle.active': 'तुमची पुढील आवृत्ती वाटेवर आहे. काय अपेक्षित आहे ते येथे आहे.',
+  'dashboard.subtitle.idle': 'दर महिन्याला {{appName}} पाठवण्यास सुरुवात करण्यासाठी एक स्तर निवडा.',
   'forgotPassword.subtitle': 'तुमचा ईमेल सांगा आणि आम्ही तुम्हाला रीसेट लिंक पाठवू.',
   'forgotPassword.success.body':
     'जर {{email}} नोंदणी झाल्यावर, तुम्हाला काही मिनिटांत एक रीसेट लिंक मिळेल.',
   'forgotPassword.success.title': 'तुमचा इनबॉक्स तपासा.',
   'landing.editions.eyebrow': 'या हंगामात',
   'landing.editions.heading': 'आमच्या क्युरेटर्सना आवडणाऱ्या आवृत्त्या',
+  'landing.editions.viewAll': 'सर्व आवृत्त्या ब्राउझ करा →',
   'landing.footer.contact': 'क्युरेटरशी बोला',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'तुमचा बॉक्स सुरू करा →',
@@ -104,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.headline': 'दर महिन्याला अनपेक्षित गोष्टींचा उलगडा करा.',
   'landing.hero.previewCaption': 'सदस्य डॅशबोर्डवर एक नजर — काउंटडाउन, सामग्री आणि ट्रॅकिंग.',
   'landing.hero.social.count': 'प्रिय {{count}} + सदस्य',
+  'landing.hero.social.rating': '{{rating}} सरासरी अनबॉक्सिंग रेटिंग',
+  'landing.hero.subhead':
+    '{{appName}} तुम्हाला स्वतंत्र निर्मात्यांकडून हाताने निवडलेला, लहान-बॅच आनंदाचा बॉक्स पाठवते. कधीही थांबवा. हवे ते बदला. आवडलेले ठेवा.',
   'landing.nav.start': 'तुमचा बॉक्स सुरू करा',
   'landing.tiers.eyebrow': 'तुमची लय निवडा',
   'landing.tiers.heading': 'लहान सुरुवात करा, कधीही अपग्रेड करा आणि तितक्याच सहजतेने रद्दही करा.',
@@ -113,6 +154,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'पुढील महिन्याचा बॉक्स पाहण्यासाठी साइन इन करा.',
   'login.welcomeBack': 'पुन्हा स्वागत आहे, क्युरेटर.',
   'nextBoxHeroCard.eyebrow': 'तुमचा पुढचा खजिना',
+  'nextBoxHeroCard.itemCount': 'आत {{count}} तुकडे',
   'nextBoxHeroCard.itemsLabel': 'निवडक वस्तू',
   'nextBoxHeroCard.shipsOnLabel': 'जहाजांवर',
   'notFound.body':
@@ -137,8 +179,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'सदस्यता थांबवा',
   'settings.danger.paused': 'सदस्यता थांबवली आहे.',
   'settings.danger.pausing': 'थांबत आहे…',
+  'settings.danger.status': 'सदस्यत्व स्थिती: {{status}}',
   'settings.danger.subtitle':
     'थांबवल्याने तुमचा टियर आणि इतिहास अबाधित राहतो. रद्द केल्याने भविष्यातील शिपमेंट्स थांबतात आणि सायकलच्या शेवटी तुमच्या संग्रहित पेमेंट पद्धती काढून टाकल्या जातात.',
+  'settings.notifications.saving': '· जतन करत आहे…',
   'settings.notifications.subtitle':
     'ट्रोव्हमधून तुम्हाला कोणते सिग्नल्स हवे आहेत ते निवडा. डीफॉल्ट पर्याय योग्य आहेत.',
   'settings.subtitle':
@@ -155,12 +199,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'अद्याप कोणतीही सक्रिय शिपमेंट नाही',
   'shipments.live.eyebrow': 'सक्रिय शिपमेंट',
   'shipments.live.unnamed': 'तुमचा पुढचा बॉक्स',
+  'shipments.loadError':
+    'आम्हाला तुमची शिपमेंट्स लोड करता आल्या नाहीत. तुमचे कनेक्शन तपासा आणि पुन्हा प्रयत्न करा.',
+  'shipments.loading': 'माल चढवला जात आहे…',
+  'shipments.step.delivered': 'वितरित केले',
   'shipments.step.deliveredBody': 'तुम्हाला जे सापडते ते शेअर करण्यासाठी #crateunbox टॅग करा.',
   'shipments.step.ordered': 'ऑर्डर दिली',
   'shipments.step.orderedBody':
     'तुमच्या सदस्यत्वामुळे ही आवृत्ती पुढील वितरण चक्रासाठी रांगेत लावण्यात आली आहे.',
+  'shipments.step.packed': 'हाताने पॅक केलेले',
   'shipments.step.packedBody':
     'प्रत्येक वस्तू गुंडाळून, सोबत हाताने लिहिलेली एक चिठ्ठी बॉक्समध्ये ठेवली होती.',
+  'shipments.step.transit': 'वाटेवर',
   'shipments.step.transitNot': 'तुमचा बॉक्स वाहतुकीत रवाना झाल्यावर ट्रॅकिंगची माहिती येथे दिसेल.',
   'shipments.subtitle':
     'तुमच्याकडे येणाऱ्या बॉक्सचा मागोवा घ्या, आणि मग तुम्ही यापूर्वी उघडलेल्या प्रत्येक आवृत्तीला पुन्हा भेट द्या.',

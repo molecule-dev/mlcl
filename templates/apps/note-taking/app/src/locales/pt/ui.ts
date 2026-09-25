@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tem feedback, encontrou um bug ou quer sugerir uma funcionalidade? Fale conosco pelas configurações da sua conta — cada mensagem chega a uma pessoa real da equipe.',
+  'about.contactTitle': 'Fale connosco',
+  'about.featureDatabases':
+    'Bancos de dados leves e modelos reutilizáveis para transformar anotações soltas em fluxos de trabalho estruturados e repetíveis.',
+  'about.featureEditor':
+    'Um editor de blocos discreto — títulos, listas, código, destaques e tarefas — com comandos de barra quando você quiser e fora do caminho quando não quiser.',
+  'about.featureGraph':
+    'Backlinks e um grafo de conhecimento: digite [[ para linkar uma nota e veja como suas ideias se conectam ao longo do tempo.',
+  'about.featureNotebooks':
+    'Cadernos e páginas aninhados para que projetos, temas e notas diárias fiquem organizados exatamente do jeito que você pensa.',
+  'about.featureSearch':
+    'Busca de texto completo em menos de 50ms em todos os cadernos, além de tags que se combinam com os cadernos em vez de brigar com eles.',
+  'about.missionTitle': 'Nossa missão',
   'common.goToDashboard': 'Ir para o Painel',
   'forgot.eyebrow': 'Perdeu o caminho de volta?',
   'forgot.formSubtitle': 'Diga-nos o e-mail cadastrado.',
+  'forgot.formTitle': 'Esqueci a senha',
   'forgot.headline': 'Redefina sua senha.',
   'forgot.subline':
     'Enviaremos um link único para sua caixa de entrada para que você possa escolher um novo.',
+  'forgot.successDetail':
+    'Enviamos um link de redefinição para o seu e-mail. Ele expira em 30 minutos.',
   'graph.eyebrow': 'Gráfico',
+  'graph.goToNotes': 'Explorar notas →',
+  'graph.loadError': 'Não foi possível carregar o grafo: {{message}}',
   'graph.placeholderBody':
     'Quando as notas começarem a se conectar umas às outras (com a sintaxe [[wiki]]), um gráfico interativo de força direcionada será renderizado aqui.',
+  'graph.placeholderTitle': 'Grafo de backlinks em breve',
   'graph.subtitle':
     '{{count}} anotações neste espaço de trabalho. A renderização do gráfico de backlinks aparecerá aqui assim que as anotações estiverem vinculadas umas às outras.',
   'graph.title': 'Grafo de conhecimento',
   'home.empty': 'Ainda não há anotações — comece a sua primeira.',
   'home.favoritesHeading': 'Fixados',
   'home.guest': 'amigo',
+  'home.loadError': 'Não foi possível carregar suas notas: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Fixe uma nota no editor para mantê-la aqui.',
   'home.recentHeading': 'Atualizados recentemente',
@@ -23,18 +44,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Caderno',
   'home.stats.pinned.label': 'Fixados',
   'home.stats.updatedToday.label': 'Atualizado hoje',
+  'home.subtitle': 'Continue de onde parou ou comece uma nova nota.',
   'home.viewAll': 'Ver todas as notas',
   'landing.cta.body':
     'Gratuito para uso pessoal. Versão Pro para equipes. Importe seu código Markdown existente ou comece do zero — o Verso se adapta a você onde quer que suas anotações estejam.',
+  'landing.cta.button': 'Criar meu espaço de trabalho',
   'landing.cta.heading': 'Abra a página de hoje.',
   'landing.features.eyebrow': 'Cada elemento primitivo que seu segundo cérebro precisa',
+  'landing.features.heading': 'Feito para o trabalho, não para o meta-trabalho.',
   'landing.hero.eyebrow': 'Uma superfície de escrita silenciosa',
   'landing.hero.headlineAccent': 'tomar forma.',
   'landing.hero.headlineLeading': 'Onde os pensamentos',
   'landing.hero.primaryCta': 'Comece sua base de conhecimento.',
   'landing.hero.secondaryCta': 'Já tenho uma conta',
+  'landing.hero.socialProof':
+    'Mais de 12.800 escritores, estudantes e doutores pensam com o {{appName}}',
   'landing.hero.subline':
     'Verso é uma plataforma estruturada para anotações, voltada para profissionais do conhecimento e estudantes. Editor de blocos, cadernos aninhados, backlinks e um gráfico de conhecimento — tudo isso com uma experiência de leitura que prioriza a tipografia.',
+  'landing.preview.notebook': 'Conhecimento · Processo de escrita',
+  'landing.preview.title': 'Deixar as correntes de ar respirarem',
   'login.eyebrow': 'Bem-vindo(a) de volta à Verso.',
   'login.formSubtitle': 'Use seu e-mail ou qualquer provedor conectado.',
   'login.headline': 'Continue a leitura de onde a página parou.',
@@ -44,6 +72,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Fechar menu de navegação',
   'mobileNav.openMenu': 'Abrir menu de navegação',
   'noteEditor.backToNotes': 'Voltar às notas',
+  'noteEditor.bodyLabel': 'Corpo da nota',
   'noteEditor.bodyPlaceholder':
     'Comece a escrever — sua anotação é salva automaticamente enquanto você digita.',
   'noteEditor.confirmTrash': 'Mover esta nota para o lixo?',
@@ -52,17 +81,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Mover para a lixeira',
   'noteEditor.updated': 'Atualizado',
   'notes.defaultWorkspaceName': 'Meu caderno',
+  'notes.empty': 'Ainda não há notas aqui — comece uma para preencher o caderno.',
   'notes.eyebrow': 'Caderno',
   'notes.filterAll': 'Todas as notas',
   'notes.filterPinned': 'Fixados',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Novo caderno',
   'notes.newNotebookPrompt': 'Novo nome do caderno',
+  'notes.newNotebookRequired': 'Digite um nome para o caderno.',
   'notes.notebooksHeading': 'Cadernos',
   'notes.subtitle':
     'Selecione um caderno à esquerda e, em seguida, pressione o botão Nova nota para começar uma nova entrada.',
+  'planUpdated.body': 'A sua subscrição está agora ativa.',
   'planUpdated.confirmation': 'Seu plano foi atualizado',
+  'pricing.advancedFeatures': 'Recursos avançados',
   'pricing.heading': 'Escolha seu plano de anotações',
+  'reset.changedMind': 'Mudou de ideia?',
   'reset.eyebrow': 'Quase de volta',
   'reset.formSubtitle': 'Você será autenticado assim que salvar.',
   'reset.headline': 'Escolha uma nova senha.',
@@ -71,7 +105,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'Digite o código que acabamos de enviar por e-mail e escolha algo memorável.',
   'reset.submit': 'Salvar e entrar',
   'reset.tokenHint': 'Colado da sua caixa de entrada.',
+  'search.empty': 'Nenhuma nota corresponde a esta busca ainda.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Buscar no Refract',
   'search.loading': 'Buscando…',
   'search.noRecent': 'Digite uma consulta acima para começar a pesquisar em suas anotações.',
   'search.recentLabel': 'Buscas recentes',
@@ -79,12 +115,19 @@ export const ui: UiTranslations = {
     'Texto completo em todos os cadernos. Digite para pesquisar; os resultados são atualizados conforme você digita.',
   'search.title': 'Procure o segundo cérebro.',
   'settings.account.logout': 'Sair',
+  'settings.account.title': 'Detalhes da conta',
+  'settings.editor.graphHover.body':
+    'Mostrar um pequeno cartão de pré-visualização ao passar o mouse sobre um [[wikilink]] no editor.',
+  'settings.editor.graphHover.label': 'Pré-visualização do grafo de backlinks',
   'settings.editor.lineHeight.body':
     'Quanto espaço entre as linhas do corpo? 170% é o ritmo de leitura padrão.',
+  'settings.editor.lineHeight.label': 'Altura da linha',
   'settings.editor.serif.body':
     'Use a fonte Georgia para a coluna de leitura. Mantenha a fonte sem serifa na barra lateral e nas barras de ferramentas.',
+  'settings.editor.serif.label': 'Texto do corpo em serifa',
   'settings.editor.title': 'Tipografia e superfície de escrita',
   'settings.eyebrow': 'Verso · Configurações',
+  'settings.passwordModal.current': 'Senha atual',
   'settings.passwordModal.error': 'Não foi possível alterar a senha — verifique sua senha atual.',
   'settings.passwordModal.next': 'Nova senha',
   'settings.passwordModal.submit': 'Salvar senha',
@@ -93,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Envie cada tecla pressionada pelo canal em tempo real. Desative para conexões mais lentas.',
   'settings.sync.auto.label': 'Sincronização em tempo real',
+  'settings.sync.title': 'Como suas notas viajam',
   'settings.theme.body':
     'A luz mantém a coluna editorial iluminada. O tom sépia aquece a página para as noites.',
   'settings.theme.dark': 'Escuro',
@@ -112,8 +156,12 @@ export const ui: UiTranslations = {
     'Adicione #hashtags ao título de uma nota (ex.: "Lista de leitura #livros") e elas aparecerão aqui automaticamente.',
   'tags.emptyTitle': 'Ainda não há etiquetas',
   'tags.eyebrow': 'Índice',
+  'tags.goToNotes': 'Ir para as notas →',
+  'tags.loadError': 'Não foi possível carregar as tags: {{message}}',
   'tags.subtitle':
     '{{tags}} etiquetas em {{notes}} Notas. Adicione #hashtags ao título de uma nota e elas aparecerão aqui.',
+  'versoAuthShell.sample.body':
+    'Uma segunda passada amanhã sempre fica melhor do que a primeira hoje à noite. Deixe o rascunho na pasta de trabalho profundo…',
   'versoAuthShell.sample.label': 'Nota diária',
   'versoAuthShell.sample.timestamp': 'Hoje · 9h14',
   'versoAuthShell.sample.title': 'Deixar as correntes de ar respirarem',
@@ -125,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Continuar escrevendo',
   'versoTodayHero.createCta': 'Comece a anotação de hoje',
   'versoTodayHero.dailyLabel': 'Nota diária',
+  'versoTodayHero.emptyHeadline': 'Hoje é uma página em branco.',
   'versoTodayHero.emptySubline':
     'Registre uma ideia, anote uma reunião ou faça um esboço do que acontecerá amanhã. O Verso mantém a estrutura discreta para que a escrita se destaque.',
+  'versoTodayHero.outlineLabel': 'Esboço de hoje',
   'versoTodayHero.streak': 'Sequência de {{count}} dias',
+  'versoTodayHero.unwritten': 'Ainda sem palavras — abra a nota para começar.',
   'versoTodayHero.wordCount': '{{count}} palavras hoje',
 }

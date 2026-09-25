@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது ஒரு சாதனம் ஆதரிக்கப்பட வேண்டுமா? Settings இல் இருந்து எப்போது வேண்டுமானாலும் எங்களை அணுகலாம் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள ஒரு உண்மையான மனிதரையே சென்றடையும்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.intro':
+    '{{app}} என்பது விளக்குகள், காலநிலை, பாதுகாப்பு மற்றும் தானியங்கிகளுக்கான ஸ்மார்ட் ஹோம் டாஷ்போர்டு — உங்கள் வீட்டின் ஒவ்வொரு சாதனத்தையும் ஒரே இடத்தில் இணைக்கும் அமைதியான, சுய-ஹோஸ்ட் உணர்வுள்ள ஹப்: சுவர் டேப்லெட், மொபைல், மற்றும் உங்கள் கண்ணின் ஓரம்.',
+  'about.missionBody':
+    'ஒரு ஸ்மார்ட் ஹோம் எளிதாக இருக்க வேண்டும், இரண்டாவது வேலையாக அல்ல. உங்கள் வீட்டைக் கட்டுப்படுத்துவது தனிப்பட்டதாக, வேகமாக, உண்மையிலேயே அமைதியாக இருக்க வேண்டும் என்று நாங்கள் நம்புகிறோம் — ஒவ்வொரு அறை, காட்சி மற்றும் தானியங்கியும் ஒரு பார்வையில், அன்றாட வாழ்க்கைக்காக வடிவமைக்கப்பட்ட ஹப்பின் நேரடி நிகழ்நேர உணர்வுடன்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': '{{app}} பற்றி',
   'activity.empty':
     'இன்னும் செயல்பாடு எதுவும் இல்லை — ஒரு சாதனத்தைத் திருப்புங்கள் அல்லது ஒரு காட்சியைச் செயல்படுத்துங்கள்.',
@@ -14,6 +21,7 @@ export const ui: UiTranslations = {
   'addDevice.field.firmware': 'நிலைபொருள் பதிப்பு',
   'addDevice.field.manufacturer': 'உற்பத்தியாளர்',
   'addDevice.field.room': 'அறை',
+  'addDevice.formLabel': 'ஒரு சாதனத்தைச் சேர்க்கவும்',
   'addDevice.heading': 'ஒரு சாதனத்தைச் சேர்க்கவும்',
   'addDevice.placeholder.firmware': 'பதிப்பு 2.4.1',
   'addDevice.placeholder.manufacturer': 'அரோரா லைட்டிங்',
@@ -34,6 +42,7 @@ export const ui: UiTranslations = {
   'automationEditor.nameRequired': 'தானியக்கத்திற்கு ஒரு பெயர் கொடுங்கள்.',
   'automationEditor.newHeading': 'புதிய தானியக்கம்',
   'automationEditor.notFound': 'சேமிப்பு காணப்படவில்லை.',
+  'automationEditor.placeholder.actionTarget': 'சாதன ஐடி அல்லது காட்சிப் பெயர்',
   'automationEditor.placeholder.actionType': 'set_state, scene_activate,notify…',
   'automationEditor.placeholder.description':
     'சூரியன் மறையும் நேரம் முதல் நள்ளிரவு வரை, முகப்பு விளக்குகள் 60% பிரகாசத்தில் இதமாக எரியும்.',
@@ -52,6 +61,7 @@ export const ui: UiTranslations = {
   'automationRow.runNowAria': 'ஓடு {{name}} இப்போது',
   'automations.empty':
     'இன்னும் தானியக்கங்கள் எதுவும் இல்லை — உங்கள் முதல் வழக்கத்தை உருவாக்குங்கள்.',
+  'automations.emptyFiltered': 'பொருந்தும் தானியங்கிகள் இல்லை.',
   'automations.eyebrow': 'வழக்கங்கள்',
   'automations.heading': 'தானியக்கங்கள்',
   'automations.loading': 'தானியக்கங்களை ஏற்றுகிறது…',
@@ -61,6 +71,7 @@ export const ui: UiTranslations = {
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'சாதனத்தை ஏற்ற முடியவில்லை.',
+  'deviceDetail.loading': 'சாதனம் ஏற்றப்படுகிறது…',
   'deviceDetail.notFound': 'சாதனம் கண்டறியப்படவில்லை.',
   'deviceDetail.propertiesHeading': 'பொருட்கள்',
   'deviceDetail.props.firmware': 'நிலைபொருள்',
@@ -94,12 +105,15 @@ export const ui: UiTranslations = {
   'energy.watts': '{{watts}} W',
   'energyMeterCard.drawLabel': 'நேரடி குலுக்கல்',
   'energyMeterCard.title': 'தற்போதைய சக்தி',
+  'energyMeterCard.todaySummary': 'இன்று {{kwh}} kWh · ${{cost}}',
   'energyMeterCard.utilizationLabel': 'இலக்கின்',
+  'energyMeterCard.utilizationPct': '{{pct}} %',
   'energyMeterCard.watts': '{{watts}} W',
   'floorplan.eyebrow': 'வரைபடம்',
   'floorplan.heading': 'தள வரைபடம்',
   'floorplan.legend':
     'சாதனம் இயங்கும்போது அதன் குறியீடுகள் ஒளிரும். அறைக் கோடுகள் அவற்றின் எல்லையைக் காட்டும்; உள்ளே துளையிட, எந்த அறையையும் தட்டவும்.',
+  'floorplan.roomDevices': '{{count}} இயக்கத்தில்',
   'floorplan.subheading':
     'ஒவ்வொரு சாதனம் மற்றும் அறையின் மேலிருந்து கீழ் நோக்கிய தோற்றம், அதனுடன் நிகழ்நேர வெப்பநிலை மேலெடுத்து காட்டப்படுதல்.',
   'floorplan.tempBadge': '{{degrees}} °F',
@@ -108,11 +122,17 @@ export const ui: UiTranslations = {
   'homeHeroCard.noTemperature': '— °F',
   'homeHeroCard.temperature': '{{degrees}} °F',
   'homeHeroCard.title': 'இப்போது வீட்டில்',
+  'landing.copyright': '© {{year}} {{app}}. உங்கள் வீடு, எப்போதும் ஒளிரும்.',
+  'landing.ctaBody':
+    'ஹப்பை செருகி, QR-ஐ ஸ்கேன் செய்யுங்கள், {{appName}} உங்கள் நெட்வொர்க்கில் உள்ள ஒவ்வொரு Matter, Zigbee மற்றும் Z-Wave சாதனத்தையும் கண்டறியும்.',
   'landing.ctaHeading': 'பத்து நிமிடங்களுக்குள் பற்ற வைக்கவும்',
   'landing.eyebrow': 'ஸ்மார்ட் ஹோம், அமைதியாக இயக்கப்படுகிறது',
   'landing.featuresHeading': 'பின்னணியில் ரீங்காரம் இடும் ஓர் வீடு',
   'landing.getStarted': 'உங்கள் வீட்டை அமைக்கவும்',
   'landing.heroCta': 'உங்கள் வீட்டை அமைக்கவும்',
+  'landing.heroSubtitle':
+    'ஒவ்வொரு அறையிலும் விளக்குகள், காலநிலை, பாதுகாப்பு மற்றும் தானியங்கிகள் — சுவர், மொபைல் மற்றும் உங்கள் கண்ணின் ஓரத்திற்காக வடிவமைக்கப்பட்ட ஹப்பின் நேரடி நிகழ்நேர உணர்வுடன்.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'இப்போது வீட்டில்',
   'landing.sampleScene': 'திரைப்பட இரவு',
   'landing.sampleSummary': '12 இல் · 22 இல் 18 ஆன்லைனில்',
@@ -131,6 +151,9 @@ export const ui: UiTranslations = {
   'pricing.automationsLabel': 'தானியக்கங்கள்',
   'pricing.canExportLabel': 'ஏற்றுமதி வரலாறு',
   'pricing.dashboardCta': 'டாஷ்போர்டைத் திறக்கவும்',
+  'pricing.devicesLabel': 'சாதனங்கள்',
+  'pricing.heading': 'உங்கள் {{app}} திட்டத்தைத் தேர்ந்தெடுக்கவும்',
+  'pricing.retentionLabel': '{{days}} நாட்கள் வரலாறு தக்கவைக்கப்படுகிறது',
   'pricing.scenesLabel': 'காட்சிகள்',
   'roomDetail.areaLabel': 'பகுதி',
   'roomDetail.back': 'அனைத்து அறைகளும்',
@@ -146,6 +169,7 @@ export const ui: UiTranslations = {
   'roomDetail.unnamed': 'அறை',
   'rooms.create.error': 'அறையை உருவாக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'rooms.create.nameRequired': 'முதலில் அறைக்குப் பெயரிடுங்கள்.',
+  'rooms.empty': 'இன்னும் அறைகள் இல்லை. தொடங்க உங்கள் முதல் அறையைச் சேர்க்கவும்.',
   'rooms.eyebrow': 'வீடு',
   'rooms.heading': 'அறைகள்',
   'rooms.loadError': 'அறைகளை ஏற்ற முடியவில்லை.',
@@ -155,6 +179,8 @@ export const ui: UiTranslations = {
   'rooms.new.open': '+ புதிய அறை',
   'rooms.new.placeholder': 'சூரிய ஒளி அறை, வாகன நிறுத்துமிடம், குழந்தைகளின் படுக்கையறை…',
   'rooms.subheading': 'ஒவ்வொரு சாதனத்தையும் முழுமையாகக் கட்டுப்படுத்த, எந்த அறையையும் தட்டவும்.',
+  'roomTriad.devicesLabel': 'சாதனங்கள் இயக்கத்தில்',
+  'roomTriad.devicesOn': '{{on}}/{{total}}',
   'roomTriad.tempBadge': '{{degrees}} °F',
   'sceneCard.activate': 'செயல்படுத்து',
   'sceneCard.deviceCount': '{{count}} சாதனங்கள்',
@@ -167,11 +193,13 @@ export const ui: UiTranslations = {
   'scenes.loading': 'காட்சிகள் ஏற்றப்படுகின்றன…',
   'scenes.new.create': 'காட்சியை உருவாக்கு',
   'scenes.new.descPlaceholder': 'இந்தக் காட்சி என்ன செய்கிறது — ஒரு சுருக்கமான தொகுப்பு.',
+  'scenes.new.icon': 'சின்னம்',
   'scenes.new.name': 'காட்சியின் பெயர்',
   'scenes.new.namePlaceholder': 'காதல் சந்திப்பு, விழித்தெழுதல், விடுமுறைக்கால விளக்குகள்…',
   'scenes.new.open': '+ புதிய காட்சி',
   'scenes.subheading':
     'ஒரே தட்டலில், எல்லா சாதனங்களிலும் — எந்த தருணத்திற்கும் ஏற்ற மனநிலையை உருவாக்குங்கள்.',
+  'security.alertsHeading': 'சமீபத்திய எச்சரிக்கைகள்',
   'security.camerasHeading': 'நேரடி கேமராக்கள்',
   'security.eyebrow': 'பாருங்கள்',
   'security.lastChange': 'கடைசி மாற்றம் {{time}}',
@@ -186,6 +214,7 @@ export const ui: UiTranslations = {
   'settings.plan.subheading': 'உங்களின் தற்போதைய தகுதி மற்றும் வரம்புகள்.',
   'settings.plan.upgrade': 'திட்டங்களைப் பார்க்கவும்',
   'settings.security.heading': 'பாதுகாப்பு',
+  'settings.security.subheading': 'கடவுச்சொல் மற்றும் இரு-காரணி அங்கீகாரம்.',
   'settings.subheading': 'திட்டம், மையங்கள் மற்றும் கணக்கு விருப்பத்தேர்வுகள்.',
   'smartHomeDashboardLayout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'smartHomeDashboardLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',

@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Հարցեր հրատարակության, առաքման կամ ձեր բաժանորդագրության մասին։ Կապվեք թիմի իրական մարդու հետ hello@crate.example հասցեով — մենք կարդում ենք յուրաքանչյուր հաղորդագրություն։',
+  'about.contactTitle': 'Խոսեք կուրատորի հետ',
+  'about.feature1':
+    'Ամսական համադրված հրատարակություններ՝ ընտրված անկախ արհեստավորների կողմից, յուրաքանչյուր իրի պատմությամբ։',
+  'about.feature2':
+    'Լիարժեք վերահսկողություն յուրաքանչյուր տուփի նկատմամբ — փոխեք պարունակությունը, փոխանակեք կամ բացառեք իրեր, բաց թողեք մեկ ամիս կամ փոխեք ձեր հաճախականությունը։',
+  'about.feature3':
+    'Առաքման ամբողջական հետևում՝ վերցնելուց մինչև շեմք, առանց պլաստիկի փաթեթավորումով և փոխադրողի կենդանի թարմացումներով։',
+  'about.feature4':
+    'Ճկուն պլաններ և թափանցիկ վճարումներ — բարելավեք, իջեցրեք, դադարեցրեք կամ չեղարկեք ձեր վահանակից ցանկացած պահի։',
+  'about.intro':
+    '{{app}}-ը համադրված բաժանորդագրային տուփի ծառայություն է, որը ամեն ամիս ձեր դուռն է հասցնում ուրախության ձեռքով ընտրված, փոքր խմբաքանակով տուփ։ Յուրաքանչյուր հրատարակություն հավաքվում է աշխատող արհեստավորների՝ անկախ նկարիչների, խոհարարների և փոքր ապրանքանիշերի կողմից, ոչ թե ալգորիթմի։',
+  'about.missionBody':
+    'Մենք հավատում ենք, որ բաժանորդագրությունը պետք է զգացվի որպես նվեր, ոչ թե թակարդ։ {{app}}-ը կառուցված է այնպես, որ դուք մնում եք, որովհետև սիրում եք այն, ինչ ժամանում է — դադարեցրեք ցանկացած պահի, փոխանակեք ինչ ուզում եք և չեղարկեք մեկ սեղմումով։ Առանց պահելու սցենարների, երբեք։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'about.pageTitle': '{{app}}-ի մասին',
   'appNav.mobileLabel': 'Հիմնական նավիգացիա',
   'appNav.primaryLabel': 'Հիմնական նավիգացիա',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Խմբագրել վճարման կոնտակտը',
   'billing.contact.eyebrow': 'Վճարման կոնտակտ',
   'billing.eyebrow': 'Պլան և վճարումներ',
+  'billing.loading': 'Հաշվառումը բեռնվում է…',
   'billing.payment.body':
     'Վճարումը կատարվում է Stripe Checkout-ի կողմից՝ ձեր քարտի ամբողջական համարը երբեք չի դիպչում մեր սերվերներին: Սեղմեք ստորև նշված ցանկացած մակարդակ՝ ձեր քարտը ավելացնելու կամ թարմացնելու համար:',
   'billing.payment.linked': 'Քարտը գրանցված է Stripe-ի միջոցով',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Վերսկսել բաժանորդագրությունը',
   'billing.plan.eyebrow': 'Ակտիվ պլան',
   'billing.plan.next': 'Ավտոմատ կերպով երկարաձգվում է {{date}} .',
+  'billing.plan.status': 'Կարգավիճակ՝ {{status}}',
   'billing.subtitle':
     'Կառավարեք ձեր մակարդակը, վճարման եղանակը և վերանայեք անցյալի գործունեությունը։',
   'billing.tiers.body': 'Ընտրեք մակարդակ, և մենք ձեզ կուղղորդենք Stripe Checkout:',
   'billing.tiers.choose': 'Ընտրեք',
+  'billing.tiers.empty': 'Դեռ մակարդակներ կարգավորված չեն։',
   'billing.tiers.heading': 'Հասանելի մակարդակներ',
   'boxDetail.backToBoxes': 'Վերադառնալ բոլոր հրատարակություններին',
   'boxDetail.crumb.boxes': 'Հրատարակություններ',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Ընտրված ստեղծագործություն',
   'boxDetail.items.heading': '{{count}} ընտրված ստեղծագործություններ',
   'boxDetail.itemsBadge': '{{count}} ընտրված իրեր մեկ տուփի համար',
+  'boxDetail.loading': 'Հրատարակությունը բեռնվում է…',
   'boxDetail.notFound': 'Այդ հրատարակությունն այլևս հասանելի չէ։',
   'boxDetail.subscribe.success': 'Բաժանորդագրված եք՝ ձեր առաջին հրատարակությունը հերթագրված է։',
   'boxDetail.swapBadge': 'Փոխանակել մինչև {{count}} ապրանք(ներ) մեկ տուփի համար',
@@ -44,14 +64,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Համապատասխան հրատարակություններ չկան։',
   'boxes.eyebrow': 'The Crate արխիվը',
   'boxes.heading': 'Զննեք յուրաքանչյուր հրատարակություն',
+  'boxes.loadError': 'Չհաջողվեց բեռնել հրատարակությունները։ Ստուգեք ձեր կապը և կրկին փորձեք։',
   'boxes.loading': 'Բեռնվում են հրատարակությունները…',
+  'boxes.search.label': 'Որոնել հրատարակություններ',
   'boxes.search.placeholder': 'Որոնել հրատարակություններ…',
   'boxes.subtitle':
     'Յուրաքանչյուր մակարդակ փոքր խմբաքանակով պատմություն է։ Ավելացրեք մեկը ձեր հերթին կամ տեղափոխեք այն ձեր հաջորդ ամսվա մեջ։',
+  'boxThemeCard.itemCount': '{{count}} իրեր',
   'boxThemeCard.perMonth': '/ ամիս',
+  'boxThemeCard.retailValue': 'Մանրածախ արժեքը՝ {{value}}',
   'common.goToDashboard': 'Անցնել վահանակ',
+  'common.retry': 'Կրկին փորձել',
   'customize.eyebrow': 'Դարձրեք այն ձերը',
   'customize.heading': 'Անհատականացրեք ձեր հաջորդ գանձարանը',
+  'customize.items.empty': 'Այս մակարդակի համար դեռ իրեր կարգավորված չեն։',
   'customize.items.exclude': 'Բաց թողնել սա',
   'customize.items.eyebrow': 'Անհատականացրեք այս տուփը',
   'customize.items.heading': 'Նյութեր {{box}}',
@@ -60,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Ավելացնել հետ',
   'customize.items.save': 'Պահպանել անհատականացումը',
   'customize.items.swapsLeft': '{{used}} -ի {{max}} օգտագործված սվոփեր',
+  'customize.loading': 'Անհատականացումը բեռնվում է…',
   'customize.noSub.body':
     'Սկզբում բաժանորդագրվեք որևէ մակարդակի, ապա վերադարձեք ձեր տուփի մեջ ապրանքներ փոխանակելու համար։',
+  'customize.noSub.cta': 'Դիտել հրատարակությունները',
   'customize.noSub.heading': 'Ակտիվ բաժանորդագրություն չկա',
   'customize.saved': 'Կարգավորումը պահպանված է։',
   'customize.subtitle':
@@ -75,11 +103,13 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Հետևել առաքմանը',
   'dashboard.eyebrow': 'Ձեր գանձը',
   'dashboard.greeting': 'Բարի վերադարձ, {{name}} .',
+  'dashboard.loadError': 'Չհաջողվեց բեռնել ձեր վահանակը։ Ստուգեք ձեր կապը և կրկին փորձեք։',
   'dashboard.loading': 'Բեռնվում է վահանակը…',
   'dashboard.next.eyebrow': 'Ձեր հաջորդ հրատարակությունը',
   'dashboard.onboarding.body':
     'Դուք դեռ ակտիվ բաժանորդագրություն չունեք։ Ընտրեք մակարդակ՝ ամեն ամիս Crate առաքում սկսելու համար։',
   'dashboard.onboarding.cta': 'Դիտել բոլոր հրատարակությունները',
+  'dashboard.onboarding.empty': 'Այս պահին պլաններ հասանելի չեն։ Ստուգեք շուտով։',
   'dashboard.onboarding.heading': 'Ընտրեք ձեր առաջին հրատարակությունը',
   'dashboard.renewal.amount': 'Լիցքավորված է',
   'dashboard.renewal.cadence': 'Կադենս',
@@ -87,18 +117,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Վերականգնում',
   'dashboard.renewal.heading': 'Ավտոմատ երկարաձգվում է {{date}}',
   'dashboard.renewal.plan': 'Պլանի բանալի',
+  'dashboard.renewal.tbd': 'Վերականգնման պլանավորումը շուտով',
   'dashboard.renewal.tier': 'Շերտ',
   'dashboard.stats.days': 'օրեր',
   'dashboard.stats.daysToNext': 'Նավեր',
   'dashboard.stats.items': 'Ընտրված տարրեր',
   'dashboard.stats.shipDate': 'Առաքման ամսաթիվը',
   'dashboard.stats.tbd': 'Որոշվելու է',
+  'dashboard.subtitle.active': 'Ձեր հաջորդ հրատարակությունը ճանապարհին է։ Ահա թե ինչ սպասել։',
+  'dashboard.subtitle.idle': 'Ընտրեք մակարդակ՝ ամեն ամիս {{appName}} առաքելու համար։',
   'forgotPassword.subtitle': 'Մեզ հայտնեք ձեր էլ. հասցեն, և մենք կուղարկենք վերակայման հղումը։',
   'forgotPassword.success.body':
     'Եթե {{email}} գրանցված է, դուք կստանաք վերագործարկման հղում մի քանի րոպեի ընթացքում։',
   'forgotPassword.success.title': 'Ստուգեք ձեր էլ. փոստարկղը։',
   'landing.editions.eyebrow': 'Այս մրցաշրջանում',
   'landing.editions.heading': 'Մեր կազմակերպիչների սիրելի հրատարակությունները',
+  'landing.editions.viewAll': 'Դիտել բոլոր հրատարակությունները →',
   'landing.footer.contact': 'Խոսեք կուրատորի հետ',
   'landing.footer.tagline': '{{tagline}}։',
   'landing.hero.ctaPrimary': 'Սկսեք ձեր տուփը →',
@@ -108,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Անդամների վահանակի մի փոքր ակնարկ՝ հետհաշվարկ, բովանդակություն և հետևում։',
   'landing.hero.social.count': 'Սիրված է {{count}} + բաժանորդներ',
+  'landing.hero.social.rating': '{{rating}} միջին բացման գնահատական',
+  'landing.hero.subhead':
+    '{{appName}}-ը ձեզ է ուղարկում անկախ արհեստավորներից ձեռքով ընտրված, փոքր խմբաքանակով ուրախության տուփ։ Դադարեցրեք ցանկացած պահի։ Փոխանակեք ինչ ուզում եք։ Պահեք այն, ինչ սիրում եք։',
   'landing.nav.start': 'Սկսեք ձեր տուփը',
   'landing.tiers.eyebrow': 'Ընտրեք ձեր ռիթմը',
   'landing.tiers.heading': 'Սկսեք փոքրից, թարմացրեք ցանկացած պահի, չեղարկեք նույնքան հեշտությամբ։',
@@ -117,6 +154,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Մուտք գործեք՝ հաջորդ ամսվա պատուհանը դիտելու համար։',
   'login.welcomeBack': 'Բարի վերադարձ, կուրատոր։',
   'nextBoxHeroCard.eyebrow': 'ՁԵՐ ՀԱՋՈՐԴ ԳԱՆՁԸ',
+  'nextBoxHeroCard.itemCount': '{{count}} հատ ներսում',
   'nextBoxHeroCard.itemsLabel': 'Ընտրված տարրեր',
   'nextBoxHeroCard.shipsOnLabel': 'Առաքվում է',
   'notFound.body':
@@ -141,8 +179,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Դադարեցնել բաժանորդագրությունը',
   'settings.danger.paused': 'Բաժանորդագրությունը դադարեցված է։',
   'settings.danger.pausing': 'Դադարեցվում է…',
+  'settings.danger.status': 'Բաժանորդագրության կարգավիճակ՝ {{status}}',
   'settings.danger.subtitle':
     'Դադարեցնելը պահպանում է ձեր մակարդակը և պատմությունը։ Չեղարկումը դադարեցնում է ապագա առաքումները և հեռացնում է ձեր պահպանված վճարման մեթոդները ցիկլի ավարտին։',
+  'settings.notifications.saving': '· պահվում է…',
   'settings.notifications.subtitle':
     'Ընտրեք, թե Crate-ից որ ազդանշաններն եք ուզում ստանալ։ Լռելյայն արժեքները խելամիտ են։',
   'settings.subtitle':
@@ -158,12 +198,17 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Դեռևս ակտիվ առաքում չկա',
   'shipments.live.eyebrow': 'Ակտիվ առաքում',
   'shipments.live.unnamed': 'Ձեր հաջորդ տուփը',
+  'shipments.loadError': 'Չհաջողվեց բեռնել ձեր առաքումները։ Ստուգեք ձեր կապը և կրկին փորձեք։',
+  'shipments.loading': 'Բեռնվում են առաքումները…',
+  'shipments.step.delivered': 'Առաքված է',
   'shipments.step.deliveredBody':
     'Նշեք #crateunbox պիտակը՝ ձեր հայտնագործությունները կիսվելու համար։',
   'shipments.step.ordered': 'Պատվերը տեղադրված է',
   'shipments.step.orderedBody':
     'Ձեր բաժանորդագրությունը այս հրատարակությունը հերթագրել է հաջորդ առաքման ցիկլի համար։',
+  'shipments.step.packed': 'Ձեռքով փաթեթավորված',
   'shipments.step.packedBody': 'Յուրաքանչյուր կտոր փաթաթված էր և դրված տուփի մեջ՝ ձեռագիր նշումով։',
+  'shipments.step.transit': 'Ճանապարհին',
   'shipments.step.transitNot': 'Հետևման տեղեկատվությունը կհայտնվի այստեղ, երբ ձեր արկղը տեղափոխվի։',
   'shipments.subtitle':
     'Հետևեք տուփին, որը գալիս է ձեզ մոտ, ապա վերանայեք նախկինում տուփը բացած բոլոր հրատարակությունները։',

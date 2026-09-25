@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Oes gennych adborth, wedi dod o hyd i fyg, neu eisiau {{app}} ar gyfer eich cynghrair? Cysylltwch â ni o'ch gosodiadau cyfrif — mae pob neges yn mynd at berson go iawn ar y tîm.",
+  'about.contactTitle': 'Cysylltwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.featureAlerts':
+    'Hysbysiadau gwthio ar gyfer diweddariadau sgorau, rhybuddion masnachu, adroddiadau anafiadau, a chyhoeddiadau cynghrair.',
+  'about.featureRosters':
+    'Tudalennau tîm gyda rhestr lawn, cyfansymiau tymor, rhediadau poeth/oer, a rhaniadau pen-i-ben ar gyfer pob chwaraewr.',
+  'about.featureSchedule':
+    'Golwg calendr tymor ac amserlen fel y gallwch gynllunio o amgylch pob gêm a chanlyniad.',
+  'about.featureScoreboard':
+    "Ticer sgorfwrdd o safon darlledu wedi'i binio ar frig pob tudalen fel na fyddwch byth yn colli gôl.",
+  'about.featureStandings':
+    "Safleoedd byw — cofnodion ennill-colli-cyfartal amser real, pwyntiau, canran ennill, a'r llinell ail-gyfle, yn cael eu hadnewyddu ar bob chwiban.",
+  'about.intro':
+    "Mae {{app}} yn gartref o safon darlledu ar gyfer eich cynghrair. Daw timau, amserlenni, sgorau byw, a safleoedd at ei gilydd mewn un dangosfwrdd cyflym, di-lanast — fel bod cefnogwyr, hyfforddwyr, a threfnwyr cynghrair bob amser yn gwybod ble mae'r tymor yn sefyll.",
+  'about.missionBody':
+    "Ni ddylai dilyn cynghrair olygu adnewyddu pum sgorfwrdd trydydd parti gwahanol. Fe'i hadeiladwyd i roi un ffynhonnell wirionedd i bob cynghrair ar gyfer y safleoedd, yr amserlen, a'r ystadegau sy'n wirioneddol bwysig — wedi'u diweddaru ar bob chwiban, am ddim am y tymor.",
+  'about.missionTitle': 'Ein cenhadaeth',
+  'about.whatYouGet': 'Yr hyn a gewch',
   'appShell.closeNav': 'Cau llywio',
   'appShell.openNav': 'Agor llywio',
   'common.dashboard': 'Dangosfwrdd',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Gweld pob gêm \\u2192',
   'dashboard.viewAllStandings': 'Safleoedd llawn \\u2192',
   'dashboard.viewAllStats': 'Gweld pob arweinydd ystadegol \\u2192',
+  'forgot.submitting': 'Yn anfon dolen ailosod…',
   'forgot.subtitle': 'Rhowch eich e-bost i dderbyn dolen ailosod.',
   'forgot.success': 'Ailosod dolen a anfonwyd at {{email}} Gwiriwch eich mewnflwch.',
+  'landing.copyright': '© {{year}} {{app}}. Dilynwch y safle.',
+  'landing.ctaBody':
+    "Eich cynghrair. Eich safleoedd. Eich tîm hoff — wedi'i binio i'r brig. Dwy funud i'w sefydlu, am ddim am y tymor.",
   'landing.ctaHeading': 'Stopiwch adnewyddu byrddau sgôr trydydd parti',
   'landing.eyebrow': "Wedi'i adeiladu ar gyfer cefnogwyr, hyfforddwyr a threfnwyr cynghrair",
   'landing.featuresHeading': 'Sedd rhes flaen i bob sefyll',
   'landing.getStarted': "Ymunwch â'r gynghrair",
   'landing.heroCta': "Ymunwch â'r gynghrair",
+  'landing.heroSubtitle':
+    'Mae {{app}} yn cysylltu safleoedd, amserlenni, ac arweinwyr ystadegol mewn un dangosfwrdd o safon darlledu. Sgorau byw. Cofnodion go iawn. Dim llanast.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Heno o gwmpas y gynghrair',
   'landing.statFans': 'Cefnogwyr yn dilyn',
   'landing.statGames': "Gemau'r tymor hwn",
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Yn ôl i gemau',
   'matchDetail.eventsHeading': 'Chwarae wrth chwarae',
+  'matchDetail.final': 'TERFYNOL',
   'matchDetail.finalScore': 'Terfynol',
   'matchDetail.live': 'BYW',
   'matchDetail.liveNow': 'Byw nawr',
   'matchDetail.noEvents': "Dim digwyddiadau wedi'u cofnodi eto.",
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Dim gemau yn y golwg hwn — rhowch gynnig ar hidlydd gwahanol.',
   'matches.eyebrow': 'Diwrnod gêm',
   'matches.loading': 'Tynnu’r llechen…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Methwyd llwytho hysbysiadau',
   'notifications.loading': "Wrthi'n llwytho hysbysiadau\\u2026",
   'pennantHeroCard.eyebrow': 'Pen y tabl',
+  'pennantHeroCard.formLabel': 'Y 10 olaf',
   'pennantHeroCard.gamesAhead': '{{value}} gemau cyn yr helfa',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Prif lywio',
@@ -78,17 +107,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Dewiswch eich sedd',
   'pricing.heading': 'Uwchraddiwch am amserlen, sgoriau a safleoedd cyfoethocach.',
   'pricing.limits.schedule': '{{count}} cofnodion amserlen',
+  'pricing.limits.scores': 'Sgorau {{count}}',
+  'pricing.limits.standings': 'Safleoedd {{count}}',
+  'pricing.limits.teams': 'Timau {{count}}',
+  'pricing.subtitle': 'Uwchraddiwch ar gyfer amserlen, sgorau, a safleoedd cyfoethocach.',
   'pricing.upgradeCta': 'Uwchraddio i {{tierName}}',
   'profile.eyebrow': 'Proffil cefnogwr',
   'profile.favoritesCount': 'Timau a ddilynwyd',
   'profile.favoritesHeading': 'Timau hoff',
   'profile.noFavorites': "Dim ffefrynnau eto — dewiswch dimau o'r dudalen Timau.",
   'profile.rankRecord': 'Safle # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Cofnod {{record}}',
   'reset.confirmPlaceholder': 'Ailadroddwch y cyfrinair',
+  'reset.mismatch': 'Nid yw’r cyfrineiriau’n cyfateb.',
   'reset.newLabel': 'Cyfrinair newydd',
   'reset.subtitle': 'Dewiswch gyfrinair cryf sydd o leiaf 12 nod o hyd.',
   'reset.tokenPlaceholder': 'Gludo o e-bost',
   'schedule.eyebrow': 'Y llechen',
+  'schedule.moreGames': '+ {{count}} mwy',
   'schedule.subtitle':
     'Golwg calendr o gemau ar draws y tymor — tapiwch unrhyw ddiwrnod am sgoriau bocs.',
   'scoreboardTicker.empty': 'Dim gemau byw ar hyn o bryd — gwiriwch yn ôl wrth ollwng y puck.',
@@ -96,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Personoli',
   'settings.favoritesBody':
     "Mae'r timau hyn yn cael eu pinio i'ch dangosfwrdd ac yn sbarduno rhybuddion sgôr.",
+  'settings.favoritesHeading': 'Timau hoff',
   'settings.loading': "Wrthi'n llwytho eich dewisiadau\\u2026",
   'settings.noFavorites': "Dim ffefrynnau eto \\u2014 dewiswch dimau o'r dudalen Timau.",
   'settings.notificationsHeading': 'Hysbysiadau ac arddangosfa',
@@ -113,6 +150,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Cyffredinol',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     "Mae'r pedwar uchaf yn cymhwyso ar gyfer y tymor ôl-seson — torri cwlwm trwy bwyntiau, yna ennill-%.",
   'standings.title': 'Safleoedd y gynghrair',
@@ -131,6 +169,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Chwaraewr',
   'teamDetail.colPos': 'Pos',
+  'teamDetail.pointsLabel': 'Pwyntiau',
   'teamDetail.rankLabel': 'Safle # {{rank}}',
   'teamDetail.rosterHeading': 'Rhestr',
   'teamDetail.statGD': 'Gwahaniaeth Gôl',

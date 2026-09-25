@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'طرح شما به‌روزرسانی شد.',
   'planUpdated.returnHome': 'بازگشت به صفحه اصلی',
   'planUpdated.thankYou': 'متشکریم!',
+  'post.markdown': 'مشاهده این پست به صورت مارک‌داون',
+  'post.readingTime': '{{minutes}} دقیقه خوانده شده',
   'post.tags': 'برچسب‌ها',
   'project.error.nameAndTypeRequired': 'name و projectType الزامی هستند',
   'project.error.notFound': 'یافت نشد',

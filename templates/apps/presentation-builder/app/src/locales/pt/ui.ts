@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Perguntas, feedback ou uma funcionalidade que gostaria que tivéssemos? Fale com a equipe nas configurações da sua conta — uma pessoa de verdade lê cada mensagem.',
   'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Sobre',
+  'about.missionTitle': 'Nossa missão',
+  'about.whatYouGetTitle': 'O que você ganha',
   'analytics.empty': 'Crie apresentações para ver as análises aqui.',
   'analytics.stats.acrossDecks': 'Em todas as apresentações',
   'analytics.stats.allTime': 'No seu estúdio',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Título da apresentação',
   'landing.features.eyebrow': 'Por que Overture',
   'landing.features.heading': 'Tudo o que você precisa para entrar no palco preparado.',
+  'landing.finalCta.body':
+    'Crie seu estúdio em menos de um minuto. Sem cartão de crédito. Cancele quando quiser.',
   'landing.finalCta.cta': 'Crie seu estúdio gratuito',
   'landing.finalCta.eyebrow': 'Grátis para começar',
   'landing.finalCta.heading': 'Suba ao palco com a melhor apresentação da sua carreira.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Editado há 12 min',
   'notifications.created': 'criou',
   'notifications.edited': 'editou',
+  'notifications.empty.body':
+    'A atividade nos seus decks — comentários, menções, exportações — aparecerá aqui.',
   'notifications.empty.title': 'Nenhuma notificação ainda',
   'notifications.eyebrow': 'Atividade do palco',
   'notifications.loading': 'Carregando…',
   'notifications.shared': 'compartilhou publicamente',
+  'planUpdated.retry': 'Tentar novamente',
+  'planUpdated.verifyFailed': 'Ainda não foi possível confirmar o seu pagamento.',
+  'planUpdated.verifyFailedBody':
+    'Seu pagamento ainda pode estar sendo processado. Tente novamente em instantes.',
   'planUpdated.verifying': 'A confirmar o seu pagamento…',
   'present.addSlides': 'Adicionar slides',
   'present.backToDecks': 'Voltar para apresentações',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Performer de palco',
   'settings.security.notSet': 'Não definido',
   'settings.security.passwordBody': 'Sua senha é criptografada em repouso.',
+  'settings.security.reset': 'Redefinir',
   'settings.security.title': 'Conta e sessões',
   'shared.empty.body':
     'Apresentações compartilhadas publicamente aparecerão aqui. Abra uma apresentação e ative o modo público para compartilhar.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Carregando…',
   'shared.title': 'Apresentações compartilhadas',
   'templateCard.slideCount': '{{count}} slides',
+  'templateCard.usageCount': '{{count}} usos',
+  'templates.empty.body': 'Tente um filtro diferente — lançamos novos templates todos os meses.',
+  'templates.empty.title': 'Ainda não há templates nesta categoria',
+  'templates.hero.body':
+    'Layouts de slides com tema pronto, blocos de gráficos, molduras de demonstração, notas do apresentador e temporizadores predefinidos — todos os templates já vêm prontos para gravar.',
   'templates.hero.eyebrow': 'Palcos selecionados',
   'templates.hero.heading': 'Palcos pensados para o momento em que você precisa convencer.',
 }

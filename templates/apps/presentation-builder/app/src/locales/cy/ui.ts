@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Cwestiynau, adborth, neu nodwedd yr hoffech ei chael? Cysylltwch â'r tîm o'ch gosodiadau cyfrif — mae rhywun go iawn yn darllen pob neges.",
   'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.missionTitle': 'Ein cenhadaeth',
+  'about.whatYouGetTitle': 'Yr hyn a gewch',
   'analytics.empty': 'Creu deciau i weld dadansoddeg yma.',
   'analytics.stats.acrossDecks': 'Ar draws pob dec',
   'analytics.stats.allTime': 'Yn eich stiwdio',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Teitl y dec',
   'landing.features.eyebrow': 'Pam Agoriad',
   'landing.features.heading': 'Popeth sydd ei angen arnoch i gerdded ar y llwyfan yn barod.',
+  'landing.finalCta.body':
+    'Lansiwch eich stiwdio mewn llai na munud. Dim cerdyn credyd. Canslo unrhyw bryd.',
   'landing.finalCta.cta': 'Creu eich stiwdio am ddim',
   'landing.finalCta.eyebrow': 'Am ddim i ddechrau',
   'landing.finalCta.heading': 'Camwch ar y llwyfan gyda’r dec gorau yn eich gyrfa.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Golygwyd 12 munud yn ôl',
   'notifications.created': 'wedi’i greu',
   'notifications.edited': 'wedi’i olygu',
+  'notifications.empty.body':
+    'Bydd gweithgaredd ar eich deciau — sylwadau, crybwyllion, allforion — yn ymddangos yma.',
   'notifications.empty.title': 'Dim hysbysiadau eto',
   'notifications.eyebrow': 'Gweithgaredd llwyfan',
   'notifications.loading': 'Yn llwytho…',
   'notifications.shared': 'wedi’i rannu’n gyhoeddus',
+  'planUpdated.retry': 'Rhowch gynnig arall arni',
+  'planUpdated.verifyFailed': 'Ni allem gadarnhau eich taliad eto.',
+  'planUpdated.verifyFailedBody':
+    "Mae'n bosibl bod eich taliad yn dal i gael ei brosesu. Rhowch gynnig arall arni ymhen eiliad.",
   'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'present.addSlides': 'Ychwanegu sleidiau',
   'present.backToDecks': 'Yn ôl i’r deciau',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Perfformiwr llwyfan',
   'settings.security.notSet': 'Heb ei osod',
   'settings.security.passwordBody': 'Mae eich cyfrinair wedi’i amgryptio wrth orffwys.',
+  'settings.security.reset': 'Ailosod',
   'settings.security.title': 'Cyfrif + sesiynau',
   'shared.empty.body':
     'Bydd deciau rydych chi’n eu rhannu’n gyhoeddus yn ymddangos yma. Agorwch ddec a newidiwch i fod yn gyhoeddus i rannu.',
@@ -130,6 +143,12 @@ export const ui: UiTranslations = {
   'shared.loading': 'Yn llwytho…',
   'shared.title': 'Deciau a rennir',
   'templateCard.slideCount': '{{count}} sleidiau',
+  'templateCard.usageCount': '{{count}} defnyddiau',
+  'templates.empty.body':
+    'Rhowch gynnig ar hidlydd gwahanol — rydym yn rhyddhau templedi newydd bob mis.',
+  'templates.empty.title': 'Dim templedi yn y categori hwn eto',
+  'templates.hero.body':
+    'Cynlluniau sleidiau â thema barod gyda blociau siart, fframiau demo, nodiadau cyflwynydd, a rhagosodiadau amserydd — mae pob templed yn barod i recordio.',
   'templates.hero.eyebrow': 'Llwyfannau wedi’u curadu',
   'templates.hero.heading':
     'Llwyfannau wedi’u hadeiladu ar gyfer y foment y mae angen i chi ei lanio.',

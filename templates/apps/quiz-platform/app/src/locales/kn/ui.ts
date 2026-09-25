@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರತಿಕ್ರಿಯೆ ಇದೆಯೇ, ದೋಷ ಕಂಡುಬಂದಿದೆಯೇ, ಅಥವಾ {{app}} ಅನ್ನು ನಿಮ್ಮ ಶಾಲೆ ಅಥವಾ ತಂಡಕ್ಕೆ ತರಲು ಬಯಸುವಿರಾ? ನಾವು ಪ್ರತಿ ಸಂದೇಶವನ್ನೂ ಓದುತ್ತೇವೆ — ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ಸಂಪರ್ಕಿಸಿ, ನಿಜವಾದ ವ್ಯಕ್ತಿಯೊಬ್ಬರು ಉತ್ತರಿಸುತ್ತಾರೆ.',
   'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.intro':
+    '{{app}} ಒಂದು ನೇರ ರಸಪ್ರಶ್ನೆ ವೇದಿಕೆಯಾಗಿದ್ದು ತರಗತಿಗಳು, ಆಟದ ರಾತ್ರಿಗಳು ಮತ್ತು ತಂಡದ ಕಾರ್ಯಕ್ರಮಗಳಿಗಾಗಿ. ಆಟದ ರೀತಿಯ ಪ್ರಶ್ನೆ ಪ್ಯಾಕ್ಗಳನ್ನು ರಚಿಸಿ, ಸೇರುವ ಕೋಡ್ನೊಂದಿಗೆ ನೈಜ ಸಮಯದ ಆಟಗಳನ್ನು ಆಯೋಜಿಸಿ, ಮತ್ತು ಸಮಯಬದ್ಧ ಪ್ರಶ್ನೆಗಳು, ಅಂಕಗಳು ಮತ್ತು ಲೀಡರ್ಬೋರ್ಡ್ಗಳಿಂದ ಕೊಠಡಿ ಬೆಳಗುವುದನ್ನು ನೋಡಿ.',
+  'about.missionBody':
+    'ಆಟವಾಡಿದಂತೆ ಅನಿಸಿದಾಗ ಕಲಿಕೆ ನಿಲ್ಲುತ್ತದೆ. ಯಾರಾದರೂ ಒಂದು ವಿಷಯವನ್ನು ವೇಗದ, ಸ್ಪರ್ಧಾತ್ಮಕ ಆಟವಾಗಿ ಪರಿವರ್ತಿಸುವುದನ್ನು ನಾವು ಸುಲಭಗೊಳಿಸುತ್ತೇವೆ — ಆಯೋಜಕರು ಮಾಡುವ ಮೂಲಕ ಕಲಿಸಬಹುದು ಮತ್ತು ಆಟಗಾರರು ಸ್ಟ್ರೀಕ್ನಲ್ಲಿ ಉಳಿಯುತ್ತಾರೆ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'about.title': '{{app}} ಬಗ್ಗೆ',
   'auth.login.noAccount': 'ಸ್ಪಾರ್ಕ್‌ಗೆ ಹೊಸಬರೇ?',
   'auth.login.or': 'ಅಥವಾ ಮುಂದುವರಿಸಿ',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'ಇನ್ನೂ ಯಾವುದೇ ರಸಪ್ರಶ್ನೆಗಳು ಹೊಂದಿಕೆಯಾಗಿಲ್ಲ.',
   'discover.headline': 'ನಿಮ್ಮ ಮುಂದಿನ ನೆಚ್ಚಿನ ರಸಪ್ರಶ್ನೆಯನ್ನು ಹುಡುಕಿ.',
   'discover.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
+  'discover.searchPlaceholder': 'ಶೀರ್ಷಿಕೆಯಿಂದ ರಸಪ್ರಶ್ನೆಗಳನ್ನು ಹುಡುಕಿ…',
   'discover.subhead':
     'ಸಂಪೂರ್ಣ ಲೈಬ್ರರಿಯನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ, ವರ್ಗದ ಪ್ರಕಾರ ಫಿಲ್ಟರ್ ಮಾಡಿ ಅಥವಾ ಶೀರ್ಷಿಕೆಯ ಪ್ರಕಾರ ಹುಡುಕಿ. ಸೋಲೋ ಆಡಲು ಅಥವಾ ಲೈವ್ ಹೋಸ್ಟ್ ಮಾಡಲು ಕಾರ್ಡ್ ಒತ್ತಿರಿ.',
   'forgotPassword.subhead':
     'ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ ಮತ್ತು ಮರುಹೊಂದಿಸಲು ನಾವು ನಿಮಗೆ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
   'forgotPassword.success.body':
     'ಖಾತೆ ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದರೆ {{email}} , ನೀವು ಕೆಲವು ನಿಮಿಷಗಳಲ್ಲಿ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಪಡೆಯುತ್ತೀರಿ.',
+  'forgotPassword.success.title': 'ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ.',
   'hostLobby.back': 'ರಸಪ್ರಶ್ನೆಗೆ ಹಿಂತಿರುಗಿ',
   'hostLobby.copied': 'ಸೇರ್ಪಡೆ ಕೋಡ್ ಅನ್ನು ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲಾಗಿದೆ.',
   'hostLobby.creating': 'ನಿಮ್ಮ ಲಾಬಿಯನ್ನು ತಿರುಗಿಸಲಾಗುತ್ತಿದೆ...',
@@ -30,19 +39,25 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'ಲಾಬಿ ರದ್ದುಗೊಳಿಸಿ',
   'hostLobby.players.count': '{{count}} ಲೈವ್',
   'hostLobby.players.title': 'ಲಾಬಿಯಲ್ಲಿರುವ ಆಟಗಾರರು',
+  'hostLobby.players.waiting': 'ಆಟಗಾರರಿಗಾಗಿ ಕಾಯುತ್ತಿದೆ. ಅವರು ಸೇರಲು ಕೋಡ್ {{code}} ಅನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.',
   'hostLobby.rules.title': 'ಮನೆಯ ನಿಯಮಗಳು',
   'hostLobby.startError': 'ಆಟವನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'hostLobby.starting': 'ಸ್ಪಾರ್ಕ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ…',
   'joinCodeHero.headline': 'ನಿಮ್ಮ ಆಟಗಾರರಿಗೆ ಒಳಗೆ ಹಾರಲು ಹೇಳಿ.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'ಅಥವಾ ಭೇಟಿ ನೀಡಿ',
   'joinCodeHero.liveLabel': 'ಲಾಬಿ ಲೈವ್',
+  'joinCodeHero.playerJoined': '{{name}} ಸೇರಿದರು',
   'joinCodeHero.playersLabel': 'ಆಟಗಾರರು',
   'joinCodeHero.qrLabel': 'ಸೇರಲು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ',
   'joinCodeHero.startGame': 'ಸ್ಪಾರ್ಕ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಿ',
   'joinCodeHero.subhead':
     'ಸೇರ್ಪಡೆ ಕೋಡ್ ಹಂಚಿಕೊಳ್ಳಿ ಅಥವಾ QR ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ. ನೀವು ಸ್ಪಾರ್ಕ್ ಅನ್ನು ಹಾರಿಸಿದ ಕ್ಷಣ ಆಟ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ.',
+  'landing.cta.button': 'ನಿಮ್ಮ ಮೊದಲ ರಸಪ್ರಶ್ನೆಯನ್ನು ರಚಿಸಿ',
   'landing.cta.eyebrow': 'ಶಿಕ್ಷಕರಿಗೆ ಉಚಿತ',
   'landing.cta.heading': 'ಪ್ರತಿಯೊಂದು ಪಾಠಕ್ಕೂ ಕಿಡಿ ತನ್ನಿ.',
+  'landing.cta.subhead':
+    '30 ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಸೈನ್ ಅಪ್ ಮಾಡಿ. ಅಪರಿಮಿತ ನೇರ ಆಟಗಳನ್ನು ಆಯೋಜಿಸಿ, AI ಯೊಂದಿಗೆ ರಸಪ್ರಶ್ನೆಗಳನ್ನು ರಚಿಸಿ, ಮತ್ತು ಪ್ರತಿ ಆಟಗಾರನನ್ನು ಸ್ಟ್ರೀಕ್ನಲ್ಲಿ ಇರಿಸಿ.',
   'landing.eyebrow': 'ಪ್ರತಿಯೊಂದು ಉತ್ತರವನ್ನು ಬೆಳಗಿಸಿ',
   'landing.features.heading': 'ನೀವು ಕಲಿಸುವ ಮತ್ತು ಆಡುವ ವಿಧಾನಕ್ಕೆ ಸೂಕ್ತವಾದ ರಸಪ್ರಶ್ನೆ ಸ್ಟುಡಿಯೋ.',
   'landing.hero.ctaPrimary': 'ಉಚಿತವಾಗಿ ಹೋಸ್ಟಿಂಗ್ ಪ್ರಾರಂಭಿಸಿ',
@@ -57,6 +72,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'ಜನಪ್ರಿಯ ರಸಪ್ರಶ್ನೆಗಳು',
   'landing.popular.eyebrow': 'ಈ ವಾರ ಜನಪ್ರಿಯ',
   'landing.popular.heading': 'ಇಂದು ಆತಿಥೇಯರು ನಡೆಸುತ್ತಿರುವ ರಸಪ್ರಶ್ನೆಗೆ ಬನ್ನಿ.',
+  'landing.popular.viewAll': 'ಎಲ್ಲಾ ವರ್ಗಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ →',
+  'leaderboard.empty.body': 'ಜಾಗತಿಕ ಲೀಡರ್ಬೋರ್ಡ್ನಲ್ಲಿ ನಿಮ್ಮ ಅಂಕವನ್ನು ಹಾಕಲು ರಸಪ್ರಶ್ನೆ ಆಡಿ.',
   'leaderboard.empty.title': 'ಮಂಡಳಿಯಲ್ಲಿ ಇನ್ನೂ ಯಾವುದೇ ಆಟಗಳಿಲ್ಲ — ಮೊದಲಿಗರಾಗಿರಿ.',
   'leaderboard.eyebrow': 'ಲೀಡರ್‌ಬೋರ್ಡ್',
   'leaderboard.fullRanking': 'ಪೂರ್ಣ ಶ್ರೇಯಾಂಕ',
@@ -64,6 +81,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'ನೀವು ಆಡಿದ ಪ್ರತಿಯೊಂದು ರಸಪ್ರಶ್ನೆ ಅವಧಿಯಲ್ಲೂ ಒಟ್ಟು ಅಂಕಗಳನ್ನು ಗಳಿಸಿ. ಹೆಚ್ಚು ಆಡುವ ಮೂಲಕ ಏರಿ.',
   'leaderboard.title': 'ಟಾಪ್ ರಸಪ್ರಶ್ನೆ ಮಾಸ್ಟರ್‌ಗಳು',
+  'leaderboard.totalPlayers': '{{count}} ಶ್ರೇಣೀಕೃತ ಆಟಗಾರರು',
   'leaderboardRow.points': 'ಅಂಕಗಳು',
   'leaderboardRow.streak': '{{days}} ಡಿ',
   'login.headline': 'ರಸಪ್ರಶ್ನೆ ಮಾಸ್ಟರ್, ಮತ್ತೆ ಸ್ವಾಗತ.',
@@ -75,9 +93,11 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'ನಿಮ್ಮ ಮೊದಲ ರಸಪ್ರಶ್ನೆಯನ್ನು ನಿರ್ಮಿಸಿ →',
   'myQuizzes.empty.created': 'ನೀವು ಇನ್ನೂ ರಸಪ್ರಶ್ನೆಯನ್ನು ನಿರ್ಮಿಸಿಲ್ಲ.',
   'myQuizzes.empty.played': 'ಇನ್ನೂ ಯಾವುದೇ ಪ್ರಕಟಿತ ರಸಪ್ರಶ್ನೆಗಳಿಲ್ಲ.',
+  'myQuizzes.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'myQuizzes.subhead': 'ನೀವು ನಿರ್ಮಿಸಿದ ಡ್ರಾಫ್ಟ್‌ಗಳು, ಜೊತೆಗೆ ನೀವು ಆಡಬಹುದಾದ ಪ್ರಕಟಿತ ರಸಪ್ರಶ್ನೆಗಳು.',
   'myQuizzes.title': 'ನನ್ನ ರಸಪ್ರಶ್ನೆಗಳು',
   'nav.legal': 'ಕಾನೂನುಬದ್ಧ',
+  'nav.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'notFound.backHome': 'ಮನೆಗೆ ಹಿಂತಿರುಗಿ',
   'notFound.backToDiscover': 'ರಸಪ್ರಶ್ನೆಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ',
   'notFound.body': 'ಬೇರೆ ಕೋಡ್ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಲಾಬಿಗೆ ಹಿಂತಿರುಗಿ.',
@@ -86,17 +106,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'notifications.subhead':
     '{{count}} ಓದದ ಸ್ಪಾರ್ಕ್‌ಗಳು. ಆಹ್ವಾನಗಳು, ಲೀಡರ್‌ಬೋರ್ಡ್ ಚಲನೆಗಳು ಮತ್ತು ಸಾಧನೆಗಳು ಎಲ್ಲವೂ ಒಂದೇ ಸ್ಟ್ರೀಮ್‌ನಲ್ಲಿ.',
+  'planUpdated.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
+  'planUpdated.verifyFailed': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ನಮಗೆ ಇನ್ನೂ ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'planUpdated.verifyFailedBody':
+    'ನಿಮ್ಮ ಪಾವತಿ ಇನ್ನೂ ಪ್ರಕ್ರಿಯೆಗೊಳ್ಳುತ್ತಿರಬಹುದು. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
+  'pricing.advancedFeatures': 'ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳು: {{yes}}',
+  'pricing.canExport': 'ಡೇಟಾ ರಫ್ತು: {{yes}}',
   'pricing.checkoutError': 'ಚೆಕ್ಔಟ್ ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'pricing.heading': 'ನಿಮ್ಮ {{app}} ಯೋಜನೆ ಆಯ್ಕೆಮಾಡಿ',
   'pricing.included': 'ಸೇರಿಸಲಾಗಿದೆ',
   'pricing.loadError': 'ಯೋಜನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'pricing.maxQuestions': '{{count}} ಪ್ರಶ್ನೆಗಳು',
   'pricing.maxQuizzes': '{{count}} ರಸಪ್ರಶ್ನೆಗಳು',
+  'pricing.maxSessions': '{{count}} ಸೆಷನ್ಗಳು',
   'pricing.subhead':
     'ಆತಿಥೇಯರು ಮತ್ತು ಆಟಗಾರರಿಗೆ ಉಚಿತ. ಹೆಚ್ಚಿನ ಮಿತಿಗಳು ಮತ್ತು ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳಿಗಾಗಿ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'ಖಾತೆ: ಇಮೇಲ್, ಹ್ಯಾಶ್ ಮಾಡಿದ ಪಾಸ್‌ವರ್ಡ್, ಪ್ರದರ್ಶನ ಹೆಸರು, ಕೊನೆಯ ಸೈನ್-ಇನ್.',
+  'privacy.intro':
+    '{{app}} ನಿಮ್ಮ ಗೌಪ್ಯತೆಯನ್ನು ಗೌರವಿಸುತ್ತದೆ. ಈ ಪುಟವು ನಾವು ಸಂಗ್ರಹಿಸುವ ಡೇಟಾ, ಅದನ್ನು ಏಕೆ ಸಂಗ್ರಹಿಸುತ್ತೇವೆ ಮತ್ತು ಅದನ್ನು ಹೇಗೆ ತೆಗೆದುಹಾಕುವುದು ಎಂಬುದನ್ನು ಸಂಕ್ಷಿಪ್ತವಾಗಿ ತಿಳಿಸುತ್ತದೆ.',
   'privacy.rights.body':
     '30 ದಿನಗಳಲ್ಲಿ ನಿಮ್ಮ ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಶಾಶ್ವತವಾಗಿ ತೆಗೆದುಹಾಕಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಅಳಿಸಿ.',
   'privacy.share.body':
@@ -120,6 +150,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'ರಸಪ್ರಶ್ನೆ ಐಡಿ: {{id}}',
   'quizBuilder.loadError': 'ರಸಪ್ರಶ್ನೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'quizBuilder.loading': 'ಸಂಪಾದಕವನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
+  'quizBuilder.markCorrect': '{{letter}} ಅನ್ನು ಸರಿಯೆಂದು ಗುರುತಿಸಿ',
   'quizBuilder.noQuestions': 'ಇನ್ನೂ ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳಿಲ್ಲ — ಪ್ರಾರಂಭಿಸಲು ಒಂದನ್ನು ಸೇರಿಸಿ.',
   'quizBuilder.notFound': 'ರಸಪ್ರಶ್ನೆ ಕಂಡುಬಂದಿಲ್ಲ.',
   'quizBuilder.preview': 'ವೀಕ್ಷಿಸಿ',
@@ -136,7 +167,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} ಎಸ್ ಟೈಮರ್',
   'quizBuilder.title': 'ನಿಮ್ಮ ರಸಪ್ರಶ್ನೆಯನ್ನು ನಿರ್ಮಿಸಿ',
   'quizBuilder.titleLabel': 'ರಸಪ್ರಶ್ನೆ ಶೀರ್ಷಿಕೆ',
+  'quizBuilder.untitled': 'ಶೀರ್ಷಿಕೆರಹಿತ ಪ್ರಶ್ನೆ',
   'quizCard.plays': '{{count}} ನಾಟಕಗಳು',
+  'quizCard.questionCount': '{{count}} ಪ್ರಶ್ನೆಗಳು',
   'quizDetail.duration': '~ {{minutes}} ನಿಮಿಷ',
   'quizDetail.hostMultiplayer': 'ಹೋಸ್ಟ್ ಮಲ್ಟಿಪ್ಲೇಯರ್',
   'quizDetail.leaderboardEmpty': 'ಇನ್ನೂ ಆಟಗಳಿಲ್ಲ — ಸ್ಕೋರ್ ಹೊಂದಿಸುವವರಲ್ಲಿ ಮೊದಲಿಗರಾಗಿರಿ.',
@@ -151,26 +184,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'ರಸಪ್ರಶ್ನೆಗೆ ಹಿಂತಿರುಗಿ',
   'quizPlay.empty': 'ಈ ರಸಪ್ರಶ್ನೆಯಲ್ಲಿ ಇನ್ನೂ ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳಿಲ್ಲ.',
   'quizPlay.error': 'ಈ ರಸಪ್ರಶ್ನೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+  'quizPlay.exit': 'ನಿರ್ಗಮಿಸಿ',
   'quizPlay.feedback.correct': '🔥 ಸ್ಪಾರ್ಕ್ ಗಳಿಸಿದೆ — ಮುಂದಿನದಕ್ಕೆ!',
+  'quizPlay.feedback.incorrect': 'ಉತ್ತರ {{correct}} ಆಗಿತ್ತು. ಮುಂದುವರಿಯಿರಿ.',
   'quizPlay.loading': 'ರಸಪ್ರಶ್ನೆ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'quizPlay.next': 'ಮುಂದಿನ ಪ್ರಶ್ನೆ',
   'quizPlay.questionCounter': 'ಪ್ರಶ್ನೆ {{current}} ನ {{total}}',
   'quizPlay.score': '{{score}} ಅಂಕಗಳು',
+  'quizPlay.seeResults': 'ಫಲಿತಾಂಶಗಳನ್ನು ನೋಡಿ',
   'quizPlay.sessionFailed': 'ಅಧಿವೇಶನವನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'quizPlay.streak': '{{count}} ಪಟ್ಟೆ',
+  'resetPassword.subhead': 'ನಿಮ್ಮ ಸ್ಟ್ರೀಕ್‌ಗೆ ಮರಳಲು ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಆಯ್ಕೆಮಾಡಿ.',
   'results.backToDiscover': 'ಡಿಸ್ಕವರ್‌ಗೆ ಹಿಂತಿರುಗಿ',
   'results.error': 'ಫಲಿತಾಂಶಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'results.exit': 'ಡಿಸ್ಕವರ್‌ಗೆ ಹಿಂತಿರುಗಿ',
   'results.loading': 'ನಿಮ್ಮ ಅಂಕಗಳನ್ನು ಎಣಿಸಲಾಗುತ್ತಿದೆ...',
   'results.missingSession': 'ಸಾರಾಂಶ ಮಾಡಲು ಯಾವುದೇ ಅಧಿವೇಶನವಿಲ್ಲ.',
+  'results.recap.correctAnswer': 'ಸರಿ: {{answer}}',
   'results.recap.questionLabel': 'ಪ್ರಶ್ನೆ {{number}}',
   'results.recap.title': 'ಪ್ರಶ್ನೆಯ ಸಾರಾಂಶ',
+  'results.recap.yourAnswer': 'ನೀವು: {{answer}}',
   'results.unknownQuiz': 'ರಸಪ್ರಶ್ನೆ',
   'scoreBreakdownCard.accuracyLabel': 'ನಿಖರತೆ',
+  'scoreBreakdownCard.correctLabel': 'ಸರಿ',
   'scoreBreakdownCard.eyebrow': 'ರಸಪ್ರಶ್ನೆ ಪೂರ್ಣಗೊಂಡಿದೆ',
   'scoreBreakdownCard.headline': '"" ನಲ್ಲಿ ಚೆನ್ನಾಗಿ ಕೆಲಸ ಮಾಡಿದೆ. {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'ಅಂಕಗಳು',
   'scoreBreakdownCard.rankLabel': 'ಶ್ರೇಣಿ',
+  'scoreBreakdownCard.streakBonus': 'ಸ್ಟ್ರೀಕ್ ಬೋನಸ್ +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'ನಿಮ್ಮ ಕಿಡಿ ಕಾಣುತ್ತಿದೆ. ಲೀಡರ್ಬೋರ್ಡ್ನಲ್ಲಿ ಮೇಲೇರಲು ಕೆಳಗಿನ ವಿಭಜನೆಯನ್ನು ಪರಿಶೀಲಿಸಿ.',
   'settings.danger.body':
     'ನಿಮ್ಮ ಸ್ಪಾರ್ಕ್ ಖಾತೆ ಮತ್ತು ರಚಿಸಲಾದ ಎಲ್ಲಾ ರಸಪ್ರಶ್ನೆಗಳನ್ನು ಶಾಶ್ವತವಾಗಿ ತೆಗೆದುಹಾಕಿ.',
   'settings.danger.confirm': 'ಹೌದು, ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಿ',
@@ -189,5 +232,7 @@ export const ui: UiTranslations = {
     'ನೀವು ಪ್ರಕಟಿಸುವ ವಿಷಯ, ನೀವು ಬರೆಯುವ ಪ್ರಶ್ನೆಗಳು ಮತ್ತು ನೀವು ಹೋಸ್ಟ್ ಮಾಡುವ ಯಾವುದೇ ಆಟಗಳಿಗೆ ನೀವೇ ಜವಾಬ್ದಾರರಾಗಿರುತ್ತೀರಿ. ಇತರ ಜನರಂತೆ ನಟಿಸಬೇಡಿ.',
   'terms.billing.body':
     'ಪಾವತಿಸಿದ ಯೋಜನೆಗಳು ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ರದ್ದಾಗುವವರೆಗೆ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ನವೀಕರಣಗೊಳ್ಳುತ್ತವೆ. ನೀವು ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ರದ್ದುಗೊಳಿಸಬಹುದು; ಪ್ರಸ್ತುತ ಬಿಲ್ಲಿಂಗ್ ಅವಧಿಯ ಅಂತ್ಯದವರೆಗೆ ಪ್ರವೇಶ ಮುಂದುವರಿಯುತ್ತದೆ.',
+  'terms.intro':
+    '{{app}} ಬಳಸುವ ಮೂಲಕ ನೀವು ಕೆಳಗಿನ ನಿಯಮಗಳಿಗೆ ಒಪ್ಪುತ್ತೀರಿ. ಅವನ್ನು ಒಪ್ಪಿಕೊಳ್ಳಲು ಸಾಧ್ಯವಾಗದಿದ್ದರೆ, ದಯವಿಟ್ಟು ಸೇವೆಯನ್ನು ಬಳಸಬೇಡಿ.',
   'terms.title': 'ಸೇವಾ ನಿಯಮಗಳು',
 }

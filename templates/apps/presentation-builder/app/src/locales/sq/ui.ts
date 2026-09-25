@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Pyetje, komente ose një veçori që dëshironi të kishim? Kontaktoni ekipin nga cilësimet e llogarisë tuaj — një person i vërtetë lexon çdo mesazh.',
   'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.missionTitle': 'Misioni ynë',
+  'about.whatYouGetTitle': 'Çfarë merr',
   'analytics.empty': 'Krijo paketa për të parë analizat këtu.',
   'analytics.stats.acrossDecks': 'Në të gjitha kuvertat',
   'analytics.stats.allTime': 'Në studion tuaj',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Titulli i kuvertës',
   'landing.features.eyebrow': 'Pse Overturë',
   'landing.features.heading': 'Gjithçka që ju nevojitet për të dalë në skenë është gati.',
+  'landing.finalCta.body':
+    'Nisni studion tuaj për më pak se një minutë. Pa kartë krediti. Anuloni në çdo moment.',
   'landing.finalCta.cta': 'Krijo studion tënde falas',
   'landing.finalCta.eyebrow': 'Falas për të filluar',
   'landing.finalCta.heading': 'Dil në skenë me skenat më të mira të karrierës tënde.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Redaktuar 12 minuta më parë',
   'notifications.created': 'krijuar',
   'notifications.edited': 'redaktuar',
+  'notifications.empty.body':
+    'Aktiviteti në kuvertat tuaja — komente, përmendje, eksporte — do të shfaqet këtu.',
   'notifications.empty.title': 'Nuk ka ende njoftime',
   'notifications.eyebrow': 'Aktiviteti në skenë',
   'notifications.loading': 'Duke u ngarkuar…',
   'notifications.shared': 'ndarë publikisht',
+  'planUpdated.retry': 'Provo përsëri',
+  'planUpdated.verifyFailed': 'Nuk mundëm ta konfirmonim ende pagesën tuaj.',
+  'planUpdated.verifyFailedBody':
+    'Pagesa juaj mund të jetë ende duke u përpunuar. Provoni përsëri pas pak.',
   'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'present.addSlides': 'Shto diapozitiva',
   'present.backToDecks': 'Kthehu te kuvertat',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Interpretues skenik',
   'settings.security.notSet': 'Nuk është vendosur',
   'settings.security.passwordBody': 'Fjalëkalimi juaj është i koduar në qetësi.',
+  'settings.security.reset': 'Rivendos',
   'settings.security.title': 'Llogaria + seancat',
   'shared.empty.body':
     'Kuvertat që ndani publikisht do të shfaqen këtu. Hapni një kuvertë dhe aktivizoni opsionin publik për t’i ndarë.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Duke u ngarkuar…',
   'shared.title': 'Kuvertat e përbashkëta',
   'templateCard.slideCount': '{{count}} slides',
+  'templateCard.usageCount': '{{count}} përdor',
+  'templates.empty.body': 'Provoni një filtër tjetër — ne publikojmë shabllone të reja çdo muaj.',
+  'templates.empty.title': 'Nuk ka ende shabllone në këtë kategori',
+  'templates.hero.body':
+    'Paraqitje slidesh me temë të gatshme me blloqe grafikësh, korniza demo, shënime prezantuesi dhe paracaktime kohëmatësi — çdo shabllon vjen gati për regjistrim.',
   'templates.hero.eyebrow': 'Faza të kuruara',
   'templates.hero.heading': 'Fazat e ndërtuara për momentin që ju nevojitet për ta arritur atë.',
 }

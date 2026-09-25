@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Téigh i dteagmháil',
   'about.eyebrow': 'Fúinn',
+  'about.missionTitle': 'Ár misean',
   'account.notifications.save': 'Sábháil roghanna',
   'account.notifications.saved': 'Roghanna sábháilte.',
   'account.notifications.saveFailed': 'Níorbh fhéidir na roghanna a shábháil.',
@@ -12,7 +13,10 @@ export const ui: UiTranslations = {
     'Íoc in aghaidh an tseisiúin • Uasghrádaigh le haghaidh lascainí áirithinte',
   'account.payments.helper':
     'Bailítear do mhodh íocaíochta ag an tseiceáil amach. Ní stórálann muid uimhreacha iomlána cártaí riamh — láimhseálann Stripe gach sonraí cárta.',
+  'account.payments.paidDescription': 'Síntiús gníomhach — bainistigh ar Stripe.',
   'account.payments.planFree': 'Plean saor in aisce',
+  'account.payments.title': 'Plean & íocaíocht',
+  'account.payments.viewPlans': 'Féach ar phleananna {{appName}} →',
   'account.profile.title': 'Próifíl',
   'account.role.body':
     'Athraigh idir mód foghlaimeora agus mód teagascóra am ar bith. Fanann do sheisiúin ghníomhacha slán in aon cheann de na módanna.',
@@ -25,6 +29,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Múin ar Chailc',
   'becomeTutor.form.error': 'Níorbh fhéidir an t-iarratas a chur isteach.',
+  'becomeTutor.form.pitch': 'Do pháirc (roghnach)',
   'becomeTutor.form.pitchPlaceholder':
     'Cúpla abairt a fheicfeadh mic léinn ar do phróifíl. Coinnigh sonrach agus te é.',
   'becomeTutor.form.rate': 'Ráta in aghaidh na huaire ($/uair): {{rate}}',
@@ -34,6 +39,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.title': 'Inis dúinn fút féin',
   'becomeTutor.headline':
     'Tuilleamh airgid trí do chuid oibre a dhéanamh. Múin de réir do sceidil féin.',
+  'becomeTutor.subhead':
+    'Cuir isteach i 5 nóiméad. Nuair a bheidh tú fíoraithe, beidh tú le feiceáil sa chuardach agus tosóidh tú ag cur seisiúin in áirithe.',
+  'booking.duration.title': '3. Cén fhad?',
   'booking.error.createFailed': 'Níorbh fhéidir áirithint a chruthú.',
   'booking.error.loadFailed': 'Níorbh fhéidir an teagascóir a lódáil — déan iarracht arís.',
   'booking.error.noSlot': 'Roghnaigh lá agus am ar dtús.',
@@ -48,6 +56,7 @@ export const ui: UiTranslations = {
     'Is féidir seisiúin a ath-sceidealú suas le 12 uair an chloig roimh ré. Ní ghearrtar táille ar do chárta ach amháin nuair a chríochnaíonn an seisiún.',
   'booking.summary.assurance':
     'Gan aon táille go dtí go mbeidh an seisiún thart • Cealaigh saor in aisce suas le 12 uair an chloig roimh ré',
+  'booking.summary.back': '← Ar ais go próifíl an teagascóra',
   'booking.summary.cta': 'Deimhnigh an áirithint',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'Roghnaigh sliotán',
@@ -74,26 +83,38 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'Teagascóir',
   'bookingConfirm.subject': 'Ábhar',
   'bookingConfirm.title': 'Tá áit curtha in áirithe agat. Déanfaimid an chuid eile.',
+  'bookingConfirm.viewSessions': 'Féach ar gach seisiún →',
   'bookingConfirm.with': 'Le teagascóir',
   'common.goToDashboard': 'Téigh chuig an Deais',
+  'earningsHero.change': '{{sign}}{{percent}}% i gcomparáid leis an mí seo caite',
   'earningsHero.eyebrow': 'Tuilleamh • {{month}}',
+  'earningsHero.greeting': 'Fáilte ar ais, {{name}} — coinnigh an luas.',
   'forgotPassword.heading': 'An ndearna tú dearmad ar do phasfhocal?',
   'forgotPassword.subheading':
     'Cuir isteach an seoladh ríomhphoist atá ceangailte le do chuntas agus seolfaimid nasc athshocraithe chugat.',
   'forgotPassword.success.body':
     'Chuireamar nasc athshocraithe chuig {{email}} — rachaidh sé in éag i gceann 30 nóiméad.',
   'heroSearchSection.eyebrow': 'Breis is 12,000 teagascóir fíoraithe • ó 2018',
+  'heroSearchSection.headline': 'An áit a mbuaileann intinn fhiosrach le teagascóirí cearta.',
+  'heroSearchSection.searchCta': 'Aimsigh teagascóir',
+  'heroSearchSection.searchPlaceholder': 'Cuardaigh ábhair, teagascóirí nó topaicí…',
   'heroSearchSection.stat.rating': 'Meánráta seisiúin',
+  'heroSearchSection.stat.sessions': 'Seisiúin seachadta',
   'heroSearchSection.stat.subjects': 'Ábhair a chumhdaítear',
   'heroSearchSection.stat.tutors': 'Teagascóirí fíoraithe',
+  'heroSearchSection.subhead':
+    'Teagascóirí fíoraithe. Praghsáil shoiléir. Seisiúin a oireann do do sheachtain.',
   'landing.featured.eyebrow': 'Teagascóirí Réadmhaoine',
   'landing.featured.headline': 'Roghnaithe de láimh, den scoth, agus réidh an tseachtain seo.',
   'landing.featured.viewAll': 'Brabhsáil na teagascóirí uile',
   'landing.nav.becomeTutor': 'Múin ar Chailc',
   'landing.nav.findTutors': 'Aimsigh teagascóirí',
   'landing.pillars.eyebrow': 'Cén Fáth Cailc',
+  'landing.pillars.headline': '{{tagline}} — gan an stró.',
   'landing.testimonials.eyebrow': 'Ó mhic léinn le déanaí',
   'landing.testimonials.headline': 'Torthaí fíor, ina bhfocail féin.',
+  'landing.tutorCta.body':
+    'Socraigh do rátaí féin, tóg cáil le léirmheasanna fíoraithe, agus déanaimid freastal ar sceidealú, íocaíochtaí agus meabhrúcháin.',
   'landing.tutorCta.button': 'Cuir isteach ar mhúineadh',
   'landing.tutorCta.eyebrow': 'Bí i do theagascóir',
   'landing.tutorCta.headline':
@@ -105,6 +126,7 @@ export const ui: UiTranslations = {
   'login.signup': 'Cruthaigh cuntas →',
   'login.subheading':
     'Lean ort san áit ar fhág tú — tá do sheisiúin, do theachtaireachtaí agus do theagascóirí ag fanacht leat.',
+  'login.support': 'An bhfuil cabhair uait?',
   'messages.draftPlaceholder': 'Clóscríobh teachtaireacht…',
   'messages.empty.body':
     'Beidh snáitheanna le feiceáil anseo nuair a sheolann tú teachtaireacht chuig teagascóir nó nuair a sheolann duine teachtaireacht chugat.',
@@ -116,9 +138,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'Gan aon teachtaireachtaí fós.',
   'messages.selectThread': 'Roghnaigh snáithe ar chlé.',
   'messages.send': 'Seol teachtaireacht',
+  'messages.startThreadHint':
+    'Tabhair cuairt ar phróifíl teagascóra agus tapáil "Teachtaireacht chuig teagascóir" chun comhrá a thosú.',
   'messages.thread.empty': 'Abair haigh — cuir tús leis an gcomhrá.',
   'messages.title': 'Snáitheanna le do theagascóirí.',
   'nav.primary': 'Príomhúil',
+  'planUpdated.body':
+    "Tá d'athrú billeála gníomhach anois. Is féidir leat do phlean a bhainistiú am ar bith ón leathanach billeála.",
+  'pricing.advancedFeatures': 'Gnéithe ardleibhéil:',
   'pricing.dataExport': 'Easpórtáil sonraí:',
   'pricing.headingDefault': 'Gnéithe ardleibhéil:',
   'resetPassword.heading': 'Roghnaigh pasfhocal láidir nua.',
@@ -129,6 +156,7 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Logálfaimid isteach go huathoibríoch thú tar éis don athshocrú a bheith rathúil.',
   'resetPassword.submit': 'Athshocraigh & sínigh isteach',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body':
     'Bain triail as an scagaire ábhair a leathnú nó an tairseach rátála a mhaolú.',
@@ -140,7 +168,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'Rátáil',
   'search.filter.subject': 'Ábhar',
   'search.results.count': '{{count}} a mheaitseálann teagascóirí do scagairí',
+  'search.results.fallback': 'Ag taispeáint teagascóirí taispeána coimeádaithe',
   'search.results.loading': 'Ag lódáil teagascóirí…',
+  'search.searchPlaceholder': 'Ábhar, ainm nó topaic…',
   'search.subtitle':
     'Scag de réir ábhair, rátála, agus infhaighteachta. Teagascóirí fíoraithe amháin.',
   'search.title': 'Aimsigh teagascóir a chliceálann',
@@ -173,18 +203,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'Seisiún tosaithe — foghlaim go sona sásta.',
   'sessionDetail.startError': 'Níorbh fhéidir an seisiún a thosú.',
   'sessionDetail.subtitle': 'le {{name}} • {{when}} • {{mins}} nóim',
+  'sessionDetail.timeline': 'Amlíne stádais',
   'sessionDetail.timeline.afterEnd': 'Tar éis dheireadh an tseisiúin',
   'sessionDetail.timeline.auto': 'Uathoibríoch',
   'sessionDetail.timeline.booked': 'Áirithe',
   'sessionDetail.timeline.confirmed': 'Deimhnithe',
   'sessionDetail.timeline.inSession': 'I seisiún',
   'sessionDetail.timeline.now': 'Anois',
+  'sessionDetail.timeline.receipt': 'Admháil eisithe',
   'sessionDetail.timeline.review': 'Leid athbhreithnithe',
   'sessions.empty.body':
     'Brabhsáil Mentor chun teagascóir a aimsiú agus sliotán a chur in áirithe. Taispeántar seisiúin dheimhnithe anseo.',
   'sessions.empty.title': 'Níl aon rud sceidealaithe anseo go fóill.',
   'sessions.error': 'Níorbh fhéidir do sheisiúin a lódáil — déan iarracht arís.',
   'sessions.eyebrow': 'Do sheisiúin',
+  'sessions.loading': 'Seisiúin á lódáil…',
   'sessions.subtitle':
     'Rianaigh áirithintí atá le teacht, léim isteach sa seomra seisiún gníomhach, agus athchuairt a thabhairt ar cheachtanna críochnaithe.',
   'sessions.title': 'Gach ceacht, in aon áit amháin.',
@@ -199,22 +232,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'Cruthaigh mo {{role}} cuntas',
   'signup.subheading':
     'Cruthaigh cuntas chun seisiúin a chur in áirithe, teachtaireachtaí a sheoladh chuig teagascóirí, agus do dhul chun cinn a rianú.',
+  'signup.terms': 'Trí chlárú a dhéanamh, aontaíonn tú lenár dTéarmaí.',
   'tutorCard.avatarAlt': 'Portráid de {{name}}',
   'tutorCard.perHour': '/ uair an chloig',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'Barr-rátáilte',
   'tutorCard.verified': 'Teagascóir fíoraithe',
+  'tutorDashboard.empty.body':
+    'Socraigh do chuid ábhar, do ráta in aghaidh na huaire agus do infhaighteacht — ansin tosaigh ag tuilleamh.',
+  'tutorDashboard.empty.cta': 'Bí i do theagascóir →',
   'tutorDashboard.empty.title': 'Bí i do theagascóir chun do phainéal rialaithe a dhíghlasáil.',
   'tutorDashboard.fallbackName': 'Teagascóir',
   'tutorDashboard.loading': 'Ag lódáil an painéal rialaithe…',
   'tutorDashboard.recentReviews': 'Léirmheasanna le déanaí',
   'tutorDashboard.reviewsEmpty':
     'Níl aon léirmheasanna agat go fóill — beidh siad le feiceáil anseo a luaithe a dhéanfaidh mic léinn rátáil ort.',
+  'tutorDashboard.stats.rating': 'Meánrátáil',
   'tutorDashboard.stats.sessions': 'Seisiúin an mhí seo',
+  'tutorDashboard.stats.totalSessions': 'Gach seisiún riamh',
+  'tutorDashboard.studentFallback': 'Mac Léinn',
   'tutorDashboard.tutoringFallback': 'Seisiún teagaisc',
   'tutorDashboard.upcoming': 'Seisiúin atá le teacht',
   'tutorDashboard.upcomingEmpty':
     'Níl aon seisiúin atá le teacht fós — beidh mic léinn atá ag cur a sliotán in áirithe le feiceáil anseo.',
+  'tutorProfile.availability': 'Infhaighteacht an tseachtain seo',
   'tutorProfile.availabilityHeadline': 'Roghnaigh sliotán le tosú',
   'tutorProfile.bookCta': 'Seisiún a chur in áirithe',
   'tutorProfile.bookFull': 'Féach ar an sceideal iomlán',
@@ -227,6 +268,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / uair an chloig',
   'tutorProfile.reviews': 'Léirmheasanna le déanaí',
   'tutorProfile.reviews.empty': 'Gan aon léirmheasanna fós — bí ar an gcéad duine.',
+  'tutorProfile.stat.repeats': 'Mic léinn athfhillteacha',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'Meánfhreagra',
   'tutorProfile.stat.responseValue': '{{mins}} nóim',

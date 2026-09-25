@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Tá do phlean nuashonraithe.',
   'planUpdated.returnHome': 'Fill ar an mbaile',
   'planUpdated.thankYou': 'Go raibh maith agat!',
+  'post.markdown': 'Féach ar an bpost seo mar mharcdú',
+  'post.readingTime': '{{minutes}} léamh nóiméid',
   'post.tags': 'Clibeanna',
   'project.error.nameAndTypeRequired': 'Tá ainm agus projectType ag teastáil',
   'project.error.notFound': 'Gan aimsiú',

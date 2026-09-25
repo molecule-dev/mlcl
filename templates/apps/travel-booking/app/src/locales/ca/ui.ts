@@ -1,13 +1,28 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens preguntes sobre una estada, comentaris o una idea de col·laboració? Contacta amb l'equip des del teu compte o amb el conserge de l'aplicació: cada missatge arriba a una persona real que també viatja.",
   'about.contactTitle': 'Parla amb nosaltres',
+  'about.featureBooking.body':
+    'Compara habitacions, tarifes i serveis costat a costat, i després reserva amb uns quants tocs amb cancel·lació gratuïta a tots els itineraris.',
+  'about.featureBooking.title': 'Cerca, compara i reserva',
+  'about.featureDiscover.body':
+    "Destinacions seleccionades pels editors i guies de camp que mostren els llocs pels quals val la pena fer la maleta: sense soroll d'agregadors ni contingut patrocinat.",
   'about.featureDiscover.title': 'Inspiració, seleccionada a mà',
+  'about.featureItineraries.body':
+    'Tingues vols, estades i plans en un sol lloc, desa destinacions per a més endavant i reprèn el viatge exactament on el vas deixar.',
+  'about.featureItineraries.title': 'Itineraris sempre organitzats',
+  'about.featureStays.title': 'Estades de confiança',
+  'about.missionTitle': 'La nostra missió',
+  'about.subtitle':
+    'Inspiració, estades de confiança i un camí sense friccions del somni a la reserva.',
+  'about.whatYouGetTitle': 'El que obtens',
   'account.addPaymentCta': 'Afegeix un mètode de pagament',
   'account.addPaymentError': "No s'ha pogut afegir el mètode de pagament.",
   'account.confirmRemove': "Confirma l'eliminació",
   'account.defaultBadge': 'Per defecte',
-  'account.loyalty.pointsTowardNext': '{{punts}} de {{següent}} milles a {{nextTier}}',
+  'account.loyalty.pointsTowardNext': '{{points}} de {{next}} milles fins a {{nextTier}}',
   'account.loyalty.tier': 'Nivell actual',
   'account.navLabel': 'Seccions del compte',
   'account.payments.empty': "Encara no s'ha desat cap mètode de pagament.",
@@ -28,6 +43,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} nits',
   'booking.lineTaxes': 'Impostos i taxes',
   'booking.loadError': "No s'ha pogut carregar la propietat.",
+  'booking.noChargeYet': "Encara no se't cobrarà res.",
   'booking.noPaymentMethods': 'No hi ha mètodes de pagament desats.',
   'booking.noPaymentSelected': 'Trieu un mètode de pagament abans de confirmar.',
   'booking.noRoomError': 'Trieu una habitació abans de confirmar.',
@@ -40,6 +56,7 @@ export const ui: UiTranslations = {
   'booking.policy2': 'Avui no hi ha cap càrrec; la targeta es reté només per a la confirmació.',
   'booking.policy3':
     'Protecció de viatge coberta per Sojourn: assistència de consergeria 24 hores al dia, 7 dies a la setmana.',
+  'booking.policyHeading': 'Cancel·lació i condicions',
   'booking.roomHeading': 'Tria la teva habitació',
   'booking.specialRequests': 'Peticions especials',
   'booking.specialRequestsPlaceholder': "Hi ha alguna cosa que l'amfitrió hagi de saber?",
@@ -68,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Membres de Sojourn',
   'landing.cta.heading': 'Passeja sense preocupacions. Cada itinerari, cada vegada.',
   'landing.cta.signup': 'Crea un compte gratuït',
+  'landing.cta.subheading':
+    'Cancel·lació gratuïta, tarifes exclusives per a membres i un conserge de viatge 24/7: guanya milles amb cada reserva i aconsegueix accés anticipat a nous allotjaments.',
   'landing.destinations.eyebrow': 'On anar després?',
   'landing.destinations.heading': 'Destinacions destacades',
   'landing.destinations.seeAll': 'Veure totes les destinacions',
@@ -76,27 +95,45 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Històries que val la pena fer les maletes',
   'landing.nav.join': 'Uneix-te a Sojourn',
   'landing.nav.search': 'Cerca estades',
+  'landing.preview.browseAll': 'Explora la col·lecció completa',
   'landing.preview.eyebrow': "Una ullada a l'interior",
   'landing.preview.heading': 'Estades seleccionades a mà aquest mes',
+  'landing.preview.subheading':
+    "Cada propietat de {{appName}} està verificada personalment pel nostre equip editorial: sense inventari d'agregadors, sense anuncis enganyosos i cancel·lació gratuïta a tots els itineraris.",
   'login.eyebrow': 'Àrea de membres',
+  'login.noAccount': 'Ets nou a Tessera?',
   'login.signupLink': 'Crea un compte gratuït',
   'login.subheading':
     'Inicia la sessió per gestionar els teus viatges, veure les confirmacions i reprendre on els vas deixar.',
   'nav.legal': 'Legal',
   'notifications.loading': "S'està carregant…",
   'notifications.subheading': "{{count}} sense llegir · tot en una safata d'entrada tranquil·la",
+  'planUpdated.body':
+    'El canvi de facturació ja és actiu. Pots gestionar el teu pla en qualsevol moment des de la pàgina de facturació.',
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.accommodationsLabel': 'allotjaments',
   'pricing.bookingsLabel': 'reserves',
   'pricing.destinationsLabel': 'destinacions desades',
   'pricing.exportLabel': 'Exportar dades de viatge',
   'pricing.itinerariesLabel': 'itineraris',
+  'privacy.intro':
+    '{{appName}} protegeix les dades del teu viatge. Substitueix aquesta plantilla per la teva política de privacitat real abans de publicar-la en producció.',
   'propertyDetail.allPhotos': 'Tot {{count}} fotos',
   'propertyDetail.amenitiesHeading': 'Què ofereix aquest lloc',
   'propertyDetail.backLink': 'Torna a la cerca',
   'propertyDetail.bookCta': 'Reserva',
   'propertyDetail.bookmarkAria': 'Desa la propietat',
   'propertyDetail.freeCancellation': 'Cancel·lació gratuïta',
+  'propertyDetail.galleryAria': 'Galeria de fotos de la propietat',
+  'propertyDetail.galleryCloseAria': 'Tanca la galeria',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': 'Foto {{n}} de {{name}}',
+  'propertyDetail.galleryNextAria': 'Foto següent',
+  'propertyDetail.galleryPrevAria': 'Foto anterior',
   'propertyDetail.heroImageAlt': "{{name}} fotografia d'heroi",
   'propertyDetail.lineCleaning': 'Tarifa de neteja',
   'propertyDetail.lineRate': '{{price}} × {{nights}} nits',
@@ -105,6 +142,7 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'nit',
   'propertyDetail.noChargeYet': 'Encara no se us cobrarà',
   'propertyDetail.notFound': 'Propietat no trobada.',
+  'propertyDetail.pickDatesHint': 'Tria les dates per veure el desglossament complet del preu.',
   'propertyDetail.reviewCount': '( {{count}} ressenyes)',
   'propertyDetail.reviewsHeading': 'Ressenyes recents',
   'propertyDetail.verified': 'Propietat verificada per Sojourn',
@@ -113,6 +151,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Nova contrasenya',
   'resetPassword.subheading':
     'Trieu una contrasenya nova per al vostre compte Sojourn. Utilitzeu almenys 8 caràcters; recomanem una contrasenya.',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'No hi ha cap propietat que coincideixi amb la teva cerca.',
   'search.emptyHint':
     "Prova d'ampliar els filtres o d'eliminar el límit de preus: Sojourn té estades a 14 països.",
@@ -120,6 +159,8 @@ export const ui: UiTranslations = {
   'search.heading': 'Estades seleccionades per al vostre passeig',
   'search.headingForQuery': 'Es queda per a " {{q}} "',
   'search.loadError': "No s'han pogut carregar les propietats.",
+  'search.mapHint': "Passa el cursor per sobre d'una targeta per destacar-ne la ubicació al mapa.",
+  'search.mapPinAria': '{{name}} — {{price}} per nit',
   'search.sortLabel': 'Ordena per',
   'search.subheading': '{{count}} propietats · {{guests}} convidats',
   'settings.openAccount': 'Obrir compte complet',
@@ -128,15 +169,22 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Cancel·lació gratuïta, tarifes només per a membres i un servei de consergeria de viatges 24 hores al dia, 7 dies a la setmana: guanya milles amb cada reserva.',
   'sojournAuthShell.brand.eyebrow': 'Vaga sense preocupacions',
+  'sojournAuthShell.brand.heading': 'Un camí sense friccions del somni a la reserva.',
   'sojournHeroSearchCard.checkInAria': "Data d'entrada",
   'sojournHeroSearchCard.checkOutAria': 'Data de sortida',
+  'sojournHeroSearchCard.destAria': 'Destinació',
+  'sojournHeroSearchCard.destLabel': 'On',
   'sojournHeroSearchCard.destPlaceholder': 'Ciutat, regió o propietat',
   'sojournHeroSearchCard.eyebrow': 'Estades seleccionades · Tarifes només per a membres',
   'sojournHeroSearchCard.guestsOption': '{{n}} convidats',
   'sojournHeroSearchCard.subtitle':
     'Inspiració, estades de confiança i un camí sense friccions des del somni fins a la reserva, a 14 països i més de 200 allotjaments acuradament revisats.',
+  'sojournHeroSearchCard.title': 'Vaga sense preocupacions',
+  'sojournHeroSearchCard.trustLoyalty': 'Guanya milles a cada itinerari',
   'sojournHeroSearchCard.trustProtected': 'Cancel·lació gratuïta, totalment protegida',
   'sojournHeroSearchCard.trustVetted': 'Només propietats revisades manualment',
+  'terms.intro':
+    'Substitueix aquesta plantilla pels teus termes de servei reals de {{appName}} abans de publicar a producció.',
   'travelBookingLayout.primaryNavLabel': 'Navegació principal',
   'tripDetail.backLink': 'Tornar als viatges',
   'tripDetail.cancelCta': 'Cancel·la la reserva',
@@ -146,6 +194,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'Opcional: motiu de la cancel·lació',
   'tripDetail.checkInLabel': "Registre d'entrada",
   'tripDetail.checkOutLabel': 'Sortida',
+  'tripDetail.confCode': 'Codi · {{code}}',
   'tripDetail.confirmCancelCta': 'Cancel·la el viatge',
   'tripDetail.hostInfo':
     "Allotjat per {{name}} Cancel·lació gratuïta fins a 7 dies abans de l'arribada.",
@@ -153,6 +202,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'Mantenir la reserva',
   'tripDetail.lengthLabel': 'Longitud',
   'tripDetail.loadError': "No s'ha pogut carregar el viatge.",
+  'tripDetail.messageHostHeading': 'Envia un missatge al teu amfitrió',
   'tripDetail.messagePlaceholder':
     "Informeu el vostre amfitrió de la vostra hora d'arribada, necessitats dietètiques o qualsevol altra cosa.",
   'tripDetail.messageSend': 'Enviar missatge',
@@ -163,9 +213,11 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'Resum de preus',
   'tripDetail.taxes': 'Impostos i taxes',
   'tripItineraryRow.nights': '{{count}} nits',
+  'trips.empty.past': "Els viatges passats apareixeran aquí quan vagis d'exploració.",
   'trips.empty.upcoming': 'Encara no hi ha viatges propers; arreglem-ho.',
   'trips.eyebrow': 'Les teves passejades',
   'trips.heading': 'Viatges',
   'trips.loadError': "No s'han pogut carregar els viatges.",
+  'trips.searchCta': 'Planifica un altre viatge',
   'trips.subheading': '{{upcoming}} properament · {{past}} passat',
 }

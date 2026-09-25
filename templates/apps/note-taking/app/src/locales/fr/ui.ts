@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Vous avez des commentaires, avez trouvé un bug ou souhaitez suggérer une fonctionnalité ? Écrivez-nous depuis les paramètres de votre compte — chaque message parvient à un vrai membre de l'équipe.",
+  'about.contactTitle': 'Contactez-nous',
+  'about.featureDatabases':
+    'Des bases de données légères et des modèles réutilisables pour transformer des notes en vrac en flux de travail structurés et reproductibles.',
+  'about.featureEditor':
+    "Un éditeur de blocs épuré — titres, listes, code, encadrés et tâches — avec des commandes slash quand vous en voulez et discrètes quand vous n'en voulez pas.",
+  'about.featureGraph':
+    'Des liens retour et un graphe de connaissances : tapez [[ pour lier une note et observez comment vos idées se connectent au fil du temps.',
+  'about.featureNotebooks':
+    'Des carnets et des pages imbriqués pour que projets, sujets et notes quotidiennes restent organisés exactement comme vous le pensez.',
+  'about.featureSearch':
+    'Une recherche plein texte en moins de 50 ms dans tous les carnets, plus des tags qui se combinent avec les carnets au lieu de les contrarier.',
+  'about.missionTitle': 'Notre mission',
   'common.goToDashboard': 'Aller au tableau de bord',
   'forgot.eyebrow': 'Perdu le chemin du retour ?',
   'forgot.formSubtitle': "Donnez-nous l'e-mail enregistré.",
+  'forgot.formTitle': 'Mot de passe oublié',
   'forgot.headline': 'Réinitialisez votre mot de passe.',
   'forgot.subline':
     'Nous vous enverrons un lien unique dans votre boîte de réception afin que vous puissiez en choisir un nouveau.',
+  'forgot.successDetail':
+    'Nous avons envoyé un lien de réinitialisation à votre adresse e-mail. Il expire dans 30 minutes.',
   'graph.eyebrow': 'Graphique',
+  'graph.goToNotes': 'Parcourir les notes →',
+  'graph.loadError': 'Impossible de charger le graphe : {{message}}',
   'graph.placeholderBody':
     "Lorsque les notes commencent à se lier entre elles (avec la syntaxe [[wiki]]), un graphique interactif à forces dirigées s'affichera ici.",
+  'graph.placeholderTitle': 'Graphe de liens retour bientôt disponible',
   'graph.subtitle':
     '{{count}} Notes dans cet espace de travail. Le rendu du graphique de liens entrants apparaîtra ici une fois que les notes seront liées entre elles.',
   'graph.title': 'Graphe de connaissances',
   'home.empty': "Aucune note pour l'instant — commencez votre première.",
   'home.favoritesHeading': 'Épinglés',
   'home.guest': 'ami',
+  'home.loadError': 'Impossible de charger vos notes : {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': "Épinglez une note dans l'éditeur pour la conserver ici.",
   'home.recentHeading': 'Récemment mis à jour',
@@ -23,18 +44,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Carnet de notes',
   'home.stats.pinned.label': 'Épinglés',
   'home.stats.updatedToday.label': "Mise à jour aujourd'hui",
+  'home.subtitle': 'Reprenez où vous en étiez, ou commencez une nouvelle note.',
   'home.viewAll': 'Voir toutes les notes',
   'landing.cta.body':
     'Gratuit pour un usage personnel. Version Pro pour les équipes. Importez vos notes Markdown existantes ou créez-en de nouvelles : Verso vous accompagne où que se trouvent vos notes.',
+  'landing.cta.button': 'Créer mon espace de travail',
   'landing.cta.heading': 'Ouvrez la page du jour.',
   'landing.features.eyebrow': 'Chaque élément primitif dont votre deuxième cerveau a besoin',
+  'landing.features.heading': 'Conçu pour le travail, pas pour le méta-travail.',
   'landing.hero.eyebrow': "Une surface d'écriture silencieuse",
   'landing.hero.headlineAccent': 'prendre forme.',
   'landing.hero.headlineLeading': 'Où les pensées',
   'landing.hero.primaryCta': 'Commencez votre base de connaissances',
   'landing.hero.secondaryCta': "J'ai déjà un compte",
+  'landing.hero.socialProof':
+    'Plus de 12 800 rédacteurs, étudiants et doctorants pensent avec {{appName}}',
   'landing.hero.subline':
     'Verso est un espace de prise de notes structuré destiné aux professionnels et aux étudiants. Éditeur de blocs, blocs-notes imbriqués, liens entrants et graphe de connaissances : le tout au service d’une expérience de lecture privilégiant la typographie.',
+  'landing.preview.notebook': "Connaissances · Processus d'écriture",
+  'landing.preview.title': "En laissant les courants d'air respirer",
   'login.eyebrow': 'Bienvenue sur Verso',
   'login.formSubtitle': "Utilisez votre e-mail ou n'importe quel fournisseur connecté.",
   'login.headline': "Reprenez là où la page s'est arrêtée.",
@@ -44,6 +72,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Fermer le menu de navigation',
   'mobileNav.openMenu': 'Ouvrir le menu de navigation',
   'noteEditor.backToNotes': 'Retour aux notes',
+  'noteEditor.bodyLabel': 'Corps de la note',
   'noteEditor.bodyPlaceholder':
     "Commencez à écrire — votre note s'enregistre automatiquement au fur et à mesure que vous tapez.",
   'noteEditor.confirmTrash': 'Déplacer cette note à la corbeille ?',
@@ -52,17 +81,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Mettre à la corbeille',
   'noteEditor.updated': 'Mis à jour',
   'notes.defaultWorkspaceName': 'Mon carnet',
+  'notes.empty': "Aucune note ici pour l'instant — commencez-en une pour remplir le carnet.",
   'notes.eyebrow': 'Carnet de notes',
   'notes.filterAll': 'Toutes les notes',
   'notes.filterPinned': 'Épinglés',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Nouveau cahier',
   'notes.newNotebookPrompt': 'Nom du nouveau cahier',
+  'notes.newNotebookRequired': 'Saisissez un nom de carnet.',
   'notes.notebooksHeading': 'Cahiers',
   'notes.subtitle':
     'Choisissez un carnet à gauche, puis appuyez sur le bouton Nouvelle note pour commencer une nouvelle entrée.',
+  'planUpdated.body': 'Votre abonnement est maintenant actif.',
   'planUpdated.confirmation': 'Votre formule a été mise à jour',
+  'pricing.advancedFeatures': 'Fonctionnalités avancées',
   'pricing.heading': 'Choisissez votre formule de prise de notes',
+  'reset.changedMind': "Vous avez changé d'avis ?",
   'reset.eyebrow': 'Presque de retour',
   'reset.formSubtitle': "Vous serez connecté une fois l'enregistrement effectué.",
   'reset.headline': 'Choisissez un nouveau mot de passe.',
@@ -72,7 +106,9 @@ export const ui: UiTranslations = {
     'Saisissez le code que nous venons de vous envoyer par courriel et choisissez quelque chose de mémorable.',
   'reset.submit': 'Enregistrer et se connecter',
   'reset.tokenHint': 'Collé depuis votre boîte de réception.',
+  'search.empty': 'Aucune note ne correspond encore à cette requête.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Rechercher dans Refract',
   'search.loading': 'Recherche…',
   'search.noRecent': 'Saisissez une requête ci-dessus pour lancer une recherche dans vos notes.',
   'search.recentLabel': 'Recherches récentes',
@@ -80,12 +116,19 @@ export const ui: UiTranslations = {
     'Accès au texte intégral dans tous les blocs-notes. Saisissez votre recherche ; les résultats s’actualisent au fur et à mesure de votre saisie.',
   'search.title': 'Cherchez le deuxième cerveau.',
   'settings.account.logout': 'Se déconnecter',
+  'settings.account.title': 'Détails du compte',
+  'settings.editor.graphHover.body':
+    "Afficher une petite carte d'aperçu lorsque vous survolez un [[wikilink]] dans l'éditeur.",
+  'settings.editor.graphHover.label': 'Aperçu au survol du graphe de liens retour',
   'settings.editor.lineHeight.body':
     "Quantité d'air entre les lignes du corps. 170 % est le rythme de lecture par défaut.",
+  'settings.editor.lineHeight.label': 'Hauteur de ligne',
   'settings.editor.serif.body':
     "Utilisez la police Georgia pour la colonne de lecture. La police sans empattement reste disponible dans la barre latérale et les barres d'outils.",
+  'settings.editor.serif.label': 'Texte en serif',
   'settings.editor.title': "Typographie et surface d'écriture",
   'settings.eyebrow': 'Verso · Paramètres',
+  'settings.passwordModal.current': 'Mot de passe actuel',
   'settings.passwordModal.error':
     'Impossible de modifier le mot de passe — veuillez vérifier votre mot de passe actuel.',
   'settings.passwordModal.next': 'Nouveau mot de passe',
@@ -95,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Transmettez chaque frappe au clavier via le canal temps réel. Désactivez cette option pour les connexions lentes.',
   'settings.sync.auto.label': 'Synchronisation en temps réel',
+  'settings.sync.title': 'Comment vos notes voyagent',
   'settings.theme.body':
     'La lumière illumine la rubrique éditoriale. Le sépia réchauffe la page pour les soirées.',
   'settings.theme.dark': 'Sombre',
@@ -114,8 +158,12 @@ export const ui: UiTranslations = {
     "Ajoutez des hashtags (#) au titre d'une note (par exemple « Liste de lecture #livres ») et ils apparaîtront ici automatiquement.",
   'tags.emptyTitle': 'Aucune étiquette pour le moment',
   'tags.eyebrow': 'Indice',
+  'tags.goToNotes': 'Aller aux notes →',
+  'tags.loadError': 'Impossible de charger les tags : {{message}}',
   'tags.subtitle':
     "{{tags}} étiquettes à travers {{notes}} Remarques. Ajoutez des hashtags au titre d'une note et ils apparaîtront ici.",
+  'versoAuthShell.sample.body':
+    "Une seconde relecture demain se lit toujours mieux qu'une première ce soir. Rangez la version brute dans le dossier de travail approfondi…",
   'versoAuthShell.sample.label': 'Note quotidienne',
   'versoAuthShell.sample.timestamp': "Aujourd'hui · 9 h 14",
   'versoAuthShell.sample.title': "En laissant les courants d'air respirer",
@@ -127,8 +175,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Continuer à écrire',
   'versoTodayHero.createCta': "Commencez la note d'aujourd'hui",
   'versoTodayHero.dailyLabel': 'Note quotidienne',
+  'versoTodayHero.emptyHeadline': "Aujourd'hui est une page blanche.",
   'versoTodayHero.emptySubline':
     'Capturez une idée, notez une réunion ou esquissez votre avenir. Verso préserve la sobriété de la mise en page pour que votre écriture reste percutante.',
+  'versoTodayHero.outlineLabel': 'Le plan du jour',
   'versoTodayHero.streak': 'Série de {{count}} jours',
+  'versoTodayHero.unwritten': 'Pas encore de mots — ouvrez la note pour commencer.',
   'versoTodayHero.wordCount': '{{count}} mots du jour',
 }

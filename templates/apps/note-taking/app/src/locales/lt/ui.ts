@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite atsiliepimų, radote klaidą ar norite pasiūlyti funkciją? Susisiekite per savo paskyros nustatymus — kiekviena žinutė pasiekia tikrą komandos žmogų.',
+  'about.contactTitle': 'Susisiekite su mumis',
+  'about.featureDatabases':
+    'Lengvos duomenų bazės ir daugkartiniai šablonai, padedantys laisvas pastabas paversti struktūrizuotais, pakartojamais darbo procesais.',
+  'about.featureEditor':
+    'Ramus blokų redaktorius — antraštės, sąrašai, kodas, iškvietimai ir užduotys — su pasviruoju brūkšniu paleidžiamomis komandomis, kai jų norite, ir netrukdančiomis, kai nenorite.',
+  'about.featureGraph':
+    'Atgalinės nuorodos ir žinių grafas: įrašykite [[, kad susietumėte pastabą, ir stebėkite, kaip jūsų idėjos laikui bėgant susijungia.',
+  'about.featureNotebooks':
+    'Įdėtos užrašinės ir puslapiai, kad projektai, temos ir dienos pastabos išliktų tvarkingos būtent taip, kaip mąstote.',
+  'about.featureSearch':
+    'Viso teksto paieška per visą užrašinę greičiau nei per 50 ms, o žymos dera su užrašinėmis, o ne kovoja su jomis.',
+  'about.missionTitle': 'Mūsų misija',
   'common.goToDashboard': 'Eiti į suvestinę',
   'forgot.eyebrow': 'Pametėte kelią atgal?',
   'forgot.formSubtitle': 'Nurodykite mums el. pašto adresą, esantį byloje.',
+  'forgot.formTitle': 'Pamiršote slaptažodį',
   'forgot.headline': 'Atkurkite slaptažodį.',
   'forgot.subline':
     'Į jūsų pašto dėžutę išsiųsime vienkartinę nuorodą, kad galėtumėte pasirinkti naują.',
+  'forgot.successDetail':
+    'Išsiuntėme slaptažodžio atkūrimo nuorodą į jūsų el. paštą. Ji galioja 30 minučių.',
   'graph.eyebrow': 'Grafikas',
+  'graph.goToNotes': 'Naršyti pastabas →',
+  'graph.loadError': 'Nepavyko įkelti grafo: {{message}}',
   'graph.placeholderBody':
     'Kai užrašai pradeda jungtis tarpusavyje (naudojant [[wiki]] sintaksę), čia bus rodomas interaktyvus, priverstinai valdomas grafikas.',
+  'graph.placeholderTitle': 'Atgalinių nuorodų grafas netrukus',
   'graph.subtitle':
     '{{count}} pastabos šioje darbo srityje. Atgalinių nuorodų grafiko atvaizdavimas bus rodomas čia, kai pastabos bus susietos viena su kita.',
   'graph.title': 'Žinių grafikas',
   'home.empty': 'Dar nėra užrašų – pradėkite savo pirmąjį.',
   'home.favoritesHeading': 'Prisegta',
   'home.guest': 'draugas',
+  'home.loadError': 'Nepavyko įkelti jūsų pastabų: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Prisekite užrašą redaktoriuje, kad jis būtų čia.',
   'home.recentHeading': 'Neseniai atnaujinta',
@@ -23,19 +44,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Užrašų knygelė',
   'home.stats.pinned.label': 'Prisegta',
   'home.stats.updatedToday.label': 'Atnaujinta šiandien',
+  'home.subtitle': 'Tęskite ten, kur baigėte, arba pradėkite naują pastabą.',
   'home.viewAll': 'Peržiūrėti visas pastabas',
   'landing.cta.body':
     'Nemokama asmeniniam naudojimui. Profesionali komandoms. Atsineškite esamą užrašų knygelę arba pradėkite iš naujo – „Verso“ visada su jumis, kad ir kur būtų jūsų užrašai.',
+  'landing.cta.button': 'Sukurti mano darbo sritį',
   'landing.cta.heading': 'Atidarykite šiandienos puslapį.',
   'landing.features.eyebrow':
     'Kiekvienas primityvus elementas, kurio reikia jūsų antrosioms smegenims',
+  'landing.features.heading': 'Sukurtas darbui, o ne meta-kūriniui.',
   'landing.hero.eyebrow': 'Tylus rašymo paviršius',
   'landing.hero.headlineAccent': 'įgauti formą.',
   'landing.hero.headlineLeading': 'Kur mintys',
   'landing.hero.primaryCta': 'Pradėkite savo žinių bazę',
   'landing.hero.secondaryCta': 'Aš jau turiu paskyrą',
+  'landing.hero.socialProof': '12 800+ rašytojų, studentų ir daktarų mąsto su {{appName}}',
   'landing.hero.subline':
     '„Verso“ – tai struktūrizuota užrašų darymo platforma žinių darbuotojams ir studentams. Blokų redaktorius, įterptosios užrašinės, atgalinės nuorodos ir žinių grafikas – visa tai sukurta naudojant tipografiją kaip skaitymo įrankį.',
+  'landing.preview.notebook': 'Žinios · Rašymo procesas',
+  'landing.preview.title': 'Leidžiant skersvėjams kvėpuoti',
   'login.eyebrow': 'Sveiki sugrįžę į Verso',
   'login.formSubtitle': 'Naudokite savo el. paštą arba bet kurį prijungtą paslaugų teikėją.',
   'login.headline': 'Tęskite skaitymą ten, kur puslapis sustojo.',
@@ -45,6 +72,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
   'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
   'noteEditor.backToNotes': 'Atgal į užrašus',
+  'noteEditor.bodyLabel': 'Pastabos turinys',
   'noteEditor.bodyPlaceholder':
     'Pradėkite rašyti – jūsų užrašas automatiškai išsaugomas jums rašant.',
   'noteEditor.confirmTrash': 'Perkelti šį užrašą į šiukšliadėžę?',
@@ -53,17 +81,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Perkelti į šiukšlinę',
   'noteEditor.updated': 'Atnaujinta',
   'notes.defaultWorkspaceName': 'Mano užrašų knygelė',
+  'notes.empty': 'Čia dar nėra pastabų — pradėkite vieną, kad užpildytumėte užrašinę.',
   'notes.eyebrow': 'Užrašų knygelė',
   'notes.filterAll': 'Visos pastabos',
   'notes.filterPinned': 'Prisegta',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Naujas užrašų knygelė',
   'notes.newNotebookPrompt': 'Naujas užrašinės pavadinimas',
+  'notes.newNotebookRequired': 'Įveskite užrašinės pavadinimą.',
   'notes.notebooksHeading': 'Užrašinės',
   'notes.subtitle':
     'Kairėje pasirinkite užrašų knygelę ir paspauskite mygtuką „Nauja pastaba“, kad pradėtumėte naują įrašą.',
+  'planUpdated.body': 'Jūsų prenumerata dabar aktyvi.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Išplėstinės funkcijos',
   'pricing.heading': 'Pasirinkite savo užrašų darymo planą',
+  'reset.changedMind': 'Persigalvojote?',
   'reset.eyebrow': 'Beveik grįžęs',
   'reset.formSubtitle': 'Būsite prijungti, kai tik bus išsaugota.',
   'reset.headline': 'Pasirinkite naują slaptažodį.',
@@ -73,7 +106,9 @@ export const ui: UiTranslations = {
     'Įveskite kodą, kurį ką tik jums išsiuntėme el. paštu, ir išsirinkite ką nors įsimintino.',
   'reset.submit': 'Išsaugoti ir prisijungti',
   'reset.tokenHint': 'Įklijuota iš jūsų pašto dėžutės.',
+  'search.empty': 'Šios užklausos dar neatitinka jokia pastaba.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Ieškoti „Refract“',
   'search.loading': 'Ieškoma…',
   'search.noRecent': 'Įveskite užklausą aukščiau, kad pradėtumėte paiešką savo užrašuose.',
   'search.recentLabel': 'Naujausios paieškos',
@@ -81,12 +116,19 @@ export const ui: UiTranslations = {
     'Visas tekstas kiekviename užrašų knygelėje. Įveskite tekstą, kad ieškotumėte; rezultatai atnaujinami rašant.',
   'search.title': 'Ieškokite antrųjų smegenų.',
   'settings.account.logout': 'Atsijungti',
+  'settings.account.title': 'Paskyros duomenys',
+  'settings.editor.graphHover.body':
+    'Rodyti mažą peržiūros kortelę, kai redaktoriuje užvedate pelę ant [[vikinuorodos]].',
+  'settings.editor.graphHover.label': 'Atgalinių nuorodų grafo peržiūra užvedus pelę',
   'settings.editor.lineHeight.body':
     'Kiek oro yra tarp kūno linijų. 170 % yra numatytasis skaitymo ritmas.',
+  'settings.editor.lineHeight.label': 'Eilutės aukštis',
   'settings.editor.serif.body':
     'Skaitymo stulpeliui naudokite Džordžijos šriftą. Šoninėje juostoje ir įrankių juostose išlieka be serifo.',
+  'settings.editor.serif.label': 'Serifinis pagrindinis tekstas',
   'settings.editor.title': 'Tipografija ir rašymo paviršius',
   'settings.eyebrow': 'Verso · Nustatymai',
+  'settings.passwordModal.current': 'Dabartinis slaptažodis',
   'settings.passwordModal.error':
     'Nepavyko pakeisti slaptažodžio – patikrinkite dabartinį slaptažodį.',
   'settings.passwordModal.next': 'Naujas slaptažodis',
@@ -96,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Kiekvieną klavišo paspaudimą spauskite realiuoju laiku. Jei ryšys lėtesnis, išjunkite.',
   'settings.sync.auto.label': 'Sinchronizavimas realiuoju laiku',
+  'settings.sync.title': 'Kaip keliauja jūsų pastabos',
   'settings.theme.body':
     'Šviesa išlaiko redakcijos skiltį ryškią. Vakarais puslapis atrodo šiltai sepija.',
   'settings.theme.dark': 'Tamsu',
@@ -115,8 +158,12 @@ export const ui: UiTranslations = {
     'Pridėkite #grotažymes prie užrašo pavadinimo (pvz., „Skaitymo sąrašas #knygos“) ir jos čia bus rodomos automatiškai.',
   'tags.emptyTitle': 'Žymų dar nėra',
   'tags.eyebrow': 'Indeksas',
+  'tags.goToNotes': 'Eiti į pastabas →',
+  'tags.loadError': 'Nepavyko įkelti žymų: {{message}}',
   'tags.subtitle':
     '{{tags}} žymės visoje {{notes}} užrašai. Pridėkite #grotažymes prie užrašo pavadinimo ir jos bus rodomos čia.',
+  'versoAuthShell.sample.body':
+    'Antras bandymas rytoj visada skaitosi geriau nei pirmas šį vakarą. Palikite juodraštį giliojo darbo aplanke…',
   'versoAuthShell.sample.label': 'Dienos užrašas',
   'versoAuthShell.sample.timestamp': 'Šiandien · 9:14 val.',
   'versoAuthShell.sample.title': 'Leidžiant skersvėjams kvėpuoti',
@@ -128,8 +175,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Tęsti rašymą',
   'versoTodayHero.createCta': 'Pradėkite šiandienos užrašą',
   'versoTodayHero.dailyLabel': 'Dienos užrašas',
+  'versoTodayHero.emptyHeadline': 'Šiandien yra tuščias puslapis.',
   'versoTodayHero.emptySubline':
     'Užfiksuokite mintį, užsirašykite susitikimą ar eskizuokite rytojui. „Verso“ išlaiko struktūrą tylią, kad rašymas būtų garsus.',
+  'versoTodayHero.outlineLabel': 'Šiandienos planas',
   'versoTodayHero.streak': '{{count}} - dienų serija',
+  'versoTodayHero.unwritten': 'Dar nėra žodžių — atidarykite pastabą, kad pradėtumėte.',
   'versoTodayHero.wordCount': '{{count}} žodžiai šiandien',
 }

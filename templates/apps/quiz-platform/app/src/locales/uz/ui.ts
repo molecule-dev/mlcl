@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Fikr-mulohazangiz bormi, xatolik topdingizmi yoki {{app}} ni maktabingiz yoki jamoangizga olib kelmoqchimisiz? Biz har bir xabarni o'qiymiz — hisob sozlamalaridan murojaat qiling va haqiqiy inson javob beradi.",
   'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.intro':
+    '{{app}} sinf xonalari, o‘yin kechalari va jamoa tadbirlari uchun jonli viktorina platformasidir. O‘ynoqi savol to‘plamlarini yarating, qo‘shilish kodi bilan real vaqtda o‘yinlar o‘tkazing va vaqtli savollar, ball hisoblash va yetakchilar jadvali bilan xonani jonlanishini kuzating.',
+  'about.missionBody':
+    'O‘yin kabi tuyulganda o‘rganish yodda qoladi. Biz har kimga mavzuni tez, raqobatbardosh o‘yinga aylantirishni osonlashtiramiz — shunda boshlovchilar amalda o‘rgatadi, o‘yinchilar esa seriyani davom ettiradi.',
+  'about.missionTitle': 'Bizning vazifamiz',
   'about.title': '{{app}} haqida',
   'auth.login.noAccount': 'Sparqda yangimisiz?',
   'auth.login.or': 'yoki davom eting',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Hali hech qanday mos test topilmadi.',
   'discover.headline': 'Keyingi sevimli viktorinangizni toping.',
   'discover.loading': 'Yuklanmoqda…',
+  'discover.searchPlaceholder': 'Viktorinalarni sarlavha bo‘yicha qidirish…',
   'discover.subhead':
     "To'liq kutubxonani ko'rib chiqing, kategoriya bo'yicha filtrlang yoki sarlavha bo'yicha qidiring. Yakkaxon ijro etish yoki jonli efirda boshlovchilik qilish uchun kartani bosing.",
   'forgotPassword.subhead':
     'Elektron pochtangizni kiriting va biz sizga qayta tiklash uchun havola yuboramiz.',
   'forgotPassword.success.body':
     "Agar hisob mavjud bo'lsa {{email}} , siz bir necha daqiqadan so'ng tiklash havolasini olasiz.",
+  'forgotPassword.success.title': 'Pochta qutingizni tekshiring.',
   'hostLobby.back': 'Viktorinaga qaytish',
   'hostLobby.copied': "Qo'shilish kodi buferga nusxalandi.",
   'hostLobby.creating': 'Lobbiingizni bezatmoqda…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Lobbi bekor qilish',
   'hostLobby.players.count': '{{count}} jonli',
   'hostLobby.players.title': "Foyedagi o'yinchilar",
+  'hostLobby.players.waiting':
+    'O‘yinchilar kutilmoqda. Qo‘shilishlari uchun {{code}} kodini ulashing.',
   'hostLobby.rules.title': 'Uy qoidalari',
   'hostLobby.startError': "O'yinni boshlay olmadim.",
   'hostLobby.starting': 'Uchqunni boshlash…',
   'joinCodeHero.headline': "O'yinchilaringizga maydonga tushishni ayting.",
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Yoki tashrif buyuring',
   'joinCodeHero.liveLabel': 'Lobbi jonli efirda',
+  'joinCodeHero.playerJoined': '{{name}} qo‘shildi',
   'joinCodeHero.playersLabel': "O'yinchilar",
   'joinCodeHero.qrLabel': "Qo'shilish uchun skanerlang",
   'joinCodeHero.startGame': 'Uchqunni boshlang',
   'joinCodeHero.subhead':
     "Qo'shilish kodini ulashing yoki QR kodini skanerlang. O'yin uchqun otishingiz bilan boshlanadi.",
+  'landing.cta.button': 'Birinchi viktorinangizni yarating',
   'landing.cta.eyebrow': "O'qituvchilar uchun bepul",
   'landing.cta.heading': 'Har bir darsga uchqun olib keling.',
+  'landing.cta.subhead':
+    '30 soniyada ro‘yxatdan o‘ting. Cheksiz jonli o‘yinlar o‘tkazing, AI bilan viktorinalar tuzing va har bir o‘yinchining seriyasini saqlang.',
   'landing.eyebrow': 'Har bir javobni yoqing',
   'landing.features.heading':
     "Sizning dars berish va o'ynash uslubingizga mos keladigan viktorina studiyasi.",
@@ -58,6 +74,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Ommabop viktorinalar',
   'landing.popular.eyebrow': 'Bu hafta mashhur',
   'landing.popular.heading': 'Bugun viktorina boshlovchilari ishlamoqda.',
+  'landing.popular.viewAll': 'Barcha toifalarni ko‘rish →',
+  'leaderboard.empty.body':
+    'Global yetakchilar jadvaliga ballingizni qo‘yish uchun viktorina o‘ynang.',
   'leaderboard.empty.title': "Hali doskada o'yinlar yo'q — birinchi bo'ling.",
   'leaderboard.eyebrow': 'Yetakchilar jadvali',
   'leaderboard.fullRanking': "To'liq reyting",
@@ -65,6 +84,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     "O'ynagan har bir viktorina sessiyasi bo'yicha umumiy ball. Ko'proq o'ynab, ko'taring.",
   'leaderboard.title': 'Eng yaxshi viktorina ustalari',
+  'leaderboard.totalPlayers': '{{count}} reytingli o‘yinchi',
   'leaderboardRow.points': 'ball',
   'leaderboardRow.streak': '{{days}} d',
   'login.headline': 'Xush kelibsiz, viktorina ustasi.',
@@ -76,10 +96,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Birinchi viktorinangizni yarating →',
   'myQuizzes.empty.created': 'Siz hali viktorina yaratmadingiz.',
   'myQuizzes.empty.played': "Hali nashr etilgan viktorinalar yo'q.",
+  'myQuizzes.loading': 'Yuklanmoqda…',
   'myQuizzes.subhead':
     "Siz yaratgan qoralamalar, shuningdek, o'ynashingiz mumkin bo'lgan nashr etilgan viktorinalar.",
   'myQuizzes.title': 'Mening viktorinalarim',
   'nav.legal': 'Huquqiy',
+  'nav.primaryNavLabel': 'Asosiy navigatsiya',
   'notFound.backHome': 'Uyga qaytish',
   'notFound.backToDiscover': "Viktorinalarni ko'rib chiqing",
   'notFound.body': "Boshqa kodni sinab ko'ring yoki foyega qayting.",
@@ -88,17 +110,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Yuklanmoqda…',
   'notifications.subhead':
     "{{count}} o'qilmagan uchqunlar. Taklifnomalar, peshqadamlar jadvalidagi o'zgarishlar va yutuqlarning barchasi bitta oqimda.",
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
+  'pricing.advancedFeatures': 'Kengaytirilgan funksiyalar: {{yes}}',
+  'pricing.canExport': "Ma'lumotlarni eksport qilish: {{yes}}",
   'pricing.checkoutError': "To'lovni boshlash imkoni bo'lmadi. Qaytadan urinib ko'ring.",
   'pricing.heading': '{{app}} rejasini tanlang',
   'pricing.included': 'Kiritilgan',
   'pricing.loadError': 'Rejalar yuklanmadi.',
+  'pricing.maxQuestions': '{{count}} savollar',
   'pricing.maxQuizzes': '{{count}} viktorinalar',
+  'pricing.maxSessions': '{{count}} ta sessiya',
   'pricing.subhead':
     "Xostlar va o'yinchilar uchun bepul. Yuqori limitlar va ilg'or funksiyalar uchun yangilang.",
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     "Hisob: elektron pochta, parolni xeshlash, ko'rsatiladigan ism, familiya, tizimga kirishning oxirgi usuli.",
+  'privacy.intro':
+    "{{app}} maxfiyligingizni hurmat qiladi. Bu sahifada biz saqlaydigan ma'lumotlar, ularni nima uchun saqlashimiz va ularni qanday o'chirish haqida qisqacha ma'lumot berilgan.",
   'privacy.rights.body':
     "30 kun ichida barcha ma'lumotlaringizni butunlay olib tashlash uchun Sozlamalar orqali hisobingizni o'chirib tashlang.",
   'privacy.share.body':
@@ -122,6 +154,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Viktorina identifikatori: {{id}}',
   'quizBuilder.loadError': "Viktorinani yuklab bo'lmadi.",
   'quizBuilder.loading': 'Muharrir yuklanmoqda…',
+  'quizBuilder.markCorrect': '{{letter}} ni to‘g‘ri deb belgilash',
   'quizBuilder.noQuestions': "Hali savol yo'q — boshlash uchun bitta qo'shing.",
   'quizBuilder.notFound': 'Viktorina topilmadi.',
   'quizBuilder.preview': "Ko'rish",
@@ -138,7 +171,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} s taymeri',
   'quizBuilder.title': 'Viktorinangizni yarating',
   'quizBuilder.titleLabel': 'Viktorina sarlavhasi',
+  'quizBuilder.untitled': 'Nomsiz savol',
   'quizCard.plays': '{{count}} spektakllar',
+  'quizCard.questionCount': '{{count}} savol',
   'quizDetail.duration': '~ {{minutes}} daqiqa',
   'quizDetail.hostMultiplayer': "Ko'p o'yinchi o'yinchisi sifatida mezbonlik qilish",
   'quizDetail.leaderboardEmpty': "Hali o'yinlar yo'q — birinchi bo'lib hisobni oching.",
@@ -153,26 +188,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Viktorinaga qaytish',
   'quizPlay.empty': "Ushbu viktorinada hali hech qanday savol yo'q.",
   'quizPlay.error': "Bu viktorinani yuklab bo'lmadi. Qaytadan urinib ko'ring.",
+  'quizPlay.exit': 'Chiqish',
   'quizPlay.feedback.correct': "🔥 Spark keyingi bosqichga o'tdi!",
+  'quizPlay.feedback.incorrect': 'To‘g‘ri javob {{correct}} edi. Davom eting.',
   'quizPlay.loading': 'Viktorina yuklanmoqda…',
   'quizPlay.next': 'Keyingi savol',
   'quizPlay.questionCounter': 'Savol {{current}} ning {{total}}',
   'quizPlay.score': '{{score}} ball',
+  'quizPlay.seeResults': 'Natijalarni ko‘rish',
   'quizPlay.sessionFailed': "Sessiyani boshlab bo'lmadi.",
   'quizPlay.streak': '{{count}} chiziq',
+  'resetPassword.subhead': 'Seriyangizga qaytish uchun yangi parol tanlang.',
   'results.backToDiscover': 'Discover sahifasiga qaytish',
   'results.error': 'Natijalar yuklanmadi.',
   'results.exit': 'Discover sahifasiga qaytish',
   'results.loading': 'Ballaringizni hisoblash…',
   'results.missingSession': "Xulosa qilish uchun sessiya yo'q.",
+  'results.recap.correctAnswer': 'To‘g‘ri: {{answer}}',
   'results.recap.questionLabel': 'Savol {{number}}',
   'results.recap.title': 'Savol xulosasi',
+  'results.recap.yourAnswer': 'Siz: {{answer}}',
   'results.unknownQuiz': 'Viktorina',
   'scoreBreakdownCard.accuracyLabel': 'Aniqlik',
+  'scoreBreakdownCard.correctLabel': "To'g'ri",
   'scoreBreakdownCard.eyebrow': 'Viktorina yakunlandi',
   'scoreBreakdownCard.headline': 'Yaxshi ish " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Ballar',
   'scoreBreakdownCard.rankLabel': 'Darajasi',
+  'scoreBreakdownCard.streakBonus': 'Seriya bonusi +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Uchquningiz ko‘rinib turibdi. Yetakchilar jadvalida yuqorilashda davom etish uchun quyidagi tahlilni ko‘rib chiqing.',
   'settings.danger.body':
     'Sparq hisobingizni va barcha yaratilgan viktorinalarni butunlay olib tashlang.',
   'settings.danger.confirm': "Ha, butunlay o'chirib tashlansin",
@@ -191,5 +236,7 @@ export const ui: UiTranslations = {
     "Siz nashr etgan kontent, mualliflik qilgan savollar va o'tkazgan har qanday o'yinlar uchun javobgarsiz. Boshqa odamlarga taqlid qilmang.",
   'terms.billing.body':
     'Pullik rejalar Sozlamalar orqali bekor qilinmaguncha avtomatik ravishda yangilanadi. Siz istalgan vaqtda bekor qilishingiz mumkin; kirish joriy hisob-kitob davri tugaguniga qadar davom etadi.',
+  'terms.intro':
+    '{{app}} dan foydalanish bilan quyidagi qoidalarga rozilik bildirasiz. Agar ularni qabul qila olmasangiz, iltimos, xizmatdan foydalanmang.',
   'terms.title': "Xizmat ko'rsatish shartlari",
 }

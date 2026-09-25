@@ -3,8 +3,13 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Kontaktieren Sie uns',
   'about.eyebrow': 'Über uns',
+  'about.missionTitle': 'Unsere Mission',
+  'about.subtitle':
+    'Anspruchsvolles, verbindliches, messbares OKR-Tracking für Teams, die nach oben wollen.',
   'ascentSideNav.nav.notifications': 'Benachrichtigungen',
   'ascentSideNav.newObjective': 'Neues Ziel',
+  'authShell.brandBody':
+    '{{appName}} verknüpft Objectives mit Key Results und wöchentlichen Check-ins, damit Fortschritt immer sichtbar ist — und immer ehrlich.',
   'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': 'Setzen Sie den Gipfel. Bewerten Sie den Aufstieg. Coachen Sie das Team.',
   'authShell.eyebrow': 'OKRs, die Teams bewegen',
@@ -16,20 +21,28 @@ export const ui: UiTranslations = {
   'billing.confirmCancel': 'Ihr Abonnement zum Ende des aktuellen Zeitraums kündigen?',
   'billing.currentPlanFreeFooter':
     'Sie nutzen den kostenlosen Tarif. Upgraden Sie für höhere Limits.',
+  'billing.currentPlanPaidFooter': 'Aktives Abo · {{plan}}',
   'billing.downloadCurrent': 'Zusammenfassung herunterladen',
   'billing.downloading': 'Wird vorbereitet…',
   'billing.error.priceUnavailable':
     'Dieser Plan ist im aktuellen Umfeld nicht für den Checkout konfiguriert.',
   'billing.eyebrow': 'Arbeitsbereich · Abrechnung',
   'billing.heading': 'Plan & Rechnungen',
+  'billing.message.canceled': 'Das Abo endet mit Ablauf des aktuellen Zeitraums.',
   'billing.period.year': 'Jährlich',
+  'billing.perk.advanced': 'Erweiterte Reviews + Erinnerungen',
   'billing.perk.export': 'Datenexport + API-Zugriff',
   'billing.perk.inApp': 'In-App-Berichterstattung',
+  'billing.perk.keyResults': '{{count}} Key Results',
+  'billing.perk.objectives': '{{count}} Objectives',
+  'billing.perk.retention': '{{count}} Tage Verlauf',
   'billing.perk.standard': 'Standardbewertungen',
+  'billing.perk.unlimitedKrs': 'Unbegrenzte KRs',
   'billing.perk.unlimitedObjectives': 'Unbegrenzte Ziele',
   'billing.perk.unlimitedRetention': 'Unbegrenzte Aufbewahrung',
   'billing.subheading':
     'Sie nutzen den Plan {{name}}. Vergleichen Sie Stufen und upgraden Sie unten.',
+  'billing.subheading.loading': 'Dein aktueller Tarif wird geladen…',
   'billing.tier.unavailable': 'Nicht verfügbar',
   'billing.tier.upgrade': 'Upgrade auf {{name}}',
   'billing.tiersError': 'Preise konnten nicht geladen werden. Versuchen Sie es später erneut.',
@@ -40,12 +53,14 @@ export const ui: UiTranslations = {
   'checkIn.emptyTitle': 'Noch nichts zum Einchecken',
   'checkIn.eyebrow': 'Wöchentlicher Rhythmus',
   'checkIn.heading': 'Wöchentliches Check-in',
+  'checkIn.loading': 'Deine KRs werden geladen…',
   'checkIn.newObjective': 'Neues Ziel',
   'checkIn.noKrs': 'Keine Key Results — fügen Sie einige über Bearbeiten hinzu.',
   'checkIn.noteLabel': 'Eine Notiz für Ihr Team',
   'checkIn.notePlaceholder':
     'Lichtblick, Blocker oder Coaching-Anfrage — halten Sie es unter drei Sätzen.',
   'checkIn.openObjective': 'Öffnen →',
+  'checkIn.progressLabel': 'KRs auf Kurs',
   'checkIn.subheading':
     'Aktualisieren Sie den aktuellen Wert für jeden KR, markieren Sie Vertrauen, hinterlassen Sie eine Notiz und senden Sie.',
   'checkIn.submit': 'Check-in senden',
@@ -62,10 +77,16 @@ export const ui: UiTranslations = {
   'dashboard.allActivity': 'Alle Aktivitäten ansehen →',
   'dashboard.coachBodyAtRisk':
     '{{atRisk}} KRs sind diese Woche abgerutscht. Ein 15-minütiges Gespräch heute kauft Ihnen normalerweise eine ganze Woche Erholung.',
+  'dashboard.coachBodyOk':
+    'Deine KRs sehen diese Woche gut aus — bleib dran und mach deinen Check-in.',
+  'dashboard.coachCta': 'Wöchentlichen Check-in öffnen →',
   'dashboard.coachLabel': 'Coaching-Hinweis',
   'dashboard.emptyBody':
     'Entwerfen Sie Ihr erstes Ziel, um den wöchentlichen Fortschritt zu verfolgen.',
   'dashboard.emptyTitle': 'Noch keine Ziele',
+  'dashboard.heroBody':
+    'Du verantwortest {{count}} Objectives. {{atRisk}} brauchen einen genaueren Blick — lass sie uns auf Kurs halten.',
+  'dashboard.heroEmpty': 'Du hast noch keine Objectives. Leg dein erstes an.',
   'dashboard.heroProgressLabel': 'Quartalsfortschritt',
   'dashboard.heroTitle': 'Guter Aufstieg, {{name}}.',
   'dashboard.kpiActiveLabel': 'Aktive Ziele',
@@ -78,11 +99,14 @@ export const ui: UiTranslations = {
     'Noch keine Aktivität. Führen Sie ein Check-in durch, um den Aufstieg zu beginnen.',
   'dashboard.objectivesHeading': 'Ihre Ziele',
   'dashboard.startCheckIn': 'Wöchentliches Check-in durchführen',
+  'dashboardLayout.searchAria': 'Objectives suchen',
   'dashboardLayout.searchPlaceholder': 'Ziele, KRs, Personen suchen...',
   'editObjective.addKr': 'KR hinzufügen',
   'editObjective.archive': 'Ziel archivieren',
   'editObjective.backToList': 'Zurück zu Zielen',
   'editObjective.breadcrumbAll': 'Ziele',
+  'editObjective.confirmArchive':
+    'Dieses Objective archivieren? Du findest es später in der archivierten Ansicht.',
   'editObjective.descriptionLabel': 'Warum das wichtig ist',
   'editObjective.eyebrow': 'Ziel bearbeiten',
   'editObjective.heading': 'Aktualisieren Sie das Ergebnis, KRs, Ausrichtung oder Rhythmus.',
@@ -96,6 +120,7 @@ export const ui: UiTranslations = {
   'editObjective.targetPlaceholder': 'Ziel',
   'forgotPassword.emailPlaceholder': 'sie@team.com',
   'forgotPassword.heading': 'Passwort zurücksetzen.',
+  'forgotPassword.rememberPrompt': 'Schon erinnert? ',
   'forgotPassword.subheading':
     'Geben Sie die mit Ihrem Ascent-Konto verknüpfte E-Mail ein und wir senden einen Reset-Link.',
   'forgotPassword.successBody':
@@ -123,6 +148,7 @@ export const ui: UiTranslations = {
   'landing.heroTitle': 'Steigen Sie zu dem auf, was zählt.',
   'login.emailPlaceholder': 'sie@team.com',
   'login.heading': 'Willkommen zurück, Bergsteiger.',
+  'login.noAccountPrompt': 'Neu bei {{appName}}? ',
   'login.orContinueWith': 'oder weiter mit',
   'login.subheading':
     'Machen Sie dort weiter, wo Sie aufgehört haben — Ihre Check-ins, KRs und Reviews warten.',
@@ -131,6 +157,7 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Navigationsmenü öffnen',
   'newObjective.addKr': 'KR hinzufügen',
   'newObjective.coachLabel': 'Coaching-Erinnerungen',
+  'newObjective.descriptionLabel': 'Warum das wichtig ist',
   'newObjective.descriptionPlaceholder': 'Erklären Sie den strategischen Kontext in 2–3 Sätzen.',
   'newObjective.errorTitleRequired': 'Geben Sie Ihrem Ziel einen Titel.',
   'newObjective.eyebrow': 'Neues Ziel · Den Gipfel setzen',
@@ -148,13 +175,18 @@ export const ui: UiTranslations = {
   'newObjective.submit': 'Ziel speichern',
   'newObjective.targetPlaceholder': 'Ziel',
   'newObjective.tip1': 'Beginnen Sie mit einem Verb: „Werden…“, „Reduzieren…“, „Gewinnen…“',
+  'newObjective.tip2': 'KRs müssen messbar sein — vermeide „X verbessern“.',
+  'newObjective.tip3': '3–5 KRs sind optimal. Mehr erzeugt nur Rauschen.',
   'newObjective.titlePlaceholder': 'Das OKR werden, das Produktentwicklung liebt',
+  'notifications.emptyBody':
+    'Coaching-Erinnerungen, Erwähnungen und Review-Erinnerungen landen hier.',
   'notifications.emptyTitle': 'Keine Benachrichtigungen in dieser Ansicht.',
   'notifications.eyebrow': 'Aktivitätszentrum',
   'notifications.markRead': '● Als gelesen markieren',
   'objective.scopes.company': 'Unternehmen',
   'objective.scopes.individual': 'Person',
   'objective.scopes.team': 'Team',
+  'objectiveCard.krProgress': '{{done}}/{{total}} KRs',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Zurück zu Zielen',
   'objectiveDetail.edit': 'Ziel bearbeiten',
@@ -165,6 +197,11 @@ export const ui: UiTranslations = {
   'objectiveDetail.notFound': 'Ziel nicht gefunden.',
   'objectiveDetail.owner': 'Im Besitz von {{name}}',
   'objectiveDetail.runCheckIn': 'Check-in durchführen',
+  'objectiveDetail.timelineHeading': 'Check-in-Verlauf',
+  'objectives.emptyBody':
+    'Entwerfen Sie Ihr erstes Ziel, um den wöchentlichen Fortschritt zu verfolgen.',
+  'objectives.emptyFilteredBody':
+    'Versuche, den Filter zu löschen oder ein neues Objective anzulegen.',
   'objectives.emptyFilteredTitle': 'Noch keine Ziele entsprechen diesen Filtern.',
   'objectives.emptyTitle': 'Noch keine Ziele',
   'objectives.eyebrow': 'Unternehmensplan',
@@ -175,6 +212,11 @@ export const ui: UiTranslations = {
   'objectives.searchPlaceholder': 'Nach Titel filtern…',
   'objectives.subheading':
     '{{count}} Ziele werden verfolgt. Filtern Sie nach Status, um zu finden, was Aufmerksamkeit braucht.',
+  'pricing.limit.advanced': 'Erweiterte Funktionen: {{value}}',
+  'pricing.limit.checkIns': '{{count}} Check-ins',
+  'pricing.limit.export': 'Datenexport: {{value}}',
+  'pricing.limit.keyResults': '{{count}} Key Results',
+  'pricing.limit.objectives': '{{count}} Objectives',
   'profile.achievementCheckInsMany': '{{count}} Check-ins protokolliert',
   'profile.achievementCheckInsOne': '1 Check-in protokolliert',
   'profile.achievementCompletedMany': '{{count}} Ziele abgeschlossen',
@@ -183,6 +225,7 @@ export const ui: UiTranslations = {
   'profile.achievementOnTrackOne': '1 Ziel auf Kurs',
   'profile.activeHeading': 'Aktive Ziele',
   'profile.allObjectives': 'Alle Ziele →',
+  'profile.createFirst': 'Objective erstellen',
   'profile.empty': 'Noch keine aktiven Ziele — erstellen Sie Ihr erstes, um zu beginnen.',
   'profile.eyebrow': 'Bergsteiger-Profil',
   'profile.guestName': 'Bergsteiger',
@@ -195,13 +238,18 @@ export const ui: UiTranslations = {
   'profile.statsHeading': 'Dieses Quartal',
   'profile.streakLabel': 'Quartal bisher',
   'resetPassword.backLink': 'Stattdessen anmelden',
+  'resetPassword.backPrompt': 'Doch nicht zurücksetzen? ',
   'resetPassword.emailPlaceholder': 'sie@team.com',
   'resetPassword.heading': 'Neues Passwort festlegen.',
+  'resetPassword.passwordLabel': 'Neues Passwort',
   'resetPassword.reset': 'Passwort aktualisieren und anmelden',
   'resetPassword.resetting': 'Passwort wird aktualisiert…',
   'resetPassword.subheading':
     'Wählen Sie etwas Starkes — mindestens acht Zeichen, mischen Sie Zahlen ein, wenn möglich.',
   'reviewDetail.backToList': 'Zurück zu Reviews',
+  'reviewDetail.body':
+    '{{count}} aktive(s) Objective(s) · Bewertung {{grade}}. Bearbeite Reflexionen und Bewertung unten.',
+  'reviewDetail.colObjective': 'Objective',
   'reviewDetail.confirmDelete': 'Diesen Review-Entwurf löschen?',
   'reviewDetail.delete': 'Entwurf löschen',
   'reviewDetail.eyebrow': '{{status}} · {{date}}',
@@ -213,8 +261,10 @@ export const ui: UiTranslations = {
   'reviewDetail.reflectionsPlaceholder':
     'Was lief gut? Was nicht? Notizen für das nächste Quartal.',
   'reviewDetail.scorecardHeading': 'Scorecard',
+  'reviewDetail.scoreLabel': 'Durchschnittsscore',
   'reviewDetail.submitted': 'Gesendet',
   'reviewDetail.submittedToast': 'Review gesendet',
+  'reviewDetail.untitled': 'Quartalsreview · zum Bearbeiten unten klicken',
   'reviews.createDraft': 'Entwurf starten',
   'reviews.empty.body':
     'Quartals-Reviews erscheinen hier, sobald Sie einen Entwurf starten. Klicken Sie oben auf "Entwurf starten", um zu beginnen.',
@@ -224,11 +274,15 @@ export const ui: UiTranslations = {
   'reviews.eyebrow': 'Quartals-Retrospektiven',
   'reviews.grade': 'Note {{grade}}',
   'reviews.loading': 'Reviews werden geladen…',
+  'reviews.notSubmitted': 'Noch nicht eingereicht',
   'reviews.subheading':
     'Zusammenfassende Scorecards, Schlagzeilen-Reflexionen und Noten aus vergangenen Quartalen.',
+  'reviews.submittedAt': 'Eingereicht {{date}}',
+  'reviews.untitled': 'Unbenanntes Review · zum Bearbeiten klicken',
   'settings.billingSubtitle': 'Plan, Sitze und Rechnungen verwalten',
   'settings.billingTitle': 'Abrechnung & Sitze',
   'settings.cadenceBody': 'Wählen Sie, wie oft Ascent Ihr Team zu Check-ins auffordert.',
+  'settings.cadenceHeading': 'Frequenz',
   'settings.eyebrow': 'Arbeitsbereich · Konto · Rhythmus',
   'settings.guestName': 'Bergsteiger',
   'settings.openProfile': 'Profil öffnen',
@@ -236,10 +290,15 @@ export const ui: UiTranslations = {
   'settings.saveError': 'Speichern fehlgeschlagen: {{error}}',
   'settings.toggleCoachDescription':
     'Zeigt Mittel-Quartals-Hinweise, wenn ein KR zwei Vertrauensstufen abrutscht.',
+  'settings.toggleCoachLabel': 'Coaching-Erinnerungen',
   'settings.toggleDigestDescription':
     'Sendet jeden Montag eine Zusammenfassung der Ziele nach Status an jeden Eigentümer.',
+  'settings.toggleDigestLabel': 'Montags-Zusammenfassung per E-Mail',
+  'settings.toggleRemindersDescription':
+    'Benachrichtige das Team am Freitagmorgen, wenn ein Check-in noch fehlt.',
   'settings.toggleRemindersLabel': 'Wöchentliche Check-in-Erinnerungen',
   'signup.emailPlaceholder': 'sie@team.com',
+  'signup.haveAccountPrompt': 'Du hast bereits ein Konto? ',
   'signup.heading': 'Planen Sie Ihren ersten Aufstieg.',
   'signup.namePlaceholder': 'Avery Mountaineer',
   'signup.orContinueWith': 'oder weiter mit',
@@ -258,6 +317,7 @@ export const ui: UiTranslations = {
   'team.newTeamLabel': 'Neues Team',
   'team.newTeamPlaceholder': 'z. B. Kundenerlebnis',
   'team.objectivesLabel': 'Ziele',
+  'team.progressLabel': 'Workspace-Fortschritt',
   'team.subheading':
     '{{teams}} Teams · {{objectives}} Ziele. Gruppieren Sie Ihre OKRs nach Team, um Zusammenfassungen zu sehen.',
 }

@@ -1,13 +1,28 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Întrebări despre o cazare, feedback sau o idee de parteneriat? Contactează echipa din contul tău sau prin concierge-ul din aplicație — fiecare mesaj ajunge la o persoană reală care călătorește și ea.',
   'about.contactTitle': 'Contactează-ne',
+  'about.featureBooking.body':
+    'Compară camerele, tarifele și facilitățile una lângă alta, apoi rezervă în câteva atingeri, cu anulare gratuită pentru fiecare itinerariu.',
+  'about.featureBooking.title': 'Caută, compară și rezervă',
+  'about.featureDiscover.body':
+    'Destinații selectate de editori și ghiduri de teren scot în evidență locurile pentru care merită să-ți faci bagajul — fără zgomot de agregator, fără reclame.',
   'about.featureDiscover.title': 'Inspirație, aleasă cu grijă',
+  'about.featureItineraries.body':
+    'Ține zborurile, cazările și planurile într-un singur loc, salvează destinații pentru mai târziu și reia călătoria exact de unde ai rămas.',
+  'about.featureItineraries.title': 'Itinerarii bine organizate',
+  'about.featureStays.title': 'Cazări de încredere',
+  'about.missionTitle': 'Misiunea noastră',
+  'about.subtitle':
+    'Inspirație, cazări de încredere și un drum fără obstacole de la vis la rezervare.',
+  'about.whatYouGetTitle': 'Ce primiți',
   'account.addPaymentCta': 'Adăugați metoda de plată',
   'account.addPaymentError': 'Nu s-a putut adăuga metoda de plată.',
   'account.confirmRemove': 'Confirmă ștergerea',
   'account.defaultBadge': 'Implicit',
-  'account.loyalty.pointsTowardNext': '{{puncte}} de {{Următorul}} mile până la {{nextTier}}',
+  'account.loyalty.pointsTowardNext': '{{points}} din {{next}} mile până la {{nextTier}}',
   'account.loyalty.tier': 'Nivelul actual',
   'account.navLabel': 'Secțiuni de cont',
   'account.payments.empty': 'Nicio metodă de plată salvată încă.',
@@ -28,6 +43,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} nopți',
   'booking.lineTaxes': 'Taxe și comisioane',
   'booking.loadError': 'Nu s-a putut încărca proprietatea.',
+  'booking.noChargeYet': 'Nu vei fi taxat încă.',
   'booking.noPaymentMethods': 'Nicio metodă de plată salvată.',
   'booking.noPaymentSelected': 'Alegeți o metodă de plată înainte de confirmare.',
   'booking.noRoomError': 'Alege o cameră înainte de a confirma.',
@@ -39,6 +55,7 @@ export const ui: UiTranslations = {
   'booking.policy2':
     'Nicio taxă astăzi — cardul dumneavoastră este reținut doar pentru confirmare.',
   'booking.policy3': 'Protecție pentru călătorii acoperită de Sojourn — asistență concierge 24/7.',
+  'booking.policyHeading': 'Anulare și termeni',
   'booking.roomHeading': 'Alege-ți camera',
   'booking.specialRequests': 'Cereri speciale',
   'booking.specialRequestsPlaceholder': 'Ar trebui să știe gazda ceva?',
@@ -67,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Membrii Sojourn',
   'landing.cta.heading': 'Hoinăriți fără griji. Fiecare itinerar, de fiecare dată.',
   'landing.cta.signup': 'Creați un cont gratuit',
+  'landing.cta.subheading':
+    'Anulare gratuită, tarife exclusive pentru membri și un concierge de călătorie 24/7 — câștigă mile la fiecare rezervare și deblochează accesul prioritar la proprietăți noi.',
   'landing.destinations.eyebrow': 'Unde urmează',
   'landing.destinations.heading': 'Destinații recomandate',
   'landing.destinations.seeAll': 'Vezi toate destinațiile',
@@ -75,27 +94,45 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Povești pentru care merită să împachetezi',
   'landing.nav.join': 'Alătură-te programului Sojourn',
   'landing.nav.search': 'Căutare sejururi',
+  'landing.preview.browseAll': 'Explorează colecția completă',
   'landing.preview.eyebrow': 'O privire în interior',
   'landing.preview.heading': 'Sejururi atent selecționate luna aceasta',
+  'landing.preview.subheading':
+    'Fiecare proprietate de pe {{appName}} este verificată personal de echipa noastră editorială — fără inventar de agregator, fără anunțuri înșelătoare și cu anulare gratuită pentru fiecare itinerariu.',
   'login.eyebrow': 'Zona membrilor',
+  'login.noAccount': 'Nou în Tessera?',
   'login.signupLink': 'Creați un cont gratuit',
   'login.subheading':
     'Conectați-vă pentru a vă gestiona călătoriile, a vizualiza confirmările și a continua de unde ați rămas.',
   'nav.legal': 'Legal',
   'notifications.loading': 'Se încarcă…',
   'notifications.subheading': '{{count}} necitit · totul într-o singură căsuță poștală calmă',
+  'planUpdated.body':
+    'Modificarea facturării este acum activă. Îți poți gestiona planul oricând din pagina de facturare.',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.accommodationsLabel': 'cazare',
   'pricing.bookingsLabel': 'rezervări',
   'pricing.destinationsLabel': 'destinații salvate',
   'pricing.exportLabel': 'Exportați datele călătoriei',
   'pricing.itinerariesLabel': 'itinerarii',
+  'privacy.intro':
+    '{{appName}} îți protejează datele de călătorie. Înlocuiește acest șablon cu politica ta reală de confidențialitate înainte de lansarea în producție.',
   'propertyDetail.allPhotos': 'Toate {{count}} fotografii',
   'propertyDetail.amenitiesHeading': 'Ce oferă acest loc',
   'propertyDetail.backLink': 'Înapoi la căutare',
   'propertyDetail.bookCta': 'Rezervaţie',
   'propertyDetail.bookmarkAria': 'Salvați proprietatea',
   'propertyDetail.freeCancellation': 'Anulare gratuită',
+  'propertyDetail.galleryAria': 'Galerie foto a proprietății',
+  'propertyDetail.galleryCloseAria': 'Închide galeria',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': '{{name}} fotografie {{n}}',
+  'propertyDetail.galleryNextAria': 'Următoarea fotografie',
+  'propertyDetail.galleryPrevAria': 'Fotografia anterioară',
   'propertyDetail.heroImageAlt': '{{name}} fotografie eroică',
   'propertyDetail.lineCleaning': 'Taxă de curățenie',
   'propertyDetail.lineRate': '{{price}} × {{nights}} nopți',
@@ -104,6 +141,7 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'noapte',
   'propertyDetail.noChargeYet': 'Nu veți fi încă taxat(ă)',
   'propertyDetail.notFound': 'Proprietatea nu a fost găsită.',
+  'propertyDetail.pickDatesHint': 'Alege datele pentru a vedea defalcarea completă a prețului.',
   'propertyDetail.reviewCount': '( {{count}} recenzii)',
   'propertyDetail.reviewsHeading': 'Recenzii recente',
   'propertyDetail.verified': 'Proprietate verificată prin Sojourn',
@@ -112,6 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Parolă nouă',
   'resetPassword.subheading':
     'Alege o parolă nouă pentru contul tău Sojourn. Folosește cel puțin 8 caractere; recomandăm o parolă.',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'Nicio proprietate nu corespunde căutării dvs.',
   'search.emptyHint':
     'Încearcă să extinzi filtrele sau să elimini plafonul de preț — Sojourn oferă sejururi în 14 țări.',
@@ -119,6 +158,8 @@ export const ui: UiTranslations = {
   'search.heading': 'Sejururi atent selecționate pentru plimbările tale',
   'search.headingForQuery': 'Rămâne pentru " {{q}} "',
   'search.loadError': 'Nu s-au putut încărca proprietățile.',
+  'search.mapHint': 'Treci cu cursorul peste un card pentru a-i evidenția locația pe hartă.',
+  'search.mapPinAria': '{{name}} — {{price}} pe noapte',
   'search.sortLabel': 'Sortați după',
   'search.subheading': '{{count}} proprietăți · {{guests}} oaspeți',
   'settings.openAccount': 'Deschideți contul complet',
@@ -127,15 +168,22 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Anulare gratuită, tarife exclusive pentru membri și concierge de călătorii disponibil 24/7 — acumulează mile la fiecare rezervare.',
   'sojournAuthShell.brand.eyebrow': 'Rătăcește fără griji',
+  'sojournAuthShell.brand.heading': 'Un drum fără obstacole de la vis la rezervare.',
   'sojournHeroSearchCard.checkInAria': 'Data sosirii',
   'sojournHeroSearchCard.checkOutAria': 'Data de check-out',
+  'sojournHeroSearchCard.destAria': 'Destinaţie',
+  'sojournHeroSearchCard.destLabel': 'Unde',
   'sojournHeroSearchCard.destPlaceholder': 'Oraș, regiune sau proprietate',
   'sojournHeroSearchCard.eyebrow': 'Sejururi atent selecționate · Tarife exclusive pentru membri',
   'sojournHeroSearchCard.guestsOption': '{{n}} oaspeți',
   'sojournHeroSearchCard.subtitle':
     'Inspirație, sejururi de încredere și o cale fără probleme de la vis la rezervare - în 14 țări și peste 200 de proprietăți verificate cu atenție.',
+  'sojournHeroSearchCard.title': 'Rătăcește fără griji',
+  'sojournHeroSearchCard.trustLoyalty': 'Câștigă mile la fiecare itinerariu',
   'sojournHeroSearchCard.trustProtected': 'Anulare gratuită, complet protejat',
   'sojournHeroSearchCard.trustVetted': 'Numai proprietăți verificate manual',
+  'terms.intro':
+    'Înlocuiește acest șablon cu termenii tăi reali de utilizare {{appName}} înainte de lansarea în producție.',
   'travelBookingLayout.primaryNavLabel': 'Navigare principală',
   'tripDetail.backLink': 'Înapoi la călătorii',
   'tripDetail.cancelCta': 'Anulează rezervarea',
@@ -145,6 +193,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'Opțional — motivul anulării',
   'tripDetail.checkInLabel': 'Check-in',
   'tripDetail.checkOutLabel': 'Verifică',
+  'tripDetail.confCode': 'Cod · {{code}}',
   'tripDetail.confirmCancelCta': 'Anulează călătoria',
   'tripDetail.hostInfo':
     'Găzduit de {{name}} Anulare gratuită cu până la 7 zile înainte de check-in.',
@@ -152,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'Continuă rezervarea',
   'tripDetail.lengthLabel': 'Lungime',
   'tripDetail.loadError': 'Nu s-a putut încărca călătoria.',
+  'tripDetail.messageHostHeading': 'Trimite un mesaj gazdei',
   'tripDetail.messagePlaceholder':
     'Anunță-ți gazda cu privire la ora sosirii, nevoile tale alimentare sau orice altceva.',
   'tripDetail.messageSend': 'Trimite mesaj',
@@ -162,9 +212,11 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'Rezumatul prețurilor',
   'tripDetail.taxes': 'Taxe și comisioane',
   'tripItineraryRow.nights': '{{count}} nopți',
+  'trips.empty.past': 'Călătoriile trecute vor apărea aici după ce pornești la drum.',
   'trips.empty.upcoming': 'Nicio călătorie viitoare încă — hai să rezolvăm asta.',
   'trips.eyebrow': 'Rătăcirile tale',
   'trips.heading': 'Călătorii',
   'trips.loadError': 'Nu s-au putut încărca călătoriile.',
+  'trips.searchCta': 'Planificați o altă călătorie',
   'trips.subheading': '{{upcoming}} viitor · {{past}} trecut',
 }

@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Una maoni, umepata hitilafu, au unataka {{app}} kwa ligi yako? Wasiliana nasi kutoka kwenye mipangilio ya akaunti yako — kila ujumbe humfikia mtu halisi wa timu.',
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.featureAlerts':
+    'Arifa za push kwa masasisho ya alama, tahadhari za mabadilishano, ripoti za majeraha, na matangazo ya ligi.',
+  'about.featureRosters':
+    'Kurasa za timu zenye orodha kamili za wachezaji, jumla za msimu, mfululizo wa moto/baridi, na migawanyiko ya uso kwa uso kwa kila mchezaji.',
+  'about.featureSchedule':
+    'Kalenda ya msimu na mwonekano wa ratiba ili uweze kupanga kwa kila mechi na matokeo.',
+  'about.featureScoreboard':
+    'Tikta ya bao ya kiwango cha matangazo iliyobandikwa juu ya kila ukurasa ili usikose bao kamwe.',
+  'about.featureStandings':
+    'Msimamo wa moja kwa moja — rekodi za ushindi-kushindwa-sare za wakati halisi, pointi, asilimia ya ushindi, na mstari wa mchujo, zikiboreshwa kila filimbi.',
+  'about.intro':
+    '{{app}} ni nyumbani kwa kiwango cha matangazo kwa ligi yako. Timu, ratiba, alama za moja kwa moja, na msimamo hukutana katika dashibodi moja ya haraka, isiyo na msongamano — ili mashabiki, makocha, na waandaaji wa ligi wajue kila wakati msimu ulipo.',
+  'about.missionBody':
+    'Kufuatilia ligi hakupaswi kumaanisha kuonyesha upya vibao vitano tofauti vya watu wengine. Tuliijenga ili kuipa kila ligi chanzo kimoja cha ukweli kwa msimamo, ratiba, na takwimu zinazojitokeza — zikiboreshwa kila filimbi, bure kwa msimu.',
+  'about.missionTitle': 'Dhamira yetu',
+  'about.whatYouGet': 'Unachopata',
   'appShell.closeNav': 'Funga urambazaji',
   'appShell.openNav': 'Fungua urambazaji',
   'common.dashboard': 'Dashibodi',
@@ -16,14 +35,21 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Tazama mechi zote \\u2192',
   'dashboard.viewAllStandings': 'Msimamo kamili \\u2192',
   'dashboard.viewAllStats': 'Tazama viongozi wote wa takwimu \\u2192',
+  'forgot.submitting': 'Inatuma kiungo cha kuweka upya…',
   'forgot.subtitle': 'Ingiza barua pepe yako ili kupokea kiungo cha kuweka upya.',
   'forgot.success':
     'Weka upya kiungo kilichotumwa kwa {{email}} . Angalia kikasha chako cha barua pepe.',
+  'landing.copyright': '© {{year}} {{app}}. Fuatilia msimamo.',
+  'landing.ctaBody':
+    'Ligi yako. Msimamo wako. Timu yako unayopenda — imebandikwa juu. Dakika mbili kuanzisha, bure kwa msimu.',
   'landing.ctaHeading': 'Acha kuburudisha ubao wa alama za wahusika wengine',
   'landing.eyebrow': 'Imeundwa kwa ajili ya mashabiki, makocha, na waandaaji wa ligi',
   'landing.featuresHeading': 'Kiti cha mbele kwa kila mtu aliyesimama',
   'landing.getStarted': 'Jiunge na ligi',
   'landing.heroCta': 'Jiunge na ligi',
+  'landing.heroSubtitle':
+    '{{app}} huunganisha msimamo, ratiba, na viongozi wa takwimu katika dashibodi moja ya kiwango cha matangazo. Alama za moja kwa moja. Rekodi halisi. Hakuna msongamano.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Usiku wa leo kuzunguka ligi',
   'landing.statFans': 'Mashabiki wanaofuata',
   'landing.statGames': 'Michezo msimu huu',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Rudi kwenye mechi',
   'matchDetail.eventsHeading': 'Kucheza kwa kucheza',
+  'matchDetail.final': 'MWISHO',
   'matchDetail.finalScore': 'Mwisho',
   'matchDetail.live': 'MOJA KWA MOJA',
   'matchDetail.liveNow': 'Ishi sasa',
   'matchDetail.noEvents': 'Hakuna matukio yaliyorekodiwa bado.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Hakuna mechi katika mwonekano huu — jaribu kichujio tofauti.',
   'matches.eyebrow': 'Siku ya mechi',
   'matches.loading': 'Kuvuta slate…',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Imeshindwa kupakia arifa',
   'notifications.loading': 'Inapakia arifa\\u2026',
   'pennantHeroCard.eyebrow': 'Juu ya meza',
+  'pennantHeroCard.formLabel': '10 za mwisho',
   'pennantHeroCard.gamesAhead': '{{value}} michezo iliyo mbele ya mbio',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Usogezaji mkuu',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Chagua kiti chako',
   'pricing.heading': 'Boresha kwa ratiba, alama, na msimamo mzuri zaidi.',
   'pricing.limits.schedule': '{{count}} maingizo ya ratiba',
+  'pricing.limits.scores': 'Alama za {{count}}',
+  'pricing.limits.standings': 'Msimamo wa {{count}}',
+  'pricing.limits.teams': 'Timu za {{count}}',
+  'pricing.subtitle': 'Boresha ili upate ratiba, alama, na msimamo tajiri zaidi.',
   'pricing.upgradeCta': 'Boresha hadi {{tierName}}',
   'profile.eyebrow': 'Wasifu wa shabiki',
   'profile.favoritesCount': 'Timu zilizofuatwa',
   'profile.favoritesHeading': 'Timu unazopenda zaidi',
   'profile.noFavorites': 'Hakuna vipendwa bado — chagua timu kutoka ukurasa wa Timu.',
   'profile.rankRecord': 'Cheo # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Rekodi {{record}}',
   'reset.confirmPlaceholder': 'Rudia nenosiri',
+  'reset.mismatch': 'Manenosiri hayalingani.',
   'reset.newLabel': 'Nenosiri jipya',
   'reset.subtitle': 'Chagua nenosiri thabiti la angalau herufi 12.',
   'reset.tokenPlaceholder': 'Bandika kutoka kwa barua pepe',
   'schedule.eyebrow': 'Kibao',
+  'schedule.moreGames': '+ {{count}} zaidi',
   'schedule.subtitle':
     'Mtazamo wa kalenda wa mechi katika msimu mzima — gusa siku yoyote kwa alama za kisanduku.',
   'scoreboardTicker.empty':
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Binafsisha',
   'settings.favoritesBody':
     'Timu hizi hubandikwa kwenye dashibodi yako na kuchochea arifa za alama.',
+  'settings.favoritesHeading': 'Timu unazopenda zaidi',
   'settings.loading': 'Inapakia mapendeleo yako\\u2026',
   'settings.noFavorites': 'Hakuna vipendwa bado \\u2014 chagua timu kutoka ukurasa wa Timu.',
   'settings.notificationsHeading': 'Arifa na onyesho',
@@ -115,6 +152,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Kwa ujumla',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Wanne wa juu wanafuzu kwa mechi za mwisho wa msimu — pointi za kufungana, kisha kushinda kwa pointi.',
   'standings.title': 'Msimamo wa Ligi',
@@ -133,6 +171,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Mchezaji',
   'teamDetail.colPos': 'Pos',
+  'teamDetail.pointsLabel': 'Pointi',
   'teamDetail.rankLabel': 'Cheo # {{rank}}',
   'teamDetail.rosterHeading': 'Orodha ya watu',
   'teamDetail.statGD': 'Tofauti ya Malengo',

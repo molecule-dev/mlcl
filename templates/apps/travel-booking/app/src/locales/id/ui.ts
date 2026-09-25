@@ -1,8 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada pertanyaan tentang menginap, masukan, atau ide kerja sama? Hubungi tim dari akun Anda atau concierge dalam aplikasi — setiap pesan sampai ke manusia sungguhan yang juga gemar bepergian.',
   'about.contactTitle': 'Hubungi kami',
+  'about.featureBooking.body':
+    'Bandingkan kamar, tarif, dan fasilitas secara berdampingan, lalu pesan dalam beberapa ketukan dengan pembatalan gratis di setiap rencana perjalanan.',
+  'about.featureBooking.title': 'Cari, bandingkan, dan pesan',
+  'about.featureDiscover.body':
+    'Destinasi pilihan editor dan panduan lapangan menampilkan tempat yang layak dikunjungi — tanpa kebisingan agregator, tanpa konten bersponsor.',
   'about.featureDiscover.title': 'Inspirasi, dipilih dengan cermat.',
+  'about.featureItineraries.body':
+    'Simpan penerbangan, penginapan, dan rencana di satu tempat, simpan destinasi untuk nanti, dan lanjutkan perjalanan Anda tepat dari tempat Anda berhenti.',
+  'about.featureItineraries.title': 'Rencana perjalanan yang tetap tertata',
+  'about.featureStays.title': 'Penginapan tepercaya',
+  'about.missionTitle': 'Misi kami',
+  'about.subtitle':
+    'Inspirasi, penginapan tepercaya, dan jalur mulus dari angan-angan hingga terpesan.',
+  'about.whatYouGetTitle': 'Apa yang Anda dapatkan',
   'account.addPaymentCta': 'Tambah metode pembayaran',
   'account.addPaymentError': 'Tidak dapat menambahkan metode pembayaran.',
   'account.confirmRemove': 'Konfirmasi penghapusan',
@@ -28,6 +43,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} malam',
   'booking.lineTaxes': 'Pajak dan biaya',
   'booking.loadError': 'Gagal memuat properti.',
+  'booking.noChargeYet': 'Anda belum akan dikenai biaya.',
   'booking.noPaymentMethods': 'Tidak ada metode pembayaran tersimpan.',
   'booking.noPaymentSelected': 'Pilih metode pembayaran sebelum konfirmasi.',
   'booking.noRoomError': 'Pilih kamar sebelum konfirmasi.',
@@ -38,6 +54,7 @@ export const ui: UiTranslations = {
   'booking.policy1': 'Pembatalan gratis hingga 7 hari sebelum check-in.',
   'booking.policy2': 'Tidak ada biaya hari ini — kartu Anda hanya ditahan untuk konfirmasi.',
   'booking.policy3': 'Perlindungan perjalanan oleh Sojourn — dukungan concierge 24/7.',
+  'booking.policyHeading': 'Pembatalan & ketentuan',
   'booking.roomHeading': 'Pilih kamar Anda',
   'booking.specialRequests': 'Permintaan khusus',
   'booking.specialRequestsPlaceholder': 'Ada yang perlu diketahui tuan rumah?',
@@ -66,6 +83,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Anggota Sojourn',
   'landing.cta.heading': 'Berkelana tanpa khawatir. Setiap perjalanan, setiap saat.',
   'landing.cta.signup': 'Buat akun gratis',
+  'landing.cta.subheading':
+    'Pembatalan gratis, tarif khusus anggota, dan concierge perjalanan 24/7 — dapatkan miles di setiap pemesanan dan akses pertama ke properti baru.',
   'landing.destinations.eyebrow': 'Ke mana selanjutnya',
   'landing.destinations.heading': 'Destinasi unggulan',
   'landing.destinations.seeAll': 'Lihat semua destinasi',
@@ -74,9 +93,13 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Kisah yang layak untuk dikemas',
   'landing.nav.join': 'Bergabung dengan Sojourn',
   'landing.nav.search': 'Cari penginapan',
+  'landing.preview.browseAll': 'Jelajahi seluruh koleksi',
   'landing.preview.eyebrow': 'Sekilas di dalam',
   'landing.preview.heading': 'Penginapan pilihan bulan ini',
+  'landing.preview.subheading':
+    'Setiap properti di {{appName}} diperiksa secara pribadi oleh tim editorial kami — tanpa inventaris agregator, tanpa listing umpan-umpan, dan pembatalan gratis di setiap rencana perjalanan.',
   'login.eyebrow': 'Area anggota',
+  'login.noAccount': 'Baru di Tessera?',
   'login.signupLink': 'Buat akun gratis',
   'login.subheading':
     'Masuk untuk mengelola perjalanan Anda, melihat konfirmasi, dan melanjutkan dari tempat Anda berhenti.',
@@ -84,18 +107,32 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Memuat…',
   'notifications.subheading':
     '{{count}} belum dibaca · semuanya dalam satu kotak masuk yang tenang',
+  'planUpdated.body':
+    'Perubahan tagihan Anda kini aktif. Anda dapat mengelola paket kapan saja dari halaman tagihan.',
+  'planUpdated.retry': 'Coba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengkonfirmasi pembayaran Anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran Anda mungkin masih diproses. Coba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'pricing.accommodationsLabel': 'akomodasi',
   'pricing.bookingsLabel': 'pemesanan',
   'pricing.destinationsLabel': 'destinasi tersimpan',
   'pricing.exportLabel': 'Ekspor data perjalanan',
   'pricing.itinerariesLabel': 'rencana perjalanan',
+  'privacy.intro':
+    '{{appName}} melindungi data perjalanan Anda. Ganti templat ini dengan kebijakan privasi asli Anda sebelum meluncurkan ke produksi.',
   'propertyDetail.allPhotos': 'Semua {{count}} foto',
   'propertyDetail.amenitiesHeading': 'Yang ditawarkan tempat ini',
   'propertyDetail.backLink': 'Kembali ke pencarian',
   'propertyDetail.bookCta': 'Pesan',
   'propertyDetail.bookmarkAria': 'Simpan properti',
   'propertyDetail.freeCancellation': 'Pembatalan gratis',
+  'propertyDetail.galleryAria': 'Galeri foto properti',
+  'propertyDetail.galleryCloseAria': 'Tutup galeri',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': 'Foto {{name}} dari {{n}}',
+  'propertyDetail.galleryNextAria': 'Foto berikutnya',
+  'propertyDetail.galleryPrevAria': 'Foto sebelumnya',
   'propertyDetail.heroImageAlt': 'Foto utama {{name}}',
   'propertyDetail.lineCleaning': 'Biaya kebersihan',
   'propertyDetail.lineRate': '{{price}} × {{nights}} malam',
@@ -104,6 +141,7 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'malam',
   'propertyDetail.noChargeYet': 'Anda belum akan dikenakan biaya',
   'propertyDetail.notFound': 'Properti tidak ditemukan.',
+  'propertyDetail.pickDatesHint': 'Pilih tanggal Anda untuk melihat rincian harga lengkap.',
   'propertyDetail.reviewCount': '({{count}} ulasan)',
   'propertyDetail.reviewsHeading': 'Ulasan terbaru',
   'propertyDetail.verified': 'Properti terverifikasi Sojourn',
@@ -112,6 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Kata sandi baru',
   'resetPassword.subheading':
     'Pilih kata sandi baru untuk akun Sojourn Anda. Gunakan minimal 8 karakter; kami menyarankan frasa sandi.',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'Tidak ada properti yang cocok dengan pencarian Anda.',
   'search.emptyHint':
     'Coba perluas filter atau hilangkan batas harga — Sojourn memiliki penginapan di 14 negara.',
@@ -119,6 +158,8 @@ export const ui: UiTranslations = {
   'search.heading': 'Penginapan pilihan untuk pengembaraan Anda',
   'search.headingForQuery': 'Penginapan untuk "{{q}}"',
   'search.loadError': 'Gagal memuat properti.',
+  'search.mapHint': 'Arahkan kursor ke kartu untuk menyorot lokasinya di peta.',
+  'search.mapPinAria': '{{name}} — {{price}} per malam',
   'search.sortLabel': 'Urutkan berdasarkan',
   'search.subheading': '{{count}} properti · {{guests}} tamu',
   'settings.openAccount': 'Buka akun lengkap',
@@ -127,15 +168,22 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Pembatalan gratis, tarif khusus anggota, dan concierge perjalanan 24/7 — kumpulkan mil di setiap pemesanan.',
   'sojournAuthShell.brand.eyebrow': 'Berkelana tanpa khawatir',
+  'sojournAuthShell.brand.heading': 'Jalur mulus dari angan-angan hingga terpesan.',
   'sojournHeroSearchCard.checkInAria': 'Tanggal check-in',
   'sojournHeroSearchCard.checkOutAria': 'Tanggal check-out',
+  'sojournHeroSearchCard.destAria': 'Tujuan',
+  'sojournHeroSearchCard.destLabel': 'Di mana',
   'sojournHeroSearchCard.destPlaceholder': 'Kota, wilayah, atau properti',
   'sojournHeroSearchCard.eyebrow': 'Penginapan pilihan · Tarif khusus anggota',
   'sojournHeroSearchCard.guestsOption': '{{n}} tamu',
   'sojournHeroSearchCard.subtitle':
     'Inspirasi, penginapan tepercaya, dan jalur mulus dari lamunan hingga terpesan — di 14 negara dan lebih dari 200 properti pilihan.',
+  'sojournHeroSearchCard.title': 'Berkelana tanpa khawatir',
+  'sojournHeroSearchCard.trustLoyalty': 'Dapatkan miles di setiap rencana perjalanan',
   'sojournHeroSearchCard.trustProtected': 'Pembatalan gratis, terlindungi sepenuhnya',
   'sojournHeroSearchCard.trustVetted': 'Hanya properti pilihan',
+  'terms.intro':
+    'Ganti templat ini dengan ketentuan layanan {{appName}} asli Anda sebelum meluncurkan ke produksi.',
   'travelBookingLayout.primaryNavLabel': 'Navigasi utama',
   'tripDetail.backLink': 'Kembali ke perjalanan',
   'tripDetail.cancelCta': 'Batalkan pemesanan',
@@ -145,6 +193,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'Opsional — alasan pembatalan',
   'tripDetail.checkInLabel': 'Check-in',
   'tripDetail.checkOutLabel': 'Check-out',
+  'tripDetail.confCode': 'Kode · {{code}}',
   'tripDetail.confirmCancelCta': 'Batalkan perjalanan',
   'tripDetail.hostInfo':
     'Diselenggarakan oleh {{name}}. Pembatalan gratis hingga 7 hari sebelum check-in.',
@@ -152,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'Pertahankan pemesanan',
   'tripDetail.lengthLabel': 'Durasi',
   'tripDetail.loadError': 'Gagal memuat perjalanan.',
+  'tripDetail.messageHostHeading': 'Kirim pesan ke tuan rumah',
   'tripDetail.messagePlaceholder':
     'Beri tahu tuan rumah Anda waktu kedatangan, kebutuhan diet, atau hal lainnya.',
   'tripDetail.messageSend': 'Kirim pesan',
@@ -162,9 +212,11 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'Ringkasan harga',
   'tripDetail.taxes': 'Pajak dan biaya',
   'tripItineraryRow.nights': '{{count}} malam',
+  'trips.empty.past': 'Perjalanan lampau akan muncul di sini setelah Anda menjelajah.',
   'trips.empty.upcoming': 'Belum ada perjalanan mendatang — ayo perbaiki.',
   'trips.eyebrow': 'Pengembaraan Anda',
   'trips.heading': 'Perjalanan',
   'trips.loadError': 'Gagal memuat perjalanan.',
+  'trips.searchCta': 'Rencanakan perjalanan lain',
   'trips.subheading': '{{upcoming}} mendatang · {{past}} lalu',
 }

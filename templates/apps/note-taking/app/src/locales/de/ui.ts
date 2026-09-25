@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hast du Feedback, einen Bug gefunden oder möchtest du eine Funktion vorschlagen? Melde dich in deinen Kontoeinstellungen — jede Nachricht landet bei einem echten Menschen im Team.',
+  'about.contactTitle': 'Sprechen Sie uns an',
+  'about.featureDatabases':
+    'Leichtgewichtige Datenbanken und wiederverwendbare Vorlagen, die lose Notizen in strukturierte, wiederholbare Workflows verwandeln.',
+  'about.featureEditor':
+    'Ein ruhiger Block-Editor — Überschriften, Listen, Code, Callouts und To-dos — mit Slash-Befehlen, wenn du sie willst, und aus dem Weg, wenn nicht.',
+  'about.featureGraph':
+    'Backlinks und ein Wissensgraph: Tippe [[, um eine Notiz zu verlinken, und sieh, wie sich deine Ideen mit der Zeit verbinden.',
+  'about.featureNotebooks':
+    'Verschachtelte Notizbücher und Seiten, damit Projekte, Themen und Tagesnotizen genau so organisiert bleiben, wie du denkst.',
+  'about.featureSearch':
+    'Volltextsuche in unter 50 ms über jedes Notizbuch, plus Tags, die sich mit Notizbüchern ergänzen statt gegen sie zu arbeiten.',
+  'about.missionTitle': 'Unsere Mission',
   'common.goToDashboard': 'Zum Dashboard',
   'forgot.eyebrow': 'Den Rückweg verloren?',
   'forgot.formSubtitle': 'Nennen Sie uns die hinterlegte E-Mail.',
+  'forgot.formTitle': 'Passwort vergessen',
   'forgot.headline': 'Setzen Sie Ihr Passwort zurück.',
   'forgot.subline':
     'Wir senden Ihnen einen einmaligen Link per E-Mail, über den Sie einen neuen auswählen können.',
+  'forgot.successDetail':
+    'Wir haben dir einen Link zum Zurücksetzen per E-Mail geschickt. Er läuft in 30 Minuten ab.',
   'graph.eyebrow': 'Graph',
+  'graph.goToNotes': 'Notizen durchsuchen →',
+  'graph.loadError': 'Graph konnte nicht geladen werden: {{message}}',
   'graph.placeholderBody':
     'Wenn Notizen miteinander verknüpft werden (mit der Syntax [[wiki]]), wird hier ein interaktiver, kraftbasierter Graph gerendert.',
+  'graph.placeholderTitle': 'Backlink-Graph kommt bald',
   'graph.subtitle':
     '{{count}} Notizen in diesem Arbeitsbereich. Die Backlink-Grafik wird hier angezeigt, sobald Notizen miteinander verknüpft sind.',
   'graph.title': 'Wissensgraph',
   'home.empty': 'Noch keine Notizen – beginnen Sie mit Ihrer ersten.',
   'home.favoritesHeading': 'Angeheftet',
   'home.guest': 'Freund',
+  'home.loadError': 'Deine Notizen konnten nicht geladen werden: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Heften Sie im Editor eine Notiz an, um sie hier zu behalten.',
   'home.recentHeading': 'Kürzlich aktualisiert',
@@ -23,18 +44,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Notizbuch',
   'home.stats.pinned.label': 'Angeheftet',
   'home.stats.updatedToday.label': 'Heute aktualisiert',
+  'home.subtitle': 'Mach dort weiter, wo du aufgehört hast, oder starte eine neue Notiz.',
   'home.viewAll': 'Alle Notizen anzeigen',
   'landing.cta.body':
     'Kostenlos für den persönlichen Gebrauch. Pro für Teams. Nutzen Sie Ihre bestehenden Markdown-Dateien oder beginnen Sie von vorn – Verso begleitet Sie überall dort, wo Sie Ihre Notizen haben.',
+  'landing.cta.button': 'Meinen Arbeitsbereich erstellen',
   'landing.cta.heading': 'Öffne die heutige Seite.',
   'landing.features.eyebrow': 'Jedes primitive Element, das Ihr zweites Gehirn benötigt',
+  'landing.features.heading': 'Gebaut für die Arbeit, nicht für die Meta-Arbeit.',
   'landing.hero.eyebrow': 'Eine ruhige Schreibfläche',
   'landing.hero.headlineAccent': 'Gestalt annehmen.',
   'landing.hero.headlineLeading': 'Wo Gedanken',
   'landing.hero.primaryCta': 'Beginnen Sie Ihre Wissensdatenbank',
   'landing.hero.secondaryCta': 'Ich habe bereits ein Konto',
+  'landing.hero.socialProof':
+    '12.800+ Autoren, Studierende und Promovierende denken mit {{appName}}',
   'landing.hero.subline':
     'Verso ist eine strukturierte Notizoberfläche für Wissensarbeiter und Studierende. Blockeditor, verschachtelte Notizbücher, Backlinks und ein Wissensgraph – alles eingebettet in ein typografisch optimiertes Leseerlebnis.',
+  'landing.preview.notebook': 'Wissen · Schreibprozess',
+  'landing.preview.title': 'Über das Entlüften von Luft',
   'login.eyebrow': 'Willkommen zurück bei Verso',
   'login.formSubtitle': 'Verwenden Sie Ihre E-Mail oder einen verbundenen Anbieter.',
   'login.headline': 'Setzen Sie die Seite dort fort, wo sie unterbrochen wurde.',
@@ -44,6 +72,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Navigationsmenü schließen',
   'mobileNav.openMenu': 'Navigationsmenü öffnen',
   'noteEditor.backToNotes': 'Zurück zu den Notizen',
+  'noteEditor.bodyLabel': 'Notiztext',
   'noteEditor.bodyPlaceholder':
     'Fangen Sie an zu schreiben – Ihre Notiz wird während des Tippens automatisch gespeichert.',
   'noteEditor.confirmTrash': 'Diese Notiz in den Papierkorb verschieben?',
@@ -52,17 +81,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'In den Papierkorb',
   'noteEditor.updated': 'Aktualisiert',
   'notes.defaultWorkspaceName': 'Mein Notizbuch',
+  'notes.empty': 'Noch keine Notizen hier — starte eine, um das Notizbuch zu füllen.',
   'notes.eyebrow': 'Notizbuch',
   'notes.filterAll': 'Alle Notizen',
   'notes.filterPinned': 'Angeheftet',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Neues Notebook',
   'notes.newNotebookPrompt': 'Neuer Name des Notizbuchs',
+  'notes.newNotebookRequired': 'Gib einen Namen für das Notizbuch ein.',
   'notes.notebooksHeading': 'Notizbücher',
   'notes.subtitle':
     'Wählen Sie links ein Notizbuch aus und drücken Sie dann die Schaltfläche „Neue Notiz“, um einen neuen Eintrag zu erstellen.',
+  'planUpdated.body': 'Dein Abonnement ist jetzt aktiv.',
   'planUpdated.confirmation': 'Ihr Tarif wurde aktualisiert',
+  'pricing.advancedFeatures': 'Erweiterte Funktionen',
   'pricing.heading': 'Wählen Sie Ihren Notizplan',
+  'reset.changedMind': 'Meinung geändert?',
   'reset.eyebrow': 'Fast wieder zurück',
   'reset.formSubtitle': 'Sie werden angemeldet, sobald gespeichert ist.',
   'reset.headline': 'Wählen Sie ein neues Passwort.',
@@ -72,7 +106,9 @@ export const ui: UiTranslations = {
     'Geben Sie den Code ein, den wir Ihnen soeben per E-Mail zugesendet haben, und wählen Sie etwas Einprägsames.',
   'reset.submit': 'Speichern und anmelden',
   'reset.tokenHint': 'Aus Ihrem Posteingang eingefügt.',
+  'search.empty': 'Noch keine Notizen passen zu dieser Suche.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Refract durchsuchen',
   'search.loading': 'Wird gesucht…',
   'search.noRecent':
     'Geben Sie oben eine Suchanfrage ein, um die Suche in Ihren Notizen zu starten.',
@@ -81,12 +117,19 @@ export const ui: UiTranslations = {
     'Volltextzugriff auf alle Notizbücher. Geben Sie Ihren Suchbegriff ein; die Ergebnisse werden während der Eingabe aktualisiert.',
   'search.title': 'Durchsuche das zweite Gehirn.',
   'settings.account.logout': 'Abmelden',
+  'settings.account.title': 'Kontodetails',
+  'settings.editor.graphHover.body':
+    'Zeige eine kleine Vorschaukarte, wenn du im Editor über einen [[Wikilink]] fährst.',
+  'settings.editor.graphHover.label': 'Hover-Vorschau des Backlink-Graphen',
   'settings.editor.lineHeight.body':
     'Wie viel Luft zwischen den Körperlinien? 170 % ist der Standard-Leserhythmus.',
+  'settings.editor.lineHeight.label': 'Zeilenhöhe',
   'settings.editor.serif.body':
     'Verwenden Sie Georgia für die Lesespalte. Sans-Serif-Schriftarten werden in der Seitenleiste und den Symbolleisten beibehalten.',
+  'settings.editor.serif.label': 'Serifen-Textkörper',
   'settings.editor.title': 'Typografie & Schreibfläche',
   'settings.eyebrow': 'Verso · Einstellungen',
+  'settings.passwordModal.current': 'Aktuelles Passwort',
   'settings.passwordModal.error':
     'Passwortänderung fehlgeschlagen – bitte überprüfen Sie Ihr aktuelles Passwort.',
   'settings.passwordModal.next': 'Neues Passwort',
@@ -96,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Jeder Tastendruck wird über den Echtzeitkanal übertragen. Bei langsameren Verbindungen deaktivieren.',
   'settings.sync.auto.label': 'Echtzeit-Synchronisierung',
+  'settings.sync.title': 'Wie deine Notizen wandern',
   'settings.theme.body':
     'Helles Licht sorgt für eine ansprechende Gestaltung der Leitartikelspalte. Sepia verleiht der Seite abends Wärme.',
   'settings.theme.dark': 'Dunkel',
@@ -115,8 +159,12 @@ export const ui: UiTranslations = {
     'Füge dem Titel einer Notiz Hashtags hinzu (z. B. „Leseliste #Bücher“), und sie werden automatisch hier angezeigt.',
   'tags.emptyTitle': 'Noch keine Tags',
   'tags.eyebrow': 'Index',
+  'tags.goToNotes': 'Zu den Notizen →',
+  'tags.loadError': 'Tags konnten nicht geladen werden: {{message}}',
   'tags.subtitle':
     '{{tags}} Tags über {{notes}} Hinweise. Füge #Hashtags zum Titel einer Notiz hinzu, und sie werden hier angezeigt.',
+  'versoAuthShell.sample.body':
+    'Ein zweiter Durchgang morgen liest sich immer besser als ein erster heute Abend. Parke den Rohentwurf im Ordner für konzentriertes Arbeiten…',
   'versoAuthShell.sample.label': 'Tagesnotiz',
   'versoAuthShell.sample.timestamp': 'Heute · 9:14 Uhr',
   'versoAuthShell.sample.title': 'Über das Entlüften von Luft',
@@ -128,8 +176,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Weiter schreiben',
   'versoTodayHero.createCta': 'Beginnen Sie die heutige Notiz',
   'versoTodayHero.dailyLabel': 'Tagesnotiz',
+  'versoTodayHero.emptyHeadline': 'Heute ist eine leere Seite.',
   'versoTodayHero.emptySubline':
     'Halten Sie einen Gedanken fest, notieren Sie ein Meeting oder skizzieren Sie morgen. Verso sorgt für eine klare Struktur, damit Ihre Worte im Vordergrund stehen.',
+  'versoTodayHero.outlineLabel': 'Heutige Gliederung',
   'versoTodayHero.streak': '{{count}} Tage in Folge',
+  'versoTodayHero.unwritten': 'Noch keine Wörter — öffne die Notiz, um zu beginnen.',
   'versoTodayHero.wordCount': '{{count}} Wörter heute',
 }

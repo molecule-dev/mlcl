@@ -1,12 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, may nahanap kang bug, o gusto mong makita ang {{app}} sa dock mo? Makipag-ugnayan sa in-app help — bawat mensahe ay napupunta sa isang tunay na tao sa team.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.intro':
+    'Ang {{app}} ay operator-grade na warehouse fulfillment software — mga order, pick, pack, at shipment sa isang bubong. Gawa ito para sa mga fulfillment team na may tunay na volume at kailangang maging mabilis, nakikita, at hindi mapapalsipika ang bawat aksyon sa floor.',
+  'about.missionBody':
+    'Nakasalalay ang operations sa mga boring na bagay — pick, pack, at shipped label. Ginagawa naming mabilis, nakikita, at maaasahan ang mga boring na bagay, para makapagpadala ang mga warehouse ng rush, express, at standard na order nang hindi tumatawid sa mga lane.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.pageTitle': 'Tungkol sa {{app}}',
   'auth.signup.passwordHint': 'Hindi bababa sa 12 character',
   'authShell.brandSubtitle': 'Konsol ng Pagtupad',
   'authShell.eyebrow': 'Maligayang pagdating sa Sorthaus',
+  'authShell.footer': '{{appName}} · Operations console',
   'authShell.pitch':
     'Isang console na unang ginagamit sa sahig na pang-scanner. Pumili, mag-empake, at magpadala mula sa iisang console — ginawa para sa mga ops lead na binibilang kung ano ang mahalaga at ayaw magpabaya sa isang order.',
   'authShell.sampleCaption': 'naipadala na ang mga order · 8 pinto ng pantalan · 3 sona',
@@ -17,6 +25,7 @@ export const ui: UiTranslations = {
   'dashboard.empty.action': 'Datos ng sample ng binhi',
   'dashboard.empty.body':
     'Maghain ng sample dataset (mga order, imbentaryo, mga kargamento) para mapatakbo mo ang buong palapag mula simula hanggang katapusan.',
+  'dashboard.empty.seeding': 'Seeding…',
   'dashboard.empty.title': 'Walang laman ang iyong bodega',
   'dashboard.errorFallback': 'Pansamantalang hindi magagamit ang live data.',
   'dashboard.eyebrow': 'Utos sa sahig',
@@ -37,24 +46,32 @@ export const ui: UiTranslations = {
   'dashboard.queue.viewAll': 'Buksan ang pila',
   'dashboard.subtitle': '{{active}} mga order na gumagalaw · live na ledger',
   'dashboard.title': 'Mga shift ngayon',
+  'dashboard.zones.bins': '{{count}} mga basurahan',
   'dashboard.zones.empty': 'I-configure ang mga zone para makita ang aktibidad sa sahig.',
+  'dashboard.zones.eyebrow': 'Zone heatmap',
   'dashboard.zones.title': 'Aktibidad sa sahig',
   'forgot.subheading':
     'Ilagay ang iyong email sa trabaho at magpapadala kami ng link sa pag-reset sa iyong inbox.',
   'forgot.successBody':
     'Kung {{email}} ay nasa team, may paparating na reset link. Mag-e-expire ang link sa loob ng 30 minuto.',
   'fulfillmentHeroCard.eyebrow': 'Mga pagbabago sa paggalaw',
+  'fulfillmentHeroCard.onTime': '{{rate}}% on time',
+  'fulfillmentHeroCard.ordersShipped': 'mga order na naipadala ngayon',
+  'fulfillmentHeroCard.ordersShippedWithPeriod': 'mga order na naipadala · {{period}}',
   'fulfillmentHeroCard.subtitle':
     '{{units}} nakaimpake na ang mga yunit at nakalabas na sa pantalan',
   'inventory.cols.bin': 'Lalagyan ng basurahan',
   'inventory.cols.onHand': 'Nasa kamay',
   'inventory.cols.reorder': 'Muling mag-order ng pt',
+  'inventory.cols.sku': 'SKU',
   'inventory.empty': 'Walang SKU na tumutugma sa iyong paghahanap.',
+  'inventory.errorFallback': 'Pansamantalang hindi magagamit ang live data.',
   'inventory.eyebrow': 'Imbentaryo na nasa kamay',
   'inventory.kpis.low': 'Mababang stock',
   'inventory.kpis.lowHint': 'Sa ibaba ng punto ng muling pag-order',
   'inventory.kpis.out': 'Wala nang stock',
   'inventory.kpis.outHint': 'Kailangang mag-order muli ngayon',
+  'inventory.kpis.skus': 'Mga Aktibong SKU',
   'inventory.kpis.skusHint': 'Sinusubaybayan sa mga basurahan',
   'inventory.kpis.units': 'Mga yunit na magagamit',
   'inventory.kpis.unitsHint': 'Sa lahat ng mga basurahan',
@@ -110,6 +127,7 @@ export const ui: UiTranslations = {
   'locations.title': 'Mga sona, pasilyo at basurahan',
   'locations.utilization': 'Paggamit',
   'login.heading': 'Mag-sign in sa Sorthaus',
+  'login.noAccount': 'Bago sa Tessera?',
   'login.subheading': 'Utos sa sahig para sa bawat order, bawat alon, bawat pantalan.',
   'notFound.body':
     'Walang basurahan na tumutugma sa rutang iyon. Maaaring naipadala na ang pahina, nakansela, o nailagay sa maling pasilyo.',
@@ -121,6 +139,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle': '{{count}} mga alerto · {{unread}} hindi pa nababasa',
   'orderDetail.back': 'Balik sa mga order',
   'orderDetail.cancel': 'Kanselahin ang order',
+  'orderDetail.items.empty': 'Walang mga aytem.',
   'orderDetail.items.eyebrow': 'Listahan ng mga pagpipilian',
   'orderDetail.items.line': 'Linya',
   'orderDetail.items.qty': 'Dami',
@@ -143,7 +162,16 @@ export const ui: UiTranslations = {
   'pickList.notFound': 'Hindi natagpuan ang order.',
   'pickList.progress.eyebrow': 'Pumili ng progreso',
   'pickListItem.progress': 'Pinili {{picked}} ng {{total}}',
+  'pickListItem.qty': 'Dami',
   'pickListItem.toggleAria': 'I-toggle ang pick para sa {{sku}}',
+  'pricing.advancedFeatures': 'Mga advanced na feature: {{yes}}',
+  'pricing.canExport': 'Data export: {{yes}}',
+  'pricing.heading': 'Pumili ng iyong {{app}} plano',
+  'pricing.maxOrders': '{{count}} order',
+  'pricing.maxPacking': '{{count}} packing',
+  'pricing.maxPicks': '{{count}} pick',
+  'pricing.maxShipments': '{{count}} shipment',
+  'pricing.maxZones': '{{count}} mga sona',
   'profile.editTitle': 'Mga detalye ng operator',
   'profile.eyebrow': 'Profile ng operator',
   'profile.field.shift': 'Bintana ng paglipat',
@@ -178,8 +206,10 @@ export const ui: UiTranslations = {
   'reports.kpis.healthHint': '100% ibig sabihin walang OOS',
   'reports.kpis.units': 'Mga yunit na magagamit',
   'reports.kpis.unitsHint': 'Sa lahat ng aktibong SKU',
+  'reports.loadError': 'Hindi ma-load ang data ng report.',
   'reports.subtitle': 'Live na snapshot ng mga order, lifecycle, at kalagayan ng imbentaryo',
   'reports.title': 'Mga ulat sa throughput',
+  'reset.changedMind': 'Nagbago ang isip mo?',
   'reset.password': 'Bagong password',
   'reset.subheading':
     'Pumili ng isang bagay na maaalala ng iyong koponan sa entablado — kahit man lang 12 karakter.',
@@ -192,6 +222,7 @@ export const ui: UiTranslations = {
   'returns.loading': 'Naglo-load ng mga return…',
   'returns.new': 'Bagong RMA',
   'returns.reason': 'Dahilan',
+  'returns.reasonPlaceholder': 'Bakit ito ibinabalik?',
   'returns.subtitle': '{{count}} Mga RMA na naghihintay ng disposisyon',
   'returns.title': 'Pagbabalik ng triage',
   'scanner.back': 'Lumabas sa scanner',
@@ -202,6 +233,7 @@ export const ui: UiTranslations = {
   'scanner.placeholder': 'Ilagay ang SO-#, SKU, o zone code…',
   'scanner.recent.empty': 'Wala pang mga scan — subukan ang isa sa itaas.',
   'scanner.recent.eyebrow': 'Mga kamakailang scan',
+  'scanner.submit': 'Lookup',
   'scanner.title': 'Hawakan. Asintahin. Hilahin.',
   'settings.autoAllocate':
     'Awtomatikong italaga ang mga rush order sa susunod na available na picker',
@@ -251,4 +283,5 @@ export const ui: UiTranslations = {
   'warehouseFulfillmentLayout.scanAria': 'Buksan ang scanner',
   'warehouseFulfillmentLayout.scanCta': 'I-scan',
   'warehouseFulfillmentLayout.searchAria': 'Maghanap ng mga order, SKU, at bin',
+  'warehouseFulfillmentLayout.searchPlaceholder': 'Maghanap ng order, SKU, bin…',
 }

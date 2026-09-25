@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Ajụjụ gbasara mbipụta, mbufe, ma ọ bụ ndenye aha gị? Kpọtụrụ mmadụ n'ezie nọ n'òtù ahụ na hello@crate.example — anyị na-agụ ozi ọ bụla.",
+  'about.contactTitle': 'Gwa onye nlekọta okwu',
+  'about.feature1':
+    "Mbipụta kwa ọnwa a họpụtara ahọpụta nke ndị na-emepụta ihe nọọrọ onwe ha, yana akụkọ dị n'azụ ihe ọ bụla.",
+  'about.feature2':
+    "Njikwa zuru oke n'igbe ọ bụla — hazie ihe dị n'ime, gbanwee ma ọ bụ wepụ ihe, wụfee otu ọnwa, ma ọ bụ gbanwee oge gị.",
+  'about.feature3':
+    "Nsochi mbufe site na mmalite ruo n'ọnụ ụzọ, na nkwakọ ngwaahịa na-enweghị plastik yana mmelite ndị na-ebu ozi.",
+  'about.feature4':
+    "Atụmatụ na-agbanwe agbanwe na ụgwọ doro anya — kwalite, wedata, kwụsịtụ, ma ọ bụ kagbuo site na dashboard gị n'oge ọ bụla.",
+  'about.intro':
+    "{{app}} bụ ọrụ igbe ndenye aha ahọpụtara nke na-ebuga igbe ọṅụ a họpụtara ahọpụta, nke obere obere, n'ọnụ ụzọ gị kwa ọnwa. Ndị na-emepụta ihe na-arụ ọrụ na-achịkọta mbipụta ọ bụla — ndị omenkà nọọrọ onwe ha, ndị osi nri, na obere ụlọ ọrụ — ọ bụghị algọridim.",
+  'about.missionBody':
+    "Anyị kwenyere na ndenye aha kwesịrị ịdị ka onyinye, ọ bụghị ọnyà. E wuru {{app}} ka ị nọrọ n'ihi na ị hụrụ ihe na-abịa n'anya — kwụsịtụ n'oge ọ bụla, gbanwee ihe ị chọrọ, ma kagbuo na otu ọpịpị. Ọ dịghị edemede njide, ma ọlị.",
+  'about.missionTitle': 'Ọrụ anyị',
   'about.pageTitle': 'Gbasara {{app}}',
   'appNav.mobileLabel': 'Ntugharị isi',
   'appNav.primaryLabel': 'Ntugharị isi',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Dezie kọntaktị ịkwụ ụgwọ',
   'billing.contact.eyebrow': 'Kpọtụrụ ụgwọ',
   'billing.eyebrow': 'Atụmatụ na ịkwụ ụgwọ',
+  'billing.loading': 'Na-ebugo ụgwọ…',
   'billing.payment.body':
     "Stripe Checkout na-ahụ maka ịkwụ ụgwọ — nọmba kaadị gị zuru oke anaghị emetụta sava anyị. Pịa ọkwa ọ bụla dị n'okpuru iji tinye ma ọ bụ melite kaadị gị.",
   'billing.payment.linked': 'A na-etinye kaadị site na Stripe',
@@ -19,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Ndebanye aha malitegharịa',
   'billing.plan.eyebrow': 'Atụmatụ na-arụ ọrụ',
   'billing.plan.next': 'Na-emegharị ọhụrụ na akpaghị aka {{date}} .',
+  'billing.plan.status': 'Ọnọdụ: {{status}}',
   'billing.subtitle': 'Jikwaa ọkwa gị, ụzọ ịkwụ ụgwọ, ma nyochaa ihe omume gara aga.',
   'billing.tiers.body': 'Họrọ otu ọkwa, anyị ga-eduga gị na Stripe Checkout.',
   'billing.tiers.choose': 'Họrọ',
+  'billing.tiers.empty': 'Enwebeghị ọkwa ahaziri.',
   'billing.tiers.heading': 'Ọkwa dị',
   'boxDetail.backToBoxes': 'Laghachi na mbipụta niile',
   'boxDetail.crumb.boxes': 'Mbipụta',
@@ -34,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Ihe e kpụchara akpụcha',
   'boxDetail.items.heading': '{{count}} iberibe edoziri',
   'boxDetail.itemsBadge': "{{count}} ihe ndị a haziri n'otu igbe",
+  'boxDetail.loading': 'Na-ebu mbipụta…',
   'boxDetail.notFound': 'Mbipụta ahụ adịghịzi.',
   'boxDetail.subscribe.success': "E debanyere aha — mbipụta mbụ gị dị n'ahịrị.",
   'boxDetail.swapBadge': 'Gbanwee ruo {{count}} ihe(ndị) kwa igbe',
@@ -42,14 +62,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Ọ dịghị mbipụta ọ bụla dakọtara.',
   'boxes.eyebrow': 'Ebe nchekwa ihe ochie nke Crate',
   'boxes.heading': 'Lelee mbipụta ọ bụla',
+  'boxes.loadError': 'Anyị enweghị ike ibute mbipụta ndị ahụ. Lelee njikọ gị ma nwaa ọzọ.',
   'boxes.loading': 'Na-ebugo mbipụta…',
+  'boxes.search.label': 'Chọọ mbipụta',
   'boxes.search.placeholder': 'Chọọ mbipụta…',
   'boxes.subtitle':
     "Ọkwa nke ọ bụla bụ obere akụkọ. Tinye otu n'ahịrị gị ma ọ bụ gbanwee ya ka ọ bụrụ nke gị n'ọnwa na-abịa.",
+  'boxThemeCard.itemCount': '{{count}} ihe',
   'boxThemeCard.perMonth': '/ ọnwa',
+  'boxThemeCard.retailValue': 'Uru ahịa {{value}}',
   'common.goToDashboard': 'Gaa na Dashboard',
+  'common.retry': 'Nwaa ọzọ',
   'customize.eyebrow': 'Mee ka ọ bụrụ nke gị',
   'customize.heading': 'Hazie Crate gị na-esote',
+  'customize.items.empty': 'Enwebeghị ihe ahaziri maka ọkwa a.',
   'customize.items.exclude': 'Wụpụ nke a',
   'customize.items.eyebrow': 'Mee ka igbe a mara mma nke ọma',
   'customize.items.heading': 'Ihe ndị dị na {{box}}',
@@ -58,7 +84,9 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Tinye azụ',
   'customize.items.save': 'Chekwaa nhazi nkeonwe',
   'customize.items.swapsLeft': '{{used}} nke {{max}} mgbanwe ejiri',
+  'customize.loading': 'Na-ebu nhazi…',
   'customize.noSub.body': 'Debanye aha na ọkwa mbụ, wee laghachi iji gbanwee ihe dị na igbe gị.',
+  'customize.noSub.cta': 'Chọgharịa mbipụta',
   'customize.noSub.heading': 'Enweghị ndenye aha na-arụ ọrụ',
   'customize.saved': 'Echekwara nhazi.',
   'customize.subtitle':
@@ -72,11 +100,13 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Soro mbupu',
   'dashboard.eyebrow': 'Ndụ Gị',
   'dashboard.greeting': 'Nnọọ, {{name}} .',
+  'dashboard.loadError': 'Anyị enweghị ike ibute dashboard gị. Lelee njikọ gị ma nwaa ọzọ.',
   'dashboard.loading': 'Na-ebugo dashboard...',
   'dashboard.next.eyebrow': 'Mbipụta gị na-esote',
   'dashboard.onboarding.body':
     'Ị nwebeghị ndenye aha na-arụ ọrụ ugbu a. Họrọ ọkwa iji malite izipu Crate kwa ọnwa.',
   'dashboard.onboarding.cta': 'Chọgharịa mbipụta niile',
+  'dashboard.onboarding.empty': "Ọ dịghị atụmatụ dị ugbu a. Lelee ọzọ n'oge na-adịghị anya.",
   'dashboard.onboarding.heading': 'Họrọ mbipụta mbụ gị',
   'dashboard.renewal.amount': 'Akwụọla ụgwọ',
   'dashboard.renewal.cadence': 'Kadence',
@@ -84,18 +114,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Mmeghari ohuru',
   'dashboard.renewal.heading': 'Mmelite-akpaghị aka na-amalite {{date}}',
   'dashboard.renewal.plan': 'Igodo atụmatụ',
+  'dashboard.renewal.tbd': "Nhazi mmeghari n'oge na-adịghị anya",
   'dashboard.renewal.tier': 'Ọkwa',
   'dashboard.stats.days': 'ụbọchị',
   'dashboard.stats.daysToNext': 'Na-ebuga na',
   'dashboard.stats.items': 'Ihe ndị a haziri ahazi',
   'dashboard.stats.shipDate': 'Ụbọchị mbupu',
   'dashboard.stats.tbd': 'TBD',
+  'dashboard.subtitle.active': 'Mbipụta gị na-esote na-abịa. Nke a bụ ihe ị ga-atụ anya ya.',
+  'dashboard.subtitle.idle': 'Họrọ ọkwa ka ị malite ibuga {{appName}} kwa ọnwa.',
   'forgotPassword.subtitle': 'Gwa anyị ozi email gị, anyị ga-ezitere gị njikọ nrụpụta.',
   'forgotPassword.success.body':
     "Ọ bụrụ {{email}} edebanyela aha gị, ị ga-enweta njikọ nrụpụta n'ime nkeji ole na ole.",
   'forgotPassword.success.title': 'Lelee igbe mbata gị.',
   'landing.editions.eyebrow': 'Oge a',
   'landing.editions.heading': "Mbipụta ndị na-elekọta anyị hụrụ n'anya",
+  'landing.editions.viewAll': 'Chọgharịa mbipụta niile →',
   'landing.footer.contact': 'Gwa onye nlekọta okwu',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Malite igbe gị →',
@@ -105,6 +139,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     "Ileba anya na dashboard ndị otu — ịgụta oge, ihe dị n'ime ya, na nsochi.",
   'landing.hero.social.count': "Ndị hụrụ n'anya {{count}} + ndị debanyere aha",
+  'landing.hero.social.rating': '{{rating}} nkezi ọkwa imeghe igbe',
+  'landing.hero.subhead':
+    "{{appName}} na-ezitere gị igbe ọṅụ a họpụtara ahọpụta, nke obere obere, site n'aka ndị na-emepụta ihe nọọrọ onwe ha. Kwụsịtụ n'oge ọ bụla. Gbanwee ihe ị chọrọ. Debe ihe ị hụrụ n'anya.",
   'landing.nav.start': 'Malite igbe gị',
   'landing.tiers.eyebrow': 'Họrọ kadenti gị',
   'landing.tiers.heading': 'Malite obere, kwalite oge ọ bụla, kagbuo ngwa ngwa.',
@@ -114,6 +151,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Banye ka ị lelee igbe nke ọnwa na-abịa.',
   'login.welcomeBack': 'Nnọọ nabata, onye nlekọta.',
   'nextBoxHeroCard.eyebrow': 'Njem gị ọzọ',
+  'nextBoxHeroCard.itemCount': "{{count}} ihe dị n'ime",
   'nextBoxHeroCard.itemsLabel': 'Ihe ndị a haziri ahazi',
   'nextBoxHeroCard.shipsOnLabel': 'A na-ebuga ozi',
   'notFound.body':
@@ -137,8 +175,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Kwụsịtụ ndenye aha',
   'settings.danger.paused': 'Ndenye aha kwụsịtụla.',
   'settings.danger.pausing': 'Nkwụsịtụ...',
+  'settings.danger.status': 'Ọnọdụ ndenye aha: {{status}}',
   'settings.danger.subtitle':
     "Nkwụsịtụ na-eme ka ọkwa na akụkọ ihe mere eme gị dịgide. Ịkagbu na-akwụsị mbupu n'ọdịnihu ma wepụ ụzọ ịkwụ ụgwọ echekwara gị na njedebe nke usoro ahụ.",
+  'settings.notifications.saving': '· na-echekwa…',
   'settings.notifications.subtitle':
     'Họrọ akara ngosi ịchọrọ site na Crate. Ntọala ndabara kwesịrị ekwesị.',
   'settings.subtitle': 'Melite profaịlụ gị, adreesị mbupu, na otu Crate si enweta ozi.',
@@ -153,10 +193,15 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Enwebeghị mbupu na-arụ ọrụ ugbu a',
   'shipments.live.eyebrow': 'Mbupu na-arụ ọrụ',
   'shipments.live.unnamed': 'Igbe gị na-esote',
+  'shipments.loadError': 'Anyị enweghị ike ibute mbufe gị. Lelee njikọ gị ma nwaa ọzọ.',
+  'shipments.loading': 'Na-ebugo mbupu...',
+  'shipments.step.delivered': 'E zigara ya',
   'shipments.step.deliveredBody': 'Tinye #crateunbox iji kesaa ihe ị chọpụtara.',
   'shipments.step.ordered': 'E tinyere iwu',
   'shipments.step.orderedBody': "Ndebanye aha gị tinyere mbipụta a n'usoro maka usoro mbupu ọzọ.",
+  'shipments.step.packed': 'Ejiri aka kwakọọ',
   'shipments.step.packedBody': "E ji aka dee ihe e ji kee ya ma kechie ya n'ime igbe ahụ.",
+  'shipments.step.transit': 'Na-aga',
   'shipments.step.transitNot': 'Nlekota ga-apụta ebe a ozugbo igbe gị na-aga.',
   'shipments.subtitle':
     'Soro igbe ahụ na-abịarute gị, wee lelee mbipụta ọ bụla ị kpọpụrụ na igbe ahụ.',

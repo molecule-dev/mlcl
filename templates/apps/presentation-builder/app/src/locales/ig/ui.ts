@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ajụjụ, nzaghachi, ma ọ bụ atụmatụ ị chọrọ ka anyị nwee? Kpọtụrụ ndị otu site na ntọala akaụntụ gị — ezigbo mmadụ na-agụ ozi ọ bụla.',
   'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
+  'about.missionTitle': 'Ọrụ anyị',
+  'about.whatYouGetTitle': 'Ihe ị nwetara',
   'analytics.empty': 'Mepụta dek iji hụ nyocha ebe a.',
   'analytics.stats.acrossDecks': 'N’ime ụgbọ mmiri niile',
   'analytics.stats.allTime': 'N’ime ụlọ ihe nkiri gị',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Aha oche',
   'landing.features.eyebrow': 'Gịnị Mere Overture',
   'landing.features.heading': 'Ihe niile dị gị mkpa iji gaa ije n’elu ikpo okwu dị njikere.',
+  'landing.finalCta.body':
+    "Malite ụlọ ọrụ gị n'ime ihe na-erughị otu nkeji. Enweghị kaadị kredit. Kagbuo oge ọ bụla.",
   'landing.finalCta.cta': 'Mepụta ụlọ ihe nkiri efu gị',
   'landing.finalCta.eyebrow': 'N’efu ịmalite',
   'landing.finalCta.heading': 'Bịa n’elu ikpo okwu na ebe kacha mma n’ọrụ gị.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Edeziri ya nkeji iri na abụọ gara aga',
   'notifications.created': 'e kere',
   'notifications.edited': 'edeziri',
+  'notifications.empty.body':
+    'Ihe omume na deck gị — nkọwa, aha a kpọtụrụ, mbupụ — ga-apụta ebe a.',
   'notifications.empty.title': 'Enwebeghị ọkwa ọ bụla',
   'notifications.eyebrow': 'Ihe omume ogbo',
   'notifications.loading': 'Na-ebugo…',
   'notifications.shared': 'kesara n’ihu ọha',
+  'planUpdated.retry': 'Nwaa ọzọ',
+  'planUpdated.verifyFailed': 'Anyị enwebeghị ike ịkwado ịkwụ ụgwọ gị.',
+  'planUpdated.verifyFailedBody':
+    "Ịkwụ ụgwọ gị ka nwere ike ịdị na-aga n'ihu. Nwaa ọzọ n'ime obere oge.",
   'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'present.addSlides': 'Tinye ihe ngosi mmịfe',
   'present.backToDecks': 'Laghachi na dek',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Onye na-eme ihe nkiri',
   'settings.security.notSet': 'Atọbeghị',
   'settings.security.passwordBody': 'E zoro paswọọdụ gị mgbe ezumike gasịrị.',
+  'settings.security.reset': 'Tọgharịa',
   'settings.security.title': 'Akaụntụ + nnọkọ',
   'shared.empty.body':
     'Dek ị na-ekerịta n’ihu ọha ga-apụta ebe a. Mepee dek wee gbanwee ọha ka ị kesaa.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Na-ebugo…',
   'shared.title': 'Dek ndị a na-ekerịta',
   'templateCard.slideCount': '{{count}} ihe ngosi slaịd',
+  'templateCard.usageCount': '{{count}} ojiji',
+  'templates.empty.body': 'Nwaa nzacha ọzọ — anyị na-ewepụta ndebiri ọhụrụ kwa ọnwa.',
+  'templates.empty.title': 'Enweghị ndebiri na ngalaba a ugbu a',
+  'templates.hero.body':
+    'Nhazi slide nwere isiokwu agbakwunyere na ngọngọ eserese, fremu ngosi, ndetu onye ngosi, na ntọala oge — ndebiri ọ bụla na-abịa dị njikere idekọ.',
   'templates.hero.eyebrow': 'Usoro nhazi',
   'templates.hero.heading': 'E wuru ọkwa maka oge ịchọrọ iru ya.',
 }

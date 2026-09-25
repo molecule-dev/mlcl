@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть отзыв, нашли ошибку или хотите подключить свою школу? Напишите нам в настройках аккаунта или администратору школы — каждое сообщение попадает к реальному человеку из команды.',
   'about.contactTitle': 'Свяжитесь с нами',
+  'about.missionTitle': 'Наша миссия',
   'announcementsFeed.empty': 'Пока никаких объявлений нет.',
   'announcementsFeed.eyebrow': '{{count}} обновления',
   'announcementsFeed.title': 'Последние объявления',
   'assignmentDetail.alreadySubmitted': 'Вы уже отправили это задание.',
   'assignmentDetail.backLink': 'Вернуться к заданиям',
+  'assignmentDetail.dropBody':
+    'Используйте «Выбрать файлы», чтобы прикрепить работу — мы зафиксируем время отправки, как только вы подтвердите.',
   'assignmentDetail.dropButton': 'Выберите файлы',
+  'assignmentDetail.dropPrompt': 'Перетащите сюда PDF или пакет фотографий',
   'assignmentDetail.due': 'Должный {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Инструкции',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Оценочный',
   'assignmentDetail.statusSubmitted': 'Поданный',
   'assignmentDetail.statusTitle': 'Статус отправки',
+  'assignmentDetail.submitError':
+    'Не удалось зафиксировать отправку. Попробуйте ещё раз через минуту.',
   'assignmentDetail.submitted': 'Отправка зарегистрирована — ваш учитель уведомлен.',
+  'assignmentDetail.submittedAt': 'Отправлено {{when}}',
+  'assignmentDetail.submitTitle': 'Отправить работу',
   'assignmentRow.courseDue': '{{course}} · Должный {{due}}',
   'assignments.empty': 'Здесь ничего нет',
   'assignments.emptyBody': 'Переключите фильтры выше, чтобы увидеть назначения в другом штате.',
@@ -38,10 +48,12 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Ежедневный журнал присутствия, отсутствия и опозданий — с примечаниями, где это необходимо.',
+  'attendance.summary.absences': 'Пропуски',
   'attendance.summary.absencesCaption':
     'Ниже порогового значения для вмешательства в течение 5 дней',
   'attendance.summary.attendance': 'Посещаемость',
   'attendance.summary.attendanceCaption': '{{count}} в наши дни этот семестр',
+  'attendance.summary.tardies': 'Опоздания',
   'attendance.summary.tardiesCaption': 'Включая информацию о задержках автобусов/встреч.',
   'attendance.title': 'История посещаемости',
   'calendar.eyebrow': 'Учебный год · {{year}}',
@@ -55,6 +67,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Оценки',
   'courseDetail.currentGrade': 'Текущая оценка',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Обзор курса',
   'courseDetail.gradesTitle': 'Последние оценки',
   'courseDetail.messageTeacher': 'Сообщение учителю',
   'courseDetail.noGrades': 'Оценки пока не опубликованы.',
@@ -67,13 +80,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Посмотреть все',
   'dashboard.assignmentsTitle': 'Что будет дальше на этой неделе?',
   'dashboard.greeting': 'Привет {{name}} Готовы к уроку?',
+  'dashboard.subtitle':
+    'Ваша неделя одним взглядом — расписание, оценки и задания в одном спокойном виде.',
+  'dashboard.viewReportCard': 'Посмотреть табель',
+  'dashboard.weekFocusBody':
+    'Сдать практикум по квадратным уравнениям № 7 и тест по главе. Кабинет tutoring lab открыт во вторник и четверг после 7-го урока.',
+  'dashboard.weekFocusCta': 'Смотреть весь план',
   'dashboard.weekFocusEyebrow': 'Тема недели',
   'dashboard.weekFocusTitle': 'Повысьте уровень алгебры II на 4 балла.',
   'forgotPassword.subheading':
     'Введите свой школьный адрес электронной почты, и мы вышлем вам ссылку для сброса пароля.',
   'forgotPassword.successBody':
     'Если {{email}} Если ваш аккаунт совпадает с аккаунтом Chalk, ссылка для сброса пароля будет отправлена вам. Ссылки действительны в течение 30 минут.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} средний балл за семестр',
+  'gpaHeroCard.summary': 'Сегодня {{count}} занятий',
   'grades.col.grade': 'Оценка',
   'grades.col.teacher': 'Учитель',
   'grades.col.trend': 'Тренд',
@@ -85,10 +106,17 @@ export const ui: UiTranslations = {
     'Оценки в виде букв и процентов в реальном времени. Стрелки, показывающие тенденцию, демонстрируют, улучшается ли ваш результат, остается на прежнем уровне или ухудшается.',
   'grades.title': 'Ваши оценки по каждому предмету.',
   'grades.trendStable': 'Стабильный',
+  'grades.viewReportCard': 'Посмотреть официальный табель',
   'landing.copyright': '© {{year}} {{app}} . Создано для студентов, разработано для семей.',
+  'landing.ctaBody':
+    'Бесплатно первые 30 дней, карта не нужна. Школы могут развернуть тариф для всего учебного заведения за один день.',
+  'landing.ctaButton': 'Создайте свой портал',
   'landing.ctaHeading': 'Спокойный школьный день начинается за считанные минуты.',
   'landing.eyebrow': 'Для учеников средних и старших классов',
   'landing.featuresHeading': 'Учебный день, организованный вокруг ученика.',
+  'landing.heroSubtitle':
+    '{{appName}} собирает все классы, оценки, задания и сообщения в одну спокойную панель, чтобы вы меньше искали и больше учились.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'По умолчанию соответствует требованиям FERPA.',
   'landing.proof.rating': '4,8 по 12 000 семей',
   'landing.sampleTerm': 'Весна',
@@ -97,6 +125,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Скрыть пароль',
   'login.noAccount': 'Впервые используете мел?',
   'login.showPassword': 'Показать пароль',
+  'messages.compose': 'Новое сообщение',
   'messages.composer.email': 'Адрес электронной почты получателя (необязательно)',
   'messages.composer.errorEmpty': 'Сообщение не может быть пустым.',
   'messages.composer.errorRecipient': 'Указать имя получателя обязательно.',
@@ -127,9 +156,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Список отличников · Весенний семестр',
   'nav.unreadMessages': 'Непрочитанные сообщения',
   'notifications.eyebrow': '{{count}} обновления',
+  'notifications.feedTitle': 'Вся недавняя активность',
   'notifications.subtitle':
     'Оценки, напоминания, сообщения и школьные объявления. В настройках можно указать, какие каналы будут использоваться для каждого уведомления.',
+  'planUpdated.body':
+    'Изменение тарифа активировано. Вы можете управлять своим планом в любое время на странице оплаты.',
+  'planUpdated.retry': 'Попробуйте ещё раз',
+  'planUpdated.verifyFailed': 'Мы пока не можем подтвердить ваш платеж.',
+  'planUpdated.verifyFailedBody':
+    'Ваш платеж, возможно, еще обрабатывается. Попробуйте еще раз через минуту.',
   'planUpdated.verifying': 'Подтверждение платежа…',
+  'pricing.announcementsLabel': 'объявления',
   'pricing.attendanceLabel': 'посещаемость',
   'pricing.gradesLabel': 'оценки',
   'pricing.heading': 'объявления',
@@ -144,6 +181,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'Q2',
   'reportCard.crumb': 'Табель успеваемости',
   'reportCard.cumulativeGpa': 'Совокупный средний балл',
+  'reportCard.download': 'Скачать PDF',
   'reportCard.downloaded': 'Табель успеваемости открыт в новой вкладке.',
   'reportCard.downloading': 'Создание PDF-файла…',
   'reportCard.empty': 'Оценки пока отсутствуют.',
@@ -151,6 +189,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Итоговый средний балл · {{term}}',
   'reportCard.subtitle':
     'Официальная итоговая выписка оценок за семестр с указанием взвешенных оценок по курсам, посещаемости и возможностью распечатки в формате PDF.',
+  'reportCard.title': 'Табель успеваемости',
+  'resetPassword.newPassword': 'Новый пароль',
   'resetPassword.subheading': 'Выберите что-нибудь запоминающееся, но трудноугадываемое.',
   'resetPassword.tokenPlaceholder': 'Вставьте код из вашего электронного письма.',
   'schedule.empty': 'Занятия не запланированы.',
@@ -177,12 +217,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Незавершенные задания',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} пропуски занятий в этом семестре · {{tardy}} опоздания',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Считаем посещаемость…',
+  'subjectStatsTriad.attendanceLabel': 'Посещаемость',
   'subjectStatsTriad.gradesCaption': 'Через {{percent}} % средневзвешенное',
+  'subjectStatsTriad.gradesCaptionLoading': 'Загрузка уровней…',
+  'subjectStatsTriad.gradesLabel': 'Средний балл класса',
   'todayScheduleStrip.empty': 'Сегодня занятий нет.',
   'todayScheduleStrip.eyebrow': '{{count}} классы',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Расписание на сегодня',
   'topbar.guestName': 'Студент',
   'topbar.searchPlaceholder': 'Поиск занятий, заданий…',
+  'topbar.studentRole': 'Студент',
   'topbar.studentTag': 'Студент · # {{id}}',
 }

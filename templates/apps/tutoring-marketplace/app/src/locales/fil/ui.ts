@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Makipag-ugnayan',
   'about.eyebrow': 'Tungkol sa amin',
+  'about.missionTitle': 'Ang aming misyon',
   'account.notifications.save': 'I-save ang mga kagustuhan',
   'account.notifications.saved': 'Na-save ang mga kagustuhan.',
   'account.notifications.saveFailed': 'Hindi ma-save ang mga kagustuhan.',
@@ -12,7 +13,10 @@ export const ui: UiTranslations = {
     'Bayad kada sesyon • Mag-upgrade para sa mga diskwento sa booking',
   'account.payments.helper':
     'Kinokolekta ang iyong paraan ng pagbabayad sa checkout. Hindi namin iniimbak ang kumpletong numero ng card — ang Stripe ang humahawak sa lahat ng data ng card.',
+  'account.payments.paidDescription': 'Aktibo ang subscription — pamahalaan sa Stripe.',
   'account.payments.planFree': 'Libreng plano',
+  'account.payments.title': 'Plano at bayad',
+  'account.payments.viewPlans': 'Tingnan ang {{appName}} na plano →',
   'account.profile.title': 'Profile',
   'account.role.body':
     'Lumipat sa pagitan ng learner at tutor mode anumang oras. Ang iyong mga aktibong sesyon ay mananatiling buo sa alinmang mode.',
@@ -25,6 +29,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Magturo gamit ang Mentor',
   'becomeTutor.form.error': 'Hindi maisumite ang aplikasyon.',
+  'becomeTutor.form.pitch': 'Ang iyong pitch (opsyonal)',
   'becomeTutor.form.pitchPlaceholder':
     'Ilang pangungusap lang ang makikita ng mga estudyante sa iyong profile. Panatilihin itong tiyak at mainit.',
   'becomeTutor.form.rate': 'Bayad kada oras ($/oras): {{rate}}',
@@ -34,6 +39,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.title': 'Sabihin sa amin ang tungkol sa iyo',
   'becomeTutor.headline':
     'Kumita sa pamamagitan ng paggawa ng mga bagay na gusto mo. Magturo ayon sa iyong iskedyul.',
+  'becomeTutor.subhead':
+    'Mag-apply sa 5 minuto. Kapag na-verify, lalabas ka sa search at makakapagsimula nang mag-book ng sessions.',
+  'booking.duration.title': '3. Gaano katagal?',
   'booking.error.createFailed': 'Hindi makagawa ng booking.',
   'booking.error.loadFailed': 'Hindi ma-load ang tutor — subukan muli.',
   'booking.error.noSlot': 'Pumili muna ng araw at oras.',
@@ -48,6 +56,7 @@ export const ui: UiTranslations = {
     'Maaaring i-reschedule ang mga sesyon nang hanggang 12 oras bago ang sesyon. Sisingilin lamang ang iyong card kapag natapos na ang sesyon.',
   'booking.summary.assurance':
     'Walang bayad hanggang matapos ang sesyon • Libreng kanselahin hanggang 12 oras bago',
+  'booking.summary.back': '← Bumalik sa profile ng tutor',
   'booking.summary.cta': 'Kumpirmahin ang booking',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'Pumili ng puwesto',
@@ -74,18 +83,27 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'Tutor',
   'bookingConfirm.subject': 'Paksa',
   'bookingConfirm.title': 'Naka-book ka na. Kami na ang bahala sa iba pa.',
+  'bookingConfirm.viewSessions': 'Tingnan ang lahat ng session →',
   'bookingConfirm.with': 'Kasama ang tutor',
   'common.goToDashboard': 'Pumunta sa Dashboard',
+  'earningsHero.change': '{{sign}}{{percent}}% kumpara noong nakaraang buwan',
   'earningsHero.eyebrow': 'Mga Kita • {{month}}',
+  'earningsHero.greeting': 'Maligayang pagbabalik, {{name}} — ituloy ang momentum.',
   'forgotPassword.heading': 'Nakalimutan mo ba ang iyong password?',
   'forgotPassword.subheading':
     'Ilagay ang email na naka-link sa iyong account at magpapadala kami ng link para sa pag-reset.',
   'forgotPassword.success.body':
     'Nagpadala kami ng link sa pag-reset sa {{email}} — mawawalan ito ng bisa sa loob ng 30 minuto.',
   'heroSearchSection.eyebrow': 'Mahigit 12,000 na beripikadong tutor • simula noong 2018',
+  'heroSearchSection.headline': 'Dito nagtatagpo ang mga mausisa at ang tamang tutor.',
+  'heroSearchSection.searchCta': 'Maghanap ng tutor',
+  'heroSearchSection.searchPlaceholder': 'Maghanap ng subject, tutor, o topic…',
   'heroSearchSection.stat.rating': 'Average na rating ng sesyon',
+  'heroSearchSection.stat.sessions': 'Mga session na naisagawa',
   'heroSearchSection.stat.subjects': 'Mga paksang sakop',
   'heroSearchSection.stat.tutors': 'Mga na-verify na tutor',
+  'heroSearchSection.subhead':
+    'Mga verified na tutor. Malinaw na presyo. Mga session na bagay sa iyong linggo.',
   'landing.featured.eyebrow': 'Mga itinatampok na tutor',
   'landing.featured.headline':
     'Pinili nang personal, may pinakamataas na rating, at handa na ngayong linggo.',
@@ -93,8 +111,11 @@ export const ui: UiTranslations = {
   'landing.nav.becomeTutor': 'Magturo gamit ang Mentor',
   'landing.nav.findTutors': 'Maghanap ng mga tutor',
   'landing.pillars.eyebrow': 'Bakit Mentor',
+  'landing.pillars.headline': '{{tagline}} — walang abala.',
   'landing.testimonials.eyebrow': 'Mula sa mga bagong estudyante',
   'landing.testimonials.headline': 'Tunay na mga resulta, sa sarili nilang mga salita.',
+  'landing.tutorCta.body':
+    'Itakda ang sarili mong rate, bumuo ng reputasyon sa mga verified na review, at kami na ang bahala sa scheduling, bayad, at paalala.',
   'landing.tutorCta.button': 'Mag-apply para magturo',
   'landing.tutorCta.eyebrow': 'Maging isang tagapagturo',
   'landing.tutorCta.headline':
@@ -106,6 +127,7 @@ export const ui: UiTranslations = {
   'login.signup': 'Gumawa ng account →',
   'login.subheading':
     'Ipagpatuloy kung saan ka tumigil — naghihintay ang iyong mga sesyon, mensahe, at tutor.',
+  'login.support': 'Kailangan mo ng tulong?',
   'messages.draftPlaceholder': 'Mag-type ng mensahe…',
   'messages.empty.body':
     'Lalabas dito ang mga thread kapag nagmensahe ka sa isang tutor o kapag may nagmensahe sa iyo.',
@@ -117,9 +139,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'Wala pang mga mensahe.',
   'messages.selectThread': 'Pumili ng thread sa kaliwa.',
   'messages.send': 'Magpadala ng mensahe',
+  'messages.startThreadHint':
+    'Bisitahin ang profile ng tutor at i-tap ang "Message tutor" para magsimula ng usapan.',
   'messages.thread.empty': 'Magpabati — simulan ang usapan.',
   'messages.title': 'Mga usapan kasama ang iyong mga tutor.',
   'nav.primary': 'Pangunahin',
+  'planUpdated.body':
+    'Aktibo na ang pagbabago sa iyong billing. Maaari mong pamahalaan ang iyong plano anumang oras mula sa billing page.',
+  'pricing.advancedFeatures': 'Mga advanced na tampok:',
   'pricing.dataExport': 'Pag-export ng data:',
   'pricing.headingDefault': 'Mga advanced na tampok:',
   'resetPassword.heading': 'Pumili ng isang malakas at bagong password.',
@@ -130,6 +157,7 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Awtomatiko ka naming isa-sign in pagkatapos magtagumpay ang pag-reset.',
   'resetPassword.submit': 'I-reset at mag-sign in',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body': 'Subukang palawakin ang filter ng paksa o bawasan ang limitasyon ng rating.',
   'search.empty.title': 'Wala pang tumutugmang tutor.',
@@ -140,7 +168,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'Rating',
   'search.filter.subject': 'Paksa',
   'search.results.count': '{{count}} tinutugma ng mga tutor ang iyong mga filter',
+  'search.results.fallback': 'Ipinapakita ang mga piling demo tutor',
   'search.results.loading': 'Naglo-load ng mga tutor…',
+  'search.searchPlaceholder': 'Subject, pangalan, o topic…',
   'search.subtitle':
     'Salain ayon sa paksa, rating, at availability. Para lamang sa mga na-verify na tutor.',
   'search.title': 'Maghanap ng tutor na magugustuhan mo',
@@ -174,18 +204,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'Nagsimula na ang sesyon — masayang pag-aaral.',
   'sessionDetail.startError': 'Hindi masimulan ang sesyon.',
   'sessionDetail.subtitle': 'kasama {{name}} • {{when}} • {{mins}} minuto',
+  'sessionDetail.timeline': 'Timeline ng status',
   'sessionDetail.timeline.afterEnd': 'Pagkatapos ng sesyon',
   'sessionDetail.timeline.auto': 'Awto',
   'sessionDetail.timeline.booked': 'Naka-book na',
   'sessionDetail.timeline.confirmed': 'Nakumpirma',
   'sessionDetail.timeline.inSession': 'Nasa sesyon',
   'sessionDetail.timeline.now': 'Ngayon',
+  'sessionDetail.timeline.receipt': 'Naisyu na ang resibo',
   'sessionDetail.timeline.review': 'Prompt ng pagsusuri',
   'sessions.empty.body':
     'Mag-browse sa Mentor para makahanap ng tutor at mag-book ng slot. Dito lalabas ang mga kumpirmadong sesyon.',
   'sessions.empty.title': 'Wala pang naka-iskedyul dito.',
   'sessions.error': 'Hindi ma-load ang iyong mga sesyon — pakisubukang muli.',
   'sessions.eyebrow': 'Ang iyong mga sesyon',
+  'sessions.loading': 'Naglo-load ng mga session…',
   'sessions.subtitle':
     'Subaybayan ang mga paparating na booking, pumunta sa aktibong sesyon ng silid, at balikan ang mga natapos na aralin.',
   'sessions.title': 'Bawat aralin, sa iisang lugar.',
@@ -200,22 +233,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'Gumawa ng aking {{role}} kuwenta',
   'signup.subheading':
     'Gumawa ng account para mag-book ng mga sesyon, magpadala ng mensahe sa mga tutor, at subaybayan ang iyong progreso.',
+  'signup.terms': 'Sa pag-sign up, sumasang-ayon ka sa aming Mga Tuntunin.',
   'tutorCard.avatarAlt': 'Larawan ng {{name}}',
   'tutorCard.perHour': '/ oras',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'Pinakamataas na rating',
   'tutorCard.verified': 'Na-verify na tagapagturo',
+  'tutorDashboard.empty.body':
+    'Itakda ang iyong mga subject, orasang rate, at availability — pagkatapos ay magsimulang kumita.',
+  'tutorDashboard.empty.cta': 'Maging tutor →',
   'tutorDashboard.empty.title': 'Maging tutor para ma-unlock ang iyong dashboard.',
   'tutorDashboard.fallbackName': 'Tutor',
   'tutorDashboard.loading': 'Nilo-load ang dashboard…',
   'tutorDashboard.recentReviews': 'Mga kamakailang review',
   'tutorDashboard.reviewsEmpty':
     'Wala ka pang anumang mga review — lalabas ang mga ito rito kapag na-rate ka na ng mga estudyante.',
+  'tutorDashboard.stats.rating': 'Avg rating',
   'tutorDashboard.stats.sessions': 'Mga sesyon ngayong buwan',
+  'tutorDashboard.stats.totalSessions': 'Lahat ng session',
+  'tutorDashboard.studentFallback': 'Estudyante',
   'tutorDashboard.tutoringFallback': 'Sesyon ng pagtuturo',
   'tutorDashboard.upcoming': 'Mga paparating na sesyon',
   'tutorDashboard.upcomingEmpty':
     'Wala pang paparating na sesyon — lalabas dito ang mga estudyanteng nagbu-book ng inyong mga slot.',
+  'tutorProfile.availability': 'Availability ngayong linggo',
   'tutorProfile.availabilityHeadline': 'Pumili ng puwang para magsimula',
   'tutorProfile.bookCta': 'Mag-book ng sesyon',
   'tutorProfile.bookFull': 'Tingnan ang buong iskedyul',
@@ -228,6 +269,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / oras',
   'tutorProfile.reviews': 'Mga kamakailang review',
   'tutorProfile.reviews.empty': 'Wala pang mga review — maging una.',
+  'tutorProfile.stat.repeats': 'Mga bumabalik na estudyante',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'Karaniwang tugon',
   'tutorProfile.stat.responseValue': '{{mins}} minuto',

@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada soalan tentang edisi, penghantaran atau langganan anda? Hubungi individu sebenar dalam pasukan kami di hello@crate.example — kami membaca setiap mesej.',
+  'about.contactTitle': 'Bercakap dengan kurator',
+  'about.feature1':
+    'Edisi bulanan yang dikurasi dan dipilih sendiri oleh pembuat bebas, dengan kisah di sebalik setiap item.',
+  'about.feature2':
+    'Kawalan penuh ke atas setiap kotak — sesuaikan kandungan, tukar atau kecualikan item, langkau sebulan, atau ubah kekerapan anda.',
+  'about.feature3':
+    'Penjejakan penghantaran hujung ke hujung dari pengambilan hingga ke pintu, dengan pembungkusan tanpa plastik dan kemas kini pembawa secara langsung.',
+  'about.feature4':
+    'Pelan fleksibel dan bil yang telus — naik taraf, turun taraf, jeda atau batal pada bila-bila masa dari papan pemuka anda.',
+  'about.intro':
+    '{{app}} ialah perkhidmatan kotak langganan terkurasi yang menghantar kotak kegembiraan kelompok kecil yang dipilih sendiri ke pintu anda setiap bulan. Setiap edisi dihasilkan oleh pembuat yang bekerja — artis bebas, cef dan jenama kecil — bukan algoritma.',
+  'about.missionBody':
+    'Kami percaya langganan sepatutnya terasa seperti hadiah, bukan perangkap. {{app}} dibina supaya anda kekal kerana anda menyukai apa yang tiba — jeda bila-bila masa, tukar apa yang anda mahu, dan batal dengan satu klik. Tiada skrip mengekalkan pelanggan, selamanya.',
+  'about.missionTitle': 'Misi kami',
   'about.pageTitle': 'Perihal {{app}}',
   'appNav.mobileLabel': 'Navigasi utama',
   'appNav.primaryLabel': 'Navigasi utama',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Edit kenalan pengebilan',
   'billing.contact.eyebrow': 'Hubungan pengebilan',
   'billing.eyebrow': 'Pelan & pembayaran',
+  'billing.loading': 'Memuatkan bil…',
   'billing.payment.body':
     'Pembayaran dikendalikan oleh Stripe Checkout — nombor kad penuh anda tidak akan menyentuh pelayan kami. Klik mana-mana peringkat di bawah untuk menambah atau mengemas kini kad anda.',
   'billing.payment.linked': 'Kad dalam fail melalui Stripe',
@@ -20,9 +37,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Langganan sambung semula',
   'billing.plan.eyebrow': 'Pelan aktif',
   'billing.plan.next': 'Diperbaharui secara automatik pada {{date}} .',
+  'billing.plan.status': 'Status: {{status}}',
   'billing.subtitle': 'Urus peringkat, kaedah pembayaran anda dan semak aktiviti lepas.',
   'billing.tiers.body': 'Pilih satu peringkat dan kami akan menghalakan anda ke Stripe Checkout.',
   'billing.tiers.choose': 'Pilih',
+  'billing.tiers.empty': 'Belum ada peringkat dikonfigurasikan.',
   'billing.tiers.heading': 'Peringkat yang tersedia',
   'boxDetail.backToBoxes': 'Kembali ke semua edisi',
   'boxDetail.crumb.boxes': 'Edisi',
@@ -35,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Karya yang dipilih susun',
   'boxDetail.items.heading': '{{count}} karya yang dikurasi',
   'boxDetail.itemsBadge': '{{count}} item yang dipilih mengikut setiap kotak',
+  'boxDetail.loading': 'Memuatkan edisi…',
   'boxDetail.notFound': 'Edisi itu tidak lagi tersedia.',
   'boxDetail.subscribe.success': 'Dilanggan — edisi pertama anda sedang dalam barisan.',
   'boxDetail.swapBadge': 'Tukar kepada {{count}} barang setiap kotak',
@@ -43,14 +63,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Tiada edisi yang sepadan.',
   'boxes.eyebrow': 'Arkib Crate',
   'boxes.heading': 'Layari setiap edisi',
+  'boxes.loadError': 'Kami tidak dapat memuatkan edisi. Semak sambungan anda dan cuba lagi.',
   'boxes.loading': 'Memuatkan edisi…',
+  'boxes.search.label': 'Cari edisi',
   'boxes.search.placeholder': 'Edisi carian…',
   'boxes.subtitle':
     'Setiap peringkat merupakan cerita kelompok kecil. Tambahkan satu pada baris gilir anda atau tukarkannya ke bulan seterusnya.',
+  'boxThemeCard.itemCount': '{{count}} item',
   'boxThemeCard.perMonth': '/ bulan',
+  'boxThemeCard.retailValue': 'Nilai runcit {{value}}',
   'common.goToDashboard': 'Pergi ke Papan Pemuka',
+  'common.retry': 'Cuba semula',
   'customize.eyebrow': 'Jadikan ia milik anda',
   'customize.heading': 'Sesuaikan Crate anda yang seterusnya',
+  'customize.items.empty': 'Belum ada item dikonfigurasikan untuk peringkat ini.',
   'customize.items.exclude': 'Langkau ini',
   'customize.items.eyebrow': 'Peribadikan kotak ini',
   'customize.items.heading': 'Item dalam {{box}}',
@@ -59,8 +85,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Tambah kembali',
   'customize.items.save': 'Simpan penyesuaian',
   'customize.items.swapsLeft': '{{used}} daripada {{max}} pertukaran yang digunakan',
+  'customize.loading': 'Memuatkan penyesuaian…',
   'customize.noSub.body':
     'Langgan satu peringkat dahulu, kemudian kembali untuk menukar item dalam kotak anda.',
+  'customize.noSub.cta': 'Layari edisi',
   'customize.noSub.heading': 'Tiada langganan aktif',
   'customize.saved': 'Penyesuaian disimpan.',
   'customize.subtitle':
@@ -74,11 +102,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Jejaki penghantaran',
   'dashboard.eyebrow': 'Harta Anda',
   'dashboard.greeting': 'Selamat kembali, {{name}}.',
+  'dashboard.loadError':
+    'Kami tidak dapat memuatkan papan pemuka anda. Semak sambungan anda dan cuba lagi.',
   'dashboard.loading': 'Memuatkan papan pemuka…',
   'dashboard.next.eyebrow': 'Edisi anda yang seterusnya',
   'dashboard.onboarding.body':
     'Anda belum mempunyai langganan aktif. Pilih peringkat untuk mula menghantar Crate setiap bulan.',
   'dashboard.onboarding.cta': 'Layari semua edisi',
+  'dashboard.onboarding.empty': 'Tiada pelan tersedia buat masa ini. Semak semula tidak lama lagi.',
   'dashboard.onboarding.heading': 'Pilih edisi pertama anda',
   'dashboard.renewal.amount': 'Dicas',
   'dashboard.renewal.cadence': 'Irama',
@@ -86,12 +117,16 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Pembaharuan',
   'dashboard.renewal.heading': 'Pembaharuan automatik dihidupkan {{date}}',
   'dashboard.renewal.plan': 'Kunci pelan',
+  'dashboard.renewal.tbd': 'Penjadualan pembaharuan sebentar lagi',
   'dashboard.renewal.tier': 'Peringkat',
   'dashboard.stats.days': 'hari',
   'dashboard.stats.daysToNext': 'Kapal masuk',
   'dashboard.stats.items': 'Item yang dipilih susun',
   'dashboard.stats.shipDate': 'Tarikh penghantaran',
   'dashboard.stats.tbd': 'TBD',
+  'dashboard.subtitle.active':
+    'Edisi seterusnya anda sedang dalam perjalanan. Inilah yang boleh anda jangkakan.',
+  'dashboard.subtitle.idle': 'Pilih peringkat untuk mula menghantar {{appName}} setiap bulan.',
   'forgotPassword.subtitle':
     'Beritahu kami emel anda dan kami akan menghantar pautan tetapan semula.',
   'forgotPassword.success.body':
@@ -99,6 +134,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Semak peti masuk anda.',
   'landing.editions.eyebrow': 'Musim ini',
   'landing.editions.heading': 'Edisi yang disayangi oleh kurator kami',
+  'landing.editions.viewAll': 'Layari semua edisi →',
   'landing.footer.contact': 'Bercakap dengan kurator',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Mulakan kotak anda →',
@@ -108,6 +144,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Sekilas pandang pada papan pemuka ahli — undur, kandungan dan penjejakan.',
   'landing.hero.social.count': 'Disayangi oleh {{count}} + pelanggan',
+  'landing.hero.social.rating': 'Penilaian buka kotak purata {{rating}}',
+  'landing.hero.subhead':
+    '{{appName}} menghantar kotak kegembiraan kelompok kecil yang dipilih sendiri daripada pembuat bebas kepada anda. Jeda bila-bila masa. Tukar apa yang anda mahu. Simpan apa yang anda suka.',
   'landing.nav.start': 'Mulakan kotak anda',
   'landing.tiers.eyebrow': 'Pilih irama anda',
   'landing.tiers.heading':
@@ -118,6 +157,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Log masuk untuk melihat kotak bulan hadapan.',
   'login.welcomeBack': 'Selamat kembali, kurator.',
   'nextBoxHeroCard.eyebrow': 'KEKAYAAN ANDA YANG SETERUSNYA',
+  'nextBoxHeroCard.itemCount': '{{count}} keping di dalam',
   'nextBoxHeroCard.itemsLabel': 'Item yang dipilih susun',
   'nextBoxHeroCard.shipsOnLabel': 'Dihantar pada',
   'notFound.body':
@@ -142,8 +182,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Jeda langganan',
   'settings.danger.paused': 'Langganan dijeda.',
   'settings.danger.pausing': 'Berhenti seketika…',
+  'settings.danger.status': 'Status langganan: {{status}}',
   'settings.danger.subtitle':
     'Menjeda akan memastikan peringkat dan sejarah anda kekal utuh. Pembatalan akan menghentikan penghantaran akan datang dan mengalih keluar kaedah pembayaran yang disimpan pada akhir kitaran.',
+  'settings.notifications.saving': '· menyimpan…',
   'settings.notifications.subtitle':
     'Pilih isyarat yang anda mahukan daripada Crate. Tetapan lalai adalah wajar.',
   'settings.subtitle':
@@ -160,12 +202,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Tiada penghantaran aktif lagi',
   'shipments.live.eyebrow': 'Penghantaran aktif',
   'shipments.live.unnamed': 'Kotak anda yang seterusnya',
+  'shipments.loadError':
+    'Kami tidak dapat memuatkan penghantaran anda. Semak sambungan anda dan cuba lagi.',
+  'shipments.loading': 'Memuatkan penghantaran…',
+  'shipments.step.delivered': 'Dihantar',
   'shipments.step.deliveredBody': 'Tag #crateunbox untuk berkongsi apa yang anda temui.',
   'shipments.step.ordered': 'Pesanan dibuat',
   'shipments.step.orderedBody':
     'Langganan anda telah memasukkan edisi ini dalam barisan untuk kitaran kapal seterusnya.',
+  'shipments.step.packed': 'Dibungkus dengan tangan',
   'shipments.step.packedBody':
     'Setiap helaian dibalut dan dimasukkan ke dalam kotak dengan nota bertulis tangan.',
+  'shipments.step.transit': 'Dalam perjalanan',
   'shipments.step.transitNot':
     'Penjejakan akan dipaparkan di sini sebaik sahaja kotak anda dalam perjalanan.',
   'shipments.subtitle':

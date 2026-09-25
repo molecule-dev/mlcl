@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tes suxestións, atopaches un erro ou queres {{app}} para a túa liga? Escríbenos desde a configuración da túa conta — cada mensaxe chega a unha persoa real do equipo.',
+  'about.contactTitle': 'Ponte en contacto',
   'about.eyebrow': 'Acerca de',
+  'about.featureAlerts':
+    'Notificacións push para actualizacións de resultados, alertas de traspasos, informes de lesións e anuncios da liga.',
+  'about.featureRosters':
+    'Páxinas de equipo con aliñacións completas, totais da tempada, rachas boas/frías e enfrontamentos directos de cada xogador.',
+  'about.featureSchedule':
+    'Un calendario de tempada e vista de horario para planificar cada partido e resultado.',
+  'about.featureScoreboard':
+    'Un marcador de calidade televisiva fixado na parte superior de cada páxina para que nunca perdas un gol.',
+  'about.featureStandings':
+    'Clasificación en directo — rexistros de vitorias-derrotas-empates en tempo real, puntos, porcentaxe de vitorias e a liña de playoff, actualizados a cada asubío.',
+  'about.intro':
+    '{{app}} é un fogar de calidade televisiva para a túa liga. Equipos, horarios, resultados en directo e clasificacións xúntanse nun panel rápido e sen desorde — para que afeccionados, adestradores e organizadores da liga saiban sempre como vai a tempada.',
+  'about.missionBody':
+    'Seguir unha liga non debería significar actualizar cinco marcadores distintos de terceiros. Creamos isto para dar a cada liga unha única fonte de verdade para a clasificación, o horario e as estatísticas que realmente importan — actualizadas a cada asubío, gratis durante a tempada.',
+  'about.missionTitle': 'A nosa misión',
+  'about.whatYouGet': 'O que obtés',
   'appShell.closeNav': 'Pechar navegación',
   'appShell.openNav': 'Abrir navegación',
   'common.dashboard': 'Panel de control',
@@ -16,15 +35,22 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Ver todas as coincidencias \\u2192',
   'dashboard.viewAllStandings': 'Clasificación completa \\u2192',
   'dashboard.viewAllStats': 'Ver todos os líderes estatísticos \\u2192',
+  'forgot.submitting': 'Enviando a ligazón de restablecemento…',
   'forgot.subtitle':
     'Introduce o teu correo electrónico para recibir unha ligazón de restablecemento.',
   'forgot.success':
     'Ligazón de restablecemento enviada a {{email}} Consulta a túa caixa de entrada.',
+  'landing.copyright': '© {{year}} {{app}}. Chase the standing.',
+  'landing.ctaBody':
+    'A túa liga. A túa clasificación. O teu equipo favorito — fixado na parte superior. Dous minutos para configuralo, gratis durante a tempada.',
   'landing.ctaHeading': 'Deixar de actualizar as táboas de puntuación de terceiros',
   'landing.eyebrow': 'Deseñado para seareiros, adestradores e organizadores da liga',
   'landing.featuresHeading': 'Un asento en primeira fila para todos os que están de pé',
   'landing.getStarted': 'Únete á liga',
   'landing.heroCta': 'Únete á liga',
+  'landing.heroSubtitle':
+    '{{app}} une clasificacións, horarios e líderes estatísticos nun panel de calidade televisiva. Resultados en directo. Rexistros reais. Sen desorde.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Esta noite pola liga',
   'landing.statFans': 'Seguidores',
   'landing.statGames': 'Xogos desta tempada',
@@ -36,11 +62,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Volver aos partidos',
   'matchDetail.eventsHeading': 'Xogada a xogada',
+  'matchDetail.final': 'FINAL',
   'matchDetail.finalScore': 'Final',
   'matchDetail.live': 'EN DIRECTO',
   'matchDetail.liveNow': 'En directo agora',
   'matchDetail.noEvents': 'Aínda non se rexistraron eventos.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Non hai partidos nesta vista — proba con outro filtro.',
   'matches.eyebrow': 'Día de partido',
   'matches.loading': 'Tirando da lousa…',
   'matches.subtitle':
@@ -54,6 +82,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Non se puideron cargar as notificacións',
   'notifications.loading': 'Cargando notificacións\\u2026',
   'pennantHeroCard.eyebrow': 'Parte superior da táboa',
+  'pennantHeroCard.formLabel': 'Últimos 10',
   'pennantHeroCard.gamesAhead': '{{value}} xogos por diante da persecución',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Navegación principal',
@@ -82,17 +111,24 @@ export const ui: UiTranslations = {
   'pricing.heading':
     'Actualiza para obter un calendario, puntuacións e clasificacións máis completos.',
   'pricing.limits.schedule': '{{count}} entradas de programación',
+  'pricing.limits.scores': 'Resultados de {{count}}',
+  'pricing.limits.standings': 'Clasificación de {{count}}',
+  'pricing.limits.teams': 'Equipos de {{count}}',
+  'pricing.subtitle': 'Mellora para ter un horario, resultados e clasificacións máis completos.',
   'pricing.upgradeCta': 'Actualizar a {{tierName}}',
   'profile.eyebrow': 'Perfil de fan',
   'profile.favoritesCount': 'Equipos seguidos',
   'profile.favoritesHeading': 'Equipos favoritos',
   'profile.noFavorites': 'Aínda non tes favoritos: escolle equipos da páxina Equipos.',
   'profile.rankRecord': 'Rango nº {{rank}} · {{record}}',
+  'profile.recordOnly': 'Rexistro {{record}}',
   'reset.confirmPlaceholder': 'Repetir o contrasinal',
+  'reset.mismatch': 'Os contrasinais non coinciden.',
   'reset.newLabel': 'Novo contrasinal',
   'reset.subtitle': 'Escolle un contrasinal forte de polo menos 12 caracteres.',
   'reset.tokenPlaceholder': 'Pegar desde o correo electrónico',
   'schedule.eyebrow': 'A lousa',
+  'schedule.moreGames': '+ {{count}} máis',
   'schedule.subtitle':
     'Vista do calendario dos partidos de toda a tempada: toca calquera día para ver os resultados.',
   'scoreboardTicker.empty':
@@ -100,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.addFavorite': 'Engadir equipo',
   'settings.eyebrow': 'Personalizar',
   'settings.favoritesBody': 'Estes equipos fixanse no teu panel e activan alertas de puntuación.',
+  'settings.favoritesHeading': 'Equipos favoritos',
   'settings.loading': 'Cargando as túas preferencias\\u2026',
   'settings.noFavorites': 'Aínda non tes favoritos \\u2014 escolle equipos da páxina Equipos.',
   'settings.notificationsHeading': 'Notificacións e pantalla',
@@ -117,6 +154,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'En xeral',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Os catro primeiros clasifican para a postempada: desempate por puntos e despois porcentaxe de vitorias.',
   'standings.title': 'Clasificación da liga',
@@ -135,6 +173,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Xogador',
   'teamDetail.colPos': 'Posición',
+  'teamDetail.pointsLabel': 'Puntos',
   'teamDetail.rankLabel': 'Rango nº {{rank}}',
   'teamDetail.rosterHeading': 'Lista',
   'teamDetail.statGD': 'Diferencia de goles',

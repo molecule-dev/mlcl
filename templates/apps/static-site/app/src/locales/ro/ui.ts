@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Planul dumneavoastră a fost actualizat.',
   'planUpdated.returnHome': 'Înapoi la pagina principală',
   'planUpdated.thankYou': 'Vă mulțumim!',
+  'post.markdown': 'Vizualizați această postare ca markdown',
+  'post.readingTime': '{{minutes}} citire minimă',
   'post.tags': 'Etichete',
   'project.error.nameAndTypeRequired': 'Numele și tipul proiectului sunt obligatorii',
   'project.error.notFound': 'Nu a fost găsit',

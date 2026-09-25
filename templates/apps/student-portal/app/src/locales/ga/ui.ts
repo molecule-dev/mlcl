@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An bhfuil aiseolas agat, aimsíodh fabht, nó ar mhaith leat do scoil a thabhairt ar bord? Déan teagmháil ó shocruithe do chuntais nó seol teachtaireacht chuig riarthóir do scoile — sroicheann gach nóta duine fíor ar an bhfoireann.',
   'about.contactTitle': 'Labhair linn',
+  'about.missionTitle': 'Ár misean',
   'announcementsFeed.empty': 'Gan aon fhógraí fós.',
   'announcementsFeed.eyebrow': '{{count}} nuashonruithe',
   'announcementsFeed.title': 'Fógraí is déanaí',
   'assignmentDetail.alreadySubmitted': 'Tá an tasc seo curtha isteach agat cheana féin.',
   'assignmentDetail.backLink': 'Ar ais chuig na tascanna',
+  'assignmentDetail.dropBody':
+    'Úsáid Roghnaigh comhaid chun do chuid oibre a cheangal — taifeadfaimid stampa ama an aighniúcháin nuair a dhearbhaíonn tú é.',
   'assignmentDetail.dropButton': 'Roghnaigh comhaid',
+  'assignmentDetail.dropPrompt': 'Scaoil do phacáid PDF nó grianghraf anseo',
   'assignmentDetail.due': 'Dlite {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Treoracha',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Grádaithe',
   'assignmentDetail.statusSubmitted': 'Cuireadh isteach',
   'assignmentDetail.statusTitle': 'Stádas an aighneachta',
+  'assignmentDetail.submitError':
+    'Níorbh fhéidir linn an t-aighniúchán sin a thaifeadadh. Bain triail eile as ar ball.',
   'assignmentDetail.submitted': 'Taifeadadh an t-aighneacht — cuireadh do mhúinteoir ar an eolas.',
+  'assignmentDetail.submittedAt': 'Aighnithe {{when}}',
+  'assignmentDetail.submitTitle': 'Cuir do chuid oibre isteach',
   'assignmentRow.courseDue': '{{course}} · Dlite {{due}}',
   'assignments.empty': 'Níl aon rud anseo',
   'assignments.emptyBody': 'Athraigh scagairí thuas chun sannadh i riocht difriúil a fheiceáil.',
@@ -38,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Log laethúil láithreachta, neamhláithreachta agus déanach — le nótaí nuair is infheidhme.',
+  'attendance.summary.absences': 'Asláithreachtaí',
   'attendance.summary.absencesCaption': 'Faoi bhun na tairsí idirghabhála 5 lá',
   'attendance.summary.attendance': 'Tinreamh',
   'attendance.summary.attendanceCaption': '{{count}} laethanta an lae inniu an téarma seo',
+  'attendance.summary.tardies': 'Mallachtaí',
   'attendance.summary.tardiesCaption': 'Nótaí san áireamh le haghaidh moilleanna bus / coinní',
   'attendance.title': 'Stair láithreachta',
   'calendar.eyebrow': 'Bliain scoile · {{year}}',
@@ -53,6 +65,8 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'courseDetail.backLink': 'Gráid',
   'courseDetail.currentGrade': 'Grád reatha',
+  'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Forbhreathnú an chúrsa',
   'courseDetail.gradesTitle': 'Gráid le déanaí',
   'courseDetail.messageTeacher': 'Teachtaireacht a thabhairt don mhúinteoir',
   'courseDetail.noGrades': 'Níl aon ghráid foilsithe fós.',
@@ -65,13 +79,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Féach ar gach rud',
   'dashboard.assignmentsTitle': 'An tseachtain seo chugainn',
   'dashboard.greeting': 'Haigh {{name}} , réidh don rang?',
+  'dashboard.subtitle':
+    'Do sheachtain ar aon amharc — sceideal, gráid agus tascanna in aon amharc ciúin amháin.',
+  'dashboard.viewReportCard': 'Féach ar an gcárta tuairisce',
+  'dashboard.weekFocusBody':
+    'Cuir isteach sraith chleachtaidh 7 de Quadratics agus tráth na gceist caibidle. Tá an tsaotharlann teagaisc oscailte Dé Máirt agus Déardaoin tar éis tréimhse 7.',
+  'dashboard.weekFocusCta': 'Féach ar an bplean iomlán',
   'dashboard.weekFocusEyebrow': 'Fócas na seachtaine',
   'dashboard.weekFocusTitle': 'Tabhair 4 phointe suas Ailgéabar II',
   'forgotPassword.subheading':
     'Cuir isteach do sheoladh ríomhphoist scoile agus seolfaimid nasc athshocraithe chugat.',
   'forgotPassword.successBody':
     'Má {{email}} Má tá cuntas Chalk ag teacht leis, tá nasc athshocraithe pasfhocail ar an mbealach. Rachaidh na naisc in éag i gceann 30 nóiméad.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} GPA téarma',
+  'gpaHeroCard.summary': '{{count}} rang inniu',
   'grades.col.grade': 'Grád',
   'grades.col.teacher': 'Múinteoir',
   'grades.col.trend': 'Treocht',
@@ -83,10 +105,17 @@ export const ui: UiTranslations = {
     'Gráid bheo litreacha agus céatadáin. Taispeánann saigheada treochta an bhfuil tú ag bogadh suas, ag leibhéalú, nó ag sleamhnú.',
   'grades.title': 'Do ghráid, cúrsa ar chúrsa',
   'grades.trendStable': 'Cobhsaí',
+  'grades.viewReportCard': 'Féach ar an gcárta tuairisce foirmiúil',
   'landing.copyright': '© {{year}} {{app}} . Tógtha do mhic léinn, déanta do theaghlaigh.',
+  'landing.ctaBody':
+    'Saor in aisce don chéad 30 lá, ní gá cárta creidmheasa. Is féidir le ceantair sraith scoile-uile a sheoladh in aon tráthnóna amháin.',
+  'landing.ctaButton': 'Cruthaigh do thairseach',
   'landing.ctaHeading': 'Tosaíonn lá scoile níos ciúine i gceann cúpla nóiméad',
   'landing.eyebrow': 'Do dhaltaí meánscoile agus ardscoile',
   'landing.featuresHeading': 'Lá scoile eagraithe timpeall ar an mac léinn',
+  'landing.heroSubtitle':
+    'Tarraingíonn {{appName}} gach rang, grád, tasc agus teachtaireacht isteach in aon deais chiúin ionas gur féidir leat níos lú ama a chaitheamh ag cuardach agus níos mó ama ag foghlaim.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Comhlíontach le FERPA de réir réamhshocraithe',
   'landing.proof.rating': '4.8 trasna 12,000 teaghlach',
   'landing.sampleTerm': 'Earrach',
@@ -95,6 +124,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Folaigh an focal faire',
   'login.noAccount': 'Nua le Cailc?',
   'login.showPassword': 'Taispeáin an focal faire',
+  'messages.compose': 'Teachtaireacht nua',
   'messages.composer.email': 'Ríomhphost an fhaighteora (roghnach)',
   'messages.composer.errorEmpty': 'Ní féidir an teachtaireacht a fhágáil folamh.',
   'messages.composer.errorRecipient': 'Tá ainm an fhaighteora riachtanach.',
@@ -126,9 +156,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Rolla onóra · Téarma an earraigh',
   'nav.unreadMessages': 'Teachtaireachtaí gan léamh',
   'notifications.eyebrow': '{{count}} nuashonruithe',
+  'notifications.feedTitle': 'Gach gníomhaíocht le déanaí',
   'notifications.subtitle':
     'Gráid, meabhrúcháin, teachtaireachtaí, agus fógraí scoile. Coigeartaigh na bealaí a úsáideann gach fógra i Socruithe.',
+  'planUpdated.body':
+    "Tá d'athrú billeála gníomhach anois. Is féidir leat do phlean a bhainistiú am ar bith ón leathanach billeála.",
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
+  'pricing.announcementsLabel': 'fógraí',
   'pricing.attendanceLabel': 'láithreacht',
   'pricing.gradesLabel': 'gráid',
   'pricing.heading': 'fógraí',
@@ -143,6 +181,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'R2',
   'reportCard.crumb': 'Cárta tuairisce',
   'reportCard.cumulativeGpa': 'GPA Carnach',
+  'reportCard.download': 'Íoslódáil PDF',
   'reportCard.downloaded': 'Osclaíodh an cárta tuairisce i gcluaisín nua.',
   'reportCard.downloading': 'Ag giniúint PDF…',
   'reportCard.empty': 'Níl aon ghráid ar comhad go fóill.',
@@ -150,6 +189,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'GPA Deiridh · {{term}}',
   'reportCard.subtitle':
     'Tras-scríbhinn fhoirmiúil dheireadh seimeastair le gráid chúrsa ualaithe, tinreamh, agus íoslódáil PDF inphriontáilte.',
+  'reportCard.title': 'Cárta tuairisce',
+  'resetPassword.newPassword': 'Pasfhocal nua',
   'resetPassword.subheading': 'Roghnaigh rud éigin atá deacair a thomhas ach a mheabhrú.',
   'resetPassword.tokenPlaceholder': 'Greamaigh an cód ó do ríomhphost',
   'schedule.empty': 'Níl aon ranganna sceidealaithe.',
@@ -175,12 +216,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Tascanna atá ar Feitheamh',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} neamhláithreachtaí an téarma seo · {{tardy}} déanacha',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Ag cruthú uimhreacha tinrimh…',
+  'subjectStatsTriad.attendanceLabel': 'Tinreamh',
   'subjectStatsTriad.gradesCaption': 'Trasna {{percent}} Meán ualaithe %',
+  'subjectStatsTriad.gradesCaptionLoading': 'Ag lódáil gráid…',
+  'subjectStatsTriad.gradesLabel': 'Meán an ranga',
   'todayScheduleStrip.empty': 'Gan aon ranganna inniu.',
   'todayScheduleStrip.eyebrow': '{{count}} ranganna',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Sceideal an lae inniu',
   'topbar.guestName': 'Mac Léinn',
   'topbar.searchPlaceholder': 'Cuardaigh ranganna, tascanna…',
+  'topbar.studentRole': 'Mac Léinn',
   'topbar.studentTag': 'Mac Léinn · # {{id}}',
 }

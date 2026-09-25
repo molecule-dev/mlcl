@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'သင့်အစီအစဉ်ကို အပ်ဒိတ်လုပ်ပြီးပါပြီ။',
   'planUpdated.returnHome': 'ပင်မစာမျက်နှာသို့ ပြန်ရန်',
   'planUpdated.thankYou': 'ကျေးဇူးတင်ပါသည်!',
+  'post.markdown': 'ဤပို့စ်ကို markdown အဖြစ် ကြည့်ရန်',
+  'post.readingTime': '{{minutes}} မိနစ်ဖတ်ရန်',
   'post.tags': 'တဂ်များ',
   'project.error.nameAndTypeRequired': 'name နှင့် projectType လိုအပ်ပါသည်',
   'project.error.notFound': 'ရှာမတွေ့ပါ',

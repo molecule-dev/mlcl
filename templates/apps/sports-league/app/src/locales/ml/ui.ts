@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ നിങ്ങളുടെ ലീഗിനായി {{app}} വേണോ? നിങ്ങളുടെ അക്കൗണ്ട് സെറ്റിംഗ്സിൽ നിന്ന് ഞങ്ങളെ സമീപിക്കുക — ഓരോ സന്ദേശവും ടീമിലെ ഒരു യഥാർത്ഥ വ്യക്തിയിലേക്ക് എത്തുന്നു.',
+  'about.contactTitle': 'ബന്ധപ്പെടുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.featureAlerts':
+    'സ്കോർ അപ്ഡേറ്റുകൾ, ട്രേഡ് അലേർട്ടുകൾ, പരിക്ക് റിപ്പോർട്ടുകൾ, ലീഗ് അറിയിപ്പുകൾ എന്നിവയ്ക്കുള്ള പുഷ് നോട്ടിഫിക്കേഷനുകൾ.',
+  'about.featureRosters':
+    'ഓരോ കളിക്കാരനുമായുള്ള പൂർണ്ണ റോസ്റ്ററുകൾ, സീസൺ ടോട്ടലുകൾ, ഹോട്ട്/കോൾഡ് സ്ട്രീക്കുകൾ, ഹെഡ്-ടു-ഹെഡ് സ്പ്ലിറ്റുകൾ എന്നിവയുള്ള ടീം പേജുകൾ.',
+  'about.featureSchedule':
+    'ഓരോ ഫിക്സ്ചറും ഫലവും കണക്കിലെടുത്ത് പ്ലാൻ ചെയ്യാൻ കഴിയുന്ന ഒരു സീസൺ കലണ്ടറും ഷെഡ്യൂൾ കാഴ്ചയും.',
+  'about.featureScoreboard':
+    'ഒരു ഗോളും നഷ്ടപ്പെടുത്താതിരിക്കാൻ ഓരോ പേജിന്റെയും മുകളിൽ പിൻ ചെയ്ത ബ്രോഡ്കാസ്റ്റ്-ഗ്രേഡ് സ്കോർബോർഡ് ടിക്കർ.',
+  'about.featureStandings':
+    'ലൈവ് സ്റ്റാൻഡിംഗ്സ് — തത്സമയ വിൻ-ലോസ്-ഡ്രോ റെക്കോർഡുകൾ, പോയിന്റുകൾ, വിൻ-പിസിടി, പ്ലേഓഫ് ലൈൻ എന്നിവ ഓരോ വിസിലിലും പുതുക്കുന്നു.',
+  'about.intro':
+    '{{app}} നിങ്ങളുടെ ലീഗിനുള്ള ബ്രോഡ്കാസ്റ്റ്-നിലവാരമുള്ള വീടാണ്. ടീമുകൾ, ഷെഡ്യൂളുകൾ, ലൈവ് സ്കോറുകൾ, സ്റ്റാൻഡിംഗ്സ് എന്നിവ ഒരു വേഗതയേറിയ, തിരക്കില്ലാത്ത ഡാഷ്ബോർഡിൽ ഒരുമിച്ച് വരുന്നു — അതിനാൽ ആരാധകർക്കും കോച്ചുകൾക്കും ലീഗ് സംഘാടകർക്കും സീസൺ എവിടെ നിൽക്കുന്നുവെന്ന് എപ്പോഴും അറിയാം.',
+  'about.missionBody':
+    'ഒരു ലീഗ് പിന്തുടരുന്നത് അഞ്ച് വ്യത്യസ്ത തേർഡ്-പാർട്ടി സ്കോർബോർഡുകൾ റിഫ്രഷ് ചെയ്യുന്നത് അർത്ഥമാക്കരുത്. സ്റ്റാൻഡിംഗ്സ്, ഷെഡ്യൂൾ, യഥാർത്ഥത്തിൽ പ്രധാനമായ സ്ഥിതിവിവരക്കണക്കുകൾ എന്നിവയ്ക്കായി ഓരോ ലീഗിനും ഒരു സിംഗിൾ സോഴ്സ് ഓഫ് ട്രൂത്ത് നൽകാൻ ഞങ്ങൾ ഇത് നിർമ്മിച്ചു — ഓരോ വിസിലിലും അപ്ഡേറ്റ് ചെയ്യുന്നു, സീസണിലുടനീളം സൗജന്യം.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'about.whatYouGet': 'നിങ്ങൾക്ക് ലഭിക്കുന്നത്',
   'appShell.closeNav': 'നാവിഗേഷൻ അടയ്ക്കുക',
   'appShell.openNav': 'നാവിഗേഷൻ തുറക്കുക',
   'common.dashboard': 'ഡാഷ്ബോർഡ്',
@@ -16,14 +35,21 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'എല്ലാ പൊരുത്തങ്ങളും കാണുക \\u2192',
   'dashboard.viewAllStandings': 'പൂർണ്ണ നിലകൾ \\u2192',
   'dashboard.viewAllStats': 'എല്ലാ സ്റ്റാറ്റ് ലീഡർമാരെയും കാണുക \\u2192',
+  'forgot.submitting': 'റീസെറ്റ് ലിങ്ക് അയയ്ക്കുന്നു…',
   'forgot.subtitle': 'റീസെറ്റ് ലിങ്ക് ലഭിക്കാൻ നിങ്ങളുടെ ഇമെയിൽ നൽകുക.',
   'forgot.success':
     'ലിങ്ക് പുനഃസജ്ജമാക്കൽ ഇതിലേക്ക് അയച്ചു {{email}} . നിങ്ങളുടെ ഇൻബോക്സ് പരിശോധിക്കുക.',
+  'landing.copyright': '© {{year}} {{app}}. സ്റ്റാൻഡിംഗ് പിന്തുടരുക.',
+  'landing.ctaBody':
+    'നിങ്ങളുടെ ലീഗ്. നിങ്ങളുടെ സ്റ്റാൻഡിംഗ്സ്. നിങ്ങളുടെ പ്രിയപ്പെട്ട ടീം — മുകളിൽ പിൻ ചെയ്തിരിക്കുന്നു. സെറ്റപ്പ് ചെയ്യാൻ രണ്ട് മിനിറ്റ്, സീസണിലുടനീളം സൗജന്യം.',
   'landing.ctaHeading': 'മൂന്നാം കക്ഷി സ്കോർബോർഡുകൾ പുതുക്കുന്നത് നിർത്തുക',
   'landing.eyebrow': 'ആരാധകർക്കും പരിശീലകർക്കും ലീഗ് സംഘാടകർക്കും വേണ്ടി നിർമ്മിച്ചത്',
   'landing.featuresHeading': 'നിൽക്കുന്ന എല്ലാവർക്കും മുൻനിര സീറ്റ്',
   'landing.getStarted': 'ലീഗിൽ ചേരൂ',
   'landing.heroCta': 'ലീഗിൽ ചേരൂ',
+  'landing.heroSubtitle':
+    '{{app}} സ്റ്റാൻഡിംഗ്സ്, ഷെഡ്യൂളുകൾ, സ്റ്റാറ്റിസ്റ്റിക്കൽ ലീഡർമാർ എന്നിവയെ ഒരു ബ്രോഡ്കാസ്റ്റ്-നിലവാരമുള്ള ഡാഷ്ബോർഡിലേക്ക് ബന്ധിപ്പിക്കുന്നു. ലൈവ് സ്കോറുകൾ. യഥാർത്ഥ റെക്കോർഡുകൾ. തിരക്കില്ല.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'ഇന്ന് രാത്രി ലീഗിൽ',
   'landing.statFans': 'ആരാധകർ പിന്തുടരുന്നു',
   'landing.statGames': 'ഈ സീസണിലെ ഗെയിമുകൾ',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'ഫ {{period}}',
   'matchDetail.back': 'മത്സരങ്ങളിലേക്ക് മടങ്ങുക',
   'matchDetail.eventsHeading': 'പ്ലേ-ബൈ-പ്ലേ',
+  'matchDetail.final': 'ഫൈനൽ',
   'matchDetail.finalScore': 'ഫൈനൽ',
   'matchDetail.live': 'തത്സമയം',
   'matchDetail.liveNow': 'ഇപ്പോൾ തത്സമയം',
   'matchDetail.noEvents': 'ഇതുവരെ ഇവന്റുകളൊന്നും രേഖപ്പെടുത്തിയിട്ടില്ല.',
   'matchDetail.periodClock': 'ഫ {{period}} · {{clock}}',
+  'matches.empty': 'ഈ കാഴ്ചയിൽ മത്സരങ്ങളില്ല — മറ്റൊരു ഫിൽട്ടർ പരീക്ഷിക്കുക.',
   'matches.eyebrow': 'മത്സരദിനം',
   'matches.loading': 'സ്ലേറ്റ് വലിക്കുന്നു...',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'അറിയിപ്പുകൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു',
   'notifications.loading': 'അറിയിപ്പുകൾ ലോഡ് ചെയ്യുന്നു\\u2026',
   'pennantHeroCard.eyebrow': 'മേശയുടെ മുകളിൽ',
+  'pennantHeroCard.formLabel': 'അവസാന 10',
   'pennantHeroCard.gamesAhead': '{{value}} പിന്തുടരലിന് മുമ്പുള്ള ഗെയിമുകൾ',
   'pennantHeroCard.pointsLabel': 'പി.ടി.എസ്.',
   'pennantLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
@@ -80,6 +109,11 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'നിങ്ങളുടെ സീറ്റ് തിരഞ്ഞെടുക്കുക',
   'pricing.heading': 'മികച്ച ഷെഡ്യൂൾ, സ്കോറുകൾ, സ്റ്റാൻഡിംഗുകൾ എന്നിവയ്ക്കായി അപ്‌ഗ്രേഡ് ചെയ്യുക.',
   'pricing.limits.schedule': '{{count}} ഷെഡ്യൂൾ എൻട്രികൾ',
+  'pricing.limits.scores': '{{count}} സ്കോറുകൾ',
+  'pricing.limits.standings': '{{count}} സ്റ്റാൻഡിംഗ്സ്',
+  'pricing.limits.teams': '{{count}} ടീമുകൾ',
+  'pricing.subtitle':
+    'കൂടുതൽ സമ്പന്നമായ ഷെഡ്യൂൾ, സ്കോറുകൾ, സ്റ്റാൻഡിംഗ്സ് എന്നിവയ്ക്കായി അപ്ഗ്രേഡ് ചെയ്യുക.',
   'pricing.upgradeCta': 'ഇതിലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യുക {{tierName}}',
   'profile.eyebrow': 'ഫാൻ പ്രൊഫൈൽ',
   'profile.favoritesCount': 'പിന്തുടർന്ന ടീമുകൾ',
@@ -87,11 +121,14 @@ export const ui: UiTranslations = {
   'profile.noFavorites':
     'ഇതുവരെ പ്രിയപ്പെട്ടവയൊന്നുമില്ല — ടീമുകൾ പേജിൽ നിന്ന് ടീമുകളെ തിരഞ്ഞെടുക്കുക.',
   'profile.rankRecord': 'റാങ്ക് # {{rank}} · {{record}}',
+  'profile.recordOnly': 'റെക്കോർഡ് {{record}}',
   'reset.confirmPlaceholder': 'പാസ്‌വേഡ് ആവർത്തിക്കുക',
+  'reset.mismatch': 'പാസ്‌വേഡുകൾ പൊരുത്തപ്പെടുന്നില്ല.',
   'reset.newLabel': 'പുതിയ പാസ്വേഡ്',
   'reset.subtitle': 'കുറഞ്ഞത് 12 പ്രതീകങ്ങളുള്ള ശക്തമായ ഒരു പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക.',
   'reset.tokenPlaceholder': 'ഇമെയിലിൽ നിന്ന് ഒട്ടിക്കുക',
   'schedule.eyebrow': 'സ്ലേറ്റ്',
+  'schedule.moreGames': '+ {{count}} കൂടുതൽ',
   'schedule.subtitle':
     'സീസണിലുടനീളമുള്ള മത്സരങ്ങളുടെ കലണ്ടർ കാഴ്ച — ബോക്സ് സ്കോറുകൾക്കായി ഏത് ദിവസവും ടാപ്പ് ചെയ്യുക.',
   'scoreboardTicker.empty':
@@ -100,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'വ്യക്തിപരമാക്കുക',
   'settings.favoritesBody':
     'ഈ ടീമുകളെ നിങ്ങളുടെ ഡാഷ്‌ബോർഡിൽ പിൻ ചെയ്‌ത് സ്‌കോർ അലേർട്ടുകൾ പ്രവർത്തനക്ഷമമാക്കുന്നു.',
+  'settings.favoritesHeading': 'പ്രിയപ്പെട്ട ടീമുകൾ',
   'settings.loading': 'നിങ്ങളുടെ മുൻഗണനകൾ ലോഡ് ചെയ്യുന്നു\\u2026',
   'settings.noFavorites':
     'ഇതുവരെ പ്രിയപ്പെട്ടവയൊന്നുമില്ല \\u2014 ടീമുകൾ പേജിൽ നിന്ന് ടീമുകളെ തിരഞ്ഞെടുക്കുക.',
@@ -119,6 +157,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'ത',
   'standings.overall': 'മൊത്തത്തിൽ',
   'standings.points': 'പി.ടി.എസ്.',
+  'standings.rank': '#',
   'standings.subtitle':
     'ആദ്യ നാല് സ്ഥാനക്കാർ പോസ്റ്റ് സീസണിലേക്ക് യോഗ്യത നേടുന്നു — പോയിന്റ് അടിസ്ഥാനത്തിൽ ടൈബ്രേക്കറുകൾ, തുടർന്ന് വിജയ ശതമാനം.',
   'standings.title': 'ലീഗ് പോയിന്റ് നില',
@@ -137,6 +176,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'ഗ',
   'teamDetail.colName': 'പ്ലെയർ',
   'teamDetail.colPos': 'പോസ്',
+  'teamDetail.pointsLabel': 'പോയിന്റുകൾ',
   'teamDetail.rankLabel': 'റാങ്ക് # {{rank}}',
   'teamDetail.rosterHeading': 'റോസ്റ്റർ',
   'teamDetail.statGD': 'ഗോൾ വ്യത്യാസം',

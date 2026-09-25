@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Paket Anda telah diperbarui.',
   'planUpdated.returnHome': 'Kembali ke beranda',
   'planUpdated.thankYou': 'Terima kasih!',
+  'post.markdown': 'Lihat postingan ini sebagai markdown',
+  'post.readingTime': 'Baca {{minutes}} menit',
   'post.tags': 'Tag',
   'project.error.nameAndTypeRequired': 'name dan projectType diperlukan',
   'project.error.notFound': 'Tidak ditemukan',

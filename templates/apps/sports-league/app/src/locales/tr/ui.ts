@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Geri bildiriminiz mi var, bir hata mı buldunuz veya liginiz için {{app}} mi istiyorsunuz? Hesap ayarlarınızdan bize ulaşın — her mesaj ekibimizdeki gerçek bir kişiye gider.',
+  'about.contactTitle': 'İletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.featureAlerts':
+    'Skor güncellemeleri, takas uyarıları, sakatlık raporları ve lig duyuruları için anlık bildirimler.',
+  'about.featureRosters':
+    'Her oyuncu için tam kadrolar, sezon toplamları, sıcak/soğuk seriler ve ikili karşılaştırma dağılımları içeren takım sayfaları.',
+  'about.featureSchedule':
+    'Her maçı ve sonucu planlayabilmeniz için bir sezon takvimi ve fikstür görünümü.',
+  'about.featureScoreboard':
+    'Hiçbir golü kaçırmamanız için her sayfanın üstüne sabitlenmiş yayın kalitesinde bir skor tabelası.',
+  'about.featureStandings':
+    'Canlı puan durumu — gerçek zamanlı galibiyet-mağlubiyet-beraberlik kayıtları, puanlar, galibiyet yüzdesi ve playoff çizgisi, her düdükte yenilenir.',
+  'about.intro':
+    '{{app}}, liginiz için yayın kalitesinde bir yuva. Takımlar, fikstürler, canlı skorlar ve puan durumu tek bir hızlı, karmaşadan uzak panelde bir araya gelir — böylece taraftarlar, antrenörler ve lig organizatörleri sezonun nerede olduğunu her zaman bilir.',
+  'about.missionBody':
+    'Bir ligi takip etmek beş farklı üçüncü taraf skor tabelasını yenilemek anlamına gelmemeli. Her lige puan durumu, fikstür ve gerçekten önemli istatistikler için tek bir doğruluk kaynağı sunmak üzere geliştirdik — her düdükte güncellenir, sezon boyunca ücretsiz.',
+  'about.missionTitle': 'Misyonumuz',
+  'about.whatYouGet': 'Neler elde edersiniz',
   'appShell.closeNav': 'Gezintiyi kapat',
   'appShell.openNav': 'Gezintiyi aç',
   'common.dashboard': 'Pano',
@@ -16,14 +35,21 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Tüm maçları görüntüle →',
   'dashboard.viewAllStandings': 'Tam puan durumu →',
   'dashboard.viewAllStats': 'Tüm istatistik liderlerini görüntüle →',
+  'forgot.submitting': 'Sıfırlama bağlantısı gönderiliyor…',
   'forgot.subtitle': 'Sıfırlama bağlantısı almak için e-postanızı girin.',
   'forgot.success':
     'Sıfırlama bağlantısı {{email}} adresine gönderildi. Lütfen gelen kutunuzu kontrol edin.',
+  'landing.copyright': '© {{year}} {{app}}. Sıralamanın peşinden git.',
+  'landing.ctaBody':
+    'Liginiz. Puan durumunuz. Favori takımınız — en üste sabitlenmiş. Kurulumu iki dakika, sezon boyunca ücretsiz.',
   'landing.ctaHeading': 'Üçüncü taraf skorbordlarını yenilemeyi bırakın',
   'landing.eyebrow': 'Taraftarlar, antrenörler ve lig organizatörleri için tasarlandı',
   'landing.featuresHeading': 'Her puan durumuna ön sıradan bir koltuk',
   'landing.getStarted': 'Lige katılın',
   'landing.heroCta': 'Lige katılın',
+  'landing.heroSubtitle':
+    '{{app}}, puan durumunu, fikstürleri ve istatistik liderlerini yayın kalitesinde tek bir panelde birleştirir. Canlı skorlar. Gerçek kayıtlar. Karmaşa yok.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Bu gece ligin etrafında',
   'landing.statFans': 'Takip eden taraftarlar',
   'landing.statGames': 'Bu sezon maçlar',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q{{period}}',
   'matchDetail.back': 'Maçlara dön',
   'matchDetail.eventsHeading': 'Anlık anlatım',
+  'matchDetail.final': 'FİNAL',
   'matchDetail.finalScore': 'Final',
   'matchDetail.live': 'CANLI',
   'matchDetail.liveNow': 'Şu an canlı',
   'matchDetail.noEvents': 'Henüz kaydedilmiş olay yok.',
   'matchDetail.periodClock': 'Q{{period}} · {{clock}}',
+  'matches.empty': 'Bu görünümde maç yok — farklı bir filtre deneyin.',
   'matches.eyebrow': 'Maç günü',
   'matches.loading': 'Program getiriliyor…',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Bildirimler yüklenemedi',
   'notifications.loading': 'Bildirimler yükleniyor…',
   'pennantHeroCard.eyebrow': 'Tablonun zirvesi',
+  'pennantHeroCard.formLabel': 'Son 10',
   'pennantHeroCard.gamesAhead': 'Kovalayanın {{value}} maç önünde',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Birincil gezinme',
@@ -80,23 +109,31 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Koltuğunuzu seçin',
   'pricing.heading': 'Daha zengin fikstür, skor ve puan durumu için yükseltin.',
   'pricing.limits.schedule': '{{count}} fikstür girişi',
+  'pricing.limits.scores': '{{count}} skorları',
+  'pricing.limits.standings': '{{count}} puan durumu',
+  'pricing.limits.teams': '{{count}} takım',
+  'pricing.subtitle': 'Daha zengin fikstür, skorlar ve puan durumu için yükseltin.',
   'pricing.upgradeCta': "{{tierName}}'e yükseltin",
   'profile.eyebrow': 'Taraftar profili',
   'profile.favoritesCount': 'Takip edilen takımlar',
   'profile.favoritesHeading': 'Favori takımlar',
   'profile.noFavorites': 'Henüz favori yok — Takımlar sayfasından takım seçin.',
   'profile.rankRecord': 'Sıra #{{rank}} · {{record}}',
+  'profile.recordOnly': '{{record}} kaydı',
   'reset.confirmPlaceholder': 'Şifreyi tekrarla',
+  'reset.mismatch': 'Parolalar eşleşmiyor.',
   'reset.newLabel': 'Yeni şifre',
   'reset.subtitle': 'En az 12 karakterden oluşan güçlü bir şifre seçin.',
   'reset.tokenPlaceholder': 'E-postadan yapıştırın',
   'schedule.eyebrow': 'Program',
+  'schedule.moreGames': '+{{count}} daha',
   'schedule.subtitle':
     'Sezon boyunca fikstürlerin takvim görünümü — kutu skorları için herhangi bir güne dokunun.',
   'scoreboardTicker.empty': 'Şu anda canlı maç yok — başlama vuruşunda tekrar kontrol edin.',
   'settings.addFavorite': 'Takım ekle',
   'settings.eyebrow': 'Kişiselleştirin',
   'settings.favoritesBody': 'Bu takımlar panonuza sabitlenir ve skor uyarılarını tetikler.',
+  'settings.favoritesHeading': 'Favori takımlar',
   'settings.loading': 'Tercihleriniz yükleniyor…',
   'settings.noFavorites': 'Henüz favori yok — Takımlar sayfasından takım seçin.',
   'settings.notificationsHeading': 'Bildirimler ve görüntü',
@@ -114,6 +151,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'M',
   'standings.overall': 'Genel',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     "İlk dört play-off'a kalır — eşitlik durumunda puan, ardından galibiyet yüzdesi.",
   'standings.title': 'Lig puan durumu',
@@ -132,6 +170,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Oyuncu',
   'teamDetail.colPos': 'Poz',
+  'teamDetail.pointsLabel': 'Puanlar',
   'teamDetail.rankLabel': 'Sıra #{{rank}}',
   'teamDetail.rosterHeading': 'Kadro',
   'teamDetail.statGD': 'Averaj',

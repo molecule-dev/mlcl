@@ -1,10 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'ကြှနျုပျတို့အကွောငျး',
+  'about.featureAssignments':
+    'တာဝန်များ၊ ဖိုင်တင်သွင်းမှုများ၊ အဆင့်သတ်မှတ်ချက်များ၊ အတွင်းတုံ့ပြန်ချက်များနှင့် ကျောင်းသားများနှင့် မိဘများကို အသိပေးသော အေးဆေးသည့် အမှတ်စာအုပ်။',
+  'about.featureBreakouts':
+    'တစ်ချက်နှိပ်ရုံဖြင့် ခွဲထွက်ခန်းများ — ကျောင်းသားများကို အလိုအလျောက် ရောနှောပေးခြင်း၊ ကြေညာချက်များ ထုတ်လွှင့်ခြင်းနှင့် အချိန်ကုန်သောအခါ အားလုံးကို ပြန်လည်စုစည်းပေးခြင်း။',
+  'about.featureChat':
+    'ပင်ထိုးထားသော အနှစ်ချုပ်များနှင့် သင်တန်းအစည်းအဝေးအတွင်း တိတ်ဆိတ်စွာ လမ်းညွှန်ပေးရန် ဆရာအတွက်သာ သီးသန့်လမ်းကြောင်းများပါသော အတန်းအလိုက် စကားပြောခန်း။',
+  'about.featureVideo':
+    'တက်ကြွစွာပြောသူကို အာရုံစိုက်ပြသခြင်း၊ ပြခန်းနှင့် မီးမောင်းထိုးပြသည့် အပြင်အဆင်များနှင့် ဆရာများအတွက် ဆွဲရွှေ့နိုင်သော ရုပ်မြင်သံကြားအသေးစားမျက်နှာပြင်ပါသော ရုပ်ရှင်ဆန်သည့် တိုက်ရိုက်ဗီဒီယို။',
+  'about.featureWhiteboard':
+    'လေဆာညွှန်တံနှင့် အရောင်အပြည့်အစုံပါသော အဆုံးမရှိ စားပွဲဖြူ၊ သင်တန်းတစ်ခုစီအလိုက် အစည်းအဝေးတစ်ခုစီကို သိမ်းဆည်းထားသဖြင့် လုပ်ဆောင်ချက်များသည် အတန်းများအကြား ဆက်လက်တည်ရှိသည်။',
+  'about.missionBody':
+    'အဝေးမှနှင့် ရောနှောသင်ယူမှုသည် ဆွေးနွေးပွဲစားပွဲဝိုင်းကဲ့သို့ လက်ရှိတည်ရှိပြီး လူသားဆန်သည်ဟု ခံစားရသင့်သည်ဟု ကျွန်ုပ်တို့ယုံကြည်သည်။ ထို့ကြောင့် တိုက်ရိုက်တည်ရှိမှုကို ဦးစားပေးသည် — အစစ်အမှန်မျက်နှာများ၊ မျှဝေထားသော ပန်းချီကားနှင့် အဖွဲ့ငယ်ခွဲထွက်ခန်းများ — ပြီးလျှင် အမှတ်ပေးခြင်းနှင့် စီမံခန့်ခွဲမှုကို သင်လိုအပ်သည်အထိ တိတ်ဆိတ်စွာ ဖယ်ထားသည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'assignmentDetail.attachmentsTitle': 'ပူးတွဲပါဖိုင်များ',
   'assignmentDetail.back': 'တာဝန်အားလုံး',
   'assignmentDetail.code': 'ဇီဝဗေဒ ၂၁၁',
+  'assignmentDetail.context': 'Cell Biology I · {{instructor}} တင်ခဲ့သည် · {{due}} နောက်ဆုံးထား',
   'assignmentDetail.continueDraft': 'မူကြမ်းကို ဆက်လက်လုပ်ဆောင်ပါ',
   'assignmentDetail.draftBody':
     'နောက်ဆုံးတည်းဖြတ်ခဲ့သည့် မိနစ် ၁၄ က · ပြောင်းလဲမှုတိုင်းတွင် အလိုအလျောက်သိမ်းဆည်းသည်။',
@@ -23,6 +38,7 @@ export const ui: UiTranslations = {
   'assignmentRow.statusInProgress': 'ရေးဆွဲခြင်း',
   'assignmentRow.statusSubmitted': 'တင်သွင်းပြီးပါပြီ',
   'assignmentRow.title': 'ဓာတ်ခွဲခန်းအစီရင်ခံစာ — မိုက်တိုခွန်ဒရီယယ် DNA',
+  'assignmentRow.weight': 'အမှတ်၏ {{percent}}% တန်ဖိုးရှိသည်',
   'assignments.body':
     'သင့်သင်တန်းများတစ်လျှောက်ရှိ စာတမ်းတိုင်း၊ ပြဿနာအစုံနှင့် ပရောဂျက်တိုင်းကို ခြေရာခံပါ။',
   'assignments.empty': 'ဒီလမ်းမှာ ဘာမှမရှိဘူး — တိတ်ဆိတ်ငြိမ်သက်မှုကို ခံစားလိုက်ပါ။',
@@ -33,6 +49,8 @@ export const ui: UiTranslations = {
   'assignments.statTotal': 'တက်ကြွသော တာဝန်များ',
   'assignments.title': 'တာဝန်များ',
   'aulaAuthShell.backHome': '← အိမ်ပြန်ရန်',
+  'aulaAuthShell.brandBody':
+    '{{appName}} သည် ဗီဒီယို၊ စားပွဲဖြူ၊ ခွဲထွက်ခန်းများ၊ စကားပြောခန်းနှင့် အမှတ်ပေးခြင်းကို တစ်ခုတည်းသော အာရုံစိုက်ထားသည့် တဘ်တစ်ခုအဖြစ် စုစည်းပေးသည် — တဘ်များကို ထိန်းကျောင်းမည့်အစား သင်ကြားလိုသော ဆရာများအတွက် ဖန်တီးထားသည်။',
   'aulaAuthShell.brandEyebrow': 'သင်ယူမှု အသက်ဝင်လာသည့်နေရာ',
   'aulaAuthShell.brandTitle': 'အခန်းထဲမှာ ရှိနေရသလို နွေးထွေးမှုနဲ့အတူ နေထိုင်ရတဲ့ စာသင်ခန်းတွေ။',
   'aulaAuthShell.sampleAttending': 'နောက်ထပ် ၂၄ ဦး တက်ရောက်သည်',
@@ -42,6 +60,9 @@ export const ui: UiTranslations = {
   'aulaSideNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
   'aulaSideNav.label': 'အဓိက လမ်းညွှန်ချက်',
   'aulaSideNav.weeklyClasses': 'ဒီတစ်ပတ်',
+  'aulaSideNav.weeklyClassesCount': '{{done}} / {{total}}',
+  'aulaSideNav.weeklyHelp':
+    'သင်သည် ယခုအပတ် သင်ခန်းစာများကို ပြီးမြောက်ရန် လမ်းကြောင်းမှန်ပေါ်ရှိသည်။ ဆက်လုပ်ပါ။',
   'aulaTopBar.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'aulaTopBar.searchPlaceholder': 'သင်တန်းများ၊ အတန်းများ၊ အိမ်စာများကို ရှာဖွေပါ…',
   'aulaTopBar.title': 'အော်လာ',
@@ -54,6 +75,8 @@ export const ui: UiTranslations = {
   'calendar.statTotal': 'လာမည့်ပွဲစုစုပေါင်း',
   'classroom.chatCount': '{{count}} မက်ဆေ့ချ်များ',
   'classroom.chatEmpty': 'မက်ဆေ့ချ်တွေ မရှိသေးပါ — တိတ်ဆိတ်မှုကို ဖြိုခွင်းဖို့ နှုတ်ဆက်လိုက်ပါ။',
+  'classroom.chatInputLabel': 'အတန်းစကားပြောခန်း မက်ဆေ့ခ်ျ',
+  'classroom.chatLoading': 'စကားဝိုင်းကို တင်နေသည်…',
   'classroom.chatPlaceholder': 'အတန်းထဲ ပို့လိုက်…',
   'classroom.chatTitle': 'အတန်းတွင်းစကားဝိုင်း',
   'classroom.detailJoin': 'Join code',
@@ -80,23 +103,30 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'courseDetail.assignmentsTitle': 'သင်တန်းတာဝန်များ',
   'courseDetail.back': 'သင်တန်းအားလုံး',
+  'courseDetail.body':
+    'မျဉ်းကွေးပေါင်းစည်းမှုများမှ divergence နှင့် curl အထိ တည်ဆောက်သော ဒုတိယစာသင်နှစ် သင်တန်း။ အင်္ဂါ/ကြာသပတေးနေ့တိုင်း တိုက်ရိုက်၊ သောကြာနေ့ လက်တွေ့ခန်းနှင့် အပတ်စဉ် ရုံးချိန်များနှင့်အတူ။',
+  'courseDetail.ca1Course': 'ကဲကုလပ်စ် II',
   'courseDetail.ca1Due': 'ကြာသပတေးနေ့ · ညနေ ၅:၀၀ နာရီတွင် ပေးရမည်',
   'courseDetail.ca1Title': 'ဗက်တာ စက်ကွင်း စီးဆင်းမှု ပြဿနာ အစုံ',
   'courseDetail.ca2Course': 'ကဲကုလပ်စ် II',
   'courseDetail.ca2Due': 'တနင်္လာနေ့တွင် တင်သွင်းခဲ့သည်',
   'courseDetail.ca2Score': 'တုံ့ပြန်ချက်ကို စောင့်ဆိုင်းနေသည်',
   'courseDetail.ca2Title': 'Stokes သီအိုရမ် သက်သေပြချက်များ',
+  'courseDetail.ca3Course': 'ကဲကုလပ်စ် II',
   'courseDetail.ca3Due': 'ပြန်လာခဲ့သည် · ၉ ရက် အကြာက',
   'courseDetail.ca3Score': 'က · ၉၄%',
   'courseDetail.ca3Title': 'မျဉ်းကြောင်းပေါင်းစပ် ပြန်လည်သုံးသပ်ခြင်း ဉာဏ်စမ်းပဟေဠိ',
   'courseDetail.cls1Course': 'ကဲကုလပ်စ် II · MTH ၂၀၂',
   'courseDetail.cls1Instructor': 'ပါမောက္ခ မာယာ အိုကာဖော်',
+  'courseDetail.cls1Room': 'Aula အခန်း · လာဗင်ဒါ',
   'courseDetail.cls1Title': 'ဗက်တာ စက်ကွင်းများနှင့် ဖလပ်စ်',
   'courseDetail.cls2Course': 'ကဲကုလပ်စ် II · MTH ၂၀၂',
   'courseDetail.cls2Instructor': 'ပါမောက္ခ မာယာ အိုကာဖော်',
+  'courseDetail.cls2Room': 'Aula အခန်း · လာဗင်ဒါ',
   'courseDetail.cls2Title': 'မျဉ်းပေါင်းစပ်မှုများ ပြန်လည်သုံးသပ်ခြင်း',
   'courseDetail.cls3Course': 'ကဲကုလပ်စ် II · MTH ၂၀၂',
   'courseDetail.cls3Instructor': 'TA ဖီးလစ်စ် ဘော်ယာ',
+  'courseDetail.cls3Room': '{{appName}} အခန်း · Petal',
   'courseDetail.cls3Title': 'ဓာတ်ခွဲခန်း: Stokes ပြဿနာအစုံ',
   'courseDetail.code': 'MTH ၂၀၂',
   'courseDetail.materialsTitle': 'ပစ္စည်းများ',
@@ -135,15 +165,19 @@ export const ui: UiTranslations = {
   'courses.loading': 'သင်တန်းများကို တင်နေသည်…',
   'courses.noBrowse':
     'ကြည့်ရှုရန် သင်တန်းများ မရှိပါ — ထုတ်ဝေထားသော အရာအားလုံးတွင် သင်စာရင်းသွင်းပြီးဖြစ်သည်။',
+  'courses.noCourses': 'သင်တန်းများ မရှိသေးပါ — အပေါ်ရှိ ခလုတ်ဖြင့် တစ်ခု ဖန်တီးပါ။',
   'courses.title': 'သင့်ရဲ့ သင်ယူမှုစာကြည့်တိုက်',
   'courseTileCard.code': 'ECN ၃၁၂',
   'courseTileCard.continue': 'သင်တန်းဆက်တက်ပါ',
   'courseTileCard.enroll': 'သင်တန်းကြည့်ရန်',
   'courseTileCard.imageAlt': 'သင်တန်းပုံငယ်',
   'courseTileCard.instructor': 'ဒေါက်တာ အိုင်ဒရစ် ဟော်လိုဝေး',
+  'courseTileCard.lessonsRemaining': '{{count}} ကျန်သင်ခန်းစာများ',
   'courseTileCard.levelAdvanced': 'အဆင့်မြင့်',
   'courseTileCard.levelBeginner': 'အစပြုသူ',
   'courseTileCard.levelIntermediate': 'အလယ်အလတ်အဆင့်',
+  'courseTileCard.preview':
+    'သင်ရိုးညွှန်းတမ်းကို အစမ်းကြည့်ပါ၊ ဟောပြောချက်များကို လှန်ကြည့်ပါ၊ ပြီးလျှင် စာရင်းသွင်းရန် တောင်းဆိုပါ။',
   'courseTileCard.progressComplete': '{{percent}} % ပြီးမြောက်ပါပြီ',
   'courseTileCard.title': 'ခေတ်သစ် မက်ခရိုစီးပွားရေး',
   'dashboard.assignmentsAll': 'အားလုံးကြည့်ရန် →',
@@ -163,12 +197,16 @@ export const ui: UiTranslations = {
   'dashboard.noAssignments': 'တာဝန်ပေးရန် မလိုအပ်ပါ - တိတ်ဆိတ်ငြိမ်သက်မှုကို ခံစားလိုက်ပါ။',
   'dashboard.noCourses': 'သင်တန်းများ မရှိသေးပါ — သင်၏ ပထမဆုံးသင်တန်းကို ဤနေရာတွင် ပေါ်လာပါမည်။',
   'dashboard.noDueDate': 'ပေးရမည့်ရက် မရှိပါ',
+  'dashboard.scheduleAula': 'အော်လာ အခန်း',
   'dashboard.scheduleEmpty': 'လာမည့် တိုက်ရိုက်သင်တန်းများကို စီစဉ်ထားခြင်း မရှိပါ။',
   'dashboard.scheduleHostedYou': 'သင်လက်ခံကျင်းပသည်',
+  'dashboard.scheduleJoinCode': 'ဝင်ရောက်ရန်ကုဒ် · {{code}}',
+  'dashboard.statAssignmentsLabel': 'တာဝန်များ နောက်ဆုံးထား',
   'dashboard.statClassesDelta': '{{n}} တက်ကြွသောသင်တန်းများ',
   'dashboard.statClassesLabel': 'တိုက်ရိုက်ခန်းများ',
   'dashboard.statCoursesDelta': '{{n}} စာရင်းသွင်းပြီး',
   'dashboard.statCoursesLabel': 'သင်တန်းများ',
+  'dashboard.statNotificationsLabel': 'မဖတ်ရသေးသော အသိပေးချက်များ',
   'dashboard.tipBody':
     'အပေါ်က hero card ကနေ live room ကိုဖွင့်ပြီး whiteboard ပေါ်မှာ stroke ဆွဲဖို့ ဒါမှမဟုတ် chat message တင်ဖို့ — လုပ်ဆောင်ချက်တိုင်းက ဆက်လက်တည်ရှိနေမှာပါ။',
   'dashboard.tipCta': 'whiteboard ကို စမ်းကြည့်ပါ',
@@ -182,6 +220,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success':
     'ထိုအီးမေးလ်အတွက် အကောင့်တစ်ခုရှိနေပါက ပြန်လည်သတ်မှတ်ရန်လင့်ခ်တစ်ခု ရောက်ရှိလာတော့မည်ဖြစ်သည်။',
   'forgotPassword.toLogin': 'အကောင့်ဝင်ရန် ပြန်သွားပါ',
+  'grades.assignmentsCount': '{{n}} အမှတ်များ',
   'grades.body':
     'သင်တန်းတစ်ခုချင်းစီ၏ တည်ငြိမ်သောအမြင် — အဆင့်သတ်မှတ်ချက်၊ မကြာသေးမီက တုံ့ပြန်ချက်နှင့် နောက်အပတ်တွင် မည်သည့်အရာကို အာရုံစိုက်ရမည်ကို။',
   'grades.empty':
@@ -194,24 +233,34 @@ export const ui: UiTranslations = {
   'grades.statTrendUnit': 'သင်တန်းများ',
   'grades.statWatchLabel': 'အာရုံစိုက်မှု လိုအပ်သည်',
   'grades.title': 'အဆင့်များနှင့် တုံ့ပြန်ချက်',
+  'landing.ctaBody':
+    'ကျွန်ုပ်တို့သည် နမူနာသင်တန်းတစ်ခု ဖန်တီးပေးမည်၊ ဆရာဖက်တွဲတစ်ဦးကို ဖိတ်ခေါ်မည်၊ ပြီးလျှင် ခေါင်းလောင်းမမြည်မီ အတန်းတစ်ခုကို ခွဲထွက်ခန်းများအဖြစ် မည်သို့ပြောင်းလဲရမည်ကို ပြသပေးမည်။',
   'landing.ctaButton': 'သင့်ကျောင်းကို ဖန်တီးပါ',
   'landing.ctaPrimary': 'အခမဲ့သက်တမ်းတစ်ခုစတင်ပါ',
   'landing.ctaSecondary': 'အတန်းခရီးစဉ်ကိုကြည့်ပါ',
   'landing.ctaTitle': 'သင့်ရဲ့ ပထမဆုံး စာသင်ခန်းကို သုံးမိနစ်အတွင်း ဖွင့်လှစ်လိုက်ပါ။',
+  'landing.demoCourse': 'World Literature · LIT 240',
+  'landing.demoInstructor': 'Prof. Imani Davies',
+  'landing.demoTitle': 'မှော်ဆန်သော လက်တွေ့ဝါဒ — Borges & Murakami',
   'landing.eyebrow': 'တိုက်ရိုက် · whiteboard · breakouts · အဆင့်သတ်မှတ်ခြင်း',
   'landing.feat1Body':
     'အလိုအလျောက် မီးအိမ် + ပြခန်း၊ တက်ကြွသော စပီကာ အသံထွက်များနှင့် သင်တန်းပို့ချသူများအတွက် ဆွဲယူနိုင်သော ရုပ်ပုံအတွင်းပါ ရုပ်ပုံ။',
   'landing.feat1Title': 'ရုပ်ရှင်ဗီဒီယိုဇယားကွက်',
   'landing.feat2Body':
     'သင်တန်းတစ်ခုလျှင် အဆုံးမရှိ ပတ္တူ၊ လေဆာပွိုင့်၊ ရှစ်စုံပါ နမူနာ palette နှင့် အဆက်မပြတ် session များ။',
+  'landing.feat2Title': 'အသံထွက်စဉ်းစားသော စားပွဲဖြူ',
   'landing.feat3Body':
     'ကျောင်းသားများကို အခန်းများထဲသို့ အလိုအလျောက် ရွှေ့ပြောင်းခြင်း၊ ကြေငြာချက်များ ထုတ်လွှင့်ခြင်းနှင့် တစ်ချက်နှိပ်ရုံဖြင့် လူတိုင်းကို ပြန်လည်ခေါ်ယူခြင်း။',
+  'landing.feat3Title': 'နှစ်ချက်နှိပ်ရုံဖြင့် ခွဲထွက်ခန်းများ',
   'landing.feat4Body':
     'ရမှတ်များ၊ ဖိုင်တင်သွင်းမှုများ၊ inline feedback နှင့် မိဘများ အသိပေးနေစေမည့် တည်ငြိမ်သော အဆင့်သတ်မှတ်ချက်စာအုပ်။',
+  'landing.feat4Title': 'တာဝန်များ + အမှတ်စာအုပ်',
   'landing.feat5Body':
     'အတန်းတစ်ခုချင်းစီအတွက် ချည်နှောင်ထားသော စကားပြောခန်း၊ pinned summaries နှင့် whisper coaching အတွက် နည်းပြဆရာသီးသန့် ဘေးထွက်ချန်နယ်များ။',
+  'landing.feat5Title': 'အတန်းအခြေအနေနှင့်အတူ စကားပြောခန်း',
   'landing.feat6Body':
     'ခရိုင်လမ်းညွှန်များ၊ အသက်အရွယ်နှင့် သင့်လျော်သော စိစစ်မှုနှင့် အတန်းတိုင်းအတွက် စာရင်းစစ်မှတ်တမ်းများပါရှိသော SSO။',
+  'landing.feat6Title': 'မူလအတိုင်း လုံခြုံသည်',
   'landing.featuresEyebrow': 'တိုက်ရိုက်အတွက်တည်ဆောက်ထားသည်',
   'landing.featuresTitle':
     'အတန်းတစ်ခု လိုအပ်သမျှကို အာရုံစိုက်ထားသော tab တစ်ခုတည်းတွင် စုစည်းထားသည်။',
@@ -219,19 +268,25 @@ export const ui: UiTranslations = {
   'landing.footerStart': 'ကျောင်းတစ်ကျောင်းစတင်ပါ',
   'landing.heroBody':
     'Aula သည် တိုက်ရိုက်ဗီဒီယို၊ whiteboard၊ breakout များ၊ chat နှင့် assignment များကို နွေးထွေးပြီး ပညာရပ်ဆန်သော အိမ်တစ်လုံးအဖြစ် ယူဆောင်လာပါသည်။ tab အနည်းငယ်နှင့် အာရုံစိုက်မှု ပိုမိုလိုချင်သော သင်တန်းပို့ချသူများအတွက် တည်ဆောက်ထားပါသည်။',
+  'landing.heroLine1': 'အတန်းခန်းတိုင်း ရှိရာ',
   'landing.heroLine2': 'အခန်းထဲမှာ ခံစားရတယ်။',
   'landing.navSchools': 'ကျောင်းများအတွက်',
   'landing.navStart': 'စာသင်ခန်းတစ်ခုဖွင့်လှစ်ပါ',
   'landing.previewCourse1': 'ခေတ်သစ် မက်ခရိုစီးပွားရေး',
   'landing.previewCourse2': 'စတူဒီယိုပန်းချီ II',
   'landing.previewCourse3': 'ဒေတာကျင့်ဝတ်မိတ်ဆက်',
+  'landing.previewEyebrow': 'ကတ်တလောက်ကို လှည့်ကြည့်ပါ',
   'landing.previewInstructor1': 'ဒေါက်တာ အိုင်ဒရစ် ဟော်လိုဝေး',
   'landing.previewInstructor2': 'ပါမောက္ခ လီလာ မာရင်',
   'landing.previewInstructor3': 'ဒေါက်တာ နောမီ ရန်',
   'landing.previewTitle': 'ကျောင်းသားတွေ တကယ်ဖွင့်မယ့် သင်တန်းတွေပါ။',
+  'landing.socialProofBody':
+    'ကမ္ဘာတစ်ဝှမ်းရှိ ကျောင်း ၃၈၀၊ bootcamp များနှင့် ကော်ပိုရေးရှင်း သင်တန်းဆရာများ အသုံးပြုသည်။',
   'landing.socialProofTitle': 'ယခုသင်တန်းကာလတွင် သင်တန်းပေါင်း ၁၄,၂၀၀+ ဖွင့်လှစ်ခဲ့သည်',
   'liveClassHeroCard.bodyLive':
     '{{instructor}} အခန်းကို ဖွင့်လိုက်ရုံပဲ။ {{count}} အတန်းဖော်တွေ အထဲမှာရှိနှင့်ပြီးပါပြီ — လူစာရင်းမခေါ်ခင် ဝင်သွားပါ။',
+  'liveClassHeroCard.bodyUpcoming':
+    '{{instructor}} သည် {{minutes}} မိနစ်အတွင်း လက်ခံကျင်းပမည်။ ကင်မရာနှင့် မိုက်ခရိုဖုန်း စစ်ဆေးမှု ယခု ဖွင့်ထားသည်။',
   'liveClassHeroCard.course': 'ကဲကုလပ်စ် II — MTH ၂၀၂',
   'liveClassHeroCard.elapsed': 'ကုန်ဆုံးသွားသော',
   'liveClassHeroCard.elapsedValue': '၁၂:၀၈',
@@ -244,6 +299,7 @@ export const ui: UiTranslations = {
   'liveClassHeroCard.title': 'ဟောပြောချက် ၁၄ — ဗက်တာ လယ်ကွင်းများ',
   'liveClassHeroCard.viewSchedule': 'အချိန်ဇယားအပြည့်အစုံကိုကြည့်ပါ',
   'login.emailPlaceholder': 'you@school.edu',
+  'login.footerPrompt': 'Tessera ကို အသစ်လား။',
   'login.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
   'login.rememberMe': 'ကျွန်ုပ်ကို အကောင့်ဝင်ထားပါ',
   'login.showPassword': 'စကားဝှက်ပြပါ',
@@ -254,6 +310,7 @@ export const ui: UiTranslations = {
   'notifications.body': 'သင်မှာ .... ရှိသည် {{count}} သင့်အတန်းများမှ မဖတ်ရသေးသော အပ်ဒိတ်များ။',
   'notifications.bodyNone': 'အားလုံးပြီးသွားပါပြီ။',
   'notifications.loading': 'တင်နေသည်…',
+  'pricing.advancedFeatures': 'အဆင့်မြင့် အင်္ဂါရပ်များ',
   'profile.bio':
     'ဗက်တာ ကဲကုလစ်နှင့် တိုပိုလိုဂျီ · သင်ကြားမှု ၁၄ နှစ် · Aula အသိုင်းအဝိုင်း ညှိနှိုင်းဆောင်ရွက်သူ။ ရုံးချိန် တနင်္လာ/ဗုဒ္ဓဟူး ၁၁-၁၂ ရက် Lavender ခန်းမတွင်။',
   'profile.course1Instructor': 'ပါမောက္ခ မာယာ အိုကာဖော်',
@@ -274,8 +331,11 @@ export const ui: UiTranslations = {
   'profile.statStudentsLabel': 'ယခုသင်တန်းကာလတွင် ကျောင်းသား/သူများ',
   'resetPassword.confirmPasswordPlaceholder': 'စကားဝှက်အသစ်ကို ပြန်ထည့်ပါ',
   'resetPassword.emailPlaceholder': 'you@school.edu',
+  'resetPassword.mismatch': 'စကားဝှက်များ မတူညီသေးပါ။',
+  'resetPassword.newPassword': 'စကားဝှက်အသစ်',
   'resetPassword.subtitle':
     'ခန့်မှန်းရခက်လောက်အောင် ရှည်ပြီး မြန်မြန်ရိုက်နိုင်လောက်အောင် တိုတိုရေးပါ။',
+  'resetPassword.title': 'စကားဝှက်အသစ် ရွေးပါ',
   'scheduleItem.course': 'ဖန်တီးမှုရေးသားခြင်း · ENG ၂၂၀',
   'scheduleItem.endTime': 'ညနေ ၃:၃၀ နာရီ',
   'scheduleItem.instructor': 'ဒေါက်တာ ယူဆွတ် အဒီလာနာ',
@@ -299,10 +359,19 @@ export const ui: UiTranslations = {
   'settings.language.title': 'ဘာသာစကား',
   'settings.photoHint': 'JPG သို့မဟုတ် PNG · စတုရန်းသည် အကောင်းဆုံးအလုပ်လုပ်သည်',
   'settings.profileTitle': 'ပရိုဖိုင်',
+  'settings.securityTitle': 'အကောင့်ဝင်ခြင်းနှင့် လုံခြုံရေး',
   'settings.twoFactorCode': 'အထောက်အထားစိစစ်ရေးကုဒ်',
   'settings.twoFactorDisable': 'ပိတ်ရန်',
+  'settings.twoFactorDisableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ပိတ်ပါ',
   'settings.twoFactorEnable': 'ဖွင့်ပါ',
+  'settings.twoFactorEnableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ဖွင့်ပါ',
   'settings.twoFactorInvalidCode': 'ကုဒ် မမှန်ကန်ပါ',
+  'settings.twoFactorOffBody': 'ဖွင့်မထားပါ',
+  'settings.twoFactorOnBody': 'ဖွင့်ထားသည် · authenticator အက်ပ်',
+  'settings.twoFactorQrAlt': 'နှစ်ဆင့် QR ကုဒ်',
+  'settings.twoFactorScan':
+    'ဤ QR ကုဒ်ကို သင့်အတည်ပြုကိရိယာအက်ပ်ဖြင့် စကင်ဖတ်ပြီး ၆ လုံးပါ ကုဒ်ကို ထည့်ပါ။',
+  'settings.twoFactorUnavailable': 'ဤအက်ပ်အတွက် နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း မရရှိနိုင်ပါ။',
   'settings.twoFactorVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
   'signup.email': 'ကျောင်းအီးမေးလ်',
   'signup.emailPlaceholder': 'you@school.edu',
@@ -310,6 +379,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'အိုင်ယာနာ',
   'signup.lastNamePlaceholder': 'ဗီဂါ',
   'signup.roleInstructor': 'နည်းပြဆရာ',
+  'signup.roleLabel': 'ကျွန်ုပ်သည်…',
   'signup.roleStudent': 'ကျောင်းသား',
   'signup.subtitle':
     'Aula ကို ပထမ ၃၀ ရက်အတွက် အခမဲ့အသုံးပြုနိုင်ပါသည် — ခရက်ဒစ်ကတ် မလိုအပ်ပါ။ သင်၏ လုပ်ဖော်ကိုင်ဖက်ဆရာများကို အချိန်မရွေး ဖိတ်ကြားနိုင်ပါသည်။',
@@ -322,6 +392,8 @@ export const ui: UiTranslations = {
   'whiteboard.colorLabel': 'အရောင် {{color}}',
   'whiteboard.export': 'SVG ကို ထုတ်ယူပါ',
   'whiteboard.loading': 'တင်ဆောင်နေသော ဘုတ်…',
+  'whiteboard.persistenceNote':
+    'ထိုးချက်များသည် အခန်း စားပွဲဖြူသို့ ဆက်လက်တည်ရှိသည်။ စာမျက်နှာကို ပြန်လည်ဖွင့်ပါ — စားပွဲဖြူ အခြေအနေ ရှိနေဆဲ ဖြစ်သင့်သည်။',
   'whiteboard.roomNotFound': 'ဤလင့်ခ်အတွက် Whiteboard ကို ရှာမတွေ့ပါ။',
   'whiteboard.savedAt': '{{count}} လှိုင်းများ · နောက်ဆုံးသိမ်းဆည်းထားသည် {{when}}',
   'whiteboard.title': 'တိုက်ရိုက်ဝှိုက်ဘုတ်',

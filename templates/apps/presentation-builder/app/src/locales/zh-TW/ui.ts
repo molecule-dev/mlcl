@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '有問題、想給回饋，或希望我們新增某項功能嗎？從你的帳號設定聯絡團隊——每一則訊息都有真人閱讀。',
   'about.contactTitle': '與我們聯絡',
   'about.eyebrow': '關於',
+  'about.missionTitle': '我們的使命',
+  'about.whatYouGetTitle': '你將獲得什麼',
   'analytics.empty': '建立簡報即可在此處查看分析資料。',
   'analytics.stats.acrossDecks': '所有甲板',
   'analytics.stats.allTime': '在你的工作室',
@@ -65,6 +69,7 @@ export const ui: UiTranslations = {
   'editor.titleAria': '甲板標題',
   'landing.features.eyebrow': '序曲',
   'landing.features.heading': '你需要的一切都已準備就緒，可以上台表演了。',
+  'landing.finalCta.body': '不到一分鐘就能建立你的工作室。免信用卡。隨時可取消。',
   'landing.finalCta.cta': '創建您的免費工作室',
   'landing.finalCta.eyebrow': '免費開始',
   'landing.finalCta.heading': '帶著你職涯中最棒的牌組登上舞台。',
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 分鐘前編輯',
   'notifications.created': '創建',
   'notifications.edited': '編輯',
+  'notifications.empty.body': '你簡報上的活動——留言、提及、匯出——都會顯示在這裡。',
   'notifications.empty.title': '暫無通知',
   'notifications.eyebrow': '舞台活動',
   'notifications.loading': '載入中…',
   'notifications.shared': '公開分享',
+  'planUpdated.retry': '請再試一次',
+  'planUpdated.verifyFailed': '我們目前還無法確認您的付款。',
+  'planUpdated.verifyFailedBody': '您的付款可能仍在處理中。請稍後再試。',
   'planUpdated.verifying': '確認您的付款中…',
   'present.addSlides': '新增幻燈片',
   'present.backToDecks': '返回甲板',
@@ -121,6 +130,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': '舞台表演者',
   'settings.security.notSet': '未設定',
   'settings.security.passwordBody': '您的密碼在儲存時已加密。',
+  'settings.security.reset': '重置',
   'settings.security.title': '帳戶 + 會話',
   'shared.empty.body': '您公開分享的牌組將顯示在此。打開牌組並切換公開選項即可分享。',
   'shared.empty.title': '目前還沒有共享牌組',
@@ -128,6 +138,11 @@ export const ui: UiTranslations = {
   'shared.loading': '載入中…',
   'shared.title': '共享甲板',
   'templateCard.slideCount': '{{count}}幻燈片',
+  'templateCard.usageCount': '{{count}}用途',
+  'templates.empty.body': '試試其他篩選條件——我們每個月都會推出新範本。',
+  'templates.empty.title': '這個分類還沒有任何範本',
+  'templates.hero.body':
+    '預先套用主題的投影片版面，內含圖表區塊、示範畫框、講者備註和計時器預設——每個範本都準備好就能開錄。',
   'templates.hero.eyebrow': '精心策劃的舞台',
   'templates.hero.heading': '為你需要著陸的那一刻而搭建的舞台。',
 }

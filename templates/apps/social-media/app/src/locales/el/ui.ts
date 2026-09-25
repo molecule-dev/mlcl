@@ -1,23 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, βρήκες κάποιο σφάλμα ή θέλεις να συνεργαστείς με το {{app}}; Επικοινώνησε από τις ρυθμίσεις του λογαριασμού σου — κάθε μήνυμα πηγαίνει σε ένα πραγματικό μέλος της ομάδας.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.intro':
+    'Το {{app}} είναι μια ζωντανή, δημιουργοκεντρική κοινωνική ροή — αναρτήσεις, stories και πλούσια προφίλ σε πλήρη χρώματα. Το φτιάξαμε για ανθρώπους που πραγματικά δημιουργούν και μοιράζονται πράγματα, όχι για ποτάμια διαφημίσεων και δόλωμα ατελείωτου scroll.',
+  'about.missionBody':
+    'Τα social media θα έπρεπε να μοιάζουν με έναν ήρεμο, πολύχρωμο καμβά — ένα μέρος όπου οι δημιουργοί αναγνωρίζονται και οι συζητήσεις παραμένουν ανθρώπινες. Χωρίς εκπαίδευση μοντέλων στις αναρτήσεις σου, χωρίς διαφημίσεις στη ροή, χωρίς σκοτεινά μοτίβα.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.pageTitle': 'Σχετικά με το {{app}}',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.retry': 'Επανάληψη',
   'compose.cancel': 'Ακύρωση',
+  'compose.caption': 'Λεζάντα',
   'compose.captionPlaceholder': 'Τι έχεις στο μυαλό σου;',
+  'compose.hashtags': 'Hashtags',
   'compose.heading': 'Μοιραστείτε μια στιγμή',
   'compose.subheading': 'Πρώτα οι λεζάντες. Στη συνέχεια, θα μεταφορτώσουμε εικόνες μέσω καλωδίου.',
   'compose.visibility': 'Ακροατήριο',
   'explore.emptyBody':
     'Γίνετε ο πρώτος που θα δημοσιεύσει — το πλέγμα εξερεύνησης γεμίζει καθώς η κοινότητα μοιράζεται περιεχόμενο.',
   'explore.emptyTitle': 'Δεν υπάρχει καμία τάση ακόμα.',
+  'explore.error': 'Δεν ήταν δυνατή η φόρτωση της ροής εξερεύνησης.',
   'explore.eyebrow': 'Τα πιο δημοφιλή σήμερα',
   'explore.heading': 'Εξερευνώ',
   'explore.subheading':
     'Επιμελημένο από τους συντάκτες και τον αλγόριθμο — αλλά κυρίως από τους συντάκτες.',
+  'explore.suggestionsEyebrow': 'Για εσάς',
   'explore.suggestionsHeading': 'Δημιουργοί που αξίζει να ακολουθήσετε',
   'feed.compose': 'Νέα ανάρτηση',
   'feed.emptyBody':
@@ -34,12 +45,19 @@ export const ui: UiTranslations = {
     'Εισαγάγετε το email σας και θα σας στείλουμε έναν σύνδεσμο επαναφοράς.',
   'forgotPassword.success':
     'Αν {{email}} ταιριάζει με έναν λογαριασμό, θα λάβετε σύντομα έναν σύνδεσμο επαναφοράς.',
+  'landing.ctaBody':
+    'Δωρεάν για πάντα για τα βασικά. Τα Pro πλάνα ξεκλειδώνουν βίντεο μεγάλης διάρκειας και εργαλεία συνεργατών — ξεκίνα όταν είσαι έτοιμος.',
   'landing.ctaHeading': 'Φέρτε τη ζωντανή εκδοχή του εαυτού σας στο διαδίκτυο',
   'landing.exploreCta': 'Άνοιγμα Εξερεύνησης',
   'landing.eyebrow': 'Ιστορίες · Αναρτήσεις · Ροή σε πραγματικό χρόνο',
   'landing.featuresHeading': 'Σχεδιασμένο για άτομα που δημοσιεύουν πραγματικά',
+  'landing.featuresSubheading':
+    'Μια δημιουργοκεντρική ροή με τη φινέτσα ενός περιοδικού και την ταχύτητα μιας συνομιλίας. Δημιούργησε πράγματα, μοιράσου τα, μίλα με ανθρώπους — αυτό είναι όλο.',
   'landing.getStarted': 'Γίνετε μέλος του Vivid',
   'landing.heroCta': 'Έναρξη κοινοποίησης',
+  'landing.heroSubtitle':
+    'Το {{app}} είναι μια δημιουργοκεντρική κοινωνική ροή — ζωντανά stories, αναρτήσεις επιπέδου γκαλερί και συζητήσεις που μοιάζουν ανθρώπινες. Χωρίς ποτάμια διαφημίσεων με ατελείωτο scroll, χωρίς αλγοριθμικό θόρυβο.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.noAds': 'Δεν υπάρχουν διαφημίσεις στη ροή',
   'landing.noTraining': 'Δεν υπάρχει εκπαίδευση μοντέλων στις αναρτήσεις σας',
   'landing.online': '2,4 εκατομμύρια δημιουργοί online σήμερα',
@@ -55,6 +73,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Σύνδεση',
   'messages.composePlaceholder': 'Στείλτε ένα μήνυμα…',
   'messages.empty': 'Επιλέξτε μια συνομιλία για να ξεκινήσετε τη συνομιλία.',
+  'messages.error': 'Δεν ήταν δυνατή η φόρτωση των συνομιλιών.',
   'messages.noConversations':
     'Δεν υπάρχουν ακόμη συζητήσεις — επισκεφθείτε ένα προφίλ και στείλτε τους μήνυμα.',
   'messages.noMessages': 'Δεν υπάρχουν ακόμη μηνύματα — πείτε γεια!',
@@ -78,10 +97,16 @@ export const ui: UiTranslations = {
   'notifications.kind.tag': 'σας επισήμανε με ετικέτα σε μια ανάρτηση',
   'notifications.subheading': '{{count}} αδιάβαστος.',
   'postCard.commentAria': 'Δείτε σχόλια',
+  'postCard.copyFailed':
+    'Η αυτόματη αντιγραφή απέτυχε — επίλεξε τον σύνδεσμο και αντίγραψέ τον χειροκίνητα.',
+  'postCard.copyLinkDescription':
+    'Αντίγραψε τον παρακάτω σύνδεσμο για να μοιραστείς αυτή την ανάρτηση.',
+  'postCard.copyLinkTitle': 'Αντιγραφή αυτού του συνδέσμου',
   'postCard.likeAria': 'Σαν',
   'postCard.live': 'ΖΩ',
   'postCard.moreAria': 'Περισσότερες επιλογές',
   'postCard.openAria': 'Άνοιγμα ανάρτησης από @ {{handle}}',
+  'postCard.viewAllComments': 'Προβολή όλων των {{count}} σχολίων',
   'postDetail.backCta': 'Επιστροφή στη ροή',
   'postDetail.commentPlaceholder': 'Προσθήκη σχολίου…',
   'postDetail.commentsEmpty': 'Δεν υπάρχουν ακόμη σχόλια — γίνετε ο πρώτος.',
@@ -90,12 +115,25 @@ export const ui: UiTranslations = {
   'postDetail.loading': 'Φόρτωση ανάρτησης…',
   'postDetail.notFoundTitle': 'Η ανάρτηση δεν βρέθηκε',
   'postDetail.post': 'Θέση',
+  'pricing.advancedFeatures': 'Σύνθετες λειτουργίες: {{yes}}',
+  'pricing.canExport': 'Εξαγωγή δεδομένων: {{yes}}',
+  'pricing.heading': 'Επιλέξτε το πλάνο {{app}} σας',
+  'pricing.maxFollows': '{{count}} ακόλουθοι',
+  'pricing.maxPosts': '{{count}} αναρτήσεις',
+  'pricing.maxStories': '{{count}} ιστορίες',
+  'profile.composeCta': 'Νέα ανάρτηση',
+  'profile.empty': 'Δεν υπάρχουν αναρτήσεις ακόμη — όταν υπάρξουν, θα εμφανιστούν εδώ.',
   'profile.emptySelf':
     'Δεν έχετε δημοσιεύσει ακόμα — μεταβείτε στη Νέα Δημοσίευση για να μοιραστείτε κάτι.',
   'profile.exploreCta': 'Περιήγηση Εξερεύνηση',
   'profile.loadingPosts': 'Φόρτωση αναρτήσεων…',
   'profile.notFoundTitle': 'Δεν βρέθηκε το προφίλ',
   'profile.youEyebrow': 'Αυτός είσαι εσύ',
+  'profileHeaderCard.copyFailed':
+    'Η αυτόματη αντιγραφή απέτυχε — επίλεξε τον σύνδεσμο και αντίγραψέ τον χειροκίνητα.',
+  'profileHeaderCard.copyLinkDescription':
+    'Αντίγραψε τον παρακάτω σύνδεσμο για να μοιραστείς αυτό το προφίλ.',
+  'profileHeaderCard.copyLinkTitle': 'Αντιγραφή συνδέσμου προφίλ',
   'profileHeaderCard.followers': 'Ακόλουθοι',
   'profileHeaderCard.message': 'Μήνυμα',
   'profileHeaderCard.posts': 'Αναρτήσεις',
@@ -113,20 +151,27 @@ export const ui: UiTranslations = {
     'Πληκτρολογήστε ένα όνομα, μια διεύθυνση χρήστη ή ένα email για να βρείτε δημιουργούς.',
   'search.postsHeading': 'Αναρτήσεις',
   'search.subheading': 'Άτομα, hashtag, λεζάντες — οτιδήποτε στο Vivid.',
+  'search.tagsHeading': 'Hashtags',
   'settings.account.passwordNote':
     'Ανοίξτε το μενού avatar στην κεφαλίδα για να αλλάξετε τον κωδικό πρόσβασης ή να διαγράψετε τον λογαριασμό σας.',
   'settings.billing.body':
     'Επισκεφθείτε τη σελίδα Τιμολόγησης για να αναβαθμίσετε το πρόγραμμά σας και να διαχειριστείτε τη συνδρομή σας.',
+  'settings.billing.cta': 'Προβολή τιμών & πλάνων',
   'settings.loading': 'Φόρτωση ρυθμίσεων…',
+  'settings.notif.comments': 'Σχόλια & απαντήσεις',
   'settings.notif.commentsDesc': 'Πιέστε για άμεσες απαντήσεις και σχόλια σε νήματα.',
+  'settings.notif.follows': 'Νέοι ακόλουθοι',
   'settings.notif.followsDesc': 'Ημερήσια σύνοψη, ποτέ ανά συμβάν.',
   'settings.notif.likes': 'Μου αρέσει και αντιδράσεις',
   'settings.notif.likesDesc': 'Πιέστε όταν κάποιος αντιδρά στις αναρτήσεις σας.',
+  'settings.notif.live': 'Ζωντανές ειδοποιήσεις',
   'settings.notif.liveDesc': 'Πιέστε όταν οι λογαριασμοί που ακολουθείτε δημοσιευτούν.',
   'settings.previewEyebrow': 'Επεξεργασία',
+  'settings.priv.activity': 'Κατάσταση δραστηριότητας',
   'settings.priv.activityDesc': 'Δείξτε την online κουκκίδα σας σε ιστορίες και DM.',
   'settings.priv.private': 'Ιδιωτικός λογαριασμός',
   'settings.priv.privateDesc': 'Μόνο οι εγκεκριμένοι ακόλουθοι βλέπουν τις αναρτήσεις σας.',
+  'settings.priv.tagging': 'Άδεια προσθήκης ετικέτας',
   'settings.priv.taggingDesc':
     'Μόνο τα άτομα που ακολουθείτε μπορούν να σας επισημάνουν με ετικέτα.',
   'settings.profile.displayName': 'Εμφανιζόμενο όνομα',
@@ -138,12 +183,14 @@ export const ui: UiTranslations = {
   'socialMediaLayout.closeMenu': 'Κλείσιμο μενού πλοήγησης',
   'socialMediaLayout.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'socialMediaLayout.primaryNavLabel': 'Κύρια πλοήγηση',
+  'storyRail.addAria': 'Προσθήκη στο story σου',
   'storyRail.heading': 'Ιστορίες',
   'storyRail.label': 'Ιστορίες',
   'storyRail.openAria': 'Ανοιχτό {{handle}} η ιστορία του',
   'storyRail.you': 'Η ιστορία σου',
   'suggestionsRail.eyebrow': 'Για εσάς',
   'suggestionsRail.heading': 'Δημιουργοί που πρέπει να ακολουθήσετε',
+  'suggestionsRail.postCount': '{{count}} αναρτήσεις',
   'suggestionsRail.seeAll': 'Δες όλα',
   'suggestionsRail.trendingEyebrow': 'Τάσεις',
   'suggestionsRail.trendingHeading': 'Τα hashtag αυξάνονται τώρα',

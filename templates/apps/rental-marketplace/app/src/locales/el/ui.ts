@@ -1,13 +1,30 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
+  'about.featureBooking':
+    'Άμεσες κρατήσεις ή κρατήσεις κατόπιν αιτήματος με ασφαλείς πληρωμές Stripe και δωρεάν ακύρωση έως 48 ώρες πριν από το check-in.',
+  'about.featureHosting':
+    'Ένας πλήρης πίνακας διαχείρισης για οικοδεσπότες: δημοσιεύστε καταχωρίσεις, διαχειριστείτε τη διαθεσιμότητα, παρακολουθείτε κρατήσεις και πληρώνεστε.',
+  'about.featureMessaging':
+    'Άμεσα μηνύματα με τους οικοδεσπότες πριν και κατά τη διάρκεια της διαμονής σας, καθώς και λίστες επιθυμιών για να αποθηκεύετε τα μέρη που αγαπάτε.',
+  'about.featureReviews':
+    'Ειλικρινείς αμφίδρομες κριτικές, ώστε ταξιδιώτες και οικοδεσπότες να χτίζουν από κοινού μια αξιόπιστη φήμη.',
+  'about.featureSearch':
+    'Αναζήτηση βάσει χάρτη σε επαληθευμένες καταχωρίσεις, με φίλτρα για τιμή, παροχές και ημερομηνίες.',
+  'about.missionBody':
+    'Το ταξίδι πρέπει να σας συνδέει με έναν τόπο, όχι με μια αλυσίδα. Βοηθάμε ανεξάρτητους οικοδεσπότες να καταχωρούν μοναδικά σπίτια και ταξιδιώτες να τα βρίσκουν — με διαφανείς τιμές, χωρίς κρυφές χρεώσεις, και με τις πληρωμές, τους φόρους και τον έλεγχο των ταξιδιωτών να τα αναλαμβάνουμε εμείς για τον οικοδεσπότη, ώστε να μπορεί να επικεντρωθεί στη φιλοξενία.',
+  'about.missionTitle': 'Η αποστολή μας',
+  'about.subtitle':
+    'Μια αγορά ενοικίασης χτισμένη γύρω από πραγματικά σπίτια και πραγματικούς οικοδεσπότες.',
   'bookingDetail.afterTime': 'Μετά τις 3:00 μ.μ.',
   'bookingDetail.backCta': 'Επιστροφή στις κρατήσεις',
   'bookingDetail.beforeTime': 'Πριν από τις 11:00 π.μ.',
   'bookingDetail.cancel': 'Ακύρωση κράτησης',
   'bookingDetail.cancelFailed': 'Δεν ήταν δυνατή η ακύρωση — δοκιμάστε ξανά.',
   'bookingDetail.checkIn': 'Ελεγχος εισιτηρίου',
+  'bookingDetail.cleaningFee': 'Τέλος καθαρισμού',
   'bookingDetail.confirmCancel':
     'Ακύρωση αυτής της κράτησης; Δεν είναι δυνατή η αναίρεση αυτής της ενέργειας.',
   'bookingDetail.eyebrow': 'Επιβεβαίωση · {{code}}',
@@ -22,14 +39,17 @@ export const ui: UiTranslations = {
   'bookingDetail.viewListing': 'Προβολή καταχώρισης',
   'bookingDetail.yourHost': 'Ο οικοδεσπότης σας',
   'bookingItineraryRow.nights': '{{count}} νύχτες',
+  'bookings.empty.past': 'Οι προηγούμενες κρατήσεις θα εμφανίζονται εδώ μόλις μείνετε.',
   'bookings.empty.upcoming': 'Καμία εκδρομή στα βιβλία — ας το διορθώσουμε αυτό.',
   'bookings.eyebrow': 'Τα ταξίδια σας',
   'bookings.heading': 'Κρατήσεις',
   'bookings.loadError': 'Αποτυχία φόρτωσης κρατήσεων.',
+  'bookings.searchCta': 'Σχεδιάστε ένα άλλο ταξίδι',
   'bookings.subheading': '{{upcoming}} επερχόμενο · {{past}} το παρελθόν',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.retry': 'Επανάληψη',
   'createListing.back': 'Επιστροφή στις καταχωρίσεις',
+  'createListing.bedrooms': 'Υπνοδωμάτια',
   'createListing.cityLabel': 'Που είναι;',
   'createListing.cityPlaceholder': 'Πόλη, περιοχή ή γειτονιά',
   'createListing.descPlaceholder':
@@ -39,17 +59,23 @@ export const ui: UiTranslations = {
   'createListing.error.price': 'Προσθέστε μια τιμή ανά διανυκτέρευση πριν από τη δημοσίευση.',
   'createListing.error.title': 'Προσθέστε έναν τίτλο πριν από τη δημοσίευση.',
   'createListing.heading': 'Άνοιξε την πόρτα σου',
+  'createListing.listingImageAlt': 'Καταχώριση {{number}}',
   'createListing.maxGuests': 'Μέγιστος αριθμός επισκεπτών',
   'createListing.photos.heading':
     'Προσθέστε φωτογραφίες που κάνουν τους ταξιδιώτες να σταματήσουν να κάνουν κύλιση',
+  'createListing.photos.subheading':
+    'Οι οικοδεσπότες που ανεβάζουν τουλάχιστον 3 φωτογραφίες κερδίζουν κατά μέσο όρο 2,3× περισσότερα.',
   'createListing.place.heading': 'Τι είδους μέρος είναι;',
+  'createListing.price': 'Τιμή ανά διανυκτέρευση',
   'createListing.publish': 'Δημοσίευση καταχώρισης',
   'createListing.removePhoto': 'Αφαίρεση φωτογραφίας',
   'createListing.step.${s.key}.eyebrow': 'Βήμα {{n}}',
   'createListing.subheading':
     'Μερικές ερωτήσεις για να δημοσιεύσετε την καταχώρισή σας. Θα αποθηκεύουμε την πρόοδό σας σε κάθε βήμα.',
+  'createListing.title': 'Τίτλος καταχώρισης',
   'createListing.titlePlaceholder': 'Ηλιόλουστη Καμπίνα στην Πλαγιά του Βράχου',
   'createListing.uploadCta': 'Προσθήκη φωτογραφίας {{n}}',
+  'createListing.useSample': 'Χρήση δείγματος φωτογραφίας',
   'destinationDiscoveryCard.exploreCta': 'Εξερευνήστε τις διαμονές',
   'forgotPassword.eyebrow': 'Επαναφορά',
   'forgotPassword.subheading':
@@ -64,6 +90,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelOccupancy': 'Κατοχή',
   'hostDashboard.hero.labelYtd': 'Έτος μέχρι σήμερα',
   'hostDashboard.loadError': 'Η φόρτωση των δεδομένων φιλοξενίας σας απέτυχε. Δοκιμάστε ξανά.',
+  'hostDashboard.queueArrivals': '{{count}} αφίξεις την επόμενη εβδομάδα',
+  'hostDashboard.queueListings': '{{count}} ενεργές καταχωρίσεις',
   'hostDashboard.queueRequests': '{{count}} αιτήματα κράτησης',
   'hostDashboard.queueReview': 'Ουρά επανάληψης',
   'hostDashboard.queueTitle': 'Η ουρά σας',
@@ -85,11 +113,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': 'Η καταχώριση δεν βρέθηκε.',
   'hostListingDetail.photos.empty': 'Δεν έχουν μεταφορτωθεί ακόμη φωτογραφίες.',
   'hostListingDetail.photos.heading': 'Φωτογραφίες',
+  'hostListingDetail.pricing.cleaning': 'Τέλος καθαρισμού',
   'hostListingDetail.pricing.save': 'Αποθήκευση τιμών',
   'hostListingDetail.pricing.weekday': 'Τιμή καθημερινών',
   'hostListingDetail.pricing.weekend': 'Τιμή Σαββατοκύριακου (μόνο για προβολή)',
   'hostListingDetail.rules.copy':
     'Καθορίστε τις προσδοκίες των επισκεπτών και προστατέψτε το σπίτι σας — αυτές γνωστοποιούνται πριν από την επιβεβαίωση της κράτησης.',
+  'hostListingDetail.rules.heading': 'Κανόνες σπιτιού',
   'hostListings.create': 'Δημιουργία νέας καταχώρισης',
   'hostListings.eyebrow': 'Το χαρτοφυλάκιό σας',
   'hostListings.heading': 'Καταχωρίσεις',
@@ -99,8 +129,11 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Για οικοδεσπότες',
   'landing.cta.heading': 'Άνοιξε την πόρτα σου. Κέρδισε ό,τι αξίζει το σπίτι σου.',
   'landing.cta.host': 'Έναρξη φιλοξενίας',
+  'landing.cta.subheading':
+    'Το {{appName}} αναλαμβάνει τις πληρωμές, τους φόρους και τον έλεγχο των ταξιδιωτών, ώστε να μπορείτε να επικεντρωθείτε στη φιλοξενία. Οι περισσότεροι νέοι οικοδεσπότες κερδίζουν τα πρώτα τους $1.000 μέσα σε 30 ημέρες.',
   'landing.destinations.eyebrow': 'Πού θα πάμε στη συνέχεια',
   'landing.destinations.heading': 'Προορισμοί που λατρεύουν οι οικοδεσπότες μας',
+  'landing.destinations.seeAll': 'Δείτε όλους τους προορισμούς',
   'landing.footer.host': 'Γίνετε οικοδεσπότης',
   'landing.footer.search': 'Βρείτε μια διαμονή',
   'landing.footer.tagline': 'Μείνε σαν να ανήκεις κάπου.',
@@ -109,15 +142,21 @@ export const ui: UiTranslations = {
   'landing.nav.host': 'Γίνετε οικοδεσπότης',
   'landing.nav.join': 'Γίνετε μέλος του Roost',
   'landing.nav.search': 'Βρείτε μια διαμονή',
+  'landing.preview.browseAll': 'Περιηγηθείτε στη συλλογή',
   'landing.preview.eyebrow': 'Μια ματιά στο εσωτερικό',
   'landing.preview.heading': 'Επιλεγμένες καταλύματα αυτόν τον μήνα',
+  'landing.preview.subheading':
+    'Κάθε καταχώριση στο {{appName}} φιλοξενείται από ένα πραγματικό πρόσωπο — επαληθευμένο, με κριτικές και δωρεάν ακύρωση έως 48 ώρες πριν από το check-in.',
   'listingDetail.about': 'Σχετικά με αυτό το μέρος',
   'listingDetail.amenities': 'Τι προσφέρει αυτό το μέρος',
   'listingDetail.bathrooms': 'λουτρά',
   'listingDetail.bedrooms': 'υπνοδωμάτια',
   'listingDetail.beds': 'κρεβάτια',
   'listingDetail.bookFailed': 'Δεν ήταν δυνατή η κράτηση. Δοκιμάστε ξανά ή συνδεθείτε πρώτα.',
+  'listingDetail.cleaningFee': 'Τέλος καθαρισμού',
+  'listingDetail.guests': 'επισκέπτες',
   'listingDetail.hostedBy': 'Φιλοξενείται από {{host}}',
+  'listingDetail.hostMeta': '{{years}} χρόνια φιλοξενίας · {{response}}% ποσοστό ανταπόκρισης',
   'listingDetail.houseRules': 'Κανόνες σπιτιού',
   'listingDetail.instantBook': 'Κάντε κράτηση τώρα · Άμεση κράτηση',
   'listingDetail.loadError': 'Αποτυχία φόρτωσης καταχώρισης.',
@@ -127,6 +166,7 @@ export const ui: UiTranslations = {
   'listingDetail.perNight': 'ανά διανυκτέρευση',
   'listingDetail.pickDates': 'Επιλέξτε πρώτα τις ημερομηνίες άφιξης και αναχώρησης.',
   'listingDetail.priceRow': '{{price}} × {{nights}} νύχτες',
+  'listingDetail.requestBook': 'Αίτημα για κράτηση',
   'listingDetail.reserving': 'Κράτηση…',
   'listingDetail.reviews': 'κριτικές',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}} κριτικές',
@@ -134,6 +174,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'Σούπερ οικοδεσπότης',
   'login.eyebrow': 'Καλώς ήρθατε σπίτι',
   'login.heading': 'Συνδεθείτε στο Roost',
+  'login.noAccount': 'Νέος στο Tessera;',
   'login.signupLink': 'Δημιουργήστε έναν δωρεάν λογαριασμό',
   'login.subheading':
     'Συνεχίστε από εκεί που σταματήσατε — διαχειριστείτε ταξίδια, στείλτε μηνύματα και κάντε κράτηση για διαμονές που ονειρευόσασταν.',
@@ -158,6 +199,7 @@ export const ui: UiTranslations = {
   'notFound.heading': 'Δεν μπορούμε να βρούμε αυτό το κατάλυμα',
   'notifications.loading': 'Φόρτωση…',
   'notifications.subheading': '{{count}} αδιάβαστα · όλα σε ένα ήρεμο φάκελο εισερχομένων',
+  'pricing.ctaContact': 'Επικοινωνήστε με το τμήμα πωλήσεων',
   'pricing.ctaUpgrade': 'Επικοινωνήστε με το τμήμα πωλήσεων',
   'pricing.eyebrow': 'Απλό, διαφανές',
   'pricing.heading': 'Ένα πλάνο που ταιριάζει στον ρυθμό του ταξιδιού σας',
@@ -194,8 +236,12 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Διαλέξτε κάτι αξιομνημόνευτο. Θα σας συνδέσουμε μόλις το αποθηκεύσετε.',
   'roostAuthShell.brand.eyebrow': 'Μείνε σαν να ανήκεις κάπου',
+  'roostAuthShell.brand.heading':
+    'Ξύλινα σπίτια, εξοχικά, ριάντ — σας τα παραδίδουν οικοδεσπότες που ζουν εκεί.',
   'roostHeroSearchCard.checkInAria': 'Ημερομηνία άφιξης',
   'roostHeroSearchCard.checkOutAria': 'Ημερομηνία αναχώρησης',
+  'roostHeroSearchCard.destAria': 'Προορισμός',
+  'roostHeroSearchCard.destLabel': 'Πού',
   'roostHeroSearchCard.destPlaceholder': 'Πόλη, περιοχή ή ακίνητο',
   'roostHeroSearchCard.eyebrow': 'Επιλεγμένες καταλύματα · Επαληθευμένοι οικοδεσπότες',
   'roostHeroSearchCard.guestsOption': '{{n}} επισκέπτες',
@@ -207,6 +253,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'roostListingCard.bookmarkAria': 'Αποθήκευση καταχώρισης',
   'roostListingCard.night': 'νύχτα',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'Δεν υπάρχουν καταχωρίσεις που να ταιριάζουν με την αναζήτησή σας.',
   'search.emptyHint':
     'Δοκιμάστε να διευρύνετε τα φίλτρα σας ή να καταργήσετε το ανώτατο όριο τιμών — το Roost προσφέρει καταλύματα σε 26 χώρες.',
@@ -214,9 +261,14 @@ export const ui: UiTranslations = {
   'search.heading': 'Ένα μέρος που σου δίνει την αίσθηση του σπιτιού σου',
   'search.headingForQuery': 'Μένει για " {{q}} "',
   'search.loadError': 'Αποτυχία φόρτωσης καταχωρίσεων.',
+  'search.mapHint':
+    'Περάστε τον δείκτη πάνω από μια κάρτα για επισήμανση στον χάρτη. Ζωντανά πλακίδια Mapbox σε παραγωγή.',
+  'search.mapPinAria': '{{name}} — {{price}} ανά διανυκτέρευση',
   'search.sortLabel': 'Ταξινόμηση κατά',
   'search.subheading': '{{count}} καταχωρίσεις · {{guests}} επισκέπτες',
+  'settings.appearance.description': 'Εναλλαγή μεταξύ φωτεινής και σκοτεινής λειτουργίας.',
   'settings.appearance.title': 'Εμφάνιση',
+  'settings.openBilling': 'Άνοιγμα τιμολόγησης',
   'settings.payments.heading': 'Μέθοδοι πληρωμής',
   'settings.paymentsHelp':
     'Το Roost χρεώνει την κάρτα σας τη στιγμή που ένας οικοδεσπότης επιβεβαιώνει την κράτησή σας. Διαχειριστείτε τις αποθηκευμένες κάρτες στη σελίδα Τιμολόγησης.',

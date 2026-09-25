@@ -1,6 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'کسی ایڈیشن، شپمنٹ یا اپنی سبسکرپشن کے بارے میں سوالات؟ hello@crate.example پر ٹیم کے کسی حقیقی فرد سے رابطہ کریں — ہم ہر پیغام پڑھتے ہیں۔',
+  'about.contactTitle': 'کیوریٹر سے بات کریں۔',
+  'about.feature1': 'آزاد بنانے والوں کے منتخب کردہ ماہانہ ایڈیشنز، ہر آئٹم کی کہانی کے ساتھ۔',
+  'about.feature2':
+    'ہر باکس پر مکمل کنٹرول — مواد کو اپنی مرضی سے بنائیں، آئٹمز بدلیں یا خارج کریں، ایک مہینہ چھوڑ دیں، یا اپنی تعدد تبدیل کریں۔',
+  'about.feature3':
+    'پک اپ سے دروازے تک مکمل شپمنٹ ٹریکنگ، پلاسٹک سے پاک پیکیجنگ اور کیریئر کی براہ راست اپڈیٹس کے ساتھ۔',
+  'about.feature4':
+    'لچکدار پلانز اور شفاف بلنگ — اپنے ڈیش بورڈ سے کسی بھی وقت اپ گریڈ، ڈاؤن گریڈ، وقفہ یا منسوخ کریں۔',
+  'about.intro':
+    '{{app}} ایک منتخب سبسکرپشن باکس سروس ہے جو ہر ماہ آپ کے دروازے پر خوشیوں سے بھرا ایک منتخب، چھوٹے بیچ کا باکس پہنچاتی ہے۔ ہر ایڈیشن کام کرنے والے بنانے والے — آزاد فنکار، شیف اور چھوٹے برانڈز — تیار کرتے ہیں، کوئی الگورتھم نہیں۔',
+  'about.missionBody':
+    'ہمارا ماننا ہے کہ سبسکرپشن ایک تحفہ لگنی چاہیے، پھندا نہیں۔ {{app}} اس طرح بنی ہے کہ آپ اس لیے رکیں کہ آپ کو آنے والی چیز پسند ہے — کسی بھی وقت وقفہ دیں، جو چاہیں بدلیں، اور ایک کلک میں منسوخ کریں۔ کوئی برقراری اسکرپٹ، کبھی نہیں۔',
+  'about.missionTitle': 'ہمارا مشن',
   'about.pageTitle': '{{app}} کے بارے میں',
   'appNav.mobileLabel': 'بنیادی نیویگیشن',
   'appNav.primaryLabel': 'بنیادی نیویگیشن',
@@ -11,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'بلنگ رابطے میں ترمیم کریں۔',
   'billing.contact.eyebrow': 'بلنگ رابطہ',
   'billing.eyebrow': 'منصوبہ اور ادائیگی',
+  'billing.loading': 'بلنگ لوڈ ہو رہی ہے…',
   'billing.payment.body':
     'ادائیگی کا انتظام اسٹرائپ چیک آؤٹ کے ذریعے کیا جاتا ہے — آپ کا پورا کارڈ نمبر ہمارے سرورز کو کبھی نہیں چھوتا ہے۔ اپنا کارڈ شامل کرنے یا اپ ڈیٹ کرنے کے لیے نیچے کسی بھی درجے پر کلک کریں۔',
   'billing.payment.linked': 'پٹی کے ذریعے فائل پر کارڈ',
@@ -20,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'سبسکرپشن دوبارہ شروع کریں۔',
   'billing.plan.eyebrow': 'فعال منصوبہ',
   'billing.plan.next': 'خود بخود تجدید آن {{date}} .',
+  'billing.plan.status': 'حالت: {{status}}',
   'billing.subtitle': 'اپنے درجے، ادائیگی کے طریقے کا نظم کریں اور ماضی کی سرگرمی کا جائزہ لیں۔',
   'billing.tiers.body': 'ایک درجے کا انتخاب کریں اور ہم آپ کو اسٹرائپ چیک آؤٹ پر لے جائیں گے۔',
   'billing.tiers.choose': 'منتخب کریں۔',
+  'billing.tiers.empty': 'ابھی کوئی ٹیئر کنفیگر نہیں کیا گیا۔',
   'billing.tiers.heading': 'دستیاب درجات',
   'boxDetail.backToBoxes': 'تمام ایڈیشنز پر واپس جائیں۔',
   'boxDetail.crumb.boxes': 'ایڈیشنز',
@@ -35,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'تیار شدہ ٹکڑا',
   'boxDetail.items.heading': '{{count}} تیار شدہ ٹکڑے',
   'boxDetail.itemsBadge': '{{count}} کیوریٹڈ آئٹمز فی باکس',
+  'boxDetail.loading': 'ایڈیشن لوڈ ہو رہا ہے…',
   'boxDetail.notFound': 'وہ ایڈیشن اب دستیاب نہیں ہے۔',
   'boxDetail.subscribe.success': 'سبسکرائب کیا گیا — آپ کا پہلا ایڈیشن قطار میں ہے۔',
   'boxDetail.swapBadge': 'تک تبادلہ کریں۔ {{count}} آئٹم فی باکس',
@@ -43,14 +62,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'کوئی ایڈیشن مماثل نہیں ہے۔',
   'boxes.eyebrow': 'ٹروو آرکائیو',
   'boxes.heading': 'ہر ایڈیشن کو براؤز کریں۔',
+  'boxes.loadError': 'ہم ایڈیشنز لوڈ نہیں کر سکے۔ اپنا کنکشن چیک کریں اور دوبارہ کوشش کریں۔',
   'boxes.loading': 'ایڈیشن لوڈ ہو رہے ہیں…',
+  'boxes.search.label': 'ایڈیشنز تلاش کریں',
   'boxes.search.placeholder': 'ایڈیشن تلاش کریں…',
   'boxes.subtitle':
     'ہر درجے کی ایک چھوٹی بیچ کی کہانی ہے۔ ایک کو اپنی قطار میں شامل کریں یا اسے اپنے اگلے مہینے میں تبدیل کریں۔',
+  'boxThemeCard.itemCount': '{{count}} اشیاء',
   'boxThemeCard.perMonth': '/ مہینہ',
+  'boxThemeCard.retailValue': 'خوردہ قیمت {{value}}',
   'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
+  'common.retry': 'دوبارہ کوشش کریں۔',
   'customize.eyebrow': 'اسے اپنا بنائیں',
   'customize.heading': 'اپنی اگلی ٹرو کو حسب ضرورت بنائیں',
+  'customize.items.empty': 'اس ٹیئر کے لیے ابھی کوئی آئٹم کنفیگر نہیں کیا گیا۔',
   'customize.items.exclude': 'اس کو چھوڑ دیں۔',
   'customize.items.eyebrow': 'اس باکس کو ذاتی بنائیں',
   'customize.items.heading': 'میں اشیاء {{box}}',
@@ -59,8 +84,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'واپس شامل کریں۔',
   'customize.items.save': 'حسب ضرورت محفوظ کریں۔',
   'customize.items.swapsLeft': '{{used}} کی {{max}} تبادلہ استعمال کیا',
+  'customize.loading': 'کسٹمائزیشن لوڈ ہو رہی ہے…',
   'customize.noSub.body':
     'پہلے ایک درجے کو سبسکرائب کریں، پھر اپنے باکس میں آئٹمز کو تبدیل کرنے کے لیے واپس آئیں۔',
+  'customize.noSub.cta': 'ایڈیشنز براؤز کریں',
   'customize.noSub.heading': 'کوئی فعال رکنیت نہیں ہے۔',
   'customize.saved': 'حسب ضرورت محفوظ ہو گئی۔',
   'customize.subtitle':
@@ -74,11 +101,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'کھیپ کو ٹریک کریں۔',
   'dashboard.eyebrow': 'آپ کا ٹرو',
   'dashboard.greeting': 'دوبارہ خوش آمدید، {{name}} .',
+  'dashboard.loadError':
+    'ہم آپ کا ڈیش بورڈ لوڈ نہیں کر سکے۔ اپنا کنکشن چیک کریں اور دوبارہ کوشش کریں۔',
   'dashboard.loading': 'ڈیش بورڈ لوڈ ہو رہا ہے…',
   'dashboard.next.eyebrow': 'آپ کا اگلا ایڈیشن',
   'dashboard.onboarding.body':
     'آپ کے پاس ابھی تک ایک فعال رکنیت نہیں ہے۔ ہر ماہ Crate کی ترسیل شروع کرنے کے لیے ایک درجے کا انتخاب کریں۔',
   'dashboard.onboarding.cta': 'تمام ایڈیشنز کو براؤز کریں۔',
+  'dashboard.onboarding.empty': 'ابھی کوئی پلان دستیاب نہیں۔ جلد دوبارہ دیکھیں۔',
   'dashboard.onboarding.heading': 'اپنا پہلا ایڈیشن چنیں۔',
   'dashboard.renewal.amount': 'چارج کیا گیا۔',
   'dashboard.renewal.cadence': 'کیڈینس',
@@ -86,18 +116,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'تجدید',
   'dashboard.renewal.heading': 'خودکار تجدید آن {{date}}',
   'dashboard.renewal.plan': 'پلان کی کلید',
+  'dashboard.renewal.tbd': 'تجدید کی شیڈولنگ جلد ہوگی',
   'dashboard.renewal.tier': 'ٹائر',
   'dashboard.stats.days': 'دن',
   'dashboard.stats.daysToNext': 'میں بحری جہاز',
   'dashboard.stats.items': 'تیار شدہ اشیاء',
   'dashboard.stats.shipDate': 'جہاز کی تاریخ',
   'dashboard.stats.tbd': 'ٹی بی ڈی',
+  'dashboard.subtitle.active': 'آپ کا اگلا ایڈیشن راستے میں ہے۔ یہ توقع رکھیں۔',
+  'dashboard.subtitle.idle': 'ہر ماہ {{appName}} بھیجنے کے لیے ایک ٹیئر منتخب کریں۔',
   'forgotPassword.subtitle': 'ہمیں اپنا ای میل بتائیں اور ہم ایک ری سیٹ لنک بھیجیں گے۔',
   'forgotPassword.success.body':
     'اگر {{email}} رجسٹرڈ ہے، آپ کو چند منٹوں میں ایک ری سیٹ لنک موصول ہوگا۔',
   'forgotPassword.success.title': 'اپنا ان باکس چیک کریں۔',
   'landing.editions.eyebrow': 'اس موسم میں',
   'landing.editions.heading': 'ایڈیشن جو ہمارے کیوریٹر کو پسند ہے۔',
+  'landing.editions.viewAll': 'تمام ایڈیشنز براؤز کریں →',
   'landing.footer.contact': 'کیوریٹر سے بات کریں۔',
   'landing.footer.tagline': '{{tagline}}۔',
   'landing.hero.ctaPrimary': 'اپنا باکس شروع کریں →',
@@ -106,6 +140,9 @@ export const ui: UiTranslations = {
   'landing.hero.headline': 'ہر مہینے، غیر متوقع طور پر باکس کھولیں۔',
   'landing.hero.previewCaption': 'ممبر ڈیش بورڈ پر جھانکنا — الٹی گنتی، مواد اور ٹریکنگ۔',
   'landing.hero.social.count': 'کی طرف سے پیار کیا {{count}} + سبسکرائبرز',
+  'landing.hero.social.rating': '{{rating}} اوسط ان باکسنگ ریٹنگ',
+  'landing.hero.subhead':
+    '{{appName}} آپ کو آزاد بنانے والوں کی طرف سے منتخب، چھوٹے بیچ کا خوشیوں بھرا باکس بھیجتی ہے۔ کسی بھی وقت وقفہ دیں۔ جو چاہیں بدلیں۔ جو پسند ہو رکھیں۔',
   'landing.nav.start': 'اپنا باکس شروع کریں۔',
   'landing.tiers.eyebrow': 'اپنا کیڈنس چنیں۔',
   'landing.tiers.heading':
@@ -116,6 +153,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'اگلے مہینے کے باکس میں جھانکنے کے لیے سائن ان کریں۔',
   'login.welcomeBack': 'دوبارہ خوش آمدید، کیوریٹر۔',
   'nextBoxHeroCard.eyebrow': 'آپ کا اگلا سفر',
+  'nextBoxHeroCard.itemCount': 'اندر {{count}} ٹکڑے',
   'nextBoxHeroCard.itemsLabel': 'تیار شدہ اشیاء',
   'nextBoxHeroCard.shipsOnLabel': 'جہاز پر',
   'notFound.body':
@@ -140,8 +178,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'رکنیت کو روکیں۔',
   'settings.danger.paused': 'سبسکرپشن روک دی گئی۔',
   'settings.danger.pausing': 'روکا جا رہا ہے…',
+  'settings.danger.status': 'سبسکرپشن کی حالت: {{status}}',
   'settings.danger.subtitle':
     'موقوف آپ کے درجے اور تاریخ کو برقرار رکھتا ہے۔ منسوخ کرنے سے مستقبل کی ترسیل رک جاتی ہے اور سائیکل کے اختتام پر آپ کے ذخیرہ شدہ ادائیگی کے طریقے ختم ہو جاتے ہیں۔',
+  'settings.notifications.saving': '· محفوظ ہو رہا ہے…',
   'settings.notifications.subtitle':
     'منتخب کریں کہ آپ ٹروو سے کون سے سگنل چاہتے ہیں۔ ڈیفالٹس سمجھدار ہیں۔',
   'settings.subtitle': 'اپنا پروفائل، شپنگ ایڈریس، اور Crate تک پہنچنے کا طریقہ اپ ڈیٹ کریں۔',
@@ -156,13 +196,19 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'ابھی تک کوئی فعال ترسیل نہیں ہے۔',
   'shipments.live.eyebrow': 'ایکٹو شپمنٹ',
   'shipments.live.unnamed': 'آپ کا اگلا باکس',
+  'shipments.loadError':
+    'ہم آپ کی شپمنٹس لوڈ نہیں کر سکے۔ اپنا کنکشن چیک کریں اور دوبارہ کوشش کریں۔',
+  'shipments.loading': 'ترسیل لوڈ ہو رہی ہے…',
+  'shipments.step.delivered': 'پہنچایا',
   'shipments.step.deliveredBody':
     'جو کچھ آپ دریافت کرتے ہیں اسے شیئر کرنے کے لیے #crateunbox کو ٹیگ کریں۔',
   'shipments.step.ordered': 'آرڈر دیا گیا۔',
   'shipments.step.orderedBody':
     'آپ کے سبسکرپشن نے اس ایڈیشن کو اگلے شپ سائیکل کے لیے قطار میں کھڑا کر دیا۔',
+  'shipments.step.packed': 'ہاتھ سے پیک',
   'shipments.step.packedBody':
     'ہر ٹکڑے کو لپیٹ کر ہاتھ سے لکھے ہوئے نوٹ کے ساتھ باکس میں ٹکایا جاتا ہے۔',
+  'shipments.step.transit': 'راستے میں',
   'shipments.step.transitNot': 'جب آپ کا باکس ٹرانزٹ میں ہوگا تو ٹریکنگ یہاں ظاہر ہوگی۔',
   'shipments.subtitle':
     'باکس کو اپنے راستے پر ٹریک کریں، پھر ہر اس ایڈیشن پر دوبارہ دیکھیں جسے آپ نے پہلے ان باکس کیا ہے۔',

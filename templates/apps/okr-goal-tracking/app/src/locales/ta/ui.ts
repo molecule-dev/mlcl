@@ -3,8 +3,12 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'எங்களைப் பற்றி',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
+  'about.subtitle': 'ஏறும் அணிகளுக்கான லட்சிய, பொறுப்பான, அளவிடக்கூடிய OKR கண்காணிப்பு.',
   'ascentSideNav.nav.notifications': 'அறிவிப்புகள்',
   'ascentSideNav.newObjective': 'புதிய நோக்கம்',
+  'authShell.brandBody':
+    '{{appName}} முக்கிய முடிவுகள் மற்றும் வாராந்திர செக்-இன்கள் வழியாக இலக்குகளை இணைக்கிறது, எனவே முன்னேற்றம் எப்போதும் தெரியும் — எப்போதும் நேர்மையாகவும் இருக்கும்.',
   'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle':
     'உச்சியை நிர்ணயித்து, ஏற்றத்தில் வெற்றி பெற்று, அணிக்குப் பயிற்சியளியுங்கள்.',
@@ -17,19 +21,27 @@ export const ui: UiTranslations = {
   'billing.confirmCancel': 'தற்போதைய காலத்தின் முடிவில் உங்கள் சந்தாவை ரத்து செய்யவா?',
   'billing.currentPlanFreeFooter':
     'நீங்கள் இலவசப் பிரிவில் உள்ளீர்கள். அதிக வரம்புகளுக்கு மேம்படுத்திக்கொள்ளுங்கள்.',
+  'billing.currentPlanPaidFooter': 'செயலில் உள்ள சந்தா · {{plan}}',
   'billing.downloadCurrent': 'கொள்முதல் சுருக்கம்',
   'billing.downloading': 'தயாராகிறது…',
   'billing.error.priceUnavailable':
     'தற்போதைய சூழலில் இந்தத் திட்டம் செக்அவுட்டிற்காக உள்ளமைக்கப்படவில்லை.',
   'billing.eyebrow': 'பணியிடம் · கட்டணம்',
   'billing.heading': 'திட்டம் மற்றும் விலைப்பட்டியல்கள்',
+  'billing.message.canceled': 'தற்போதைய காலம் முடிவடையும் போது சந்தா முடிவடையும்.',
   'billing.period.year': 'Yearly',
+  'billing.perk.advanced': 'மேம்பட்ட மதிப்பாய்வுகள் + நினைவூட்டல்கள்',
   'billing.perk.export': 'தரவு ஏற்றுமதி + API அணுகல்',
   'billing.perk.inApp': 'செயலிக்குள் புகாரளித்தல்',
+  'billing.perk.keyResults': '{{count}} முக்கிய முடிவுகள்',
+  'billing.perk.objectives': '{{count}} இலக்குகள்',
+  'billing.perk.retention': '{{count}} நாட்கள் வரலாறு',
   'billing.perk.standard': 'தரநிலை மதிப்பாய்வு',
+  'billing.perk.unlimitedKrs': 'வரம்பற்ற KRகள்',
   'billing.perk.unlimitedObjectives': 'வரம்பற்ற நோக்கங்கள்',
   'billing.perk.unlimitedRetention': 'வரம்பற்ற தக்கவைப்பு',
   'billing.subheading': 'நீங்கள் {{name}} திட்டம். நிலைகளை ஒப்பிட்டு, கீழே மேம்படுத்தவும்.',
+  'billing.subheading.loading': 'உங்கள் தற்போதைய திட்டத்தை ஏற்றுகிறது…',
   'billing.tier.unavailable': 'கிடைக்கவில்லை',
   'billing.tier.upgrade': 'மேம்படுத்த {{name}}',
   'billing.tiersError': 'விலை விவரங்களை ஏற்ற முடியவில்லை. பின்னர் மீண்டும் முயற்சிக்கவும்.',
@@ -40,12 +52,14 @@ export const ui: UiTranslations = {
   'checkIn.emptyTitle': 'இன்னும் சரிபார்க்க எதுவும் இல்லை.',
   'checkIn.eyebrow': 'வாராந்திர தாளம்',
   'checkIn.heading': 'வாராந்திர சரிபார்ப்பு',
+  'checkIn.loading': 'உங்கள் KRகளை ஏற்றுகிறது…',
   'checkIn.newObjective': 'புதிய நோக்கம்',
   'checkIn.noKrs': 'முக்கிய முடிவுகள் இல்லை — திருத்து என்பதிலிருந்து சிலவற்றைச் சேர்க்கவும்.',
   'checkIn.noteLabel': 'உங்கள் குழுவிற்கான ஒரு குறிப்பு',
   'checkIn.notePlaceholder':
     'சாதகமான அம்சம், தடை, அல்லது பயிற்சியாளரிடம் கேட்கும் கேள்வி போன்றவற்றை மூன்று வாக்கியங்களுக்குள் கூறுங்கள்.',
   'checkIn.openObjective': 'திற →',
+  'checkIn.progressLabel': 'KRகள் சரியான பாதையில்',
   'checkIn.subheading':
     'ஒவ்வொரு KR-இன் தற்போதைய மதிப்பைப் புதுப்பித்து, நம்பிக்கை மதிப்பெண்ணைக் குறித்து, ஒரு குறிப்பை இட்டு, சமர்ப்பிக்கவும்.',
   'checkIn.submit': 'செக்-இன் சமர்ப்பிக்கவும்',
@@ -61,10 +75,19 @@ export const ui: UiTranslations = {
   'common.yes': 'ஆம்',
   'common.you': 'நீங்கள்',
   'dashboard.allActivity': 'அனைத்து செயல்பாடுகளையும் காண்க →',
+  'dashboard.coachBodyAtRisk':
+    '{{atRisk}} KRகள் இந்த வாரம் தவறிவிட்டன. இன்று 15 நிமிட உரையாடல் பொதுவாக ஒரு முழு வார மீட்சியைத் தரும்.',
+  'dashboard.coachBodyOk':
+    'இந்த வாரம் உங்கள் KRகள் ஆரோக்கியமாகத் தெரிகின்றன — இதே வேகத்தைத் தொடர்ந்து உங்கள் செக்-இனை நடத்துங்கள்.',
+  'dashboard.coachCta': 'வாராந்திர செக்-இனைத் திற →',
   'dashboard.coachLabel': 'பயிற்சி உந்துதல்',
   'dashboard.emptyBody':
     'வாராந்திர முன்னேற்றத்தைக் கண்காணிக்கத் தொடங்குவதற்கு, உங்கள் முதல் குறிக்கோளை வரைவு செய்யுங்கள்.',
   'dashboard.emptyTitle': 'இன்னும் குறிக்கோள்கள் இல்லை',
+  'dashboard.heroBody':
+    'நீங்கள் {{count}} இலக்குகளை பொறுப்பேற்றுள்ளீர்கள். {{atRisk}} இன்னும் நெருக்கமாகப் பார்க்க வேண்டும் — அவற்றை சரியான பாதையில் வைத்திருப்போம்.',
+  'dashboard.heroEmpty':
+    'உங்களிடம் இன்னும் இலக்குகள் இல்லை. உங்கள் முதல் இலக்கை வரைவதன் மூலம் தொடங்குங்கள்.',
   'dashboard.heroProgressLabel': 'காலாண்டு முன்னேற்றம்',
   'dashboard.heroTitle': 'நல்ல ஏற்றம், {{name}} .',
   'dashboard.kpiActiveLabel': 'செயலில் உள்ள நோக்கங்கள்',
@@ -77,11 +100,14 @@ export const ui: UiTranslations = {
     'இன்னும் எந்தச் செயல்பாடும் இல்லை. மலையேற்றத்தைத் தொடங்க, வருகைப் பதிவை மேற்கொள்ளவும்.',
   'dashboard.objectivesHeading': 'உங்கள் நோக்கங்கள்',
   'dashboard.startCheckIn': 'வாராந்திர சரிபார்ப்பை இயக்கவும்',
+  'dashboardLayout.searchAria': 'இலக்குகளைத் தேடு',
   'dashboardLayout.searchPlaceholder': 'தேடல் நோக்கங்கள், முக்கிய முடிவுகள், நபர்கள்...',
   'editObjective.addKr': 'கே.ஆர்-ஐச் சேர்க்கவும்',
   'editObjective.archive': 'காப்பக நோக்கங்கள்',
   'editObjective.backToList': 'குறிக்கோள்களுக்குத் திரும்பு',
   'editObjective.breadcrumbAll': 'நோக்கங்கள்',
+  'editObjective.confirmArchive':
+    'இந்த இலக்கை காப்பகப்படுத்தவா? பின்னர் காப்பகக் காட்சியில் கண்டுபிடிக்கலாம்.',
   'editObjective.descriptionLabel': 'இது ஏன் முக்கியம்',
   'editObjective.eyebrow': 'திருத்த நோக்கம்',
   'editObjective.heading':
@@ -96,6 +122,7 @@ export const ui: UiTranslations = {
   'editObjective.targetPlaceholder': 'இலக்கு',
   'forgotPassword.emailPlaceholder': 'நீங்கள்@குழு.காம்',
   'forgotPassword.heading': 'உங்கள் கடவுச்சொல்லை மீட்டமைக்கவும்.',
+  'forgotPassword.rememberPrompt': 'நினைவில் இருக்கிறதா? ',
   'forgotPassword.subheading':
     'உங்கள் அசென்ட் கணக்குடன் இணைக்கப்பட்ட மின்னஞ்சல் முகவரியை உள்ளிடவும், நாங்கள் மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.successBody':
@@ -123,6 +150,7 @@ export const ui: UiTranslations = {
   'landing.heroTitle': 'முக்கியமானதை நோக்கி முன்னேறுங்கள்.',
   'login.emailPlaceholder': 'நீங்கள்@குழு.காம்',
   'login.heading': 'மீண்டும் வருக, மலையேறுபவரே.',
+  'login.noAccountPrompt': '{{appName}}-க்கு புதியவரா? ',
   'login.orContinueWith': 'அல்லது தொடரவும்',
   'login.subheading':
     'நீங்கள் விட்ட இடத்திலிருந்து தொடருங்கள் — உங்கள் வருகைப் பதிவுகள், அறிவுப் பதிவுகள் மற்றும் மதிப்புரைகள் உங்களுக்காகக் காத்திருக்கின்றன.',
@@ -131,6 +159,7 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'newObjective.addKr': 'கே.ஆர்-ஐச் சேர்க்கவும்',
   'newObjective.coachLabel': 'பயிற்சியாளர் நினைவூட்டல்கள்',
+  'newObjective.descriptionLabel': 'இது ஏன் முக்கியம்',
   'newObjective.descriptionPlaceholder': 'மூலோபாய சூழலை 2–3 வாக்கியங்களில் விளக்கவும்.',
   'newObjective.errorTitleRequired': 'உங்கள் குறிக்கோளுக்கு ஒரு தலைப்பு கொடுங்கள்.',
   'newObjective.eyebrow': 'புதிய நோக்கம் · உச்சிமாநாட்டை அமைத்தல்',
@@ -148,13 +177,19 @@ export const ui: UiTranslations = {
   'newObjective.submit': 'சேமிப்பு நோக்கம்',
   'newObjective.targetPlaceholder': 'இலக்கு',
   'newObjective.tip1': 'ஒரு வினைச்சொல்லுடன் தொடங்குங்கள்: “ஆகு…”, “வெட்டு…”, “வெற்றி பெறு…”',
+  'newObjective.tip2':
+    'KRகள் அளவிடக்கூடியதாக இருக்க வேண்டும் — “X ஐ மேம்படுத்து” என்பதைத் தவிர்க்கவும்.',
+  'newObjective.tip3': '3–5 KRகள் சரியான அளவு. அதிகமானால் குழப்பம்.',
   'newObjective.titlePlaceholder': 'OKR தயாரிப்பு பொறியியல் விரும்பும் நபராக மாறுங்கள்',
+  'notifications.emptyBody':
+    'பயிற்சி நினைவூட்டல்கள், குறிப்பிடல்கள் மற்றும் மதிப்பாய்வு நினைவூட்டல்கள் இங்கே வரும்.',
   'notifications.emptyTitle': 'இந்தக் காட்சியில் அறிவிப்புகள் எதுவும் இல்லை.',
   'notifications.eyebrow': 'செயல்பாட்டு மையம்',
   'notifications.markRead': '● படித்ததாகக் குறிக்கவும்',
   'objective.scopes.company': 'நிறுவனம்',
   'objective.scopes.individual': 'தனிநபர்',
   'objective.scopes.team': 'அணி',
+  'objectiveCard.krProgress': '{{done}}/{{total}} KRகள்',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'குறிக்கோள்களுக்குத் திரும்பு',
   'objectiveDetail.edit': 'திருத்த நோக்கம்',
@@ -166,6 +201,11 @@ export const ui: UiTranslations = {
   'objectiveDetail.notFound': 'நோக்கம் காணப்படவில்லை.',
   'objectiveDetail.owner': 'உரிமையாளர் {{name}}',
   'objectiveDetail.runCheckIn': 'ரன் செக்-இன்',
+  'objectiveDetail.timelineHeading': 'செக்-இன் காலவரிசை',
+  'objectives.emptyBody':
+    'வாராந்திர முன்னேற்றத்தைக் கண்காணிக்கத் தொடங்குவதற்கு, உங்கள் முதல் குறிக்கோளை வரைவு செய்யுங்கள்.',
+  'objectives.emptyFilteredBody':
+    'வடிகட்டியை அழிக்க முயற்சிக்கவும் அல்லது புதிய இலக்கைத் தொடங்கவும்.',
   'objectives.emptyFilteredTitle': 'இன்னும் எந்த நோக்கங்களும் அந்த வடிகட்டிகளுடன் பொருந்தவில்லை.',
   'objectives.emptyTitle': 'இன்னும் குறிக்கோள்கள் இல்லை',
   'objectives.eyebrow': 'நிறுவனத் திட்டம்',
@@ -176,6 +216,11 @@ export const ui: UiTranslations = {
   'objectives.searchPlaceholder': 'தலைப்பின் அடிப்படையில் வடிகட்டவும்…',
   'objectives.subheading':
     'கண்காணிப்பு {{count}} நோக்கங்கள். கவனம் தேவைப்படுவதைக் கண்டறிய நிலையின் அடிப்படையில் வடிகட்டவும்.',
+  'pricing.limit.advanced': 'மேம்பட்ட அம்சங்கள்: {{value}}',
+  'pricing.limit.checkIns': '{{count}} செக்-இன்கள்',
+  'pricing.limit.export': 'தரவு ஏற்றுமதி: {{value}}',
+  'pricing.limit.keyResults': '{{count}} முக்கிய-முடிவுகள்',
+  'pricing.limit.objectives': '{{count}} இலக்குகள்',
   'profile.achievementCheckInsMany': '{{count}} வருகைப் பதிவுகள்',
   'profile.achievementCheckInsOne': '1 செக்-இன் பதிவு செய்யப்பட்டது',
   'profile.achievementCompletedMany': '{{count}} இலக்குகள் நிறைவுற்றன',
@@ -184,6 +229,7 @@ export const ui: UiTranslations = {
   'profile.achievementOnTrackOne': '1 குறிக்கோள் சரியான பாதையில் உள்ளது',
   'profile.activeHeading': 'செயலில் உள்ள நோக்கங்கள்',
   'profile.allObjectives': 'அனைத்து நோக்கங்களும் →',
+  'profile.createFirst': 'இலக்கை உருவாக்கு',
   'profile.empty':
     'தற்போது செயலில் உள்ள இலக்குகள் எதுவும் இல்லை — தொடங்குவதற்கு உங்கள் முதல் இலக்கை உருவாக்குங்கள்.',
   'profile.eyebrow': 'ஏறுபவர் சுயவிவரம்',
@@ -197,13 +243,18 @@ export const ui: UiTranslations = {
   'profile.statsHeading': 'இந்தக் காலாண்டில்',
   'profile.streakLabel': 'இதுவரையிலான காலாண்டு',
   'resetPassword.backLink': 'அதற்கு பதிலாக உள்நுழையவும்',
+  'resetPassword.backPrompt': 'மீட்டமைக்க வேண்டாம் என்று முடிவு செய்தீர்களா? ',
   'resetPassword.emailPlaceholder': 'நீங்கள்@குழு.காம்',
   'resetPassword.heading': 'புதிய கடவுச்சொல்லை அமைக்கவும்.',
+  'resetPassword.passwordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.reset': 'கடவுச்சொல்லைப் புதுப்பித்து உள்நுழையவும்',
   'resetPassword.resetting': 'கடவுச்சொல்லைப் புதுப்பிக்கிறது…',
   'resetPassword.subheading':
     'வலுவான ஒன்றைத் தேர்ந்தெடுங்கள் — குறைந்தபட்சம் எட்டு எழுத்துக்கள், முடிந்தால் எண்களையும் சேர்த்துக் கொள்ளுங்கள்.',
   'reviewDetail.backToList': 'மதிப்புரைகளுக்குத் திரும்பு',
+  'reviewDetail.body':
+    '{{count}} செயலில் உள்ள இலக்கு(கள்) · தரம் {{grade}}. பிரதிபலிப்புகள் மற்றும் தரத்தை கீழே திருத்தவும்.',
+  'reviewDetail.colObjective': 'இலக்கு',
   'reviewDetail.confirmDelete': 'இந்த மதிப்பாய்வு வரைவை நீக்கவா?',
   'reviewDetail.delete': 'வரைவை நீக்கு',
   'reviewDetail.eyebrow': '{{நிலை}} · {{தேதி}}',
@@ -216,8 +267,10 @@ export const ui: UiTranslations = {
   'reviewDetail.reflectionsPlaceholder':
     'எது நன்றாக நடந்தது? எது நடக்கவில்லை? அடுத்த காலாண்டுக்கான குறிப்புகள்.',
   'reviewDetail.scorecardHeading': 'மதிப்பெண் அட்டை',
+  'reviewDetail.scoreLabel': 'சராசரி மதிப்பெண்',
   'reviewDetail.submitted': 'சமர்ப்பிக்கப்பட்டது',
   'reviewDetail.submittedToast': 'மதிப்பாய்வு சமர்ப்பிக்கப்பட்டது',
+  'reviewDetail.untitled': 'காலாண்டு மதிப்பாய்வு · திருத்த கீழே கிளிக் செய்யவும்',
   'reviews.createDraft': 'ஒரு வரைவைத் தொடங்குங்கள்',
   'reviews.empty.body':
     'நீங்கள் ஒரு வரைவைத் தொடங்கியவுடன் காலாண்டு மதிப்பாய்வுகள் இங்கே தோன்றும். தொடங்குவதற்கு, மேலே உள்ள "ஒரு வரைவைத் தொடங்கு" என்பதைக் கிளிக் செய்யவும்.',
@@ -227,12 +280,16 @@ export const ui: UiTranslations = {
   'reviews.eyebrow': 'காலாண்டு மீளாய்வுகள்',
   'reviews.grade': 'தரம் {{grade}}',
   'reviews.loading': 'மதிப்புரைகள் ஏற்றப்படுகின்றன…',
+  'reviews.notSubmitted': 'இன்னும் சமர்ப்பிக்கப்படவில்லை',
   'reviews.subheading':
     'முந்தைய காலாண்டுகளின் தொகுப்பு மதிப்பெண் அட்டைகள், முக்கிய அம்சங்களின் மீள்பார்வைகள் மற்றும் தரங்கள்.',
+  'reviews.submittedAt': '{{date}} அன்று சமர்ப்பிக்கப்பட்டது',
+  'reviews.untitled': 'தலைப்பிடப்படாத மதிப்பாய்வு · திருத்த கிளிக் செய்யவும்',
   'settings.billingSubtitle': 'திட்டம், இருக்கைகள் மற்றும் விலைப்பட்டியல்களை நிர்வகிக்கவும்',
   'settings.billingTitle': 'கட்டணம் மற்றும் இருக்கைகள்',
   'settings.cadenceBody':
     'உங்கள் குழுவிடம் இருந்து எவ்வளவு அடிக்கடி தகவல்களைப் பெற வேண்டும் என்பதை அசென்ட் தேர்வுசெய்யவும்.',
+  'settings.cadenceHeading': 'கேடன்ஸ்',
   'settings.eyebrow': 'பணியிடம் · கணக்கு · கேடன்ஸ்',
   'settings.guestName': 'ஏறுபவர்',
   'settings.openProfile': 'சுயவிவரத்தைத் திறக்கவும்',
@@ -240,10 +297,15 @@ export const ui: UiTranslations = {
   'settings.saveError': 'சேமிப்பு தோல்வியடைந்தது: {{error}}',
   'settings.toggleCoachDescription':
     'ஒரு கிக் ரிசீவர் (KR) தனது நம்பிக்கையில் இரண்டு படிகள் சரியும்போது, காலாண்டின் நடுப்பகுதியில் மேற்பரப்பு எச்சரிக்கைகளை விடுக்கிறது.',
+  'settings.toggleCoachLabel': 'பயிற்சி நினைவூட்டல்கள்',
   'settings.toggleDigestDescription':
     'ஒவ்வொரு உரிமையாளருக்கும், திங்கட்கிழமை அன்று, நிலை வாரியாக நோக்கங்களின் தொகுப்பை அனுப்புகிறது.',
+  'settings.toggleDigestLabel': 'திங்கள் சுருக்க மின்னஞ்சல்',
+  'settings.toggleRemindersDescription':
+    'ஒரு செக்-இன் இன்னும் இல்லை என்றால் வெள்ளிக்கிழமை காலையில் அணிக்கு அறிவிக்கவும்.',
   'settings.toggleRemindersLabel': 'வாராந்திர சரிபார்ப்பு நினைவூட்டல்கள்',
   'signup.emailPlaceholder': 'நீங்கள்@குழு.காம்',
+  'signup.haveAccountPrompt': 'ஏற்கனவே கணக்கு உள்ளதா? ',
   'signup.heading': 'உங்கள் முதல் மலையேற்றத்திற்குத் திட்டமிடுங்கள்.',
   'signup.namePlaceholder': 'ஏவரி மலையேறுபவர்',
   'signup.orContinueWith': 'அல்லது தொடரவும்',
@@ -262,4 +324,7 @@ export const ui: UiTranslations = {
   'team.newTeamLabel': 'புதிய அணி',
   'team.newTeamPlaceholder': 'எ.கா. வாடிக்கையாளர் அனுபவம்',
   'team.objectivesLabel': 'நோக்கங்கள்',
+  'team.progressLabel': 'பணியிட முன்னேற்றம்',
+  'team.subheading':
+    '{{teams}} அணிகள் · {{objectives}} இலக்குகள். தொகுப்புகளைப் பார்க்க உங்கள் OKRகளை அணி வாரியாக குழுவாக்கவும்.',
 }

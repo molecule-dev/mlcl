@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Uhlelo lwakho lubuyekeziwe.',
   'planUpdated.returnHome': 'Buyela ekhaya',
   'planUpdated.thankYou': 'Siyabonga!',
+  'post.markdown': 'Buka le posi njenge-markdown',
+  'post.readingTime': '{{minutes}} ukufunda okuncane',
   'post.tags': 'Amathegi',
   'project.error.nameAndTypeRequired': 'igama ne-projectType kuyadingeka',
   'project.error.notFound': 'Ayitholakali',

@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Rəyiniz var, xəta tapdınız, yoxsa məktəbinizi də qoşmaq istəyirsiniz? Hesab parametrlərindən bizə yazın və ya məktəb administratorunuza mesaj göndərin — hər bir qeyd komandada real bir şəxsə çatır.',
   'about.contactTitle': 'Bizimlə əlaqə saxlayın',
+  'about.missionTitle': 'Missiyamız',
   'announcementsFeed.empty': 'Hələlik heç bir elan yoxdur.',
   'announcementsFeed.eyebrow': '{{count}} yeniləmələr',
   'announcementsFeed.title': 'Son elanlar',
   'assignmentDetail.alreadySubmitted': 'Bu tapşırığı artıq təqdim etmisiniz.',
   'assignmentDetail.backLink': 'Tapşırıqlara qayıt',
+  'assignmentDetail.dropBody':
+    'İşinizi əlavə etmək üçün Fayl seç istifadə edin — təsdiqlədikdən sonra təqdimetmə vaxtını qeyd edəcəyik.',
   'assignmentDetail.dropButton': 'Faylları seçin',
+  'assignmentDetail.dropPrompt': 'PDF və ya foto paketinizi buraya atın',
   'assignmentDetail.due': 'Ödəniləcək məbləğ {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Təlimatlar',
@@ -19,7 +25,10 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Dərəcələndirilmiş',
   'assignmentDetail.statusSubmitted': 'Təqdim edildi',
   'assignmentDetail.statusTitle': 'Təqdim statusu',
+  'assignmentDetail.submitError': 'Bu təqdimatı qeydə ala bilmədik. Bir azdan yenidən cəhd edin.',
   'assignmentDetail.submitted': 'Təqdimat qeydə alındı — müəlliminizə bildiriş göndərildi.',
+  'assignmentDetail.submittedAt': 'Təqdim edildi {{when}}',
+  'assignmentDetail.submitTitle': 'İşinizi təqdim edin',
   'assignmentRow.courseDue': '{{course}} · Ödəniləcək {{due}}',
   'assignments.empty': 'Burada heç nə yoxdur',
   'assignments.emptyBody':
@@ -39,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Gündəlik iştirak, iştirak etməmə və gecikmə qeydləri — lazım olduqda qeydlərlə.',
+  'attendance.summary.absences': 'Buraxılışlar',
   'attendance.summary.absencesCaption': '5 günlük müdaxilə həddindən aşağı',
   'attendance.summary.attendance': 'Davamiyyət',
   'attendance.summary.attendanceCaption': '{{count}} bu termin indiki dövrdə',
+  'attendance.summary.tardies': 'Gecikmələr',
   'attendance.summary.tardiesCaption': 'Avtobus / görüş gecikmələri üçün qeydlər daxil olmaqla',
   'attendance.title': 'Davamiyyət tarixçəsi',
   'calendar.eyebrow': 'Tədris ili · {{year}}',
@@ -55,6 +66,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Qiymətlər',
   'courseDetail.currentGrade': 'Cari dərəcə',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Kurs icmalı',
   'courseDetail.gradesTitle': 'Son qiymətlər',
   'courseDetail.messageTeacher': 'Müəllimə mesaj göndərin',
   'courseDetail.noGrades': 'Hələ heç bir qiymət paylaşılmayıb.',
@@ -67,13 +79,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Hamısına baxın',
   'dashboard.assignmentsTitle': 'Növbəti həftə bu',
   'dashboard.greeting': 'Salam {{name}} , dərsə hazırsınız?',
+  'dashboard.subtitle':
+    'Həftəniz bir baxışda — cədvəl, qiymətlər və tapşırıqlar bir sakit görünüşdə.',
+  'dashboard.viewReportCard': 'Qiymət vərəqinə bax',
+  'dashboard.weekFocusBody':
+    'Kvadrat tənliklər məşq dəsti 7-ni və fəsil testini təqdim edin. Repetitorluq kabineti çərşənbə axşamı və cümə axşamı 7-ci dərsdən sonra açıqdır.',
+  'dashboard.weekFocusCta': 'Tam plana bax',
   'dashboard.weekFocusEyebrow': 'Həftəlik diqqət',
   'dashboard.weekFocusTitle': 'Cəbr II-ni 4 bal fərqlə gətirin',
   'forgotPassword.subheading':
     'Məktəb e-poçtunuzu daxil edin və biz sizə sıfırlama linki göndərəcəyik.',
   'forgotPassword.successBody':
     'Əgər {{email}} Chalk hesabı ilə uyğun gəlirsə, parol sıfırlama linki göndərilir. Linklərin müddəti 30 dəqiqə ərzində bitir.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} semestr GPA',
+  'gpaHeroCard.summary': 'Bu gün {{count}} dərs',
   'grades.col.grade': 'Dərəcə',
   'grades.col.teacher': 'Müəllim',
   'grades.col.trend': 'Trend',
@@ -85,10 +105,17 @@ export const ui: UiTranslations = {
     'Canlı hərf və faiz dərəcələri. Trend oxları yuxarı, səviyyə və ya sürüşmə hərəkətinizi göstərir.',
   'grades.title': 'Qiymətləriniz, kurs üzrə',
   'grades.trendStable': 'Tövlə',
+  'grades.viewReportCard': 'Rəsmi qiymət vərəqinə bax',
   'landing.copyright': '© {{year}} {{app}} . Tələbələr üçün, ailələr üçün hazırlanmışdır.',
+  'landing.ctaBody':
+    'İlk 30 gün pulsuz, kredit kartı tələb olunmur. Rayonlar məktəb miqyaslı paketi bir günorta ərzində tətbiq edə bilər.',
+  'landing.ctaButton': 'Portalınızı yaradın',
   'landing.ctaHeading': 'Daha sakit bir məktəb günü bir neçə dəqiqədən sonra başlayır',
   'landing.eyebrow': 'Orta və ali məktəb şagirdləri üçün',
   'landing.featuresHeading': 'Tələbə ətrafında təşkil olunmuş məktəb günü',
+  'landing.heroSubtitle':
+    '{{appName}} bütün dərsləri, qiymətləri, tapşırıqları və mesajları bir sakit idarə panelində toplayır ki, axtarışa daha az, öyrənməyə daha çox vaxt ayırasınız.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Varsayılan olaraq FERPA-ya uyğundur',
   'landing.proof.rating': '12 min ailədə 4.8',
   'landing.sampleTerm': 'Yaz',
@@ -97,6 +124,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Şifrəni gizlət',
   'login.noAccount': 'Chalk-da yenisiniz?',
   'login.showPassword': 'Şifrəni göstər',
+  'messages.compose': 'Yeni mesaj',
   'messages.composer.email': 'Alıcının e-poçt ünvanı (isteğe bağlı)',
   'messages.composer.errorEmpty': 'Mesaj boş ola bilməz.',
   'messages.composer.errorRecipient': 'Alıcının adı tələb olunur.',
@@ -127,9 +155,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Fəxri lövhə · Yaz semestri',
   'nav.unreadMessages': 'Oxunmamış mesajlar',
   'notifications.eyebrow': '{{count}} yeniləmələr',
+  'notifications.feedTitle': 'Bütün son fəaliyyət',
   'notifications.subtitle':
     'Qiymətlər, xatırlatmalar, mesajlar və məktəb elanları. Hər bildirişin hansı kanallardan istifadə etdiyini Parametrlərdə tənzimləyin.',
+  'planUpdated.body':
+    'Ödəniş dəyişikliyiniz artıq aktivdir. Planınızı istənilən vaxt ödəniş səhifəsindən idarə edə bilərsiniz.',
+  'planUpdated.retry': 'Yenidən cəhd edin',
+  'planUpdated.verifyFailed': 'Ödənişinizi hələ təsdiqləyə bilmədik.',
+  'planUpdated.verifyFailedBody':
+    'Ödənişiniz hələ də emal oluna bilər. Bir an sonra yenidən cəhd edin.',
   'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
+  'pricing.announcementsLabel': 'elanlar',
   'pricing.attendanceLabel': 'iştirak',
   'pricing.gradesLabel': 'qiymətlər',
   'pricing.heading': 'elanlar',
@@ -144,6 +180,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': '2-ci rüb',
   'reportCard.crumb': 'Hesabat kartı',
   'reportCard.cumulativeGpa': 'Kümülatif GPA',
+  'reportCard.download': 'PDF yükləyin',
   'reportCard.downloaded': 'Hesabat kartı yeni sekmede açıldı.',
   'reportCard.downloading': 'PDF yaradılır…',
   'reportCard.empty': 'Hələlik heç bir qiymət yoxdur.',
@@ -151,6 +188,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Yekun GPA · {{term}}',
   'reportCard.subtitle':
     'Semestr sonu üçün çəkili qiymətlər, davamiyyət və çap edilə bilən PDF formatında yükləmə ilə rəsmi transkript.',
+  'reportCard.title': 'Hesabat kartı',
+  'resetPassword.newPassword': 'Yeni parol',
   'resetPassword.subheading': 'Yaddaqalan, lakin təxmin etmək çətin olan bir şey seçin.',
   'resetPassword.tokenPlaceholder': 'E-poçtunuzdan kodu yapışdırın',
   'schedule.empty': 'Dərslər planlaşdırılmayıb.',
@@ -176,12 +215,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Gözlənilən Tapşırıqlar',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} bu semestrdə iştirak etməmələr · {{tardy}} gecikmələr',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Davamiyyət rəqəmləri hesablanır…',
+  'subjectStatsTriad.attendanceLabel': 'Davamiyyət',
   'subjectStatsTriad.gradesCaption': 'Qarşılıqlı {{percent}} çəkili ortalama %',
+  'subjectStatsTriad.gradesCaptionLoading': 'Qiymətlər yüklənir…',
+  'subjectStatsTriad.gradesLabel': 'Sinif ortalaması',
   'todayScheduleStrip.empty': 'Bu gün dərs yoxdur.',
   'todayScheduleStrip.eyebrow': '{{count}} dərslər',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Bugünkü cədvəl',
   'topbar.guestName': 'Tələbə',
   'topbar.searchPlaceholder': 'Dərslər, tapşırıqlar axtarın...',
+  'topbar.studentRole': 'Tələbə',
   'topbar.studentTag': 'Tələbə · # {{id}}',
 }

@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Ձեր պլանը թարմացվել է։',
   'planUpdated.returnHome': 'Վերադառնալ գլխավոր էջ',
   'planUpdated.thankYou': 'Շնորհակալություն!',
+  'post.markdown': 'Դիտել այս գրառումը որպես markdown',
+  'post.readingTime': '{{minutes}} ընթերցանության րոպե',
   'post.tags': 'Թեգեր',
   'project.error.nameAndTypeRequired': 'anunn u projectType pahanjvum en',
   'project.error.notFound': 'Chi gtnvel',

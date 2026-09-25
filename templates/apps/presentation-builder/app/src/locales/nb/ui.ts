@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Spørsmål, tilbakemeldinger eller en funksjon du skulle ønske vi hadde? Ta kontakt med teamet fra kontoinnstillingene dine — et ekte menneske leser hver melding.',
   'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Om',
+  'about.missionTitle': 'Vårt oppdrag',
+  'about.whatYouGetTitle': 'Det du får',
   'analytics.empty': 'Opprett kortstokker for å se analyser her.',
   'analytics.stats.acrossDecks': 'På tvers av alle kortstokker',
   'analytics.stats.allTime': 'I studioet ditt',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Kortstokktittel',
   'landing.features.eyebrow': 'Hvorfor Overture',
   'landing.features.heading': 'Alt du trenger for å gå klar på scenen.',
+  'landing.finalCta.body':
+    'Sett opp studioet ditt på under et minutt. Ingen kredittkort. Avslutt når som helst.',
   'landing.finalCta.cta': 'Lag ditt gratis studio',
   'landing.finalCta.eyebrow': 'Gratis å starte',
   'landing.finalCta.heading': 'Gå på scenen med din karrieres beste kortstokk.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Redigert for 12 minutter siden',
   'notifications.created': 'opprettet',
   'notifications.edited': 'redigert',
+  'notifications.empty.body':
+    'Aktivitet på dekkene dine — kommentarer, omtaler, eksporter — vil dukke opp her.',
   'notifications.empty.title': 'Ingen varsler ennå',
   'notifications.eyebrow': 'Sceneaktivitet',
   'notifications.loading': 'Laster…',
   'notifications.shared': 'delt offentlig',
+  'planUpdated.retry': 'Prøv igjen',
+  'planUpdated.verifyFailed': 'Vi kunne ikke bekrefte betalingen din ennå.',
+  'planUpdated.verifyFailedBody':
+    'Betalingen din kan fortsatt være under behandling. Prøv igjen om et øyeblikk.',
   'planUpdated.verifying': 'Bekrefter betalingen din…',
   'present.addSlides': 'Legg til lysbilder',
   'present.backToDecks': 'Tilbake til kortstokker',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Sceneartist',
   'settings.security.notSet': 'Ikke angitt',
   'settings.security.passwordBody': 'Passordet ditt er kryptert når det er lagret.',
+  'settings.security.reset': 'Tilbakestill',
   'settings.security.title': 'Konto + økter',
   'shared.empty.body':
     'Kortstokker du deler offentlig vil vises her. Åpne en kortstokk og velg offentlig for å dele.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Laster…',
   'shared.title': 'Delte terrasser',
   'templateCard.slideCount': '{{count}} lysbilder',
+  'templateCard.usageCount': '{{count}} bruker',
+  'templates.empty.body': 'Prøv et annet filter — vi lanserer nye maler hver måned.',
+  'templates.empty.title': 'Ingen maler i denne kategorien ennå',
+  'templates.hero.body':
+    'Ferdig temastyrte lysbildelayout med diagramblokker, demorammer, presentatørnotater og forhåndsinnstilte tidtakere — hver mal er klar til opptak.',
   'templates.hero.eyebrow': 'Kuraterte scener',
   'templates.hero.heading': 'Etapper bygget for øyeblikket du trenger å lande den.',
 }

@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ သို့မဟုတ် အင်္ဂါရပ် တစ်ခု အကြံပြုလိုပါသလား။ သင့်အကောင့် ဆက်တင်များမှ ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့ထဲရှိ လူတစ်ဦးထံ ရောက်ပါသည်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.featureDatabases':
+    'ဖွဲ့စည်းမှုမရှိသော မှတ်စုများကို ဖွဲ့စည်းထားပြီး ထပ်ခါတလဲလဲ လုပ်ဆောင်နိုင်သော လုပ်ငန်းစဉ်များအဖြစ် ပြောင်းလဲရန် ပေါ့ပါးသော ဒေတာဘေ့စ်များနှင့် ပြန်လည်အသုံးပြုနိုင်သော နမူနာပုံစံများ။',
+  'about.featureEditor':
+    'တိတ်ဆိတ်သော ဘလောက် အယ်ဒီတာ — ခေါင်းစီးများ၊ စာရင်းများ၊ ကုဒ်၊ ခေါ်ဆိုမှုများနှင့် လုပ်ဆောင်ရန်စာရင်းများ — လိုချင်သည့်အခါ slash-commands များနှင့်အတူ၊ မလိုချင်သည့်အခါ ဘေးဖယ်ထားနိုင်သည်။',
+  'about.featureGraph':
+    'နောက်ပြန်လင့်များနှင့် အသိပညာ ဂရပ် — မှတ်စုတစ်ခုကို လင့်ရန် [[ ရိုက်ထည့်ပြီး သင့်အတွေးအခေါ်များ အချိန်ကြာလာသည်နှင့်အမျှ မည်သို့ ဆက်စပ်နေသည်ကို ကြည့်ပါ။',
+  'about.featureNotebooks':
+    'ပရောဂျက်များ၊ ခေါင်းစဉ်များနှင့် နေ့စဉ်မှတ်စုများကို သင်စဉ်းစားသည့်အတိုင်း အတိအကျ စီစဉ်ထားနိုင်ရန် အထပ်ထပ် မှတ်စုစာအုပ်များနှင့် စာမျက်နှာများ။',
+  'about.featureSearch':
+    'မှတ်စုစာအုပ် တိုင်းတွင် ၅၀ မီလီစက္ကန့်အောက် စာသားအပြည့်အစုံ ရှာဖွေမှု၊ ပြီးပြည့်စုံစွာ ပူးတွဲအသုံးပြုနိုင်သော တဂ်များနှင့်အတူ။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'forgot.eyebrow': 'ပြန်ဝင်ဖို့ လမ်းပျောက်နေလား။',
   'forgot.formSubtitle': 'ဖိုင်ထဲမှာရှိတဲ့ အီးမေးလ်ကို ပြောပြပါ။',
+  'forgot.formTitle': 'စကားဝှက်မေ့နေပါသလား',
   'forgot.headline': 'သင့်စကားဝှက်ကို ပြန်လည်သတ်မှတ်ပါ။',
   'forgot.subline':
     'အသစ်တစ်ခုကို ရွေးချယ်နိုင်ရန်အတွက် တစ်ကြိမ်သာသုံးလင့်ခ်ကို သင့်ဝင်စာပုံးသို့ ပေးပို့ပါမည်။',
+  'forgot.successDetail':
+    'သင့်အီးမေးလ်သို့ ပြန်လည်သတ်မှတ်ရန် လင့်ကို ပေးပို့ပြီးပါပြီ။ ၎င်းသည် မိနစ် ၃၀ အတွင်း သက်တမ်းကုန်ဆုံးပါမည်။',
   'graph.eyebrow': 'ဂရပ်',
+  'graph.goToNotes': 'မှတ်စုများ ကြည့်ရန် →',
+  'graph.loadError': 'ဂရပ်ကို ဖွင့်၍မရပါ — {{message}}',
   'graph.placeholderBody':
     'မှတ်စုများ တစ်ခုနှင့်တစ်ခု ချိတ်ဆက်လာသောအခါ ([[wiki]] syntax ဖြင့်)၊ အပြန်အလှန်အကျိုးသက်ရောက်သော force-directed graph တစ်ခုကို ဤနေရာတွင် ပြသပါမည်။',
+  'graph.placeholderTitle': 'နောက်ပြန်လင့် ဂရပ် မကြာမီ လာမည်',
   'graph.subtitle':
     '{{count}} ဤအလုပ်ခွင်ရှိ မှတ်စုများ။ မှတ်စုများ တစ်ခုနှင့်တစ်ခု ချိတ်ဆက်ပြီးသည်နှင့် backlink ဂရပ် ပုံဖော်ခြင်းကို ဤနေရာတွင် ပေါ်လာပါမည်။',
   'graph.title': 'ဗဟုသုတဇယား',
   'home.empty': 'မှတ်စုများ မရှိသေးပါ — သင့်ပထမဆုံးတစ်ခုကို စတင်ပါ။',
   'home.favoritesHeading': 'ပင်ထိုးထားသည်',
   'home.guest': 'သူငယ်ချင်း',
+  'home.loadError': 'သင့်မှတ်စုများကို ဖွင့်၍မရပါ — {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'ဤနေရာတွင်ထားရန် editor တွင် မှတ်စုတစ်ခုကို pin လုပ်ပါ။',
   'home.recentHeading': 'မကြာသေးမီက အပ်ဒိတ်လုပ်ထားသည်',
@@ -23,18 +44,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'မှတ်စုစာအုပ်',
   'home.stats.pinned.label': 'ပင်ထိုးထားသည်',
   'home.stats.updatedToday.label': 'ယနေ့ အပ်ဒိတ်လုပ်ထားသည်',
+  'home.subtitle': 'သင်ရပ်ခဲ့သည့်နေရာမှ ဆက်လုပ်ပါ၊ သို့မဟုတ် မှတ်စုအသစ် စတင်ပါ။',
   'home.viewAll': 'မှတ်စုအားလုံးကိုကြည့်ပါ',
   'landing.cta.body':
     'ကိုယ်ရေးကိုယ်တာအတွက် အခမဲ့။ အဖွဲ့များအတွက် Pro။ သင်၏ရှိပြီးသား markdown ကိုယူဆောင်လာပါ သို့မဟုတ် အသစ်ပြန်စပါ — သင်၏မှတ်စုများရှိနေပါစေ Verso သည် သင့်အားကြိုဆိုပါသည်။',
+  'landing.cta.button': 'ကျွန်ုပ်၏ အလုပ်ခွင်ကို ဖန်တီးပါ',
   'landing.cta.heading': 'ဒီနေ့ စာမျက်နှာကို ဖွင့်ပါ။',
   'landing.features.eyebrow': 'သင့်ရဲ့ ဒုတိယဦးနှောက် လိုအပ်တဲ့ အခြေခံအုတ်မြစ်တိုင်း',
+  'landing.features.heading': 'meta-work အတွက်မဟုတ်ဘဲ အလုပ်အတွက် တည်ဆောက်ထားသည်။',
   'landing.hero.eyebrow': 'တိတ်ဆိတ်ငြိမ်သက်သော စာရေးမျက်နှာပြင်',
   'landing.hero.headlineAccent': 'ပုံသဏ္ဍာန်ယူပါ။',
   'landing.hero.headlineLeading': 'အတွေးတွေ ဘယ်မှာလဲ',
   'landing.hero.primaryCta': 'သင့်ရဲ့ ဗဟုသုတအခြေခံကို စတင်လိုက်ပါ',
   'landing.hero.secondaryCta': 'ကျွန်တော်/ကျွန်မမှာ အကောင့်တစ်ခု ရှိပြီးသားပါ',
+  'landing.hero.socialProof':
+    'စာရေးဆရာ၊ ကျောင်းသားနှင့် PhD ပညာရှင် ၁၂,၈၀၀ ကျော်သည် {{appName}} ဖြင့် တွေးခေါ်ကြသည်',
   'landing.hero.subline':
     'Verso သည် ဗဟုသုတရှာဖွေသူများနှင့် ကျောင်းသားများအတွက် ဖွဲ့စည်းတည်ဆောက်ထားသော မှတ်စုရေးသည့် မျက်နှာပြင်တစ်ခုဖြစ်သည်။ Block editor၊ nested notebooks၊ backlinks နှင့် knowledge graph တို့ဖြင့် typography-first reading experience ကို ပေးဆောင်ထားသည်။',
+  'landing.preview.notebook': 'အသိပညာ · စာရေးခြင်း လုပ်ငန်းစဉ်',
+  'landing.preview.title': 'မူကြမ်းများ အသက်ရှူခွင့်ပြုခြင်းအကြောင်း',
   'login.eyebrow': 'Verso မှ ပြန်လည်ကြိုဆိုပါတယ်',
   'login.formSubtitle':
     'သင့်အီးမေးလ် သို့မဟုတ် ချိတ်ဆက်ထားသော ဝန်ဆောင်မှုပေးသူတစ်ခုခုကို အသုံးပြုပါ။',
@@ -45,6 +73,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
   'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'noteEditor.backToNotes': 'မှတ်စုများသို့ ပြန်သွားရန်',
+  'noteEditor.bodyLabel': 'မှတ်စု အကြောင်းအရာ',
   'noteEditor.bodyPlaceholder':
     'ရေးသားစတင်ပါ — သင်စာရိုက်နေစဉ် သင့်မှတ်စုကို အလိုအလျောက်သိမ်းဆည်းပါသည်။',
   'noteEditor.confirmTrash': 'ဒီမှတ်စုကို အမှိုက်ပုံးထဲ ရွှေ့မလား။',
@@ -53,17 +82,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'အမှိုက်ပုံးသို့ ရွှေ့ပါ',
   'noteEditor.updated': 'အပ်ဒိတ်လုပ်ထားသည်',
   'notes.defaultWorkspaceName': 'ကျွန်တော့်ရဲ့ မှတ်စုစာအုပ်',
+  'notes.empty': 'ဤနေရာတွင် မှတ်စု မရှိသေးပါ — မှတ်စုစာအုပ် ဖြည့်ရန် တစ်ခု စတင်ပါ။',
   'notes.eyebrow': 'မှတ်စုစာအုပ်',
   'notes.filterAll': 'မှတ်စုအားလုံး',
   'notes.filterPinned': 'ပင်ထိုးထားသည်',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'မှတ်စုစာအုပ်အသစ်',
   'notes.newNotebookPrompt': 'မှတ်စုစာအုပ်အသစ်အမည်',
+  'notes.newNotebookRequired': 'မှတ်စုစာအုပ် အမည် ထည့်ပါ။',
   'notes.notebooksHeading': 'မှတ်စုစာအုပ်များ',
   'notes.subtitle':
     'ဘယ်ဘက်ရှိ မှတ်စုစာအုပ်တစ်အုပ်ကို ရွေးချယ်ပြီးနောက် အသစ်တစ်ခုစတင်ရန် New note ခလုတ်ကို နှိပ်ပါ။',
+  'planUpdated.body': 'သင့်စာရင်းသွင်းမှု ယခု အသက်ဝင်နေပါပြီ။',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'အဆင့်မြင့် အင်္ဂါရပ်များ',
   'pricing.heading': 'သင့်ရဲ့ မှတ်စုယူခြင်း အစီအစဉ်ကို ရွေးချယ်ပါ',
+  'reset.changedMind': 'စိတ်ပြောင်းသွားပါသလား။',
   'reset.eyebrow': 'ပြန်ဝင်ခါနီးပြီ',
   'reset.formSubtitle': 'သိမ်းဆည်းပြီးသည်နှင့် သင် လက်မှတ်ထိုးဝင်ပြီး ဖြစ်ပါမည်။',
   'reset.headline': 'စကားဝှက်အသစ်တစ်ခု ရွေးချယ်ပါ။',
@@ -73,7 +107,9 @@ export const ui: UiTranslations = {
     'ကျွန်ုပ်တို့ အီးမေးလ်ပို့ထားသော ကုဒ်ကို ရိုက်ထည့်ပြီး အမှတ်ရစရာတစ်ခုခုကို ရွေးချယ်ပါ။',
   'reset.submit': 'သိမ်းဆည်းပြီး အကောင့်ဝင်ပါ',
   'reset.tokenHint': 'သင့်ဝင်စာပုံးမှ ကူးထည့်ထားသည်။',
+  'search.empty': 'ဤရှာဖွေမှုနှင့် ကိုက်ညီသော မှတ်စု မရှိသေးပါ။',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'ရောင်ပြန်ဟပ်မှု ရှာဖွေရန်',
   'search.loading': 'ရှာဖွေနေသည်…',
   'search.noRecent': 'သင့်မှတ်စုများတွင် ရှာဖွေမှုစတင်ရန် အထက်ပါမေးခွန်းတစ်ခုကို ရိုက်ထည့်ပါ။',
   'search.recentLabel': 'မကြာသေးမီက ရှာဖွေမှုများ',
@@ -81,12 +117,19 @@ export const ui: UiTranslations = {
     'မှတ်စုစာအုပ်တိုင်းတွင် စာသားအပြည့်အစုံပါရှိသည်။ ရှာဖွေရန် ရိုက်ထည့်ပါ၊ သင်ရိုက်ထည့်သည်နှင့်အမျှ ရလဒ်များ ပြန်လည်စတင်ပါသည်။',
   'search.title': 'ဒုတိယဦးနှောက်ကို ရှာဖွေပါ။',
   'settings.account.logout': 'လော့ဂ်အောက်ထွက်ရန်',
+  'settings.account.title': 'အကောင့် အသေးစိတ်',
+  'settings.editor.graphHover.body':
+    'အယ်ဒီတာတွင် [[wikilink]] တစ်ခုကို ထောက်ကြည့်သည့်အခါ အလွန်သေးငယ်သော အစမ်းကြည့် ကတ်တစ်ခု ပြပါ။',
+  'settings.editor.graphHover.label': 'နောက်ပြန်လင့် ဂရပ် ထောက်ကြည့် အစမ်းကြည့်',
   'settings.editor.lineHeight.body':
     'ခန္ဓာကိုယ်မျဉ်းကြောင်းများကြားတွင် လေမည်မျှရှိသနည်း။ ၁၇၀% သည် ပုံသေဖတ်ရှုမှုစည်းချက်ဖြစ်သည်။',
+  'settings.editor.lineHeight.label': 'လိုင်း အမြင့်',
   'settings.editor.serif.body':
     'စာဖတ်ကော်လံအတွက် Georgia ကိုသုံးပါ။ Sans-serif ကို sidebar နှင့် toolbars တွင်ထားရှိသည်။',
+  'settings.editor.serif.label': 'Serif စာသား',
   'settings.editor.title': 'စာလုံးပုံစံနှင့် စာရေးမျက်နှာပြင်',
   'settings.eyebrow': 'Verso · ဆက်တင်များ',
+  'settings.passwordModal.current': 'လက်ရှိစကားဝှက်',
   'settings.passwordModal.error': 'စကားဝှက်ကို ပြောင်းလဲ၍မရပါ — သင့်လက်ရှိစကားဝှက်ကို စစ်ဆေးပါ။',
   'settings.passwordModal.next': 'စကားဝှက်အသစ်',
   'settings.passwordModal.submit': 'စကားဝှက်ကို သိမ်းဆည်းပါ',
@@ -95,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'ကီးဘုတ်တစ်ခုချင်းစီကို အချိန်နှင့်တပြေးညီ ချန်နယ်မှတစ်ဆင့် တွန်းပို့ပါ။ ချိတ်ဆက်မှုနှေးကွေးပါက ပိတ်ပါ။',
   'settings.sync.auto.label': 'အချိန်နှင့်တပြေးညီ ထပ်တူပြုခြင်း',
+  'settings.sync.title': 'သင့်မှတ်စုများ မည်သို့ သွားလာသည်',
   'settings.theme.body':
     'အလင်းရောင်က အယ်ဒီတာ့အာဘော်ကော်လံကို လင်းလက်တောက်ပစေပါတယ်။ နီညိုရောင်က ညနေခင်းတွေအတွက် စာမျက်နှာကို နွေးထွေးစေပါတယ်။',
   'settings.theme.dark': 'မှောင်မိုက်သော',
@@ -114,8 +158,12 @@ export const ui: UiTranslations = {
     '#hashtag များကို မှတ်စုခေါင်းစဉ် (ဥပမာ "ဖတ်ရန်စာရင်း #စာအုပ်များ") တွင် ထည့်ပါ။ ၎င်းတို့သည် ဤနေရာတွင် အလိုအလျောက် ပေါ်လာပါလိမ့်မည်။',
   'tags.emptyTitle': 'တဂ်များ မရှိသေးပါ',
   'tags.eyebrow': 'အညွှန်းကိန်း',
+  'tags.goToNotes': 'မှတ်စုများသို့ သွားရန် →',
+  'tags.loadError': 'တဂ်များကို ဖွင့်၍မရပါ — {{message}}',
   'tags.subtitle':
     '{{tags}} တဂ်များတစ်လျှောက် {{notes}} မှတ်စုများ။ #hashtag များကို မှတ်စုခေါင်းစဉ်တွင် ထည့်ပြီး ၎င်းတို့သည် ဤနေရာတွင် ပေါ်လာပါလိမ့်မည်။',
+  'versoAuthShell.sample.body':
+    'မနက်ဖြန် ဒုတိယအကြိမ် ပြန်ဖတ်ခြင်းသည် ယနေ့ည ပထမအကြိမ် ဖတ်ခြင်းထက် အမြဲ ပိုကောင်းသည်။ အကြမ်းဖျင်း ရေးထားသည်ကို deep work folder တွင် ထားခဲ့ပါ…',
   'versoAuthShell.sample.label': 'နေ့စဉ်မှတ်စု',
   'versoAuthShell.sample.timestamp': 'ယနေ့ · နံနက် ၉:၁၄ နာရီ',
   'versoAuthShell.sample.title': 'မူကြမ်းများ အသက်ရှူခွင့်ပြုခြင်းအကြောင်း',
@@ -127,8 +175,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'ဆက်လက်ရေးသားပါ',
   'versoTodayHero.createCta': 'ဒီနေ့မှတ်စုကိုစတင်ပါ',
   'versoTodayHero.dailyLabel': 'နေ့စဉ်မှတ်စု',
+  'versoTodayHero.emptyHeadline': 'ယနေ့သည် စာမျက်နှာ အလွတ်တစ်ခု ဖြစ်သည်။',
   'versoTodayHero.emptySubline':
     'အတွေးတစ်ခုကို ဖမ်းယူပါ၊ အစည်းအဝေးတစ်ခုကို ရေးမှတ်ပါ၊ သို့မဟုတ် မနက်ဖြန်တွင် ပုံကြမ်းဆွဲပါ။ Verso သည် စာရေးသံကို ကျယ်လောင်စွာ ကြားနေစေရန် ဖွဲ့စည်းပုံကို တိတ်ဆိတ်စွာ ထားရှိသည်။',
+  'versoTodayHero.outlineLabel': 'ယနေ့၏ အကြမ်းဖျင်း',
   'versoTodayHero.streak': '{{count}} - တစ်နေ့တာ ဆက်တိုက်',
+  'versoTodayHero.unwritten': 'စကားလုံး မရှိသေးပါ — စတင်ရန် မှတ်စုကို ဖွင့်ပါ။',
   'versoTodayHero.wordCount': '{{count}} ဒီနေ့ စကားလုံးတွေ',
 }

@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kas sul on tagasisidet, leidsid vea või soovid oma kooli kaasa tuua? Võta ühendust oma konto seadete kaudu või saada sõnum kooli administraatorile — iga märkus jõuab tiimi päris inimeseni.',
   'about.contactTitle': 'Võta meiega ühendust',
+  'about.missionTitle': 'Meie missioon',
   'announcementsFeed.empty': 'Teadaandeid pole veel.',
   'announcementsFeed.eyebrow': '{{count}} uuendused',
   'announcementsFeed.title': 'Viimased teadaanded',
   'assignmentDetail.alreadySubmitted': 'Oled selle ülesande juba esitanud.',
   'assignmentDetail.backLink': 'Tagasi ülesannete juurde',
+  'assignmentDetail.dropBody':
+    'Kasuta valikut Vali failid, et oma töö lisada — esitamise ajatempli salvestame pärast kinnitamist.',
   'assignmentDetail.dropButton': 'Vali failid',
+  'assignmentDetail.dropPrompt': 'Lohista oma PDF- või fotopakett siia',
   'assignmentDetail.due': 'Tähtaeg {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Juhised',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Hinnatud',
   'assignmentDetail.statusSubmitted': 'Esitatud',
   'assignmentDetail.statusTitle': 'Esitamise staatus',
+  'assignmentDetail.submitError':
+    'Me ei saanud seda esitust salvestada. Proovi hetke pärast uuesti.',
   'assignmentDetail.submitted': 'Esitus registreeritud – teie õpetajat on teavitatud.',
+  'assignmentDetail.submittedAt': 'Esitatud {{when}}',
+  'assignmentDetail.submitTitle': 'Esita oma töö',
   'assignmentRow.courseDue': '{{course}} · Tähtaeg {{due}}',
   'assignments.empty': 'Siin pole midagi',
   'assignments.emptyBody': 'Teises olekus ülesannete nägemiseks vahetage ülaltoodud filtreid.',
@@ -38,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Igapäevane kohalolekute, puudumiste ja hilinemiste logi – vajadusel koos märkustega.',
+  'attendance.summary.absences': 'Puudumised',
   'attendance.summary.absencesCaption': 'Alla 5-päevase sekkumisläve',
   'attendance.summary.attendance': 'Osavõtt',
   'attendance.summary.attendanceCaption': '{{count}} tänapäeval see termin',
+  'attendance.summary.tardies': 'Hilinemised',
   'attendance.summary.tardiesCaption': 'Lisatud on märkused bussi-/kohtumiste hilinemiste kohta',
   'attendance.title': 'Kohaloleku ajalugu',
   'calendar.eyebrow': 'Kooliaasta · {{year}}',
@@ -54,6 +66,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Hinded',
   'courseDetail.currentGrade': 'Praegune hinne',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Kursuse ülevaade',
   'courseDetail.gradesTitle': 'Hiljutised hinded',
   'courseDetail.messageTeacher': 'Sõnum õpetajale',
   'courseDetail.noGrades': 'Hinneid pole veel postitatud.',
@@ -66,13 +79,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Vaata kõiki',
   'dashboard.assignmentsTitle': 'Järgmisena sel nädalal',
   'dashboard.greeting': 'Tere {{name}} , oled tunniks valmis?',
+  'dashboard.subtitle':
+    'Sinu nädal ühe pilguga — tunniplaan, hinded ja ülesanded ühes rahulikus vaates.',
+  'dashboard.viewReportCard': 'Vaata hinnetelehte',
+  'dashboard.weekFocusBody':
+    'Esita ruutvõrrandite harjutuskomplekt 7 ja peatüki test. Õpitugi on avatud teisipäeval ja neljapäeval pärast 7. tundi.',
+  'dashboard.weekFocusCta': 'Vaata tervet plaani',
   'dashboard.weekFocusEyebrow': 'Nädala fookus',
   'dashboard.weekFocusTitle': 'Tõsta algebra II taset 4 punkti võrra',
   'forgotPassword.subheading':
     'Sisesta oma kooli e-posti aadress ja me saadame sulle lähtestamise lingi.',
   'forgotPassword.successBody':
     'Kui {{email}} Kui see vastab Chalki kontole, on parooli lähtestamise link teel. Lingid aeguvad 30 minuti pärast.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} semestri GPA',
+  'gpaHeroCard.summary': 'Täna {{count}} tundi',
   'grades.col.grade': 'Hinne',
   'grades.col.teacher': 'Õpetaja',
   'grades.col.trend': 'Trend',
@@ -84,10 +105,17 @@ export const ui: UiTranslations = {
     'Reaalajas tähe- ja protsentuaalsed hinded. Trendi nooled näitavad, kas liigute ülespoole, tasapinnale või langete.',
   'grades.title': 'Sinu hinded kursuse haaval',
   'grades.trendStable': 'Stabiilne',
+  'grades.viewReportCard': 'Vaata ametlikku hinnetelehte',
   'landing.copyright': '© {{year}} {{app}} . Loodud õpilastele, loodud peredele.',
+  'landing.ctaBody':
+    'Tasuta esimesed 30 päeva, krediitkaarti pole vaja. Piirkonnad saavad kooliülest taset kasutusele võtta ühe pärastlõunaga.',
+  'landing.ctaButton': 'Loo oma portaal',
   'landing.ctaHeading': 'Rahulikum koolipäev algab minutitega',
   'landing.eyebrow': 'Kesk- ja gümnaasiumiõpilastele',
   'landing.featuresHeading': 'Õpilase ümber korraldatud koolipäev',
+  'landing.heroSubtitle':
+    '{{appName}} koondab iga kursuse, hinde, ülesande ja sõnumi ühte rahulikku töölauda, et saaksid vähem aega otsida ja rohkem aega õppida.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Vaikimisi FERPA-ga ühilduv',
   'landing.proof.rating': '4,8 12 000 peres',
   'landing.sampleTerm': 'Kevad',
@@ -96,6 +124,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Peida parool',
   'login.noAccount': 'Kas oled Chalkis uus?',
   'login.showPassword': 'Näita parooli',
+  'messages.compose': 'Uus sõnum',
   'messages.composer.email': 'Saaja e-posti aadress (valikuline)',
   'messages.composer.errorEmpty': 'Sõnumi väli ei tohi olla tühi.',
   'messages.composer.errorRecipient': 'Saaja nimi on kohustuslik.',
@@ -126,9 +155,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Aunimekiri · Kevadsemester',
   'nav.unreadMessages': 'Lugemata sõnumid',
   'notifications.eyebrow': '{{count}} uuendused',
+  'notifications.feedTitle': 'Kogu hiljutine tegevus',
   'notifications.subtitle':
     'Hinded, meeldetuletused, sõnumid ja kooli teadaanded. Saate seadetes määrata, milliseid kanaleid iga teavitus kasutab.',
+  'planUpdated.body':
+    'Sinu arveldusmuudatus on nüüd aktiivne. Saad oma plaani igal ajal arvelduslehelt hallata.',
+  'planUpdated.retry': 'Proovi uuesti',
+  'planUpdated.verifyFailed': 'Me ei saanud teie makset veel kinnitada.',
+  'planUpdated.verifyFailedBody':
+    'Teie makse võib olla veel töötlemisel. Proovige uuesti hetke pärast.',
   'planUpdated.verifying': 'Kinnitan makse…',
+  'pricing.announcementsLabel': 'teadaanded',
   'pricing.attendanceLabel': 'kohalolek',
   'pricing.gradesLabel': 'hinded',
   'pricing.heading': 'teadaanded',
@@ -143,6 +180,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'Q2',
   'reportCard.crumb': 'Aruanne',
   'reportCard.cumulativeGpa': 'Kumulatiivne GPA',
+  'reportCard.download': 'Lae alla PDF',
   'reportCard.downloaded': 'Aruandekaart avati uuel vahelehel.',
   'reportCard.downloading': 'PDF-i genereerimine…',
   'reportCard.empty': 'Hinneid pole veel failis.',
@@ -150,6 +188,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Lõplik GPA · {{term}}',
   'reportCard.subtitle':
     'Semestri lõpu ametlik ärakiri koos kaalutud kursuste hinnete, kohalkäimise ja prinditava PDF-faili allalaadimisega.',
+  'reportCard.title': 'Aruanne',
+  'resetPassword.newPassword': 'Uus parool',
   'resetPassword.subheading': 'Vali midagi meeldejäävat, aga raskesti ära arvatavat.',
   'resetPassword.tokenPlaceholder': 'Kleepige kood oma e-kirjast',
   'schedule.empty': 'Tunde pole planeeritud.',
@@ -175,12 +215,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Ootel olevad ülesanded',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} puudumised sel semestril · {{tardy}} hilinemised',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Töötlen kohalolekuandmeid…',
+  'subjectStatsTriad.attendanceLabel': 'Osavõtt',
   'subjectStatsTriad.gradesCaption': 'Üle {{percent}} Kaalutud keskmise %',
+  'subjectStatsTriad.gradesCaptionLoading': 'Hinnete laadimine…',
+  'subjectStatsTriad.gradesLabel': 'Klassi keskmine',
   'todayScheduleStrip.empty': 'Täna tunde ei ole.',
   'todayScheduleStrip.eyebrow': '{{count}} klassid',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Tänane ajakava',
   'topbar.guestName': 'Õpilane',
   'topbar.searchPlaceholder': 'Otsi kursusi, ülesandeid…',
+  'topbar.studentRole': 'Õpilane',
   'topbar.studentTag': 'Õpilane · # {{id}}',
 }

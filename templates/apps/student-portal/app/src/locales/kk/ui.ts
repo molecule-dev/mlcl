@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пікіріңіз бар ма, қате таптыңыз ба, әлде мектебіңізді қосқыңыз келе ме? Тіркелгі параметрлерінен хабарласыңыз немесе мектеп әкімшісіне жазыңыз — әрбір хабарлама командадағы нақты адамға жетеді.',
   'about.contactTitle': 'Бізбен байланысыңыз',
+  'about.missionTitle': 'Біздің миссиямыз',
   'announcementsFeed.empty': 'Әзірге хабарландырулар жоқ.',
   'announcementsFeed.eyebrow': '{{count}} жаңартулар',
   'announcementsFeed.title': 'Соңғы хабарландырулар',
   'assignmentDetail.alreadySubmitted': 'Сіз бұл тапсырманы жіберіп қойдыңыз.',
   'assignmentDetail.backLink': 'Тапсырмаларға оралу',
+  'assignmentDetail.dropBody':
+    'Жұмысыңызды тіркеу үшін «Файлдарды таңдау» түймесін пайдаланыңыз — растағаннан кейін тапсыру уақытын жазамыз.',
   'assignmentDetail.dropButton': 'Файлдарды таңдаңыз',
+  'assignmentDetail.dropPrompt': 'PDF немесе фото бумаңызды осында тастаңыз',
   'assignmentDetail.due': 'Төлем мерзімі {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Нұсқаулар',
@@ -19,7 +25,10 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Бағаланған',
   'assignmentDetail.statusSubmitted': 'Жіберілді',
   'assignmentDetail.statusTitle': 'Тапсыру мәртебесі',
+  'assignmentDetail.submitError': 'Бұл тапсырманы жаза алмадық. Сәлден кейін қайталап көріңіз.',
   'assignmentDetail.submitted': 'Тапсыру жазылды — мұғаліміңізге хабарланды.',
+  'assignmentDetail.submittedAt': '{{when}} тапсырылды',
+  'assignmentDetail.submitTitle': 'Жұмысыңызды тапсырыңыз',
   'assignmentRow.courseDue': '{{course}} · Мерзімі {{due}}',
   'assignments.empty': 'Мұнда ештеңе жоқ',
   'assignments.emptyBody':
@@ -39,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Күнделікті қатысу, жоқ болу және кешігу журналы — қажет болған жағдайда ескертпелермен бірге.',
+  'attendance.summary.absences': 'Қатыспау',
   'attendance.summary.absencesCaption': '5 күндік араласу шегінен төмен',
   'attendance.summary.attendance': 'Қатысу',
   'attendance.summary.attendanceCaption': '{{count}} қазіргі кезде бұл термин',
+  'attendance.summary.tardies': 'Кешігу',
   'attendance.summary.tardiesCaption':
     'Автобус / кездесу кешігулері туралы ескертпелерді қоса алғанда',
   'attendance.title': 'Қатысу тарихы',
@@ -56,6 +67,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Бағалар',
   'courseDetail.currentGrade': 'Ағымдағы баға',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Курсқа шолу',
   'courseDetail.gradesTitle': 'Соңғы бағалар',
   'courseDetail.messageTeacher': 'Мұғалімге хабарлама жазу',
   'courseDetail.noGrades': 'Әлі бағалар жарияланған жоқ.',
@@ -68,13 +80,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Барлығын көру',
   'dashboard.assignmentsTitle': 'Келесі аптада',
   'dashboard.greeting': 'Сәлем {{name}} , сабаққа дайынсың ба?',
+  'dashboard.subtitle':
+    'Аптаңыз бір көріністе — кесте, бағалар және тапсырмалар бір тыныш көріністе.',
+  'dashboard.viewReportCard': 'Үлгерім парағын көру',
+  'dashboard.weekFocusBody':
+    'Квадраттық теңдеулер бойынша 7-жаттығу жинағын және тарау тестін тапсырыңыз. Қосымша сабақ кабинеті сейсенбі және бейсенбі күндері 7-сабақтан кейін ашық.',
+  'dashboard.weekFocusCta': 'Толық жоспарды көру',
   'dashboard.weekFocusEyebrow': 'Апталық назар',
   'dashboard.weekFocusTitle': 'Алгебра II-ні 4 ұпайға көтеріңіз',
   'forgotPassword.subheading':
     'Мектеп электрондық поштаңызды енгізіңіз, сонда біз қалпына келтіру сілтемесін жібереміз.',
   'forgotPassword.successBody':
     'Егер {{email}} Chalk тіркелгісіне сәйкес келсе, құпия сөзді қалпына келтіру сілтемесі жолда. Сілтемелер 30 минуттан кейін жарамдылық мерзімі бітеді.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} семестрлік GPA',
+  'gpaHeroCard.summary': 'Бүгін {{count}} сабақ',
   'grades.col.grade': 'Бағасы',
   'grades.col.teacher': 'Мұғалім',
   'grades.col.trend': 'Тренд',
@@ -86,10 +106,17 @@ export const ui: UiTranslations = {
     'Нақты әріптер мен пайыздық бағалар. Тренд көрсеткілері сіздің жоғары, деңгейге көтеріліп немесе төмендеп бара жатқаныңызды көрсетеді.',
   'grades.title': 'Бағаларыңыз, курс бойынша',
   'grades.trendStable': 'Қора',
+  'grades.viewReportCard': 'Ресми үлгерім парағын көру',
   'landing.copyright': '© {{year}} {{app}} . Студенттерге, отбасыларға арналған.',
+  'landing.ctaBody':
+    'Алғашқы 30 күн тегін, банк картасы қажет емес. Аудандар мектепке арналған деңгейді бір түстен кейін енгізе алады.',
+  'landing.ctaButton': 'Порталыңызды жасаңыз',
   'landing.ctaHeading': 'Бірнеше минуттан кейін тыныш мектеп күні басталады',
   'landing.eyebrow': 'Орта және жоғары сынып оқушылары үшін',
   'landing.featuresHeading': 'Оқушының айналасында ұйымдастырылған мектеп күні',
+  'landing.heroSubtitle':
+    '{{appName}} барлық сабақты, бағаны, тапсырманы және хабарламаны бір тыныш тақтаға жинайды, сондықтан іздеуге аз уақыт, оқуға көбірек уақыт жұмсайсыз.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Әдепкі бойынша FERPA-үйлесімді',
   'landing.proof.rating': '12 мың отбасында 4,8',
   'landing.sampleTerm': 'Көктем',
@@ -98,6 +125,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Құпия сөзді жасыру',
   'login.noAccount': 'Chalk-қа жаңадан келдіңіз бе?',
   'login.showPassword': 'Құпия сөзді көрсету',
+  'messages.compose': 'Жаңа хабарлама',
   'messages.composer.email': 'Алушының электрондық поштасы (міндетті емес)',
   'messages.composer.errorEmpty': 'Хабарлама бос болмауы керек.',
   'messages.composer.errorRecipient': 'Алушының аты-жөні міндетті.',
@@ -128,9 +156,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Құрмет тақтасы · Көктемгі семестр',
   'nav.unreadMessages': 'Оқылмаған хабарламалар',
   'notifications.eyebrow': '{{count}} жаңартулар',
+  'notifications.feedTitle': 'Барлық соңғы әрекет',
   'notifications.subtitle':
     'Бағалар, еске салғыштар, хабарламалар және мектеп хабарландырулары. Әрбір хабарландырудың қандай арналарды пайдаланатынын "Параметрлер" бөлімінде реттеңіз.',
+  'planUpdated.body':
+    'Төлем өзгерісіңіз енді белсенді. Жоспарыңызды төлем бетінен кез келген уақытта басқара аласыз.',
+  'planUpdated.retry': 'Қайталап көріңіз',
+  'planUpdated.verifyFailed': 'Төлеміңізді әзірге растай алмадық.',
+  'planUpdated.verifyFailedBody':
+    'Төлеміңіз әлі өңделуде болуы мүмкін. Біраздан кейін қайталап көріңіз.',
   'planUpdated.verifying': 'Төлеміңіз расталуда…',
+  'pricing.announcementsLabel': 'хабарландырулар',
   'pricing.attendanceLabel': 'қатысу',
   'pricing.gradesLabel': 'бағалар',
   'pricing.heading': 'хабарландырулар',
@@ -145,6 +181,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': '2-ші тоқсан',
   'reportCard.crumb': 'Есеп картасы',
   'reportCard.cumulativeGpa': 'Жиынтық GPA',
+  'reportCard.download': 'PDF жүктеп алу',
   'reportCard.downloaded': 'Есеп картасы жаңа қойындыда ашылды.',
   'reportCard.downloading': 'PDF жасалуда…',
   'reportCard.empty': 'Әзірге бағалар жоқ.',
@@ -152,6 +189,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Қорытынды GPA · {{term}}',
   'reportCard.subtitle':
     'Семестр соңындағы ресми транскрипт, оның ішінде курстың бағалары, қатысуы және басып шығаруға болатын PDF файлы бар.',
+  'reportCard.title': 'Есеп картасы',
+  'resetPassword.newPassword': 'Жаңа құпия сөз',
   'resetPassword.subheading': 'Есте қаларлық, бірақ болжау қиын нәрсені таңдаңыз.',
   'resetPassword.tokenPlaceholder': 'Электрондық поштаңыздан кодты қойыңыз',
   'schedule.empty': 'Сабақтар жоспарланбаған.',
@@ -177,12 +216,17 @@ export const ui: UiTranslations = {
     '{{due48}} 48 сағат ішінде төленуі тиіс, {{overdue}} мерзімі өткен',
   'subjectStatsTriad.assignmentsLabel': 'Күтілудегі тапсырмалар',
   'subjectStatsTriad.attendanceCaption': '{{absent}} осы семестрде жоқтар · {{tardy}} кешігулер',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Қатысу саны есептелуде…',
+  'subjectStatsTriad.attendanceLabel': 'Қатысу',
   'subjectStatsTriad.gradesCaption': 'Көлденеңінен {{percent}} орташа салмақталған пайыз',
+  'subjectStatsTriad.gradesCaptionLoading': 'Бағалар жүктелуде…',
+  'subjectStatsTriad.gradesLabel': 'Сынып орташасы',
   'todayScheduleStrip.empty': 'Бүгін сабақ жоқ.',
   'todayScheduleStrip.eyebrow': '{{count}} сыныптар',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Бүгінгі кесте',
   'topbar.guestName': 'Студент',
   'topbar.searchPlaceholder': 'Сабақтарды, тапсырмаларды іздеу...',
+  'topbar.studentRole': 'Студент',
   'topbar.studentTag': 'Студент · # {{id}}',
 }

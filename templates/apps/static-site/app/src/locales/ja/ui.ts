@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'プランが更新されました。',
   'planUpdated.returnHome': 'ホームに戻る',
   'planUpdated.thankYou': 'ありがとうございます！',
+  'post.markdown': 'この投稿をmarkdownとして表示',
+  'post.readingTime': '{{minutes}} 分で読めます',
   'post.tags': 'タグ',
   'project.error.nameAndTypeRequired': 'nameとprojectTypeは必須です',
   'project.error.notFound': '見つかりません',

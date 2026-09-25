@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vous avez des commentaires, vous avez trouvé un bug, ou vous voulez amener {{app}} dans votre école ou votre équipe ? Nous lisons chaque message — écrivez-nous depuis les paramètres de votre compte et un vrai humain vous répondra.',
   'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
+  'about.intro':
+    "{{app}} est une plateforme de quiz en direct pour les salles de classe, les soirées jeux et les événements d'équipe. Créez des packs de questions ludiques, animez des parties en temps réel avec un code d'accès et regardez la salle s'illuminer avec des questions chronométrées, un système de points et des classements.",
+  'about.missionBody':
+    'On apprend mieux en jouant. Nous permettons à chacun de transformer un sujet en un jeu rapide et compétitif, sans effort — pour que les animateurs enseignent par la pratique et que les joueurs gardent leur série.',
+  'about.missionTitle': 'Notre mission',
   'about.title': 'À propos de {{app}}',
   'auth.login.noAccount': 'Nouveau sur Sparq ?',
   'auth.login.or': 'ou continuez avec',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Aucun quiz ne correspond pour le moment.',
   'discover.headline': 'Trouvez votre prochain quiz favori.',
   'discover.loading': 'Chargement…',
+  'discover.searchPlaceholder': 'Rechercher des quiz par titre…',
   'discover.subhead':
     'Parcourez la bibliothèque complète, filtrez par catégorie ou recherchez par titre. Cliquez sur une carte pour jouer en solo ou héberger une partie en direct.',
   'forgotPassword.subhead':
     'Entrez votre e-mail et nous vous enverrons un lien de réinitialisation.',
   'forgotPassword.success.body':
     'Si un compte existe pour {{email}}, vous recevrez un lien de réinitialisation dans quelques minutes.',
+  'forgotPassword.success.title': 'Vérifiez votre boîte de réception.',
   'hostLobby.back': 'Retour au quiz',
   'hostLobby.copied': "Code d'accès copié dans le presse-papiers.",
   'hostLobby.creating': 'Préparation de votre salon…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Annuler le salon',
   'hostLobby.players.count': '{{count}} en direct',
   'hostLobby.players.title': 'Joueurs dans le salon',
+  'hostLobby.players.waiting':
+    "En attente des joueurs. Partagez le code {{code}} pour qu'ils puissent rejoindre.",
   'hostLobby.rules.title': 'Règles de la maison',
   'hostLobby.startError': 'Impossible de démarrer la partie.',
   'hostLobby.starting': "Lancement de l'étincelle…",
   'joinCodeHero.headline': 'Dites à vos joueurs de rejoindre.',
+  'joinCodeHero.joinCodeLabel': "Code d'accès",
   'joinCodeHero.joinUrlLabel': 'Ou visitez',
   'joinCodeHero.liveLabel': 'Salon en direct',
+  'joinCodeHero.playerJoined': '{{name}} a rejoint',
   'joinCodeHero.playersLabel': 'Joueurs',
   'joinCodeHero.qrLabel': 'Scannez pour rejoindre',
   'joinCodeHero.startGame': "Lancer l'étincelle",
   'joinCodeHero.subhead':
     "Partagez le code d'accès ou scannez le QR code. La partie commence dès que vous allumez l'étincelle.",
+  'landing.cta.button': 'Créez votre premier quiz',
   'landing.cta.eyebrow': 'Gratuit pour les enseignants',
   'landing.cta.heading': "Apportez l'étincelle à chaque leçon.",
+  'landing.cta.subhead':
+    "Inscrivez-vous en 30 secondes. Animez un nombre illimité de parties en direct, rédigez des quiz avec l'IA et gardez chaque joueur sur une série.",
   'landing.eyebrow': 'Enflammez chaque réponse',
   'landing.features.heading':
     "Un studio de quiz qui s'adapte à votre façon d'enseigner et de jouer.",
@@ -58,6 +74,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Quiz populaires',
   'landing.popular.eyebrow': 'Populaire cette semaine',
   'landing.popular.heading': "Rejoignez un quiz que les hôtes organisent aujourd'hui.",
+  'landing.popular.viewAll': 'Parcourir toutes les catégories →',
+  'leaderboard.empty.body': 'Jouez à un quiz pour inscrire votre score au classement mondial.',
   'leaderboard.empty.title': 'Aucune partie au tableau pour le moment, soyez le premier.',
   'leaderboard.eyebrow': 'Classement',
   'leaderboard.fullRanking': 'Classement complet',
@@ -65,6 +83,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Score cumulé sur toutes les sessions de quiz que vous avez jouées. Grimpez en jouant davantage.',
   'leaderboard.title': 'Meilleurs quizmasters',
+  'leaderboard.totalPlayers': '{{count}} joueurs classés',
   'leaderboardRow.points': 'points',
   'leaderboardRow.streak': '{{days}}j',
   'login.headline': 'Bon retour, quizmaster.',
@@ -76,10 +95,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Créez votre premier quiz →',
   'myQuizzes.empty.created': "Vous n'avez pas encore créé de quiz.",
   'myQuizzes.empty.played': 'Aucun quiz publié pour le moment.',
+  'myQuizzes.loading': 'Chargement…',
   'myQuizzes.subhead':
     'Brouillons que vous avez créés, ainsi que les quiz publiés que vous pouvez jouer.',
   'myQuizzes.title': 'Mes quiz',
   'nav.legal': 'Mentions légales',
+  'nav.primaryNavLabel': 'Navigation principale',
   'notFound.backHome': "Retour à l'accueil",
   'notFound.backToDiscover': 'Parcourir les quiz',
   'notFound.body': 'Essayez un autre code ou retournez au salon.',
@@ -88,17 +109,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Chargement…',
   'notifications.subhead':
     '{{count}} étincelles non lues. Invitations, mouvements de classement et réussites dans un seul flux.',
+  'planUpdated.retry': 'Réessayer',
+  'planUpdated.verifyFailed': "Nous n'avons pas encore pu confirmer votre paiement.",
+  'planUpdated.verifyFailedBody':
+    'Votre paiement est peut-être encore en cours de traitement. Veuillez réessayer dans quelques instants.',
   'planUpdated.verifying': 'Confirmation de votre paiement…',
+  'pricing.advancedFeatures': 'Fonctionnalités avancées : {{yes}}',
+  'pricing.canExport': 'Exportation des données : {{yes}}',
   'pricing.checkoutError': 'Impossible de démarrer le paiement. Veuillez réessayer.',
   'pricing.heading': 'Choisissez votre forfait {{app}}',
   'pricing.included': 'Inclus',
   'pricing.loadError': 'Impossible de charger les plans.',
+  'pricing.maxQuestions': '{{count}} questions',
   'pricing.maxQuizzes': '{{count}} quiz',
+  'pricing.maxSessions': 'Séances {{count}}',
   'pricing.subhead':
     'Gratuit pour les hôtes et les joueurs. Mettez à niveau pour des limites plus élevées et des fonctionnalités avancées.',
   'pricing.yearly': 'Annuel',
   'privacy.collect.account':
     "Compte : e-mail, mot de passe haché, nom d'affichage, dernière connexion.",
+  'privacy.intro':
+    '{{app}} respecte votre vie privée. Cette page résume les données que nous stockons, pourquoi nous les stockons et comment les supprimer.',
   'privacy.rights.body':
     'Supprimez votre compte depuis les Paramètres pour effacer définitivement toutes vos données sous 30 jours.',
   'privacy.share.body':
@@ -122,6 +153,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'ID du quiz : {{id}}',
   'quizBuilder.loadError': 'Impossible de charger le quiz.',
   'quizBuilder.loading': "Chargement de l'éditeur…",
+  'quizBuilder.markCorrect': 'Marquer {{letter}} comme correct',
   'quizBuilder.noQuestions': 'Aucune question pour le moment, ajoutez-en une pour commencer.',
   'quizBuilder.notFound': 'Quiz introuvable.',
   'quizBuilder.preview': 'Voir',
@@ -138,7 +170,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': 'Minuteur de {{seconds}}s',
   'quizBuilder.title': 'Créez votre quiz',
   'quizBuilder.titleLabel': 'Titre du quiz',
+  'quizBuilder.untitled': 'Question sans titre',
   'quizCard.plays': '{{count}} parties',
+  'quizCard.questionCount': '{{count}} questions',
   'quizDetail.duration': '~{{minutes}} min',
   'quizDetail.hostMultiplayer': 'Héberger en multijoueur',
   'quizDetail.leaderboardEmpty':
@@ -154,26 +188,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Retour au quiz',
   'quizPlay.empty': "Ce quiz n'a pas encore de questions.",
   'quizPlay.error': 'Impossible de charger ce quiz. Veuillez réessayer.',
+  'quizPlay.exit': 'Quitter',
   'quizPlay.feedback.correct': '🔥 Étincelle gagnée, à la suivante !',
+  'quizPlay.feedback.incorrect': 'La réponse était {{correct}}. Continuez.',
   'quizPlay.loading': 'Chargement du quiz…',
   'quizPlay.next': 'Question suivante',
   'quizPlay.questionCounter': 'Question {{current}} sur {{total}}',
   'quizPlay.score': '{{score}} pts',
+  'quizPlay.seeResults': 'Voir les résultats',
   'quizPlay.sessionFailed': 'Impossible de démarrer une session.',
   'quizPlay.streak': 'Série de {{count}}',
+  'resetPassword.subhead': 'Choisissez un nouveau mot de passe pour retrouver votre série.',
   'results.backToDiscover': 'Retour à Découvrir',
   'results.error': 'Impossible de charger les résultats.',
   'results.exit': 'Retour à Découvrir',
   'results.loading': 'Calcul de votre score…',
   'results.missingSession': 'Aucune session à résumer.',
+  'results.recap.correctAnswer': 'Correct : {{answer}}',
   'results.recap.questionLabel': 'Question {{number}}',
   'results.recap.title': 'Récapitulatif des questions',
+  'results.recap.yourAnswer': 'Vous : {{answer}}',
   'results.unknownQuiz': 'Quiz',
   'scoreBreakdownCard.accuracyLabel': 'Précision',
+  'scoreBreakdownCard.correctLabel': 'Correct',
   'scoreBreakdownCard.eyebrow': 'Quiz terminé',
   'scoreBreakdownCard.headline': 'Beau travail sur « {{quizTitle}} » !',
   'scoreBreakdownCard.pointsLabel': 'Points',
   'scoreBreakdownCard.rankLabel': 'Rang',
+  'scoreBreakdownCard.streakBonus': 'Bonus de série +{{pct}} %',
+  'scoreBreakdownCard.subhead':
+    'Votre étincelle se voit. Consultez le détail ci-dessous pour continuer à grimper au classement.',
   'settings.danger.body': 'Supprimez définitivement votre compte Sparq et tous les quiz créés.',
   'settings.danger.confirm': 'Oui, supprimer définitivement',
   'settings.guest': 'Invité',
@@ -191,5 +235,7 @@ export const ui: UiTranslations = {
     "Vous êtes responsable du contenu que vous publiez, des questions que vous rédigez et des parties que vous hébergez. Ne vous faites pas passer pour d'autres personnes.",
   'terms.billing.body':
     "Les plans payants se renouvellent automatiquement jusqu'à leur annulation depuis les Paramètres. Vous pouvez annuler à tout moment ; l'accès continue jusqu'à la fin de la période de facturation en cours.",
+  'terms.intro':
+    'En utilisant {{app}}, vous acceptez les règles ci-dessous. Si vous ne pouvez pas les accepter, veuillez ne pas utiliser le service.',
   'terms.title': "Conditions d'utilisation",
 }

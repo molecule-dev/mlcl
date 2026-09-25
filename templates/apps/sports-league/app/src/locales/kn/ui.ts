@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರತಿಕ್ರಿಯೆ ಇದೆಯೇ, ದೋಷ ಸಿಕ್ಕಿದೆಯೇ, ಅಥವಾ ನಿಮ್ಮ ಲೀಗ್ಗೆ {{app}} ಬೇಕೇ? ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ತಂಡದ ನಿಜವಾದ ವ್ಯಕ್ತಿಗೆ ತಲುಪುತ್ತದೆ.',
+  'about.contactTitle': 'ಸಂಪರ್ಕದಲ್ಲಿರಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.featureAlerts':
+    'ಸ್ಕೋರ್ ಅಪ್ಡೇಟ್ಗಳು, ಟ್ರೇಡ್ ಎಚ್ಚರಿಕೆಗಳು, ಗಾಯದ ವರದಿಗಳು ಮತ್ತು ಲೀಗ್ ಪ್ರಕಟಣೆಗಳಿಗಾಗಿ ಪುಶ್ ಅಧಿಸೂಚನೆಗಳು.',
+  'about.featureRosters':
+    'ಪ್ರತಿ ಆಟಗಾರನಿಗೂ ಪೂರ್ಣ ತಂಡದ ಪಟ್ಟಿ, ಸೀಸನ್ ಒಟ್ಟು ಮೊತ್ತ, ಹಾಟ್/ಕೋಲ್ಡ್ ಸ್ಟ್ರೀಕ್ಗಳು ಮತ್ತು ಹೆಡ್-ಟು-ಹೆಡ್ ವಿಭಜನೆಗಳಿರುವ ತಂಡದ ಪುಟಗಳು.',
+  'about.featureSchedule':
+    'ಪ್ರತಿ ಪಂದ್ಯ ಮತ್ತು ಫಲಿತಾಂಶದ ಸುತ್ತ ಯೋಜಿಸಲು ಸೀಸನ್ ಕ್ಯಾಲೆಂಡರ್ ಮತ್ತು ವೇಳಾಪಟ್ಟಿ ನೋಟ.',
+  'about.featureScoreboard':
+    'ಪ್ರತಿ ಪುಟದ ಮೇಲ್ಭಾಗದಲ್ಲಿ ಪಿನ್ ಮಾಡಿದ ಪ್ರಸಾರ-ದರ್ಜೆಯ ಸ್ಕೋರ್ಬೋರ್ಡ್ ಟಿಕರ್ — ಗೋಲ್ ತಪ್ಪಿಸಿಕೊಳ್ಳುವುದಿಲ್ಲ.',
+  'about.featureStandings':
+    'ಲೈವ್ ಸ್ಟ್ಯಾಂಡಿಂಗ್ಸ್ — ನೈಜ-ಸಮಯದ ಗೆಲುವು-ಸೋಲು-ಡ್ರಾ ದಾಖಲೆಗಳು, ಅಂಕಗಳು, ಗೆಲುವಿನ ಶೇಕಡಾವಾರು ಮತ್ತು ಪ್ಲೇಆಫ್ ರೇಖೆ, ಪ್ರತಿ ವ್ಹಿಸಲ್ನಲ್ಲೂ ರಿಫ್ರೆಶ್ ಆಗುತ್ತದೆ.',
+  'about.intro':
+    '{{app}} ನಿಮ್ಮ ಲೀಗ್ಗೆ ಪ್ರಸಾರ-ಗುಣಮಟ್ಟದ ನೆಲೆಯಾಗಿದೆ. ತಂಡಗಳು, ವೇಳಾಪಟ್ಟಿಗಳು, ಲೈವ್ ಸ್ಕೋರ್ಗಳು ಮತ್ತು ಸ್ಟ್ಯಾಂಡಿಂಗ್ಸ್ಗಳು ಒಂದೇ ವೇಗದ, ಗೊಂದಲರಹಿತ ಡ್ಯಾಶ್ಬೋರ್ಡ್ನಲ್ಲಿ ಒಟ್ಟಾಗುತ್ತವೆ — ಹೀಗಾಗಿ ಅಭಿಮಾನಿಗಳು, ಕೋಚ್ಗಳು ಮತ್ತು ಲೀಗ್ ಆಯೋಜಕರು ಸೀಸನ್ ಎಲ್ಲಿದೆ ಎಂದು ಯಾವಾಗಲೂ ತಿಳಿಯುತ್ತಾರೆ.',
+  'about.missionBody':
+    'ಒಂದು ಲೀಗ್ ಅನ್ನು ಅನುಸರಿಸಲು ಐದು ಬೇರೆ ಬೇರೆ ಮೂರನೇ-ಪಕ್ಷದ ಸ್ಕೋರ್ಬೋರ್ಡ್ಗಳನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡುವುದು ಅಗತ್ಯವಿರಬಾರದು. ಸ್ಟ್ಯಾಂಡಿಂಗ್ಸ್, ವೇಳಾಪಟ್ಟಿ ಮತ್ತು ನಿಜವಾಗಿ ಮುಖ್ಯವಾದ ಅಂಕಿಅಂಶಗಳಿಗೆ ಪ್ರತಿ ಲೀಗ್ಗೂ ಒಂದೇ ನಂಬಿಕಾರ್ಹ ಮೂಲವನ್ನು ನೀಡಲು ನಾವು ಇದನ್ನು ನಿರ್ಮಿಸಿದ್ದೇವೆ — ಪ್ರತಿ ವ್ಹಿಸಲ್ನಲ್ಲೂ ಅಪ್ಡೇಟ್ ಆಗುತ್ತದೆ, ಸೀಸನ್ಗೆ ಉಚಿತ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
+  'about.whatYouGet': 'ನೀವು ಏನು ಪಡೆಯುತ್ತೀರಿ',
   'appShell.closeNav': 'ನ್ಯಾವಿಗೇಷನ್ ಮುಚ್ಚಿರಿ',
   'appShell.openNav': 'ನ್ಯಾವಿಗೇಷನ್ ತೆರೆಯಿರಿ',
   'common.dashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್',
@@ -16,14 +35,21 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'ಎಲ್ಲಾ ಪಂದ್ಯಗಳನ್ನು ವೀಕ್ಷಿಸಿ \\u2192',
   'dashboard.viewAllStandings': 'ಪೂರ್ಣ ಸ್ಥಾನಗಳು \\u2192',
   'dashboard.viewAllStats': 'ಎಲ್ಲಾ ರಾಜ್ಯ ನಾಯಕರನ್ನು ವೀಕ್ಷಿಸಿ \\u2192',
+  'forgot.submitting': 'ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ…',
   'forgot.subtitle': 'ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಸ್ವೀಕರಿಸಲು ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ.',
   'forgot.success':
     'ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಇಲ್ಲಿಗೆ ಕಳುಹಿಸಲಾಗಿದೆ {{email}} . ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ.',
+  'landing.copyright': '© {{year}} {{app}}. ಸ್ಟ್ಯಾಂಡಿಂಗ್ ಅನ್ನು ಬೆನ್ನಟ್ಟಿ.',
+  'landing.ctaBody':
+    'ನಿಮ್ಮ ಲೀಗ್. ನಿಮ್ಮ ಸ್ಟ್ಯಾಂಡಿಂಗ್ಸ್. ನಿಮ್ಮ ಮೆಚ್ಚಿನ ತಂಡ — ಮೇಲ್ಭಾಗದಲ್ಲಿ ಪಿನ್ ಮಾಡಲಾಗಿದೆ. ಸೆಟಪ್ಗೆ ಎರಡು ನಿಮಿಷ, ಸೀಸನ್ಗೆ ಉಚಿತ.',
   'landing.ctaHeading': 'ಮೂರನೇ ವ್ಯಕ್ತಿಯ ಸ್ಕೋರ್‌ಬೋರ್ಡ್‌ಗಳನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡುವುದನ್ನು ನಿಲ್ಲಿಸಿ',
   'landing.eyebrow': 'ಅಭಿಮಾನಿಗಳು, ತರಬೇತುದಾರರು ಮತ್ತು ಲೀಗ್ ಸಂಘಟಕರಿಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ',
   'landing.featuresHeading': 'ನಿಂತಿರುವ ಪ್ರತಿಯೊಬ್ಬರಿಗೂ ಮುಂದಿನ ಸಾಲಿನ ಆಸನ',
   'landing.getStarted': 'ಲೀಗ್‌ಗೆ ಸೇರಿ',
   'landing.heroCta': 'ಲೀಗ್‌ಗೆ ಸೇರಿ',
+  'landing.heroSubtitle':
+    '{{app}} ಸ್ಟ್ಯಾಂಡಿಂಗ್ಸ್, ವೇಳಾಪಟ್ಟಿಗಳು ಮತ್ತು ಸಾಂಖ್ಯಿಕ ಮುಂಚೂಣಿಯವರನ್ನು ಒಂದೇ ಪ್ರಸಾರ-ಗುಣಮಟ್ಟದ ಡ್ಯಾಶ್ಬೋರ್ಡ್ನಲ್ಲಿ ಸೇರಿಸುತ್ತದೆ. ಲೈವ್ ಸ್ಕೋರ್ಗಳು. ನಿಜವಾದ ದಾಖಲೆಗಳು. ಗೊಂದಲವಿಲ್ಲ.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'ಇಂದು ರಾತ್ರಿ ಲೀಗ್ ಸುತ್ತ',
   'landing.statFans': 'ಅಭಿಮಾನಿಗಳು ಅನುಸರಿಸುತ್ತಿದ್ದಾರೆ',
   'landing.statGames': 'ಈ ಋತುವಿನ ಆಟಗಳು',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'ಬ {{period}}',
   'matchDetail.back': 'ಪಂದ್ಯಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'matchDetail.eventsHeading': 'ಪ್ಲೇ-ಬೈ-ಪ್ಲೇ',
+  'matchDetail.final': 'ಅಂತಿಮ',
   'matchDetail.finalScore': 'ಅಂತಿಮ',
   'matchDetail.live': 'ಲೈವ್',
   'matchDetail.liveNow': 'ಈಗ ಲೈವ್',
   'matchDetail.noEvents': 'ಇನ್ನೂ ಯಾವುದೇ ಈವೆಂಟ್‌ಗಳನ್ನು ದಾಖಲಿಸಲಾಗಿಲ್ಲ.',
   'matchDetail.periodClock': 'ಬ {{period}} · {{clock}}',
+  'matches.empty': 'ಈ ನೋಟದಲ್ಲಿ ಯಾವುದೇ ಪಂದ್ಯಗಳಿಲ್ಲ — ಬೇರೆ ಫಿಲ್ಟರ್ ಪ್ರಯತ್ನಿಸಿ.',
   'matches.eyebrow': 'ಪಂದ್ಯದ ದಿನ',
   'matches.loading': 'ಸ್ಲೇಟ್ ಎಳೆಯಲಾಗುತ್ತಿದೆ...',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'ಅಧಿಸೂಚನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ',
   'notifications.loading': 'ಅಧಿಸೂಚನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ\\u2026',
   'pennantHeroCard.eyebrow': 'ಮೇಜಿನ ಮೇಲ್ಭಾಗ',
+  'pennantHeroCard.formLabel': 'ಕೊನೆಯ 10',
   'pennantHeroCard.gamesAhead': '{{value}} ಚೇಸ್ ಮಾಡುವ ಮುನ್ನ ಆಟಗಳು',
   'pennantHeroCard.pointsLabel': 'ಪಿಟಿಎಸ್',
   'pennantLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
@@ -80,17 +109,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'ನಿಮ್ಮ ಆಸನವನ್ನು ಆರಿಸಿ',
   'pricing.heading': 'ಉತ್ಕೃಷ್ಟ ವೇಳಾಪಟ್ಟಿ, ಅಂಕಗಳು ಮತ್ತು ಸ್ಥಾನಗಳಿಗಾಗಿ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ.',
   'pricing.limits.schedule': '{{count}} ವೇಳಾಪಟ್ಟಿ ನಮೂದುಗಳು',
+  'pricing.limits.scores': '{{count}} ಸ್ಕೋರ್ಗಳು',
+  'pricing.limits.standings': '{{count}} ಸ್ಟ್ಯಾಂಡಿಂಗ್ಸ್',
+  'pricing.limits.teams': '{{count}} ತಂಡಗಳು',
+  'pricing.subtitle': 'ಸಮೃದ್ಧ ವೇಳಾಪಟ್ಟಿ, ಸ್ಕೋರ್ಗಳು ಮತ್ತು ಸ್ಟ್ಯಾಂಡಿಂಗ್ಸ್ಗಾಗಿ ಅಪ್ಗ್ರೇಡ್ ಮಾಡಿ.',
   'pricing.upgradeCta': 'ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ {{tierName}}',
   'profile.eyebrow': 'ಅಭಿಮಾನಿ ಪ್ರೊಫೈಲ್',
   'profile.favoritesCount': 'ಅನುಸರಿಸಿದ ತಂಡಗಳು',
   'profile.favoritesHeading': 'ನೆಚ್ಚಿನ ತಂಡಗಳು',
   'profile.noFavorites': 'ಇನ್ನೂ ಯಾವುದೇ ಮೆಚ್ಚಿನವುಗಳಿಲ್ಲ — ತಂಡಗಳ ಪುಟದಿಂದ ತಂಡಗಳನ್ನು ಆರಿಸಿ.',
   'profile.rankRecord': 'ಶ್ರೇಣಿ # {{rank}} · {{record}}',
+  'profile.recordOnly': 'ದಾಖಲೆ {{record}}',
   'reset.confirmPlaceholder': 'ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಪುನರಾವರ್ತಿಸಿ',
+  'reset.mismatch': 'ಪಾಸ್‌ವರ್ಡ್‌ಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ.',
   'reset.newLabel': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'reset.subtitle': 'ಕನಿಷ್ಠ 12 ಅಕ್ಷರಗಳ ಬಲವಾದ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಆರಿಸಿ.',
   'reset.tokenPlaceholder': 'ಇಮೇಲ್‌ನಿಂದ ಅಂಟಿಸಿ',
   'schedule.eyebrow': 'ಸ್ಲೇಟ್',
+  'schedule.moreGames': '+ {{count}} ಹೆಚ್ಚು',
   'schedule.subtitle':
     'ಋತುವಿನಾದ್ಯಂತ ಪಂದ್ಯಗಳ ಕ್ಯಾಲೆಂಡರ್ ವೀಕ್ಷಣೆ - ಬಾಕ್ಸ್ ಸ್ಕೋರ್‌ಗಳಿಗಾಗಿ ಯಾವುದೇ ದಿನ ಟ್ಯಾಪ್ ಮಾಡಿ.',
   'scoreboardTicker.empty': 'ಇದೀಗ ಯಾವುದೇ ಲೈವ್ ಆಟಗಳಿಲ್ಲ - ಪಕ್ ಡ್ರಾಪ್‌ನಲ್ಲಿ ಮತ್ತೆ ಪರಿಶೀಲಿಸಿ.',
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'ವೈಯಕ್ತಿಕಗೊಳಿಸಿ',
   'settings.favoritesBody':
     'ಈ ತಂಡಗಳನ್ನು ನಿಮ್ಮ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಪಿನ್ ಮಾಡಲಾಗುತ್ತದೆ ಮತ್ತು ಸ್ಕೋರ್ ಎಚ್ಚರಿಕೆಗಳನ್ನು ಪ್ರಚೋದಿಸುತ್ತದೆ.',
+  'settings.favoritesHeading': 'ನೆಚ್ಚಿನ ತಂಡಗಳು',
   'settings.loading': 'ನಿಮ್ಮ ಆದ್ಯತೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ\\u2026',
   'settings.noFavorites': 'ಇನ್ನೂ ಯಾವುದೇ ಮೆಚ್ಚಿನವುಗಳಿಲ್ಲ \\u2014 ತಂಡಗಳ ಪುಟದಿಂದ ತಂಡಗಳನ್ನು ಆರಿಸಿ.',
   'settings.notificationsHeading': 'ಅಧಿಸೂಚನೆಗಳು ಮತ್ತು ಪ್ರದರ್ಶನ',
@@ -115,6 +152,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'ಲ',
   'standings.overall': 'ಒಟ್ಟಾರೆ',
   'standings.points': 'ಪಿಟಿಎಸ್',
+  'standings.rank': '#',
   'standings.subtitle':
     'ಮೊದಲ ನಾಲ್ಕು ಸ್ಥಾನಗಳು ಪೋಸ್ಟ್‌ಸೀಸನ್‌ಗೆ ಅರ್ಹತೆ ಪಡೆಯುತ್ತವೆ — ಅಂಕಗಳ ಆಧಾರದ ಮೇಲೆ ಟೈಬ್ರೇಕರ್‌ಗಳು, ನಂತರ ಗೆಲುವಿನ ಶೇಕಡಾವಾರು.',
   'standings.title': 'ಲೀಗ್ ಸ್ಥಿತಿಗಳು',
@@ -133,6 +171,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'ಗ',
   'teamDetail.colName': 'ಆಟಗಾರ',
   'teamDetail.colPos': 'ಪೋಸ್',
+  'teamDetail.pointsLabel': 'ಅಂಕಗಳು',
   'teamDetail.rankLabel': 'ಶ್ರೇಣಿ # {{rank}}',
   'teamDetail.rosterHeading': 'ರೋಸ್ಟರ್',
   'teamDetail.statGD': 'ಗುರಿ ವ್ಯತ್ಯಾಸ',

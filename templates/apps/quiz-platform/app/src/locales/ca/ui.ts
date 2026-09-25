@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tens comentaris, has trobat un error o vols portar {{app}} a la teva escola o equip? Llegim tots els missatges: escriu-nos des de la configuració del teu compte i et respondrà una persona de veritat.',
   'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
+  'about.intro':
+    "{{app}} és una plataforma de concursos en directe per a aules, vetllades de jocs i esdeveniments d'equip. Crea paquets de preguntes divertides, organitza partides en temps real amb un codi d'accés i mira com la sala s'encén amb preguntes cronometrades, puntuacions i classificacions.",
+  'about.missionBody':
+    "Aprendre s'enganxa quan sembla un joc. Fem que sigui fàcil per a tothom convertir un tema en un joc ràpid i competitiu, perquè els amfitrions puguin ensenyar fent i els jugadors mantinguin la ratxa.",
+  'about.missionTitle': 'La nostra missió',
   'about.title': 'Sobre {{app}}',
   'auth.login.noAccount': 'Ets nou a Sparq?',
   'auth.login.or': 'o continuar amb',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Encara no hi ha cap qüestionari que coincideixi.',
   'discover.headline': 'Troba el teu proper qüestionari preferit.',
   'discover.loading': "S'està carregant…",
+  'discover.searchPlaceholder': 'Cerca concursos per títol…',
   'discover.subhead':
     'Navega per la biblioteca completa, filtra per categoria o cerca per títol. Selecciona una carta per tocar sol o presentar en directe.',
   'forgotPassword.subhead':
     "Introdueix el teu correu electrònic i t'enviarem un enllaç per restablir-lo.",
   'forgotPassword.success.body':
     'Si existeix un compte per a {{email}} , rebràs un enllaç de restabliment en pocs minuts.',
+  'forgotPassword.success.title': "Revisa la teva safata d'entrada.",
   'hostLobby.back': 'Torna al qüestionari',
   'hostLobby.copied': "El codi d'unió s'ha copiat al porta-retalls.",
   'hostLobby.creating': 'Donant vida al teu vestíbul…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Cancel·la la recepció',
   'hostLobby.players.count': '{{count}} en directe',
   'hostLobby.players.title': 'Jugadors al vestíbul',
+  'hostLobby.players.waiting':
+    'Esperant jugadors. Comparteix el codi {{code}} perquè es puguin unir.',
   'hostLobby.rules.title': 'Normes de la casa',
   'hostLobby.startError': "No s'ha pogut iniciar el joc.",
   'hostLobby.starting': 'Engegant la guspira…',
   'joinCodeHero.headline': "Digues als teus jugadors que s'hi afegeixin.",
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'O visiteu',
   'joinCodeHero.liveLabel': 'Vestíbul en directe',
+  'joinCodeHero.playerJoined': "{{name}} s'ha unit",
   'joinCodeHero.playersLabel': 'Jugadors',
   'joinCodeHero.qrLabel': 'Escaneja per unir-te',
   'joinCodeHero.startGame': 'Comença la guspira',
   'joinCodeHero.subhead':
     "Comparteix el codi d'unió o escaneja el codi QR. El joc comença en el moment que encenes la guspira.",
+  'landing.cta.button': 'Crea el teu primer concurs',
   'landing.cta.eyebrow': 'Gratuït per a educadors',
   'landing.cta.heading': 'Porta la guspira a cada lliçó.',
+  'landing.cta.subhead':
+    "Registra't en 30 segons. Organitza partides en directe il·limitades, crea concursos amb IA i mantén cada jugador en una ratxa.",
   'landing.eyebrow': 'Encén cada resposta',
   'landing.features.heading':
     "Un estudi de preguntes i respostes que s'adapta a la teva manera d'ensenyar i jugar.",
@@ -58,6 +74,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Qüestionaris populars',
   'landing.popular.eyebrow': 'Populars aquesta setmana',
   'landing.popular.heading': 'Els amfitrions de "Deixar-se caure" estan en marxa avui.',
+  'landing.popular.viewAll': 'Explora totes les categories →',
+  'leaderboard.empty.body':
+    'Juga a un concurs per posar la teva puntuació a la classificació global.',
   'leaderboard.empty.title': 'Encara no hi ha cap jugada al tauler: sigues el primer.',
   'leaderboard.eyebrow': 'Taula de classificació',
   'leaderboard.fullRanking': 'Classificació completa',
@@ -65,6 +84,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Suma la puntuació de totes les sessions de preguntes que has jugat. Puja jugant més.',
   'leaderboard.title': 'Els millors mestres de quiz',
+  'leaderboard.totalPlayers': '{{count}} jugadors classificats',
   'leaderboardRow.points': 'punts',
   'leaderboardRow.streak': '{{days}} d',
   'login.headline': 'Benvingut de nou, professor/a de preguntes.',
@@ -76,9 +96,11 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Crea el teu primer qüestionari →',
   'myQuizzes.empty.created': 'Encara no has creat un qüestionari.',
   'myQuizzes.empty.played': 'Encara no hi ha cap qüestionari publicat.',
+  'myQuizzes.loading': "S'està carregant…",
   'myQuizzes.subhead': 'Esborranys que has creat, a més de qüestionaris publicats que pots jugar.',
   'myQuizzes.title': 'Els meus qüestionaris',
   'nav.legal': 'Legal',
+  'nav.primaryNavLabel': 'Navegació principal',
   'notFound.backHome': 'De tornada a casa',
   'notFound.backToDiscover': 'Navega pels qüestionaris',
   'notFound.body': 'Prova un codi diferent o torna al vestíbul.',
@@ -87,17 +109,27 @@ export const ui: UiTranslations = {
   'notifications.loading': "S'està carregant…",
   'notifications.subhead':
     '{{count}} espurnes no llegides. Invitacions, moviments de la taula de classificació i assoliments, tot en un sol flux.',
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
+  'pricing.advancedFeatures': 'Funcions avançades: {{yes}}',
+  'pricing.canExport': 'Exportació de dades: {{yes}}',
   'pricing.checkoutError': "No s'ha pogut iniciar el procés de compra. Torna-ho a provar.",
   'pricing.heading': 'Tria el teu pla de {{app}}',
   'pricing.included': 'Inclòs',
   'pricing.loadError': "No s'han pogut carregar els plans.",
+  'pricing.maxQuestions': '{{count}} preguntes',
   'pricing.maxQuizzes': '{{count}} qüestionaris',
+  'pricing.maxSessions': 'Sessions de {{count}}',
   'pricing.subhead':
     'Gratuït per a amfitrions i jugadors. Actualitza per a límits més alts i funcions avançades.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Compte: correu electrònic, contrasenya codificada, nom de visualització, darrer inici de sessió.',
+  'privacy.intro':
+    '{{app}} respecta la teva privacitat. Aquesta pàgina resumeix les dades que emmagatzemem, per què les emmagatzemem i com eliminar-les.',
   'privacy.rights.body':
     'Suprimeix el teu compte des de Configuració per eliminar permanentment totes les teves dades en un termini de 30 dies.',
   'privacy.share.body':
@@ -121,6 +153,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Identificador del qüestionari: {{id}}',
   'quizBuilder.loadError': "No s'ha pogut carregar el qüestionari.",
   'quizBuilder.loading': "S'està carregant l'editor…",
+  'quizBuilder.markCorrect': 'Marca {{letter}} com a correcta',
   'quizBuilder.noQuestions': 'Encara no hi ha cap pregunta; afegeix-ne una per començar.',
   'quizBuilder.notFound': "No s'ha trobat el qüestionari.",
   'quizBuilder.preview': 'Vista',
@@ -137,7 +170,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} temporitzador',
   'quizBuilder.title': 'Crea el teu qüestionari',
   'quizBuilder.titleLabel': 'Títol del qüestionari',
+  'quizBuilder.untitled': 'Pregunta sense títol',
   'quizCard.plays': '{{count}} obres de teatre',
+  'quizCard.questionCount': '{{count}} preguntes',
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': "Multijugador d'amfitrió",
   'quizDetail.leaderboardEmpty':
@@ -153,26 +188,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Torna al qüestionari',
   'quizPlay.empty': 'Aquest qüestionari encara no té preguntes.',
   'quizPlay.error': "No s'ha pogut carregar aquest qüestionari. Torna-ho a provar.",
+  'quizPlay.exit': 'Surt',
   'quizPlay.feedback.correct': '🔥 Espurna guanyada — a la següent!',
+  'quizPlay.feedback.incorrect': 'La resposta era {{correct}}. Continua.',
   'quizPlay.loading': "S'està carregant el qüestionari…",
   'quizPlay.next': 'Pregunta següent',
   'quizPlay.questionCounter': 'Pregunta {{current}} de {{total}}',
   'quizPlay.score': '{{score}} punts',
+  'quizPlay.seeResults': 'Veure resultats',
   'quizPlay.sessionFailed': "No s'ha pogut iniciar una sessió.",
   'quizPlay.streak': '{{count}} ratlla',
+  'resetPassword.subhead': 'Tria una contrasenya nova per recuperar la teva ratxa.',
   'results.backToDiscover': 'Torna a Descobrir',
   'results.error': "No s'han pogut carregar els resultats.",
   'results.exit': 'Torna a Descobrir',
   'results.loading': 'Comptant la teva puntuació…',
   'results.missingSession': 'No hi ha cap sessió per resumir.',
+  'results.recap.correctAnswer': 'Correctes: {{answer}}',
   'results.recap.questionLabel': 'Pregunta {{number}}',
   'results.recap.title': 'Resum de preguntes',
+  'results.recap.yourAnswer': 'Tu: {{answer}}',
   'results.unknownQuiz': 'Qüestionari',
   'scoreBreakdownCard.accuracyLabel': 'Precisió',
+  'scoreBreakdownCard.correctLabel': 'Correcte',
   'scoreBreakdownCard.eyebrow': 'Qüestionari completat',
   'scoreBreakdownCard.headline': 'Bona feina a " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Punts',
   'scoreBreakdownCard.rankLabel': 'Rang',
+  'scoreBreakdownCard.streakBonus': 'Bonus de ratxa +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'La teva espurna es nota. Revisa el desglossament de sota per seguir pujant a la classificació.',
   'settings.danger.body':
     'Elimina permanentment el teu compte Sparq i tots els qüestionaris creats.',
   'settings.danger.confirm': 'Sí, suprimeix per sempre',
@@ -190,5 +235,7 @@ export const ui: UiTranslations = {
     'Ets responsable del contingut que publiques, de les preguntes que escriviu i de qualsevol joc que allotgeu. No suplantis altres persones.',
   'terms.billing.body':
     "Els plans de pagament es renoven automàticament fins que es cancel·len des de Configuració. Pots cancel·lar-los en qualsevol moment; l'accés continua fins al final del període de facturació actual.",
+  'terms.intro':
+    'En utilitzar {{app}} acceptes les regles següents. Si no les pots acceptar, no utilitzis el servei.',
   'terms.title': 'Condicions del servei',
 }

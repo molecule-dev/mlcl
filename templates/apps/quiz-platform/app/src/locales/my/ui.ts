@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ ဒါမှမဟုတ် {{app}} ကို သင့်ကျောင်း သို့မဟုတ် အဖွဲ့ထံ ယူဆောင်လိုပါသလား။ မက်ဆေ့ခ်ျတိုင်းကို ကျွန်ုပ်တို့ ဖတ်ပါသည် — သင့်အကောင့် ဆက်တင်များမှ ဆက်သွယ်ပါ၊ လူအစစ်တစ်ဦး ပြန်လည်ဖြေကြားပါမည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.intro':
+    '{{app}} သည် စာသင်ခန်းများ၊ ဂိမ်းညများနှင့် အဖွဲ့လိုက်ပွဲများအတွက် တိုက်ရိုက် ပဟေဋ္ဌိပလက်ဖောင်းတစ်ခု ဖြစ်သည်။ ပျော်စရာကောင်းသော မေးခွန်းအစုများကို ဖန်တီးပြီး ပါဝင်ရန် ကုဒ်ဖြင့် အချိန်နှင့်တပြေးညီ ဂိမ်းများကို လက်ခံကျင်းပကာ အချိန်သတ်မှတ်မေးခွန်းများ၊ အမှတ်ပေးခြင်းနှင့် ဦးဆောင်သူစာရင်းများဖြင့် ခန်းမတစ်ခုလုံး စိတ်လှုပ်ရှားလာသည်ကို ကြည့်ရှုပါ။',
+  'about.missionBody':
+    'သင်ယူမှုသည် ကစားခြင်းကဲ့သို့ ခံစားရသောအခါ စွဲလမ်းသွားသည်။ မည်သူမဆို ခေါင်းစဉ်တစ်ခုကို လျင်မြန်ပြီး ပြိုင်ဆိုင်မှုရှိသော ဂိမ်းအဖြစ် ပြောင်းလဲနိုင်ရန် ကျွန်ုပ်တို့ လွယ်ကူစေသည် — ထို့ကြောင့် အိမ်ရှင်များသည် လုပ်ဆောင်ခြင်းဖြင့် သင်ကြားနိုင်ပြီး ကစားသမားများ ဆက်တိုက်ဆက်လက်ရှိနေနိုင်သည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.title': '{{app}} အကြောင်း',
   'auth.login.noAccount': 'Sparq မှာ အသစ်လား။',
   'auth.login.or': 'သို့မဟုတ် ဆက်လက်လုပ်ဆောင်ပါ',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'ကိုက်ညီသော ဉာဏ်စမ်းပဟေဠိများ မရှိသေးပါ။',
   'discover.headline': 'သင်အကြိုက်ဆုံး နောက်ထပ်ဉာဏ်စမ်းပဟေဠိကို ရှာပါ။',
   'discover.loading': 'တင်နေသည်…',
+  'discover.searchPlaceholder': 'ခေါင်းစဉ်ဖြင့် ပဟေဋ္ဌိများကို ရှာဖွေပါ…',
   'discover.subhead':
     'စာကြည့်တိုက်အပြည့်အစုံကို ကြည့်ရှုပါ၊ အမျိုးအစားအလိုက် စစ်ထုတ်ပါ သို့မဟုတ် ခေါင်းစဉ်အလိုက် ရှာဖွေပါ။ တစ်ယောက်တည်း တီးခတ်ရန် သို့မဟုတ် တိုက်ရိုက်တင်ဆက်ရန် ကတ်တစ်ခုကို နှိပ်ပါ။',
   'forgotPassword.subhead':
     'သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က ပြန်လည်သတ်မှတ်ရန်လင့်ခ်တစ်ခု ပေးပို့ပါမည်။',
   'forgotPassword.success.body':
     'အကောင့်တစ်ခုရှိနေပါက {{email}} မိနစ်အနည်းငယ်အတွင်း ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ရရှိပါမည်။',
+  'forgotPassword.success.title': 'သင့်ဝင်စာပုံးကို စစ်ဆေးပါ။',
   'hostLobby.back': 'ဉာဏ်စမ်းပဟေဠိသို့ ပြန်သွားရန်',
   'hostLobby.copied': 'Join ကုဒ်ကို clipboard သို့ ကူးယူပြီးပါပြီ။',
   'hostLobby.creating': 'သင့်ရဲ့ လော်ဘီကို လည်ပတ်နေပါတယ်…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'လော်ဘီကို ပယ်ဖျက်ပါ',
   'hostLobby.players.count': '{{count}} တိုက်ရိုက်',
   'hostLobby.players.title': 'လော်ဘီထဲက ကစားသမားတွေ',
+  'hostLobby.players.waiting':
+    'ကစားသမားများကို စောင့်နေသည်။ သူတို့ ပါဝင်နိုင်ရန် ကုဒ် {{code}} ကို မျှဝေပါ။',
   'hostLobby.rules.title': 'အိမ်စည်းကမ်းများ',
   'hostLobby.startError': 'ဂိမ်းကို စတင်၍မရပါ။',
   'hostLobby.starting': 'မီးပွားစတင်ခြင်း…',
   'joinCodeHero.headline': 'သင့်ကစားသမားတွေကို ခုန်ဆင်းဖို့ ပြောပါ။',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'သို့မဟုတ် သွားရောက်လည်ပတ်ပါ',
   'joinCodeHero.liveLabel': 'လော်ဘီတိုက်ရိုက်ထုတ်လွှင့်မှု',
+  'joinCodeHero.playerJoined': '{{name}} ပါဝင်လာသည်',
   'joinCodeHero.playersLabel': 'ကစားသမားများ',
   'joinCodeHero.qrLabel': 'ပါဝင်ရန် စကင်ဖတ်ပါ',
   'joinCodeHero.startGame': 'မီးပွားကိုစတင်ပါ',
   'joinCodeHero.subhead':
     'ချိတ်ဆက်ကုဒ်ကို မျှဝေပါ သို့မဟုတ် QR ကို စကင်ဖတ်ပါ။ သင် မီးပွားကို စတင်လိုက်သည်နှင့် ဂိမ်းစတင်ပါသည်။',
+  'landing.cta.button': 'သင့်ပထမဆုံး ပဟေဋ္ဌိကို ဖန်တီးပါ',
   'landing.cta.eyebrow': 'ပညာရေးဆရာများအတွက် အခမဲ့',
   'landing.cta.heading': 'သင်ခန်းစာတိုင်းအတွက် စိတ်အားထက်သန်မှုကို ယူဆောင်လာပါ။',
+  'landing.cta.subhead':
+    '၃၀ စက္ကန့်အတွင်း စာရင်းသွင်းပါ။ အကန့်အသတ်မရှိ တိုက်ရိုက်ဂိမ်းများကို လက်ခံကျင်းပပါ၊ AI ဖြင့် ပဟေဋ္ဌိများ ရေးဆွဲပါ၊ ကစားသမားတိုင်းကို ဆက်တိုက်ဆက်လက်ရှိနေစေပါ။',
   'landing.eyebrow': 'အဖြေတိုင်းကို လှုံ့ဆော်ပေးပါ',
   'landing.features.heading': 'သင်သင်ကြားပုံနှင့် ကစားပုံနှင့် ကိုက်ညီသော ဉာဏ်စမ်းပဟေဠိစတူဒီယို။',
   'landing.hero.ctaPrimary': 'အခမဲ့ hosting စတင်ပါ',
@@ -58,6 +74,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'လူကြိုက်များသော ဉာဏ်စမ်းမေးခွန်းများ',
   'landing.popular.eyebrow': 'ဒီအပတ်မှာ ရေပန်းစားတဲ့',
   'landing.popular.heading': 'ဒီနေ့ quiz host တွေ လုပ်နေတဲ့နေရာကို drop လုပ်ပါ။',
+  'landing.popular.viewAll': 'အမျိုးအစားအားလုံးကို ကြည့်ရှုပါ →',
+  'leaderboard.empty.body':
+    'ကမ္ဘာလုံးဆိုင်ရာ ဦးဆောင်သူစာရင်းတွင် သင့်အမှတ်ကို ထည့်သွင်းရန် ပဟေဋ္ဌိတစ်ခု ကစားပါ။',
   'leaderboard.empty.title': 'ဘုတ်ပေါ်မှာ ကစားစရာ မရှိသေးပါ — ပထမဆုံး ကစားပါ။',
   'leaderboard.eyebrow': 'ဦးဆောင်သူစာရင်း',
   'leaderboard.fullRanking': 'အဆင့်သတ်မှတ်ချက်အပြည့်အစုံ',
@@ -65,6 +84,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'သင်ကစားခဲ့သော ဉာဏ်စမ်းပဟေဠိကဏ္ဍတိုင်းတွင် ရမှတ်များကို စုပေါင်းပါ။ ပိုမိုကစားခြင်းဖြင့် မြှင့်တင်ပါ။',
   'leaderboard.title': 'ထိပ်တန်း ဉာဏ်စမ်းပဟေဠိဆရာများ',
+  'leaderboard.totalPlayers': '{{count}} အဆင့်သတ်မှတ်ထားသော ကစားသမားများ',
   'leaderboardRow.points': 'အမှတ်များ',
   'leaderboardRow.streak': '{{days}} d',
   'login.headline': 'ပြန်လည်ကြိုဆိုပါတယ်၊ ဉာဏ်စမ်းပဟေဠိဆရာ။',
@@ -76,10 +96,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'သင့်ရဲ့ ပထမဆုံး ဉာဏ်စမ်းပဟေဠိကို တည်ဆောက်ပါ →',
   'myQuizzes.empty.created': 'မင်း ဉာဏ်စမ်းပဟေဠိ မဆောက်ရသေးဘူး။',
   'myQuizzes.empty.played': 'ထုတ်ပြန်ထားသော ဉာဏ်စမ်းမေးခွန်းများ မရှိသေးပါ။',
+  'myQuizzes.loading': 'တင်နေသည်…',
   'myQuizzes.subhead':
     'သင်တည်ဆောက်ထားသော မူကြမ်းများအပြင် သင်ကစားနိုင်သော ထုတ်ဝေထားသော ဉာဏ်စမ်းပဟေဠိများ။',
   'myQuizzes.title': 'ကျွန်တော့်ရဲ့ ဉာဏ်စမ်းပဟေဠိတွေ',
   'nav.legal': 'ဥပဒေရေးရာ',
+  'nav.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'notFound.backHome': 'အိမ်ပြန်',
   'notFound.backToDiscover': 'ဉာဏ်စမ်းပဟေဠိများကို ကြည့်ရှုပါ',
   'notFound.body': 'တခြားကုဒ်တစ်ခု စမ်းကြည့်ပါ သို့မဟုတ် လော်ဘီသို့ ပြန်သွားပါ။',
@@ -88,17 +110,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'တင်နေသည်…',
   'notifications.subhead':
     '{{count}} မဖတ်ရသေးသော မီးပွားများ။ ဖိတ်ကြားချက်များ၊ ဦးဆောင်သူစာရင်းလှုပ်ရှားမှုများနှင့် အောင်မြင်မှုများအားလုံးကို တစ်ခုတည်းတွင် စုစည်းထားသည်။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
+  'pricing.advancedFeatures': 'အဆင့်မြင့်အင်္ဂါရပ်များ — {{yes}}',
+  'pricing.canExport': 'ဒေတာထုတ်ယူခြင်း — {{yes}}',
   'pricing.checkoutError': 'ငွေရှင်းခြင်းကို စတင်၍မရပါ။ ထပ်မံကြိုးစားပါ။',
   'pricing.heading': 'သင့် {{app}} အစီအစဉ် ရွေးချယ်ပါ',
   'pricing.included': 'ပါဝင်သည်',
   'pricing.loadError': 'အစီအစဉ်များကို တင်၍မရပါ။',
+  'pricing.maxQuestions': '{{count}} မေးခွန်းတွေ',
   'pricing.maxQuizzes': '{{count}} ဉာဏ်စမ်းမေးခွန်းများ',
+  'pricing.maxSessions': '{{count}} sessions',
   'pricing.subhead':
     'အိမ်ရှင်များနှင့် ကစားသမားများအတွက် အခမဲ့။ မြင့်မားသောကန့်သတ်ချက်များနှင့် အဆင့်မြင့်အင်္ဂါရပ်များအတွက် အဆင့်မြှင့်တင်ပါ။',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'အကောင့်- အီးမေးလ်၊ hash လုပ်ထားသော စကားဝှက်၊ ပြသထားသောအမည်၊ နောက်ဆုံးဝင်ရောက်ခြင်း။',
+  'privacy.intro':
+    '{{app}} သည် သင့်ကိုယ်ရေးလုံခြုံမှုကို လေးစားပါသည်။ ဤစာမျက်နှာတွင် ကျွန်ုပ်တို့ သိမ်းဆည်းသည့် ဒေတာ၊ အဘယ်ကြောင့် သိမ်းဆည်းသည်နှင့် ၎င်းကို မည်သို့ ဖယ်ရှားရမည်ကို အကျဉ်းချုပ် ဖော်ပြထားသည်။',
   'privacy.rights.body':
     'ရက် ၃၀ အတွင်း သင့်ဒေတာအားလုံးကို အပြီးအပိုင်ဖယ်ရှားရန် သင့်အကောင့်ကို ဆက်တင်များမှ ဖျက်ပါ။',
   'privacy.share.body':
@@ -122,6 +154,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'ဉာဏ်စမ်းပဟေဠိ id: {{id}}',
   'quizBuilder.loadError': 'ဉာဏ်စမ်းပဟေဠိကို ဖွင့်၍မရပါ။',
   'quizBuilder.loading': 'အယ်ဒီတာ တင်နေသည်…',
+  'quizBuilder.markCorrect': '{{letter}} ကို အဖြေမှန်အဖြစ် သတ်မှတ်ပါ',
   'quizBuilder.noQuestions': 'မေးခွန်းမရှိသေးပါ — စတင်ရန် တစ်ခုထည့်ပါ။',
   'quizBuilder.notFound': 'ဉာဏ်စမ်းပဟေဠိကို ရှာမတွေ့ပါ။',
   'quizBuilder.preview': 'ကြည့်ရန်',
@@ -138,7 +171,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} အချိန်တိုင်းကိရိယာ',
   'quizBuilder.title': 'သင့်ပဟေဠိကို တည်ဆောက်ပါ',
   'quizBuilder.titleLabel': 'ဉာဏ်စမ်းမေးခွန်းခေါင်းစဉ်',
+  'quizBuilder.untitled': 'ခေါင်းစဉ်မဲ့ မေးခွန်း',
   'quizCard.plays': '{{count}} ကစားသည်',
+  'quizCard.questionCount': '{{count}} မေးခွန်း',
   'quizDetail.duration': '~ {{minutes}} မိနစ်',
   'quizDetail.hostMultiplayer': 'အိမ်ရှင် လူများစွာကစားခြင်း',
   'quizDetail.leaderboardEmpty': 'ကစားပွဲမရှိသေးပါ — ပထမဆုံးရမှတ်ရသူ ဖြစ်ပါစေ။',
@@ -153,26 +188,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'ဉာဏ်စမ်းပဟေဠိသို့ ပြန်သွားရန်',
   'quizPlay.empty': 'ဒီဉာဏ်စမ်းပဟေဠိမှာ မေးခွန်းတွေ မရှိသေးပါဘူး။',
   'quizPlay.error': 'ဤပဟေဠိကို တင်၍မရပါ။ ထပ်ကြိုးစားပါ။',
+  'quizPlay.exit': 'ထွက်ရန်',
   'quizPlay.feedback.correct': '🔥 Spark ရရှိ — နောက်တစ်ခုအတွက်!',
+  'quizPlay.feedback.incorrect': 'အဖြေမှာ {{correct}} ဖြစ်သည်။ ဆက်လုပ်ပါ။',
   'quizPlay.loading': 'ဉာဏ်စမ်းပဟေဠိကို တင်နေသည်…',
   'quizPlay.next': 'နောက်မေးခွန်း',
   'quizPlay.questionCounter': 'မေးခွန်း {{current}} ၏ {{total}}',
   'quizPlay.score': '{{score}} အမှတ်များ',
+  'quizPlay.seeResults': 'ရလဒ်များကို ကြည့်ပါ',
   'quizPlay.sessionFailed': 'အစည်းအဝေးတစ်ခု စတင်၍မရပါ။',
   'quizPlay.streak': '{{count}} အစင်းကြောင်း',
+  'resetPassword.subhead': 'သင့်ဆက်တိုက်အောင်ပွဲထံ ပြန်ရောက်ရန် စကားဝှက်အသစ် ရွေးပါ။',
   'results.backToDiscover': 'Discover သို့ ပြန်သွားရန်',
   'results.error': 'ရလဒ်များကို တင်၍မရပါ။',
   'results.exit': 'Discover သို့ ပြန်သွားရန်',
   'results.loading': 'သင့်ရမှတ်ကို ရေတွက်နေသည်…',
   'results.missingSession': 'အကျဉ်းချုပ်ရန် အစည်းအဝေး မရှိပါ။',
+  'results.recap.correctAnswer': 'အဖြေမှန် − {{answer}}',
   'results.recap.questionLabel': 'မေးခွန်း {{number}}',
   'results.recap.title': 'မေးခွန်းပြန်လည်သုံးသပ်ချက်',
+  'results.recap.yourAnswer': 'သင် − {{answer}}',
   'results.unknownQuiz': 'ဉာဏ်စမ်းပဟေဠိ',
   'scoreBreakdownCard.accuracyLabel': 'တိကျမှု',
+  'scoreBreakdownCard.correctLabel': 'မှန်သည်',
   'scoreBreakdownCard.eyebrow': 'ဉာဏ်စမ်းပဟေဠိ ပြီးပါပြီ',
   'scoreBreakdownCard.headline': '"ကောင်းမွန်တဲ့အလုပ်" {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'အမှတ်များ',
   'scoreBreakdownCard.rankLabel': 'အဆင့်',
+  'scoreBreakdownCard.streakBonus': 'ဆက်တိုက်အပိုဆု +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'သင့်စွမ်းရည် ပေါ်လာနေသည်။ ဦးဆောင်သူစာရင်းတွင် ဆက်လက်တက်ရန် အောက်ပါခွဲခြမ်းစိတ်ဖြာချက်ကို ပြန်လည်သုံးသပ်ပါ။',
   'settings.danger.body':
     'သင့်ရဲ့ Sparq အကောင့်နဲ့ ဖန်တီးထားတဲ့ ဉာဏ်စမ်းပဟေဠိအားလုံးကို အပြီးအပိုင် ဖယ်ရှားလိုက်ပါ။',
   'settings.danger.confirm': 'ဟုတ်ကဲ့၊ အပြီးတိုင် ဖျက်ပစ်ပါ',
@@ -191,5 +236,7 @@ export const ui: UiTranslations = {
     'သင်ထုတ်ဝေသော အကြောင်းအရာ၊ သင်ရေးသားသော မေးခွန်းများနှင့် သင်လက်ခံကျင်းပသည့် မည်သည့်ဂိမ်းအတွက်မဆို သင်တာဝန်ရှိပါသည်။ အခြားသူများအဖြစ် အယောင်ဆောင်ခြင်း မပြုလုပ်ပါနှင့်။',
   'terms.billing.body':
     'ငွေပေးချေမှုအစီအစဉ်များသည် ဆက်တင်များမှ ပယ်ဖျက်သည်အထိ အလိုအလျောက် သက်တမ်းတိုးပါသည်။ သင်သည် အချိန်မရွေး ပယ်ဖျက်နိုင်ပါသည်။ လက်ရှိငွေတောင်းခံသည့်ကာလ ကုန်ဆုံးသည်အထိ ဝင်ရောက်ခွင့် ဆက်လက်ရရှိမည်ဖြစ်သည်။',
+  'terms.intro':
+    '{{app}} ကို အသုံးပြုခြင်းဖြင့် အောက်ပါ စည်းမျဉ်းများကို သင်သဘောတူပါသည်။ ၎င်းတို့ကို လက်မခံနိုင်ပါက ဝန်ဆောင်မှုကို ကျေးဇူးပြု၍ မသုံးပါနှင့်။',
   'terms.title': 'ဝန်ဆောင်မှုဆိုင်ရာ စည်းကမ်းချက်များ',
 }

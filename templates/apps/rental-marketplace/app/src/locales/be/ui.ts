@@ -1,13 +1,30 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.featureBooking':
+    'Імгненныя браніраванні або браніраванні па запыце з бяспечнымі плацяжамі Stripe і бясплатнай адменай за 48 гадзін да засялення.',
+  'about.featureHosting':
+    "Поўная панэль гаспадара для публікацыі аб'яваў, кіравання даступнасцю, адсочвання браніраванняў і атрымання выплат.",
+  'about.featureMessaging':
+    'Прамыя паведамленні з гаспадарамі да і падчас вашага знаходжання, а таксама спісы жаданняў, каб захоўваць месцы, якія вам падабаюцца.',
+  'about.featureReviews':
+    'Сумленныя двухбаковыя водгукі, каб падарожнікі і гаспадары разам будавалі даверную рэпутацыю.',
+  'about.featureSearch':
+    "Пошук на карце па правераных аб'явах з фільтрамі па цане, зручнасцях і датах.",
+  'about.missionBody':
+    'Падарожжа павінна звязваць вас з месцам, а не з сеткай. Мы дапамагаем незалежным гаспадарам размяшчаць унікальныя дамы і дапамагаем падарожнікам іх знаходзіць — з празрыстымі цэнамі, без схаваных збораў, а выплаты, падаткі і праверка падарожнікаў бярэ на сябе гаспадар, каб ён мог засяродзіцца на гасціннасці.',
+  'about.missionTitle': 'Наша місія',
+  'about.subtitle':
+    'Маркетплейс арэнды, пабудаваны вакол сапраўдных дамоў і сапраўдных гаспадароў.',
   'bookingDetail.afterTime': 'Пасля 15:00',
   'bookingDetail.backCta': 'Назад да браніраванняў',
   'bookingDetail.beforeTime': 'Да 11:00 раніцы',
   'bookingDetail.cancel': 'Адмяніць браніраванне',
   'bookingDetail.cancelFailed': 'Не атрымалася адмяніць — паспрабуйце яшчэ раз.',
   'bookingDetail.checkIn': 'Рэгістрацыя',
+  'bookingDetail.cleaningFee': 'Плата за ўборку',
   'bookingDetail.confirmCancel': 'Адмяніць гэта браніраванне? Гэта нельга адмяніць.',
   'bookingDetail.eyebrow': 'Пацверджанне · {{code}}',
   'bookingDetail.messageHost': 'Хост паведамленняў',
@@ -21,14 +38,17 @@ export const ui: UiTranslations = {
   'bookingDetail.viewListing': 'Праглядзець спіс',
   'bookingDetail.yourHost': 'Ваш гаспадар',
   'bookingItineraryRow.nights': '{{count}} ночы',
+  'bookings.empty.past': "Мінулыя браніраванні з'явяцца тут пасля вашага знаходжання.",
   'bookings.empty.upcoming': 'Ніякіх паездак па кнігах — давайце гэта выправім.',
   'bookings.eyebrow': 'Вашы паездкі',
   'bookings.heading': 'Браніраванні',
   'bookings.loadError': 'Не атрымалася загрузіць браніраванне.',
+  'bookings.searchCta': 'Плануйце яшчэ адну паездку',
   'bookings.subheading': '{{upcoming}} будучыя · {{past}} мінулае',
   'common.goToDashboard': 'Перайсці да панэлі',
   'common.retry': 'Паўтарыць',
   'createListing.back': 'Назад да спісаў',
+  'createListing.bedrooms': 'Спальні',
   'createListing.cityLabel': 'Дзе яно?',
   'createListing.cityPlaceholder': 'Горад, рэгіён або раён',
   'createListing.descPlaceholder':
@@ -38,17 +58,23 @@ export const ui: UiTranslations = {
   'createListing.error.price': 'Дадайце цану за ноч перад публікацыяй.',
   'createListing.error.title': 'Дадайце загаловак перад публікацыяй.',
   'createListing.heading': 'Адчыніце свае дзверы',
+  'createListing.listingImageAlt': "Аб'ява {{number}}",
   'createListing.maxGuests': 'Максімальная колькасць гасцей',
   'createListing.photos.heading':
     'Дадайце фота, якія прымусяць падарожнікаў перастаць пракручваць старонку',
+  'createListing.photos.subheading':
+    'Гаспадары, якія загружаюць хаця б 3 фота, у сярэднім зарабляюць у 2,3 раза больш.',
   'createListing.place.heading': 'Што гэта за месца?',
+  'createListing.price': 'Цана за ноч',
   'createListing.publish': 'Апублікаваць спіс',
   'createListing.removePhoto': 'Выдаліць фота',
   'createListing.step.${s.key}.eyebrow': 'Крок {{n}}',
   'createListing.subheading':
     "Некалькі пытанняў, каб ваша аб'ява стала даступнай. Мы будзем захоўваць ваш прагрэс на кожным этапе.",
+  'createListing.title': "Назва аб'явы",
   'createListing.titlePlaceholder': 'Сонечная хаціна на ўзгорку',
   'createListing.uploadCta': 'Дадаць фота {{n}}',
+  'createListing.useSample': 'Выкарыстаць узорнае фота',
   'destinationDiscoveryCard.exploreCta': 'Азнаёмцеся з пражываннем',
   'forgotPassword.eyebrow': 'Скінуць',
   'forgotPassword.subheading':
@@ -63,6 +89,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelOccupancy': 'Запаўняльнасць',
   'hostDashboard.hero.labelYtd': 'З пачатку года',
   'hostDashboard.loadError': 'Не атрымалася загрузіць дадзеныя вашага хостынгу. Паўтарыце спробу.',
+  'hostDashboard.queueArrivals': '{{count}} прыбыццяў на наступным тыдні',
+  'hostDashboard.queueListings': "{{count}} актыўныя аб'явы",
   'hostDashboard.queueRequests': '{{count}} запыты на браніраванне',
   'hostDashboard.queueReview': 'Чарга праглядаў',
   'hostDashboard.queueTitle': 'Ваша чарга',
@@ -84,11 +112,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': "Аб'ява не знойдзена.",
   'hostListingDetail.photos.empty': 'Пакуль што не загружана ніякіх фотаздымкаў.',
   'hostListingDetail.photos.heading': 'Фотаздымкі',
+  'hostListingDetail.pricing.cleaning': 'Плата за ўборку',
   'hostListingDetail.pricing.save': 'Захаваць цэны',
   'hostListingDetail.pricing.weekday': 'Стаўка ў будні дзень',
   'hostListingDetail.pricing.weekend': 'Кошт на выходныя (толькі паказваць)',
   'hostListingDetail.rules.copy':
     'Усталюйце чаканні гасцей і абараніце свой дом — яны будуць абвешчаныя перад пацверджаннем браніравання.',
+  'hostListingDetail.rules.heading': 'Правілы дома',
   'hostListings.create': "Стварыць новую аб'яву",
   'hostListings.eyebrow': 'Ваша партфоліо',
   'hostListings.heading': 'Спісы',
@@ -98,8 +128,11 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Для гаспадароў',
   'landing.cta.heading': 'Адчыніце свае дзверы. Зарабіце столькі, колькі каштуе ваш дом.',
   'landing.cta.host': 'Пачаць хостынг',
+  'landing.cta.subheading':
+    '{{appName}} бярэ на сябе выплаты, падаткі і праверку падарожнікаў, каб вы маглі засяродзіцца на гасціннасці. Большасць новых гаспадароў зарабляюць свае першыя $1,000 на працягу 30 дзён.',
   'landing.destinations.eyebrow': 'Куды далей',
   'landing.destinations.heading': 'Напрамкі, якія любяць нашы гаспадары',
+  'landing.destinations.seeAll': 'Паглядзець усе напрамкі',
   'landing.footer.host': 'Станьце гаспадаром',
   'landing.footer.search': 'Знайсці жыллё',
   'landing.footer.tagline': 'Заставайся такой, якой ты належыш.',
@@ -108,8 +141,11 @@ export const ui: UiTranslations = {
   'landing.nav.host': 'Станьце гаспадаром',
   'landing.nav.join': 'Далучайцеся да Roost',
   'landing.nav.search': 'Знайсці жыллё',
+  'landing.preview.browseAll': 'Праглядзець усю калекцыю',
   'landing.preview.eyebrow': 'Зазірнуць унутр',
   'landing.preview.heading': 'Выбраныя варыянты пражывання ў гэтым месяцы',
+  'landing.preview.subheading':
+    "Кожная аб'ява {{appName}} размяшчаецца сапраўдным чалавекам — правераным, з водгукамі і бясплатнай адменай за 48 гадзін да засялення.",
   'listingDetail.about': 'Пра гэтае месца',
   'listingDetail.amenities': 'Што прапануе гэтае месца',
   'listingDetail.bathrooms': 'ванны',
@@ -117,7 +153,10 @@ export const ui: UiTranslations = {
   'listingDetail.beds': 'ложкі',
   'listingDetail.bookFailed':
     'Не атрымалася забраніраваць. Паспрабуйце яшчэ раз або спачатку ўвайдзіце.',
+  'listingDetail.cleaningFee': 'Плата за ўборку',
+  'listingDetail.guests': 'госці',
   'listingDetail.hostedBy': 'Арганізатар {{host}}',
+  'listingDetail.hostMeta': '{{years}} гадоў гасціннасці · {{response}}% хуткасць адказу',
   'listingDetail.houseRules': 'Правілы дома',
   'listingDetail.instantBook': 'Забраніруйце зараз · Імгненнае браніраванне',
   'listingDetail.loadError': 'Не атрымалася загрузіць спіс.',
@@ -127,6 +166,7 @@ export const ui: UiTranslations = {
   'listingDetail.perNight': 'за ноч',
   'listingDetail.pickDates': 'Спачатку выберыце даты заезду і выезду.',
   'listingDetail.priceRow': '{{price}} × {{nights}} ночы',
+  'listingDetail.requestBook': 'Запыт на браніраванне',
   'listingDetail.reserving': 'Браніраванне…',
   'listingDetail.reviews': 'водгукі',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}} водгукі',
@@ -134,6 +174,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'Супергаспадар',
   'login.eyebrow': 'Сардэчна запрашаем дадому',
   'login.heading': 'Увайсці ў Roost',
+  'login.noAccount': 'Вы ўпершыню карыстаецеся Тэсерай?',
   'login.signupLink': 'Стварыце бясплатны ўліковы запіс',
   'login.subheading':
     'Працягвайце з таго месца, дзе спыніліся — кіруйце паездкамі, адпраўляйце паведамленні гаспадарам і браніруйце месцы, пра якія марылі.',
@@ -158,6 +199,7 @@ export const ui: UiTranslations = {
   'notFound.heading': 'Мы не можам знайсці гэтае месца для адпачынку',
   'notifications.loading': 'Загрузка…',
   'notifications.subheading': '{{count}} непрачытаныя · усё ў адной ціхай паштовай скрыні',
+  'pricing.ctaContact': 'Звязацца з аддзелам продажаў',
   'pricing.ctaUpgrade': 'Звязацца з аддзелам продажаў',
   'pricing.eyebrow': 'Просты, празрысты',
   'pricing.heading': 'План, які адпавядае вашаму рытму падарожжаў',
@@ -194,8 +236,12 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Выберыце што-небудзь запамінальнае. Мы ўвойдзем у сістэму, як толькі вы захаваеце.',
   'roostAuthShell.brand.eyebrow': 'Заставайся такой, якой ты належыш',
+  'roostAuthShell.brand.heading':
+    'Хаціны, катэджы, рыяды — перададзеныя вам гаспадарамі, якія там жывуць.',
   'roostHeroSearchCard.checkInAria': 'Дата засялення',
   'roostHeroSearchCard.checkOutAria': 'Дата выезду',
+  'roostHeroSearchCard.destAria': 'Пункт прызначэння',
+  'roostHeroSearchCard.destLabel': 'Дзе',
   'roostHeroSearchCard.destPlaceholder': 'Горад, рэгіён або нерухомасць',
   'roostHeroSearchCard.eyebrow':
     'Рэнатуральна адабраныя варыянты пражывання · Правераныя гаспадары',
@@ -208,6 +254,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'Асноўная навігацыя',
   'roostListingCard.bookmarkAria': "Захаваць аб'яву",
   'roostListingCard.night': 'ноч',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': "Няма аб'яваў, якія адпавядаюць вашаму пошуку.",
   'search.emptyHint':
     'Паспрабуйце пашырыць фільтры або прыбраць абмежаванне цэн — Roost мае пражыванні ў 26 краінах.',
@@ -215,8 +262,14 @@ export const ui: UiTranslations = {
   'search.heading': 'Месца, якое адчуваецца як дом',
   'search.headingForQuery': 'Застаецца на " {{q}} "',
   'search.loadError': 'Не атрымалася загрузіць спісы.',
+  'search.mapHint':
+    'Навядзіце курсор на картку, каб вылучыць яе на карце. Жывыя пліткі Mapbox у вытворчасці.',
+  'search.mapPinAria': '{{name}} — {{price}} за ноч',
   'search.sortLabel': 'Сартаваць па',
+  'search.subheading': "{{count}} аб'яваў · {{guests}} гасцей",
+  'settings.appearance.description': 'Пераключэнне паміж светлым і цёмным рэжымамі.',
   'settings.appearance.title': 'Знешні выгляд',
+  'settings.openBilling': 'Адкрыць рахункі',
   'settings.payments.heading': 'Спосабы аплаты',
   'settings.paymentsHelp':
     'Roost здымае грошы з вашай карты ў момант пацверджання браніравання гаспадаром. Кіруйце захаванымі картамі на старонцы цэн.',

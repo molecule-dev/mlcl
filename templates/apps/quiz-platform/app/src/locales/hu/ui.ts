@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Van visszajelzésed, hibát találtál, vagy szeretnéd elvinni a {{app}}-t az iskoládba vagy a csapatodba? Minden üzenetet elolvasunk — írj nekünk a fiókbeállításaidból, és egy igazi ember fog válaszolni.',
   'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
+  'about.intro':
+    'A {{app}} egy élő kvízplatform tantermekhez, társasjáték-estekhez és csapatrendezvényekhez. Készíts játékos kérdéscsomagokat, vezess valós idejű játékokat egy csatlakozási kóddal, és nézd, ahogy a terem felélénkül az időzített kérdésektől, a pontozástól és a ranglistáktól.',
+  'about.missionBody':
+    'A tanulás akkor ragad meg, ha játéknak tűnik. Nálunk bárki könnyedén egy témát gyors, versengő játékká alakíthat — így a házigazdák cselekvéssel taníthatnak, a játékosok pedig sorozatban maradhatnak.',
+  'about.missionTitle': 'Küldetésünk',
   'about.title': 'A {{app}} névjegye',
   'auth.login.noAccount': 'Új vagy a Sparq-ban?',
   'auth.login.or': 'vagy folytassa ezzel:',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Még nincsenek találatokat tartalmazó kvízek.',
   'discover.headline': 'Találd meg a következő kedvenc kvízedet.',
   'discover.loading': 'Betöltés…',
+  'discover.searchPlaceholder': 'Kvízek keresése cím szerint…',
   'discover.subhead':
     'Böngéssz a teljes könyvtárban, szűrj kategória szerint, vagy keress cím szerint. Válassz egy kártyát, hogy egyedül játssz, vagy élőben vezess.',
   'forgotPassword.subhead':
     'Add meg az e-mail címed, és küldünk neked egy linket a visszaállításhoz.',
   'forgotPassword.success.body':
     'Ha létezik egy fiók a következőhöz: {{email}} , néhány percen belül kapsz egy visszaállítási linket.',
+  'forgotPassword.success.title': 'Ellenőrizze a postaládáját.',
   'hostLobby.back': 'Vissza a kvízhez',
   'hostLobby.copied': 'Az illesztési kód a vágólapra másolva.',
   'hostLobby.creating': 'Felpörgeti a lobbit…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Előszoba törlése',
   'hostLobby.players.count': '{{count}} élő',
   'hostLobby.players.title': 'Játékosok a hallban',
+  'hostLobby.players.waiting':
+    'Várakozás a játékosokra. Oszd meg a(z) {{code}} kódot, hogy csatlakozhassanak.',
   'hostLobby.rules.title': 'Házszabályok',
   'hostLobby.startError': 'Nem sikerült elindítani a játékot.',
   'hostLobby.starting': 'A szikra beindítása…',
   'joinCodeHero.headline': 'Mondd meg a játékosaidnak, hogy ugorjanak be.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Vagy látogassa meg',
   'joinCodeHero.liveLabel': 'Élőben a lobbiban',
+  'joinCodeHero.playerJoined': '{{name}} csatlakozott',
   'joinCodeHero.playersLabel': 'Játékosok',
   'joinCodeHero.qrLabel': 'Szkennelés a csatlakozáshoz',
   'joinCodeHero.startGame': 'Gyújtsd be a szikrát',
   'joinCodeHero.subhead':
     'Oszd meg a csatlakozási kódot, vagy olvasd be a QR-kódot. A játék abban a pillanatban elindul, ahogy meggyújtod a szikrát.',
+  'landing.cta.button': 'Készítsd el az első kvízedet',
   'landing.cta.eyebrow': 'Ingyenes oktatóknak',
   'landing.cta.heading': 'Vigyél szikrát minden leckébe.',
+  'landing.cta.subhead':
+    'Regisztrálj 30 másodperc alatt. Vezess korlátlan élő játékot, készíts kvízeket AI-val, és tarts minden játékost sorozatban.',
   'landing.eyebrow': 'Gyújts fel minden választ',
   'landing.features.heading': 'Egy kvízstúdió, amely illik a tanítási és játékstílusodhoz.',
   'landing.hero.ctaPrimary': 'Ingyenes tárhelyszolgáltatás',
@@ -57,6 +73,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Népszerű kvízek',
   'landing.popular.eyebrow': 'Népszerű ezen a héten',
   'landing.popular.heading': 'Ugorj be egy kvízbe, amit a házigazdák ma futtatnak.',
+  'landing.popular.viewAll': 'Összes kategória böngészése →',
+  'leaderboard.empty.body':
+    'Játssz egy kvízt, hogy felkerülj a globális ranglistára a pontszámoddal.',
   'leaderboard.empty.title': 'Még nincsenek játékok a táblán — légy az első.',
   'leaderboard.eyebrow': 'Ranglista',
   'leaderboard.fullRanking': 'Teljes rangsor',
@@ -64,6 +83,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Összesített pontszám minden kvíz alkalmon, amit játszottál. Játssz többet, és lépj előre.',
   'leaderboard.title': 'Legjobb kvízmesterek',
+  'leaderboard.totalPlayers': '{{count}} rangsorolt játékos',
   'leaderboardRow.points': 'pontok',
   'leaderboardRow.streak': '{{days}} nap',
   'login.headline': 'Üdv ismét, kvízmester.',
@@ -75,10 +95,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Készítsd el az első kvízedet →',
   'myQuizzes.empty.created': 'Még nem állítottál össze kvízt.',
   'myQuizzes.empty.played': 'Még nincsenek közzétett kvízek.',
+  'myQuizzes.loading': 'Betöltés…',
   'myQuizzes.subhead':
     'Az általad készített vázlatok, valamint a közzétett kvízek, amelyekkel játszhatsz.',
   'myQuizzes.title': 'Kvízeim',
   'nav.legal': 'Jogi',
+  'nav.primaryNavLabel': 'Elsődleges navigáció',
   'notFound.backHome': 'Vissza a főoldalra',
   'notFound.backToDiscover': 'Kvízek böngészése',
   'notFound.body': 'Próbálj ki egy másik kódot, vagy menj vissza a lobbyba.',
@@ -87,17 +109,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Betöltés…',
   'notifications.subhead':
     '{{count}} Olvasatlan szikrák. Meghívók, ranglistalépések és eredmények egyetlen streamben.',
+  'planUpdated.retry': 'Próbálja újra',
+  'planUpdated.verifyFailed': 'Még nem tudtuk megerősíteni a fizetését.',
+  'planUpdated.verifyFailedBody':
+    'Lehetséges, hogy a fizetése még feldolgozás alatt áll. Próbálja újra egy pillanat múlva.',
   'planUpdated.verifying': 'Fizetésed megerősítése…',
+  'pricing.advancedFeatures': 'Speciális funkciók: {{yes}}',
+  'pricing.canExport': 'Adatexport: {{yes}}',
   'pricing.checkoutError': 'Nem sikerült elindítani a pénztárat. Kérjük, próbálja újra.',
   'pricing.heading': 'Válaszd ki {{app}} csomagod',
   'pricing.included': 'Tartalmazza',
   'pricing.loadError': 'Nem sikerült betölteni a terveket.',
+  'pricing.maxQuestions': '{{count}} kérdések',
   'pricing.maxQuizzes': '{{count}} kvízek',
+  'pricing.maxSessions': '{{count}} foglalkozás',
   'pricing.subhead':
     'Ingyenes a házigazdák és a játékosok számára. Frissítsen magasabb limitekért és speciális funkciókért.',
   'pricing.yearly': 'Éves',
   'privacy.collect.account':
     'Fiók: e-mail cím, hashelt jelszó, megjelenített név, utolsó bejelentkezés.',
+  'privacy.intro':
+    'A {{app}} tiszteletben tartja a magánszférádat. Ez az oldal összefoglalja, milyen adatokat tárolunk, miért tároljuk őket, és hogyan törölheted őket.',
   'privacy.rights.body':
     'Töröld a fiókodat a Beállításokból, ha 30 napon belül véglegesen el szeretnéd távolítani az összes adatodat.',
   'privacy.share.body':
@@ -121,6 +153,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Kvíz azonosító: {{id}}',
   'quizBuilder.loadError': 'Nem sikerült betölteni a kvízt.',
   'quizBuilder.loading': 'Szerkesztő betöltése…',
+  'quizBuilder.markCorrect': '{{letter}} megjelölése helyesként',
   'quizBuilder.noQuestions': 'Még nincsenek kérdések – adjon hozzá egyet a kezdéshez.',
   'quizBuilder.notFound': 'A kvíz nem található.',
   'quizBuilder.preview': 'Megtekintés',
@@ -137,7 +170,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} időzítő',
   'quizBuilder.title': 'Állítsd össze a kvízedet',
   'quizBuilder.titleLabel': 'Kvíz címe',
+  'quizBuilder.untitled': 'Cím nélküli kérdés',
   'quizCard.plays': '{{count}} színdarabok',
+  'quizCard.questionCount': '{{count}} kérdés',
   'quizDetail.duration': '~ {{minutes}} perc',
   'quizDetail.hostMultiplayer': 'Többjátékos mód szervezése',
   'quizDetail.leaderboardEmpty': 'Még nincsenek játékok — légy az első, aki pontot állít fel.',
@@ -152,26 +187,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Vissza a kvízhez',
   'quizPlay.empty': 'Ennek a kvíznek még nincsenek kérdései.',
   'quizPlay.error': 'Nem sikerült betölteni ezt a kvízt. Próbáld újra.',
+  'quizPlay.exit': 'Kilépés',
   'quizPlay.feedback.correct': '🔥 Sparkot szereztél – jöhet a következő!',
+  'quizPlay.feedback.incorrect': 'A helyes válasz {{correct}} volt. Folytasd.',
   'quizPlay.loading': 'Kvíz betöltése…',
   'quizPlay.next': 'Következő kérdés',
   'quizPlay.questionCounter': '{{current}}. kérdés / {{total}}',
   'quizPlay.score': '{{score}} pontok',
+  'quizPlay.seeResults': 'Eredmények megtekintése',
   'quizPlay.sessionFailed': 'Nem sikerült elindítani a munkamenetet.',
   'quizPlay.streak': '{{count}} csík',
+  'resetPassword.subhead': 'Válassz új jelszót, hogy visszatérhess a sorozatodhoz.',
   'results.backToDiscover': 'Vissza a Felfedezéshez',
   'results.error': 'Nem sikerült betölteni az eredményeket.',
   'results.exit': 'Vissza a Felfedezéshez',
   'results.loading': 'Pontszám összeadása…',
   'results.missingSession': 'Nincs összefoglaló ülés.',
+  'results.recap.correctAnswer': 'Helyes: {{answer}}',
   'results.recap.questionLabel': 'Kérdés {{number}}',
   'results.recap.title': 'Kérdésösszefoglaló',
+  'results.recap.yourAnswer': 'Te: {{answer}}',
   'results.unknownQuiz': 'Kvíz',
   'scoreBreakdownCard.accuracyLabel': 'Pontosság',
+  'scoreBreakdownCard.correctLabel': 'Helyes',
   'scoreBreakdownCard.eyebrow': 'Kvíz teljesítve',
   'scoreBreakdownCard.headline': 'Szép munka a " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Pontok',
   'scoreBreakdownCard.rankLabel': 'Rang',
+  'scoreBreakdownCard.streakBonus': 'Sorozatbónusz +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Látszik a szikrád. Nézd át az alábbi bontást, hogy tovább kapaszkodhass a ranglistán.',
   'settings.danger.body': 'Véglegesen eltávolítod a Sparq fiókodat és az összes létrehozott kvízt.',
   'settings.danger.confirm': 'Igen, törlés véglegesen',
   'settings.guest': 'Vendég',
@@ -189,5 +234,7 @@ export const ui: UiTranslations = {
     'Te vagy a felelős a közzétett tartalomért, az általad írt kérdésekért és az általad üzemeltetett játékokért. Ne add ki magad mások személyes adatainak.',
   'terms.billing.body':
     'A fizetős csomagok automatikusan megújulnak, amíg a Beállításokban le nem mondod őket. Bármikor lemondhatod; a hozzáférés a jelenlegi számlázási időszak végéig megmarad.',
+  'terms.intro':
+    'A {{app}} használatával elfogadod az alábbi szabályokat. Ha nem tudod elfogadni őket, kérjük, ne használd a szolgáltatást.',
   'terms.title': 'Szolgáltatási feltételek',
 }

@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Váš plán bol aktualizovaný.',
   'planUpdated.returnHome': 'Späť na hlavnú stránku',
   'planUpdated.thankYou': 'Ďakujeme!',
+  'post.markdown': 'Zobraziť tento príspevok ako markdown',
+  'post.readingTime': '{{minutes}} minúta čítania',
   'post.tags': 'Značky',
   'project.error.nameAndTypeRequired': 'name a projectType sú povinné',
   'project.error.notFound': 'Nenájdené',

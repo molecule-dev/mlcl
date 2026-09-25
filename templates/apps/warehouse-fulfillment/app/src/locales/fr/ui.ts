@@ -1,12 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Une remarque, un bug repéré, ou envie de voir {{app}} sur votre dock ? Écrivez-nous depuis l'aide intégrée — chaque message arrive à un vrai membre de l'équipe.",
   'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
+  'about.intro':
+    "{{app}} est un logiciel de préparation de commandes d'entrepôt de niveau opérateur — commandes, prélèvements, colisage et expéditions réunis sous un même toit. Il est conçu pour les équipes logistiques qui traitent de vrais volumes et ont besoin que chaque action sur le terrain soit rapide, observable et impossible à falsifier.",
+  'about.missionBody':
+    "L'exploitation repose sur les choses banales — prélèvements, colisage et étiquettes d'expédition. Nous rendons ces choses banales rapides, observables et fiables, pour que les entrepôts expédient les commandes urgentes, express et standard sans jamais mélanger les voies.",
+  'about.missionTitle': 'Notre mission',
   'about.pageTitle': 'À propos de {{app}}',
   'auth.signup.passwordHint': 'Au moins 12 caractères',
   'authShell.brandSubtitle': "Console d'exécution",
   'authShell.eyebrow': 'Bienvenue chez Sorthaus',
+  'authShell.footer': '{{appName}} · Console des opérations',
   'authShell.pitch':
     "Une console pensée scanner d'abord pour l'entrepôt. Préparez, emballez et expédiez depuis une seule console — conçue pour les responsables d'opérations qui comptent ce qui compte et refusent de laisser passer la moindre commande.",
   'authShell.sampleCaption': 'commandes expédiées · 8 portes de quai · 3 zones',
@@ -17,6 +25,7 @@ export const ui: UiTranslations = {
   'dashboard.empty.action': "Charger des données d'exemple",
   'dashboard.empty.body':
     "Chargez un jeu de données d'exemple (commandes, inventaire, expéditions) pour piloter l'entrepôt de bout en bout.",
+  'dashboard.empty.seeding': 'Initialisation…',
   'dashboard.empty.title': 'Votre entrepôt est vide',
   'dashboard.errorFallback': 'Données en direct temporairement indisponibles.',
   'dashboard.eyebrow': 'Poste de commandement',
@@ -37,23 +46,31 @@ export const ui: UiTranslations = {
   'dashboard.queue.viewAll': 'Ouvrir la file',
   'dashboard.subtitle': '{{active}} commandes en mouvement · journal en direct',
   'dashboard.title': 'Postes du jour',
+  'dashboard.zones.bins': '{{count}} emplacements',
   'dashboard.zones.empty': "Configurez des zones pour voir l'activité au sol.",
+  'dashboard.zones.eyebrow': 'Carte thermique des zones',
   'dashboard.zones.title': 'Activité au sol',
   'forgot.subheading':
     'Saisissez votre adresse professionnelle et nous vous enverrons un lien de réinitialisation.',
   'forgot.successBody':
     "Si {{email}} appartient à l'équipe, un lien de réinitialisation est en route. Ce lien expire dans 30 minutes.",
   'fulfillmentHeroCard.eyebrow': 'Postes en mouvement',
+  'fulfillmentHeroCard.onTime': "{{rate}} % à l'heure",
+  'fulfillmentHeroCard.ordersShipped': "commandes expédiées aujourd'hui",
+  'fulfillmentHeroCard.ordersShippedWithPeriod': 'commandes expédiées · {{period}}',
   'fulfillmentHeroCard.subtitle': '{{units}} unités emballées et expédiées',
   'inventory.cols.bin': 'Emplacement',
   'inventory.cols.onHand': 'Disponible',
   'inventory.cols.reorder': 'Pt. de réappro',
+  'inventory.cols.sku': 'SKU',
   'inventory.empty': 'Aucun SKU ne correspond à votre recherche.',
+  'inventory.errorFallback': 'Données en direct temporairement indisponibles.',
   'inventory.eyebrow': 'Inventaire disponible',
   'inventory.kpis.low': 'Stock faible',
   'inventory.kpis.lowHint': 'Sous le point de réappro',
   'inventory.kpis.out': 'Rupture de stock',
   'inventory.kpis.outHint': "À réapprovisionner aujourd'hui",
+  'inventory.kpis.skus': 'SKU actifs',
   'inventory.kpis.skusHint': 'Suivis sur tous les emplacements',
   'inventory.kpis.units': 'Unités disponibles',
   'inventory.kpis.unitsHint': 'Sur tous les emplacements',
@@ -109,6 +126,7 @@ export const ui: UiTranslations = {
   'locations.title': 'Zones, allées et emplacements',
   'locations.utilization': 'Utilisation',
   'login.heading': 'Connectez-vous à Sorthaus',
+  'login.noAccount': 'Nouveau sur Tessera ?',
   'login.subheading': 'Poste de commandement pour chaque commande, chaque vague, chaque quai.',
   'notFound.body':
     'Aucun emplacement ne correspond à cette adresse. La page a peut-être été expédiée, annulée ou rangée dans la mauvaise allée.',
@@ -120,6 +138,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle': '{{count}} alertes · {{unread}} non lues',
   'orderDetail.back': 'Retour aux commandes',
   'orderDetail.cancel': 'Annuler la commande',
+  'orderDetail.items.empty': 'Aucun article.',
   'orderDetail.items.eyebrow': 'Liste de préparation',
   'orderDetail.items.line': 'Ligne',
   'orderDetail.items.qty': 'Qté',
@@ -142,7 +161,16 @@ export const ui: UiTranslations = {
   'pickList.notFound': 'Commande introuvable.',
   'pickList.progress.eyebrow': 'Progression de la préparation',
   'pickListItem.progress': '{{picked}} sur {{total}} préparés',
+  'pickListItem.qty': 'Qté',
   'pickListItem.toggleAria': 'Basculer la préparation pour {{sku}}',
+  'pricing.advancedFeatures': 'Fonctionnalités avancées : {{yes}}',
+  'pricing.canExport': 'Exportation des données : {{yes}}',
+  'pricing.heading': 'Choisissez votre forfait {{app}}',
+  'pricing.maxOrders': '{{count}} commandes',
+  'pricing.maxPacking': 'Colisage {{count}}',
+  'pricing.maxPicks': 'Prélèvements {{count}}',
+  'pricing.maxShipments': 'Expéditions {{count}}',
+  'pricing.maxZones': '{{count}} zones',
   'profile.editTitle': "Détails de l'opérateur",
   'profile.eyebrow': "Profil de l'opérateur",
   'profile.field.shift': 'Plage de poste',
@@ -177,9 +205,11 @@ export const ui: UiTranslations = {
   'reports.kpis.healthHint': '100% signifie aucune rupture',
   'reports.kpis.units': 'Unités disponibles',
   'reports.kpis.unitsHint': 'Sur les SKU actifs',
+  'reports.loadError': 'Impossible de charger les données du rapport.',
   'reports.subtitle':
     "Aperçu en direct des commandes, du cycle de vie et de la santé de l'inventaire",
   'reports.title': 'Rapports de débit',
+  'reset.changedMind': "Vous avez changé d'avis ?",
   'reset.password': 'Nouveau mot de passe',
   'reset.subheading':
     'Choisissez quelque chose dont votre équipe se souviendra sur le terrain — au moins 12 caractères.',
@@ -192,6 +222,7 @@ export const ui: UiTranslations = {
   'returns.loading': 'Chargement des retours…',
   'returns.new': 'Nouveau RMA',
   'returns.reason': 'Motif',
+  'returns.reasonPlaceholder': 'Pourquoi ceci est-il retourné ?',
   'returns.subtitle': '{{count}} RMA en attente de traitement',
   'returns.title': 'Tri des retours',
   'scanner.back': 'Quitter le scanner',
@@ -202,6 +233,7 @@ export const ui: UiTranslations = {
   'scanner.placeholder': 'Saisir SO-#, SKU ou code de zone…',
   'scanner.recent.empty': 'Aucun scan pour le moment — essayez-en un ci-dessus.',
   'scanner.recent.eyebrow': 'Scans récents',
+  'scanner.submit': 'Recherche',
   'scanner.title': 'Visez. Tenez. Tirez.',
   'settings.autoAllocate':
     'Affecter automatiquement les commandes urgentes au prochain préparateur disponible',
@@ -252,4 +284,6 @@ export const ui: UiTranslations = {
   'warehouseFulfillmentLayout.scanAria': 'Ouvrir le scanner',
   'warehouseFulfillmentLayout.scanCta': 'Scanner',
   'warehouseFulfillmentLayout.searchAria': 'Rechercher commandes, SKU, emplacements',
+  'warehouseFulfillmentLayout.searchPlaceholder':
+    'Rechercher des commandes, des UGS, des emplacements…',
 }

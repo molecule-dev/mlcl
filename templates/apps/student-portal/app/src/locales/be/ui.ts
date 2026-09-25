@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маеце водгук, знайшлі памылку або хочаце далучыць сваю школу? Напішыце з налад акаўнта або паведаміце адміністратару школы — кожнае паведамленне трапляе да рэальнага чалавека з каманды.',
   'about.contactTitle': 'Звяжыцеся з намі',
+  'about.missionTitle': 'Наша місія',
   'announcementsFeed.empty': "Пакуль няма аб'яваў.",
   'announcementsFeed.eyebrow': '{{count}} абнаўлення',
   'announcementsFeed.title': "Апошнія аб'явы",
   'assignmentDetail.alreadySubmitted': 'Вы ўжо адправілі гэтае заданне.',
   'assignmentDetail.backLink': 'Вярнуцца да заданняў',
+  'assignmentDetail.dropBody':
+    'Скарыстайцеся «Выбраць файлы», каб прымацаваць працу — мы зафіксуем час здачы пасля вашага пацверджання.',
   'assignmentDetail.dropButton': 'Выберыце файлы',
+  'assignmentDetail.dropPrompt': 'Перацягніце сюды ваш PDF або фотапакет',
   'assignmentDetail.due': 'Тэрмін {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Інструкцыі',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Ацэнена',
   'assignmentDetail.statusSubmitted': 'Адпраўлена',
   'assignmentDetail.statusTitle': 'Стан падачы',
+  'assignmentDetail.submitError':
+    'Не ўдалося зафіксаваць гэтую здачу. Паспрабуйце яшчэ раз праз момант.',
   'assignmentDetail.submitted': 'Праца зарэгістравана — ваш настаўнік атрымаў апавяшчэнне.',
+  'assignmentDetail.submittedAt': 'Здадзена {{when}}',
+  'assignmentDetail.submitTitle': 'Здаць працу',
   'assignmentRow.courseDue': '{{course}} · Тэрмін прыдатнасці {{due}}',
   'assignments.empty': 'Тут нічога няма',
   'assignments.emptyBody': 'Змяніце фільтры вышэй, каб убачыць заданні ў іншым стане.',
@@ -38,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Штодзённы журнал прысутнасці, адсутнасці і спазненняў — з адзнакамі, калі гэта неабходна.',
+  'attendance.summary.absences': 'Пропускі',
   'attendance.summary.absencesCaption': 'Ніжэй за 5-дзённы парог умяшання',
   'attendance.summary.attendance': 'Наведвальнасць',
   'attendance.summary.attendanceCaption': '{{count}} сённяшні дзень у гэтым тэрміне',
+  'attendance.summary.tardies': 'Апазненні',
   'attendance.summary.tardiesCaption': 'У тым ліку заўвагі аб затрымках аўтобусаў / сустрэч',
   'attendance.title': 'Гісторыя наведвальнасці',
   'calendar.eyebrow': 'Навучальны год · {{year}}',
@@ -54,6 +66,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Ацэнкі',
   'courseDetail.currentGrade': 'Бягучы клас',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Агляд курса',
   'courseDetail.gradesTitle': 'Нядаўнія адзнакі',
   'courseDetail.messageTeacher': 'Настаўнік паведамленняў',
   'courseDetail.noGrades': 'Пакуль што адзнак няма.',
@@ -66,13 +79,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Глядзець усё',
   'dashboard.assignmentsTitle': 'Далей на гэтым тыдні',
   'dashboard.greeting': 'Прывітанне {{name}} , гатовы да заняткаў?',
+  'dashboard.subtitle':
+    'Ваш тыдзень з першага погляду — расклад, ацэнкі і заданні ў адным спакойным выглядзе.',
+  'dashboard.viewReportCard': 'Паглядзець табель',
+  'dashboard.weekFocusBody':
+    'Здаць практыкаванне «Квадратныя ўраўненні» № 7 і тэст па главе. Рэпетытарская лабараторыя адкрыта ў аўторак і чацвер пасля 7-га ўрока.',
+  'dashboard.weekFocusCta': 'Паглядзець поўны план',
   'dashboard.weekFocusEyebrow': 'Тыднёвы фокус',
   'dashboard.weekFocusTitle': 'Павялічце алгебру II на 4 балы',
   'forgotPassword.subheading':
     'Увядзіце адрас электроннай пошты вашай школы, і мы дашлем вам спасылку для скіду налад.',
   'forgotPassword.successBody':
     'Калі {{email}} супадае з акаўнтам Chalk, спасылка на скід пароля ўжо ў дарозе. Тэрмін дзеяння спасылак мінае праз 30 хвілін.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} сярэдні бал за семестр',
+  'gpaHeroCard.summary': 'Сёння {{count}} урокаў',
   'grades.col.grade': 'Клас',
   'grades.col.teacher': 'Настаўнік',
   'grades.col.trend': 'Трэнд',
@@ -84,10 +105,17 @@ export const ui: UiTranslations = {
     'Жывыя літарныя і працэнтныя адзнакі. Стрэлкі тэндэнцыі паказваюць, ці рухаецеся вы ўверх, ці вы на адным узроўні, ці апускаецеся.',
   'grades.title': 'Вашы адзнакі па кожным курсе',
   'grades.trendStable': 'Стабільны',
+  'grades.viewReportCard': 'Паглядзець афіцыйны табель',
   'landing.copyright': "© {{year}} {{app}} . Створана для студэнтаў, зроблена для сем'яў.",
+  'landing.ctaBody':
+    'Бясплатна першыя 30 дзён, карта не патрэбна. Раёны могуць запусціць агульнашкольны тарыф за адзін дзень.',
+  'landing.ctaButton': 'Стварыце свой партал',
   'landing.ctaHeading': 'Спакайнейшы школьны дзень пачнецца праз некалькі хвілін',
   'landing.eyebrow': 'Для вучняў сярэдняй і старэйшай школы',
   'landing.featuresHeading': 'Школьны дзень, арганізаваны вакол вучня',
+  'landing.heroSubtitle':
+    '{{appName}} збірае ўсе класы, ацэнкі, заданні і паведамленні ў адну спакойную панэль, каб вы менш часу шукалі і больш вучыліся.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Па змаўчанні адпавядае патрабаванням FERPA',
   'landing.proof.rating': "4,8 для 12 тысяч сем'яў",
   'landing.sampleTerm': 'Вясна',
@@ -96,6 +124,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Схаваць пароль',
   'login.noAccount': 'Вы пачатковец у Chalk?',
   'login.showPassword': 'Паказаць пароль',
+  'messages.compose': 'Новае паведамленне',
   'messages.composer.email': 'Адрас электроннай пошты атрымальніка (неабавязкова)',
   'messages.composer.errorEmpty': 'Паведамленне не можа быць пустым.',
   'messages.composer.errorRecipient': 'Патрабуецца імя атрымальніка.',
@@ -127,9 +156,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Ганаровы спіс · Вясновы семестр',
   'nav.unreadMessages': 'Непрачытаныя паведамленні',
   'notifications.eyebrow': '{{count}} абнаўлення',
+  'notifications.feedTitle': 'Уся нядаўняя актыўнасць',
   'notifications.subtitle':
     "Адзнакі, напаміны, паведамленні і школьныя аб'явы. Выберыце каналы, якія выкарыстоўвае кожнае апавяшчэнне, у наладах.",
+  'planUpdated.body':
+    'Змена білінгу цяпер актыўная. Вы можаце кіраваць сваім тарыфам у любы час са старонкі білінгу.',
+  'planUpdated.retry': 'Паспрабуйце яшчэ раз',
+  'planUpdated.verifyFailed': 'Нам пакуль не ўдалося пацвердзіць ваш плацёж.',
+  'planUpdated.verifyFailedBody':
+    'Магчыма, ваш плацёж усё яшчэ апрацоўваецца. Паўтарыце спробу праз хвіліну.',
   'planUpdated.verifying': 'Пацвярджэнне аплаты…',
+  'pricing.announcementsLabel': "аб'явы",
   'pricing.attendanceLabel': 'наведвальнасць',
   'pricing.gradesLabel': 'адзнакі',
   'pricing.heading': "аб'явы",
@@ -144,6 +181,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': '2-гі квартал',
   'reportCard.crumb': 'Табель справаздачы',
   'reportCard.cumulativeGpa': 'Сукупны сярэдні бал',
+  'reportCard.download': 'Спампаваць PDF',
   'reportCard.downloaded': 'Табельная справаздача адкрыта ў новай укладцы.',
   'reportCard.downloading': 'Стварэнне PDF-файла…',
   'reportCard.empty': 'Пакуль няма адзнак.',
@@ -151,6 +189,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Канчатковы сярэдні бал · {{term}}',
   'reportCard.subtitle':
     'Афіцыйная выпіска з ацэнкамі па заканчэнні семестра з узважанымі адзнакамі за курсы, наведвальнасць і PDF-файл для друку.',
+  'reportCard.title': 'Табель справаздачы',
+  'resetPassword.newPassword': 'Новы пароль',
   'resetPassword.subheading': 'Выберыце нешта запамінальнае, але цяжкае для здагадкі.',
   'resetPassword.tokenPlaceholder': 'Устаўце код з вашай электроннай пошты',
   'schedule.empty': 'Заняткаў па раскладзе няма.',
@@ -175,12 +215,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Заданні, якія чакаюць выканання',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} прагулы ў гэтым семестры · {{tardy}} спазненні',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Падлічваем наведвальнасць…',
+  'subjectStatsTriad.attendanceLabel': 'Наведвальнасць',
   'subjectStatsTriad.gradesCaption': 'Папярок {{percent}} % сярэднеўзважанага',
+  'subjectStatsTriad.gradesCaptionLoading': 'Загрузка адзнак…',
+  'subjectStatsTriad.gradesLabel': 'Сярэдні бал па класе',
   'todayScheduleStrip.empty': 'Сёння заняткаў няма.',
   'todayScheduleStrip.eyebrow': '{{count}} заняткі',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Расклад на сёння',
   'topbar.guestName': 'Студэнт',
   'topbar.searchPlaceholder': 'Пошук заняткаў, заданняў…',
+  'topbar.studentRole': 'Студэнт',
   'topbar.studentTag': 'Студэнт · # {{id}}',
 }

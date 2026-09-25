@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε ερωτήσεις για μια έκδοση, μια αποστολή ή τη συνδρομή σας; Επικοινωνήστε με έναν πραγματικό άνθρωπο της ομάδας στο hello@crate.example — διαβάζουμε κάθε μήνυμα.',
+  'about.contactTitle': 'Μιλήστε με έναν επιμελητή',
+  'about.feature1':
+    'Επιμελημένες μηνιαίες εκδόσεις, επιλεγμένες από ανεξάρτητους δημιουργούς, με την ιστορία πίσω από κάθε αντικείμενο.',
+  'about.feature2':
+    'Πλήρης έλεγχος σε κάθε κουτί — προσαρμόστε τα περιεχόμενα, αλλάξτε ή εξαιρέστε αντικείμενα, παραλείψτε έναν μήνα ή αλλάξτε τη συχνότητά σας.',
+  'about.feature3':
+    'Παρακολούθηση αποστολής από την παραλαβή έως την πόρτα σας, με συσκευασία χωρίς πλαστικό και ενημερώσεις μεταφορέα σε πραγματικό χρόνο.',
+  'about.feature4':
+    'Ευέλικτα προγράμματα και διαφανής χρέωση — αναβαθμίστε, υποβαθμίστε, παύστε ή ακυρώστε από τον πίνακα ελέγχου σας οποιαδήποτε στιγμή.',
+  'about.intro':
+    'Το {{app}} είναι μια υπηρεσία επιμελημένης συνδρομητικής συσκευασίας που παραδίδει κάθε μήνα στην πόρτα σας ένα επιλεγμένο, μικρής παραγωγής κουτί χαράς. Κάθε έκδοση συναρμολογείται από ενεργούς δημιουργούς — ανεξάρτητους καλλιτέχνες, σεφ και μικρές επιχειρήσεις — όχι από αλγόριθμο.',
+  'about.missionBody':
+    'Πιστεύουμε ότι μια συνδρομή πρέπει να μοιάζει με δώρο, όχι με παγίδα. Το {{app}} είναι φτιαγμένο έτσι ώστε να μένετε επειδή αγαπάτε αυτό που φτάνει — παύση οποιαδήποτε στιγμή, αλλάξτε ό,τι θέλετε και ακυρώστε με ένα κλικ. Ποτέ σενάρια διατήρησης.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.pageTitle': 'Σχετικά με το {{app}}',
   'appNav.mobileLabel': 'Κύρια πλοήγηση',
   'appNav.primaryLabel': 'Κύρια πλοήγηση',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Επεξεργασία επαφής χρέωσης',
   'billing.contact.eyebrow': 'Επαφή χρέωσης',
   'billing.eyebrow': 'Πρόγραμμα και πληρωμές',
+  'billing.loading': 'Φόρτωση χρέωσης…',
   'billing.payment.body':
     'Η πληρωμή διεκπεραιώνεται από το Stripe Checkout — ο πλήρης αριθμός της κάρτας σας δεν αγγίζει ποτέ τους διακομιστές μας. Κάντε κλικ σε οποιοδήποτε επίπεδο παρακάτω για να προσθέσετε ή να ενημερώσετε την κάρτα σας.',
   'billing.payment.linked': 'Η κάρτα είναι καταχωρημένη μέσω Stripe',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Συνέχιση συνδρομής',
   'billing.plan.eyebrow': 'Ενεργό σχέδιο',
   'billing.plan.next': 'Ανανεώνεται αυτόματα στις {{date}} .',
+  'billing.plan.status': 'Κατάσταση: {{status}}',
   'billing.subtitle':
     'Διαχειριστείτε το επίπεδό σας, τη μέθοδο πληρωμής και ελέγξτε την προηγούμενη δραστηριότητα.',
   'billing.tiers.body': 'Επιλέξτε ένα επίπεδο και θα σας κατευθύνουμε στο Stripe Checkout.',
   'billing.tiers.choose': 'Επιλέξτε',
+  'billing.tiers.empty': 'Δεν έχουν ρυθμιστεί ακόμη βαθμίδες.',
   'billing.tiers.heading': 'Διαθέσιμες βαθμίδες',
   'boxDetail.backToBoxes': 'Πίσω σε όλες τις εκδόσεις',
   'boxDetail.crumb.boxes': 'Εκδόσεις',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Επιλεγμένο κομμάτι',
   'boxDetail.items.heading': '{{count}} επιμελημένα κομμάτια',
   'boxDetail.itemsBadge': '{{count}} επιλεγμένα είδη ανά κουτί',
+  'boxDetail.loading': 'Φόρτωση έκδοσης…',
   'boxDetail.notFound': 'Αυτή η έκδοση δεν είναι πλέον διαθέσιμη.',
   'boxDetail.subscribe.success': 'Εγγεγραμμένος — η πρώτη σας έκδοση βρίσκεται σε ουρά αναμονής.',
   'boxDetail.swapBadge': 'Ανταλλαγή σε {{count}} είδος(-τα) ανά κουτί',
@@ -44,14 +64,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Δεν υπάρχουν αντίστοιχες εκδόσεις.',
   'boxes.eyebrow': 'Το αρχείο του Crate',
   'boxes.heading': 'Περιηγηθείτε σε κάθε έκδοση',
+  'boxes.loadError':
+    'Δεν μπορέσαμε να φορτώσουμε τις εκδόσεις. Ελέγξτε τη σύνδεσή σας και δοκιμάστε ξανά.',
   'boxes.loading': 'Φόρτωση εκδόσεων…',
+  'boxes.search.label': 'Αναζήτηση εκδόσεων',
   'boxes.search.placeholder': 'Αναζήτηση εκδόσεων…',
   'boxes.subtitle':
     'Κάθε επίπεδο είναι μια ιστορία μικρής παρτίδας. Προσθέστε μία στην ουρά σας ή αλλάξτε την στον επόμενο μήνα.',
+  'boxThemeCard.itemCount': '{{count}} στοιχεία',
   'boxThemeCard.perMonth': '/ μήνα',
+  'boxThemeCard.retailValue': 'Λιανική αξία {{value}}',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'common.retry': 'Επανάληψη',
   'customize.eyebrow': 'Κάντε το δικό σας',
   'customize.heading': 'Προσαρμόστε το επόμενο Crate σας',
+  'customize.items.empty': 'Δεν έχουν ρυθμιστεί ακόμη αντικείμενα για αυτή τη βαθμίδα.',
   'customize.items.exclude': 'Παράλειψη αυτού',
   'customize.items.eyebrow': 'Εξατομικεύστε αυτό το πλαίσιο',
   'customize.items.heading': 'Αντικείμενα σε {{box}}',
@@ -60,8 +87,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Προσθήκη πίσω',
   'customize.items.save': 'Αποθήκευση προσαρμογής',
   'customize.items.swapsLeft': '{{used}} του {{max}} χρησιμοποιήθηκαν ανταλλαγές',
+  'customize.loading': 'Φόρτωση προσαρμογής…',
   'customize.noSub.body':
     'Εγγραφείτε πρώτα σε ένα επίπεδο και μετά επιστρέψτε για να ανταλλάξετε αντικείμενα στο κουτί σας.',
+  'customize.noSub.cta': 'Περιήγηση εκδόσεων',
   'customize.noSub.heading': 'Δεν υπάρχει ενεργή συνδρομή',
   'customize.saved': 'Η προσαρμογή αποθηκεύτηκε.',
   'customize.subtitle':
@@ -75,11 +104,15 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Παρακολούθηση αποστολής',
   'dashboard.eyebrow': 'Ο θησαυρός σου',
   'dashboard.greeting': 'Καλώς ήρθες ξανά, {{name}}.',
+  'dashboard.loadError':
+    'Δεν μπορέσαμε να φορτώσουμε τον πίνακα ελέγχου σας. Ελέγξτε τη σύνδεσή σας και δοκιμάστε ξανά.',
   'dashboard.loading': 'Φόρτωση πίνακα ελέγχου…',
   'dashboard.next.eyebrow': 'Η επόμενη έκδοσή σας',
   'dashboard.onboarding.body':
     'Δεν έχετε ακόμη ενεργή συνδρομή. Επιλέξτε ένα επίπεδο για να ξεκινήσετε να στέλνετε ένα Crate κάθε μήνα.',
   'dashboard.onboarding.cta': 'Περιηγηθείτε σε όλες τις εκδόσεις',
+  'dashboard.onboarding.empty':
+    'Δεν υπάρχουν διαθέσιμα προγράμματα αυτή τη στιγμή. Ελέγξτε ξανά σύντομα.',
   'dashboard.onboarding.heading': 'Επιλέξτε την πρώτη σας έκδοση',
   'dashboard.renewal.amount': 'Κατηγορούμενος',
   'dashboard.renewal.cadence': 'Ρυθμός',
@@ -87,12 +120,16 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Ανανέωση',
   'dashboard.renewal.heading': 'Αυτόματη ανανέωση σε {{date}}',
   'dashboard.renewal.plan': 'Κλειδί σχεδίου',
+  'dashboard.renewal.tbd': 'Ο προγραμματισμός ανανέωσης θα γίνει σύντομα',
   'dashboard.renewal.tier': 'Κερκίδα',
   'dashboard.stats.days': 'ημέρες',
   'dashboard.stats.daysToNext': 'Αποστέλλεται σε',
   'dashboard.stats.items': 'Επιλεγμένα αντικείμενα',
   'dashboard.stats.shipDate': 'Ημερομηνία αποστολής',
   'dashboard.stats.tbd': 'Δεν έχει οριστεί ακόμη',
+  'dashboard.subtitle.active': "Η επόμενη έκδοσή σας είναι καθ' οδόν. Να τι να περιμένετε.",
+  'dashboard.subtitle.idle':
+    'Επιλέξτε μια βαθμίδα για να αρχίσετε να λαμβάνετε ένα {{appName}} κάθε μήνα.',
   'forgotPassword.subtitle':
     'Πείτε μας το email σας και θα σας στείλουμε έναν σύνδεσμο επαναφοράς.',
   'forgotPassword.success.body':
@@ -100,6 +137,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Ελέγξτε τα εισερχόμενά σας.',
   'landing.editions.eyebrow': 'Αυτή τη σεζόν',
   'landing.editions.heading': 'Εκδόσεις που λατρεύουν οι επιμελητές μας',
+  'landing.editions.viewAll': 'Περιήγηση σε όλες τις εκδόσεις →',
   'landing.footer.contact': 'Μιλήστε με έναν επιμελητή',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Ξεκινήστε το κουτί σας →',
@@ -109,6 +147,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Μια ματιά στον πίνακα ελέγχου μελών — αντίστροφη μέτρηση, περιεχόμενο και παρακολούθηση.',
   'landing.hero.social.count': 'Αγαπημένο από {{count}} + συνδρομητές',
+  'landing.hero.social.rating': '{{rating}} μέση βαθμολογία unboxing',
+  'landing.hero.subhead':
+    'Το {{appName}} σας στέλνει ένα επιλεγμένο, μικρής παραγωγής κουτί χαράς από ανεξάρτητους δημιουργούς. Παύση οποιαδήποτε στιγμή. Αλλάξτε ό,τι θέλετε. Κρατήστε ό,τι αγαπάτε.',
   'landing.nav.start': 'Ξεκινήστε το κουτί σας',
   'landing.tiers.eyebrow': 'Επιλέξτε τον ρυθμό σας',
   'landing.tiers.heading':
@@ -119,6 +160,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Συνδεθείτε για να δείτε το πλαίσιο του επόμενου μήνα.',
   'login.welcomeBack': 'Καλώς ήρθες πίσω, επιμελητή.',
   'nextBoxHeroCard.eyebrow': 'ΤΟ ΕΠΟΜΕΝΟ ΣΟΥ ΘΕΜΑ',
+  'nextBoxHeroCard.itemCount': '{{count}} τεμάχια μέσα',
   'nextBoxHeroCard.itemsLabel': 'Επιλεγμένα αντικείμενα',
   'nextBoxHeroCard.shipsOnLabel': 'Αποστέλλεται στις',
   'notFound.body':
@@ -143,8 +185,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Παύση συνδρομής',
   'settings.danger.paused': 'Η συνδρομή τέθηκε σε παύση.',
   'settings.danger.pausing': 'Παύση…',
+  'settings.danger.status': 'Κατάσταση συνδρομής: {{status}}',
   'settings.danger.subtitle':
     'Η παύση διατηρεί το επίπεδο και το ιστορικό σας άθικτα. Η ακύρωση διακόπτει τις μελλοντικές αποστολές και καταργεί τις αποθηκευμένες μεθόδους πληρωμής σας στο τέλος του κύκλου.',
+  'settings.notifications.saving': '· αποθήκευση…',
   'settings.notifications.subtitle':
     'Επιλέξτε ποια σήματα θέλετε από το Crate. Οι προεπιλογές είναι λογικές.',
   'settings.subtitle':
@@ -161,12 +205,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Δεν υπάρχει ακόμη ενεργή αποστολή',
   'shipments.live.eyebrow': 'Ενεργή αποστολή',
   'shipments.live.unnamed': 'Το επόμενο κουτί σας',
+  'shipments.loadError':
+    'Δεν μπορέσαμε να φορτώσουμε τις αποστολές σας. Ελέγξτε τη σύνδεσή σας και δοκιμάστε ξανά.',
+  'shipments.loading': 'Φόρτωση αποστολών…',
+  'shipments.step.delivered': 'Παραδόθηκε',
   'shipments.step.deliveredBody': 'Κάντε tag #crateunbox για να μοιραστείτε ό,τι ανακαλύπτετε.',
   'shipments.step.ordered': 'Η παραγγελία υποβλήθηκε',
   'shipments.step.orderedBody':
     'Η συνδρομή σας έχει τοποθετήσει αυτήν την έκδοση στην ουρά για τον επόμενο κύκλο αποστολής.',
+  'shipments.step.packed': 'Συσκευασμένο στο χέρι',
   'shipments.step.packedBody':
     'Κάθε κομμάτι τυλιγμένο και τοποθετημένο στο κουτί με ένα χειρόγραφο σημείωμα.',
+  'shipments.step.transit': "Καθ' οδόν",
   'shipments.step.transitNot': 'Η παρακολούθηση θα εμφανιστεί εδώ μόλις το κουτί σας μεταφερθεί.',
   'shipments.subtitle':
     'Παρακολουθήστε το κουτί καθώς έρχεται προς εσάς και, στη συνέχεια, ξαναδείτε κάθε έκδοση που έχετε αποσυσκευάσει στο παρελθόν.',

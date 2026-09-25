@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Вопросы, отзывы или функция, которой вам не хватает? Напишите команде из настроек аккаунта — каждое сообщение читает живой человек.',
   'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'about.missionTitle': 'Наша миссия',
+  'about.whatYouGetTitle': 'Что вы получите',
   'analytics.empty': 'Здесь вы можете создавать презентации, чтобы просматривать аналитику.',
   'analytics.stats.acrossDecks': 'На всех палубах',
   'analytics.stats.allTime': 'В вашей студии',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Название колоды',
   'landing.features.eyebrow': 'Почему увертюра?',
   'landing.features.heading': 'Всё необходимое, чтобы выйти на сцену готовым к выходу.',
+  'landing.finalCta.body':
+    'Запустите свою студию меньше чем за минуту. Без банковской карты. Отмена в любой момент.',
   'landing.finalCta.cta': 'Создайте свою бесплатную студию',
   'landing.finalCta.eyebrow': 'Начать бесплатно',
   'landing.finalCta.heading': 'Выходите на сцену с лучшей колодой в вашей карьере.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Отредактировано 12 минут назад',
   'notifications.created': 'созданный',
   'notifications.edited': 'отредактировано',
+  'notifications.empty.body':
+    'Активность на ваших деках — комментарии, упоминания, экспорты — появится здесь.',
   'notifications.empty.title': 'Уведомлений пока нет.',
   'notifications.eyebrow': 'Сценическая деятельность',
   'notifications.loading': 'Загрузка…',
   'notifications.shared': 'опубликовано публично',
+  'planUpdated.retry': 'Попробуйте ещё раз',
+  'planUpdated.verifyFailed': 'Мы пока не можем подтвердить ваш платеж.',
+  'planUpdated.verifyFailedBody':
+    'Ваш платеж, возможно, еще обрабатывается. Попробуйте еще раз через минуту.',
   'planUpdated.verifying': 'Подтверждение платежа…',
   'present.addSlides': 'Добавить слайды',
   'present.backToDecks': 'Вернуться на палубы',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Сценический артист',
   'settings.security.notSet': 'Не задано',
   'settings.security.passwordBody': 'Ваш пароль зашифрован в состоянии покоя.',
+  'settings.security.reset': 'Перезагрузить',
   'settings.security.title': 'Аккаунт + сессии',
   'shared.empty.body':
     'Здесь будут отображаться колоды, которыми вы поделились публично. Откройте колоду и включите опцию «Публичный доступ», чтобы поделиться ею с другими.',
@@ -131,6 +144,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Загрузка…',
   'shared.title': 'Общие палубы',
   'templateCard.slideCount': '{{count}} слайды',
+  'templateCard.usageCount': '{{count}} использует',
+  'templates.empty.body': 'Попробуйте другой фильтр — мы выпускаем новые шаблоны каждый месяц.',
+  'templates.empty.title': 'В этой категории пока нет шаблонов',
+  'templates.hero.body':
+    'Слайды с готовым оформлением: блоки диаграмм, демо-фреймы, заметки докладчика и предустановки таймера — каждый шаблон готов к записи.',
   'templates.hero.eyebrow': 'Кураторские этапы',
   'templates.hero.heading': 'Сцены созданы для момента, когда вам потребуется совершить посадку.',
 }

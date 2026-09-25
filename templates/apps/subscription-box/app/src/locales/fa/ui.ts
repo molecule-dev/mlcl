@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'سؤالی دربارهٔ یک نسخه، یک ارسال یا اشتراکتان دارید؟ با یک انسان واقعی از تیم در hello@crate.example تماس بگیرید — ما هر پیام را می‌خوانیم.',
+  'about.contactTitle': 'با یک متصدی صحبت کنید',
+  'about.feature1':
+    'نسخه‌های ماهانهٔ گزیده که توسط سازندگان مستقل دست‌چین شده‌اند، همراه با داستان پشت هر آیتم.',
+  'about.feature2':
+    'کنترل کامل روی هر جعبه — محتویات را سفارشی کنید، آیتم‌ها را عوض کنید یا حذف کنید، یک ماه را رد کنید یا دورهٔ ارسال را تغییر دهید.',
+  'about.feature3':
+    'رهگیری ارسال از ابتدا تا انتها، از زمان برداشت تا تحویل درِ خانه، با بسته‌بندی بدون پلاستیک و به‌روزرسانی‌های زندهٔ شرکت حمل.',
+  'about.feature4':
+    'طرح‌های منعطف و صورتحساب شفاف — هر زمان از داشبورد خود ارتقا دهید، تنزل دهید، موقتاً متوقف کنید یا لغو کنید.',
+  'about.intro':
+    '{{app}} یک سرویس اشتراکی جعبهٔ گزیده است که هر ماه یک جعبهٔ کوچک و دست‌چین‌شدهٔ شادی را به درِ خانهٔ شما می‌آورد. هر نسخه توسط سازندگان فعال — هنرمندان مستقل، سرآشپزها و برندهای کوچک — گردآوری می‌شود، نه یک الگوریتم.',
+  'about.missionBody':
+    'ما باور داریم اشتراک باید مثل یک هدیه باشد، نه یک تله. {{app}} طوری ساخته شده که به‌خاطر عشق‌تان به آنچه می‌رسد بمانید — هر زمان موقتاً متوقف کنید، هر چه می‌خواهید عوض کنید و با یک کلیک لغو کنید. هیچ‌وقت هیچ سناریوی نگه‌داشتن مشتری‌ای در کار نیست.',
+  'about.missionTitle': 'ماموریت ما',
   'about.pageTitle': 'درباره {{app}}',
   'appNav.mobileLabel': 'ناوبری اولیه',
   'appNav.primaryLabel': 'ناوبری اولیه',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'ویرایش مخاطب صورتحساب',
   'billing.contact.eyebrow': 'تماس با صورتحساب',
   'billing.eyebrow': 'طرح و پرداخت‌ها',
+  'billing.loading': 'در حال بارگیری صورتحساب…',
   'billing.payment.body':
     'پرداخت توسط Stripe Checkout انجام می‌شود - شماره کامل کارت شما هرگز به سرورهای ما دسترسی پیدا نمی‌کند. برای افزودن یا به‌روزرسانی کارت خود، روی هر یک از سطوح زیر کلیک کنید.',
   'billing.payment.linked': 'کارت از طریق Stripe ثبت می‌شود',
@@ -19,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'ادامه اشتراک',
   'billing.plan.eyebrow': 'طرح فعال',
   'billing.plan.next': 'به طور خودکار تمدید می‌شود {{date}} .',
+  'billing.plan.status': 'وضعیت: {{status}}',
   'billing.subtitle': 'سطح، روش پرداخت و فعالیت‌های گذشته خود را مدیریت کنید.',
   'billing.tiers.body': 'یک ردیف انتخاب کنید و ما شما را به Stripe Checkout هدایت خواهیم کرد.',
   'billing.tiers.choose': 'انتخاب کنید',
+  'billing.tiers.empty': 'هنوز هیچ سطحی پیکربندی نشده است.',
   'billing.tiers.heading': 'سطوح موجود',
   'boxDetail.backToBoxes': 'بازگشت به همه نسخه‌ها',
   'boxDetail.crumb.boxes': 'نسخه‌ها',
@@ -34,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'قطعه منتخب',
   'boxDetail.items.heading': '{{count}} قطعات برگزیده',
   'boxDetail.itemsBadge': '{{count}} اقلام انتخاب شده در هر جعبه',
+  'boxDetail.loading': 'در حال بارگذاری نسخه…',
   'boxDetail.notFound': 'آن نسخه دیگر در دسترس نیست.',
   'boxDetail.subscribe.success': 'مشترک شد - نسخه اول شما در صف انتظار قرار دارد.',
   'boxDetail.swapBadge': 'تعویض تا {{count}} تعداد اقلام در هر جعبه',
@@ -42,14 +62,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'هیچ نسخه‌ای مطابقت ندارد.',
   'boxes.eyebrow': 'بایگانی گنجینه',
   'boxes.heading': 'مرور هر نسخه',
+  'boxes.loadError':
+    'نتوانستیم نسخه‌ها را بارگذاری کنیم. اتصال خود را بررسی کنید و دوباره تلاش کنید.',
   'boxes.loading': 'در حال بارگذاری نسخه‌ها…',
+  'boxes.search.label': 'جستجوی نسخه‌ها',
   'boxes.search.placeholder': 'جستجوی نسخه‌ها…',
   'boxes.subtitle':
     'هر ردیف یک داستان کوچک است. یکی را به صف خود اضافه کنید یا آن را به ماه بعدی خود منتقل کنید.',
+  'boxThemeCard.itemCount': '{{count}} اقلام',
   'boxThemeCard.perMonth': '/ ماه',
+  'boxThemeCard.retailValue': 'ارزش خرده‌فروشی {{value}}',
   'common.goToDashboard': 'رفتن به داشبورد',
+  'common.retry': 'دوباره امتحان کنید',
   'customize.eyebrow': 'مال خودت کن',
   'customize.heading': 'گنجینه بعدی خود را سفارشی کنید',
+  'customize.items.empty': 'هنوز هیچ آیتمی برای این سطح پیکربندی نشده است.',
   'customize.items.exclude': 'از این بگذرید',
   'customize.items.eyebrow': 'این کادر را شخصی‌سازی کنید',
   'customize.items.heading': 'موارد موجود در {{box}}',
@@ -58,7 +85,9 @@ export const ui: UiTranslations = {
   'customize.items.include': 'اضافه کردن به عقب',
   'customize.items.save': 'ذخیره سفارشی سازی',
   'customize.items.swapsLeft': '{{used}} از {{max}} سواپ‌های استفاده شده',
+  'customize.loading': 'در حال بارگذاری سفارشی‌سازی…',
   'customize.noSub.body': 'ابتدا در یک سطح مشترک شوید، سپس برای تعویض اقلام در جعبه خود برگردید.',
+  'customize.noSub.cta': 'مرور نسخه‌ها',
   'customize.noSub.heading': 'اشتراک فعالی وجود ندارد',
   'customize.saved': 'سفارشی‌سازی ذخیره شد.',
   'customize.subtitle':
@@ -72,11 +101,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'پیگیری حمل و نقل',
   'dashboard.eyebrow': 'گنجینه شما',
   'dashboard.greeting': 'خوش برگشتی، {{name}} .',
+  'dashboard.loadError':
+    'نتوانستیم داشبورد شما را بارگذاری کنیم. اتصال خود را بررسی کنید و دوباره تلاش کنید.',
   'dashboard.loading': 'در حال بارگذاری داشبورد…',
   'dashboard.next.eyebrow': 'نسخه بعدی شما',
   'dashboard.onboarding.body':
     'شما هنوز اشتراک فعالی ندارید. برای شروع ارسال ماهانه Crate، یک سطح انتخاب کنید.',
   'dashboard.onboarding.cta': 'مرور همه نسخه‌ها',
+  'dashboard.onboarding.empty': 'در حال حاضر هیچ طرحی موجود نیست. به‌زودی دوباره سر بزنید.',
   'dashboard.onboarding.heading': 'اولین نسخه خود را انتخاب کنید',
   'dashboard.renewal.amount': 'شارژ شده',
   'dashboard.renewal.cadence': 'کادانس',
@@ -84,18 +116,23 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'تمدید',
   'dashboard.renewal.heading': 'تمدید خودکار روشن است {{date}}',
   'dashboard.renewal.plan': 'کلید طرح',
+  'dashboard.renewal.tbd': 'زمان‌بندی تمدید به‌زودی',
   'dashboard.renewal.tier': 'ردیف',
   'dashboard.stats.days': 'روزها',
   'dashboard.stats.daysToNext': 'کشتی‌ها در',
   'dashboard.stats.items': 'اقلام گزینش‌شده',
   'dashboard.stats.shipDate': 'تاریخ ارسال',
   'dashboard.stats.tbd': 'نامشخص',
+  'dashboard.subtitle.active':
+    'نسخهٔ بعدی شما در راه است. این چیزی است که باید انتظار داشته باشید.',
+  'dashboard.subtitle.idle': 'یک سطح انتخاب کنید تا ارسال ماهانهٔ {{appName}} را شروع کنید.',
   'forgotPassword.subtitle': 'ایمیل خود را به ما بگویید تا لینک بازیابی را برایتان ارسال کنیم.',
   'forgotPassword.success.body':
     'اگر {{email}} ثبت شده باشد، ظرف چند دقیقه لینک بازنشانی دریافت خواهید کرد.',
   'forgotPassword.success.title': 'صندوق ورودی خود را بررسی کنید.',
   'landing.editions.eyebrow': 'این فصل',
   'landing.editions.heading': 'نسخه‌هایی که متصدیان ما دوست دارند',
+  'landing.editions.viewAll': 'مرور همهٔ نسخه‌ها →',
   'landing.footer.contact': 'با یک متصدی صحبت کنید',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'جعبه خود را شروع کنید →',
@@ -104,6 +141,9 @@ export const ui: UiTranslations = {
   'landing.hero.headline': 'هر ماه، غیرمنتظره‌ها را از جعبه خارج کنید.',
   'landing.hero.previewCaption': 'نگاهی اجمالی به داشبورد اعضا - شمارش معکوس، محتوا و پیگیری',
   'landing.hero.social.count': 'دوست داشته شده توسط {{count}} + مشترکین',
+  'landing.hero.social.rating': 'میانگین امتیاز باز کردن جعبه {{rating}}',
+  'landing.hero.subhead':
+    '{{appName}} یک جعبهٔ کوچک و دست‌چین‌شدهٔ شادی از سازندگان مستقل برایتان می‌فرستد. هر زمان موقتاً متوقف کنید. هر چه می‌خواهید عوض کنید. آنچه را دوست دارید نگه دارید.',
   'landing.nav.start': 'جعبه خود را شروع کنید',
   'landing.tiers.eyebrow': 'ریتم خود را انتخاب کنید',
   'landing.tiers.heading':
@@ -114,6 +154,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'برای مشاهده‌ی کادر ماه آینده، وارد شوید.',
   'login.welcomeBack': 'خوش برگشتی، متصدی.',
   'nextBoxHeroCard.eyebrow': 'گنجینه بعدی شما',
+  'nextBoxHeroCard.itemCount': '{{count}} قطعه در داخل',
   'nextBoxHeroCard.itemsLabel': 'اقلام گزینش‌شده',
   'nextBoxHeroCard.shipsOnLabel': 'کشتی‌ها روشن هستند',
   'notFound.body':
@@ -137,8 +178,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'اشتراک را متوقف کنید',
   'settings.danger.paused': 'اشتراک متوقف شد.',
   'settings.danger.pausing': 'مکث…',
+  'settings.danger.status': 'وضعیت اشتراک: {{status}}',
   'settings.danger.subtitle':
     'توقف، سطح و سابقه شما را دست نخورده نگه می‌دارد. لغو، ارسال‌های آینده را متوقف می‌کند و روش‌های پرداخت ذخیره شده شما را در پایان چرخه حذف می‌کند.',
+  'settings.notifications.saving': '· در حال ذخیره…',
   'settings.notifications.subtitle':
     'سیگنال‌هایی را که از Crate می‌خواهید انتخاب کنید. پیش‌فرض‌ها معقول هستند.',
   'settings.subtitle': 'نمایه، آدرس ارسال و نحوه ارتباط Crate خود را به‌روزرسانی کنید.',
@@ -154,12 +197,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'هنوز ارسال فعالی وجود ندارد',
   'shipments.live.eyebrow': 'حمل و نقل فعال',
   'shipments.live.unnamed': 'جعبه بعدی شما',
+  'shipments.loadError':
+    'نتوانستیم ارسال‌های شما را بارگذاری کنیم. اتصال خود را بررسی کنید و دوباره تلاش کنید.',
+  'shipments.loading': 'بارگیری محموله‌ها…',
+  'shipments.step.delivered': 'تحویل داده شد',
   'shipments.step.deliveredBody':
     'برای به اشتراک گذاشتن یافته‌هایتان، هشتگ #crateunbox را تگ کنید.',
   'shipments.step.ordered': 'سفارش ثبت شد',
   'shipments.step.orderedBody': 'اشتراک شما، این نسخه را برای چرخه بعدی انتشار در صف قرار داد.',
+  'shipments.step.packed': 'دست‌بسته‌بندی‌شده',
   'shipments.step.packedBody':
     'هر قطعه پیچیده شده و به همراه یک یادداشت دست‌نویس داخل جعبه قرار داده شده است.',
+  'shipments.step.transit': 'در راه',
   'shipments.step.transitNot':
     'به محض اینکه جعبه شما در حال ارسال باشد، اطلاعات ردیابی در اینجا نمایش داده می‌شود.',
   'shipments.subtitle':

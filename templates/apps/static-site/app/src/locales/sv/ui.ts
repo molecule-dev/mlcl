@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Din plan har uppdaterats.',
   'planUpdated.returnHome': 'Återgå till startsidan',
   'planUpdated.thankYou': 'Tack!',
+  'post.markdown': 'Visa detta inlägg som markdown',
+  'post.readingTime': '{{minutes}} min läsning',
   'post.tags': 'Taggar',
   'project.error.nameAndTypeRequired': 'namn och projectType krävs',
   'project.error.notFound': 'Hittades inte',

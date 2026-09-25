@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'มีข้อเสนอแนะ พบบั๊ก หรือต้องการ{{app}}สำหรับลีกของคุณ? ติดต่อเราจากการตั้งค่าบัญชีของคุณ — ทุกข้อความส่งถึงคนจริงในทีม',
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
+  'about.featureAlerts':
+    'การแจ้งเตือนแบบพุชสำหรับอัปเดตสกอร์ แจ้งเตือนการเทรด รายงานอาการบาดเจ็บ และประกาศของลีก',
+  'about.featureRosters':
+    'หน้าเพจทีมพร้อมรายชื่อผู้เล่นเต็มรูปแบบ สถิติรวมทั้งฤดูกาล สตรีคฟอร์มร้อน/เย็น และสถิติการพบกันตัวต่อตัวของทุกผู้เล่น',
+  'about.featureSchedule':
+    'ปฏิทินฤดูกาลและมุมมองตารางการแข่งขัน เพื่อให้คุณวางแผนรอบทุกนัดและผลการแข่งขัน',
+  'about.featureScoreboard':
+    'แถบสกอร์บอร์ดระดับออกอากาศปักหมุดไว้ด้านบนของทุกหน้า เพื่อให้คุณไม่พลาดทุกประตู',
+  'about.featureStandings':
+    'ตารางคะแนนสด — สถิติชนะ-แพ้-เสมอแบบเรียลไทม์ คะแนน เปอร์เซ็นต์ชนะ และเส้นตัดเข้ารอบเพลย์ออฟ อัปเดตทุกครั้งที่เป่านกหวีด',
+  'about.intro':
+    '{{app}} คือบ้านคุณภาพระดับออกอากาศสำหรับลีกของคุณ ทีม ตารางการแข่งขัน สกอร์สด และตารางคะแนน รวมอยู่ในแดชบอร์ดเดียวที่รวดเร็วและไม่รกตา — เพื่อให้แฟนๆ โค้ช และผู้จัดลีกรู้เสมอว่าฤดูกาลเป็นอย่างไร',
+  'about.missionBody':
+    'การติดตามลีกไม่ควรหมายถึงการรีเฟรชสกอร์บอร์ดของบุคคลที่สามห้าแห่งที่แตกต่างกัน เราสร้างมันขึ้นเพื่อให้ทุกทีมมีแหล่งข้อมูลความจริงเพียงหนึ่งเดียวสำหรับตารางคะแนน ตารางการแข่งขัน และสถิติที่สำคัญจริงๆ — อัปเดตทุกครั้งที่เป่านกหวีด ฟรีตลอดฤดูกาล',
+  'about.missionTitle': 'พันธกิจของเรา',
+  'about.whatYouGet': 'สิ่งที่คุณจะได้รับ',
   'appShell.closeNav': 'ปิดการนำทาง',
   'appShell.openNav': 'เปิดการนำทาง',
   'common.dashboard': 'แดชบอร์ด',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'ดูผลการแข่งขันทั้งหมด ➡',
   'dashboard.viewAllStandings': 'ตารางคะแนนเต็ม ➡',
   'dashboard.viewAllStats': 'ดูรายชื่อผู้นำด้านสถิติทั้งหมด ➡',
+  'forgot.submitting': 'กำลังส่งลิงก์รีเซ็ต…',
   'forgot.subtitle': 'กรอกอีเมลของคุณเพื่อรับลิงก์สำหรับรีเซ็ต',
   'forgot.success': 'ลิงก์รีเซ็ตถูกส่งไปแล้ว {{email}} ตรวจสอบกล่องจดหมายของคุณ',
+  'landing.copyright': '© {{year}} {{app}} ไล่ล่าตำแหน่ง',
+  'landing.ctaBody':
+    'ลีกของคุณ ตารางคะแนนของคุณ ทีมโปรดของคุณ — ปักหมุดไว้ด้านบน ตั้งค่าในสองนาที ฟรีตลอดฤดูกาล',
   'landing.ctaHeading': 'หยุดการอัปเดตคะแนนจากเว็บไซต์ภายนอก',
   'landing.eyebrow': 'สร้างขึ้นเพื่อแฟนๆ โค้ช และผู้จัดการแข่งขัน',
   'landing.featuresHeading': 'ที่นั่งแถวหน้าสุดสำหรับทุกการยืนชม',
   'landing.getStarted': 'เข้าร่วมลีก',
   'landing.heroCta': 'เข้าร่วมลีก',
+  'landing.heroSubtitle':
+    '{{app}} รวมตารางคะแนน ตารางการแข่งขัน และผู้นำสถิติไว้ในแดชบอร์ดคุณภาพระดับออกอากาศเดียว สกอร์สด สถิติจริง ไม่รกตา',
+  'landing.heroTitle': '{{tagline}}',
   'landing.scoreboardLabel': 'คืนนี้ทั่วลีก',
   'landing.statFans': 'แฟนคลับที่ติดตาม',
   'landing.statGames': 'เกมในฤดูกาลนี้',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'คิว {{period}}',
   'matchDetail.back': 'กลับไปที่การแข่งขัน',
   'matchDetail.eventsHeading': 'การบรรยายเกมแบบนาทีต่อนาที',
+  'matchDetail.final': 'จบเกม',
   'matchDetail.finalScore': 'สุดท้าย',
   'matchDetail.live': 'สด',
   'matchDetail.liveNow': 'ถ่ายทอดสดตอนนี้',
   'matchDetail.noEvents': 'ยังไม่มีการบันทึกเหตุการณ์ใดๆ',
   'matchDetail.periodClock': 'คิว {{period}} · {{clock}}',
+  'matches.empty': 'ไม่มีแมตช์ในมุมมองนี้ — ลองใช้ตัวกรองอื่น',
   'matches.eyebrow': 'วันแข่งขัน',
   'matches.loading': 'กำลังดึงแผ่นหินชนวนออก...',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'ไม่สามารถโหลดการแจ้งเตือนได้',
   'notifications.loading': 'กำลังโหลดการแจ้งเตือน\\u2026',
   'pennantHeroCard.eyebrow': 'อันดับหนึ่งของตาราง',
+  'pennantHeroCard.formLabel': '10 นัดหลังสุด',
   'pennantHeroCard.gamesAhead': '{{value}} เกมนำหน้าการไล่ล่า',
   'pennantHeroCard.pointsLabel': 'พีทีเอส',
   'pennantLayout.primaryNavLabel': 'การนำทางหลัก',
@@ -78,23 +107,31 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'เลือกที่นั่งของคุณ',
   'pricing.heading': 'อัปเกรดเพื่อรับตารางการแข่งขัน ผลการแข่งขัน และอันดับที่สมบูรณ์ยิ่งขึ้น',
   'pricing.limits.schedule': '{{count}} รายการกำหนดการ',
+  'pricing.limits.scores': 'สกอร์{{count}}',
+  'pricing.limits.standings': 'ตารางคะแนน{{count}}',
+  'pricing.limits.teams': 'ทีม{{count}}',
+  'pricing.subtitle': 'อัปเกรดเพื่อรับตารางการแข่งขัน สกอร์ และตารางคะแนนที่สมบูรณ์ยิ่งขึ้น',
   'pricing.upgradeCta': 'อัปเกรดเป็น {{tierName}}',
   'profile.eyebrow': 'โปรไฟล์แฟนคลับ',
   'profile.favoritesCount': 'ทีมต่างๆ ตามมา',
   'profile.favoritesHeading': 'ทีมโปรด',
   'profile.noFavorites': 'ยังไม่มีทีมโปรด — เลือกทีมได้จากหน้าทีม',
   'profile.rankRecord': 'อันดับที่ {{rank}} · {{record}}',
+  'profile.recordOnly': 'สถิติ {{record}}',
   'reset.confirmPlaceholder': 'ป้อนรหัสผ่านอีกครั้ง',
+  'reset.mismatch': 'รหัสผ่านไม่ตรงกัน',
   'reset.newLabel': 'รหัสผ่านใหม่',
   'reset.subtitle': 'เลือกใช้รหัสผ่านที่ปลอดภัยและมีความยาวอย่างน้อย 12 ตัวอักษร',
   'reset.tokenPlaceholder': 'คัดลอกจากอีเมล',
   'schedule.eyebrow': 'กระดานชนวน',
+  'schedule.moreGames': '+ {{count}} มากกว่า',
   'schedule.subtitle':
     'ดูตารางการแข่งขันตลอดฤดูกาลได้จากปฏิทิน — แตะที่วันใดก็ได้เพื่อดูผลการแข่งขัน',
   'scoreboardTicker.empty': 'ขณะนี้ไม่มีการแข่งขันสด โปรดตรวจสอบอีกครั้งเมื่อเริ่มการแข่งขัน',
   'settings.addFavorite': 'เพิ่มทีม',
   'settings.eyebrow': 'ปรับแต่ง',
   'settings.favoritesBody': 'ทีมเหล่านี้จะปรากฏบนแดชบอร์ดของคุณและแจ้งเตือนคะแนนโดยอัตโนมัติ',
+  'settings.favoritesHeading': 'ทีมโปรด',
   'settings.loading': 'กำลังโหลดการตั้งค่าของคุณ\\u2026',
   'settings.noFavorites': 'ยังไม่มีทีมโปรด — เลือกทีมจากหน้าทีมได้เลย',
   'settings.notificationsHeading': 'การแจ้งเตือนและการแสดงผล',
@@ -112,6 +149,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'แอล',
   'standings.overall': 'โดยรวม',
   'standings.points': 'พีทีเอส',
+  'standings.rank': '#',
   'standings.subtitle':
     'สี่อันดับแรกจะได้ผ่านเข้ารอบเพลย์ออฟ โดยพิจารณาจากคะแนนเป็นเกณฑ์ตัดสินในกรณีคะแนนเท่ากัน จากนั้นจึงพิจารณาจากเปอร์เซ็นต์การชนะ',
   'standings.title': 'ตารางคะแนนลีก',
@@ -130,6 +168,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'จี',
   'teamDetail.colName': 'ผู้เล่น',
   'teamDetail.colPos': 'ตำแหน่ง',
+  'teamDetail.pointsLabel': 'คะแนน',
   'teamDetail.rankLabel': 'อันดับที่ {{rank}}',
   'teamDetail.rosterHeading': 'รายชื่อ',
   'teamDetail.statGD': 'ความแตกต่างของเป้าหมาย',

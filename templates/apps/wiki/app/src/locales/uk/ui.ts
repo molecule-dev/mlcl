@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.featureEditor':
+    'Сфокусований редактор Markdown із живою розділеною панеллю перегляду, слеш-командами та AI-підсумками на вимогу для довгих читань.',
+  'about.featurePermissions':
+    'Простори з детальними ролями й дозволами, а також повнотекстовий пошук, щоб потрібний читач завжди знаходив потрібну сторінку.',
+  'about.featureTree':
+    'Постійний атлас сторінок для кожного простору: перетягуйте, щоб змінити порядок, шукайте, щоб стрибнути, а навігаційні ланцюжки тримають вас на орієнтирі.',
+  'about.featureVersioning':
+    'Кожне збереження — це версія: відновіть будь-який чернетковий варіант із хронології пліч-о-пліч, яка ніколи не втрачає жодного абзацу.',
+  'about.missionBody':
+    'Ми віримо, що команда має мати змогу записати щось один раз і бути впевненою, що це залишиться знайденим, актуальним і з належним авторством. Жодних темних патернів, жодної приманки з нескінченним прокручуванням — лише тихий, добре впорядкований дім для знань, які ваші люди творять щодня.',
+  'about.missionTitle': 'Наша місія',
   'aiSummaryCard.beta': 'Бета-версія',
   'aiSummaryCard.heading': 'Зведення ШІ',
   'aiSummaryCard.regenerate': 'Згенерувати знову',
@@ -14,6 +26,9 @@ export const ui: UiTranslations = {
   'authShell.footer.poweredBy': 'Працює на Molecule.dev',
   'authShell.sampleEdited': 'Оновлено 2 хвилини тому користувачем Alex Lin',
   'authShell.samplePageEyebrow': 'Інженерія · Довідка',
+  'authShell.samplePageSummary':
+    'Стек 2026 року працює на шардованому кластері Postgres за тонким шлюзом GraphQL. Частка влучань у кеш на периферії — 89%, вартість за мільйон знизилася на 38% рік до року.',
+  'authShell.samplePageTitle': 'Огляд архітектури — 2026',
   'comments.eyebrow': 'Розмови в робочій області',
   'comments.heading': 'Невирішені теми',
   'comments.openFor': 'ВІДЧИНЕНО {{age}}',
@@ -25,22 +40,34 @@ export const ui: UiTranslations = {
     'The {{count}} Теми все ще очікують на відповідь або вирішення. Відсортовано за віком — спочатку найстаріші, щоб нічого не зіпсувалося.',
   'common.goToDashboard': 'До панелі',
   'forgotPassword.sentTo': 'Скинути посилання, надіслане на адресу {{email}}',
+  'forgotPassword.subheading':
+    'Введіть свою робочу електронну адресу, і ми надішлемо посилання для скидання.',
   'forgotPassword.successSubheading':
     'Перевірте свою поштову скриньку — ми щойно надіслали посилання для скидання. Воно дійсне 30 хвилин.',
+  'forgotPassword.tip':
+    'Не надійшло? Перевірте спам або зачекайте 60 секунд і надішліть запит ще раз.',
   'home.activity.empty': 'Сповіщень ще немає.',
   'home.defaultName': 'Друг',
   'home.eyebrow': 'Сьогодні в Керні',
+  'home.heroLastEdited': 'Оновлено {{when}} користувачем {{name}}',
+  'home.heroNoEdits': 'Ще нічого не редагувалося — почніть із написання сторінки.',
   'home.newPage': 'Нова сторінка',
   'home.recent.empty': 'Ще немає сторінок — почніть зі створення однієї.',
   'home.recent.title': 'Нещодавні сторінки',
   'home.spaces.empty': 'Поки що немає вільних місць.',
   'home.spaces.pageCount': '{{count}} сторінки',
+  'home.spaces.title': 'Ваші простори',
+  'home.subtitle': 'Немає непрочитаних згадок — відкрийте простір, щоб почати писати.',
   'home.unreadSubtitle':
     '{{count}} непрочитані сповіщення з моменту вашого останнього відвідування.',
   'knowledgeHeroCard.eyebrow': '{{workspace}} · Курган знань',
+  'knowledgeHeroCard.subtitle':
+    'Сторінки, складені по всьому робочому простору, доглянуті {{contributors}} дописувачами.',
   'landing.ctaPrimary': 'Створіть робочу область',
   'landing.ctaSecondary': 'Ознайомтеся зі зразком вікі',
   'landing.eyebrow': 'База знань · Для глибоких команд',
+  'landing.featuresHeadline': 'Три стовпи, спокійно складені.',
+  'landing.featuresSubtitle': 'Редактор, архів, атлас — усе в одній тихій оболонці.',
   'landing.footer.copyright': '© {{name}}',
   'landing.headline': 'Зберігайте знання. Позначайте шлях.',
   'landing.heroLastEdited': 'Оновлено 2 хвилини тому користувачем Alex Lin',
@@ -49,18 +76,21 @@ export const ui: UiTranslations = {
     'Спокійна редакційна вікі-сторінка для команд, які уважно читають. Сторінки з версіями, довгі тексти, підсумовані штучним інтелектом, та дерево сторінок, яке нарешті сприймається як меблі, а не як паперова робота.',
   'login.heading': 'Увійдіть у свій каірн',
   'login.signupLink': 'Почніть один',
+  'login.signupPrompt': 'Ще не маєте робочого простору?',
   'login.subheading':
     'Продовжуйте з того місця, де зупинилася команда — вашій останній редакції дві хвилини.',
   'notifications.empty.body':
     'Тут ви бачитимете згадки, відповіді та завдання в міру їх виконання.',
   'notifications.empty.title': 'Тиха папка «Вхідні» — нічого не чекає.',
   'notifications.eyebrow': 'Вхідні · Керн',
+  'notifications.subtitle': 'Згадки, відповіді та призначення — згруповано за днями.',
   'pageEditor.bodyLabel': 'Тіло Markdown',
   'pageEditor.eyebrowEdit': 'Редагування',
   'pageEditor.eyebrowNew': 'Нова сторінка',
   'pageEditor.previewLabel': 'Попередній перегляд',
   'pageEditor.savedAt': 'Збережено {{when}}',
   'pageEditor.summaryLabel': 'Зведення ШІ',
+  'pageEditor.tags.placeholder': 'Додати тег…',
   'pageEditor.tags.remove': 'Видалити тег {{tag}}',
   'pageEditor.titlePlaceholder': 'Заголовок сторінки…',
   'pageEditor.toolbar.summarize': 'Підсумок ШІ',
@@ -77,22 +107,26 @@ export const ui: UiTranslations = {
   'pageView.notFoundTitle': 'Сторінку не знайдено',
   'pageView.summarize': 'Згенерувати зведення',
   'pageView.summarizing': 'Підсумовування…',
+  'pageView.summaryEmpty': 'Ще немає AI-підсумку — згенеруйте його зі вмісту сторінки.',
   'pageView.summaryUnavailable':
     'Зведення штучного інтелекту не налаштовано для цієї робочої області.',
   'pageView.tocTitle': 'На цій сторінці',
   'pageView.trash': 'Кошик',
   'pageView.trashing': 'Викидання…',
   'pageView.versionBadge': 'в{{version}}',
+  'pricing.limits.advanced': 'Розширені функції',
   'profile.badges.title': 'Значки',
   'profile.owned.title': 'Сторінки, що належать',
   'profile.recent.title': 'Нещодавні внески',
   'resetPassword.newPassword': 'Новий пароль',
   'resetPassword.subheading':
     'Виберіть щось довжиною щонайменше 12 символів. Ми ввійдемо в систему після збереження.',
+  'search.empty.body': 'Спробуйте коротшу фразу або приберіть фільтр.',
   'search.empty.title': 'У кургані ще нічого з цим не зрівняється.',
   'search.eyebrow': 'У всіх просторах',
   'search.heading': 'Пошук піраміди',
   'search.resultCount': '{{count}} результатів',
+  'search.startTyping': 'Введіть текст, щоб шукати в каїрні.',
   'search.subtitle':
     'Сторінки, коментарі, учасники — все миттєво, все орієнтоване на локальний рівень.',
   'search.unknownSpace': 'Космос',
@@ -116,6 +150,7 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Обмінюйтеся знаннями зі своєю командою — безкоштовно для перших 5 редакторів.',
   'spaces.dialog.create': 'Створити простір',
+  'spaces.dialog.title': 'Новий простір',
   'spaces.empty.body': 'Створіть свій перший простір, щоб почати писати.',
   'spaces.empty.title': 'Поки що немає вільних місць.',
   'spaces.eyebrow': 'Робочі простори · Керн',
@@ -140,19 +175,23 @@ export const ui: UiTranslations = {
   'trash.confirmPurge': 'Очиститися назавжди?',
   'trash.confirmPurgeAria': 'Підтвердити: остаточно видалити {{title}}',
   'trash.daysUntilPurge': '{{days}} залишилося днів',
+  'trash.deletedWhen': 'Видалено {{when}}',
   'trash.empty.body':
     'Видалені сторінки відображатимуться тут протягом 30 днів, перш ніж їх буде видалено.',
   'trash.empty.title': 'Кошик порожній.',
   'trash.eyebrow': 'Архів · 30-денне зберігання',
   'trash.heading': 'Кошик',
+  'trash.loading': 'Завантаження кошика…',
   'trash.purge': 'Очищення',
   'trash.purging': 'Очищення…',
   'trash.restore': 'Відновити',
   'trash.restoring': 'Відновлення…',
   'trash.subtitle':
     'Видалені сторінки зберігаються тут 30 днів. Відновіть ті, що вам ще потрібні, видаліть ті, що вам не потрібні — нічого не зникне, поки ви не скажете.',
+  'versionHistory.attribution': 'Збережено {{when}}',
   'versionHistory.backLink': 'Назад до сторінки',
   'versionHistory.diffHeading': 'Різниця · v{{v}}',
+  'versionHistory.empty.title': 'Ще немає версій.',
   'versionHistory.heading': 'Історія версій',
   'versionHistory.older': 'Старші',
   'versionHistory.restore': 'Відновити цю версію',

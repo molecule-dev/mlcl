@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Geri bildiriminiz mi var, bir hata mı buldunuz yoksa bir özellik mi önermek istiyorsunuz? Hesap ayarlarınızdan bize ulaşın — her mesaj ekibimizdeki gerçek bir insana gider.',
+  'about.contactTitle': 'Bizimle iletişime geçin',
+  'about.featureDatabases':
+    'Dağınık notları yapılandırılmış, tekrarlanabilir iş akışlarına dönüştürmek için hafif veritabanları ve yeniden kullanılabilir şablonlar.',
+  'about.featureEditor':
+    'Sakin bir blok düzenleyici — başlıklar, listeler, kod, çağrı kutuları ve yapılacaklar — istediğinizde eğik çizgi komutlarıyla, istemediğinizde yoldan çekilir.',
+  'about.featureGraph':
+    'Geri bağlantılar ve bir bilgi grafiği: bir nota bağlantı vermek için [[ yazın ve fikirlerinizin zamanla nasıl bağlandığını izleyin.',
+  'about.featureNotebooks':
+    'İç içe defterler ve sayfalar; böylece projeler, konular ve günlük notlar tam da düşündüğünüz gibi düzenli kalır.',
+  'about.featureSearch':
+    "Her defterde 50 ms'nin altında tam metin arama, ayrıca defterlerle çakışmak yerine onlarla bütünleşen etiketler.",
+  'about.missionTitle': 'Misyonumuz',
   'common.goToDashboard': 'Panele Git',
   'forgot.eyebrow': 'Geri dönüş yolunu mu kaybettiniz?',
   'forgot.formSubtitle': 'Bize kayıtlı e-posta adresinizi söyleyin.',
+  'forgot.formTitle': 'Parolayı unuttum',
   'forgot.headline': 'Şifrenizi sıfırlayın.',
   'forgot.subline':
     'Yeni bir tane seçebilmeniz için e-posta kutunuza tek kullanımlık bir bağlantı göndereceğiz.',
+  'forgot.successDetail':
+    'E-postanıza bir sıfırlama bağlantısı gönderdik. 30 dakika içinde sona erer.',
   'graph.eyebrow': 'Grafik',
+  'graph.goToNotes': 'Notlara göz at →',
+  'graph.loadError': 'Grafik yüklenemedi: {{message}}',
   'graph.placeholderBody':
     'Notlar birbirine bağlanmaya başladığında ([[wiki]] sözdizimiyle), burada etkileşimli, kuvvete dayalı bir grafik görüntülenecektir.',
+  'graph.placeholderTitle': 'Geri bağlantı grafiği yakında',
   'graph.subtitle':
     '{{count}} Bu çalışma alanındaki notlar. Notlar birbirine bağlandıktan sonra geri bağlantı grafiği burada görünecektir.',
   'graph.title': 'Bilgi grafiği',
   'home.empty': 'Henüz not yok — ilk notunuzu yazmaya başlayın.',
   'home.favoritesHeading': 'Sabitlenmiş',
   'home.guest': 'arkadaş',
+  'home.loadError': 'Notlarınız yüklenemedi: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Bu bilgiyi burada saklamak için düzenleyiciye bir not sabitleyin.',
   'home.recentHeading': 'Yakın zamanda güncellenenler',
@@ -23,18 +44,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Defter',
   'home.stats.pinned.label': 'Sabitlenmiş',
   'home.stats.updatedToday.label': 'Bugün güncellendi',
+  'home.subtitle': 'Kaldığınız yerden devam edin veya yeni bir not başlatın.',
   'home.viewAll': 'Tüm notları görüntüle',
   'landing.cta.body':
     'Kişisel kullanım için ücretsiz. Ekipler için Pro sürümü. Mevcut Markdown dosyanızı kullanın veya sıfırdan başlayın — Verso, notlarınız nerede olursa olsun size eşlik eder.',
+  'landing.cta.button': 'Çalışma alanımı oluştur',
   'landing.cta.heading': 'Bugünkü sayfayı açın.',
   'landing.features.eyebrow': 'İkinci beyninizin ihtiyaç duyduğu her temel unsur',
+  'landing.features.heading': 'İş için yapıldı, meta-iş için değil.',
   'landing.hero.eyebrow': 'Sessiz bir yazı yüzeyi',
   'landing.hero.headlineAccent': 'şekil almak.',
   'landing.hero.headlineLeading': 'Düşüncelerin nerede olduğu',
   'landing.hero.primaryCta': 'Bilgi tabanınızı oluşturmaya başlayın.',
   'landing.hero.secondaryCta': 'Zaten bir hesabım var',
+  'landing.hero.socialProof':
+    '12.800+ yazar, öğrenci ve doktora öğrencisi {{appName}} ile düşünüyor',
   'landing.hero.subline':
     'Verso, bilgi çalışanları ve öğrenciler için yapılandırılmış bir not alma platformudur. Blok düzenleyici, iç içe geçmiş not defterleri, geri bağlantılar ve bilgi grafiği; hepsi de tipografi odaklı bir okuma deneyiminin ardında yer alıyor.',
+  'landing.preview.notebook': 'Bilgi · Yazma süreci',
+  'landing.preview.title': 'Hava akımlarının nefes almasına izin vermek üzerine',
   'login.eyebrow': "Verso'ya tekrar hoş geldiniz.",
   'login.formSubtitle': 'E-postanızı veya bağlı bir sağlayıcıyı kullanın.',
   'login.headline': 'Sayfanın kaldığı yerden devam edin.',
@@ -44,6 +72,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Gezinme menüsünü kapat',
   'mobileNav.openMenu': 'Gezinti menüsünü aç',
   'noteEditor.backToNotes': 'Notlara geri dön',
+  'noteEditor.bodyLabel': 'Not gövdesi',
   'noteEditor.bodyPlaceholder':
     'Yazmaya başlayın; siz yazarken notunuz otomatik olarak kaydedilir.',
   'noteEditor.confirmTrash': 'Bu notu çöp kutusuna taşımak ister misiniz?',
@@ -52,17 +81,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Çöp kutusuna taşı',
   'noteEditor.updated': 'Güncellendi',
   'notes.defaultWorkspaceName': 'Defterim',
+  'notes.empty': 'Burada henüz not yok — defteri doldurmak için bir tane başlatın.',
   'notes.eyebrow': 'Defter',
   'notes.filterAll': 'Tüm notlar',
   'notes.filterPinned': 'Sabitlenmiş',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Yeni defter',
   'notes.newNotebookPrompt': 'Yeni defter adı',
+  'notes.newNotebookRequired': 'Bir defter adı girin.',
   'notes.notebooksHeading': 'Defterler',
   'notes.subtitle':
     'Soldaki defterlerden birini seçin, ardından yeni bir giriş başlatmak için Yeni not düğmesine basın.',
+  'planUpdated.body': 'Aboneliğiniz artık aktif.',
   'planUpdated.confirmation': 'Planınız güncellendi',
+  'pricing.advancedFeatures': 'Gelişmiş özellikler',
   'pricing.heading': 'Not alma planınızı seçin.',
+  'reset.changedMind': 'Fikrinizi mi değiştirdiniz?',
   'reset.eyebrow': 'Neredeyse geri döndüm.',
   'reset.formSubtitle': 'Kaydedilir kaydedilmez giriş yapmış olacaksınız.',
   'reset.headline': 'Yeni bir şifre belirleyin.',
@@ -71,7 +105,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'Az önce size e-posta ile gönderdiğimiz kodu girin ve unutulmaz bir şey seçin.',
   'reset.submit': 'Kaydet ve oturum aç',
   'reset.tokenHint': 'Gelen kutunuzdan yapıştırılmış.',
+  'search.empty': 'Bu sorguyla eşleşen not yok henüz.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': "Refract'ta Ara",
   'search.loading': 'Aranıyor…',
   'search.noRecent': 'Notlarınızda arama yapmaya başlamak için yukarıya bir sorgu yazın.',
   'search.recentLabel': 'Son aramalar',
@@ -79,12 +115,19 @@ export const ui: UiTranslations = {
     'Tüm not defterlerinde tam metin arama özelliği. Aramak için yazın; siz yazarken sonuçlar yenilenir.',
   'search.title': 'İkinci beyni araştırın.',
   'settings.account.logout': 'Çıkış yap',
+  'settings.account.title': 'Hesap ayrıntıları',
+  'settings.editor.graphHover.body':
+    'Düzenleyicide bir [[vikibağlantı]] üzerine geldiğinizde küçük bir önizleme kartı göster.',
+  'settings.editor.graphHover.label': 'Geri bağlantı grafiği üzerine gelme önizlemesi',
   'settings.editor.lineHeight.body':
     "Vücut çizgileri arasında ne kadar hava var? Varsayılan okuma ritmi %170'tir.",
+  'settings.editor.lineHeight.label': 'Satır yüksekliği',
   'settings.editor.serif.body':
     'Okuma sütunu için Georgia yazı tipini kullanın. Kenar çubuklarında ve araç çubuklarında sans-serif yazı tipini tercih edin.',
+  'settings.editor.serif.label': 'Serif gövde metni',
   'settings.editor.title': 'Tipografi ve yazı yüzeyi',
   'settings.eyebrow': 'Verso · Ayarlar',
+  'settings.passwordModal.current': 'Mevcut parola',
   'settings.passwordModal.error': 'Parola değiştirilemedi — lütfen mevcut parolanızı kontrol edin.',
   'settings.passwordModal.next': 'Yeni şifre',
   'settings.passwordModal.submit': 'Şifreyi kaydet',
@@ -93,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Her tuş vuruşunu gerçek zamanlı kanal üzerinden iletin. Daha yavaş bağlantılar için devre dışı bırakın.',
   'settings.sync.auto.label': 'Gerçek zamanlı senkronizasyon',
+  'settings.sync.title': 'Notlarınız nasıl yol alır',
   'settings.theme.body':
     'Işık, başyazı köşesini canlı tutar. Sepya tonları ise akşamları sayfaya sıcaklık katar.',
   'settings.theme.dark': 'Koyu',
@@ -112,8 +156,12 @@ export const ui: UiTranslations = {
     'Not başlığına #etiketler ekleyin (örneğin "Okuma listesi #kitaplar") ve bunlar burada otomatik olarak görünecektir.',
   'tags.emptyTitle': 'Henüz etiket yok.',
   'tags.eyebrow': 'İndeks',
+  'tags.goToNotes': 'Notlara git →',
+  'tags.loadError': 'Etiketler yüklenemedi: {{message}}',
   'tags.subtitle':
     '{{tags}} etiketler arasında {{notes}} Notlar. Not başlığına #etiketler ekleyin, bunlar burada görünecektir.',
+  'versoAuthShell.sample.body':
+    'Yarın yapılan ikinci bir geçiş, bu gece yapılan ilk geçişten her zaman daha iyi okunur. Kaba taslağı derin çalışma klasörüne bırakın…',
   'versoAuthShell.sample.label': 'Günlük not',
   'versoAuthShell.sample.timestamp': 'Bugün · 09:14',
   'versoAuthShell.sample.title': 'Hava akımlarının nefes almasına izin vermek üzerine',
@@ -125,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Yazmaya devam et',
   'versoTodayHero.createCta': 'Bugünkü nota başla',
   'versoTodayHero.dailyLabel': 'Günlük not',
+  'versoTodayHero.emptyHeadline': 'Bugün boş bir sayfa.',
   'versoTodayHero.emptySubline':
     'Bir düşünceyi yakalayın, bir toplantıyı not alın veya yarını taslak olarak çizin. Verso, yapıyı sessiz tutarak yazının etkileyici olmasını sağlar.',
+  'versoTodayHero.outlineLabel': 'Bugünün taslağı',
   'versoTodayHero.streak': '{{count}} günlük seri',
+  'versoTodayHero.unwritten': 'Henüz kelime yok — başlamak için notu açın.',
   'versoTodayHero.wordCount': '{{count}} bugünün sözleri',
 }

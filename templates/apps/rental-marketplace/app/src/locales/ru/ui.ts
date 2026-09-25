@@ -1,13 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О нас',
+  'about.featureBooking':
+    'Мгновенное бронирование или бронирование по запросу с безопасной оплатой через Stripe и бесплатной отменой не позднее чем за 48 часов до заезда.',
+  'about.featureHosting':
+    'Полная панель управления для хозяев: публикуйте объявления, управляйте доступностью, отслеживайте бронирования и получайте выплаты.',
+  'about.featureMessaging':
+    'Прямая переписка с хозяевами до и во время проживания, а также списки желаний, чтобы сохранять понравившиеся места.',
+  'about.featureReviews':
+    'Честные двусторонние отзывы, чтобы путешественники и хозяева строили доверительную репутацию.',
+  'about.featureSearch':
+    'Поиск по карте среди проверенных объявлений с фильтрами по цене, удобствам и датам.',
+  'about.missionBody':
+    'Путешествие должно связывать вас с местом, а не с сетью отелей. Мы помогаем независимым хозяевам публиковать уникальные дома, а путешественникам — находить их: прозрачные цены, никаких скрытых комиссий, а выплаты, налоги и проверка путешественников берём на себя, чтобы хозяева могли сосредоточиться на гостеприимстве.',
+  'about.missionTitle': 'Наша миссия',
+  'about.subtitle': 'Маркетплейс аренды, построенный вокруг настоящих домов и настоящих хозяев.',
   'bookingDetail.afterTime': 'После 15:00',
   'bookingDetail.backCta': 'Вернуться к бронированию',
   'bookingDetail.beforeTime': 'До 11:00 утра',
   'bookingDetail.cancel': 'Отменить бронирование',
   'bookingDetail.cancelFailed': 'Отменить не удалось — пожалуйста, попробуйте еще раз.',
   'bookingDetail.checkIn': 'Регистрироваться',
+  'bookingDetail.cleaningFee': 'плата за уборку',
   'bookingDetail.confirmCancel': 'Отменить бронирование? Отменить это невозможно.',
   'bookingDetail.eyebrow': 'Подтверждение · {{code}}',
   'bookingDetail.messageHost': 'Хост сообщения',
@@ -21,14 +37,17 @@ export const ui: UiTranslations = {
   'bookingDetail.viewListing': 'Просмотреть объявление',
   'bookingDetail.yourHost': 'Ваш хозяин',
   'bookingItineraryRow.nights': '{{count}} ночи',
+  'bookings.empty.past': 'Прошлые бронирования появятся здесь после вашего проживания.',
   'bookings.empty.upcoming': 'Нет запланированных поездок — давайте это исправим.',
   'bookings.eyebrow': 'Ваши поездки',
   'bookings.heading': 'Бронирование',
   'bookings.loadError': 'Не удалось загрузить бронирования.',
+  'bookings.searchCta': 'Запланируйте еще одну поездку',
   'bookings.subheading': '{{upcoming}} предстоящие · {{past}} прошлое',
   'common.goToDashboard': 'Перейти к панели',
   'common.retry': 'Повторить попытку',
   'createListing.back': 'Вернуться к списку',
+  'createListing.bedrooms': 'Спальни',
   'createListing.cityLabel': 'Где это?',
   'createListing.cityPlaceholder': 'Город, регион или район',
   'createListing.descPlaceholder':
@@ -38,17 +57,23 @@ export const ui: UiTranslations = {
   'createListing.error.price': 'Перед публикацией добавьте цену за ночь.',
   'createListing.error.title': 'Добавьте заголовок перед публикацией.',
   'createListing.heading': 'Откройте дверь',
+  'createListing.listingImageAlt': 'Объявление {{number}}',
   'createListing.maxGuests': 'Максимальное количество гостей',
   'createListing.photos.heading':
     'Добавьте фотографии, которые заставят путешественников остановиться и не пролистать ленту.',
+  'createListing.photos.subheading':
+    'Хозяева, загрузившие хотя бы 3 фото, зарабатывают в среднем в 2,3 раза больше.',
   'createListing.place.heading': 'Что это за место?',
+  'createListing.price': 'Цена за ночь',
   'createListing.publish': 'Опубликовать объявление',
   'createListing.removePhoto': 'Удалить фото',
   'createListing.step.${s.key}.eyebrow': 'Шаг {{n}}',
   'createListing.subheading':
     'Чтобы ваше объявление стало доступным, вам нужно ответить всего на несколько вопросов. Мы будем сохранять ваш прогресс на каждом этапе.',
+  'createListing.title': 'Название объявления',
   'createListing.titlePlaceholder': 'Солнечная хижина на скале',
   'createListing.uploadCta': 'Добавить фото {{n}}',
+  'createListing.useSample': 'Использовать пример фото',
   'destinationDiscoveryCard.exploreCta': 'Изучите варианты размещения',
   'forgotPassword.eyebrow': 'Перезагрузить',
   'forgotPassword.subheading':
@@ -64,6 +89,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelYtd': 'С начала года',
   'hostDashboard.loadError':
     'Не удалось загрузить данные вашего хостинга. Пожалуйста, попробуйте еще раз.',
+  'hostDashboard.queueArrivals': '{{count}} заездов на следующей неделе',
+  'hostDashboard.queueListings': '{{count}} активные объявления',
   'hostDashboard.queueRequests': '{{count}} запросы на бронирование',
   'hostDashboard.queueReview': 'очередь просмотра',
   'hostDashboard.queueTitle': 'Ваша очередь',
@@ -85,11 +112,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': 'Список не найден.',
   'hostListingDetail.photos.empty': 'Фотографии пока не загружены.',
   'hostListingDetail.photos.heading': 'Фотографии',
+  'hostListingDetail.pricing.cleaning': 'плата за уборку',
   'hostListingDetail.pricing.save': 'Сохранить цены',
   'hostListingDetail.pricing.weekday': 'тариф в будние дни',
   'hostListingDetail.pricing.weekend': 'Тариф выходного дня (только для отображения)',
   'hostListingDetail.rules.copy':
     'Установите ожидания гостей и защитите свой дом — эти вопросы решаются до подтверждения бронирования.',
+  'hostListingDetail.rules.heading': 'Правила дома',
   'hostListings.create': 'Создать новое объявление',
   'hostListings.eyebrow': 'Ваше портфолио',
   'hostListings.heading': 'Объявления',
@@ -99,8 +128,11 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Для хозяев',
   'landing.cta.heading': 'Откройте дверь. Заработайте столько, сколько стоит ваш дом.',
   'landing.cta.host': 'Начать хостинг',
+  'landing.cta.subheading':
+    '{{appName}} берёт на себя выплаты, налоги и проверку путешественников, чтобы вы могли сосредоточиться на приёме гостей. Большинство новых хозяев зарабатывают свои первые $1,000 в течение 30 дней.',
   'landing.destinations.eyebrow': 'Куда дальше?',
   'landing.destinations.heading': 'Места, которые любят наши хозяева.',
+  'landing.destinations.seeAll': 'Посмотреть все направления',
   'landing.footer.host': 'Станьте хозяином',
   'landing.footer.search': 'Найдите жилье',
   'landing.footer.tagline': 'Ведите себя так, будто вы на своем месте.',
@@ -109,8 +141,11 @@ export const ui: UiTranslations = {
   'landing.nav.host': 'Станьте хозяином',
   'landing.nav.join': 'Присоединяйтесь к Русту',
   'landing.nav.search': 'Найдите жилье',
+  'landing.preview.browseAll': 'Смотреть всю коллекцию',
   'landing.preview.eyebrow': 'Взгляд изнутри',
   'landing.preview.heading': 'Тщательно отобранные варианты размещения в этом месяце',
+  'landing.preview.subheading':
+    'Каждое объявление на {{appName}} размещает реальный человек — проверенный, с отзывами, и с бесплатной отменой не позднее чем за 48 часов до заезда.',
   'listingDetail.about': 'Об этом месте',
   'listingDetail.amenities': 'Что предлагает это место',
   'listingDetail.bathrooms': 'ванны',
@@ -118,7 +153,10 @@ export const ui: UiTranslations = {
   'listingDetail.beds': 'кровати',
   'listingDetail.bookFailed':
     'Забронировать не удалось. Попробуйте еще раз или сначала войдите в систему.',
+  'listingDetail.cleaningFee': 'плата за уборку',
+  'listingDetail.guests': 'гостей',
   'listingDetail.hostedBy': 'Ведущий: {{host}}',
+  'listingDetail.hostMeta': '{{years}} лет принимаю гостей · {{response}}% отвечаемости',
   'listingDetail.houseRules': 'Правила дома',
   'listingDetail.instantBook': 'Забронируйте сейчас · Мгновенное бронирование',
   'listingDetail.loadError': 'Не удалось загрузить список.',
@@ -129,6 +167,7 @@ export const ui: UiTranslations = {
   'listingDetail.perNight': 'за ночь',
   'listingDetail.pickDates': 'Сначала выберите даты заезда и выезда.',
   'listingDetail.priceRow': '{{price}} × {{nights}} ночи',
+  'listingDetail.requestBook': 'Запрос на бронирование',
   'listingDetail.reserving': 'Бронирование…',
   'listingDetail.reviews': 'отзывы',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}} отзывы',
@@ -136,6 +175,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'Суперхост',
   'login.eyebrow': 'Добро пожаловать домой!',
   'login.heading': 'Войдите в Roost',
+  'login.noAccount': 'Впервые пользуетесь Tessera?',
   'login.signupLink': 'Создайте бесплатный аккаунт',
   'login.subheading':
     'Продолжите с того места, где остановились — управляйте поездками, общайтесь с хозяевами и бронируйте жилье, о котором вы мечтали.',
@@ -161,6 +201,7 @@ export const ui: UiTranslations = {
   'notFound.heading': 'Мы не можем найти это жилье.',
   'notifications.loading': 'Загрузка…',
   'notifications.subheading': '{{count}} непрочитанное · все в одном спокойном почтовом ящике',
+  'pricing.ctaContact': 'Связаться с отделом продаж',
   'pricing.ctaUpgrade': 'Связаться с отделом продаж',
   'pricing.eyebrow': 'Просто, прозрачно',
   'pricing.heading': 'План, который соответствует вашему ритму путешествий.',
@@ -197,8 +238,11 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Выберите что-нибудь запоминающееся. Мы войдем в систему, как только вы сохраните данные.',
   'roostAuthShell.brand.eyebrow': 'Веди себя так, будто ты здесь на своем месте.',
+  'roostAuthShell.brand.heading': 'Домики, коттеджи, риады — от хозяев, которые живут там же.',
   'roostHeroSearchCard.checkInAria': 'Дата заезда',
   'roostHeroSearchCard.checkOutAria': 'Дата выезда',
+  'roostHeroSearchCard.destAria': 'Место назначения',
+  'roostHeroSearchCard.destLabel': 'Где',
   'roostHeroSearchCard.destPlaceholder': 'Город, регион или недвижимость',
   'roostHeroSearchCard.eyebrow': 'Тщательно отобранные варианты размещения · Проверенные хозяева',
   'roostHeroSearchCard.guestsOption': '{{n}} гости',
@@ -210,6 +254,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'Основная навигация',
   'roostListingCard.bookmarkAria': 'Сохранить объявление',
   'roostListingCard.night': 'ночь',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'По вашему запросу ничего не найдено.',
   'search.emptyHint':
     'Попробуйте расширить фильтры или снять ограничение по цене — на Roost представлены варианты размещения в 26 странах.',
@@ -217,9 +262,14 @@ export const ui: UiTranslations = {
   'search.heading': 'Место, где чувствуешь себя как дома.',
   'search.headingForQuery': 'Остается на " {{q}} "',
   'search.loadError': 'Не удалось загрузить объявления.',
+  'search.mapHint':
+    'Наведите курсор на карточку, чтобы выделить её на карте. В продакшене — живые тайлы Mapbox.',
+  'search.mapPinAria': '{{name}} — {{price}} за ночь',
   'search.sortLabel': 'Сортировать по',
   'search.subheading': '{{count}} объявления · {{guests}} гости',
+  'settings.appearance.description': 'Переключайтесь между светлым и темным режимом.',
   'settings.appearance.title': 'Появление',
+  'settings.openBilling': 'Открытая оплата',
   'settings.payments.heading': 'Способы оплаты',
   'settings.paymentsHelp':
     'Roost списывает средства с вашей карты в момент подтверждения бронирования хозяином. Управление сохраненными картами доступно на странице «Цены».',

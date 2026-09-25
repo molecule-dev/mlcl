@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'မေးခွန်းများ၊ အကြံပြုချက်များ သို့မဟုတ် သင့်အဖွဲ့နှင့်အတူ {{app}} ကို ကြည့်လိုပါသလား။ သင့် workspace ဆက်တင်များမှ ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း ကျွန်ုပ်တို့အဖွဲ့မှ လူတစ်ဦးထံ ရောက်ပါသည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ရန်',
   'about.eyebrow': '{{tagline}}',
+  'about.intro':
+    '{{app}} သည် နာရီအလိုက် အလုပ်လုပ်သော အဖွဲ့များအတွက် အလုပ်ချိန်စီစဉ်သည့် လုပ်ငန်းခွင် တစ်ခု ဖြစ်သည်။ အပတ်စဉ် အလုပ်ချိန်စာရင်းများ၊ ရရှိနိုင်မှု၊ အလုပ်လဲလှယ်မှု အတည်ပြုချက်များ၊ လွတ်နေသော အလုပ်ချိန်များနှင့် အလုပ်ချိန်မှတ်တမ်းများကို တစ်ခုတည်းသော ယုံကြည်ရသည့် အရင်းအမြစ်တွင် ထားရှိသည် — ကြီးမားသော စီးပွားရေးလုပ်ငန်း ဆန်ဆန် မဟုတ်ဘဲ၊ သင့်အဖွဲ့ လုပ်ငန်းခွင်တွင် လိုအပ်သည့် လူစုံလုံဖြစ်မှုကိုသာ ရည်ရွယ်သည်။',
+  'about.missionBody':
+    'နာရီအလိုက် အလုပ်လုပ်သော အဖွဲ့များကို စီမံခန့်ခွဲသူများသည် တစ်ပတ်စာ အလုပ်ချိန်ဖြည့်ရန် မက်ဆေ့ခ်ျပို့ခြင်း၊ စာရင်းဇယားပြုလုပ်ခြင်းနှင့် ထပ်မံ မက်ဆေ့ခ်ျပို့ခြင်းတို့တွင် နာရီများစွာ ကုန်ဆုံးစေသည်။ ကျွန်ုပ်တို့သည် ပျင်းစရာကောင်းသော်လည်း မရှိမဖြစ်လိုအပ်သည့် အလုပ်ချိန်စီစဉ်မှု အခြေခံအုတ်မြစ် — အလုပ်ချိန်စာရင်းများ၊ ရရှိနိုင်မှု၊ အလုပ်လဲလှယ်မှုများနှင့် တောင်းဆိုမှုများ — ကို တည်ဆောက်ပေးသည်၊ သို့မှသာ စီမံခန့်ခွဲသူများသည် ဖုန်းပေါ်မဟုတ်ဘဲ လုပ်ငန်းခွင်တွင် သူတို့၏ စွမ်းအင်ကို အသုံးပြုနိုင်မည် ဖြစ်သည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.title': '{{app}} အကြောင်း',
   'auth.backToSignIn': 'ဝင်ရောက်ရန် နောက်သို့',
   'auth.legalConsent': 'ဆက်လက်အသုံးပြုခြင်းဖြင့် သင်သည် ကျွန်ုပ်တို့၏ သဘောတူညီပါသည်',
@@ -34,6 +41,8 @@ export const ui: UiTranslations = {
   'availability.showFor': 'ပြပါ',
   'availability.subheading':
     'အပတ်စဉ် ထပ်တလဲလဲ အချိန်ကာလများနှင့် တစ်ကြိမ်တည်း ပိတ်သည့်ရက်များ။ ၎င်းတို့အပြင်ဘက်တွင် အချိန်ဇယား ချထားခြင်းကို ခွင့်ပြုသော်လည်း အလံပြထားပါသည်။',
+  'availability.windowsEmpty':
+    'သတ်မှတ်ထားသော အချိန်ကာလများ မရှိပါ — လုံးဝ ပြောင်းလွယ်ပြင်လွယ်ရှိသည်ဟု သတ်မှတ်သည်။',
   'availability.windowsHeading': 'အပတ်စဉ် အချိန်ကာလများ',
   'claims.actionFailed': 'လုပ်ဆောင်ချက် မအောင်မြင်ပါ။',
   'common.advancedFeatures': 'အဆင့်မြင့် လုပ်ဆောင်ချက်များ',
@@ -64,13 +73,19 @@ export const ui: UiTranslations = {
   'dashboard.coverageEyebrow': '၏ အပတ်',
   'dashboard.coverageHeading': 'နေ့စဉ် လွှမ်းခြုံမှု',
   'dashboard.empty': 'ဒေတာ မရှိသေးပါ။',
+  'dashboard.eyebrow': 'ဤအပတ် {{appName}} တွင်',
+  'dashboard.heading': 'အလုပ်ချိန်စီစဉ်မှု ခြုံငုံသုံးသပ်ချက်',
+  'dashboard.kpi.hours': 'စီစဉ်ထားသော နာရီများ',
   'dashboard.kpi.hoursHint': 'အများဆုံး-နာရီ ဘတ်ဂျက်မှ။',
   'dashboard.kpi.openHint': 'ထုတ်ပြန်ပြီး တောင်းခံခြင်း မပြုသေးသည်။',
+  'dashboard.kpi.openShifts': 'အဖွင့် အလုပ်ချိန်များ',
   'dashboard.kpi.pending': 'အတည်ပြုရန် ဆိုင်းငံ့ထားသည်',
   'dashboard.kpi.staff': 'စာရင်းတွင် ဝန်ထမ်း',
   'dashboard.openCount': '{{count}} အဖွင့်',
+  'dashboard.openScheduleCta': 'လွတ်နေသော အလုပ်ချိန်စီစဉ်မှု',
   'dashboard.openShift': 'အဖွင့် အလုပ်ချိန်',
   'dashboard.shift': 'အလုပ်ချိန်',
+  'dashboard.subheading': 'လူစုံလုံဖြစ်မှု၊ အတည်ပြုချက်များနှင့် ဖြည့်ရန် လိုအပ်နေသော ကွက်လပ်များ။',
   'dashboard.todayEmpty': 'ယနေ့ ကြမ်းပြင်တွင် ဘာမှမရှိပါ။',
   'dashboard.todayHeading': 'ယနေ့၏ အလုပ်ချိန်များ',
   'dashboard.viewAllRequests': 'အားလုံး ပြန်လည်သုံးသပ်ရန် →',
@@ -78,6 +93,7 @@ export const ui: UiTranslations = {
   'dashboard.wantsToSwap': 'လဲလှယ်လိုသည်',
   'footer.language': 'ဘာသာစကား',
   'forgotPassword.checkEmail': 'စကားဝှက်အသစ် သတ်မှတ်ရန် ညွှန်ကြားချက်များအတွက် {{email}} စစ်ဆေးပါ။',
+  'forgotPassword.emailPlaceholder': 'you@shiftly.example',
   'forgotPassword.sent': 'ပြန်လည်သတ်မှတ်ရန် လင့်ခ် ပေးပို့ပြီးပါပြီ။',
   'forgotPassword.subheading':
     'သင်၏ အလုပ်အီးမေးလ် ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က သင့်ကို ပြန်လည်သတ်မှတ်ရန် လင့်ခ် ပေးပို့ပါမည်။',
@@ -86,6 +102,7 @@ export const ui: UiTranslations = {
   'form.firstName': 'အမည်',
   'form.lastName': 'မျိုးနွယ်အမည်',
   'form.role': 'တာဝန်',
+  'landing.copyright': '© {{year}} {{app}} .မော်လီကျူးဖြင့်တည်ဆောက်ထားသည်။',
   'landing.eyebrow': 'အချိန်ဇယား စီစဉ်ခြင်း — အဖွဲ့ချတ် မပါဘဲ',
   'landing.featuresEyebrow': 'ဘယ်လိုအလုပ်လုပ်လဲ',
   'landing.featuresHeading': 'တည်ဆောက်ရန်။ ထုတ်ပြန်ရန်။ အသက်ရှူရန်။',
@@ -93,12 +110,16 @@ export const ui: UiTranslations = {
     'မန်နေဂျာတစ်ဦးကို အလွတ်အပတ်မှ ထုတ်ပြန်ထားသော စာရင်းသို့ ပို့ဆောင်ပေးသည့် မျက်နှာပြင် လေးခု — ပြီးတော့ ဘဝ ဖြစ်ပေါ်လာသောအခါ ထိန်းထားပေးသည်။',
   'landing.footerNavLabel': 'အောက်ခြေ',
   'landing.heroCta': '၃၀ ရက် အခမဲ့ စတင်ရန်',
+  'landing.heroProof':
+    'ခရက်ဒစ်ကတ် မလိုပါ။ အချိန်မရွေး ပယ်ဖျက်နိုင်သည်။ Pro တွင် CSV လုပ်ခလစာ ထုတ်ယူမှု ရနိုင်သည်။',
   'landing.heroSecondary': 'တိုက်ရိုက် သရုပ်ပြမှု ကြည့်ရန် →',
   'landing.heroSubtitle':
     '{{appName}} သည် နာရီတွက် အဖွဲ့များအတွက် အလုပ်ချိန်ဇယား စီစဉ်သည့် လုပ်ငန်းခွင် ဖြစ်သည်။ စာရင်း ဇယားကွက်ပေါ်တွင် အပတ်ကို တည်ဆောက်ပါ၊ ထုတ်ပြန်ပါ၊ ပြီးတော့ လဲလှယ်မှုများ၊ စွန့်လွှတ်မှုများနှင့် အဖွင့်အလုပ်ချိန် တောင်းခံမှုများကို အတည်ပြုချက်များမှတဆင့် စီးဆင်းစေပါ — စာသား ၁၁ ခု မဟုတ်ပါ။',
   'landing.heroTitle': '{{tagline}}။',
   'landing.preview.open': 'အဖွင့် အလုပ်ချိန် ၃ ခု',
   'landing.preview.pending': 'အတည်ပြုမှု ၂ ခု စောင့်နေသည်',
+  'landing.preview.shifts': 'အလုပ်ချိန် ၂၈ ခု လူဖြည့်ပြီး',
+  'landing.previewLabel': 'ဤအပတ် {{appName}} တွင် — အစမ်းကြည့်ရန်',
   'landing.pricingEyebrow': 'ဈေးနှုန်း',
   'landing.pricingHeading': 'အဖွဲ့ အရွယ်အစား တိုင်းအတွက် အစီအစဉ်များ။',
   'landing.socialEyebrow': 'အဖွဲ့များကို အလုပ်ချိန်တွင် ထိန်းသိမ်းခြင်း',
@@ -111,9 +132,13 @@ export const ui: UiTranslations = {
   'login.subheading': 'စာရင်း ဖွင့်ပါ၊ အပတ်ကို ထုတ်ပြန်ပါ၊ အလုပ်ချိန် တိုင်းကို လွှမ်းခြုံပါ။',
   'loginBrandPanel.badge.claimed': 'တောင်းခံပြီး',
   'loginBrandPanel.badge.open': 'ဖွင့်ပါ',
+  'loginBrandPanel.badge.published': 'ထုတ်ဝေပြီး',
   'loginBrandPanel.copyright':
     '© {{year}} {{app}} Scheduling Co. နာရီတွက် အဖွဲ့များအတွက် တည်ဆောက်ထားသည်။',
   'loginBrandPanel.headline': 'အလုပ်ချိန် တိုင်း၊',
+  'loginBrandPanel.headlineLine2': 'အချိန်မှီ လူစုံလုံဖြစ်မှု။',
+  'loginBrandPanel.subtext':
+    'အပတ်စဉ် အလုပ်ချိန်စာရင်းများ၊ ရရှိနိုင်မှု၊ အလုပ်လဲလှယ်မှု အတည်ပြုချက်များ၊ လွတ်နေသော အလုပ်ချိန်များနှင့် အလုပ်ချိန်မှတ်တမ်းများ — တစ်ခုတည်းသော ယုံကြည်ရသည့် အရင်းအမြစ်။ တရားမျှတပြီး ကြိုတင်ခန့်မှန်းနိုင်သော အလုပ်ချိန်စီစဉ်မှုကို အလေးထားသော နာရီအလိုက် အဖွဲ့များ၏ စီမံခန့်ခွဲသူများအတွက် တည်ဆောက်ထားသည်။',
   'nav.about': 'အကြောင်း',
   'nav.auditLog': 'စိစစ်မှတ်တမ်း',
   'nav.failedToLoad': 'ဖွင့်၍မရပါ။',
@@ -123,6 +148,7 @@ export const ui: UiTranslations = {
   'nav.settings': 'ဆက်တင်များ',
   'nav.terms': 'စည်းကမ်းချက်များ',
   'nav.workspace': 'လုပ်ငန်းခွင်',
+  'openShifts.claim': 'အလုပ်ချိန် တောင်းခံရန်',
   'openShifts.claimFailed': 'တောင်းခံမှု မအောင်မြင်ပါ။',
   'openShifts.claimingAs': 'အနေဖြင့် တောင်းခံနေသည်',
   'openShifts.dialogHeading': 'အလုပ်ချိန် တောင်းခံရန်',
@@ -130,15 +156,24 @@ export const ui: UiTranslations = {
   'openShifts.empty': 'အဖွင့် အလုပ်ချိန် မရှိပါ — အပတ်သည် အပြည့်အစုံ ဝန်ထမ်း ရှိပြီးပါပြီ။',
   'openShifts.eyebrow': 'တောင်းခံမှု ဘုတ်',
   'openShifts.heading': 'အဖွင့် အလုပ်ချိန်များ',
+  'openShifts.manageHint':
+    'စီမံခန့်ခွဲသူများသည် အလုပ်ချိန်အသေးစိတ် စာမျက်နှာမှ တောင်းဆိုမှုများကို အတည်ပြုသည် — ',
   'openShifts.pickStaff': 'မည်သူ တောင်းခံနေသည်ကို ရွေးပါ။',
+  'openShifts.reviewLink': 'အတည်ပြုရန် စောင့်ဆိုင်းနေသော တောင်းဆိုမှုများကို ကြည့်ရှုရန် →',
+  'openShifts.subheading':
+    'တာဝန်ခံ မသတ်မှတ်ထားဘဲ ထုတ်ပြန်ထားသော အလုပ်ချိန်များ — တစ်ခုကို တောင်းဆိုလိုက်ပါ၊ စီမံခန့်ခွဲသူက အတည်ပြုပါမည်။',
   'openShifts.submitClaim': 'တောင်းခံမှု တင်သွင်းရန်',
+  'openShifts.youClaimed': '{{name}} — အတည်ပြုချက် စောင့်ဆိုင်းနေသည်',
   'planUpdated.message': 'သင်၏ အစီအစဉ် အဆင့်မြှင့်တင်ပြီးပါပြီ။',
   'planUpdated.thankYou': 'ကျေးဇူးတင်ပါသည်!',
   'pricing.limits.shifts': 'တစ်အပတ် အလုပ်ချိန်များ',
+  'pricing.limits.staff': 'အလုပ်ချိန်စာရင်းတွင် ဝန်ထမ်းများ',
   'requestStatus.approved': 'အတည်ပြုပြီး',
   'requestStatus.denied': 'ငြင်းပယ်ပြီး',
   'requestStatus.pending': 'ဆိုင်းငံ့ထားသည်',
   'resetPassword.passwordLabel': 'စကားဝှက်အသစ်',
+  'resetPassword.signInCta': 'အကောင့်ဝင်ရန် →',
+  'resetPassword.signInPrompt': 'သင့်စကားဝှက်အသစ်ဖြင့် ဝင်ရောက်ပါ။',
   'resetPassword.subheading':
     'ခိုင်မာသော စကားဝှက်တစ်ခု ရွေးပါ — အနည်းဆုံး စာလုံး ၁၂ လုံး ပါ၍ အကြီး-အသေး ရောစပ်ပါ။',
   'schedule.addShift': 'အလုပ်ချိန် ထည့်ရန်',
@@ -157,7 +192,9 @@ export const ui: UiTranslations = {
   'schedule.prevWeek': 'ပြီးခဲ့သည့်အပတ်',
   'schedule.publishFailed': 'ထုတ်ပြန်ခြင်း မအောင်မြင်ပါ။',
   'schedule.publishWeek': 'အပတ် ထုတ်ပြန်ရန်',
+  'schedule.shiftCount': 'အလုပ်ချိန် {{count}} ခု',
   'schedule.staffColumn': 'ဝန်ထမ်း',
+  'schedule.state.draftCount': 'မူကြမ်း · {{count}} မထုတ်ပြန်ရသေးပါ',
   'schedule.state.published': 'ထုတ်ဝေပြီး',
   'schedule.subheading':
     'အလုပ်ချိန်များ တာဝန်ပေးပါ၊ အကွက်များ အဖွင့်ထားခဲ့ပါ၊ အပတ် အဆင်သင့်ဖြစ်ပါက ထုတ်ပြန်ပါ။',
@@ -165,12 +202,18 @@ export const ui: UiTranslations = {
   'schedule.thisWeek': 'ယနေ့',
   'schedule.unpublish': 'အပတ် ထုတ်ပြန်မှု ပြန်ရုပ်သိမ်းရန်',
   'schedule.weekRange': '{{start}} – {{end}}',
+  'settings.audit.detail':
+    'အောက်တွင် အပြည့်အစုံ ကြည့်ရှုပါ။ အလုပ်ချိန်စာရင်း သို့မဟုတ် အလုပ်ချိန်စီစဉ်မှု အတန်းတစ်ခုခုအပေါ် ပြုလုပ်သော CRUD လုပ်ဆောင်ချက်တိုင်းကို မှတ်တမ်းတင်ထားသည်။',
   'settings.audit.empty': 'ပြောင်းလဲမှု မရှိသေးပါ။',
   'settings.audit.heading': 'မကြာသေးမီက ပြောင်းလဲမှုများ',
   'settings.billing': 'ငွေတောင်းခံခြင်း',
   'settings.closeCta': 'ပိတ်ရန်',
   'settings.company.displayName': 'သင်၏ ပြသည့်အမည်',
   'settings.company.workspace': 'လုပ်ငန်းခွင် အမည်',
+  'settings.integrations.detail':
+    'OAuth provider များနှင့် webhook များသည် API bonds နှင့်အတူ ပါလာသည်။ သင့် .env တွင် secret များကို စီစဉ်သတ်မှတ်ပါ (Stripe၊ Mailgun၊ OAuth client ID များ)။',
+  'settings.permissions.detail':
+    'မူလအခန်းကဏ္ဍ — Admin (သင်ဖြစ်သည်)။ Staff မှ အဖွဲ့ဖော်များကို ထည့်ပါ၊ ထို့နောက် အလုပ်ချိန်စာရင်းမှ Manager / Lead အခန်းကဏ္ဍများကို သတ်မှတ်ပါ။',
   'settings.profileSaveError': 'ပရိုဖိုင် သိမ်း၍မရပါ။',
   'settings.security.heading': 'လုံခြုံရေး',
   'settings.security.subheading':
@@ -178,7 +221,9 @@ export const ui: UiTranslations = {
   'settings.subheading':
     'ကုမ္ပဏီ အချက်အလက်၊ ခွင့်ပြုချက်များ၊ ပေါင်းစည်းမှုများနှင့် စိစစ်မှတ်တမ်း။',
   'shiftDetail.assignmentHeading': 'တာဝန်ပေးချက်',
+  'shiftDetail.availabilityWarning': 'သတ်မှတ်ထားသော ရရှိနိုင်မှု ပြင်ပ',
   'shiftDetail.backToSchedule': '← အချိန်ဇယားသို့ ပြန်သွားရန်',
+  'shiftDetail.blackoutWarning': 'ဤသူအတွက် ပိတ်ရက်',
   'shiftDetail.claimsHeading': 'တောင်းခံမှုများ',
   'shiftDetail.deleteFailed': 'ဖျက်ခြင်း မအောင်မြင်ပါ။',
   'shiftDetail.deletePrompt': 'ဒီပြောင်းလဲမှုကို ဖျက်မလား။',
@@ -186,8 +231,10 @@ export const ui: UiTranslations = {
   'shiftDetail.drop': 'စွန့်လွှတ်ရန်',
   'shiftDetail.handTo': 'သို့ လွှဲပေးရန်',
   'shiftDetail.hours': 'နာရီ',
+  'shiftDetail.noClaims': 'ဤအလုပ်ချိန်ကို မည်သူမျှ မတောင်းဆိုရသေးပါ။',
   'shiftDetail.noRequests': 'ဒီအလုပ်ချိန်တွင် တောင်းဆိုမှု မရှိပါ။',
   'shiftDetail.noteLabel': 'မှတ်ချက်',
+  'shiftDetail.notes': 'မှတ်စုများ',
   'shiftDetail.notFound': 'အလုပ်ချိန် ရှာမတွေ့ပါ။',
   'shiftDetail.openHint':
     'ဝန်ထမ်းများသည် အဖွင့်အလုပ်ချိန်များမှ ၎င်းကို တောင်းခံနိုင်သည်; အောက်တွင် တောင်းခံမှုတစ်ခုကို အတည်ပြုပါ။',
@@ -200,6 +247,7 @@ export const ui: UiTranslations = {
   'shiftDetail.swap': 'လဲလှယ်ရန်',
   'shiftDetail.targetRequired': 'အလုပ်ချိန်ကို လွှဲပေးရန် အဖော်တစ်ဦး ရွေးပါ။',
   'shiftlyLayout.closeNav': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
+  'shiftlyLayout.openNav': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'shiftlyLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'signup.cta': 'လုပ်ငန်းခွင် ဖန်တီးရန်',
   'signup.eyebrow': '၃၀ ရက် အခမဲ့ · ခရက်ဒစ်ကတ် မလိုပါ',
@@ -219,8 +267,13 @@ export const ui: UiTranslations = {
   'staff.fieldsRequired': 'အမည်၊ မျိုးနွယ်အမည်နှင့် အီးမေးလ် လိုအပ်ပါသည်။',
   'staff.heading': 'ဝန်ထမ်း စာရင်း',
   'staff.maxHours': 'အများဆုံး နာရီ/အပတ်',
+  'staff.searchLabel': 'ဝန်ထမ်းများ ရှာဖွေရန်',
+  'staff.searchPlaceholder': 'အမည်၊ အီးမေးလ်၊ အခန်းကဏ္ဍ ရှာဖွေရန်…',
   'staff.statusFailed': 'အခြေအနေကို အပ်ဒိတ်လုပ်၍မရပါ။',
+  'staff.subheading':
+    'အခန်းကဏ္ဍများ၊ အများဆုံး အပတ်စဉ် နာရီများနှင့် ဤအပတ်တွင် လူတစ်ဦးစီ ထမ်းဆောင်ရမည့် ပမာဏ။',
   'staff.submitFailed': 'ဝန်ထမ်း ထည့်၍မရပါ။',
+  'staff.toggleStatus': 'အခြေအနေ ပြောင်းရန်',
   'status.inactive': 'မလှုပ်ရှားတော့',
   'swapRequests.allHeading': 'တောင်းဆိုမှု အားလုံး',
   'swapRequests.empty': 'ဒီမှာ ဘာမှမရှိပါ။',
@@ -235,6 +288,13 @@ export const ui: UiTranslations = {
   'swapRequests.viewAs': 'အဖြစ် ကြည့်ရန်',
   'swaps.actionFailed': 'လုပ်ဆောင်ချက် မအောင်မြင်ပါ။',
   'timesheets.empty': 'ဒီအပတ် ပြီးဆုံးခဲ့သော အလုပ်ချိန် မရှိသေးပါ။',
+  'timesheets.exportCta': 'CSV ထုတ်ယူရန်',
   'timesheets.eyebrow': 'လစာ မြင်ကွင်း',
   'timesheets.heading': 'အချိန်မှတ်တမ်းများ',
+  'timesheets.scheduledVsClaimed':
+    '{{scheduled}}နာရီ စီစဉ်ထားသည် · {{claimed}}နာရီ တောင်းဆိုထားသည်',
+  'timesheets.subheading':
+    'လူတစ်ဦးစီအတွက် အပတ်စဉ် ပြီးမြောက်သော အလုပ်ချိန်များ — စီစဉ်ထားသည်နှင့် တောင်းဆိုထားသည်၊ CSV အဖြစ် ထုတ်ယူနိုင်သည်။',
+  'timesheets.toggleDetail': 'အလုပ်ချိန်အသေးစိတ် ပြောင်းရန်',
+  'timesheets.totalHours': '{{hours}} နာရီ ပြီးမြောက်သည်',
 }

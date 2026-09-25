@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Байланышка чыгыңыз',
   'about.eyebrow': 'Биз жөнүндө',
+  'about.missionTitle': 'Биздин миссиябыз',
   'account.notifications.save': 'Параметрлерди сактоо',
   'account.notifications.saved': 'Параметрлер сакталды.',
   'account.notifications.saveFailed': 'Параметрлер сакталган жок.',
@@ -12,7 +13,10 @@ export const ui: UiTranslations = {
     'Ар бир сеанс үчүн акы төлөө • Брондоо боюнча арзандатуулар үчүн жаңыртыңыз',
   'account.payments.helper':
     'Төлөм ыкмаңыз төлөө учурунда алынат. Биз эч качан картанын толук номерлерин сактабайбыз — Stripe картанын бардык маалыматтарын иштетет.',
+  'account.payments.paidDescription': 'Жазылуу активдүү — Stripe аркылуу башкарыңыз.',
   'account.payments.planFree': 'Акысыз план',
+  'account.payments.title': 'План жана төлөм',
+  'account.payments.viewPlans': '{{appName}} пландарды көрүү →',
   'account.profile.title': 'Профиль',
   'account.role.body':
     'Каалаган убакта окуучу жана репетитор режимдеринин ортосунда которула аласыз. Активдүү сессияларыңыз эки режимде тең сакталып калат.',
@@ -25,6 +29,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Бор менен окутуу',
   'becomeTutor.form.error': 'Арыз тапшырылган жок.',
+  'becomeTutor.form.pitch': 'Сиздин сунушуңуз (милдеттүү эмес)',
   'becomeTutor.form.pitchPlaceholder':
     'Студенттер сиздин профилиңизден көрө турган бир нече сүйлөм. Аны конкреттүү жана жылуу кармаңыз.',
   'becomeTutor.form.rate': 'Сааттык тариф ($/саат): {{rate}}',
@@ -34,6 +39,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.title': 'Өзүңүз жөнүндө айтып бериңиз',
   'becomeTutor.headline':
     'Сүйгөн ишиңиз менен алектенип акча табыңыз. Графигиңиз боюнча сабак бериңиз.',
+  'becomeTutor.subhead':
+    '5 мүнөттө арыз бериңиз. Текшерүүдөн өткөндөн кийин, издөөдө көрүнүп, сессияларды брондооңузду баштайсыз.',
+  'booking.duration.title': '3. Канча убакыт?',
   'booking.error.createFailed': 'Брондоо түзүлбөй койду.',
   'booking.error.loadFailed': 'Репетиторду жүктөй алган жок — кайра аракет кылыңыз.',
   'booking.error.noSlot': 'Алгач күндү жана убакытты тандаңыз.',
@@ -47,6 +55,7 @@ export const ui: UiTranslations = {
     'Сеанстарды 12 саат мурун кайра пландаштырууга болот. Картаңыздан сессия аяктаганда гана акча алынат.',
   'booking.summary.assurance':
     'Сеанс аяктаганга чейин акы алынбайт • 12 саат мурун акысыз жокко чыгаруу',
+  'booking.summary.back': '← Тьютордун профилине кайтуу',
   'booking.summary.cta': 'Брондоону ырастоо',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'Орун тандаңыз',
@@ -73,18 +82,26 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'Репетитор',
   'bookingConfirm.subject': 'Тема',
   'bookingConfirm.title': 'Сиз брондолгонсуз. Калганын биз бүтүрөбүз.',
+  'bookingConfirm.viewSessions': 'Бардык сессияларды көрүү →',
   'bookingConfirm.with': 'Репетитор менен',
   'common.goToDashboard': 'Башкы бетке өтүү',
+  'earningsHero.change': '{{sign}}{{percent}}% өткөн айга салыштырмалуу',
   'earningsHero.eyebrow': 'Киреше • {{month}}',
+  'earningsHero.greeting': 'Кайра кош келиңиз, {{name}} — кыймылды улантыңыз.',
   'forgotPassword.heading': 'Сырсөзүңүздү унутуп калдыңызбы?',
   'forgotPassword.subheading':
     'Аккаунтуңузга байланышкан электрондук почта дарегин киргизиңиз, биз баштапкы абалга келтирүү шилтемесин жөнөтөбүз.',
   'forgotPassword.success.body':
     'Биз баштапкы абалга келтирүү шилтемесин жөнөттүк {{email}} — ал 30 мүнөттөн кийин бүтөт.',
   'heroSearchSection.eyebrow': '12 000ден ашык текшерилген репетитор • 2018-жылдан бери',
+  'heroSearchSection.headline': 'Кызыккан акылдар туура тьюторлор менен жолугат.',
+  'heroSearchSection.searchCta': 'Тьютор табуу',
+  'heroSearchSection.searchPlaceholder': 'Предметтерди, тьюторлорду же темаларды издөө…',
   'heroSearchSection.stat.rating': 'Орточо сессия рейтинги',
+  'heroSearchSection.stat.sessions': 'Өткөрүлгөн сессиялар',
   'heroSearchSection.stat.subjects': 'Камтылган темалар',
   'heroSearchSection.stat.tutors': 'Текшерилген репетиторлор',
+  'heroSearchSection.subhead': 'Текшерилген тьюторлор. Так баалар. Жумаңызга ылайыктуу сессиялар.',
   'landing.featured.eyebrow': 'Сунушталган репетиторлор',
   'landing.featured.headline':
     'Кол менен тандалып алынган, эң жогорку бааланган жана ушул аптада даяр.',
@@ -92,8 +109,11 @@ export const ui: UiTranslations = {
   'landing.nav.becomeTutor': 'Бор менен окутуу',
   'landing.nav.findTutors': 'Репетиторлорду табуу',
   'landing.pillars.eyebrow': 'Эмне үчүн бор',
+  'landing.pillars.headline': '{{tagline}} — тоскоолдуксуз.',
   'landing.testimonials.eyebrow': 'Жакында окуган студенттерден',
   'landing.testimonials.headline': 'Чыныгы натыйжалар, өз сөздөрү менен айтканда.',
+  'landing.tutorCta.body':
+    'Өз бааларыңызды белгилеңиз, текшерилген сын-пикирлер менен бедел куруңуз, ал эми графикти, төлөмдөрдү жана эскертүүлөрдү биз чечебиз.',
   'landing.tutorCta.button': 'Окутууга арыз берүү',
   'landing.tutorCta.eyebrow': 'Репетитор болуңуз',
   'landing.tutorCta.headline':
@@ -105,6 +125,7 @@ export const ui: UiTranslations = {
   'login.signup': 'Аккаунт түзүү →',
   'login.subheading':
     'Токтогон жериңизден улантыңыз — сабактарыңыз, билдирүүлөрүңүз жана репетиторлоруңуз күтүп жатышат.',
+  'login.support': 'Жардам керекпи?',
   'messages.draftPlaceholder': 'Билдирүү териңиз…',
   'messages.empty.body':
     'Сиз мугалимге же мугалим сизге билдирүү жөнөткөндө, темалар бул жерде пайда болот.',
@@ -116,9 +137,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'Азырынча билдирүүлөр жок.',
   'messages.selectThread': 'Сол жактагы жипти тандаңыз.',
   'messages.send': 'Билдирүү жөнөтүү',
+  'messages.startThreadHint':
+    'Тьютордун профилине кирип, сүйлөшүүнү баштоо үчүн "Тьюторго билдирүү жөнөтүү" баскычын басыңыз.',
   'messages.thread.empty': 'Салам айтыңыз — сөздү баштаңыз.',
   'messages.title': 'Мугалимдериңиз менен болгон темалар.',
   'nav.primary': 'Негизги',
+  'planUpdated.body':
+    'Төлөм өзгөртүүңүз эми активдүү. Планыңызды каалаган убакта төлөм барагынан башкара аласыз.',
+  'pricing.advancedFeatures': 'Өркүндөтүлгөн функциялар:',
   'pricing.dataExport': 'Маалыматтарды экспорттоо:',
   'pricing.headingDefault': 'Өркүндөтүлгөн функциялар:',
   'resetPassword.heading': 'Күчтүү жаңы сырсөз тандаңыз.',
@@ -129,6 +155,7 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Баштапкы абалга келтирүү ийгиликтүү болгондон кийин, сизди автоматтык түрдө киргизебиз.',
   'resetPassword.submit': 'Баштапкы абалга келтирүү жана кирүү',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body': 'Тема чыпкасын кеңейтип же баалоо босогосун жумшартып көрүңүз.',
   'search.empty.title': 'Азырынча бир дагы мугалим дал келе элек.',
@@ -139,7 +166,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'Баалоо',
   'search.filter.subject': 'Тема',
   'search.results.count': '{{count}} репетиторлор сиздин чыпкаларыңызга дал келет',
+  'search.results.fallback': 'Тандалган демо тьюторлор көрсөтүлүүдө',
   'search.results.loading': 'Репетиторлор жүктөлүүдө…',
+  'search.searchPlaceholder': 'Предмет, аты же тема…',
   'search.subtitle':
     'Тема, баалоо жана бош орундар боюнча чыпкалаңыз. Текшерилген репетиторлор үчүн гана.',
   'search.title': 'Сизге жаккан репетиторду табыңыз',
@@ -172,18 +201,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'Сабак башталды — окуубуз ийгиликтүү өттү.',
   'sessionDetail.startError': 'Сеанс башталган жок.',
   'sessionDetail.subtitle': 'менен {{name}} • {{when}} • {{mins}} мин',
+  'sessionDetail.timeline': 'Статус хронологиясы',
   'sessionDetail.timeline.afterEnd': 'Сессия аяктагандан кийин',
   'sessionDetail.timeline.auto': 'Авто',
   'sessionDetail.timeline.booked': 'Брондолду',
   'sessionDetail.timeline.confirmed': 'Ырасталды',
   'sessionDetail.timeline.inSession': 'Сессияда',
   'sessionDetail.timeline.now': 'Азыр',
+  'sessionDetail.timeline.receipt': 'Квитанция берилди',
   'sessionDetail.timeline.review': 'Карап чыгуу сунушу',
   'sessions.empty.body':
     "Репетиторду таап, орун ээлөө үчүн Mentor'ты карап чыгыңыз. Ырасталган сабактар бул жерде көрсөтүлөт.",
   'sessions.empty.title': 'Бул жерде азырынча эч нерсе пландаштырыла элек.',
   'sessions.error': 'Сеанстарыңыз жүктөлбөй койду — кайра аракет кылыңыз.',
   'sessions.eyebrow': 'Сиздин сессияларыңыз',
+  'sessions.loading': 'Сессиялар жүктөлүүдө…',
   'sessions.subtitle':
     'Алдыдагы брондоолорду көзөмөлдөңүз, активдүү сессия бөлмөсүнө секирип кириңиз жана аяктаган сабактарга кайрадан көз чаптырыңыз.',
   'sessions.title': 'Ар бир сабак бир жерде.',
@@ -198,22 +230,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'Менин {{role}} аккаунт',
   'signup.subheading':
     'Сессияларды брондоо, репетиторлорго билдирүү жөнөтүү жана ийгиликтериңизди көзөмөлдөө үчүн аккаунт түзүңүз.',
+  'signup.terms': 'Катталуу менен сиз Биздин Шарттарга макул болосуз.',
   'tutorCard.avatarAlt': 'Портрети {{name}}',
   'tutorCard.perHour': '/ саат',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'Эң жогорку бааланган',
   'tutorCard.verified': 'Текшерилген репетитор',
+  'tutorDashboard.empty.body':
+    'Предметтериңизди, сааттык бааңызды жана жеткиликтүүлүгүңүздү белгилеңиз — анан киреше таба баштаңыз.',
+  'tutorDashboard.empty.cta': 'Тьютор болуу →',
   'tutorDashboard.empty.title': 'Башкаруу панелиңиздин кулпусун ачуу үчүн репетитор болуңуз.',
   'tutorDashboard.fallbackName': 'Репетитор',
   'tutorDashboard.loading': 'Башкаруу панели жүктөлүүдө…',
   'tutorDashboard.recentReviews': 'Акыркы сын-пикирлер',
   'tutorDashboard.reviewsEmpty':
     'Сизде азырынча эч кандай сын-пикирлер жок — алар студенттер сизге баа бергенден кийин бул жерде пайда болот.',
+  'tutorDashboard.stats.rating': 'Орт. баа',
   'tutorDashboard.stats.sessions': 'Бул айдагы сессиялар',
+  'tutorDashboard.stats.totalSessions': 'Бардык убакыттагы сессиялар',
+  'tutorDashboard.studentFallback': 'Студент',
   'tutorDashboard.tutoringFallback': 'Репетитордук сессия',
   'tutorDashboard.upcoming': 'Алдыдагы сессиялар',
   'tutorDashboard.upcomingEmpty':
     'Азырынча алдыдагы сессиялар жок — сиздин орундарыңызды ээлеп койгон студенттер бул жерде пайда болот.',
+  'tutorProfile.availability': 'Ушул жумадагы жеткиликтүүлүк',
   'tutorProfile.availabilityHeadline': 'Баштоо үчүн убакыт аралыгын тандаңыз',
   'tutorProfile.bookCta': 'Сеанска жазылуу',
   'tutorProfile.bookFull': 'Толук графикти көрүү',
@@ -226,6 +266,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / саат',
   'tutorProfile.reviews': 'Акыркы сын-пикирлер',
   'tutorProfile.reviews.empty': 'Азырынча сын-пикирлер жок — биринчи болуңуз.',
+  'tutorProfile.stat.repeats': 'Кайталанган окуучулар',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'Орточо жооп',
   'tutorProfile.stat.responseValue': '{{mins}} мин',

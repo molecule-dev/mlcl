@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ጥያቄዎች፣ አስተያየት ወይም እንዲኖረን የሚፈልጉት ባህሪ አለ? ከመለያ ቅንብሮችዎ ቡድኑን ያግኙ — እያንዳንዱን መልእክት እውነተኛ ሰው ያነባል።',
   'about.contactTitle': 'አግኙን',
   'about.eyebrow': 'ስለ',
+  'about.missionTitle': 'የእኛ ተልዕኮ',
+  'about.whatYouGetTitle': 'የምታገኘው ነገር',
   'analytics.empty': 'ትንታኔዎችን እዚህ ለማየት ዴኮችን ይፍጠሩ።',
   'analytics.stats.acrossDecks': 'በሁሉም ዴኮች ላይ',
   'analytics.stats.allTime': 'በስቱዲዮዎ ውስጥ',
@@ -65,6 +69,7 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'የመርከቧ ርዕስ',
   'landing.features.eyebrow': 'ኦቨርቸር ለምን?',
   'landing.features.heading': 'በመድረክ ላይ ለመራመድ የሚያስፈልጉዎት ነገሮች ሁሉ ዝግጁ ናቸው።',
+  'landing.finalCta.body': 'ስቱዲዮዎን ከአንድ ደቂቃ ባነሰ ጊዜ ውስጥ ይጀምሩ። ክሬዲት ካርድ አያስፈልግም። በማንኛውም ጊዜ ይሰርዙ።',
   'landing.finalCta.cta': 'ነፃ ስቱዲዮዎን ይፍጠሩ',
   'landing.finalCta.eyebrow': 'ለመጀመር ነፃ',
   'landing.finalCta.heading': 'በሙያህ ውስጥ ካሉት ምርጥ ዴኮች ጋር መድረክ ላይ ውጣ።',
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'ከ12 ደቂቃ በፊት ተስተካክሏል',
   'notifications.created': 'ተፈጠረ',
   'notifications.edited': 'አርትዖት የተደረገበት',
+  'notifications.empty.body': 'በዴኮችዎ ላይ ያለ እንቅስቃሴ — አስተያየቶች፣ ጥቅሶች፣ ወደ ውጭ መላኮች — እዚህ ይታያል።',
   'notifications.empty.title': 'እስካሁን ምንም ማሳወቂያዎች የሉም',
   'notifications.eyebrow': 'የመድረክ እንቅስቃሴ',
   'notifications.loading': 'በመጫን ላይ…',
   'notifications.shared': 'በይፋ ተጋርቷል',
+  'planUpdated.retry': 'እንደገና ሞክር',
+  'planUpdated.verifyFailed': 'ክፍያዎን እስካሁን ማረጋገጥ አልቻልንም።',
+  'planUpdated.verifyFailedBody': 'ክፍያዎ አሁንም በሂደት ላይ ሊሆን ይችላል። ከጥቂት ጊዜ በኋላ እንደገና ይሞክሩ።',
   'planUpdated.verifying': 'ክፍያዎን በማረጋገጥ ላይ…',
   'present.addSlides': 'ስላይዶችን ያክሉ',
   'present.backToDecks': 'ወደ ዴኮች ተመለስ',
@@ -121,6 +130,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'የመድረክ ተዋናይ',
   'settings.security.notSet': 'አልተዘጋጀም',
   'settings.security.passwordBody': 'የይለፍ ቃልዎ በእረፍት ጊዜ የተመሰጠረ ነው።',
+  'settings.security.reset': 'ዳግም አስጀምር',
   'settings.security.title': 'መለያ + ክፍለ ጊዜዎች',
   'shared.empty.body': 'በይፋ የሚያጋሯቸው ዴኮች እዚህ ይታያሉ። ዴክን ይክፈቱ እና ለማጋራት ፐብሊክን ይቀይሩ።',
   'shared.empty.title': 'እስካሁን ምንም የተጋሩ ዴኮች የሉም',
@@ -128,6 +138,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'በመጫን ላይ…',
   'shared.title': 'የተጋሩ ዴኮች',
   'templateCard.slideCount': '{{count}} ስላይዶች',
+  'templateCard.usageCount': '{{count}} አጠቃቀሞች',
+  'templates.empty.body': 'ሌላ ማጣሪያ ይሞክሩ — በየወሩ አዲስ አብነቶችን እናወጣለን።',
+  'templates.empty.title': 'በዚህ ምድብ ውስጥ እስካሁን አብነቶች የሉም',
+  'templates.hero.body':
+    'አስቀድመው ገጽታ የተሰጣቸው የስላይድ አቀማመጦች ከገበታ ብሎኮች፣ የማሳያ ፍሬሞች፣ የአቅራቢ ማስታወሻዎች እና የሰዓት ቆጣሪ ቅድመ ቅንብሮች ጋር — እያንዳንዱ አብነት ለመቅዳት ዝግጁ ሆኖ ይመጣል።',
   'templates.hero.eyebrow': 'የተመረጡ ደረጃዎች',
   'templates.hero.heading': 'ለማረፍ በሚያስፈልግዎት ቅጽበት የተገነቡ ደረጃዎች።',
 }

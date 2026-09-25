@@ -3,8 +3,13 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О нас',
+  'about.missionTitle': 'Наша миссия',
+  'about.subtitle':
+    'Амбициозное, подотчётное и измеримое отслеживание OKR для команд, которые стремятся вверх.',
   'ascentSideNav.nav.notifications': 'Уведомления',
   'ascentSideNav.newObjective': 'Новая цель',
+  'authShell.brandBody':
+    '{{appName}} связывает цели с ключевыми результатами и еженедельными чек-инами, чтобы прогресс всегда был виден — и всегда честен.',
   'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': 'Определите вершину. Оцените восхождение. Тренируйте команду.',
   'authShell.eyebrow': 'OKR, которые мотивируют команды',
@@ -16,20 +21,28 @@ export const ui: UiTranslations = {
   'billing.confirmCancel': 'Хотите отменить подписку по окончании текущего периода?',
   'billing.currentPlanFreeFooter':
     'Вы используете бесплатный тариф. Для получения более высоких лимитов перейдите на платный тариф.',
+  'billing.currentPlanPaidFooter': 'Активная подписка · {{plan}}',
   'billing.downloadCurrent': 'Скачать сводку',
   'billing.downloading': 'Подготовка…',
   'billing.error.priceUnavailable':
     'Данный план не настроен для оформления заказа в текущей среде.',
   'billing.eyebrow': 'Рабочее пространство · Оплата',
   'billing.heading': 'Планы и счета-фактуры',
+  'billing.message.canceled': 'Подписка завершится в конце текущего периода.',
   'billing.period.year': 'Yearly',
+  'billing.perk.advanced': 'Расширенные обзоры + напоминания',
   'billing.perk.export': 'Экспорт данных + доступ к API',
   'billing.perk.inApp': 'Отчетность в приложении',
+  'billing.perk.keyResults': 'Ключевых результатов: {{count}}',
+  'billing.perk.objectives': 'Целей: {{count}}',
+  'billing.perk.retention': 'История за {{count}} дн.',
   'billing.perk.standard': 'Стандартные обзоры',
+  'billing.perk.unlimitedKrs': 'Неограниченное число KR',
   'billing.perk.unlimitedObjectives': 'Неограниченное количество целей',
   'billing.perk.unlimitedRetention': 'Неограниченное хранение',
   'billing.subheading':
     'Вы находитесь на {{name}} План. Сравните уровни и выберите более дорогой вариант ниже.',
+  'billing.subheading.loading': 'Загружаем ваш текущий тариф…',
   'billing.tier.unavailable': 'Нет в наличии',
   'billing.tier.upgrade': 'Обновить до {{name}}',
   'billing.tiersError': 'Не удалось загрузить цены. Попробуйте позже.',
@@ -40,12 +53,14 @@ export const ui: UiTranslations = {
   'checkIn.emptyTitle': 'Пока нечего проверять.',
   'checkIn.eyebrow': 'Еженедельный ритм',
   'checkIn.heading': 'Еженедельная проверка',
+  'checkIn.loading': 'Загружаем ваши KR…',
   'checkIn.newObjective': 'Новая цель',
   'checkIn.noKrs': 'Нет ключевых результатов — добавьте некоторые из раздела «Редактировать».',
   'checkIn.noteLabel': 'Одно замечание для вашей команды',
   'checkIn.notePlaceholder':
     'Положительный момент, препятствие или просьба о помощи — не превышайте трех предложений.',
   'checkIn.openObjective': 'Открыть →',
+  'checkIn.progressLabel': 'KR в графике',
   'checkIn.subheading':
     'Обновите текущее значение для каждого KR, отметьте уровень достоверности, добавьте одну заметку и отправьте.',
   'checkIn.submit': 'Отправить заявку на регистрацию',
@@ -63,10 +78,16 @@ export const ui: UiTranslations = {
   'dashboard.allActivity': 'Посмотреть все активности →',
   'dashboard.coachBodyAtRisk':
     '{{atRisk}} На этой неделе показатели KR снизились. Обычно 15-минутный разговор сегодня позволяет восстановиться на целую неделю.',
+  'dashboard.coachBodyOk':
+    'На этой неделе ваши KR выглядят здорово — держите темп и проведите чек-ин.',
+  'dashboard.coachCta': 'Открыть еженедельный чек-ин →',
   'dashboard.coachLabel': 'Коучинговый толчок',
   'dashboard.emptyBody':
     'Сформулируйте свою первую цель, чтобы начать отслеживать еженедельный прогресс.',
   'dashboard.emptyTitle': 'Целей пока нет.',
+  'dashboard.heroBody':
+    'У вас {{count}} целей. {{atRisk}} требуют более пристального внимания — давайте вернём их в график.',
+  'dashboard.heroEmpty': 'У вас пока нет целей. Начните с черновика первой цели.',
   'dashboard.heroProgressLabel': 'Прогресс за квартал',
   'dashboard.heroTitle': 'Отличное восхождение, {{name}} .',
   'dashboard.kpiActiveLabel': 'Активные цели',
@@ -78,11 +99,13 @@ export const ui: UiTranslations = {
   'dashboard.noActivity': 'Пока нет активности. Проведите регистрацию, чтобы начать восхождение.',
   'dashboard.objectivesHeading': 'Ваши цели',
   'dashboard.startCheckIn': 'Проводите еженедельную проверку.',
+  'dashboardLayout.searchAria': 'Поиск целей',
   'dashboardLayout.searchPlaceholder': 'Цели поиска, ключевые знания, люди...',
   'editObjective.addKr': 'Добавить KR',
   'editObjective.archive': 'Цель архива',
   'editObjective.backToList': 'Вернуться к целям',
   'editObjective.breadcrumbAll': 'Цели',
+  'editObjective.confirmArchive': 'Архивировать эту цель? Позже вы найдёте её в архиве.',
   'editObjective.descriptionLabel': 'Почему это важно',
   'editObjective.eyebrow': 'Редактировать цель',
   'editObjective.heading':
@@ -97,6 +120,7 @@ export const ui: UiTranslations = {
   'editObjective.targetPlaceholder': 'Цель',
   'forgotPassword.emailPlaceholder': 'you@team.com',
   'forgotPassword.heading': 'Сбросить пароль.',
+  'forgotPassword.rememberPrompt': 'Вспомнили? ',
   'forgotPassword.subheading':
     'Введите адрес электронной почты, привязанный к вашей учетной записи Ascent, и мы вышлем вам ссылку для сброса пароля.',
   'forgotPassword.successBody':
@@ -125,6 +149,7 @@ export const ui: UiTranslations = {
   'landing.heroTitle': 'Стремитесь к тому, что действительно важно.',
   'login.emailPlaceholder': 'you@team.com',
   'login.heading': 'С возвращением, альпинист!',
+  'login.noAccountPrompt': 'Впервые в {{appName}}? ',
   'login.orContinueWith': 'или продолжить',
   'login.subheading':
     'Продолжайте с того места, где остановились — ваши отметки о посещении, ключевые отзывы и обзоры ждут вас.',
@@ -133,6 +158,7 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Открыть меню навигации',
   'newObjective.addKr': 'Добавить KR',
   'newObjective.coachLabel': 'Напоминания тренеру',
+  'newObjective.descriptionLabel': 'Почему это важно',
   'newObjective.descriptionPlaceholder': 'В 2-3 предложениях объясните стратегический контекст.',
   'newObjective.errorTitleRequired': 'Придумайте название для своей цели.',
   'newObjective.eyebrow': 'Новая цель · Установить вершину',
@@ -151,13 +177,18 @@ export const ui: UiTranslations = {
   'newObjective.submit': 'Сохранить цель',
   'newObjective.targetPlaceholder': 'Цель',
   'newObjective.tip1': 'Начните с глагола: «Стать…», «Вырезать…», «Выиграть…»',
+  'newObjective.tip2': 'KR должны быть измеримыми — избегайте «Улучшить X».',
+  'newObjective.tip3': '3–5 KR — это оптимально. Больше создаёт шум.',
   'newObjective.titlePlaceholder': 'Станьте тем, кого любят в области OKR в продуктовой инженерии.',
+  'notifications.emptyBody':
+    'Здесь появляются напоминания коуча, упоминания и напоминания о ревью.',
   'notifications.emptyTitle': 'В этом режиме просмотра уведомления отсутствуют.',
   'notifications.eyebrow': 'центр активности',
   'notifications.markRead': '● Отметить как прочитанное',
   'objective.scopes.company': 'Компания',
   'objective.scopes.individual': 'Индивидуальный',
   'objective.scopes.team': 'Команда',
+  'objectiveCard.krProgress': '{{done}}/{{total}} KR',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Вернуться к целям',
   'objectiveDetail.edit': 'Редактировать цель',
@@ -169,6 +200,10 @@ export const ui: UiTranslations = {
   'objectiveDetail.notFound': 'Объект не найден.',
   'objectiveDetail.owner': 'Принадлежит {{name}}',
   'objectiveDetail.runCheckIn': 'Выполните проверку связи',
+  'objectiveDetail.timelineHeading': 'Хронология чек-инов',
+  'objectives.emptyBody':
+    'Сформулируйте свою первую цель, чтобы начать отслеживать еженедельный прогресс.',
+  'objectives.emptyFilteredBody': 'Попробуйте сбросить фильтр или создать новую цель.',
   'objectives.emptyFilteredTitle': 'Пока что ни одна цель не соответствует этим фильтрам.',
   'objectives.emptyTitle': 'Целей пока нет.',
   'objectives.eyebrow': 'План компании',
@@ -179,6 +214,11 @@ export const ui: UiTranslations = {
   'objectives.searchPlaceholder': 'Фильтр по названию…',
   'objectives.subheading':
     'Отслеживание {{count}} Цели. Используйте фильтр по статусу, чтобы найти то, что требует внимания.',
+  'pricing.limit.advanced': 'Дополнительные функции: {{value}}',
+  'pricing.limit.checkIns': '{{count}} отметок',
+  'pricing.limit.export': 'Экспорт данных: {{value}}',
+  'pricing.limit.keyResults': '{{count}} ключевых результатов',
+  'pricing.limit.objectives': 'Целей: {{count}}',
   'profile.achievementCheckInsMany': '{{count}} зарегистрированы отметки о посещении',
   'profile.achievementCheckInsOne': 'Зарегистрирована 1 регистрация.',
   'profile.achievementCompletedMany': 'Выполнено {{count}} задач',
@@ -187,6 +227,7 @@ export const ui: UiTranslations = {
   'profile.achievementOnTrackOne': '1 задача выполняется в соответствии с планом.',
   'profile.activeHeading': 'Активные цели',
   'profile.allObjectives': 'Все цели →',
+  'profile.createFirst': 'Создать цель',
   'profile.empty': 'Пока нет активных целей — создайте свою первую, чтобы начать.',
   'profile.eyebrow': 'Профиль альпиниста',
   'profile.guestName': 'Альпинист',
@@ -199,13 +240,18 @@ export const ui: UiTranslations = {
   'profile.statsHeading': 'В этом квартале',
   'profile.streakLabel': 'Квартал на данный момент',
   'resetPassword.backLink': 'Вместо этого войдите в систему',
+  'resetPassword.backPrompt': 'Решили не сбрасывать? ',
   'resetPassword.emailPlaceholder': 'you@team.com',
   'resetPassword.heading': 'Установите новый пароль.',
+  'resetPassword.passwordLabel': 'Новый пароль',
   'resetPassword.reset': 'Обновить пароль и войти в систему',
   'resetPassword.resetting': 'Обновление пароля…',
   'resetPassword.subheading':
     'Выберите что-нибудь убедительное — минимум восемь символов, по возможности добавьте цифры.',
   'reviewDetail.backToList': 'Вернуться к отзывам',
+  'reviewDetail.body':
+    '{{count}} активных целей · оценка {{grade}}. Измените рефлексии и оценку ниже.',
+  'reviewDetail.colObjective': 'Цель',
   'reviewDetail.confirmDelete': 'Удалить этот черновик для рецензирования?',
   'reviewDetail.delete': 'Удалить черновик',
   'reviewDetail.eyebrow': '{{status}} · {{дата}}',
@@ -217,8 +263,10 @@ export const ui: UiTranslations = {
   'reviewDetail.reflectionsPlaceholder':
     'Что прошло хорошо? Что не прошло? Заметки на следующий квартал.',
   'reviewDetail.scorecardHeading': 'Таблица результатов',
+  'reviewDetail.scoreLabel': 'Средний балл',
   'reviewDetail.submitted': 'Поданный',
   'reviewDetail.submittedToast': 'Отзыв отправлен',
+  'reviewDetail.untitled': 'Квартальный обзор · нажмите ниже, чтобы изменить',
   'reviews.createDraft': 'Начать черновик',
   'reviews.empty.body':
     'После создания черновика здесь отобразятся ежеквартальные обзоры. Чтобы начать, нажмите кнопку «Начать черновик» выше.',
@@ -228,12 +276,16 @@ export const ui: UiTranslations = {
   'reviews.eyebrow': 'Квартальные ретроспективы',
   'reviews.grade': 'Оценка {{grade}}',
   'reviews.loading': 'Загрузка отзывов…',
+  'reviews.notSubmitted': 'Ещё не отправлено',
   'reviews.subheading':
     'Итоговые оценочные таблицы, основные выводы и оценки за предыдущие кварталы.',
+  'reviews.submittedAt': 'Отправлено {{date}}',
+  'reviews.untitled': 'Обзор без названия · нажмите, чтобы изменить',
   'settings.billingSubtitle': 'Управление планами, местами и счетами.',
   'settings.billingTitle': 'Оплата и места',
   'settings.cadenceBody':
     'Выберите, как часто Ascent будет запрашивать у вашей команды информацию о ходе работы.',
+  'settings.cadenceHeading': 'Каденция',
   'settings.eyebrow': 'Рабочее пространство · Учетная запись · Cadence',
   'settings.guestName': 'Альпинист',
   'settings.openProfile': 'Открытый профиль',
@@ -241,10 +293,15 @@ export const ui: UiTranslations = {
   'settings.saveError': 'Сохранение не удалось: {{error}}',
   'settings.toggleCoachDescription':
     'В середине квартала Surface выдает уведомления, когда показатель KR снижается на два шага в сторону повышения уверенности.',
+  'settings.toggleCoachLabel': 'Подсказки по коучингу',
   'settings.toggleDigestDescription':
     'В понедельник отправляет каждому владельцу сводную информацию о целях по статусу.',
+  'settings.toggleDigestLabel': 'Письмо-дайджест в понедельник',
+  'settings.toggleRemindersDescription':
+    'Уведомить команду в пятницу утром, если чек-ин всё ещё не заполнен.',
   'settings.toggleRemindersLabel': 'Еженедельные напоминания о ходе дел',
   'signup.emailPlaceholder': 'you@team.com',
+  'signup.haveAccountPrompt': 'Уже есть аккаунт? ',
   'signup.heading': 'Спланируйте своё первое восхождение.',
   'signup.namePlaceholder': 'Эйвери Маунтинир',
   'signup.orContinueWith': 'или продолжить',
@@ -263,6 +320,7 @@ export const ui: UiTranslations = {
   'team.newTeamLabel': 'Новая команда',
   'team.newTeamPlaceholder': 'например, опыт взаимодействия с клиентами',
   'team.objectivesLabel': 'Цели',
+  'team.progressLabel': 'Прогресс рабочего пространства',
   'team.subheading':
     '{{teams}} команды · {{objectives}} Цели. Сгруппируйте свои OKR по командам, чтобы увидеть сводные данные.',
 }

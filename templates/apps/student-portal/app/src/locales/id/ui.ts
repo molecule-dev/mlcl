@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Punya masukan, menemukan bug, atau ingin mengajak sekolah Anda bergabung? Hubungi kami dari pengaturan akun atau kirim pesan ke administrator sekolah Anda — setiap catatan sampai ke orang sungguhan di tim kami.',
   'about.contactTitle': 'Hubungi kami',
+  'about.missionTitle': 'Misi kami',
   'announcementsFeed.empty': 'Belum ada pengumuman.',
   'announcementsFeed.eyebrow': '{{count}} pembaruan',
   'announcementsFeed.title': 'Pengumuman terbaru',
   'assignmentDetail.alreadySubmitted': 'Anda sudah mengirimkan tugas ini.',
   'assignmentDetail.backLink': 'Kembali ke tugas',
+  'assignmentDetail.dropBody':
+    'Gunakan Pilih file untuk melampirkan pekerjaan Anda — kami akan mencatat waktu pengumpulan setelah Anda mengonfirmasi.',
   'assignmentDetail.dropButton': 'Pilih berkas',
+  'assignmentDetail.dropPrompt': 'Letakkan PDF atau foto paket Anda di sini',
   'assignmentDetail.due': 'Tenggat {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Petunjuk',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Sudah dinilai',
   'assignmentDetail.statusSubmitted': 'Terkirim',
   'assignmentDetail.statusTitle': 'Status pengiriman',
+  'assignmentDetail.submitError':
+    'Kami tidak dapat mencatat pengumpulan itu. Coba lagi sebentar lagi.',
   'assignmentDetail.submitted': 'Pengiriman dicatat — guru Anda telah diberi tahu.',
+  'assignmentDetail.submittedAt': 'Dikumpulkan {{when}}',
+  'assignmentDetail.submitTitle': 'Kumpulkan pekerjaan Anda',
   'assignmentRow.courseDue': '{{course}} · Tenggat {{due}}',
   'assignments.empty': 'Tidak ada apa-apa di sini',
   'assignments.emptyBody': 'Ubah filter di atas untuk melihat tugas dalam status berbeda.',
@@ -38,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Log harian kehadiran, ketidakhadiran, dan keterlambatan — dengan catatan bila berlaku.',
+  'attendance.summary.absences': 'Ketidakhadiran',
   'attendance.summary.absencesCaption': 'Di bawah ambang intervensi 5 hari',
   'attendance.summary.attendance': 'Kehadiran',
   'attendance.summary.attendanceCaption': '{{count}} hari hadir semester ini',
+  'attendance.summary.tardies': 'Keterlambatan',
   'attendance.summary.tardiesCaption': 'Termasuk catatan keterlambatan bus / janji temu',
   'attendance.title': 'Riwayat kehadiran',
   'calendar.eyebrow': 'Tahun ajaran · {{year}}',
@@ -53,6 +65,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Nilai',
   'courseDetail.currentGrade': 'Nilai saat ini',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Ringkasan kursus',
   'courseDetail.gradesTitle': 'Nilai terkini',
   'courseDetail.messageTeacher': 'Kirim pesan ke guru',
   'courseDetail.noGrades': 'Belum ada nilai yang diposting.',
@@ -65,13 +78,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Lihat semua',
   'dashboard.assignmentsTitle': 'Berikutnya minggu ini',
   'dashboard.greeting': 'Halo {{name}}, siap untuk kelas?',
+  'dashboard.subtitle':
+    'Pekan Anda sekilas — jadwal, nilai, dan tugas dalam satu tampilan yang tenang.',
+  'dashboard.viewReportCard': 'Lihat rapor',
+  'dashboard.weekFocusBody':
+    'Kumpulkan latihan Kuadrat set 7 dan kuis bab. Lab bimbingan belajar buka Selasa & Kamis setelah jam ke-7.',
+  'dashboard.weekFocusCta': 'Lihat rencana lengkap',
   'dashboard.weekFocusEyebrow': 'Fokus minggu ini',
   'dashboard.weekFocusTitle': 'Naikkan Algebra II sebanyak 4 poin',
   'forgotPassword.subheading':
     'Masukkan email sekolah Anda dan kami akan mengirim tautan untuk mengatur ulang.',
   'forgotPassword.successBody':
     'Jika {{email}} cocok dengan akun Chalk, tautan atur ulang kata sandi sedang dalam perjalanan. Tautan kedaluwarsa dalam 30 menit.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': 'GPA semester {{term}}',
+  'gpaHeroCard.summary': '{{count}} kelas hari ini',
   'grades.col.grade': 'Nilai',
   'grades.col.teacher': 'Guru',
   'grades.col.trend': 'Tren',
@@ -83,10 +104,17 @@ export const ui: UiTranslations = {
     'Nilai huruf dan persentase secara langsung. Panah tren menunjukkan apakah Anda naik, stabil, atau menurun.',
   'grades.title': 'Nilai Anda, per mata pelajaran',
   'grades.trendStable': 'Stabil',
+  'grades.viewReportCard': 'Lihat rapor resmi',
   'landing.copyright': '© {{year}} {{app}} . Dibuat untuk siswa, dirancang untuk keluarga.',
+  'landing.ctaBody':
+    'Gratis untuk 30 hari pertama, tanpa kartu kredit. Distrik dapat meluncurkan paket seluruh sekolah dalam satu sore.',
+  'landing.ctaButton': 'Buat portal Anda',
   'landing.ctaHeading': 'Hari sekolah yang lebih tenang dimulai dalam hitungan menit',
   'landing.eyebrow': 'Untuk siswa SMP & SMA',
   'landing.featuresHeading': 'Hari sekolah yang terorganisir di sekitar siswa',
+  'landing.heroSubtitle':
+    '{{appName}} menarik setiap kelas, nilai, tugas, dan pesan ke dalam satu dasbor yang tenang sehingga Anda bisa lebih sedikit mencari dan lebih banyak belajar.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Patuh FERPA secara default',
   'landing.proof.rating': '4.8 di 12 ribu keluarga',
   'landing.sampleTerm': 'Musim semi',
@@ -95,6 +123,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Sembunyikan kata sandi',
   'login.noAccount': 'Baru di Chalk?',
   'login.showPassword': 'Tampilkan kata sandi',
+  'messages.compose': 'Pesan baru',
   'messages.composer.email': 'Email penerima (opsional)',
   'messages.composer.errorEmpty': 'Pesan tidak boleh kosong.',
   'messages.composer.errorRecipient': 'Nama penerima wajib diisi.',
@@ -125,9 +154,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Daftar kehormatan · Semester musim semi',
   'nav.unreadMessages': 'Pesan yang belum dibaca',
   'notifications.eyebrow': '{{count}} pembaruan',
+  'notifications.feedTitle': 'Semua aktivitas terbaru',
   'notifications.subtitle':
     'Nilai, pengingat, pesan, dan pengumuman sekolah. Sesuaikan kanal yang digunakan setiap notifikasi di Pengaturan.',
+  'planUpdated.body':
+    'Perubahan tagihan Anda kini aktif. Anda dapat mengelola paket kapan saja dari halaman tagihan.',
+  'planUpdated.retry': 'Coba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengkonfirmasi pembayaran Anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran Anda mungkin masih diproses. Coba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
+  'pricing.announcementsLabel': 'pengumuman',
   'pricing.attendanceLabel': 'kehadiran',
   'pricing.gradesLabel': 'nilai',
   'pricing.heading': 'pengumuman',
@@ -142,6 +179,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'Q2',
   'reportCard.crumb': 'Rapor',
   'reportCard.cumulativeGpa': 'GPA kumulatif',
+  'reportCard.download': 'Unduh PDF',
   'reportCard.downloaded': 'Rapor dibuka di tab baru.',
   'reportCard.downloading': 'Membuat PDF…',
   'reportCard.empty': 'Belum ada nilai dalam berkas.',
@@ -149,6 +187,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'GPA akhir · {{term}}',
   'reportCard.subtitle':
     'Transkrip akhir semester resmi dengan nilai mata pelajaran berbobot, kehadiran, dan unduhan PDF yang dapat dicetak.',
+  'reportCard.title': 'Rapor',
+  'resetPassword.newPassword': 'Kata sandi baru',
   'resetPassword.subheading': 'Pilih sesuatu yang mudah diingat tetapi sulit ditebak.',
   'resetPassword.tokenPlaceholder': 'Tempel kode dari email Anda',
   'schedule.empty': 'Tidak ada kelas yang dijadwalkan.',
@@ -174,12 +214,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Tugas tertunda',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} ketidakhadiran semester ini · {{tardy}} keterlambatan',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Menghitung angka kehadiran…',
+  'subjectStatsTriad.attendanceLabel': 'Kehadiran',
   'subjectStatsTriad.gradesCaption': 'Pada rata-rata berbobot {{percent}}%',
+  'subjectStatsTriad.gradesCaptionLoading': 'Memuat nilai…',
+  'subjectStatsTriad.gradesLabel': 'Rata-rata Kelas',
   'todayScheduleStrip.empty': 'Tidak ada kelas hari ini.',
   'todayScheduleStrip.eyebrow': '{{count}} kelas',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Jadwal hari ini',
   'topbar.guestName': 'Siswa',
   'topbar.searchPlaceholder': 'Cari kelas, tugas…',
+  'topbar.studentRole': 'Siswa',
   'topbar.studentTag': 'Siswa · #{{id}}',
 }

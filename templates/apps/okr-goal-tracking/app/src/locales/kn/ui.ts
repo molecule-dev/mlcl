@@ -3,8 +3,12 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
+  'about.subtitle': 'ಹತ್ತುವ ತಂಡಗಳಿಗಾಗಿ ಆಶಾವಾದಿ, ಹೊಣೆಗಾರಿಕೆಯ, ಅಳೆಯಬಹುದಾದ OKR ಟ್ರ್ಯಾಕಿಂಗ್.',
   'ascentSideNav.nav.notifications': 'ಅಧಿಸೂಚನೆಗಳು',
   'ascentSideNav.newObjective': 'ಹೊಸ ಉದ್ದೇಶ',
+  'authShell.brandBody':
+    '{{appName}} ವಸ್ತುನಿಷ್ಠೆಗಳನ್ನು ಪ್ರಮುಖ ಫಲಿತಾಂಶಗಳು ಮತ್ತು ಸಾಪ್ತಾಹಿಕ ಚೆಕ್-ಇನ್ಗಳ ಮೂಲಕ ಜೋಡಿಸುತ್ತದೆ, ಇದರಿಂದ ಪ್ರಗತಿ ಯಾವಾಗಲೂ ಗೋಚರವಾಗಿರುತ್ತದೆ — ಮತ್ತು ಯಾವಾಗಲೂ ಪ್ರಾಮಾಣಿಕವಾಗಿರುತ್ತದೆ.',
   'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': 'ಶಿಖರವನ್ನು ಹೊಂದಿಸಿ. ಆರೋಹಣವನ್ನು ಸ್ಕೋರ್ ಮಾಡಿ. ತಂಡಕ್ಕೆ ತರಬೇತಿ ನೀಡಿ.',
   'authShell.eyebrow': 'ತಂಡಗಳನ್ನು ಸ್ಥಳಾಂತರಿಸುವ OKR ಗಳು',
@@ -16,20 +20,28 @@ export const ui: UiTranslations = {
   'billing.confirmCancel': 'ಪ್ರಸ್ತುತ ಅವಧಿಯ ಕೊನೆಯಲ್ಲಿ ನಿಮ್ಮ ಚಂದಾದಾರಿಕೆಯನ್ನು ರದ್ದುಗೊಳಿಸುವುದೇ?',
   'billing.currentPlanFreeFooter':
     'ನೀವು ಉಚಿತ ಶ್ರೇಣಿಯಲ್ಲಿದ್ದೀರಿ. ಹೆಚ್ಚಿನ ಮಿತಿಗಳಿಗಾಗಿ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ.',
+  'billing.currentPlanPaidFooter': 'ಸಕ್ರಿಯ ಚಂದಾದಾರಿಕೆ · {{plan}}',
   'billing.downloadCurrent': 'ಸಾರಾಂಶವನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ',
   'billing.downloading': 'ಸಿದ್ಧಪಡಿಸಲಾಗುತ್ತಿದೆ...',
   'billing.error.priceUnavailable':
     'ಈ ಯೋಜನೆಯನ್ನು ಪ್ರಸ್ತುತ ಪರಿಸರದಲ್ಲಿ ಚೆಕ್ಔಟ್‌ಗಾಗಿ ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿಲ್ಲ.',
   'billing.eyebrow': 'ಕಾರ್ಯಸ್ಥಳ · ಬಿಲ್ಲಿಂಗ್',
   'billing.heading': 'ಯೋಜನೆ ಮತ್ತು ಇನ್‌ವಾಯ್ಸ್‌ಗಳು',
+  'billing.message.canceled': 'ಪ್ರಸ್ತುತ ಅವಧಿಯ ಕೊನೆಯಲ್ಲಿ ಚಂದಾದಾರಿಕೆ ಮುಗಿಯುತ್ತದೆ.',
   'billing.period.year': 'Yearly',
+  'billing.perk.advanced': 'ಸುಧಾರಿತ ವಿಮರ್ಶೆಗಳು + ಪ್ರೇರಣೆಗಳು',
   'billing.perk.export': 'ಡೇಟಾ ರಫ್ತು + API ಪ್ರವೇಶ',
   'billing.perk.inApp': 'ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ವರದಿ ಮಾಡುವಿಕೆ',
+  'billing.perk.keyResults': '{{count}} ಪ್ರಮುಖ ಫಲಿತಾಂಶಗಳು',
+  'billing.perk.objectives': '{{count}} ವಸ್ತುನಿಷ್ಠೆಗಳು',
+  'billing.perk.retention': '{{count}} ದಿನಗಳ ಇತಿಹಾಸ',
   'billing.perk.standard': 'ಪ್ರಮಾಣಿತ ವಿಮರ್ಶೆಗಳು',
+  'billing.perk.unlimitedKrs': 'ಅಪರಿಮಿತ KRಗಳು',
   'billing.perk.unlimitedObjectives': 'ಅನಿಯಮಿತ ಉದ್ದೇಶಗಳು',
   'billing.perk.unlimitedRetention': 'ಅನಿಯಮಿತ ಧಾರಣ',
   'billing.subheading':
     'ನೀವು ಇಲ್ಲಿದ್ದೀರಿ {{name}} ಯೋಜನೆ. ಶ್ರೇಣಿಗಳನ್ನು ಹೋಲಿಕೆ ಮಾಡಿ ಮತ್ತು ಕೆಳಗೆ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ.',
+  'billing.subheading.loading': 'ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಯೋಜನೆಯನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…',
   'billing.tier.unavailable': 'ಲಭ್ಯವಿಲ್ಲ',
   'billing.tier.upgrade': 'ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ {{name}}',
   'billing.tiersError': 'ಬೆಲೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
@@ -39,12 +51,14 @@ export const ui: UiTranslations = {
   'checkIn.emptyTitle': 'ಪರಿಶೀಲಿಸಲು ಇನ್ನೂ ಏನೂ ಇಲ್ಲ',
   'checkIn.eyebrow': 'ಸಾಪ್ತಾಹಿಕ ಕ್ಯಾಡೆನ್ಸ್',
   'checkIn.heading': 'ವಾರಕ್ಕೊಮ್ಮೆ ಚೆಕ್-ಇನ್',
+  'checkIn.loading': 'ನಿಮ್ಮ KRಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…',
   'checkIn.newObjective': 'ಹೊಸ ಉದ್ದೇಶ',
   'checkIn.noKrs': 'ಯಾವುದೇ ಪ್ರಮುಖ ಫಲಿತಾಂಶಗಳಿಲ್ಲ — ಸಂಪಾದನೆಯಿಂದ ಕೆಲವನ್ನು ಸೇರಿಸಿ.',
   'checkIn.noteLabel': 'ನಿಮ್ಮ ತಂಡಕ್ಕೆ ಒಂದು ಟಿಪ್ಪಣಿ',
   'checkIn.notePlaceholder':
     'ಪ್ರಕಾಶಮಾನವಾದ ಸ್ಥಳ, ಬ್ಲಾಕರ್ ಅಥವಾ ತರಬೇತಿ ಪ್ರಶ್ನೆ - ಅದನ್ನು ಮೂರು ವಾಕ್ಯಗಳ ಒಳಗೆ ಇರಿಸಿ.',
   'checkIn.openObjective': 'ತೆರೆಯಿರಿ →',
+  'checkIn.progressLabel': 'KRಗಳು ಸರಿಯಾದ ಹಾದಿಯಲ್ಲಿವೆ',
   'checkIn.subheading':
     'ಪ್ರತಿ KR ಗೆ ಪ್ರಸ್ತುತ ಮೌಲ್ಯವನ್ನು ನವೀಕರಿಸಿ, ವಿಶ್ವಾಸವನ್ನು ಗುರುತಿಸಿ, ಒಂದು ಟಿಪ್ಪಣಿಯನ್ನು ಬಿಡಿ ಮತ್ತು ಸಲ್ಲಿಸಿ.',
   'checkIn.submit': 'ಚೆಕ್-ಇನ್ ಸಲ್ಲಿಸಿ',
@@ -61,10 +75,17 @@ export const ui: UiTranslations = {
   'dashboard.allActivity': 'ಎಲ್ಲಾ ಚಟುವಟಿಕೆಗಳನ್ನು ನೋಡಿ →',
   'dashboard.coachBodyAtRisk':
     '{{atRisk}} ಈ ವಾರ KR ಗಳು ಕುಸಿದವು. ಇಂದು 15 ನಿಮಿಷಗಳ ಸಂಭಾಷಣೆಯು ಸಾಮಾನ್ಯವಾಗಿ ಒಂದು ವಾರ ಪೂರ್ತಿ ಚೇತರಿಸಿಕೊಳ್ಳುವುದಕ್ಕೆ ಸಮಾನವಾಗಿರುತ್ತದೆ.',
+  'dashboard.coachBodyOk':
+    'ಈ ವಾರ ನಿಮ್ಮ KRಗಳು ಆರೋಗ್ಯಕರವಾಗಿ ಕಾಣುತ್ತಿವೆ — ಈ ಲಯವನ್ನು ಮುಂದುವರಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಚೆಕ್-ಇನ್ ನಡೆಸಿ.',
+  'dashboard.coachCta': 'ಸಾಪ್ತಾಹಿಕ ಚೆಕ್-ಇನ್ ತೆರೆಯಿರಿ →',
   'dashboard.coachLabel': 'ತರಬೇತಿಯ ಸೂಚನೆ',
   'dashboard.emptyBody':
     'ಸಾಪ್ತಾಹಿಕ ಪ್ರಗತಿಯನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಲು ಪ್ರಾರಂಭಿಸಲು ನಿಮ್ಮ ಮೊದಲ ಗುರಿಯನ್ನು ರೂಪಿಸಿ.',
   'dashboard.emptyTitle': 'ಇನ್ನೂ ಯಾವುದೇ ಗುರಿಗಳಿಲ್ಲ',
+  'dashboard.heroBody':
+    'ನೀವು {{count}} ವಸ್ತುನಿಷ್ಠೆಗಳನ್ನು ಹೊಂದಿದ್ದೀರಿ. {{atRisk}} ಗೆ ಹತ್ತಿರದ ಪರಿಶೀಲನೆ ಬೇಕು — ಅವನ್ನು ಸರಿಯಾದ ಹಾದಿಯಲ್ಲಿ ಇಡೋಣ.',
+  'dashboard.heroEmpty':
+    'ನಿಮ್ಮ ಬಳಿ ಇನ್ನೂ ಯಾವುದೇ ವಸ್ತುನಿಷ್ಠೆಗಳಿಲ್ಲ. ನಿಮ್ಮ ಮೊದಲನೆಯದನ್ನು ಕರಡು ಮಾಡುವ ಮೂಲಕ ಪ್ರಾರಂಭಿಸಿ.',
   'dashboard.heroProgressLabel': 'ತ್ರೈಮಾಸಿಕ ಪ್ರಗತಿ',
   'dashboard.heroTitle': 'ಉತ್ತಮ ಹತ್ತುವಿಕೆ, {{name}} .',
   'dashboard.kpiActiveLabel': 'ಸಕ್ರಿಯ ಉದ್ದೇಶಗಳು',
@@ -76,11 +97,14 @@ export const ui: UiTranslations = {
   'dashboard.noActivity': 'ಇನ್ನೂ ಯಾವುದೇ ಚಟುವಟಿಕೆ ಇಲ್ಲ. ಆರೋಹಣವನ್ನು ಪ್ರಾರಂಭಿಸಲು ಚೆಕ್-ಇನ್ ಮಾಡಿ.',
   'dashboard.objectivesHeading': 'ನಿಮ್ಮ ಉದ್ದೇಶಗಳು',
   'dashboard.startCheckIn': 'ವಾರಕ್ಕೊಮ್ಮೆ ಚೆಕ್-ಇನ್ ಮಾಡಿ',
+  'dashboardLayout.searchAria': 'ವಸ್ತುನಿಷ್ಠೆಗಳನ್ನು ಹುಡುಕಿ',
   'dashboardLayout.searchPlaceholder': 'ಹುಡುಕಾಟ ಉದ್ದೇಶಗಳು, KR ಗಳು, ಜನರು...',
   'editObjective.addKr': 'KR ಸೇರಿಸಿ',
   'editObjective.archive': 'ಆರ್ಕೈವ್ ಉದ್ದೇಶ',
   'editObjective.backToList': 'ಉದ್ದೇಶಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'editObjective.breadcrumbAll': 'ಉದ್ದೇಶಗಳು',
+  'editObjective.confirmArchive':
+    'ಈ ವಸ್ತುನಿಷ್ಠೆಯನ್ನು ಆರ್ಕೈವ್ ಮಾಡುವುದೇ? ನಂತರ ಆರ್ಕೈವ್ ಮಾಡಿದ ವೀಕ್ಷಣೆಯಲ್ಲಿ ಇದನ್ನು ಕಂಡುಕೊಳ್ಳಬಹುದು.',
   'editObjective.descriptionLabel': 'ಇದು ಏಕೆ ಮುಖ್ಯ?',
   'editObjective.eyebrow': 'ಉದ್ದೇಶವನ್ನು ಸಂಪಾದಿಸಿ',
   'editObjective.heading': 'ಫಲಿತಾಂಶ, KR ಗಳು, ಜೋಡಣೆ ಅಥವಾ ಕ್ಯಾಡೆನ್ಸ್ ಅನ್ನು ನವೀಕರಿಸಿ.',
@@ -94,6 +118,7 @@ export const ui: UiTranslations = {
   'editObjective.targetPlaceholder': 'ಗುರಿ',
   'forgotPassword.emailPlaceholder': 'you@team.com',
   'forgotPassword.heading': 'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಮರುಹೊಂದಿಸಿ.',
+  'forgotPassword.rememberPrompt': 'ನೆನಪಿದೆಯೇ? ',
   'forgotPassword.subheading':
     'ನಿಮ್ಮ Ascent ಖಾತೆಗೆ ಲಿಂಕ್ ಮಾಡಲಾದ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ, ನಾವು ನಿಮಗೆ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
   'forgotPassword.successBody':
@@ -121,6 +146,7 @@ export const ui: UiTranslations = {
   'landing.heroTitle': 'ಮುಖ್ಯವಾದ ವಿಷಯದ ಕಡೆಗೆ ಏರಿ.',
   'login.emailPlaceholder': 'you@team.com',
   'login.heading': 'ಮರಳಿ ಸ್ವಾಗತ, ಆರೋಹಿ.',
+  'login.noAccountPrompt': '{{appName}} ಗೆ ಹೊಸಬರೇ? ',
   'login.orContinueWith': 'ಅಥವಾ ಮುಂದುವರಿಸಿ',
   'login.subheading':
     'ನೀವು ನಿಲ್ಲಿಸಿದ ಸ್ಥಳದಿಂದ ಪ್ರಾರಂಭಿಸಿ — ನಿಮ್ಮ ಚೆಕ್-ಇನ್‌ಗಳು, KR ಗಳು ಮತ್ತು ವಿಮರ್ಶೆಗಳು ನಿಮಗಾಗಿ ಕಾಯುತ್ತಿವೆ.',
@@ -129,6 +155,7 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'newObjective.addKr': 'KR ಸೇರಿಸಿ',
   'newObjective.coachLabel': 'ಕೋಚ್ ಜ್ಞಾಪನೆಗಳು',
+  'newObjective.descriptionLabel': 'ಇದು ಏಕೆ ಮುಖ್ಯ?',
   'newObjective.descriptionPlaceholder': 'ಕಾರ್ಯತಂತ್ರದ ಸಂದರ್ಭವನ್ನು 2-3 ವಾಕ್ಯಗಳಲ್ಲಿ ವಿವರಿಸಿ.',
   'newObjective.errorTitleRequired': 'ನಿಮ್ಮ ಉದ್ದೇಶಕ್ಕೆ ಒಂದು ಶೀರ್ಷಿಕೆ ನೀಡಿ.',
   'newObjective.eyebrow': 'ಹೊಸ ಉದ್ದೇಶ · ಶೃಂಗಸಭೆಯನ್ನು ಹೊಂದಿಸಿ',
@@ -146,13 +173,18 @@ export const ui: UiTranslations = {
   'newObjective.submit': 'ಉದ್ದೇಶವನ್ನು ಉಳಿಸಿ',
   'newObjective.targetPlaceholder': 'ಗುರಿ',
   'newObjective.tip1': 'ಕ್ರಿಯಾಪದದೊಂದಿಗೆ ಮುನ್ನಡೆಸಿಕೊಳ್ಳಿ: "ಆಗಲಿ...", "ಕತ್ತರಿಸಿ...", "ಗೆಲುವು..."',
+  'newObjective.tip2': 'KRಗಳು ಅಳೆಯಬಹುದಾದವಾಗಿರಬೇಕು — “X ಅನ್ನು ಸುಧಾರಿಸಿ” ಎಂಬುದನ್ನು ತಪ್ಪಿಸಿ.',
+  'newObjective.tip3': '3–5 KRಗಳು ಸೂಕ್ತವಾದ ಸಂಖ್ಯೆ. ಹೆಚ್ಚು ಇದ್ದರೆ ಗೊಂದಲ ಉಂಟಾಗುತ್ತದೆ.',
   'newObjective.titlePlaceholder': 'OKR ಉತ್ಪನ್ನ ಎಂಜಿನಿಯರಿಂಗ್ ಪ್ರಿಯರಾಗಿ',
+  'notifications.emptyBody':
+    'ಕೋಚಿಂಗ್ ಪ್ರೇರಣೆಗಳು, ಉಲ್ಲೇಖಗಳು ಮತ್ತು ವಿಮರ್ಶೆ ಜ್ಞಾಪನೆಗಳು ಇಲ್ಲಿ ಬರುತ್ತವೆ.',
   'notifications.emptyTitle': 'ಈ ವೀಕ್ಷಣೆಯಲ್ಲಿ ಯಾವುದೇ ಅಧಿಸೂಚನೆಗಳಿಲ್ಲ.',
   'notifications.eyebrow': 'ಚಟುವಟಿಕೆ ಕೇಂದ್ರ',
   'notifications.markRead': '● ಓದಿದಂತೆ ಗುರುತಿಸಿ',
   'objective.scopes.company': 'ಕಂಪನಿ',
   'objective.scopes.individual': 'ವೈಯಕ್ತಿಕ',
   'objective.scopes.team': 'ತಂಡ',
+  'objectiveCard.krProgress': '{{done}}/{{total}} KRಗಳು',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'ಉದ್ದೇಶಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'objectiveDetail.edit': 'ಉದ್ದೇಶವನ್ನು ಸಂಪಾದಿಸಿ',
@@ -163,6 +195,10 @@ export const ui: UiTranslations = {
   'objectiveDetail.notFound': 'ಉದ್ದೇಶ ಕಂಡುಬಂದಿಲ್ಲ.',
   'objectiveDetail.owner': 'ಮಾಲೀಕತ್ವ ಹೊಂದಿರುವವರು {{name}}',
   'objectiveDetail.runCheckIn': 'ಚೆಕ್-ಇನ್ ರನ್ ಮಾಡಿ',
+  'objectiveDetail.timelineHeading': 'ಚೆಕ್-ಇನ್ ಟೈಮ್ಲೈನ್',
+  'objectives.emptyBody':
+    'ಸಾಪ್ತಾಹಿಕ ಪ್ರಗತಿಯನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಲು ಪ್ರಾರಂಭಿಸಲು ನಿಮ್ಮ ಮೊದಲ ಗುರಿಯನ್ನು ರೂಪಿಸಿ.',
+  'objectives.emptyFilteredBody': 'ಫಿಲ್ಟರ್ ಅನ್ನು ತೆರವುಗೊಳಿಸಿ ಅಥವಾ ಹೊಸ ವಸ್ತುನಿಷ್ಠೆಯನ್ನು ಪ್ರಾರಂಭಿಸಿ.',
   'objectives.emptyFilteredTitle': 'ಆ ಫಿಲ್ಟರ್‌ಗಳಿಗೆ ಇನ್ನೂ ಯಾವುದೇ ಉದ್ದೇಶಗಳು ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ.',
   'objectives.emptyTitle': 'ಇನ್ನೂ ಯಾವುದೇ ಗುರಿಗಳಿಲ್ಲ',
   'objectives.eyebrow': 'ಕಂಪನಿ ಯೋಜನೆ',
@@ -173,6 +209,11 @@ export const ui: UiTranslations = {
   'objectives.searchPlaceholder': 'ಶೀರ್ಷಿಕೆಯ ಪ್ರಕಾರ ಫಿಲ್ಟರ್ ಮಾಡಿ...',
   'objectives.subheading':
     'ಟ್ರ್ಯಾಕಿಂಗ್ {{count}} ಉದ್ದೇಶಗಳು. ಗಮನ ಅಗತ್ಯವಿರುವದನ್ನು ಕಂಡುಹಿಡಿಯಲು ಸ್ಥಿತಿಯ ಮೂಲಕ ಫಿಲ್ಟರ್ ಮಾಡಿ.',
+  'pricing.limit.advanced': 'ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳು: {{value}}',
+  'pricing.limit.checkIns': '{{count}} ಚೆಕ್-ಇನ್ಗಳು',
+  'pricing.limit.export': 'ಡೇಟಾ ರಫ್ತು: {{value}}',
+  'pricing.limit.keyResults': '{{count}} ಪ್ರಮುಖ-ಫಲಿತಾಂಶಗಳು',
+  'pricing.limit.objectives': '{{count}} ವಸ್ತುನಿಷ್ಠೆಗಳು',
   'profile.achievementCheckInsMany': '{{count}} ಚೆಕ್-ಇನ್‌ಗಳು ಲಾಗಿನ್ ಆಗಿವೆ',
   'profile.achievementCheckInsOne': '1 ಚೆಕ್-ಇನ್ ಲಾಗಿನ್ ಆಗಿದೆ',
   'profile.achievementCompletedMany': '{{count}} ಉದ್ದೇಶಗಳನ್ನು ಪೂರ್ಣಗೊಳಿಸಲಾಗಿದೆ',
@@ -181,6 +222,7 @@ export const ui: UiTranslations = {
   'profile.achievementOnTrackOne': '1 ಗುರಿ ಹಾದಿಯಲ್ಲಿದೆ',
   'profile.activeHeading': 'ಸಕ್ರಿಯ ಉದ್ದೇಶಗಳು',
   'profile.allObjectives': 'ಎಲ್ಲಾ ಉದ್ದೇಶಗಳು →',
+  'profile.createFirst': 'ವಸ್ತುನಿಷ್ಠೆ ರಚಿಸಿ',
   'profile.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಸಕ್ರಿಯ ಉದ್ದೇಶಗಳಿಲ್ಲ - ಪ್ರಾರಂಭಿಸಲು ನಿಮ್ಮ ಮೊದಲನೆಯದನ್ನು ರಚಿಸಿ.',
   'profile.eyebrow': 'ಕ್ಲೈಂಬರ್ ಪ್ರೊಫೈಲ್',
   'profile.guestName': 'ಪರ್ವತಾರೋಹಿ',
@@ -193,13 +235,18 @@ export const ui: UiTranslations = {
   'profile.statsHeading': 'ಈ ತ್ರೈಮಾಸಿಕ',
   'profile.streakLabel': 'ಇಲ್ಲಿಯವರೆಗೆ ತ್ರೈಮಾಸಿಕ',
   'resetPassword.backLink': 'ಬದಲಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ',
+  'resetPassword.backPrompt': 'ಮರುಹೊಂದಿಸಬೇಡ ಎಂದು ನಿರ್ಧರಿಸಿದಿರಾ? ',
   'resetPassword.emailPlaceholder': 'you@team.com',
   'resetPassword.heading': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಹೊಂದಿಸಿ.',
+  'resetPassword.passwordLabel': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.reset': 'ಪಾಸ್‌ವರ್ಡ್ ಅಪ್‌ಡೇಟ್ ಮಾಡಿ ಮತ್ತು ಸೈನ್ ಇನ್ ಮಾಡಿ',
   'resetPassword.resetting': 'ಪಾಸ್‌ವರ್ಡ್ ನವೀಕರಿಸಲಾಗುತ್ತಿದೆ...',
   'resetPassword.subheading':
     'ಏನಾದರೂ ಬಲವಾದದ್ದನ್ನು ಆರಿಸಿ - ಕನಿಷ್ಠ ಎಂಟು ಅಕ್ಷರಗಳು, ಸಾಧ್ಯವಾದರೆ ಸಂಖ್ಯೆಗಳನ್ನು ಮಿಶ್ರಣ ಮಾಡಿ.',
   'reviewDetail.backToList': 'ವಿಮರ್ಶೆಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
+  'reviewDetail.body':
+    '{{count}} ಸಕ್ರಿಯ ವಸ್ತುನಿಷ್ಠೆ(ಗಳು) · ಶ್ರೇಣಿ {{grade}}. ಕೆಳಗೆ ಪ್ರತಿಫಲನಗಳನ್ನು ಸಂಪಾದಿಸಿ ಮತ್ತು ಶ್ರೇಣಿ ನೀಡಿ.',
+  'reviewDetail.colObjective': 'ವಸ್ತುನಿಷ್ಠೆ',
   'reviewDetail.confirmDelete': 'ಈ ವಿಮರ್ಶೆ ಡ್ರಾಫ್ಟ್ ಅನ್ನು ಅಳಿಸುವುದೇ?',
   'reviewDetail.delete': 'ಡ್ರಾಫ್ಟ್ ಅಳಿಸಿ',
   'reviewDetail.eyebrow': '{{ಸ್ಥಿತಿ}} · {{ದಿನಾಂಕ}}',
@@ -211,8 +258,10 @@ export const ui: UiTranslations = {
   'reviewDetail.reflectionsPlaceholder':
     'ಏನು ಚೆನ್ನಾಗಿ ಆಯ್ತು? ಏನು ಆಗಲಿಲ್ಲ? ಮುಂದಿನ ತ್ರೈಮಾಸಿಕದ ಟಿಪ್ಪಣಿಗಳು.',
   'reviewDetail.scorecardHeading': 'ಸ್ಕೋರ್‌ಕಾರ್ಡ್',
+  'reviewDetail.scoreLabel': 'ಸರಾಸರಿ ಸ್ಕೋರ್',
   'reviewDetail.submitted': 'ಸಲ್ಲಿಸಲಾಗಿದೆ',
   'reviewDetail.submittedToast': 'ವಿಮರ್ಶೆಯನ್ನು ಸಲ್ಲಿಸಲಾಗಿದೆ',
+  'reviewDetail.untitled': 'ತ್ರೈಮಾಸಿಕ ವಿಮರ್ಶೆ · ಸಂಪಾದಿಸಲು ಕೆಳಗೆ ಕ್ಲಿಕ್ ಮಾಡಿ',
   'reviews.createDraft': 'ಡ್ರಾಫ್ಟ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಿ',
   'reviews.empty.body':
     'ನೀವು ಡ್ರಾಫ್ಟ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಿದ ನಂತರ ತ್ರೈಮಾಸಿಕ ವಿಮರ್ಶೆಗಳು ಇಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತವೆ. ಪ್ರಾರಂಭಿಸಲು ಮೇಲಿನ "ಡ್ರಾಫ್ಟ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಿ" ಕ್ಲಿಕ್ ಮಾಡಿ.',
@@ -222,12 +271,16 @@ export const ui: UiTranslations = {
   'reviews.eyebrow': 'ತ್ರೈಮಾಸಿಕ ಹಿನ್ನೋಟಗಳು',
   'reviews.grade': 'ಗ್ರೇಡ್ {{grade}}',
   'reviews.loading': 'ವಿಮರ್ಶೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
+  'reviews.notSubmitted': 'ಇನ್ನೂ ಸಲ್ಲಿಸಿಲ್ಲ',
   'reviews.subheading':
     'ರೋಲ್-ಅಪ್ ಸ್ಕೋರ್‌ಕಾರ್ಡ್‌ಗಳು, ಹೆಡ್‌ಲೈನ್ ರಿಫ್ಲೆಕ್ಷನ್‌ಗಳು ಮತ್ತು ಮೊದಲು ಬಂದ ಕ್ವಾರ್ಟರ್‌ಗಳಿಂದ ಗ್ರೇಡ್‌ಗಳು.',
+  'reviews.submittedAt': '{{date}} ಗೆ ಸಲ್ಲಿಸಲಾಗಿದೆ',
+  'reviews.untitled': 'ಶೀರ್ಷಿಕೆರಹಿತ ವಿಮರ್ಶೆ · ಸಂಪಾದಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ',
   'settings.billingSubtitle': 'ಯೋಜನೆ, ಸೀಟುಗಳು ಮತ್ತು ಇನ್‌ವಾಯ್ಸ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ',
   'settings.billingTitle': 'ಬಿಲ್ಲಿಂಗ್ ಮತ್ತು ಆಸನಗಳು',
   'settings.cadenceBody':
     'ಅಸೆಂಟ್ ನಿಮ್ಮ ತಂಡವನ್ನು ಎಷ್ಟು ಬಾರಿ ಚೆಕ್-ಇನ್‌ಗಳಿಗಾಗಿ ಕೇಳುತ್ತದೆ ಎಂಬುದನ್ನು ಆರಿಸಿ.',
+  'settings.cadenceHeading': 'ಕ್ಯಾಡೆನ್ಸ್',
   'settings.eyebrow': 'ಕಾರ್ಯಸ್ಥಳ · ಖಾತೆ · ಕ್ಯಾಡೆನ್ಸ್',
   'settings.guestName': 'ಪರ್ವತಾರೋಹಿ',
   'settings.openProfile': 'ಪ್ರೊಫೈಲ್ ತೆರೆಯಿರಿ',
@@ -235,10 +288,15 @@ export const ui: UiTranslations = {
   'settings.saveError': 'ಉಳಿಸುವಿಕೆ ವಿಫಲವಾಗಿದೆ: {{error}}',
   'settings.toggleCoachDescription':
     'KR ಎರಡು ಕಾನ್ಫಿಡೆನ್ಸ್ ಹಂತಗಳನ್ನು ಜಾರಿದಾಗ ಸರ್ಫೇಸ್ ಮಧ್ಯ-ತ್ರೈಮಾಸಿಕವನ್ನು ಪ್ರೇರೇಪಿಸುತ್ತದೆ.',
+  'settings.toggleCoachLabel': 'ಕೋಚಿಂಗ್ ಪ್ರೇರಣೆಗಳು',
   'settings.toggleDigestDescription':
     'ಪ್ರತಿ ಮಾಲೀಕರಿಗೆ ಸ್ಥಿತಿಯ ಮೂಲಕ ಉದ್ದೇಶಗಳ ಸೋಮವಾರದ ರೋಲ್-ಅಪ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತದೆ.',
+  'settings.toggleDigestLabel': 'ಸೋಮವಾರದ ಸಾರಾಂಶ ಇಮೇಲ್',
+  'settings.toggleRemindersDescription':
+    'ಚೆಕ್-ಇನ್ ಇನ್ನೂ ಬಾಕಿ ಇದ್ದರೆ ಶುಕ್ರವಾರ ಬೆಳಿಗ್ಗೆ ತಂಡಕ್ಕೆ ತಿಳಿಸಿ.',
   'settings.toggleRemindersLabel': 'ಸಾಪ್ತಾಹಿಕ ಚೆಕ್-ಇನ್ ಜ್ಞಾಪನೆಗಳು',
   'signup.emailPlaceholder': 'you@team.com',
+  'signup.haveAccountPrompt': 'ಈಗಾಗಲೇ ಖಾತೆ ಇದೆಯೇ? ',
   'signup.heading': 'ನಿಮ್ಮ ಮೊದಲ ಆರೋಹಣವನ್ನು ಯೋಜಿಸಿ.',
   'signup.namePlaceholder': 'ಅವೆರಿ ಪರ್ವತಾರೋಹಿ',
   'signup.orContinueWith': 'ಅಥವಾ ಮುಂದುವರಿಸಿ',
@@ -257,6 +315,7 @@ export const ui: UiTranslations = {
   'team.newTeamLabel': 'ಹೊಸ ತಂಡ',
   'team.newTeamPlaceholder': 'ಉದಾ: ಗ್ರಾಹಕರ ಅನುಭವ',
   'team.objectivesLabel': 'ಉದ್ದೇಶಗಳು',
+  'team.progressLabel': 'ಕಾರ್ಯಕ್ಷೇತ್ರದ ಪ್ರಗತಿ',
   'team.subheading':
     '{{teams}} ತಂಡಗಳು · {{objectives}} ಉದ್ದೇಶಗಳು. ರೋಲ್-ಅಪ್‌ಗಳನ್ನು ನೋಡಲು ನಿಮ್ಮ OKR ಗಳನ್ನು ತಂಡದಿಂದ ಗುಂಪು ಮಾಡಿ.',
 }

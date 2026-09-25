@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
+  'about.missionTitle': 'Η αποστολή μας',
   'account.notifications.save': 'Αποθήκευση προτιμήσεων',
   'account.notifications.saved': 'Οι ρυθμίσεις αποθηκεύτηκαν.',
   'account.notifications.saveFailed': 'Δεν ήταν δυνατή η αποθήκευση προτιμήσεων.',
@@ -11,7 +12,10 @@ export const ui: UiTranslations = {
   'account.payments.freeDescription': 'Πληρωμή ανά συνεδρία • Αναβάθμιση για εκπτώσεις κράτησης',
   'account.payments.helper':
     'Η μέθοδος πληρωμής σας εισπράττεται κατά την ολοκλήρωση της αγοράς. Δεν αποθηκεύουμε ποτέ πλήρεις αριθμούς καρτών — Η Stripe χειρίζεται όλα τα δεδομένα της κάρτας.',
+  'account.payments.paidDescription': 'Η συνδρομή είναι ενεργή — διαχείριση στο Stripe.',
   'account.payments.planFree': 'Δωρεάν πρόγραμμα',
+  'account.payments.title': 'Πλάνο & πληρωμή',
+  'account.payments.viewPlans': 'Δείτε τα {{appName}} πλάνα →',
   'account.profile.title': 'Προφίλ',
   'account.role.body':
     'Εναλλαγή μεταξύ λειτουργίας μαθητή και καθηγητή οποιαδήποτε στιγμή. Οι ενεργές συνεδρίες σας παραμένουν άθικτες σε οποιαδήποτε από τις δύο λειτουργίες.',
@@ -24,6 +28,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Διδάξτε με κιμωλία',
   'becomeTutor.form.error': 'Δεν ήταν δυνατή η υποβολή της αίτησης.',
+  'becomeTutor.form.pitch': 'Η παρουσίασή σας (προαιρετικό)',
   'becomeTutor.form.pitchPlaceholder':
     'Μερικές προτάσεις που θα δουν οι μαθητές στο προφίλ σας. Διατηρήστε το συγκεκριμένο και ευχάριστο.',
   'becomeTutor.form.rate': 'Ωριαία χρέωση ($/ώρα): {{rate}}',
@@ -33,6 +38,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.title': 'Πείτε μας για εσάς',
   'becomeTutor.headline':
     'Κερδίστε κάνοντας αυτό που αγαπάτε. Διδάξτε σύμφωνα με το πρόγραμμά σας.',
+  'becomeTutor.subhead':
+    'Κάντε αίτηση σε 5 λεπτά. Μόλις επαληθευτείτε, θα εμφανίζεστε στην αναζήτηση και θα αρχίσετε να δέχεστε κρατήσεις.',
+  'booking.duration.title': '3. Πόσο διαρκεί;',
   'booking.error.createFailed': 'Δεν ήταν δυνατή η δημιουργία κράτησης.',
   'booking.error.loadFailed': 'Δεν ήταν δυνατή η φόρτωση του εκπαιδευτή — δοκιμάστε ξανά.',
   'booking.error.noSlot': 'Επιλέξτε πρώτα μια ημέρα και ώρα.',
@@ -48,6 +56,7 @@ export const ui: UiTranslations = {
     'Οι συνεδρίες μπορούν να επαναπρογραμματιστούν έως και 12 ώρες νωρίτερα. Η κάρτα σας χρεώνεται μόνο όταν λήξει η συνεδρία.',
   'booking.summary.assurance':
     'Δεν υπάρχει χρέωση μέχρι το τέλος της συνεδρίας • Δωρεάν ακύρωση έως 12 ώρες πριν',
+  'booking.summary.back': '← Επιστροφή στο προφίλ καθηγητή',
   'booking.summary.cta': 'Επιβεβαίωση κράτησης',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'Επιλέξτε μια υποδοχή',
@@ -74,26 +83,38 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'Δάσκαλος',
   'bookingConfirm.subject': 'Θέμα',
   'bookingConfirm.title': 'Έχετε κάνει κράτηση. Θα αναλάβουμε τα υπόλοιπα.',
+  'bookingConfirm.viewSessions': 'Προβολή όλων των συνεδριών →',
   'bookingConfirm.with': 'Με καθηγητή',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'earningsHero.change': '{{sign}}{{percent}}% σε σχέση με τον προηγούμενο μήνα',
   'earningsHero.eyebrow': 'Κέρδη • {{month}}',
+  'earningsHero.greeting': 'Καλώς ήρθατε ξανά, {{name}} — συνεχίστε δυναμικά.',
   'forgotPassword.heading': 'Ξεχάσατε τον κωδικό πρόσβασής σας;',
   'forgotPassword.subheading':
     'Εισαγάγετε τη διεύθυνση email που είναι συνδεδεμένη με τον λογαριασμό σας και θα σας στείλουμε έναν σύνδεσμο επαναφοράς.',
   'forgotPassword.success.body':
     'Στείλαμε έναν σύνδεσμο επαναφοράς στο {{email}} — λήγει σε 30 λεπτά.',
   'heroSearchSection.eyebrow': '12.000+ επαληθευμένοι καθηγητές • από το 2018',
+  'heroSearchSection.headline': 'Εκεί όπου τα περίεργα μυαλά συναντούν τους κατάλληλους καθηγητές.',
+  'heroSearchSection.searchCta': 'Βρείτε καθηγητή',
+  'heroSearchSection.searchPlaceholder': 'Αναζήτηση μαθημάτων, καθηγητών ή θεμάτων…',
   'heroSearchSection.stat.rating': 'Μέση βαθμολογία περιόδου σύνδεσης',
+  'heroSearchSection.stat.sessions': 'Συνεδρίες που πραγματοποιήθηκαν',
   'heroSearchSection.stat.subjects': 'Θέματα που καλύπτονται',
   'heroSearchSection.stat.tutors': 'Επαληθευμένοι καθηγητές',
+  'heroSearchSection.subhead':
+    'Επαληθευμένοι καθηγητές. Ξεκάθαρες τιμές. Συνεδρίες που ταιριάζουν στην εβδομάδα σας.',
   'landing.featured.eyebrow': 'Προτεινόμενοι καθηγητές',
   'landing.featured.headline': 'Επιλεγμένα, με κορυφαία βαθμολογία και έτοιμα αυτήν την εβδομάδα.',
   'landing.featured.viewAll': 'Περιηγηθείτε σε όλους τους καθηγητές',
   'landing.nav.becomeTutor': 'Διδάξτε με κιμωλία',
   'landing.nav.findTutors': 'Βρείτε καθηγητές',
   'landing.pillars.eyebrow': 'Γιατί κιμωλία',
+  'landing.pillars.headline': '{{tagline}} — χωρίς την ταλαιπωρία.',
   'landing.testimonials.eyebrow': 'Από πρόσφατους μαθητές',
   'landing.testimonials.headline': 'Πραγματικά αποτελέσματα, με τα δικά τους λόγια.',
+  'landing.tutorCta.body':
+    'Ορίστε τις δικές σας χρεώσεις, χτίστε φήμη με επαληθευμένες κριτικές και αναλαμβάνουμε εμείς το πρόγραμμα, τις πληρωμές και τις υπενθυμίσεις.',
   'landing.tutorCta.button': 'Κάντε αίτηση για να διδάξετε',
   'landing.tutorCta.eyebrow': 'Γίνε καθηγητής',
   'landing.tutorCta.headline':
@@ -105,6 +126,7 @@ export const ui: UiTranslations = {
   'login.signup': 'Δημιουργία λογαριασμού →',
   'login.subheading':
     'Συνεχίστε από εκεί που σταματήσατε — οι συνεδρίες, τα μηνύματα και οι καθηγητές σας περιμένουν.',
+  'login.support': 'Χρειάζεστε βοήθεια;',
   'messages.draftPlaceholder': 'Πληκτρολογήστε ένα μήνυμα…',
   'messages.empty.body':
     'Τα νήματα θα εμφανίζονται εδώ όταν στέλνετε μήνυμα σε έναν καθηγητή ή όταν κάποιος άλλος σας στέλνει μήνυμα.',
@@ -116,9 +138,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'Δεν υπάρχουν ακόμη μηνύματα.',
   'messages.selectThread': 'Επιλέξτε ένα νήμα στα αριστερά.',
   'messages.send': 'Αποστολή μηνύματος',
+  'messages.startThreadHint':
+    'Επισκεφθείτε το προφίλ ενός καθηγητή και πατήστε "Μήνυμα στον καθηγητή" για να ξεκινήσετε συνομιλία.',
   'messages.thread.empty': 'Πείτε γεια — ξεκινήστε τη συζήτηση.',
   'messages.title': 'Θέματα με τους καθηγητές σας.',
   'nav.primary': 'Κύριο',
+  'planUpdated.body':
+    'Η αλλαγή χρέωσής σας είναι πλέον ενεργή. Μπορείτε να διαχειρίζεστε το πλάνο σας οποιαδήποτε στιγμή από τη σελίδα χρέωσης.',
+  'pricing.advancedFeatures': 'Προηγμένες λειτουργίες:',
   'pricing.dataExport': 'Εξαγωγή δεδομένων:',
   'pricing.headingDefault': 'Προηγμένες λειτουργίες:',
   'resetPassword.heading': 'Επιλέξτε έναν ισχυρό νέο κωδικό πρόσβασης.',
@@ -128,6 +155,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Εμφάνιση κωδικού',
   'resetPassword.subheading': 'Θα σας συνδέσουμε αυτόματα μετά την επιτυχή επαναφορά.',
   'resetPassword.submit': 'Επαναφορά και σύνδεση',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body':
     'Δοκιμάστε να διευρύνετε το φίλτρο θέματος ή να χαλαρώσετε το όριο αξιολόγησης.',
@@ -139,7 +167,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'Εκτίμηση',
   'search.filter.subject': 'Θέμα',
   'search.results.count': '{{count}} οι καθηγητές ταιριάζουν με τα φίλτρα σας',
+  'search.results.fallback': 'Εμφάνιση επιλεγμένων καθηγητών επίδειξης',
   'search.results.loading': 'Φόρτωση καθηγητών…',
+  'search.searchPlaceholder': 'Μάθημα, όνομα ή θέμα…',
   'search.subtitle':
     'Φιλτράρισμα κατά θέμα, αξιολόγηση και διαθεσιμότητα. Μόνο επαληθευμένοι καθηγητές.',
   'search.title': 'Βρείτε έναν καθηγητή που κάνει κλικ',
@@ -172,18 +202,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'Η συνεδρία ξεκίνησε — καλή μάθηση.',
   'sessionDetail.startError': 'Δεν ήταν δυνατή η έναρξη της συνεδρίας.',
   'sessionDetail.subtitle': 'με {{name}} • {{when}} • {{mins}} λεπτά',
+  'sessionDetail.timeline': 'Χρονολόγιο κατάστασης',
   'sessionDetail.timeline.afterEnd': 'Μετά το τέλος της συνεδρίας',
   'sessionDetail.timeline.auto': 'Αυτο',
   'sessionDetail.timeline.booked': 'Κράτηση',
   'sessionDetail.timeline.confirmed': 'Επιβεβαιωμένος',
   'sessionDetail.timeline.inSession': 'Σε συνεδρία',
   'sessionDetail.timeline.now': 'Τώρα',
+  'sessionDetail.timeline.receipt': 'Η απόδειξη εκδόθηκε',
   'sessionDetail.timeline.review': 'Προτροπή αξιολόγησης',
   'sessions.empty.body':
     'Περιηγηθείτε στο Mentor για να βρείτε έναν καθηγητή και να κάνετε κράτηση για μια θέση. Οι επιβεβαιωμένες συνεδρίες εμφανίζονται εδώ.',
   'sessions.empty.title': 'Δεν υπάρχει ακόμη προγραμματισμένο τίποτα εδώ.',
   'sessions.error': 'Δεν ήταν δυνατή η φόρτωση των συνεδριών σας — δοκιμάστε ξανά.',
   'sessions.eyebrow': 'Οι συνεδρίες σας',
+  'sessions.loading': 'Φόρτωση συνεδριών…',
   'sessions.subtitle':
     'Παρακολουθήστε τις επερχόμενες κρατήσεις, μεταβείτε στην ενεργή αίθουσα συνεδριών και επισκεφθείτε ξανά τα ολοκληρωμένα μαθήματα.',
   'sessions.title': 'Κάθε μάθημα, σε ένα μέρος.',
@@ -198,22 +231,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'Δημιουργήστε το δικό μου {{role}} λογαριασμός',
   'signup.subheading':
     'Δημιουργήστε έναν λογαριασμό για να κάνετε κρατήσεις μαθημάτων, να στέλνετε μηνύματα σε καθηγητές και να παρακολουθείτε την πρόοδό σας.',
+  'signup.terms': 'Με την εγγραφή σας συμφωνείτε με τους Όρους μας.',
   'tutorCard.avatarAlt': 'Πορτρέτο του {{name}}',
   'tutorCard.perHour': '/ ώρα',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'Κορυφαία βαθμολογία',
   'tutorCard.verified': 'Επαληθευμένος καθηγητής',
+  'tutorDashboard.empty.body':
+    'Ορίστε τα μαθήματά σας, την ωριαία χρέωση και τη διαθεσιμότητά σας — και αρχίστε να κερδίζετε.',
+  'tutorDashboard.empty.cta': 'Γίνετε καθηγητής →',
   'tutorDashboard.empty.title': 'Γίνετε δάσκαλος για να ξεκλειδώσετε τον πίνακα ελέγχου σας.',
   'tutorDashboard.fallbackName': 'Δάσκαλος',
   'tutorDashboard.loading': 'Φόρτωση πίνακα ελέγχου…',
   'tutorDashboard.recentReviews': 'Πρόσφατες κριτικές',
   'tutorDashboard.reviewsEmpty':
     'Δεν έχετε ακόμη αξιολογήσεις — θα εμφανιστούν εδώ μόλις σας αξιολογήσουν οι μαθητές.',
+  'tutorDashboard.stats.rating': 'Μέση βαθμολογία',
   'tutorDashboard.stats.sessions': 'Συνεδρίες αυτόν τον μήνα',
+  'tutorDashboard.stats.totalSessions': 'Συνεδρίες όλων των εποχών',
+  'tutorDashboard.studentFallback': 'Φοιτητής',
   'tutorDashboard.tutoringFallback': 'Συνεδρία διδασκαλίας',
   'tutorDashboard.upcoming': 'Προσεχείς συνεδρίες',
   'tutorDashboard.upcomingEmpty':
     'Δεν υπάρχουν ακόμη επερχόμενες συνεδρίες — οι μαθητές που έχουν κάνει κράτηση στις θέσεις σας θα εμφανίζονται εδώ.',
+  'tutorProfile.availability': 'Διαθεσιμότητα αυτή την εβδομάδα',
   'tutorProfile.availabilityHeadline': 'Επιλέξτε μια θέση για να ξεκινήσετε',
   'tutorProfile.bookCta': 'Κλείστε μια συνεδρία',
   'tutorProfile.bookFull': 'Δείτε το πλήρες πρόγραμμα',
@@ -226,6 +267,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / ώρα',
   'tutorProfile.reviews': 'Πρόσφατες κριτικές',
   'tutorProfile.reviews.empty': 'Δεν υπάρχουν ακόμη κριτικές — γίνετε ο πρώτος.',
+  'tutorProfile.stat.repeats': 'Επαναλαμβανόμενοι μαθητές',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'Μέση απόκριση',
   'tutorProfile.stat.responseValue': '{{mins}} λεπτά',

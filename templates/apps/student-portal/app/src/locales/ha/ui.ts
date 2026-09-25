@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Kuna da ra'ayi, kun sami matsala, ko kuna son shigar da makarantarku? Tuntuɓe mu daga saitunan asusunku ko aika wa shugaban makarantarku saƙo — kowane rubutu yana isa ga wani mutum na gaske a ƙungiyar.",
   'about.contactTitle': 'Yi magana da mu',
+  'about.missionTitle': 'Manufarmu',
   'announcementsFeed.empty': 'Babu sanarwa tukuna.',
   'announcementsFeed.eyebrow': '{{count}} sabuntawa',
   'announcementsFeed.title': 'Sanarwa ta baya-bayan nan',
   'assignmentDetail.alreadySubmitted': 'Kun riga kun ƙaddamar da wannan aikin.',
   'assignmentDetail.backLink': 'Komawa ga ayyukan da aka ba su',
+  'assignmentDetail.dropBody':
+    'Yi amfani da Zaɓi fayiloli don haɗa aikinku — za mu rubuta lokacin ƙaddamarwa da zarar kun tabbatar.',
   'assignmentDetail.dropButton': 'Zaɓi fayiloli',
+  'assignmentDetail.dropPrompt': 'Jefa fakitin PDF ko hotonku a nan',
   'assignmentDetail.due': 'An biya {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Umarni',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'An ƙima',
   'assignmentDetail.statusSubmitted': 'An ƙaddamar',
   'assignmentDetail.statusTitle': 'Matsayin ƙaddamarwa',
+  'assignmentDetail.submitError':
+    'Ba mu iya rubuta wannan ƙaddamarwar ba. Sake gwadawa nan da ɗan lokaci.',
   'assignmentDetail.submitted': 'An yi rikodin gabatarwa — an sanar da malamin ku.',
+  'assignmentDetail.submittedAt': 'An ƙaddamar {{when}}',
+  'assignmentDetail.submitTitle': 'Ƙaddamar da aikinku',
   'assignmentRow.courseDue': '{{course}} · An biya {{due}}',
   'assignments.empty': 'Babu komai a nan',
   'assignments.emptyBody':
@@ -39,9 +49,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Rajistar yau da kullun na kasancewar, rashin zuwa, da kuma jinkirin zuwa - tare da bayanin kula idan ya dace.',
+  'attendance.summary.absences': 'Rashin zuwa',
   'attendance.summary.absencesCaption': 'Kasa da matakin shiga tsakani na kwanaki 5',
   'attendance.summary.attendance': 'Halartar',
   'attendance.summary.attendanceCaption': '{{count}} wannan karon a wannan karon',
+  'attendance.summary.tardies': 'Jinkiri',
   'attendance.summary.tardiesCaption': 'Ciki har da bayanin kula game da jinkirin bas / alƙawari',
   'attendance.title': 'Tarihin halarta',
   'calendar.eyebrow': 'Shekarar makaranta · {{year}}',
@@ -55,6 +67,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Maki',
   'courseDetail.currentGrade': 'Matsayin yanzu',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Bayyani na kwas',
   'courseDetail.gradesTitle': 'Maki na baya-bayan nan',
   'courseDetail.messageTeacher': 'Malamin saƙo',
   'courseDetail.noGrades': 'Babu wani maki da aka buga tukuna.',
@@ -67,13 +80,20 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Duba duk',
   'dashboard.assignmentsTitle': 'A wannan makon mai zuwa',
   'dashboard.greeting': 'Sannu {{name}} , a shirye don aji?',
+  'dashboard.subtitle': 'Makonku a taƙaice — jadawali, maki, da ayyuka a wuri ɗaya natsuwa.',
+  'dashboard.viewReportCard': 'Duba katin rahoto',
+  'dashboard.weekFocusBody':
+    'Ƙaddamar da aikin Quadratics na 7 da jarrabawar babi. ɗakin koyarwa na buɗe ranar Talata da Alhamis bayan lokaci na 7.',
+  'dashboard.weekFocusCta': 'Duba cikakken shiri',
   'dashboard.weekFocusEyebrow': 'Mayar da Hankali Mako',
   'dashboard.weekFocusTitle': 'Kawo maki 4 a Algebra II',
   'forgotPassword.subheading':
     'Shigar da imel ɗin makarantarku kuma za mu aika hanyar haɗin sake saitawa.',
   'forgotPassword.successBody':
     'Idan {{email}} ya dace da asusun Chalk, hanyar haɗin sake saita kalmar sirri tana kan hanya. Hanyoyin haɗin suna ƙarewa cikin mintuna 30.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} GPA na tsawon lokaci',
+  'gpaHeroCard.summary': '{{count}} azuzuwa a yau',
   'grades.col.grade': 'Matsayi',
   'grades.col.teacher': 'Malami',
   'grades.col.trend': 'Yanayin zamani',
@@ -85,10 +105,17 @@ export const ui: UiTranslations = {
     'Haruffa kai tsaye da maki na kashi. Kibiyoyi masu tasowa suna nuna ko kuna hawa sama, mataki, ko zamewa.',
   'grades.title': 'Maki na, kwas-kwas naka',
   'grades.trendStable': 'Barga',
+  'grades.viewReportCard': 'Duba katin rahoto na hukuma',
   'landing.copyright': '© {{year}} {{app}} . An gina shi ne don ɗalibai, an yi shi ne don iyalai.',
+  'landing.ctaBody':
+    'Kyauta na kwanaki 30 na farko, ba a buƙatar katin kuɗi. Gundumomi za su iya ƙaddamar da matakin makaranta baki ɗaya a cikin rana ɗaya.',
+  'landing.ctaButton': 'Ƙirƙiri shafin yanar gizonku',
   'landing.ctaHeading': 'Ranar makaranta mai natsuwa tana farawa cikin mintuna kaɗan',
   'landing.eyebrow': 'Ga ɗaliban makarantar tsakiya da sakandare',
   'landing.featuresHeading': 'An shirya ranar makaranta a kusa da ɗalibi',
+  'landing.heroSubtitle':
+    '{{appName}} yana tattara kowane aji, maki, aiki, da saƙo a cikin dashboard ɗaya natsuwa don ku iya rage lokacin nema da ƙara lokacin koyo.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Mai bin FERPA ta hanyar tsoho',
   'landing.proof.rating': '4.8 a cikin iyalai 12k',
   'landing.sampleTerm': 'Bazara',
@@ -97,6 +124,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Ɓoye kalmar sirri',
   'login.noAccount': 'Sabo a cikin Alli?',
   'login.showPassword': 'Nuna kalmar sirri',
+  'messages.compose': 'Sabon saƙo',
   'messages.composer.email': 'Imel ɗin mai karɓa (zaɓi ne)',
   'messages.composer.errorEmpty': 'Saƙo ba zai iya zama fanko ba.',
   'messages.composer.errorRecipient': 'Ana buƙatar sunan mai karɓa.',
@@ -127,9 +155,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Nadin girmamawa · Lokacin bazara',
   'nav.unreadMessages': 'Saƙonnin da ba a karanta ba',
   'notifications.eyebrow': '{{count}} sabuntawa',
+  'notifications.feedTitle': 'Duk ayyukan kwanan nan',
   'notifications.subtitle':
     'Maki, tunatarwa, saƙonni, da sanarwar makaranta. Daidaita waɗanne tashoshi ne kowace sanarwa ke amfani da su a cikin Saituna.',
+  'planUpdated.body':
+    'Canjin lissafin ku yana aiki yanzu. Kuna iya sarrafa shirin ku kowane lokaci daga shafin lissafi.',
+  'planUpdated.retry': 'Gwada kuma',
+  'planUpdated.verifyFailed': 'Ba mu iya tabbatar da biyan kuɗin ku ba tukuna.',
+  'planUpdated.verifyFailedBody':
+    'Ana iya ci gaba da aiwatar da biyan kuɗin ku. Gwada kuma nan ba da jimawa ba.',
   'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
+  'pricing.announcementsLabel': 'sanarwa',
   'pricing.attendanceLabel': 'halarta',
   'pricing.gradesLabel': 'maki',
   'pricing.heading': 'sanarwa',
@@ -144,6 +180,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'Q2',
   'reportCard.crumb': 'Katin rahoto',
   'reportCard.cumulativeGpa': 'Jimlar GPA',
+  'reportCard.download': 'Sauke PDF',
   'reportCard.downloaded': 'Katin rahoto ya buɗe a cikin sabon shafin.',
   'reportCard.downloading': 'Ana samar da PDF…',
   'reportCard.empty': 'Babu maki a fayil ɗin tukuna.',
@@ -151,6 +188,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'GPA na ƙarshe · {{term}}',
   'reportCard.subtitle':
     'Kwafin takardar kammala karatun simistar da aka rubuta, tare da makin kwas mai nauyi, halarta, da kuma zazzage PDF da za a iya bugawa.',
+  'reportCard.title': 'Katin rahoto',
+  'resetPassword.newPassword': 'Sabuwar kalmar sirri',
   'resetPassword.subheading':
     'Zaɓi wani abu da ba za a iya mantawa da shi ba amma yana da wahalar tsammani.',
   'resetPassword.tokenPlaceholder': 'Manna lambar daga imel ɗinka',
@@ -177,12 +216,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Ayyukan da ake Jira',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} rashin wannan kalma · {{tardy}} jinkirin jinkiri',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Ana lissafta adadin halarta…',
+  'subjectStatsTriad.attendanceLabel': 'Halartar',
   'subjectStatsTriad.gradesCaption': 'A ƙetare {{percent}} Matsakaicin nauyi %',
+  'subjectStatsTriad.gradesCaptionLoading': 'Ana loda maki…',
+  'subjectStatsTriad.gradesLabel': 'Matsakaicin aji',
   'todayScheduleStrip.empty': 'Babu azuzuwan yau.',
   'todayScheduleStrip.eyebrow': '{{count}} azuzuwan',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Jadawalin yau',
   'topbar.guestName': 'Ɗalibi',
   'topbar.searchPlaceholder': 'Bincika azuzuwan, ayyukan yi…',
+  'topbar.studentRole': 'Ɗalibi',
   'topbar.studentTag': 'Ɗalibi · # {{id}}',
 }

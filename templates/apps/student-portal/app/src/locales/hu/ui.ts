@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Van visszajelzésed, hibát találtál, vagy szeretnéd az iskoládat is bevonni? Írj a fiókbeállításaidból, vagy küldj üzenetet az iskolai adminisztrátorodnak — minden üzenet eljut egy igazi csapattaghoz.',
   'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.missionTitle': 'Küldetésünk',
   'announcementsFeed.empty': 'Még nincsenek bejelentések.',
   'announcementsFeed.eyebrow': '{{count}} frissítések',
   'announcementsFeed.title': 'Legfrissebb bejelentések',
   'assignmentDetail.alreadySubmitted': 'Már beküldted ezt a feladatot.',
   'assignmentDetail.backLink': 'Vissza a feladatokhoz',
+  'assignmentDetail.dropBody':
+    'A Fájlok kiválasztása gombbal csatolhatod a munkádat — a beküldés időpontját a megerősítés után rögzítjük.',
   'assignmentDetail.dropButton': 'Fájlok kiválasztása',
+  'assignmentDetail.dropPrompt': 'Húzd ide a PDF- vagy fotócsomagodat',
   'assignmentDetail.due': 'Esedékes {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Utasítás',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Osztályozott',
   'assignmentDetail.statusSubmitted': 'Beküldve',
   'assignmentDetail.statusTitle': 'Beküldés állapota',
+  'assignmentDetail.submitError':
+    'Nem sikerült rögzíteni a beküldést. Próbáld újra egy pillanat múlva.',
   'assignmentDetail.submitted': 'Beküldés rögzítve – a tanárt értesítettük.',
+  'assignmentDetail.submittedAt': 'Beküldve {{when}}',
+  'assignmentDetail.submitTitle': 'Küldd be a munkádat',
   'assignmentRow.courseDue': '{{course}} · Esedékes {{due}}',
   'assignments.empty': 'Semmi itt',
   'assignments.emptyBody': 'Váltson szűrőkre a fentiekben, hogy más állapotú feladatokat lásson.',
@@ -38,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Napi napló a jelenlétről, hiányzásokról és késésekről – szükség esetén jegyzetekkel.',
+  'attendance.summary.absences': 'Hiányzások',
   'attendance.summary.absencesCaption': 'Az 5 napos beavatkozási küszöb alatt',
   'attendance.summary.attendance': 'Részvétel',
   'attendance.summary.attendanceCaption': '{{count}} napjainkban ez a kifejezés',
+  'attendance.summary.tardies': 'Késések',
   'attendance.summary.tardiesCaption': 'Jegyzetek busz-/találkozókésések esetén',
   'attendance.title': 'Jelenléti előzmények',
   'calendar.eyebrow': 'Tanév · {{year}}',
@@ -54,6 +66,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Osztályzatok',
   'courseDetail.currentGrade': 'Jelenlegi osztályzat',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Kurzus áttekintése',
   'courseDetail.gradesTitle': 'Legutóbbi osztályzatok',
   'courseDetail.messageTeacher': 'Üzenet a tanárnak',
   'courseDetail.noGrades': 'Még nincsenek közzétett osztályzatok.',
@@ -66,13 +79,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Összes megtekintése',
   'dashboard.assignmentsTitle': 'Legközelebb ezen a héten',
   'dashboard.greeting': 'Szia {{name}} , Készen állsz az órára?',
+  'dashboard.subtitle':
+    'A heted egy pillantásra — órarend, jegyek és feladatok egy nyugodt nézetben.',
+  'dashboard.viewReportCard': 'Bizonyítvány megtekintése',
+  'dashboard.weekFocusBody':
+    'Add be a Másodfokú egyenletek gyakorlófeladatsor 7-et és a fejezetzáró dolgozatot. A korrepetálás kedden és csütörtökön a 7. óra után van nyitva.',
+  'dashboard.weekFocusCta': 'Teljes terv megtekintése',
   'dashboard.weekFocusEyebrow': 'Heti fókusz',
   'dashboard.weekFocusTitle': 'Növeld az Algebra II-t 4 ponttal',
   'forgotPassword.subheading':
     'Add meg az iskolai e-mail címedet, és küldünk egy visszaállító linket.',
   'forgotPassword.successBody':
     'Ha {{email}} egyezik egy Chalk fiókkal, egy jelszó-visszaállító link úton van. A linkek 30 perc múlva lejárnak.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} féléves átlag',
+  'gpaHeroCard.summary': 'Ma {{count}} órád van',
   'grades.col.grade': 'Fokozat',
   'grades.col.teacher': 'Tanár',
   'grades.col.trend': 'Trend',
@@ -84,10 +105,17 @@ export const ui: UiTranslations = {
     'Élő betű- és százalékos osztályzatok. A trendnyilak mutatják, hogy felfelé, vízszintesen vagy csúszásban vagy.',
   'grades.title': 'Az osztályzataid kurzusról kurzusra',
   'grades.trendStable': 'Stabil',
+  'grades.viewReportCard': 'Hivatalos bizonyítvány megtekintése',
   'landing.copyright': '© {{year}} {{app}} . Diákoknak készült, családoknak.',
+  'landing.ctaBody':
+    'Az első 30 nap ingyenes, bankkártya megadása nélkül. Az iskolák egyetlen délután alatt bevezethetik az egész intézményre kiterjedő csomagot.',
+  'landing.ctaButton': 'Hozd létre a portálodat',
   'landing.ctaHeading': 'Egy nyugodt iskolai nap perceken belül elkezdődik',
   'landing.eyebrow': 'Középiskolásoknak és gimnazistáknak',
   'landing.featuresHeading': 'Egy diák köré szervezett iskolai nap',
+  'landing.heroSubtitle':
+    'A {{appName}} minden órát, jegyet, feladatot és üzenetet egyetlen nyugodt irányítópultba gyűjt, hogy kevesebb időt tölts kereséssel, és többet tanulással.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Alapértelmezés szerint FERPA-kompatibilis',
   'landing.proof.rating': '4,8 12 ezer családon keresztül',
   'landing.sampleTerm': 'Tavaszi',
@@ -96,6 +124,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Jelszó elrejtése',
   'login.noAccount': 'Új a Chalkben?',
   'login.showPassword': 'Jelszó megjelenítése',
+  'messages.compose': 'Új üzenet',
   'messages.composer.email': 'Címzett e-mail címe (opcionális)',
   'messages.composer.errorEmpty': 'Az üzenet mező nem lehet üres.',
   'messages.composer.errorRecipient': 'A címzett nevének megadása kötelező.',
@@ -126,9 +155,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Becsületlista · Tavaszi félév',
   'nav.unreadMessages': 'Olvasatlan üzenetek',
   'notifications.eyebrow': '{{count}} frissítések',
+  'notifications.feedTitle': 'Minden legutóbbi tevékenység',
   'notifications.subtitle':
     'Jegyek, emlékeztetők, üzenetek és iskolai bejelentések. A Beállításokban módosíthatod, hogy az egyes értesítések melyik csatornát használják.',
+  'planUpdated.body':
+    'A számlázási módosításod mostantól aktív. A csomagodat bármikor kezelheted a számlázási oldalon.',
+  'planUpdated.retry': 'Próbálja újra',
+  'planUpdated.verifyFailed': 'Még nem tudtuk megerősíteni a fizetését.',
+  'planUpdated.verifyFailedBody':
+    'Lehetséges, hogy a fizetése még feldolgozás alatt áll. Próbálja újra egy pillanat múlva.',
   'planUpdated.verifying': 'Fizetésed megerősítése…',
+  'pricing.announcementsLabel': 'bejelentések',
   'pricing.attendanceLabel': 'részvétel',
   'pricing.gradesLabel': 'osztályzatok',
   'pricing.heading': 'bejelentések',
@@ -143,6 +180,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': '2. negyedév',
   'reportCard.crumb': 'Jelentéskártya',
   'reportCard.cumulativeGpa': 'Összesített átlag',
+  'reportCard.download': 'PDF letöltése',
   'reportCard.downloaded': 'Jelentéskártya új lapon megnyílt.',
   'reportCard.downloading': 'PDF generálása…',
   'reportCard.empty': 'Még nincsenek osztályzatok a nyilvántartásban.',
@@ -150,6 +188,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Végső átlag · {{term}}',
   'reportCard.subtitle':
     'Hivatalos félév végi átirat súlyozott kurzusjegyekkel, jelenléti ívvel és egy nyomtatható PDF letöltéssel.',
+  'reportCard.title': 'Jelentéskártya',
+  'resetPassword.newPassword': 'Új jelszó',
   'resetPassword.subheading': 'Válassz valami emlékezeteset, de nehezen kitalálhatót.',
   'resetPassword.tokenPlaceholder': 'Illeszd be a kódot az e-mailedből',
   'schedule.empty': 'Nincsenek beütemezett órák.',
@@ -174,12 +214,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Függőben lévő feladatok',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} hiányzások ebben a félévben · {{tardy}} késések',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Jelenléti adatok feldolgozása…',
+  'subjectStatsTriad.attendanceLabel': 'Részvétel',
   'subjectStatsTriad.gradesCaption': 'Át {{percent}} % súlyozott átlag',
+  'subjectStatsTriad.gradesCaptionLoading': 'Érdemjegyek betöltése…',
+  'subjectStatsTriad.gradesLabel': 'Osztályátlag',
   'todayScheduleStrip.empty': 'Ma nincsenek órák.',
   'todayScheduleStrip.eyebrow': '{{count}} osztályok',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Mai menetrend',
   'topbar.guestName': 'Diák',
   'topbar.searchPlaceholder': 'Keresés kurzusok, feladatok…',
+  'topbar.studentRole': 'Diák',
   'topbar.studentTag': 'Diák · # {{id}}',
 }

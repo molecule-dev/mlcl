@@ -1,14 +1,28 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Հարցեր՞ կացության, կարծիքի կամ համագործակցության գաղափարի մասին։ Կապվեք թիմի հետ ձեր հաշվից կամ հավելվածի concierge-ի միջոցով — ամեն հաղորդագրություն հասնում է իրական մարդու, ով նույնպես ճամփորդում է։',
   'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.featureBooking.body':
+    'Համեմատեք սենյակները, գները և հարմարությունները կողք կողքի, ապա ամրագրեք մի քանի հպումով՝ անվճար չեղարկմամբ յուրաքանչյուր երթուղու համար։',
+  'about.featureBooking.title': 'Փնտրել, համեմատել և ամրագրել',
+  'about.featureDiscover.body':
+    'Խմբագրության ընտրած ուղղություններն ու դաշտային ուղեցույցները բացահայտում են այն վայրերը, որոնք արժե փաթեթավորել — առանց ագրեգատորների աղմուկի, առանց հովանավորված խառնաշփոթի։',
   'about.featureDiscover.title': 'Ոգեշնչում, ձեռքով ընտրված',
+  'about.featureItineraries.body':
+    'Պահեք թռիչքները, կացությունները և պլանները մեկ տեղում, պահպանեք ուղղությունները հետագայի համար և շարունակեք ձեր ճամփորդությունը հենց այնտեղ, որտեղ կանգ եք առել։',
+  'about.featureItineraries.title': 'Երթուղիներ, որ մնում են կազմակերպված',
+  'about.featureStays.title': 'Վստահելի կացություններ',
+  'about.missionTitle': 'Մեր առաքելությունը',
+  'about.subtitle':
+    'Ոգեշնչում, վստահելի կացություններ և անխոչընդոտ ուղի երազանքից մինչև ամրագրում։',
+  'about.whatYouGetTitle': 'Ինչ եք ստանում',
   'account.addPaymentCta': 'Ավելացնել վճարման եղանակ',
   'account.addPaymentError': 'Չհաջողվեց ավելացնել վճարման եղանակը։',
   'account.confirmRemove': 'Հաստատեք հեռացումը',
   'account.defaultBadge': 'Լռելյայն',
-  'account.loyalty.pointsTowardNext':
-    '{{միավորներ}} -ի {{հաջորդ}} մղոններ դեպի {{հաջորդ մակարդակ}}',
+  'account.loyalty.pointsTowardNext': '{{points}}՝ {{next}} մղոնից մինչև {{nextTier}}',
   'account.loyalty.tier': 'Ընթացիկ մակարդակ',
   'account.navLabel': 'Հաշվի բաժիններ',
   'account.payments.empty': 'Վճարման եղանակներ դեռ չեն պահպանվել։',
@@ -29,6 +43,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} գիշերներ',
   'booking.lineTaxes': 'Հարկեր և վճարներ',
   'booking.loadError': 'Հատկությունը չհաջողվեց բեռնել։',
+  'booking.noChargeYet': 'Դեռ գումար չի գանձվի։',
   'booking.noPaymentMethods': 'Պահպանված վճարման եղանակներ չկան։',
   'booking.noPaymentSelected': 'Հաստատելուց առաջ ընտրեք վճարման եղանակ։',
   'booking.noRoomError': 'Հաստատելուց առաջ ընտրեք սենյակ։',
@@ -41,6 +56,7 @@ export const ui: UiTranslations = {
   'booking.policy2': 'Այսօր վճար չկա՝ ձեր քարտը պահվում է միայն հաստատման համար։',
   'booking.policy3':
     'Ճանապարհորդության պաշտպանությունը ծածկվում է Sojourn-ի կողմից՝ 24/7 կոնսիերժի աջակցություն:',
+  'booking.policyHeading': 'Չեղարկում և պայմաններ',
   'booking.roomHeading': 'Ընտրեք ձեր սենյակը',
   'booking.specialRequests': 'Հատուկ խնդրանքներ',
   'booking.specialRequestsPlaceholder': 'Ինչ-որ բան, որ հյուրընկալողը պետք է իմանա՞։',
@@ -69,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Սոջըրնի անդամներ',
   'landing.cta.heading': 'Անհանգստանալու կարիք չունեք։ Ամեն երթուղի, ամեն անգամ։',
   'landing.cta.signup': 'Ստեղծեք անվճար հաշիվ',
+  'landing.cta.subheading':
+    'Անվճար չեղարկում, միայն անդամների համար գներ և 24/7 ճամփորդական concierge — մղոններ վաստակեք յուրաքանչյուր ամրագրման համար և ստացեք առաջին հասանելիությունը նոր օբյեկտներին։',
   'landing.destinations.eyebrow': 'Ուր գնալ հաջորդը',
   'landing.destinations.heading': 'Առաջարկվող ուղղություններ',
   'landing.destinations.seeAll': 'Դիտել բոլոր ուղղությունները',
@@ -77,27 +95,44 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Պատմություններ, որոնց համար արժե փաթեթավորել',
   'landing.nav.join': 'Միացե՛ք Sojourn-ին',
   'landing.nav.search': 'Որոնումը մնում է',
+  'landing.preview.browseAll': 'Դիտել ամբողջ հավաքածուն',
   'landing.preview.eyebrow': 'Ներսից մի հայացք',
   'landing.preview.heading': 'Այս ամսվա ընթացքում ընտրված կացարաններ',
+  'landing.preview.subheading':
+    '{{appName}}-ի յուրաքանչյուր օբյեկտ անձամբ ստուգված է մեր խմբագրական թիմի կողմից — առանց ագրեգատորների պաշարի, առանց խաբուսիկ հայտարարությունների և անվճար չեղարկում յուրաքանչյուր երթուղու համար։',
   'login.eyebrow': 'Անդամների տարածք',
+  'login.noAccount': 'Նորեկ եք Tessera-ում։',
   'login.signupLink': 'Ստեղծեք անվճար հաշիվ',
   'login.subheading':
     'Մուտք գործեք՝ ձեր ուղևորությունները կառավարելու, հաստատումները դիտելու և այնտեղից շարունակելու համար։',
   'nav.legal': 'Իրավական',
   'notifications.loading': 'Բեռնվում է…',
   'notifications.subheading': '{{count}} չկարդացված · ամեն ինչ մեկ հանգիստ էլ. փոստարկղում',
+  'planUpdated.body':
+    'Ձեր վճարման փոփոխությունն այժմ ակտիվ է։ Դուք կարող եք ցանկացած պահի կառավարել ձեր պլանը վճարման էջից։',
+  'planUpdated.retry': 'Փորձեք կրկին',
+  'planUpdated.verifyFailed': 'Մենք դեռ չենք կարող հաստատել ձեր վճարումը։',
+  'planUpdated.verifyFailedBody': 'Ձեր վճարումը կարող է դեռ մշակվել։ Փորձեք կրկին մի փոքր ուշ։',
   'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.accommodationsLabel': 'կացարաններ',
   'pricing.bookingsLabel': 'ամրագրումներ',
   'pricing.destinationsLabel': 'պահպանված ուղղություններ',
   'pricing.exportLabel': 'Արտահանել ուղևորության տվյալները',
   'pricing.itinerariesLabel': 'երթուղիներ',
+  'privacy.intro':
+    '{{appName}}-ը պաշտպանում է ձեր ճամփորդության տվյալները։ Փոխարինեք այս ձևանմուշը ձեր իրական գաղտնիության քաղաքականությամբ մինչև արտադրություն դուրս գալը։',
   'propertyDetail.allPhotos': 'Բոլորը {{count}} լուսանկարներ',
   'propertyDetail.amenitiesHeading': 'Ինչ է առաջարկում այս վայրը',
   'propertyDetail.backLink': 'Վերադառնալ որոնմանը',
   'propertyDetail.bookCta': 'Ամրագրել',
   'propertyDetail.bookmarkAria': 'Պահպանել հատկությունը',
   'propertyDetail.freeCancellation': 'Անվճար չեղարկում',
+  'propertyDetail.galleryAria': 'Օբյեկտի լուսանկարների պատկերասրահ',
+  'propertyDetail.galleryCloseAria': 'Փակել պատկերասրահը',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': '{{name}} լուսանկար {{n}}',
+  'propertyDetail.galleryNextAria': 'Հաջորդ լուսանկարը',
+  'propertyDetail.galleryPrevAria': 'Նախորդ լուսանկարը',
   'propertyDetail.heroImageAlt': '{{name}} հերոսի լուսանկար',
   'propertyDetail.lineCleaning': 'Մաքրման վճար',
   'propertyDetail.lineRate': '{{price}} × {{nights}} գիշերներ',
@@ -106,6 +141,7 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'գիշեր',
   'propertyDetail.noChargeYet': 'Ձեզանից դեռ գումար չի գանձվի',
   'propertyDetail.notFound': 'Հատկությունը չի գտնվել։',
+  'propertyDetail.pickDatesHint': 'Ընտրեք ձեր ամսաթվերը՝ գնի ամբողջական բաշխումը տեսնելու համար։',
   'propertyDetail.reviewCount': '( {{count}} ակնարկներ)',
   'propertyDetail.reviewsHeading': 'Վերջին ակնարկները',
   'propertyDetail.verified': 'Ժամանակավոր բնակության հաստատված անշարժ գույք',
@@ -114,6 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Նոր գաղտնաբառ',
   'resetPassword.subheading':
     'Ընտրեք նոր գաղտնաբառ ձեր Sojourn հաշվի համար: Օգտագործեք առնվազն 8 նիշ. խորհուրդ ենք տալիս օգտագործել գաղտնաբառ:',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'Ձեր որոնմանը համապատասխանող հատկություններ չկան։',
   'search.emptyHint':
     'Փորձեք ընդլայնել ձեր ֆիլտրերը կամ հանել գնի առաստաղը. Sojourn-ը հյուրանոցներ ունի 14 երկրներում։',
@@ -121,6 +158,8 @@ export const ui: UiTranslations = {
   'search.heading': 'Ընտրված կացարաններ ձեր զբոսանքի համար',
   'search.headingForQuery': 'Մնում է « {{q}} «',
   'search.loadError': 'Հատկությունները չհաջողվեց բեռնել։',
+  'search.mapHint': 'Սավառնեք քարտի վրա՝ քարտեզի վրա դրա գտնվելու վայրը ընդգծելու համար։',
+  'search.mapPinAria': '{{name}} — {{price}} մեկ գիշերվա համար',
   'search.sortLabel': 'Դասավորել ըստ',
   'search.subheading': '{{count}} հատկություններ · {{guests}} հյուրեր',
   'settings.openAccount': 'Բացել ամբողջական հաշիվը',
@@ -129,15 +168,22 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Անվճար չեղարկում, միայն անդամների համար նախատեսված գներ և 24/7 գործող կոնսիերժ՝ վաստակեք մղոններ յուրաքանչյուր ամրագրման համար։',
   'sojournAuthShell.brand.eyebrow': 'Թափառեք առանց անհանգստության',
+  'sojournAuthShell.brand.heading': 'Անխոչընդոտ ուղի երազանքից մինչև ամրագրում։',
   'sojournHeroSearchCard.checkInAria': 'Մուտքի ամսաթիվը',
   'sojournHeroSearchCard.checkOutAria': 'Ելքի ամսաթիվ',
+  'sojournHeroSearchCard.destAria': 'Նպատակակետ',
+  'sojournHeroSearchCard.destLabel': 'Որտեղ',
   'sojournHeroSearchCard.destPlaceholder': 'Քաղաք, շրջան կամ անշարժ գույք',
   'sojournHeroSearchCard.eyebrow': 'Ընտրված կացարաններ · Միայն անդամների համար նախատեսված գներ',
   'sojournHeroSearchCard.guestsOption': '{{n}} հյուրեր',
   'sojournHeroSearchCard.subtitle':
     'Ոգեշնչում, վստահելի կացարաններ և անխոչընդոտ ճանապարհ՝ երազանքից մինչև ամրագրված՝ 14 երկրներում և 200+ ձեռքով ստուգված հյուրանոցներում։',
+  'sojournHeroSearchCard.title': 'Թափառեք առանց անհանգստության',
+  'sojournHeroSearchCard.trustLoyalty': 'Մղոններ վաստակեք յուրաքանչյուր երթուղու համար',
   'sojournHeroSearchCard.trustProtected': 'Անվճար չեղարկում, լիովին պաշտպանված',
   'sojournHeroSearchCard.trustVetted': 'Միայն ձեռքով ստուգված անշարժ գույք',
+  'terms.intro':
+    'Փոխարինեք այս ձևանմուշը ձեր իրական {{appName}} ծառայության պայմաններով մինչև արտադրություն դուրս գալը։',
   'travelBookingLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'tripDetail.backLink': 'Վերադառնալ դեպի ճամփորդություններ',
   'tripDetail.cancelCta': 'Չեղարկել ամրագրումը',
@@ -147,6 +193,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'Ըստ ցանկության՝ չեղարկման պատճառը',
   'tripDetail.checkInLabel': 'Գրանցում',
   'tripDetail.checkOutLabel': 'Ելք',
+  'tripDetail.confCode': 'Կոդ · {{code}}',
   'tripDetail.confirmCancelCta': 'Չեղարկել ուղևորությունը',
   'tripDetail.hostInfo':
     'Հյուրընկալող՝ {{name}} Անվճար չեղարկում մինչև 7 օր առաջ՝ մինչև մուտքագրումը։',
@@ -154,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'Շարունակել ամրագրումը',
   'tripDetail.lengthLabel': 'Երկարություն',
   'tripDetail.loadError': 'Չհաջողվեց բեռնել ուղևորությունը։',
+  'tripDetail.messageHostHeading': 'Հաղորդագրություն ուղարկեք ձեր հյուրընկալողին',
   'tripDetail.messagePlaceholder':
     'Տեղեկացրեք ձեր տանտիրոջը ձեր ժամանման ժամի, սննդակարգի կարիքների կամ որևէ այլ բանի մասին։',
   'tripDetail.messageSend': 'Ուղարկել հաղորդագրություն',
@@ -164,9 +212,11 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'Գնի ամփոփում',
   'tripDetail.taxes': 'Հարկեր և վճարներ',
   'tripItineraryRow.nights': '{{count}} գիշերներ',
+  'trips.empty.past': 'Անցյալ ճամփորդությունները կհայտնվեն այստեղ, երբ սկսեք թափառել։',
   'trips.empty.upcoming': 'Դեռևս առաջիկա ուղևորություններ չկան՝ եկեք դա շտկենք։',
   'trips.eyebrow': 'Ձեր թափառումները',
   'trips.heading': 'Ուղևորություններ',
   'trips.loadError': 'Չհաջողվեց բեռնել ուղևորությունները։',
+  'trips.searchCta': 'Պլանավորեք մեկ այլ ուղևորություն',
   'trips.subheading': '{{upcoming}} առաջիկա · {{past}} անցյալ',
 }

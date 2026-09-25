@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате повратна информација, најдовте грешка или сакате да ја вклучите вашата школа? Обратете се преку поставките на вашата сметка или испратете порака до администраторот на школата — секоја белешка стигнува до вистинска личност во тимот.',
   'about.contactTitle': 'Контактирајте не',
+  'about.missionTitle': 'Нашата мисија',
   'announcementsFeed.empty': 'Сè уште нема најави.',
   'announcementsFeed.eyebrow': '{{count}} ажурирања',
   'announcementsFeed.title': 'Најнови најави',
   'assignmentDetail.alreadySubmitted': 'Веќе ја поднесовте оваа задача.',
   'assignmentDetail.backLink': 'Назад кон задачите',
+  'assignmentDetail.dropBody':
+    'Користете Избери датотеки за да го прикачите вашето дело — ќе го запишеме времето на поднесување штом потврдите.',
   'assignmentDetail.dropButton': 'Изберете датотеки',
+  'assignmentDetail.dropPrompt': 'Пуштете го вашиот PDF или пакет со фотографии овде',
   'assignmentDetail.due': 'Долг {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Инструкции',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Оценето',
   'assignmentDetail.statusSubmitted': 'Поднесено',
   'assignmentDetail.statusTitle': 'Статус на поднесување',
+  'assignmentDetail.submitError':
+    'Не можевме да го запишеме тоа поднесување. Обидете се повторно за момент.',
   'assignmentDetail.submitted': 'Поднесувањето е снимено — вашиот наставник е известен.',
+  'assignmentDetail.submittedAt': 'Поднесено {{when}}',
+  'assignmentDetail.submitTitle': 'Поднесете го вашето дело',
   'assignmentRow.courseDue': '{{course}} · Долг {{due}}',
   'assignments.empty': 'Ништо овде',
   'assignments.emptyBody':
@@ -39,9 +49,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Дневен дневник на присуство, отсуства и доцнења — со белешки кога е применливо.',
+  'attendance.summary.absences': 'Отсуства',
   'attendance.summary.absencesCaption': 'Под прагот на интервенција од 5 дена',
   'attendance.summary.attendance': 'Присуство',
   'attendance.summary.attendanceCaption': '{{count}} денес овој термин',
+  'attendance.summary.tardies': 'Доцнења',
   'attendance.summary.tardiesCaption':
     'Вклучувајќи белешки за доцнења во автобуси / закажани термини',
   'attendance.title': 'Историја на присуство',
@@ -56,6 +68,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Оценки',
   'courseDetail.currentGrade': 'Тековно одделение',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Преглед на курсот',
   'courseDetail.gradesTitle': 'Неодамнешни оценки',
   'courseDetail.messageTeacher': 'Наставник за пораки',
   'courseDetail.noGrades': 'Сè уште нема објавени оценки.',
@@ -68,13 +81,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Види ги сите',
   'dashboard.assignmentsTitle': 'Следно оваа недела',
   'dashboard.greeting': 'Здраво {{name}} , спремни за час?',
+  'dashboard.subtitle':
+    'Вашата недела на еден поглед — распоред, оценки и задачи во еден мирен преглед.',
+  'dashboard.viewReportCard': 'Види свидетелство',
+  'dashboard.weekFocusBody':
+    'Поднесете го сетот за вежбање Квадратни равенки 7 и квизот за главата. Кабинетот за туторство е отворен вторник и четврток по 7-ми час.',
+  'dashboard.weekFocusCta': 'Види целосен план',
   'dashboard.weekFocusEyebrow': 'Фокус на неделата',
   'dashboard.weekFocusTitle': 'Зголемете ја Алгебра II за 4 поени',
   'forgotPassword.subheading':
     'Внесете ја вашата училишна е-пошта и ние ќе ви испратиме линк за ресетирање.',
   'forgotPassword.successBody':
     'Ако {{email}} се совпаѓа со сметка на Chalk, линк за ресетирање на лозинката е на пат. Линковите истекуваат за 30 минути.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} просек на оценки за семестар',
+  'gpaHeroCard.summary': '{{count}} часа денес',
   'grades.col.grade': 'Одделение',
   'grades.col.teacher': 'Наставник',
   'grades.col.trend': 'Тренд',
@@ -86,10 +107,17 @@ export const ui: UiTranslations = {
     'Оценки со букви и проценти во живо. Стрелките за тренд покажуваат дали се движите нагоре, на ниво или се лизгате.',
   'grades.title': 'Вашите оценки, курс по курс',
   'grades.trendStable': 'Штала',
+  'grades.viewReportCard': 'Види официјално свидетелство',
   'landing.copyright': '© {{year}} {{app}} . Создадено за студенти, создадено за семејства.',
+  'landing.ctaBody':
+    'Бесплатно за првите 30 дена, не е потребна кредитна карта. Окрузите можат да воведат ниво за целата школа за едно попладне.',
+  'landing.ctaButton': 'Креирај го твојот портал',
   'landing.ctaHeading': 'Помирен училишен ден започнува за неколку минути',
   'landing.eyebrow': 'За средношколци',
   'landing.featuresHeading': 'Школски ден организиран околу ученикот',
+  'landing.heroSubtitle':
+    '{{appName}} ги собира сите часови, оценки, задачи и пораки во една мирна контролна табла за да поминувате помалку време во пребарување и повеќе време во учење.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Стандардно усогласено со FERPA',
   'landing.proof.rating': '4,8 кај 12 илјади семејства',
   'landing.sampleTerm': 'Пролет',
@@ -98,6 +126,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Сокриј ја лозинката',
   'login.noAccount': 'Нов во „Chalk“?',
   'login.showPassword': 'Прикажи лозинка',
+  'messages.compose': 'Нова порака',
   'messages.composer.email': 'Е-пошта на примачот (опционално)',
   'messages.composer.errorEmpty': 'Пораката не може да биде празна.',
   'messages.composer.errorRecipient': 'Името на примачот е задолжително.',
@@ -128,9 +157,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Почесен список · Пролетен семестар',
   'nav.unreadMessages': 'Непрочитани пораки',
   'notifications.eyebrow': '{{count}} ажурирања',
+  'notifications.feedTitle': 'Цела неодамнешна активност',
   'notifications.subtitle':
     'Оценки, потсетници, пораки и училишни најави. Прилагодете ги каналите што ги користи секое известување во Поставки.',
+  'planUpdated.body':
+    'Промената на наплатата е сега активна. Можете да го управувате планот во секое време од страницата за наплата.',
+  'planUpdated.retry': 'Обидете се повторно',
+  'planUpdated.verifyFailed': 'Сè уште не можевме да ја потврдиме вашата уплата.',
+  'planUpdated.verifyFailedBody':
+    'Вашето плаќање можеби сè уште се обработува. Обидете се повторно за момент.',
   'planUpdated.verifying': 'Се потврдува вашата уплата…',
+  'pricing.announcementsLabel': 'најави',
   'pricing.attendanceLabel': 'присуство',
   'pricing.gradesLabel': 'оценки',
   'pricing.heading': 'најави',
@@ -145,6 +182,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'Втор квартал',
   'reportCard.crumb': 'Извештај',
   'reportCard.cumulativeGpa': 'Кумулативен просек',
+  'reportCard.download': 'Преземи PDF',
   'reportCard.downloaded': 'Извештајот е отворен во нов таб.',
   'reportCard.downloading': 'Генерирање на PDF…',
   'reportCard.empty': 'Сè уште нема оценки во досието.',
@@ -152,6 +190,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Конечен просек на оценки · {{term}}',
   'reportCard.subtitle':
     'Формален препис на крајот од семестарот со пондерирани оценки од курсот, присуство и PDF-документ за печатење.',
+  'reportCard.title': 'Извештај',
+  'resetPassword.newPassword': 'Нова лозинка',
   'resetPassword.subheading': 'Изберете нешто незаборавно, но тешко за погодување.',
   'resetPassword.tokenPlaceholder': 'Залепете го кодот од вашата е-пошта',
   'schedule.empty': 'Нема закажани часови.',
@@ -176,12 +216,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsCaption': '{{due48}} доспева за 48 часа, {{overdue}} задоцнет',
   'subjectStatsTriad.assignmentsLabel': 'Доделувања во исчекување',
   'subjectStatsTriad.attendanceCaption': '{{absent}} отсуства овој семестар · {{tardy}} доцнења',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Пресметување на податоците за посетеност…',
+  'subjectStatsTriad.attendanceLabel': 'Присуство',
   'subjectStatsTriad.gradesCaption': 'Преку {{percent}} % пондериран просек',
+  'subjectStatsTriad.gradesCaptionLoading': 'Се вчитуваат оценки…',
+  'subjectStatsTriad.gradesLabel': 'Просек на класот',
   'todayScheduleStrip.empty': 'Денес нема часови.',
   'todayScheduleStrip.eyebrow': '{{count}} часови',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Денешен распоред',
   'topbar.guestName': 'Студент',
   'topbar.searchPlaceholder': 'Пребарувајте часови, задачи…',
+  'topbar.studentRole': 'Студент',
   'topbar.studentTag': 'Студент · # {{id}}',
 }

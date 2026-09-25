@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'प्रश्न, प्रतिक्रिया, वा तपाईंलाई चाहिएको कुनै सुविधा छ? तपाईंको खाता सेटिङबाट टोलीसँग सम्पर्क गर्नुहोस् — हरेक सन्देश एक वास्तविक व्यक्तिले पढ्छ।',
   'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'बारेमा',
+  'about.missionTitle': 'हाम्रो मिशन',
+  'about.whatYouGetTitle': 'तपाईंले के पाउनुहुन्छ',
   'analytics.empty': 'यहाँ विश्लेषण हेर्न डेकहरू सिर्जना गर्नुहोस्।',
   'analytics.stats.acrossDecks': 'सबै डेकहरूमा',
   'analytics.stats.allTime': 'तपाईंको स्टुडियोमा',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'डेक शीर्षक',
   'landing.features.eyebrow': 'किन ओभरचर',
   'landing.features.heading': 'स्टेजमा हिंड्नको लागि चाहिने सबै कुरा तयार छ।',
+  'landing.finalCta.body':
+    'एक मिनेटभन्दा कममा तपाईंको स्टुडियो सुरु गर्नुहोस्। क्रेडिट कार्ड चाहिँदैन। कुनै पनि बेला रद्द गर्नुहोस्।',
   'landing.finalCta.cta': 'आफ्नो नि:शुल्क स्टुडियो बनाउनुहोस्',
   'landing.finalCta.eyebrow': 'सुरु गर्न नि:शुल्क',
   'landing.finalCta.heading': 'आफ्नो करियरको उत्कृष्ट डेकको साथ स्टेजमा पाइला चाल्नुहोस्।',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '१२ मिनेट अगाडि सम्पादन गरिएको',
   'notifications.created': 'सिर्जना गरियो',
   'notifications.edited': 'सम्पादन गरिएको',
+  'notifications.empty.body':
+    'तपाईंको डेकहरूमा हुने गतिविधि — टिप्पणी, उल्लेख, निर्यात — यहाँ देखिनेछ।',
   'notifications.empty.title': 'अहिलेसम्म कुनै सूचनाहरू छैनन्',
   'notifications.eyebrow': 'स्टेज गतिविधि',
   'notifications.loading': 'लोड हुँदै...',
   'notifications.shared': 'सार्वजनिक रूपमा साझा गरिएको',
+  'planUpdated.retry': 'फेरि प्रयास गर्नुहोस्',
+  'planUpdated.verifyFailed': 'हामीले तपाईंको भुक्तानी अझै पुष्टि गर्न सकेनौं।',
+  'planUpdated.verifyFailedBody':
+    'तपाईंको भुक्तानी अझै पनि प्रशोधन भइरहेको हुन सक्छ। केही बेरमा फेरि प्रयास गर्नुहोस्।',
   'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'present.addSlides': 'स्लाइडहरू थप्नुहोस्',
   'present.backToDecks': 'डेकहरूमा फर्कनुहोस्',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'रंगमञ्च कलाकार',
   'settings.security.notSet': 'सेट गरिएको छैन',
   'settings.security.passwordBody': 'तपाईंको पासवर्ड आराममा इन्क्रिप्ट गरिएको छ।',
+  'settings.security.reset': 'रिसेट गर्नुहोस्',
   'settings.security.title': 'खाता + सत्रहरू',
   'shared.empty.body':
     'तपाईंले सार्वजनिक रूपमा साझा गर्नुभएका डेकहरू यहाँ देखा पर्नेछन्। एउटा डेक खोल्नुहोस् र साझेदारी गर्न सार्वजनिक टगल गर्नुहोस्।',
@@ -130,6 +143,12 @@ export const ui: UiTranslations = {
   'shared.loading': 'लोड हुँदै...',
   'shared.title': 'साझा डेकहरू',
   'templateCard.slideCount': '{{count}} स्लाइडहरू',
+  'templateCard.usageCount': '{{count}} प्रयोगहरू',
+  'templates.empty.body':
+    'अर्को फिल्टर प्रयास गर्नुहोस् — हामी हरेक महिना नयाँ टेम्प्लेटहरू ल्याउँछौं।',
+  'templates.empty.title': 'यो श्रेणीमा अझै कुनै टेम्प्लेट छैन',
+  'templates.hero.body':
+    'चार्ट ब्लक, डेमो फ्रेम, प्रस्तुतकर्ता नोट, र टाइमर प्रिसेटसहित पूर्व-थिम गरिएका स्लाइड लेआउटहरू — हरेक टेम्प्लेट रेकर्ड गर्न तयार हुन्छ।',
   'templates.hero.eyebrow': 'क्युरेट गरिएका चरणहरू',
   'templates.hero.heading': 'तपाईंले यसलाई अवतरण गर्न आवश्यक पर्ने क्षणको लागि बनाइएका चरणहरू।',
 }

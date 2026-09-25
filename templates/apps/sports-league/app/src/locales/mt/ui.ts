@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Għandek feedback, sibt bug, jew trid {{app}} għal-liga tiegħek? Ikkuntattjana mill-issettjar tal-kont tiegħek — kull messaġġ jasal għand persuna reali fit-tim.',
+  'about.contactTitle': 'Ikkuntattjana',
   'about.eyebrow': 'Dwar',
+  'about.featureAlerts':
+    'Notifiki push għall-aġġornamenti tal-iskor, avviżi tal-iskambji, rapporti tal-inġurji, u avviżi tal-liga.',
+  'about.featureRosters':
+    "Paġni tat-tim b'rosters sħaħ, totali tal-istaġun, sensiliet ta' sħun/kiesaħ, u split head-to-head għal kull plejer.",
+  'about.featureSchedule':
+    'Kalendarju tal-istaġun u veduta tal-iskeda biex tippjana madwar kull partita u riżultat.',
+  'about.featureScoreboard':
+    "Ticker tal-iskorbord ta' kwalità tal-broadcast imwaħħal fil-quċċata ta' kull paġna biex qatt ma titlef gowl.",
+  'about.featureStandings':
+    "Klassifiki live — rekords rebħa-telfa-draw f'ħin reali, punti, win-pct, u l-linja tal-playoff, aġġornati f'kull whistle.",
+  'about.intro':
+    "{{app}} huwa dar ta' kwalità tal-broadcast għal-liga tiegħek. Timijiet, skedi, skori live, u klassifiki jinġabru flimkien f'dashboard wieħed mgħaġġel u mingħajr clutter — biex il-fans, il-kowċis, u l-organizzaturi tal-liga dejjem ikunu jafu fejn tinsab l-istaġun.",
+  'about.missionBody':
+    "Li ssegwi liga m'għandux ifisser li tirrifreska ħames scoreboards differenti ta' partijiet terzi. Bnejnieha biex nagħtu lil kull liga sors wieħed ta' verità għall-klassifiki, l-iskeda, u l-istatistika li tassew jimpurtaw — aġġornati f'kull whistle, b'xejn għall-istaġun.",
+  'about.missionTitle': 'Il-missjoni tagħna',
+  'about.whatYouGet': 'Dak li tikseb',
   'appShell.closeNav': 'Agħlaq in-navigazzjoni',
   'appShell.openNav': 'Navigazzjoni miftuħa',
   'common.dashboard': 'Dashboard',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Ara l-logħbiet kollha \\u2192',
   'dashboard.viewAllStandings': 'Klassifika sħiħa \\u2192',
   'dashboard.viewAllStats': 'Ara l-mexxejja kollha tal-istatistika \\u2192',
+  'forgot.submitting': 'Qed jintbagħat il-link tar-reset…',
   'forgot.subtitle': "Daħħal l-email tiegħek biex tirċievi link ta' reset.",
   'forgot.success': 'Ir-reset link intbagħat lil {{email}} Iċċekkja l-inbox tiegħek.',
+  'landing.copyright': '© {{year}} {{app}}. Chase the standing.',
+  'landing.ctaBody':
+    "Il-liga tiegħek. Il-klassifiki tiegħek. It-tim favorit tiegħek — imwaħħal fil-quċċata. Żewġ minuti biex tissettja, b'xejn għall-istaġun.",
   'landing.ctaHeading': "Waqqaf l-aġġornament tat-tabelli tal-punteġġ ta' partijiet terzi",
   'landing.eyebrow': 'Magħmul għal fannijiet, kowċis, u organizzaturi tal-kampjonat',
   'landing.featuresHeading': 'Post fl-ewwel ringiela għal kull min joqgħod bilwieqfa',
   'landing.getStarted': 'Ingħaqad mal-kampjonat',
   'landing.heroCta': 'Ingħaqad mal-kampjonat',
+  'landing.heroSubtitle':
+    "{{app}} jgħaqqad klassifiki, skedi, u mexxejja statistiċi f'dashboard wieħed ta' kwalità tal-broadcast. Skori live. Rekords reali. Mingħajr clutter.",
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Illejla madwar il-kampjonat',
   'landing.statFans': 'Fannijiet li jsegwu',
   'landing.statGames': 'Logħob ta’ dan l-istaġun',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Lura għall-logħbiet',
   'matchDetail.eventsHeading': "Logħba b'logħba",
+  'matchDetail.final': 'FINAL',
   'matchDetail.finalScore': 'Finali',
   'matchDetail.live': 'LIVE',
   'matchDetail.liveNow': 'Ħajja issa',
   'matchDetail.noEvents': "Għad m'hemm l-ebda avvenimenti rreġistrati.",
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': "L-ebda partita f'din il-veduta — ipprova filtru differenti.",
   'matches.eyebrow': 'Jum il-partita',
   'matches.loading': 'Niġbdu l-lavanja...',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Ma rnexxilniex in-notifiki jitgħabbew',
   'notifications.loading': 'Qed jitgħabbew in-notifiki\\u2026',
   'pennantHeroCard.eyebrow': 'Fuq nett tat-tabella',
+  'pennantHeroCard.formLabel': 'L-aħħar 10',
   'pennantHeroCard.gamesAhead': '{{value}} logħob qabel il-ġiri',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Navigazzjoni primarja',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Agħżel is-sedil tiegħek',
   'pricing.heading': 'Aġġorna għal skeda, punteġġi u klassifika aktar rikka.',
   'pricing.limits.schedule': '{{count}} entrati tal-iskeda',
+  'pricing.limits.scores': "Skori ta' {{count}}",
+  'pricing.limits.standings': "Klassifiki ta' {{count}}",
+  'pricing.limits.teams': "Timijiet ta' {{count}}",
+  'pricing.subtitle': 'Aġġorna għal skeda, skori, u klassifiki aktar sinjuri.',
   'pricing.upgradeCta': 'Aġġorna għal {{tierName}}',
   'profile.eyebrow': 'Profil tal-fann',
   'profile.favoritesCount': 'Timijiet segwiti',
   'profile.favoritesHeading': 'Timijiet favoriti',
   'profile.noFavorites': "Għad m'hemm l-ebda favoriti — agħżel timijiet mill-paġna tat-Timijiet.",
   'profile.rankRecord': 'Rank # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Rekord {{record}}',
   'reset.confirmPlaceholder': 'Irrepeti l-password',
+  'reset.mismatch': 'Il-passwords ma jaqblux.',
   'reset.newLabel': 'Password ġdida',
   'reset.subtitle': "Agħżel password b'saħħitha ta' mill-inqas 12-il karattru.",
   'reset.tokenPlaceholder': 'Pejst mill-email',
   'schedule.eyebrow': 'Il-lavanja',
+  'schedule.moreGames': '+ {{count}} aktar',
   'schedule.subtitle':
     'Veduta tal-kalendarju tal-logħbiet matul l-istaġun — agħfas kwalunkwe jum għall-punteġġi tal-kaxxa.',
   'scoreboardTicker.empty':
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Ippersonalizza',
   'settings.favoritesBody':
     'Dawn it-timijiet jiġu mwaħħla mad-dashboard tiegħek u jattivaw allerti dwar il-punteġġ.',
+  'settings.favoritesHeading': 'Timijiet favoriti',
   'settings.loading': 'Qed jitgħabbew il-preferenzi tiegħek\\u2026',
   'settings.noFavorites':
     "Għad m'hemm l-ebda favoriti \\u2014 agħżel timijiet mill-paġna tat-Timijiet.",
@@ -117,6 +154,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': "B'mod ġenerali",
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'L-ewwel erba’ jikkwalifikaw għall-postseason — tiebreakers bil-punti, imbagħad rebħa-ptc.',
   'standings.title': 'Klassifika tal-kampjonat',
@@ -135,6 +173,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'Ġ',
   'teamDetail.colName': 'Plejer',
   'teamDetail.colPos': 'Pożizzjoni',
+  'teamDetail.pointsLabel': 'Punti',
   'teamDetail.rankLabel': 'Rank # {{rank}}',
   'teamDetail.rosterHeading': 'Lista',
   'teamDetail.statGD': 'Differenza tal-Gowl',

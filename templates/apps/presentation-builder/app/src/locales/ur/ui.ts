@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'سوالات، رائے، یا کوئی فیچر جو آپ چاہتے ہیں؟ اپنے اکاؤنٹ کی سیٹنگز سے ٹیم تک پہنچیں — ہر پیغام ایک حقیقی شخص پڑھتا ہے۔',
   'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
+  'about.missionTitle': 'ہمارا مشن',
+  'about.whatYouGetTitle': 'جو آپ کو ملتا ہے۔',
   'analytics.empty': 'یہاں تجزیات دیکھنے کے لیے ڈیک بنائیں۔',
   'analytics.stats.acrossDecks': 'تمام ڈیکوں کے پار',
   'analytics.stats.allTime': 'آپ کے اسٹوڈیو میں',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'ڈیک ٹائٹل',
   'landing.features.eyebrow': 'کیوں اوورچر',
   'landing.features.heading': 'ہر چیز جو آپ کو اسٹیج پر چلنے کی ضرورت ہے تیار ہے۔',
+  'landing.finalCta.body':
+    'ایک منٹ سے بھی کم وقت میں اپنا اسٹوڈیو شروع کریں۔ کریڈٹ کارڈ کی ضرورت نہیں۔ کسی بھی وقت منسوخ کریں۔',
   'landing.finalCta.cta': 'اپنا مفت اسٹوڈیو بنائیں',
   'landing.finalCta.eyebrow': 'شروع کرنے کے لئے مفت',
   'landing.finalCta.heading': 'اپنے کیریئر کے بہترین ڈیک کے ساتھ اسٹیج پر قدم رکھیں۔',
@@ -81,10 +87,15 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 منٹ پہلے ترمیم کی گئی۔',
   'notifications.created': 'پیدا کیا',
   'notifications.edited': 'ترمیم شدہ',
+  'notifications.empty.body': 'آپ کے ڈیکس پر سرگرمی — تبصرے، ذکر، ایکسپورٹس — یہاں ظاہر ہوگی۔',
   'notifications.empty.title': 'ابھی تک کوئی اطلاع نہیں ہے۔',
   'notifications.eyebrow': 'اسٹیج کی سرگرمی',
   'notifications.loading': 'لوڈ ہو رہا ہے…',
   'notifications.shared': 'عوامی طور پر اشتراک کیا',
+  'planUpdated.retry': 'دوبارہ کوشش کریں۔',
+  'planUpdated.verifyFailed': 'ہم ابھی تک آپ کی ادائیگی کی تصدیق نہیں کر سکے۔',
+  'planUpdated.verifyFailedBody':
+    'ہو سکتا ہے آپ کی ادائیگی پر ابھی بھی کارروائی ہو رہی ہو۔ ایک لمحے میں دوبارہ کوشش کریں۔',
   'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'present.addSlides': 'سلائیڈیں شامل کریں۔',
   'present.backToDecks': 'ڈیکس پر واپس',
@@ -122,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'اسٹیج پرفارمر',
   'settings.security.notSet': 'سیٹ نہیں ہے۔',
   'settings.security.passwordBody': 'آپ کا پاس ورڈ باقی وقت پر خفیہ ہے۔',
+  'settings.security.reset': 'دوبارہ ترتیب دیں۔',
   'settings.security.title': 'اکاؤنٹ + سیشنز',
   'shared.empty.body':
     'ڈیک جو آپ عوامی طور پر شیئر کرتے ہیں وہ یہاں ظاہر ہوں گے۔ ایک ڈیک کھولیں اور اشتراک کرنے کے لیے عوام کو ٹوگل کریں۔',
@@ -130,6 +142,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'لوڈ ہو رہا ہے…',
   'shared.title': 'مشترکہ ڈیک',
   'templateCard.slideCount': '{{count}} سلائیڈز',
+  'templateCard.usageCount': '{{count}} استعمال کرتا ہے',
+  'templates.empty.body': 'کوئی مختلف فلٹر آزمائیں — ہم ہر ماہ نئے ٹیمپلیٹس جاری کرتے ہیں۔',
+  'templates.empty.title': 'اس زمرے میں ابھی کوئی ٹیمپلیٹ نہیں',
+  'templates.hero.body':
+    'پہلے سے تھیم والے سلائیڈ لے آؤٹس، جن میں چارٹ بلاکس، ڈیمو فریمز، پریزنٹر نوٹس اور ٹائمر پریسیٹس شامل ہیں — ہر ٹیمپلیٹ ریکارڈنگ کے لیے تیار آتا ہے۔',
   'templates.hero.eyebrow': 'مرتب شدہ مراحل',
   'templates.hero.heading': 'اس لمحے کے لیے بنائے گئے مراحل جو آپ کو اسے اترنے کی ضرورت ہے۔',
 }

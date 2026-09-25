@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'પ્રશ્નો, પ્રતિસાદ, અથવા એવી સુવિધા જે તમે ઈચ્છો છો? તમારા એકાઉન્ટ સેટિંગ્સમાંથી ટીમનો સંપર્ક કરો — દરેક સંદેશ વાસ્તવિક વ્યક્તિ વાંચે છે.',
   'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
+  'about.missionTitle': 'અમારું ધ્યેય',
+  'about.whatYouGetTitle': 'તમને શું મળે છે',
   'analytics.empty': 'અહીં એનાલિટિક્સ જોવા માટે ડેક બનાવો.',
   'analytics.stats.acrossDecks': 'બધા ડેક પર',
   'analytics.stats.allTime': 'તમારા સ્ટુડિયોમાં',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'ડેક શીર્ષક',
   'landing.features.eyebrow': 'ઓવરચર શા માટે',
   'landing.features.heading': 'સ્ટેજ પર ચાલવા માટે જે કંઈ જોઈએ તે તૈયાર છે.',
+  'landing.finalCta.body':
+    'એક મિનિટથી ઓછા સમયમાં તમારું સ્ટુડિયો શરૂ કરો. ક્રેડિટ કાર્ડ નહીં. ક્યારેય પણ રદ કરો.',
   'landing.finalCta.cta': 'તમારો મફત સ્ટુડિયો બનાવો',
   'landing.finalCta.eyebrow': 'શરૂ કરવા માટે મફત',
   'landing.finalCta.heading': 'તમારી કારકિર્દીના શ્રેષ્ઠ ડેક સાથે સ્ટેજ પર આવો.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '૧૨ મિનિટ પહેલા સંપાદિત',
   'notifications.created': 'બનાવ્યું',
   'notifications.edited': 'સંપાદિત',
+  'notifications.empty.body':
+    'તમારા ડેક્સ પરની પ્રવૃત્તિ — ટિપ્પણીઓ, ઉલ્લેખો, નિકાસ — અહીં દેખાશે.',
   'notifications.empty.title': 'હજુ સુધી કોઈ સૂચનાઓ નથી',
   'notifications.eyebrow': 'સ્ટેજ પ્રવૃત્તિ',
   'notifications.loading': 'લોડ કરી રહ્યું છે...',
   'notifications.shared': 'જાહેરમાં શેર કરેલ',
+  'planUpdated.retry': 'ફરી પ્રયાસ કરો',
+  'planUpdated.verifyFailed': 'અમે હજુ સુધી તમારી ચુકવણીની પુષ્ટિ કરી શક્યા નથી.',
+  'planUpdated.verifyFailedBody':
+    'તમારી ચુકવણી હજુ પણ પ્રક્રિયામાં હોઈ શકે છે. થોડીવારમાં ફરી પ્રયાસ કરો.',
   'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'present.addSlides': 'સ્લાઇડ્સ ઉમેરો',
   'present.backToDecks': 'ડેક પર પાછા',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'સ્ટેજ કલાકાર',
   'settings.security.notSet': 'સેટ નથી',
   'settings.security.passwordBody': 'તમારો પાસવર્ડ બાકી રહે ત્યારે એન્ક્રિપ્ટેડ છે.',
+  'settings.security.reset': 'રીસેટ',
   'settings.security.title': 'એકાઉન્ટ + સત્રો',
   'shared.empty.body':
     'તમે સાર્વજનિક રીતે શેર કરો છો તે ડેક અહીં દેખાશે. ડેક ખોલો અને શેર કરવા માટે સાર્વજનિક ટૉગલ કરો.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'લોડ કરી રહ્યું છે...',
   'shared.title': 'શેર કરેલ ડેક',
   'templateCard.slideCount': '{{count}} સ્લાઇડ્સ',
+  'templateCard.usageCount': '{{count}} ઉપયોગો',
+  'templates.empty.body': 'બીજું ફિલ્ટર અજમાવો — અમે દર મહિને નવા ટેમ્પલેટ ઉમેરીએ છીએ.',
+  'templates.empty.title': 'આ શ્રેણીમાં હજી કોઈ ટેમ્પલેટ નથી',
+  'templates.hero.body':
+    'ચાર્ટ બ્લોક્સ, ડેમો ફ્રેમ્સ, પ્રેઝન્ટર નોંધો અને ટાઈમર પ્રીસેટ સાથે પૂર્વ-થીમવાળા સ્લાઈડ લેઆઉટ — દરેક ટેમ્પલેટ રેકોર્ડ કરવા તૈયાર આવે છે.',
   'templates.hero.eyebrow': 'ક્યુરેટ કરેલા તબક્કાઓ',
   'templates.hero.heading': 'તમારે તેને ઉતરાણ કરવાની જરૂર હોય તે ક્ષણ માટે બનાવેલા સ્ટેજ.',
 }

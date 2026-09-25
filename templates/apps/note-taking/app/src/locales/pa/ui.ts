@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ਕੋਈ ਸੁਝਾਅ ਹੈ, ਕੋਈ ਬੱਗ ਮਿਲਿਆ ਹੈ, ਜਾਂ ਕੋਈ ਫੀਚਰ ਸੁਝਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਆਪਣੀ ਖਾਤਾ ਸੈਟਿੰਗਾਂ ਤੋਂ ਸੰਪਰਕ ਕਰੋ — ਹਰ ਸੁਨੇਹਾ ਟੀਮ ਦੇ ਕਿਸੇ ਅਸਲੀ ਇਨਸਾਨ ਤੱਕ ਪਹੁੰਚਦਾ ਹੈ।',
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
+  'about.featureDatabases':
+    'ਹਲਕੇ-ਫੁਲਕੇ ਡੇਟਾਬੇਸ ਅਤੇ ਦੁਬਾਰਾ ਵਰਤੋਂਯੋਗ ਟੈਂਪਲੇਟ, ਜੋ ਖੁੱਲ੍ਹੀਆਂ ਨੋਟਾਂ ਨੂੰ ਸੰਗਠਿਤ, ਦੁਹਰਾਉਣਯੋਗ ਵਰਕਫਲੋ ਵਿੱਚ ਬਦਲਦੇ ਹਨ।',
+  'about.featureEditor':
+    'ਇੱਕ ਸ਼ਾਂਤ ਬਲਾਕ ਐਡੀਟਰ — ਹੈਡਿੰਗਾਂ, ਸੂਚੀਆਂ, ਕੋਡ, ਕਾਲਆਊਟ ਅਤੇ ਟੂ-ਡੂ — ਸਲੈਸ਼-ਕਮਾਂਡਾਂ ਨਾਲ, ਜਦੋਂ ਲੋੜ ਹੋਵੇ ਤਾਂ ਹਾਜ਼ਰ ਅਤੇ ਜਦੋਂ ਨਾ ਹੋਵੇ ਤਾਂ ਰਾਹ ਤੋਂ ਦੂਰ।',
+  'about.featureGraph':
+    'ਬੈਕਲਿੰਕ ਅਤੇ ਗਿਆਨ ਗ੍ਰਾਫ਼: ਨੋਟ ਨੂੰ ਲਿੰਕ ਕਰਨ ਲਈ [[ ਟਾਈਪ ਕਰੋ ਅਤੇ ਦੇਖੋ ਕਿ ਸਮੇਂ ਦੇ ਨਾਲ ਤੁਹਾਡੇ ਵਿਚਾਰ ਕਿਵੇਂ ਜੁੜਦੇ ਹਨ।',
+  'about.featureNotebooks':
+    'ਨੈਸਟਡ ਨੋਟਬੁੱਕਾਂ ਅਤੇ ਪੰਨੇ, ਤਾਂ ਜੋ ਪ੍ਰੋਜੈਕਟ, ਵਿਸ਼ੇ ਅਤੇ ਰੋਜ਼ਾਨਾ ਨੋਟਾਂ ਬਿਲਕੁਲ ਉਸੇ ਤਰ੍ਹਾਂ ਸੰਗਠਿਤ ਰਹਿਣ ਜਿਵੇਂ ਤੁਸੀਂ ਸੋਚਦੇ ਹੋ।',
+  'about.featureSearch':
+    'ਹਰ ਨੋਟਬੁੱਕ ਵਿੱਚ 50ms ਤੋਂ ਘੱਟ ਸਮੇਂ ਵਿੱਚ ਪੂਰਾ-ਟੈਕਸਟ ਖੋਜ, ਨਾਲ ਹੀ ਟੈਗ ਜੋ ਨੋਟਬੁੱਕਾਂ ਨਾਲ ਮਿਲ ਕੇ ਕੰਮ ਕਰਦੇ ਹਨ, ਉਨ੍ਹਾਂ ਨਾਲ ਟਕਰਾਉਂਦੇ ਨਹੀਂ।',
+  'about.missionTitle': 'ਸਾਡਾ ਮਿਸ਼ਨ',
   'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'forgot.eyebrow': 'ਵਾਪਸ ਜਾਣ ਦਾ ਰਸਤਾ ਭੁੱਲ ਗਏ ਹੋ?',
   'forgot.formSubtitle': "ਸਾਨੂੰ ਫਾਈਲ 'ਤੇ ਈਮੇਲ ਦੱਸੋ।",
+  'forgot.formTitle': 'ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ',
   'forgot.headline': 'ਆਪਣਾ ਪਾਸਵਰਡ ਰੀਸੈਟ ਕਰੋ।',
   'forgot.subline':
     'ਅਸੀਂ ਤੁਹਾਡੇ ਇਨਬਾਕਸ ਵਿੱਚ ਇੱਕ ਵਨ-ਟਾਈਮ ਲਿੰਕ ਭੇਜਾਂਗੇ ਤਾਂ ਜੋ ਤੁਸੀਂ ਇੱਕ ਨਵਾਂ ਚੁਣ ਸਕੋ।',
+  'forgot.successDetail':
+    "ਅਸੀਂ ਤੁਹਾਡੀ ਈਮੇਲ 'ਤੇ ਰੀਸੈਟ ਲਿੰਕ ਭੇਜਿਆ ਹੈ। ਇਹ 30 ਮਿੰਟਾਂ ਵਿੱਚ ਮਿਆਦ ਪੁੱਗ ਜਾਵੇਗਾ।",
   'graph.eyebrow': 'ਗ੍ਰਾਫ਼',
+  'graph.goToNotes': 'ਨੋਟਾਂ ਵੇਖੋ →',
+  'graph.loadError': 'ਗ੍ਰਾਫ਼ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕਿਆ: {{message}}',
   'graph.placeholderBody':
     'ਜਦੋਂ ਨੋਟਸ ਇੱਕ ਦੂਜੇ ਨਾਲ ਜੁੜਨਾ ਸ਼ੁਰੂ ਕਰਦੇ ਹਨ ([[ਵਿਕੀ]] ਸਿੰਟੈਕਸ ਦੇ ਨਾਲ), ਤਾਂ ਇੱਕ ਇੰਟਰਐਕਟਿਵ ਫੋਰਸ-ਡਾਇਰੈਕਟਡ ਗ੍ਰਾਫ਼ ਇੱਥੇ ਰੈਂਡਰ ਹੋਵੇਗਾ।',
+  'graph.placeholderTitle': 'ਬੈਕਲਿੰਕ ਗ੍ਰਾਫ਼ ਜਲਦੀ ਆ ਰਿਹਾ ਹੈ',
   'graph.subtitle':
     "{{count}} ਇਸ ਵਰਕਸਪੇਸ ਵਿੱਚ ਨੋਟਸ। ਨੋਟਸ ਇੱਕ ਦੂਜੇ ਨਾਲ ਲਿੰਕ ਹੋਣ 'ਤੇ ਬੈਕਲਿੰਕ ਗ੍ਰਾਫ ਰੈਂਡਰਿੰਗ ਇੱਥੇ ਦਿਖਾਈ ਦੇਵੇਗੀ।",
   'graph.title': 'ਗਿਆਨ ਗ੍ਰਾਫ਼',
   'home.empty': 'ਹਾਲੇ ਕੋਈ ਨੋਟ-ਕਥਨ ਨਹੀਂ — ਆਪਣਾ ਪਹਿਲਾ ਨੋਟ-ਕਥਨ ਸ਼ੁਰੂ ਕਰੋ।',
   'home.favoritesHeading': 'ਪਿੰਨ ਕੀਤਾ ਗਿਆ',
   'home.guest': 'ਦੋਸਤ',
+  'home.loadError': 'ਤੁਹਾਡੇ ਨੋਟ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੇ: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'ਇੱਕ ਨੋਟ ਨੂੰ ਇੱਥੇ ਰੱਖਣ ਲਈ ਸੰਪਾਦਕ ਵਿੱਚ ਪਿੰਨ ਕਰੋ।',
   'home.recentHeading': 'ਹਾਲ ਹੀ ਵਿੱਚ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'ਨੋਟਬੁੱਕ',
   'home.stats.pinned.label': 'ਪਿੰਨ ਕੀਤਾ ਗਿਆ',
   'home.stats.updatedToday.label': 'ਅੱਜ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ',
+  'home.subtitle': 'ਜਿੱਥੇ ਛੱਡਿਆ ਸੀ ਉੱਥੋਂ ਸ਼ੁਰੂ ਕਰੋ, ਜਾਂ ਨਵਾਂ ਨੋਟ ਬਣਾਓ।',
   'home.viewAll': 'ਸਾਰੇ ਨੋਟਸ ਵੇਖੋ',
   'landing.cta.body':
     'ਨਿੱਜੀ ਵਰਤੋਂ ਲਈ ਮੁਫ਼ਤ। ਟੀਮਾਂ ਲਈ ਪ੍ਰੋ। ਆਪਣਾ ਮੌਜੂਦਾ ਮਾਰਕਡਾਊਨ ਲਿਆਓ ਜਾਂ ਨਵੇਂ ਸਿਰੇ ਤੋਂ ਸ਼ੁਰੂਆਤ ਕਰੋ — ਵਰਸੋ ਤੁਹਾਡੇ ਨੋਟਸ ਜਿੱਥੇ ਵੀ ਹੋਣ, ਤੁਹਾਨੂੰ ਮਿਲਦਾ ਹੈ।',
+  'landing.cta.button': 'ਮੇਰਾ ਵਰਕਸਪੇਸ ਬਣਾਓ',
   'landing.cta.heading': 'ਅੱਜ ਦਾ ਪੰਨਾ ਖੋਲ੍ਹੋ।',
   'landing.features.eyebrow': 'ਹਰ ਆਦਿਮ ਨੂੰ ਤੁਹਾਡੇ ਦੂਜੇ ਦਿਮਾਗ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ',
+  'landing.features.heading': 'ਕੰਮ ਲਈ ਬਣਾਇਆ ਗਿਆ ਹੈ, ਮੈਟਾ-ਵਰਕ ਲਈ ਨਹੀਂ।',
   'landing.hero.eyebrow': 'ਇੱਕ ਸ਼ਾਂਤ ਲਿਖਣ ਵਾਲੀ ਸਤ੍ਹਾ',
   'landing.hero.headlineAccent': 'ਆਕਾਰ ਲੈਣਾ।',
   'landing.hero.headlineLeading': 'ਜਿੱਥੇ ਵਿਚਾਰ',
   'landing.hero.primaryCta': 'ਆਪਣਾ ਗਿਆਨ ਅਧਾਰ ਸ਼ੁਰੂ ਕਰੋ',
   'landing.hero.secondaryCta': 'ਮੇਰੇ ਕੋਲ ਪਹਿਲਾਂ ਹੀ ਇੱਕ ਖਾਤਾ ਹੈ।',
+  'landing.hero.socialProof': '12,800+ ਲੇਖਕ, ਵਿਦਿਆਰਥੀ ਅਤੇ PhD {{appName}} ਨਾਲ ਸੋਚਦੇ ਹਨ',
   'landing.hero.subline':
     'ਵਰਸੋ ਗਿਆਨ ਵਰਕਰਾਂ ਅਤੇ ਵਿਦਿਆਰਥੀਆਂ ਲਈ ਇੱਕ ਢਾਂਚਾਗਤ ਨੋਟ-ਲੈਣ ਵਾਲੀ ਸਤ੍ਹਾ ਹੈ। ਬਲਾਕ ਐਡੀਟਰ, ਨੇਸਟਡ ਨੋਟਬੁੱਕ, ਬੈਕਲਿੰਕ, ਅਤੇ ਇੱਕ ਗਿਆਨ ਗ੍ਰਾਫ - ਇਹ ਸਭ ਇੱਕ ਟਾਈਪੋਗ੍ਰਾਫੀ-ਪਹਿਲੀ ਪੜ੍ਹਨ ਦੇ ਅਨੁਭਵ ਦੇ ਪਿੱਛੇ ਹਨ।',
+  'landing.preview.notebook': 'ਗਿਆਨ · ਲਿਖਣ ਦੀ ਪ੍ਰਕਿਰਿਆ',
+  'landing.preview.title': "ਡਰਾਫਟਾਂ ਨੂੰ ਸਾਹ ਲੈਣ ਦੇਣ 'ਤੇ",
   'login.eyebrow': 'ਵਰਸੋ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।',
   'login.formSubtitle': 'ਆਪਣੀ ਈਮੇਲ ਜਾਂ ਕਿਸੇ ਵੀ ਜੁੜੇ ਪ੍ਰਦਾਤਾ ਦੀ ਵਰਤੋਂ ਕਰੋ।',
   'login.headline': 'ਜਿੱਥੋਂ ਪੰਨਾ ਰੁਕਿਆ ਸੀ, ਉੱਥੋਂ ਸ਼ੁਰੂ ਕਰੋ।',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਬੰਦ ਕਰੋ',
   'mobileNav.openMenu': 'ਨੈਵੀਗੇਸ਼ਨ ਮੀਨੂ ਖੋਲ੍ਹੋ',
   'noteEditor.backToNotes': "ਨੋਟਸ 'ਤੇ ਵਾਪਸ ਜਾਓ",
+  'noteEditor.bodyLabel': 'ਨੋਟ ਬਾਡੀ',
   'noteEditor.bodyPlaceholder':
     'ਲਿਖਣਾ ਸ਼ੁਰੂ ਕਰੋ — ਜਿਵੇਂ ਹੀ ਤੁਸੀਂ ਟਾਈਪ ਕਰਦੇ ਹੋ, ਤੁਹਾਡਾ ਨੋਟ ਆਪਣੇ ਆਪ ਸੁਰੱਖਿਅਤ ਹੋ ਜਾਂਦਾ ਹੈ।',
   'noteEditor.confirmTrash': 'ਕੀ ਇਸ ਨੋਟ-ਕਥਨ ਨੂੰ ਰੱਦੀ ਵਿੱਚ ਭੇਜਣਾ ਹੈ?',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'ਰੱਦੀ ਵਿੱਚ ਭੇਜੋ',
   'noteEditor.updated': 'ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ',
   'notes.defaultWorkspaceName': 'ਮੇਰੀ ਨੋਟਬੁੱਕ',
+  'notes.empty': 'ਇੱਥੇ ਅਜੇ ਕੋਈ ਨੋਟ ਨਹੀਂ — ਨੋਟਬੁੱਕ ਭਰਨ ਲਈ ਇੱਕ ਸ਼ੁਰੂ ਕਰੋ।',
   'notes.eyebrow': 'ਨੋਟਬੁੱਕ',
   'notes.filterAll': 'ਸਾਰੇ ਨੋਟਸ',
   'notes.filterPinned': 'ਪਿੰਨ ਕੀਤਾ ਗਿਆ',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'ਨਵੀਂ ਨੋਟਬੁੱਕ',
   'notes.newNotebookPrompt': 'ਨਵੀਂ ਨੋਟਬੁੱਕ ਦਾ ਨਾਮ',
+  'notes.newNotebookRequired': 'ਨੋਟਬੁੱਕ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ।',
   'notes.notebooksHeading': 'ਨੋਟਬੁੱਕਾਂ',
   'notes.subtitle':
     'ਖੱਬੇ ਪਾਸੇ ਇੱਕ ਨੋਟਬੁੱਕ ਚੁਣੋ, ਫਿਰ ਇੱਕ ਨਵੀਂ ਐਂਟਰੀ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਨਵਾਂ ਨੋਟ ਬਟਨ ਦਬਾਓ।',
+  'planUpdated.body': 'ਤੁਹਾਡੀ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਹੁਣ ਸਰਗਰਮ ਹੈ।',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'ਉੱਨਤ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ',
   'pricing.heading': 'ਆਪਣੀ ਨੋਟ ਲੈਣ ਦੀ ਯੋਜਨਾ ਚੁਣੋ',
+  'reset.changedMind': 'ਮਨ ਬਦਲ ਗਿਆ?',
   'reset.eyebrow': 'ਲਗਭਗ ਵਾਪਸ ਆ ਗਿਆ ਹਾਂ',
   'reset.formSubtitle': 'ਇਸਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰਨ ਤੋਂ ਬਾਅਦ ਤੁਸੀਂ ਸਾਈਨ ਇਨ ਹੋ ਜਾਵੋਗੇ।',
   'reset.headline': 'ਇੱਕ ਨਵਾਂ ਪਾਸਵਰਡ ਚੁਣੋ।',
@@ -71,7 +104,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'ਉਹ ਕੋਡ ਦਰਜ ਕਰੋ ਜੋ ਅਸੀਂ ਤੁਹਾਨੂੰ ਹੁਣੇ ਈਮੇਲ ਕੀਤਾ ਹੈ ਅਤੇ ਕੁਝ ਯਾਦਗਾਰ ਚੁਣੋ।',
   'reset.submit': 'ਸੇਵ ਕਰੋ ਅਤੇ ਸਾਈਨ ਇਨ ਕਰੋ',
   'reset.tokenHint': 'ਤੁਹਾਡੇ ਇਨਬਾਕਸ ਤੋਂ ਪੇਸਟ ਕੀਤਾ ਗਿਆ।',
+  'search.empty': 'ਹਾਲੇ ਇਸ ਕਿਊਰੀ ਨਾਲ ਕੋਈ ਨੋਟ ਨਹੀਂ ਮਿਲਦਾ।',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'ਖੋਜ ਰਿਫ੍ਰੈਕਟ',
   'search.loading': 'ਖੋਜ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ...',
   'search.noRecent': 'ਆਪਣੇ ਨੋਟਸ ਵਿੱਚ ਖੋਜ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਉੱਪਰ ਇੱਕ ਪੁੱਛਗਿੱਛ ਟਾਈਪ ਕਰੋ।',
   'search.recentLabel': 'ਹਾਲੀਆ ਖੋਜਾਂ',
@@ -79,12 +114,19 @@ export const ui: UiTranslations = {
     'ਹਰੇਕ ਨੋਟਬੁੱਕ ਵਿੱਚ ਪੂਰਾ ਟੈਕਸਟ। ਖੋਜ ਕਰਨ ਲਈ ਟਾਈਪ ਕਰੋ; ਟਾਈਪ ਕਰਦੇ ਸਮੇਂ ਨਤੀਜੇ ਰਿਫ੍ਰੈਸ਼ ਹੁੰਦੇ ਹਨ।',
   'search.title': 'ਦੂਜੇ ਦਿਮਾਗ ਦੀ ਖੋਜ ਕਰੋ।',
   'settings.account.logout': 'ਲਾਗ ਆਊਟ ਕਰੋ',
+  'settings.account.title': 'ਖਾਤਾ ਵੇਰਵੇ',
+  'settings.editor.graphHover.body':
+    "ਐਡੀਟਰ ਵਿੱਚ [[ਵਿਕੀਲਿੰਕ]] 'ਤੇ ਹੋਵਰ ਕਰਨ ਵੇਲੇ ਇੱਕ ਛੋਟਾ ਪ੍ਰੀਵਿਊ ਕਾਰਡ ਦਿਖਾਓ।",
+  'settings.editor.graphHover.label': 'ਬੈਕਲਿੰਕ ਗ੍ਰਾਫ਼ ਹੋਵਰ ਪ੍ਰੀਵਿਊ',
   'settings.editor.lineHeight.body':
     'ਸਰੀਰ ਦੀਆਂ ਰੇਖਾਵਾਂ ਵਿਚਕਾਰ ਕਿੰਨੀ ਹਵਾ ਹੈ। 170% ਡਿਫਾਲਟ ਰੀਡਿੰਗ ਲੈਅ ਹੈ।',
+  'settings.editor.lineHeight.label': 'ਲਾਈਨ ਉਚਾਈ',
   'settings.editor.serif.body':
     'ਰੀਡਿੰਗ ਕਾਲਮ ਲਈ ਜਾਰਜੀਆ ਦੀ ਵਰਤੋਂ ਕਰੋ। ਸੈਂਸ-ਸੇਰੀਫ ਸਾਈਡਬਾਰ ਅਤੇ ਟੂਲਬਾਰਾਂ ਵਿੱਚ ਰਹਿੰਦਾ ਹੈ।',
+  'settings.editor.serif.label': 'ਸੈਰਿਫ਼ ਬਾਡੀ ਟੈਕਸਟ',
   'settings.editor.title': 'ਟਾਈਪੋਗ੍ਰਾਫੀ ਅਤੇ ਲਿਖਣ ਦੀ ਸਤ੍ਹਾ',
   'settings.eyebrow': 'Verso · ਸੈਟਿੰਗਾਂ',
+  'settings.passwordModal.current': 'ਵਰਤਮਾਨ ਪਾਸਵਰਡ',
   'settings.passwordModal.error':
     'ਪਾਸਵਰਡ ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ — ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਮੌਜੂਦਾ ਪਾਸਵਰਡ ਦੀ ਜਾਂਚ ਕਰੋ।',
   'settings.passwordModal.next': 'ਨਵਾਂ ਪਾਸਵਰਡ',
@@ -94,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'ਹਰ ਕੀਸਟ੍ਰੋਕ ਨੂੰ ਰੀਅਲਟਾਈਮ ਚੈਨਲ ਰਾਹੀਂ ਧੱਕੋ। ਹੌਲੀ ਕਨੈਕਸ਼ਨਾਂ ਲਈ ਅਯੋਗ ਕਰੋ।',
   'settings.sync.auto.label': 'ਰੀਅਲਟਾਈਮ ਸਿੰਕ',
+  'settings.sync.title': 'ਤੁਹਾਡੇ ਨੋਟ ਕਿਵੇਂ ਸਫ਼ਰ ਕਰਦੇ ਹਨ',
   'settings.theme.body':
     'ਰੋਸ਼ਨੀ ਸੰਪਾਦਕੀ ਕਾਲਮ ਨੂੰ ਚਮਕਦਾਰ ਰੱਖਦੀ ਹੈ। ਸੇਪੀਆ ਸ਼ਾਮਾਂ ਲਈ ਪੰਨੇ ਨੂੰ ਗਰਮ ਕਰਦੀ ਹੈ।',
   'settings.theme.dark': 'ਹਨੇਰਾ',
@@ -113,8 +156,12 @@ export const ui: UiTranslations = {
     'ਨੋਟ ਦੇ ਸਿਰਲੇਖ ਵਿੱਚ #ਹੈਸ਼ਟੈਗ ਸ਼ਾਮਲ ਕਰੋ (ਜਿਵੇਂ ਕਿ "ਪੜ੍ਹਨ ਦੀ ਸੂਚੀ #ਕਿਤਾਬਾਂ") ਅਤੇ ਉਹ ਇੱਥੇ ਆਪਣੇ ਆਪ ਦਿਖਾਈ ਦੇਣਗੇ।',
   'tags.emptyTitle': 'ਹਾਲੇ ਕੋਈ ਟੈਗ ਨਹੀਂ',
   'tags.eyebrow': 'ਇੰਡੈਕਸ',
+  'tags.goToNotes': "ਨੋਟਾਂ 'ਤੇ ਜਾਓ →",
+  'tags.loadError': 'ਟੈਗ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੇ: {{message}}',
   'tags.subtitle':
     '{{tags}} ਟੈਗਸ ਪਾਰ {{notes}} ਨੋਟਸ। ਨੋਟ ਦੇ ਸਿਰਲੇਖ ਵਿੱਚ #ਹੈਸ਼ਟੈਗ ਸ਼ਾਮਲ ਕਰੋ ਅਤੇ ਉਹ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ।',
+  'versoAuthShell.sample.body':
+    'ਕੱਲ੍ਹ ਦਾ ਦੂਜਾ ਪਾਸ ਹਮੇਸ਼ਾ ਅੱਜ ਰਾਤ ਦੇ ਪਹਿਲੇ ਪਾਸ ਨਾਲੋਂ ਬਿਹਤਰ ਪੜ੍ਹਿਆ ਜਾਂਦਾ ਹੈ। ਕੱਚਾ ਡਰਾਫ਼ਟ ਡੀਪ ਵਰਕ ਫੋਲਡਰ ਵਿੱਚ ਰੱਖੋ…',
   'versoAuthShell.sample.label': 'ਰੋਜ਼ਾਨਾ ਨੋਟ',
   'versoAuthShell.sample.timestamp': 'ਅੱਜ · ਸਵੇਰੇ 9:14 ਵਜੇ',
   'versoAuthShell.sample.title': "ਡਰਾਫਟਾਂ ਨੂੰ ਸਾਹ ਲੈਣ ਦੇਣ 'ਤੇ",
@@ -126,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'ਲਿਖਣਾ ਜਾਰੀ ਰੱਖੋ',
   'versoTodayHero.createCta': 'ਅੱਜ ਦਾ ਨੋਟ ਸ਼ੁਰੂ ਕਰੋ',
   'versoTodayHero.dailyLabel': 'ਰੋਜ਼ਾਨਾ ਨੋਟ',
+  'versoTodayHero.emptyHeadline': 'ਅੱਜ ਇੱਕ ਖਾਲੀ ਪੰਨਾ ਹੈ।',
   'versoTodayHero.emptySubline':
     'ਕੱਲ੍ਹ ਨੂੰ ਇੱਕ ਵਿਚਾਰ ਕੈਪਚਰ ਕਰੋ, ਇੱਕ ਮੀਟਿੰਗ ਲਿਖੋ, ਜਾਂ ਸਕੈਚ ਬਣਾਓ। ਵਰਸੋ ਢਾਂਚੇ ਨੂੰ ਸ਼ਾਂਤ ਰੱਖਦਾ ਹੈ ਤਾਂ ਜੋ ਲਿਖਤ ਉੱਚੀ ਰਹੇ।',
+  'versoTodayHero.outlineLabel': 'ਅੱਜ ਦੀ ਰੂਪਰੇਖਾ',
   'versoTodayHero.streak': '{{count}} - ਦਿਨ ਦੀ ਲੜੀ',
+  'versoTodayHero.unwritten': 'ਹਾਲੇ ਕੋਈ ਸ਼ਬਦ ਨਹੀਂ — ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਨੋਟ ਖੋਲ੍ਹੋ।',
   'versoTodayHero.wordCount': '{{count}} ਅੱਜ ਦੇ ਸ਼ਬਦ',
 }

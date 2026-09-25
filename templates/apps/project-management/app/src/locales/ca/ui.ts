@@ -1,11 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens comentaris, has trobat un error o vols una funció nova? Consulta la pàgina d'ajuda per obtenir respostes o posa't en contacte amb l'equip des de Configuració → Compte: cada missatge arriba a una persona real.",
   'about.contactTitle': 'Parla amb nosaltres',
+  'about.missionTitle': 'La nostra missió',
+  'accountSettings.confirmDelete': 'Suprimeix permanentment',
   'accountSettings.confirmEmailLabel': 'Escriu SUPRIMEIX per confirmar',
   'accountSettings.deleteError': "No s'ha pogut eliminar el compte.",
   'accountSettings.passwordError': "No s'ha pogut canviar la contrasenya.",
   'accountSettings.passwordTooShort': 'La contrasenya ha de tenir com a mínim 8 caràcters.',
+  'accountSettingsSection.dangerZoneTitle': 'Zona de perill',
   'accountSettingsSection.deleteWarning':
     "Un cop hagis eliminat el teu compte, no hi ha marxa enrere. Assegura't-ho.",
   'accountSettingsSection.description':
@@ -17,6 +22,7 @@ export const ui: UiTranslations = {
   'appearanceSettingsSection.darkMode': 'Mode fosc',
   'appearanceSettingsSection.description':
     'Personalitza la interfície visual del teu espai de treball.',
+  'appearanceSettingsSection.languageLabel': 'Idioma de la interfície',
   'appearanceSettingsSection.lightMode': 'Mode de llum',
   'board.addTask': 'Afegeix una tasca',
   'board.addTaskToColumn': 'Afegeix una tasca a {{column}}',
@@ -44,6 +50,7 @@ export const ui: UiTranslations = {
   'common.unknown': '?',
   'dashboard.confirmDeleteTask': 'Delete this task?',
   'dashboard.createError': "No s'ha pogut crear el projecte",
+  'dashboard.createFirstProject': 'Crea el teu primer projecte',
   'dashboard.fallbackName': 'allà',
   'dashboard.greeting': 'Benvingut/da de nou, {{name}}',
   'dashboard.kpis': 'Mètriques clau',
@@ -52,13 +59,21 @@ export const ui: UiTranslations = {
   'dashboard.newProjectTitle': 'Nou projecte',
   'dashboard.projectCounts': '{{done}} de {{total}} tasques fetes',
   'dashboard.projectsEmpty': 'Encara no tens cap projecte.',
+  'dashboard.subtitle': 'Aquí tens la visió general del teu projecte.',
+  'dashboard.tasksEmpty':
+    "Encara no hi ha tasques. Visita el tauler d'un projecte per afegir-ne una.",
   'dashboard.tasksEmptyNoProject': 'Crea un projecte per començar a afegir tasques.',
   'dashboard.upcomingEmpty': 'Sense terminis propers.',
   'dashboard.upcomingTitle': 'Propers terminis',
+  'deviceSettings.description':
+    'Dispositius que actualment tenen la sessió iniciada al vostre compte.',
   'deviceSettings.unknownDevice': 'Dispositiu desconegut',
   'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'Suport',
+  'forgotPassword.emailLabel': 'Adreça electrònica',
   'forgotPassword.error': "No s'ha pogut enviar l'enllaç de restabliment.",
+  'forgotPassword.sent':
+    "Si existeix un compte per a {{email}}, s'ha enviat un enllaç de restabliment. Comprova la safata d'entrada.",
   'forgotPassword.subtitle':
     "Introdueix el teu correu electrònic i t'enviarem un enllaç de restabliment.",
   'help.backToDashboard': 'Torna al tauler de control',
@@ -94,6 +109,14 @@ export const ui: UiTranslations = {
   'notificationsSettings.taskLabel': 'Assignacions de tasques',
   'planUpdated.heading': 'Your plan has been updated',
   'planUpdated.subheading': 'Gràcies!',
+  'pricing.advancedReports': 'Informes de burndown / velocitat: {{value}}',
+  'pricing.calendarView': 'Calendari / cronologia: {{value}}',
+  'pricing.customFields': 'Camps personalitzats: {{value}}',
+  'pricing.membersPerProject': '{{count}} membres / projecte',
+  'pricing.milestonesCount': '{{count}} fites',
+  'pricing.projectsCount': '{{count}} projectes',
+  'pricing.realtime': 'Col·laboració en temps real: {{value}}',
+  'pricing.tasksCount': '{{count}} tasques',
   'priority.high': 'Alt',
   'priority.low': 'Baix',
   'priority.medium': 'Medium',
@@ -107,6 +130,8 @@ export const ui: UiTranslations = {
   'resetPassword.signUpLink': "Registra't gratuïtament",
   'resetPassword.subtitle': 'Introduïu la vostra nova contrasenya a continuació',
   'search.aria': 'Tasques de cerca',
+  'settings.revokeDeviceWarning':
+    "L'accés d'aquest dispositiu es revocarà aviat. Voleu tancar la sessió?",
   'settings.signOutDevice': 'Tanca la sessió',
   'settingsTopAppBar.noNotifications': 'No hi ha notificacions noves',
   'sideNav.calendar': 'Calendari',
@@ -121,6 +146,7 @@ export const ui: UiTranslations = {
   'signup.loading': 'Creant el compte...',
   'signup.namePlaceholder': 'El vostre nom complet',
   'signup.pageTitle': 'Crea un compte',
+  'signup.subtitle': 'Comença a organitzar els teus projectes en qüestió de minuts',
   'signupPrompt.leadin': 'Ets nou a Forge?',
   'signupPrompt.signUp': "Registra't gratuïtament",
   'status.done': 'Fet',
@@ -128,6 +154,7 @@ export const ui: UiTranslations = {
   'status.todo': 'Fer',
   'task.markDone': 'Marca com a fet',
   'task.markUndone': 'Marca com a no fet',
+  'taskCard.assigneeAlt': 'Assignatari',
   'taskCard.overdueDate': '{{date}} (Endarrerit)',
   'taskCard.priorityTooltip': '{{priority}} prioritat',
   'taskCard.unnamedProject': 'Projecte',
@@ -139,6 +166,7 @@ export const ui: UiTranslations = {
   'taskInProgressSection.heading': 'En curs',
   'taskList.deleteError': 'Failed to delete task',
   'taskList.loadError': 'Failed to load tasks',
+  'taskList.subtitle': '{{date}} — {{count}} tasques restants',
   'taskList.title': 'My Tasks',
   'taskReviewSection.emptyState': 'No hi ha tasques en revisió',
   'taskReviewSection.heading': 'En revisió',
@@ -154,6 +182,7 @@ export const ui: UiTranslations = {
   'timeline.prevMonth': 'Mes anterior',
   'timeline.today': 'Avui',
   'timeline.typeMilestone': 'Fita',
+  'timeline.typeTask': 'Tasca',
   'timeline.upcomingEvents': 'Propers esdeveniments',
   'timeline.viewOnBoard': 'Vista a bord →',
   'timelineSideNav.calendar': 'Cronologia',

@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'គម្រោងរបស់អ្នកត្រូវបានធ្វើបច្ចុប្បន្នភាព។',
   'planUpdated.returnHome': 'ត្រឡប់ទៅទំព័រដើម',
   'planUpdated.thankYou': 'សូមអរគុណ!',
+  'post.markdown': 'មើលប្រកាសនេះជា markdown',
+  'post.readingTime': '{{minutes}} អាន​នាទី',
   'post.tags': 'ស្លាក',
   'project.error.nameAndTypeRequired': 'ត្រូវការ name និង projectType',
   'project.error.notFound': 'រកមិនឃើញ',

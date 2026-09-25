@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'தொடர்பு கொள்ளுங்கள்',
   'about.eyebrow': 'எங்களைப் பற்றி',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'account.notifications.save': 'விருப்பங்களைச் சேமிக்கவும்',
   'account.notifications.saved': 'விருப்பத்தேர்வுகள் சேமிக்கப்பட்டன.',
   'account.notifications.saveFailed': 'விருப்பங்களைச் சேமிக்க முடியவில்லை.',
@@ -12,7 +13,10 @@ export const ui: UiTranslations = {
     'அமர்வுக்குக் கட்டணம் • முன்பதிவுத் தள்ளுபடிகளுக்கு மேம்படுத்தவும்',
   'account.payments.helper':
     'பணம் செலுத்தும் முறை குறித்த விவரங்கள் செக் அவுட்டின் போது பெறப்படுகின்றன. நாங்கள் முழுமையான அட்டை எண்களை ஒருபோதும் சேமிப்பதில்லை — அனைத்து அட்டைத் தரவுகளையும் ஸ்ட்ரைப் (Stripe) கையாளுகிறது.',
+  'account.payments.paidDescription': 'சந்தா செயலில் உள்ளது — Stripe இல் நிர்வகிக்கவும்.',
   'account.payments.planFree': 'இலவச திட்டம்',
+  'account.payments.title': 'திட்டம் & கட்டணம்',
+  'account.payments.viewPlans': '{{appName}} திட்டங்களைப் பார்க்க →',
   'account.profile.title': 'சுயவிவரம்',
   'account.role.body':
     'கற்பவர் மற்றும் பயிற்றுவிப்பாளர் முறைக்கு எப்போது வேண்டுமானாலும் மாறலாம். இரண்டு முறைகளிலும் உங்கள் செயலில் உள்ள அமர்வுகள் அப்படியே இருக்கும்.',
@@ -25,6 +29,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'சுண்ணக்கட்டியில் கற்பிக்கவும்',
   'becomeTutor.form.error': 'விண்ணப்பத்தைச் சமர்ப்பிக்க முடியவில்லை.',
+  'becomeTutor.form.pitch': 'உங்கள் அறிமுகம் (விருப்பம்)',
   'becomeTutor.form.pitchPlaceholder':
     'உங்கள் சுயவிவரத்தில் மாணவர்கள் காணக்கூடிய சில வாக்கியங்கள். அவை குறிப்பாகவும் அன்பாகவும் இருக்க வேண்டும்.',
   'becomeTutor.form.rate': 'மணிநேர ஊதியம் ($/மணி): {{rate}}',
@@ -35,6 +40,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.title': 'உங்களைப் பற்றி எங்களிடம் கூறுங்கள்',
   'becomeTutor.headline':
     'நீங்கள் விரும்பும் வேலையைச் செய்து சம்பாதியுங்கள். உங்கள் வசதிக்கேற்ப கற்பியுங்கள்.',
+  'becomeTutor.subhead':
+    '5 நிமிடங்களில் விண்ணப்பிக்கவும். சரிபார்க்கப்பட்டதும், தேடலில் தோன்றி அமர்வுகளைப் பெறத் தொடங்குவீர்கள்.',
+  'booking.duration.title': '3. எவ்வளவு நேரம்?',
   'booking.error.createFailed': 'புத்தகத்தை உருவாக்க முடியவில்லை.',
   'booking.error.loadFailed': 'பயிற்றுவிப்பாளரை ஏற்ற முடியவில்லை — மீண்டும் முயற்சிக்கவும்.',
   'booking.error.noSlot': 'முதலில் ஒரு நாளையும் நேரத்தையும் தேர்ந்தெடுங்கள்.',
@@ -49,6 +57,7 @@ export const ui: UiTranslations = {
     'அமர்வுகளுக்கு 12 மணி நேரத்திற்கு முன்பு வரை மறுதிட்டமிடலாம். அமர்வு முடிவடையும்போது மட்டுமே உங்கள் அட்டைக்குக் கட்டணம் வசூலிக்கப்படும்.',
   'booking.summary.assurance':
     'அமர்வு முடியும் வரை கட்டணம் இல்லை • 12 மணி நேரத்திற்கு முன்பு வரை கட்டணமின்றி ரத்து செய்யலாம்',
+  'booking.summary.back': '← ஆசிரியர் சுயவிவரத்திற்குத் திரும்பு',
   'booking.summary.cta': 'முன்பதிவை உறுதிப்படுத்தவும்',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'ஒரு ஸ்லாட்டைத் தேர்ந்தெடுக்கவும்',
@@ -75,18 +84,27 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'பயிற்றுவிப்பாளர்',
   'bookingConfirm.subject': 'பொருள்',
   'bookingConfirm.title': 'உங்கள் முன்பதிவு முடிந்துவிட்டது. மீதியை நாங்கள் பார்த்துக்கொள்வோம்.',
+  'bookingConfirm.viewSessions': 'அனைத்து அமர்வுகளையும் பார்க்க →',
   'bookingConfirm.with': 'ஆசிரியருடன்',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'earningsHero.change': 'கடந்த மாதத்தை விட {{sign}}{{percent}}%',
   'earningsHero.eyebrow': 'வருமானம் • {{month}}',
+  'earningsHero.greeting': 'மீண்டும் வருக, {{name}} — வேகத்தைத் தக்கவைத்துக் கொள்ளுங்கள்.',
   'forgotPassword.heading': 'உங்கள் கடவுச்சொல்லை மறந்துவிட்டீர்களா?',
   'forgotPassword.subheading':
     'உங்கள் கணக்குடன் இணைக்கப்பட்ட மின்னஞ்சல் முகவரியை உள்ளிடவும், நாங்கள் மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.success.body':
     'நாங்கள் ஒரு மீட்டமைப்பு இணைப்பை அனுப்பினோம் {{email}} — இது 30 நிமிடங்களில் காலாவதியாகிவிடும்.',
   'heroSearchSection.eyebrow': '12,000-க்கும் மேற்பட்ட சரிபார்க்கப்பட்ட பயிற்றுநர்கள் • 2018 முதல்',
+  'heroSearchSection.headline': 'ஆர்வமுள்ள மனங்கள் சரியான ஆசிரியர்களைச் சந்திக்கும் இடம்.',
+  'heroSearchSection.searchCta': 'ஆசிரியரைக் கண்டறி',
+  'heroSearchSection.searchPlaceholder': 'பாடங்கள், ஆசிரியர்கள் அல்லது தலைப்புகளைத் தேடுங்கள்…',
   'heroSearchSection.stat.rating': 'சராசரி அமர்வு மதிப்பீடு',
+  'heroSearchSection.stat.sessions': 'வழங்கப்பட்ட அமர்வுகள்',
   'heroSearchSection.stat.subjects': 'உள்ளடக்கப்பட்ட பாடங்கள்',
   'heroSearchSection.stat.tutors': 'சரிபார்க்கப்பட்ட ஆசிரியர்கள்',
+  'heroSearchSection.subhead':
+    'சரிபார்க்கப்பட்ட ஆசிரியர்கள். தெளிவான கட்டணம். உங்கள் வாரத்திற்குப் பொருந்தும் அமர்வுகள்.',
   'landing.featured.eyebrow': 'சிறப்பு ஆசிரியர்கள்',
   'landing.featured.headline':
     'கவனமாகத் தேர்ந்தெடுக்கப்பட்டவை, சிறந்த மதிப்பீடு பெற்றவை, இந்த வாரம் தயாராகின்றன.',
@@ -94,8 +112,11 @@ export const ui: UiTranslations = {
   'landing.nav.becomeTutor': 'சுண்ணக்கட்டியில் கற்பிக்கவும்',
   'landing.nav.findTutors': 'ஆசிரியர்களைக் கண்டறியவும்',
   'landing.pillars.eyebrow': 'ஏன் சுண்ணாம்பு',
+  'landing.pillars.headline': '{{tagline}} — தடையின்றி.',
   'landing.testimonials.eyebrow': 'சமீபத்திய மாணவர்களிடமிருந்து',
   'landing.testimonials.headline': 'உண்மையான முடிவுகள், அவர்களின் சொந்த வார்த்தைகளில்.',
+  'landing.tutorCta.body':
+    'உங்கள் சொந்த கட்டணங்களை அமைத்து, சரிபார்க்கப்பட்ட மதிப்புரைகளுடன் நற்பெயரை உருவாக்குங்கள் — அட்டவணை, பணம் செலுத்துதல், நினைவூட்டல்களை நாங்கள் கவனிக்கிறோம்.',
   'landing.tutorCta.button': 'கற்பிக்க விண்ணப்பிக்கவும்',
   'landing.tutorCta.eyebrow': 'பயிற்றுநராகுங்கள்',
   'landing.tutorCta.headline':
@@ -107,6 +128,7 @@ export const ui: UiTranslations = {
   'login.signup': 'ஒரு கணக்கை உருவாக்கவும் →',
   'login.subheading':
     'நீங்கள் விட்ட இடத்திலிருந்து தொடருங்கள் — உங்கள் அமர்வுகள், செய்திகள் மற்றும் பயிற்றுனர்கள் உங்களுக்காகக் காத்திருக்கிறார்கள்.',
+  'login.support': 'உதவி தேவையா?',
   'messages.draftPlaceholder': 'ஒரு செய்தியைத் தட்டச்சு செய்யவும்…',
   'messages.empty.body':
     'நீங்கள் ஒரு பயிற்றுநருக்குச் செய்தி அனுப்பும்போதோ அல்லது அவர் உங்களுக்குச் செய்தி அனுப்பும்போதோ உரையாடல்கள் இங்கே தோன்றும்.',
@@ -118,9 +140,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'இன்னும் செய்திகள் வரவில்லை.',
   'messages.selectThread': 'இடதுபுறத்தில் ஒரு இழையைத் தேர்ந்தெடுக்கவும்.',
   'messages.send': 'செய்திகளை அனுப்பு',
+  'messages.startThreadHint':
+    'ஒரு ஆசிரியர் சுயவிவரத்திற்குச் சென்று "Message tutor" என்பதைத் தட்டி உரையாடலைத் தொடங்குங்கள்.',
   'messages.thread.empty': 'வணக்கம் சொல்லுங்கள் — உரையாடலைத் தொடங்குங்கள்.',
   'messages.title': 'உங்கள் பயிற்றுநர்களுடனான உரையாடல்கள்.',
   'nav.primary': 'முதன்மை',
+  'planUpdated.body':
+    'உங்கள் பில்லிங் மாற்றம் இப்போது செயலில் உள்ளது. பில்லிங் பக்கத்திலிருந்து எப்போது வேண்டுமானாலும் உங்கள் திட்டத்தை நிர்வகிக்கலாம்.',
+  'pricing.advancedFeatures': 'மேம்பட்ட அம்சங்கள்:',
   'pricing.dataExport': 'தரவு ஏற்றுமதி:',
   'pricing.headingDefault': 'மேம்பட்ட அம்சங்கள்:',
   'resetPassword.heading': 'வலிமையான புதிய கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும்.',
@@ -131,6 +158,8 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'மீட்டமைப்பு வெற்றிகரமாக முடிந்த பிறகு, நாங்கள் உங்களைத் தானாகவே உள்நுழையச் செய்வோம்.',
   'resetPassword.submit': 'மீட்டமைத்து உள்நுழையவும்',
+  'reviewCard.headline': '{{ago}}',
+  'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body':
     'பொருள் வடிகட்டியை விரிவுபடுத்தவோ அல்லது மதிப்பீட்டு வரம்பைத் தளர்த்தவோ முயற்சி செய்யுங்கள்.',
   'search.empty.title': 'இன்னும் பயிற்றுநர்கள் பொருத்தப்படவில்லை.',
@@ -141,7 +170,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'மதிப்பீடு',
   'search.filter.subject': 'பொருள்',
   'search.results.count': '{{count}} பயிற்றுநர்கள் உங்கள் வடிகட்டிகளுடன் பொருந்துகிறார்கள்',
+  'search.results.fallback': 'தொகுக்கப்பட்ட டெமோ ஆசிரியர்கள் காட்டப்படுகிறார்கள்',
   'search.results.loading': 'பயிற்றுநர்கள் ஏற்றப்படுகிறார்கள்…',
+  'search.searchPlaceholder': 'பாடம், பெயர் அல்லது தலைப்பு…',
   'search.subtitle':
     'பாடம், மதிப்பீடு மற்றும் கிடைக்கும் நேரம் ஆகியவற்றின் அடிப்படையில் வடிகட்டவும். சரிபார்க்கப்பட்ட பயிற்றுநர்கள் மட்டும்.',
   'search.title': 'உங்களுக்குப் பொருத்தமான ஒரு பயிற்றுனரைக் கண்டறியுங்கள்',
@@ -174,18 +205,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'அமர்வு தொடங்கியது — மகிழ்ச்சியான கற்றல்.',
   'sessionDetail.startError': 'அமர்வைத் தொடங்க முடியவில்லை.',
   'sessionDetail.subtitle': 'உடன் {{name}} • {{when}} • {{mins}} நிமிடம்',
+  'sessionDetail.timeline': 'நிலை காலவரிசை',
   'sessionDetail.timeline.afterEnd': 'அமர்வு முடிந்த பிறகு',
   'sessionDetail.timeline.auto': 'ஆட்டோ',
   'sessionDetail.timeline.booked': 'முன்பதிவு செய்யப்பட்டது',
   'sessionDetail.timeline.confirmed': 'உறுதிப்படுத்தப்பட்டது',
   'sessionDetail.timeline.inSession': 'அமர்வில்',
   'sessionDetail.timeline.now': 'இப்போது',
+  'sessionDetail.timeline.receipt': 'ரசீது வழங்கப்பட்டது',
   'sessionDetail.timeline.review': 'மதிப்பாய்வு',
   'sessions.empty.body':
     'பயிற்றுனரைக் கண்டறிந்து நேரத்தை முன்பதிவு செய்ய, Mentor தளத்தில் உலாவவும். உறுதிசெய்யப்பட்ட அமர்வுகள் இங்கே காட்டப்படும்.',
   'sessions.empty.title': 'இங்கு இன்னும் எதுவும் திட்டமிடப்படவில்லை.',
   'sessions.error': 'உங்கள் அமர்வுகளை ஏற்ற முடியவில்லை — மீண்டும் முயற்சிக்கவும்.',
   'sessions.eyebrow': 'உங்கள் அமர்வுகள்',
+  'sessions.loading': 'அமர்வுகள் ஏற்றப்படுகின்றன…',
   'sessions.subtitle':
     'வரவிருக்கும் முன்பதிவுகளைக் கண்காணிக்கவும், செயலில் உள்ள அமர்வு அறைக்குள் நுழையவும், மற்றும் நிறைவு செய்யப்பட்ட பாடங்களை மீண்டும் பார்க்கவும்.',
   'sessions.title': 'எல்லாப் பாடங்களும் ஒரே இடத்தில்.',
@@ -200,22 +234,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'என்னுடையதை உருவாக்கு {{role}} கணக்கு',
   'signup.subheading':
     'வகுப்புகளை முன்பதிவு செய்யவும், பயிற்றுனர்களுக்குச் செய்தி அனுப்பவும், உங்கள் முன்னேற்றத்தைக் கண்காணிக்கவும் ஒரு கணக்கை உருவாக்கவும்.',
+  'signup.terms': 'பதிவு செய்வதன் மூலம் எங்கள் விதிமுறைகளை ஏற்கிறீர்கள்.',
   'tutorCard.avatarAlt': 'உருவப்படம் {{name}}',
   'tutorCard.perHour': '/ மணிநேரம்',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'சிறந்த மதிப்பீடு பெற்ற',
   'tutorCard.verified': 'சரிபார்க்கப்பட்ட பயிற்றுவிப்பாளர்',
+  'tutorDashboard.empty.body':
+    'உங்கள் பாடங்கள், மணிநேரக் கட்டணம், கிடைக்கும் நேரங்களை அமைத்து — பணம் சம்பாதிக்கத் தொடங்குங்கள்.',
+  'tutorDashboard.empty.cta': 'ஆசிரியராகுங்கள் →',
   'tutorDashboard.empty.title': 'உங்கள் டாஷ்போர்டைத் திறக்க பயிற்றுநராகுங்கள்.',
   'tutorDashboard.fallbackName': 'பயிற்றுவிப்பாளர்',
   'tutorDashboard.loading': 'டாஷ்போர்டு ஏற்றப்படுகிறது…',
   'tutorDashboard.recentReviews': 'சமீபத்திய மதிப்புரைகள்',
   'tutorDashboard.reviewsEmpty':
     'உங்களுக்கு இன்னும் மதிப்புரைகள் எதுவும் இல்லை — மாணவர்கள் உங்களை மதிப்பிட்டவுடன் அவை இங்கே தோன்றும்.',
+  'tutorDashboard.stats.rating': 'சராசரி மதிப்பீடு',
   'tutorDashboard.stats.sessions': 'இந்த மாத அமர்வுகள்',
+  'tutorDashboard.stats.totalSessions': 'மொத்த அமர்வுகள்',
+  'tutorDashboard.studentFallback': 'மாணவர்',
   'tutorDashboard.tutoringFallback': 'பயிற்சி அமர்வு',
   'tutorDashboard.upcoming': 'வரவிருக்கும் அமர்வுகள்',
   'tutorDashboard.upcomingEmpty':
     'இன்னும் வரவிருக்கும் அமர்வுகள் எதுவும் இல்லை — உங்கள் இடங்களை முன்பதிவு செய்யும் மாணவர்கள் இங்கே தோன்றுவார்கள்.',
+  'tutorProfile.availability': 'இந்த வாரம் கிடைக்கும் நேரம்',
   'tutorProfile.availabilityHeadline': 'தொடங்குவதற்கு ஒரு நேரத்தைத் தேர்ந்தெடுக்கவும்',
   'tutorProfile.bookCta': 'ஒரு அமர்வை முன்பதிவு செய்யுங்கள்',
   'tutorProfile.bookFull': 'முழு அட்டவணையைக் காண்க',
@@ -228,6 +270,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / மணிநேரம்',
   'tutorProfile.reviews': 'சமீபத்திய மதிப்புரைகள்',
   'tutorProfile.reviews.empty': 'இன்னும் மதிப்புரைகள் இல்லை — நீங்களே முதல் நபராக இருங்கள்.',
+  'tutorProfile.stat.repeats': 'மீண்டும் வரும் மாணவர்கள்',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'சராசரி பதில்',
   'tutorProfile.stat.responseValue': '{{mins}} நிமிடம்',

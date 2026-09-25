@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ബന്ധപ്പെടുക',
   'about.eyebrow': 'ഞങ്ങളേക്കുറിച്ച്',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'account.notifications.save': 'മുൻഗണനകൾ സംരക്ഷിക്കുക',
   'account.notifications.saved': 'മുൻഗണനകൾ സംരക്ഷിച്ചു.',
   'account.notifications.saveFailed': 'മുൻഗണനകൾ സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല.',
@@ -11,7 +12,10 @@ export const ui: UiTranslations = {
   'account.payments.freeDescription': 'പേ-പെർ-സെഷൻ • ബുക്കിംഗ് കിഴിവുകൾക്കായി അപ്‌ഗ്രേഡ് ചെയ്യുക',
   'account.payments.helper':
     'നിങ്ങളുടെ പേയ്‌മെന്റ് രീതി ചെക്ക്ഔട്ടിൽ ശേഖരിക്കും. ഞങ്ങൾ ഒരിക്കലും പൂർണ്ണ കാർഡ് നമ്പറുകൾ സംഭരിക്കില്ല — എല്ലാ കാർഡ് ഡാറ്റയും സ്ട്രൈപ്പ് കൈകാര്യം ചെയ്യുന്നു.',
+  'account.payments.paidDescription': 'സബ്സ്ക്രിപ്ഷൻ സജീവം — Stripe-ൽ നിയന്ത്രിക്കുക.',
   'account.payments.planFree': 'സൗജന്യ പ്ലാൻ',
+  'account.payments.title': 'പ്ലാൻ & പേയ്മെന്റ്',
+  'account.payments.viewPlans': '{{appName}} പ്ലാനുകൾ കാണുക →',
   'account.profile.title': 'പ്രൊഫൈൽ',
   'account.role.body':
     'എപ്പോൾ വേണമെങ്കിലും പഠിതാവ്, ട്യൂട്ടർ മോഡുകൾക്കിടയിൽ മാറാം. നിങ്ങളുടെ സജീവ സെഷനുകൾ രണ്ട് മോഡുകളിലും കേടുകൂടാതെയിരിക്കും.',
@@ -24,6 +28,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'ചോക്കിൽ പഠിപ്പിക്കുക',
   'becomeTutor.form.error': 'അപേക്ഷ സമർപ്പിക്കാൻ കഴിഞ്ഞില്ല.',
+  'becomeTutor.form.pitch': 'നിങ്ങളുടെ പിച്ച് (ഓപ്ഷണൽ)',
   'becomeTutor.form.pitchPlaceholder':
     'നിങ്ങളുടെ പ്രൊഫൈലിൽ വിദ്യാർത്ഥികൾ കാണുന്ന ചില വാചകങ്ങൾ. അത് വ്യക്തവും ഊഷ്മളവുമായി സൂക്ഷിക്കുക.',
   'becomeTutor.form.rate': 'മണിക്കൂർ നിരക്ക് ($/മണിക്കൂർ): {{rate}}',
@@ -34,6 +39,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.title': 'നിങ്ങളെക്കുറിച്ച് ഞങ്ങളോട് പറയൂ',
   'becomeTutor.headline':
     'നിങ്ങൾക്ക് ഇഷ്ടമുള്ളത് ചെയ്തുകൊണ്ട് സമ്പാദിക്കുക. നിങ്ങളുടെ ഷെഡ്യൂളിൽ പഠിപ്പിക്കുക.',
+  'becomeTutor.subhead':
+    '5 മിനിറ്റിനുള്ളിൽ അപേക്ഷിക്കുക. വെരിഫൈ ചെയ്താൽ, സെർച്ചിൽ കാണാനും സെഷനുകൾ ബുക്ക് ചെയ്യാനും തുടങ്ങും.',
+  'booking.duration.title': '3. എത്ര സമയം?',
   'booking.error.createFailed': 'ബുക്കിംഗ് സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',
   'booking.error.loadFailed': 'ട്യൂട്ടറെ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല — വീണ്ടും ശ്രമിക്കുക.',
   'booking.error.noSlot': 'ആദ്യം ഒരു particular day and time തിരഞ്ഞെടുക്കുക.',
@@ -49,6 +57,7 @@ export const ui: UiTranslations = {
     'സെഷനുകൾ 12 മണിക്കൂർ മുമ്പ് വരെ പുനഃക്രമീകരിക്കാവുന്നതാണ്. സെഷൻ അവസാനിക്കുമ്പോൾ മാത്രമേ നിങ്ങളുടെ കാർഡിൽ നിന്ന് നിരക്ക് ഈടാക്കൂ.',
   'booking.summary.assurance':
     'സെഷൻ അവസാനിക്കുന്നത് വരെ യാതൊരു നിരക്കും ഇല്ല • 12 മണിക്കൂർ മുമ്പ് വരെ സൗജന്യമായി റദ്ദാക്കാം',
+  'booking.summary.back': '← ട്യൂട്ടർ പ്രൊഫൈലിലേക്ക് മടങ്ങുക',
   'booking.summary.cta': 'ബുക്കിംഗ് സ്ഥിരീകരിക്കുക',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'ഒരു സ്ലോട്ട് തിരഞ്ഞെടുക്കുക',
@@ -75,18 +84,27 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'ട്യൂട്ടർ',
   'bookingConfirm.subject': 'വിഷയം',
   'bookingConfirm.title': 'നിങ്ങളുടെ ബുക്ക് കഴിഞ്ഞു. ബാക്കി ഞങ്ങൾ നോക്കിക്കോളാം.',
+  'bookingConfirm.viewSessions': 'എല്ലാ സെഷനുകളും കാണുക →',
   'bookingConfirm.with': 'ട്യൂട്ടറോടൊപ്പം',
   'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
+  'earningsHero.change': 'കഴിഞ്ഞ മാസത്തെ അപേക്ഷിച്ച് {{sign}}{{percent}}%',
   'earningsHero.eyebrow': 'വരുമാനം • {{month}}',
+  'earningsHero.greeting': 'വീണ്ടും സ്വാഗതം, {{name}} — ഈ തempo നിലനിർത്തുക.',
   'forgotPassword.heading': 'നിങ്ങളുടെ പാസ്വേഡ് മറന്നോ?',
   'forgotPassword.subheading':
     'നിങ്ങളുടെ അക്കൗണ്ടുമായി ബന്ധിപ്പിച്ചിരിക്കുന്ന ഇമെയിൽ വിലാസം നൽകുക, ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
   'forgotPassword.success.body':
     'ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയച്ചു {{email}} — ഇത് 30 മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും.',
   'heroSearchSection.eyebrow': '2018 മുതൽ • 12,000+ പരിശോധിച്ചുറപ്പിച്ച ട്യൂട്ടർമാർ',
+  'heroSearchSection.headline': 'ജിജ്ഞാസുക്കളെ ശരിയായ ട്യൂട്ടർമാരുമായി കണ്ടുമുട്ടുന്നിടം.',
+  'heroSearchSection.searchCta': 'ട്യൂട്ടറെ കണ്ടെത്തുക',
+  'heroSearchSection.searchPlaceholder': 'വിഷയങ്ങൾ, ട്യൂട്ടർമാർ, അല്ലെങ്കിൽ വിഷയങ്ങൾ തിരയുക…',
   'heroSearchSection.stat.rating': 'ശരാശരി സെഷൻ റേറ്റിംഗ്',
+  'heroSearchSection.stat.sessions': 'നൽകിയ സെഷനുകൾ',
   'heroSearchSection.stat.subjects': 'ഉൾപ്പെടുത്തിയ വിഷയങ്ങൾ',
   'heroSearchSection.stat.tutors': 'പരിശോധിച്ചുറപ്പിച്ച ട്യൂട്ടർമാർ',
+  'heroSearchSection.subhead':
+    'വെരിഫൈ ചെയ്ത ട്യൂട്ടർമാർ. വ്യക്തമായ വില. നിങ്ങളുടെ ആഴ്ചയ്ക്ക് അനുയോജ്യമായ സെഷനുകൾ.',
   'landing.featured.eyebrow': 'ഫീച്ചർ ചെയ്‌ത ട്യൂട്ടർമാർ',
   'landing.featured.headline':
     'കൈകൊണ്ട് തിരഞ്ഞെടുത്തത്, മികച്ച റേറ്റിംഗ് ഉള്ളത്, ഈ ആഴ്ച തയ്യാറാണ്.',
@@ -94,8 +112,11 @@ export const ui: UiTranslations = {
   'landing.nav.becomeTutor': 'ചോക്കിൽ പഠിപ്പിക്കുക',
   'landing.nav.findTutors': 'ട്യൂട്ടർമാരെ കണ്ടെത്തുക',
   'landing.pillars.eyebrow': 'എന്തുകൊണ്ട് ചോക്ക്',
+  'landing.pillars.headline': '{{tagline}} — തടസ്സങ്ങളില്ലാതെ.',
   'landing.testimonials.eyebrow': 'സമീപകാല വിദ്യാർത്ഥികളിൽ നിന്ന്',
   'landing.testimonials.headline': 'യഥാർത്ഥ ഫലങ്ങൾ, അവരുടെ സ്വന്തം വാക്കുകളിൽ.',
+  'landing.tutorCta.body':
+    'സ്വന്തം നിരക്കുകൾ നിശ്ചയിക്കുക, വെരിഫൈ ചെയ്ത റിവ്യൂകളിലൂടെ പ്രശസ്തി കെട്ടിപ്പടുക്കുക, ഷെഡ്യൂളിംഗ്, പേയ്മെന്റുകൾ, ഓർമ്മപ്പെടുത്തലുകൾ ഞങ്ങൾ കൈകാര്യം ചെയ്യും.',
   'landing.tutorCta.button': 'പഠിപ്പിക്കാൻ അപേക്ഷിക്കുക.',
   'landing.tutorCta.eyebrow': 'ഒരു അദ്ധ്യാപകനാകുക',
   'landing.tutorCta.headline':
@@ -107,6 +128,7 @@ export const ui: UiTranslations = {
   'login.signup': 'ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുക →',
   'login.subheading':
     'നിങ്ങൾ നിർത്തിയിടത്ത് നിന്ന് തുടരുക — നിങ്ങളുടെ സെഷനുകളും സന്ദേശങ്ങളും ട്യൂട്ടർമാരും കാത്തിരിക്കുന്നു.',
+  'login.support': 'സഹായം ആവശ്യമുണ്ടോ?',
   'messages.draftPlaceholder': 'ഒരു സന്ദേശം ടൈപ്പ് ചെയ്യുക...',
   'messages.empty.body':
     'നിങ്ങൾ ഒരു ട്യൂട്ടർക്ക് സന്ദേശം അയയ്ക്കുമ്പോഴോ ആരെങ്കിലും നിങ്ങൾക്ക് സന്ദേശം അയയ്ക്കുമ്പോഴോ ത്രെഡുകൾ ഇവിടെ ദൃശ്യമാകും.',
@@ -118,9 +140,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'ഇതുവരെ സന്ദേശങ്ങളൊന്നുമില്ല.',
   'messages.selectThread': 'ഇടതുവശത്തുള്ള ഒരു ത്രെഡ് തിരഞ്ഞെടുക്കുക.',
   'messages.send': 'സന്ദേശം അയയ്ക്കുക',
+  'messages.startThreadHint':
+    'ഒരു ട്യൂട്ടർ പ്രൊഫൈൽ സന്ദർശിച്ച് "Message tutor" ടാപ്പ് ചെയ്ത് സംഭാഷണം ആരംഭിക്കുക.',
   'messages.thread.empty': 'ഹായ് പറയൂ — സംഭാഷണം ആരംഭിക്കൂ.',
   'messages.title': 'നിങ്ങളുടെ അദ്ധ്യാപകരുമായുള്ള ത്രെഡുകൾ.',
   'nav.primary': 'പ്രാഥമികം',
+  'planUpdated.body':
+    'നിങ്ങളുടെ ബില്ലിംഗ് മാറ്റം ഇപ്പോൾ സജീവമാണ്. ബില്ലിംഗ് പേജിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും നിങ്ങളുടെ പ്ലാൻ മാനേജ് ചെയ്യാം.',
+  'pricing.advancedFeatures': 'വിപുലമായ സവിശേഷതകൾ:',
   'pricing.dataExport': 'ഡാറ്റ കയറ്റുമതി:',
   'pricing.headingDefault': 'വിപുലമായ സവിശേഷതകൾ:',
   'resetPassword.heading': 'ശക്തമായ ഒരു പുതിയ പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക.',
@@ -131,6 +158,7 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'പുനഃസജ്ജീകരണം വിജയകരമായി കഴിഞ്ഞാൽ ഞങ്ങൾ നിങ്ങളെ സ്വയമേവ സൈൻ ഇൻ ചെയ്യും.',
   'resetPassword.submit': 'പുനഃസജ്ജീകരിച്ച് സൈൻ ഇൻ ചെയ്യുക',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body': 'വിഷയ ഫിൽട്ടർ വിശാലമാക്കാനോ റേറ്റിംഗ് പരിധി അയയ്‌ക്കാനോ ശ്രമിക്കുക.',
   'search.empty.title': 'ഇതുവരെ പൊരുത്തപ്പെടുന്ന ട്യൂട്ടർമാരൊന്നുമില്ല.',
@@ -141,7 +169,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'റേറ്റിംഗ്',
   'search.filter.subject': 'വിഷയം',
   'search.results.count': '{{count}} ട്യൂട്ടർമാർ നിങ്ങളുടെ ഫിൽട്ടറുകളുമായി പൊരുത്തപ്പെടുന്നു',
+  'search.results.fallback': 'ക്യൂറേറ്റ് ചെയ്ത ഡെമോ ട്യൂട്ടർമാരെ കാണിക്കുന്നു',
   'search.results.loading': 'ട്യൂട്ടർമാരെ ലോഡ് ചെയ്യുന്നു...',
+  'search.searchPlaceholder': 'വിഷയം, പേര്, അല്ലെങ്കിൽ വിഷയം…',
   'search.subtitle':
     'വിഷയം, റേറ്റിംഗ്, ലഭ്യത എന്നിവ പ്രകാരം ഫിൽട്ടർ ചെയ്യുക. പരിശോധിച്ചുറപ്പിച്ച ട്യൂട്ടർമാർ മാത്രം.',
   'search.title': 'ക്ലിക്ക് ചെയ്യുന്ന ഒരു ട്യൂട്ടറെ കണ്ടെത്തുക.',
@@ -174,18 +204,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'സെഷൻ ആരംഭിച്ചു — സന്തോഷകരമായ പഠനം.',
   'sessionDetail.startError': 'സെഷൻ ആരംഭിക്കാൻ കഴിഞ്ഞില്ല.',
   'sessionDetail.subtitle': 'കൂടെ {{name}} • {{when}} • {{mins}} മിനിറ്റ്',
+  'sessionDetail.timeline': 'സ്റ്റാറ്റസ് ടൈംലൈൻ',
   'sessionDetail.timeline.afterEnd': 'സെഷൻ അവസാനിച്ച ശേഷം',
   'sessionDetail.timeline.auto': 'ഓട്ടോ',
   'sessionDetail.timeline.booked': 'ബുക്ക് ചെയ്തു',
   'sessionDetail.timeline.confirmed': 'സ്ഥിരീകരിച്ചു',
   'sessionDetail.timeline.inSession': 'സെഷനിലാണ്',
   'sessionDetail.timeline.now': 'ഇപ്പോൾ',
+  'sessionDetail.timeline.receipt': 'രസീത് നൽകി',
   'sessionDetail.timeline.review': 'അവലോകന നിർദ്ദേശം',
   'sessions.empty.body':
     'ഒരു ട്യൂട്ടറെ കണ്ടെത്താനും സ്ലോട്ട് ബുക്ക് ചെയ്യാനും ചോക്ക് ബ്രൗസ് ചെയ്യുക. സ്ഥിരീകരിച്ച സെഷനുകൾ ഇവിടെ കാണിക്കും.',
   'sessions.empty.title': 'ഇവിടെ ഇതുവരെ ഒന്നും ഷെഡ്യൂൾ ചെയ്തിട്ടില്ല.',
   'sessions.error': 'നിങ്ങളുടെ സെഷനുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല — ദയവായി വീണ്ടും ശ്രമിക്കുക.',
   'sessions.eyebrow': 'നിങ്ങളുടെ സെഷനുകൾ',
+  'sessions.loading': 'സെഷനുകൾ ലോഡ് ചെയ്യുന്നു…',
   'sessions.subtitle':
     'വരാനിരിക്കുന്ന ബുക്കിംഗുകൾ ട്രാക്ക് ചെയ്യുക, സജീവമായ സെഷൻ റൂമിലേക്ക് ചാടുക, പൂർത്തിയാക്കിയ പാഠങ്ങൾ വീണ്ടും സന്ദർശിക്കുക.',
   'sessions.title': 'എല്ലാ പാഠങ്ങളും, ഒരിടത്ത്.',
@@ -200,22 +233,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'എന്റേത് സൃഷ്ടിക്കുക {{role}} അക്കൗണ്ട്',
   'signup.subheading':
     'സെഷനുകൾ ബുക്ക് ചെയ്യുന്നതിനും, ട്യൂട്ടർമാർക്ക് സന്ദേശം അയയ്ക്കുന്നതിനും, നിങ്ങളുടെ പുരോഗതി ട്രാക്ക് ചെയ്യുന്നതിനും ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുക.',
+  'signup.terms': 'സൈൻ അപ്പ് ചെയ്യുന്നതിലൂടെ ഞങ്ങളുടെ നിബന്ധനകൾ അംഗീകരിക്കുന്നു.',
   'tutorCard.avatarAlt': 'ഛായാചിത്രം {{name}}',
   'tutorCard.perHour': '/ മണിക്കൂർ',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'മികച്ച റേറ്റിംഗ് ഉള്ളവ',
   'tutorCard.verified': 'പരിശോധിച്ചുറപ്പിച്ച ട്യൂട്ടർ',
+  'tutorDashboard.empty.body':
+    'നിങ്ങളുടെ വിഷയങ്ങൾ, മണിക്കൂർ നിരക്ക്, ലഭ്യത എന്നിവ സെറ്റ് ചെയ്യുക — എന്നിട്ട് സമ്പാദിക്കാൻ തുടങ്ങുക.',
+  'tutorDashboard.empty.cta': 'ട്യൂട്ടർ ആകുക →',
   'tutorDashboard.empty.title': 'നിങ്ങളുടെ ഡാഷ്‌ബോർഡ് അൺലോക്ക് ചെയ്യാൻ ഒരു അദ്ധ്യാപകനാകൂ.',
   'tutorDashboard.fallbackName': 'ട്യൂട്ടർ',
   'tutorDashboard.loading': 'ഡാഷ്‌ബോർഡ് ലോഡ് ചെയ്യുന്നു...',
   'tutorDashboard.recentReviews': 'സമീപകാല അവലോകനങ്ങൾ',
   'tutorDashboard.reviewsEmpty':
     'നിങ്ങൾക്ക് ഇതുവരെ അവലോകനങ്ങളൊന്നുമില്ല — വിദ്യാർത്ഥികൾ നിങ്ങളെ റേറ്റ് ചെയ്തുകഴിഞ്ഞാൽ അവ ഇവിടെ ദൃശ്യമാകും.',
+  'tutorDashboard.stats.rating': 'ശരാശരി റേറ്റിംഗ്',
   'tutorDashboard.stats.sessions': 'ഈ മാസത്തെ സെഷനുകൾ',
+  'tutorDashboard.stats.totalSessions': 'എക്കാലത്തെ സെഷനുകൾ',
+  'tutorDashboard.studentFallback': 'വിദ്യാർത്ഥി',
   'tutorDashboard.tutoringFallback': 'ട്യൂട്ടറിംഗ് സെഷൻ',
   'tutorDashboard.upcoming': 'വരാനിരിക്കുന്ന സെഷനുകൾ',
   'tutorDashboard.upcomingEmpty':
     'വരാനിരിക്കുന്ന സെഷനുകളൊന്നുമില്ല — നിങ്ങളുടെ സ്ലോട്ടുകൾ ബുക്ക് ചെയ്യുന്ന വിദ്യാർത്ഥികൾ ഇവിടെ ദൃശ്യമാകും.',
+  'tutorProfile.availability': 'ഈ ആഴ്ചയിലെ ലഭ്യത',
   'tutorProfile.availabilityHeadline': 'ആരംഭിക്കാൻ ഒരു സ്ലോട്ട് തിരഞ്ഞെടുക്കുക',
   'tutorProfile.bookCta': 'ഒരു സെഷൻ ബുക്ക് ചെയ്യുക',
   'tutorProfile.bookFull': 'പൂർണ്ണ ഷെഡ്യൂൾ കാണുക',
@@ -228,6 +269,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / മണിക്കൂർ',
   'tutorProfile.reviews': 'സമീപകാല അവലോകനങ്ങൾ',
   'tutorProfile.reviews.empty': 'ഇതുവരെ അവലോകനങ്ങളൊന്നുമില്ല — ആദ്യത്തേതാകൂ.',
+  'tutorProfile.stat.repeats': 'ആവർത്തിച്ച വിദ്യാർത്ഥികൾ',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'ശരാശരി പ്രതികരണം',
   'tutorProfile.stat.responseValue': '{{mins}} മിനിറ്റ്',

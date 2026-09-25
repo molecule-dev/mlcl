@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Санал хүсэлт байна уу, алдаа олсон уу, эсвэл {{app}}-г сургууль эсвэл багтаа нэвтрүүлэхийг хүсэж байна уу? Бид бүх мессежийг уншдаг — бүртгэлийн тохиргооноос хандаарай, жинхэнэ хүн хариулах болно.',
   'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.intro':
+    '{{app}} нь анги танхим, тоглоомын үдэш, багийн арга хэмжээнд зориулсан шууд асуулт хариултын платформ юм. Тоглоомтой асуултын багц бүтээж, нэгдэх кодоор бодит цагийн тоглоом зохион байгуулж, хугацаатай асуулт, оноо, тэргүүлэгчдийн самбараар өрөө хэрхэн гэрэлтэхийг хараарай.',
+  'about.missionBody':
+    'Тоглоом мэт санагдвал суралцах нь бат бөх үлддэг. Бид хэнд ч сэдвийг хурдан, өрсөлдөөнт тоглоом болгох боломжийг хялбар болгодог — ингэснээр зохион байгуулагчид хийж байхдаа зааж, тоглогчид цувралаа хадгална.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'about.title': '{{app}}-ийн тухай',
   'auth.login.noAccount': 'Sparq-д шинээр орж байна уу?',
   'auth.login.or': 'эсвэл үргэлжлүүлэх',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Одоогоор тохирох асуулт хариулт байхгүй байна.',
   'discover.headline': 'Дараагийн дуртай асуулт хариултаа олоорой.',
   'discover.loading': 'Ачааллаж байна…',
+  'discover.searchPlaceholder': 'Асуулт хариултыг гарчгаар хайх…',
   'discover.subhead':
     'Бүрэн номын санг үзэх, ангиллаар нь шүүх эсвэл гарчгаар нь хайх. Ганцаараа тоглох эсвэл шууд хөтлөхийн тулд картыг дарна уу.',
   'forgotPassword.subhead':
     'Имэйл хаягаа оруулна уу, бид танд дахин тохируулах холбоос илгээх болно.',
   'forgotPassword.success.body':
     'Хэрэв данс байгаа бол {{email}} , та хэдэн минутын дараа дахин тохируулах холбоос авах болно.',
+  'forgotPassword.success.title': 'Ирсэн имэйлээ шалгана уу.',
   'hostLobby.back': 'Асуулт хариулт руу буцах',
   'hostLobby.copied': 'Нэгдлийн кодыг санах ойд хуулсан.',
   'hostLobby.creating': 'Таны лоббиг эргүүлж байна...',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Лоббиг цуцлах',
   'hostLobby.players.count': '{{count}} амьд',
   'hostLobby.players.title': 'Лобби дахь тоглогчид',
+  'hostLobby.players.waiting':
+    'Тоглогчдыг хүлээж байна. Тэд нэгдэхийн тулд {{code}} кодыг хуваалцаарай.',
   'hostLobby.rules.title': 'Байшингийн дүрэм журам',
   'hostLobby.startError': 'Тоглоомыг эхлүүлж чадсангүй.',
   'hostLobby.starting': 'Очийг асааж байна...',
   'joinCodeHero.headline': 'Тоглогчдодоо үсрэхийг хэл.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Эсвэл зочлох',
   'joinCodeHero.liveLabel': 'Лобби шууд дамжуулалт',
+  'joinCodeHero.playerJoined': '{{name}} нэгдлээ',
   'joinCodeHero.playersLabel': 'Тоглогчид',
   'joinCodeHero.qrLabel': 'Нэгдэхийн тулд скан хийх',
   'joinCodeHero.startGame': 'Очийг эхлүүл',
   'joinCodeHero.subhead':
     'Нэгдэх кодыг хуваалцах эсвэл QR кодыг уншуулна уу. Та оч асаах мөчөөс тоглоом эхэлнэ.',
+  'landing.cta.button': 'Эхний асуулт хариултаа үүсгээрэй',
   'landing.cta.eyebrow': 'Сурган хүмүүжүүлэгчдэд зориулсан үнэ төлбөргүй',
   'landing.cta.heading': 'Хичээл бүртээ эрч хүчээ нэмээрэй.',
+  'landing.cta.subhead':
+    '30 секундэд бүртгүүлээрэй. Хязгааргүй шууд тоглоом зохион байгуулж, AI-аар асуулт хариулт боловсруулж, тоглогч бүрийг цувралд байлгаарай.',
   'landing.eyebrow': 'Хариулт бүрийг асаагаарай',
   'landing.features.heading': 'Таны заах болон тоглох арга барилд тохирсон асуулт хариултын студи.',
   'landing.hero.ctaPrimary': 'Үнэгүй хостинг эхлүүлээрэй',
@@ -57,6 +73,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Алдартай асуулт хариултууд',
   'landing.popular.eyebrow': 'Энэ долоо хоногийн алдартай',
   'landing.popular.heading': 'Өнөөдөр асуулт хариултын тэмцээн зохион байгуулагчид ажиллаж байна.',
+  'landing.popular.viewAll': 'Бүх ангиллыг үзэх →',
+  'leaderboard.empty.body':
+    'Дэлхийн тэргүүлэгчдийн самбарт оноогоо гаргахын тулд асуулт хариулт тоглоорой.',
   'leaderboard.empty.title': 'Самбар дээр одоогоор тоглоом алга байна — эхнийх нь байгаарай.',
   'leaderboard.eyebrow': 'Тэргүүлэгчдийн самбар',
   'leaderboard.fullRanking': 'Бүрэн зэрэглэл',
@@ -64,6 +83,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Тоглосон асуулт хариултын хэсэг бүрийн нийт оноо. Илүү ихийг тоглож, ахиц гаргаарай.',
   'leaderboard.title': 'Шилдэг асуулт хариултын мастерууд',
+  'leaderboard.totalPlayers': '{{count}} эрэмбэлэгдсэн тоглогч',
   'leaderboardRow.points': 'оноо',
   'leaderboardRow.streak': '{{days}} д',
   'login.headline': 'Тестийн багш аа, тавтай морил.',
@@ -75,9 +95,11 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Анхны асуулт хариултаа зохио →',
   'myQuizzes.empty.created': 'Та хараахан асуулт хариултын тоглоом бүтээгээгүй байна.',
   'myQuizzes.empty.played': 'Одоогоор нийтлэгдсэн асуулт хариултын асуултууд алга.',
+  'myQuizzes.loading': 'Ачааллаж байна…',
   'myQuizzes.subhead': 'Таны бүтээсэн ноорог, мөн тоглож болох нийтлэгдсэн асуулт хариултууд.',
   'myQuizzes.title': 'Миний асуулт хариултууд',
   'nav.legal': 'Хууль эрх зүйн',
+  'nav.primaryNavLabel': 'Үндсэн навигаци',
   'notFound.backHome': 'Гэртээ буцаж ирэх',
   'notFound.backToDiscover': 'Асуулт хариултыг үзэх',
   'notFound.body': 'Өөр код оруулаад үзээрэй эсвэл үүдний танхим руу буцаж очно уу.',
@@ -86,17 +108,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Ачааллаж байна…',
   'notifications.subhead':
     '{{count}} Уншаагүй очнууд. Урилга, тэргүүлэгчдийн самбарын шилжилт болон амжилтууд бүгд нэг урсгалд.',
+  'planUpdated.retry': 'Дахин оролдоно уу',
+  'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
+  'planUpdated.verifyFailedBody':
+    'Таны төлбөрийг боловсруулж байж магадгүй. Хэсэг хугацааны дараа дахин оролдоно уу.',
   'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
+  'pricing.advancedFeatures': 'Дэвшилтэт функцууд: {{yes}}',
+  'pricing.canExport': 'Өгөгдөл экспортлох: {{yes}}',
   'pricing.checkoutError': 'Төлбөр тооцоог эхлүүлж чадсангүй. Дахин оролдоно уу.',
   'pricing.heading': '{{app}}-ийн төлөвлөгөө сонгох',
   'pricing.included': 'Багцлагдсан',
   'pricing.loadError': 'Төлөвлөгөөг ачаалж чадсангүй.',
+  'pricing.maxQuestions': '{{count}} асуултууд',
   'pricing.maxQuizzes': '{{count}} асуулт хариулт',
+  'pricing.maxSessions': '{{count}} сесс',
   'pricing.subhead':
     'Хөтлөгч болон тоглогчдод үнэгүй. Илүү өндөр хязгаар болон дэвшилтэт функцуудыг авахын тулд шинэчилнэ үү.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Бүртгэл: имэйл, хэшлэгдсэн нууц үг, дэлгэцийн нэр, сүүлчийн нэвтрэх мэдээлэл.',
+  'privacy.intro':
+    '{{app}} таны нууцлалыг хүндэтгэдэг. Энэ хуудас нь бидний хадгалдаг өгөгдөл, яагаад хадгалдаг, хэрхэн устгах талаар товч мэдээлэл өгдөг.',
   'privacy.rights.body':
     '30 хоногийн дотор бүх өгөгдлөө бүрмөсөн устгахын тулд Тохиргооноос бүртгэлээ устгана уу.',
   'privacy.share.body':
@@ -120,6 +152,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Асуултын дугаар: {{id}}',
   'quizBuilder.loadError': 'Асуулгыг ачаалж чадсангүй.',
   'quizBuilder.loading': 'Засварлагчийг ачаалж байна…',
+  'quizBuilder.markCorrect': '{{letter}}-г зөв гэж тэмдэглэх',
   'quizBuilder.noQuestions': 'Одоогоор асуулт алга - эхлэхийн тулд нэгийг нэмнэ үү.',
   'quizBuilder.notFound': 'Асуулт хариулт олдсонгүй.',
   'quizBuilder.preview': 'Харах',
@@ -136,7 +169,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} s таймер',
   'quizBuilder.title': 'Асуултаа зохиоорой',
   'quizBuilder.titleLabel': 'Асуултын гарчиг',
+  'quizBuilder.untitled': 'Гарчиггүй асуулт',
   'quizCard.plays': '{{count}} жүжгүүд',
+  'quizCard.questionCount': '{{count}} асуулт',
   'quizDetail.duration': '~ {{minutes}} мин',
   'quizDetail.hostMultiplayer': 'Олон тоглогчтой хостинг хийх боломжтой.',
   'quizDetail.leaderboardEmpty': 'Одоогоор тоглолт алга — оноог хамгийн түрүүнд тавь.',
@@ -151,26 +186,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Асуулт хариулт руу буцах',
   'quizPlay.empty': 'Энэ шалгалтанд одоогоор асуулт алга байна.',
   'quizPlay.error': 'Энэ асуултыг ачаалж чадсангүй. Дахин оролдоно уу.',
+  'quizPlay.exit': 'Гарах',
   'quizPlay.feedback.correct': '🔥 Spark дараагийнх руу шилжлээ!',
+  'quizPlay.feedback.incorrect': 'Хариулт нь {{correct}} байсан. Үргэлжлүүлээрэй.',
   'quizPlay.loading': 'Асуулт хариултыг ачаалж байна…',
   'quizPlay.next': 'Дараагийн асуулт',
   'quizPlay.questionCounter': 'Асуулт {{current}} -ын {{total}}',
   'quizPlay.score': '{{score}} оноо',
+  'quizPlay.seeResults': 'Үр дүнг харах',
   'quizPlay.sessionFailed': 'Харилцан үйлдлийг эхлүүлж чадсангүй.',
   'quizPlay.streak': '{{count}} цуврал',
+  'resetPassword.subhead': 'Цувралдаа эргэн орохын тулд шинэ нууц үг сонгоно уу.',
   'results.backToDiscover': 'Discover руу буцах',
   'results.error': 'Илэрцийг ачаалж чадсангүй.',
   'results.exit': 'Discover руу буцах',
   'results.loading': 'Таны оноог тоолж байна...',
   'results.missingSession': 'Дүгнэх хуралдаан алга.',
+  'results.recap.correctAnswer': 'Зөв: {{answer}}',
   'results.recap.questionLabel': 'Асуулт {{number}}',
   'results.recap.title': 'Асуултын хураангуй',
+  'results.recap.yourAnswer': 'Та: {{answer}}',
   'results.unknownQuiz': 'Асуулт хариулт',
   'scoreBreakdownCard.accuracyLabel': 'Нарийвчлал',
+  'scoreBreakdownCard.correctLabel': 'Зөв',
   'scoreBreakdownCard.eyebrow': 'Асуулт хариулт дууслаа',
   'scoreBreakdownCard.headline': 'Сайн ажилласан " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Оноо',
   'scoreBreakdownCard.rankLabel': 'Зэрэглэл',
+  'scoreBreakdownCard.streakBonus': 'Цувралын урамшуулал +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Таны гялбаа харагдаж байна. Тэргүүлэгчдийн самбарт авирахын тулд доорх задаргааг хянаарай.',
   'settings.danger.body': 'Sparq бүртгэл болон үүсгэсэн бүх асуулт хариултаа бүрмөсөн устгана уу.',
   'settings.danger.confirm': 'Тийм ээ, бүрмөсөн устгана уу',
   'settings.guest': 'Зочин',
@@ -188,5 +233,7 @@ export const ui: UiTranslations = {
     'Та нийтэлсэн контент, зохиосон асуултууд болон хөтөлсөн тоглоомуудынхаа хариуцлагыг хүлээнэ. Бусдыг дуурайж болохгүй.',
   'terms.billing.body':
     'Төлбөртэй төлөвлөгөөг Тохиргооноос цуцлах хүртэл автоматаар шинэчилнэ. Та хүссэн үедээ цуцалж болно; хандалт нь одоогийн төлбөрийн хугацааны төгсгөл хүртэл үргэлжилнэ.',
+  'terms.intro':
+    '{{app}}-г ашигласнаар та доорх дүрмийг зөвшөөрч байна. Хэрэв та тэдгээрийг хүлээн зөвшөөрөх боломжгүй бол үйлчилгээг ашиглахгүй байна уу.',
   'terms.title': 'Үйлчилгээний нөхцөл',
 }

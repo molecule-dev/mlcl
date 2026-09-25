@@ -1,21 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'بازخوردی دارید، باگی پیدا کرده‌اید یا می‌خواهید ویژگی‌ای پیشنهاد دهید؟ از تنظیمات حساب خود پیام بدهید — هر پیام به دست یک انسان واقعی در تیم می‌رسد.',
+  'about.contactTitle': 'با ما صحبت کنید',
+  'about.featureDatabases':
+    'پایگاه‌های داده سبک و قالب‌های قابل استفاده مجدد تا یادداشت‌های پراکنده را به گردش‌کارهای ساخت‌یافته و تکرارپذیر تبدیل کنید.',
+  'about.featureEditor':
+    'یک ویرایشگر بلوکی آرام — سرتیترها، فهرست‌ها، کد، کالوت و کارها — با دستورهای اسلش وقتی می‌خواهید و دور از سر راه وقتی نمی‌خواهید.',
+  'about.featureGraph':
+    'پیوندهای بازگشتی و گراف دانش: [[ را تایپ کنید تا یادداشتی را پیوند دهید و ببینید ایده‌هایتان در طول زمان چگونه به هم متصل می‌شوند.',
+  'about.featureNotebooks':
+    'دفترچه‌ها و صفحه‌های تودرتو تا پروژه‌ها، موضوع‌ها و یادداشت‌های روزانه دقیقاً همان‌طور که فکر می‌کنید سازمان‌دهی شوند.',
+  'about.featureSearch':
+    'جست‌وجوی تمام‌متنی زیر ۵۰ میلی‌ثانیه در همه دفترچه‌ها، به‌همراه برچسب‌هایی که با دفترچه‌ها همراه می‌شوند نه در تضاد با آن‌ها.',
+  'about.missionTitle': 'ماموریت ما',
   'common.goToDashboard': 'رفتن به داشبورد',
   'forgot.eyebrow': 'راه برگشت به داخل را گم کرده‌اید؟',
   'forgot.formSubtitle': 'ایمیل موجود در پرونده را به ما بگویید.',
+  'forgot.formTitle': 'رمز عبور را فراموش کرده‌ام',
   'forgot.headline': 'رمز عبور خود را بازنشانی کنید.',
   'forgot.subline':
     'ما یک لینک یکبار مصرف به صندوق ورودی شما ارسال خواهیم کرد تا بتوانید لینک جدیدی انتخاب کنید.',
+  'forgot.successDetail': 'پیوند بازنشانی را به ایمیل شما فرستادیم. تا ۳۰ دقیقه دیگر منقضی می‌شود.',
   'graph.eyebrow': 'نمودار',
+  'graph.goToNotes': 'مرور یادداشت‌ها →',
+  'graph.loadError': 'بارگذاری گراف ممکن نشد: {{message}}',
   'graph.placeholderBody':
     'وقتی یادداشت‌ها شروع به پیوند دادن به یکدیگر می‌کنند (با سینتکس [[ویکی]])، یک نمودار تعاملیِ جهت‌دارِ نیرو در اینجا نمایش داده می‌شود.',
+  'graph.placeholderTitle': 'گراف پیوندهای بازگشتی به‌زودی',
   'graph.subtitle':
     '{{count}} یادداشت‌ها در این فضای کاری. رندر نمودار بک‌لینک‌ها، زمانی که یادداشت‌ها به یکدیگر پیوند داده می‌شوند، در اینجا نمایش داده می‌شود.',
   'graph.title': 'نمودار دانش',
   'home.empty': 'هنوز یادداشتی وجود ندارد - اولین یادداشت خود را شروع کنید.',
   'home.favoritesHeading': 'پین شده',
   'home.guest': 'دوست',
+  'home.loadError': 'بارگذاری یادداشت‌های شما ممکن نشد: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'برای نگه داشتن یادداشت در اینجا، آن را در ویرایشگر سنجاق کنید.',
   'home.recentHeading': 'اخیراً به‌روزرسانی شده است',
@@ -23,18 +43,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'دفترچه یادداشت',
   'home.stats.pinned.label': 'پین شده',
   'home.stats.updatedToday.label': 'امروز به‌روزرسانی شد',
+  'home.subtitle': 'از همان‌جا که رها کردید ادامه دهید، یا یادداشت تازه‌ای شروع کنید.',
   'home.viewAll': 'مشاهده همه یادداشت‌ها',
   'landing.cta.body':
     'رایگان برای استفاده شخصی. حرفه‌ای برای تیم‌ها. تخفیف فعلی خود را بیاورید یا از نو شروع کنید — ورسو هر جا که یادداشت‌هایتان باشد، شما را همراهی می‌کند.',
+  'landing.cta.button': 'ایجاد فضای کاری من',
   'landing.cta.heading': 'صفحه امروز را باز کنید.',
   'landing.features.eyebrow': 'هر چیز اولیه‌ای که مغز دوم شما به آن نیاز دارد',
+  'landing.features.heading': 'ساخته شده برای کار، نه برای فراکار.',
   'landing.hero.eyebrow': 'یک سطح نوشتاری آرام',
   'landing.hero.headlineAccent': 'شکل بگیرد.',
   'landing.hero.headlineLeading': 'جایی که افکار',
   'landing.hero.primaryCta': 'پایگاه دانش خود را راه اندازی کنید',
   'landing.hero.secondaryCta': 'من قبلاً یک حساب کاربری دارم',
+  'landing.hero.socialProof': '۱۲,۸۰۰+ نویسنده، دانشجو و دکتری با {{appName}} فکر می‌کنند',
   'landing.hero.subline':
     'ورسو (Verso) یک محیط یادداشت‌برداری ساختاریافته برای دانشجویان و کارکنان دانش‌محور است. ویرایشگر بلوک، دفترچه‌های تودرتو، بک‌لینک‌ها و یک نمودار دانش - همه اینها در پشت یک تجربه خواندن با تایپوگرافی اولیه قرار دارند.',
+  'landing.preview.notebook': 'دانش · فرایند نوشتن',
+  'landing.preview.title': 'در مورد اجازه دادن به تنفس پیش نویس ها',
   'login.eyebrow': 'به ورسو خوش آمدید',
   'login.formSubtitle': 'از ایمیل خود یا هر ارائه دهنده متصل استفاده کنید.',
   'login.headline': 'از جایی که صفحه متوقف شده است، ادامه دهید.',
@@ -44,6 +70,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'بستن منوی ناوبری',
   'mobileNav.openMenu': 'منوی ناوبری را باز کنید',
   'noteEditor.backToNotes': 'بازگشت به یادداشت‌ها',
+  'noteEditor.bodyLabel': 'متن یادداشت',
   'noteEditor.bodyPlaceholder':
     'شروع به نوشتن کنید - یادداشت شما همزمان با تایپ کردن، به طور خودکار ذخیره می‌شود.',
   'noteEditor.confirmTrash': 'این یادداشت به سطل زباله منتقل شود؟',
@@ -52,17 +79,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'انتقال به سطل زباله',
   'noteEditor.updated': 'به‌روزرسانی‌شده',
   'notes.defaultWorkspaceName': 'دفترچه یادداشت من',
+  'notes.empty': 'هنوز یادداشتی اینجا نیست — یکی شروع کنید تا دفترچه پر شود.',
   'notes.eyebrow': 'دفترچه یادداشت',
   'notes.filterAll': 'همه یادداشت‌ها',
   'notes.filterPinned': 'پین شده',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'دفترچه یادداشت جدید',
   'notes.newNotebookPrompt': 'نام دفترچه یادداشت جدید',
+  'notes.newNotebookRequired': 'نام دفترچه را وارد کنید.',
   'notes.notebooksHeading': 'نوت بوک ها',
   'notes.subtitle':
     'یک دفترچه یادداشت از سمت چپ انتخاب کنید، سپس دکمه یادداشت جدید را برای شروع یک ورودی جدید فشار دهید.',
+  'planUpdated.body': 'اشتراک شما اکنون فعال است.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'ویژگی‌های پیشرفته',
   'pricing.heading': 'طرح یادداشت‌برداری خود را انتخاب کنید',
+  'reset.changedMind': 'نظرتان عوض شد؟',
   'reset.eyebrow': 'تقریباً برگشته داخل',
   'reset.formSubtitle': 'به محض ذخیره شدن، وارد سیستم خواهید شد.',
   'reset.headline': 'یک رمز عبور جدید انتخاب کنید.',
@@ -72,7 +104,9 @@ export const ui: UiTranslations = {
     'کدی را که همین الان برایتان ایمیل کردیم وارد کنید و چیزی به یاد ماندنی انتخاب کنید.',
   'reset.submit': 'ذخیره و ورود',
   'reset.tokenHint': 'از صندوق ورودی شما الصاق شده است.',
+  'search.empty': 'هنوز هیچ یادداشتی با این جست‌وجو مطابقت ندارد.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'جستجو شکست نور',
   'search.loading': 'در حال جستجو…',
   'search.noRecent': 'برای شروع جستجو در یادداشت‌هایتان، عبارت مورد نظر خود را در بالا تایپ کنید.',
   'search.recentLabel': 'جستجوهای اخیر',
@@ -80,12 +114,19 @@ export const ui: UiTranslations = {
     'متن کامل در هر دفترچه یادداشت. برای جستجو تایپ کنید؛ نتایج همزمان با تایپ شما به‌روزرسانی می‌شوند.',
   'search.title': 'مغز دوم را جستجو کنید.',
   'settings.account.logout': 'خروج از سیستم',
+  'settings.account.title': 'جزئیات حساب',
+  'settings.editor.graphHover.body':
+    'وقتی در ویرایشگر روی یک [[ویکی‌لینک]] نگه می‌دارید، کارت پیش‌نمایش کوچکی نشان بده.',
+  'settings.editor.graphHover.label': 'پیش‌نمایش شناور گراف پیوندهای بازگشتی',
   'settings.editor.lineHeight.body':
     'چقدر هوا بین خطوط بدن وجود دارد. ۱۷۰٪ ریتم خواندن پیش‌فرض است.',
+  'settings.editor.lineHeight.label': 'ارتفاع خط',
   'settings.editor.serif.body':
     'برای ستون مطالعه از فونت Georgia استفاده کنید. فونت Sans-serif در نوار کناری و نوار ابزارها باقی می‌ماند.',
+  'settings.editor.serif.label': 'متن بدنه با فونت سریف',
   'settings.editor.title': 'تایپوگرافی و سطح نوشتاری',
   'settings.eyebrow': 'Verso · تنظیمات',
+  'settings.passwordModal.current': 'رمز عبور فعلی',
   'settings.passwordModal.error':
     'رمز عبور قابل تغییر نیست — لطفاً رمز عبور فعلی خود را بررسی کنید.',
   'settings.passwordModal.next': 'رمز عبور جدید',
@@ -95,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'هر ضربه کلید را از طریق کانال بی‌درنگ فشار دهید. برای اتصالات کندتر غیرفعال کنید.',
   'settings.sync.auto.label': 'همگام‌سازی بی‌درنگ',
+  'settings.sync.title': 'یادداشت‌های شما چگونه سفر می‌کنند',
   'settings.theme.body':
     'نور، ستون سرمقاله را روشن نگه می‌دارد. رنگ قهوه‌ای (Sepia) صفحه را برای عصرها گرم می‌کند.',
   'settings.theme.dark': 'تیره',
@@ -114,8 +156,12 @@ export const ui: UiTranslations = {
     'به عنوان یادداشت (مثلاً «لیست مطالعه #کتاب‌ها») #هشتگ اضافه کنید تا به‌طور خودکار در اینجا نمایش داده شوند.',
   'tags.emptyTitle': 'هنوز برچسبی وجود ندارد',
   'tags.eyebrow': 'فهرست',
+  'tags.goToNotes': 'رفتن به یادداشت‌ها →',
+  'tags.loadError': 'بارگذاری برچسب‌ها ممکن نشد: {{message}}',
   'tags.subtitle':
     '{{tags}} برچسب‌ها در سراسر {{notes}} یادداشت‌ها. به عنوان یادداشت، هشتگ # اضافه کنید تا در اینجا نمایش داده شوند.',
+  'versoAuthShell.sample.body':
+    'یک بازخوانی فردا همیشه بهتر از یک بازخوانی امشب خوانده می‌شود. نسخه خام را در پوشه کار عمیق بگذارید…',
   'versoAuthShell.sample.label': 'یادداشت روزانه',
   'versoAuthShell.sample.timestamp': 'امروز · ۹:۱۴ صبح',
   'versoAuthShell.sample.title': 'در مورد اجازه دادن به تنفس پیش نویس ها',
@@ -127,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'ادامه نوشتن',
   'versoTodayHero.createCta': 'شروع یادداشت امروز',
   'versoTodayHero.dailyLabel': 'یادداشت روزانه',
+  'versoTodayHero.emptyHeadline': 'امروز یک صفحه سفید است.',
   'versoTodayHero.emptySubline':
     'یک فکر را ثبت کنید، یک جلسه را یادداشت کنید یا برای فردا طرح بزنید. ورسو ساختار را آرام نگه می‌دارد تا نوشته بلند بماند.',
+  'versoTodayHero.outlineLabel': 'طرح کلی امروز',
   'versoTodayHero.streak': '{{count}} -روز متوالی',
+  'versoTodayHero.unwritten': 'هنوز کلمه‌ای نیست — یادداشت را باز کنید تا شروع شود.',
   'versoTodayHero.wordCount': '{{count}} کلمات امروز',
 }

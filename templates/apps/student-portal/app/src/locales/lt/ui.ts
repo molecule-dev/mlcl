@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite atsiliepimų, radote klaidą ar norite prijungti savo mokyklą? Susisiekite per savo paskyros nustatymus arba parašykite savo mokyklos administratoriui — kiekviena žinutė pasiekia tikrą komandos narį.',
   'about.contactTitle': 'Susisiekite su mumis',
+  'about.missionTitle': 'Mūsų misija',
   'announcementsFeed.empty': 'Kol kas nėra pranešimų.',
   'announcementsFeed.eyebrow': '{{count}} atnaujinimai',
   'announcementsFeed.title': 'Naujausi pranešimai',
   'assignmentDetail.alreadySubmitted': 'Jau pateikėte šią užduotį.',
   'assignmentDetail.backLink': 'Grįžti prie užduočių',
+  'assignmentDetail.dropBody':
+    'Naudokite „Pasirinkti failus“, kad pridėtumėte savo darbą — pateikimo laiko žymą užfiksuosime, kai patvirtinsite.',
   'assignmentDetail.dropButton': 'Pasirinkite failus',
+  'assignmentDetail.dropPrompt': 'Įkelkite savo PDF arba nuotraukų rinkinį čia',
   'assignmentDetail.due': 'Dėl {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Instrukcijos',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Įvertintas',
   'assignmentDetail.statusSubmitted': 'Pateikta',
   'assignmentDetail.statusTitle': 'Pateikimo būsena',
+  'assignmentDetail.submitError':
+    'Nepavyko užfiksuoti šio pateikimo. Bandykite dar kartą po akimirkos.',
   'assignmentDetail.submitted': 'Pateikimas užregistruotas – jūsų mokytojas buvo informuotas.',
+  'assignmentDetail.submittedAt': 'Pateikta {{when}}',
+  'assignmentDetail.submitTitle': 'Pateikite savo darbą',
   'assignmentRow.courseDue': '{{course}} · Dėl {{due}}',
   'assignments.empty': 'Čia nieko nėra',
   'assignments.emptyBody':
@@ -39,9 +49,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Kasdienis buvimo, nebuvimo ir pavėlavimo žurnalas – su pastabomis, jei taikoma.',
+  'attendance.summary.absences': 'Nebuvimai',
   'attendance.summary.absencesCaption': 'Žemiau 5 dienų intervencijos ribos',
   'attendance.summary.attendance': 'Lankomumas',
   'attendance.summary.attendanceCaption': '{{count}} šiais laikais šis terminas',
+  'attendance.summary.tardies': 'Vėlavimai',
   'attendance.summary.tardiesCaption': 'Įskaitant pastabas apie autobusų / susitikimų vėlavimus',
   'attendance.title': 'Lankomumo istorija',
   'calendar.eyebrow': 'Mokyklos metai · {{year}}',
@@ -55,6 +67,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Įvertinimai',
   'courseDetail.currentGrade': 'Dabartinis įvertinimas',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Kurso apžvalga',
   'courseDetail.gradesTitle': 'Naujausi pažymiai',
   'courseDetail.messageTeacher': 'Žinutė mokytojui',
   'courseDetail.noGrades': 'Kol kas nėra paskelbtų įvertinimų.',
@@ -67,13 +80,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Žiūrėti visus',
   'dashboard.assignmentsTitle': 'Šią savaitę kitą kartą',
   'dashboard.greeting': 'Sveiki {{name}} , pasiruošęs pamokai?',
+  'dashboard.subtitle':
+    'Jūsų savaitė vienu žvilgsniu — tvarkaraštis, pažymiai ir užduotys vienoje ramioje peržiūroje.',
+  'dashboard.viewReportCard': 'Peržiūrėti pažymių lapą',
+  'dashboard.weekFocusBody':
+    'Pateikite kvadratinių lygčių praktikos rinkinį 7 ir skyriaus testą. Mokymosi laboratorija atidaryta antradieniais ir ketvirtadieniais po 7 pamokos.',
+  'dashboard.weekFocusCta': 'Peržiūrėti visą planą',
   'dashboard.weekFocusEyebrow': 'Savaitės dėmesio centre',
   'dashboard.weekFocusTitle': 'Padidinkite algebros II lygį 4 taškais',
   'forgotPassword.subheading':
     'Įveskite savo mokyklos el. pašto adresą ir mes atsiųsime jums atstatymo nuorodą.',
   'forgotPassword.successBody':
     'Jei {{email}} sutampa su „Chalk“ paskyra, slaptažodžio atkūrimo nuoroda jau siunčiama. Nuorodos galioja 30 minučių.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} semestro GPA',
+  'gpaHeroCard.summary': 'Šiandien {{count}} pamokos',
   'grades.col.grade': 'Įvertinimas',
   'grades.col.teacher': 'Mokytojas',
   'grades.col.trend': 'Tendencija',
@@ -85,10 +106,17 @@ export const ui: UiTranslations = {
     'Tiesioginiai raidžių ir procentų įvertinimai. Tendencijų rodyklės rodo, ar judate aukštyn, lygiuojate, ar slystate.',
   'grades.title': 'Jūsų pažymiai, kursas po kurso',
   'grades.trendStable': 'Stabilus',
+  'grades.viewReportCard': 'Peržiūrėti oficialų pažymių lapą',
   'landing.copyright': '© {{year}} {{app}} . Sukurta studentams, pritaikyta šeimoms.',
+  'landing.ctaBody':
+    'Nemokama pirmąsias 30 dienų, kreditinės kortelės nereikia. Rajonai gali įdiegti visos mokyklos lygmenį per vieną popietę.',
+  'landing.ctaButton': 'Sukurkite savo portalą',
   'landing.ctaHeading': 'Ramesnė mokyklos diena prasideda per kelias minutes',
   'landing.eyebrow': 'Vidurinių ir vyresnių klasių moksleiviams',
   'landing.featuresHeading': 'Mokyklos diena, organizuota aplink mokinį',
+  'landing.heroSubtitle':
+    '{{appName}} sujungia visas klases, pažymius, užduotis ir žinutes į vieną ramią suvestinę, kad galėtumėte mažiau laiko ieškoti ir daugiau laiko mokytis.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Pagal numatytuosius nustatymus atitinka FERPA reikalavimus',
   'landing.proof.rating': '4,8 per 12 tūkst. šeimų',
   'landing.sampleTerm': 'Pavasaris',
@@ -97,6 +125,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Paslėpti slaptažodį',
   'login.noAccount': 'Naujokas kreidos pasaulyje?',
   'login.showPassword': 'Rodyti slaptažodį',
+  'messages.compose': 'Nauja žinutė',
   'messages.composer.email': 'Gavėjo el. pašto adresas (neprivaloma)',
   'messages.composer.errorEmpty': 'Žinutės laukas negali būti tuščias.',
   'messages.composer.errorRecipient': 'Būtina nurodyti gavėjo vardą.',
@@ -127,9 +156,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Garbės sąrašas · Pavasario semestras',
   'nav.unreadMessages': 'Neskaityti pranešimai',
   'notifications.eyebrow': '{{count}} atnaujinimai',
+  'notifications.feedTitle': 'Visa naujausia veikla',
   'notifications.subtitle':
     'Pažymiai, priminimai, pranešimai ir mokyklos pranešimai. Nustatymuose galite koreguoti, kuriuos kanalus naudos kiekvienas pranešimas.',
+  'planUpdated.body':
+    'Jūsų mokėjimo pakeitimas dabar aktyvus. Savo planą galite tvarkyti bet kada mokėjimų puslapyje.',
+  'planUpdated.retry': 'Pabandyk dar kartą',
+  'planUpdated.verifyFailed': 'Mes dar negalėjome patvirtinti jūsų mokėjimo.',
+  'planUpdated.verifyFailedBody':
+    'Jūsų mokėjimas vis dar gali būti apdorojamas. Bandykite dar kartą po akimirkos.',
   'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
+  'pricing.announcementsLabel': 'pranešimai',
   'pricing.attendanceLabel': 'lankomumas',
   'pricing.gradesLabel': 'pažymiai',
   'pricing.heading': 'pranešimai',
@@ -144,6 +181,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': '2 ketvirtis',
   'reportCard.crumb': 'Ataskaitos kortelė',
   'reportCard.cumulativeGpa': 'Kaupiamasis GPA',
+  'reportCard.download': 'Atsisiųsti PDF',
   'reportCard.downloaded': 'Ataskaitos kortelė atidaryta naujame skirtuke.',
   'reportCard.downloading': 'Generuojamas PDF failas…',
   'reportCard.empty': 'Kol kas nėra jokių pažymių.',
@@ -151,6 +189,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Galutinis GPA · {{term}}',
   'reportCard.subtitle':
     'Oficialus semestro pabaigos pažymėjimas su svertiniais kursų pažymiais, lankomumu ir atsisiunčiamu PDF failu.',
+  'reportCard.title': 'Ataskaitos kortelė',
+  'resetPassword.newPassword': 'Naujas slaptažodis',
   'resetPassword.subheading': 'Pasirinkite ką nors įsimintino, bet sunkiai atspėtumėte.',
   'resetPassword.tokenPlaceholder': 'Įklijuokite kodą iš savo el. pašto',
   'schedule.empty': 'Pamokų nėra suplanuota.',
@@ -175,12 +215,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Laukiančios užduotys',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} šio semestro nedalyvavimai · {{tardy}} vėlavimai',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Skaičiuojami lankomumo duomenys…',
+  'subjectStatsTriad.attendanceLabel': 'Lankomumas',
   'subjectStatsTriad.gradesCaption': 'Skersai {{percent}} % svertinis vidurkis',
+  'subjectStatsTriad.gradesCaptionLoading': 'Įkeliami pažymiai…',
+  'subjectStatsTriad.gradesLabel': 'Klasės vidurkis',
   'todayScheduleStrip.empty': 'Šiandien pamokų nėra.',
   'todayScheduleStrip.eyebrow': '{{count}} klasės',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Šiandienos tvarkaraštis',
   'topbar.guestName': 'Studentas',
   'topbar.searchPlaceholder': 'Ieškoti kursų, užduočių…',
+  'topbar.studentRole': 'Studentas',
   'topbar.studentTag': 'Studentas · # {{id}}',
 }

@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Gói của bạn đã được cập nhật.',
   'planUpdated.returnHome': 'Về trang chủ',
   'planUpdated.thankYou': 'Cảm ơn bạn!',
+  'post.markdown': 'Xem bài đăng này dưới dạng markdown',
+  'post.readingTime': 'Đọc trong {{minutes}} phút',
   'post.tags': 'Thẻ',
   'project.error.nameAndTypeRequired': 'Yêu cầu name và projectType',
   'project.error.notFound': 'Không tìm thấy',

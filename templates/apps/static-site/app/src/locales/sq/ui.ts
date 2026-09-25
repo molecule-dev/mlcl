@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Plani juaj është përditësuar.',
   'planUpdated.returnHome': 'Kthehu në faqen kryesore',
   'planUpdated.thankYou': 'Faleminderit!',
+  'post.markdown': 'Shiko këtë postim si markdown',
+  'post.readingTime': '{{minutes}} minuta leximi',
   'post.tags': 'Etiketat',
   'project.error.nameAndTypeRequired': 'Kerkohet emri dhe projectType',
   'project.error.notFound': 'Nuk u gjet',

@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ir atsauksmes, atradi kļūdu vai vēlies {{app}} savai līgai? Sazinies ar mums konta iestatījumos — katrs ziņojums nonāk pie īsta komandas cilvēka.',
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.featureAlerts':
+    'Push paziņojumi par rezultātu atjauninājumiem, maiņu brīdinājumiem, savainojumu ziņojumiem un līgas paziņojumiem.',
+  'about.featureRosters':
+    'Komandu lapas ar pilniem sastāviem, sezonas kopsummām, karstajām/aukstajām sērijām un savstarpējo spēļu sadalījumu katram spēlētājam.',
+  'about.featureSchedule':
+    'Sezonas kalendārs un grafika skats, lai varētu plānot ap katru spēli un rezultātu.',
+  'about.featureScoreboard':
+    'Raidījuma līmeņa rezultātu panelis, kas piesprausts katras lapas augšpusē, lai nekad nepalaistu garām vārtus.',
+  'about.featureStandings':
+    'Tabulas tiešraidē — reāllaika uzvaru-zaudējumu-neizšķirtu rekordu, punkti, uzvaru procents un izslēgšanas spēļu līnija, atjaunināta pēc katra signāla.',
+  'about.intro':
+    '{{app}} ir raidījuma kvalitātes mājvieta tavai līgai. Komandas, grafiki, rezultāti tiešraidē un tabulas apvienojas vienā ātrā, bez liekām detaļām informācijas panelī — lai līdzjutēji, treneri un līgas organizatori vienmēr zinātu, kāds ir sezonas stāvoklis.',
+  'about.missionBody':
+    'Sekot līgai nedrīkstētu nozīmēt piecu dažādu trešo pušu rezultātu tabulu atjaunināšanu. Mēs to izveidojām, lai katrai līgai būtu viens patiesības avots tabulām, grafikam un statistikai, kas patiešām ir svarīga — atjaunināts pēc katra signāla, bez maksas visu sezonu.',
+  'about.missionTitle': 'Mūsu misija',
+  'about.whatYouGet': 'Ko jūs iegūstat',
   'appShell.closeNav': 'Aizvērt navigāciju',
   'appShell.openNav': 'Atvērt navigāciju',
   'common.dashboard': 'Informācijas panelis',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Skatīt visas spēles \\u2192',
   'dashboard.viewAllStandings': 'Pilns kopvērtējums \\u2192',
   'dashboard.viewAllStats': 'Skatīt visus statistikas līderus \\u2192',
+  'forgot.submitting': 'Sūta atiestatīšanas saiti…',
   'forgot.subtitle': 'Ievadiet savu e-pastu, lai saņemtu atiestatīšanas saiti.',
   'forgot.success': 'Atiestatīt saiti, kas nosūtīta uz {{email}} Pārbaudiet savu iesūtni.',
+  'landing.copyright': '© {{year}} {{app}}. Dzenies pēc tabulas.',
+  'landing.ctaBody':
+    'Tava līga. Tavas tabulas. Tava mīļākā komanda — piesprausta augšpusē. Divas minūtes, lai iestatītu, bez maksas visu sezonu.',
   'landing.ctaHeading': 'Pārtraukt trešo pušu rezultātu tablo atsvaidzināšanu',
   'landing.eyebrow': 'Radīts faniem, treneriem un līgas organizatoriem',
   'landing.featuresHeading': 'Katram stāvošajam paredzēta vieta pirmajā rindā',
   'landing.getStarted': 'Pievienojies līgai',
   'landing.heroCta': 'Pievienojies līgai',
+  'landing.heroSubtitle':
+    '{{app}} apvieno tabulas, grafikus un statistikas līderus vienā raidījuma kvalitātes informācijas panelī. Rezultāti tiešraidē. Īsti rekordi. Bez liekām detaļām.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Šovakar līgas apskats',
   'landing.statFans': 'Fani seko',
   'landing.statGames': 'Spēles šajā sezonā',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Atpakaļ pie spēlēm',
   'matchDetail.eventsHeading': 'Spēle pa spēlei',
+  'matchDetail.final': 'FINAL',
   'matchDetail.finalScore': 'Fināls',
   'matchDetail.live': 'TIEŠRAIDE',
   'matchDetail.liveNow': 'Tiešraide tagad',
   'matchDetail.noEvents': 'Vēl nav reģistrētu notikumu.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Šajā skatā nav spēļu — izmēģini citu filtru.',
   'matches.eyebrow': 'Spēļu diena',
   'matches.loading': 'Velkot šīferi…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Neizdevās ielādēt paziņojumus',
   'notifications.loading': 'Notiek paziņojumu ielāde\\u2026',
   'pennantHeroCard.eyebrow': 'Tabulas augšdaļa',
+  'pennantHeroCard.formLabel': 'Pēdējās 10',
   'pennantHeroCard.gamesAhead': '{{value}} spēles pirms pakaļdzīšanās',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Galvenā navigācija',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Izvēlieties savu sēdvietu',
   'pricing.heading': 'Uzlabojiet, lai iegūtu bagātīgāku grafiku, rezultātus un kopvērtējumu.',
   'pricing.limits.schedule': '{{count}} grafika ierakstus',
+  'pricing.limits.scores': '{{count}} rezultāti',
+  'pricing.limits.standings': '{{count}} tabulas',
+  'pricing.limits.teams': '{{count}} komandas',
+  'pricing.subtitle': 'Jaunini, lai iegūtu bagātīgāku grafiku, rezultātus un tabulas.',
   'pricing.upgradeCta': 'Jaunināt uz {{tierName}}',
   'profile.eyebrow': 'Fanu profils',
   'profile.favoritesCount': 'Sekoja komandas',
   'profile.favoritesHeading': 'Iecienītākās komandas',
   'profile.noFavorites': 'Vēl nav favorītu — izvēlieties komandas no komandu lapas.',
   'profile.rankRecord': 'Ranga nr. {{rank}} · {{record}}',
+  'profile.recordOnly': 'Rekords {{record}}',
   'reset.confirmPlaceholder': 'Atkārtojiet paroli',
+  'reset.mismatch': 'Paroles nesakrīt.',
   'reset.newLabel': 'Jauna parole',
   'reset.subtitle': 'Izvēlieties spēcīgu paroli, kas sastāv no vismaz 12 rakstzīmēm.',
   'reset.tokenPlaceholder': 'Ielīmēt no e-pasta',
   'schedule.eyebrow': 'Šīferis',
+  'schedule.moreGames': '+ {{count}} vairāk',
   'schedule.subtitle':
     'Kalendāra skats ar spēļu grafiku visā sezonā — pieskarieties jebkurai dienai, lai skatītu spēļu rezultātus.',
   'scoreboardTicker.empty':
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Personalizēt',
   'settings.favoritesBody':
     'Šīs komandas tiek piespraustas jūsu informācijas panelim un aktivizē rezultātu brīdinājumus.',
+  'settings.favoritesHeading': 'Iecienītākās komandas',
   'settings.loading': 'Notiek jūsu preferenču ielāde\\u2026',
   'settings.noFavorites': 'Vēl nav favorītu \\u2014 izvēlieties komandas no komandu lapas.',
   'settings.notificationsHeading': 'Paziņojumi un attēlojums',
@@ -116,6 +153,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Kopumā',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Izslēgšanas spēlēm kvalificējas četras labākās — pēc punktiem noteiktais rezultāts, pēc tam uzvaru procents.',
   'standings.title': 'Līgas kopvērtējums',
@@ -134,6 +172,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Spēlētājs',
   'teamDetail.colPos': 'Poz.',
+  'teamDetail.pointsLabel': 'Punkti',
   'teamDetail.rankLabel': 'Ranga nr. {{rank}}',
   'teamDetail.rosterHeading': 'Sastāvs',
   'teamDetail.statGD': 'Vārtu starpība',

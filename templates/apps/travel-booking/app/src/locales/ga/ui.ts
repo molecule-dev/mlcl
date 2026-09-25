@@ -1,14 +1,28 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ceisteanna faoi chónaí, aiseolas, nó smaoineamh comhpháirtíochta? Déan teagmháil leis an bhfoireann ó do chuntas nó ón gconcierge san aip — téann gach teachtaireacht chuig fíorduine a thaistealaíonn freisin.',
   'about.contactTitle': 'Labhair linn',
+  'about.featureBooking.body':
+    'Déan seomraí, rátaí agus áiseanna a chur i gcomparáid le chéile, ansin cuir in áirithe i gcúpla tap le cealú saor in aisce ar gach clár ama.',
+  'about.featureBooking.title': 'Cuardaigh, déan comparáid, agus cuir in áirithe',
+  'about.featureDiscover.body':
+    'Cinn scríbe arna gcoimeád ag eagarthóirí agus treoirphleananna allamuigh a thaispeánann na háiteanna ar fiú iad a phacáil — gan torann ó chomhiomlánaitheoirí, gan ábhar urraithe.',
   'about.featureDiscover.title': 'Inspioráid, roghnaithe de láimh',
+  'about.featureItineraries.body':
+    'Coinnigh eitiltí, cónaithe agus pleananna in aon áit amháin, sábháil cinn scríbe le haghaidh níos déanaí, agus tóg do thuras díreach san áit ar fhág tú é.',
+  'about.featureItineraries.title': 'Cláir ama a fhanann eagraithe',
+  'about.featureStays.title': 'Cónaithe iontaofa',
+  'about.missionTitle': 'Ár misean',
+  'about.subtitle':
+    'Inspioráid, cónaithe iontaofa, agus bealach gan stró ó bhrionglóid go háirithint.',
+  'about.whatYouGetTitle': 'Cad a gheobhaidh tú',
   'account.addPaymentCta': 'Cuir modh íocaíochta leis',
   'account.addPaymentError': 'Níorbh fhéidir modh íocaíochta a chur leis.',
   'account.confirmRemove': 'Deimhnigh an bhaint',
   'account.defaultBadge': 'Réamhshocrú',
-  'account.loyalty.pointsTowardNext':
-    '{{pointí}} de {{ar aghaidh}} míle go {{an chéad Sraith eile}}',
+  'account.loyalty.pointsTowardNext': '{{points}} de {{next}} míle go {{nextTier}}',
   'account.loyalty.tier': 'An leibhéal reatha',
   'account.navLabel': 'Rannóga cuntais',
   'account.payments.empty': 'Níl aon mhodhanna íocaíochta sábháilte fós.',
@@ -29,6 +43,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} oícheanta',
   'booking.lineTaxes': 'Cánacha & táillí',
   'booking.loadError': 'Theip ar an maoin a lódáil.',
+  'booking.noChargeYet': 'Ní ghearrfar táille ort fós.',
   'booking.noPaymentMethods': 'Gan aon mhodhanna íocaíochta sábháilte.',
   'booking.noPaymentSelected': 'Roghnaigh modh íocaíochta sula ndéanann tú deimhniú.',
   'booking.noRoomError': 'Roghnaigh seomra sula ndeimhníonn tú.',
@@ -40,6 +55,7 @@ export const ui: UiTranslations = {
   'booking.policy1': 'Cealú saor in aisce suas le 7 lá roimh an tseiceáil isteach.',
   'booking.policy2': 'Gan aon táille inniu — ní choimeádtar do chárta ach le haghaidh deimhnithe.',
   'booking.policy3': 'Cosaint taistil clúdaithe ag Sojourn — tacaíocht concierge 24/7.',
+  'booking.policyHeading': 'Cealú agus téarmaí',
   'booking.roomHeading': 'Roghnaigh do sheomra',
   'booking.specialRequests': 'Iarratais speisialta',
   'booking.specialRequestsPlaceholder': 'Aon rud ba chóir don óstach a bheith ar eolas aige?',
@@ -68,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Baill Sojourn',
   'landing.cta.heading': 'Siúl gan imní. Gach clár taistil, gach uair.',
   'landing.cta.signup': 'Cruthaigh cuntas saor in aisce',
+  'landing.cta.subheading':
+    'Cealú saor in aisce, rátaí do bhaill amháin, agus concierge turais 24/7 — tuill míle ar gach áirithint agus faigh rochtain tosaigh ar mhaoin nua.',
   'landing.destinations.eyebrow': 'Cá háit le dul ina dhiaidh seo',
   'landing.destinations.heading': 'Ceann scríbe roghnaithe',
   'landing.destinations.seeAll': 'Féach ar na cinn scríbe go léir',
@@ -76,27 +94,45 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Scéalta atá fiú a phacáil dóibh',
   'landing.nav.join': 'Bígí Linn i Sojourn',
   'landing.nav.search': 'Cuardaigh fanachtaí',
+  'landing.preview.browseAll': 'Brabhsáil an bailiúchán iomlán',
   'landing.preview.eyebrow': 'Súil istigh',
   'landing.preview.heading': 'Fanachtaí roghnaithe go cúramach an mhí seo',
+  'landing.preview.subheading':
+    'Déanann ár bhfoireann eagarthóireachta gach maoin ar {{appName}} a scrúdú go pearsanta — gan fardal ó chomhiomlánaitheoirí, gan liostaí mealltacha, agus cealú saor in aisce ar gach clár ama.',
   'login.eyebrow': 'Limistéar na mball',
+  'login.noAccount': 'Nua i dTessera?',
   'login.signupLink': 'Cruthaigh cuntas saor in aisce',
   'login.subheading':
     'Sínigh isteach chun do thurais a bhainistiú, dearbhuithe a fheiceáil, agus leanúint ar aghaidh san áit ar stop tú.',
   'nav.legal': 'Dlíthiúil',
   'notifications.loading': 'Ag lódáil…',
   'notifications.subheading': '{{count}} gan léamh · gach rud i mbosca isteach amháin socair',
+  'planUpdated.body':
+    "Tá d'athrú billeála gníomhach anois. Is féidir leat do phlean a bhainistiú am ar bith ón leathanach billeála.",
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.accommodationsLabel': 'cóiríocht',
   'pricing.bookingsLabel': 'áirithintí',
   'pricing.destinationsLabel': 'cinn scríbe sábháilte',
   'pricing.exportLabel': 'Easpórtáil sonraí turais',
   'pricing.itinerariesLabel': 'cláir taistil',
+  'privacy.intro':
+    'Cosnaíonn {{appName}} sonraí do thurais. Cuir do pholasaí príobháideachais fíor in ionad an teimpléid seo sula seolann tú chun táirgeachta é.',
   'propertyDetail.allPhotos': 'Gach {{count}} grianghraif',
   'propertyDetail.amenitiesHeading': 'Cad a thairgeann an áit seo',
   'propertyDetail.backLink': 'Ar ais chuig an gcuardach',
   'propertyDetail.bookCta': 'Cúlchiste',
   'propertyDetail.bookmarkAria': 'Sábháil maoin',
   'propertyDetail.freeCancellation': 'Cealú saor in aisce',
+  'propertyDetail.galleryAria': 'Gailearaí grianghraf maoine',
+  'propertyDetail.galleryCloseAria': 'Dún gailearaí',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': '{{name}} grianghraf {{n}}',
+  'propertyDetail.galleryNextAria': 'An chéad ghrianghraf eile',
+  'propertyDetail.galleryPrevAria': 'Grianghraf roimhe seo',
   'propertyDetail.heroImageAlt': '{{name}} grianghraf laoch',
   'propertyDetail.lineCleaning': 'Táille glantacháin',
   'propertyDetail.lineRate': '{{price}} × {{nights}} oícheanta',
@@ -105,6 +141,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'oíche',
   'propertyDetail.noChargeYet': 'Ní ghearrfar táille ort fós',
   'propertyDetail.notFound': 'Níor aimsíodh an mhaoin.',
+  'propertyDetail.pickDatesHint':
+    'Roghnaigh do dhátaí chun an mhiondealú iomlán ar phraghas a fheiceáil.',
   'propertyDetail.reviewCount': '( {{count}} léirmheasanna)',
   'propertyDetail.reviewsHeading': 'Léirmheasanna le déanaí',
   'propertyDetail.verified': 'Maoin fíoraithe ag Sojourn',
@@ -113,6 +151,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Pasfhocal nua',
   'resetPassword.subheading':
     'Roghnaigh pasfhocal nua do do chuntas Sojourn. Bain úsáid as 8 gcarachtar ar a laghad; molaimid frása faire.',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'Níl aon mhaoin ag teacht le do chuardach.',
   'search.emptyHint':
     'Bain triail as do scagairí a leathnú nó an uasteorainn praghais a bhaint — tá fanacht ag Sojourn i 14 thír.',
@@ -120,6 +159,8 @@ export const ui: UiTranslations = {
   'search.heading': 'Fanachtaí roghnaithe do do shiúlóid',
   'search.headingForQuery': 'Fanann ar feadh " {{q}} "',
   'search.loadError': 'Theip ar lódáil na hairíonna.',
+  'search.mapHint': 'Cuir do churógaireacht thar chárta chun a shuíomh a aibhsiú ar an léarscáil.',
+  'search.mapPinAria': '{{name}} — {{price}} in aghaidh na hoíche',
   'search.sortLabel': 'Sórtáil de réir',
   'search.subheading': '{{count}} airíonna · {{guests}} aíonna',
   'settings.openAccount': 'Oscail cuntas iomlán',
@@ -128,15 +169,22 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Cealú saor in aisce, rátaí do bhaill amháin, agus coimeádaí taistil 24/7 — tuill míle ar gach áirithint.',
   'sojournAuthShell.brand.eyebrow': 'Siúl gan imní',
+  'sojournAuthShell.brand.heading': 'Bealach gan stró ó bhrionglóid go háirithint.',
   'sojournHeroSearchCard.checkInAria': 'Dáta seiceáil isteach',
   'sojournHeroSearchCard.checkOutAria': 'Dáta seiceáil amach',
+  'sojournHeroSearchCard.destAria': 'Ceann Scríbe',
+  'sojournHeroSearchCard.destLabel': 'Cá háit',
   'sojournHeroSearchCard.destPlaceholder': 'Cathair, réigiún, nó maoin',
   'sojournHeroSearchCard.eyebrow': 'Fanachtaí coimeádta · Rátaí do bhaill amháin',
   'sojournHeroSearchCard.guestsOption': '{{n}} aíonna',
   'sojournHeroSearchCard.subtitle':
     'Inspioráid, fanacht iontaofa, agus cosán gan stró ó bhrionglóid go dtí áirithint — trasna 14 thír agus breis is 200 maoin a ndearnadh grinnscrúdú orthu de láimh.',
+  'sojournHeroSearchCard.title': 'Siúl gan imní',
+  'sojournHeroSearchCard.trustLoyalty': 'Tuill míle ar gach clár ama',
   'sojournHeroSearchCard.trustProtected': 'Cealú saor in aisce, lánchosanta',
   'sojournHeroSearchCard.trustVetted': 'Maoine atá grinnscrúdaithe de láimh amháin',
+  'terms.intro':
+    'Cuir do théarmaí seirbhíse fíora {{appName}} in ionad an teimpléid seo sula seolann tú chun táirgeachta é.',
   'travelBookingLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'tripDetail.backLink': 'Ar ais chuig na turais',
   'tripDetail.cancelCta': 'Cealaigh an áirithint',
@@ -146,6 +194,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'Roghnach — cúis leis an gcealú',
   'tripDetail.checkInLabel': 'Seiceáil isteach',
   'tripDetail.checkOutLabel': 'Seiceáil amach',
+  'tripDetail.confCode': 'Cód · {{code}}',
   'tripDetail.confirmCancelCta': 'Cealaigh an turas',
   'tripDetail.hostInfo':
     'Arna óstáil ag {{name}} Cealú saor in aisce suas le 7 lá roimh an tseiceáil isteach.',
@@ -153,6 +202,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'Coinnigh ort ag áirithint',
   'tripDetail.lengthLabel': 'Fad',
   'tripDetail.loadError': 'Theip ar an turas a lódáil.',
+  'tripDetail.messageHostHeading': 'Seol teachtaireacht chuig do óstach',
   'tripDetail.messagePlaceholder':
     'Cuir d’óstach in iúl d’am teachta, do riachtanais aiste bia, nó aon rud eile.',
   'tripDetail.messageSend': 'Seol teachtaireacht',
@@ -163,9 +213,11 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'Achoimre praghais',
   'tripDetail.taxes': 'Cánacha & táillí',
   'tripItineraryRow.nights': '{{count}} oícheanta',
+  'trips.empty.past': 'Taispeánfar turais roimhe seo anseo nuair a rachaidh tú ar strae.',
   'trips.empty.upcoming': 'Níl aon turais atá le teacht fós — déanaimis é sin a shocrú.',
   'trips.eyebrow': 'Do chuid fánaíochta',
   'trips.heading': 'Turais',
   'trips.loadError': 'Theip ar na turais a lódáil.',
+  'trips.searchCta': 'Pleanáil turas eile',
   'trips.subheading': '{{upcoming}} atá le teacht · {{past}} san am atá thart',
 }

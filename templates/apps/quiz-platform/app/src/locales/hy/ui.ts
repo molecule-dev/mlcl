@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ունե՞ք արձագանք, գտե՞լ եք սխալ, թե՞ ցանկանում եք {{app}}-ը բերել ձեր դպրոց կամ թիմ։ Մենք կարդում ենք ամեն հաղորդագրություն․ գրեք ձեր հաշվի կարգավորումներից, և իրական մարդը կպատասխանի։',
   'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.intro':
+    '{{app}}-ը ուղիղ վիկտորինայի հարթակ է դասարանների, խաղային երեկոների և թիմային միջոցառումների համար։ Ստեղծեք զվարճալի հարցաշարեր, անցկացրեք իրական ժամանակի խաղեր միանալու կոդով և տեսեք, թե ինչպես է դահլիճը ոգևորվում ժամանակաչափով հարցերից, միավորներից ու առաջատարների աղյուսակից։',
+  'about.missionBody':
+    'Սովորելը մնում է հիշողության մեջ, երբ խաղի պես է ընկալվում։ Մենք հեշտացնում ենք ցանկացած թեմա արագ, մրցակցային խաղի վերածելը, որպեսզի վարողները սովորեցնեն գործնականում, իսկ խաղացողները պահպանեն իրենց շարքը։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'about.title': '{{app}}-ի մասին',
   'auth.login.noAccount': 'Նորեկ եք Sparq-ում։',
   'auth.login.or': 'կամ շարունակեք հետ',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Դեռևս համապատասխան թեստեր չկան։',
   'discover.headline': 'Գտեք ձեր հաջորդ սիրելի թեստը։',
   'discover.loading': 'Բեռնվում է…',
+  'discover.searchPlaceholder': 'Որոնել վիկտորինաներ վերնագրով…',
   'discover.subhead':
     'Զննեք ամբողջ գրադարանը, զտեք ըստ կատեգորիայի կամ որոնեք ըստ վերնագրի: Սեղմեք քարտը՝ մենակ խաղալու կամ ուղիղ եթերում հաղորդավարելու համար:',
   'forgotPassword.subhead':
     'Մուտքագրեք ձեր էլ. փոստը, և մենք ձեզ կուղարկենք հղում՝ վերագործարկելու համար։',
   'forgotPassword.success.body':
     'Եթե հաշիվ գոյություն ունի {{email}} , դուք կստանաք վերակայման հղում մի քանի րոպեից։',
+  'forgotPassword.success.title': 'Ստուգեք ձեր էլ. փոստարկղը։',
   'hostLobby.back': 'Վերադառնալ հարցաշարին',
   'hostLobby.copied': 'Միացման կոդը պատճենվեց սեղմատախտակին։',
   'hostLobby.creating': 'Ձեր նախասրահը վերանորոգելով…',
@@ -30,19 +39,25 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Չեղարկել լոբբին',
   'hostLobby.players.count': '{{count}} կենդանի',
   'hostLobby.players.title': 'Խաղացողներ նախասրահում',
+  'hostLobby.players.waiting': 'Սպասում ենք խաղացողներին։ Կիսվեք {{code}} կոդով, որ նրանք միանան։',
   'hostLobby.rules.title': 'Տան կանոններ',
   'hostLobby.startError': 'Չհաջողվեց մեկնարկել խաղը։',
   'hostLobby.starting': 'Կայծը սկսելը…',
   'joinCodeHero.headline': 'Ասա քո խաղացողներին, որ միանան խաղին։',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Կամ այցելեք',
   'joinCodeHero.liveLabel': 'Լոբբի ուղիղ եթերում',
+  'joinCodeHero.playerJoined': '{{name}}-ը միացավ',
   'joinCodeHero.playersLabel': 'Խաղացողներ',
   'joinCodeHero.qrLabel': 'Սկանավորել՝ միանալու համար',
   'joinCodeHero.startGame': 'Սկսեք կայծը',
   'joinCodeHero.subhead':
     'Կիսվեք միացման կոդով կամ սկանավորեք QR կոդը։ Խաղը սկսվում է կայծը վառելու պահից։',
+  'landing.cta.button': 'Ստեղծեք ձեր առաջին վիկտորինան',
   'landing.cta.eyebrow': 'Անվճար մանկավարժների համար',
   'landing.cta.heading': 'Բերեք կայծը յուրաքանչյուր դասին։',
+  'landing.cta.subhead':
+    'Գրանցվեք 30 վայրկյանում։ Անցկացրեք անսահմանափակ ուղիղ խաղեր, կազմեք վիկտորինաներ AI-ով և պահեք յուրաքանչյուր խաղացողի շարքը։',
   'landing.eyebrow': 'Բոցավառեք յուրաքանչյուր պատասխան',
   'landing.features.heading':
     'Վիկտորինայի ստուդիա, որը համապատասխանում է ձեր դասավանդման և խաղի ձևին։',
@@ -58,6 +73,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Հայտնի վիկտորինաներ',
   'landing.popular.eyebrow': 'Այս շաբաթվա ամենահայտնիները',
   'landing.popular.heading': '«Drop into a quiz»-ի հաղորդավարները այսօր են աշխատում։',
+  'landing.popular.viewAll': 'Դիտել բոլոր կատեգորիաները →',
+  'leaderboard.empty.body':
+    'Խաղացեք վիկտորինա՝ ձեր միավորը գլոբալ առաջատարների աղյուսակում տեղադրելու համար։',
   'leaderboard.empty.title': 'Դեռևս խաղատախտակի վրա խաղաոճեր չկան՝ եղեք առաջինը։',
   'leaderboard.eyebrow': 'Առաջատարների աղյուսակ',
   'leaderboard.fullRanking': 'Լրիվ վարկանիշ',
@@ -65,6 +83,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Ամփոփեք ձեր խաղացած յուրաքանչյուր վիկտորինայի սեանսի միավորները։ Բարձրացեք՝ ավելի շատ խաղալով։',
   'leaderboard.title': 'Լավագույն վիկտորինաների մասնագետներ',
+  'leaderboard.totalPlayers': '{{count}} դասակարգված խաղացողներ',
   'leaderboardRow.points': 'միավորներ',
   'leaderboardRow.streak': '{{days}} դ',
   'login.headline': 'Բարի վերադարձ, հարցաշարի վարիչ։',
@@ -76,10 +95,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Կազմեք ձեր առաջին թեստը →',
   'myQuizzes.empty.created': 'Դուք դեռ թեստ չեք կազմել։',
   'myQuizzes.empty.played': 'Դեռևս հրապարակված թեստեր չկան։',
+  'myQuizzes.loading': 'Բեռնվում է…',
   'myQuizzes.subhead':
     'Ձեր կազմած նախագծերը, գումարած հրապարակված վիկտորինաները, որոնք կարող եք խաղալ։',
   'myQuizzes.title': 'Իմ թեստերը',
   'nav.legal': 'Իրավական',
+  'nav.primaryNavLabel': 'Հիմնական նավիգացիա',
   'notFound.backHome': 'Վերադարձ տուն',
   'notFound.backToDiscover': 'Թերթել թեստերը',
   'notFound.body': 'Փորձեք այլ կոդ կամ վերադարձեք նախասրահ։',
@@ -88,17 +109,26 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Բեռնվում է…',
   'notifications.subhead':
     '{{count}} չկարդացված կայծեր։ Հրավերներ, առաջատարների ցուցակում տեղաշարժեր և նվաճումներ՝ բոլորը մեկ հոսքում։',
+  'planUpdated.retry': 'Փորձեք կրկին',
+  'planUpdated.verifyFailed': 'Մենք դեռ չենք կարող հաստատել ձեր վճարումը։',
+  'planUpdated.verifyFailedBody': 'Ձեր վճարումը կարող է դեռ մշակվել։ Փորձեք կրկին մի փոքր ուշ։',
   'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
+  'pricing.advancedFeatures': 'Ընդլայնված գործառույթներ՝ {{yes}}',
+  'pricing.canExport': 'Տվյալների արտահանում՝ {{yes}}',
   'pricing.checkoutError': 'Հնարավոր չէ սկսել վճարումը։ Խնդրում ենք կրկին փորձել։',
   'pricing.heading': 'Ընտրեք ձեր {{app}} պլանը',
   'pricing.included': 'Ներառված է',
   'pricing.loadError': 'Չհաջողվեց բեռնել պլանները։',
+  'pricing.maxQuestions': '{{count}} հարցեր',
   'pricing.maxQuizzes': '{{count}} վիկտորինաներ',
+  'pricing.maxSessions': '{{count}} սեսիա',
   'pricing.subhead':
     'Անվճար է հյուրընկալողների և խաղացողների համար: Թարմացրեք՝ ավելի բարձր սահմանաչափեր և առաջադեմ գործառույթներ ստանալու համար:',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Հաշիվ՝ էլ․ հասցե, հեշավորված գաղտնաբառ, ցուցադրվող անուն, վերջին մուտք։',
+  'privacy.intro':
+    '{{app}}-ը հարգում է ձեր գաղտնիությունը։ Այս էջը ամփոփում է, թե ինչ տվյալներ ենք պահում, ինչու ենք պահում և ինչպես հեռացնել դրանք։',
   'privacy.rights.body':
     'Ջնջեք ձեր հաշիվը Կարգավորումներից՝ 30 օրվա ընթացքում ձեր բոլոր տվյալները ընդմիշտ հեռացնելու համար։',
   'privacy.share.body':
@@ -122,6 +152,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Հարցաշարի ID: {{id}}',
   'quizBuilder.loadError': 'Չհաջողվեց բեռնել թեստը։',
   'quizBuilder.loading': 'Խմբագրիչը բեռնվում է…',
+  'quizBuilder.markCorrect': 'Նշել {{letter}}-ը որպես ճիշտ',
   'quizBuilder.noQuestions': 'Հարցեր դեռ չկան՝ սկսեք ավելացնել մեկը։',
   'quizBuilder.notFound': 'Հարցաշարը չի գտնվել։',
   'quizBuilder.preview': 'Դիտել',
@@ -138,7 +169,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} ժամաչափ',
   'quizBuilder.title': 'Կազմեք ձեր թեստը',
   'quizBuilder.titleLabel': 'Հարցաշարի վերնագիր',
+  'quizBuilder.untitled': 'Անվերնագիր հարց',
   'quizCard.plays': '{{count}} պիեսներ',
+  'quizCard.questionCount': '{{count}} հարց',
   'quizDetail.duration': '~ {{minutes}} րոպե',
   'quizDetail.hostMultiplayer': 'Հյուրընկալող բազմախաղացող ռեժիմ',
   'quizDetail.leaderboardEmpty': 'Դեռևս խաղարկումներ չկան՝ առաջինը գրանցեք հաշիվը։',
@@ -153,26 +186,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Վերադառնալ հարցաշարին',
   'quizPlay.empty': 'Այս թեստը դեռ հարցեր չունի։',
   'quizPlay.error': 'Չհաջողվեց բեռնել այս թեստը։ Խնդրում ենք կրկին փորձել։',
+  'quizPlay.exit': 'Ելք',
   'quizPlay.feedback.correct': '🔥 Կայծ վաստակեցիր՝ անցնենք հաջորդին։',
+  'quizPlay.feedback.incorrect': 'Ճիշտ պատասխանն էր {{correct}}։ Շարունակեք։',
   'quizPlay.loading': 'Հարցաշարը բեռնվում է…',
   'quizPlay.next': 'Հաջորդ հարցը',
   'quizPlay.questionCounter': 'Հարց {{current}} -ի {{total}}',
   'quizPlay.score': '{{score}} միավորներ',
+  'quizPlay.seeResults': 'Տեսնել արդյունքները',
   'quizPlay.sessionFailed': 'Հնարավոր չէ սկսել նիստը։',
   'quizPlay.streak': '{{count}} շերտ',
+  'resetPassword.subhead': 'Ընտրեք նոր գաղտնաբառ՝ ձեր շարքին վերադառնալու համար։',
   'results.backToDiscover': 'Վերադառնալ Discover-ին',
   'results.error': 'Չհաջողվեց բեռնել արդյունքները։',
   'results.exit': 'Վերադառնալ Discover-ին',
   'results.loading': 'Հաշվարկվում է ձեր միավորը…',
   'results.missingSession': 'Ամփոփելու նիստ չկա։',
+  'results.recap.correctAnswer': 'Ճիշտ՝ {{answer}}',
   'results.recap.questionLabel': 'Հարց {{number}}',
   'results.recap.title': 'Հարցի ամփոփում',
+  'results.recap.yourAnswer': 'Դուք՝ {{answer}}',
   'results.unknownQuiz': 'Հարցազրույց',
   'scoreBreakdownCard.accuracyLabel': 'Ճշգրտություն',
+  'scoreBreakdownCard.correctLabel': 'Ճիշտ',
   'scoreBreakdownCard.eyebrow': 'Հարցաշարն ավարտված է',
   'scoreBreakdownCard.headline': 'Լավ աշխատանք « {{quizTitle}} «!»',
   'scoreBreakdownCard.pointsLabel': 'Միավորներ',
   'scoreBreakdownCard.rankLabel': 'Դասակարգում',
+  'scoreBreakdownCard.streakBonus': 'Շարքի բոնուս +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Ձեր կայծը երևում է։ Դիտեք ստորև բերված վերլուծությունը՝ առաջատարների աղյուսակում ավելի բարձր բարձրանալու համար։',
   'settings.danger.body': 'Մշտապես ջնջեք ձեր Sparq հաշիվը և բոլոր ստեղծված վիկտորինաները։',
   'settings.danger.confirm': 'Այո, ընդմիշտ ջնջել',
   'settings.guest': 'Հյուր',
@@ -189,5 +232,7 @@ export const ui: UiTranslations = {
     'Դուք պատասխանատու եք ձեր հրապարակած բովանդակության, ձեր հեղինակած հարցերի և ձեր կողմից վարվող ցանկացած խաղի համար։ Մի՛ կրկնօրինակեք ուրիշներին։',
   'terms.billing.body':
     'Վճարովի պլանները ավտոմատ կերպով կերկարաձգվեն մինչև կարգավորումներում չեղարկումը։ Դուք կարող եք չեղարկել ցանկացած պահի. մուտքը շարունակվում է մինչև ընթացիկ հաշվարկային ժամանակահատվածի ավարտը։',
+  'terms.intro':
+    'Օգտագործելով {{app}}-ը՝ դուք համաձայնում եք ստորև ներկայացված կանոններին։ Եթե չեք կարող ընդունել դրանք, խնդրում ենք չօգտվել ծառայությունից։',
   'terms.title': 'Ծառայության պայմաններ',
 }

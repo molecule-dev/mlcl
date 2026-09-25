@@ -1,21 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть отзыв, нашли баг или хотите предложить функцию? Напишите нам в настройках аккаунта — каждое сообщение попадает к живому человеку из команды.',
+  'about.contactTitle': 'Свяжитесь с нами',
+  'about.featureDatabases':
+    'Лёгкие базы данных и переиспользуемые шаблоны, чтобы превратить разрозненные заметки в структурированные и повторяемые процессы.',
+  'about.featureEditor':
+    'Тихий блочный редактор — заголовки, списки, код, врезки и задачи — со слэш-командами, когда они нужны, и не мешающими, когда нет.',
+  'about.featureGraph':
+    'Обратные ссылки и граф знаний: введите [[, чтобы связать заметку, и наблюдайте, как ваши идеи соединяются со временем.',
+  'about.featureNotebooks':
+    'Вложенные блокноты и страницы, чтобы проекты, темы и ежедневные заметки оставались организованными именно так, как вы думаете.',
+  'about.featureSearch':
+    'Полнотекстовый поиск по всем блокнотам быстрее 50 мс, а также теги, которые сочетаются с блокнотами, а не конфликтуют с ними.',
+  'about.missionTitle': 'Наша миссия',
   'common.goToDashboard': 'Перейти к панели',
   'forgot.eyebrow': 'Заблудились и не смогли вернуться обратно?',
   'forgot.formSubtitle': 'Сообщите нам адрес электронной почты, который у нас есть.',
+  'forgot.formTitle': 'Забыли пароль?',
   'forgot.headline': 'Сбросить пароль.',
   'forgot.subline':
     'Мы отправим вам одноразовую ссылку на электронную почту, чтобы вы могли выбрать новый вариант.',
+  'forgot.successDetail': 'Мы отправили ссылку для сброса на вашу почту. Она действует 30 минут.',
   'graph.eyebrow': 'График',
+  'graph.goToNotes': 'Просмотреть заметки →',
+  'graph.loadError': 'Не удалось загрузить граф: {{message}}',
   'graph.placeholderBody':
     'Когда заметки начнут связываться друг с другом (с использованием синтаксиса [[wiki]]), здесь отобразится интерактивный граф с принудительным расположением узлов.',
+  'graph.placeholderTitle': 'Граф обратных ссылок скоро появится',
   'graph.subtitle':
     '{{count}} Заметки в этом рабочем пространстве. Граф обратных ссылок появится здесь, как только заметки начнут связываться друг с другом.',
   'graph.title': 'Граф знаний',
   'home.empty': 'Пока нет заметок — начните свою первую.',
   'home.favoritesHeading': 'Закреплено',
   'home.guest': 'друг',
+  'home.loadError': 'Не удалось загрузить ваши заметки: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Закрепите заметку в редакторе, чтобы она осталась здесь.',
   'home.recentHeading': 'Недавно обновлено',
@@ -23,18 +43,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Блокнот',
   'home.stats.pinned.label': 'Закреплено',
   'home.stats.updatedToday.label': 'Обновлено сегодня',
+  'home.subtitle': 'Продолжите с того места, где остановились, или начните новую заметку.',
   'home.viewAll': 'Просмотреть все заметки',
   'landing.cta.body':
     'Бесплатно для личного использования. Версия Pro для команд. Используйте существующие файлы Markdown или начните с нуля — Verso подойдет для любых ваших заметок.',
+  'landing.cta.button': 'Создать моё рабочее пространство',
   'landing.cta.heading': 'Откройте страницу за сегодняшний день.',
   'landing.features.eyebrow': 'Все примитивы, необходимые вашему второму мозгу',
+  'landing.features.heading': 'Создано для работы, а не для метаработы.',
   'landing.hero.eyebrow': 'Спокойная поверхность для письма',
   'landing.hero.headlineAccent': 'обретают форму.',
   'landing.hero.headlineLeading': 'Где мысли',
   'landing.hero.primaryCta': 'Начните создавать свою базу знаний',
   'landing.hero.secondaryCta': 'У меня уже есть аккаунт.',
+  'landing.hero.socialProof':
+    '12 800+ писателей, студентов и PhD-специалистов думают с помощью {{appName}}',
   'landing.hero.subline':
     'Verso — это структурированная платформа для ведения заметок, предназначенная для специалистов интеллектуального труда и студентов. Блочный редактор, вложенные блокноты, обратные ссылки и граф знаний — всё это в сочетании с удобством чтения, ориентированным на типографику.',
+  'landing.preview.notebook': 'Знания · Процесс письма',
+  'landing.preview.title': 'О том, как дать сквознякам «дышать»',
   'login.eyebrow': 'Снова добро пожаловать в Verso!',
   'login.formSubtitle': 'Используйте свою электронную почту или любого подключенного провайдера.',
   'login.headline': 'Продолжите с того места, где страница остановилась.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Закрыть меню навигации',
   'mobileNav.openMenu': 'Открыть меню навигации',
   'noteEditor.backToNotes': 'Вернуться к заметкам',
+  'noteEditor.bodyLabel': 'Текст заметки',
   'noteEditor.bodyPlaceholder':
     'Начните писать — ваша заметка будет автоматически сохраняться по мере ввода.',
   'noteEditor.confirmTrash': 'Переместить эту заметку в корзину?',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Переместить в корзину',
   'noteEditor.updated': 'Обновлено',
   'notes.defaultWorkspaceName': 'Мой блокнот',
+  'notes.empty': 'Здесь пока нет заметок — создайте одну, чтобы заполнить блокнот.',
   'notes.eyebrow': 'Блокнот',
   'notes.filterAll': 'Все примечания',
   'notes.filterPinned': 'Закреплено',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Новый ноутбук',
   'notes.newNotebookPrompt': 'Новое название блокнота',
+  'notes.newNotebookRequired': 'Введите название блокнота.',
   'notes.notebooksHeading': 'Тетради',
   'notes.subtitle':
     'Выберите блокнот слева, затем нажмите кнопку «Новая заметка», чтобы начать новую запись.',
+  'planUpdated.body': 'Ваша подписка активирована.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Расширенные функции',
   'pricing.heading': 'Выберите свой план ведения записей.',
+  'reset.changedMind': 'Передумали?',
   'reset.eyebrow': 'Почти вернулся',
   'reset.formSubtitle': 'После сохранения вы войдете в систему.',
   'reset.headline': 'Выберите новый пароль.',
@@ -72,7 +105,9 @@ export const ui: UiTranslations = {
     'Введите код, который мы только что отправили вам по электронной почте, и выберите что-нибудь запоминающееся.',
   'reset.submit': 'Сохраните и войдите в систему.',
   'reset.tokenHint': 'Скопировано из вашей почты.',
+  'search.empty': 'Пока нет заметок, соответствующих этому запросу.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Поиск Refract',
   'search.loading': 'Идет поиск…',
   'search.noRecent': 'Введите запрос выше, чтобы начать поиск по вашим заметкам.',
   'search.recentLabel': 'Недавние поиски',
@@ -80,12 +115,19 @@ export const ui: UiTranslations = {
     'Полный текст во всех блокнотах. Введите текст для поиска; результаты обновляются по мере ввода.',
   'search.title': 'Поищите во втором мозге.',
   'settings.account.logout': 'Выйти',
+  'settings.account.title': 'Данные аккаунта',
+  'settings.editor.graphHover.body':
+    'Показывать маленькую карточку предпросмотра при наведении на [[викиссылку]] в редакторе.',
+  'settings.editor.graphHover.label': 'Предпросмотр графа обратных ссылок при наведении',
   'settings.editor.lineHeight.body':
     'Сколько воздуха между линиями тела. 170% — это стандартный ритм чтения.',
+  'settings.editor.lineHeight.label': 'Высота строки',
   'settings.editor.serif.body':
     'Для колонки с текстом для чтения используйте шрифт Georgia. Шрифт Sans-serif сохраняется в боковой панели и панелях инструментов.',
+  'settings.editor.serif.label': 'Текст с засечками',
   'settings.editor.title': 'Типографика и поверхность для письма',
   'settings.eyebrow': 'Verso · Настройки',
+  'settings.passwordModal.current': 'Текущий пароль',
   'settings.passwordModal.error':
     'Не удалось изменить пароль — пожалуйста, проверьте свой текущий пароль.',
   'settings.passwordModal.next': 'Новый пароль',
@@ -95,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Каждое нажатие клавиши должно передаваться в режиме реального времени. Отключите эту функцию при медленном соединении.',
   'settings.sync.auto.label': 'Синхронизация в реальном времени',
+  'settings.sync.title': 'Как путешествуют ваши заметки',
   'settings.theme.body':
     'Свет делает редакционную колонку светлой. Сепия придает странице теплоту для вечернего чтения.',
   'settings.theme.dark': 'Темный',
@@ -114,8 +157,12 @@ export const ui: UiTranslations = {
     'Добавьте хэштеги к заголовку заметки (например, "Список для чтения #книги"), и они автоматически появятся здесь.',
   'tags.emptyTitle': 'Теги пока отсутствуют',
   'tags.eyebrow': 'Индекс',
+  'tags.goToNotes': 'Перейти к заметкам →',
+  'tags.loadError': 'Не удалось загрузить теги: {{message}}',
   'tags.subtitle':
     '{{tags}} теги по всей {{notes}} Примечания. Добавьте хэштеги к заголовку заметки, и они появятся здесь.',
+  'versoAuthShell.sample.body':
+    'Второй проход завтра всегда читается лучше, чем первый сегодня вечером. Отложите черновик в папку глубокой работы…',
   'versoAuthShell.sample.label': 'Ежедневная заметка',
   'versoAuthShell.sample.timestamp': 'Сегодня · 9:14 утра',
   'versoAuthShell.sample.title': 'О том, как дать сквознякам «дышать»',
@@ -127,8 +174,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Продолжить написание',
   'versoTodayHero.createCta': 'Начните сегодняшнюю заметку',
   'versoTodayHero.dailyLabel': 'Ежедневная заметка',
+  'versoTodayHero.emptyHeadline': 'Сегодня — чистый лист.',
   'versoTodayHero.emptySubline':
     'Запишите мысль, наметьте встречу или сделайте набросок на завтра. Verso сохраняет структуру текста ненавязчивой, поэтому почерк остается выразительным.',
+  'versoTodayHero.outlineLabel': 'План на сегодня',
   'versoTodayHero.streak': '{{count}} -дневная серия',
+  'versoTodayHero.unwritten': 'Пока нет слов — откройте заметку, чтобы начать.',
   'versoTodayHero.wordCount': '{{count}} слова сегодня',
 }

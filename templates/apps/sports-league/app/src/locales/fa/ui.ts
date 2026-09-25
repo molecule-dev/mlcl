@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'بازخوردی دارید، باگی پیدا کرده‌اید، یا می‌خواهید {{app}} برای لیگ‌تان داشته باشید؟ از تنظیمات حساب خود با ما در تماس باشید — هر پیام به دست یک فرد واقعی در تیم می‌رسد.',
+  'about.contactTitle': 'تماس بگیرید',
   'about.eyebrow': 'درباره',
+  'about.featureAlerts':
+    'اعلان‌های پوش برای به‌روزرسانی نتایج، هشدارهای معاوضه، گزارش‌های مصدومیت و اعلان‌های لیگ.',
+  'about.featureRosters':
+    'صفحات تیم با فهرست کامل بازیکنان، مجموع فصل، روند داغ/سرد و تفکیک‌های رو‌در‌رو برای هر بازیکن.',
+  'about.featureSchedule':
+    'نمای تقویم و برنامه فصل تا بتوانید برای هر بازی و نتیجه برنامه‌ریزی کنید.',
+  'about.featureScoreboard':
+    'نوار امتیازات در سطح پخش که در بالای هر صفحه سنجاق شده تا هرگز گل را از دست ندهید.',
+  'about.featureStandings':
+    'جدول زنده — رکوردهای برد-باخت-تساوی در زمان واقعی، امتیازات، درصد برد و خط پلی‌آف، با هر سوت به‌روزرسانی می‌شود.',
+  'about.intro':
+    '{{app}} خانه‌ای با کیفیت پخش برای لیگ شماست. تیم‌ها، برنامه‌ها، نتایج زنده و جدول‌ها در یک داشبورد سریع و بدون شلوغی کنار هم قرار می‌گیرند — تا هواداران، مربیان و برگزارکنندگان لیگ همیشه بدانند فصل در چه وضعیتی است.',
+  'about.missionBody':
+    'دنبال کردن یک لیگ نباید به معنای رفرش کردن پنج جدول امتیازات مختلف شخص ثالث باشد. ما آن را ساختیم تا به هر لیگ یک منبع واحد حقیقت برای جدول‌ها، برنامه و آمارهایی که واقعاً مهم هستند بدهیم — با هر سوت به‌روزرسانی می‌شود، رایگان برای فصل.',
+  'about.missionTitle': 'ماموریت ما',
+  'about.whatYouGet': 'آنچه به دست می‌آورید',
   'appShell.closeNav': 'بستن ناوبری',
   'appShell.openNav': 'ناوبری باز',
   'common.dashboard': 'داشبورد',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'مشاهده همه مسابقات \\u2192',
   'dashboard.viewAllStandings': 'رده‌بندی کامل \\u2192',
   'dashboard.viewAllStats': 'مشاهده همه رهبران آمار \\u2192',
+  'forgot.submitting': 'در حال ارسال لینک بازنشانی…',
   'forgot.subtitle': 'برای دریافت لینک بازیابی، ایمیل خود را وارد کنید.',
   'forgot.success': 'لینک ارسال شده را بازنشانی کنید {{email}} صندوق ورودی خود را بررسی کنید.',
+  'landing.copyright': '© {{year}} {{app}}. دنبال جایگاه باش.',
+  'landing.ctaBody':
+    'لیگ شما. جدول شما. تیم محبوب شما — سنجاق‌شده در بالا. دو دقیقه برای راه‌اندازی، رایگان برای فصل.',
   'landing.ctaHeading': 'به‌روزرسانی جدول امتیازات شخص ثالث را متوقف کنید',
   'landing.eyebrow': 'ساخته شده برای هواداران، مربیان و برگزارکنندگان لیگ',
   'landing.featuresHeading': 'یک صندلی ردیف جلو برای هر ایستاده',
   'landing.getStarted': 'به لیگ بپیوندید',
   'landing.heroCta': 'به لیگ بپیوندید',
+  'landing.heroSubtitle':
+    '{{app}} جدول‌ها، برنامه‌ها و صدرنشینان آماری را در یک داشبورد با کیفیت پخش کنار هم می‌آورد. نتایج زنده. رکوردهای واقعی. بدون شلوغی.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'امشب در حاشیه لیگ',
   'landing.statFans': 'طرفداران دنبال کننده',
   'landing.statGames': 'بازی‌های این فصل',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'س {{period}}',
   'matchDetail.back': 'بازگشت به مسابقات',
   'matchDetail.eventsHeading': 'بازی به بازی',
+  'matchDetail.final': 'پایان',
   'matchDetail.finalScore': 'نهایی',
   'matchDetail.live': 'زنده',
   'matchDetail.liveNow': 'همین حالا زندگی کن',
   'matchDetail.noEvents': 'هنوز هیچ رویدادی ثبت نشده است.',
   'matchDetail.periodClock': 'س {{period}} · {{clock}}',
+  'matches.empty': 'در این نما مسابقه‌ای نیست — فیلتر دیگری را امتحان کنید.',
   'matches.eyebrow': 'روز مسابقه',
   'matches.loading': 'کشیدن تخته سنگ ...',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'بارگیری اعلان‌ها ناموفق بود',
   'notifications.loading': 'در حال بارگیری اعلان‌ها\\u2026',
   'pennantHeroCard.eyebrow': 'بالای جدول',
+  'pennantHeroCard.formLabel': '۱۰ بازی آخر',
   'pennantHeroCard.gamesAhead': '{{value}} بازی‌های پیش از تعقیب',
   'pennantHeroCard.pointsLabel': 'پی تی اس',
   'pennantLayout.primaryNavLabel': 'ناوبری اولیه',
@@ -78,6 +107,10 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'صندلی خود را انتخاب کنید',
   'pricing.heading': 'برای برنامه، امتیازات و جدول رده‌بندی غنی‌تر، ارتقا دهید.',
   'pricing.limits.schedule': '{{count}} ورودی‌های برنامه',
+  'pricing.limits.scores': 'نتایج {{count}}',
+  'pricing.limits.standings': 'جدول {{count}}',
+  'pricing.limits.teams': 'تیم‌های {{count}}',
+  'pricing.subtitle': 'برای برنامه، نتایج و جدول غنی‌تر ارتقا دهید.',
   'pricing.upgradeCta': 'ارتقا به {{tierName}}',
   'profile.eyebrow': 'مشخصات فن',
   'profile.favoritesCount': 'تیم‌های دنبال‌شده',
@@ -85,11 +118,14 @@ export const ui: UiTranslations = {
   'profile.noFavorites':
     'هنوز تیم مورد علاقه‌ای وجود ندارد — تیم‌ها را از صفحه تیم‌ها انتخاب کنید.',
   'profile.rankRecord': 'رتبه # {{rank}} · {{record}}',
+  'profile.recordOnly': 'رکورد {{record}}',
   'reset.confirmPlaceholder': 'رمز عبور را تکرار کنید',
+  'reset.mismatch': 'رمزهای عبور مطابقت ندارند.',
   'reset.newLabel': 'رمز عبور جدید',
   'reset.subtitle': 'یک رمز عبور قوی با حداقل ۱۲ کاراکتر انتخاب کنید.',
   'reset.tokenPlaceholder': 'چسباندن از ایمیل',
   'schedule.eyebrow': 'تخته سنگ',
+  'schedule.moreGames': '+ {{count}} بیشتر',
   'schedule.subtitle':
     'نمای تقویمی از مسابقات در طول فصل - برای مشاهده نتایج هر روز، روی آن ضربه بزنید.',
   'scoreboardTicker.empty':
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'شخصی‌سازی',
   'settings.favoritesBody':
     'این تیم‌ها به داشبورد شما پین می‌شوند و هشدارهای امتیاز را فعال می‌کنند.',
+  'settings.favoritesHeading': 'تیم‌های مورد علاقه',
   'settings.loading': 'در حال بارگیری تنظیمات برگزیده شما\\u2026',
   'settings.noFavorites':
     'هنوز تیم مورد علاقه‌ای وجود ندارد. - تیم‌ها را از صفحه تیم‌ها انتخاب کنید.',
@@ -117,6 +154,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'ل',
   'standings.overall': 'به طور کلی',
   'standings.points': 'پی تی اس',
+  'standings.rank': '#',
   'standings.subtitle':
     'چهار تیم برتر به مرحله حذفی راه پیدا می‌کنند - با امتیاز مساوی، و سپس با درصد برد.',
   'standings.title': 'جدول رده‌بندی لیگ',
@@ -135,6 +173,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'جی',
   'teamDetail.colName': 'بازیکن',
   'teamDetail.colPos': 'پوز',
+  'teamDetail.pointsLabel': 'امتیازها',
   'teamDetail.rankLabel': 'رتبه # {{rank}}',
   'teamDetail.rosterHeading': 'فهرست',
   'teamDetail.statGD': 'تفاضل گل',

@@ -3,8 +3,13 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol sa amin',
+  'about.missionTitle': 'Ang aming misyon',
+  'about.subtitle':
+    'Naglalayong, may pananagutan, at nasusukat na pagsubaybay ng OKR para sa mga team na umaakyat.',
   'ascentSideNav.nav.notifications': 'Mga Notification',
   'ascentSideNav.newObjective': 'Bagong layunin',
+  'authShell.brandBody':
+    'Ang {{appName}} ay nag-uugnay ng mga layunin sa mga key result at lingguhang check-in para laging nakikita ang progreso — at laging tapat.',
   'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle':
     'Itakda ang tuktok. Itala ang puntos para sa pag-akyat. Sanayin ang koponan.',
@@ -18,19 +23,27 @@ export const ui: UiTranslations = {
     'Kanselahin ang iyong subscription sa pagtatapos ng kasalukuyang panahon?',
   'billing.currentPlanFreeFooter':
     'Nasa free tier ka. Mag-upgrade para sa mas mataas na limitasyon.',
+  'billing.currentPlanPaidFooter': 'Aktibong subscription · {{plan}}',
   'billing.downloadCurrent': 'I-download ang buod',
   'billing.downloading': 'Naghahanda…',
   'billing.error.priceUnavailable':
     'Hindi naka-configure ang planong ito para sa checkout sa kasalukuyang kapaligiran.',
   'billing.eyebrow': 'Lugar ng Trabaho · Pagsingil',
   'billing.heading': 'Plano at mga invoice',
+  'billing.message.canceled': 'Magtatapos ang subscription sa katapusan ng kasalukuyang panahon.',
   'billing.period.year': 'Taon-taon',
+  'billing.perk.advanced': 'Mga advanced na review + paalala',
   'billing.perk.export': 'Pag-export ng datos + pag-access sa API',
   'billing.perk.inApp': 'Pag-uulat sa loob ng app',
+  'billing.perk.keyResults': '{{count}} key result',
+  'billing.perk.objectives': '{{count}} layunin',
+  'billing.perk.retention': '{{count}} araw na kasaysayan',
   'billing.perk.standard': 'Mga karaniwang review',
+  'billing.perk.unlimitedKrs': 'Walang limitasyong KR',
   'billing.perk.unlimitedObjectives': 'Walang limitasyong mga layunin',
   'billing.perk.unlimitedRetention': 'Walang limitasyong pagpapanatili',
   'billing.subheading': 'Nasa {{name}} plano. Paghambingin ang mga tier at mag-upgrade sa ibaba.',
+  'billing.subheading.loading': 'Nilo-load ang iyong kasalukuyang plan…',
   'billing.tier.unavailable': 'Hindi magagamit',
   'billing.tier.upgrade': 'Mag-upgrade sa {{name}}',
   'billing.tiersError': 'Hindi ma-load ang pagpepresyo. Subukan muli sa ibang pagkakataon.',
@@ -41,12 +54,14 @@ export const ui: UiTranslations = {
   'checkIn.emptyTitle': 'Wala pang dapat suriin',
   'checkIn.eyebrow': 'Lingguhang ritmo',
   'checkIn.heading': 'Lingguhang pag-check in',
+  'checkIn.loading': 'Nilo-load ang iyong mga KR…',
   'checkIn.newObjective': 'Bagong layunin',
   'checkIn.noKrs': 'Walang mahahalagang resulta — magdagdag ng ilan mula sa Edit.',
   'checkIn.noteLabel': 'Isang paalala para sa iyong koponan',
   'checkIn.notePlaceholder':
     'Magandang punto, pampigil, o pagtatanong para sa coaching — panatilihin ito sa loob ng tatlong pangungusap.',
   'checkIn.openObjective': 'Buksan →',
+  'checkIn.progressLabel': 'Mga KR na nasa tamang takbo',
   'checkIn.subheading':
     'I-update ang kasalukuyang halaga para sa bawat KR, markahan ang confidence, mag-drop ng isang nota, at isumite.',
   'checkIn.submit': 'Isumite ang pag-check in',
@@ -63,10 +78,16 @@ export const ui: UiTranslations = {
   'dashboard.allActivity': 'Tingnan ang lahat ng aktibidad →',
   'dashboard.coachBodyAtRisk':
     '{{atRisk}} Nadulas ang KRs ngayong linggo. Ang 15 minutong pag-uusap ngayon ay karaniwang katumbas ng isang buong linggo ng pagbangon.',
+  'dashboard.coachBodyOk':
+    'Mukhang maayos ang iyong mga KR ngayong linggo — panatilihin ang ritmo at gawin ang iyong check-in.',
+  'dashboard.coachCta': 'Buksan ang lingguhang check-in →',
   'dashboard.coachLabel': 'Pag-udyok sa coaching',
   'dashboard.emptyBody':
     'Ibalangkas ang iyong unang layunin upang simulan ang pagsubaybay sa lingguhang pag-unlad.',
   'dashboard.emptyTitle': 'Wala pang mga layunin',
+  'dashboard.heroBody':
+    'Nagmamay-ari ka ng {{count}} layunin. Kailangan ng {{atRisk}} ng mas malapit na pagtingin — panatilihin natin silang nasa tamang takbo.',
+  'dashboard.heroEmpty': 'Wala ka pang layunin. Magsimula sa paggawa ng iyong una.',
   'dashboard.heroProgressLabel': 'Pag-unlad sa loob ng isang-kapat na taon',
   'dashboard.heroTitle': 'Magandang pag-akyat, {{name}} .',
   'dashboard.kpiActiveLabel': 'Mga aktibong layunin',
@@ -78,11 +99,14 @@ export const ui: UiTranslations = {
   'dashboard.noActivity': 'Wala pang aktibidad. Magsagawa ng check-in para simulan ang pag-akyat.',
   'dashboard.objectivesHeading': 'Ang iyong mga layunin',
   'dashboard.startCheckIn': 'Magsagawa ng lingguhang pag-check-in',
+  'dashboardLayout.searchAria': 'Maghanap ng mga layunin',
   'dashboardLayout.searchPlaceholder': 'Mga layunin sa paghahanap, mga KR, mga tao...',
   'editObjective.addKr': 'Idagdag ang KR',
   'editObjective.archive': 'Layunin ng pag-archive',
   'editObjective.backToList': 'Balik sa mga layunin',
   'editObjective.breadcrumbAll': 'Mga Layunin',
+  'editObjective.confirmArchive':
+    'I-archive ang layuning ito? Mahahanap mo ito mamaya sa archived view.',
   'editObjective.descriptionLabel': 'Bakit mahalaga ito',
   'editObjective.eyebrow': 'I-edit ang layunin',
   'editObjective.heading': 'I-update ang kinalabasan, mga KR, pagkakahanay, o ritmo.',
@@ -96,6 +120,7 @@ export const ui: UiTranslations = {
   'editObjective.targetPlaceholder': 'Target',
   'forgotPassword.emailPlaceholder': 'you@team.com',
   'forgotPassword.heading': 'I-reset ang iyong password.',
+  'forgotPassword.rememberPrompt': 'Naalala mo na? ',
   'forgotPassword.subheading':
     'Ilagay ang email na naka-link sa iyong Ascent account at magpapadala kami ng reset link.',
   'forgotPassword.successBody':
@@ -123,6 +148,7 @@ export const ui: UiTranslations = {
   'landing.heroTitle': 'Umakyat patungo sa kung ano ang mahalaga.',
   'login.emailPlaceholder': 'you@team.com',
   'login.heading': 'Maligayang pagbabalik, umaakyat.',
+  'login.noAccountPrompt': 'Bago sa {{appName}}? ',
   'login.orContinueWith': 'o magpatuloy gamit ang',
   'login.subheading':
     'Ipagpatuloy kung saan ka tumigil — naghihintay ang iyong mga check-in, KR, at review.',
@@ -131,6 +157,7 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'newObjective.addKr': 'Idagdag ang KR',
   'newObjective.coachLabel': 'Mga paalala ng coach',
+  'newObjective.descriptionLabel': 'Bakit mahalaga ito',
   'newObjective.descriptionPlaceholder':
     'Ipaliwanag ang estratehikong konteksto sa loob ng 2-3 pangungusap.',
   'newObjective.errorTitleRequired': 'Bigyan ng pamagat ang iyong layunin.',
@@ -150,13 +177,18 @@ export const ui: UiTranslations = {
   'newObjective.submit': 'I-save ang layunin',
   'newObjective.targetPlaceholder': 'Target',
   'newObjective.tip1': 'Manguna gamit ang pandiwa: “Maging…”, “Magbawas…”, “Manalo…”',
+  'newObjective.tip2': 'Dapat nasusukat ang mga KR — iwasan ang “Pagbutihin ang X.”',
+  'newObjective.tip3': 'Ang 3–5 KR ang tamang bilang. Ang higit pa ay nagdudulot ng kalituhan.',
   'newObjective.titlePlaceholder': 'Maging ang mga minamahal ng OKR product engineering',
+  'notifications.emptyBody':
+    'Dito dumarating ang mga coaching nudge, mention, at paalala sa review.',
   'notifications.emptyTitle': 'Walang mga notification sa view na ito.',
   'notifications.eyebrow': 'Activity center',
   'notifications.markRead': '● Markahan bilang nabasa na',
   'objective.scopes.company': 'Kumpanya',
   'objective.scopes.individual': 'Indibidwal',
   'objective.scopes.team': 'Koponan',
+  'objectiveCard.krProgress': '{{done}}/{{total}} KR',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Balik sa mga layunin',
   'objectiveDetail.edit': 'I-edit ang layunin',
@@ -167,6 +199,10 @@ export const ui: UiTranslations = {
   'objectiveDetail.notFound': 'Hindi natagpuan ang layunin.',
   'objectiveDetail.owner': 'Pag-aari ni {{name}}',
   'objectiveDetail.runCheckIn': 'Patakbuhin ang pag-check-in',
+  'objectiveDetail.timelineHeading': 'Timeline ng check-in',
+  'objectives.emptyBody':
+    'Ibalangkas ang iyong unang layunin upang simulan ang pagsubaybay sa lingguhang pag-unlad.',
+  'objectives.emptyFilteredBody': 'Subukang i-clear ang filter o magsimula ng bagong objective.',
   'objectives.emptyFilteredTitle': 'Wala pang mga layunin na tumutugma sa mga filter na iyon.',
   'objectives.emptyTitle': 'Wala pang mga layunin',
   'objectives.eyebrow': 'Plano ng kumpanya',
@@ -177,6 +213,11 @@ export const ui: UiTranslations = {
   'objectives.searchPlaceholder': 'Salain ayon sa pamagat…',
   'objectives.subheading':
     'Pagsubaybay {{count}} mga layunin. Salain ayon sa katayuan upang mahanap kung ano ang nangangailangan ng pansin.',
+  'pricing.limit.advanced': 'Mga advanced na feature: {{value}}',
+  'pricing.limit.checkIns': '{{count}} check-in',
+  'pricing.limit.export': 'Pag-export ng data: {{value}}',
+  'pricing.limit.keyResults': '{{count}} key-result',
+  'pricing.limit.objectives': '{{count}} layunin',
   'profile.achievementCheckInsMany': '{{count}} mga naka-log na check-in',
   'profile.achievementCheckInsOne': '1 naka-log in na',
   'profile.achievementCompletedMany': 'Nakumpleto ang {{count}} na mga layunin',
@@ -185,6 +226,7 @@ export const ui: UiTranslations = {
   'profile.achievementOnTrackOne': '1 layunin ang nasa track',
   'profile.activeHeading': 'Mga aktibong layunin',
   'profile.allObjectives': 'Lahat ng layunin →',
+  'profile.createFirst': 'Gumawa ng objective',
   'profile.empty': 'Wala pang aktibong layunin — gumawa ng una para makapagsimula.',
   'profile.eyebrow': 'Profile ng umaakyat',
   'profile.guestName': 'Umaakyat',
@@ -198,13 +240,18 @@ export const ui: UiTranslations = {
   'profile.statsHeading': 'Ngayong kwarter',
   'profile.streakLabel': 'Quarter sa ngayon',
   'resetPassword.backLink': 'Mag-sign in na lang',
+  'resetPassword.backPrompt': 'Nagpasya kang huwag i-reset? ',
   'resetPassword.emailPlaceholder': 'you@team.com',
   'resetPassword.heading': 'Magtakda ng bagong password.',
+  'resetPassword.passwordLabel': 'Bagong password',
   'resetPassword.reset': 'I-update ang password at mag-sign in',
   'resetPassword.resetting': 'Ina-update ang password…',
   'resetPassword.subheading':
     'Pumili ng isang bagay na malakas — hindi bababa sa walong karakter, magdagdag ng mga numero kung kaya mo.',
   'reviewDetail.backToList': 'Balik sa mga review',
+  'reviewDetail.body':
+    '{{count}} aktibong layunin · marka {{grade}}. I-edit ang mga pagninilay at marka sa ibaba.',
+  'reviewDetail.colObjective': 'Layunin',
   'reviewDetail.confirmDelete': 'Burahin ang draft ng review na ito?',
   'reviewDetail.delete': 'Burahin ang draft',
   'reviewDetail.eyebrow': '{{katayuan}} · {{petsa}}',
@@ -216,8 +263,10 @@ export const ui: UiTranslations = {
   'reviewDetail.reflectionsPlaceholder':
     'Ano ang naging maayos? Ano ang hindi? Mga tala para sa susunod na quarter.',
   'reviewDetail.scorecardHeading': 'Iskorkard',
+  'reviewDetail.scoreLabel': 'Avg score',
   'reviewDetail.submitted': 'Isinumite',
   'reviewDetail.submittedToast': 'Isinumite ang pagsusuri',
+  'reviewDetail.untitled': 'Quarterly review · i-click sa ibaba para i-edit',
   'reviews.createDraft': 'Magsimula ng draft',
   'reviews.empty.body':
     'Lumalabas dito ang mga quarterly review kapag nagsimula ka na ng draft. I-click ang "Magsimula ng draft" sa itaas para magsimula.',
@@ -227,12 +276,16 @@ export const ui: UiTranslations = {
   'reviews.eyebrow': 'Mga retrospektibo sa loob ng isang-kapat',
   'reviews.grade': 'Baitang {{grade}}',
   'reviews.loading': 'Naglo-load ng mga review…',
+  'reviews.notSubmitted': 'Hindi pa naisusumite',
   'reviews.subheading':
     'Mga roll-up scorecard, mga repleksyon ng headline, at mga marka mula sa mga naunang quarter.',
+  'reviews.submittedAt': 'Isinumite noong {{date}}',
+  'reviews.untitled': 'Walang pamagat na review · i-click para i-edit',
   'settings.billingSubtitle': 'Pamahalaan ang plano, mga upuan, at mga invoice',
   'settings.billingTitle': 'Pagsingil at mga upuan',
   'settings.cadenceBody':
     'Piliin kung gaano kadalas hinihikayat ng Ascent ang iyong team para sa mga check-in.',
+  'settings.cadenceHeading': 'Kadence',
   'settings.eyebrow': 'Lugar ng Trabaho · Account · Cadence',
   'settings.guestName': 'Umaakyat',
   'settings.openProfile': 'Buksan ang profile',
@@ -240,10 +293,15 @@ export const ui: UiTranslations = {
   'settings.saveError': 'Nabigo ang pag-save: {{error}}',
   'settings.toggleCoachDescription':
     'Mga prompt ng Surface mid-quarter kapag ang isang KR ay lumagpas ng dalawang confidence steps.',
+  'settings.toggleCoachLabel': 'Mga coaching nudge',
   'settings.toggleDigestDescription':
     'Nagpapadala ng listahan ng mga layunin ayon sa katayuan para sa bawat may-ari tuwing Lunes.',
+  'settings.toggleDigestLabel': 'Email ng digest tuwing Lunes',
+  'settings.toggleRemindersDescription':
+    'Abisuhan ang team sa Biyernes ng umaga kung kulang pa ang check-in.',
   'settings.toggleRemindersLabel': 'Mga paalala sa lingguhang pag-check in',
   'signup.emailPlaceholder': 'you@team.com',
+  'signup.haveAccountPrompt': 'May account ka na ba? ',
   'signup.heading': 'Planuhin ang iyong unang pag-akyat.',
   'signup.namePlaceholder': 'Avery Mountaineer',
   'signup.orContinueWith': 'o magpatuloy gamit ang',
@@ -262,6 +320,7 @@ export const ui: UiTranslations = {
   'team.newTeamLabel': 'Bagong koponan',
   'team.newTeamPlaceholder': 'hal. Karanasan ng Kustomer',
   'team.objectivesLabel': 'Mga Layunin',
+  'team.progressLabel': 'Pag-unlad ng workspace',
   'team.subheading':
     '{{teams}} mga koponan · {{objectives}} mga layunin. Pangkatin ang iyong mga OKR ayon sa pangkat upang makita ang mga roll-up.',
 }

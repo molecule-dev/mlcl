@@ -1,13 +1,30 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Cysylltwch â ni',
   'about.eyebrow': 'Amdanom ni',
+  'about.featureBooking':
+    'Archebion ar unwaith neu archebion cais-i-archebu gyda thaliadau Stripe diogel a chanslo am ddim hyd at 48 awr cyn y gwirio i mewn.',
+  'about.featureHosting':
+    'Dangosfwrdd lletywr llawn i gyhoeddi rhestrau, rheoli argaeledd, olrhain archebion, a chael eich talu.',
+  'about.featureMessaging':
+    "Negeseuon uniongyrchol gyda lletywyr cyn ac yn ystod eich arhosiad, ynghyd â rhestrau dymuniadau i gadw'r lleoedd rydych yn eu caru.",
+  'about.featureReviews':
+    'Adolygiadau dwyffordd onest fel bod teithwyr a lletywyr ill dau yn adeiladu enw da dibynadwy.',
+  'about.featureSearch':
+    "Chwilio ar fap ar draws rhestrau wedi'u dilysu, gyda hidlwyr ar gyfer pris, cyfleusterau, a dyddiadau.",
+  'about.missionBody':
+    'Dylai teithio eich cysylltu â lle, nid â chadwyn. Rydym yn helpu lletywyr annibynnol i restru cartrefi unigryw ac yn helpu teithwyr i ddod o hyd iddynt — gyda phrisiau tryloyw, dim ffioedd cudd, a thaliadau, trethi, a fetio teithwyr yn cael eu trin ar ran y lletywr fel y gallant ganolbwyntio ar letygarwch.',
+  'about.missionTitle': 'Ein cenhadaeth',
+  'about.subtitle':
+    "Marchnad rentu wedi'i hadeiladu o amgylch cartrefi go iawn a lletywyr go iawn.",
   'bookingDetail.afterTime': 'Ar ôl 3:00 PM',
   'bookingDetail.backCta': 'Yn ôl i archebion',
   'bookingDetail.beforeTime': 'Cyn 11:00 AM',
   'bookingDetail.cancel': "Canslo'r archeb",
   'bookingDetail.cancelFailed': 'Methwyd canslo — ceisiwch eto.',
   'bookingDetail.checkIn': 'Mewngofnodi',
+  'bookingDetail.cleaningFee': 'Ffi glanhau',
   'bookingDetail.confirmCancel': "Canslo'r archeb hon? Ni ellir dadwneud hyn.",
   'bookingDetail.eyebrow': 'Cadarnhad · {{code}}',
   'bookingDetail.messageHost': 'Gwesteiwr neges',
@@ -21,14 +38,17 @@ export const ui: UiTranslations = {
   'bookingDetail.viewListing': 'Gweld y rhestr',
   'bookingDetail.yourHost': 'Eich gwesteiwr',
   'bookingItineraryRow.nights': '{{count}} nosweithiau',
+  'bookings.empty.past': 'Bydd archebion blaenorol yn ymddangos yma unwaith y byddwch yn aros.',
   'bookings.empty.upcoming': 'Dim teithiau ar y llyfrau — gadewch i ni drwsio hynny.',
   'bookings.eyebrow': 'Eich teithiau',
   'bookings.heading': 'Archebion',
   'bookings.loadError': 'Methwyd llwytho archebion.',
+  'bookings.searchCta': 'Cynlluniwch daith arall',
   'bookings.subheading': '{{upcoming}} sydd ar ddod · {{past}} gorffennol',
   'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'common.retry': 'Ail-geisio',
   'createListing.back': "Yn ôl i'r rhestrau",
+  'createListing.bedrooms': 'Ystafelloedd Gwely',
   'createListing.cityLabel': 'Ble mae o?',
   'createListing.cityPlaceholder': 'Dinas, rhanbarth, neu gymdogaeth',
   'createListing.descPlaceholder':
@@ -38,16 +58,22 @@ export const ui: UiTranslations = {
   'createListing.error.price': 'Ychwanegwch bris bob nos cyn cyhoeddi.',
   'createListing.error.title': 'Ychwanegwch deitl cyn cyhoeddi.',
   'createListing.heading': 'Agorwch eich drws',
+  'createListing.listingImageAlt': 'Rhestr {{number}}',
   'createListing.maxGuests': 'Uchafswm o westeion',
   'createListing.photos.heading': "Ychwanegwch luniau sy'n gwneud i deithwyr roi'r gorau i sgrolio",
+  'createListing.photos.subheading':
+    "Mae lletywyr sy'n uwchlwytho o leiaf 3 llun yn ennill 2.3× yn fwy ar gyfartaledd.",
   'createListing.place.heading': 'Pa fath o le ydyw?',
+  'createListing.price': 'Pris y noson',
   'createListing.publish': 'Cyhoeddi rhestr',
   'createListing.removePhoto': "Dileu'r llun",
   'createListing.step.${s.key}.eyebrow': 'Cam {{n}}',
   'createListing.subheading':
     'Ychydig o gwestiynau i roi eich rhestr ar waith. Byddwn yn cadw eich cynnydd ym mhob cam.',
+  'createListing.title': 'Teitl y rhestr',
   'createListing.titlePlaceholder': 'Caban Heulwen wrth y Clogwyn',
   'createListing.uploadCta': 'Ychwanegu llun {{n}}',
+  'createListing.useSample': 'Defnyddiwch lun enghreifftiol',
   'destinationDiscoveryCard.exploreCta': 'Archwilio arosfannau',
   'forgotPassword.eyebrow': 'Ailosod',
   'forgotPassword.subheading':
@@ -62,6 +88,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelOccupancy': 'Deiliadaeth',
   'hostDashboard.hero.labelYtd': 'Hyd yn hyn o flwyddyn',
   'hostDashboard.loadError': 'Methwyd llwytho eich data cynnal. Rhowch gynnig arall arni.',
+  'hostDashboard.queueArrivals': '{{count}} yn cyrraedd yr wythnos nesaf',
+  'hostDashboard.queueListings': '{{count}} rhestrau gweithredol',
   'hostDashboard.queueRequests': '{{count}} ceisiadau archebu',
   'hostDashboard.queueReview': 'Ciw adolygu',
   'hostDashboard.queueTitle': 'Eich ciw',
@@ -82,11 +110,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': 'Ni chanfuwyd y rhestr.',
   'hostListingDetail.photos.empty': "Dim lluniau wedi'u huwchlwytho eto.",
   'hostListingDetail.photos.heading': 'Lluniau',
+  'hostListingDetail.pricing.cleaning': 'Ffi glanhau',
   'hostListingDetail.pricing.save': 'Arbedwch brisio',
   'hostListingDetail.pricing.weekday': 'Cyfradd ar gyfer yr wythnos',
   'hostListingDetail.pricing.weekend': 'Cyfradd penwythnos (arddangos yn unig)',
   'hostListingDetail.rules.copy':
     "Gosodwch ddisgwyliadau gwesteion a diogelwch eich cartref — mae'r rhain yn cael eu datgelu cyn cadarnhau archeb.",
+  'hostListingDetail.rules.heading': "Rheolau'r tŷ",
   'hostListings.create': 'Creu rhestr newydd',
   'hostListings.eyebrow': 'Eich portffolio',
   'hostListings.heading': 'Rhestrau',
@@ -96,8 +126,11 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Ar gyfer gwesteiwyr',
   'landing.cta.heading': 'Agorwch eich drws. Enillwch werth eich cartref.',
   'landing.cta.host': 'Dechrau cynnal',
+  'landing.cta.subheading':
+    "Mae {{appName}} yn gofalu am daliadau, trethi, a fetio teithwyr fel y gallwch ganolbwyntio ar letya. Mae'r rhan fwyaf o letywyr newydd yn ennill eu $1,000 cyntaf o fewn 30 diwrnod.",
   'landing.destinations.eyebrow': 'Ble nesaf',
   'landing.destinations.heading': 'Cyrchfannau y mae ein gwesteiwyr yn eu caru',
+  'landing.destinations.seeAll': 'Gweld pob cyrchfan',
   'landing.footer.host': 'Dod yn westeiwr',
   'landing.footer.search': 'Dod o hyd i lety',
   'landing.footer.tagline': "Arhoswch fel eich bod chi'n perthyn.",
@@ -106,8 +139,11 @@ export const ui: UiTranslations = {
   'landing.nav.host': 'Dod yn westeiwr',
   'landing.nav.join': 'Ymunwch â Roost',
   'landing.nav.search': 'Dod o hyd i lety',
+  'landing.preview.browseAll': "Pori'r casgliad llawn",
   'landing.preview.eyebrow': 'Cipolwg i mewn',
   'landing.preview.heading': "Arosiadau wedi'u dewis â llaw y mis hwn",
+  'landing.preview.subheading':
+    "Mae pob rhestr {{appName}} yn cael ei chynnal gan berson go iawn — wedi'i ddilysu, wedi'i hadolygu, ac yn rhad ac am ddim i'w chanslo hyd at 48 awr cyn y gwirio i mewn.",
   'listingDetail.about': "Ynglŷn â'r lle hwn",
   'listingDetail.amenities': "Beth mae'r lle hwn yn ei gynnig",
   'listingDetail.bathrooms': 'baddonau',
@@ -115,7 +151,10 @@ export const ui: UiTranslations = {
   'listingDetail.beds': 'gwelyau',
   'listingDetail.bookFailed':
     'Methwyd archebu. Rhowch gynnig arall arni neu mewngofnodwch yn gyntaf.',
+  'listingDetail.cleaningFee': 'Ffi glanhau',
+  'listingDetail.guests': 'gwesteion',
   'listingDetail.hostedBy': "Wedi'i gynnal gan {{host}}",
+  'listingDetail.hostMeta': '{{years}} mlynedd yn lletya · {{response}}% cyfradd ymateb',
   'listingDetail.houseRules': "Rheolau'r tŷ",
   'listingDetail.instantBook': 'Archebu nawr · Archebu ar unwaith',
   'listingDetail.loadError': "Methwyd llwytho'r rhestr.",
@@ -125,6 +164,7 @@ export const ui: UiTranslations = {
   'listingDetail.perNight': 'y noson',
   'listingDetail.pickDates': 'Dewiswch ddyddiadau cofrestru a gadael yn gyntaf.',
   'listingDetail.priceRow': '{{price}} × {{nights}} nosweithiau',
+  'listingDetail.requestBook': 'Cais i archebu',
   'listingDetail.reserving': "Wrthi'n archebu…",
   'listingDetail.reviews': 'adolygiadau',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}} adolygiadau',
@@ -132,6 +172,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'Uwch-westeiwr',
   'login.eyebrow': 'Croeso adref',
   'login.heading': 'Mewngofnodwch i Roost',
+  'login.noAccount': 'Newydd i Tessera?',
   'login.signupLink': 'Creu cyfrif am ddim',
   'login.subheading':
     'Parhewch o ble y gwnaethoch chi adael — rheolwch deithiau, anfonwch neges at westeion, a bwciwch arhosiadau rydych chi wedi bod yn breuddwydio amdanynt.',
@@ -156,6 +197,7 @@ export const ui: UiTranslations = {
   'notFound.heading': "Ni allwn ddod o hyd i'r arhosiad hwnnw",
   'notifications.loading': 'Yn llwytho…',
   'notifications.subheading': '{{count}} heb ei ddarllen · popeth mewn un mewnflwch tawel',
+  'pricing.ctaContact': 'Cysylltwch â gwerthiannau',
   'pricing.ctaUpgrade': 'Cysylltwch â gwerthiannau',
   'pricing.eyebrow': 'Syml, tryloyw',
   'pricing.heading': "Cynllun sy'n addas i'ch rhythm teithio",
@@ -192,8 +234,12 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Dewiswch rywbeth cofiadwy. Byddwn yn eich mewngofnodi unwaith y byddwch yn cadw.',
   'roostAuthShell.brand.eyebrow': "Arhoswch fel eich bod chi'n perthyn",
+  'roostAuthShell.brand.heading':
+    "Cabanau, bythynnod, riads — wedi'u rhoi i chi gan letywyr sy'n byw yno.",
   'roostHeroSearchCard.checkInAria': 'Dyddiad cofrestru',
   'roostHeroSearchCard.checkOutAria': 'Dyddiad gadael',
+  'roostHeroSearchCard.destAria': 'Cyrchfan',
+  'roostHeroSearchCard.destLabel': 'Ble',
   'roostHeroSearchCard.destPlaceholder': 'Dinas, rhanbarth, neu eiddo',
   'roostHeroSearchCard.eyebrow': "Arosiadau wedi'u dewis â llaw · Gwesteiwyr wedi'u gwirio",
   'roostHeroSearchCard.guestsOption': '{{n}} gwesteion',
@@ -205,6 +251,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'Prif lywio',
   'roostListingCard.bookmarkAria': 'Cadw rhestr',
   'roostListingCard.night': 'nos',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': "Nid oes unrhyw restr yn cyfateb i'ch chwiliad.",
   'search.emptyHint':
     'Rhowch gynnig ar ehangu eich hidlwyr neu gael gwared ar y nenfwd pris — mae gan Roost arhosiadau mewn 26 o wledydd.',
@@ -212,9 +259,13 @@ export const ui: UiTranslations = {
   'search.heading': "Lle sy'n teimlo fel cartref",
   'search.headingForQuery': 'Yn aros am " {{q}} "',
   'search.loadError': 'Methwyd llwytho rhestrau.',
+  'search.mapHint': "Hofiwch gerdyn i'w amlygu ar y map. Teils Mapbox byw mewn cynhyrchiad.",
+  'search.mapPinAria': '{{name}} — {{price}} y noson',
   'search.sortLabel': 'Trefnu yn ôl',
   'search.subheading': '{{count}} rhestrau · {{guests}} gwesteion',
+  'settings.appearance.description': 'Newid rhwng modd golau a thywyll.',
   'settings.appearance.title': 'Ymddangosiad',
+  'settings.openBilling': 'Bilio agored',
   'settings.payments.heading': 'Dulliau talu',
   'settings.paymentsHelp':
     "Mae Roost yn codi tâl ar eich cerdyn y funud y bydd gwesteiwr yn cadarnhau eich archeb. Rheoli cardiau sydd wedi'u cadw ar y dudalen Prisio.",

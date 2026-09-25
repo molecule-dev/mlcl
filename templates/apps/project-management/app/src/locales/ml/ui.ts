@@ -1,11 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടോ, അല്ലെങ്കിൽ ഒരു ഫീച്ചർ വേണോ? ഉത്തരങ്ങൾക്കായി സഹായ പേജ് പരിശോധിക്കുക, അല്ലെങ്കിൽ സെറ്റിംഗ്സ് → അക്കൗണ്ടിൽ നിന്ന് ടീമിനെ സമീപിക്കുക — ഓരോ സന്ദേശവും ഒരു യഥാർത്ഥ വ്യക്തിയിലേക്കാണ് എത്തുന്നത്.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'accountSettings.confirmDelete': 'ശാശ്വതമായി ഇല്ലാതാക്കുക',
   'accountSettings.confirmEmailLabel': 'സ്ഥിരീകരിക്കാൻ DELETE എന്ന് ടൈപ്പ് ചെയ്യുക',
   'accountSettings.deleteError': 'അക്കൗണ്ട് ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല.',
   'accountSettings.passwordError': 'പാസ്‌വേഡ് മാറ്റാൻ കഴിഞ്ഞില്ല.',
   'accountSettings.passwordTooShort': 'പാസ്‌വേഡിൽ കുറഞ്ഞത് 8 പ്രതീകങ്ങളെങ്കിലും ഉണ്ടായിരിക്കണം.',
+  'accountSettingsSection.dangerZoneTitle': 'അപകട മേഖല',
   'accountSettingsSection.deleteWarning':
     'നിങ്ങളുടെ അക്കൗണ്ട് ഒരിക്കൽ ഇല്ലാതാക്കിയാൽ, പിന്നീട് ഒരു തിരിച്ചുവരവില്ല. ദയവായി ഉറപ്പാക്കുക.',
   'accountSettingsSection.description':
@@ -17,6 +22,7 @@ export const ui: UiTranslations = {
   'appearanceSettingsSection.darkMode': 'ഡാർക്ക് മോഡ്',
   'appearanceSettingsSection.description':
     'നിങ്ങളുടെ വർക്ക്‌സ്‌പെയ്‌സിന്റെ വിഷ്വൽ ഇന്റർഫേസ് ഇഷ്ടാനുസൃതമാക്കുക.',
+  'appearanceSettingsSection.languageLabel': 'ഇന്റർഫേസ് ഭാഷ',
   'appearanceSettingsSection.lightMode': 'ലൈറ്റ് മോഡ്',
   'board.addTask': 'ടാസ്‌ക് ചേർക്കുക',
   'board.addTaskToColumn': 'ടാസ്‌ക് ഇതിലേക്ക് ചേർക്കുക {{column}}',
@@ -43,6 +49,7 @@ export const ui: UiTranslations = {
   'common.unknown': '?',
   'dashboard.confirmDeleteTask': 'ഈ ജോലി ഇല്ലാതാക്കണോ?',
   'dashboard.createError': 'പ്രോജക്റ്റ് സൃഷ്ടിക്കുന്നതിൽ പരാജയപ്പെട്ടു',
+  'dashboard.createFirstProject': 'നിങ്ങളുടെ ആദ്യ പ്രോജക്റ്റ് സൃഷ്ടിക്കുക',
   'dashboard.fallbackName': 'അവിടെ',
   'dashboard.greeting': 'തിരികെ സ്വാഗതം, {{name}}',
   'dashboard.kpis': 'പ്രധാന മെട്രിക്കുകൾ',
@@ -51,14 +58,22 @@ export const ui: UiTranslations = {
   'dashboard.newProjectTitle': 'പുതിയ പദ്ധതി',
   'dashboard.projectCounts': '{{done}} യുടെ {{total}} ചെയ്ത ജോലികൾ',
   'dashboard.projectsEmpty': 'നിങ്ങൾക്ക് ഇതുവരെ പ്രോജക്റ്റുകളൊന്നുമില്ല.',
+  'dashboard.subtitle': 'ഇതാ നിങ്ങളുടെ പ്രോജക്റ്റ് അവലോകനം.',
+  'dashboard.tasksEmpty':
+    'ഇതുവരെ ടാസ്ക്കുകളില്ല. ഒന്ന് ചേർക്കാൻ ഒരു പ്രോജക്റ്റ് ബോർഡ് സന്ദർശിക്കുക.',
   'dashboard.tasksEmptyNoProject':
     'ടാസ്‌ക്കുകൾ ചേർക്കാൻ ആരംഭിക്കുന്നതിന് ഒരു പ്രോജക്റ്റ് സൃഷ്ടിക്കുക.',
   'dashboard.upcomingEmpty': 'വരാനിരിക്കുന്ന സമയപരിധികളൊന്നുമില്ല.',
   'dashboard.upcomingTitle': 'വരാനിരിക്കുന്ന അവസാന തീയതികൾ',
+  'deviceSettings.description':
+    'നിങ്ങളുടെ അക്കൗണ്ടിലേക്ക് നിലവിൽ സൈൻ ഇൻ ചെയ്‌തിരിക്കുന്ന ഉപകരണങ്ങൾ.',
   'deviceSettings.unknownDevice': 'അജ്ഞാത ഉപകരണം',
   'footer.copyright': '© {{year}} {{appName}}',
   'footer.support': 'പിന്തുണ',
+  'forgotPassword.emailLabel': 'ഇമെയിൽ വിലാസം',
   'forgotPassword.error': 'പുനഃസജ്ജീകരണ ലിങ്ക് അയയ്ക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'forgotPassword.sent':
+    '{{email}} എന്നതിന് ഒരു അക്കൗണ്ട് ഉണ്ടെങ്കിൽ, ഒരു റീസെറ്റ് ലിങ്ക് അയച്ചിട്ടുണ്ട്. നിങ്ങളുടെ ഇൻബോക്സ് പരിശോധിക്കുക.',
   'forgotPassword.subtitle':
     'നിങ്ങളുടെ ഇമെയിൽ നൽകുക, ഞങ്ങൾ നിങ്ങൾക്ക് ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
   'help.backToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് മടങ്ങുക',
@@ -94,6 +109,14 @@ export const ui: UiTranslations = {
   'notificationsSettings.taskLabel': 'ടാസ്‌ക് അസൈൻമെന്റുകൾ',
   'planUpdated.heading': 'Your plan has been updated',
   'planUpdated.subheading': 'നന്ദി!',
+  'pricing.advancedReports': 'ബേൺഡൗൺ / വെലോസിറ്റി റിപ്പോർട്ടുകൾ: {{value}}',
+  'pricing.calendarView': 'കലണ്ടർ / ടൈംലൈൻ: {{value}}',
+  'pricing.customFields': 'കസ്റ്റം ഫീൽഡുകൾ: {{value}}',
+  'pricing.membersPerProject': '{{count}} അംഗങ്ങൾ / പ്രോജക്റ്റ്',
+  'pricing.milestonesCount': '{{count}} മൈൽസ്റ്റോണുകൾ',
+  'pricing.projectsCount': '{{count}} പദ്ധതികൾ',
+  'pricing.realtime': 'റിയൽടൈം സഹകരണം: {{value}}',
+  'pricing.tasksCount': '{{count}} ചുമതലകൾ',
   'priority.high': 'ഉയർന്ന',
   'priority.low': 'താഴ്ന്നത്',
   'priority.medium': 'Medium',
@@ -108,6 +131,8 @@ export const ui: UiTranslations = {
   'resetPassword.signUpLink': 'സൗജന്യമായി സൈൻ അപ്പ് ചെയ്യുക',
   'resetPassword.subtitle': 'നിങ്ങളുടെ പുതിയ പാസ്‌വേഡ് താഴെ നൽകുക',
   'search.aria': 'തിരയൽ ജോലികൾ',
+  'settings.revokeDeviceWarning':
+    'ഈ ഉപകരണത്തിന്റെ ആക്‌സസ് ഉടൻ പിൻവലിക്കപ്പെടും. സൈൻ ഔട്ട് ചെയ്യണോ?',
   'settings.signOutDevice': 'സൈൻ ഔട്ട്',
   'settingsTopAppBar.noNotifications': 'പുതിയ അറിയിപ്പുകളൊന്നുമില്ല',
   'sideNav.calendar': 'കലണ്ടർ',
@@ -122,6 +147,7 @@ export const ui: UiTranslations = {
   'signup.loading': 'അക്കൗണ്ട് സൃഷ്ടിക്കുന്നു...',
   'signup.namePlaceholder': 'നിങ്ങളുടെ മുഴുവൻ പേര്',
   'signup.pageTitle': 'അക്കൗണ്ട് സൃഷ്ടിക്കുക',
+  'signup.subtitle': 'മിനിറ്റുകൾക്കുള്ളിൽ നിങ്ങളുടെ പ്രോജക്റ്റുകൾ ക്രമീകരിക്കാൻ തുടങ്ങുക',
   'signupPrompt.leadin': 'ഫോർജിൽ പുതിയ ആളാണോ?',
   'signupPrompt.signUp': 'സൗജന്യമായി സൈൻ അപ്പ് ചെയ്യുക',
   'status.done': 'ചെയ്തുകഴിഞ്ഞു',
@@ -129,6 +155,7 @@ export const ui: UiTranslations = {
   'status.todo': 'ചെയ്യാൻ',
   'task.markDone': 'പൂർത്തിയായതായി അടയാളപ്പെടുത്തുക',
   'task.markUndone': 'പൂർത്തിയായില്ലെന്ന് അടയാളപ്പെടുത്തുക',
+  'taskCard.assigneeAlt': 'നിയോഗിക്കപ്പെട്ടയാൾ',
   'taskCard.overdueDate': '{{date}} (കാലാവധി കഴിഞ്ഞു)',
   'taskCard.priorityTooltip': '{{priority}} മുൻഗണന',
   'taskCard.unnamedProject': 'പദ്ധതി',
@@ -140,6 +167,7 @@ export const ui: UiTranslations = {
   'taskInProgressSection.heading': 'പുരോഗതിയിൽ',
   'taskList.deleteError': 'ജോലി ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല',
   'taskList.loadError': 'ജോലികൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല',
+  'taskList.subtitle': '{{date}} — {{count}} ടാസ്ക്കുകൾ ബാക്കി',
   'taskList.title': 'എന്റെ ജോലികൾ',
   'taskReviewSection.emptyState': 'അവലോകനത്തിൽ ടാസ്‌ക്കുകളൊന്നുമില്ല',
   'taskReviewSection.heading': 'അവലോകനത്തിലാണ്',
@@ -155,6 +183,7 @@ export const ui: UiTranslations = {
   'timeline.prevMonth': 'കഴിഞ്ഞ മാസം',
   'timeline.today': 'ഇന്ന്',
   'timeline.typeMilestone': 'നാഴികക്കല്ല്',
+  'timeline.typeTask': 'ടാസ്ക്',
   'timeline.upcomingEvents': 'വരാനിരിക്കുന്ന പരിപാടികൾ',
   'timeline.viewOnBoard': 'ബോർഡിൽ കാണുക →',
   'timelineSideNav.calendar': 'ടൈംലൈൻ',

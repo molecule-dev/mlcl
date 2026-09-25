@@ -1,13 +1,30 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'தொடர்பு கொள்ளுங்கள்',
   'about.eyebrow': 'எங்களைப் பற்றி',
+  'about.featureBooking':
+    'பாதுகாப்பான Stripe பணம் செலுத்துதல்கள் மற்றும் செக்-இன் செய்வதற்கு 48 மணி நேரத்திற்கு முன்பு வரை இலவச ரத்து வசதியுடன் உடனடி அல்லது கோரிக்கை-மூலம்-முன்பதிவு செய்யும் முன்பதிவுகள்.',
+  'about.featureHosting':
+    'பட்டியல்களை வெளியிடவும், கிடைப்புத்தன்மையை நிர்வகிக்கவும், முன்பதிவுகளைக் கண்காணிக்கவும், பணம் பெறவும் ஒரு முழுமையான ஹோஸ்ட் டாஷ்போர்டு.',
+  'about.featureMessaging':
+    'தங்கியிருக்கும் முன்பும் அதன் போதும் ஹோஸ்ட்களுடன் நேரடி செய்தியிடல், மேலும் நீங்கள் விரும்பும் இடங்களைச் சேமிக்க விஷ்லிஸ்ட்கள்.',
+  'about.featureReviews':
+    'நேர்மையான இரு-வழி மதிப்புரைகள், இதனால் பயணிகளும் ஹோஸ்ட்களும் நம்பகமான நற்பெயரை உருவாக்குகிறார்கள்.',
+  'about.featureSearch':
+    'சரிபார்க்கப்பட்ட பட்டியல்கள் முழுவதும் வரைபட அடிப்படையிலான தேடல், விலை, வசதிகள் மற்றும் தேதிகளுக்கான வடிகட்டிகளுடன்.',
+  'about.missionBody':
+    'பயணம் உங்களை ஒரு இடத்துடன் இணைக்க வேண்டும், ஒரு சங்கிலியுடன் அல்ல. தனித்துவமான வீடுகளை பட்டியலிட சுயாதீன ஹோஸ்ட்களுக்கு நாங்கள் உதவுகிறோம், மேலும் பயணிகள் அவற்றைக் கண்டறிய உதவுகிறோம் — வெளிப்படையான விலை நிர்ணயம், மறைமுக கட்டணங்கள் இல்லை, மேலும் பணம் செலுத்துதல், வரிகள் மற்றும் பயணி சரிபார்ப்பு ஆகியவை ஹோஸ்டுக்காக கையாளப்படுகின்றன, இதனால் அவர்கள் விருந்தோம்பலில் கவனம் செலுத்த முடியும்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
+  'about.subtitle':
+    'உண்மையான வீடுகள் மற்றும் உண்மையான ஹோஸ்ட்களைச் சுற்றி கட்டப்பட்ட ஒரு வாடகை சந்தை.',
   'bookingDetail.afterTime': 'பிற்பகல் 3:00 மணிக்கு மேல்',
   'bookingDetail.backCta': 'முன்பதிவுகளுக்குத் திரும்பு',
   'bookingDetail.beforeTime': 'காலை 11:00 மணிக்கு முன்',
   'bookingDetail.cancel': 'முன்பதிவை ரத்து செய்',
   'bookingDetail.cancelFailed': 'ரத்து செய்ய முடியவில்லை — மீண்டும் முயற்சிக்கவும்.',
   'bookingDetail.checkIn': 'செக் இன்',
+  'bookingDetail.cleaningFee': 'துப்புரவுக் கட்டணம்',
   'bookingDetail.confirmCancel': 'இந்த முன்பதிவை ரத்து செய்யவா? இதை மாற்ற முடியாது.',
   'bookingDetail.eyebrow': 'உறுதிப்படுத்தல் · {{code}}',
   'bookingDetail.messageHost': 'செய்தி ஹோஸ்ட்',
@@ -15,18 +32,23 @@ export const ui: UiTranslations = {
   'bookingDetail.notFound': 'முன்பதிவு காணப்படவில்லை.',
   'bookingDetail.priceBreakdown': 'விலை விவரம்',
   'bookingDetail.serviceFee': 'கூடு சேவை கட்டணம்',
+  'bookingDetail.subtotal': '{{nights}} இரவுகள்',
   'bookingDetail.taxes': 'வரிகள்',
   'bookingDetail.totalCharged': 'மொத்த கட்டணம்',
   'bookingDetail.viewListing': 'பட்டியலைக் காண்க',
   'bookingDetail.yourHost': 'உங்கள் தொகுப்பாளர்',
   'bookingItineraryRow.nights': '{{count}} இரவுகள்',
+  'bookings.empty.past': 'நீங்கள் தங்கிய பிறகு கடந்த முன்பதிவுகள் இங்கே தோன்றும்.',
   'bookings.empty.upcoming': 'பயணத் திட்டங்கள் எதுவும் இல்லை — அதைச் சரி செய்வோம்.',
   'bookings.eyebrow': 'உங்கள் பயணங்கள்',
   'bookings.heading': 'முன்பதிவுகள்',
   'bookings.loadError': 'முன்பதிவுகளை ஏற்ற முடியவில்லை.',
+  'bookings.searchCta': 'மற்றொரு பயணத்தைத் திட்டமிடுங்கள்',
+  'bookings.subheading': '{{upcoming}} வரவிருக்கும் · {{past}} கடந்த',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.retry': 'மீண்டும் முயற்சி',
   'createListing.back': 'பட்டியல்களுக்குத் திரும்பு',
+  'createListing.bedrooms': 'படுக்கையறைகள்',
   'createListing.cityLabel': 'அது எங்கே இருக்கிறது?',
   'createListing.cityPlaceholder': 'நகரம், பிராந்தியம் அல்லது அக்கம்',
   'createListing.descPlaceholder':
@@ -36,17 +58,23 @@ export const ui: UiTranslations = {
   'createListing.error.price': 'வெளியிடுவதற்கு முன் தினசரி விலையைச் சேர்க்கவும்.',
   'createListing.error.title': 'வெளியிடுவதற்கு முன் ஒரு தலைப்பைச் சேர்க்கவும்.',
   'createListing.heading': 'உங்கள் கதவைத் திறக்கவும்',
+  'createListing.listingImageAlt': 'பட்டியல் {{number}}',
   'createListing.maxGuests': 'மேக்ஸ் விருந்தினர்கள்',
   'createListing.photos.heading':
     'பயணிகளை ஸ்க்ரோல் செய்வதை நிறுத்த வைக்கும் புகைப்படங்களைச் சேர்க்கவும்.',
+  'createListing.photos.subheading':
+    'குறைந்தது 3 புகைப்படங்களை பதிவேற்றும் ஹோஸ்ட்கள் சராசரியாக 2.3× அதிகம் சம்பாதிக்கிறார்கள்.',
   'createListing.place.heading': 'அது என்ன மாதிரியான இடம்?',
+  'createListing.price': 'ஒரு இரவுக்கான விலை',
   'createListing.publish': 'பட்டியலை வெளியிடு',
   'createListing.removePhoto': 'புகைப்படத்தை அகற்று',
   'createListing.step.${s.key}.eyebrow': 'மீன் {{n}}',
   'createListing.subheading':
     'உங்கள் பட்டியலை நேரலையில் கொண்டுவர சில கேள்விகள். ஒவ்வொரு கட்டத்திலும் உங்கள் முன்னேற்றத்தை நாங்கள் பதிவு செய்வோம்.',
+  'createListing.title': 'பட்டியல் தலைப்பு',
   'createListing.titlePlaceholder': 'சூரிய ஒளி படும் குன்றின் ஓரத்தில் உள்ள குடில்',
   'createListing.uploadCta': 'புகைப்படத்தைச் சேர்க்கவும் {{n}}',
+  'createListing.useSample': 'மாதிரி புகைப்படத்தைப் பயன்படுத்தவும்',
   'destinationDiscoveryCard.exploreCta': 'தங்குமிடங்களை ஆராயுங்கள்',
   'forgotPassword.eyebrow': 'மீட்டமை',
   'forgotPassword.subheading':
@@ -62,6 +90,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelYtd': 'ஆண்டு முதல் தேதி வரை',
   'hostDashboard.loadError':
     'உங்கள் ஹோஸ்டிங் தரவை ஏற்ற முடியவில்லை. தயவுசெய்து மீண்டும் முயற்சிக்கவும்.',
+  'hostDashboard.queueArrivals': 'அடுத்த வாரம் {{count}} வருகைகள்',
+  'hostDashboard.queueListings': '{{count}} செயலில் உள்ள பட்டியல்கள்',
   'hostDashboard.queueRequests': '{{count}} முன்பதிவு கோரிக்கைகள்',
   'hostDashboard.queueReview': 'மதிப்பாய்வு வரிசை',
   'hostDashboard.queueTitle': 'உங்கள் வரிசை',
@@ -84,11 +114,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': 'பட்டியல் காணப்படவில்லை.',
   'hostListingDetail.photos.empty': 'இன்னும் புகைப்படங்கள் எதுவும் பதிவேற்றப்படவில்லை.',
   'hostListingDetail.photos.heading': 'புகைப்படங்கள்',
+  'hostListingDetail.pricing.cleaning': 'துப்புரவுக் கட்டணம்',
   'hostListingDetail.pricing.save': 'விலை சேமிப்பு',
   'hostListingDetail.pricing.weekday': 'வாரநாள் கட்டணம்',
   'hostListingDetail.pricing.weekend': 'வார இறுதி கட்டணம் (காட்சிக்கு மட்டும்)',
   'hostListingDetail.rules.copy':
     'விருந்தினர்களின் எதிர்பார்ப்புகளை நிர்ணயித்து, உங்கள் இல்லத்தைப் பாதுகாக்கவும் — முன்பதிவு உறுதிப்படுத்தப்படுவதற்கு முன்பே இவை தெரிவிக்கப்படுகின்றன.',
+  'hostListingDetail.rules.heading': 'வீட்டு விதிகள்',
   'hostListings.create': 'புதிய பட்டியலை உருவாக்கு',
   'hostListings.eyebrow': 'உங்கள் போர்ட்ஃபோலியோ',
   'hostListings.heading': 'பட்டியல்கள்',
@@ -99,8 +131,11 @@ export const ui: UiTranslations = {
   'landing.cta.heading':
     'உங்கள் கதவைத் திறங்கள். உங்கள் வீட்டின் மதிப்புக்கு ஏற்ற வருமானத்தைப் பெறுங்கள்.',
   'landing.cta.host': 'ஹோஸ்ட்டைத் தொடங்கு',
+  'landing.cta.subheading':
+    'பணம் செலுத்துதல், வரிகள் மற்றும் பயணி சரிபார்ப்பு ஆகியவற்றை {{appName}} கவனித்துக்கொள்கிறது, இதனால் நீங்கள் ஹோஸ்டிங்கில் கவனம் செலுத்த முடியும். பெரும்பாலான புதிய ஹோஸ்ட்கள் 30 நாட்களுக்குள் தங்கள் முதல் $1,000ஐ சம்பாதிக்கிறார்கள்.',
   'landing.destinations.eyebrow': 'அடுத்து எங்கே',
   'landing.destinations.heading': 'எங்கள் விருந்தோம்பிகள் விரும்பும் இடங்கள்',
+  'landing.destinations.seeAll': 'அனைத்து இடங்களையும் காண்க',
   'landing.footer.host': 'ஒரு தொகுப்பாளராக ஆகுங்கள்',
   'landing.footer.search': 'தங்குமிடத்தைக் கண்டுபிடி',
   'landing.footer.tagline': 'நீங்கள் இந்த இடத்திற்கு உரியவர் போலவே இருங்கள்.',
@@ -109,8 +144,11 @@ export const ui: UiTranslations = {
   'landing.nav.host': 'ஒரு தொகுப்பாளராக ஆகுங்கள்',
   'landing.nav.join': 'ரூஸ்டில் சேரவும்',
   'landing.nav.search': 'தங்குமிடத்தைக் கண்டுபிடி',
+  'landing.preview.browseAll': 'முழுத் தொகுப்பையும் உலாவுங்கள்',
   'landing.preview.eyebrow': 'உள்ளே ஒரு பார்வை',
   'landing.preview.heading': 'இந்த மாதம் கவனமாகத் தேர்ந்தெடுக்கப்பட்ட தங்குமிடங்கள்',
+  'landing.preview.subheading':
+    'ஒவ்வொரு {{appName}} பட்டியலும் ஒரு உண்மையான நபரால் ஹோஸ்ட் செய்யப்படுகிறது — சரிபார்க்கப்பட்டது, மதிப்பாய்வு செய்யப்பட்டது, மேலும் செக்-இன் செய்வதற்கு 48 மணி நேரத்திற்கு முன்பு வரை ரத்து செய்ய இலவசம்.',
   'listingDetail.about': 'இந்த இடத்தைப் பற்றி',
   'listingDetail.amenities': 'இந்த இடம் வழங்குபவை',
   'listingDetail.bathrooms': 'குளியல்',
@@ -118,7 +156,10 @@ export const ui: UiTranslations = {
   'listingDetail.beds': 'படுக்கைகள்',
   'listingDetail.bookFailed':
     'முன்பதிவு செய்ய முடியவில்லை. மீண்டும் முயற்சிக்கவும் அல்லது முதலில் உள்நுழையவும்.',
+  'listingDetail.cleaningFee': 'துப்புரவுக் கட்டணம்',
+  'listingDetail.guests': 'விருந்தினர்கள்',
   'listingDetail.hostedBy': 'தொகுத்து வழங்குபவர் {{host}}',
+  'listingDetail.hostMeta': '{{years}} ஆண்டுகள் ஹோஸ்டிங் · {{response}}% பதில் விகிதம்',
   'listingDetail.houseRules': 'வீட்டு விதிகள்',
   'listingDetail.instantBook': 'இப்போதே முன்பதிவு செய்யுங்கள் · உடனடி முன்பதிவு',
   'listingDetail.loadError': 'பட்டியலை ஏற்ற முடியவில்லை.',
@@ -127,6 +168,8 @@ export const ui: UiTranslations = {
   'listingDetail.notFound': 'எங்களால் அந்தப் பட்டியலைக் கண்டுபிடிக்க முடியவில்லை.',
   'listingDetail.perNight': 'ஒரு இரவுக்கு',
   'listingDetail.pickDates': 'முதலில் தங்கும் மற்றும் வெளியேறும் தேதிகளைத் தேர்ந்தெடுக்கவும்.',
+  'listingDetail.priceRow': '{{price}} × {{nights}} இரவுகள்',
+  'listingDetail.requestBook': 'முன்பதிவு செய்ய கோரிக்கை',
   'listingDetail.reserving': 'முன்பதிவு செய்தல்…',
   'listingDetail.reviews': 'மதிப்புரைகள்',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}}',
@@ -134,6 +177,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'சூப்பர்ஹோஸ்ட்',
   'login.eyebrow': 'வீட்டிற்கு நல்வரவு',
   'login.heading': 'ரூஸ்டில் உள்நுழையவும்',
+  'login.noAccount': 'டெஸ்ஸெராவுக்குப் புதியவரா?',
   'login.signupLink': 'இலவச கணக்கை உருவாக்கவும்',
   'login.subheading':
     'நீங்கள் விட்ட இடத்திலிருந்து தொடருங்கள் — பயணங்களை நிர்வகியுங்கள், விருந்தோம்பிகளுக்குச் செய்தி அனுப்புங்கள், மற்றும் நீங்கள் கனவு கண்டுகொண்டிருந்த தங்குமிடங்களை முன்பதிவு செய்யுங்கள்.',
@@ -158,6 +202,7 @@ export const ui: UiTranslations = {
   'notFound.heading': 'அந்த தங்குமிடத்தை நம்மால் கண்டுபிடிக்க முடியவில்லை',
   'notifications.loading': 'ஏற்றப்படுகிறது…',
   'notifications.subheading': '{{count}} படிக்காதவை · அனைத்தும் ஒரே அமைதியான இன்பாக்ஸில்',
+  'pricing.ctaContact': 'விற்பனையைத் தொடர்பு கொள்ளவும்',
   'pricing.ctaUpgrade': 'விற்பனையைத் தொடர்பு கொள்ளவும்',
   'pricing.eyebrow': 'எளிய, வெளிப்படையான',
   'pricing.heading': 'உங்கள் பயண வழக்கத்திற்குப் பொருந்தும் ஒரு திட்டம்',
@@ -194,8 +239,12 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'நினைவில் நிற்கும் ஒன்றைத் தேர்ந்தெடுங்கள். நீங்கள் சேமித்தவுடன் நாங்கள் உங்களைப் பதிவு செய்வோம்.',
   'roostAuthShell.brand.eyebrow': 'நீங்கள் இந்த இடத்திற்கு உரியவர் போலவே இருங்கள்.',
+  'roostAuthShell.brand.heading':
+    'கேபின்கள், குடிசைகள், ரியாட்கள் — அங்கேயே வாழும் ஹோஸ்ட்களால் உங்களிடம் ஒப்படைக்கப்படுகின்றன.',
   'roostHeroSearchCard.checkInAria': 'செக்-இன் தேதி',
   'roostHeroSearchCard.checkOutAria': 'வெளியேறும் தேதி',
+  'roostHeroSearchCard.destAria': 'இலக்கு',
+  'roostHeroSearchCard.destLabel': 'எங்கே',
   'roostHeroSearchCard.destPlaceholder': 'நகரம், பிராந்தியம் அல்லது சொத்து',
   'roostHeroSearchCard.eyebrow':
     'கவனமாகத் தேர்ந்தெடுக்கப்பட்ட தங்குமிடங்கள் · சரிபார்க்கப்பட்ட விருந்தோம்பிகள்',
@@ -208,6 +257,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'roostListingCard.bookmarkAria': 'பட்டியலை வழங்கவும்',
   'roostListingCard.night': 'இரவு',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'உங்கள் தேடலுக்குப் பொருத்தமான பட்டியல்கள் எதுவும் இல்லை.',
   'search.emptyHint':
     'உங்கள் வடிகட்டிகளை விரிவுபடுத்தவோ அல்லது விலை உச்சவரம்பை அகற்றவோ முயற்சி செய்யுங்கள் — ரூஸ்ட் 26 நாடுகளில் தங்கியுள்ளது.',
@@ -215,8 +265,14 @@ export const ui: UiTranslations = {
   'search.heading': 'வீடு போன்ற உணர்வைத் தரும் ஓர் இடம்',
   'search.headingForQuery': '"க்கான தங்குமிடங்கள் {{q}} "',
   'search.loadError': 'பட்டியல்களை ஏற்ற முடியவில்லை.',
+  'search.mapHint':
+    'வரைபடத்தில் சிறப்பிக்க ஒரு அட்டையின் மேல் கர்சரை வைக்கவும். தயாரிப்பில் நேரடி Mapbox ஓடுகள்.',
+  'search.mapPinAria': '{{name}} — {{price}} ஒரு இரவுக்கு',
   'search.sortLabel': 'வரிசைப்படுத்து',
+  'search.subheading': '{{count}} பட்டியல்கள் · {{guests}} விருந்தினர்கள்',
+  'settings.appearance.description': 'ஒளி மற்றும் இருண்ட பயன்முறைகளுக்கு இடையே மாறவும்.',
   'settings.appearance.title': 'தோற்றம்',
+  'settings.openBilling': 'திறந்த பில்லிங்',
   'settings.payments.heading': 'பணம் செலுத்தும் முறைகள்',
   'settings.paymentsHelp':
     'ஒரு ஹோஸ்ட் உங்கள் முன்பதிவை உறுதிசெய்த உடனேயே ரூஸ்ட் உங்கள் அட்டையில் கட்டணம் வசூலிக்கிறது. சேமிக்கப்பட்ட அட்டைகளை விலை நிர்ணயப் பக்கத்தில் நிர்வகிக்கவும்.',

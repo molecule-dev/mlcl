@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Có thắc mắc về một ấn bản, một lô hàng hay gói đăng ký của bạn? Hãy liên hệ với một người thật trong đội ngũ qua hello@crate.example — chúng tôi đọc mọi tin nhắn.',
+  'about.contactTitle': 'Trò chuyện với người tuyển chọn',
+  'about.feature1':
+    'Các ấn bản tuyển chọn hằng tháng do những nhà sáng tạo độc lập tự tay chọn lựa, kèm câu chuyện đằng sau mỗi món.',
+  'about.feature2':
+    'Toàn quyền kiểm soát mọi hộp quà — tùy chỉnh nội dung, đổi hoặc loại bỏ món, bỏ qua một tháng, hoặc thay đổi tần suất.',
+  'about.feature3':
+    'Theo dõi vận chuyển từ đầu đến cuối, từ lúc lấy hàng đến tận cửa, với bao bì không nhựa và cập nhật trực tiếp từ đơn vị vận chuyển.',
+  'about.feature4':
+    'Các gói linh hoạt và thanh toán minh bạch — nâng cấp, hạ cấp, tạm dừng hoặc hủy bất cứ lúc nào từ bảng điều khiển của bạn.',
+  'about.intro':
+    '{{app}} là dịch vụ hộp đăng ký tuyển chọn, giao đến tận cửa nhà bạn mỗi tháng một hộp quà nhỏ được chọn lựa kỹ càng. Mỗi ấn bản đều do những nhà sáng tạo đang làm nghề — nghệ sĩ độc lập, đầu bếp và thương hiệu nhỏ — lắp ghép, chứ không phải thuật toán.',
+  'about.missionBody':
+    'Chúng tôi tin rằng một gói đăng ký phải mang cảm giác như một món quà, không phải một cái bẫy. {{app}} được xây dựng để bạn ở lại vì bạn yêu thích những gì mình nhận được — tạm dừng bất cứ lúc nào, đổi thứ bạn muốn và hủy chỉ với một cú nhấp. Không bao giờ có kịch bản giữ chân khách.',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
   'about.pageTitle': 'Giới thiệu {{app}}',
   'appNav.mobileLabel': 'Điều hướng chính',
   'appNav.primaryLabel': 'Điều hướng chính',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Chỉnh sửa liên hệ thanh toán',
   'billing.contact.eyebrow': 'Liên hệ thanh toán',
   'billing.eyebrow': 'Gói & thanh toán',
+  'billing.loading': 'Đang tải thanh toán…',
   'billing.payment.body':
     'Thanh toán được xử lý bởi Stripe Checkout — số thẻ đầy đủ của quý vị không bao giờ chạm đến máy chủ của chúng tôi. Nhấp vào bất kỳ gói nào bên dưới để thêm hoặc cập nhật thẻ của quý vị.',
   'billing.payment.linked': 'Thẻ đã lưu qua Stripe',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Tiếp tục đăng ký',
   'billing.plan.eyebrow': 'Gói đang hoạt động',
   'billing.plan.next': 'Tự động gia hạn vào ngày {{date}}.',
+  'billing.plan.status': 'Trạng thái: {{status}}',
   'billing.subtitle':
     'Quản lý gói, phương thức thanh toán và xem lại hoạt động trước đây của quý vị.',
   'billing.tiers.body': 'Chọn một gói và chúng tôi sẽ chuyển quý vị đến Stripe Checkout.',
   'billing.tiers.choose': 'Chọn',
+  'billing.tiers.empty': 'Chưa cấu hình gói nào.',
   'billing.tiers.heading': 'Các gói có sẵn',
   'boxDetail.backToBoxes': 'Trở lại tất cả phiên bản',
   'boxDetail.crumb.boxes': 'Phiên bản',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Vật phẩm tuyển chọn',
   'boxDetail.items.heading': '{{count}} vật phẩm tuyển chọn',
   'boxDetail.itemsBadge': '{{count}} vật phẩm tuyển chọn mỗi hộp',
+  'boxDetail.loading': 'Đang tải ấn bản…',
   'boxDetail.notFound': 'Phiên bản đó không còn nữa.',
   'boxDetail.subscribe.success': 'Đã đăng ký — phiên bản đầu tiên của quý vị đang xếp hàng.',
   'boxDetail.swapBadge': 'Đổi tối đa {{count}} vật phẩm mỗi hộp',
@@ -44,14 +64,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Chưa có gì khớp.',
   'boxes.eyebrow': 'Kho lưu trữ Crate',
   'boxes.heading': 'Xem mọi phiên bản',
+  'boxes.loadError': 'Chúng tôi không thể tải các ấn bản. Kiểm tra kết nối của bạn và thử lại.',
   'boxes.loading': 'Đang tải các phiên bản…',
+  'boxes.search.label': 'Tìm kiếm ấn bản',
   'boxes.search.placeholder': 'Tìm phiên bản…',
   'boxes.subtitle':
     'Mỗi gói là một câu chuyện theo lô nhỏ. Thêm một gói vào hàng đợi hoặc đổi vào tháng tới.',
+  'boxThemeCard.itemCount': '{{count}} mục',
   'boxThemeCard.perMonth': '/ tháng',
+  'boxThemeCard.retailValue': 'Giá trị bán lẻ {{value}}',
   'common.goToDashboard': 'Đến trang tổng quan',
+  'common.retry': 'Thử lại',
   'customize.eyebrow': 'Biến nó thành của quý vị',
   'customize.heading': 'Tùy chỉnh Crate tiếp theo của quý vị',
+  'customize.items.empty': 'Chưa cấu hình món nào cho gói này.',
   'customize.items.exclude': 'Bỏ qua món này',
   'customize.items.eyebrow': 'Cá nhân hóa hộp này',
   'customize.items.heading': 'Vật phẩm trong {{box}}',
@@ -60,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Thêm lại',
   'customize.items.save': 'Lưu tùy chỉnh',
   'customize.items.swapsLeft': 'Đã dùng {{used}} trong {{max}} lượt đổi',
+  'customize.loading': 'Đang tải tùy chỉnh…',
   'customize.noSub.body':
     'Hãy đăng ký một gói trước, rồi quay lại để đổi các vật phẩm trong hộp của quý vị.',
+  'customize.noSub.cta': 'Xem các ấn bản',
   'customize.noSub.heading': 'Không có đăng ký hoạt động',
   'customize.saved': 'Đã lưu tùy chỉnh.',
   'customize.subtitle':
@@ -75,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Theo dõi vận chuyển',
   'dashboard.eyebrow': 'Crate của quý vị',
   'dashboard.greeting': 'Chào mừng trở lại, {{name}}.',
+  'dashboard.loadError':
+    'Chúng tôi không thể tải bảng điều khiển của bạn. Kiểm tra kết nối của bạn và thử lại.',
   'dashboard.loading': 'Đang tải bảng điều khiển…',
   'dashboard.next.eyebrow': 'Phiên bản tiếp theo của quý vị',
   'dashboard.onboarding.body':
     'Quý vị chưa có đăng ký hoạt động. Hãy chọn một gói để bắt đầu nhận một Crate mỗi tháng.',
   'dashboard.onboarding.cta': 'Xem tất cả phiên bản',
+  'dashboard.onboarding.empty': 'Hiện không có gói nào. Vui lòng quay lại sau.',
   'dashboard.onboarding.heading': 'Chọn phiên bản đầu tiên của quý vị',
   'dashboard.renewal.amount': 'Đã tính phí',
   'dashboard.renewal.cadence': 'Tần suất',
@@ -87,18 +118,23 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Gia hạn',
   'dashboard.renewal.heading': 'Tự động gia hạn vào {{date}}',
   'dashboard.renewal.plan': 'Mã gói',
+  'dashboard.renewal.tbd': 'Sẽ lên lịch gia hạn trong thời gian tới',
   'dashboard.renewal.tier': 'Gói',
   'dashboard.stats.days': 'ngày',
   'dashboard.stats.daysToNext': 'Giao sau',
   'dashboard.stats.items': 'Vật phẩm tuyển chọn',
   'dashboard.stats.shipDate': 'Ngày vận chuyển',
   'dashboard.stats.tbd': 'Sẽ thông báo',
+  'dashboard.subtitle.active':
+    'Ấn bản tiếp theo của bạn đang trên đường đến. Đây là những gì bạn có thể mong đợi.',
+  'dashboard.subtitle.idle': 'Chọn một gói để bắt đầu nhận {{appName}} mỗi tháng.',
   'forgotPassword.subtitle': 'Hãy cho chúng tôi biết email và chúng tôi sẽ gửi liên kết đặt lại.',
   'forgotPassword.success.body':
     'Nếu như {{email}} Sau khi đăng ký thành công, bạn sẽ nhận được liên kết đặt lại mật khẩu trong vòng vài phút.',
   'forgotPassword.success.title': 'Kiểm tra hộp thư đến của quý vị.',
   'landing.editions.eyebrow': 'Mùa này',
   'landing.editions.heading': 'Các phiên bản mà người tuyển chọn của chúng tôi yêu thích',
+  'landing.editions.viewAll': 'Xem tất cả ấn bản →',
   'landing.footer.contact': 'Trò chuyện với người tuyển chọn',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Bắt đầu hộp của quý vị →',
@@ -108,6 +144,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Một cái nhìn về bảng điều khiển thành viên — đếm ngược, nội dung và theo dõi.',
   'landing.hero.social.count': 'Được hơn {{count}} người đăng ký yêu thích',
+  'landing.hero.social.rating': 'Điểm đánh giá mở hộp trung bình {{rating}}',
+  'landing.hero.subhead':
+    '{{appName}} gửi đến bạn một hộp quà nhỏ được chọn lựa kỹ càng từ các nhà sáng tạo độc lập. Tạm dừng bất cứ lúc nào. Đổi thứ bạn muốn. Giữ những gì bạn yêu thích.',
   'landing.nav.start': 'Bắt đầu hộp của quý vị',
   'landing.tiers.eyebrow': 'Chọn tần suất của quý vị',
   'landing.tiers.heading': 'Bắt đầu nhỏ, nâng cấp bất cứ lúc nào, hủy cũng dễ dàng như vậy.',
@@ -117,6 +156,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Đăng nhập để xem trước hộp của tháng tới.',
   'login.welcomeBack': 'Chào mừng trở lại, người tuyển chọn.',
   'nextBoxHeroCard.eyebrow': 'CRATE TIẾP THEO CỦA QUÝ VỊ',
+  'nextBoxHeroCard.itemCount': '{{count}} món bên trong',
   'nextBoxHeroCard.itemsLabel': 'Vật phẩm tuyển chọn',
   'nextBoxHeroCard.shipsOnLabel': 'Vận chuyển vào',
   'notFound.body':
@@ -141,8 +181,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Tạm dừng đăng ký',
   'settings.danger.paused': 'Đã tạm dừng đăng ký.',
   'settings.danger.pausing': 'Đang tạm dừng…',
+  'settings.danger.status': 'Trạng thái đăng ký: {{status}}',
   'settings.danger.subtitle':
     'Tạm dừng giữ nguyên gói và lịch sử của quý vị. Hủy sẽ dừng các lô hàng trong tương lai và xóa các phương thức thanh toán đã lưu vào cuối chu kỳ.',
+  'settings.notifications.saving': '· đang lưu…',
   'settings.notifications.subtitle':
     'Chọn loại tín hiệu nào quý vị muốn nhận từ Crate. Mặc định là hợp lý.',
   'settings.subtitle': 'Cập nhật hồ sơ, địa chỉ giao hàng và cách Crate liên lạc với quý vị.',
@@ -158,12 +200,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Chưa có lô hàng nào đang hoạt động',
   'shipments.live.eyebrow': 'Lô hàng đang hoạt động',
   'shipments.live.unnamed': 'Hộp tiếp theo của quý vị',
+  'shipments.loadError':
+    'Chúng tôi không thể tải các lô hàng của bạn. Kiểm tra kết nối của bạn và thử lại.',
+  'shipments.loading': 'Đang tải lô giao…',
+  'shipments.step.delivered': 'Đã giao hàng',
   'shipments.step.deliveredBody': 'Gắn thẻ #crateunbox để chia sẻ những gì quý vị khám phá.',
   'shipments.step.ordered': 'Đã đặt hàng',
   'shipments.step.orderedBody':
     'Đăng ký của quý vị đã đưa phiên bản này vào hàng đợi cho chu kỳ vận chuyển tiếp theo.',
+  'shipments.step.packed': 'Đóng gói thủ công',
   'shipments.step.packedBody':
     'Mỗi vật phẩm được gói cẩn thận và đặt vào hộp cùng với một mảnh ghi chú viết tay.',
+  'shipments.step.transit': 'Đang trên đường đến',
   'shipments.step.transitNot': 'Theo dõi sẽ xuất hiện ở đây khi hộp của quý vị đang trên đường.',
   'shipments.subtitle':
     'Theo dõi hộp trên đường đến với quý vị, sau đó xem lại từng phiên bản quý vị đã mở trước đây.',

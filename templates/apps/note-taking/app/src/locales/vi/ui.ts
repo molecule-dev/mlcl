@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Có phản hồi, phát hiện lỗi hay muốn đề xuất tính năng? Hãy liên hệ từ phần cài đặt tài khoản — mọi tin nhắn đều đến tay một người thật trong đội ngũ.',
+  'about.contactTitle': 'Liên hệ với chúng tôi',
+  'about.featureDatabases':
+    'Cơ sở dữ liệu nhẹ và mẫu tái sử dụng để biến ghi chú rời rạc thành quy trình có cấu trúc, lặp lại được.',
+  'about.featureEditor':
+    'Trình soạn thảo khối tĩnh lặng — tiêu đề, danh sách, mã, hộp chú thích và việc cần làm — với lệnh gạch chéo khi bạn cần và ẩn đi khi bạn không.',
+  'about.featureGraph':
+    'Liên kết ngược và đồ thị tri thức: gõ [[ để liên kết một ghi chú và xem ý tưởng của bạn kết nối theo thời gian.',
+  'about.featureNotebooks':
+    'Sổ tay và trang lồng nhau để dự án, chủ đề và ghi chú hằng ngày luôn ngăn nắp đúng theo cách bạn nghĩ.',
+  'about.featureSearch':
+    'Tìm kiếm toàn văn dưới 50ms trên mọi sổ tay, cùng thẻ kết hợp với sổ tay thay vì chống lại chúng.',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
   'common.goToDashboard': 'Đến trang tổng quan',
   'forgot.eyebrow': 'Lạc đường quay lại?',
   'forgot.formSubtitle': 'Xin cho biết email đã đăng ký.',
+  'forgot.formTitle': 'Quên mật khẩu',
   'forgot.headline': 'Đặt lại mật khẩu của quý vị.',
   'forgot.subline':
     'Chúng tôi sẽ gửi một đường dẫn dùng một lần đến hộp thư của bạn để bạn có thể chọn một cái mới.',
+  'forgot.successDetail':
+    'Chúng tôi đã gửi liên kết đặt lại đến email của bạn. Liên kết hết hạn sau 30 phút.',
   'graph.eyebrow': 'Đồ thị',
+  'graph.goToNotes': 'Duyệt ghi chú →',
+  'graph.loadError': 'Không thể tải đồ thị: {{message}}',
   'graph.placeholderBody':
     'Khi các ghi chú bắt đầu liên kết với nhau (với cú pháp [[wiki]]), một đồ thị lực tương tác sẽ được hiển thị ở đây.',
+  'graph.placeholderTitle': 'Đồ thị liên kết ngược sắp ra mắt',
   'graph.subtitle':
     '{{count}} Ghi chú trong không gian làm việc này. Biểu đồ liên kết ngược sẽ hiển thị ở đây khi các ghi chú liên kết với nhau.',
   'graph.title': 'Đồ thị kiến thức',
   'home.empty': 'Chưa có ghi chú nào — hãy bắt đầu ghi chú đầu tiên của bạn.',
   'home.favoritesHeading': 'Đã ghim',
   'home.guest': 'bạn bè',
+  'home.loadError': 'Không thể tải ghi chú của bạn: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Ghim ghi chú trong trình soạn thảo để giữ nó ở đây.',
   'home.recentHeading': 'Cập nhật gần đây',
@@ -23,18 +44,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Sổ tay',
   'home.stats.pinned.label': 'Đã ghim',
   'home.stats.updatedToday.label': 'Cập nhật hôm nay',
+  'home.subtitle': 'Tiếp tục từ chỗ bạn dừng lại, hoặc bắt đầu một ghi chú mới.',
   'home.viewAll': 'Xem tất cả ghi chú',
   'landing.cta.body':
     'Miễn phí cho mục đích sử dụng cá nhân. Phiên bản Pro dành cho nhóm. Sử dụng file Markdown hiện có hoặc bắt đầu mới — Verso luôn đồng hành cùng bạn dù bạn ở bất cứ đâu.',
+  'landing.cta.button': 'Tạo không gian làm việc của tôi',
   'landing.cta.heading': 'Mở trang hôm nay.',
   'landing.features.eyebrow': 'Mọi thứ nguyên thủy mà bộ não thứ hai của bạn cần',
+  'landing.features.heading': 'Được xây dựng cho công việc, không phải cho meta-công việc.',
   'landing.hero.eyebrow': 'Một bề mặt viết yên tĩnh',
   'landing.hero.headlineAccent': 'dần hình thành.',
   'landing.hero.headlineLeading': 'Nơi những suy nghĩ',
   'landing.hero.primaryCta': 'Hãy bắt đầu xây dựng cơ sở kiến thức của bạn.',
   'landing.hero.secondaryCta': 'Tôi đã có tài khoản',
+  'landing.hero.socialProof':
+    'Hơn 12.800 nhà văn, sinh viên và nghiên cứu sinh tiến sĩ tư duy cùng {{appName}}',
   'landing.hero.subline':
     'Verso là một công cụ ghi chú có cấu trúc dành cho người làm việc trí thức và sinh viên. Trình soạn thảo khối, sổ tay lồng nhau, liên kết ngược và biểu đồ tri thức — tất cả đều được hỗ trợ bởi trải nghiệm đọc ưu tiên kiểu chữ.',
+  'landing.preview.notebook': 'Tri thức · Quá trình viết',
+  'landing.preview.title': 'Về việc để gió lùa vào nhà',
   'login.eyebrow': 'Chào mừng bạn trở lại với Verso!',
   'login.formSubtitle': 'Dùng email của quý vị hoặc bất kỳ nhà cung cấp đã kết nối.',
   'login.headline': 'Tiếp tục đọc từ chỗ trang sách đã dừng lại.',
@@ -44,6 +72,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Đóng menu điều hướng',
   'mobileNav.openMenu': 'Mở menu điều hướng',
   'noteEditor.backToNotes': 'Quay lại ghi chú',
+  'noteEditor.bodyLabel': 'Nội dung ghi chú',
   'noteEditor.bodyPlaceholder': 'Bắt đầu viết — ghi chú của bạn sẽ tự động lưu khi bạn gõ.',
   'noteEditor.confirmTrash': 'Chuyển ghi chú này vào thùng rác?',
   'noteEditor.pinToggle': 'Bật/tắt mục yêu thích',
@@ -51,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Chuyển vào thùng rác',
   'noteEditor.updated': 'Đã cập nhật',
   'notes.defaultWorkspaceName': 'Sổ tay của tôi',
+  'notes.empty': 'Chưa có ghi chú nào ở đây — hãy bắt đầu một ghi chú để lấp đầy sổ tay.',
   'notes.eyebrow': 'Sổ tay',
   'notes.filterAll': 'Tất cả các ghi chú',
   'notes.filterPinned': 'Đã ghim',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Sổ tay mới',
   'notes.newNotebookPrompt': 'Tên sổ tay mới',
+  'notes.newNotebookRequired': 'Nhập tên sổ tay.',
   'notes.notebooksHeading': 'Sổ tay',
   'notes.subtitle':
     'Chọn một cuốn sổ tay ở bên trái, sau đó nhấn nút "Ghi chú mới" để bắt đầu một mục nhập mới.',
+  'planUpdated.body': 'Gói đăng ký của bạn hiện đã hoạt động.',
   'planUpdated.confirmation': 'Gói của quý vị đã được cập nhật',
+  'pricing.advancedFeatures': 'Tính năng nâng cao',
   'pricing.heading': 'Chọn gói ghi chú của bạn',
+  'reset.changedMind': 'Đổi ý rồi à?',
   'reset.eyebrow': 'Gần như đã trở lại',
   'reset.formSubtitle': 'Quý vị sẽ được đăng nhập ngay khi lưu xong.',
   'reset.headline': 'Chọn mật khẩu mới.',
@@ -71,7 +105,9 @@ export const ui: UiTranslations = {
     'Nhập mã chúng tôi vừa gửi qua email cho bạn và chọn một điều gì đó thật đáng nhớ.',
   'reset.submit': 'Lưu và đăng nhập',
   'reset.tokenHint': 'Dán từ hộp thư đến.',
+  'search.empty': 'Chưa có ghi chú nào khớp với truy vấn này.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Tìm kiếm Refract',
   'search.loading': 'Đang tìm…',
   'search.noRecent': 'Nhập truy vấn ở trên để bắt đầu tìm kiếm trong ghi chú của bạn.',
   'search.recentLabel': 'Tìm kiếm gần đây',
@@ -79,12 +115,19 @@ export const ui: UiTranslations = {
     'Xem toàn văn trên mọi sổ tay. Nhập từ khóa tìm kiếm; kết quả sẽ tự động cập nhật khi bạn nhập.',
   'search.title': 'Hãy tìm kiếm bộ não thứ hai.',
   'settings.account.logout': 'Đăng xuất',
+  'settings.account.title': 'Chi tiết tài khoản',
+  'settings.editor.graphHover.body':
+    'Hiện thẻ xem trước nhỏ khi bạn di chuột qua một [[wikilink]] trong trình soạn thảo.',
+  'settings.editor.graphHover.label': 'Xem trước khi di chuột ở đồ thị liên kết ngược',
   'settings.editor.lineHeight.body':
     'Khoảng cách giữa các đường chỉ tay trên cơ thể là bao nhiêu? 170% là nhịp đọc mặc định.',
+  'settings.editor.lineHeight.label': 'Chiều cao dòng',
   'settings.editor.serif.body':
     'Hãy dùng phông chữ Georgia cho cột đọc. Phông chữ sans-serif được dùng cho thanh bên và thanh công cụ.',
+  'settings.editor.serif.label': 'Chữ nội dung dạng serif',
   'settings.editor.title': 'Kiểu chữ & bề mặt viết',
   'settings.eyebrow': 'Verso · Cài đặt',
+  'settings.passwordModal.current': 'Mật khẩu hiện tại',
   'settings.passwordModal.error':
     'Không thể thay đổi mật khẩu — vui lòng kiểm tra mật khẩu hiện tại của bạn.',
   'settings.passwordModal.next': 'Mật khẩu mới',
@@ -94,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Truyền tải mọi thao tác gõ phím qua kênh thời gian thực. Tắt tính năng này nếu kết nối mạng chậm.',
   'settings.sync.auto.label': 'Đồng bộ hóa thời gian thực',
+  'settings.sync.title': 'Cách ghi chú của bạn đồng hành',
   'settings.theme.body':
     'Ánh sáng giúp cho chuyên mục xã luận luôn tươi sáng. Sắc nâu vàng làm cho trang báo thêm ấm áp vào buổi tối.',
   'settings.theme.dark': 'Tối',
@@ -113,8 +157,12 @@ export const ui: UiTranslations = {
     'Thêm hashtag vào tiêu đề ghi chú (ví dụ: "Danh sách đọc #sách") và chúng sẽ tự động xuất hiện ở đây.',
   'tags.emptyTitle': 'Chưa có thẻ nào',
   'tags.eyebrow': 'Mục lục',
+  'tags.goToNotes': 'Đi đến ghi chú →',
+  'tags.loadError': 'Không thể tải thẻ: {{message}}',
   'tags.subtitle':
     '{{tags}} các thẻ trên {{notes}} Ghi chú. Thêm #hashtag vào tiêu đề ghi chú và chúng sẽ xuất hiện ở đây.',
+  'versoAuthShell.sample.body':
+    'Bản chỉnh sửa ngày mai luôn đọc dễ chịu hơn bản nháp tối nay. Hãy tạm cất bản thô vào thư mục làm việc sâu…',
   'versoAuthShell.sample.label': 'Ghi chú hàng ngày',
   'versoAuthShell.sample.timestamp': 'Hôm nay · 9:14 sáng',
   'versoAuthShell.sample.title': 'Về việc để gió lùa vào nhà',
@@ -126,8 +174,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Tiếp tục viết',
   'versoTodayHero.createCta': 'Bắt đầu ghi chú hôm nay',
   'versoTodayHero.dailyLabel': 'Ghi chú hàng ngày',
+  'versoTodayHero.emptyHeadline': 'Hôm nay là một trang giấy trắng.',
   'versoTodayHero.emptySubline':
     'Ghi lại một ý tưởng, tóm tắt cuộc họp, hoặc phác thảo kế hoạch ngày mai. Verso giữ cấu trúc đơn giản để chữ viết nổi bật hơn.',
+  'versoTodayHero.outlineLabel': 'Dàn ý hôm nay',
   'versoTodayHero.streak': 'Chuỗi {{count}} ngày',
+  'versoTodayHero.unwritten': 'Chưa có từ nào — mở ghi chú để bắt đầu.',
   'versoTodayHero.wordCount': '{{count}} những từ ngữ ngày nay',
 }

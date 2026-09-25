@@ -99,6 +99,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'तुमची योजना अपडेट केली गेली आहे.',
   'planUpdated.returnHome': 'मुख्यपृष्ठावर परत जा',
   'planUpdated.thankYou': 'धन्यवाद!',
+  'post.markdown': 'ही पोस्ट markdown म्हणून पहा',
+  'post.readingTime': '{{minutes}} मिनिट वाचन',
   'post.tags': 'टॅग',
   'project.error.nameAndTypeRequired': 'name आणि projectType आवश्यक आहेत',
   'project.error.notFound': 'सापडले नाही',

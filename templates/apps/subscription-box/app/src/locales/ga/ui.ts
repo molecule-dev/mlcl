@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ceisteanna faoi eagrán, faoi sheoladh, nó faoi do shíntiús? Labhair le duine fíor ar an bhfoireann ag hello@crate.example — léimid gach teachtaireacht.',
+  'about.contactTitle': 'Labhair le coimeádaí',
+  'about.feature1':
+    'Eagráin mhíosúla choimeádaithe a roghnaíonn déantóirí neamhspleácha, le scéal gach earra.',
+  'about.feature2':
+    'Smacht iomlán ar gach bosca — saincheap an t-ábhar, malartaigh nó fág amach earraí, scipeáil mí, nó athraigh do mhinicíocht.',
+  'about.feature3':
+    'Rianú seolta ó thús go deireadh ón mbailiú go dtí an doras, le pacáistiú saor ó phlaisteach agus nuashonruithe beo ón iompróir.',
+  'about.feature4':
+    'Pleananna solúbtha agus billeáil thrédhearcach — uasghrádaigh, íosghrádaigh, cuir ar sos, nó cealaigh ó do dheaischlár am ar bith.',
+  'about.intro':
+    'Is seirbhís síntiúis bhosca choimeádaithe é {{app}} a sheolann bosca beag áthais, roghnaithe de láimh, chuig do dhoras gach mí. Is déantóirí atá ag obair — ealaíontóirí neamhspleácha, cócairí agus brandaí beaga — a chuirtear gach eagrán le chéile, ní halgartam.',
+  'about.missionBody':
+    'Creidimid gur cheart go mbraithfeadh síntiús mar bhronntanas, ní mar ghaiste. Tógadh {{app}} ionas go bhfanfaidh tú mar gheall go bhfuil grá agat don rud a thagann — cuir ar sos am ar bith, malartaigh an rud is mian leat, agus cealaigh le cliceáil amháin. Gan aon scripteanna coinneála, riamh.',
+  'about.missionTitle': 'Ár misean',
   'about.pageTitle': 'Faoi {{app}}',
   'appNav.mobileLabel': 'Príomh-loingseoireacht',
   'appNav.primaryLabel': 'Príomh-loingseoireacht',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Cuir teagmháil billeála in eagar',
   'billing.contact.eyebrow': 'Teagmhálaí billeála',
   'billing.eyebrow': 'Plean & íocaíochtaí',
+  'billing.loading': 'Billeáil á lódáil…',
   'billing.payment.body':
     'Déantar an íocaíocht a láimhseáil le Stripe Checkout — ní bhaineann d’uimhir chárta iomlán lenár bhfreastalaithe choíche. Cliceáil ar aon leibhéal thíos chun do chárta a chur leis nó a nuashonrú.',
   'billing.payment.linked': 'Cárta ar chomhad trí Stripe',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Lean ar aghaidh leis an síntiús',
   'billing.plan.eyebrow': 'Plean gníomhach',
   'billing.plan.next': 'Athnuaitear go huathoibríoch ar {{date}} .',
+  'billing.plan.status': 'Stádas: {{status}}',
   'billing.subtitle':
     'Bainistigh do leibhéal, do mhodh íocaíochta, agus déan athbhreithniú ar ghníomhaíocht san am atá thart.',
   'billing.tiers.body': 'Roghnaigh sraith agus cuirfimid chuig Stripe Checkout thú.',
   'billing.tiers.choose': 'Roghnaigh',
+  'billing.tiers.empty': 'Níl aon sraitheanna cumraithe fós.',
   'billing.tiers.heading': 'Sraitheanna atá ar fáil',
   'boxDetail.backToBoxes': 'Ar ais chuig na heagráin uile',
   'boxDetail.crumb.boxes': 'Eagráin',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Píosa coimeádta',
   'boxDetail.items.heading': '{{count}} píosaí coimeádta',
   'boxDetail.itemsBadge': '{{count}} míreanna coimeádta in aghaidh an bhosca',
+  'boxDetail.loading': 'Eagrán á lódáil…',
   'boxDetail.notFound': 'Níl an t-eagrán sin ar fáil a thuilleadh.',
   'boxDetail.subscribe.success': 'Liostáilte — tá do chéad eagrán sa scuaine.',
   'boxDetail.swapBadge': 'Malartaigh suas go dtí {{count}} mír(í) in aghaidh an bhosca',
@@ -44,14 +64,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Níl aon eagráin ag teacht le chéile.',
   'boxes.eyebrow': 'Cartlann an Crate',
   'boxes.heading': 'Brabhsáil gach eagrán',
+  'boxes.loadError':
+    'Níorbh fhéidir linn na heagráin a lódáil. Seiceáil do cheangal agus triail arís.',
   'boxes.loading': 'Ag lódáil eagráin…',
+  'boxes.search.label': 'Cuardaigh eagráin',
   'boxes.search.placeholder': 'Cuardaigh eagráin…',
   'boxes.subtitle':
     'Is scéal beag-bhaisc gach sraith. Cuir ceann le do scuaine nó malartaigh é chuig do chéad mhí eile.',
+  'boxThemeCard.itemCount': '{{count}} míreanna',
   'boxThemeCard.perMonth': '/ mí',
+  'boxThemeCard.retailValue': 'Luach miondíola {{value}}',
   'common.goToDashboard': 'Téigh chuig an Deais',
+  'common.retry': 'Déan iarracht eile',
   'customize.eyebrow': 'Déan leatsa é',
   'customize.heading': 'Saincheap do chéad Crate eile',
+  'customize.items.empty': 'Níl aon earraí cumraithe don tsraith seo fós.',
   'customize.items.exclude': 'Seachain seo',
   'customize.items.eyebrow': 'Pearsantaigh an bosca seo',
   'customize.items.heading': 'Míreanna i {{box}}',
@@ -59,8 +86,11 @@ export const ui: UiTranslations = {
     '{{count}} de {{total}} míreanna san áireamh. Déanaimid míreanna eisiata a mhalartú le roghanna coimeádaithe.',
   'customize.items.include': 'Cuir ar ais',
   'customize.items.save': 'Sábháil saincheaptha',
+  'customize.items.swapsLeft': '{{used}} as {{max}} malartú úsáidte',
+  'customize.loading': 'Saincheapadh á lódáil…',
   'customize.noSub.body':
     'Liostáil le sraith ar dtús, ansin tar ar ais chun míreanna i do bhosca a mhalartú.',
+  'customize.noSub.cta': 'Brabhsáil eagráin',
   'customize.noSub.heading': 'Gan aon síntiús gníomhach',
   'customize.saved': 'Saincheapadh sábháilte.',
   'customize.subtitle':
@@ -74,11 +104,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Rianú an loingsithe',
   'dashboard.eyebrow': 'Do Throbh',
   'dashboard.greeting': 'Fáilte ar ais, {{name}} .',
+  'dashboard.loadError':
+    'Níorbh fhéidir linn do dheaischlár a lódáil. Seiceáil do cheangal agus triail arís.',
   'dashboard.loading': 'Ag lódáil an painéal rialaithe…',
   'dashboard.next.eyebrow': 'Do chéad eagrán eile',
   'dashboard.onboarding.body':
     'Níl síntiús gníomhach agat fós. Roghnaigh sraith chun tús a chur le Crate a sheoladh gach mí.',
   'dashboard.onboarding.cta': 'Brabhsáil na heagráin uile',
+  'dashboard.onboarding.empty': 'Níl aon phleananna ar fáil faoi láthair. Seiceáil arís go luath.',
   'dashboard.onboarding.heading': 'Roghnaigh do chéad eagrán',
   'dashboard.renewal.amount': 'Gearrtha',
   'dashboard.renewal.cadence': 'Cadans',
@@ -86,12 +119,15 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Athnuachan',
   'dashboard.renewal.heading': 'Athnuachan uathoibríoch ar siúl {{date}}',
   'dashboard.renewal.plan': 'Eochair phlean',
+  'dashboard.renewal.tbd': 'Sceidealú athnuachana go luath',
   'dashboard.renewal.tier': 'Sraith',
   'dashboard.stats.days': 'laethanta',
   'dashboard.stats.daysToNext': 'Longa isteach',
   'dashboard.stats.items': 'Míreanna coimeádta',
   'dashboard.stats.shipDate': 'Dáta loingseoireachta',
   'dashboard.stats.tbd': 'Le socrú',
+  'dashboard.subtitle.active': 'Tá do chéad eagrán eile ar a bhealach. Seo a bhfuil le súil leis.',
+  'dashboard.subtitle.idle': 'Roghnaigh sraith chun {{appName}} a sheoladh gach mí.',
   'forgotPassword.subtitle':
     'Inis dúinn do sheoladh ríomhphoist agus seolfaimid nasc athshocraithe chugat.',
   'forgotPassword.success.body':
@@ -99,6 +135,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Seiceáil do bhosca isteach.',
   'landing.editions.eyebrow': 'An séasúr seo',
   'landing.editions.heading': 'Eagráin is breá lenár gcoimeádaithe',
+  'landing.editions.viewAll': 'Brabhsáil gach eagrán →',
   'landing.footer.contact': 'Labhair le coimeádaí',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Tosaigh do bhosca →',
@@ -108,6 +145,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Súil ghéar ar phainéal na mball — comhaireamh síos, ábhar, agus rianú.',
   'landing.hero.social.count': 'Grá ag {{count}} + síntiúsóirí',
+  'landing.hero.social.rating': '{{rating}} meánrátáil oscailte bosca',
+  'landing.hero.subhead':
+    'Seolann {{appName}} bosca beag áthais, roghnaithe de láimh, chugat ó dhéantóirí neamhspleácha. Cuir ar sos am ar bith. Malartaigh an rud is mian leat. Coinnigh an rud is breá leat.',
   'landing.nav.start': 'Tosaigh do bhosca',
   'landing.tiers.eyebrow': 'Roghnaigh do chadáns',
   'landing.tiers.heading': 'Tosaigh beag, uasghrádaigh am ar bith, cealaigh chomh héasca céanna.',
@@ -117,6 +157,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Sínigh isteach le súil a chaitheamh ar bhosca na míosa seo chugainn.',
   'login.welcomeBack': 'Fáilte ar ais, a choimeádaí.',
   'nextBoxHeroCard.eyebrow': 'DO CHÉAD THÓGÁN EILE',
+  'nextBoxHeroCard.itemCount': '{{count}} píosa istigh',
   'nextBoxHeroCard.itemsLabel': 'Míreanna coimeádta',
   'nextBoxHeroCard.shipsOnLabel': 'Seoltar ar',
   'notFound.body':
@@ -141,8 +182,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Cuir an síntiús ar sos',
   'settings.danger.paused': 'Síntiús curtha ar sos.',
   'settings.danger.pausing': 'Ag sos…',
+  'settings.danger.status': 'Stádas síntiúis: {{status}}',
   'settings.danger.subtitle':
     'Coinníonn sos do shraith agus do stair slán. Má chealaíonn tú, cuirtear stop le loingsithe amach anseo agus baintear do mhodhanna íocaíochta stóráilte ag deireadh an timthrialla.',
+  'settings.notifications.saving': '· á shábháil…',
   'settings.notifications.subtitle':
     'Roghnaigh na comharthaí is mian leat ó Crate. Is ciallmhar na socruithe réamhshocraithe.',
   'settings.subtitle':
@@ -159,11 +202,17 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Níl aon loingsiú gníomhach fós',
   'shipments.live.eyebrow': 'Loingsiú gníomhach',
   'shipments.live.unnamed': 'Do chéad bhosca eile',
+  'shipments.loadError':
+    'Níorbh fhéidir linn do sheoltaí a lódáil. Seiceáil do cheangal agus triail arís.',
+  'shipments.loading': 'Ag lódáil lastais…',
+  'shipments.step.delivered': 'Seachadta',
   'shipments.step.deliveredBody': 'Clibeáil #crateunbox chun a bhfuil faighte amach agat a roinnt.',
   'shipments.step.ordered': 'Ordú curtha',
   'shipments.step.orderedBody':
     'Chuir do shíntiús an t-eagrán seo sa scuaine don chéad timthriall seolta eile.',
+  'shipments.step.packed': 'Pacáilte de láimh',
   'shipments.step.packedBody': 'Gach píosa fillte agus curtha sa bhosca le nóta lámhscríofa.',
+  'shipments.step.transit': 'Ar an mbealach',
   'shipments.step.transitNot':
     'Beidh an rianú le feiceáil anseo a luaithe a bheidh do bhosca ar an mbealach.',
   'shipments.subtitle':

@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ունե՞ք կարծիք, գտե՞լ եք սխալ, թե՞ ցանկանում եք ձեր դպրոցը նույնպես միացնել։ Կապվեք ձեր հաշվի կարգավորումներից կամ գրեք ձեր դպրոցի ադմինիստրատորին — ամեն հաղորդագրություն հասնում է թիմի իրական մարդու։',
   'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'announcementsFeed.empty': 'Դեռևս հայտարարություններ չկան։',
   'announcementsFeed.eyebrow': '{{count}} թարմացումներ',
   'announcementsFeed.title': 'Վերջին հայտարարությունները',
   'assignmentDetail.alreadySubmitted': 'Դուք արդեն ներկայացրել եք այս առաջադրանքը։',
   'assignmentDetail.backLink': 'Վերադառնալ առաջադրանքներին',
+  'assignmentDetail.dropBody':
+    'Օգտագործեք «Ընտրել ֆայլեր»՝ ձեր աշխատանքը կցելու համար — հաստատելուց հետո կգրանցենք ներկայացման ժամանակը։',
   'assignmentDetail.dropButton': 'Ընտրեք ֆայլեր',
+  'assignmentDetail.dropPrompt': 'Ձեր PDF-ը կամ լուսանկարների փաթեթը գցեք այստեղ',
   'assignmentDetail.due': 'Վճարման ժամկետը {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Հրահանգներ',
@@ -19,7 +25,10 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Գնահատված',
   'assignmentDetail.statusSubmitted': 'Ուղարկված է',
   'assignmentDetail.statusTitle': 'Ներկայացման կարգավիճակը',
+  'assignmentDetail.submitError': 'Չհաջողվեց գրանցել այդ ներկայացումը։ Փորձեք կրկին մի պահից։',
   'assignmentDetail.submitted': 'Ներկայացումը գրանցված է. ձեր ուսուցիչը տեղեկացված է։',
+  'assignmentDetail.submittedAt': 'Ներկայացվել է {{when}}',
+  'assignmentDetail.submitTitle': 'Ներկայացրեք ձեր աշխատանքը',
   'assignmentRow.courseDue': '{{course}} · Վճարման ժամկետ {{due}}',
   'assignments.empty': 'Այստեղ ոչինչ չկա',
   'assignments.emptyBody':
@@ -39,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Ներկայության, բացակայության և ուշացումների ամենօրյա գրանցամատյան՝ անհրաժեշտության դեպքում նշումներով։',
+  'attendance.summary.absences': 'Բացակայություններ',
   'attendance.summary.absencesCaption': '5-օրյա միջամտության շեմից ցածր',
   'attendance.summary.attendance': 'Մասնակցություն',
   'attendance.summary.attendanceCaption': '{{count}} այսօրվա օրերը այս ժամանակահատվածում',
+  'attendance.summary.tardies': 'Ուշացումներ',
   'attendance.summary.tardiesCaption':
     'Ներառյալ ավտոբուսի / նշանակված ժամերի ուշացումների նշումները',
   'attendance.title': 'Մասնակցության պատմություն',
@@ -56,6 +67,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Գնահատականներ',
   'courseDetail.currentGrade': 'Ընթացիկ դասարան',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Դասընթացի ակնարկ',
   'courseDetail.gradesTitle': 'Վերջին գնահատականները',
   'courseDetail.messageTeacher': 'Հաղորդագրության ուսուցիչ',
   'courseDetail.noGrades': 'Գնահատականներ դեռ հրապարակված չեն։',
@@ -68,13 +80,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Դիտել բոլորը',
   'dashboard.assignmentsTitle': 'Հաջորդը այս շաբաթ',
   'dashboard.greeting': 'Բարև {{name}} , պատրա՞ստ եք դասի։',
+  'dashboard.subtitle':
+    'Ձեր շաբաթը մեկ հայացքով — դասացուցակը, գնահատականները և առաջադրանքները մեկ հանգիստ տեսքով։',
+  'dashboard.viewReportCard': 'Դիտել գնահատականների թերթիկը',
+  'dashboard.weekFocusBody':
+    'Ներկայացրեք «Քառակուսային հավասարումներ» պրակտիկայի 7-րդ հավաքածուն և գլխի թեստը։ Կրկնուսուցման լաբորատորիան բաց է երեքշաբթի և հինգշաբթի 7-րդ դասաժամից հետո։',
+  'dashboard.weekFocusCta': 'Տեսնել ամբողջական պլանը',
   'dashboard.weekFocusEyebrow': 'Շաբաթվա ուշադրության կենտրոնում',
   'dashboard.weekFocusTitle': 'Ալգեբրա II-ը բարձրացրեք 4 կետով',
   'forgotPassword.subheading':
     'Մուտքագրեք ձեր դպրոցի էլ․ հասցեն, և մենք կուղարկենք վերականգնման հղում։',
   'forgotPassword.successBody':
     'Եթե {{email}} համընկնում է Chalk հաշվի հետ, գաղտնաբառի վերականգնման հղումը ճանապարհին է։ Հղումները լրանալու են 30 րոպեից։',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} կիսամյակի միջին գնահատականը',
+  'gpaHeroCard.summary': 'Այսօր {{count}} դաս',
   'grades.col.grade': 'Դասարան',
   'grades.col.teacher': 'Ուսուցիչ',
   'grades.col.trend': 'Թրենդ',
@@ -86,10 +106,17 @@ export const ui: UiTranslations = {
     'Տառային և տոկոսային գնահատականներ։ Միտման սլաքները ցույց են տալիս՝ դուք բարձրանում եք, մակարդակ եք բարձրանում, թե՞ սահում եք։',
   'grades.title': 'Ձեր գնահատականները՝ դասընթաց առ դասընթաց',
   'grades.trendStable': 'Կայուն',
+  'grades.viewReportCard': 'Դիտել պաշտոնական գնահատականների թերթիկը',
   'landing.copyright': '© {{year}} {{app}} ։ Ստեղծված է ուսանողների, ընտանիքների համար։',
+  'landing.ctaBody':
+    'Առաջին 30 օրն անվճար է, բանկային քարտ չի պահանջվում։ Շրջանները կարող են ամբողջ դպրոցի համար նախատեսված փաթեթը ներդնել ընդամենը մեկ կեսօրում։',
+  'landing.ctaButton': 'Ստեղծեք ձեր պորտալը',
   'landing.ctaHeading': 'Ավելի հանգիստ դպրոցական օրը կսկսվի րոպեների ընթացքում',
   'landing.eyebrow': 'Միջին և ավագ դպրոցի աշակերտների համար',
   'landing.featuresHeading': 'Դպրոցական օր՝ կազմակերպված աշակերտի շուրջ',
+  'landing.heroSubtitle':
+    '{{appName}}-ը հավաքում է բոլոր դասերը, գնահատականները, առաջադրանքները և հաղորդագրությունները մեկ հանգիստ վահանակում, որպեսզի ավելի քիչ ժամանակ ծախսեք փնտրելու և ավելի շատ՝ սովորելու վրա։',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'FERPA-ի համապատասխան՝ ըստ լռելյայնի',
   'landing.proof.rating': '4.8՝ 12 հազար ընտանիքների համար',
   'landing.sampleTerm': 'Գարուն',
@@ -98,6 +125,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Թաքցնել գաղտնաբառը',
   'login.noAccount': 'Նորեկ եք Chalk-ում՞',
   'login.showPassword': 'Ցուցադրել գաղտնաբառը',
+  'messages.compose': 'Նոր հաղորդագրություն',
   'messages.composer.email': 'Ստացողի էլ. հասցեն (ըստ ցանկության)',
   'messages.composer.errorEmpty': 'Հաղորդագրությունը չի կարող դատարկ լինել։',
   'messages.composer.errorRecipient': 'Ստացողի անունը պարտադիր է։',
@@ -128,9 +156,16 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Պատվո ցուցակ · Գարնանային կիսամյակ',
   'nav.unreadMessages': 'Չկարդացված հաղորդագրություններ',
   'notifications.eyebrow': '{{count}} թարմացումներ',
+  'notifications.feedTitle': 'Վերջին ամբողջ ակտիվությունը',
   'notifications.subtitle':
     'Գնահատականներ, հիշեցումներ, հաղորդագրություններ և դպրոցական հայտարարություններ: Կարգավորումներում կարգավորեք, թե որ ալիքներն է օգտագործում յուրաքանչյուր ծանուցումը:',
+  'planUpdated.body':
+    'Ձեր վճարման փոփոխությունն այժմ ակտիվ է։ Դուք կարող եք ցանկացած պահի կառավարել ձեր պլանը վճարման էջից։',
+  'planUpdated.retry': 'Փորձեք կրկին',
+  'planUpdated.verifyFailed': 'Մենք դեռ չենք կարող հաստատել ձեր վճարումը։',
+  'planUpdated.verifyFailedBody': 'Ձեր վճարումը կարող է դեռ մշակվել։ Փորձեք կրկին մի փոքր ուշ։',
   'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
+  'pricing.announcementsLabel': 'հայտարարություններ',
   'pricing.attendanceLabel': 'ներկայություն',
   'pricing.gradesLabel': 'գնահատականներ',
   'pricing.heading': 'հայտարարություններ',
@@ -145,6 +180,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': '2-րդ եռամսյակ',
   'reportCard.crumb': 'Հաշվետվություն',
   'reportCard.cumulativeGpa': 'Կուտակային GPA',
+  'reportCard.download': 'Ներբեռնել PDF-ը',
   'reportCard.downloaded': 'Հաշվետվության քարտը բացվել է նոր ներդիրում։',
   'reportCard.downloading': 'PDF-ի ստեղծում…',
   'reportCard.empty': 'Գնահատականներ դեռ չկան։',
@@ -152,6 +188,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Վերջնական GPA · {{term}}',
   'reportCard.subtitle':
     'Կիսամյակի ավարտի պաշտոնական տեղեկանք՝ կշռված դասընթացի գնահատականներով, ներկայությամբ և տպելի PDF ներբեռնմամբ։',
+  'reportCard.title': 'Հաշվետվություն',
+  'resetPassword.newPassword': 'Նոր գաղտնաբառ',
   'resetPassword.subheading': 'Ընտրեք ինչ-որ հիշարժան, բայց դժվար կռահելի բան։',
   'resetPassword.tokenPlaceholder': 'Տեղադրեք կոդը ձեր էլ. փոստից',
   'schedule.empty': 'Դասընթացներ նախատեսված չեն։',
@@ -178,12 +216,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Սպասող առաջադրանքներ',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} բացակայություններ այս կիսամյակում · {{tardy}} ուշացումներ',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Հաշվարկվում են հաճախելիության տվյալները…',
+  'subjectStatsTriad.attendanceLabel': 'Մասնակցություն',
   'subjectStatsTriad.gradesCaption': 'Հակառակ {{percent}} միջին կշռված տոկոս',
+  'subjectStatsTriad.gradesCaptionLoading': 'Գնահատականները բեռնվում են…',
+  'subjectStatsTriad.gradesLabel': 'Դասարանի միջին',
   'todayScheduleStrip.empty': 'Այսօր դասեր չկան։',
   'todayScheduleStrip.eyebrow': '{{count}} դասեր',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Այսօրվա ժամանակացույցը',
   'topbar.guestName': 'Ուսանող',
   'topbar.searchPlaceholder': 'Որոնել դասընթացներ, առաջադրանքներ…',
+  'topbar.studentRole': 'Ուսանող',
   'topbar.studentTag': 'Ուսանող · # {{id}}',
 }

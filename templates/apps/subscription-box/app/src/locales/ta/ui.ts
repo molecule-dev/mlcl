@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ஒரு பதிப்பு, ஒரு அனுப்புதல் அல்லது உங்கள் சந்தா பற்றி கேள்விகளா? hello@crate.example இல் குழுவில் உள்ள ஒரு உண்மையான மனிதரை அணுகவும் — ஒவ்வொரு செய்தியையும் நாங்கள் படிக்கிறோம்.',
+  'about.contactTitle': 'ஒரு கண்காணிப்பாளரிடம் பேசுங்கள்',
+  'about.feature1':
+    'சுயாதீன உருவாக்குநர்களால் தேர்ந்தெடுக்கப்பட்ட மாதாந்திர தொகுப்புகள், ஒவ்வொரு பொருளின் பின்னணிக் கதையுடன்.',
+  'about.feature2':
+    'ஒவ்வொரு பெட்டியின் மீதும் முழு கட்டுப்பாடு — உள்ளடக்கங்களைத் தனிப்பயனாக்குங்கள், பொருட்களை மாற்றுங்கள் அல்லது நீக்குங்கள், ஒரு மாதம் தவிர்க்கவும், அல்லது உங்கள் அதிர்வெண்ணை மாற்றவும்.',
+  'about.feature3':
+    'எடுப்பிலிருந்து வாசல் வரை முழுமையான அனுப்புதல் கண்காணிப்பு, பிளாஸ்டிக் இல்லாத பேக்கேஜிங் மற்றும் நேரடி கேரியர் புதுப்பிப்புகளுடன்.',
+  'about.feature4':
+    'நெகிழ்வான திட்டங்கள் மற்றும் வெளிப்படையான பில்லிங் — எப்போது வேண்டுமானாலும் உங்கள் டாஷ்போர்டிலிருந்து மேம்படுத்துங்கள், தரமிறக்குங்கள், இடைநிறுத்துங்கள் அல்லது ரத்து செய்யுங்கள்.',
+  'about.intro':
+    '{{app}} என்பது ஒரு தொகுக்கப்பட்ட சந்தா-பெட்டி சேவையாகும், இது ஒவ்வொரு மாதமும் உங்கள் வாசலுக்கு கைதேர்ந்த, சிறு-தொகுதி மகிழ்ச்சிப் பெட்டியை வழங்குகிறது. ஒவ்வொரு பதிப்பும் வேலை செய்யும் உருவாக்குநர்களால் — சுயாதீன கலைஞர்கள், சமையல்காரர்கள் மற்றும் சிறு பிராண்டுகள் — ஒன்றிணைக்கப்படுகிறது, ஒரு அல்காரிதத்தால் அல்ல.',
+  'about.missionBody':
+    'ஒரு சந்தா ஒரு பரிசாக உணரப்பட வேண்டும், ஒரு பொறியாக அல்ல என்று நாங்கள் நம்புகிறோம். {{app}} வந்ததை நீங்கள் விரும்புவதால் தங்குவீர்கள் என்பதற்காகவே கட்டமைக்கப்பட்டுள்ளது — எப்போது வேண்டுமானாலும் இடைநிறுத்துங்கள், வேண்டியதை மாற்றுங்கள், ஒரு கிளிக்கில் ரத்து செய்யுங்கள். தக்கவைப்பு ஸ்கிரிப்ட்கள் இல்லை, எப்போதுமே.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': '{{app}} பற்றி',
   'appNav.mobileLabel': 'முதன்மை வழிசெலுத்தல்',
   'appNav.primaryLabel': 'முதன்மை வழிசெலுத்தல்',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'கட்டணத் தொடர்பைத் திருத்து',
   'billing.contact.eyebrow': 'பில்லிங் தொடர்பு',
   'billing.eyebrow': 'திட்டம் மற்றும் கொடுப்பனவுகள்',
+  'billing.loading': 'கட்டணம் ஏற்றப்படுகிறது…',
   'billing.payment.body':
     'கட்டணம் ஸ்ட்ரைப் செக்அவுட் மூலம் கையாளப்படுகிறது — உங்கள் முழு அட்டை எண்ணும் எங்கள் சர்வர்களுக்கு ஒருபோதும் அனுப்பப்படுவதில்லை. உங்கள் அட்டையைச் சேர்க்க அல்லது புதுப்பிக்க, கீழே உள்ள எந்தப் படிநிலையையும் கிளிக் செய்யவும்.',
   'billing.payment.linked': 'ஸ்ட்ரைப் வழியாகப் பதிவுசெய்யப்பட்ட அட்டை',
@@ -20,11 +37,13 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'சந்தாவை மீண்டும் தொடங்கு',
   'billing.plan.eyebrow': 'செயலில் உள்ள திட்டம்',
   'billing.plan.next': 'தானாகவே புதுப்பிக்கப்படும் {{date}} .',
+  'billing.plan.status': 'நிலை: {{status}}',
   'billing.subtitle':
     'உங்கள் படிநிலை, கட்டண முறை ஆகியவற்றை நிர்வகித்து, கடந்தகால செயல்பாடுகளை மதிப்பாய்வு செய்யவும்.',
   'billing.tiers.body':
     'ஒரு படிநிலையைத் தேர்ந்தெடுங்கள், நாங்கள் உங்களை ஸ்ட்ரைப் செக்அவுட்டிற்கு வழிநடத்துவோம்.',
   'billing.tiers.choose': 'தேர்வு செய்',
+  'billing.tiers.empty': 'இன்னும் அடுக்குகள் எதுவும் அமைக்கப்படவில்லை.',
   'billing.tiers.heading': 'கிடைக்கக்கூடிய நிலைகள்',
   'boxDetail.backToBoxes': 'அனைத்து பதிப்புகளுக்கும் திரும்பு',
   'boxDetail.crumb.boxes': 'பதிப்புகள்',
@@ -37,6 +56,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'கவனமாகத் தேர்ந்தெடுக்கப்பட்ட படைப்பு',
   'boxDetail.items.heading': '{{count}} தேர்ந்தெடுக்கப்பட்ட படைப்புகள்',
   'boxDetail.itemsBadge': '{{count}} ஒவ்வொரு பெட்டியிலும் தேர்ந்தெடுக்கப்பட்ட பொருட்கள்',
+  'boxDetail.loading': 'பதிப்பு ஏற்றப்படுகிறது…',
   'boxDetail.notFound': 'அந்தப் பதிப்பு இனி கிடைக்காது.',
   'boxDetail.subscribe.success':
     'சந்தா செலுத்திவிட்டீர்கள் — உங்கள் முதல் பதிப்பு வரிசையில் உள்ளது.',
@@ -46,14 +66,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'எந்தப் பதிப்புகளும் பொருந்தவில்லை.',
   'boxes.eyebrow': 'டிரோவ் காப்பகம்',
   'boxes.heading': 'ஒவ்வொரு பதிப்பையும் உலாவுக',
+  'boxes.loadError':
+    'பதிப்புகளை ஏற்ற முடியவில்லை. உங்கள் இணைப்பைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்.',
   'boxes.loading': 'பதிப்புகள் ஏற்றப்படுகின்றன…',
+  'boxes.search.label': 'பதிப்புகளைத் தேடுங்கள்',
   'boxes.search.placeholder': 'பதிப்புகளைத் தேடுங்கள்…',
   'boxes.subtitle':
     'ஒவ்வொரு படிநிலையும் ஒரு சிறிய தொகுதி கதையாகும். ஒன்றை உங்கள் வரிசையில் சேர்க்கவும் அல்லது அடுத்த மாதத்திற்கு மாற்றிக்கொள்ளவும்.',
+  'boxThemeCard.itemCount': '{{count}} பொருட்கள்',
   'boxThemeCard.perMonth': '/மாதம்',
+  'boxThemeCard.retailValue': 'சில்லறை மதிப்பு {{value}}',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'common.retry': 'மீண்டும் முயற்சி',
   'customize.eyebrow': 'இதை உங்களுடையதாக்கிக் கொள்ளுங்கள்',
   'customize.heading': 'உங்கள் அடுத்த புதையலைத் தனிப்பயனாக்குங்கள்',
+  'customize.items.empty': 'இந்த அடுக்கிற்கு இன்னும் பொருட்கள் எதுவும் அமைக்கப்படவில்லை.',
   'customize.items.exclude': 'இதைத் தவிர்க்கவும்',
   'customize.items.eyebrow': 'இந்தப் பெட்டியைத் தனிப்பயனாக்குங்கள்',
   'customize.items.heading': 'பொருட்களில் {{box}}',
@@ -62,8 +89,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'மீண்டும் சேர்க்கவும்',
   'customize.items.save': 'தனிப்பயனாக்கத்தைச் சேமிக்கவும்',
   'customize.items.swapsLeft': '{{used}} இன் {{max}} பரிமாற்றங்கள் பயன்படுத்தப்பட்டன',
+  'customize.loading': 'தனிப்பயனாக்கம் ஏற்றப்படுகிறது…',
   'customize.noSub.body':
     'முதலில் ஒரு அடுக்குக்குச் சந்தாதாரராகுங்கள், பிறகு உங்கள் பெட்டியில் உள்ள பொருட்களை மாற்றிக்கொள்ளத் திரும்பி வாருங்கள்.',
+  'customize.noSub.cta': 'பதிப்புகளை உலாவுங்கள்',
   'customize.noSub.heading': 'செயலில் உள்ள சந்தா இல்லை',
   'customize.saved': 'தனிப்பயனாக்கம் சேமிக்கப்பட்டது.',
   'customize.subtitle':
@@ -77,11 +106,15 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'சரக்கு அனுப்புதலைக் கண்காணிக்கவும்',
   'dashboard.eyebrow': 'உங்கள் புதையல்',
   'dashboard.greeting': 'மீண்டும் வருக, {{name}} .',
+  'dashboard.loadError':
+    'உங்கள் டாஷ்போர்டை ஏற்ற முடியவில்லை. உங்கள் இணைப்பைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்.',
   'dashboard.loading': 'டாஷ்போர்டு ஏற்றப்படுகிறது…',
   'dashboard.next.eyebrow': 'உங்கள் அடுத்த பதிப்பு',
   'dashboard.onboarding.body':
     "உங்களிடம் இன்னும் செயலில் உள்ள சந்தா இல்லை. ஒவ்வொரு மாதமும் ஒரு 'டிரோவ்' அனுப்பப்பட, ஒரு சந்தா நிலையைத் தேர்ந்தெடுக்கவும்.",
   'dashboard.onboarding.cta': 'அனைத்து பதிப்புகளையும் உலாவுக',
+  'dashboard.onboarding.empty':
+    'இப்போது திட்டங்கள் எதுவும் கிடைக்கவில்லை. விரைவில் மீண்டும் பாருங்கள்.',
   'dashboard.onboarding.heading': 'உங்கள் முதல் பதிப்பைத் தேர்ந்தெடுக்கவும்',
   'dashboard.renewal.amount': 'குற்றம் சாட்டப்பட்டது',
   'dashboard.renewal.cadence': 'கேடன்ஸ்',
@@ -89,12 +122,17 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'புதுப்பித்தல்',
   'dashboard.renewal.heading': 'தானாகப் புதுப்பிக்கப்படும் {{date}}',
   'dashboard.renewal.plan': 'திட்டத்தின் முக்கிய',
+  'dashboard.renewal.tbd': 'புதுப்பித்தல் விரைவில் திட்டமிடப்படும்',
   'dashboard.renewal.tier': 'அடுக்கு',
   'dashboard.stats.days': 'நாட்கள்',
   'dashboard.stats.daysToNext': 'கப்பல்களில்',
   'dashboard.stats.items': 'தேர்ந்தெடுக்கப்பட்ட பொருட்கள்',
   'dashboard.stats.shipDate': 'கப்பல் தேதி',
   'dashboard.stats.tbd': 'முடிவு செய்யப்படவில்லை',
+  'dashboard.subtitle.active':
+    'உங்கள் அடுத்த பதிப்பு வழியில் உள்ளது. என்ன எதிர்பார்க்கலாம் என்பது இங்கே.',
+  'dashboard.subtitle.idle':
+    'ஒவ்வொரு மாதமும் {{appName}} அனுப்பத் தொடங்க ஒரு அடுக்கைத் தேர்ந்தெடுக்கவும்.',
   'forgotPassword.subtitle':
     'உங்கள் மின்னஞ்சல் முகவரியைத் தெரிவிக்கவும், நாங்கள் மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.success.body':
@@ -102,6 +140,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'உங்கள் இன்பாக்ஸைச் சரிபார்க்கவும்.',
   'landing.editions.eyebrow': 'இந்த சீசனில்',
   'landing.editions.heading': 'எங்கள் தொகுப்பாளர்கள் விரும்பும் பதிப்புகள்',
+  'landing.editions.viewAll': 'எல்லா பதிப்புகளையும் உலாவுங்கள் →',
   'landing.footer.contact': 'ஒரு கண்காணிப்பாளரிடம் பேசுங்கள்',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'உங்கள் பெட்டியைத் தொடங்குங்கள் →',
@@ -111,6 +150,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'உறுப்பினர் டாஷ்போர்டின் ஒரு பார்வை — கவுண்ட்டவுன், உள்ளடக்கங்கள் மற்றும் கண்காணிப்பு.',
   'landing.hero.social.count': 'அன்புக்குரியவரால் {{count}} + சந்தாதாரர்கள்',
+  'landing.hero.social.rating': '{{rating}} சராசரி அன்பாக்ஸிங் மதிப்பீடு',
+  'landing.hero.subhead':
+    '{{appName}} சுயாதீன உருவாக்குநர்களிடமிருந்து கைதேர்ந்த, சிறு-தொகுதி மகிழ்ச்சிப் பெட்டியை உங்களுக்கு அனுப்புகிறது. எப்போது வேண்டுமானாலும் இடைநிறுத்துங்கள். வேண்டியதை மாற்றுங்கள். விரும்பியதை வைத்திருங்கள்.',
   'landing.nav.start': 'உங்கள் பெட்டியைத் தொடங்குங்கள்',
   'landing.tiers.eyebrow': 'உங்கள் தாளக்கட்டைத் தேர்ந்தெடுங்கள்',
   'landing.tiers.heading':
@@ -121,6 +163,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'அடுத்த மாதப் பெட்டியைப் பார்க்க உள்நுழையவும்.',
   'login.welcomeBack': 'மீண்டும் வருக, காப்பாளர்.',
   'nextBoxHeroCard.eyebrow': 'உங்கள் அடுத்த புதையல்',
+  'nextBoxHeroCard.itemCount': '{{count}} பொருட்கள் உள்ளே',
   'nextBoxHeroCard.itemsLabel': 'தேர்ந்தெடுக்கப்பட்ட பொருட்கள்',
   'nextBoxHeroCard.shipsOnLabel': 'கப்பல்கள் மீது',
   'notFound.body':
@@ -146,8 +189,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'சந்தாவை இடைநிறுத்து',
   'settings.danger.paused': 'சந்தா இடைநிறுத்தப்பட்டது.',
   'settings.danger.pausing': 'இடைநிறுத்தம்…',
+  'settings.danger.status': 'சந்தா நிலை: {{status}}',
   'settings.danger.subtitle':
     'இடைநிறுத்துவது உங்கள் அடுக்கு மற்றும் வரலாற்றைப் பாதுகாக்கும். ரத்துசெய்வது எதிர்கால விநியோகங்களை நிறுத்துவதோடு, சுழற்சியின் முடிவில் நீங்கள் சேமித்த கட்டண முறைகளையும் நீக்கிவிடும்.',
+  'settings.notifications.saving': '· சேமிக்கிறது…',
   'settings.notifications.subtitle':
     'டிரோவிலிருந்து உங்களுக்கு எந்த சிக்னல்கள் வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும். இயல்புநிலைகள் பொருத்தமானவை.',
   'settings.subtitle':
@@ -164,13 +209,19 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'இன்னும் எந்த சரக்கு அனுப்புதலும் செயலில் இல்லை',
   'shipments.live.eyebrow': 'செயலில் உள்ள ஏற்றுமதி',
   'shipments.live.unnamed': 'உங்கள் அடுத்த பெட்டி',
+  'shipments.loadError':
+    'உங்கள் அனுப்புதல்களை ஏற்ற முடியவில்லை. உங்கள் இணைப்பைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்.',
+  'shipments.loading': 'சரக்குகள் ஏற்றப்படுகின்றன…',
+  'shipments.step.delivered': 'வழங்கப்பட்டது',
   'shipments.step.deliveredBody':
     'நீங்கள் கண்டுபிடிப்பவற்றைப் பகிர, #crateunbox என்ற ஹேஷ்டேக்கைப் பயன்படுத்துங்கள்.',
   'shipments.step.ordered': 'ஆர்டர் செய்யப்பட்டது',
   'shipments.step.orderedBody':
     'உங்கள் சந்தா, இந்தப் பதிப்பை அடுத்த விநியோக சுழற்சிக்காக வரிசைப்படுத்தியுள்ளது.',
+  'shipments.step.packed': 'கையால் பொதியிடப்பட்டது',
   'shipments.step.packedBody':
     'ஒவ்வொரு பொருளும் கையால் எழுதப்பட்ட குறிப்புடன் பொட்டலமாக பெட்டியில் வைக்கப்பட்டது.',
+  'shipments.step.transit': 'வழியில்',
   'shipments.step.transitNot':
     'உங்கள் பெட்டி அனுப்பப்பட்டவுடன், கண்காணிப்பு விவரங்கள் இங்கே காட்டப்படும்.',
   'shipments.subtitle':

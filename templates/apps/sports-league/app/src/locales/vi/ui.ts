@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Có phản hồi, phát hiện lỗi hay muốn {{app}} cho giải đấu của bạn? Hãy liên hệ với chúng tôi từ cài đặt tài khoản — mọi tin nhắn đều đến tay một người thật trong đội ngũ.',
+  'about.contactTitle': 'Liên hệ',
   'about.eyebrow': 'Giới thiệu',
+  'about.featureAlerts':
+    'Thông báo đẩy cho cập nhật tỷ số, cảnh báo giao dịch, báo cáo chấn thương và thông báo giải đấu.',
+  'about.featureRosters':
+    'Trang đội bóng với đội hình đầy đủ, tổng số cả mùa, chuỗi nóng/lạnh và chỉ số đối đầu của từng cầu thủ.',
+  'about.featureSchedule':
+    'Lịch mùa giải và chế độ xem lịch thi đấu để bạn lên kế hoạch quanh mọi trận đấu và kết quả.',
+  'about.featureScoreboard':
+    'Thanh tỷ số chuẩn phát sóng ghim ở đầu mọi trang để bạn không bao giờ bỏ lỡ bàn thắng.',
+  'about.featureStandings':
+    'Bảng xếp hạng trực tiếp — thành tích thắng-thua-hòa theo thời gian thực, điểm số, tỷ lệ thắng và vạch playoff, cập nhật sau mỗi hồi còi.',
+  'about.intro':
+    '{{app}} là ngôi nhà chuẩn phát sóng cho giải đấu của bạn. Đội bóng, lịch thi đấu, tỷ số trực tiếp và bảng xếp hạng hội tụ trong một bảng điều khiển nhanh gọn, không rối mắt — để người hâm mộ, huấn luyện viên và ban tổ chức giải luôn biết mùa giải đang ở đâu.',
+  'about.missionBody':
+    'Theo dõi một giải đấu không nên đồng nghĩa với việc làm mới năm bảng tỷ số bên thứ ba khác nhau. Chúng tôi xây dựng nó để mang đến cho mọi giải đấu một nguồn thông tin duy nhất cho bảng xếp hạng, lịch thi đấu và những số liệu thực sự quan trọng — cập nhật sau mỗi hồi còi, miễn phí cả mùa.',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
+  'about.whatYouGet': 'Quý vị nhận được gì',
   'appShell.closeNav': 'Đóng điều hướng',
   'appShell.openNav': 'Mở điều hướng',
   'common.dashboard': 'Bảng điều khiển',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Xem tất cả các trận →',
   'dashboard.viewAllStandings': 'Bảng xếp hạng đầy đủ →',
   'dashboard.viewAllStats': 'Xem tất cả thủ lĩnh thống kê →',
+  'forgot.submitting': 'Đang gửi liên kết đặt lại…',
   'forgot.subtitle': 'Xin quý vị nhập email để nhận liên kết đặt lại.',
   'forgot.success': 'Đã gửi liên kết đặt lại đến {{email}}. Xin quý vị kiểm tra hộp thư.',
+  'landing.copyright': '© {{year}} {{app}}. Theo đuổi ngôi đầu.',
+  'landing.ctaBody':
+    'Giải đấu của bạn. Bảng xếp hạng của bạn. Đội bóng yêu thích của bạn — ghim ở trên cùng. Hai phút để thiết lập, miễn phí cả mùa.',
   'landing.ctaHeading': 'Hãy ngừng làm mới các bảng tỷ số của bên thứ ba',
   'landing.eyebrow': 'Được xây dựng cho người hâm mộ, huấn luyện viên và nhà tổ chức giải đấu',
   'landing.featuresHeading': 'Chỗ ngồi hàng đầu cho mọi bảng xếp hạng',
   'landing.getStarted': 'Tham gia giải đấu',
   'landing.heroCta': 'Tham gia giải đấu',
+  'landing.heroSubtitle':
+    '{{app}} kết nối bảng xếp hạng, lịch thi đấu và các thống kê dẫn đầu vào một bảng điều khiển chuẩn phát sóng. Tỷ số trực tiếp. Thành tích thật. Không rối mắt.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Tối nay quanh giải đấu',
   'landing.statFans': 'Người hâm mộ đang theo dõi',
   'landing.statGames': 'Trận đấu mùa giải này',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q{{period}}',
   'matchDetail.back': 'Quay lại các trận',
   'matchDetail.eventsHeading': 'Diễn biến từng pha',
+  'matchDetail.final': 'CHUNG CUỘC',
   'matchDetail.finalScore': 'Chung cuộc',
   'matchDetail.live': 'TRỰC TIẾP',
   'matchDetail.liveNow': 'Đang trực tiếp',
   'matchDetail.noEvents': 'Chưa có sự kiện nào được ghi nhận.',
   'matchDetail.periodClock': 'Q{{period}} · {{clock}}',
+  'matches.empty': 'Không có trận đấu nào trong chế độ xem này — hãy thử bộ lọc khác.',
   'matches.eyebrow': 'Ngày thi đấu',
   'matches.loading': 'Đang tải lịch…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Không tải được thông báo',
   'notifications.loading': 'Đang tải thông báo…',
   'pennantHeroCard.eyebrow': 'Đứng đầu bảng',
+  'pennantHeroCard.formLabel': '10 trận gần nhất',
   'pennantHeroCard.gamesAhead': '{{value}} trận hơn đội bám đuổi',
   'pennantHeroCard.pointsLabel': 'ĐIỂM',
   'pennantLayout.primaryNavLabel': 'Điều hướng chính',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Chọn chỗ ngồi của quý vị',
   'pricing.heading': 'Nâng cấp để có lịch thi đấu, tỷ số và bảng xếp hạng phong phú hơn.',
   'pricing.limits.schedule': '{{count}} mục lịch thi đấu',
+  'pricing.limits.scores': 'Tỷ số {{count}}',
+  'pricing.limits.standings': 'Bảng xếp hạng {{count}}',
+  'pricing.limits.teams': 'Đội bóng {{count}}',
+  'pricing.subtitle': 'Nâng cấp để có lịch thi đấu, tỷ số và bảng xếp hạng phong phú hơn.',
   'pricing.upgradeCta': 'Nâng cấp lên {{tierName}}',
   'profile.eyebrow': 'Hồ sơ người hâm mộ',
   'profile.favoritesCount': 'Đội đã theo dõi',
   'profile.favoritesHeading': 'Đội yêu thích',
   'profile.noFavorites': 'Chưa có đội yêu thích — hãy chọn đội từ trang Đội bóng.',
   'profile.rankRecord': 'Hạng #{{rank}} · {{record}}',
+  'profile.recordOnly': 'Thành tích {{record}}',
   'reset.confirmPlaceholder': 'Nhập lại mật khẩu',
+  'reset.mismatch': 'Mật khẩu không khớp.',
   'reset.newLabel': 'Mật khẩu mới',
   'reset.subtitle': 'Hãy chọn mật khẩu mạnh có ít nhất 12 ký tự.',
   'reset.tokenPlaceholder': 'Dán từ email',
   'schedule.eyebrow': 'Lịch thi đấu',
+  'schedule.moreGames': '+{{count}} nữa',
   'schedule.subtitle':
     'Xem theo lịch các trận đấu xuyên suốt mùa giải — chạm vào bất kỳ ngày nào để xem bảng tỷ số chi tiết.',
   'scoreboardTicker.empty': 'Hiện không có trận trực tiếp nào — hãy quay lại khi trận bắt đầu.',
@@ -97,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Cá nhân hóa',
   'settings.favoritesBody':
     'Các đội này sẽ được ghim trên bảng điều khiển của quý vị và kích hoạt cảnh báo tỷ số.',
+  'settings.favoritesHeading': 'Đội yêu thích',
   'settings.loading': 'Đang tải tùy chọn của quý vị…',
   'settings.noFavorites': 'Chưa có đội yêu thích — hãy chọn đội từ trang Đội bóng.',
   'settings.notificationsHeading': 'Thông báo & hiển thị',
@@ -114,6 +151,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'T',
   'standings.overall': 'Tổng thể',
   'standings.points': 'ĐIỂM',
+  'standings.rank': '#',
   'standings.subtitle':
     'Bốn đội đầu giành quyền vào hậu mùa — phân định bằng điểm, sau đó là tỷ lệ thắng.',
   'standings.title': 'Bảng xếp hạng giải đấu',
@@ -132,6 +170,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Cầu thủ',
   'teamDetail.colPos': 'VT',
+  'teamDetail.pointsLabel': 'Điểm',
   'teamDetail.rankLabel': 'Hạng #{{rank}}',
   'teamDetail.rosterHeading': 'Đội hình',
   'teamDetail.statGD': 'Hiệu số',

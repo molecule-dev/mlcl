@@ -1,9 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை ஏற்பட்டதா, அல்லது {{appName}}-ஐ உங்கள் முழு குழுவுக்கும் பயன்படுத்த விரும்புகிறீர்களா? உங்கள் கணக்கு அமைப்புகளிலிருந்து எங்களை அணுகவும் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள ஒரு உண்மையான நபரைச் சென்றடையும்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.intro':
+    '{{appName}} என்பது மற்றொரு கூட்டத்தில் அமர்வதை விட ஒரு கிளிப்பை அனுப்ப விரும்பும் குழுக்களுக்காக உருவாக்கப்பட்ட திரைப் பதிவு தளம். ஒலி, கருத்துகள் மற்றும் கேமராவுடன் உங்கள் திரையைப் பதிவு செய்து, ஒரு இணைப்பைப் பகிர்ந்து, மக்கள் எவ்வாறு ஈடுபடுகிறார்கள் என்பதைத் துல்லியமாகப் பாருங்கள் — இதனால் வடிவமைப்பு மதிப்பாய்வுகள், பிழை அறிக்கைகள் மற்றும் வழிகாட்டல்கள் எந்த நேரடி அழைப்பையும் விட அதிகமாகப் பயணிக்கும்.',
+  'about.missionBody':
+    'தொலைவில் வேலை செய்வது பகிரப்பட்ட சூழலில் இயங்குகிறது, அதில் பெரும்பாலானவை நாட்காட்டிகள் மற்றும் அழைப்புக் குறிப்புகளில் தொலைந்துவிடுகிறது. அந்தச் சூழலை எளிதாகப் பதிவு செய்யவும் எளிதாக மீண்டும் பார்க்கவும் {{appName}} உள்ளது — உங்கள் வேலையைக் காட்டவும், கருத்துகளைச் சேகரிக்கவும், அனைவரையும் ஒரே நேர மண்டலத்திற்குள் கட்டாயப்படுத்தாமல் ஒத்திசைவாக வைத்திருக்கவும் ஒரு அசிங்க்-முதன்மை வழி.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': 'பற்றி {{appName}}',
+  'about.tagline': 'தொலைவுக் குழுக்களுக்கான அசிங்க் திரைப் பதிவுகள்.',
   'analytics.empty': 'ஈடுபாட்டைக் காண உங்கள் முதல் காணொளியை இங்கே பதிவு செய்யுங்கள்.',
   'analytics.error.load': 'பகுப்பாய்வுகளை ஏற்ற முடியவில்லை.',
   'analytics.error.shape': 'பகுப்பாய்வுத் தரவு எதிர்பாராததாக இருந்தது.',
@@ -16,10 +24,12 @@ export const ui: UiTranslations = {
   'analytics.kpi.viewsToday': 'இன்றைய பார்வைகள்',
   'analytics.loading': 'பகுப்பாய்வுகள் ஏற்றப்படுகின்றன…',
   'analytics.recent.empty': 'இன்னும் பார்வையாளர்கள் இல்லை.',
+  'analytics.recent.title': 'சமீபத்திய பார்வையாளர்கள்',
   'analytics.recent.watching': 'பார்த்தார் {{title}} · {{percent}} %',
   'analytics.title': 'உங்கள் ஸ்கிரீன்காஸ்ட்கள் எப்படிப் பயணிக்கின்றன',
   'analytics.top.empty': 'இன்னும் பதிவுகள் எதுவும் இல்லை.',
   'analytics.top.title': 'சிறந்த பதிவுகள்',
+  'analytics.top.viewsAndWatch': '{{views}} பார்வைகள் · {{percent}}% சராசரி பார்வை',
   'billing.action.canceled': 'சந்தா ரத்து செய்யப்பட்டது.',
   'billing.action.canceling': 'ரத்துசெய்கிறது…',
   'billing.error.cancel': 'ரத்து செய்வதற்கு செயலில் உள்ள சந்தா எதுவும் இல்லை.',
@@ -30,7 +40,10 @@ export const ui: UiTranslations = {
   'billing.priceMissing': 'இந்தக் காலகட்டத்திற்கு ஸ்ட்ரைப் விலை ஐடி (priceId) உள்ளமைக்கப்படவில்லை.',
   'billing.pricing.title': 'கிடைக்கக்கூடிய திட்டங்கள்',
   'billing.tier.basic': 'அடிப்படை அம்சங்கள்',
+  'billing.tier.exports': 'ஏற்றுமதிகள் இயக்கப்பட்டன',
+  'billing.tier.maxRecordings': '{{count}} பதிவுகள்',
   'billing.tier.noExports': 'ஏற்றுமதிகள் இல்லை',
+  'billing.tier.retentionDays': '{{days}} நாட்கள் தக்கவைப்பு',
   'billing.tier.unlimitedRecordings': 'வரம்பற்ற பதிவுகள்',
   'billing.tier.unlimitedRetention': 'வரம்பற்ற தக்கவைப்பு',
   'billing.title': 'உங்கள் கிளின்ட் திட்டம்',
@@ -41,10 +54,19 @@ export const ui: UiTranslations = {
   'billing.usage.views': 'பார்வைகள்',
   'billing.usage.views.unit': 'பார்வைகள்',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'landing.cta.body':
+    'வரம்பற்ற 5 நிமிட கிளிப்புகளுக்கு இலவசம். உங்கள் குழு பிடித்த பிறகு மேம்படுத்தவும்.',
+  'landing.cta.button': 'இலவசமாகப் பதிவு செய்யத் தொடங்குங்கள்',
   'landing.cta.title': 'சிறந்த பின்னூட்டத்தை அனுப்புங்கள். கிளின்ட்டுடன் தொடங்குங்கள்.',
+  'landing.feature.analytics.body':
+    'யார் பார்த்தார்கள், எப்போது விட்டுச் சென்றார்கள், எங்கு மீண்டும் பார்த்தார்கள் என்பதைப் பாருங்கள்.',
+  'landing.feature.analytics.title': 'ஈடுபாட்டு பகுப்பாய்வு',
   'landing.feature.capture.body':
     'மைக், கேமரா மற்றும் வரைதல் வசதிகளுடன் உலாவி, டெஸ்க்டாப் மற்றும் மொபைலில் பதிவு செய்தல்.',
   'landing.feature.capture.title': 'ஒரே தட்டலில் பதிவு',
+  'landing.feature.comments.body':
+    'மதிப்பாய்வாளர்கள் சரியான பிரேம்களில் பொருத்தப்பட்ட தொடர் கருத்துகளை விடுகிறார்கள்.',
+  'landing.feature.comments.title': 'நேரக் குறியீட்டு கருத்துகள்',
   'landing.footer.copy':
     '© {{year}} {{appName}} . ஒத்திசைவற்றது, ஒளிரும் தன்மையுடையதாக மாற்றப்பட்டது.',
   'landing.hero.cardCaption': 'மாதிரிப் பணிச்சூழல் கண்ணோட்டம் — இலவசமாக முயற்சித்துப் பாருங்கள்.',
@@ -52,10 +74,15 @@ export const ui: UiTranslations = {
   'landing.hero.proof.free': 'நிரந்தர இலவச அடுக்கு',
   'landing.hero.proof.privacy': 'SOC 2 தயார்',
   'landing.hero.secondaryCta': '60களின் டெமோவைப் பாருங்கள்',
+  'landing.hero.subtitle':
+    '{{appName}} ஒலி, கருத்துகள் மற்றும் பார்வையாளர் பகுப்பாய்வுகளுடன் அசிங்க் திரைப் பதிவுகளைப் பதிவு செய்கிறது — இதனால் வடிவமைப்பு மதிப்பாய்வுகள், பிழை அறிக்கைகள் மற்றும் வழிகாட்டல்கள் எந்தக் கூட்டத்தையும் விட அதிகமாகப் பயணிக்கும்.',
   'landing.hero.title':
     'ஒருமுறை பதிவு செய்யுங்கள். எல்லா இடங்களிலும் பகிருங்கள். அதன் தாக்கத்தைக் காணுங்கள்.',
   'landing.nav.preview': 'முன்னோட்டம்',
   'landing.preview.title': 'உண்மையான கிளின்ட் கிளிப்புகள் செயல்படுவதைப் பாருங்கள்',
+  'library.empty.body':
+    'உங்கள் முதல் வழிகாட்டலைப் பதிவு செய்யுங்கள் — நாட்காட்டி அழைப்பு இல்லை என்பதை உங்கள் குழு விரும்பும்.',
+  'library.empty.cta': 'உங்கள் முதல் கிளிப்பைப் பதிவு செய்யவும்',
   'library.empty.filtered': 'இந்த வடிகட்டியுடன் எந்தப் பதிவுகளும் பொருந்தவில்லை.',
   'library.empty.title': 'இன்னும் பதிவுகள் இல்லை',
   'library.error.load': 'பதிவுகளை ஏற்ற முடியவில்லை.',
@@ -63,6 +90,8 @@ export const ui: UiTranslations = {
   'library.heroStat.avgWatch': 'சராசரி கடிகாரம்',
   'library.heroStat.recordings': 'பதிவுகள்',
   'library.heroStat.views': 'மொத்த பார்வைகள்',
+  'library.heroSubtitle':
+    'உங்கள் குழுவில் அசிங்க் திரைப் பதிவுகளைப் பதிவு செய்து, பகிர்ந்து, அளவிடவும்.',
   'library.heroTitle': '{{count}} பதிவுகள், பகிரத் தயாராக உள்ளன.',
   'library.search.aria': 'பதிவுகளைத் தேடு',
   'library.searchPlaceholder': 'பதிவுகளைத் தேடுங்கள்…',
@@ -77,6 +106,7 @@ export const ui: UiTranslations = {
     'புதிய கருத்துகள், பார்வைகள் மற்றும் அழைப்புகள் உடனுக்குடன் இங்கே பதிவிடப்படும்.',
   'notifications.empty.title': 'நீங்கள் அனைத்தையும் தெரிந்து கொண்டீர்கள்',
   'notifications.open': 'திறந்த',
+  'pricing.limits.advanced': 'மேம்பட்ட அம்சங்கள்',
   'profile.bio.empty':
     'உங்கள் பணியிடத்தில் உங்களை அறிமுகப்படுத்திக்கொள்ள ஒரு சுயவிவரத்தைச் சேர்க்கவும்.',
   'profile.featured.empty':
@@ -89,8 +119,14 @@ export const ui: UiTranslations = {
   'profile.stat.public': 'பொதுக் காணொளிகள்',
   'profile.stat.recordings': 'பதிவுகள்',
   'profile.stat.views': 'மொத்த பார்வைகள்',
+  'publicShare.captionsLabel': 'தலைப்புகள்',
+  'publicShare.cta.body':
+    '{{appName}}-இல் வரம்பற்ற 5 நிமிட கிளிப்புகளுக்கு இலவசம். அட்டை தேவையில்லை.',
+  'publicShare.cta.button': 'இலவசமாகப் பதிவு செய்யத் தொடங்குங்கள்',
   'publicShare.cta.title': 'இதுபோன்ற காணொளிகளை 30 வினாடிகளில் பதிவு செய்யவும்',
   'publicShare.error': 'இந்தப் பகிர்வு இணைப்பு செயல்படவில்லை.',
+  'publicShare.footer.copy':
+    '© {{year}} {{appName}} . ஒத்திசைவற்றது, ஒளிரும் தன்மையுடையதாக மாற்றப்பட்டது.',
   'publicShare.joinFree': 'Glint-ஐ இலவசமாக முயற்சிக்கவும்',
   'publicShare.loading': 'பதிவு ஏற்றப்படுகிறது…',
   'publicShare.notFound': 'பதிவு காணப்படவில்லை.',
@@ -102,6 +138,8 @@ export const ui: UiTranslations = {
   'record.camBubbleInitial': 'யோ',
   'record.eyebrow': 'கேப்சர் ஸ்டுடியோ',
   'record.field.titlePlaceholder': 'ஸ்பிரிண்ட் டெமோ: கருத்துகள் காலவரிசை',
+  'record.field.visibility': 'பார்வை',
+  'record.input.cam': 'கேமரா',
   'record.input.camDevice': 'கணினி இயல்புநிலை கேமரா',
   'record.input.mic': 'மைக்ரோஃபோன்',
   'record.input.micDevice': 'கணினியின் இயல்புநிலை மைக்ரோஃபோன்',
@@ -111,9 +149,11 @@ export const ui: UiTranslations = {
   'record.save.error': 'பதிவைச் சேமிக்க முடியவில்லை.',
   'record.source.camera': 'கேமரா மட்டும்',
   'record.source.cameraBody': 'திரை இல்லாத பேசும் தலை வீடியோ',
+  'record.source.screen': 'திரை மட்டும்',
   'record.source.screenBody': 'முழு காட்சியையும் படம்பிடிக்கவும்',
   'record.source.screenCamera': 'திரை + கேமரா',
   'record.source.screenCameraBody': 'மிதக்கும் கேமரா குமிழியுடன் முழுத்திரை',
+  'record.source.window': 'குறிப்பிட்ட சாளரம்',
   'record.source.windowBody': 'படம்பிடிக்க ஒரு சாளரத்தைத் தேர்ந்தெடுக்கவும்',
   'record.sources.title': 'ஆதாரம்',
   'record.subtitle':
@@ -131,6 +171,7 @@ export const ui: UiTranslations = {
   'recordingDetail.error': 'பதிவை ஏற்ற முடியவில்லை.',
   'recordingDetail.loading': 'பதிவு ஏற்றப்படுகிறது…',
   'recordingDetail.noComments': 'இன்னும் கருத்துகள் எதுவும் இல்லை — கீழே உரையாடலைத் தொடங்குங்கள்.',
+  'recordingDetail.noDescription': 'விவரங்கள் எதுவும் வழங்கப்படவில்லை.',
   'recordingDetail.notFound': 'பதிவு காணப்படவில்லை.',
   'recordingDetail.noVideo': 'பதிவு இன்னும் பதிவேற்றப்பட்டு வருகிறது.',
   'recordingDetail.play': 'பிளே ரெக்கார்டிங்',
@@ -154,6 +195,7 @@ export const ui: UiTranslations = {
   'shared.title': 'உங்கள் குழு உங்களுக்கு அனுப்பிய கிளிப்புகள்',
   'shareLink.copy': 'இணைப்பை நகலெடுக்கவும்',
   'shareLink.expiresAt': 'காலாவதியாகிறது {{date}}',
+  'shareLink.noExpiry': 'ஒருபோதும் காலாவதியாகாது',
   'shareLink.option.private': 'தனியார்',
   'shareLink.option.public': 'பொது',
   'shareLink.passwordOff': 'கடவுச்சொல் இல்லை',
@@ -161,10 +203,12 @@ export const ui: UiTranslations = {
   'team.empty': 'இன்னும் உறுப்பினர்கள் இல்லை — தொடங்குவதற்கு மேலே உள்ள அணி வீரர்களை அழைக்கவும்.',
   'team.error.load': 'அணியை ஏற்ற முடியவில்லை.',
   'team.eyebrow': 'பணியிட உறுப்பினர்',
+  'team.invite.error': 'அழைப்பை அனுப்ப முடியவில்லை.',
   'team.invite.placeholder': 'teammate@yourcompany.com',
   'team.invite.success': 'அனுப்பப்பட்ட அழைப்பிதழ் {{email}} .',
   'team.invite.title': 'ஒரு அணி வீரரை அழைக்கவும்',
   'team.list.count': '{{count}} மொத்தம்',
+  'team.role.admin': 'நிர்வாகி',
   'team.stat.pending': 'நிலுவையில் உள்ள அழைப்புகள்',
   'team.title': 'உங்கள் கிளின்ட் பணிச்சூழல்',
 }

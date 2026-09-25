@@ -1,8 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ သို့မဟုတ် အင်္ဂါရပ်တစ်ခု လိုချင်ပါသလား။ မက်ဆေ့ခ်ျတိုင်းကို ကျွန်ုပ်တို့ ဖတ်ပါသည် — သင့်အကောင့် ဆက်တင်များမှ အဖွဲ့ကို ဆက်သွယ်ပါ၊ လူတစ်ဦးက သင့်ကို ပြန်လည် ဆက်သွယ်ပါလိမ့်မည်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.intro':
+    '{{app}} သည် freelancer များ၊ consultant များနှင့် agency များအတွက် ဖန်တီးထားသော တိကျသည့် အချိန်ခြေရာခံစနစ် ဖြစ်သည်။ တစ်ချက်နှိပ်ရုံဖြင့် အချိန်တိုင်းစတင်ပါ၊ မိနစ်တိုင်းကို ပရောဂျက်နှင့် ဖောက်သည်တစ်ဦးစီအတွက် သတ်မှတ်ပါ၊ ဘတ်ဂျက်များ အချိန်နှင့်တပြေးညီ ကုန်ဆုံးနေသည်ကို ကြည့်ရှုပါ၊ ခြေရာခံထားသော နာရီများကို Stripe ဖြင့် ပံ့ပိုးထားသော ငွေတောင်းခံလွှာများအဖြစ် ပြောင်းလဲပါ — အားလုံးကို တစ်နေရာတည်းတွင်။',
+  'about.missionBody':
+    'လွတ်လပ်သော ပညာရှင်များသည် သူတို့လုပ်သည့် မိနစ်တိုင်းအတွက် ငွေရသင့်သည်ဟု ကျွန်ုပ်တို့ ယုံကြည်ပါသည်။ လုပ်ငန်းလုပ်ခြင်းနှင့် ငွေတောင်းခံခြင်းကြားရှိ အတားအဆီးများကို ကျွန်ုပ်တို့ ဖယ်ရှားပေးသည်၊ ထို့ကြောင့် စီမံခန့်ခွဲရေးလုပ်ငန်းများအတွက် အချိန်နည်းနည်းသာ ကုန်ဆုံးပြီး အမှန်တကယ် ဝင်ငွေရစေသော လုပ်ငန်းအတွက် အချိန်ပိုရပါလိမ့်မည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': '{{app}} အကြောင်း',
+  'about.plansBody':
+    '{{app}} သည် ပရောဂျက် ၃ ခုအထိ အခမဲ့ ဖြစ်သည်။ သင့်ဖောက်သည်စာရင်း ကြီးထွားလာသည်နှင့်အမျှ Pro သို့မဟုတ် Team သို့ အဆင့်မြှင့်ပါ — ပရောဂျက် အကန့်အသတ်မရှိ၊ အဆင့်မြင့် အစီရင်ခံစာများ၊ ပိုရှည်သော မှတ်တမ်းနှင့် CSV တင်ပို့မှုများအတွက်။',
   'about.plansTitle': 'သင်နှင့်အတူ ကြီးထွားလာမည့် အစီအစဉ်များ',
+  'about.whatYouGetTitle': 'သင်ရရှိသောအရာ',
+  'auth.legalConsent.prefix':
+    'ဆက်လက်လုပ်ဆောင်ခြင်းဖြင့် သင်သည် {{appName}}၏ စည်းကမ်းချက်များကို သဘောတူပါသည်',
   'brand.tagline': 'စက္ကန့်တိုင်း',
   'clientDetail.back': 'ဖောက်သည်များထံ ပြန်သွားပါ',
   'clientDetail.breadcrumb': 'ဖောက်သည်များ',
@@ -13,6 +26,7 @@ export const ui: UiTranslations = {
   'clientDetail.kpi.hours': 'စုစုပေါင်းနာရီ',
   'clientDetail.kpi.projects': 'တက်ကြွသော ပရောဂျက်များ',
   'clientDetail.loading': 'ကလိုင်းယင့်ကို တင်နေသည်…',
+  'clientDetail.noDueDate': 'သတ်မှတ်ရက် မသတ်မှတ်ထားပါ',
   'clientDetail.noInvoices': 'ငွေတောင်းခံလွှာများ မရှိသေးပါ။',
   'clientDetail.noProjects': 'ဤဖောက်သည်အတွက် ပရောဂျက်များ မရှိသေးပါ။',
   'clientDetail.notFound': 'ကလိုင်းယင့်ကို ရှာမတွေ့ပါ။',
@@ -38,6 +52,7 @@ export const ui: UiTranslations = {
   'dashboard.activeProjects': 'တက်ကြွသော ပရောဂျက်များ',
   'dashboard.empty':
     'မှတ်တမ်းများ မရှိသေးပါ။ သင်၏ ပထမဆုံး session ကို ခြေရာခံရန် timer ကို စတင်ပါ။',
+  'dashboard.errorMessage': 'ပြန်လည်စတင်၍ မရပါ- {{error}}',
   'dashboard.greeting': 'ကောင်းသောနေ့လေးဖြစ်ပါစေ၊ {{name}}',
   'dashboard.kpi.activeProjects': 'တက်ကြွသော ပရောဂျက်များ',
   'dashboard.kpi.billable': 'ယခုအပတ်တွင် ငွေတောင်းခံနိုင်သည်',
@@ -49,11 +64,14 @@ export const ui: UiTranslations = {
   'dashboard.projectsEmpty': 'ပရောဂျက်များ မရှိသေးပါ။ သင့်အချိန်ကို အုပ်စုဖွဲ့ရန် တစ်ခု ဖန်တီးပါ။',
   'dashboard.recentEntries': 'မကြာသေးမီက မှတ်တမ်းများ',
   'dashboard.recentEntriesSubtitle': 'ပရောဂျက်အားလုံးတွင် နောက်ဆုံးခြေရာခံထားသော အစည်းအဝေးများ။',
+  'dashboard.subtitle':
+    'သင့်နေ့တစ်နေ့ ဘယ်လိုဖြစ်နေသည်ကို ကြည့်ပါ။ အချိန်တိုင်းစက်ကို ဆက်လည်ပတ်ထားပါ။',
   'dashboard.viewReports': 'အစီရင်ခံစာများကို ကြည့်ရှုပါ',
   'dashboard.viewTimesheet': 'အချိန်စာရင်းကို ကြည့်ရန်',
   'durationKpiCard.label': '{{label}}',
   'durationKpiCard.trend': '{{trend}}',
   'durationKpiCard.value': '{{value}}',
+  'forgotPassword.remember': 'သင့်စကားဝှက်ကို မှတ်မိပါသလား။',
   'forgotPassword.sentBody':
     'ကျွန်ုပ်တို့သည် ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့လိုက်ပါပြီ {{email}} ။ မိနစ် ၆၀ အတွင်း သက်တမ်းကုန်ဆုံးမည်။',
   'forgotPassword.subheading':
@@ -93,21 +111,27 @@ export const ui: UiTranslations = {
   'landing.copyright': '© {{year}} {{app}} . စက္ကန့်တိုင်းကို ထည့်သွင်းစဉ်းစားထားသည်။',
   'landing.ctaBody':
     'ပရောဂျက် ၃ ခုအထိ အခမဲ့။ သင့်ဖောက်သည်စာရင်းတွင် ပါရှိသည့်အခါ အဆင့်မြှင့်တင်ပါ။',
+  'landing.ctaHeading': 'တစ်မိနစ်အောက်အတွင်း ခြေရာခံခြင်း စတင်ပါ',
   'landing.eyebrow': 'ငွေတောင်းခံနိုင်သော အလုပ်အတွက် အချိန်ခြေရာခံခြင်း',
   'landing.featuresBody':
     'အချိန်တိုင်းကိရိယာ၏ ပထမဆုံးကလစ်နှိပ်ခြင်းမှ နောက်ဆုံးငွေတောင်းခံလွှာအထိ — အဆင့်တိုင်းကို လွတ်လပ်သူများ အမှန်တကယ်အလုပ်လုပ်ပုံအပေါ် အခြေခံ၍ တည်ဆောက်ထားသည်။',
   'landing.featuresHeading': 'ငွေတောင်းခံနိုင်သော အလုပ်အတွက် တည်ဆောက်ထားသည်',
   'landing.getStarted': 'ခြေရာခံခြင်းစတင်ပါ — အခမဲ့',
   'landing.heroCta': 'ခြေရာခံခြင်းစတင်ပါ — အခမဲ့',
+  'landing.heroSubtitle':
+    'ဖောက်သည်များအနှံ့ ငွေတောင်းခံနိုင်သော နာရီများကို ခြေရာခံပါ၊ ဘတ်ဂျက်များကို အချိန်နှင့်တပြေးညီ ကြည့်ရှုပါ၊ မိနစ်တိုင်းကို Stripe ဖြင့် ပံ့ပိုးထားသော ငွေတောင်းခံလွှာအဖြစ် ပြောင်းလဲပါ။ freelancer များ၊ consultant များနှင့် agency များအတွက် ဖန်တီးထားသည်။',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.export': 'CSV ထုတ်ယူခြင်းကို အချိန်မရွေး လုပ်ဆောင်နိုင်သည်',
   'landing.proof.freeTier': 'ပရောဂျက် ၃ ခုအထိ အခမဲ့',
   'landing.proof.noCard': 'ခရက်ဒစ်ကတ် မလိုအပ်ပါ',
   'landing.sampleCardLabel': 'ယနေ့ ခြေရာခံထားသည်',
+  'landing.testimonial.attribution': 'Maya R. · ဘရန်းဒ်မဟာဗျူဟာရှင်၊ ဘရွတ်ကလင်',
   'landing.testimonial.eyebrow': 'လွတ်လပ်သူများ၏ ယုံကြည်ကိုးစားမှုကို ခံရသည်',
   'landing.testimonial.quote':
     '\\u201cမိနစ် ၃၀ အတွင်း Toggl ကနေ ထွက်လိုက်တယ်။ ဘတ်ဂျက်ကုန်သွားတာတစ်ခုတည်းနဲ့တင် အကျိုးပေးသွားပြီ \\u2014 ဈေးနှုန်းလျှော့ပြောတာကို နှစ်ပတ်ဆက်တိုက် ရပ်လိုက်ပြီ။\\u201d',
   'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} ခရိုနို။ စက္ကန့်တိုင်းကို ထည့်သွင်းစဉ်းစားသည်။',
+  'login.brand.sampleLabel': 'ယနေ့ ယခုအထိ',
   'login.brand.subtitle':
     'သင်ထားခဲ့သော အချိန်ကိုက်စက်ကို ပြန်ယူပါ - မိနစ်တိုင်းကို ပရောဂျက်၊ ဖောက်သည်၊ ငွေတောင်းခံလွှာတစ်ခုနှင့် ချိတ်ဆက်ပြီးဖြစ်သည်။',
   'login.brand.tracking': 'ခြေရာခံခြင်း',
@@ -117,6 +141,7 @@ export const ui: UiTranslations = {
   'nav.newEntry': 'အသစ်ဝင်ရောက်မှု',
   'nav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'nav.primary': 'အဓိက လမ်းညွှန်ချက်',
+  'nav.project': 'စီမံကိန်း',
   'nav.workSection': 'အလုပ်',
   'notFound.body':
     'သင်လိုက်ကြည့်ထားတဲ့လင့်ခ်က ခြေရာခံတာ ရပ်သွားပုံရပါတယ်။ သင့်ဒက်ရှ်ဘုတ်ကို ပြန်သွားပြီး အဲဒီကနေ ကျွန်တော်တို့ ဆက်လက်ရေတွက်သွားပါမယ်။',
@@ -125,6 +150,7 @@ export const ui: UiTranslations = {
   'notFound.home': 'အိမ်ပြန်ပါ',
   'notFound.title': 'ဒီစာမျက်နှာကို နာရီမအားလပ်ပါ',
   'projectBudgetCard.billable': 'ငွေတောင်းခံနိုင်သည်',
+  'projectBudgetCard.budget': 'ဘတ်ဂျက် · {{hours}}နာရီ',
   'projectBudgetCard.noClient': 'အတွင်းပိုင်း',
   'projectBudgetCard.rate': 'ဒေါ်လာ {{rate}} /နာရီ',
   'projectDetail.archive': 'မော်ကွန်းတိုက် ပရောဂျက်',
@@ -132,6 +158,7 @@ export const ui: UiTranslations = {
     'ဤပရောဂျက်ကို မော်ကွန်းတင်မလား။ ၎င်းသည် စာရင်းများမှ ဝှက်ထားပါမည်။',
   'projectDetail.back': 'ပရောဂျက်များသို့ ပြန်သွားပါ',
   'projectDetail.billable': 'ငွေတောင်းခံနိုင်သော · $ {{rate}} /နာရီ',
+  'projectDetail.budget': '{{hours}}နာရီ ဘတ်ဂျက်',
   'projectDetail.budgetTitle': 'ဘတ်ဂျက်ဖြုန်းတီးခြင်း',
   'projectDetail.internal': 'အတွင်းပိုင်းစီမံကိန်း',
   'projectDetail.kpi.billable': 'ငွေတောင်းခံနိုင်သော နာရီများ',
@@ -144,6 +171,7 @@ export const ui: UiTranslations = {
   'projectDetail.recentEntries': 'မကြာသေးမီက မှတ်တမ်းများ',
   'projectDetail.remaining': 'ကျန်ရှိနေသော',
   'projectDetail.revenue': 'ဝင်ငွေ',
+  'projectDetail.tracked': 'ခြေရာခံပြီး',
   'projects.empty': 'ပရောဂျက်များ မရှိသေးပါ။ အထက်တွင် သင်၏ ပထမဆုံးပရောဂျက်ကို ဖန်တီးပါ။',
   'projects.eyebrow': 'တက်ကြွသော ပါဝင်ဆောင်ရွက်မှုများ',
   'projects.filter.billable': 'ငွေတောင်းခံနိုင်သည်',
@@ -164,6 +192,7 @@ export const ui: UiTranslations = {
   'reports.col.project': 'စီမံကိန်း',
   'reports.col.revenue': 'ဝင်ငွေ',
   'reports.empty': 'ဤကာလအတွင်း ခြေရာခံထားသော အချိန်မရှိပါ။',
+  'reports.errorMessage': 'အစီရင်ခံစာများ တင်၍ မရပါ- {{error}}',
   'reports.eyebrow': 'ထိုးထွင်းသိမြင်မှုများ',
   'reports.internal': 'အတွင်းပိုင်း',
   'reports.kpi.billable': 'ငွေတောင်းခံနိုင်သော နာရီများ',
@@ -175,18 +204,24 @@ export const ui: UiTranslations = {
   'reports.subtitle': 'သင့်အလုပ်ချိန်တွေ ဘယ်ကိုရောက်သွားပြီး သူတို့ ဘယ်လောက်ဝင်ငွေရလဲ။',
   'reports.unassigned': 'ပရောဂျက်မရှိပါ',
   'reports.weekly.title': 'တစ်နေ့လျှင် နာရီ',
+  'resetPassword.password': 'စကားဝှက်အသစ်',
   'resetPassword.subheading':
     'ရှည်လျားပြီး ထူးခြားအောင် ပြုလုပ်ပါ။ ကျွန်ုပ်တို့သည် အလိုအလျောက် ပြန်လည်ဝင်ရောက်ပေးပါမည်။',
+  'settings.billing.endsOn': '{{date}} တွင် ပြီးဆုံးမည်',
   'settings.billing.loading': 'ငွေတောင်းခံလွှာတင်နေသည်…',
   'settings.billing.redirecting': 'ပြန်ညွှန်းနေသည်…',
   'settings.billing.renewsOn': 'သက်တမ်းတိုးသည် {{date}}',
+  'settings.billing.upgrade': 'အစီအစဉ် ရွေးချယ်ပါ',
   'settings.profile.email': 'အီးမေးလ် (ဖတ်ရန်သာ)',
   'settings.profile.nothingToSave': 'ဘာမှ သိမ်းစရာ မရှိဘူး။',
   'settings.profile.title': 'ပရိုဖိုင်',
   'settings.security.current': 'လက်ရှိစကားဝှက်',
   'settings.security.new': 'စကားဝှက်အသစ်',
   'signup.brand.eyebrow': 'ခြေရာခံခြင်းစတင်ပါ — အခမဲ့',
+  'signup.brand.headline': '{{tagline}}',
   'signup.brand.legal': '© {{year}} ခရိုနို။',
+  'signup.brand.subtitle':
+    'ပရောဂျက် သုံးခု အခမဲ့။ pro ဖြစ်သည်နှင့် Stripe ဖြင့် ပံ့ပိုးထားသော ငွေတောင်းခံလွှာများ။',
   'signup.subheading': 'ခရက်ဒစ်ကတ် မလိုအပ်ပါ။',
   'timeEntries.addEntry': 'ထည့်သွင်းရန်',
   'timeEntries.addManual': 'ကိုယ်တိုင်ထည့်သွင်းမှုထည့်ပါ',
@@ -223,11 +258,13 @@ export const ui: UiTranslations = {
   'timer.runningWithProject': 'ပရောဂျက်မရှိပါ',
   'timer.start': 'အချိန်တိုင်းစက် စတင်ပါ',
   'timer.stop': 'အချိန်တိုင်းစက် ရပ်ပါ',
+  'timerHeroCard.billableSubtitle': 'ယခုအထိ {{amount}} ငွေတောင်းခံနိုင်သည် · ဆက်လုပ်ပါ',
   'timerHeroCard.title': 'ယနေ့ ခြေရာခံထားသည်',
   'timerHeroCard.tracked': '{{time}}',
   'timesheet.column.project': 'စီမံကိန်း',
   'timesheet.dailyTotal': 'နေ့စဉ် စုစုပေါင်း',
   'timesheet.empty': 'ယခုအပတ်တွင် ခြေရာခံထားသော မှတ်တမ်းများ မရှိပါ။',
+  'timesheet.errorMessage': 'အချိန်စာရင်းကို တင်၍ မရပါ- {{error}}',
   'timesheet.eyebrow': 'အပတ်စဉ်ကြည့်ရှုခြင်း',
   'timesheet.internal': 'အတွင်းပိုင်း',
   'timesheet.nextWeek': 'လာမည့်အပတ်',

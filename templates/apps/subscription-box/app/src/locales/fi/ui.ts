@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kysymyksiä painoksesta, lähetyksestä tai tilauksestasi? Tavoita oikea ihminen tiimistä osoitteessa hello@crate.example — luemme jokaisen viestin.',
+  'about.contactTitle': 'Keskustele kuraattorin kanssa',
+  'about.feature1':
+    'Kuukausittain kuratoidut painokset, jotka itsenäiset tekijät ovat valinneet käsin, ja jokaisen tuotteen tarina.',
+  'about.feature2':
+    'Täysi hallinta jokaiseen laatikkoon — mukauta sisältöä, vaihda tai jätä pois tuotteita, ohita kuukausi tai muuta toimitustiheyttä.',
+  'about.feature3':
+    'Lähetyksen seuranta päästä päähän noudosta kotiovelle, muoviton pakkaus ja reaaliaikaiset päivitykset kuljetusliikkeeltä.',
+  'about.feature4':
+    'Joustavat tilausvaihtoehdot ja läpinäkyvä laskutus — päivitä, alenna, keskeytä tai peruuta milloin tahansa hallintapaneelistasi.',
+  'about.intro':
+    '{{app}} on kuratoitu tilauslaatikkopalvelu, joka toimittaa käsin valitun, pienissä erissä valmistetun ilon laatikon ovellesi joka kuukausi. Jokainen painos kootaan työtä tekevien tekijöiden — itsenäisten taiteilijoiden, kokkien ja pienten brändien — toimesta, ei algoritmin.',
+  'about.missionBody':
+    'Uskomme, että tilauksen pitäisi tuntua lahjalta, ei ansalta. {{app}} on rakennettu niin, että jäät siksi, että rakastat sitä mitä saapuu — keskeytä milloin tahansa, vaihda mitä haluat ja peruuta yhdellä klikkauksella. Ei koskaan sitouttamiskikkoja.',
+  'about.missionTitle': 'Missiomme',
   'about.pageTitle': 'Tietoa {{app}}sta',
   'appNav.mobileLabel': 'Päänavigaatio',
   'appNav.primaryLabel': 'Päänavigaatio',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Muokkaa laskutusyhteyshenkilöä',
   'billing.contact.eyebrow': 'Laskutusyhteyshenkilö',
   'billing.eyebrow': 'Sopimus ja maksut',
+  'billing.loading': 'Ladataan laskutusta…',
   'billing.payment.body':
     'Maksun käsittelee Stripe Checkout – koko korttinumerosi ei koskaan koske palvelimiimme. Lisää tai päivitä korttisi napsauttamalla mitä tahansa alla olevaa tasoa.',
   'billing.payment.linked': 'Kortti arkistoitu Stripen kautta',
@@ -19,9 +36,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.pause': 'Keskeytä tilaus',
   'billing.plan.cta.resume': 'Jatka tilausta',
   'billing.plan.eyebrow': 'Aktiivinen suunnitelma',
+  'billing.plan.next': 'Uusiutuu automaattisesti {{date}}.',
+  'billing.plan.status': 'Tila: {{status}}',
   'billing.subtitle': 'Hallinnoi tasoasi, maksutapaasi ja tarkastele aiempaa toimintaasi.',
   'billing.tiers.body': 'Valitse taso, niin ohjaamme sinut Stripe Checkout -kassalle.',
   'billing.tiers.choose': 'Valitse',
+  'billing.tiers.empty': 'Tasoja ei ole vielä määritetty.',
   'billing.tiers.heading': 'Käytettävissä olevat tasot',
   'boxDetail.backToBoxes': 'Takaisin kaikkiin painoksiin',
   'boxDetail.crumb.boxes': 'Painokset',
@@ -34,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Kuratoitu teos',
   'boxDetail.items.heading': '{{count}} kuratoituja teoksia',
   'boxDetail.itemsBadge': '{{count}} kuratoituja tuotteita laatikkoa kohden',
+  'boxDetail.loading': 'Ladataan painosta…',
   'boxDetail.notFound': 'Kyseistä versiota ei ole enää saatavilla.',
   'boxDetail.subscribe.success': 'Tilattu — ensimmäinen painoksesi on jonossa.',
   'boxDetail.swapBadge': 'Vaihda jopa {{count}} tuotetta laatikossa',
@@ -42,14 +63,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Ei vastaavia versioita.',
   'boxes.eyebrow': 'Crate-arkisto',
   'boxes.heading': 'Selaa jokaista painosta',
+  'boxes.loadError': 'Painoksia ei voitu ladata. Tarkista verkkoyhteytesi ja yritä uudelleen.',
   'boxes.loading': 'Ladataan versioita…',
+  'boxes.search.label': 'Hae painoksia',
   'boxes.search.placeholder': 'Hae versioita…',
   'boxes.subtitle':
     'Jokainen taso on pieni erätarina. Lisää yksi jonoosi tai siirrä se seuraavaan kuukauteen.',
+  'boxThemeCard.itemCount': '{{count}} kohdetta',
   'boxThemeCard.perMonth': '/ kuukausi',
+  'boxThemeCard.retailValue': 'Vähittäisarvo {{value}}',
   'common.goToDashboard': 'Siirry etusivulle',
+  'common.retry': 'Yritä uudelleen',
   'customize.eyebrow': 'Tee siitä omasi',
   'customize.heading': 'Mukauta seuraavaa Crate-löytöäsi',
+  'customize.items.empty': 'Tälle tasolle ei ole vielä määritetty tuotteita.',
   'customize.items.exclude': 'Ohita tämä',
   'customize.items.eyebrow': 'Mukauta tätä laatikkoa',
   'customize.items.heading': 'Kohteet kohdassa {{box}}',
@@ -58,8 +85,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Lisää takaisin',
   'customize.items.save': 'Tallenna mukautus',
   'customize.items.swapsLeft': '{{used}} jostakin {{max}} käytetyt swapit',
+  'customize.loading': 'Ladataan mukautusta…',
   'customize.noSub.body':
     'Tilaa ensin jokin taso ja palaa sitten vaihtamaan tuotteita laatikossasi.',
+  'customize.noSub.cta': 'Selaa painoksia',
   'customize.noSub.heading': 'Ei aktiivista tilausta',
   'customize.saved': 'Mukautus tallennettu.',
   'customize.subtitle':
@@ -73,28 +102,40 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Seuraa lähetystä',
   'dashboard.eyebrow': 'Sinun aarreaittasi',
   'dashboard.greeting': 'Tervetuloa takaisin, {{name}}.',
+  'dashboard.loadError':
+    'Hallintapaneeliasi ei voitu ladata. Tarkista verkkoyhteytesi ja yritä uudelleen.',
   'dashboard.loading': 'Ladataan koontinäyttöä…',
   'dashboard.next.eyebrow': 'Seuraava painoksesi',
   'dashboard.onboarding.body':
     'Sinulla ei ole vielä aktiivista tilausta. Valitse taso aloittaaksesi Crate-lähetyksen joka kuukausi.',
   'dashboard.onboarding.cta': 'Selaa kaikkia versioita',
+  'dashboard.onboarding.empty':
+    'Tilausvaihtoehtoja ei ole juuri nyt saatavilla. Tarkista pian uudelleen.',
   'dashboard.onboarding.heading': 'Valitse ensimmäinen painoksesi',
   'dashboard.renewal.amount': 'Veloitettu',
   'dashboard.renewal.cadence': 'Kadenssi',
   'dashboard.renewal.cta': 'Hallinnoi laskutusta',
   'dashboard.renewal.eyebrow': 'Uusiminen',
+  'dashboard.renewal.heading': 'Uusiutuu automaattisesti {{date}}',
   'dashboard.renewal.plan': 'Suunnitelman avain',
+  'dashboard.renewal.tbd': 'Uusiutuminen ajoitetaan pian',
   'dashboard.renewal.tier': 'Taso',
   'dashboard.stats.days': 'päivää',
   'dashboard.stats.daysToNext': 'Lähetetään',
   'dashboard.stats.items': 'Kuratoituja kohteita',
   'dashboard.stats.shipDate': 'Lähetyspäivämäärä',
   'dashboard.stats.tbd': 'Ilmoitetaan myöhemmin',
+  'dashboard.subtitle.active': 'Seuraava painoksesi on matkalla. Tässä mitä odottaa.',
+  'dashboard.subtitle.idle':
+    'Valitse taso aloittaaksesi {{appName}}-laatikon toimituksen joka kuukausi.',
   'forgotPassword.subtitle':
     'Kerro meille sähköpostiosoitteesi, niin lähetämme sinulle nollauslinkin.',
+  'forgotPassword.success.body':
+    'Jos {{email}} on rekisteröity, saat palautuslinkin muutaman minuutin kuluessa.',
   'forgotPassword.success.title': 'Tarkista saapuneet.',
   'landing.editions.eyebrow': 'Tämä kausi',
   'landing.editions.heading': 'Kuraattoriemme rakastamat painokset',
+  'landing.editions.viewAll': 'Selaa kaikkia painoksia →',
   'landing.footer.contact': 'Keskustele kuraattorin kanssa',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Aloita laatikkosi →',
@@ -104,6 +145,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Kurkistus jäsenten hallintapaneeliin – lähtölaskenta, sisältö ja seuranta.',
   'landing.hero.social.count': 'Rakastettu {{count}} + tilaajat',
+  'landing.hero.social.rating': '{{rating}} keskim. avausarvosana',
+  'landing.hero.subhead':
+    '{{appName}} lähettää sinulle käsin valitun, pienissä erissä valmistetun ilon laatikon itsenäisiltä tekijöiltä. Keskeytä milloin tahansa. Vaihda mitä haluat. Pidä se mitä rakastat.',
   'landing.nav.start': 'Aloita laatikkosi',
   'landing.tiers.eyebrow': 'Valitse poljinnopeus',
   'landing.tiers.heading': 'Aloita pienestä, päivitä milloin tahansa, peruuta yhtä helposti.',
@@ -113,6 +157,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Kirjaudu sisään kurkistaaksesi ensi kuun boksiin.',
   'login.welcomeBack': 'Tervetuloa takaisin, kuraattori.',
   'nextBoxHeroCard.eyebrow': 'SEURAAVA LÖYTÖSI',
+  'nextBoxHeroCard.itemCount': '{{count}} tuotetta sisällä',
   'nextBoxHeroCard.itemsLabel': 'Kuratoituja kohteita',
   'nextBoxHeroCard.shipsOnLabel': 'Lähetetään',
   'notFound.body':
@@ -136,8 +181,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Keskeytä tilaus',
   'settings.danger.paused': 'Tilaus keskeytetty.',
   'settings.danger.pausing': 'Tauko…',
+  'settings.danger.status': 'Tilauksen tila: {{status}}',
   'settings.danger.subtitle':
     'Keskeyttäminen säilyttää tasosi ja historiasi ennallaan. Peruuttaminen pysäyttää tulevat toimitukset ja poistaa tallennetut maksutapasi syklin lopussa.',
+  'settings.notifications.saving': '· tallennetaan…',
   'settings.notifications.subtitle':
     'Valitse Cratelta haluamasi signaalit. Oletusasetukset ovat järkeviä.',
   'settings.subtitle': 'Päivitä profiilisi, toimitusosoitteesi ja Craten yhteydenottotavat.',
@@ -153,12 +200,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Ei vielä aktiivista lähetystä',
   'shipments.live.eyebrow': 'Aktiivinen lähetys',
   'shipments.live.unnamed': 'Seuraava laatikkosi',
+  'shipments.loadError':
+    'Lähetyksiäsi ei voitu ladata. Tarkista verkkoyhteytesi ja yritä uudelleen.',
+  'shipments.loading': 'Lähetyksiä ladataan…',
+  'shipments.step.delivered': 'Toimitettu',
   'shipments.step.deliveredBody': 'Jaa löytösi tägäyksellä #crateunbox.',
   'shipments.step.ordered': 'Tilaus tehty',
   'shipments.step.orderedBody':
     'Tilauksesi asetti tämän painoksen jonoon seuraavaa toimitusjaksoa varten.',
+  'shipments.step.packed': 'Pakattu käsin',
   'shipments.step.packedBody':
     'Jokainen pala käärittynä ja laatikkoon sujautettuna käsin kirjoitetun viestin kera.',
+  'shipments.step.transit': 'Matkalla',
   'shipments.step.transitNot': 'Seuranta näkyy tässä, kun laatikkosi on kuljetuksessa.',
   'shipments.subtitle':
     'Seuraa laatikon kulkua luoksesi ja kokeile sitten uudelleen jokaista aiemmin avaamaasi painosta.',

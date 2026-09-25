@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Xhumana nathi',
   'about.eyebrow': 'Mayelana NATHI',
+  'about.missionTitle': 'Umsebenzi wethu',
   'account.notifications.save': 'Londoloza izintandokazi',
   'account.notifications.saved': 'Izintandokazi zilondoloziwe.',
   'account.notifications.saveFailed': 'Ayikwazanga ukulondoloza okuncamelayo.',
@@ -12,7 +13,10 @@ export const ui: UiTranslations = {
     'Khokha ngeseshini • Thuthukisa ukuze uthole izaphulelo zokubhukha',
   'account.payments.helper':
     'Indlela yakho yokukhokha iqoqwa lapho ukhokha. Asilokothi sigcine izinombolo zekhadi ezigcwele — i-Stripe iphatha yonke idatha yekhadi.',
+  'account.payments.paidDescription': 'Ukubhalisa kusebenza — phatha ku-Stripe.',
   'account.payments.planFree': 'Uhlelo lwamahhala',
+  'account.payments.title': 'Uhlelo nokukhokha',
+  'account.payments.viewPlans': 'Buka izinhlelo {{appName}} →',
   'account.profile.title': 'Iphrofayela',
   'account.role.body':
     'Shintsha phakathi kwemodi yomfundi neye-tutor noma nini. Amaseshini akho asebenzayo ahlala elungile kunoma iyiphi imodi.',
@@ -25,6 +29,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Fundisa nge-Mentor',
   'becomeTutor.form.error': 'Ayikwazanga ukuthumela isicelo.',
+  'becomeTutor.form.pitch': 'Iphimbo lakho (okuzikhethela)',
   'becomeTutor.form.pitchPlaceholder':
     'Imisho embalwa abafundi abazoyibona kuphrofayela yakho. Yigcine icacile futhi ifudumele.',
   'becomeTutor.form.rate': 'Isilinganiso samahora ($/ihora): {{rate}}',
@@ -33,6 +38,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.submitted': 'Isicelo sithunyelwe. Siqondisa kabusha kuphrofayela yakho…',
   'becomeTutor.form.title': 'Sitshele ngawe',
   'becomeTutor.headline': 'Thola imali ngokwenza lokho okuthandayo. Fundisa ohlelweni lwakho.',
+  'becomeTutor.subhead':
+    'Faka isicelo ngemizuzu emi-5. Uma usuqinisekisiwe, uzovela ekusesheni futhi uqale ukubhukha amaseshini.',
+  'booking.duration.title': '3. Isikhathi esingakanani?',
   'booking.error.createFailed': 'Ayikwazanga ukudala ukubhukha.',
   'booking.error.loadFailed': 'Ayikwazanga ukulayisha umfundisi — zama futhi.',
   'booking.error.noSlot': 'Khetha usuku nesikhathi kuqala.',
@@ -47,6 +55,7 @@ export const ui: UiTranslations = {
     'Izikhathi zingahlelwa kabusha kuze kube amahora angu-12 ngaphambi. Ikhadi lakho likhokhiswa kuphela uma isikhathi siphela.',
   'booking.summary.assurance':
     'Akukho mali kuze kube yilapho iseshini iphela • Khansela mahhala kuze kube amahora ayi-12 ngaphambi',
+  'booking.summary.back': '← Buyela kumphrofayela kathisha',
   'booking.summary.cta': 'Qinisekisa ukubhukha',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'Khetha isikhala',
@@ -73,9 +82,12 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'Umfundisi',
   'bookingConfirm.subject': 'Isihloko',
   'bookingConfirm.title': 'Ubhukhile. Sizobhekana nokunye.',
+  'bookingConfirm.viewSessions': 'Buka wonke amaseshini →',
   'bookingConfirm.with': 'Nomfundisi',
   'common.goToDashboard': 'Yiya ku-Dashboard',
+  'earningsHero.change': '{{sign}}{{percent}}% uma kuqhathaniswa nenyanga edlule',
   'earningsHero.eyebrow': 'Imali engenayo • {{month}}',
+  'earningsHero.greeting': 'Siyakwamukela futhi, {{name}} — qhubeka nomfutho.',
   'forgotPassword.heading': 'Ukhohlwe iphasiwedi yakho?',
   'forgotPassword.subheading':
     'Faka i-imeyili exhunywe kwi-akhawunti yakho bese sizokuthumela isixhumanisi sokusetha kabusha.',
@@ -83,9 +95,15 @@ export const ui: UiTranslations = {
     'Sithumele isixhumanisi sokusetha kabusha ku- {{email}} — iphelelwa yisikhathi ngemizuzu engama-30.',
   'heroSearchSection.eyebrow':
     'Abafundisi abaqinisekisiwe abangaphezu kuka-12,000 • kusukela ngo-2018',
+  'heroSearchSection.headline': 'Lapho izingqondo ezifuna ukwazi zihlangana nothisha abafanele.',
+  'heroSearchSection.searchCta': 'Thola uthisha',
+  'heroSearchSection.searchPlaceholder': 'Sesha izifundo, othisha, noma izihloko…',
   'heroSearchSection.stat.rating': 'Isilinganiso seseshini esimaphakathi',
+  'heroSearchSection.stat.sessions': 'Amaseshini anikeziwe',
   'heroSearchSection.stat.subjects': 'Izihloko ezihlanganisiwe',
   'heroSearchSection.stat.tutors': 'Abafundisi abaqinisekisiwe',
+  'heroSearchSection.subhead':
+    'Othisha abaqinisekisiwe. Izintengo ezicacile. Amaseshini ahambisana neviki lakho.',
   'landing.featured.eyebrow': 'Abafundisi abavelele',
   'landing.featured.headline':
     'Kukhethwe ngesandla, kulinganiswe kakhulu, futhi sekulungele kuleli sonto.',
@@ -93,8 +111,11 @@ export const ui: UiTranslations = {
   'landing.nav.becomeTutor': 'Fundisa nge-Mentor',
   'landing.nav.findTutors': 'Thola abafundisi',
   'landing.pillars.eyebrow': 'Kungani i-Mentor',
+  'landing.pillars.headline': '{{tagline}} — ngaphandle kwezinkinga.',
   'landing.testimonials.eyebrow': 'Kusukela kubafundi bamuva nje',
   'landing.testimonials.headline': 'Imiphumela yangempela, ngamazwi abo.',
+  'landing.tutorCta.body':
+    'Zibekele amanani akho, bakhe idumela ngokubuyekezwa okuqinisekisiwe, futhi sibhekele ukuhlela, ukukhokha, nezikhumbuzo.',
   'landing.tutorCta.button': 'Faka isicelo sokufundisa',
   'landing.tutorCta.eyebrow': 'Yiba ngumfundisi',
   'landing.tutorCta.headline': 'Thola imali ngokwenza lokho okuthandayo. Fundisa ohlelweni lwakho.',
@@ -105,6 +126,7 @@ export const ui: UiTranslations = {
   'login.signup': 'Dala i-akhawunti →',
   'login.subheading':
     'Qhubeka lapho ugcine khona — izikhathi zakho, imiyalezo kanye nabafundisi bakho balindile.',
+  'login.support': 'Udinga usizo?',
   'messages.draftPlaceholder': 'Thayipha umlayezo…',
   'messages.empty.body':
     'Izingxoxo zizovela lapha uma uthumela umlayezo kumfundisi noma omunye ukuthumelela umlayezo.',
@@ -116,9 +138,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'Azikho imilayezo okwamanje.',
   'messages.selectThread': 'Khetha intambo ngakwesobunxele.',
   'messages.send': 'Thumela umlayezo',
+  'messages.startThreadHint':
+    'Vakashela iphrofayela kathisha bese ucindezela okuthi "Thumela umyalezo kuthisha" ukuqala ingxoxo.',
   'messages.thread.empty': 'Sawubona — qala ingxoxo.',
   'messages.title': 'Izingxoxo nabafundisi bakho.',
   'nav.primary': 'Okuyinhloko',
+  'planUpdated.body':
+    'Ushintsho lwakho lokukhokha lusebenza manje. Ungaphatha uhlelo lwakho noma nini kusuka ekhasini lokukhokha.',
+  'pricing.advancedFeatures': 'Izici ezithuthukisiwe:',
   'pricing.dataExport': 'Ukuthunyelwa kwedatha:',
   'pricing.headingDefault': 'Izici ezithuthukisiwe:',
   'resetPassword.heading': 'Khetha iphasiwedi entsha eqinile.',
@@ -129,6 +156,7 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Sizokungenisa ngokuzenzakalelayo ngemva kokuba ukusetha kabusha kuphumelele.',
   'resetPassword.submit': 'Setha kabusha futhi ungene ngemvume',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body':
     'Zama ukwandisa isihlungi sesihloko noma ukukhulula umkhawulo wokulinganisa.',
@@ -140,7 +168,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'Isilinganiso',
   'search.filter.subject': 'Isihloko',
   'search.results.count': '{{count}} abafundisi bafanisa izihlungi zakho',
+  'search.results.fallback': 'Kuboniswa othisha besibonelo abakhethiwe',
   'search.results.loading': 'Ilayisha abafundisi…',
+  'search.searchPlaceholder': 'Isifundo, igama, noma isihloko…',
   'search.subtitle':
     'Hlunga ngesihloko, isilinganiso, kanye nokutholakala. Abafundisi abaqinisekisiwe kuphela.',
   'search.title': 'Thola umfundisi ochofozayo',
@@ -173,18 +203,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'Iseshini iqalile — ukufunda okujabulisayo.',
   'sessionDetail.startError': 'Ayikwazanga ukuqala iseshini.',
   'sessionDetail.subtitle': 'nge {{name}} • {{when}} • {{mins}} umzuzu',
+  'sessionDetail.timeline': 'Uhlu lwesikhathi sesimo',
   'sessionDetail.timeline.afterEnd': 'Ngemva kokuphela kweseshini',
   'sessionDetail.timeline.auto': 'Okuzenzakalelayo',
   'sessionDetail.timeline.booked': 'Kubhukhiwe',
   'sessionDetail.timeline.confirmed': 'Kuqinisekisiwe',
   'sessionDetail.timeline.inSession': 'Kuseseshini',
   'sessionDetail.timeline.now': 'Manje',
+  'sessionDetail.timeline.receipt': 'Irisidi ikhishiwe',
   'sessionDetail.timeline.review': 'Buyekeza isicelo',
   'sessions.empty.body':
     'Dlulisa amehlo ku-Mentor ukuze uthole umfundisi bese ubhukha isikhala. Amaseshini aqinisekisiwe avele lapha.',
   'sessions.empty.title': 'Akukho okuhleliwe lapha okwamanje.',
   'sessions.error': 'Ayikwazanga ukulayisha amaseshini akho — sicela uzame futhi.',
   'sessions.eyebrow': 'Amaseshini akho',
+  'sessions.loading': 'Ilayisha amaseshini…',
   'sessions.subtitle':
     'Landelela ukubhukha okuzayo, ngena egumbini leseshini elisebenzayo, bese uvakashela izifundo eziqediwe.',
   'sessions.title': 'Isifundo ngasinye, endaweni eyodwa.',
@@ -199,22 +232,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'Dala okwami {{role}} i-akhawunti',
   'signup.subheading':
     'Dala i-akhawunti ukuze ubhukhe izikhathi, uthumele imiyalezo kubafundisi, futhi ulandelele intuthuko yakho.',
+  'signup.terms': 'Ngokubhalisa uvuma Imigomo yethu.',
   'tutorCard.avatarAlt': 'Isithombe sika {{name}}',
   'tutorCard.perHour': '/ ihora',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'Isilinganiso esiphezulu',
   'tutorCard.verified': 'Umfundisi oqinisekisiwe',
+  'tutorDashboard.empty.body':
+    'Setha izifundo zakho, inani ngehora, nokutholakala kwakho — bese uqala ukuhola.',
+  'tutorDashboard.empty.cta': 'Yiba uthisha →',
   'tutorDashboard.empty.title': 'Yiba ngumfundisi ukuze uvule ideshibhodi yakho.',
   'tutorDashboard.fallbackName': 'Umfundisi',
   'tutorDashboard.loading': 'Ilayisha ideshibhodi…',
   'tutorDashboard.recentReviews': 'Izibuyekezo zakamuva',
   'tutorDashboard.reviewsEmpty':
     'Awunazo izibuyekezo okwamanje — zizovela lapha uma abafundi sebekukala.',
+  'tutorDashboard.stats.rating': 'Isilinganiso esijwayelekile',
   'tutorDashboard.stats.sessions': 'Amaseshini kule nyanga',
+  'tutorDashboard.stats.totalSessions': 'Amaseshini akho konke',
+  'tutorDashboard.studentFallback': 'Umfundi',
   'tutorDashboard.tutoringFallback': 'Iseshini yokufundisa',
   'tutorDashboard.upcoming': 'Izikhathi ezizayo',
   'tutorDashboard.upcomingEmpty':
     'Azikho izikhathi ezizayo okwamanje — abafundi ababhukha izikhala zabo zizovela lapha.',
+  'tutorProfile.availability': 'Ukutholakala kuleli viki',
   'tutorProfile.availabilityHeadline': 'Khetha indawo ozoqala kuyo',
   'tutorProfile.bookCta': 'Bhukha iseshini',
   'tutorProfile.bookFull': 'Bona ishejuli ephelele',
@@ -227,6 +268,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / ihora',
   'tutorProfile.reviews': 'Izibuyekezo zakamuva',
   'tutorProfile.reviews.empty': 'Azikho izibuyekezo okwamanje — yiba ngowokuqala.',
+  'tutorProfile.stat.repeats': 'Abafundi abaphindayo',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'Impendulo emaphakathi',
   'tutorProfile.stat.responseValue': '{{mins}} umzuzu',

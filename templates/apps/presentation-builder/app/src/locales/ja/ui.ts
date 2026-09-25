@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ご質問、フィードバック、こんな機能が欲しいというご要望はありますか？アカウント設定からチームにご連絡ください — すべてのメッセージに担当者が目を通します。',
   'about.contactTitle': 'お問い合わせ',
   'about.eyebrow': '概要',
+  'about.missionTitle': '私たちの使命',
+  'about.whatYouGetTitle': '得られるもの',
   'analytics.empty': 'デッキを作成すると、ここに分析が表示されます。',
   'analytics.stats.acrossDecks': 'すべてのデッキで',
   'analytics.stats.allTime': 'あなたのスタジオで',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'デッキのタイトル',
   'landing.features.eyebrow': 'Overtureが選ばれる理由',
   'landing.features.heading': 'ステージに上がる準備に必要なすべてが揃います。',
+  'landing.finalCta.body':
+    '1分以内にスタジオを立ち上げられます。クレジットカード不要。いつでもキャンセル可能。',
   'landing.finalCta.cta': '無料でスタジオを作成',
   'landing.finalCta.eyebrow': '無料で開始',
   'landing.finalCta.heading': 'キャリア最高のデッキでステージに立ちましょう。',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12分前に編集',
   'notifications.created': '作成しました',
   'notifications.edited': '編集しました',
+  'notifications.empty.body':
+    'デッキ上のアクティビティ — コメント、メンション、エクスポート — はここに表示されます。',
   'notifications.empty.title': '通知はまだありません',
   'notifications.eyebrow': 'ステージのアクティビティ',
   'notifications.loading': '読み込み中…',
   'notifications.shared': '公開しました',
+  'planUpdated.retry': 'もう一度試す',
+  'planUpdated.verifyFailed': 'お支払いの確認がまだできていません。',
+  'planUpdated.verifyFailedBody':
+    'お支払いの処理がまだ完了していない可能性があります。しばらくしてからもう一度お試しください。',
   'planUpdated.verifying': 'お支払いを確認中…',
   'present.addSlides': 'スライドを追加',
   'present.backToDecks': 'デッキ一覧に戻る',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'ステージパフォーマー',
   'settings.security.notSet': '未設定',
   'settings.security.passwordBody': 'パスワードは保存時に暗号化されます。',
+  'settings.security.reset': 'リセット',
   'settings.security.title': 'アカウントとセッション',
   'shared.empty.body':
     '公開で共有したデッキはここに表示されます。デッキを開いて公開に切り替えると共有できます。',
@@ -130,6 +143,12 @@ export const ui: UiTranslations = {
   'shared.loading': '読み込み中…',
   'shared.title': '共有されたデッキ',
   'templateCard.slideCount': '{{count}}枚のスライド',
+  'templateCard.usageCount': '{{count}} 回利用',
+  'templates.empty.body':
+    '別のフィルターをお試しください — 毎月新しいテンプレートを追加しています。',
+  'templates.empty.title': 'このカテゴリにはまだテンプレートがありません',
+  'templates.hero.body':
+    'チャートブロック、デモフレーム、プレゼンターノート、タイマープリセットを備えたテーマ付きスライドレイアウト — どのテンプレートもすぐに収録できる状態で提供されます。',
   'templates.hero.eyebrow': '厳選されたステージ',
   'templates.hero.heading': '決めなければならない瞬間のために作られたステージ。',
 }

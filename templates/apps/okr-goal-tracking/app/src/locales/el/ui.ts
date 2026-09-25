@@ -3,8 +3,12 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
+  'about.missionTitle': 'Η αποστολή μας',
+  'about.subtitle': 'Φιλόδοξη, υπεύθυνη, μετρήσιμη παρακολούθηση OKR για ομάδες που ανεβαίνουν.',
   'ascentSideNav.nav.notifications': 'Ειδοποιήσεις',
   'ascentSideNav.newObjective': 'Νέος στόχος',
+  'authShell.brandBody':
+    'Το {{appName}} συνδέει τους στόχους με τα βασικά αποτελέσματα και τις εβδομαδιαίες ενημερώσεις, ώστε η πρόοδος να είναι πάντα ορατή — και πάντα ειλικρινής.',
   'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': 'Ορίστε την κορυφή. Βαθμολογήστε την ανάβαση. Προπονήστε την ομάδα.',
   'authShell.eyebrow': 'OKR που μετακινούν ομάδες',
@@ -15,20 +19,28 @@ export const ui: UiTranslations = {
   'billing.canceling': 'Ακύρωση…',
   'billing.confirmCancel': 'Ακύρωση της συνδρομής σας στο τέλος της τρέχουσας περιόδου;',
   'billing.currentPlanFreeFooter': 'Βρίσκεστε στην δωρεάν βαθμίδα. Αναβαθμίστε για υψηλότερα όρια.',
+  'billing.currentPlanPaidFooter': 'Ενεργή συνδρομή · {{plan}}',
   'billing.downloadCurrent': 'Λήψη σύνοψης',
   'billing.downloading': 'Προετοιμασία…',
   'billing.error.priceUnavailable':
     'Αυτό το πρόγραμμα δεν έχει ρυθμιστεί για ολοκλήρωση αγοράς στο τρέχον περιβάλλον.',
   'billing.eyebrow': 'Χώρος εργασίας · Χρέωση',
   'billing.heading': 'Πρόγραμμα & τιμολόγια',
+  'billing.message.canceled': 'Η συνδρομή θα λήξει στο τέλος της τρέχουσας περιόδου.',
   'billing.period.year': 'Ετήσιο',
+  'billing.perk.advanced': 'Σύνθετες αξιολογήσεις + υπενθυμίσεις',
   'billing.perk.export': 'Εξαγωγή δεδομένων + πρόσβαση API',
   'billing.perk.inApp': 'Αναφορά εντός εφαρμογής',
+  'billing.perk.keyResults': '{{count}} βασικά αποτελέσματα',
+  'billing.perk.objectives': '{{count}} στόχοι',
+  'billing.perk.retention': 'Ιστορικό {{count}} ημερών',
   'billing.perk.standard': 'Τυπικές αξιολογήσεις',
+  'billing.perk.unlimitedKrs': 'Απεριόριστα KR',
   'billing.perk.unlimitedObjectives': 'Απεριόριστοι στόχοι',
   'billing.perk.unlimitedRetention': 'Απεριόριστη διατήρηση',
   'billing.subheading':
     'Είσαι στο {{name}} σχέδιο. Συγκρίνετε τα επίπεδα και κάντε αναβάθμιση παρακάτω.',
+  'billing.subheading.loading': 'Φόρτωση του τρέχοντος πλάνου σας…',
   'billing.tier.unavailable': 'Δεν είναι διαθέσιμο',
   'billing.tier.upgrade': 'Αναβάθμιση σε {{name}}',
   'billing.tiersError': 'Δεν ήταν δυνατή η φόρτωση τιμών. Δοκιμάστε ξανά αργότερα.',
@@ -39,12 +51,14 @@ export const ui: UiTranslations = {
   'checkIn.emptyTitle': 'Δεν υπάρχει τίποτα προς έλεγχο ακόμα',
   'checkIn.eyebrow': 'Εβδομαδιαίος ρυθμός',
   'checkIn.heading': 'Εβδομαδιαίο check-in',
+  'checkIn.loading': 'Φόρτωση των KR σας…',
   'checkIn.newObjective': 'Νέος στόχος',
   'checkIn.noKrs': 'Δεν υπάρχουν βασικά αποτελέσματα — προσθέστε μερικά από την Επεξεργασία.',
   'checkIn.noteLabel': 'Μια σημείωση για την ομάδα σας',
   'checkIn.notePlaceholder':
     'Ρωτήστε για φωτεινό σημείο, μπλοκέρ ή προπονητή — κρατήστε το σε τρεις προτάσεις.',
   'checkIn.openObjective': 'Άνοιγμα →',
+  'checkIn.progressLabel': 'KR σε καλό δρόμο',
   'checkIn.subheading':
     'Ενημερώστε την τρέχουσα τιμή για κάθε KR, σημειώστε την ως εμπιστοσύνη, αφήστε μία σημείωση και υποβάλετε.',
   'checkIn.submit': 'Υποβολή check-in',
@@ -62,10 +76,16 @@ export const ui: UiTranslations = {
   'dashboard.allActivity': 'Δείτε όλες τις δραστηριότητες →',
   'dashboard.coachBodyAtRisk':
     '{{atRisk}} Οι βασικοί υποστηρικτές (KRs) μειώθηκαν αυτή την εβδομάδα. Μια 15λεπτη συζήτηση σήμερα συνήθως εξασφαλίζει μια ολόκληρη εβδομάδα ανάρρωσης.',
+  'dashboard.coachBodyOk':
+    'Τα KR σας φαίνονται υγιή αυτή την εβδομάδα — κρατήστε τον ρυθμό και κάντε την ενημέρωσή σας.',
+  'dashboard.coachCta': 'Άνοιγμα εβδομαδιαίας ενημέρωσης →',
   'dashboard.coachLabel': 'Προπονητική ώθηση',
   'dashboard.emptyBody':
     'Σχεδιάστε τον πρώτο σας στόχο για να ξεκινήσετε την παρακολούθηση της εβδομαδιαίας προόδου.',
   'dashboard.emptyTitle': 'Δεν υπάρχουν ακόμη στόχοι',
+  'dashboard.heroBody':
+    'Έχετε στην ευθύνη σας {{count}} στόχους. {{atRisk}} χρειάζονται πιο προσεκτική ματιά — ας τους κρατήσουμε σε καλό δρόμο.',
+  'dashboard.heroEmpty': 'Δεν έχετε ακόμη στόχους. Ξεκινήστε συντάσσοντας τον πρώτο σας.',
   'dashboard.heroProgressLabel': 'Πρόοδος τριμήνου',
   'dashboard.heroTitle': 'Καλή αναρρίχηση, {{name}} .',
   'dashboard.kpiActiveLabel': 'Ενεργοί στόχοι',
@@ -78,11 +98,14 @@ export const ui: UiTranslations = {
     'Δεν υπάρχει ακόμη δραστηριότητα. Πραγματοποιήστε ένα check-in για να ξεκινήσετε την ανάβαση.',
   'dashboard.objectivesHeading': 'Οι στόχοι σας',
   'dashboard.startCheckIn': 'Εκτελέστε εβδομαδιαίο check-in',
+  'dashboardLayout.searchAria': 'Αναζήτηση στόχων',
   'dashboardLayout.searchPlaceholder': 'Στόχοι αναζήτησης, Βασικοί Δείκτες Αναζήτησης, Άτομα...',
   'editObjective.addKr': 'Προσθήκη KR',
   'editObjective.archive': 'Στόχος αρχειοθέτησης',
   'editObjective.backToList': 'Επιστροφή στους στόχους',
   'editObjective.breadcrumbAll': 'Στόχοι',
+  'editObjective.confirmArchive':
+    'Αρχειοθέτηση αυτού του στόχου; Μπορείτε να τον βρείτε αργότερα στην προβολή αρχειοθετημένων.',
   'editObjective.descriptionLabel': 'Γιατί αυτό έχει σημασία',
   'editObjective.eyebrow': 'Επεξεργασία στόχου',
   'editObjective.heading':
@@ -97,6 +120,7 @@ export const ui: UiTranslations = {
   'editObjective.targetPlaceholder': 'Στόχος',
   'forgotPassword.emailPlaceholder': 'you@team.com',
   'forgotPassword.heading': 'Επαναφέρετε τον κωδικό πρόσβασής σας.',
+  'forgotPassword.rememberPrompt': 'Το θυμηθήκατε; ',
   'forgotPassword.subheading':
     'Εισαγάγετε το email που είναι συνδεδεμένο με τον λογαριασμό σας στο Ascent και θα σας στείλουμε έναν σύνδεσμο επαναφοράς.',
   'forgotPassword.successBody':
@@ -124,6 +148,7 @@ export const ui: UiTranslations = {
   'landing.heroTitle': 'Σκαρφάλωσε σε ό,τι έχει σημασία.',
   'login.emailPlaceholder': 'you@team.com',
   'login.heading': 'Καλώς ήρθες πίσω, ορειβάτη.',
+  'login.noAccountPrompt': 'Νέοι στο {{appName}}; ',
   'login.orContinueWith': 'ή συνεχίστε με',
   'login.subheading':
     'Συνεχίστε από εκεί που σταματήσατε — τα check-in, οι αξιολογήσεις και οι κριτικές σας σας περιμένουν.',
@@ -132,6 +157,7 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'newObjective.addKr': 'Προσθήκη KR',
   'newObjective.coachLabel': 'Υπενθυμίσεις προπονητή',
+  'newObjective.descriptionLabel': 'Γιατί αυτό έχει σημασία',
   'newObjective.descriptionPlaceholder': 'Εξηγήστε το στρατηγικό πλαίσιο σε 2-3 προτάσεις.',
   'newObjective.errorTitleRequired': 'Δώστε στον στόχο σας έναν τίτλο.',
   'newObjective.eyebrow': 'Νέος στόχος · Ορισμός της κορυφής',
@@ -150,14 +176,19 @@ export const ui: UiTranslations = {
   'newObjective.submit': 'Αποθήκευση στόχου',
   'newObjective.targetPlaceholder': 'Στόχος',
   'newObjective.tip1': 'Ξεκινήστε με ένα ρήμα: «Γίνομαι…», «Κόβω…», «Νικώ…»',
+  'newObjective.tip2': 'Τα KR πρέπει να είναι μετρήσιμα — αποφύγετε το «Βελτίωση του X».',
+  'newObjective.tip3': '3–5 KR είναι το ιδανικό. Περισσότερα δημιουργούν θόρυβο.',
   'newObjective.titlePlaceholder':
     'Γίνετε η αγάπη της μηχανικής προϊόντων της OKR για την κάλυψη των αναγκών της',
+  'notifications.emptyBody':
+    'Καθοδηγητικές υπενθυμίσεις, αναφορές και υπενθυμίσεις αξιολόγησης φτάνουν εδώ.',
   'notifications.emptyTitle': 'Δεν υπάρχουν ειδοποιήσεις σε αυτήν την προβολή.',
   'notifications.eyebrow': 'Κέντρο δραστηριότητας',
   'notifications.markRead': '● Σήμανση ως αναγνωσμένου',
   'objective.scopes.company': 'Εταιρεία',
   'objective.scopes.individual': 'Ατομο',
   'objective.scopes.team': 'Ομάδα',
+  'objectiveCard.krProgress': '{{done}}/{{total}} KR',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Επιστροφή στους στόχους',
   'objectiveDetail.edit': 'Επεξεργασία στόχου',
@@ -169,6 +200,11 @@ export const ui: UiTranslations = {
   'objectiveDetail.notFound': 'Ο στόχος δεν βρέθηκε.',
   'objectiveDetail.owner': 'Ιδιοκτησία {{name}}',
   'objectiveDetail.runCheckIn': 'Εκτέλεση check-in',
+  'objectiveDetail.timelineHeading': 'Χρονολόγιο ενημερώσεων',
+  'objectives.emptyBody':
+    'Σχεδιάστε τον πρώτο σας στόχο για να ξεκινήσετε την παρακολούθηση της εβδομαδιαίας προόδου.',
+  'objectives.emptyFilteredBody':
+    'Δοκιμάστε να καθαρίσετε το φίλτρο ή να ξεκινήσετε έναν νέο στόχο.',
   'objectives.emptyFilteredTitle':
     'Δεν υπάρχουν ακόμη στόχοι που να αντιστοιχούν σε αυτά τα φίλτρα.',
   'objectives.emptyTitle': 'Δεν υπάρχουν ακόμη στόχοι',
@@ -180,6 +216,11 @@ export const ui: UiTranslations = {
   'objectives.searchPlaceholder': 'Φιλτράρισμα κατά τίτλο…',
   'objectives.subheading':
     'Παρακολούθηση {{count}} στόχους. Φιλτράρετε κατά κατάσταση για να βρείτε τι χρειάζεται προσοχή.',
+  'pricing.limit.advanced': 'Σύνθετες λειτουργίες: {{value}}',
+  'pricing.limit.checkIns': '{{count}} ενημερώσεις',
+  'pricing.limit.export': 'Εξαγωγή δεδομένων: {{value}}',
+  'pricing.limit.keyResults': '{{count}} βασικά-αποτελέσματα',
+  'pricing.limit.objectives': '{{count}} στόχοι',
   'profile.achievementCheckInsMany': '{{count}} καταγεγραμμένα check-in',
   'profile.achievementCheckInsOne': '1 καταγεγραμμένο check-in',
   'profile.achievementCompletedMany': 'Ολοκληρώθηκαν {{count}} στόχοι',
@@ -188,6 +229,7 @@ export const ui: UiTranslations = {
   'profile.achievementOnTrackOne': '1 στόχος σε καλό δρόμο',
   'profile.activeHeading': 'Ενεργοί στόχοι',
   'profile.allObjectives': 'Όλοι οι στόχοι →',
+  'profile.createFirst': 'Δημιουργία στόχου',
   'profile.empty':
     'Δεν υπάρχουν ακόμη ενεργοί στόχοι — δημιουργήστε τον πρώτο σας για να ξεκινήσετε.',
   'profile.eyebrow': 'Προφίλ ορειβάτη',
@@ -201,13 +243,18 @@ export const ui: UiTranslations = {
   'profile.statsHeading': 'Αυτό το τρίμηνο',
   'profile.streakLabel': 'Τρίμηνο μέχρι στιγμής',
   'resetPassword.backLink': 'Συνδεθείτε',
+  'resetPassword.backPrompt': 'Αποφασίσατε να μην κάνετε επαναφορά; ',
   'resetPassword.emailPlaceholder': 'you@team.com',
   'resetPassword.heading': 'Ορίστε έναν νέο κωδικό πρόσβασης.',
+  'resetPassword.passwordLabel': 'Νέος κωδικός πρόσβασης',
   'resetPassword.reset': 'Ενημέρωση κωδικού πρόσβασης και σύνδεση',
   'resetPassword.resetting': 'Ενημέρωση κωδικού πρόσβασης…',
   'resetPassword.subheading':
     'Διάλεξε κάτι δυνατό — τουλάχιστον οκτώ χαρακτήρες, αν μπορείς ανάμειξε αριθμούς.',
   'reviewDetail.backToList': 'Πίσω στις κριτικές',
+  'reviewDetail.body':
+    '{{count}} ενεργός(-οί) στόχος(-οι) · βαθμός {{grade}}. Επεξεργαστείτε τις σκέψεις και τον βαθμό παρακάτω.',
+  'reviewDetail.colObjective': 'Στόχος',
   'reviewDetail.confirmDelete': 'Διαγραφή αυτού του προσχεδίου αξιολόγησης;',
   'reviewDetail.delete': 'Διαγραφή πρόχειρου',
   'reviewDetail.eyebrow': '{{κατάσταση}} · {{ημερομηνία}}',
@@ -219,8 +266,10 @@ export const ui: UiTranslations = {
   'reviewDetail.reflectionsHeading': 'Αντανακλάσεις',
   'reviewDetail.reflectionsPlaceholder': 'Τι πήγε καλά; Τι όχι; Σημειώσεις για το επόμενο τρίμηνο.',
   'reviewDetail.scorecardHeading': 'Πίνακας αποτελεσμάτων',
+  'reviewDetail.scoreLabel': 'Μέση βαθμολογία',
   'reviewDetail.submitted': 'Υποβλήθηκε',
   'reviewDetail.submittedToast': 'Η αξιολόγηση υποβλήθηκε',
+  'reviewDetail.untitled': 'Τριμηνιαία αξιολόγηση · πατήστε παρακάτω για επεξεργασία',
   'reviews.createDraft': 'Έναρξη ενός προσχεδίου',
   'reviews.empty.body':
     'Οι τριμηνιαίες αξιολογήσεις εμφανίζονται εδώ μόλις ξεκινήσετε ένα προσχέδιο. Κάντε κλικ στην επιλογή "Έναρξη προσχεδίου" παραπάνω για να ξεκινήσετε.',
@@ -230,12 +279,16 @@ export const ui: UiTranslations = {
   'reviews.eyebrow': 'Τριμηνιαίες αναδρομικές εκθέσεις',
   'reviews.grade': 'Βαθμός {{grade}}',
   'reviews.loading': 'Φόρτωση κριτικών…',
+  'reviews.notSubmitted': 'Δεν έχει υποβληθεί ακόμη',
   'reviews.subheading':
     'Συγκεντρώστε πίνακες αποτελεσμάτων, ανασκοπήσεις τίτλων και βαθμολογίες από τα προηγούμενα τρίμηνα.',
+  'reviews.submittedAt': 'Υποβλήθηκε {{date}}',
+  'reviews.untitled': 'Αξιολόγηση χωρίς τίτλο · πατήστε για επεξεργασία',
   'settings.billingSubtitle': 'Διαχείριση προγράμματος, θέσεων και τιμολογίων',
   'settings.billingTitle': 'Χρέωση & θέσεις',
   'settings.cadenceBody':
     'Επιλέξτε πόσο συχνά το Ascent θα ζητά από την ομάδα σας να κάνει check-in.',
+  'settings.cadenceHeading': 'Ρυθμός',
   'settings.eyebrow': 'Χώρος εργασίας · Λογαριασμός · Ρυθμός',
   'settings.guestName': 'Ορειβάτης',
   'settings.openProfile': 'Άνοιγμα προφίλ',
@@ -243,10 +296,15 @@ export const ui: UiTranslations = {
   'settings.saveError': 'Η αποθήκευση απέτυχε: {{error}}',
   'settings.toggleCoachDescription':
     'Η επιφάνεια στα μέσα του τριμήνου υποδηλώνει πότε ένας KR υποχωρεί κατά δύο βήματα εμπιστοσύνης.',
+  'settings.toggleCoachLabel': 'Καθοδηγητικές υπενθυμίσεις',
   'settings.toggleDigestDescription':
     'Στέλνει μια λίστα στόχων ανά κατάσταση κάθε Δευτέρα σε κάθε κάτοχο.',
+  'settings.toggleDigestLabel': 'Εβδομαδιαίο email σύνοψης',
+  'settings.toggleRemindersDescription':
+    'Ειδοποιήστε την ομάδα την Παρασκευή το πρωί αν λείπει ακόμη μια ενημέρωση.',
   'settings.toggleRemindersLabel': 'Εβδομαδιαίες υπενθυμίσεις check-in',
   'signup.emailPlaceholder': 'you@team.com',
+  'signup.haveAccountPrompt': 'Έχετε ήδη λογαριασμό; ',
   'signup.heading': 'Σχεδιάστε την πρώτη σας ανάβαση.',
   'signup.namePlaceholder': 'Ορεινός Άβερι',
   'signup.orContinueWith': 'ή συνεχίστε με',
@@ -265,6 +323,7 @@ export const ui: UiTranslations = {
   'team.newTeamLabel': 'Νέα ομάδα',
   'team.newTeamPlaceholder': 'π.χ. Εμπειρία Πελάτη',
   'team.objectivesLabel': 'Στόχοι',
+  'team.progressLabel': 'Πρόοδος χώρου εργασίας',
   'team.subheading':
     '{{teams}} ομάδες · {{objectives}} στόχους. Ομαδοποιήστε τα OKR σας ανά ομάδα για να δείτε συναθροίσεις.',
 }

@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Savollar, fikr-mulohazalar yoki bizda bo‘lishini istagan funksiya bormi? Hisob sozlamalaringizdan jamoa bilan bog‘laning — har bir xabarni haqiqiy inson o‘qiydi.',
   'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.missionTitle': 'Bizning vazifamiz',
+  'about.whatYouGetTitle': 'Sizga nima beriladi',
   'analytics.empty': 'Bu yerda tahlillarni ko’rish uchun destelar yarating.',
   'analytics.stats.acrossDecks': 'Barcha palubalarda',
   'analytics.stats.allTime': 'Sizning studiyangizda',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Palata sarlavhasi',
   'landing.features.eyebrow': 'Nima uchun Overture',
   'landing.features.heading': 'Sahnaga chiqish uchun kerak bo’lgan hamma narsa tayyor.',
+  'landing.finalCta.body':
+    'Studiyangizni bir daqiqadan kamroq vaqtda ishga tushiring. Kredit karta shart emas. Istalgan vaqtda bekor qiling.',
   'landing.finalCta.cta': 'Bepul studiyangizni yarating',
   'landing.finalCta.eyebrow': 'Boshlash uchun bepul',
   'landing.finalCta.heading':
@@ -82,10 +88,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 daqiqa oldin tahrirlangan',
   'notifications.created': 'yaratilgan',
   'notifications.edited': 'tahrirlangan',
+  'notifications.empty.body':
+    'Deklaringizdagi faoliyat — izohlar, eslatmalar, eksportlar — shu yerda ko‘rinadi.',
   'notifications.empty.title': 'Hali bildirishnomalar yo’q',
   'notifications.eyebrow': 'Sahna faoliyati',
   'notifications.loading': 'Yuklanmoqda…',
   'notifications.shared': 'ommaviy ravishda ulashilgan',
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'present.addSlides': 'Slaydlar qo’shish',
   'present.backToDecks': 'Paketlarga qaytish',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Sahna ijrochisi',
   'settings.security.notSet': 'O’rnatilmagan',
   'settings.security.passwordBody': 'Parolingiz dam olish vaqtida shifrlangan.',
+  'settings.security.reset': 'Qayta tiklash',
   'settings.security.title': 'Hisob + sessiyalar',
   'shared.empty.body':
     'Siz ommaviy ravishda ulashgan platformalar bu yerda ko’rsatiladi. Paketni oching va ulashish uchun ommaviy rejimni yoqing.',
@@ -131,6 +144,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Yuklanmoqda…',
   'shared.title': 'Umumiy paluba',
   'templateCard.slideCount': '{{count}} slaydlar',
+  'templateCard.usageCount': '{{count}} foydalanish',
+  'templates.empty.body': 'Boshqa filtrni sinab ko‘ring — biz har oy yangi shablonlar chiqaramiz.',
+  'templates.empty.title': 'Bu turkumda hali shablonlar yo‘q',
+  'templates.hero.body':
+    'Diagramma bloklari, demo ramkalar, ma’ruzachi izohlari va taymer sozlamalari bilan oldindan mavzulashtirilgan slayd tartiblari — har bir shablon yozib olishga tayyor holda taqdim etiladi.',
   'templates.hero.eyebrow': 'Tanlangan bosqichlar',
   'templates.hero.heading': 'Bosqichlar siz uni qo’ndirishingiz kerak bo’lgan vaqt uchun qurilgan.',
 }

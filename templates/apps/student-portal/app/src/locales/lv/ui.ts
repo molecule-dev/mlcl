@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vai ir atsauksmes, esi pamanījis kļūdu vai vēlies piesaistīt savu skolu? Sazinies no sava konta iestatījumiem vai raksti savas skolas administratoram — katra piezīme nonāk pie īsta komandas cilvēka.',
   'about.contactTitle': 'Sazinieties ar mums',
+  'about.missionTitle': 'Mūsu misija',
   'announcementsFeed.empty': 'Vēl nav paziņojumu.',
   'announcementsFeed.eyebrow': '{{count}} atjauninājumi',
   'announcementsFeed.title': 'Jaunākie paziņojumi',
   'assignmentDetail.alreadySubmitted': 'Jūs jau esat iesniedzis šo uzdevumu.',
   'assignmentDetail.backLink': 'Atpakaļ pie uzdevumiem',
+  'assignmentDetail.dropBody':
+    'Izmanto Izvēlēties failus, lai pievienotu savu darbu — iesniegšanas laika zīmogs tiks reģistrēts, tiklīdz apstiprināsi.',
   'assignmentDetail.dropButton': 'Izvēlieties failus',
+  'assignmentDetail.dropPrompt': 'Ievelc šeit savu PDF vai foto pakotni',
   'assignmentDetail.due': 'Pienākas {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Norādījumi',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Novērtēts',
   'assignmentDetail.statusSubmitted': 'Iesniegts',
   'assignmentDetail.statusTitle': 'Iesniegšanas statuss',
+  'assignmentDetail.submitError':
+    'Mēs nevarējām reģistrēt šo iesniegumu. Mēģini vēlreiz pēc brīža.',
   'assignmentDetail.submitted': 'Iesniegums reģistrēts — jūsu skolotājs ir informēts.',
+  'assignmentDetail.submittedAt': 'Iesniegts {{when}}',
+  'assignmentDetail.submitTitle': 'Iesniedz savu darbu',
   'assignmentRow.courseDue': '{{course}} · Jānosaka {{due}}',
   'assignments.empty': 'Šeit nav nekā',
   'assignments.emptyBody': 'Pārslēdziet filtrus iepriekš, lai skatītu uzdevumus citā stāvoklī.',
@@ -38,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Dienas klātbūtnes, prombūtnes un kavējumu žurnāls — ar piezīmēm, ja nepieciešams.',
+  'attendance.summary.absences': 'Kavējumi',
   'attendance.summary.absencesCaption': 'Zem 5 dienu intervences sliekšņa',
   'attendance.summary.attendance': 'Apmeklētība',
   'attendance.summary.attendanceCaption': '{{count}} mūsdienās šis termins',
+  'attendance.summary.tardies': 'Nokavēti',
   'attendance.summary.tardiesCaption': 'Ieskaitot piezīmes par autobusu/tikšanos kavēšanos',
   'attendance.title': 'Apmeklētības vēsture',
   'calendar.eyebrow': 'Mācību gads · {{year}}',
@@ -54,6 +66,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Atzīmes',
   'courseDetail.currentGrade': 'Pašreizējā atzīme',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Kursa pārskats',
   'courseDetail.gradesTitle': 'Jaunākās atzīmes',
   'courseDetail.messageTeacher': 'Sūtīt ziņu skolotājam',
   'courseDetail.noGrades': 'Vēl nav publicētas atzīmes.',
@@ -66,13 +79,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Skatīt visu',
   'dashboard.assignmentsTitle': 'Nākamais šonedēļ',
   'dashboard.greeting': 'Sveiki {{name}} , gatavs nodarbībai?',
+  'dashboard.subtitle':
+    'Tava nedēļa vienā skatā — stundu saraksts, atzīmes un uzdevumi vienā mierīgā pārskatā.',
+  'dashboard.viewReportCard': 'Skatīt liecību',
+  'dashboard.weekFocusBody':
+    'Iesniedz kvadrātvienādojumu prakses komplektu 7 un nodaļas kontroldarbu. Konsultāciju laboratorija ir atvērta otrdien un ceturtdien pēc 7. stundas.',
+  'dashboard.weekFocusCta': 'Skatīt pilnu plānu',
   'dashboard.weekFocusEyebrow': 'Nedēļas uzmanības centrā',
   'dashboard.weekFocusTitle': 'Uzlabojiet Algebra II par 4 punktiem',
   'forgotPassword.subheading':
     'Ievadiet savu skolas e-pasta adresi, un mēs nosūtīsim atiestatīšanas saiti.',
   'forgotPassword.successBody':
     'Ja {{email}} atbilst Chalk kontam, paroles atiestatīšanas saite ir ceļā. Saites beigsies 30 minūtes.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} semestra vidējā atzīme',
+  'gpaHeroCard.summary': 'Šodien {{count}} stundas',
   'grades.col.grade': 'Pakāpe',
   'grades.col.teacher': 'Skolotājs',
   'grades.col.trend': 'Tendence',
@@ -84,10 +105,17 @@ export const ui: UiTranslations = {
     'Tiešraides burtu un procentuālās atzīmes. Tendences bultiņas rāda, vai virzāties uz augšu, izlīdzināties vai slīdat.',
   'grades.title': 'Jūsu atzīmes, kurss pēc kursa',
   'grades.trendStable': 'Stabils',
+  'grades.viewReportCard': 'Skatīt oficiālo liecību',
   'landing.copyright': '© {{year}} {{app}} . Radīts studentiem, radīts ģimenēm.',
+  'landing.ctaBody':
+    'Bezmaksas pirmās 30 dienas, kredītkarte nav nepieciešama. Skolu apgabali var ieviest visai skolai paredzētu līmeni vienā pēcpusdienā.',
+  'landing.ctaButton': 'Izveidojiet savu portālu',
   'landing.ctaHeading': 'Mierīgāka skolas diena sākas dažu minūšu laikā',
   'landing.eyebrow': 'Vidusskolas un vidusskolas skolēniem',
   'landing.featuresHeading': 'Skolas diena, kas organizēta ap skolēnu',
+  'landing.heroSubtitle':
+    '{{appName}} apkopo visas klases, atzīmes, uzdevumus un ziņas vienā mierīgā panelī, lai tu varētu mazāk laika veltīt meklēšanai un vairāk — mācībām.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Pēc noklusējuma atbilst FERPA standartam',
   'landing.proof.rating': '4,8 12 000 ģimenēs',
   'landing.sampleTerm': 'Pavasaris',
@@ -96,6 +124,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Paslēpt paroli',
   'login.noAccount': 'Jauns krīta lietotājs?',
   'login.showPassword': 'Rādīt paroli',
+  'messages.compose': 'Jauns ziņojums',
   'messages.composer.email': 'Saņēmēja e-pasts (pēc izvēles)',
   'messages.composer.errorEmpty': 'Ziņojuma lauks nedrīkst būt tukšs.',
   'messages.composer.errorRecipient': 'Saņēmēja vārds ir obligāts.',
@@ -126,9 +155,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Goda saraksts · Pavasara semestris',
   'nav.unreadMessages': 'Nelasīti ziņojumi',
   'notifications.eyebrow': '{{count}} atjauninājumi',
+  'notifications.feedTitle': 'Visa nesenā aktivitāte',
   'notifications.subtitle':
     'Atzīmes, atgādinājumi, ziņojumi un skolas paziņojumi. Iestatījumos pielāgojiet, kurus kanālus katrs paziņojums izmanto.',
+  'planUpdated.body':
+    'Tavas norēķinu izmaiņas tagad ir aktīvas. Plānu vari pārvaldīt jebkurā laikā norēķinu lapā.',
+  'planUpdated.retry': 'Mēģini vēlreiz',
+  'planUpdated.verifyFailed': 'Mēs vēl nevarējām apstiprināt jūsu maksājumu.',
+  'planUpdated.verifyFailedBody':
+    'Jūsu maksājums, iespējams, joprojām tiek apstrādāts. Pēc brīža mēģiniet vēlreiz.',
   'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
+  'pricing.announcementsLabel': 'paziņojumi',
   'pricing.attendanceLabel': 'apmeklētība',
   'pricing.gradesLabel': 'atzīmes',
   'pricing.heading': 'paziņojumi',
@@ -143,6 +180,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': '2. ceturksnis',
   'reportCard.crumb': 'Ziņojuma karte',
   'reportCard.cumulativeGpa': 'Kumulatīvā vidējā atzīme',
+  'reportCard.download': 'Lejupielādēt PDF',
   'reportCard.downloaded': 'Ziņojuma kartīte atvērta jaunā cilnē.',
   'reportCard.downloading': 'Notiek PDF faila ģenerēšana…',
   'reportCard.empty': 'Vēl nav pievienotas atzīmes.',
@@ -150,6 +188,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Galīgā vidējā atzīme · {{term}}',
   'reportCard.subtitle':
     'Formāls semestra noslēguma atzīmju izraksts ar svērtām kursu atzīmēm, apmeklējumu un drukājama PDF faila lejupielāde.',
+  'reportCard.title': 'Ziņojuma karte',
+  'resetPassword.newPassword': 'Jauna parole',
   'resetPassword.subheading': 'Izvēlieties kaut ko neaizmirstamu, bet grūti uzminējamu.',
   'resetPassword.tokenPlaceholder': 'Ielīmējiet kodu no sava e-pasta ziņojuma',
   'schedule.empty': 'Nav paredzētas nodarbības.',
@@ -175,12 +215,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Neapstiprinātie uzdevumi',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} prombūtnes šajā semestrī · {{tardy}} kavēšanās',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Apkopojam apmeklējuma datus…',
+  'subjectStatsTriad.attendanceLabel': 'Apmeklētība',
   'subjectStatsTriad.gradesCaption': 'Pāri {{percent}} % svērtais vidējais rādītājs',
+  'subjectStatsTriad.gradesCaptionLoading': 'Notiek atzīmju ielāde…',
+  'subjectStatsTriad.gradesLabel': 'Klases vidējā atzīme',
   'todayScheduleStrip.empty': 'Šodien nodarbību nav.',
   'todayScheduleStrip.eyebrow': '{{count}} nodarbības',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Šodienas grafiks',
   'topbar.guestName': 'Students',
   'topbar.searchPlaceholder': 'Meklēt nodarbības, uzdevumus…',
+  'topbar.studentRole': 'Students',
   'topbar.studentTag': 'Students · # {{id}}',
 }

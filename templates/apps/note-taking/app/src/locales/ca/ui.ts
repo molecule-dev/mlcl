@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens comentaris, has trobat un error o vols suggerir una funció? Escriu-nos des de la configuració del teu compte — cada missatge arriba a una persona real de l'equip.",
+  'about.contactTitle': 'Parla amb nosaltres',
+  'about.featureDatabases':
+    'Bases de dades lleugeres i plantilles reutilitzables per convertir notes soltes en fluxos de treball estructurats i repetibles.',
+  'about.featureEditor':
+    'Un editor de blocs discret — títols, llistes, codi, avisos i tasques pendents — amb ordres de barra quan les vols i fora del camí quan no.',
+  'about.featureGraph':
+    'Enllaços inversos i un gràfic de coneixement: escriu [[ per enllaçar una nota i observa com les teves idees es connecten amb el temps.',
+  'about.featureNotebooks':
+    'Quaderns i pàgines niats perquè projectes, temes i notes diàries es mantinguin organitzats exactament com penses.',
+  'about.featureSearch':
+    "Cerca de text complet en menys de 50 ms a tots els quaderns, més etiquetes que es combinen amb els quaderns en lloc de barallar-s'hi.",
+  'about.missionTitle': 'La nostra missió',
   'common.goToDashboard': 'Anar al panell',
   'forgot.eyebrow': 'Has perdut el camí de tornada?',
   'forgot.formSubtitle': "Digue'ns el correu electrònic que tenim registrat.",
+  'forgot.formTitle': 'He oblidat la contrasenya?',
   'forgot.headline': 'Restableix la teva contrasenya.',
   'forgot.subline':
     "T'enviarem un enllaç d'un sol ús a la safata d'entrada perquè puguis triar-ne un de nou.",
+  'forgot.successDetail':
+    'Hem enviat un enllaç de restabliment al teu correu. Caduca en 30 minuts.',
   'graph.eyebrow': 'Gràfic',
+  'graph.goToNotes': 'Explora les notes →',
+  'graph.loadError': "No s'ha pogut carregar el gràfic: {{message}}",
   'graph.placeholderBody':
     'Quan les notes comencin a enllaçar-se entre si (amb la sintaxi [[wiki]]), aquí es mostrarà un graf interactiu dirigit per força.',
+  'graph.placeholderTitle': "Gràfic d'enllaços inversos properament",
   'graph.subtitle':
     "{{count}} notes en aquest espai de treball. La representació del gràfic d'enllaços entrants apareixerà aquí un cop les notes s'enllacin entre si.",
   'graph.title': 'Gràfic de coneixement',
   'home.empty': 'Encara no hi ha cap nota; comença la primera.',
   'home.favoritesHeading': 'Fixat',
   'home.guest': 'amic',
+  'home.loadError': "No s'han pogut carregar les teves notes: {{message}}",
   'home.newNoteCta': 'New note',
   'home.noFavorites': "Fixa una nota a l'editor per mantenir-la aquí.",
   'home.recentHeading': 'Actualitzat recentment',
@@ -23,18 +44,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Quadern',
   'home.stats.pinned.label': 'Fixat',
   'home.stats.updatedToday.label': 'Actualitzat avui',
+  'home.subtitle': 'Continua on ho vas deixar o comença una nota nova.',
   'home.viewAll': 'Veure totes les notes',
   'landing.cta.body':
     "Gratuït per a ús personal. Pro per a equips. Porta el teu Markdown existent o comença de nou: Verso t'acompanya allà on siguin les teves notes.",
+  'landing.cta.button': 'Crea el meu espai de treball',
   'landing.cta.heading': "Obre la pàgina d'avui.",
   'landing.features.eyebrow': 'Totes les primitives que necessita el teu segon cervell',
+  'landing.features.heading': 'Construït per a l’obra, no per a la meta-obra.',
   'landing.hero.eyebrow': "Una superfície d'escriptura tranquil·la",
   'landing.hero.headlineAccent': 'prendre forma.',
   'landing.hero.headlineLeading': 'On els pensaments',
   'landing.hero.primaryCta': 'Comença la teva base de coneixements',
   'landing.hero.secondaryCta': 'Ja tinc un compte',
+  'landing.hero.socialProof':
+    'Més de 12.800 escriptors, estudiants i doctors pensen amb {{appName}}',
   'landing.hero.subline':
     "Verso és una superfície estructurada per prendre notes per a treballadors del coneixement i estudiants. Editor de blocs, quaderns imbricats, enllaços entrants i un gràfic de coneixement, tot darrere d'una experiència de lectura centrada en la tipografia.",
+  'landing.preview.notebook': "Coneixement · Procés d'escriptura",
+  'landing.preview.title': "Deixar respirar els corrents d'aire",
   'login.eyebrow': 'Benvinguts de nou a Verso',
   'login.formSubtitle': 'Utilitza el teu correu electrònic o qualsevol proveïdor connectat.',
   'login.headline': "Continua on s'havia aturat la pàgina.",
@@ -44,6 +72,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Tanca el menú de navegació',
   'mobileNav.openMenu': 'Obre el menú de navegació',
   'noteEditor.backToNotes': 'Torna a les notes',
+  'noteEditor.bodyLabel': 'Cos de la nota',
   'noteEditor.bodyPlaceholder':
     'Comença a escriure: la nota es desa automàticament a mesura que escrius.',
   'noteEditor.confirmTrash': 'Voleu moure aquesta nota a la paperera?',
@@ -52,17 +81,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Mou a la paperera',
   'noteEditor.updated': 'Actualitzat',
   'notes.defaultWorkspaceName': 'El meu quadern',
+  'notes.empty': "Encara no hi ha notes aquí — comença'n una per omplir el quadern.",
   'notes.eyebrow': 'Quadern',
   'notes.filterAll': 'Totes les notes',
   'notes.filterPinned': 'Fixat',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Quadern nou',
   'notes.newNotebookPrompt': 'Nom del nou bloc de notes',
+  'notes.newNotebookRequired': 'Introdueix un nom de quadern.',
   'notes.notebooksHeading': 'Quaderns',
   'notes.subtitle':
     "Trieu un quadern a l'esquerra i premeu el botó Nota nova per començar una entrada nova.",
+  'planUpdated.body': 'La teva subscripció ja està activa.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Funcions avançades',
   'pricing.heading': 'Tria el teu pla de presa de notes',
+  'reset.changedMind': "Has canviat d'opinió?",
   'reset.eyebrow': 'Gairebé de nou',
   'reset.formSubtitle': "Iniciaràs la sessió un cop s'hagi desat.",
   'reset.headline': 'Trieu una contrasenya nova.',
@@ -72,7 +106,9 @@ export const ui: UiTranslations = {
     "Introdueix el codi que t'hem enviat per correu electrònic i tria'n un que et recordi.",
   'reset.submit': 'Desa i inicia la sessió',
   'reset.tokenHint': "Enganxat des de la safata d'entrada.",
+  'search.empty': 'Encara no hi ha cap nota que coincideixi amb aquesta consulta.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Cerca Refracta',
   'search.loading': 'Cercant…',
   'search.noRecent': 'Escriu una consulta a dalt per començar a cercar entre les teves notes.',
   'search.recentLabel': 'Cerques recents',
@@ -80,12 +116,20 @@ export const ui: UiTranslations = {
     "Text complet a tots els blocs de notes. Escriviu per cercar; els resultats s'actualitzen a mesura que escriviu.",
   'search.title': 'Busca el segon cervell.',
   'settings.account.logout': 'Tanca la sessió',
+  'settings.account.title': 'Detalls del compte',
+  'settings.editor.graphHover.body':
+    "Mostra una targeta de previsualització petita en passar el cursor per un [[wikilink]] a l'editor.",
+  'settings.editor.graphHover.label':
+    "Previsualització en passar el cursor pel gràfic d'enllaços inversos",
   'settings.editor.lineHeight.body':
     "Quantitat d'aire entre les línies del cos. 170% és el ritme de lectura per defecte.",
+  'settings.editor.lineHeight.label': 'Alçada de línia',
   'settings.editor.serif.body':
     "Feu servir Georgia per a la columna de lectura. Sans-serif es manté a la barra lateral i a les barres d'eines.",
+  'settings.editor.serif.label': 'Text del cos amb serifa',
   'settings.editor.title': "Tipografia i superfície d'escriptura",
   'settings.eyebrow': 'Verso · Configuració',
+  'settings.passwordModal.current': 'Contrasenya actual',
   'settings.passwordModal.error':
     "No s'ha pogut canviar la contrasenya. Si us plau, comproveu la vostra contrasenya actual.",
   'settings.passwordModal.next': 'Nova contrasenya',
@@ -95,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Premeu cada tecla a través del canal en temps real. Desactiveu-ho per a connexions més lentes.',
   'settings.sync.auto.label': 'Sincronització en temps real',
+  'settings.sync.title': 'Com viatgen les teves notes',
   'settings.theme.body':
     'La llum manté brillant la columna editorial. El color sèpia escalfa la pàgina per als vespres.',
   'settings.theme.dark': 'Fosc',
@@ -114,8 +159,12 @@ export const ui: UiTranslations = {
     'Afegeix #etiquetes al títol d\'una nota (per exemple, "Llista de lectura #llibres") i apareixeran aquí automàticament.',
   'tags.emptyTitle': 'Encara no hi ha etiquetes',
   'tags.eyebrow': 'Índex',
+  'tags.goToNotes': 'Ves a les notes →',
+  'tags.loadError': "No s'han pogut carregar les etiquetes: {{message}}",
   'tags.subtitle':
     "{{tags}} etiquetes a través {{notes}} notes. Afegeix #etiquetes al títol d'una nota i apareixeran aquí.",
+  'versoAuthShell.sample.body':
+    'Una segona passada demà sempre es llegeix millor que una primera passada aquesta nit. Deixa la versió preliminar a la carpeta de treball profund…',
   'versoAuthShell.sample.label': 'Nota diària',
   'versoAuthShell.sample.timestamp': 'Avui · 9:14 h',
   'versoAuthShell.sample.title': "Deixar respirar els corrents d'aire",
@@ -127,8 +176,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Continua escrivint',
   'versoTodayHero.createCta': "Comença la nota d'avui",
   'versoTodayHero.dailyLabel': 'Nota diària',
+  'versoTodayHero.emptyHeadline': 'Avui és una pàgina en blanc.',
   'versoTodayHero.emptySubline':
     "Captura un pensament, pren nota d'una reunió o esbossa el dia de demà. Verso manté l'estructura silenciosa perquè l'escriptura es mantingui en veu alta.",
+  'versoTodayHero.outlineLabel': "Esquema d'avui",
   'versoTodayHero.streak': '{{count}} ratxa de -dia',
+  'versoTodayHero.unwritten': 'Encara no hi ha paraules — obre la nota per començar.',
   'versoTodayHero.wordCount': "{{count}} paraules d'avui",
 }

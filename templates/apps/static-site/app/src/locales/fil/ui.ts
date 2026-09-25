@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Na-update na ang iyong plano.',
   'planUpdated.returnHome': 'Bumalik sa home',
   'planUpdated.thankYou': 'Salamat!',
+  'post.markdown': 'Tingnan ang post na ito bilang markdown',
+  'post.readingTime': '{{minutes}} minutong pagbasa',
   'post.tags': 'Mga Tag',
   'project.error.nameAndTypeRequired': 'Kailangan ang name at projectType',
   'project.error.notFound': 'Hindi nahanap',

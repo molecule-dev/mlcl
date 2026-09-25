@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'એડિશન, શિપમેન્ટ કે તમારી સબ્સ્ક્રિપ્શન વિશે પ્રશ્નો? ટીમના સાચા માણસ સાથે hello@crate.example પર સંપર્ક કરો — અમે દરેક સંદેશ વાંચીએ છીએ.',
+  'about.contactTitle': 'ક્યુરેટર સાથે વાત કરો',
+  'about.feature1':
+    'સ્વતંત્ર કારીગરો દ્વારા પસંદ કરાયેલા માસિક ક્યુરેટેડ એડિશન, દરેક વસ્તુની પાછળની વાર્તા સાથે.',
+  'about.feature2':
+    'દરેક બોક્સ પર સંપૂર્ણ નિયંત્રણ — સામગ્રી કસ્ટમાઇઝ કરો, વસ્તુઓ બદલો કે બાકાત રાખો, એક મહિનો છોડો, અથવા તમારી આવર્તન બદલો.',
+  'about.feature3':
+    'પિકઅપથી ઘર સુધી સંપૂર્ણ શિપમેન્ટ ટ્રેકિંગ, પ્લાસ્ટિક-મુક્ત પેકેજિંગ અને લાઇવ કેરિયર અપડેટ્સ સાથે.',
+  'about.feature4':
+    'લવચીક પ્લાન અને પારદર્શક બિલિંગ — તમારા ડેશબોર્ડથી કોઈપણ સમયે અપગ્રેડ, ડાઉનગ્રેડ, થોભાવો કે રદ કરો.',
+  'about.intro':
+    '{{app}} એક ક્યુરેટેડ સબ્સ્ક્રિપ્શન-બોક્સ સેવા છે જે દર મહિને તમારા ઘરે હાથે પસંદ કરેલું, નાના-બેચનું આનંદનું બોક્સ પહોંચાડે છે. દરેક એડિશન કાર્યરત કારીગરો — સ્વતંત્ર કલાકારો, રસોઇયા અને નાના બ્રાન્ડ્સ — દ્વારા તૈયાર થાય છે, કોઈ અલ્ગોરિધમ દ્વારા નહીં.',
+  'about.missionBody':
+    'અમે માનીએ છીએ કે સબ્સ્ક્રિપ્શન ભેટ જેવું લાગવું જોઈએ, જાળ જેવું નહીં. {{app}} એવી રીતે બનાવાયું છે કે તમે એટલા માટે રહો કારણ કે તમને જે આવે છે તે ગમે છે — કોઈપણ સમયે થોભાવો, જે જોઈએ તે બદલો, અને એક ક્લિકમાં રદ કરો. ક્યારેય કોઈ રીટેન્શન સ્ક્રિપ્ટ નહીં.',
+  'about.missionTitle': 'અમારું ધ્યેય',
   'about.pageTitle': '{{app}} વિશે',
   'appNav.mobileLabel': 'પ્રાથમિક નેવિગેશન',
   'appNav.primaryLabel': 'પ્રાથમિક નેવિગેશન',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'બિલિંગ સંપર્ક સંપાદિત કરો',
   'billing.contact.eyebrow': 'બિલિંગ સંપર્ક',
   'billing.eyebrow': 'પ્લાન અને ચુકવણીઓ',
+  'billing.loading': 'બિલિંગ લોડ થઈ રહ્યું છે…',
   'billing.payment.body':
     'ચુકવણી સ્ટ્રાઇપ ચેકઆઉટ દ્વારા કરવામાં આવે છે — તમારો સંપૂર્ણ કાર્ડ નંબર ક્યારેય અમારા સર્વરને સ્પર્શતો નથી. તમારા કાર્ડને ઉમેરવા અથવા અપડેટ કરવા માટે નીચેના કોઈપણ સ્તર પર ક્લિક કરો.',
   'billing.payment.linked': 'સ્ટ્રાઇપ દ્વારા ફાઇલ પર કાર્ડ',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'સબ્સ્ક્રિપ્શન ફરી શરૂ કરો',
   'billing.plan.eyebrow': 'સક્રિય યોજના',
   'billing.plan.next': 'આપમેળે રિન્યૂ થાય છે {{date}} .',
+  'billing.plan.status': 'સ્થિતિ: {{status}}',
   'billing.subtitle':
     'તમારા સ્તર, ચુકવણી પદ્ધતિનું સંચાલન કરો અને ભૂતકાળની પ્રવૃત્તિની સમીક્ષા કરો.',
   'billing.tiers.body': 'એક સ્તર પસંદ કરો અને અમે તમને સ્ટ્રાઇપ ચેકઆઉટ પર મોકલીશું.',
   'billing.tiers.choose': 'પસંદ કરો',
+  'billing.tiers.empty': 'હજી સુધી કોઈ ટિયર ગોઠવાયા નથી.',
   'billing.tiers.heading': 'ઉપલબ્ધ સ્તરો',
   'boxDetail.backToBoxes': 'બધી આવૃત્તિઓ પર પાછા જાઓ',
   'boxDetail.crumb.boxes': 'આવૃત્તિઓ',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'પસંદ કરેલ ભાગ',
   'boxDetail.items.heading': '{{count}} ક્યુરેટેડ ટુકડાઓ',
   'boxDetail.itemsBadge': '{{count}} બોક્સ દીઠ ક્યુરેટેડ વસ્તુઓ',
+  'boxDetail.loading': 'એડિશન લોડ થઈ રહ્યું છે…',
   'boxDetail.notFound': 'તે આવૃત્તિ હવે ઉપલબ્ધ નથી.',
   'boxDetail.subscribe.success': 'સબ્સ્ક્રાઇબ કર્યું — તમારી પહેલી આવૃત્તિ કતારમાં છે.',
   'boxDetail.swapBadge': 'સુધી સ્વેપ કરો {{count}} પ્રતિ બોક્સ વસ્તુઓ',
@@ -44,14 +64,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'કોઈ આવૃત્તિઓ મેળ ખાતી નથી.',
   'boxes.eyebrow': 'ધ ટ્રોવ આર્કાઇવ',
   'boxes.heading': 'દરેક આવૃત્તિ બ્રાઉઝ કરો',
+  'boxes.loadError': 'અમે એડિશન લોડ કરી શક્યા નહીં. તમારું કનેક્શન તપાસો અને ફરી પ્રયાસ કરો.',
   'boxes.loading': 'આવૃત્તિઓ લોડ કરી રહ્યું છે…',
+  'boxes.search.label': 'એડિશન શોધો',
   'boxes.search.placeholder': 'આવૃત્તિઓ શોધો…',
   'boxes.subtitle':
     'દરેક સ્તર એક નાની-બેચની વાર્તા છે. તમારી કતારમાં એક ઉમેરો અથવા તેને તમારા આગામી મહિનામાં સ્વેપ કરો.',
+  'boxThemeCard.itemCount': '{{count}} વસ્તુઓ',
   'boxThemeCard.perMonth': '/ મહિનો',
+  'boxThemeCard.retailValue': 'છૂટક કિંમત {{value}}',
   'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
+  'common.retry': 'ફરી પ્રયાસ કરો',
   'customize.eyebrow': 'તેને તમારું બનાવો',
   'customize.heading': 'તમારા આગામી ટ્રોવને કસ્ટમાઇઝ કરો',
+  'customize.items.empty': 'આ ટિયર માટે હજી સુધી કોઈ વસ્તુ ગોઠવાઈ નથી.',
   'customize.items.exclude': 'આ છોડી દો',
   'customize.items.eyebrow': 'આ બોક્સને વ્યક્તિગત બનાવો',
   'customize.items.heading': 'માં વસ્તુઓ {{box}}',
@@ -60,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'પાછું ઉમેરો',
   'customize.items.save': 'કસ્ટમાઇઝેશન સાચવો',
   'customize.items.swapsLeft': '{{used}} ના {{max}} વપરાયેલ સ્વેપ્સ',
+  'customize.loading': 'કસ્ટમાઇઝેશન લોડ થઈ રહ્યું છે…',
   'customize.noSub.body':
     'પહેલા એક સ્તર પર સબ્સ્ક્રાઇબ કરો, પછી તમારા બોક્સમાં વસ્તુઓની અદલાબદલી કરવા માટે પાછા આવો.',
+  'customize.noSub.cta': 'એડિશન બ્રાઉઝ કરો',
   'customize.noSub.heading': 'કોઈ સક્રિય સબ્સ્ક્રિપ્શન નથી',
   'customize.saved': 'કસ્ટમાઇઝેશન સાચવ્યું.',
   'customize.subtitle':
@@ -75,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'શિપમેન્ટ ટ્રૅક કરો',
   'dashboard.eyebrow': 'તમારું ખજાનો',
   'dashboard.greeting': 'ફરી સ્વાગત છે, {{name}} .',
+  'dashboard.loadError':
+    'અમે તમારું ડેશબોર્ડ લોડ કરી શક્યા નહીં. તમારું કનેક્શન તપાસો અને ફરી પ્રયાસ કરો.',
   'dashboard.loading': 'ડેશબોર્ડ લોડ કરી રહ્યું છે…',
   'dashboard.next.eyebrow': 'તમારી આગામી આવૃત્તિ',
   'dashboard.onboarding.body':
     'તમારી પાસે હજુ સુધી સક્રિય સબ્સ્ક્રિપ્શન નથી. દર મહિને ટ્રોવ મોકલવાનું શરૂ કરવા માટે એક સ્તર પસંદ કરો.',
   'dashboard.onboarding.cta': 'બધી આવૃત્તિઓ બ્રાઉઝ કરો',
+  'dashboard.onboarding.empty': 'હાલમાં કોઈ પ્લાન ઉપલબ્ધ નથી. થોડા સમય પછી ફરી તપાસો.',
   'dashboard.onboarding.heading': 'તમારી પહેલી આવૃત્તિ પસંદ કરો',
   'dashboard.renewal.amount': 'ચાર્જ થયેલ',
   'dashboard.renewal.cadence': 'કેડન્સ',
@@ -87,18 +118,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'નવીકરણ',
   'dashboard.renewal.heading': 'ઑટો-રિન્યૂ થાય છે {{date}}',
   'dashboard.renewal.plan': 'પ્લાન કી',
+  'dashboard.renewal.tbd': 'નવીકરણ શેડ્યૂલ ટૂંક સમયમાં',
   'dashboard.renewal.tier': 'ટાયર',
   'dashboard.stats.days': 'દિવસો',
   'dashboard.stats.daysToNext': 'મોકલે છે',
   'dashboard.stats.items': 'પસંદ કરેલી આઇટમ્સ',
   'dashboard.stats.shipDate': 'રવાના તારીખ',
   'dashboard.stats.tbd': 'ટીડીડી',
+  'dashboard.subtitle.active': 'તમારું આગલું એડિશન રસ્તામાં છે. શું અપેક્ષા રાખવી તે અહીં છે.',
+  'dashboard.subtitle.idle': 'દર મહિને {{appName}} મોકલવાનું શરૂ કરવા ટિયર પસંદ કરો.',
   'forgotPassword.subtitle': 'અમને તમારો ઇમેઇલ જણાવો અને અમે રીસેટ લિંક મોકલીશું.',
   'forgotPassword.success.body':
     'જો {{email}} નોંધાયેલ હોય, તો તમને થોડીવારમાં રીસેટ લિંક પ્રાપ્ત થશે.',
   'forgotPassword.success.title': 'તમારું ઇનબોક્સ તપાસો.',
   'landing.editions.eyebrow': 'આ સીઝનમાં',
   'landing.editions.heading': 'અમારા ક્યુરેટર્સને ગમતી આવૃત્તિઓ',
+  'landing.editions.viewAll': 'બધા એડિશન બ્રાઉઝ કરો →',
   'landing.footer.contact': 'ક્યુરેટર સાથે વાત કરો',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'તમારું બોક્સ શરૂ કરો →',
@@ -107,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.headline': 'દર મહિને અણધાર્યાને અનબોક્સ કરો.',
   'landing.hero.previewCaption': 'સભ્ય ડેશબોર્ડ પર એક નજર - કાઉન્ટડાઉન, સામગ્રી અને ટ્રેકિંગ.',
   'landing.hero.social.count': 'ગમ્યું {{count}} + સબ્સ્ક્રાઇબર્સ',
+  'landing.hero.social.rating': '{{rating}} સરેરાશ અનબોક્સિંગ રેટિંગ',
+  'landing.hero.subhead':
+    '{{appName}} તમને સ્વતંત્ર કારીગરો તરફથી હાથે પસંદ કરેલું, નાના-બેચનું આનંદનું બોક્સ મોકલે છે. કોઈપણ સમયે થોભાવો. જે જોઈએ તે બદલો. જે ગમે તે રાખો.',
   'landing.nav.start': 'તમારું બોક્સ શરૂ કરો',
   'landing.tiers.eyebrow': 'તમારી ગતિ પસંદ કરો',
   'landing.tiers.heading': 'નાની શરૂઆત કરો, ગમે ત્યારે અપગ્રેડ કરો, એટલી જ સરળતાથી રદ કરો.',
@@ -116,6 +154,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'આવતા મહિનાના બોક્સ પર નજર નાખવા માટે સાઇન ઇન કરો.',
   'login.welcomeBack': 'ફરી સ્વાગત છે, ક્યુરેટર.',
   'nextBoxHeroCard.eyebrow': 'તમારી આગામી યાત્રા',
+  'nextBoxHeroCard.itemCount': 'અંદર {{count}} ટુકડા',
   'nextBoxHeroCard.itemsLabel': 'પસંદ કરેલી આઇટમ્સ',
   'nextBoxHeroCard.shipsOnLabel': 'રવાના થાય છે',
   'notFound.body':
@@ -140,8 +179,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'સબ્સ્ક્રિપ્શન થોભાવો',
   'settings.danger.paused': 'સબ્સ્ક્રિપ્શન થોભાવ્યું.',
   'settings.danger.pausing': 'થોભાવી રહ્યું છે...',
+  'settings.danger.status': 'સબ્સ્ક્રિપ્શન સ્થિતિ: {{status}}',
   'settings.danger.subtitle':
     'થોભાવવાથી તમારા સ્તર અને ઇતિહાસ અકબંધ રહે છે. રદ કરવાથી ભવિષ્યના શિપમેન્ટ અટકી જાય છે અને ચક્રના અંતે તમારી સંગ્રહિત ચુકવણી પદ્ધતિઓ દૂર થઈ જાય છે.',
+  'settings.notifications.saving': '· સાચવી રહ્યું છે…',
   'settings.notifications.subtitle':
     'ટ્રોવમાંથી તમને કયા સિગ્નલો જોઈએ છે તે પસંદ કરો. ડિફોલ્ટ્સ યોગ્ય છે.',
   'settings.subtitle':
@@ -158,12 +199,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'હજુ સુધી કોઈ સક્રિય શિપમેન્ટ નથી',
   'shipments.live.eyebrow': 'સક્રિય શિપમેન્ટ',
   'shipments.live.unnamed': 'તમારું આગલું બોક્સ',
+  'shipments.loadError':
+    'અમે તમારી શિપમેન્ટ લોડ કરી શક્યા નહીં. તમારું કનેક્શન તપાસો અને ફરી પ્રયાસ કરો.',
+  'shipments.loading': 'શિપમેન્ટ લોડ કરી રહ્યું છે…',
+  'shipments.step.delivered': 'પહોંચાડ્યું',
   'shipments.step.deliveredBody': 'તમે જે શોધો છો તે શેર કરવા માટે #crateunbox ને ટેગ કરો.',
   'shipments.step.ordered': 'ઓર્ડર આપ્યો',
   'shipments.step.orderedBody':
     'તમારા સબ્સ્ક્રિપ્શને આ આવૃત્તિને આગામી શિપ ચક્ર માટે કતારમાં મૂકી.',
+  'shipments.step.packed': 'હાથે પેક કરેલું',
   'shipments.step.packedBody':
     'દરેક ટુકડાને લપેટીને હાથથી લખેલી નોંધ સાથે બોક્સમાં મુકવામાં આવે છે.',
+  'shipments.step.transit': 'રસ્તામાં',
   'shipments.step.transitNot': 'એકવાર તમારું બોક્સ ટ્રાન્ઝિટમાં આવી જશે પછી ટ્રેકિંગ અહીં દેખાશે.',
   'shipments.subtitle':
     'તમારા સુધી પહોંચતા બોક્સને ટ્રેક કરો, પછી તમે પહેલાં અનબોક્સ કરેલી દરેક આવૃત્તિની ફરી મુલાકાત લો.',

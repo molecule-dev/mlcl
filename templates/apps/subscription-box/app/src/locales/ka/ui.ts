@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ შეკითხვები გამოცემაზე, გზავნილზე ან თქვენს გამოწერაზე? დაუკავშირდით გუნდის ნამდვილ ადამიანს hello@crate.example-ზე — ჩვენ ყველა შეტყობინებას ვკითხულობთ.',
+  'about.contactTitle': 'ესაუბრეთ კურატორს',
+  'about.feature1':
+    'დამოუკიდებელი ხელოსნების მიერ შერჩეული კურირებული თვიური გამოცემები, თითოეული ნივთის ისტორიით.',
+  'about.feature2':
+    'სრული კონტროლი ყველა ყუთზე — შეცვალეთ შიგთავსი, გაცვალეთ ან გამორიცხეთ ნივთები, გამოტოვეთ თვე ან შეცვალეთ სიხშირე.',
+  'about.feature3':
+    'გზავნილის სრული თვალთვალი აღებიდან კართან მიტანამდე, პლასტიკის გარეშე შეფუთვით და გადამზიდის ცოცხალი განახლებებით.',
+  'about.feature4':
+    'მოქნილი გეგმები და გამჭვირვალე ბილინგი — განაახლეთ, შეამცირეთ, შეაჩერეთ ან გააუქმეთ ნებისმიერ დროს თქვენი დაფიდან.',
+  'about.intro':
+    '{{app}} არის კურირებული გამოწერის ყუთის სერვისი, რომელიც ყოველთვიურად თქვენს კართან მოაქვს ხელით შერჩეული, მცირე პარტიის სიხარულის ყუთი. ყოველ გამოცემას აწყობენ მომუშავე ხელოსნები — დამოუკიდებელი მხატვრები, შეფები და მცირე ბრენდები — და არა ალგორითმი.',
+  'about.missionBody':
+    'ჩვენ გვჯერა, რომ გამოწერა საჩუქარივით უნდა იგრძნობოდეს და არა ხაფანგივით. {{app}} შექმნილია ისე, რომ დარჩეთ, რადგან გიყვართ ის, რაც მოდის — შეაჩერეთ ნებისმიერ დროს, გაცვალეთ რაც გსურთ და გააუქმეთ ერთი დაწკაპუნებით. დაკავების სკრიპტები — არასდროს.',
+  'about.missionTitle': 'ჩვენი მისია',
   'about.pageTitle': '{{app}}-ის შესახებ',
   'appNav.mobileLabel': 'ძირითადი ნავიგაცია',
   'appNav.primaryLabel': 'ძირითადი ნავიგაცია',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'გადახდის კონტაქტის რედაქტირება',
   'billing.contact.eyebrow': 'გადახდის საკონტაქტო პირი',
   'billing.eyebrow': 'გეგმა და გადახდები',
+  'billing.loading': 'ანგარიშსწორება იტვირთება…',
   'billing.payment.body':
     'გადახდას Stripe Checkout ახორციელებს — თქვენი ბარათის სრული ნომერი არასდროს ეხება ჩვენს სერვერებს. ბარათის დასამატებლად ან განახლებისთვის დააწკაპუნეთ ქვემოთ მოცემულ ნებისმიერ საფეხურზე.',
   'billing.payment.linked': 'ბარათი Stripe-ის მეშვეობით არქივშია',
@@ -20,9 +37,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'გამოწერის განახლება',
   'billing.plan.eyebrow': 'აქტიური გეგმა',
   'billing.plan.next': 'ავტომატურად განახლდება {{date}} .',
+  'billing.plan.status': 'სტატუსი: {{status}}',
   'billing.subtitle': 'მართეთ თქვენი დონე, გადახდის მეთოდი და გადახედეთ წარსულ აქტივობას.',
   'billing.tiers.body': 'აირჩიეთ დონე და ჩვენ გადაგიყვანთ Stripe Checkout-ზე.',
   'billing.tiers.choose': 'არჩევა',
+  'billing.tiers.empty': 'ჯერ არცერთი დონე არ არის კონფიგურირებული.',
   'billing.tiers.heading': 'ხელმისაწვდომი იარუსები',
   'boxDetail.backToBoxes': 'ყველა გამოცემაზე დაბრუნება',
   'boxDetail.crumb.boxes': 'გამოცემები',
@@ -35,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'შერჩეული ნამუშევარი',
   'boxDetail.items.heading': '{{count}} შერჩეული ნამუშევრები',
   'boxDetail.itemsBadge': '{{count}} შერჩეული ნივთები თითო ყუთში',
+  'boxDetail.loading': 'გამოცემა იტვირთება…',
   'boxDetail.notFound': 'ეს გამოცემა აღარ არის ხელმისაწვდომი.',
   'boxDetail.subscribe.success': 'გამოწერილია — თქვენი პირველი გამოცემა რიგშია.',
   'boxDetail.swapBadge': 'გაცვლა {{count}} ნივთი(ები) თითო ყუთში',
@@ -43,14 +63,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'გამოცემები არ ემთხვევა.',
   'boxes.eyebrow': 'ტროვის არქივი',
   'boxes.heading': 'დაათვალიერეთ ყველა გამოცემა',
+  'boxes.loadError': 'გამოცემების ჩატვირთვა ვერ მოხერხდა. შეამოწმეთ კავშირი და სცადეთ ხელახლა.',
   'boxes.loading': 'გამოცემები იტვირთება…',
+  'boxes.search.label': 'გამოცემების ძებნა',
   'boxes.search.placeholder': 'გამოცემების ძიება…',
   'boxes.subtitle':
     'თითოეული დონე მცირე პარტიული ისტორიაა. დაამატეთ ერთი თქვენს რიგში ან შეცვალეთ იგი შემდეგ თვეში.',
+  'boxThemeCard.itemCount': '{{count}} ნივთები',
   'boxThemeCard.perMonth': '/ თვე',
+  'boxThemeCard.retailValue': 'საცალო ღირებულება {{value}}',
   'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
+  'common.retry': 'ხელახლა ცდა',
   'customize.eyebrow': 'გახადე შენი',
   'customize.heading': 'თქვენი შემდეგი Crate-ის პერსონალიზება',
+  'customize.items.empty': 'ამ დონისთვის ჯერ არცერთი ნივთი არ არის კონფიგურირებული.',
   'customize.items.exclude': 'გამოტოვეთ ეს',
   'customize.items.eyebrow': 'ამ ყუთის პერსონალიზაცია',
   'customize.items.heading': 'ნივთები {{box}}',
@@ -59,8 +85,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'უკან დამატება',
   'customize.items.save': 'პერსონალიზაციის შენახვა',
   'customize.items.swapsLeft': '{{used}} -ის {{max}} გამოყენებული სვოპები',
+  'customize.loading': 'პერსონალიზაცია იტვირთება…',
   'customize.noSub.body':
     'ჯერ გამოიწერეთ რომელიმე დონე, შემდეგ კი დაბრუნდით თქვენს ყუთში ნივთების გასაცვლელად.',
+  'customize.noSub.cta': 'გამოცემების დათვალიერება',
   'customize.noSub.heading': 'აქტიური გამოწერა არ არის',
   'customize.saved': 'პერსონალიზაცია შენახულია.',
   'customize.subtitle':
@@ -74,11 +102,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'გადაზიდვის თვალყურის დევნება',
   'dashboard.eyebrow': 'შენი საგანძური',
   'dashboard.greeting': 'კეთილი იყოს შენი დაბრუნება, {{name}} .',
+  'dashboard.loadError':
+    'თქვენი დაფის ჩატვირთვა ვერ მოხერხდა. შეამოწმეთ კავშირი და სცადეთ ხელახლა.',
   'dashboard.loading': 'საინფორმაციო დაფა იტვირთება…',
   'dashboard.next.eyebrow': 'თქვენი შემდეგი გამოცემა',
   'dashboard.onboarding.body':
     'თქვენ ჯერ არ გაქვთ აქტიური გამოწერა. აირჩიეთ დონე, რათა დაიწყოთ Crate-ის ყოველთვიური გაგზავნა.',
   'dashboard.onboarding.cta': 'დაათვალიერეთ ყველა გამოცემა',
+  'dashboard.onboarding.empty': 'ამჟამად გეგმები მიუწვდომელია. შემოგვიარეთ მოგვიანებით.',
   'dashboard.onboarding.heading': 'აირჩიეთ თქვენი პირველი გამოცემა',
   'dashboard.renewal.amount': 'დამუხტული',
   'dashboard.renewal.cadence': 'კადენცია',
@@ -86,18 +117,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'განახლება',
   'dashboard.renewal.heading': 'ავტომატური განახლება ჩართულია {{date}}',
   'dashboard.renewal.plan': 'გეგმის გასაღები',
+  'dashboard.renewal.tbd': 'განახლების დაგეგმვა მალე',
   'dashboard.renewal.tier': 'იარუსი',
   'dashboard.stats.days': 'დღეები',
   'dashboard.stats.daysToNext': 'იგზავნება',
   'dashboard.stats.items': 'შერჩეული ნივთები',
   'dashboard.stats.shipDate': 'გაგზავნის თარიღი',
   'dashboard.stats.tbd': 'დასაზუსტებელია',
+  'dashboard.subtitle.active': 'თქვენი შემდეგი გამოცემა გზაშია. აი, რას უნდა ელოდოთ.',
+  'dashboard.subtitle.idle': 'აირჩიეთ დონე, რომ ყოველთვიურად {{appName}}-ის გაგზავნა დაიწყოთ.',
   'forgotPassword.subtitle': 'მოგვწერეთ თქვენი ელ. ფოსტა და ჩვენ გამოგიგზავნით გადატვირთვის ბმულს.',
   'forgotPassword.success.body':
     'თუ {{email}} რეგისტრირებულია, რამდენიმე წუთში მიიღებთ გადატვირთვის ბმულს.',
   'forgotPassword.success.title': 'შეამოწმეთ თქვენი შემოსულები.',
   'landing.editions.eyebrow': 'ამ სეზონში',
   'landing.editions.heading': 'გამოცემები, რომლებიც ჩვენს კურატორებს უყვართ',
+  'landing.editions.viewAll': 'ყველა გამოცემის დათვალიერება →',
   'landing.footer.contact': 'ესაუბრეთ კურატორს',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'დაიწყეთ თქვენი ყუთი →',
@@ -107,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'წევრების დაფის მიმოხილვა — უკუთვლა, შინაარსი და თვალყურის დევნება.',
   'landing.hero.social.count': 'საყვარელი {{count}} + გამომწერები',
+  'landing.hero.social.rating': '{{rating}} საშუალო გახსნის რეიტინგი',
+  'landing.hero.subhead':
+    '{{appName}} გიგზავნით დამოუკიდებელი ხელოსნების მიერ ხელით შერჩეულ, მცირე პარტიის სიხარულის ყუთს. შეაჩერეთ ნებისმიერ დროს. გაცვალეთ რაც გსურთ. შეინახეთ რაც გიყვართ.',
   'landing.nav.start': 'დაიწყეთ თქვენი ყუთი',
   'landing.tiers.eyebrow': 'აირჩიეთ თქვენი კადენცია',
   'landing.tiers.heading': 'დაიწყეთ მცირედით, განაახლეთ ნებისმიერ დროს, გააუქმეთ ისევე მარტივად.',
@@ -116,6 +154,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'შედით სისტემაში, რომ ნახოთ შემდეგი თვის ველი.',
   'login.welcomeBack': 'კეთილი იყოს თქვენი დაბრუნება, კურატორო.',
   'nextBoxHeroCard.eyebrow': 'შენი შემდეგი საგანძური',
+  'nextBoxHeroCard.itemCount': 'შიგნით {{count}} ნაწილი',
   'nextBoxHeroCard.itemsLabel': 'შერჩეული ნივთები',
   'nextBoxHeroCard.shipsOnLabel': 'იგზავნება',
   'notFound.body':
@@ -140,8 +179,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'გამოწერის შეჩერება',
   'settings.danger.paused': 'გამოწერა შეჩერებულია.',
   'settings.danger.pausing': 'პაუზა…',
+  'settings.danger.status': 'გამოწერის სტატუსი: {{status}}',
   'settings.danger.subtitle':
     'შეჩერება თქვენს დონეს და ისტორიას უცვლელად ინარჩუნებს. გაუქმება ციკლის ბოლოს მომავალ გადაზიდვებს აჩერებს და თქვენს მიერ შენახულ გადახდის მეთოდებს შლის.',
+  'settings.notifications.saving': '· ინახება…',
   'settings.notifications.subtitle':
     'აირჩიეთ, რომელი სიგნალები გსურთ Crate-დან. ნაგულისხმევი პარამეტრები გონივრულია.',
   'settings.subtitle': 'განაახლეთ თქვენი პროფილი, მიწოდების მისამართი და როგორ უკავშირდება Crate.',
@@ -156,12 +197,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'აქტიური მიწოდება ჯერ არ არის',
   'shipments.live.eyebrow': 'აქტიური გადაზიდვა',
   'shipments.live.unnamed': 'თქვენი შემდეგი ყუთი',
+  'shipments.loadError':
+    'თქვენი გზავნილების ჩატვირთვა ვერ მოხერხდა. შეამოწმეთ კავშირი და სცადეთ ხელახლა.',
+  'shipments.loading': 'გადაზიდვები იტვირთება…',
+  'shipments.step.delivered': 'მიწოდებული',
   'shipments.step.deliveredBody': 'მონიშნეთ #crateunbox, რათა გააზიაროთ თქვენი აღმოჩენები.',
   'shipments.step.ordered': 'შეკვეთა განთავსებულია',
   'shipments.step.orderedBody':
     'თქვენი გამოწერა ამ გამოცემას შემდეგი გაგზავნის ციკლისთვის რიგში აყენებს.',
+  'shipments.step.packed': 'ხელით შეფუთული',
   'shipments.step.packedBody':
     'თითოეული ნაწილი შეფუთული და ყუთში ხელით დაწერილი ჩანაწერით ჩადებული იყო.',
+  'shipments.step.transit': 'გზაში',
   'shipments.step.transitNot': 'თვალთვალი აქ გამოჩნდება, როგორც კი თქვენი ყუთი ტრანზიტში იქნება.',
   'shipments.subtitle':
     'თვალყური ადევნეთ ყუთს თქვენამდე მოსვლამდე და შემდეგ ხელახლა გადახედეთ ყველა გამოცემას, რომელიც ადრე გახსენით ყუთი.',

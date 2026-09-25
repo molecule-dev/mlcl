@@ -1,9 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Vous avez des commentaires, une suggestion de fonctionnalité ou trouvé un bug ? Nous lisons chaque message — écrivez-nous à tout moment et un vrai membre de l'équipe vous répondra.",
   'about.contactTitle': 'Nous contacter',
+  'about.intro':
+    '{{app}} est un tracker de sommeil réparateur qui transforme chaque nuit en informations claires et exploitables. Il se synchronise avec votre objet connecté pour cartographier chaque phase de votre sommeil, évaluer votre récupération et vous réveiller au bon moment de votre cycle — pour construire des nuits qui vous laissent vraiment reposé.',
+  'about.missionBody':
+    "La plupart des applis de sommeil s'arrêtent à un chiffre sur un tableau de bord. Nous pensons qu'un meilleur sommeil vient de la compréhension du pourquoi derrière le score, puis d'un petit changement à la fois. {{app}} est conçu pour être calme, jamais envahissant — il fait ressortir l'essentiel de vos données et reste discret le reste de la nuit.",
+  'about.missionTitle': 'Notre mission',
   'about.pageTitle': 'À propos de {{app}}',
+  'about.whatYouGetTitle': 'Ce que vous obtenez',
+  'authShell.privacyBadge': 'Vos nuits restent privées — chiffrées au repos.',
+  'authShell.tagline': '{{app}} — {{tagline}}',
   'coaching.activeBanner.continue': "Lire l'article",
+  'coaching.activeBanner.eyebrow': 'Article à la une',
   'coaching.empty.body': 'De nouveaux programmes apparaîtront ici au fur et à mesure.',
   'coaching.empty.title': "Aucun article de coaching pour l'instant",
   'coaching.eyebrow': 'Coaching',
@@ -16,6 +27,7 @@ export const ui: UiTranslations = {
   'coachingDetail.eyebrow': 'Article',
   'coachingDetail.locked.body':
     "Passez à un forfait supérieur pour lire celui-ci et d'autres articles premium.",
+  'coachingDetail.locked.cta': 'Mettre à niveau',
   'coachingDetail.locked.title': 'Cet article est premium',
   'coachingDetail.notFound': "Nous n'avons pas trouvé cet article.",
   'coachingDetail.unavailable': 'Article indisponible',
@@ -23,6 +35,7 @@ export const ui: UiTranslations = {
   'dashboard.empty.body':
     'Enregistrez une nuit ou connectez un wearable pour commencer à voir vos schémas de sommeil.',
   'dashboard.empty.cta': 'Connectez un appareil portable',
+  'dashboard.empty.title': "Aucune nuit enregistrée pour l'instant",
   'dashboard.eyebrow': 'Ce soir',
   'dashboard.heroInsight':
     'Enregistrez une nouvelle nuit pour repérer les tendances du sommeil profond.',
@@ -43,13 +56,19 @@ export const ui: UiTranslations = {
   'devices.loading': 'Chargement des appareils…',
   'devices.pauseAria': 'Mettre {{brand}} en pause',
   'devices.providerField': 'Fournisseur',
+  'devices.resumeAria': 'Reprendre {{brand}}',
   'devices.synced': 'Synchronisé {{value}}',
+  'devices.unlink': 'Dissocier',
   'devices.unlinkAria': 'Délier {{brand}}',
+  'forgotPassword.continueButton': 'Saisir le code de réinitialisation',
   'forgotPassword.eyebrow': "Pas d'inquiétude",
   'forgotPassword.subheading':
     'Saisissez votre e-mail et nous vous enverrons un lien de réinitialisation.',
   'forgotPassword.successBody':
     'Si un compte existe pour {{email}}, un lien de réinitialisation est en route.',
+  'landing.ctaBody':
+    "Gratuit pour le suivi nocturne. Pro débloque les programmes d'accompagnement, les exports et le partage familial.",
+  'landing.ctaButton': 'Enregistrez votre première nuit',
   'landing.ctaTitle': "Ce soir, ce sont des données. Demain, c'est la récupération.",
   'landing.eyebrow': 'Le sommeil, décodé',
   'landing.featuresBody':
@@ -67,16 +86,26 @@ export const ui: UiTranslations = {
   'login.heading': 'Se connecter à Somnia',
   'login.rememberMe': 'Rester connecté',
   'login.signupLink': 'Commencer à suivre ce soir',
+  'login.signupPrompt': 'Nouveau sur Tessera ?',
   'login.subheading': 'Reprenez vos nuits là où vous les avez laissées.',
   'logNight.bedtimeField': 'Heure du coucher',
   'logNight.dateField': 'Nuit de',
+  'logNight.errors.missingFields':
+    "La date, l'heure du coucher et l'heure du réveil sont toutes obligatoires.",
+  'logNight.errors.noRecord':
+    "La nuit a été enregistrée mais le serveur n'a renvoyé aucun enregistrement.",
+  'logNight.errors.saveFailed': "L'enregistrement de la nuit a échoué — veuillez réessayer.",
+  'logNight.errors.zeroLength': "L'heure de réveil doit être différente de l'heure du coucher.",
+  'logNight.factorsField': 'Facteurs',
   'logNight.interruptionsField': 'Réveils nocturnes',
   'logNight.notesField': 'Notes (facultatif)',
+  'logNight.qualityField': 'À quel point était-ce reposant ? ({{score}}/100)',
   'logNight.save': 'Sauver la nuit',
   'logNight.title': 'Enregistrez une nuit',
   'logNight.wakeField': 'Heure du réveil',
   'night.backLink': "Retour à l'historique",
   'night.eyebrow': 'Une nuit',
+  'night.factorsTitle': 'Facteurs enregistrés',
   'night.heroInsight': 'Touchez une phase sur la chronologie pour plonger dedans.',
   'night.loading': 'Chargement des détails de la nuit…',
   'night.notFound.body': "Nous n'avons pas d'enregistrement de sommeil pour cette date.",
@@ -87,6 +116,7 @@ export const ui: UiTranslations = {
   'nightHistory.count': 'Affichage de {{count}} nuits',
   'nightHistory.empty.body':
     'Enregistrez une session de sommeil ou connectez un wearable pour remplir votre historique.',
+  'nightHistory.empty.title': "Aucune nuit enregistrée pour l'instant",
   'nightHistory.heading': 'Chaque nuit que vous avez suivie',
   'nightHistory.loading': 'Chargement des nuits…',
   'nightHistory.logNight': 'Enregistrez une nuit',
@@ -95,6 +125,7 @@ export const ui: UiTranslations = {
   'nightHistoryRow.hourSuffix': 'h',
   'nightHistoryRow.minSuffix': 'min',
   'nightHistoryRow.rem': '{{pct}}% REM',
+  'nightHistoryRow.scoreAria': 'Score {{score}}',
   'notifications.emptyBody':
     "Les nouvelles activités, les rappels d'alarme et les conseils de coaching atterriront ici.",
   'notifications.emptyHeading': 'Tout est à jour',
@@ -106,24 +137,37 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Votre identité de sommeil',
   'profile.locked': 'Verrouillé',
   'recoveryRingsTriad.deepCaption': 'Objectif {{goal}}% de la nuit',
+  'recoveryRingsTriad.deepLabel': 'Sommeil profond',
+  'recoveryRingsTriad.deepValue': '{{pct}} %',
   'recoveryRingsTriad.durationCaption': 'Objectif {{goal}} h / nuit',
+  'recoveryRingsTriad.durationValue': '{{hours}} h',
+  'recoveryRingsTriad.heartCaption': 'Référence {{baseline}} bpm',
+  'recoveryRingsTriad.heartLabel': 'FC au repos',
+  'recoveryRingsTriad.heartValue': '{{bpm}} bpm',
   'resetPassword.eyebrow': 'Un nouveau départ',
   'resetPassword.mismatchError': 'Les mots de passe ne correspondent pas.',
+  'resetPassword.passwordLabel': 'Nouveau mot de passe',
   'resetPassword.subheading': "Choisissez quelque chose d'apaisant — au moins 12 caractères.",
   'resetPassword.tokenPlaceholder': 'Code reçu par e-mail',
   'settings.bedtimeGoal': 'Heure du coucher',
   'settings.bedtimeReminder.description': "Petit rappel 30 minutes avant l'heure objectif.",
   'settings.bedtimeReminder.label': 'Rappel de coucher',
   'settings.durationGoal': 'Objectif de durée (heures)',
+  'settings.exportDelete.description':
+    'Obtenez un CSV de chaque nuit, ou supprimez votre compte définitivement.',
   'settings.exportDelete.label': 'Exporter ou supprimer vos données',
   'settings.goalsCaption': 'Dites à Somnia à quoi ressemble une bonne nuit pour vous',
   'settings.goalsTitle': 'Objectifs de sommeil',
+  'settings.shareDevices.description':
+    'Anonymisé, sur opt-in. Vous pouvez arrêter le partage à tout moment.',
   'settings.shareDevices.label': 'Partager les données des appareils avec les chercheurs',
   'settings.smartAlarm.description':
     "Réveil dans une fenêtre de sommeil léger avant l'heure de l'alarme.",
+  'settings.smartAlarm.label': 'Réveil intelligent',
   'settings.wakeGoal': 'Heure du réveil',
   'settings.weeklyReport.description':
     'Résumé du dimanche matin : durée, score et nuits remarquables.',
+  'settings.weeklyReport.label': 'E-mail de récapitulatif hebdomadaire',
   'signup.eyebrow': 'Commencez ce soir',
   'signup.firstNamePlaceholder': 'Sam',
   'signup.lastNamePlaceholder': 'Dormeur',
@@ -132,6 +176,7 @@ export const ui: UiTranslations = {
   'sleepScoreHeroCard.duration': '{{hours}} h {{mins}} min',
   'sleepScoreHeroCard.outOf': '/ 100',
   'sleepScoreHeroCard.title': 'La nuit dernière',
+  'sleepStagesTimeline.ariaLabel': 'Chronologie des phases de sommeil',
   'sleepStagesTimeline.title': 'Hypnogramme',
   'sleepTrackerLayout.closeMenu': 'Fermer le menu de navigation',
   'sleepTrackerLayout.openMenu': 'Ouvrir le menu de navigation',
@@ -144,6 +189,7 @@ export const ui: UiTranslations = {
   'sleepTrendChart.title': 'Tendance de durée',
   'smartAlarm.addAlarm': 'Nouvelle alarme',
   'smartAlarm.daysField': 'Jours',
+  'smartAlarm.deleteAria': "Supprimer l'alarme {{label}}",
   'smartAlarm.emptyBody':
     'Ajoutez une heure de réveil pour commencer à vous synchroniser avec vos cycles de sommeil.',
   'smartAlarm.emptyHeading': "Aucune alarme pour l'instant",
@@ -151,7 +197,10 @@ export const ui: UiTranslations = {
   'smartAlarm.eyebrow': 'Réveil intelligent',
   'smartAlarm.heading': 'Réveillez-vous au bon moment',
   'smartAlarm.labelField': 'Libellé',
+  'smartAlarm.loading': 'Chargement des alarmes…',
   'smartAlarm.newDialog': 'Nouvelle alarme',
+  'smartAlarm.noAlarmsSubtitle':
+    'Ajoutez une alarme pour obtenir une fenêtre de réveil intelligente.',
   'smartAlarm.save': "Enregistrer l'alarme",
   'smartAlarm.soundField': 'Son',
   'smartAlarm.soundsCaption': 'Choisissez une tonalité de réveil pour les nouvelles alarmes',
@@ -170,6 +219,7 @@ export const ui: UiTranslations = {
   'trends.eyebrow': 'Schémas',
   'trends.heading': 'Comment évolue votre sommeil',
   'trends.stageBreakdown.caption': 'Répartition moyenne sur {{hours}} h',
+  'trends.stageBreakdown.minutes': '{{minutes}} min',
   'trends.stageBreakdown.title': 'Répartition par phase',
   'trends.summary.avgDuration': 'Durée moyenne',
   'trends.summary.avgScore': 'Score moyen',

@@ -1,12 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ გამოხმაურება, იპოვეთ ხარვეზი ან გსურთ {{app}} თქვენს დოკზე? დაგვიკავშირდით აპლიკაციის დახმარებიდან — ყველა შეტყობინება გუნდის რეალურ ადამიანამდე აღწევს.',
   'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.intro':
+    '{{app}} ოპერატორული დონის საწყობის შესრულების პროგრამაა — შეკვეთები, კრეფა, შეფუთვა და გაგზავნა ერთ სივრცეში. ის შექმნილია შესრულების გუნდებისთვის, რომლებიც რეალურ მოცულობას ამუშავებენ და საჭიროებენ, რომ საწყობში ყოველი მოქმედება იყოს სწრაფი, გამჭვირვალე და გაყალბებისთვის შეუძლებელი.',
+  'about.missionBody':
+    'ოპერაციები მოსაწყენ რამეებზეა აწყობილი — კრეფა, შეფუთვა და გაგზავნილი ეტიკეტები. ჩვენ მოსაწყენს ვხდით სწრაფს, გამჭვირვალეს და საიმედოს, რომ საწყობებმა სასწრაფო, ექსპრეს და სტანდარტული შეკვეთები ზოლების გადაკვეთის გარეშე გააგზავნონ.',
+  'about.missionTitle': 'ჩვენი მისია',
   'about.pageTitle': '{{app}}-ის შესახებ',
   'auth.signup.passwordHint': 'მინიმუმ 12 სიმბოლო',
   'authShell.brandSubtitle': 'შესრულების კონსოლი',
   'authShell.eyebrow': 'კეთილი იყოს თქვენი მობრძანება Sorthaus-ში',
+  'authShell.footer': '{{appName}} · ოპერაციების კონსოლი',
   'authShell.pitch':
     'სკანერის პრიორიტეტული კონსოლი. აირჩიეთ, შეფუთეთ და გაგზავნეთ ერთი კონსოლიდან — შექმნილია ოპერაციების ლიდერებისთვის, რომლებიც ითვლიან იმას, რაც მნიშვნელოვანია და არ უშვებენ შეკვეთას ხელიდან.',
   'authShell.sampleCaption': 'შეკვეთები გაიგზავნა · 8 დოკის კარი · 3 ზონა',
@@ -17,6 +25,7 @@ export const ui: UiTranslations = {
   'dashboard.empty.action': 'თესლის ნიმუშის მონაცემები',
   'dashboard.empty.body':
     'შექმენით ნიმუშის მონაცემთა ნაკრები (შეკვეთები, ინვენტარი, გადაზიდვები), რათა შეძლოთ იატაკის სრულად მართვა.',
+  'dashboard.empty.seeding': 'იწყება…',
   'dashboard.empty.title': 'თქვენი საწყობი ცარიელია',
   'dashboard.errorFallback': 'პირდაპირი მონაცემები დროებით მიუწვდომელია.',
   'dashboard.eyebrow': 'სართულის ბრძანება',
@@ -37,23 +46,31 @@ export const ui: UiTranslations = {
   'dashboard.queue.viewAll': 'რიგის გახსნა',
   'dashboard.subtitle': '{{active}} მოძრავი შეკვეთები · ცოცხალი რეესტრი',
   'dashboard.title': 'დღევანდელი ცვლილებები',
+  'dashboard.zones.bins': '{{count}} ურნები',
   'dashboard.zones.empty': 'იატაკის აქტივობის სანახავად დააკონფიგურირეთ ზონები.',
+  'dashboard.zones.eyebrow': 'ზონის სითბური რუკა',
   'dashboard.zones.title': 'იატაკის აქტივობა',
   'forgot.subheading':
     'შეიყვანეთ თქვენი სამსახურის ელ. ფოსტა და ჩვენ თქვენს შემოსულებში გამოგიგზავნით გადატვირთვის ბმულს.',
   'forgot.successBody':
     'თუ {{email}} გუნდშია, გადატვირთვის ბმული გზაშია. ბმულის ვადა 30 წუთში იწურება.',
   'fulfillmentHeroCard.eyebrow': 'მოძრაობაში ცვლილებები',
+  'fulfillmentHeroCard.onTime': '{{rate}}% დროულად',
+  'fulfillmentHeroCard.ordersShipped': 'დღეს გაგზავნილი შეკვეთები',
+  'fulfillmentHeroCard.ordersShippedWithPeriod': 'გაგზავნილი შეკვეთები · {{period}}',
   'fulfillmentHeroCard.subtitle': '{{units}} ერთეულები შეფუთულია და ნავსადგურიდან გამოდის',
   'inventory.cols.bin': 'ურნა',
   'inventory.cols.onHand': 'ხელთ',
   'inventory.cols.reorder': 'pt-ის ხელახლა შეკვეთა',
+  'inventory.cols.sku': 'SKU',
   'inventory.empty': 'თქვენს ძიებას არცერთი SKU არ ემთხვევა.',
+  'inventory.errorFallback': 'პირდაპირი მონაცემები დროებით მიუწვდომელია.',
   'inventory.eyebrow': 'ხელთ არსებული ინვენტარი',
   'inventory.kpis.low': 'დაბალი მარაგი',
   'inventory.kpis.lowHint': 'ხელახალი შეკვეთის წერტილის ქვემოთ',
   'inventory.kpis.out': 'მარაგში არ არის',
   'inventory.kpis.outHint': 'დღესვე მჭირდება ხელახალი შეკვეთა',
+  'inventory.kpis.skus': 'აქტიური SKU-ები',
   'inventory.kpis.skusHint': 'თვალყურის დევნება სხვადასხვა ურნებში',
   'inventory.kpis.units': 'ხელთ არსებული ერთეულები',
   'inventory.kpis.unitsHint': 'ყველა ურნაზე',
@@ -108,6 +125,7 @@ export const ui: UiTranslations = {
   'locations.title': 'ზონები, დერეფნები და ნაგვის ურნები',
   'locations.utilization': 'გამოყენება',
   'login.heading': 'შესვლა Sorthaus-ში',
+  'login.noAccount': 'Tessera-ს ახალი მომხმარებელი ხართ?',
   'login.subheading': 'სართულის ბრძანება ყველა შეკვეთისთვის, ყველა ტალღისთვის, ყველა დოკისთვის.',
   'notFound.body':
     'ამ მარშრუტს არცერთი ურნა არ ემთხვევა. შესაძლოა, გვერდი გაიგზავნა, გაუქმდა ან არასწორ ადგილას იყო მოთავსებული.',
@@ -119,6 +137,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle': '{{count}} შეტყობინებები · {{unread}} წაუკითხავი',
   'orderDetail.back': 'დაბრუნება შეკვეთებზე',
   'orderDetail.cancel': 'შეკვეთის გაუქმება',
+  'orderDetail.items.empty': 'ნივთები არ არის.',
   'orderDetail.items.eyebrow': 'არჩევანის სია',
   'orderDetail.items.line': 'ხაზი',
   'orderDetail.items.qty': 'რაოდენობა',
@@ -141,7 +160,16 @@ export const ui: UiTranslations = {
   'pickList.notFound': 'შეკვეთა ვერ მოიძებნა.',
   'pickList.progress.eyebrow': 'არჩევანის პროგრესი',
   'pickListItem.progress': 'არჩეული {{picked}} -ის {{total}}',
+  'pickListItem.qty': 'რაოდენობა',
   'pickListItem.toggleAria': 'არჩევანის გადართვა {{sku}}',
+  'pricing.advancedFeatures': 'დამატებითი ფუნქციები: {{yes}}',
+  'pricing.canExport': 'მონაცემების ექსპორტი: {{yes}}',
+  'pricing.heading': 'აირჩიეთ თქვენი {{app}} ტარიფი',
+  'pricing.maxOrders': '{{count}} შეკვეთა',
+  'pricing.maxPacking': '{{count}} შეფუთვა',
+  'pricing.maxPicks': '{{count}} კრეფა',
+  'pricing.maxShipments': '{{count}} გაგზავნა',
+  'pricing.maxZones': '{{count}} ზონები',
   'profile.editTitle': 'ოპერატორის დეტალები',
   'profile.eyebrow': 'ოპერატორის პროფილი',
   'profile.field.shift': 'Shift ფანჯარა',
@@ -176,9 +204,11 @@ export const ui: UiTranslations = {
   'reports.kpis.healthHint': '100% ნიშნავს, რომ OOS არ არის',
   'reports.kpis.units': 'ხელთ არსებული ერთეულები',
   'reports.kpis.unitsHint': 'აქტიური SKU-ების მიხედვით',
+  'reports.loadError': 'ანგარიშის მონაცემების ჩატვირთვა ვერ მოხერხდა.',
   'reports.subtitle':
     'შეკვეთების, სასიცოცხლო ციკლის და ინვენტარის მდგომარეობის რეალურ დროში მიმოხილვა',
   'reports.title': 'გამტარუნარიანობის ანგარიშები',
+  'reset.changedMind': 'გადაიფიქრეთ?',
   'reset.password': 'ახალი პაროლი',
   'reset.subheading':
     'აირჩიეთ ისეთი რამ, რასაც თქვენი გუნდი მოედანზე დაიმახსოვრებს — მინიმუმ 12 პერსონაჟი.',
@@ -191,6 +221,7 @@ export const ui: UiTranslations = {
   'returns.loading': 'დაბრუნებები იტვირთება…',
   'returns.new': 'ახალი RMA',
   'returns.reason': 'Reason',
+  'returns.reasonPlaceholder': 'რატომ ბრუნდება ეს?',
   'returns.subtitle': '{{count}} RMA-ები განკარგვის მოლოდინში',
   'returns.title': 'აბრუნებს ტრიაჟს',
   'scanner.back': 'სკანერიდან გასვლა',
@@ -201,6 +232,7 @@ export const ui: UiTranslations = {
   'scanner.placeholder': 'შეიყვანეთ SO-#, SKU ან ზონის კოდი…',
   'scanner.recent.empty': 'სკანირება ჯერ არ არის — სცადეთ ზემოთ მოცემული.',
   'scanner.recent.eyebrow': 'ბოლო სკანირებები',
+  'scanner.submit': 'ძებნა',
   'scanner.title': 'გააჩერეთ. დაუმიზნეთ. გაწიეთ.',
   'settings.autoAllocate':
     'ავტომატური მინიჭება საჩქარო შეკვეთები შემდეგ ხელმისაწვდომ შემგროვებელზე',
@@ -250,4 +282,5 @@ export const ui: UiTranslations = {
   'warehouseFulfillmentLayout.scanAria': 'სკანერის გახსნა',
   'warehouseFulfillmentLayout.scanCta': 'სკანირება',
   'warehouseFulfillmentLayout.searchAria': 'შეკვეთების, SKU-ების, ურნების ძიება',
+  'warehouseFulfillmentLayout.searchPlaceholder': 'მოძებნეთ შეკვეთები, SKU-ები, ბინები…',
 }

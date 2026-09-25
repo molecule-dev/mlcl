@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Rəy bildirmək, xəta tapmaq və ya funksiya təklif etmək istəyirsiniz? Hesab parametrlərinizdən bizə yazın — hər mesaj komandada real bir insana çatır.',
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
+  'about.featureDatabases':
+    'Qeydləri strukturlaşdırılmış, təkrarlana bilən iş axınlarına çevirmək üçün yüngül verilənlər bazaları və yenidən istifadə edilə bilən şablonlar.',
+  'about.featureEditor':
+    'Sakit bir blok redaktoru — başlıqlar, siyahılar, kod, çağırışlar və tapşırıqlar — istədiyiniz zaman slash-əmrlərlə, istəmədiyiniz zaman yoldan kənarda.',
+  'about.featureGraph':
+    'Geri keçidlər və bilik qrafiki: qeydi bağlamaq üçün [[ yazın və ideyalarınızın zamanla necə əlaqələndiyini izləyin.',
+  'about.featureNotebooks':
+    'Layihələr, mövzular və gündəlik qeydlər tam düşündüyünüz kimi təşkil olunsun deyə iç-içə dəftərlər və səhifələr.',
+  'about.featureSearch':
+    'Hər dəftər üzrə 50ms-dən az tam mətn axtarışı, üstəlik dəftərlərlə mübarizə aparmayan, onlarla birləşən teqlər.',
+  'about.missionTitle': 'Missiyamız',
   'common.goToDashboard': 'İdarə panelinə keç',
   'forgot.eyebrow': 'Geri qayıtmağın yolunu itirdin?',
   'forgot.formSubtitle': 'Fayldakı e-poçtu bizə bildirin.',
+  'forgot.formTitle': 'Şifrəni unutdum',
   'forgot.headline': 'Şifrənizi sıfırlayın.',
   'forgot.subline':
     'Yenisini seçə bilməyiniz üçün gələnlər qutunuza birdəfəlik keçid göndərəcəyik.',
+  'forgot.successDetail':
+    'E-poçtunuza sıfırlama linki göndərdik. 30 dəqiqə ərzində etibarsız olacaq.',
   'graph.eyebrow': 'Qrafik',
+  'graph.goToNotes': 'Qeydlərə bax →',
+  'graph.loadError': 'Qrafik yüklənə bilmədi: {{message}}',
   'graph.placeholderBody':
     'Qeydlər bir-birinə ([[wiki]] sintaksisi ilə) bağlanmağa başladıqda, burada interaktiv qüvvə yönümlü qrafik göstəriləcək.',
+  'graph.placeholderTitle': 'Geri keçid qrafiki tezliklə',
   'graph.subtitle':
     '{{count}} qeydlər bu iş sahəsində. Qeydlər bir-birinə bağlandıqdan sonra geri keçid qrafiki burada görünəcək.',
   'graph.title': 'Bilik qrafiki',
   'home.empty': 'Hələ qeyd yoxdur — birincisinə başlayın.',
   'home.favoritesHeading': 'Sancaqlandı',
   'home.guest': 'dost',
+  'home.loadError': 'Qeydləriniz yüklənə bilmədi: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Qeydi burada saxlamaq üçün redaktora sancın.',
   'home.recentHeading': 'Bu yaxınlarda yeniləndi',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Dəftər',
   'home.stats.pinned.label': 'Sancaqlandı',
   'home.stats.updatedToday.label': 'Bu gün yeniləndi',
+  'home.subtitle': 'Qaldığınız yerdən davam edin və ya yeni qeydə başlayın.',
   'home.viewAll': 'Bütün qeydlərə baxın',
   'landing.cta.body':
     'Şəxsi istifadə üçün pulsuzdur. Komandalar üçün peşəkar. Mövcud endiriminizi gətirin və ya təzədən başlayın — Verso qeydləriniz harada olursa olsun, sizinlə görüşəcək.',
+  'landing.cta.button': 'İş sahəmi yaradın',
   'landing.cta.heading': 'Bugünkü səhifəni açın.',
   'landing.features.eyebrow': 'İkinci beyninizə lazım olan hər ibtidai',
+  'landing.features.heading': 'Meta-iş üçün deyil, iş üçün yaradılıb.',
   'landing.hero.eyebrow': 'Sakit yazı səthi',
   'landing.hero.headlineAccent': 'forma almaq.',
   'landing.hero.headlineLeading': 'Düşüncələr haradadır',
   'landing.hero.primaryCta': 'Bilik bazanızı işə salın',
   'landing.hero.secondaryCta': 'Artıq hesabım var',
+  'landing.hero.socialProof': '12,800+ yazıçı, tələbə və PhD {{appName}} ilə düşünür',
   'landing.hero.subline':
     'Verso, bilik işçiləri və tələbələr üçün strukturlaşdırılmış qeydlər aparan bir səthdir. Blok redaktoru, daxili qeyd dəftərləri, geri bağlantılar və bilik qrafiki — hamısı tipoqrafiyaya əsaslanan ilk oxu təcrübəsinin arxasında.',
+  'landing.preview.notebook': 'Bilik · Yazı prosesi',
+  'landing.preview.title': 'Qaralamaların nəfəs almasına icazə vermək haqqında',
   'login.eyebrow': 'Verso-ya xoş gəlmisiniz',
   'login.formSubtitle': 'E-poçt ünvanınızdan və ya əlaqəli provayderinizdən istifadə edin.',
   'login.headline': 'Səhifənin dayandırıldığı yerdən davam edin.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Naviqasiya menyusunu bağlayın',
   'mobileNav.openMenu': 'Naviqasiya menyusunu açın',
   'noteEditor.backToNotes': 'Qeydlərə qayıt',
+  'noteEditor.bodyLabel': 'Qeyd mətni',
   'noteEditor.bodyPlaceholder':
     'Yazmağa başlayın — qeydiniz yazdıqca avtomatik olaraq yadda saxlanılır.',
   'noteEditor.confirmTrash': 'Bu qeyd zibil qutusuna atılsın?',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Zibil qutusuna at',
   'noteEditor.updated': 'Yeniləndi',
   'notes.defaultWorkspaceName': 'Dəftərim',
+  'notes.empty': 'Burada hələ qeyd yoxdur — dəftəri doldurmaq üçün birini başladın.',
   'notes.eyebrow': 'Dəftər',
   'notes.filterAll': 'Bütün qeydlər',
   'notes.filterPinned': 'Sancaqlandı',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Yeni dəftər',
   'notes.newNotebookPrompt': 'Yeni dəftər adı',
+  'notes.newNotebookRequired': 'Dəftər adı daxil edin.',
   'notes.notebooksHeading': 'Dəftərlər',
   'notes.subtitle':
     'Solda bir dəftər seçin, sonra yeni bir qeydə başlamaq üçün Yeni qeyd düyməsini basın.',
+  'planUpdated.body': 'Abunəliyiniz artıq aktivdir.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Qabaqcıl xüsusiyyətlər',
   'pricing.heading': 'Qeyd etmə planınızı seçin',
+  'reset.changedMind': 'Fikrinizi dəyişdiniz?',
   'reset.eyebrow': 'Demək olar ki, geri qayıdıb',
   'reset.formSubtitle': 'Yadda saxlanıldıqdan sonra daxil olacaqsınız.',
   'reset.headline': 'Yeni parol seçin.',
@@ -71,7 +104,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'Sizə e-poçtla göndərdiyimiz kodu daxil edin və yaddaqalan bir şey seçin.',
   'reset.submit': 'Yadda saxla və daxil ol',
   'reset.tokenHint': 'Gələnlər qutunuzdan yapışdırıldı.',
+  'search.empty': 'Bu sorğuya uyğun qeyd hələ yoxdur.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Axtarış Refract',
   'search.loading': 'Axtarışda…',
   'search.noRecent': 'Qeydlərinizdə axtarışa başlamaq üçün yuxarıda sorğu yazın.',
   'search.recentLabel': 'Son axtarışlar',
@@ -79,12 +114,19 @@ export const ui: UiTranslations = {
     'Hər bir qeyd dəftərində tam mətn. Axtarış üçün yazın; yazdıqca nəticələr yenilənir.',
   'search.title': 'İkinci beyni axtarın.',
   'settings.account.logout': 'Çıxış',
+  'settings.account.title': 'Hesab məlumatları',
+  'settings.editor.graphHover.body':
+    'Redaktorda [[vikilink]] üzərinə gələndə kiçik önizləmə kartı göstər.',
+  'settings.editor.graphHover.label': 'Geri keçid qrafiki önizləməsi',
   'settings.editor.lineHeight.body':
     'Bədən xətləri arasında nə qədər hava var. 170% standart oxuma ritmidir.',
+  'settings.editor.lineHeight.label': 'Sətir hündürlüyü',
   'settings.editor.serif.body':
     'Oxu sütunu üçün Georgia-dan istifadə edin. Sans-serif yan paneldə və alətlər panellərində saxlanılır.',
+  'settings.editor.serif.label': 'Serif mətn',
   'settings.editor.title': 'Tipoqrafiya və yazı səthi',
   'settings.eyebrow': 'Verso · Parametrlər',
+  'settings.passwordModal.current': 'Cari parol',
   'settings.passwordModal.error':
     'Şifrəni dəyişdirmək mümkün olmadı — zəhmət olmasa, cari şifrənizi yoxlayın.',
   'settings.passwordModal.next': 'Yeni parol',
@@ -94,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Hər düymə basılmasını real vaxt kanalından keçirin. Daha yavaş bağlantılar üçün deaktiv edin.',
   'settings.sync.auto.label': 'Real vaxt sinxronizasiyası',
+  'settings.sync.title': 'Qeydləriniz necə səyahət edir',
   'settings.theme.body':
     'İşıq redaksiya köşəsini parlaq saxlayır. Sepiya axşamlar səhifəni isidir.',
   'settings.theme.dark': 'Qaranlıq',
@@ -113,8 +156,12 @@ export const ui: UiTranslations = {
     'Qeyd başlığına #heşteqlər əlavə edin (məsələn, "Oxu siyahısı #kitablar") və onlar burada avtomatik olaraq görünəcək.',
   'tags.emptyTitle': 'Hələ etiket yoxdur',
   'tags.eyebrow': 'İndeks',
+  'tags.goToNotes': 'Qeydlərə keç →',
+  'tags.loadError': 'Teqlər yüklənə bilmədi: {{message}}',
   'tags.subtitle':
     '{{tags}} etiketlər arasında {{notes}} qeydlər. Qeyd başlığına #haşteqlər əlavə edin və onlar burada görünəcək.',
+  'versoAuthShell.sample.body':
+    'Sabah edilən ikinci baxış həmişə bu axşam edilən ilk baxışdan yaxşı oxunur. Kobud variantı dərin iş qovluğuna qoyun…',
   'versoAuthShell.sample.label': 'Gündəlik qeyd',
   'versoAuthShell.sample.timestamp': 'Bu gün · saat 9:14',
   'versoAuthShell.sample.title': 'Qaralamaların nəfəs almasına icazə vermək haqqında',
@@ -126,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Yazmağa davam edin',
   'versoTodayHero.createCta': 'Bugünkü qeydə başlayın',
   'versoTodayHero.dailyLabel': 'Gündəlik qeyd',
+  'versoTodayHero.emptyHeadline': 'Bu gün boş səhifədir.',
   'versoTodayHero.emptySubline':
     'Sabahkı fikri qeyd edin, görüş qeyd edin və ya eskiz çəkin. Verso strukturu sakit saxlayır ki, yazı yüksək səslə qalsın.',
+  'versoTodayHero.outlineLabel': 'Bugünkü plan',
   'versoTodayHero.streak': '{{count}} -günlük seriya',
+  'versoTodayHero.unwritten': 'Hələ söz yoxdur — başlamaq üçün qeydi açın.',
   'versoTodayHero.wordCount': '{{count}} bu günkü sözlər',
 }

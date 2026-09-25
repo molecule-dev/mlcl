@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರತಿಕ್ರಿಯೆ ಇದೆಯೇ, ದೋಷ ಕಂಡುಬಂದಿದೆಯೇ, ಅಥವಾ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಸೂಚಿಸಲು ಬಯಸುವಿರಾ? ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ಸಂಪರ್ಕಿಸಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ತಂಡದ ನಿಜವಾದ ವ್ಯಕ್ತಿಗೆ ತಲುಪುತ್ತದೆ.',
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
+  'about.featureDatabases':
+    'ಸಡಿಲ ಟಿಪ್ಪಣಿಗಳನ್ನು ರಚನಾತ್ಮಕ, ಪುನರಾವರ್ತಿತ ಕಾರ್ಯಪ್ರವಾಹಗಳಾಗಿ ಪರಿವರ್ತಿಸಲು ಹಗುರ ಡೇಟಾಬೇಸ್ಗಳು ಮತ್ತು ಮರುಬಳಕೆಯ ಟೆಂಪ್ಲೇಟ್ಗಳು.',
+  'about.featureEditor':
+    'ಒಂದು ಶಾಂತ ಬ್ಲಾಕ್ ಸಂಪಾದಕ — ಶೀರ್ಷಿಕೆಗಳು, ಪಟ್ಟಿಗಳು, ಕೋಡ್, ಕಾಲ್ಔಟ್ಗಳು ಮತ್ತು ಟು-ಡೂಗಳು — ನಿಮಗೆ ಬೇಕಾದಾಗ ಸ್ಲ್ಯಾಶ್-ಕಮಾಂಡ್ಗಳು ಮತ್ತು ಬೇಡವಾದಾಗ ದಾರಿಯಿಂದ ಹೊರಗೆ.',
+  'about.featureGraph':
+    'ಬ್ಯಾಕ್ಲಿಂಕ್ಗಳು ಮತ್ತು ಜ್ಞಾನ ಗ್ರಾಫ್: ಟಿಪ್ಪಣಿಯನ್ನು ಲಿಂಕ್ ಮಾಡಲು [[ ಎಂದು ಟೈಪ್ ಮಾಡಿ ಮತ್ತು ಕಾಲಾನಂತರದಲ್ಲಿ ನಿಮ್ಮ ಆಲೋಚನೆಗಳು ಹೇಗೆ ಸಂಪರ್ಕಗೊಳ್ಳುತ್ತವೆ ಎಂದು ನೋಡಿ.',
+  'about.featureNotebooks':
+    'ಒಳಗೊಳಗಿನ ನೋಟ್ಬುಕ್ಗಳು ಮತ್ತು ಪುಟಗಳು, ಇದರಿಂದ ಯೋಜನೆಗಳು, ವಿಷಯಗಳು ಮತ್ತು ದೈನಂದಿನ ಟಿಪ್ಪಣಿಗಳು ನೀವು ಯೋಚಿಸುವ ರೀತಿಯಲ್ಲಿಯೇ ಸಂಘಟಿತವಾಗಿರುತ್ತವೆ.',
+  'about.featureSearch':
+    'ಪ್ರತಿ ನೋಟ್ಬುಕ್ನಾದ್ಯಂತ 50ms ಗಿಂತ ಕಡಿಮೆ ಪೂರ್ಣ-ಪಠ್ಯ ಹುಡುಕಾಟ, ಜೊತೆಗೆ ನೋಟ್ಬುಕ್ಗಳೊಂದಿಗೆ ಹೋರಾಡುವ ಬದಲು ಅವುಗಳೊಂದಿಗೆ ಸೇರಿಕೊಳ್ಳುವ ಟ್ಯಾಗ್ಗಳು.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'forgot.eyebrow': 'ಒಳಗೆ ಹೋಗುವ ದಾರಿ ತಪ್ಪಿ ಹೋಯಿತೇ?',
   'forgot.formSubtitle': 'ಫೈಲ್‌ನಲ್ಲಿರುವ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ನಮಗೆ ತಿಳಿಸಿ.',
+  'forgot.formTitle': 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆತಿರಾ?',
   'forgot.headline': 'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಮರುಹೊಂದಿಸಿ.',
   'forgot.subline':
     'ನೀವು ಹೊಸದನ್ನು ಆಯ್ಕೆ ಮಾಡಲು ಸಾಧ್ಯವಾಗುವಂತೆ ನಾವು ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್‌ಗೆ ಒಂದು ಬಾರಿಯ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
+  'forgot.successDetail':
+    'ನಿಮ್ಮ ಇಮೇಲ್ಗೆ ನಾವು ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಕಳುಹಿಸಿದ್ದೇವೆ. ಅದು 30 ನಿಮಿಷಗಳಲ್ಲಿ ಮುಕ್ತಾಯಗೊಳ್ಳುತ್ತದೆ.',
   'graph.eyebrow': 'ಗ್ರಾಫ್',
+  'graph.goToNotes': 'ಟಿಪ್ಪಣಿಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ →',
+  'graph.loadError': 'ಗ್ರಾಫ್ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ: {{message}}',
   'graph.placeholderBody':
     'ಟಿಪ್ಪಣಿಗಳು ಪರಸ್ಪರ ಲಿಂಕ್ ಮಾಡಲು ಪ್ರಾರಂಭಿಸಿದಾಗ ([[ವಿಕಿ]] ಸಿಂಟ್ಯಾಕ್ಸ್‌ನೊಂದಿಗೆ), ಸಂವಾದಾತ್ಮಕ ಬಲ-ನಿರ್ದೇಶಿತ ಗ್ರಾಫ್ ಇಲ್ಲಿ ರೆಂಡರ್ ಆಗುತ್ತದೆ.',
+  'graph.placeholderTitle': 'ಬ್ಯಾಕ್ಲಿಂಕ್ ಗ್ರಾಫ್ ಶೀಘ್ರದಲ್ಲೇ ಬರಲಿದೆ',
   'graph.subtitle':
     '{{count}} ಈ ಕಾರ್ಯಸ್ಥಳದಲ್ಲಿ ಟಿಪ್ಪಣಿಗಳು. ಟಿಪ್ಪಣಿಗಳು ಒಂದಕ್ಕೊಂದು ಲಿಂಕ್ ಆದ ನಂತರ ಬ್ಯಾಕ್‌ಲಿಂಕ್ ಗ್ರಾಫ್ ರೆಂಡರಿಂಗ್ ಇಲ್ಲಿ ಗೋಚರಿಸುತ್ತದೆ.',
   'graph.title': 'ಜ್ಞಾನ ಗ್ರಾಫ್',
   'home.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಟಿಪ್ಪಣಿಗಳಿಲ್ಲ - ನಿಮ್ಮ ಮೊದಲನೆಯದನ್ನು ಪ್ರಾರಂಭಿಸಿ.',
   'home.favoritesHeading': 'ಪಿನ್ ಮಾಡಲಾಗಿದೆ',
   'home.guest': 'ಸ್ನೇಹಿತ',
+  'home.loadError': 'ನಿಮ್ಮ ಟಿಪ್ಪಣಿಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'ಟಿಪ್ಪಣಿಯನ್ನು ಇಲ್ಲಿ ಇರಿಸಿಕೊಳ್ಳಲು ಸಂಪಾದಕದಲ್ಲಿ ಪಿನ್ ಮಾಡಿ.',
   'home.recentHeading': 'ಇತ್ತೀಚೆಗೆ ನವೀಕರಿಸಲಾಗಿದೆ',
@@ -23,18 +44,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'ನೋಟ್‌ಬುಕ್',
   'home.stats.pinned.label': 'ಪಿನ್ ಮಾಡಲಾಗಿದೆ',
   'home.stats.updatedToday.label': 'ಇಂದು ನವೀಕರಿಸಲಾಗಿದೆ',
+  'home.subtitle': 'ನೀವು ನಿಲ್ಲಿಸಿದ ಸ್ಥಳದಿಂದ ಮುಂದುವರಿಸಿ, ಅಥವಾ ಹೊಸ ಟಿಪ್ಪಣಿ ಪ್ರಾರಂಭಿಸಿ.',
   'home.viewAll': 'ಎಲ್ಲಾ ಟಿಪ್ಪಣಿಗಳನ್ನು ವೀಕ್ಷಿಸಿ',
   'landing.cta.body':
     'ವೈಯಕ್ತಿಕ ಬಳಕೆಗೆ ಉಚಿತ. ತಂಡಗಳಿಗೆ ಪ್ರೊ. ನಿಮ್ಮ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಮಾರ್ಕ್‌ಡೌನ್ ಅನ್ನು ತನ್ನಿ ಅಥವಾ ಹೊಸದಾಗಿ ಪ್ರಾರಂಭಿಸಿ — ನಿಮ್ಮ ಟಿಪ್ಪಣಿಗಳು ಎಲ್ಲಿದ್ದರೂ ವರ್ಸೋ ನಿಮ್ಮನ್ನು ಭೇಟಿ ಮಾಡುತ್ತದೆ.',
+  'landing.cta.button': 'ನನ್ನ ಕಾರ್ಯಸ್ಥಳವನ್ನು ರಚಿಸಿ',
   'landing.cta.heading': 'ಇಂದಿನ ಪುಟವನ್ನು ತೆರೆಯಿರಿ.',
   'landing.features.eyebrow': 'ನಿಮ್ಮ ಎರಡನೇ ಮೆದುಳಿಗೆ ಅಗತ್ಯವಿರುವ ಪ್ರತಿಯೊಂದು ಆದಿಮ',
+  'landing.features.heading': 'ಕೆಲಸಕ್ಕಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ, ಮೆಟಾ-ವರ್ಕ್‌ಗಾಗಿ ಅಲ್ಲ.',
   'landing.hero.eyebrow': 'ಶಾಂತ ಬರವಣಿಗೆಯ ಮೇಲ್ಮೈ',
   'landing.hero.headlineAccent': 'ಆಕಾರ ಪಡೆದುಕೊಳ್ಳಿ.',
   'landing.hero.headlineLeading': 'ಆಲೋಚನೆಗಳು ಎಲ್ಲಿವೆ',
   'landing.hero.primaryCta': 'ನಿಮ್ಮ ಜ್ಞಾನದ ಮೂಲವನ್ನು ಪ್ರಾರಂಭಿಸಿ',
   'landing.hero.secondaryCta': 'ನನಗೆ ಈಗಾಗಲೇ ಖಾತೆ ಇದೆ.',
+  'landing.hero.socialProof':
+    '12,800+ ಬರಹಗಾರರು, ವಿದ್ಯಾರ್ಥಿಗಳು ಮತ್ತು PhDಗಳು {{appName}} ಜೊತೆಗೆ ಯೋಚಿಸುತ್ತಾರೆ',
   'landing.hero.subline':
     'ವರ್ಸೊ ಜ್ಞಾನ ಕಾರ್ಯಕರ್ತರು ಮತ್ತು ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ರಚನಾತ್ಮಕ ಟಿಪ್ಪಣಿ ತೆಗೆದುಕೊಳ್ಳುವ ಮೇಲ್ಮೈಯಾಗಿದೆ. ಬ್ಲಾಕ್ ಎಡಿಟರ್, ನೆಸ್ಟೆಡ್ ನೋಟ್‌ಬುಕ್‌ಗಳು, ಬ್ಯಾಕ್‌ಲಿಂಕ್‌ಗಳು ಮತ್ತು ಜ್ಞಾನ ಗ್ರಾಫ್ - ಇವೆಲ್ಲವೂ ಮುದ್ರಣಕಲೆಯ ಮೊದಲ ಓದುವ ಅನುಭವದ ಹಿಂದೆ ಇವೆ.',
+  'landing.preview.notebook': 'ಜ್ಞಾನ · ಬರವಣಿಗೆ ಪ್ರಕ್ರಿಯೆ',
+  'landing.preview.title': 'ಡ್ರಾಫ್ಟ್‌ಗಳನ್ನು ಉಸಿರಾಡಲು ಬಿಡುವುದರ ಕುರಿತು',
   'login.eyebrow': 'ವರ್ಸೊಗೆ ಮತ್ತೆ ಸ್ವಾಗತ.',
   'login.formSubtitle': 'ನಿಮ್ಮ ಇಮೇಲ್ ಅಥವಾ ಯಾವುದೇ ಸಂಪರ್ಕಿತ ಪೂರೈಕೆದಾರರನ್ನು ಬಳಸಿ.',
   'login.headline': 'ಪುಟ ವಿರಾಮಗೊಂಡ ಸ್ಥಳದಿಂದ ಎತ್ತಿಕೊಳ್ಳಿ.',
@@ -44,6 +72,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
   'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'noteEditor.backToNotes': 'ಟಿಪ್ಪಣಿಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
+  'noteEditor.bodyLabel': 'ಟಿಪ್ಪಣಿ ಮುಖ್ಯಾಂಶ',
   'noteEditor.bodyPlaceholder':
     'ಬರೆಯಲು ಪ್ರಾರಂಭಿಸಿ — ನೀವು ಟೈಪ್ ಮಾಡಿದಂತೆ ನಿಮ್ಮ ಟಿಪ್ಪಣಿ ಸ್ವಯಂ ಉಳಿಸುತ್ತದೆ.',
   'noteEditor.confirmTrash': 'ಈ ಟಿಪ್ಪಣಿಯನ್ನು ಅನುಪಯುಕ್ತಕ್ಕೆ ಸರಿಸುವುದೇ?',
@@ -52,17 +81,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'ಅನುಪಯುಕ್ತಕ್ಕೆ ಸರಿಸಿ',
   'noteEditor.updated': 'ನವೀಕರಿಸಲಾಗಿದೆ',
   'notes.defaultWorkspaceName': 'ನನ್ನ ನೋಟ್‌ಬುಕ್',
+  'notes.empty': 'ಇಲ್ಲಿ ಇನ್ನೂ ಟಿಪ್ಪಣಿಗಳಿಲ್ಲ — ನೋಟ್ಬುಕ್ ತುಂಬಲು ಒಂದನ್ನು ಪ್ರಾರಂಭಿಸಿ.',
   'notes.eyebrow': 'ನೋಟ್‌ಬುಕ್',
   'notes.filterAll': 'ಎಲ್ಲಾ ಟಿಪ್ಪಣಿಗಳು',
   'notes.filterPinned': 'ಪಿನ್ ಮಾಡಲಾಗಿದೆ',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'ಹೊಸ ನೋಟ್‌ಬುಕ್',
   'notes.newNotebookPrompt': 'ಹೊಸ ನೋಟ್‌ಬುಕ್ ಹೆಸರು',
+  'notes.newNotebookRequired': 'ನೋಟ್ಬುಕ್ ಹೆಸರನ್ನು ನಮೂದಿಸಿ.',
   'notes.notebooksHeading': 'ನೋಟ್‌ಬುಕ್‌ಗಳು',
   'notes.subtitle':
     'ಎಡಭಾಗದಲ್ಲಿರುವ ನೋಟ್‌ಬುಕ್ ಅನ್ನು ಆರಿಸಿ, ನಂತರ ಹೊಸ ನಮೂದನ್ನು ಪ್ರಾರಂಭಿಸಲು ಹೊಸ ಟಿಪ್ಪಣಿ ಬಟನ್ ಒತ್ತಿರಿ.',
+  'planUpdated.body': 'ನಿಮ್ಮ ಚಂದಾದಾರಿಕೆ ಈಗ ಸಕ್ರಿಯವಾಗಿದೆ.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳು',
   'pricing.heading': 'ನಿಮ್ಮ ಟಿಪ್ಪಣಿ ತೆಗೆದುಕೊಳ್ಳುವ ಯೋಜನೆಯನ್ನು ಆರಿಸಿ',
+  'reset.changedMind': 'ನಿಮ್ಮ ಮನಸ್ಸು ಬದಲಾಯಿತೇ?',
   'reset.eyebrow': 'ಬಹುತೇಕ ಮರಳಿ ಬಂದಿದ್ದೇನೆ',
   'reset.formSubtitle': 'ಅದನ್ನು ಉಳಿಸಿದ ನಂತರ ನೀವು ಸೈನ್ ಇನ್ ಆಗುತ್ತೀರಿ.',
   'reset.headline': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಆಯ್ಕೆಮಾಡಿ.',
@@ -71,7 +105,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'ನಾವು ನಿಮಗೆ ಇಮೇಲ್ ಮಾಡಿದ ಕೋಡ್ ಅನ್ನು ನಮೂದಿಸಿ ಮತ್ತು ಸ್ಮರಣೀಯವಾದದ್ದನ್ನು ಆರಿಸಿ.',
   'reset.submit': 'ಉಳಿಸಿ ಮತ್ತು ಸೈನ್ ಇನ್ ಮಾಡಿ',
   'reset.tokenHint': 'ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್‌ನಿಂದ ಅಂಟಿಸಲಾಗಿದೆ.',
+  'search.empty': 'ಈ ಪ್ರಶ್ನೆಗೆ ಇನ್ನೂ ಯಾವುದೇ ಟಿಪ್ಪಣಿಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'ಹುಡುಕಾಟ ವಕ್ರೀಭವನ',
   'search.loading': 'ಹುಡುಕಲಾಗುತ್ತಿದೆ...',
   'search.noRecent': 'ನಿಮ್ಮ ಟಿಪ್ಪಣಿಗಳಲ್ಲಿ ಹುಡುಕಲು ಪ್ರಾರಂಭಿಸಲು ಮೇಲೆ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ.',
   'search.recentLabel': 'ಇತ್ತೀಚಿನ ಹುಡುಕಾಟಗಳು',
@@ -79,11 +115,18 @@ export const ui: UiTranslations = {
     'ಪ್ರತಿಯೊಂದು ನೋಟ್‌ಬುಕ್‌ನಲ್ಲಿ ಪೂರ್ಣ-ಪಠ್ಯ. ಹುಡುಕಲು ಟೈಪ್ ಮಾಡಿ; ನೀವು ಟೈಪ್ ಮಾಡಿದಂತೆ ಫಲಿತಾಂಶಗಳು ರಿಫ್ರೆಶ್ ಆಗುತ್ತವೆ.',
   'search.title': 'ಎರಡನೇ ಮೆದುಳನ್ನು ಹುಡುಕಿ.',
   'settings.account.logout': 'ಲಾಗ್ ಔಟ್ ಮಾಡಿ',
+  'settings.account.title': 'ಖಾತೆ ವಿವರಗಳು',
+  'settings.editor.graphHover.body':
+    'ಸಂಪಾದಕದಲ್ಲಿ [[ವಿಕಿಲಿಂಕ್]] ಮೇಲೆ ಹೋವರ್ ಮಾಡಿದಾಗ ಸಣ್ಣ ಪೂರ್ವವೀಕ್ಷಣೆ ಕಾರ್ಡ್ ತೋರಿಸಿ.',
+  'settings.editor.graphHover.label': 'ಬ್ಯಾಕ್ಲಿಂಕ್ ಗ್ರಾಫ್ ಹೋವರ್ ಪೂರ್ವವೀಕ್ಷಣೆ',
   'settings.editor.lineHeight.body': 'ದೇಹದ ರೇಖೆಗಳ ನಡುವೆ ಎಷ್ಟು ಗಾಳಿ. 170% ಡೀಫಾಲ್ಟ್ ಓದುವ ಲಯವಾಗಿದೆ.',
+  'settings.editor.lineHeight.label': 'ಸಾಲಿನ ಎತ್ತರ',
   'settings.editor.serif.body':
     'ಓದುವ ಕಾಲಮ್‌ಗೆ ಜಾರ್ಜಿಯಾ ಬಳಸಿ. ಸ್ಯಾನ್ಸ್-ಸೆರಿಫ್ ಸೈಡ್‌ಬಾರ್ ಮತ್ತು ಟೂಲ್‌ಬಾರ್‌ಗಳಲ್ಲಿ ಇಡುತ್ತದೆ.',
+  'settings.editor.serif.label': 'ಸೆರಿಫ್ ಮುಖ್ಯ ಪಠ್ಯ',
   'settings.editor.title': 'ಮುದ್ರಣಕಲೆ ಮತ್ತು ಬರವಣಿಗೆಯ ಮೇಲ್ಮೈ',
   'settings.eyebrow': 'Verso · ಸೆಟ್ಟಿಂಗ್‌ಗಳು',
+  'settings.passwordModal.current': 'ಪ್ರಸ್ತುತ ಪಾಸ್‌ವರ್ಡ್',
   'settings.passwordModal.error':
     'ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ — ದಯವಿಟ್ಟು ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಪರಿಶೀಲಿಸಿ.',
   'settings.passwordModal.next': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
@@ -93,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'ಪ್ರತಿಯೊಂದು ಕೀಸ್ಟ್ರೋಕ್ ಅನ್ನು ನೈಜ ಸಮಯದ ಚಾನಲ್ ಮೂಲಕ ತಳ್ಳಿರಿ. ನಿಧಾನ ಸಂಪರ್ಕಗಳಿಗಾಗಿ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ.',
   'settings.sync.auto.label': 'ನೈಜ-ಸಮಯದ ಸಿಂಕ್',
+  'settings.sync.title': 'ನಿಮ್ಮ ಟಿಪ್ಪಣಿಗಳು ಹೇಗೆ ಪ್ರಯಾಣಿಸುತ್ತವೆ',
   'settings.theme.body':
     'ಬೆಳಕು ಸಂಪಾದಕೀಯ ಅಂಕಣವನ್ನು ಪ್ರಕಾಶಮಾನವಾಗಿಡುತ್ತದೆ. ಸೆಪಿಯಾ ಸಂಜೆ ಪುಟವನ್ನು ಬೆಚ್ಚಗಾಗಿಸುತ್ತದೆ.',
   'settings.theme.dark': 'ಕತ್ತಲೆ',
@@ -112,8 +156,12 @@ export const ui: UiTranslations = {
     'ಟಿಪ್ಪಣಿ ಶೀರ್ಷಿಕೆಗೆ #ಹ್ಯಾಶ್‌ಟ್ಯಾಗ್‌ಗಳನ್ನು ಸೇರಿಸಿ (ಉದಾ. "ಓದುವ ಪಟ್ಟಿ #ಪುಸ್ತಕಗಳು") ಮತ್ತು ಅವು ಇಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಗೋಚರಿಸುತ್ತವೆ.',
   'tags.emptyTitle': 'ಇನ್ನೂ ಯಾವುದೇ ಟ್ಯಾಗ್‌ಗಳಿಲ್ಲ.',
   'tags.eyebrow': 'ಸೂಚ್ಯಂಕ',
+  'tags.goToNotes': 'ಟಿಪ್ಪಣಿಗಳಿಗೆ ಹೋಗಿ →',
+  'tags.loadError': 'ಟ್ಯಾಗ್ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ: {{message}}',
   'tags.subtitle':
     '{{tags}} ಟ್ಯಾಗ್‌ಗಳು ಅಡ್ಡಲಾಗಿ {{notes}} ಟಿಪ್ಪಣಿಗಳು. ಟಿಪ್ಪಣಿ ಶೀರ್ಷಿಕೆಗೆ #ಹ್ಯಾಶ್‌ಟ್ಯಾಗ್‌ಗಳನ್ನು ಸೇರಿಸಿ ಮತ್ತು ಅವು ಇಲ್ಲಿ ಗೋಚರಿಸುತ್ತವೆ.',
+  'versoAuthShell.sample.body':
+    'ನಾಳೆ ಎರಡನೇ ಬಾರಿ ಓದುವುದು ಯಾವಾಗಲೂ ಇಂದು ರಾತ್ರಿ ಮೊದಲ ಬಾರಿ ಓದುವುದಕ್ಕಿಂತ ಉತ್ತಮವಾಗಿರುತ್ತದೆ. ಒರಟು ಕಟ್ ಅನ್ನು ಡೀಪ್ ವರ್ಕ್ ಫೋಲ್ಡರ್ನಲ್ಲಿ ಇರಿಸಿ…',
   'versoAuthShell.sample.label': 'ದೈನಂದಿನ ಟಿಪ್ಪಣಿ',
   'versoAuthShell.sample.timestamp': 'ಇಂದು · ಬೆಳಿಗ್ಗೆ 9:14',
   'versoAuthShell.sample.title': 'ಡ್ರಾಫ್ಟ್‌ಗಳನ್ನು ಉಸಿರಾಡಲು ಬಿಡುವುದರ ಕುರಿತು',
@@ -125,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'ಬರೆಯುವುದನ್ನು ಮುಂದುವರಿಸಿ',
   'versoTodayHero.createCta': 'ಇಂದಿನ ಟಿಪ್ಪಣಿಯನ್ನು ಪ್ರಾರಂಭಿಸಿ',
   'versoTodayHero.dailyLabel': 'ದೈನಂದಿನ ಟಿಪ್ಪಣಿ',
+  'versoTodayHero.emptyHeadline': 'ಇಂದು ಒಂದು ಖಾಲಿ ಪುಟ.',
   'versoTodayHero.emptySubline':
     'ನಾಳೆಯ ಆಲೋಚನೆಯನ್ನು ಸೆರೆಹಿಡಿಯಿರಿ, ಸಭೆಯನ್ನು ಬರೆಯಿರಿ ಅಥವಾ ರೇಖಾಚಿತ್ರ ಬರೆಯಿರಿ. ಬರವಣಿಗೆ ಗಟ್ಟಿಯಾಗಿ ಉಳಿಯುವಂತೆ ವರ್ಸೊ ರಚನೆಯನ್ನು ಶಾಂತವಾಗಿರಿಸುತ್ತದೆ.',
+  'versoTodayHero.outlineLabel': 'ಇಂದಿನ ರೂಪರೇಖೆ',
   'versoTodayHero.streak': '{{count}} - ದಿನದ ಸರಣಿ',
+  'versoTodayHero.unwritten': 'ಇನ್ನೂ ಪದಗಳಿಲ್ಲ — ಪ್ರಾರಂಭಿಸಲು ಟಿಪ್ಪಣಿ ತೆರೆಯಿರಿ.',
   'versoTodayHero.wordCount': '{{count}} ಇಂದಿನ ಪದಗಳು',
 }

@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, may nahanap kang bug, o gusto mong dalhin ang {{app}} sa iyong paaralan o team? Binabasa namin ang bawat mensahe — makipag-ugnayan mula sa settings ng iyong account at may tunay na tao na sasagot.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.intro':
+    'Ang {{app}} ay isang live na platform ng pagsusulit para sa mga silid-aralan, game night, at team event. Gumawa ng masasayang question pack, mag-host ng real-time na laro gamit ang join code, at panoorin ang buong lugar na magningning sa mga timed na tanong, scoring, at leaderboard.',
+  'about.missionBody':
+    'Mas tumatatak ang pagkatuto kapag parang laro. Ginagawa naming napakadali para sa kahit sino na gawing mabilis at kompetitibong laro ang isang paksa — para makapagturo ang mga host sa pamamagitan ng paggawa at manatiling naka-streak ang mga manlalaro.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.title': 'Tungkol sa {{app}}',
   'auth.login.noAccount': 'Bago sa Sparq?',
   'auth.login.or': 'o magpatuloy gamit ang',
@@ -17,11 +24,13 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Wala pang tumutugmang mga pagsusulit.',
   'discover.headline': 'Hanapin ang susunod mong paboritong pagsusulit.',
   'discover.loading': 'Naglo-load…',
+  'discover.searchPlaceholder': 'Maghanap ng quiz sa pamamagitan ng pamagat…',
   'discover.subhead':
     'I-browse ang buong library, i-filter ayon sa kategorya, o maghanap ayon sa pamagat. Pindutin ang card para tumugtog nang solo o mag-host nang live.',
   'forgotPassword.subhead': 'Ilagay ang iyong email at padadalhan ka namin ng link para i-reset.',
   'forgotPassword.success.body':
     'Kung mayroong account para sa {{email}} , makakakuha ka ng link sa pag-reset sa loob ng ilang minuto.',
+  'forgotPassword.success.title': 'Tingnan ang iyong inbox.',
   'hostLobby.back': 'Balik sa pagsusulit',
   'hostLobby.copied': 'Nakopya na ang join code sa clipboard.',
   'hostLobby.creating': 'Pinapaganda ang iyong lobby…',
@@ -29,19 +38,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Kanselahin ang lobby',
   'hostLobby.players.count': '{{count}} mabuhay',
   'hostLobby.players.title': 'Mga manlalaro sa lobby',
+  'hostLobby.players.waiting':
+    'Naghihintay ng mga manlalaro. Ibahagi ang code na {{code}} para makasali sila.',
   'hostLobby.rules.title': 'Mga patakaran sa bahay',
   'hostLobby.startError': 'Hindi masimulan ang laro.',
   'hostLobby.starting': 'Nagsisimula ang spark…',
   'joinCodeHero.headline': 'Sabihin mo sa mga manlalaro mo na sumali.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'O bisitahin',
   'joinCodeHero.liveLabel': 'Live na lobby',
+  'joinCodeHero.playerJoined': 'Sumali si {{name}}',
   'joinCodeHero.playersLabel': 'Mga Manlalaro',
   'joinCodeHero.qrLabel': 'I-scan para sumali',
   'joinCodeHero.startGame': 'Simulan ang spark',
   'joinCodeHero.subhead':
     'Ibahagi ang join code o i-scan ang QR. Magsisimula ang laro sa sandaling magpasiklab ka.',
+  'landing.cta.button': 'Gumawa ng iyong unang quiz',
   'landing.cta.eyebrow': 'Libre para sa mga tagapagturo',
   'landing.cta.heading': 'Magdala ng sigla sa bawat aralin.',
+  'landing.cta.subhead':
+    'Mag-sign up sa loob ng 30 segundo. Mag-host ng walang limitasyong live na laro, gumawa ng quiz gamit ang AI, at panatilihing naka-streak ang bawat manlalaro.',
   'landing.eyebrow': 'Pag-alabin ang bawat sagot',
   'landing.features.heading':
     'Isang quiz studio na akma sa paraan ng iyong pagtuturo at paglalaro.',
@@ -57,6 +73,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Mga sikat na pagsusulit',
   'landing.popular.eyebrow': 'Sikat ngayong linggo',
   'landing.popular.heading': 'May mga host ng pagsusulit na magsisimula ngayong araw.',
+  'landing.popular.viewAll': 'Tingnan ang lahat ng kategorya →',
+  'leaderboard.empty.body': 'Maglaro ng quiz para mailagay ang iyong score sa global leaderboard.',
   'leaderboard.empty.title': 'Wala pang mga laro sa board — maging una.',
   'leaderboard.eyebrow': 'Leaderboard',
   'leaderboard.fullRanking': 'Buong ranggo',
@@ -64,6 +82,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Kunin ang pinagsama-samang iskor sa bawat sesyon ng pagsusulit na iyong nilaro. Umakyat sa pamamagitan ng paglalaro nang higit pa.',
   'leaderboard.title': 'Mga nangungunang quizmaster',
+  'leaderboard.totalPlayers': '{{count}} ranggo na manlalaro',
   'leaderboardRow.points': 'puntos',
   'leaderboardRow.streak': '{{days}}d',
   'login.headline': 'Maligayang pagbabalik, guro ng pagsusulit.',
@@ -75,10 +94,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Buuin ang iyong unang pagsusulit →',
   'myQuizzes.empty.created': 'Hindi ka pa nakakagawa ng pagsusulit.',
   'myQuizzes.empty.played': 'Wala pang nailathalang mga pagsusulit.',
+  'myQuizzes.loading': 'Naglo-load…',
   'myQuizzes.subhead':
     'Mga draft na iyong nabuo, kasama ang mga nailathalang pagsusulit na maaari mong laruin.',
   'myQuizzes.title': 'Mga pagsusulit ko',
   'nav.legal': 'Legal',
+  'nav.primaryNavLabel': 'Pangunahing navigation',
   'notFound.backHome': 'Bumalik sa home',
   'notFound.backToDiscover': 'Mag-browse ng mga pagsusulit',
   'notFound.body': 'Subukan ang ibang code o bumalik sa lobby.',
@@ -87,17 +108,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Naglo-load…',
   'notifications.subhead':
     '{{count}} mga hindi pa nababasang spark. Mga imbitasyon, galaw sa leaderboard, at mga achievement lahat sa iisang stream.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
+  'pricing.advancedFeatures': 'Mga advanced na feature: {{yes}}',
+  'pricing.canExport': 'Data export: {{yes}}',
   'pricing.checkoutError': 'Hindi masimulan ang checkout. Pakisubukang muli.',
   'pricing.heading': 'Pumili ng iyong {{app}} plano',
   'pricing.included': 'Kasama',
   'pricing.loadError': 'Hindi ma-load ang mga plano.',
+  'pricing.maxQuestions': '{{count}} mga tanong',
   'pricing.maxQuizzes': '{{count}} mga pagsusulit',
+  'pricing.maxSessions': '{{count}} na session',
   'pricing.subhead':
     'Libre para sa mga host at manlalaro. Mag-upgrade para sa mas mataas na limitasyon at mga advanced na feature.',
   'pricing.yearly': 'Taon-taon',
   'privacy.collect.account':
     'Account: email, na-hash na password, display name, huling pag-sign-in.',
+  'privacy.intro':
+    'Ginagalang ng {{app}} ang iyong privacy. Ang pahinang ito ay nagbubuod ng data na iniimbak namin, kung bakit namin ito iniimbak, at kung paano ito alisin.',
   'privacy.rights.body':
     'Burahin ang iyong account mula sa Mga Setting para permanenteng alisin ang lahat ng iyong data sa loob ng 30 araw.',
   'privacy.share.body':
@@ -121,6 +152,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'ID ng Pagsusulit: {{id}}',
   'quizBuilder.loadError': 'Hindi ma-load ang quiz.',
   'quizBuilder.loading': 'Naglo-load ng editor…',
+  'quizBuilder.markCorrect': 'Markahan ang {{letter}} bilang tama',
   'quizBuilder.noQuestions': 'Wala pang tanong — magdagdag ng isa para magsimula.',
   'quizBuilder.notFound': 'Hindi natagpuan ang pagsusulit.',
   'quizBuilder.preview': 'Tingnan',
@@ -137,7 +169,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} s timer',
   'quizBuilder.title': 'Buuin ang iyong pagsusulit',
   'quizBuilder.titleLabel': 'Pamagat ng pagsusulit',
+  'quizBuilder.untitled': 'Walang pamagat na tanong',
   'quizCard.plays': '{{count}} mga dula',
+  'quizCard.questionCount': '{{count}} Qs',
   'quizDetail.duration': '~ {{minutes}} minuto',
   'quizDetail.hostMultiplayer': 'Mag-host ng multiplayer',
   'quizDetail.leaderboardEmpty': 'Wala pang mga pag-play — maging una na magtakda ng iskor.',
@@ -152,26 +186,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Balik sa pagsusulit',
   'quizPlay.empty': 'Wala pang mga tanong ang pagsusulit na ito.',
   'quizPlay.error': 'Hindi ma-load ang pagsusulit na ito. Pakisubukang muli.',
+  'quizPlay.exit': 'Lumabas',
   'quizPlay.feedback.correct': '🔥 Kumita ng sigla — sa susunod!',
+  'quizPlay.feedback.incorrect': 'Ang sagot ay {{correct}}. Magpatuloy ka lang.',
   'quizPlay.loading': 'Naglo-load ng pagsusulit…',
   'quizPlay.next': 'Susunod na tanong',
   'quizPlay.questionCounter': 'Tanong {{current}} ng {{total}}',
   'quizPlay.score': '{{score}} puntos',
+  'quizPlay.seeResults': 'Tingnan ang mga resulta',
   'quizPlay.sessionFailed': 'Hindi makapagsimula ng sesyon.',
   'quizPlay.streak': '{{count}} guhit',
+  'resetPassword.subhead': 'Pumili ng bagong password para makabalik sa iyong streak.',
   'results.backToDiscover': 'Balik sa Tuklasin',
   'results.error': 'Hindi ma-load ang mga resulta.',
   'results.exit': 'Balik sa Tuklasin',
   'results.loading': 'Binibilang ang iyong iskor…',
   'results.missingSession': 'Walang sesyon para ibuod.',
+  'results.recap.correctAnswer': 'Tama: {{answer}}',
   'results.recap.questionLabel': 'Tanong {{number}}',
   'results.recap.title': 'Pagbabalik-tanaw ng tanong',
+  'results.recap.yourAnswer': 'Ikaw: {{answer}}',
   'results.unknownQuiz': 'Quiz',
   'scoreBreakdownCard.accuracyLabel': 'Katumpakan',
+  'scoreBreakdownCard.correctLabel': 'Tama',
   'scoreBreakdownCard.eyebrow': 'Kumpleto na ang Pagsusulit',
   'scoreBreakdownCard.headline': 'Magandang trabaho sa " {{quizTitle}} "! / "',
   'scoreBreakdownCard.pointsLabel': 'Mga Puntos',
   'scoreBreakdownCard.rankLabel': 'Ranggo',
+  'scoreBreakdownCard.streakBonus': 'Streak bonus +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Kitang-kita ang iyong spark. Tingnan ang breakdown sa ibaba para patuloy na umakyat sa leaderboard.',
   'settings.danger.body':
     'Permanenteng tanggalin ang iyong Sparq account at lahat ng ginawang pagsusulit.',
   'settings.danger.confirm': 'Oo, burahin nang tuluyan',
@@ -189,5 +233,7 @@ export const ui: UiTranslations = {
     'Ikaw ang may pananagutan sa nilalamang ilalathala mo, sa mga tanong na iyong isinulat, at sa anumang larong iyong hino-host. Huwag magpanggap na ibang tao.',
   'terms.billing.body':
     'Awtomatikong nire-renew ang mga bayad na plano hanggang sa makansela mula sa Mga Setting. Maaari kang magkansela anumang oras; magpapatuloy ang pag-access hanggang sa matapos ang kasalukuyang panahon ng pagsingil.',
+  'terms.intro':
+    'Sa paggamit ng {{app}} sumasang-ayon ka sa mga patakaran sa ibaba. Kung hindi mo ito matanggap, mangyaring huwag gamitin ang serbisyo.',
   'terms.title': 'Mga tuntunin ng serbisyo',
 }

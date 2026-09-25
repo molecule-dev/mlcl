@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Vrae oor 'n uitgawe, 'n versending of jou intekening? Bereik 'n regte mens op die span by hello@crate.example — ons lees elke boodskap.",
+  'about.contactTitle': "Praat met 'n kurator",
+  'about.feature1':
+    'Saamgestelde maandelikse uitgawes wat deur onafhanklike makers uitgesoek is, met die verhaal agter elke item.',
+  'about.feature2':
+    "Volle beheer oor elke boks — pas die inhoud aan, ruil of sluit items uit, slaan 'n maand oor of verander jou frekwensie.",
+  'about.feature3':
+    'End-tot-end versendingnasporing van optel tot stoep, met plastiekvrye verpakking en lewendige vervoerder-opdaterings.',
+  'about.feature4':
+    'Buigsame planne en deursigtige fakturering — gradeer op, gradeer af, onderbreek of kanselleer enige tyd vanaf jou paneel.',
+  'about.intro':
+    "{{app}} is 'n saamgestelde intekenboksdiens wat elke maand 'n uitgesoekte, kleinskaalse boks vreugde by jou deur aflewer. Elke uitgawe word deur werkende makers saamgestel — onafhanklike kunstenaars, sjefs en klein handelsmerke — nie 'n algoritme nie.",
+  'about.missionBody':
+    "Ons glo 'n intekening moet soos 'n geskenk voel, nie 'n lokval nie. {{app}} is gebou sodat jy bly omdat jy lief is vir wat aankom — onderbreek enige tyd, ruil wat jy wil en kanselleer met een klik. Nooit enige behoudingskripte nie.",
+  'about.missionTitle': 'Ons missie',
   'about.pageTitle': 'Oor {{app}}',
   'appNav.mobileLabel': 'Primêre navigasie',
   'appNav.primaryLabel': 'Primêre navigasie',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Wysig faktuurkontak',
   'billing.contact.eyebrow': 'Faktuurkontak',
   'billing.eyebrow': 'Plan en betalings',
+  'billing.loading': 'Laai fakturering…',
   'billing.payment.body':
     'Betaling word deur Stripe Checkout hanteer — jou volle kaartnommer raak nooit ons bedieners nie. Klik enige vlak hieronder om jou kaart by te voeg of op te dateer.',
   'billing.payment.linked': 'Kaart op lêer via Stripe',
@@ -19,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Hervat intekening',
   'billing.plan.eyebrow': 'Aktiewe plan',
   'billing.plan.next': 'Hernu outomaties op {{date}} .',
+  'billing.plan.status': 'Status: {{status}}',
   'billing.subtitle': 'Bestuur jou vlak, betaalmetode en hersien vorige aktiwiteit.',
   'billing.tiers.body': "Kies 'n vlak en ons sal jou na Stripe Checkout stuur.",
   'billing.tiers.choose': 'Kies',
+  'billing.tiers.empty': 'Nog geen vlakke opgestel nie.',
   'billing.tiers.heading': 'Beskikbare vlakke',
   'boxDetail.backToBoxes': 'Terug na alle uitgawes',
   'boxDetail.crumb.boxes': 'Uitgawes',
@@ -34,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Gekurateerde stuk',
   'boxDetail.items.heading': '{{count}} saamgestelde stukke',
   'boxDetail.itemsBadge': '{{count}} saamgestelde items per boks',
+  'boxDetail.loading': 'Laai tans uitgawe…',
   'boxDetail.notFound': 'Daardie uitgawe is nie meer beskikbaar nie.',
   'boxDetail.subscribe.success': 'Ingeteken — jou eerste uitgawe is in die waglys.',
   'boxDetail.swapBadge': 'Ruil tot {{count}} item(s) per boks',
@@ -42,14 +62,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Geen uitgawes stem ooreen nie.',
   'boxes.eyebrow': 'Die Crate-argief',
   'boxes.heading': 'Blaai deur elke uitgawe',
+  'boxes.loadError': 'Ons kon nie die uitgawes laai nie. Kyk jou verbinding na en probeer weer.',
   'boxes.loading': 'Laai tans uitgawes…',
+  'boxes.search.label': 'Soek uitgawes',
   'boxes.search.placeholder': 'Soek uitgawes…',
   'boxes.subtitle':
     "Elke vlak is 'n kleinskaalse storie. Voeg een by jou tou of ruil dit na jou volgende maand.",
+  'boxThemeCard.itemCount': '{{count}} items',
   'boxThemeCard.perMonth': '/ maand',
+  'boxThemeCard.retailValue': 'Kleinhandelwaarde {{value}}',
   'common.goToDashboard': 'Gaan na Dashboard',
+  'common.retry': 'Probeer weer',
   'customize.eyebrow': 'Maak dit joune',
   'customize.heading': 'Pasmaak jou volgende Crate',
+  'customize.items.empty': 'Nog geen items vir hierdie vlak opgestel nie.',
   'customize.items.exclude': 'Slaan dit oor',
   'customize.items.eyebrow': 'Personaliseer hierdie boks',
   'customize.items.heading': 'Items in {{box}}',
@@ -58,8 +84,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Voeg terug by',
   'customize.items.save': 'Stoor aanpassing',
   'customize.items.swapsLeft': '{{used}} van {{max}} ruiltransaksies gebruik',
+  'customize.loading': 'Laai tans aanpassing…',
   'customize.noSub.body':
     "Teken eers in op 'n vlak, en kom dan terug om items in jou boks te ruil.",
+  'customize.noSub.cta': 'Blaai deur uitgawes',
   'customize.noSub.heading': 'Geen aktiewe intekening nie',
   'customize.saved': 'Aanpassing gestoor.',
   'customize.subtitle':
@@ -73,11 +101,13 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Volg besending',
   'dashboard.eyebrow': 'Jou Crate',
   'dashboard.greeting': 'Welkom terug, {{name}} .',
+  'dashboard.loadError': 'Ons kon nie jou paneel laai nie. Kyk jou verbinding na en probeer weer.',
   'dashboard.loading': 'Laai paneelbord…',
   'dashboard.next.eyebrow': 'Jou volgende uitgawe',
   'dashboard.onboarding.body':
     "Jy het nog nie 'n aktiewe intekening nie. Kies 'n vlak om elke maand 'n Crate te begin verskeep.",
   'dashboard.onboarding.cta': 'Blaai deur alle uitgawes',
+  'dashboard.onboarding.empty': 'Geen planne tans beskikbaar nie. Kyk binnekort weer.',
   'dashboard.onboarding.heading': 'Kies jou eerste uitgawe',
   'dashboard.renewal.amount': 'Gelaai',
   'dashboard.renewal.cadence': 'Kadens',
@@ -85,18 +115,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Hernuwing',
   'dashboard.renewal.heading': 'Outomatiese hernuwing aan {{date}}',
   'dashboard.renewal.plan': 'Plansleutel',
+  'dashboard.renewal.tbd': 'Hernuwingskedulering binnekort',
   'dashboard.renewal.tier': 'Vlak',
   'dashboard.stats.days': 'dae',
   'dashboard.stats.daysToNext': 'Verskeep in',
   'dashboard.stats.items': 'Gekurateerde items',
   'dashboard.stats.shipDate': 'Verskepingsdatum',
   'dashboard.stats.tbd': 'Nog nie bekend nie',
+  'dashboard.subtitle.active': 'Jou volgende uitgawe is op pad. Hier is wat om te verwag.',
+  'dashboard.subtitle.idle': "Kies 'n vlak om elke maand 'n {{appName}} te begin stuur.",
   'forgotPassword.subtitle': "Vertel ons jou e-posadres en ons sal 'n terugstelskakel stuur.",
   'forgotPassword.success.body':
     "As {{email}} geregistreer is, sal jy binne 'n paar minute 'n terugstelskakel ontvang.",
   'forgotPassword.success.title': 'Gaan jou inboks na.',
   'landing.editions.eyebrow': 'Hierdie seisoen',
   'landing.editions.heading': 'Uitgawes waarvan ons kurators hou',
+  'landing.editions.viewAll': 'Blaai deur alle uitgawes →',
   'landing.footer.contact': "Praat met 'n kurator",
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Begin jou boks →',
@@ -105,6 +139,9 @@ export const ui: UiTranslations = {
   'landing.hero.headline': 'Pak die onverwagte uit, elke maand.',
   'landing.hero.previewCaption': "'n Kykie na die lede-dashboard — aftelling, inhoud en dophou.",
   'landing.hero.social.count': 'Geliefd deur {{count}} + intekenaars',
+  'landing.hero.social.rating': '{{rating}} gem. oopmaakgradering',
+  'landing.hero.subhead':
+    "{{appName}} stuur vir jou 'n uitgesoekte, kleinskaalse boks vreugde van onafhanklike makers. Onderbreek enige tyd. Ruil wat jy wil. Hou wat jy liefhet.",
   'landing.nav.start': 'Begin jou boks',
   'landing.tiers.eyebrow': 'Kies jou kadens',
   'landing.tiers.heading': 'Begin klein, gradeer enige tyd op, kanselleer net so maklik.',
@@ -114,6 +151,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Meld aan om na volgende maand se boks te loer.',
   'login.welcomeBack': 'Welkom terug, kurator.',
   'nextBoxHeroCard.eyebrow': 'JOU VOLGENDE TROEF',
+  'nextBoxHeroCard.itemCount': '{{count}} stukke binne',
   'nextBoxHeroCard.itemsLabel': 'Gekurateerde items',
   'nextBoxHeroCard.shipsOnLabel': 'Verskeep op',
   'notFound.body':
@@ -137,8 +175,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Onderbreek intekening',
   'settings.danger.paused': 'Intekening onderbreek.',
   'settings.danger.pausing': 'Pouseer tans…',
+  'settings.danger.status': 'Intekeningstatus: {{status}}',
   'settings.danger.subtitle':
     'Deur te pouseer, bly jou vlak en geskiedenis ongeskonde. Kansellasie stop toekomstige versendings en verwyder jou gestoorde betaalmetodes aan die einde van die siklus.',
+  'settings.notifications.saving': '· stoor tans…',
   'settings.notifications.subtitle':
     'Kies watter seine jy van Crate wil hê. Verstekwaardes is verstandig.',
   'settings.subtitle': 'Dateer jou profiel, afleweringsadres en hoe Crate kontak maak, op.',
@@ -154,12 +194,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Geen aktiewe besending nog nie',
   'shipments.live.eyebrow': 'Aktiewe versending',
   'shipments.live.unnamed': 'Jou volgende boks',
+  'shipments.loadError':
+    'Ons kon nie jou versendings laai nie. Kyk jou verbinding na en probeer weer.',
+  'shipments.loading': 'Laai tans besendings…',
+  'shipments.step.delivered': 'Afgelewer',
   'shipments.step.deliveredBody': 'Merk #crateunbox om te deel wat jy ontdek.',
   'shipments.step.ordered': 'Bestelling geplaas',
   'shipments.step.orderedBody':
     'Jou intekening het hierdie uitgawe vir die volgende verskepingsiklus in die waglys geplaas.',
+  'shipments.step.packed': 'Met die hand verpak',
   'shipments.step.packedBody':
     "Elke stukkie toegedraai en in 'n boks gesit met 'n handgeskrewe nota.",
+  'shipments.step.transit': 'Op pad',
   'shipments.step.transitNot': 'Spooring sal hier verskyn sodra jou boks onderweg is.',
   'shipments.subtitle':
     'Volg die boks op pad na jou toe, en kyk dan weer na elke uitgawe wat jy voorheen uitgepak het.',

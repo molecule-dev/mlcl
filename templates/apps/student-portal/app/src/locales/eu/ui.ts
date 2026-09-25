@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Iritzia duzu, akats bat aurkitu duzu edo zure ikastetxea gurekin bat egin nahi duzu? Jarri harremanetan zure kontuaren ezarpenetatik edo bidali mezu bat zure ikastetxeko administratzaileari — ohar bakoitza taldeko benetako pertsona batengana iristen da.',
   'about.contactTitle': 'Hitz egin gurekin',
+  'about.missionTitle': 'Gure misioa',
   'announcementsFeed.empty': 'Ez dago iragarpenik oraindik.',
   'announcementsFeed.eyebrow': '{{count}} eguneratzeak',
   'announcementsFeed.title': 'Azken iragarpenak',
   'assignmentDetail.alreadySubmitted': 'Lan hau dagoeneko bidali duzu.',
   'assignmentDetail.backLink': 'Zereginen atalera itzuli',
+  'assignmentDetail.dropBody':
+    'Erabili Fitxategiak aukeratu zure lana eransteko — bidalketaren data-ordua gordeko dugu berretsi ondoren.',
   'assignmentDetail.dropButton': 'Aukeratu fitxategiak',
+  'assignmentDetail.dropPrompt': 'Jaregin zure PDFa edo argazki-sorta hemen',
   'assignmentDetail.due': 'Ordaindu beharrekoa {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Argibideak',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Kalifikatua',
   'assignmentDetail.statusSubmitted': 'Bidalita',
   'assignmentDetail.statusTitle': 'Bidalketaren egoera',
+  'assignmentDetail.submitError':
+    'Ezin izan dugu bidalketa hori gorde. Saiatu berriro une bat barru.',
   'assignmentDetail.submitted': 'Bidalketa erregistratuta — zure irakasleari jakinarazi zaio.',
+  'assignmentDetail.submittedAt': 'Bidalita {{when}}',
+  'assignmentDetail.submitTitle': 'Bidali zure lana',
   'assignmentRow.courseDue': '{{course}} · Ordaindu beharrekoa {{due}}',
   'assignments.empty': 'Ezer ez hemen.',
   'assignments.emptyBody': 'Aldatu goiko iragazkiak egoera desberdinean dauden zereginak ikusteko.',
@@ -38,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Eguneroko presentzia, absentzia eta berandutzeen erregistroa — hala badagokio, oharrekin.',
+  'attendance.summary.absences': 'Absentziak',
   'attendance.summary.absencesCaption': '5 eguneko esku-hartze atalasearen azpitik',
   'attendance.summary.attendance': 'Asistentzia',
   'attendance.summary.attendanceCaption': '{{count}} gaur egun, epe honetan',
+  'attendance.summary.tardies': 'Berandutzeak',
   'attendance.summary.tardiesCaption': 'Autobus/hitzordu atzerapenei buruzko oharrak barne',
   'attendance.title': 'Bertaratze-historia',
   'calendar.eyebrow': 'Ikasturtea · {{year}}',
@@ -54,6 +66,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Notak',
   'courseDetail.currentGrade': 'Uneko maila',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Ikastaroaren ikuspegi orokorra',
   'courseDetail.gradesTitle': 'Azken kalifikazioak',
   'courseDetail.messageTeacher': 'Irakasleari mezua',
   'courseDetail.noGrades': 'Ez da kalifikaziorik argitaratu oraindik.',
@@ -66,13 +79,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Ikusi guztiak',
   'dashboard.assignmentsTitle': 'Hurrengo aste honetan',
   'dashboard.greeting': 'Kaixo {{name}} , klaserako prest?',
+  'dashboard.subtitle':
+    'Zure astea begirada batean — ordutegia, kalifikazioak eta zereginak ikuspegi lasai bakarrean.',
+  'dashboard.viewReportCard': 'Ikusi kalifikazio-txostena',
+  'dashboard.weekFocusBody':
+    'Bidali Kuadratikoak praktika-multzoa 7 eta kapituluko galdetegia. Tutoretza-laborategia astearte eta ostegunetan dago zabalik 7. orduaren ondoren.',
+  'dashboard.weekFocusCta': 'Ikusi plan osoa',
   'dashboard.weekFocusEyebrow': 'Asteko arreta',
   'dashboard.weekFocusTitle': 'Aljebra II 4 puntuz gorago eraman',
   'forgotPassword.subheading':
     'Sartu zure eskolako helbide elektronikoa eta berrezartzeko esteka bat bidaliko dizugu.',
   'forgotPassword.successBody':
     'Baldin eta {{email}} Chalk kontu batekin bat badator, pasahitza berrezartzeko esteka bidean da. Estekak 30 minutu barru iraungitzen dira.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} ikasturteko batez besteko nota',
+  'gpaHeroCard.summary': 'Gaur {{count}} klase',
   'grades.col.grade': 'Kalifikazioa',
   'grades.col.teacher': 'Irakaslea',
   'grades.col.trend': 'Joera',
@@ -84,10 +105,17 @@ export const ui: UiTranslations = {
     'Zuzeneko letra eta ehuneko kalifikazioak. Joeren geziek gora, berdinduta edo behera egiten ari zaren erakusten dute.',
   'grades.title': 'Zure kalifikazioak, ikastaroz ikastaro',
   'grades.trendStable': 'Egonkorra',
+  'grades.viewReportCard': 'Ikusi kalifikazio-txosten ofiziala',
   'landing.copyright': '© {{year}} {{app}} . Ikasleentzat eraikia, familientzat egina.',
+  'landing.ctaBody':
+    'Doan lehen 30 egunetan, ez da kreditu-txartelik behar. Barrutiek ikastetxe osoko maila bat abiarazi dezakete arratsalde bakarrean.',
+  'landing.ctaButton': 'Sortu zure ataria',
   'landing.ctaHeading': 'Eskola egun lasaiago bat minutu gutxitan hasten da',
   'landing.eyebrow': 'Erdi mailako eta goi mailako ikasleentzat',
   'landing.featuresHeading': 'Ikaslearen inguruan antolatutako eskola eguna',
+  'landing.heroSubtitle':
+    '{{appName}}-k klase, kalifikazio, zeregin eta mezu guztiak panel lasai bakarrean biltzen ditu, bilatzen denbora gutxiago eta ikasten denbora gehiago igaro dezazun.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'FERPArekin bat dator lehenespenez',
   'landing.proof.rating': '4,8 12.000 familietan zehar',
   'landing.sampleTerm': 'Udaberria',
@@ -96,6 +124,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Ezkutatu pasahitza',
   'login.noAccount': 'Berria zara Chalken?',
   'login.showPassword': 'Erakutsi pasahitza',
+  'messages.compose': 'Mezu berria',
   'messages.composer.email': 'Hartzailearen helbide elektronikoa (aukerakoa)',
   'messages.composer.errorEmpty': 'Mezua ezin da hutsik egon.',
   'messages.composer.errorRecipient': 'Hartzailearen izena beharrezkoa da.',
@@ -126,9 +155,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Ohorezko zerrenda · Udaberriko ikasturtea',
   'nav.unreadMessages': 'Irakurri gabeko mezuak',
   'notifications.eyebrow': '{{count}} eguneratzeak',
+  'notifications.feedTitle': 'Azken jarduera guztiak',
   'notifications.subtitle':
     'Notak, abisuak, mezuak eta eskolako iragarpenak. Doitu jakinarazpen bakoitzak zein kanal erabiltzen dituen Ezarpenak atalean.',
+  'planUpdated.body':
+    'Zure fakturazio-aldaketa aktibo dago orain. Zure plana noiznahi kudea dezakezu fakturazio-orritik.',
+  'planUpdated.retry': 'Saiatu berriro',
+  'planUpdated.verifyFailed': 'Ezin izan dugu oraindik zure ordainketa baieztatu.',
+  'planUpdated.verifyFailedBody':
+    'Baliteke zure ordainketa prozesatzen ari izatea oraindik. Saiatu berriro une batean.',
   'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
+  'pricing.announcementsLabel': 'iragarkiak',
   'pricing.attendanceLabel': 'asistentzia',
   'pricing.gradesLabel': 'kalifikazioak',
   'pricing.heading': 'iragarkiak',
@@ -143,6 +180,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': '2. hiruhilekoa',
   'reportCard.crumb': 'Txosten-txartela',
   'reportCard.cumulativeGpa': 'GPA metatua',
+  'reportCard.download': 'Deskargatu PDFa',
   'reportCard.downloaded': 'Txosten-txartela fitxa berri batean ireki da.',
   'reportCard.downloading': 'PDFa sortzen…',
   'reportCard.empty': 'Ez dago kalifikaziorik fitxategian oraindik.',
@@ -150,6 +188,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Azken GPA · {{term}}',
   'reportCard.subtitle':
     'Ikastaroen notak, bertaratzea eta PDF inprimagarri bat deskargatzeko, ikasturte amaierako transkripzio formal bat.',
+  'reportCard.title': 'Txosten-txartela',
+  'resetPassword.newPassword': 'Pasahitz berria',
   'resetPassword.subheading': 'Aukeratu zerbait gogoangarria baina asmatzeko zaila.',
   'resetPassword.tokenPlaceholder': 'Itsatsi zure posta elektronikoko kodea',
   'schedule.empty': 'Ez dago klaserik programatuta.',
@@ -175,12 +215,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Zain dauden esleipenak',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} ikasturte honetako absentziak · {{tardy}} berandu iristea',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Asistentzia-zenbakiak kalkulatzen…',
+  'subjectStatsTriad.attendanceLabel': 'Asistentzia',
   'subjectStatsTriad.gradesCaption': 'Zehar {{percent}} Batez besteko haztatuaren ehunekoa',
+  'subjectStatsTriad.gradesCaptionLoading': 'Notak kargatzen…',
+  'subjectStatsTriad.gradesLabel': 'Klasearen batez bestekoa',
   'todayScheduleStrip.empty': 'Gaur ez dago klaserik.',
   'todayScheduleStrip.eyebrow': '{{count}} klaseak',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Gaurko ordutegia',
   'topbar.guestName': 'Ikaslea',
   'topbar.searchPlaceholder': 'Bilatu klaseak, zereginak…',
+  'topbar.studentRole': 'Ikaslea',
   'topbar.studentTag': 'Ikaslea · # {{id}}',
 }

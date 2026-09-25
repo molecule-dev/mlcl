@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Una maswali kuhusu toleo, usafirishaji, au usajili wako? Wasiliana na mtu halisi wa timu kwa hello@crate.example — tunasoma kila ujumbe.',
+  'about.contactTitle': 'Zungumza na mratibu',
+  'about.feature1':
+    'Matoleo ya kila mwezi yaliyochaguliwa kwa uangalifu na wabunifu huru, pamoja na hadithi ya kila bidhaa.',
+  'about.feature2':
+    'Udhibiti kamili wa kila boksi — rekebisha yaliyomo, badilisha au ondoa bidhaa, ruka mwezi mmoja, au badilisha mzunguko wako.',
+  'about.feature3':
+    'Ufuatiliaji wa usafirishaji kuanzia kuchukuliwa hadi kufikishwa, na ufungashaji usio na plastiki na masasisho ya moja kwa moja ya mtoa huduma.',
+  'about.feature4':
+    'Mipango rahisi na malipo ya wazi — panda daraja, shuka daraja, simamisha, au ghairi kutoka dashibodi yako wakati wowote.',
+  'about.intro':
+    '{{app}} ni huduma ya usajili wa boksi iliyochaguliwa kwa uangalifu inayokuletea boksi la furaha lililochaguliwa kwa uangalifu na kutengenezwa kwa kiasi kidogo mlangoni pako kila mwezi. Kila toleo hukusanywa na wabunifu wanaofanya kazi — wasanii huru, wapishi, na chapa ndogo — sio algoriti.',
+  'about.missionBody':
+    'Tunaamini usajili unapaswa kuhisi kama zawadi, sio mtego. {{app}} imeundwa ili uendelee kwa sababu unapenda kile kinachofika — simamisha wakati wowote, badilisha unachotaka, na ghairi kwa mbofyo mmoja. Hakuna mbinu za kukuzuia, kamwe.',
+  'about.missionTitle': 'Dhamira yetu',
   'about.pageTitle': 'Kuhusu {{app}}',
   'appNav.mobileLabel': 'Usogezaji mkuu',
   'appNav.primaryLabel': 'Usogezaji mkuu',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Hariri anwani ya malipo',
   'billing.contact.eyebrow': 'Mawasiliano ya bili',
   'billing.eyebrow': 'Mpango na malipo',
+  'billing.loading': 'Inapakia bili…',
   'billing.payment.body':
     'Malipo hushughulikiwa na Stripe Checkout — nambari yako kamili ya kadi haigusi seva zetu. Bofya ngazi yoyote iliyo hapa chini ili kuongeza au kusasisha kadi yako.',
   'billing.payment.linked': 'Kadi iko kwenye faili kupitia Stripe',
@@ -19,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Usajili wa wasifu',
   'billing.plan.eyebrow': 'Mpango unaotumika',
   'billing.plan.next': 'Husasishwa kiotomatiki imewashwa {{date}} .',
+  'billing.plan.status': 'Hali: {{status}}',
   'billing.subtitle': 'Dhibiti kiwango chako, njia ya malipo, na uhakiki shughuli za awali.',
   'billing.tiers.body': 'Chagua daraja nasi tutakuelekeza kwenye Stripe Checkout.',
   'billing.tiers.choose': 'Chagua',
+  'billing.tiers.empty': 'Hakuna madaraja yaliyosanidiwa bado.',
   'billing.tiers.heading': 'Ngazi zinazopatikana',
   'boxDetail.backToBoxes': 'Rudi kwenye matoleo yote',
   'boxDetail.crumb.boxes': 'Matoleo',
@@ -34,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Kipande kilichopangwa',
   'boxDetail.items.heading': '{{count}} vipande vilivyopangwa',
   'boxDetail.itemsBadge': '{{count}} vitu vilivyochaguliwa kwa kila kisanduku',
+  'boxDetail.loading': 'Inapakia toleo…',
   'boxDetail.notFound': 'Toleo hilo halipatikani tena.',
   'boxDetail.subscribe.success': 'Umejisajili — toleo lako la kwanza limepangwa kwenye foleni.',
   'boxDetail.swapBadge': 'Badilisha hadi {{count}} bidhaa (vipengee) kwa kila kisanduku',
@@ -42,14 +62,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Hakuna matoleo yanayolingana.',
   'boxes.eyebrow': 'Kumbukumbu ya Crate',
   'boxes.heading': 'Vinjari kila toleo',
+  'boxes.loadError': 'Hatukuweza kupakia matoleo. Angalia muunganisho wako na ujaribu tena.',
   'boxes.loading': 'Inapakia matoleo…',
+  'boxes.search.label': 'Tafuta matoleo',
   'boxes.search.placeholder': 'Matoleo ya utafutaji…',
   'boxes.subtitle':
     'Kila ngazi ni hadithi ndogo. Ongeza moja kwenye foleni yako au ibadilishe na mwezi wako ujao.',
+  'boxThemeCard.itemCount': '{{count}} vitu',
   'boxThemeCard.perMonth': '/ mwezi',
+  'boxThemeCard.retailValue': 'Thamani ya rejareja {{value}}',
   'common.goToDashboard': 'Nenda kwenye Dashibodi',
+  'common.retry': 'Jaribu tena',
   'customize.eyebrow': 'Ifanye iwe yako',
   'customize.heading': 'Badilisha Uzoefu wako unaofuata',
+  'customize.items.empty': 'Hakuna bidhaa zilizosanidiwa kwa daraja hili bado.',
   'customize.items.exclude': 'Ruka hii',
   'customize.items.eyebrow': 'Binafsisha kisanduku hiki',
   'customize.items.heading': 'Bidhaa zilizo ndani {{box}}',
@@ -58,8 +84,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Ongeza tena',
   'customize.items.save': 'Hifadhi ubinafsishaji',
   'customize.items.swapsLeft': '{{used}} ya {{max}} ubadilishaji uliotumika',
+  'customize.loading': 'Inapakia ubinafsishaji…',
   'customize.noSub.body':
     'Jisajili kwa daraja la kwanza, kisha urudi kubadilishana vitu kwenye kisanduku chako.',
+  'customize.noSub.cta': 'Vinjari matoleo',
   'customize.noSub.heading': 'Hakuna usajili unaoendelea',
   'customize.saved': 'Ubinafsishaji umehifadhiwa.',
   'customize.subtitle':
@@ -73,11 +101,15 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Usafirishaji wa wimbo',
   'dashboard.eyebrow': 'Uvuvio Wako',
   'dashboard.greeting': 'Karibu tena, {{name}} .',
+  'dashboard.loadError':
+    'Hatukuweza kupakia dashibodi yako. Angalia muunganisho wako na ujaribu tena.',
   'dashboard.loading': 'Inapakia dashibodi...',
   'dashboard.next.eyebrow': 'Toleo lako lijalo',
   'dashboard.onboarding.body':
     'Huna usajili unaoendelea bado. Chagua daraja ili uanze kutuma Crate kila mwezi.',
   'dashboard.onboarding.cta': 'Vinjari matoleo yote',
+  'dashboard.onboarding.empty':
+    'Hakuna mipango inayopatikana kwa sasa. Angalia tena hivi karibuni.',
   'dashboard.onboarding.heading': 'Chagua toleo lako la kwanza',
   'dashboard.renewal.amount': 'Imechajiwa',
   'dashboard.renewal.cadence': 'Kadensi',
@@ -85,18 +117,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Upyaji',
   'dashboard.renewal.heading': 'Usasishaji kiotomatiki umewashwa {{date}}',
   'dashboard.renewal.plan': 'Ufunguo wa mpango',
+  'dashboard.renewal.tbd': 'Upangaji wa kuhuisha hivi karibuni',
   'dashboard.renewal.tier': 'Ngazi',
   'dashboard.stats.days': 'siku',
   'dashboard.stats.daysToNext': 'Husafirisha ndani',
   'dashboard.stats.items': 'Vipengee vilivyochaguliwa',
   'dashboard.stats.shipDate': 'Tarehe ya usafirishaji',
   'dashboard.stats.tbd': 'Kifua Kikuu',
+  'dashboard.subtitle.active': 'Toleo lako lijalo linakuja. Haya ndiyo unayotarajia.',
+  'dashboard.subtitle.idle': 'Chagua daraja ili kuanza kusafirisha {{appName}} kila mwezi.',
   'forgotPassword.subtitle': 'Tuambie barua pepe yako nasi tutakutumia kiungo cha kuweka upya.',
   'forgotPassword.success.body':
     'Kama {{email}} imesajiliwa, utapokea kiungo cha kuweka upya ndani ya dakika chache.',
   'forgotPassword.success.title': 'Angalia kikasha chako cha barua pepe.',
   'landing.editions.eyebrow': 'Msimu huu',
   'landing.editions.heading': 'Matoleo ambayo wasimamizi wetu wanapenda',
+  'landing.editions.viewAll': 'Vinjari matoleo yote →',
   'landing.footer.contact': 'Zungumza na mratibu',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Anza kisanduku chako →',
@@ -106,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Kuangalia dashibodi ya wanachama — kuhesabu, maudhui, na ufuatiliaji.',
   'landing.hero.social.count': 'Imependwa na {{count}} + waliojisajili',
+  'landing.hero.social.rating': '{{rating}} wastani wa ukadiriaji wa kufungua',
+  'landing.hero.subhead':
+    '{{appName}} inakutumia boksi la furaha lililochaguliwa kwa uangalifu na kutengenezwa kwa kiasi kidogo kutoka kwa wabunifu huru. Simamisha wakati wowote. Badilisha unachotaka. Weka unachopenda.',
   'landing.nav.start': 'Anza kisanduku chako',
   'landing.tiers.eyebrow': 'Chagua kasi yako',
   'landing.tiers.heading': 'Anza kidogo, sasisha wakati wowote, ghairi kwa urahisi vile vile.',
@@ -115,6 +154,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Ingia ili uangalie kisanduku cha mwezi ujao.',
   'login.welcomeBack': 'Karibu tena, mratibu.',
   'nextBoxHeroCard.eyebrow': 'TAARIFA YAKO INAYOFUATA',
+  'nextBoxHeroCard.itemCount': '{{count}} vipande ndani',
   'nextBoxHeroCard.itemsLabel': 'Vipengee vilivyochaguliwa',
   'nextBoxHeroCard.shipsOnLabel': 'Inasafirishwa',
   'notFound.body':
@@ -138,8 +178,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Sitisha usajili',
   'settings.danger.paused': 'Usajili umesitishwa.',
   'settings.danger.pausing': 'Inasitisha…',
+  'settings.danger.status': 'Hali ya usajili: {{status}}',
   'settings.danger.subtitle':
     'Kusitisha huweka daraja na historia yako ikiwa salama. Kughairi huzuia usafirishaji wa siku zijazo na huondoa njia zako za malipo zilizohifadhiwa mwishoni mwa mzunguko.',
+  'settings.notifications.saving': '· inahifadhi…',
   'settings.notifications.subtitle':
     'Chagua ni ishara gani unazotaka kutoka Crate. Chaguo-msingi ni za busara.',
   'settings.subtitle':
@@ -156,12 +198,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Hakuna usafirishaji unaoendelea bado',
   'shipments.live.eyebrow': 'Usafirishaji unaoendelea',
   'shipments.live.unnamed': 'Kisanduku chako kinachofuata',
+  'shipments.loadError':
+    'Hatukuweza kupakia usafirishaji wako. Angalia muunganisho wako na ujaribu tena.',
+  'shipments.loading': 'Inapakia usafirishaji…',
+  'shipments.step.delivered': 'Imewasilishwa',
   'shipments.step.deliveredBody': 'Lebo #crateunbox ili kushiriki kile unachogundua.',
   'shipments.step.ordered': 'Agizo limewekwa',
   'shipments.step.orderedBody':
     'Usajili wako uliweka kwenye foleni toleo hili kwa ajili ya mzunguko unaofuata wa usafirishaji.',
+  'shipments.step.packed': 'Imepangwa kwa mkono',
   'shipments.step.packedBody':
     'Kila kipande kilifungwa na kuwekwa ndani ya boksi kwa maandishi yaliyoandikwa kwa mkono.',
+  'shipments.step.transit': 'Njiani',
   'shipments.step.transitNot':
     'Ufuatiliaji utaonekana hapa mara tu kisanduku chako kitakapokuwa kimesafirishwa.',
   'shipments.subtitle':

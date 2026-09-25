@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite atsiliepimų, radote klaidą ar norite, kad {{app}} atsirastų jūsų mokykloje ar komandoje? Skaitome kiekvieną žinutę — susisiekite per savo paskyros nustatymus ir atsakys tikras žmogus.',
   'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'about.intro':
+    '{{app}} – gyva viktorinų platforma klasėms, žaidimų vakarams ir komandų renginiams. Kurkite žaismingus klausimų rinkinius, vesdami realaus laiko žaidimus su prisijungimo kodu ir stebėkite, kaip salė sužimba nuo laiku pateikiamų klausimų, taškų skaičiavimo ir lyderių lentelių.',
+  'about.missionBody':
+    'Mokymasis įsimenamas, kai jis primena žaidimą. Leidžiame kiekvienam be pastangų paversti temą greitu, konkurencingu žaidimu – kad vedėjai galėtų mokyti darydami, o žaidėjai išlaikytų seriją.',
+  'about.missionTitle': 'Mūsų misija',
   'about.title': 'Apie {{app}}',
   'auth.login.noAccount': 'Naujokas „Sparq“?',
   'auth.login.or': 'arba tęsti',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Kol kas nerasta atitikmenų.',
   'discover.headline': 'Raskite kitą mėgstamiausią viktoriną.',
   'discover.loading': 'Kraunama…',
+  'discover.searchPlaceholder': 'Ieškoti viktorinų pagal pavadinimą…',
   'discover.subhead':
     'Naršykite visą biblioteką, filtruokite pagal kategoriją arba ieškokite pagal pavadinimą. Pasirinkite kortą, kad galėtumėte žaisti vieni arba vesti tiesioginį žaidimą.',
   'forgotPassword.subhead':
     'Įveskite savo el. pašto adresą ir mes atsiųsime jums nuorodą, kad galėtumėte atkurti duomenis.',
   'forgotPassword.success.body':
     'Jei paskyra egzistuoja {{email}} , po kelių minučių gausite nustatymo iš naujo nuorodą.',
+  'forgotPassword.success.title': 'Patikrinkite savo pašto dėžutę.',
   'hostLobby.back': 'Atgal į testą',
   'hostLobby.copied': 'Sujungimo kodas nukopijuotas į iškarpinę.',
   'hostLobby.creating': 'Jūsų fojė įgauna pagreitį…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Atšaukti fojė',
   'hostLobby.players.count': '{{count}} gyventi',
   'hostLobby.players.title': 'Žaidėjai fojė',
+  'hostLobby.players.waiting':
+    'Laukiama žaidėjų. Pasidalykite kodu {{code}}, kad jie galėtų prisijungti.',
   'hostLobby.rules.title': 'Namų taisyklės',
   'hostLobby.startError': 'Nepavyko pradėti žaidimo.',
   'hostLobby.starting': 'Uždegant kibirkštį…',
   'joinCodeHero.headline': 'Pasakykite savo žaidėjams, kad įšoktų.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Arba apsilankykite',
   'joinCodeHero.liveLabel': 'Fojė tiesiogiai',
+  'joinCodeHero.playerJoined': '{{name}} prisijungė',
   'joinCodeHero.playersLabel': 'Žaidėjai',
   'joinCodeHero.qrLabel': 'Nuskaitykite, kad prisijungtumėte',
   'joinCodeHero.startGame': 'Įžiebkite kibirkštį',
   'joinCodeHero.subhead':
     'Pasidalinkite prisijungimo kodu arba nuskaitykite QR kodą. Žaidimas prasideda vos tik uždegate kibirkštį.',
+  'landing.cta.button': 'Sukurkite savo pirmąją viktoriną',
   'landing.cta.eyebrow': 'Nemokama pedagogams',
   'landing.cta.heading': 'Įneškite kibirkšties į kiekvieną pamoką.',
+  'landing.cta.subhead':
+    'Užsiregistruokite per 30 sekundžių. Veskite neribotus realaus laiko žaidimus, kurkite viktorinas su AI ir išlaikykite kiekvieno žaidėjo seriją.',
   'landing.eyebrow': 'Uždekite kiekvieną atsakymą',
   'landing.features.heading': 'Viktorinų studija, atitinkanti jūsų mokymo ir žaidimo stilių.',
   'landing.hero.ctaPrimary': 'Pradėkite talpinti nemokamai',
@@ -57,6 +73,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Populiarios viktorinos',
   'landing.popular.eyebrow': 'Populiaru šią savaitę',
   'landing.popular.heading': 'Šiandien vyksta viktorinos vedėjų užsukimas į viktoriną.',
+  'landing.popular.viewAll': 'Naršyti visas kategorijas →',
+  'leaderboard.empty.body':
+    'Sužaiskite viktoriną ir įrašykite savo rezultatą į pasaulinę lyderių lentelę.',
   'leaderboard.empty.title': 'Lentoje dar nėra žaidimų – būkite pirmas.',
   'leaderboard.eyebrow': 'Lyderių lentelė',
   'leaderboard.fullRanking': 'Visas reitingas',
@@ -64,6 +83,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Suskaičiuokite bendrą kiekvienos žaistos viktorinos rezultatą. Žaisdami daugiau, kilkite karjeros laiptais.',
   'leaderboard.title': 'Geriausi viktorinų meistrai',
+  'leaderboard.totalPlayers': '{{count}} reitinguotų žaidėjų',
   'leaderboardRow.points': 'taškai',
   'leaderboardRow.streak': '{{days}} d',
   'login.headline': 'Sveikas sugrįžęs, viktorinų vedėjau.',
@@ -75,9 +95,11 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Sukurkite savo pirmąją viktoriną →',
   'myQuizzes.empty.created': 'Dar nesukūrėte viktorinos.',
   'myQuizzes.empty.played': 'Dar nėra paskelbtų viktorinų.',
+  'myQuizzes.loading': 'Kraunama…',
   'myQuizzes.subhead': 'Jūsų sukurti juodraščiai ir paskelbtos viktorinos, kurias galite atlikti.',
   'myQuizzes.title': 'Mano testai',
   'nav.legal': 'Teisinis',
+  'nav.primaryNavLabel': 'Pagrindinė navigacija',
   'notFound.backHome': 'Grįžau namo',
   'notFound.backToDiscover': 'Naršyti viktorinas',
   'notFound.body': 'Išbandykite kitą kodą arba grįžkite į vestibiulį.',
@@ -86,17 +108,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Kraunama…',
   'notifications.subhead':
     '{{count}} neskaitytos kibirkštys. Kvietimai, lyderių sąrašo pakeitimai ir pasiekimai – viskas viename sraute.',
+  'planUpdated.retry': 'Pabandyk dar kartą',
+  'planUpdated.verifyFailed': 'Mes dar negalėjome patvirtinti jūsų mokėjimo.',
+  'planUpdated.verifyFailedBody':
+    'Jūsų mokėjimas vis dar gali būti apdorojamas. Bandykite dar kartą po akimirkos.',
   'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
+  'pricing.advancedFeatures': 'Išplėstinės funkcijos: {{yes}}',
+  'pricing.canExport': 'Duomenų eksportas: {{yes}}',
   'pricing.checkoutError': 'Nepavyko pradėti atsiskaitymo. Bandykite dar kartą.',
   'pricing.heading': 'Pasirinkite savo {{app}} planą',
   'pricing.included': 'Įtraukta',
   'pricing.loadError': 'Nepavyko įkelti planų.',
+  'pricing.maxQuestions': '{{count}} klausimai',
   'pricing.maxQuizzes': '{{count}} viktorinos',
+  'pricing.maxSessions': '{{count}} sesijos',
   'pricing.subhead':
     'Nemokama tiek šeimininkams, tiek žaidėjams. Atnaujinkite, kad gautumėte didesnius limitus ir išplėstines funkcijas.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Paskyra: el. pašto adresas, maišos kodas, rodomas vardas, paskutinis prisijungimas.',
+  'privacy.intro':
+    '{{app}} gerbia jūsų privatumą. Šiame puslapyje apžvelgiami duomenys, kuriuos saugome, kodėl juos saugome ir kaip juos pašalinti.',
   'privacy.rights.body':
     'Ištrinkite paskyrą iš nustatymų, kad per 30 dienų visam laikui pašalintumėte visus savo duomenis.',
   'privacy.share.body':
@@ -120,6 +152,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Viktorinos ID: {{id}}',
   'quizBuilder.loadError': 'Nepavyko įkelti viktorinos.',
   'quizBuilder.loading': 'Įkeliamas redaktorius…',
+  'quizBuilder.markCorrect': 'Pažymėti {{letter}} kaip teisingą',
   'quizBuilder.noQuestions': 'Kol kas klausimų nėra – pridėkite vieną, kad pradėtumėte.',
   'quizBuilder.notFound': 'Viktorina nerasta.',
   'quizBuilder.preview': 'Peržiūrėti',
@@ -136,7 +169,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} laikmatis',
   'quizBuilder.title': 'Sukurkite savo viktoriną',
   'quizBuilder.titleLabel': 'Viktorinos pavadinimas',
+  'quizBuilder.untitled': 'Klausimas be pavadinimo',
   'quizCard.plays': '{{count}} vaidina',
+  'quizCard.questionCount': '{{count}} kl.',
   'quizDetail.duration': '~ {{minutes}} min.',
   'quizDetail.hostMultiplayer': 'Rengti kelių žaidėjų režimą',
   'quizDetail.leaderboardEmpty': 'Dar nėra žaidimų – būkite pirmas, kuris pasieks rezultatą.',
@@ -151,26 +186,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Atgal į testą',
   'quizPlay.empty': 'Šioje viktorinoje dar nėra klausimų.',
   'quizPlay.error': 'Nepavyko įkelti šio testo. Bandykite dar kartą.',
+  'quizPlay.exit': 'Išeiti',
   'quizPlay.feedback.correct': '🔥 Uždirbta kibirkštis – pirmyn!',
+  'quizPlay.feedback.incorrect': 'Teisingas atsakymas buvo {{correct}}. Tęskite.',
   'quizPlay.loading': 'Kraunama viktorina…',
   'quizPlay.next': 'Kitas klausimas',
   'quizPlay.questionCounter': 'Klausimas {{current}} iš {{total}}',
   'quizPlay.score': '{{score}} taškai',
+  'quizPlay.seeResults': 'Rodyti rezultatus',
   'quizPlay.sessionFailed': 'Nepavyko pradėti sesijos.',
   'quizPlay.streak': '{{count}} dryžis',
+  'resetPassword.subhead': 'Pasirinkite naują slaptažodį, kad grįžtumėte prie savo serijos.',
   'results.backToDiscover': 'Grįžti į „Discover“',
   'results.error': 'Nepavyko įkelti rezultatų.',
   'results.exit': 'Grįžti į „Discover“',
   'results.loading': 'Skaičiuojamas jūsų rezultatas…',
   'results.missingSession': 'Nėra sesijos, kurią būtų galima apibendrinti.',
+  'results.recap.correctAnswer': 'Teisingai: {{answer}}',
   'results.recap.questionLabel': 'Klausimas {{number}}',
   'results.recap.title': 'Klausimo santrauka',
+  'results.recap.yourAnswer': 'Jūs: {{answer}}',
   'results.unknownQuiz': 'Viktorina',
   'scoreBreakdownCard.accuracyLabel': 'Tikslumas',
+  'scoreBreakdownCard.correctLabel': 'Teisingai',
   'scoreBreakdownCard.eyebrow': 'Viktorina atlikta',
   'scoreBreakdownCard.headline': 'Puikus darbas ties " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Taškai',
   'scoreBreakdownCard.rankLabel': 'Rangas',
+  'scoreBreakdownCard.streakBonus': 'Serijos premija +{{pct}} %',
+  'scoreBreakdownCard.subhead':
+    'Tavo kibirkštis matoma. Peržiūrėkite suskirstymą žemiau, kad ir toliau kiltumėte lyderių lentelėje.',
   'settings.danger.body': 'Visam laikui pašalinkite savo „Sparq“ paskyrą ir visus sukurtus testus.',
   'settings.danger.confirm': 'Taip, ištrinti visam laikui',
   'settings.guest': 'Svečias',
@@ -187,5 +232,7 @@ export const ui: UiTranslations = {
     'Jūs esate atsakingi už savo skelbiamą turinį, užduodamus klausimus ir visus žaidimus, kuriuos rengiate. Neapsimeskite kitais asmenimis.',
   'terms.billing.body':
     'Mokami planai atnaujinami automatiškai, kol neatšaukiate jų nustatymuose. Galite atšaukti bet kuriuo metu; prieiga lieka iki dabartinio atsiskaitymo laikotarpio pabaigos.',
+  'terms.intro':
+    'Naudodami {{app}} sutinkate su toliau pateiktomis taisyklėmis. Jei negalite jų priimti, prašome nesinaudoti paslauga.',
   'terms.title': 'Naudojimosi sąlygos',
 }

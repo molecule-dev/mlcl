@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vous avez des commentaires, vous avez trouvé un bug ou vous souhaitez inscrire votre établissement ? Contactez-nous depuis les paramètres de votre compte ou envoyez un message à votre administrateur scolaire — chaque message parvient à une vraie personne de l’équipe.',
   'about.contactTitle': 'Contactez-nous',
+  'about.missionTitle': 'Notre mission',
   'announcementsFeed.empty': 'Aucune annonce pour le moment.',
   'announcementsFeed.eyebrow': '{{count}} updates',
   'announcementsFeed.title': 'Dernières annonces',
   'assignmentDetail.alreadySubmitted': 'Vous avez déjà rendu ce devoir.',
   'assignmentDetail.backLink': 'Retour aux devoirs',
+  'assignmentDetail.dropBody':
+    'Utilisez Choisir des fichiers pour joindre votre travail — nous enregistrerons l’horodatage de la remise dès que vous confirmerez.',
   'assignmentDetail.dropButton': 'Choisir des fichiers',
+  'assignmentDetail.dropPrompt': 'Déposez votre PDF ou votre liasse de photos ici',
   'assignmentDetail.due': 'À rendre {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Consignes',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Notée',
   'assignmentDetail.statusSubmitted': 'Rendue',
   'assignmentDetail.statusTitle': 'Statut de la remise',
+  'assignmentDetail.submitError':
+    'Nous n’avons pas pu enregistrer cette remise. Réessayez dans un instant.',
   'assignmentDetail.submitted': 'Remise enregistrée — votre enseignant a été averti.',
+  'assignmentDetail.submittedAt': 'Remis {{when}}',
+  'assignmentDetail.submitTitle': 'Remettre votre travail',
   'assignmentRow.courseDue': '{{course}} · À rendre {{due}}',
   'assignments.empty': 'Rien ici',
   'assignments.emptyBody':
@@ -39,9 +49,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Un relevé quotidien des présences, absences et retards — avec notes lorsque nécessaire.',
+  'attendance.summary.absences': 'Absences',
   'attendance.summary.absencesCaption': "Sous le seuil d'intervention de 5 jours",
   'attendance.summary.attendance': 'Présence',
   'attendance.summary.attendanceCaption': '{{count}} jours présents ce trimestre',
+  'attendance.summary.tardies': 'Retards',
   'attendance.summary.tardiesCaption': 'Y compris les notes pour bus / rendez-vous',
   'attendance.title': 'Historique des présences',
   'calendar.eyebrow': 'Année scolaire · {{year}}',
@@ -55,6 +67,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Notes',
   'courseDetail.currentGrade': 'Note actuelle',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Aperçu du cours',
   'courseDetail.gradesTitle': 'Notes récentes',
   'courseDetail.messageTeacher': "Envoyer un message à l'enseignant",
   'courseDetail.noGrades': 'Aucune note publiée pour le moment.',
@@ -67,13 +80,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Voir tout',
   'dashboard.assignmentsTitle': 'À venir cette semaine',
   'dashboard.greeting': 'Bonjour {{name}}, prêt(e) pour la classe ?',
+  'dashboard.subtitle':
+    'Votre semaine en un coup d’œil — emploi du temps, notes et devoirs dans une vue apaisée.',
+  'dashboard.viewReportCard': 'Voir le bulletin',
+  'dashboard.weekFocusBody':
+    'Remettez l’ensemble d’exercices Quadratiques 7 et le contrôle du chapitre. Le laboratoire de soutien est ouvert mardi et jeudi après la période 7.',
+  'dashboard.weekFocusCta': 'Voir le plan complet',
   'dashboard.weekFocusEyebrow': 'Objectif de la semaine',
   'dashboard.weekFocusTitle': 'Remonter Algèbre II de 4 points',
   'forgotPassword.subheading':
     'Saisissez votre e-mail scolaire et nous vous enverrons un lien de réinitialisation.',
   'forgotPassword.successBody':
     'Si {{email}} correspond à un compte Chalk, un lien de réinitialisation est en route. Les liens expirent au bout de 30 minutes.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': 'MPC du trimestre {{term}}',
+  'gpaHeroCard.summary': '{{count}} cours aujourd’hui',
   'grades.col.grade': 'Note',
   'grades.col.teacher': 'Enseignant',
   'grades.col.trend': 'Tendance',
@@ -85,10 +106,17 @@ export const ui: UiTranslations = {
     'Lettres et pourcentages en direct. Les flèches de tendance indiquent si vous montez, stagnez ou baissez.',
   'grades.title': 'Vos notes, cours par cours',
   'grades.trendStable': 'Stable',
+  'grades.viewReportCard': 'Voir le bulletin officiel',
   'landing.copyright': '© {{year}} {{app}} . Conçu pour les étudiants, pensé pour les familles.',
+  'landing.ctaBody':
+    'Gratuit les 30 premiers jours, sans carte bancaire. Les districts peuvent déployer une offre à l’échelle de l’établissement en un seul après-midi.',
+  'landing.ctaButton': 'Créez votre portail',
   'landing.ctaHeading': "Une journée d'école plus paisible commence en quelques minutes",
   'landing.eyebrow': 'Pour les collégiens et lycéens',
   'landing.featuresHeading': "Une journée d'école organisée autour de l'élève",
+  'landing.heroSubtitle':
+    '{{appName}} rassemble chaque cours, note, devoir et message dans un tableau de bord apaisé pour que vous passiez moins de temps à chercher et plus de temps à apprendre.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Conforme FERPA par défaut',
   'landing.proof.rating': '4,8 sur 12 000 familles',
   'landing.sampleTerm': 'Printemps',
@@ -97,6 +125,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Masquer le mot de passe',
   'login.noAccount': 'Nouveau sur Chalk ?',
   'login.showPassword': 'Afficher le mot de passe',
+  'messages.compose': 'Nouveau message',
   'messages.composer.email': 'E-mail du destinataire (facultatif)',
   'messages.composer.errorEmpty': 'Le message ne peut pas être vide.',
   'messages.composer.errorRecipient': 'Le nom du destinataire est requis.',
@@ -127,9 +156,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': "Tableau d'honneur · Trimestre de printemps",
   'nav.unreadMessages': 'Messages non lus',
   'notifications.eyebrow': '{{count}} updates',
+  'notifications.feedTitle': 'Toute l’activité récente',
   'notifications.subtitle':
     'Notes, rappels, messages et annonces scolaires. Ajustez les canaux dans Paramètres.',
+  'planUpdated.body':
+    'Votre changement de facturation est maintenant actif. Vous pouvez gérer votre offre à tout moment depuis la page de facturation.',
+  'planUpdated.retry': 'Réessayer',
+  'planUpdated.verifyFailed': "Nous n'avons pas encore pu confirmer votre paiement.",
+  'planUpdated.verifyFailedBody':
+    'Votre paiement est peut-être encore en cours de traitement. Veuillez réessayer dans quelques instants.',
   'planUpdated.verifying': 'Confirmation de votre paiement…',
+  'pricing.announcementsLabel': 'annonces',
   'pricing.attendanceLabel': 'présence',
   'pricing.gradesLabel': 'notes',
   'pricing.heading': 'annonces',
@@ -144,6 +181,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'Q2',
   'reportCard.crumb': 'Bulletin',
   'reportCard.cumulativeGpa': 'MPC cumulative',
+  'reportCard.download': 'Télécharger le PDF',
   'reportCard.downloaded': 'Bulletin ouvert dans un nouvel onglet.',
   'reportCard.downloading': 'Génération du PDF…',
   'reportCard.empty': 'Aucune note enregistrée pour le moment.',
@@ -151,6 +189,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'MPC finale · {{term}}',
   'reportCard.subtitle':
     'Un bulletin officiel de fin de semestre avec notes pondérées, présence et téléchargement PDF.',
+  'reportCard.title': 'Bulletin',
+  'resetPassword.newPassword': 'Nouveau mot de passe',
   'resetPassword.subheading': 'Choisissez quelque chose de mémorable mais difficile à deviner.',
   'resetPassword.tokenPlaceholder': 'Collez le code reçu par e-mail',
   'schedule.empty': 'Aucun cours programmé.',
@@ -173,12 +213,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsCaption': '{{due48}} dans 48 h, {{overdue}} en retard',
   'subjectStatsTriad.assignmentsLabel': 'Devoirs en attente',
   'subjectStatsTriad.attendanceCaption': '{{absent}} absences ce trimestre · {{tardy}} retards',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Calcul des chiffres de présence…',
+  'subjectStatsTriad.attendanceLabel': 'Présence',
   'subjectStatsTriad.gradesCaption': 'Sur une moyenne pondérée de {{percent}} %',
+  'subjectStatsTriad.gradesCaptionLoading': 'Chargement des notes…',
+  'subjectStatsTriad.gradesLabel': 'Moyenne de la classe',
   'todayScheduleStrip.empty': "Aucun cours aujourd'hui.",
   'todayScheduleStrip.eyebrow': '{{count}} cours',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Emploi du temps du jour',
   'topbar.guestName': 'Élève',
   'topbar.searchPlaceholder': 'Rechercher des cours, devoirs…',
+  'topbar.studentRole': 'Élève',
   'topbar.studentTag': 'Élève · #{{id}}',
 }

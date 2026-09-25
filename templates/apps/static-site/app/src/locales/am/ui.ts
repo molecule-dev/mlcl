@@ -99,6 +99,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'እቅድዎ ተዘምኗል።',
   'planUpdated.returnHome': 'ወደ መነሻ ተመለስ',
   'planUpdated.thankYou': 'አመሰግናለሁ!',
+  'post.markdown': 'ይህን ልጥፍ እንደ markdown ይመልከቱ',
+  'post.readingTime': '{{minutes}} ደቂቃ ንባብ',
   'post.tags': 'መለያዎች',
   'project.error.nameAndTypeRequired': 'ስም እና projectType ያስፈልጋሉ',
   'project.error.notFound': 'አልተገኘም',

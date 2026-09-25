@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Uw abonnement is bijgewerkt.',
   'planUpdated.returnHome': 'Terug naar home',
   'planUpdated.thankYou': 'Bedankt!',
+  'post.markdown': 'Bekijk dit bericht als markdown',
+  'post.readingTime': '{{minutes}} min leestijd',
   'post.tags': 'Labels',
   'project.error.nameAndTypeRequired': 'naam en projectType zijn vereist',
   'project.error.notFound': 'Niet gevonden',

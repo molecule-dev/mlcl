@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May mga tanong tungkol sa isang edisyon, isang shipment, o ang iyong subscription? Makipag-usap sa isang tunay na tao sa team sa hello@crate.example — binabasa namin ang bawat mensahe.',
+  'about.contactTitle': 'Makipag-usap sa isang tagapangasiwa',
+  'about.feature1':
+    'Mga curated na buwanang edisyon na pinili ng mga independent maker, kasama ang kuwento sa likod ng bawat item.',
+  'about.feature2':
+    'Buong kontrol sa bawat box — i-customize ang mga nilalaman, palitan o i-exclude ang mga item, laktawan ang isang buwan, o baguhin ang iyong cadence.',
+  'about.feature3':
+    'End-to-end na shipment tracking mula pickup hanggang porch, may plastic-free na packaging at live na update mula sa carrier.',
+  'about.feature4':
+    'Flexible na mga plan at transparent na billing — mag-upgrade, mag-downgrade, mag-pause, o mag-cancel mula sa iyong dashboard anumang oras.',
+  'about.intro':
+    'Ang {{app}} ay isang curated na subscription-box service na naghahatid ng hand-picked, small-batch na box ng saya sa iyong pintuan bawat buwan. Ang bawat edisyon ay binubuo ng mga nagtatrabahong maker — mga independent artist, chef, at maliliit na brand — hindi isang algorithm.',
+  'about.missionBody':
+    'Naniniwala kami na ang isang subscription ay dapat maramdaman na regalo, hindi bitag. Dinisenyo ang {{app}} para manatili ka dahil gusto mo ang dumarating — mag-pause anumang oras, palitan ang gusto mo, at mag-cancel sa isang click. Walang retention script, kailanman.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.pageTitle': 'Tungkol sa {{app}}',
   'appNav.mobileLabel': 'Pangunahing navigation',
   'appNav.primaryLabel': 'Pangunahing navigation',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'I-edit ang contact sa pagsingil',
   'billing.contact.eyebrow': 'Kontak sa pagsingil',
   'billing.eyebrow': 'Plano at mga pagbabayad',
+  'billing.loading': 'Naglo-load ng billing…',
   'billing.payment.body':
     'Ang Stripe Checkout ang bahala sa pagbabayad — hindi kailanman maaapektuhan ng buong numero ng iyong card ang aming mga server. Mag-click sa anumang tier sa ibaba upang idagdag o i-update ang iyong card.',
   'billing.payment.linked': 'Card na naka-file sa pamamagitan ng Stripe',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Subskripsyon sa resume',
   'billing.plan.eyebrow': 'Aktibong plano',
   'billing.plan.next': 'Awtomatikong nagre-renew sa {{date}} .',
+  'billing.plan.status': 'Status: {{status}}',
   'billing.subtitle':
     'Pamahalaan ang iyong tier, paraan ng pagbabayad, at suriin ang mga nakaraang aktibidad.',
   'billing.tiers.body': 'Pumili ng tier at irereto ka namin sa Stripe Checkout.',
   'billing.tiers.choose': 'Pumili',
+  'billing.tiers.empty': 'Wala pang naka-configure na tier.',
   'billing.tiers.heading': 'Mga magagamit na antas',
   'boxDetail.backToBoxes': 'Balik sa lahat ng edisyon',
   'boxDetail.crumb.boxes': 'Mga Edisyon',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Piniling piraso',
   'boxDetail.items.heading': '{{count}} mga piling piraso',
   'boxDetail.itemsBadge': '{{count}} mga napiling item bawat kahon',
+  'boxDetail.loading': 'Naglo-load ng edisyon…',
   'boxDetail.notFound': 'Hindi na available ang edisyong iyan.',
   'boxDetail.subscribe.success': 'Naka-subscribe — nakapila na ang iyong unang edisyon.',
   'boxDetail.swapBadge': 'Magpalit sa {{count}} item(s) bawat kahon',
@@ -44,14 +64,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Walang tumutugmang edisyon.',
   'boxes.eyebrow': 'Ang archive ng Crate',
   'boxes.heading': 'Mag-browse sa bawat edisyon',
+  'boxes.loadError':
+    'Hindi namin ma-load ang mga edisyon. Suriin ang iyong koneksyon at subukang muli.',
   'boxes.loading': 'Naglo-load ng mga edisyon…',
+  'boxes.search.label': 'Maghanap ng mga edisyon',
   'boxes.search.placeholder': 'Mga edisyon sa paghahanap…',
   'boxes.subtitle':
     'Ang bawat baitang ay isang maliit na batch na kwento. Magdagdag ng isa sa iyong queue o ipalit ito sa iyong susunod na buwan.',
+  'boxThemeCard.itemCount': '{{count}} na item',
   'boxThemeCard.perMonth': '/ buwan',
+  'boxThemeCard.retailValue': 'Retail value {{value}}',
   'common.goToDashboard': 'Pumunta sa Dashboard',
+  'common.retry': 'Subukan muli',
   'customize.eyebrow': 'Gawin itong iyo',
   'customize.heading': 'I-customize ang iyong susunod na Crate',
+  'customize.items.empty': 'Wala pang naka-configure na item para sa tier na ito.',
   'customize.items.exclude': 'Laktawan ito',
   'customize.items.eyebrow': 'I-personalize ang kahon na ito',
   'customize.items.heading': 'Mga item sa {{box}}',
@@ -60,8 +87,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Idagdag pabalik',
   'customize.items.save': 'I-save ang pagpapasadya',
   'customize.items.swapsLeft': '{{used}} ng {{max}} mga palitan na ginamit',
+  'customize.loading': 'Naglo-load ng customization…',
   'customize.noSub.body':
     'Mag-subscribe muna sa isang tier, pagkatapos ay bumalik para magpalit ng mga item sa iyong box.',
+  'customize.noSub.cta': 'I-browse ang mga edisyon',
   'customize.noSub.heading': 'Walang aktibong subscription',
   'customize.saved': 'Na-save ang pagpapasadya.',
   'customize.subtitle':
@@ -75,11 +104,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Subaybayan ang kargamento',
   'dashboard.eyebrow': 'Ang Iyong Kalooban',
   'dashboard.greeting': 'Maligayang pagbabalik, {{name}}.',
+  'dashboard.loadError':
+    'Hindi namin ma-load ang iyong dashboard. Suriin ang iyong koneksyon at subukang muli.',
   'dashboard.loading': 'Nilo-load ang dashboard…',
   'dashboard.next.eyebrow': 'Ang iyong susunod na edisyon',
   'dashboard.onboarding.body':
     'Wala ka pang aktibong subscription. Pumili ng tier para makapagsimulang magpadala ng Crate bawat buwan.',
   'dashboard.onboarding.cta': 'I-browse ang lahat ng edisyon',
+  'dashboard.onboarding.empty': 'Walang available na plan sa ngayon. Bumalik kaagad.',
   'dashboard.onboarding.heading': 'Piliin ang iyong unang edisyon',
   'dashboard.renewal.amount': 'Naka-charge',
   'dashboard.renewal.cadence': 'Kadence',
@@ -87,12 +119,16 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Pag-renew',
   'dashboard.renewal.heading': 'Naka-on ang awtomatikong pag-renew {{date}}',
   'dashboard.renewal.plan': 'Susi ng plano',
+  'dashboard.renewal.tbd': 'Naka-iskedyul ang renewal sa ilang sandali',
   'dashboard.renewal.tier': 'Antas',
   'dashboard.stats.days': 'araw',
   'dashboard.stats.daysToNext': 'Mga barko papasok',
   'dashboard.stats.items': 'Mga napiling item',
   'dashboard.stats.shipDate': 'Petsa ng pagpapadala',
   'dashboard.stats.tbd': 'Ipapaalam na',
+  'dashboard.subtitle.active': 'Paparating na ang iyong susunod na edisyon. Narito ang aasahan.',
+  'dashboard.subtitle.idle':
+    'Pumili ng tier para magsimulang magpadala ng {{appName}} bawat buwan.',
   'forgotPassword.subtitle':
     'Sabihin sa amin ang iyong email at magpapadala kami ng link sa pag-reset.',
   'forgotPassword.success.body':
@@ -100,6 +136,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Tingnan ang iyong inbox.',
   'landing.editions.eyebrow': 'Ngayong season',
   'landing.editions.heading': 'Mga edisyong minamahal ng aming mga curator',
+  'landing.editions.viewAll': 'I-browse ang lahat ng edisyon →',
   'landing.footer.contact': 'Makipag-usap sa isang tagapangasiwa',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Simulan ang iyong kahon →',
@@ -109,6 +146,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Isang sulyap sa dashboard ng miyembro — countdown, mga nilalaman, at pagsubaybay.',
   'landing.hero.social.count': 'Minahal ni {{count}} + mga subscriber',
+  'landing.hero.social.rating': '{{rating}} avg. unboxing rating',
+  'landing.hero.subhead':
+    'Nagpapadala sa iyo ang {{appName}} ng hand-picked, small-batch na box ng saya mula sa mga independent maker. Mag-pause anumang oras. Palitan ang gusto mo. Itago ang gusto mo.',
   'landing.nav.start': 'Simulan ang iyong kahon',
   'landing.tiers.eyebrow': 'Piliin ang iyong ritmo',
   'landing.tiers.heading':
@@ -119,6 +159,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Mag-sign in para silipin ang kahon para sa susunod na buwan.',
   'login.welcomeBack': 'Maligayang pagbabalik, tagapangasiwa.',
   'nextBoxHeroCard.eyebrow': 'ANG IYONG SUSUNOD NA KITA',
+  'nextBoxHeroCard.itemCount': '{{count}} piraso sa loob',
   'nextBoxHeroCard.itemsLabel': 'Mga napiling item',
   'nextBoxHeroCard.shipsOnLabel': 'Nagpapadala sa',
   'notFound.body':
@@ -144,8 +185,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Ihinto ang subscription',
   'settings.danger.paused': 'Nahinto ang suskrisyon.',
   'settings.danger.pausing': 'Paghinto…',
+  'settings.danger.status': 'Status ng subscription: {{status}}',
   'settings.danger.subtitle':
     'Ang pag-pause ay nagpapanatili sa iyong tier at history na buo. Ang pagkansela ay nagpapahinto sa mga susunod na padala at nag-aalis ng iyong mga nakaimbak na paraan ng pagbabayad sa katapusan ng cycle.',
+  'settings.notifications.saving': '· nagse-save…',
   'settings.notifications.subtitle':
     'Piliin kung aling mga signal ang gusto mo mula sa Crate. Makatwiran ang mga default.',
   'settings.subtitle':
@@ -162,12 +205,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Wala pang aktibong kargamento',
   'shipments.live.eyebrow': 'Aktibong kargamento',
   'shipments.live.unnamed': 'Ang susunod mong kahon',
+  'shipments.loadError':
+    'Hindi namin ma-load ang iyong mga shipment. Suriin ang iyong koneksyon at subukang muli.',
+  'shipments.loading': 'Naglo-load ng mga kargamento…',
+  'shipments.step.delivered': 'Naihatid',
   'shipments.step.deliveredBody': 'I-tag ang #crateunbox para ibahagi ang iyong natuklasan.',
   'shipments.step.ordered': 'Na-order na',
   'shipments.step.orderedBody':
     'Inilagay ng iyong subscription ang edisyong ito sa pila para sa susunod na siklo ng pagpapadala.',
+  'shipments.step.packed': 'Hand-packed',
   'shipments.step.packedBody':
     'Ang bawat piraso ay nakabalot at nakalagay sa kahon na may sulat-kamay na sulat.',
+  'shipments.step.transit': 'Paparating na',
   'shipments.step.transitNot': 'Lalabas dito ang tracking kapag naipadala na ang iyong kahon.',
   'shipments.subtitle':
     'Subaybayan ang kahon papunta sa iyo, pagkatapos ay bisitahin muli ang bawat edisyong na-unbox mo na dati.',

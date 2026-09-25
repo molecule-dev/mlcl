@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'မေးခွန်းများ၊ အကြံပြုချက်များ သို့မဟုတ် သင်လိုချင်သော အင်္ဂါရပ်တစ်ခုရှိပါသလား။ သင့်အကောင့်ဆက်တင်များမှ အဖွဲ့ကို ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်းကို လူတစ်ဦးက အမှန်တကယ် ဖတ်ပါသည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'about.whatYouGetTitle': 'သင်ရရှိသောအရာ',
   'analytics.empty': 'ဤနေရာတွင် ခွဲခြမ်းစိတ်ဖြာမှုများကိုကြည့်ရှုရန် ကုန်းပတ်များဖန်တီးပါ။',
   'analytics.stats.acrossDecks': 'ကုန်းပတ်အားလုံးတွင်',
   'analytics.stats.allTime': 'မင်းရဲ့ စတူဒီယိုထဲမှာ',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'ကုန်းပတ်ခေါင်းစဉ်',
   'landing.features.eyebrow': 'ဘာကြောင့် နိဒါန်း',
   'landing.features.heading': 'စင်မြင့်ပေါ်တက်ဖို့ လိုအပ်တာအားလုံး အဆင်သင့်ဖြစ်နေပါပြီ။',
+  'landing.finalCta.body':
+    'သင့်စတူဒီယိုကို တစ်မိနစ်အောက်အတွင်း စတင်လိုက်ပါ။ ခရက်ဒစ်ကတ် မလိုပါ။ အချိန်မရွေး ပယ်ဖျက်နိုင်ပါသည်။',
   'landing.finalCta.cta': 'သင့်ရဲ့ အခမဲ့ စတူဒီယိုကို ဖန်တီးလိုက်ပါ',
   'landing.finalCta.eyebrow': 'စတင်ရန် အခမဲ့',
   'landing.finalCta.heading':
@@ -82,10 +88,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '၁၂ မိနစ်က တည်းဖြတ်ထားသည်',
   'notifications.created': 'ဖန်တီးထားသည်',
   'notifications.edited': 'တည်းဖြတ်ပြီး',
+  'notifications.empty.body':
+    'သင့်ဒက်ခ်များပေါ်ရှိ လှုပ်ရှားမှုများ — မှတ်ချက်များ၊ ဖော်ပြချက်များ၊ ထုတ်ယူမှုများ — ဤနေရာတွင် ပေါ်လာပါမည်။',
   'notifications.empty.title': 'အကြောင်းကြားချက်များ မရှိသေးပါ',
   'notifications.eyebrow': 'စင်မြင့်လှုပ်ရှားမှု',
   'notifications.loading': 'တင်နေသည်…',
   'notifications.shared': 'အများသိအောင် မျှဝေထားသည်',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'present.addSlides': 'ဆလိုက်များထည့်ပါ',
   'present.backToDecks': 'ကုန်းပတ်များဆီသို့ ပြန်သွားပါ',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'စင်မြင့်ဖျော်ဖြေသူ',
   'settings.security.notSet': 'မသတ်မှတ်ရသေးပါ',
   'settings.security.passwordBody': 'သင့်စကားဝှက်ကို အသုံးမပြုချိန်တွင် ကုဒ်ဝှက်ထားသည်။',
+  'settings.security.reset': 'ပြန်လည်သတ်မှတ်ပါ',
   'settings.security.title': 'အကောင့် + အစည်းအဝေးများ',
   'shared.empty.body':
     'သင်အများပြည်သူသို့မျှဝေသော ကုန်းပတ်များသည် ဤနေရာတွင် ပေါ်လာပါမည်။ ကုန်းပတ်တစ်ခုကိုဖွင့်ပြီး မျှဝေရန် အများပြည်သူသို့ ပြောင်းပါ။',
@@ -132,6 +145,12 @@ export const ui: UiTranslations = {
   'shared.loading': 'တင်နေသည်…',
   'shared.title': 'မျှဝေထားသော ကုန်းပတ်များ',
   'templateCard.slideCount': '{{count}} ဆလိုက်များ',
+  'templateCard.usageCount': '{{count}} အသုံးပြုမှုများ',
+  'templates.empty.body':
+    'အခြားစစ်ထုတ်မှုတစ်ခုကို စမ်းကြည့်ပါ — လစဉ် နမူနာပုံစံအသစ်များ ထုတ်ပေးပါသည်။',
+  'templates.empty.title': 'ဤအမျိုးအစားတွင် နမူနာပုံစံများ မရှိသေးပါ',
+  'templates.hero.body':
+    'ဂရပ်ဖ်ဘလောက်များ၊ ဒီမိုဖရိမ်များ၊ တင်ဆက်သူမှတ်စုများနှင့် အချိန်တိုင်းတာကိရိယာ ကြိုတင်သတ်မှတ်ချက်များ ပါဝင်သော အပြင်အဆင်အသစ်များ — နမူနာပုံစံတိုင်း အသံသွင်းရန် အသင့်ဖြစ်နေပါသည်။',
   'templates.hero.eyebrow': 'ရွေးချယ်ထားသော အဆင့်များ',
   'templates.hero.heading': 'အဆင့်တွေကို တည်ဆောက်ပြီး ခဏတာအတွင်း ဆင်းသက်ဖို့ လိုပါတယ်။',
 }

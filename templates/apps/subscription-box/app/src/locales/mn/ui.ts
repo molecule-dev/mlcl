@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Хэвлэл, илгээлт эсвэл таны захиалгын талаар асуулт байна уу? hello@crate.example хаягаар багийн жинхэнэ хүнтэй холбогдоорой — бид бүх мессежийг уншдаг.',
+  'about.contactTitle': 'Куратортой ярилцах',
+  'about.feature1':
+    'Бие даасан үйлдвэрлэгчдийн гараар сонгосон сар бүрийн эмхэтгэсэн хэвлэлүүд, бүтээгдэхүүн бүрийн түүхтэй хамт.',
+  'about.feature2':
+    'Хайрцаг бүрэн хяналтад — агуулгыг тохируулах, зүйлсийг солих эсвэл хасах, нэг сар алгасах, эсвэл давтамжаа өөрчлөх.',
+  'about.feature3':
+    'Хүлээн авалтаас хаалга хүртэлх илгээлтийн бүрэн хяналт, хуванцаргүй сав баглаа боодол, тээвэрлэгчийн шууд мэдээллээр.',
+  'about.feature4':
+    'Уян хатан багцууд, ил тод төлбөр — хяналтын самбараасаа хүссэн үедээ ахиулах, бууруулах, түр зогсоох эсвэл цуцлах.',
+  'about.intro':
+    '{{app}} нь сар бүр таны хаалгаар гараар сонгосон, бага хэмжээгээр үйлдвэрлэсэн баяр баясгалангийн хайрцгийг хүргэдэг эмхэтгэсэн захиалгын хайрцаг үйлчилгээ юм. Хэвлэл бүрийг ажиллаж буй үйлдвэрлэгчид — бие даасан уран бүтээлчид, тогооч нар, жижиг брэндүүд — алгоритм биш, угсардаг.',
+  'about.missionBody':
+    'Бид захиалга нь урхи биш, бэлэг мэт санагдах ёстой гэж үздэг. {{app}} нь та ирж буй зүйлдээ дуртай учраас л үлдэхээр бүтээгдсэн — хүссэн үедээ түр зогсоож, хүссэн зүйлээ сольж, нэг товшилтоор цуцал. Хэзээ ч хадгалах скрипт байхгүй.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'about.pageTitle': '{{app}}-ийн тухай',
   'appNav.mobileLabel': 'Үндсэн навигаци',
   'appNav.primaryLabel': 'Үндсэн навигаци',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Төлбөрийн харилцагчийг засах',
   'billing.contact.eyebrow': 'Төлбөр тооцооны холбоо барих хүн',
   'billing.eyebrow': 'Төлөвлөгөө ба төлбөр',
+  'billing.loading': 'Төлбөр тооцоог ачаалж байна…',
   'billing.payment.body':
     'Төлбөрийг Stripe Checkout хариуцдаг — таны бүтэн картын дугаар манай серверт хэзээ ч хүрдэггүй. Картаа нэмэх эсвэл шинэчлэхийн тулд доорх аль ч давхаргыг дарна уу.',
   'billing.payment.linked': 'Картыг Stripe-ээр дамжуулан файлд байршуулсан',
@@ -19,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Захиалгыг үргэлжлүүлэх',
   'billing.plan.eyebrow': 'Идэвхтэй төлөвлөгөө',
   'billing.plan.next': 'Автоматаар шинэчлэгдэнэ {{date}} .',
+  'billing.plan.status': 'Төлөв: {{status}}',
   'billing.subtitle': 'Түвшин, төлбөрийн хэрэгслээ удирдаж, өмнөх үйл ажиллагаагаа хянана уу.',
   'billing.tiers.body': 'Түвшин сонгоод бид таныг Stripe Checkout руу чиглүүлэх болно.',
   'billing.tiers.choose': 'Сонгох',
+  'billing.tiers.empty': 'Одоогоор түвшин тохируулаагүй байна.',
   'billing.tiers.heading': 'Боломжтой түвшин',
   'boxDetail.backToBoxes': 'Бүх хэвлэл рүү буцах',
   'boxDetail.crumb.boxes': 'Хэвлэлүүд',
@@ -34,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Сонгосон хэсэг',
   'boxDetail.items.heading': '{{count}} сонгосон хэсгүүд',
   'boxDetail.itemsBadge': '{{count}} хайрцаг тус бүрээр сонгосон зүйлс',
+  'boxDetail.loading': 'Хэвлэлийг ачаалж байна…',
   'boxDetail.notFound': 'Тэр хэвлэлийг цаашид ашиглах боломжгүй болсон.',
   'boxDetail.subscribe.success': 'Захиалсан — таны анхны хэвлэл дараалалд орсон байна.',
   'boxDetail.swapBadge': 'Солих {{count}} хайрцаг тус бүрийн бараа(ууд)',
@@ -42,14 +62,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Тохирох хэвлэл алга.',
   'boxes.eyebrow': 'Тровын архив',
   'boxes.heading': 'Бүх хувилбарыг үзэх',
+  'boxes.loadError': 'Бид хэвлэлүүдийг ачаалж чадсангүй. Холболтоо шалгаад дахин оролдоно уу.',
   'boxes.loading': 'Хувилбаруудыг ачаалж байна…',
+  'boxes.search.label': 'Хэвлэл хайх',
   'boxes.search.placeholder': 'Хувилбаруудыг хайх...',
   'boxes.subtitle':
     'Түвшин бүр нь жижиг багцтай түүх юм. Дараалалдаа нэгийг нэмэх эсвэл дараагийн сар руугаа шилжүүлээрэй.',
+  'boxThemeCard.itemCount': '{{count}} эд зүйлс',
   'boxThemeCard.perMonth': '/ сар',
+  'boxThemeCard.retailValue': 'Жижиглэнгийн үнэ {{value}}',
   'common.goToDashboard': 'Хянах самбар руу очих',
+  'common.retry': 'Дахин оролдох',
   'customize.eyebrow': 'Өөрийн болго',
   'customize.heading': 'Дараагийн олзоо тохируулна уу',
+  'customize.items.empty': 'Энэ түвшинд одоогоор зүйл тохируулаагүй байна.',
   'customize.items.exclude': 'Үүнийг алгасах',
   'customize.items.eyebrow': 'Энэ хайрцгийг хувийн болгох',
   'customize.items.heading': 'Доторх зүйлс {{box}}',
@@ -58,8 +84,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Буцааж нэмэх',
   'customize.items.save': 'Тохируулгыг хадгалах',
   'customize.items.swapsLeft': '{{used}} -ын {{max}} ашигласан свопууд',
+  'customize.loading': 'Тохируулгыг ачаалж байна…',
   'customize.noSub.body':
     'Эхлээд түвшинд бүртгүүлээд дараа нь хайрцагтаа байгаа зүйлсээ солилцохын тулд буцаж ирээрэй.',
+  'customize.noSub.cta': 'Хэвлэлүүдийг үзэх',
   'customize.noSub.heading': 'Идэвхтэй захиалга алга',
   'customize.saved': 'Тохируулгыг хадгалсан.',
   'customize.subtitle':
@@ -73,11 +101,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Тээвэрлэлтийг хянах',
   'dashboard.eyebrow': 'Таны эрдэнэс',
   'dashboard.greeting': 'Тавтай морил, {{name}} .',
+  'dashboard.loadError':
+    'Бид таны хяналтын самбарыг ачаалж чадсангүй. Холболтоо шалгаад дахин оролдоно уу.',
   'dashboard.loading': 'Хяналтын самбарыг ачаалж байна…',
   'dashboard.next.eyebrow': 'Таны дараагийн хэвлэл',
   'dashboard.onboarding.body':
     'Та одоогоор идэвхтэй захиалгагүй байна. Сар бүр Crate илгээж эхлэхийн тулд түвшинг сонгоно уу.',
   'dashboard.onboarding.cta': 'Бүх хэвлэлийг үзэх',
+  'dashboard.onboarding.empty': 'Одоогоор багц байхгүй байна. Удахгүй дахин шалгаарай.',
   'dashboard.onboarding.heading': 'Анхны хэвлэлээ сонгоно уу',
   'dashboard.renewal.amount': 'Цэнэглэгдсэн',
   'dashboard.renewal.cadence': 'Каденс',
@@ -85,12 +116,16 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Шинэчлэлт',
   'dashboard.renewal.heading': 'Автоматаар шинэчлэх асаалттай {{date}}',
   'dashboard.renewal.plan': 'Төлөвлөгөөний түлхүүр',
+  'dashboard.renewal.tbd': 'Сунгалтын хуваарь удахгүй',
   'dashboard.renewal.tier': 'Түвшин',
   'dashboard.stats.days': 'өдрүүд',
   'dashboard.stats.daysToNext': 'Хүргэлт',
   'dashboard.stats.items': 'Сонгосон зүйлс',
   'dashboard.stats.shipDate': 'Тээвэрлэлтийн огноо',
   'dashboard.stats.tbd': 'Тооцоолсон',
+  'dashboard.subtitle.active':
+    'Таны дараагийн хэвлэл замдаа гарлаа. Юу хүлээж болохыг энд харуулав.',
+  'dashboard.subtitle.idle': 'Сар бүр {{appName}} илгээж эхлэхийн тулд түвшин сонгоно уу.',
   'forgotPassword.subtitle':
     'Бидэнд имэйл хаягаа хэлээрэй, бид дахин тохируулах холбоос илгээх болно.',
   'forgotPassword.success.body':
@@ -98,6 +133,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Ирсэн имэйлээ шалгана уу.',
   'landing.editions.eyebrow': 'Энэ улиралд',
   'landing.editions.heading': 'Манай кураторуудын дуртай хэвлэлүүд',
+  'landing.editions.viewAll': 'Бүх хэвлэлийг үзэх →',
   'landing.footer.contact': 'Куратортой ярилцах',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Хайрцагаа эхлүүл →',
@@ -107,6 +143,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Гишүүдийн хяналтын самбарыг харах — тооллого, контент болон хяналт.',
   'landing.hero.social.count': 'Хайрлагдсан {{count}} + захиалагчид',
+  'landing.hero.social.rating': '{{rating}} дундаж задлах үнэлгээ',
+  'landing.hero.subhead':
+    '{{appName}} нь бие даасан үйлдвэрлэгчдээс гараар сонгосон, бага хэмжээгээр үйлдвэрлэсэн баяр баясгалангийн хайрцгийг танд илгээдэг. Хүссэн үедээ түр зогсоо. Хүссэн зүйлээ соль. Дуртай зүйлээ хадгал.',
   'landing.nav.start': 'Хайрцагаа эхлүүл',
   'landing.tiers.eyebrow': 'Хэмнэлээ сонгоно уу',
   'landing.tiers.heading': 'Багаас эхэл, хүссэн үедээ сайжруул, мөн адил амархан цуцал.',
@@ -116,6 +155,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Дараа сарын хайрцгийг харахын тулд нэвтэрнэ үү.',
   'login.welcomeBack': 'Куратор, дахин тавтай морил.',
   'nextBoxHeroCard.eyebrow': 'ТАНЫ ДАРААГИЙН СҮНС',
+  'nextBoxHeroCard.itemCount': 'Дотор нь {{count}} ширхэг',
   'nextBoxHeroCard.itemsLabel': 'Сонгосон зүйлс',
   'nextBoxHeroCard.shipsOnLabel': 'Хүргэлт',
   'notFound.body':
@@ -139,8 +179,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Захиалгыг түр зогсоох',
   'settings.danger.paused': 'Захиалгыг түр зогсоосон.',
   'settings.danger.pausing': 'Түр зогсоож байна…',
+  'settings.danger.status': 'Захиалгын төлөв: {{status}}',
   'settings.danger.subtitle':
     'Түр зогсоох нь таны түвшин болон түүхийг бүрэн бүтэн байлгана. Цуцлах нь ирээдүйн тээвэрлэлтийг зогсоож, мөчлөгийн төгсгөлд хадгалсан төлбөрийн аргуудыг устгана.',
+  'settings.notifications.saving': '· хадгалж байна…',
   'settings.notifications.subtitle':
     'Crate-оос хүссэн дохионуудаа сонгоно уу. Анхдагч тохиргоонууд нь ухаалаг байдаг.',
   'settings.subtitle': 'Профайл, хүргэлтийн хаяг болон Crate хэрхэн холбогддогоо шинэчилнэ үү.',
@@ -156,13 +198,19 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Одоогоор идэвхтэй тээвэрлэлт хийгдээгүй байна',
   'shipments.live.eyebrow': 'Идэвхтэй тээвэрлэлт',
   'shipments.live.unnamed': 'Таны дараагийн хайрцаг',
+  'shipments.loadError':
+    'Бид таны илгээлтүүдийг ачаалж чадсангүй. Холболтоо шалгаад дахин оролдоно уу.',
+  'shipments.loading': 'Ачаалалт ачаалагдаж байна…',
+  'shipments.step.delivered': 'Хүргэгдсэн',
   'shipments.step.deliveredBody':
     'Өөрийн олж мэдсэн зүйлээ хуваалцахын тулд #crateunbox-г таглана уу.',
   'shipments.step.ordered': 'Захиалга өгсөн',
   'shipments.step.orderedBody':
     'Таны захиалга энэ хэвлэлийг дараагийн хүргэлтийн мөчлөгт зориулж дараалалд оруулсан.',
+  'shipments.step.packed': 'Гараар савласан',
   'shipments.step.packedBody':
     'Хэсэг бүрийг гараар бичсэн тэмдэглэлтэй хамт хайрцагт боож, хийгдэв.',
+  'shipments.step.transit': 'Замдаа',
   'shipments.step.transitNot': 'Таны хайрцгийг тээвэрлэж эхэлмэгц хяналт энд гарч ирнэ.',
   'shipments.subtitle':
     'Хайрцгийг өөрт чинь хүрэх замд нь дагаж мөрдөөд, өмнө нь хайрцагнаас нь гаргаж байсан бүх хувилбараа дахин үзээрэй.',

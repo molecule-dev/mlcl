@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Cwestiynau am argraffiad, am gludiant, neu am eich tanysgrifiad? Cysylltwch â rhywun go iawn ar y tîm yn hello@crate.example — rydym yn darllen pob neges.',
+  'about.contactTitle': 'Siaradwch â churadur',
+  'about.feature1':
+    "Argraffiadau misol wedi'u curadu a'u dewis â llaw gan wneuthurwyr annibynnol, gyda'r stori y tu ôl i bob eitem.",
+  'about.feature2':
+    'Rheolaeth lawn dros bob blwch — addaswch y cynnwys, cyfnewidiwch neu eithriwch eitemau, heidiwch fis, neu newidiwch eich amlder.',
+  'about.feature3':
+    "Olrhain cludiant o'r dechrau i'r diwedd, o'r casglu i'r drws, gyda phecynnu di-blastig a diweddariadau byw gan y cludwr.",
+  'about.feature4':
+    "Cynlluniau hyblyg a bilio tryloyw — uwchraddiwch, israddiwch, seibiwch, neu canslo o'ch dangosfwrdd ar unrhyw adeg.",
+  'about.intro':
+    "Mae {{app}} yn wasanaeth blychau tanysgrifio wedi'u curadu sy'n danfon blwch llawenydd bach wedi'i ddewis â llaw i'ch drws bob mis. Mae pob argraffiad yn cael ei lunio gan wneuthurwyr gweithredol — artistiaid annibynnol, cogyddion, a brandiau bach — nid algorithm.",
+  'about.missionBody':
+    "Rydym yn credu y dylai tanysgrifiad deimlo fel anrheg, nid fel trap. Mae {{app}} wedi'i adeiladu fel eich bod yn aros oherwydd eich bod yn caru'r hyn sy'n cyrraedd — seibiwch unrhyw bryd, cyfnewidiwch yr hyn a fynnwch, a chanslo gydag un clic. Dim sgriptiau cadw, byth.",
+  'about.missionTitle': 'Ein cenhadaeth',
   'about.pageTitle': 'Ynghylch {{app}}',
   'appNav.mobileLabel': 'Prif lywio',
   'appNav.primaryLabel': 'Prif lywio',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Golygu cyswllt bilio',
   'billing.contact.eyebrow': 'Cyswllt bilio',
   'billing.eyebrow': 'Cynllun a thaliadau',
+  'billing.loading': "Wrthi'n llwytho biliau…",
   'billing.payment.body':
     "Stripe Checkout sy'n ymdrin â thaliad — nid yw rhif llawn eich cerdyn byth yn cyffwrdd â'n gweinyddion. Cliciwch ar unrhyw haen isod i ychwanegu neu ddiweddaru eich cerdyn.",
   'billing.payment.linked': 'Cerdyn ar ffeil trwy Stripe',
@@ -19,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Ail-ddechrau tanysgrifiad',
   'billing.plan.eyebrow': 'Cynllun gweithredol',
   'billing.plan.next': "Yn adnewyddu'n awtomatig ar {{date}} .",
+  'billing.plan.status': 'Statws: {{status}}',
   'billing.subtitle': 'Rheoli eich haen, dull talu, ac adolygu gweithgaredd yn y gorffennol.',
   'billing.tiers.body': 'Dewiswch haen a byddwn yn eich cyfeirio i Stripe Checkout.',
   'billing.tiers.choose': 'Dewiswch',
+  'billing.tiers.empty': "Dim haenau wedi'u ffurfweddu eto.",
   'billing.tiers.heading': 'Haenau sydd ar gael',
   'boxDetail.backToBoxes': 'Yn ôl i bob rhifyn',
   'boxDetail.crumb.boxes': 'Rhifynnau',
@@ -34,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': "Darn wedi'i guradu",
   'boxDetail.items.heading': "{{count}} darnau wedi'u curadu",
   'boxDetail.itemsBadge': "{{count}} eitemau wedi'u curadu fesul blwch",
+  'boxDetail.loading': "Yn llwytho'r argraffiad…",
   'boxDetail.notFound': "Nid yw'r rhifyn hwnnw ar gael mwyach.",
   'boxDetail.subscribe.success': "Wedi tanysgrifio — mae eich rhifyn cyntaf wedi'i roi yn y ciw.",
   'boxDetail.swapBadge': 'Cyfnewid hyd at {{count}} eitem(au) fesul blwch',
@@ -42,14 +62,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': "Dim rhifynnau'n cyfateb.",
   'boxes.eyebrow': 'Archif y Crate',
   'boxes.heading': 'Poriwch bob rhifyn',
+  'boxes.loadError':
+    "Ni allem lwytho'r argraffiadau. Gwiriwch eich cysylltiad a rhowch gynnig arall arni.",
   'boxes.loading': "Wrthi'n llwytho rhifynnau…",
+  'boxes.search.label': 'Chwilio argraffiadau',
   'boxes.search.placeholder': 'Chwiliwch am rifynnau…',
   'boxes.subtitle':
     "Mae pob haen yn stori swp bach. Ychwanegwch un at eich ciw neu ei chyfnewid i'ch mis nesaf.",
+  'boxThemeCard.itemCount': '{{count}} eitemau',
   'boxThemeCard.perMonth': '/ mis',
+  'boxThemeCard.retailValue': 'Gwerth manwerthu {{value}}',
   'common.goToDashboard': "Mynd i'r Dangosfwrdd",
+  'common.retry': 'Ail-geisio',
   'customize.eyebrow': "Gwnewch hi'n eiddo i chi",
   'customize.heading': 'Addaswch eich Crate nesaf',
+  'customize.items.empty': "Dim eitemau wedi'u ffurfweddu ar gyfer yr haen hon eto.",
   'customize.items.exclude': 'Hepgor hwn',
   'customize.items.eyebrow': "Personoli'r blwch hwn",
   'customize.items.heading': 'Eitemau yn {{box}}',
@@ -58,8 +85,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Ychwanegu yn ôl',
   'customize.items.save': 'Cadw addasiad',
   'customize.items.swapsLeft': '{{used}} o {{max}} cyfnewidiadau a ddefnyddiwyd',
+  'customize.loading': "Yn llwytho'r addasiad…",
   'customize.noSub.body':
     'Tanysgrifiwch i haen yn gyntaf, yna dewch yn ôl i gyfnewid eitemau yn eich blwch.',
+  'customize.noSub.cta': 'Pori argraffiadau',
   'customize.noSub.heading': 'Dim tanysgrifiad gweithredol',
   'customize.saved': "Addasu wedi'i gadw.",
   'customize.subtitle':
@@ -73,11 +102,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Tracio llwyth',
   'dashboard.eyebrow': 'Eich Trysorfa',
   'dashboard.greeting': 'Croeso nôl, {{name}} .',
+  'dashboard.loadError':
+    "Ni allem lwytho'ch dangosfwrdd. Gwiriwch eich cysylltiad a rhowch gynnig arall arni.",
   'dashboard.loading': "Wrthi'n llwytho'r dangosfwrdd…",
   'dashboard.next.eyebrow': 'Eich rhifyn nesaf',
   'dashboard.onboarding.body':
     'Nid oes gennych danysgrifiad gweithredol eto. Dewiswch haen i ddechrau anfon Crate bob mis.',
   'dashboard.onboarding.cta': 'Pori pob rhifyn',
+  'dashboard.onboarding.empty': 'Dim cynlluniau ar gael ar hyn o bryd. Dewch yn ôl yn fuan.',
   'dashboard.onboarding.heading': 'Dewiswch eich rhifyn cyntaf',
   'dashboard.renewal.amount': "Wedi'i gyhuddo",
   'dashboard.renewal.cadence': 'Cadans',
@@ -85,12 +117,15 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Adnewyddu',
   'dashboard.renewal.heading': 'Adnewyddu awtomatig ymlaen {{date}}',
   'dashboard.renewal.plan': 'Allwedd y cynllun',
+  'dashboard.renewal.tbd': 'Amserlennu adnewyddu cyn bo hir',
   'dashboard.renewal.tier': 'Haen',
   'dashboard.stats.days': 'dyddiau',
   'dashboard.stats.daysToNext': 'Llongau i mewn',
   'dashboard.stats.items': "Eitemau wedi'u curadu",
   'dashboard.stats.shipDate': 'Dyddiad cludo',
   'dashboard.stats.tbd': "I'w gadarnhau",
+  'dashboard.subtitle.active': "Mae eich argraffiad nesaf ar ei ffordd. Dyma beth i'w ddisgwyl.",
+  'dashboard.subtitle.idle': 'Dewiswch haen i ddechrau danfon {{appName}} bob mis.',
   'forgotPassword.subtitle':
     'Dywedwch eich cyfeiriad e-bost wrthym a byddwn yn anfon dolen ailosod atoch.',
   'forgotPassword.success.body':
@@ -98,6 +133,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Gwiriwch eich mewnflwch.',
   'landing.editions.eyebrow': 'Y tymor hwn',
   'landing.editions.heading': 'Rhifynnau mae ein curaduron wrth eu bodd â nhw',
+  'landing.editions.viewAll': 'Pori pob argraffiad →',
   'landing.footer.contact': 'Siaradwch â churadur',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Dechreuwch eich blwch →',
@@ -107,6 +143,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Cipolwg ar ddangosfwrdd yr aelodau — cyfrif i lawr, cynnwys, ac olrhain.',
   'landing.hero.social.count': "Wedi'i garu gan {{count}} + tanysgrifwyr",
+  'landing.hero.social.rating': 'Sgôr dadbacio cyfartalog {{rating}}',
+  'landing.hero.subhead':
+    "Mae {{appName}} yn danfon blwch llawenydd bach wedi'i ddewis â llaw gan wneuthurwyr annibynnol i chi. Seibiwch unrhyw bryd. Cyfnewidiwch yr hyn a fynnwch. Cadwch yr hyn a garwch.",
   'landing.nav.start': 'Dechreuwch eich blwch',
   'landing.tiers.eyebrow': 'Dewiswch eich cadans',
   'landing.tiers.heading':
@@ -117,6 +156,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Mewngofnodwch i gael cipolwg ar flwch y mis nesaf.',
   'login.welcomeBack': 'Croeso nôl, curadur.',
   'nextBoxHeroCard.eyebrow': 'EICH CYNNIG NESAF',
+  'nextBoxHeroCard.itemCount': '{{count}} darn y tu mewn',
   'nextBoxHeroCard.itemsLabel': "Eitemau wedi'u curadu",
   'nextBoxHeroCard.shipsOnLabel': 'Llongau ymlaen',
   'notFound.body':
@@ -140,8 +180,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Oedi tanysgrifiad',
   'settings.danger.paused': "Tanysgrifiad wedi'i oedi.",
   'settings.danger.pausing': 'Yn oedi…',
+  'settings.danger.status': 'Statws tanysgrifiad: {{status}}',
   'settings.danger.subtitle':
     "Mae oedi yn cadw eich haen a'ch hanes yn gyfan. Mae canslo yn atal llwythi yn y dyfodol ac yn dileu'ch dulliau talu sydd wedi'u storio ar ddiwedd y cylch.",
+  'settings.notifications.saving': '· yn arbed…',
   'settings.notifications.subtitle':
     "Dewiswch pa signalau rydych chi eu heisiau gan Crate. Mae rhagosodiadau'n synhwyrol.",
   'settings.subtitle':
@@ -158,12 +200,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Dim llwyth gweithredol eto',
   'shipments.live.eyebrow': 'Llwyth gweithredol',
   'shipments.live.unnamed': 'Eich blwch nesaf',
+  'shipments.loadError':
+    "Ni allem lwytho'ch cludiannau. Gwiriwch eich cysylltiad a rhowch gynnig arall arni.",
+  'shipments.loading': "Wrthi'n llwytho llwythi…",
+  'shipments.step.delivered': "Wedi'i ddanfon",
   'shipments.step.deliveredBody': "Tagiwch #crateunbox i rannu'r hyn rydych chi'n ei ddarganfod.",
   'shipments.step.ordered': "Gorchymyn wedi'i osod",
   'shipments.step.orderedBody':
     "Mae eich tanysgrifiad wedi rhoi'r rhifyn hwn yn y ciw ar gyfer y cylch cludo nesaf.",
+  'shipments.step.packed': "Wedi'i bacio â llaw",
   'shipments.step.packedBody':
     "Pob darn wedi'i lapio a'i roi yn y blwch gyda nodyn wedi'i ysgrifennu â llaw.",
+  'shipments.step.transit': 'Ar y ffordd',
   'shipments.step.transitNot':
     'Bydd olrhain yn ymddangos yma unwaith y bydd eich blwch ar y ffordd.',
   'shipments.subtitle':

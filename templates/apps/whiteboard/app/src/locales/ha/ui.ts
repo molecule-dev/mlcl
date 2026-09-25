@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Kuna da ra'ayi, kun sami matsala, ko kuna son wata fasali? Muna karanta kowane saƙo — tuntuɓi ƙungiyar {{appName}} daga saitunan asusunku kuma mutum na gaske zai amsa muku.",
   'about.contactTitle': 'Yi magana da mu',
+  'about.intro':
+    "{{appName}} wani zane ne mara iyaka na haɗin gwiwa don ƙungiyoyin ƙira, masu gudanar da taron bita, da malamai. Sanya bayanan mannewa, zana siffofi, zana da hannu, kuma ku ga abokan aikinku suna tunani tare da ku a lokaci ɗaya — duk a wuri ɗaya inda ra'ayoyi masu rikitarwa za su iya haɗuwa.",
+  'about.missionBody':
+    "Babban tunani ba ya yawan zama mai tsabta. {{appName}} ya kasance don bai wa ƙungiyoyi wuri mai sauri da sauƙi inda za a iya kama ra'ayoyi nan take a lokacin da suka zo a kuma tsara su tare har sai sun yi ma'ana — ba tare da jinkiri, aikin da ya ɓace, ko kayan aiki masu tsauri da ke kashe ƙwazo ba.",
+  'about.missionTitle': 'Manufarmu',
+  'authShell.brandFooter':
+    '“Mun maye gurbin kayan aiki huɗu da {{appName}} a makon da muka fitar da sabon salo na mu. Retro ɗin ya adana kansa.” — Atlas Studio',
+  'authShell.brandFooterMeta': 'Ƙungiyoyin ƙira 12,400+ sun amince da shi',
   'authShell.brandHeading': 'Tambayoyi ga ƙungiyoyin ƙira da yawa waɗanda ke tunani da ƙarfi.',
   'billing.canceled': 'An soke biyan kuɗi.',
   'billing.cancelPlan': 'Soke shirin',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': 'Matakin farko mara iyaka.',
   'billing.freePlanName': 'Kyauta',
   'billing.paidPlanBody': 'Biyan kuɗi mai aiki.',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'Tsarin & rasit',
   'billing.updated': 'An sabunta shirin.',
   'billing.upgradeTitle': 'Shirye-shiryen da ake da su',
@@ -18,8 +29,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': 'na {{max}} an haɗa',
   'boardCanvas.backToBoards': 'Duk allunan',
   'boardCanvas.changeColor': 'Canza launi {{color}}',
+  'boardCanvas.collaboratorsTitle': 'Masu haɗin gwiwa',
   'boardCanvas.deleteElement': 'Goge abu',
   'boardCanvas.deselect': 'A cire zaɓi',
+  'boardCanvas.elementLabel': 'sinadarin {{type}}',
   'boardCanvas.elementsCount': '{{count}} abubuwa',
   'boardCanvas.elementText': 'Rubutu',
   'boardCanvas.empty.body':
@@ -29,10 +42,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': 'Cika',
   'boardCanvas.invited': 'An gayyata {{email}}',
   'boardCanvas.metaTitle': 'Matsayi',
+  'boardCanvas.metaWH': 'F: {{w}}  T: {{h}}',
   'boardCanvas.metaXY': 'X: {{x}} Y: {{y}}',
   'boardCanvas.noCollaborators':
     'Babu masu haɗin gwiwa tukuna. Yi amfani da Raba don gayyatar abokan aiki.',
   'boardCanvas.present': 'Yanzu',
+  'boardCanvas.private': 'Keɓaɓɓe — gayyata kawai',
   'boardCanvas.properties': 'Kadarorin',
   'boardCanvas.public': "Jama'a — duk wanda ke da hanyar haɗi zai iya gani",
   'boardCanvas.roleCommenter': 'Za a iya yin sharhi',
@@ -48,6 +63,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'Zaɓi launin mai mannewa',
   'boardCanvas.summaryCount': '{{count}} abubuwa a kan zane',
   'boardCanvas.summaryTitle': 'Allon allo',
+  'boardCanvas.surface.clear': 'Zanen allo — share zaɓi',
+  'boardCanvas.surface.draw': 'Zanen allo — ja don zana',
+  'boardCanvas.surface.place': 'Zanen allo — sanya sinadari',
   'boardCanvas.untitled': 'Allon da ba shi da lakabi',
   'boardCanvas.visibilityTitle': 'Ganuwa',
   'boardCanvas.zoomIn': 'Zuƙowa ciki',
@@ -70,6 +88,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'Allon bincike',
   'boards.searchPlaceholder': 'Allon bincike',
   'boards.sharedTitle': 'An raba ni da ni',
+  'boards.sortedBy': 'An jera ta kwanan nan da aka sabunta',
   'boards.startFromTemplate': 'Fara daga samfuri',
   'boards.title': 'Allonku',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -84,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.cta.title':
     'An gina shi don tunani mai rikitarwa, mai haifar da abubuwa, da kuma tunani na zahiri.',
   'landing.demoBoard.title': 'Bita na 1 na Taro · Muryar Alamar Kasuwanci',
+  'landing.demoBoard.updated': 'An sabunta minti 12 da suka wuce',
   'landing.featuresEyebrow': 'Abin da ke sa Slate tessellate',
   'landing.featuresTitle': "Ra'ayoyi masu sauri. Kyawawan zane. Babu gogayya.",
   'landing.hero.body':
@@ -96,18 +116,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '•••••••••••',
   'login.signIn': 'Shiga Slate',
   'login.signupCta': 'Ƙirƙiri wurin aiki kyauta',
+  'login.signupPrompt': 'Sabo ne ga Tessera?',
   'login.subheading':
     'Ci gaba daga inda taron ya tsaya - allunan rubutu, manne, da kuma maɓallan rubutu duk suna aiki tare a ainihin lokaci.',
   'mobileNav.closeMenu': 'Rufe menu na kewayawa',
   'mobileNav.new': 'Sabo',
   'mobileNav.openMenu': 'Buɗe menu na kewayawa',
+  'notifications.editBody': 'An sabunta abin da ke kan allo.',
   'notifications.editTitle': 'Gyara zuwa " {{board}} "',
   'notifications.empty.body':
     'Gayyata, adana hotuna, da gyare-gyaren allo na baya-bayan nan za su bayyana a nan yayin da suke faruwa.',
   'notifications.empty.title': 'Babu wani sabon abu a cikin akwatin saƙonku',
   'notifications.eyebrow': '{{name}} · akwatin saƙo',
+  'notifications.inviteBody': 'a matsayin {{role}} a kan "{{board}}"',
   'notifications.inviteTitle': 'An gayyata {{email}}',
   'notifications.snapshotTitle': 'Sabon hoto akan " {{board}} "',
+  'present.addFirst': 'Ƙara firam na farko',
   'present.addFrame': '+ Ƙara firam',
   'present.boardEyebrow': '{{title}} gabatarwa',
   'present.empty.body':
@@ -115,6 +139,7 @@ export const ui: UiTranslations = {
   'present.empty.title': 'Babu firam tukuna',
   'present.exit': 'Fita gabatarwa',
   'present.exitToBoard': 'Komawa ga zane',
+  'present.eyebrow': 'Yanayin gabatarwa',
   'present.frameBody': "Maudu'in tattaunawa",
   'present.frameName': 'Sunan firam',
   'present.frameOf': 'Firam {{current}} na {{total}}',
@@ -124,20 +149,30 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'Gabatarwa kai tsaye',
   'present.save': 'Ajiye firam',
   'present.title': 'Gudanar da labarinka',
+  'present.unnamed': 'Firam mara suna',
+  'pricing.limits.advanced': 'Ci-gaba fasali',
   'profile.cursorBody':
     "An adana a kan wannan na'urar — abokan aiki suna ganin wannan launi kusa da siginar ku mai rai.",
   'profile.cursorEyebrow': 'Launin siginar ka',
   'profile.eyebrow': "Katin haɗin gwiwa na jama'a",
+  'profile.noBoards': 'Babu alluna tukuna — ƙirƙira ɗaya don farawa.',
+  'profile.recentBoards': 'Alluna {{name}} da aka taɓa kwanan nan',
   'profile.stat.${s.label}': 'Allo {{suna}} kwanan nan aka taɓa',
+  'profile.statsEyebrow': 'Ayyukanka',
   'profile.title': 'Bayanan martabarka',
+  'reset.backPrompt': 'Kuna buƙatar wata imel?',
   'reset.cta': 'Sake saita kalmar sirri & shiga',
+  'reset.password': 'Sabuwar kalmar sirri',
   'reset.subheading': 'Zaɓi kalmar sirri mai ƙarfi — aƙalla haruffa 8 tare da lamba ɗaya.',
   'settings.appearance.title': 'Jigo da zane',
   'settings.eyebrow': 'Abubuwan da ake so a asusun',
   'settings.notifications.title': 'Abubuwan da aka fi so na sanarwa',
   'settings.profile.title': "Katin haɗin gwiwa na jama'a",
+  'settings.security.body':
+    'Sarrafa tabbatarwa ta hanyoyi biyu, zaman da ke aiki, da kalmar sirri daga dashboard ɗin asusunku.',
   'settings.security.title': 'Tsaro',
   'shared.collaboratorCount': '{{count}} mai haɗin gwiwa(s)',
+  'shared.count': 'Alluna {{count}}',
   'shared.empty.body':
     'Idan abokin aiki ya gayyace ka zuwa wani kwamiti, zai bayyana a nan ta atomatik.',
   'shared.empty.title': 'Babu abin da aka raba muku tukuna',
@@ -153,6 +188,9 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Kyauta ga har zuwa masu haɗin gwiwa 3. Ba a buƙatar katin kiredit a cikin kwanaki 14 na farko.',
   'templateCard.usageCount': '{{count}} amfani',
+  'templateDetail.allTemplates': 'Duk samfura',
+  'templateDetail.body':
+    'Danna "Yi amfani da samfuri" don kwafa sinadaran farawa {{count}} cikin sabon allo mai taken "{{name}}". Gyara, raba, kuma gudanar da taron bitarku daga nan.',
   'templateDetail.delete': 'Share samfuri',
   'templateDetail.elementsCount': '{{count}} abubuwan farawa',
   'templateDetail.eyebrow': '{{kind}} samfuri',
@@ -165,16 +203,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'Ajiye samfuri na musamman',
   'templates.empty.body':
     'Ƙirƙiri samfuri na musamman daga kowace allo da kake da shi — buɗe allon, adana hoto, sannan adana shi azaman samfuri mai sake amfani a nan.',
+  'templates.empty.title': 'Babu samfura tukuna',
   'templates.eyebrow': 'Kayan aikin bita & samfuran da aka adana',
   'templates.filter.${c}': 'Babu samfura tukuna',
   'templates.nameLabel': 'Sunan samfuri',
   'templates.systemBadge': 'Gina-ciki',
   'templates.userBadge': 'Naku',
   'versionHistory.backToBoard': 'Komawa ga zane',
+  'versionHistory.elementsTotal': 'Sinadaran da aka kama {{count}}',
   'versionHistory.empty.body':
     'Ana ƙirƙirar hotunan hoto daga kan allon tare da "Ajiye hotunan hoto" - suna bayyana a nan don haka zaka iya dawo da duk wani yanayi da ya gabata.',
+  'versionHistory.empty.cta': 'Buɗe zane don ɗaukar ɗaya',
   'versionHistory.empty.title': 'Babu hotuna tukuna',
   'versionHistory.eyebrow': '{{title}} · tarihi',
+  'versionHistory.eyebrowFallback': 'Tarihin allo',
   'versionHistory.latest': 'Na Kwanan Nan',
   'versionHistory.restore': 'Mayar da wannan sigar',
   'versionHistory.restored': 'An dawo da hoton.',
@@ -185,6 +227,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'Sabon allo',
   'whiteboardLayout.primaryNav': 'Babban kewayawa',
   'workspace.boardLabel': 'Allon allo',
+  'workspace.empty': 'Babu abokan haɗin gwiwa tukuna — gayyaci wani zuwa allunanku.',
   'workspace.eyebrow': '{{name}} · wurin aiki',
   'workspace.invite': 'Gayyaci masu haɗin gwiwa',
   'workspace.inviteSent': 'An aika da gayyata.',
@@ -194,4 +237,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'Mai Sharhi',
   'workspace.role.editor': 'Edita',
   'workspace.role.viewer': 'Mai Kallo',
+  'workspace.title': 'Membobi & matsayi',
 }

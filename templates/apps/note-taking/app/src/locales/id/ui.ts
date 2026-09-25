@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Punya masukan, menemukan bug, atau ingin menyarankan fitur? Hubungi kami dari pengaturan akun Anda — setiap pesan sampai ke orang sungguhan di tim kami.',
+  'about.contactTitle': 'Hubungi kami',
+  'about.featureDatabases':
+    'Basis data ringan dan template yang dapat digunakan ulang untuk mengubah catatan lepas menjadi alur kerja yang terstruktur dan berulang.',
+  'about.featureEditor':
+    'Editor blok yang tenang — judul, daftar, kode, callout, dan to-do — dengan slash-command saat Anda membutuhkannya dan tidak mengganggu saat tidak.',
+  'about.featureGraph':
+    'Backlink dan grafik pengetahuan: ketik [[ untuk menautkan catatan dan lihat bagaimana ide Anda terhubung seiring waktu.',
+  'about.featureNotebooks':
+    'Notebook dan halaman bersarang agar proyek, topik, dan catatan harian tetap terorganisir persis seperti cara Anda berpikir.',
+  'about.featureSearch':
+    'Pencarian teks lengkap di bawah 50ms di setiap notebook, plus tag yang melengkapi notebook alih-alih bertentangan.',
+  'about.missionTitle': 'Misi kami',
   'common.goToDashboard': 'Ke Dashboard',
   'forgot.eyebrow': 'Kehilangan jalan kembali?',
   'forgot.formSubtitle': 'Beri tahu kami email yang terdaftar.',
+  'forgot.formTitle': 'Lupa kata sandi',
   'forgot.headline': 'Atur ulang kata sandi Anda.',
   'forgot.subline':
     'Kami akan mengirimkan tautan sekali kirim ke kotak masuk Anda agar Anda dapat memilih yang baru.',
+  'forgot.successDetail':
+    'Kami telah mengirim tautan reset ke email Anda. Tautan ini kedaluwarsa dalam 30 menit.',
   'graph.eyebrow': 'Grafik',
+  'graph.goToNotes': 'Jelajahi catatan →',
+  'graph.loadError': 'Tidak dapat memuat grafik: {{message}}',
   'graph.placeholderBody':
     'Ketika catatan mulai saling terhubung (dengan sintaks [[wiki]]), grafik interaktif berbasis gaya tarik-menarik akan ditampilkan di sini.',
+  'graph.placeholderTitle': 'Grafik backlink segera hadir',
   'graph.subtitle':
     '{{count}} Catatan di ruang kerja ini. Rendering grafik tautan balik akan muncul di sini setelah catatan saling terhubung.',
   'graph.title': 'Graf pengetahuan',
   'home.empty': 'Belum ada catatan — mulailah catatan pertama Anda.',
   'home.favoritesHeading': 'Disematkan',
   'home.guest': 'teman',
+  'home.loadError': 'Tidak dapat memuat catatan Anda: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Sematkan catatan di editor agar tetap di sini.',
   'home.recentHeading': 'Diperbarui baru-baru ini',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Buku catatan',
   'home.stats.pinned.label': 'Disematkan',
   'home.stats.updatedToday.label': 'Diperbarui hari ini',
+  'home.subtitle': 'Lanjutkan dari tempat Anda berhenti, atau mulai catatan baru.',
   'home.viewAll': 'Lihat semua catatan',
   'landing.cta.body':
     'Gratis untuk penggunaan pribadi. Versi Pro untuk tim. Gunakan catatan markdown Anda yang sudah ada atau mulai dari awal — Verso menemani Anda di mana pun catatan Anda berada.',
+  'landing.cta.button': 'Buat ruang kerja saya',
   'landing.cta.heading': 'Buka halaman hari ini.',
   'landing.features.eyebrow': 'Setiap hal primitif yang dibutuhkan otak kedua Anda',
+  'landing.features.heading': 'Dibangun untuk pekerjaan, bukan meta-pekerjaan.',
   'landing.hero.eyebrow': 'Permukaan menulis yang tenang',
   'landing.hero.headlineAccent': 'mulai terbentuk.',
   'landing.hero.headlineLeading': 'Di mana pikiran',
   'landing.hero.primaryCta': 'Mulailah basis pengetahuan Anda',
   'landing.hero.secondaryCta': 'Saya sudah punya akun',
+  'landing.hero.socialProof': '12.800+ penulis, pelajar, dan PhD berpikir dengan {{appName}}',
   'landing.hero.subline':
     'Verso adalah platform pencatatan terstruktur untuk pekerja pengetahuan dan mahasiswa. Editor blok, buku catatan bertingkat, tautan balik, dan grafik pengetahuan — semuanya didukung oleh pengalaman membaca yang mengutamakan tipografi.',
+  'landing.preview.notebook': 'Pengetahuan · Proses menulis',
+  'landing.preview.title': 'Tentang membiarkan angin berhembus',
   'login.eyebrow': 'Selamat datang kembali di Verso.',
   'login.formSubtitle': 'Gunakan email Anda atau penyedia mana pun yang terhubung.',
   'login.headline': 'Lanjutkan dari tempat halaman berhenti.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Tutup menu navigasi',
   'mobileNav.openMenu': 'Buka menu navigasi',
   'noteEditor.backToNotes': 'Kembali ke catatan',
+  'noteEditor.bodyLabel': 'Isi catatan',
   'noteEditor.bodyPlaceholder':
     'Mulailah menulis — catatan Anda akan tersimpan otomatis saat Anda mengetik.',
   'noteEditor.confirmTrash': 'Pindahkan catatan ini ke tempat sampah?',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Pindahkan ke sampah',
   'noteEditor.updated': 'Diperbarui',
   'notes.defaultWorkspaceName': 'Buku catatan saya',
+  'notes.empty': 'Belum ada catatan di sini — mulai satu untuk mengisi notebook.',
   'notes.eyebrow': 'Buku catatan',
   'notes.filterAll': 'Semua catatan',
   'notes.filterPinned': 'Disematkan',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Notebook baru',
   'notes.newNotebookPrompt': 'Nama buku catatan baru',
+  'notes.newNotebookRequired': 'Masukkan nama notebook.',
   'notes.notebooksHeading': 'Buku catatan',
   'notes.subtitle':
     'Pilih buku catatan di sebelah kiri, lalu tekan tombol Catatan baru untuk memulai entri baru.',
+  'planUpdated.body': 'Langganan Anda kini aktif.',
   'planUpdated.confirmation': 'Paket Anda telah diperbarui',
+  'pricing.advancedFeatures': 'Fitur lanjutan',
   'pricing.heading': 'Pilih paket pencatatan Anda',
+  'reset.changedMind': 'Berubah pikiran?',
   'reset.eyebrow': 'Hampir kembali ke',
   'reset.formSubtitle': 'Anda akan masuk segera setelah tersimpan.',
   'reset.headline': 'Pilih kata sandi baru.',
@@ -72,7 +105,9 @@ export const ui: UiTranslations = {
     'Masukkan kode yang baru saja kami kirimkan melalui email dan pilih sesuatu yang berkesan.',
   'reset.submit': 'Simpan dan masuk',
   'reset.tokenHint': 'Tempel dari kotak masuk Anda.',
+  'search.empty': 'Belum ada catatan yang cocok dengan kueri ini.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Cari Refract',
   'search.loading': 'Mencari…',
   'search.noRecent': 'Ketikkan kueri di atas untuk mulai mencari di seluruh catatan Anda.',
   'search.recentLabel': 'Pencarian terbaru',
@@ -80,12 +115,19 @@ export const ui: UiTranslations = {
     'Teks lengkap di setiap buku catatan. Ketik untuk mencari; hasil pencarian akan diperbarui saat Anda mengetik.',
   'search.title': 'Telusuri otak kedua.',
   'settings.account.logout': 'Keluar',
+  'settings.account.title': 'Detail akun',
+  'settings.editor.graphHover.body':
+    'Tampilkan kartu pratinjau kecil saat Anda mengarahkan kursor ke [[wikilink]] di editor.',
+  'settings.editor.graphHover.label': 'Pratinjau hover grafik backlink',
   'settings.editor.lineHeight.body':
     'Seberapa banyak udara di antara garis-garis tubuh. 170% adalah ritme pembacaan standar.',
+  'settings.editor.lineHeight.label': 'Tinggi baris',
   'settings.editor.serif.body':
     'Gunakan font Georgia untuk kolom bacaan. Font sans-serif tetap digunakan di sidebar dan toolbar.',
+  'settings.editor.serif.label': 'Teks isi serif',
   'settings.editor.title': 'Tipografi & permukaan tulisan',
   'settings.eyebrow': 'Verso · Pengaturan',
+  'settings.passwordModal.current': 'Kata sandi saat ini',
   'settings.passwordModal.error':
     'Tidak dapat mengubah kata sandi — harap periksa kata sandi Anda saat ini.',
   'settings.passwordModal.next': 'Kata sandi baru',
@@ -95,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Teruskan setiap penekanan tombol melalui saluran waktu nyata. Nonaktifkan untuk koneksi yang lebih lambat.',
   'settings.sync.auto.label': 'Sinkronisasi waktu nyata',
+  'settings.sync.title': 'Bagaimana catatan Anda berpindah',
   'settings.theme.body':
     'Cahaya membuat kolom editorial tetap terang. Warna sepia menghangatkan halaman untuk suasana malam hari.',
   'settings.theme.dark': 'Gelap',
@@ -114,8 +157,12 @@ export const ui: UiTranslations = {
     'Tambahkan #hashtag ke judul catatan (misalnya "Daftar bacaan #buku") dan hashtag tersebut akan muncul di sini secara otomatis.',
   'tags.emptyTitle': 'Belum ada tag',
   'tags.eyebrow': 'Indeks',
+  'tags.goToNotes': 'Buka catatan →',
+  'tags.loadError': 'Tidak dapat memuat tag: {{message}}',
   'tags.subtitle':
     '{{tags}} tag di seluruh {{notes}} Catatan. Tambahkan #hashtag ke judul catatan dan hashtag tersebut akan muncul di sini.',
+  'versoAuthShell.sample.body':
+    'Pemeriksaan ulang besok selalu lebih enak dibaca daripada draf pertama tadi malam. Simpan draf kasar di folder kerja mendalam…',
   'versoAuthShell.sample.label': 'Catatan harian',
   'versoAuthShell.sample.timestamp': 'Hari ini · 09.14',
   'versoAuthShell.sample.title': 'Tentang membiarkan angin berhembus',
@@ -127,8 +174,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Lanjutkan menulis',
   'versoTodayHero.createCta': 'Mulailah catatan hari ini',
   'versoTodayHero.dailyLabel': 'Catatan harian',
+  'versoTodayHero.emptyHeadline': 'Hari ini adalah halaman kosong.',
   'versoTodayHero.emptySubline':
     'Catat sebuah pemikiran, buat jadwal pertemuan, atau sketsa untuk besok. Verso menjaga struktur tetap sederhana sehingga tulisan tetap menonjol.',
+  'versoTodayHero.outlineLabel': 'Kerangka hari ini',
   'versoTodayHero.streak': 'Rangkaian {{count}} hari',
+  'versoTodayHero.unwritten': 'Belum ada kata — buka catatan untuk memulai.',
   'versoTodayHero.wordCount': '{{count}} kata-kata hari ini',
 }

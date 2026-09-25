@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пикириңиз барбы, ката таптыңызбы же {{app}}ди мектебиңизге же командаңызга алып келгиңиз келеби? Биз ар бир билдирүүнү окуйбуз — аккаунт жөндөөлөрүңүздөн кайрылыңыз, чыныгы адам жооп берет.',
   'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
+  'about.intro':
+    '{{app}} — класстар, оюн кечтери жана командалык иш-чаралар үчүн түз эфирдеги викторина платформасы. Оюндуу суроо топтомдорун түзүңүз, кошулуу коду менен реалдуу убакыттагы оюндарды өткөрүңүз жана убакытка байланган суроолор, упайлар жана лидерлер тактасы менен залдын жанданышын көрүңүз.',
+  'about.missionBody':
+    'Окуу оюн сыяктуу сезилгенде эсте калат. Биз ар кимге теманы тез, атаандаштык оюнуна айландырууну жеңилдетемиз — алып баруучулар иш жүзүндө үйрөтө алат, ал эми оюнчулар сериясын улантат.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'about.title': '{{app}} жөнүндө',
   'auth.login.noAccount': "Sparq'та жаңысызбы?",
   'auth.login.or': 'же улантуу',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Азырынча дал келген викториналар жок.',
   'discover.headline': 'Кийинки сүйүктүү викторинаңызды табыңыз.',
   'discover.loading': 'Жүктөлүүдө…',
+  'discover.searchPlaceholder': 'Викториналарды аталышы боюнча издөө…',
   'discover.subhead':
     'Толук китепкананы карап чыгыңыз, категория боюнча чыпкалаңыз же аталышы боюнча издеңиз. Жалгыз ойноо же түз эфирде алып баруу үчүн картаны басыңыз.',
   'forgotPassword.subhead':
     'Электрондук почтаңызды киргизиңиз, биз сизге баштапкы абалга келтирүү үчүн шилтеме жөнөтөбүз.',
   'forgotPassword.success.body':
     'Эгерде аккаунт бар болсо {{email}} , бир нече мүнөттөн кийин баштапкы абалга келтирүү шилтемесин аласыз.',
+  'forgotPassword.success.title': 'Келген каттар кутучаңызды текшериңиз.',
   'hostLobby.back': 'Викторинага кайтуу',
   'hostLobby.copied': 'Кошулуу коду буферге көчүрүлдү.',
   'hostLobby.creating': 'Лоббиңизди иретке келтирүү…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Лоббиден баш тартуу',
   'hostLobby.players.count': '{{count}} жашоо',
   'hostLobby.players.title': 'Фойедеги оюнчулар',
+  'hostLobby.players.waiting':
+    'Оюнчуларды күтүп жатабыз. Алар кошулушу үчүн {{code}} кодун бөлүшүңүз.',
   'hostLobby.rules.title': 'Үй эрежелери',
   'hostLobby.startError': 'Оюнду баштай алган жок.',
   'hostLobby.starting': 'От жагуу…',
   'joinCodeHero.headline': 'Оюнчуларыңызга секирип келүүнү айтыңыз.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Же болбосо, барыңыз',
   'joinCodeHero.liveLabel': 'Лоббиде түз эфир',
+  'joinCodeHero.playerJoined': '{{name}} кошулду',
   'joinCodeHero.playersLabel': 'Оюнчулар',
   'joinCodeHero.qrLabel': 'Кошулуу үчүн скандоо',
   'joinCodeHero.startGame': 'Учкунду баштаңыз',
   'joinCodeHero.subhead':
     'Кошулуу кодун бөлүшүңүз же QR кодду сканерлеңиз. Оюн сиз учкун чыгарган учурдан башталат.',
+  'landing.cta.button': 'Биринчи викторинаңызды түзүңүз',
   'landing.cta.eyebrow': 'Мугалимдер үчүн акысыз',
   'landing.cta.heading': 'Ар бир сабакка жан дүйнөңүздү ачыңыз.',
+  'landing.cta.subhead':
+    '30 секундда катталыңыз. Чексиз сандагы түз эфирдеги оюндарды өткөрүңүз, AI менен викториналарды түзүңүз жана ар бир оюнчунун сериясын сактаңыз.',
   'landing.eyebrow': 'Ар бир жоопту жандандырыңыз',
   'landing.features.heading': 'Окутуу жана ойноо ыкмаңызга туура келген викторина студиясы.',
   'landing.hero.ctaPrimary': 'Акысыз хостингди баштаңыз',
@@ -57,6 +73,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Популярдуу викториналар',
   'landing.popular.eyebrow': 'Бул аптада популярдуу',
   'landing.popular.heading': 'Викторинага катышыңыз, алып баруучулар бүгүн иштеп жатышат.',
+  'landing.popular.viewAll': 'Бардык категорияларды кароо →',
+  'leaderboard.empty.body': 'Упайыңызды глобалдык лидерлер тактасына кошуу үчүн викторина ойноңуз.',
   'leaderboard.empty.title': 'Азырынча тактада оюн жок — биринчи болуңуз.',
   'leaderboard.eyebrow': 'Лидер тактасы',
   'leaderboard.fullRanking': 'Толук рейтинг',
@@ -64,6 +82,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Ар бир ойногон викторина сессияңыз боюнча жалпы упай топтоңуз. Көбүрөөк ойноп, жогорулаңыз.',
   'leaderboard.title': 'Мыкты викторина уюштуруучулары',
+  'leaderboard.totalPlayers': '{{count}} рейтингдеги оюнчу',
   'leaderboardRow.points': 'упайлар',
   'leaderboardRow.streak': '{{days}} д',
   'login.headline': 'Кайрадан кош келиңиз, викторина алып баруучу.',
@@ -75,9 +94,11 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Биринчи викторинаңызды түзүңүз →',
   'myQuizzes.empty.created': 'Сиз али викторина түзө элексиз.',
   'myQuizzes.empty.played': 'Азырынча жарыяланган викториналар жок.',
+  'myQuizzes.loading': 'Жүктөлүүдө…',
   'myQuizzes.subhead': 'Сиз түзгөн долбоорлор, ошондой эле ойной турган жарыяланган викториналар.',
   'myQuizzes.title': 'Менин викториналарым',
   'nav.legal': 'Юридикалык',
+  'nav.primaryNavLabel': 'Негизги навигация',
   'notFound.backHome': 'Үйгө кайтуу',
   'notFound.backToDiscover': 'Викториналарды карап чыгуу',
   'notFound.body': 'Башка кодду колдонуп көрүңүз же фойеге кайтыңыз.',
@@ -86,17 +107,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Жүктөлүүдө…',
   'notifications.subhead':
     '{{count}} окула элек учкундар. Чакыруулар, лидер тактасындагы жылдыруулар жана жетишкендиктердин баары бир агымда.',
+  'planUpdated.retry': 'Кайра аракет кыл',
+  'planUpdated.verifyFailed': 'Төлөмүңүздү азырынча ырастай алган жокпуз.',
+  'planUpdated.verifyFailedBody':
+    'Төлөмүңүз дагы эле иштетилип жатышы мүмкүн. Бир аздан кийин кайра аракет кылыңыз.',
   'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
+  'pricing.advancedFeatures': 'Кеңейтилген функциялар: {{yes}}',
+  'pricing.canExport': 'Маалыматтарды экспорттоо: {{yes}}',
   'pricing.checkoutError': 'Төлөм башталган жок. Кайра аракет кылып көрүңүз.',
   'pricing.heading': '{{app}} тарифиңизди тандаңыз',
   'pricing.included': 'Киргизилген',
   'pricing.loadError': 'Пландар жүктөлбөй койду.',
+  'pricing.maxQuestions': '{{count}} суроолор',
   'pricing.maxQuizzes': '{{count}} викториналар',
+  'pricing.maxSessions': '{{count}} сессия',
   'pricing.subhead':
     'Хосттор жана оюнчулар үчүн акысыз. Жогорку чектөөлөр жана өркүндөтүлгөн функциялар үчүн жаңыртыңыз.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Каттоо эсеби: электрондук почта, хэштелген сырсөз, көрсөтүлүүчү аты-жөнү, акыркы кирүү.',
+  'privacy.intro':
+    '{{app}} жеке жашыруундугуңузду сыйлайт. Бул бетте биз сактаган маалыматтар, аларды эмне үчүн сактайбыз жана кантип өчүрүү керектиги жөнүндө айтылат.',
   'privacy.rights.body':
     'Бардык дайындарыңызды 30 күндүн ичинде биротоло өчүрүү үчүн аккаунтуңузду Жөндөөлөрдөн өчүрүңүз.',
   'privacy.share.body':
@@ -120,6 +151,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Викторинанын идентификатору: {{id}}',
   'quizBuilder.loadError': 'Викторина жүктөлбөй койду.',
   'quizBuilder.loading': 'Редактор жүктөлүүдө…',
+  'quizBuilder.markCorrect': '{{letter}} туура деп белгилөө',
   'quizBuilder.noQuestions': 'Азырынча суроолор жок — баштоо үчүн бирөөнү кошуңуз.',
   'quizBuilder.notFound': 'Тест табылган жок.',
   'quizBuilder.preview': 'Көрүү',
@@ -136,7 +168,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} таймер',
   'quizBuilder.title': 'Викторинаңызды түзүңүз',
   'quizBuilder.titleLabel': 'Викторинанын аталышы',
+  'quizBuilder.untitled': 'Аталышы жок суроо',
   'quizCard.plays': '{{count}} пьесалар',
+  'quizCard.questionCount': '{{count}} суроо',
   'quizDetail.duration': '~ {{minutes}} мин',
   'quizDetail.hostMultiplayer': 'Көп оюнчу режиминде ойной турган кожоюн.',
   'quizDetail.leaderboardEmpty': 'Азырынча оюн жок — биринчи болуп эсепти коюңуз.',
@@ -151,26 +185,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Викторинага кайтуу',
   'quizPlay.empty': 'Бул викторинада азырынча суроолор жок.',
   'quizPlay.error': 'Бул викторина жүктөлбөй койду. Кайра аракет кылып көрүңүз.',
+  'quizPlay.exit': 'Чыгуу',
   'quizPlay.feedback.correct': '🔥 Spark утуп алды — кийинкисине!',
+  'quizPlay.feedback.incorrect': 'Туура жооп {{correct}} болчу. Уланта бериңиз.',
   'quizPlay.loading': 'Викторина жүктөлүүдө…',
   'quizPlay.next': 'Кийинки суроо',
   'quizPlay.questionCounter': 'Суроо {{current}} ...нын {{total}}',
   'quizPlay.score': '{{score}} упайлар',
+  'quizPlay.seeResults': 'Жыйынтыктарды көрүү',
   'quizPlay.sessionFailed': 'Сеанс башталган жок.',
   'quizPlay.streak': '{{count}} серия',
+  'resetPassword.subhead': 'Серияңызга кайтуу үчүн жаңы сырсөз тандаңыз.',
   'results.backToDiscover': "Discover'ге кайтуу",
   'results.error': 'Жыйынтыктар жүктөлбөй койду.',
   'results.exit': "Discover'ге кайтуу",
   'results.loading': 'Упайыңызды эсептөө…',
   'results.missingSession': 'Жыйынтыктоо үчүн сессия жок.',
+  'results.recap.correctAnswer': 'Туура: {{answer}}',
   'results.recap.questionLabel': 'Суроо {{number}}',
   'results.recap.title': 'Суроолордун кыскача баяндамасы',
+  'results.recap.yourAnswer': 'Сиз: {{answer}}',
   'results.unknownQuiz': 'Викторина',
   'scoreBreakdownCard.accuracyLabel': 'Тактык',
+  'scoreBreakdownCard.correctLabel': 'Туура',
   'scoreBreakdownCard.eyebrow': 'Викторина аяктады',
   'scoreBreakdownCard.headline': 'Жакшы иш болду" {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Упайлар',
   'scoreBreakdownCard.rankLabel': 'Ранжы',
+  'scoreBreakdownCard.streakBonus': 'Серия бонусу +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Кызыгууңуз көрүнүп турат. Лидерлер тактасында жогорулоону улантуу үчүн төмөнкү талдоону карап чыгыңыз.',
   'settings.danger.body':
     'Sparq аккаунтуңузду жана түзүлгөн бардык викториналарды биротоло жок кылыңыз.',
   'settings.danger.confirm': 'Ооба, биротоло өчүрүү',
@@ -189,5 +233,7 @@ export const ui: UiTranslations = {
     'Сиз жарыялаган мазмун, жазган суроолор жана өткөргөн оюндар үчүн жооптуусуз. Башка адамдардын атын жамынбаңыз.',
   'terms.billing.body':
     'Акы төлөнүүчү пландар Жөндөөлөрдөн жокко чыгарылганга чейин автоматтык түрдө жаңыртылат. Каалаган убакта жокко чыгара аласыз; мүмкүнчүлүк учурдагы эсептешүү мезгилинин аягына чейин сакталат.',
+  'terms.intro':
+    '{{app}} колдонуу менен төмөнкү эрежелерге макул болосуз. Эгер аларды кабыл албасаңыз, кызматты колдонбоңуз.',
   'terms.title': 'Тейлөө шарттары',
 }

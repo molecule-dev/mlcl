@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'உங்கள் திட்டம் புதுப்பிக்கப்பட்டது.',
   'planUpdated.returnHome': 'முகப்புக்குத் திரும்பு',
   'planUpdated.thankYou': 'நன்றி!',
+  'post.markdown': 'இந்த இடுகையை markdown ஆகப் பார்க்கவும்',
+  'post.readingTime': '{{minutes}} குறைந்தபட்ச வாசிப்பு',
   'post.tags': 'குறிச்சொற்கள்',
   'project.error.nameAndTypeRequired': 'name மற்றும் projectType தேவை',
   'project.error.notFound': 'கிடைக்கவில்லை',

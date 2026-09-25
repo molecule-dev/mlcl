@@ -99,6 +99,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': '您的方案已更新。',
   'planUpdated.returnHome': '返回首页',
   'planUpdated.thankYou': '谢谢！',
+  'post.markdown': '以 Markdown 查看此帖子',
+  'post.readingTime': '约 {{minutes}} 分钟阅读',
   'post.tags': '标签',
   'project.error.nameAndTypeRequired': '需要 name 和 projectType',
   'project.error.notFound': '未找到',

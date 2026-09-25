@@ -2,10 +2,12 @@ import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.title': 'உங்கள் பாக்கெட்டில் வைத்துக்கொள்ளக்கூடிய ஓர் எழுதும் அறை.',
   'billing.cancelConfirm': 'உங்கள் செயலில் உள்ள சந்தாவை ரத்து செய்யவா?',
   'billing.cancelFailed': 'ரத்து செய்ய முடியவில்லை.',
   'billing.checkingOut': 'பணம் செலுத்தும் இடம் திறக்கப்படுகிறது…',
+  'billing.current.activeNote': 'செயலில் உள்ள சந்தா · {{plan}}',
   'billing.current.freeNote':
     'எப்போது வேண்டுமானாலும் மேம்படுத்திக்கொள்ளலாம் — அட்டை விவரங்கள் பதிவு செய்யப்படவில்லை.',
   'billing.current.manage': 'சுயவிவரத்தை நிர்வகிக்கவும்',
@@ -16,10 +18,13 @@ export const ui: UiTranslations = {
   'billing.heading': 'ஒரு பேனா, ஒரு தாள், மற்றும் மாத இறுதியில் ஒரு அமைதியான கட்டண ரசீது.',
   'billing.loadFailed': 'கட்டண விவரங்களை ஏற்ற முடியவில்லை.',
   'billing.loading': 'கட்டணம் ஏற்றப்படுகிறது…',
+  'billing.subtitle':
+    'வார்த்தைகளை எழுதத் தொடங்க இலவசப் பதிப்பே போதும். கவனப் பயன்முறை, பதிப்பு வரலாறு, உங்கள் தொகுப்பாளர் ஏற்கும் ஏற்றுமதி வடிவங்கள் ஆகியவை Pro-வில் திறக்கும்.',
   'billing.upgradeCta': 'மேம்படுத்த {{name}}',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'editor.autosaveOn': 'தானாகச் சேமித்தல்',
   'editor.backToLibrary': 'நூலகத்திற்குத் திரும்பு',
+  'editor.bodyPlaceholder': 'எழுதத் தொடங்குங்கள் — சேமிப்பு தானாகவே நடக்கும்.',
   'editor.charCount': '{{count}} கதாபாத்திரங்கள்',
   'editor.confirmTrash': 'இந்த ஆவணத்தைக் குப்பைக்கு நகர்த்தவா?',
   'editor.draftLabel': 'வரைவு',
@@ -53,11 +58,17 @@ export const ui: UiTranslations = {
   'forgot.headline': 'உங்கள் கடவுச்சொல்லை மீட்டமைக்கவும்.',
   'forgot.subline':
     'எங்களிடம் உள்ள மின்னஞ்சல் முகவரியை உள்ளிடவும், நீங்கள் புதிய ஒன்றைத் தேர்ந்தெடுப்பதற்காக ஒருமுறை பயன்படுத்தக்கூடிய இணைப்பை நாங்கள் அனுப்புவோம்.',
+  'forgot.successDetail':
+    'உங்கள் மின்னஞ்சலுக்கு மீட்டமைப்பு இணைப்பை அனுப்பியுள்ளோம். இது 30 நிமிடங்களில் காலாவதியாகும்.',
   'landing.cta.body':
     'தனிப்பட்ட பயன்பாட்டிற்கு இலவசம். விரிவான வரைவுகளுக்கு புரோ பதிப்பு. உங்களிடம் ஏற்கனவே உள்ள மார்க்டவுனைக் கொண்டு வாருங்கள் அல்லது புதிதாகத் தொடங்குங்கள் — கையெழுத்துப் பிரதி எங்கிருந்தாலும் வெர்சல் உங்களைச் சந்திக்கும்.',
+  'landing.cta.button': 'ஒரு கையெழுத்துப் பிரதியைத் தொடங்குங்கள்',
   'landing.cta.heading': 'பக்கத்தைத் திறக்கவும்.',
+  'landing.features.eyebrow': 'நீண்ட வடிவ எழுத்தாளருக்குத் தேவையான அனைத்து அடிப்படைக் கருவிகளும்',
+  'landing.features.heading': 'பணிக்காக உருவாக்கப்பட்டது, மேலதிகப் பணிக்காக அல்ல.',
   'landing.hero.eyebrow': 'உங்கள் பாக்கெட்டில் வைத்துக்கொள்ளக்கூடிய ஓர் எழுதும் அறை.',
   'landing.hero.headlineAccent': 'சுவர்கள் இல்லாமல்.',
+  'landing.hero.headlineLeading': 'எழுது',
   'landing.hero.primaryCta': 'ஒரு கையெழுத்துப் பிரதியைத் தொடங்குங்கள்',
   'landing.hero.secondaryCta': 'நான் ஏற்கனவே இங்கே எழுதுகிறேன்',
   'landing.hero.socialProof':
@@ -65,21 +76,26 @@ export const ui: UiTranslations = {
   'landing.hero.subline':
     'வெர்சல் என்பது நாவலாசிரியர்கள், கட்டுரையாளர்கள் மற்றும் பத்திரிகையாளர்களுக்கான ஒரு அமைதியான நீண்ட வடிவத் தொகுப்பி ஆகும். தட்டச்சு இயந்திரச் சுருள், எளிமையான சொல் இலக்குகள், மற்றும் சிக்கனமான ஆனால் நன்கு சிந்திக்கப்பட்ட ஆவண நூலகம் — இதனால் திரையில் பக்கம் மட்டுமே தெரியும்.',
   'landing.nav.getStarted': 'எழுதத் தொடங்குங்கள்',
+  'landing.preview.collection': 'கையெழுத்துப் பிரதி · வரைவு 7',
   'landing.preview.title': 'சூரிய உதயத்திற்கு முந்தைய ஒரு அமைதியான நேரம்',
   'library.activeLabel': 'சேகரிப்பு',
   'library.allDocs': 'அனைத்து ஆவணங்களும்',
   'library.collectionsHeading': 'சேகரிப்புகள்',
   'library.createFailed': 'புதிய ஆவணத்தை உருவாக்க முடியவில்லை.',
+  'library.empty': 'இங்கே இன்னும் ஆவணங்கள் இல்லை — தொகுப்பை நிரப்ப ஒன்றைத் தொடங்குங்கள்.',
   'library.eyebrow': 'வெர்சல் · நூலகம்',
   'library.filter.${opt}': 'உங்கள் நூலகம் ஏற்றப்படுகிறது…',
   'library.folderFailed': 'கோப்புறையை உருவாக்க முடியவில்லை.',
   'library.greeting': 'மீண்டும் வருக, {{name}} .',
   'library.guest': 'எழுத்தாளர்',
   'library.loadFailed': 'உங்கள் நூலகத்தை ஏற்ற முடியவில்லை.',
+  'library.loading': 'உங்கள் நூலகம் ஏற்றப்படுகிறது…',
   'library.newCollection': 'புதிய தொகுப்பு',
   'library.newCollectionPlaceholder': 'தொகுப்பின் பெயர்',
   'library.newDocCta': 'புதிய கையெழுத்துப் பிரதி',
   'library.statsCta': 'புள்ளிவிவரங்கள்',
+  'library.subtitle':
+    'உங்கள் கையெழுத்துப் பிரதிகள், கட்டுரைகள், களக் குறிப்புகள் — அனைத்தும் ஒரே அமைதியான கூரையின் கீழ். காத்திருக்கும் அத்தியாயத்தைத் தொடருங்கள்.',
   'library.untitledDraft': 'தலைப்பிடப்படாத வரைவு',
   'login.eyebrow': 'வெர்சலுக்கு மீண்டும் வருக.',
   'login.formSubtitle':
@@ -90,9 +106,11 @@ export const ui: UiTranslations = {
     'உங்கள் கையெழுத்துப் பிரதிகள், தினசரிப் பக்கங்கள் மற்றும் கடைசி கர்சர் நிலை ஆகியவை நீங்கள் விட்டுச்சென்ற இடத்திலேயே இருக்கின்றன.',
   'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
+  'pricing.documents': 'ஆவணங்கள்',
   'pricing.exports': 'ஏற்றுமதிகள்',
   'pricing.folders': 'கோப்புறைகள்',
   'pricing.heading': 'ஆவணங்கள்',
+  'reset.changedMind': 'மனம் மாறிவிட்டதா?',
   'reset.eyebrow': 'கிட்டத்தட்ட பக்கத்திற்குத் திரும்பிவிட்டேன்',
   'reset.formSubtitle': 'அது சேமிக்கப்பட்டவுடன் நீங்கள் உள்நுழைந்துவிடுவீர்கள்.',
   'reset.headline': 'புதிய கடவுச்சொல்லை அமைக்கவும்.',
@@ -105,17 +123,23 @@ export const ui: UiTranslations = {
   'settings.editor.${row.id}.description': 'மொழி',
   'settings.editor.description':
     'தட்டச்சு இயந்திரச் சுருள், பத்தி மங்கல் மற்றும் செயலற்ற குவியம் — — இயல்புநிலைகள் நீண்ட நேரப் பயன்பாடுகளுக்காகச் சரிசெய்யப்பட்டுள்ளன.',
+  'settings.editor.eyebrow': 'ஆசிரியர் கட்டுப்பாடுகள்',
   'settings.editor.heading': 'பக்கம் எவ்வாறு செயல்படுகிறது',
   'settings.export.default': 'இயல்புநிலை',
   'settings.export.description':
     'இயல்புநிலை ஏற்றுமதி வடிவம் மற்றும் இதன் மூலம் வெர்சல், அனுப்பும்போது மெருகேற்றப்பட்ட படைப்புகளை வழங்க முடியும்.',
+  'settings.export.eyebrow': 'ஏற்றுமதி & இணைப்புகள்',
   'settings.export.heading': 'முடிக்கப்பட்ட பக்கங்கள் எங்கு செல்கின்றன',
   'settings.eyebrow': 'வெர்சல் · அமைப்புகள்',
+  'settings.goals.daily': 'தினசரி இலக்கு (வார்த்தைகள்)',
+  'settings.goals.description':
+    '500 என்பது ஒரு வேலை அமர்வு. 2,000 என்பது தீவிரமான வரைவு நாள். {{appName}} தூண்டும், ஒருபோதும் தொல்லை தராது.',
   'settings.goals.eyebrow': 'வார்த்தை இலக்கு',
   'settings.goals.heading': 'தினசரி இலக்கு — கடைப்பிடிக்கக்கூடிய அளவுக்கு சிறியது',
   'settings.goals.tip':
     'குறிப்பு: வாரத்தில் ஏழு நாட்கள் தவறவிடும் இலக்கை விட, நான்கு நாட்கள் காலையில் நிறைவேற்றும் இலக்கு சிறந்தது.',
   'settings.heading': 'அறையை உங்களுக்கேற்றவாறு மாற்றிக்கொள்ளுங்கள்.',
+  'settings.language.eyebrow': 'மொழி',
   'settings.language.heading': 'பக்கம் எவ்வாறு பதிலளிக்கிறது',
   'settings.profile.description':
     'பகிரப்பட்ட கையெழுத்துப் பிரதிகளில் உங்கள் பெயர் இடம்பெறும்; உள்நுழைவதற்கும் மீட்டமைப்பதற்குமான இணைப்புகளுக்கு மின்னஞ்சல் முகவரி பயன்படுத்தப்படுகிறது.',
@@ -138,16 +162,20 @@ export const ui: UiTranslations = {
   'stats.kpi.totalSub': '{{count}} ஆவணங்கள்',
   'stats.loadFailed': 'புள்ளிவிவரங்களை ஏற்ற முடியவில்லை.',
   'stats.loading': 'எண்களை அலசி ஆராய்தல்…',
+  'stats.recentEmpty': 'நீங்கள் எழுதத் தொடங்கியதும், உங்கள் சமீபத்திய ஆவணங்கள் இங்கே தோன்றும்.',
   'stats.recentHeading': 'சமீபத்திய திருத்தங்கள்',
   'stats.subtitle':
     'இந்தப் பக்கத்தில் உள்ள ஒவ்வொரு படமும் உங்கள் உண்மையான ஆவணங்களிலிருந்து பெறப்பட்டவை. மாதிரித் தரவுகள் அல்ல.',
   'stats.title': 'எழுத்துப் பணி எப்படிப் போய்க்கொண்டிருக்கிறது.',
   'stats.weekHeading': 'ஒரு நாளைக்கு வார்த்தைகள், கடந்த 7 நாட்கள்',
+  'versalAuthShell.sample.body':
+    'கெட்டில் இறுதியாக அமைதியடைந்தது, வார்த்தைகள் காத்திருந்த வரிசையில் வந்தன. பக்கத்தை ஒருமுறை, இருமுறை கீழே வைத்தாள் — பிறகு அந்த வரியை நம்பி அதை அப்படியே விட்டாள்.',
   'versalAuthShell.sample.label': 'கையெழுத்துப் பிரதி · வரைவு 7',
   'versalAuthShell.sample.timestamp': 'இன்று · காலை 9:14 மணி',
   'versalAuthShell.sample.title':
     'அத்தியாயம் மூன்று — சூரிய உதயத்திற்கு முந்தைய ஓர் அமைதியான நேரம்',
   'versalDocumentCard.pinned': 'பின் செய்யப்பட்டது',
+  'versalDocumentCard.readingTime': '{{minutes}} குறைந்தபட்ச வாசிப்பு',
   'versalLayout.nav.stats': 'புள்ளிவிவரங்கள்',
   'versalLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'versalManuscriptHero.cta': 'தொடர்ந்து எழுதவும்',
@@ -161,12 +189,14 @@ export const ui: UiTranslations = {
   'versionHistory.backToLibrary': 'நூலகத்திற்குத் திரும்பு',
   'versionHistory.confirmRestore':
     'தற்போதைய ஆவணத்தின் உள்ளடக்கத்தை இந்தப் பதிப்பைக் கொண்டு மாற்றுவதா?',
+  'versionHistory.diffEyebrow': 'ஸ்னாப்ஷாட் · {{label}}',
   'versionHistory.empty':
     'இன்னும் புகைப்படங்கள் எடுக்கவில்லை. காலவரிசையைத் தொடங்க ஒன்றைச் சேமிக்கவும்.',
   'versionHistory.eyebrow': 'கையெழுத்துப் பிரதி காலவரிசை',
   'versionHistory.latestTag': 'சமீபத்திய',
   'versionHistory.loadFailed': 'பதிப்பு வரலாற்றை ஏற்ற முடியவில்லை.',
   'versionHistory.loading': 'பதிப்புகள் ஏற்றப்படுகின்றன…',
+  'versionHistory.previous': 'முந்தைய பதிப்பு',
   'versionHistory.restoreCta': 'இந்த ஸ்னாப்ஷாட்டை மீட்டெடுக்கவும்',
   'versionHistory.restoreFailed': 'பதிப்பை மீட்டெடுக்க முடியவில்லை.',
   'versionHistory.selectPrompt': 'பதிப்பு காலவரிசையைத் தொடங்க ஒரு ஸ்னாப்ஷாட்டை எடுக்கவும்.',

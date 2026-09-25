@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An bhfuil aiseolas agat, aimsíodh fabht, nó ar mhaith leat gné a mholadh? Déan teagmháil linn ó shocruithe do chuntais — téann gach teachtaireacht chuig duine fíor ar an bhfoireann.',
+  'about.contactTitle': 'Labhair linn',
+  'about.featureDatabases':
+    'Bunachair shonraí éadroma agus teimpléid in-athúsáidte chun nótaí scaoilte a iompú ina sreafaí oibre struchtúrtha, in-athdhéanta.',
+  'about.featureEditor':
+    'Eagarthóir bloc ciúin — ceannteidil, liostaí, cód, glao-amach, agus cúraimí — le horduithe slais nuair a theastaíonn siad uait agus as an mbealach nuair nach dteastaíonn.',
+  'about.featureGraph':
+    'Cúlnascanna agus graf eolais: clóscríobh [[ chun nóta a nascadh agus féach conas a nascann do chuid smaointe le himeacht ama.',
+  'about.featureNotebooks':
+    'Leabhair nótaí agus leathanaigh neadaithe ionas go bhfanann tionscadail, ábhair, agus nótaí laethúla eagraithe go beacht mar a smaoiníonn tú.',
+  'about.featureSearch':
+    'Cuardach lántéacs faoi bhun 50ms ar gach leabhar nótaí, móide clibeanna a chomhcheanglaíonn le leabhair nótaí in ionad a bheith ag troid leo.',
+  'about.missionTitle': 'Ár misean',
   'common.goToDashboard': 'Téigh chuig an Deais',
   'forgot.eyebrow': 'An bealach ar ais isteach caillte agat?',
   'forgot.formSubtitle': 'Inis dúinn an seoladh ríomhphoist atá againn.',
+  'forgot.formTitle': 'Pasfhocal dearmadta',
   'forgot.headline': 'Athshocraigh do phasfhocal.',
   'forgot.subline':
     'Seolfaimid nasc aonuaire chuig do bhosca isteach ionas gur féidir leat ceann nua a roghnú.',
+  'forgot.successDetail':
+    'Sheolamar nasc athshocraithe chuig do ríomhphost. Rachaidh sé in éag i gceann 30 nóiméad.',
   'graph.eyebrow': 'Graf',
+  'graph.goToNotes': 'Brabhsáil nótaí →',
+  'graph.loadError': 'Níorbh fhéidir an graf a lódáil: {{message}}',
   'graph.placeholderBody':
     'Nuair a thosaíonn nótaí ag nascadh lena chéile (le comhréir [[vicí]], rindreálfar graf idirghníomhach fórs-dhírithe anseo.',
+  'graph.placeholderTitle': 'Graf cúlnasc ag teacht go luath',
   'graph.subtitle':
     '{{count}} nótaí sa spás oibre seo. Feicfear rindreáil graf nasc siar anseo a luaithe a nascfar nótaí lena chéile.',
   'graph.title': 'Graf eolais',
   'home.empty': 'Gan aon nótaí fós — tosaigh ar do chéad cheann.',
   'home.favoritesHeading': 'Priontáilte',
   'home.guest': 'cara',
+  'home.loadError': 'Níorbh fhéidir do chuid nótaí a lódáil: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Cuir nóta san eagarthóir le go gcoinneofaí anseo é.',
   'home.recentHeading': 'Nuashonraithe le déanaí',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Leabhar nótaí',
   'home.stats.pinned.label': 'Priontáilte',
   'home.stats.updatedToday.label': 'Nuashonraithe inniu',
+  'home.subtitle': 'Lean ort ón áit ar fhág tú, nó tosaigh nóta nua.',
   'home.viewAll': 'Féach ar na nótaí go léir',
   'landing.cta.body':
     'Saor in aisce le húsáid phearsanta. Pro do fhoirne. Tabhair leat do lascaine reatha nó tosaigh as an nua — buaileann Verso leat cibé áit a bhfuil do nótaí.',
+  'landing.cta.button': 'Cruthaigh mo spás oibre',
   'landing.cta.heading': 'Oscail leathanach an lae inniu.',
   'landing.features.eyebrow': 'Gach bunphrionsabal a theastaíonn ó d’inchinn dhara',
+  'landing.features.heading': 'Tógtha don obair, ní don mheitea-obair.',
   'landing.hero.eyebrow': 'Dromchla scríbhneoireachta ciúin',
   'landing.hero.headlineAccent': 'cruth a ghlacadh.',
   'landing.hero.headlineLeading': 'Cá bhfuil smaointe',
   'landing.hero.primaryCta': 'Tosaigh do bhunachar eolais',
   'landing.hero.secondaryCta': 'Tá cuntas agam cheana féin',
+  'landing.hero.socialProof': 'Smaoiníonn 12,800+ scríbhneoir, mac léinn, agus PhD le {{appName}}',
   'landing.hero.subline':
     'Is dromchla struchtúrtha é Verso do oibrithe eolais agus do mhic léinn chun nótaí a thógáil. Eagarthóir bloc, leabhair nótaí neadaithe, naisc siar, agus graf eolais — taobh thiar de thaithí léitheoireachta clóghrafaíochta ar dtús.',
+  'landing.preview.notebook': 'Eolas · Próiseas scríbhneoireachta',
+  'landing.preview.title': 'Ar ligean do dhréachtaí análú',
   'login.eyebrow': 'Fáilte ar ais go Verso',
   'login.formSubtitle': 'Bain úsáid as do ríomhphost nó as aon soláthraí nasctha.',
   'login.headline': 'Lean ar aghaidh san áit ar stad an leathanach.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
   'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
   'noteEditor.backToNotes': 'Ar ais chuig na nótaí',
+  'noteEditor.bodyLabel': 'Corp an nóta',
   'noteEditor.bodyPlaceholder':
     'Tosaigh ag scríobh — sábhálfar do nóta go huathoibríoch agus tú ag clóscríobh.',
   'noteEditor.confirmTrash': 'An nóta seo a bhogadh chuig an mbruscar?',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Bog go dtí an bruscar',
   'noteEditor.updated': 'Nuashonraithe',
   'notes.defaultWorkspaceName': 'Mo leabhar nótaí',
+  'notes.empty': 'Níl aon nótaí anseo fós — tosaigh ceann chun an leabhar nótaí a líonadh.',
   'notes.eyebrow': 'Leabhar nótaí',
   'notes.filterAll': 'Gach nóta',
   'notes.filterPinned': 'Priontáilte',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Leabhar nótaí nua',
   'notes.newNotebookPrompt': 'Ainm nua leabhar nótaí',
+  'notes.newNotebookRequired': 'Iontráil ainm leabhair nótaí.',
   'notes.notebooksHeading': 'Leabhair nótaí',
   'notes.subtitle':
     'Roghnaigh leabhar nótaí ar chlé, ansin brúigh an cnaipe Nóta nua chun iontráil úr a thosú.',
+  'planUpdated.body': 'Tá do shíntiús gníomhach anois.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Gnéithe ardleibhéil',
   'pricing.heading': 'Roghnaigh do phlean Glacadh Nótaí',
+  'reset.changedMind': "D'athraigh tú d'intinn?",
   'reset.eyebrow': 'Beagnach ar ais isteach',
   'reset.formSubtitle': 'Beidh tú logáilte isteach a luaithe a bheidh sé sábháilte.',
   'reset.headline': 'Roghnaigh pasfhocal nua.',
@@ -72,7 +105,9 @@ export const ui: UiTranslations = {
     'Cuir isteach an cód a sheolaimid chugat trí ríomhphost agus roghnaigh rud éigin a bheidh suntasach.',
   'reset.submit': 'Sábháil agus sínigh isteach',
   'reset.tokenHint': 'Greamaithe ó do bhosca isteach.',
+  'search.empty': 'Níl aon nótaí ag teacht leis an gceist seo fós.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Cuardaigh Athraonadh',
   'search.loading': 'Ag cuardach…',
   'search.noRecent':
     'Clóscríobh ceist thuas chun tús a chur le cuardach a dhéanamh ar fud do nótaí.',
@@ -81,12 +116,19 @@ export const ui: UiTranslations = {
     'Téacs iomlán ar fud gach leabhar nótaí. Clóscríobh le cuardach; athnuachan na dtorthaí de réir mar a chlóscríobhann tú.',
   'search.title': 'Cuardaigh an dara inchinn.',
   'settings.account.logout': 'Logáil amach',
+  'settings.account.title': 'Sonraí cuntais',
+  'settings.editor.graphHover.body':
+    'Taispeáin cárta réamhamhairc bhig nuair a chuirfidh tú do chursor thar [[nasc vicí]] san eagarthóir.',
+  'settings.editor.graphHover.label': 'Réamhamharc ar ghraf cúlnasc',
   'settings.editor.lineHeight.body':
     'Cé mhéad aeir idir línte an choirp. Is é 170% an rithim léitheoireachta réamhshocraithe.',
+  'settings.editor.lineHeight.label': 'Airde líne',
   'settings.editor.serif.body':
     'Bain úsáid as an tSeoirsia don cholún léitheoireachta. Coinnítear Sans-serif sa bharra taoibh agus sna barraí uirlisí.',
+  'settings.editor.serif.label': 'Téacs coirp seirif',
   'settings.editor.title': 'Clóghrafaíocht & dromchla scríbhneoireachta',
   'settings.eyebrow': 'Verso · Socruithe',
+  'settings.passwordModal.current': 'Focal faire reatha',
   'settings.passwordModal.error':
     'Níorbh fhéidir an focal faire a athrú — seiceáil do phasfhocal reatha le do thoil.',
   'settings.passwordModal.next': 'Pasfhocal nua',
@@ -96,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Brúigh gach brú eochrach tríd an gcainéal fíor-ama. Díchumasaigh le haghaidh naisc níos moille.',
   'settings.sync.auto.label': 'Sioncrónú fíor-ama',
+  'settings.sync.title': 'Conas a thaistealaíonn do chuid nótaí',
   'settings.theme.body':
     'Coinníonn solas an colún eagarthóireachta geal. Teasaíonn seipia an leathanach le haghaidh tráthnónta.',
   'settings.theme.dark': 'Dorcha',
@@ -115,8 +158,12 @@ export const ui: UiTranslations = {
     'Cuir #haischlibeanna le teideal nóta (m.sh. "Liosta léitheoireachta #leabhair") agus beidh siad le feiceáil anseo go huathoibríoch.',
   'tags.emptyTitle': 'Gan aon chlibeanna fós',
   'tags.eyebrow': 'Innéacs',
+  'tags.goToNotes': 'Téigh chuig nótaí →',
+  'tags.loadError': 'Níorbh fhéidir clibeanna a lódáil: {{message}}',
   'tags.subtitle':
     '{{tags}} clibeanna trasna {{notes}} nótaí. Cuir #hashtags le teideal nóta agus beidh siad le feiceáil anseo.',
+  'versoAuthShell.sample.body':
+    'Bíonn an dara léamh amárach i gcónaí níos fearr ná an chéad léamh anocht. Fág an gearrthóir garbh sa bhfillteán domhain-oibre…',
   'versoAuthShell.sample.label': 'Nóta laethúil',
   'versoAuthShell.sample.timestamp': 'Inniu · 9:14am',
   'versoAuthShell.sample.title': 'Ar ligean do dhréachtaí análú',
@@ -128,8 +175,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Lean ort ag scríobh',
   'versoTodayHero.createCta': 'Tosaigh nóta an lae inniu',
   'versoTodayHero.dailyLabel': 'Nóta laethúil',
+  'versoTodayHero.emptyHeadline': 'Is leathanach bán é inniu.',
   'versoTodayHero.emptySubline':
     'Gabh smaoineamh, scríobh cruinniú, nó sceitseáil amárach. Coinníonn Verso an struchtúr ciúin ionas go bhfanann an scríbhneoireacht ard.',
+  'versoTodayHero.outlineLabel': 'Imlíne an lae inniu',
   'versoTodayHero.streak': '{{count}} sraith lae',
+  'versoTodayHero.unwritten': 'Níl aon fhocail ann fós — oscail an nóta chun tosú.',
   'versoTodayHero.wordCount': '{{count}} focail inniu',
 }

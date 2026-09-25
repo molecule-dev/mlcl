@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Таны төлөвлөгөө шинэчлэгдлээ.',
   'planUpdated.returnHome': 'Нүүр хуудас руу буцах',
   'planUpdated.thankYou': 'Баярлалаа!',
+  'post.markdown': 'Энэ нийтлэлийг markdown хэлбэрээр харах',
+  'post.readingTime': '{{minutes}} хамгийн бага уншлага',
   'post.tags': 'Шошго',
   'project.error.nameAndTypeRequired': 'name болон projectType шаардлагатай',
   'project.error.notFound': 'Олдсонгүй',

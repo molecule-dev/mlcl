@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ਕੋਈ ਫੀਡਬੈਕ ਹੈ, ਕੋਈ ਬੱਗ ਮਿਲਿਆ ਹੈ, ਜਾਂ ਤੁਸੀਂ ਆਪਣੀ ਲੀਗ ਲਈ {{app}} ਚਾਹੁੰਦੇ ਹੋ? ਆਪਣੀ ਖਾਤਾ ਸੈਟਿੰਗਾਂ ਤੋਂ ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ — ਹਰ ਸੁਨੇਹਾ ਟੀਮ ਦੇ ਕਿਸੇ ਅਸਲ ਵਿਅਕਤੀ ਤੱਕ ਪਹੁੰਚਦਾ ਹੈ।',
+  'about.contactTitle': 'ਸੰਪਰਕ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
+  'about.featureAlerts':
+    'ਸਕੋਰ ਅੱਪਡੇਟ, ਟ੍ਰੇਡ ਅਲਰਟ, ਸੱਟ ਦੀਆਂ ਰਿਪੋਰਟਾਂ, ਅਤੇ ਲੀਗ ਐਲਾਨਾਂ ਲਈ ਪੁਸ਼ ਨੋਟੀਫਿਕੇਸ਼ਨ।',
+  'about.featureRosters':
+    'ਪੂਰੀ ਰੋਸਟਰ, ਸੀਜ਼ਨ ਕੁੱਲ, ਹੌਟ/ਕੋਲਡ ਸਟ੍ਰੀਕ, ਅਤੇ ਹਰ ਖਿਡਾਰੀ ਲਈ ਹੈੱਡ-ਟੂ-ਹੈੱਡ ਸਪਲਿਟ ਵਾਲੇ ਟੀਮ ਪੰਨੇ।',
+  'about.featureSchedule':
+    'ਇੱਕ ਸੀਜ਼ਨ ਕੈਲੰਡਰ ਅਤੇ ਸ਼ਡਿਊਲ ਦ੍ਰਿਸ਼ ਤਾਂ ਜੋ ਤੁਸੀਂ ਹਰ ਫਿਕਸਚਰ ਅਤੇ ਨਤੀਜੇ ਦੇ ਆਸ-ਪਾਸ ਯੋਜਨਾ ਬਣਾ ਸਕੋ।',
+  'about.featureScoreboard':
+    "ਹਰ ਪੰਨੇ ਦੇ ਸਿਖਰ 'ਤੇ ਪਿੰਨ ਕੀਤਾ ਇੱਕ ਬ੍ਰਾਡਕਾਸਟ-ਗ੍ਰੇਡ ਸਕੋਰਬੋਰਡ ਟਿੱਕਰ ਤਾਂ ਜੋ ਤੁਸੀਂ ਕਦੇ ਵੀ ਗੋਲ ਨਾ ਖੁੰਝਾਓ।",
+  'about.featureStandings':
+    "ਲਾਈਵ ਸਟੈਂਡਿੰਗ — ਅਸਲ-ਸਮੇਂ ਦੇ ਜਿੱਤ-ਹਾਰ-ਡਰਾਅ ਰਿਕਾਰਡ, ਅੰਕ, ਜਿੱਤ-ਪ੍ਰਤੀਸ਼ਤ, ਅਤੇ ਪਲੇਆਫ ਲਾਈਨ, ਹਰ ਸੀਟੀ 'ਤੇ ਤਾਜ਼ਾ।",
+  'about.intro':
+    '{{app}} ਤੁਹਾਡੀ ਲੀਗ ਲਈ ਬ੍ਰਾਡਕਾਸਟ-ਗੁਣਵੱਤਾ ਵਾਲਾ ਘਰ ਹੈ। ਟੀਮਾਂ, ਸ਼ਡਿਊਲ, ਲਾਈਵ ਸਕੋਰ, ਅਤੇ ਸਟੈਂਡਿੰਗ ਇੱਕ ਤੇਜ਼, ਬਿਨਾਂ ਰੁਕਾਵਟ ਵਾਲੇ ਡੈਸ਼ਬੋਰਡ ਵਿੱਚ ਇਕੱਠੇ ਹੁੰਦੇ ਹਨ — ਤਾਂ ਜੋ ਪ੍ਰਸ਼ੰਸਕ, ਕੋਚ, ਅਤੇ ਲੀਗ ਆਯੋਜਕ ਹਮੇਸ਼ਾ ਜਾਣਦੇ ਹੋਣ ਕਿ ਸੀਜ਼ਨ ਕਿੱਥੇ ਖੜ੍ਹਾ ਹੈ।',
+  'about.missionBody':
+    "ਕਿਸੇ ਲੀਗ ਦਾ ਪਾਲਣ ਕਰਨ ਦਾ ਮਤਲਬ ਪੰਜ ਵੱਖ-ਵੱਖ ਤੀਜੀ-ਧਿਰ ਸਕੋਰਬੋਰਡਾਂ ਨੂੰ ਤਾਜ਼ਾ ਕਰਨਾ ਨਹੀਂ ਹੋਣਾ ਚਾਹੀਦਾ। ਅਸੀਂ ਇਸਨੂੰ ਹਰ ਲੀਗ ਨੂੰ ਸਟੈਂਡਿੰਗ, ਸ਼ਡਿਊਲ, ਅਤੇ ਅਸਲ ਵਿੱਚ ਮਹੱਤਵਪੂਰਨ ਅੰਕੜਿਆਂ ਲਈ ਇੱਕ ਸਿੰਗਲ ਸੱਚ ਦਾ ਸਰੋਤ ਦੇਣ ਲਈ ਬਣਾਇਆ ਹੈ — ਹਰ ਸੀਟੀ 'ਤੇ ਅੱਪਡੇਟ, ਸੀਜ਼ਨ ਲਈ ਮੁਫ਼ਤ।",
+  'about.missionTitle': 'ਸਾਡਾ ਮਿਸ਼ਨ',
+  'about.whatYouGet': 'ਤੁਹਾਨੂੰ ਕੀ ਮਿਲਦਾ ਹੈ',
   'appShell.closeNav': 'ਨੇਵੀਗੇਸ਼ਨ ਬੰਦ ਕਰੋ',
   'appShell.openNav': 'ਨੈਵੀਗੇਸ਼ਨ ਖੋਲ੍ਹੋ',
   'common.dashboard': 'ਡੈਸ਼ਬੋਰਡ',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'ਸਾਰੇ ਮੈਚ ਵੇਖੋ \\u2192',
   'dashboard.viewAllStandings': 'ਪੂਰੀਆਂ ਪੁਜ਼ੀਸ਼ਨਾਂ \\u2192',
   'dashboard.viewAllStats': 'ਸਾਰੇ ਸਟੇਟ ਲੀਡਰ ਵੇਖੋ \\u2192',
+  'forgot.submitting': 'ਰੀਸੈਟ ਲਿੰਕ ਭੇਜ ਰਿਹਾ ਹੈ…',
   'forgot.subtitle': 'ਰੀਸੈਟ ਲਿੰਕ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਆਪਣੀ ਈਮੇਲ ਦਰਜ ਕਰੋ।',
   'forgot.success': 'ਲਿੰਕ ਰੀਸੈਟ ਕਰੋ ਜਿਸਨੂੰ ਭੇਜਿਆ ਗਿਆ {{email}} . ਆਪਣਾ ਇਨਬਾਕਸ ਚੈੱਕ ਕਰੋ।',
+  'landing.copyright': '© {{year}} {{app}}। ਸਟੈਂਡਿੰਗ ਦਾ ਪਿੱਛਾ ਕਰੋ।',
+  'landing.ctaBody':
+    "ਤੁਹਾਡੀ ਲੀਗ। ਤੁਹਾਡੀ ਸਟੈਂਡਿੰਗ। ਤੁਹਾਡੀ ਪਸੰਦੀਦਾ ਟੀਮ — ਸਿਖਰ 'ਤੇ ਪਿੰਨ ਕੀਤੀ। ਸੈੱਟ ਅੱਪ ਕਰਨ ਲਈ ਦੋ ਮਿੰਟ, ਸੀਜ਼ਨ ਲਈ ਮੁਫ਼ਤ।",
   'landing.ctaHeading': 'ਤੀਜੀ-ਧਿਰ ਦੇ ਸਕੋਰਬੋਰਡਾਂ ਨੂੰ ਤਾਜ਼ਾ ਕਰਨਾ ਬੰਦ ਕਰੋ',
   'landing.eyebrow': 'ਪ੍ਰਸ਼ੰਸਕਾਂ, ਕੋਚਾਂ ਅਤੇ ਲੀਗ ਪ੍ਰਬੰਧਕਾਂ ਲਈ ਬਣਾਇਆ ਗਿਆ',
   'landing.featuresHeading': 'ਹਰੇਕ ਖੜ੍ਹੇ ਵਿਅਕਤੀ ਲਈ ਇੱਕ ਅਗਲੀ ਕਤਾਰ ਵਾਲੀ ਸੀਟ',
   'landing.getStarted': 'ਲੀਗ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ',
   'landing.heroCta': 'ਲੀਗ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ',
+  'landing.heroSubtitle':
+    '{{app}} ਸਟੈਂਡਿੰਗ, ਸ਼ਡਿਊਲ, ਅਤੇ ਅੰਕੜਿਆਂ ਦੇ ਲੀਡਰਾਂ ਨੂੰ ਇੱਕ ਬ੍ਰਾਡਕਾਸਟ-ਗੁਣਵੱਤਾ ਵਾਲੇ ਡੈਸ਼ਬੋਰਡ ਵਿੱਚ ਜੋੜਦਾ ਹੈ। ਲਾਈਵ ਸਕੋਰ। ਅਸਲ ਰਿਕਾਰਡ। ਕੋਈ ਰੁਕਾਵਟ ਨਹੀਂ।',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'ਅੱਜ ਰਾਤ ਲੀਗ ਦੇ ਆਲੇ-ਦੁਆਲੇ',
   'landing.statFans': 'ਪ੍ਰਸ਼ੰਸਕ ਫਾਲੋਇੰਗ',
   'landing.statGames': 'ਇਸ ਸੀਜ਼ਨ ਦੀਆਂ ਗੇਮਾਂ',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'ਪ੍ਰ {{period}}',
   'matchDetail.back': "ਮੈਚਾਂ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'matchDetail.eventsHeading': 'ਪਲੇਅ-ਬਾਏ-ਪਲੇਅ',
+  'matchDetail.final': 'ਫਾਈਨਲ',
   'matchDetail.finalScore': 'ਫਾਈਨਲ',
   'matchDetail.live': 'ਲਾਈਵ',
   'matchDetail.liveNow': 'ਹੁਣੇ ਲਾਈਵ',
   'matchDetail.noEvents': 'ਹਾਲੇ ਤੱਕ ਕੋਈ ਵੀ ਘਟਨਾ ਰਿਕਾਰਡ ਨਹੀਂ ਕੀਤੀ ਗਈ।',
   'matchDetail.periodClock': 'ਪ੍ਰ {{period}} · {{clock}}',
+  'matches.empty': 'ਇਸ ਦ੍ਰਿਸ਼ ਵਿੱਚ ਕੋਈ ਮੈਚ ਨਹੀਂ — ਕੋਈ ਵੱਖਰਾ ਫਿਲਟਰ ਅਜ਼ਮਾਓ।',
   'matches.eyebrow': 'ਮੈਚ ਡੇ',
   'matches.loading': 'ਸਲੇਟ ਖਿੱਚ ਰਿਹਾ ਹੈ...',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'ਸੂਚਨਾਵਾਂ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ',
   'notifications.loading': 'ਸੂਚਨਾਵਾਂ ਲੋਡ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ\\u2026',
   'pennantHeroCard.eyebrow': "ਮੇਜ਼ ਦੇ ਸਿਖਰ 'ਤੇ",
+  'pennantHeroCard.formLabel': 'ਪਿਛਲੇ 10',
   'pennantHeroCard.gamesAhead': '{{value}} ਪਿੱਛਾ ਤੋਂ ਪਹਿਲਾਂ ਦੀਆਂ ਖੇਡਾਂ',
   'pennantHeroCard.pointsLabel': 'ਪੀ.ਟੀ.ਐਸ.',
   'pennantLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'ਆਪਣੀ ਸੀਟ ਚੁਣੋ',
   'pricing.heading': 'ਬਿਹਤਰ ਸਮਾਂ-ਸਾਰਣੀ, ਸਕੋਰ ਅਤੇ ਸਟੈਂਡਿੰਗ ਲਈ ਅੱਪਗ੍ਰੇਡ ਕਰੋ।',
   'pricing.limits.schedule': '{{count}} ਸਮਾਂ-ਸਾਰਣੀ ਐਂਟਰੀਆਂ',
+  'pricing.limits.scores': '{{count}} ਸਕੋਰ',
+  'pricing.limits.standings': '{{count}} ਸਟੈਂਡਿੰਗ',
+  'pricing.limits.teams': '{{count}} ਟੀਮਾਂ',
+  'pricing.subtitle': 'ਵਧੇਰੇ ਭਰਪੂਰ ਸ਼ਡਿਊਲ, ਸਕੋਰ, ਅਤੇ ਸਟੈਂਡਿੰਗ ਲਈ ਅੱਪਗ੍ਰੇਡ ਕਰੋ।',
   'pricing.upgradeCta': 'ਇਸ ਵਿੱਚ ਅੱਪਗ੍ਰੇਡ ਕਰੋ {{tierName}}',
   'profile.eyebrow': 'ਪ੍ਰਸ਼ੰਸਕ ਪ੍ਰੋਫਾਈਲ',
   'profile.favoritesCount': 'ਟੀਮਾਂ ਜਿਨ੍ਹਾਂ ਦਾ ਅਨੁਸਰਣ ਕੀਤਾ ਗਿਆ',
   'profile.favoritesHeading': 'ਮਨਪਸੰਦ ਟੀਮਾਂ',
   'profile.noFavorites': 'ਹਾਲੇ ਕੋਈ ਮਨਪਸੰਦ ਨਹੀਂ — ਟੀਮ ਪੰਨੇ ਤੋਂ ਟੀਮਾਂ ਚੁਣੋ।',
   'profile.rankRecord': 'ਦਰਜਾ # {{rank}} · {{record}}',
+  'profile.recordOnly': 'ਰਿਕਾਰਡ {{record}}',
   'reset.confirmPlaceholder': 'ਪਾਸਵਰਡ ਦੁਹਰਾਓ',
+  'reset.mismatch': 'ਪਾਸਵਰਡ ਮੇਲ ਨਹੀਂ ਖਾਂਦੇ।',
   'reset.newLabel': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'reset.subtitle': 'ਘੱਟੋ-ਘੱਟ 12 ਅੱਖਰਾਂ ਦਾ ਇੱਕ ਮਜ਼ਬੂਤ ਪਾਸਵਰਡ ਚੁਣੋ।',
   'reset.tokenPlaceholder': 'ਈਮੇਲ ਤੋਂ ਪੇਸਟ ਕਰੋ',
   'schedule.eyebrow': 'ਸਲੇਟ',
+  'schedule.moreGames': '+ {{count}} ਹੋਰ',
   'schedule.subtitle':
     'ਪੂਰੇ ਸੀਜ਼ਨ ਦੌਰਾਨ ਫਿਕਸਚਰ ਦਾ ਕੈਲੰਡਰ ਦ੍ਰਿਸ਼ — ਬਾਕਸ ਸਕੋਰ ਲਈ ਕਿਸੇ ਵੀ ਦਿਨ ਟੈਪ ਕਰੋ।',
   'scoreboardTicker.empty': "ਇਸ ਵੇਲੇ ਕੋਈ ਲਾਈਵ ਗੇਮ ਨਹੀਂ ਹੈ — ਪੱਕ ਡ੍ਰੌਪ 'ਤੇ ਵਾਪਸ ਜਾਂਚ ਕਰੋ।",
@@ -97,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'ਵਿਅਕਤੀਗਤ ਬਣਾਓ',
   'settings.favoritesBody':
     "ਇਹ ਟੀਮਾਂ ਤੁਹਾਡੇ ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਪਿੰਨ ਹੋ ਜਾਂਦੀਆਂ ਹਨ ਅਤੇ ਸਕੋਰ ਅਲਰਟ ਚਾਲੂ ਕਰਦੀਆਂ ਹਨ।",
+  'settings.favoritesHeading': 'ਮਨਪਸੰਦ ਟੀਮਾਂ',
   'settings.loading': 'ਤੁਹਾਡੀਆਂ ਤਰਜੀਹਾਂ ਲੋਡ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ\\u2026',
   'settings.noFavorites': 'ਹਾਲੇ ਤੱਕ ਕੋਈ ਮਨਪਸੰਦ ਨਹੀਂ \\u2014 ਟੀਮ ਪੰਨੇ ਤੋਂ ਟੀਮਾਂ ਚੁਣੋ।',
   'settings.notificationsHeading': 'ਸੂਚਨਾਵਾਂ ਅਤੇ ਡਿਸਪਲੇ',
@@ -115,6 +152,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'ਐੱਲ',
   'standings.overall': 'ਕੁੱਲ ਮਿਲਾ ਕੇ',
   'standings.points': 'ਪੀ.ਟੀ.ਐਸ.',
+  'standings.rank': '#',
   'standings.subtitle':
     'ਸਿਖਰਲੇ ਚਾਰ ਪੋਸਟਸੀਜ਼ਨ ਲਈ ਕੁਆਲੀਫਾਈ ਕਰਦੇ ਹਨ — ਅੰਕਾਂ ਦੇ ਹਿਸਾਬ ਨਾਲ ਟਾਈਬ੍ਰੇਕਰ, ਫਿਰ ਜਿੱਤ-ਪੀਸੀਟੀ।',
   'standings.title': 'ਲੀਗ ਸਟੈਂਡਿੰਗਜ਼',
@@ -133,6 +171,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'ਜੀ',
   'teamDetail.colName': 'ਖਿਡਾਰੀ',
   'teamDetail.colPos': 'ਸਥਿਤੀ',
+  'teamDetail.pointsLabel': 'ਅੰਕ',
   'teamDetail.rankLabel': 'ਦਰਜਾ # {{rank}}',
   'teamDetail.rosterHeading': 'ਰੋਸਟਰ',
   'teamDetail.statGD': 'ਟੀਚਾ ਅੰਤਰ',

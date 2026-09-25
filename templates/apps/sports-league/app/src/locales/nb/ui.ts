@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du tilbakemeldinger, funnet en feil, eller ønsker du {{app}} for ligaen din? Kontakt oss fra kontoinneinnstillingene dine — hver melding går til en ekte person på teamet.',
+  'about.contactTitle': 'Ta kontakt',
   'about.eyebrow': 'Om',
+  'about.featureAlerts':
+    'Pushvarsler for resultatoppdateringer, byttevarsler, skaderapporter og ligakunngjøringer.',
+  'about.featureRosters':
+    'Lagssider med fulle spillerlister, sesongtotaler, varme/kalde perioder og innbyrdes oppgjør for hver spiller.',
+  'about.featureSchedule':
+    'En sesongkalender og kampprogramvisning slik at du kan planlegge rundt hver kamp og hvert resultat.',
+  'about.featureScoreboard':
+    'En resultattavle av kringkastingskvalitet festet til toppen av hver side, slik at du aldri går glipp av et mål.',
+  'about.featureStandings':
+    'Live tabeller — sanntids seier-tap-uavgjort-resultater, poeng, seiersprosent og sluttspillstreken, oppdatert ved hvert kampslutt.',
+  'about.intro':
+    '{{app}} er et hjem av kringkastingskvalitet for ligaen din. Lag, kampprogrammer, live-resultater og tabeller samles i ett raskt dashbord uten rot — slik at fans, trenere og ligaarrangører alltid vet hvor sesongen står.',
+  'about.missionBody':
+    'Å følge en liga bør ikke bety å oppdatere fem forskjellige tredjeparts resultattavler. Vi bygde det for å gi hver liga én kilde til sannhet for tabellene, kampprogrammet og statistikken som faktisk betyr noe — oppdatert ved hvert kampslutt, gratis for sesongen.',
+  'about.missionTitle': 'Vårt oppdrag',
+  'about.whatYouGet': 'Det du får',
   'appShell.closeNav': 'Lukk navigasjonen',
   'appShell.openNav': 'Åpne navigasjonen',
   'common.dashboard': 'Dashbord',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Se alle treff \\u2192',
   'dashboard.viewAllStandings': 'Fullstendig tabell \\u2192',
   'dashboard.viewAllStats': 'Se alle statsledere \\u2192',
+  'forgot.submitting': 'Sender tilbakestillingslenke …',
   'forgot.subtitle': 'Skriv inn e-posten din for å motta en tilbakestillingslenke.',
   'forgot.success': 'Tilbakestill lenke sendt til {{email}} Sjekk innboksen din.',
+  'landing.copyright': '© {{year}} {{app}}. Jakt på tabellplasseringen.',
+  'landing.ctaBody':
+    'Din liga. Dine tabeller. Ditt favorittlag — festet til toppen. To minutter å sette opp, gratis for sesongen.',
   'landing.ctaHeading': 'Slutt å oppdatere tredjeparts resultattavler',
   'landing.eyebrow': 'Laget for fans, trenere og ligaarrangører',
   'landing.featuresHeading': 'En plass på første rad til alle som står oppreist',
   'landing.getStarted': 'Bli med i ligaen',
   'landing.heroCta': 'Bli med i ligaen',
+  'landing.heroSubtitle':
+    '{{app}} samler tabeller, kampprogrammer og statistikkledere i ett dashbord av kringkastingskvalitet. Live-resultater. Ekte resultater. Ingen rot.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Rundt i ligaen i kveld',
   'landing.statFans': 'Følgende fans',
   'landing.statGames': 'Kamper denne sesongen',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Tilbake til kampene',
   'matchDetail.eventsHeading': 'Spill for spill',
+  'matchDetail.final': 'SLUTT',
   'matchDetail.finalScore': 'Endelig',
   'matchDetail.live': 'BO',
   'matchDetail.liveNow': 'Live nå',
   'matchDetail.noEvents': 'Ingen hendelser registrert ennå.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Ingen kamper i denne visningen — prøv et annet filter.',
   'matches.eyebrow': 'Kampdag',
   'matches.loading': 'Trekker skiferen…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Kunne ikke laste varsler',
   'notifications.loading': 'Laster inn varsler\\u2026',
   'pennantHeroCard.eyebrow': 'Toppen av tabellen',
+  'pennantHeroCard.formLabel': 'Siste 10',
   'pennantHeroCard.gamesAhead': '{{value}} kamper før jakten',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Primær navigasjon',
@@ -80,23 +109,31 @@ export const ui: UiTranslations = {
   'pricing.heading':
     'Oppgrader for et bedre program, flere resultater og mer rikelig med tabeller.',
   'pricing.limits.schedule': '{{count}} planlegg oppføringer',
+  'pricing.limits.scores': '{{count}} resultater',
+  'pricing.limits.standings': '{{count}} tabeller',
+  'pricing.limits.teams': '{{count}} lag',
+  'pricing.subtitle': 'Oppgrader for rikere kampprogram, resultater og tabeller.',
   'pricing.upgradeCta': 'Oppgrader til {{tierName}}',
   'profile.eyebrow': 'Vifteprofil',
   'profile.favoritesCount': 'Lagene som følges',
   'profile.favoritesHeading': 'Favorittlag',
   'profile.noFavorites': 'Ingen favoritter ennå – velg lag fra Lag-siden.',
   'profile.rankRecord': 'Rangering # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Resultat {{record}}',
   'reset.confirmPlaceholder': 'Skriv inn passordet på nytt',
+  'reset.mismatch': 'Passordene samsvarer ikke.',
   'reset.newLabel': 'Nytt passord',
   'reset.subtitle': 'Velg et sterkt passord på minst 12 tegn.',
   'reset.tokenPlaceholder': 'Lim inn fra e-post',
   'schedule.eyebrow': 'Skiferen',
+  'schedule.moreGames': '+ {{count}} flere',
   'schedule.subtitle':
     'Kalendervisning av kampoppsett gjennom sesongen – trykk på en hvilken som helst dag for å se kampstatistikk.',
   'scoreboardTicker.empty': 'Ingen livekamper akkurat nå – sjekk tilbake ved puckdrop.',
   'settings.addFavorite': 'Legg til lag',
   'settings.eyebrow': 'Tilpass',
   'settings.favoritesBody': 'Disse lagene festes til dashbordet ditt og utløser poengvarsler.',
+  'settings.favoritesHeading': 'Favorittlag',
   'settings.loading': 'Laster inn innstillingene dine\\u2026',
   'settings.noFavorites': 'Ingen favoritter ennå \\u2014 velg lag fra Lag-siden.',
   'settings.notificationsHeading': 'Varsler og skjerm',
@@ -114,6 +151,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Totalt',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'De fire beste kvalifiserer seg til sluttspillet – tiebreakere etter poeng, deretter seier-%.',
   'standings.title': 'Liga-tabellen',
@@ -132,6 +170,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Spiller',
   'teamDetail.colPos': 'Pos',
+  'teamDetail.pointsLabel': 'Poeng',
   'teamDetail.rankLabel': 'Rangering # {{rank}}',
   'teamDetail.rosterHeading': 'Lagliste',
   'teamDetail.statGD': 'Målforskjell',

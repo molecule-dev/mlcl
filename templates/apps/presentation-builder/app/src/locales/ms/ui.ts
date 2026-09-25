@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada soalan, maklum balas atau ciri yang anda harap kami sediakan? Hubungi pasukan kami dari tetapan akaun anda — setiap mesej dibaca oleh individu sebenar.',
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.missionTitle': 'Misi kami',
+  'about.whatYouGetTitle': 'Yang Anda dapatkan',
   'analytics.empty': 'Cipta dek untuk melihat analitik di sini.',
   'analytics.stats.acrossDecks': 'Merentasi semua dek',
   'analytics.stats.allTime': 'Di studio anda',
@@ -67,6 +71,8 @@ export const ui: UiTranslations = {
   'landing.features.eyebrow': 'Mengapa Overture',
   'landing.features.heading':
     'Semua yang anda perlukan untuk berjalan di atas pentas sudah bersedia.',
+  'landing.finalCta.body':
+    'Bina studio anda dalam masa kurang seminit. Tiada kad kredit. Batal bila-bila masa.',
   'landing.finalCta.cta': 'Cipta studio percuma anda',
   'landing.finalCta.eyebrow': 'Percuma untuk bermula',
   'landing.finalCta.heading': 'Naik ke pentas dengan dek terbaik kerjaya anda.',
@@ -82,10 +88,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Disunting 12 minit yang lalu',
   'notifications.created': 'dicipta',
   'notifications.edited': 'disunting',
+  'notifications.empty.body':
+    'Aktiviti pada dek anda — komen, sebutan, eksport — akan dipaparkan di sini.',
   'notifications.empty.title': 'Tiada pemberitahuan lagi',
   'notifications.eyebrow': 'Aktiviti pentas',
   'notifications.loading': 'Memuatkan…',
   'notifications.shared': 'dikongsi secara terbuka',
+  'planUpdated.retry': 'Cuba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengesahkan pembayaran anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran anda mungkin masih diproses. Cuba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'present.addSlides': 'Tambah slaid',
   'present.backToDecks': 'Kembali ke dek',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Penghibur pentas',
   'settings.security.notSet': 'Tidak ditetapkan',
   'settings.security.passwordBody': 'Kata laluan anda disulitkan semasa penyimpanan.',
+  'settings.security.reset': 'Tetapkan semula',
   'settings.security.title': 'Akaun + sesi',
   'shared.empty.body':
     'Dek yang anda kongsikan secara terbuka akan dipaparkan di sini. Buka dek dan togol awam untuk dikongsi.',
@@ -131,6 +144,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Memuatkan…',
   'shared.title': 'Dek kongsi',
   'templateCard.slideCount': '{{count}} slaid',
+  'templateCard.usageCount': '{{count}} kegunaan',
+  'templates.empty.body': 'Cuba penapis lain — kami keluarkan templat baharu setiap bulan.',
+  'templates.empty.title': 'Belum ada templat dalam kategori ini',
+  'templates.hero.body':
+    'Susun atur slaid bertema siap dengan blok carta, bingkai demo, nota penyampai dan pratetap pemasa — setiap templat sedia untuk dirakam.',
   'templates.hero.eyebrow': 'Peringkat yang dipilih susun',
   'templates.hero.heading': 'Peringkat yang dibina untuk saat anda perlu mendaratkannya.',
 }

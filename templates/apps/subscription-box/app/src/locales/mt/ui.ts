@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Għandek mistoqsijiet dwar edizzjoni, kunsinna, jew l-abbonament tiegħek? Kellem lil xi ħadd reali mit-tim fuq hello@crate.example — naqraw kull messaġġ.',
+  'about.contactTitle': 'Kellem lil kuratur',
+  'about.feature1':
+    'Edizzjonijiet mensili magħżula bl-idejn minn artiġjani indipendenti, bl-istorja wara kull oġġett.',
+  'about.feature2':
+    'Kontroll sħiħ fuq kull kaxxa — ippersonalizza l-kontenut, ibdel jew eskludi oġġetti, aqbeż xahar, jew ibdel il-frekwenza tiegħek.',
+  'about.feature3':
+    "Traċċar tal-kunsinna mill-bidu sat-tmiem mill-ġbir sal-bieb, b'imballaġġ mingħajr plastik u aġġornamenti diretti mill-kurrier.",
+  'about.feature4':
+    'Pjanijiet flessibbli u ħlas trasparenti — aġġorna, naqqas, ippawża, jew ikkanċella mid-dashboard tiegħek fi kwalunkwe ħin.',
+  'about.intro':
+    "{{app}} huwa servizz ta' abbonament ta' kaxxi magħżula li jwassal kaxxa ta' ferħ magħżula bl-idejn u fi kwantitajiet żgħar sa bieb dar tiegħek kull xahar. Kull edizzjoni tiġi assemblata minn artiġjani li jaħdmu — artisti indipendenti, koki, u ditti żgħar — mhux minn algoritmu.",
+  'about.missionBody':
+    "Nemmnnu li abbonament għandu jħossu bħal rigal, mhux bħal nassa. {{app}} inbena biex tibqa' għax tħobb dak li jasal — ippawża meta trid, ibdel dak li trid, u kkanċella b'klikk wieħed. Qatt skripts ta' żamma.",
+  'about.missionTitle': 'Il-missjoni tagħna',
   'about.pageTitle': 'Dwar {{app}}',
   'appNav.mobileLabel': 'Navigazzjoni primarja',
   'appNav.primaryLabel': 'Navigazzjoni primarja',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Editja l-kuntatt tal-kontijiet',
   'billing.contact.eyebrow': 'Kuntatt tal-kontijiet',
   'billing.eyebrow': 'Pjan u ħlasijiet',
+  'billing.loading': 'Qed jitgħabba l-kontijiet…',
   'billing.payment.body':
     'Il-ħlas jiġi mmaniġġjat minn Stripe Checkout — in-numru sħiħ tal-karta tiegħek qatt ma jmiss is-servers tagħna. Ikklikkja fuq kwalunkwe livell hawn taħt biex iżżid jew taġġorna l-karta tiegħek.',
   'billing.payment.linked': "Karta rreġistrata permezz ta' Stripe",
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': "Erġa' ibda l-abbonament",
   'billing.plan.eyebrow': 'Pjan attiv',
   'billing.plan.next': 'Jiġġedded awtomatikament fi {{date}} .',
+  'billing.plan.status': 'Status: {{status}}',
   'billing.subtitle':
     "Immaniġġja l-livell tiegħek, il-metodu ta' ħlas, u rrevedi l-attività tal-passat.",
   'billing.tiers.body': 'Agħżel livell u aħna nidderieġuk lejn Stripe Checkout.',
   'billing.tiers.choose': 'Agħżel',
+  'billing.tiers.empty': 'Għadhom ma ġew konfigurati l-ebda livelli.',
   'billing.tiers.heading': 'Livelli disponibbli',
   'boxDetail.backToBoxes': 'Lura għall-edizzjonijiet kollha',
   'boxDetail.crumb.boxes': 'Edizzjonijiet',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Biċċa kkurata',
   'boxDetail.items.heading': '{{count}} biċċiet ikkurati',
   'boxDetail.itemsBadge': '{{count}} oġġetti kkurati għal kull kaxxa',
+  'boxDetail.loading': 'Qed jitgħabba l-edizzjoni…',
   'boxDetail.notFound': "Dik l-edizzjoni m'għadhiex disponibbli.",
   'boxDetail.subscribe.success': 'Abbonat — l-ewwel edizzjoni tiegħek tinsab fil-kju.',
   'boxDetail.swapBadge': 'Ibdel sa {{count}} oġġett(i) għal kull kaxxa',
@@ -44,14 +64,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'L-ebda edizzjoni ma taqbel.',
   'boxes.eyebrow': 'L-arkivju tat-Crate',
   'boxes.heading': 'Fittex kull edizzjoni',
+  'boxes.loadError':
+    "Ma stajniex nitgħabbu l-edizzjonijiet. Iċċekkja l-konnessjoni tiegħek u erġa' pprova.",
   'boxes.loading': 'Qed jitgħabbew l-edizzjonijiet…',
+  'boxes.search.label': 'Fittex edizzjonijiet',
   'boxes.search.placeholder': 'Fittex edizzjonijiet…',
   'boxes.subtitle':
     "Kull livell huwa storja ta' lott żgħir. Żid waħda mal-kju tiegħek jew ibdelha għax-xahar li jmiss.",
+  'boxThemeCard.itemCount': '{{count}} oġġetti',
   'boxThemeCard.perMonth': '/ xahar',
+  'boxThemeCard.retailValue': 'Valur bl-imnut {{value}}',
   'common.goToDashboard': 'Mur għad-Dashboard',
+  'common.retry': "Erġa' pprova",
   'customize.eyebrow': 'Agħmilha tiegħek',
   'customize.heading': 'Ippersonalizza t-Crate li jmiss tiegħek',
+  'customize.items.empty': 'Għadhom ma ġew konfigurati l-ebda oġġetti għal dan il-livell.',
   'customize.items.exclude': 'Aqbeż dan',
   'customize.items.eyebrow': 'Ippersonalizza din il-kaxxa',
   'customize.items.heading': 'Oġġetti fi {{box}}',
@@ -60,8 +87,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Żid lura',
   'customize.items.save': 'Issejvja l-personalizzazzjoni',
   'customize.items.swapsLeft': "{{used}} ta' {{max}} swaps użati",
+  'customize.loading': 'Qed jitgħabba l-personalizzazzjoni…',
   'customize.noSub.body':
     "Abbona għal livell l-ewwel, imbagħad erġa' lura biex tpartat l-oġġetti fil-kaxxa tiegħek.",
+  'customize.noSub.cta': 'Ibbrawżja l-edizzjonijiet',
   'customize.noSub.heading': 'L-ebda abbonament attiv',
   'customize.saved': 'Il-personalizzazzjoni ġiet salvata.',
   'customize.subtitle':
@@ -75,11 +104,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Traċċar tal-ġarr',
   'dashboard.eyebrow': 'It-Teżor Tiegħek',
   'dashboard.greeting': 'Merħba lura, {{name}} .',
+  'dashboard.loadError':
+    "Ma stajniex nitgħabbu d-dashboard tiegħek. Iċċekkja l-konnessjoni tiegħek u erġa' pprova.",
   'dashboard.loading': 'Qed jitgħabba d-dashboard…',
   'dashboard.next.eyebrow': 'L-edizzjoni li jmiss tiegħek',
   'dashboard.onboarding.body':
     "Għad m'għandekx abbonament attiv. Agħżel livell biex tibda tibgħat Crate kull xahar.",
   'dashboard.onboarding.cta': 'Fittex l-edizzjonijiet kollha',
+  'dashboard.onboarding.empty': "Bħalissa m'hemmx pjanijiet disponibbli. Erġa' ċċekkja dalwaqt.",
   'dashboard.onboarding.heading': 'Agħżel l-ewwel edizzjoni tiegħek',
   'dashboard.renewal.amount': 'Iċċarġjat',
   'dashboard.renewal.cadence': 'Kadenza',
@@ -87,18 +119,23 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Tiġdid',
   'dashboard.renewal.heading': 'Tiġġedded awtomatikament mixgħul {{date}}',
   'dashboard.renewal.plan': 'Ċavetta tal-pjan',
+  'dashboard.renewal.tbd': 'L-iskedar tat-tiġdid dalwaqt',
   'dashboard.renewal.tier': 'Livell',
   'dashboard.stats.days': 'jiem',
   'dashboard.stats.daysToNext': 'Vapuri fi',
   'dashboard.stats.items': 'Oġġetti kkurati',
   'dashboard.stats.shipDate': 'Data tal-vapur',
   'dashboard.stats.tbd': 'TBD',
+  'dashboard.subtitle.active':
+    "L-edizzjoni li jmiss tiegħek hi fi triqitha. Dan huwa dak li tista' tistenna.",
+  'dashboard.subtitle.idle': 'Agħżel livell biex tibda tibgħat {{appName}} kull xahar.',
   'forgotPassword.subtitle': "Għidilna l-email tiegħek u aħna nibagħtulek link ta' reset.",
   'forgotPassword.success.body':
     "Jekk {{email}} tkun irreġistrata, tirċievi link ta' reset fi ftit minuti.",
   'forgotPassword.success.title': 'Iċċekkja l-inbox tiegħek.',
   'landing.editions.eyebrow': 'Dan l-istaġun',
   'landing.editions.heading': 'Edizzjonijiet li l-kuraturi tagħna qed iħobbu',
+  'landing.editions.viewAll': 'Ibbrawżja l-edizzjonijiet kollha →',
   'landing.footer.contact': 'Kellem lil kuratur',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Ibda l-kaxxa tiegħek →',
@@ -108,6 +145,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Ħarsa lejn id-dashboard tal-membri — countdown, kontenut, u traċċar.',
   'landing.hero.social.count': 'Maħbub minn {{count}} + abbonati',
+  'landing.hero.social.rating': '{{rating}} klassifikazzjoni medja tal-ftuħ tal-kaxxa',
+  'landing.hero.subhead':
+    "{{appName}} jibgħatlek kaxxa ta' ferħ magħżula bl-idejn u fi kwantitajiet żgħar minn artiġjani indipendenti. Ippawża meta trid. Ibdel dak li trid. Żomm dak li tħobb.",
   'landing.nav.start': 'Ibda l-kaxxa tiegħek',
   'landing.tiers.eyebrow': 'Agħżel il-kadenza tiegħek',
   'landing.tiers.heading': "Ibda bil-mod, aġġorna f'kull ħin, ikkanċella bl-istess faċilità.",
@@ -117,6 +157,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Idħol biex tara l-kaxxa tax-xahar id-dieħel.',
   'login.welcomeBack': 'Merħba lura, kuratur.',
   'nextBoxHeroCard.eyebrow': 'IT-TEŻOR LI JMISS TIEGĦEK',
+  'nextBoxHeroCard.itemCount': '{{count}} biċċiet ġewwa',
   'nextBoxHeroCard.itemsLabel': 'Oġġetti kkurati',
   'nextBoxHeroCard.shipsOnLabel': 'Vapuri fuq',
   'notFound.body':
@@ -140,8 +181,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Pawża l-abbonament',
   'settings.danger.paused': 'L-abbonament waqaf.',
   'settings.danger.pausing': 'Qed nieqaf…',
+  'settings.danger.status': 'Status tal-abbonament: {{status}}',
   'settings.danger.subtitle':
     "Il-pawża żżomm il-livell u l-istorja tiegħek intatti. Il-kanċellazzjoni twaqqaf il-konsenji futuri u tneħħi l-metodi ta' ħlas maħżuna tiegħek fi tmiem iċ-ċiklu.",
+  'settings.notifications.saving': '· qed jiġi salvat…',
   'settings.notifications.subtitle':
     'Agħżel liema sinjali trid minn Crate. Id-defaults huma sensibbli.',
   'settings.subtitle':
@@ -158,11 +201,17 @@ export const ui: UiTranslations = {
   'shipments.live.empty': "Għad m'hemm l-ebda kunsinna attiva",
   'shipments.live.eyebrow': 'Ġarr attiv',
   'shipments.live.unnamed': 'Il-kaxxa li jmiss tiegħek',
+  'shipments.loadError':
+    "Ma stajniex nitgħabbu l-kunsinni tiegħek. Iċċekkja l-konnessjoni tiegħek u erġa' pprova.",
+  'shipments.loading': 'Qed jitgħabbew il-konsenji…',
+  'shipments.step.delivered': 'Imwassal',
   'shipments.step.deliveredBody': 'Ittaggja #crateunbox biex taqsam dak li tiskopri.',
   'shipments.step.ordered': 'Ordni mqiegħda',
   'shipments.step.orderedBody':
     'L-abbonament tiegħek poġġa din l-edizzjoni fil-kju għaċ-ċiklu tal-kunsinna li jmiss.',
+  'shipments.step.packed': 'Ippakkjat bl-idejn',
   'shipments.step.packedBody': "Kull biċċa mgeżwra u mdaħħla fil-kaxxa b'nota miktuba bl-idejn.",
+  'shipments.step.transit': 'Fi triqitu',
   'shipments.step.transitNot':
     'It-traċċar se jidher hawn ladarba l-kaxxa tiegħek tkun fi tranżitu.',
   'shipments.subtitle':

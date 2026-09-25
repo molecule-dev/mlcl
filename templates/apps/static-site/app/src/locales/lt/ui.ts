@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Jūsų planas buvo atnaujintas.',
   'planUpdated.returnHome': 'Grįžti į pradžią',
   'planUpdated.thankYou': 'Ačiū!',
+  'post.markdown': 'Peržiūrėti šį įrašą kaip markdown',
+  'post.readingTime': '{{minutes}} min. skaitymo',
   'post.tags': 'Žymos',
   'project.error.nameAndTypeRequired': 'Būtinas pavadinimas ir projectType',
   'project.error.notFound': 'Nerasta',

@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'มีคำถาม ข้อเสนอแนะ หรืออยากได้ฟีเจอร์อะไรเพิ่มไหม? ติดต่อทีมได้จากตั้งค่าบัญชีของคุณ — มีคนจริงอ่านทุกข้อความ',
   'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
+  'about.missionTitle': 'พันธกิจของเรา',
+  'about.whatYouGetTitle': 'สิ่งที่คุณจะได้รับ',
   'analytics.empty': 'สร้างสไลด์เพื่อดูข้อมูลวิเคราะห์ได้ที่นี่',
   'analytics.stats.acrossDecks': 'ทั่วทั้งทุกชั้น',
   'analytics.stats.allTime': 'ในสตูดิโอของคุณ',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'ชื่อเด็ค',
   'landing.features.eyebrow': 'เหตุใดจึงเกิดการโหมโรง',
   'landing.features.heading': 'ทุกสิ่งที่คุณต้องการเพื่อพร้อมขึ้นเวที',
+  'landing.finalCta.body':
+    'เริ่มสตูดิโอของคุณได้ในไม่ถึงหนึ่งนาที ไม่ต้องใช้บัตรเครดิต ยกเลิกได้ทุกเมื่อ',
   'landing.finalCta.cta': 'สร้างสตูดิโอของคุณได้ฟรี',
   'landing.finalCta.eyebrow': 'เริ่มได้ฟรี',
   'landing.finalCta.heading': 'ก้าวขึ้นเวทีด้วยสไลด์สำรับไพ่ที่ดีที่สุดในอาชีพของคุณ',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'แก้ไขเมื่อ 12 นาทีที่แล้ว',
   'notifications.created': 'สร้าง',
   'notifications.edited': 'แก้ไขแล้ว',
+  'notifications.empty.body':
+    'กิจกรรมบนเด็คของคุณ — ความคิดเห็น การกล่าวถึง การส่งออก — จะแสดงที่นี่',
   'notifications.empty.title': 'ยังไม่มีการแจ้งเตือนใดๆ',
   'notifications.eyebrow': 'กิจกรรมบนเวที',
   'notifications.loading': 'กำลังโหลด…',
   'notifications.shared': 'เผยแพร่สู่สาธารณะ',
+  'planUpdated.retry': 'ลองอีกครั้ง',
+  'planUpdated.verifyFailed': 'เรายังไม่สามารถยืนยันการชำระเงินของคุณได้',
+  'planUpdated.verifyFailedBody':
+    'การชำระเงินของคุณอาจยังอยู่ในระหว่างดำเนินการ โปรดลองอีกครั้งในภายหลัง',
   'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'present.addSlides': 'เพิ่มสไลด์',
   'present.backToDecks': 'กลับไปที่ดาดฟ้าเรือ',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'นักแสดงบนเวที',
   'settings.security.notSet': 'ไม่ได้ตั้งค่า',
   'settings.security.passwordBody': 'รหัสผ่านของคุณจะถูกเข้ารหัสขณะจัดเก็บ',
+  'settings.security.reset': 'รีเซ็ต',
   'settings.security.title': 'บัญชี + เซสชัน',
   'shared.empty.body':
     'สไลด์ที่คุณแชร์ต่อสาธารณะจะปรากฏที่นี่ เปิดสไลด์แล้วตั้งค่าการแชร์เป็นสาธารณะ',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'กำลังโหลด…',
   'shared.title': 'ระเบียงส่วนกลาง',
   'templateCard.slideCount': '{{count}} สไลด์',
+  'templateCard.usageCount': '{{count}} ใช้',
+  'templates.empty.body': 'ลองใช้ตัวกรองอื่นดู — เราออกเทมเพลตใหม่ทุกเดือน',
+  'templates.empty.title': 'ยังไม่มีเทมเพลตในหมวดนี้',
+  'templates.hero.body':
+    'เลย์เอาต์สไลด์ที่มีธีมสำเร็จรูป พร้อมบล็อกแผนภูมิ เฟรมตัวอย่าง โน้ตผู้นำเสนอ และพรีเซ็ตตัวจับเวลา — ทุกเทมเพลตพร้อมบันทึกทันที',
   'templates.hero.eyebrow': 'เวทีที่คัดสรรมาอย่างดี',
   'templates.hero.heading': 'เวทีที่สร้างขึ้นเพื่อช่วงเวลาที่คุณต้องการลงจอดอย่างแม่นยำ',
 }

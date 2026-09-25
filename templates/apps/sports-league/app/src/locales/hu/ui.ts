@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Van visszajelzésed, hibát találtál, vagy {{app}} szeretnél a ligádnak? Írj nekünk a fiókbeállításaidból — minden üzenet egy igazi csapattaghoz kerül.',
+  'about.contactTitle': 'Lépjen kapcsolatba velünk',
   'about.eyebrow': 'Névjegy',
+  'about.featureAlerts':
+    'Push értesítések az eredményfrissítésekről, cserékről, sérülésekről és ligabejelentésekről.',
+  'about.featureRosters':
+    'Csapatoldalak teljes kerettel, szezonösszesítőkkel, jó/rossz sorozatokkal és minden játékos egymás elleni mutatóival.',
+  'about.featureSchedule':
+    'Szezonnaptár és menetrendnézet, hogy minden mérkőzésre és eredményre felkészülhess.',
+  'about.featureScoreboard':
+    'Közvetítés színvonalú eredményticker a lap tetejére tűzve, hogy soha ne maradj le egy gólról sem.',
+  'about.featureStandings':
+    'Élő tabella — valós idejű győzelem-vereség-döntetlen mérleg, pontok, győzelmi arány és a rájátszás vonala, minden sípszónál frissítve.',
+  'about.intro':
+    'A {{app}} közvetítési színvonalú otthon a ligádnak. Csapatok, menetrend, élő eredmények és tabellák egyetlen gyors, zsúfoltságmentes irányítópulton — így a szurkolók, edzők és ligaszervezők mindig tudják, hol tart a szezon.',
+  'about.missionBody':
+    'Egy liga követése nem jelentheti öt különböző külső eredményoldal frissítgetését. Azért építettük, hogy minden liga egyetlen hiteles forrást kapjon a tabellákhoz, a menetrendhez és a valóban számító statisztikákhoz — minden sípszónál frissítve, a szezonra ingyen.',
+  'about.missionTitle': 'Küldetésünk',
+  'about.whatYouGet': 'Amit kap',
   'appShell.closeNav': 'Navigáció bezárása',
   'appShell.openNav': 'Navigáció megnyitása',
   'common.dashboard': 'Irányítópult',
@@ -16,14 +35,21 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Összes mérkőzés megtekintése \\u2192',
   'dashboard.viewAllStandings': 'Teljes állás \\u2192',
   'dashboard.viewAllStats': 'Az összes statisztikavezető megtekintése \\u2192',
+  'forgot.submitting': 'Visszaállítási hivatkozás küldése…',
   'forgot.subtitle': 'Adja meg e-mail-címét a visszaállítási hivatkozás megkapásához.',
   'forgot.success':
     'A link visszaállítása elküldve a címzettnek {{email}} Nézd meg a beérkező leveleidet.',
+  'landing.copyright': '© {{year}} {{app}}. Chase the standing.',
+  'landing.ctaBody':
+    'A te ligád. A te tabellád. A kedvenc csapatod — a lap tetejére tűzve. Két perc az beállítás, a szezonra ingyen.',
   'landing.ctaHeading': 'Harmadik féltől származó eredménytáblák frissítésének leállítása',
   'landing.eyebrow': 'Szurkolóknak, edzőknek és bajnokság szervezőinek készült',
   'landing.featuresHeading': 'Első soros ülőhely minden állónak',
   'landing.getStarted': 'Csatlakozz a ligához',
   'landing.heroCta': 'Csatlakozz a ligához',
+  'landing.heroSubtitle':
+    'A {{app}} egyetlen közvetítési színvonalú irányítópultba fűzi a tabellákat, a menetrendet és a statisztikai éllovasokat. Élő eredmények. Valós mérlegek. Semmi zsúfoltság.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Ma este a bajnokságban',
   'landing.statFans': 'Rajongók követik',
   'landing.statGames': 'Meccsek ebben a szezonban',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Vissza a mérkőzésekhez',
   'matchDetail.eventsHeading': 'Lejátszásról lejátszásra',
+  'matchDetail.final': 'VÉGEREDMÉNY',
   'matchDetail.finalScore': 'Végső',
   'matchDetail.live': 'ÉLŐ',
   'matchDetail.liveNow': 'Most élőben',
   'matchDetail.noEvents': 'Még nincsenek rögzített események.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Nincs mérkőzés ebben a nézetben — próbálj másik szűrőt.',
   'matches.eyebrow': 'Mérkőzésnap',
   'matches.loading': 'Húzzuk a lapot…',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Az értesítések betöltése sikertelen',
   'notifications.loading': 'Értesítések betöltése\\u2026',
   'pennantHeroCard.eyebrow': 'A táblázat teteje',
+  'pennantHeroCard.formLabel': 'Utolsó 10',
   'pennantHeroCard.gamesAhead': '{{value}} játékok az üldözés előtt',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Elsődleges navigáció',
@@ -80,17 +109,25 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Válassza ki az ülését',
   'pricing.heading': 'Bővítsd a játékidődet, az eredményeket és a tabellákat!',
   'pricing.limits.schedule': '{{count}} ütemezési bejegyzések',
+  'pricing.limits.scores': '{{count}} eredmények',
+  'pricing.limits.standings': '{{count}} tabellák',
+  'pricing.limits.teams': '{{count}} csapatok',
+  'pricing.subtitle':
+    'Válts nagyobb csomagra a részletesebb menetrendért, eredményekért és tabellákért.',
   'pricing.upgradeCta': 'Váltás: {{tierName}}',
   'profile.eyebrow': 'Rajongói profil',
   'profile.favoritesCount': 'Csapatok követték',
   'profile.favoritesHeading': 'Kedvenc csapatok',
   'profile.noFavorites': 'Még nincsenek kedvencek — válassz csapatokat a Csapatok oldalról.',
   'profile.rankRecord': 'Rang # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Mérleg: {{record}}',
   'reset.confirmPlaceholder': 'Írja be újra a jelszót',
+  'reset.mismatch': 'A jelszavak nem egyeznek.',
   'reset.newLabel': 'Új jelszó',
   'reset.subtitle': 'Válasszon egy legalább 12 karakterből álló erős jelszót.',
   'reset.tokenPlaceholder': 'Beillesztés e-mailből',
   'schedule.eyebrow': 'A pala',
+  'schedule.moreGames': '+ {{count}} több',
   'schedule.subtitle':
     'Naptárnézetben megtekintheted a szezon mérkőzéseit – koppints bármelyik napra a mérkőzések eredményéért.',
   'scoreboardTicker.empty': 'Jelenleg nincsenek élő mérkőzések – nézz vissza a korongledobásnál.',
@@ -98,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Személyre szabás',
   'settings.favoritesBody':
     'Ezek a csapatok rögzítésre kerülnek az irányítópultodon, és pontszámértesítéseket indítanak el.',
+  'settings.favoritesHeading': 'Kedvenc csapatok',
   'settings.loading': 'Beállításaid betöltése\\u2026',
   'settings.noFavorites':
     'Még nincsenek kedvencek \\u2014 válasszon csapatokat a Csapatok oldalról.',
@@ -116,6 +154,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Összesített',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'A legjobb négy jut be a rájátszásba – pontozás alapján döntetlen, majd százalékos győzelem.',
   'standings.title': 'Liga állása',
@@ -134,6 +173,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Játékos',
   'teamDetail.colPos': 'Pozíció',
+  'teamDetail.pointsLabel': 'Pontok',
   'teamDetail.rankLabel': 'Rang # {{rank}}',
   'teamDetail.rosterHeading': 'Névsor',
   'teamDetail.statGD': 'Gólkülönbség',

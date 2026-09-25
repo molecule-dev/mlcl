@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada maklum balas, jumpa pepijat, atau mahu ciri baharu? Kami baca setiap mesej — hubungi pasukan {{appName}} dari tetapan akaun anda dan orang sebenar akan membalas.',
   'about.contactTitle': 'Hubungi kami',
+  'about.intro':
+    '{{appName}} ialah kanvas infiniti kolaboratif untuk pasukan reka bentuk, fasilitator bengkel dan pendidik. Letak nota lekat, lakarkan bentuk, lukis secara bebas, dan lihat rakan sepasukan berfikir bersama anda secara masa nyata — semuanya di satu tempat di mana idea yang bersepah dan generatif akhirnya boleh bertemu.',
+  'about.missionBody':
+    'Pemikiran hebat jarang tersusun rapi. {{appName}} wujud untuk memberi pasukan permukaan yang pantas dan lancar di mana idea boleh ditangkap sebaik sahaja ia datang dan dibentuk bersama sehingga ia masuk akal — tanpa ketinggalan, kerja yang hilang, atau alat tegar yang membunuh momentum.',
+  'about.missionTitle': 'Misi kami',
+  'authShell.brandFooter':
+    '“Kami menggantikan empat alat dengan {{appName}} pada minggu kami melancarkan jenama baharu. Retro itu tersimpan sendiri.” — Atlas Studio',
+  'authShell.brandFooterMeta': 'Dipercayai oleh 12,400+ pasukan reka bentuk',
   'authShell.brandHeading':
     'Kanvas berbilang pemain untuk pasukan reka bentuk yang berfikir secara lantang.',
   'billing.canceled': 'Langganan dibatalkan.',
@@ -11,6 +21,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': 'Peringkat permulaan percuma selama-lamanya.',
   'billing.freePlanName': 'Percuma',
   'billing.paidPlanBody': 'Langganan aktif.',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'Pelan & invois',
   'billing.updated': 'Pelan dikemas kini.',
   'billing.upgradeTitle': 'Pelan yang tersedia',
@@ -19,8 +30,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': 'daripada {{max}} disertakan',
   'boardCanvas.backToBoards': 'Semua papan',
   'boardCanvas.changeColor': 'Tukar warna {{color}}',
+  'boardCanvas.collaboratorsTitle': 'Kolaborator',
   'boardCanvas.deleteElement': 'Padam elemen',
   'boardCanvas.deselect': 'Nyahpilih',
+  'boardCanvas.elementLabel': 'Elemen {{type}}',
   'boardCanvas.elementsCount': '{{count}} unsur-unsur',
   'boardCanvas.elementText': 'Teks',
   'boardCanvas.empty.body':
@@ -30,10 +43,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': 'Isi',
   'boardCanvas.invited': 'Dijemput {{email}}',
   'boardCanvas.metaTitle': 'Kedudukan',
+  'boardCanvas.metaWH': 'L: {{w}}  T: {{h}}',
   'boardCanvas.metaXY': 'X: {{x}} Y: {{y}}',
   'boardCanvas.noCollaborators':
     'Tiada kolaborator lagi. Gunakan Kongsi untuk menjemput rakan sepasukan.',
   'boardCanvas.present': 'Hadir',
+  'boardCanvas.private': 'Peribadi — jemputan sahaja',
   'boardCanvas.properties': 'Hartanah',
   'boardCanvas.public': 'Awam — sesiapa sahaja yang mempunyai pautan boleh melihatnya',
   'boardCanvas.roleCommenter': 'Boleh komen',
@@ -49,6 +64,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'Pilih warna melekit',
   'boardCanvas.summaryCount': '{{count}} elemen pada kanvas',
   'boardCanvas.summaryTitle': 'Lembaga',
+  'boardCanvas.surface.clear': 'Kanvas papan — kosongkan pilihan',
+  'boardCanvas.surface.draw': 'Kanvas papan — seret untuk melukis',
+  'boardCanvas.surface.place': 'Kanvas papan — letak elemen',
   'boardCanvas.untitled': 'Papan tanpa tajuk',
   'boardCanvas.visibilityTitle': 'Keterlihatan',
   'boardCanvas.zoomIn': 'Zum masuk',
@@ -71,6 +89,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'Papan carian',
   'boards.searchPlaceholder': 'Papan carian',
   'boards.sharedTitle': 'Dikongsi dengan saya',
+  'boards.sortedBy': 'Disusun mengikut kemas kini terkini',
   'boards.startFromTemplate': 'Mulakan daripada templat',
   'boards.title': 'Papan anda',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -84,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.cta.signupButton': 'Cipta papan percuma anda',
   'landing.cta.title': 'Dibina untuk pemikiran yang bersepah, generatif dan bersemuka.',
   'landing.demoBoard.title': 'Bengkel Q1 · Suara Jenama',
+  'landing.demoBoard.updated': 'Dikemas kini 12 min lalu',
   'landing.featuresEyebrow': 'Apa yang menjadikan Slate tessellate',
   'landing.featuresTitle': 'Maklum balas yang pantas. Kanvas yang cantik. Tiada geseran.',
   'landing.hero.body':
@@ -96,18 +116,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '•••••••••••',
   'login.signIn': 'Daftar masuk ke Slate',
   'login.signupCta': 'Cipta ruang kerja percuma',
+  'login.signupPrompt': 'Baru di Tessera?',
   'login.subheading':
     'Teruskan dari tempat bengkel berhenti — papan, nota lekit dan kursor semuanya disegerakkan dalam masa nyata.',
   'mobileNav.closeMenu': 'Tutup menu navigasi',
   'mobileNav.new': 'Baharu',
   'mobileNav.openMenu': 'Buka menu navigasi',
+  'notifications.editBody': 'Kandungan papan telah dikemas kini.',
   'notifications.editTitle': 'Suntingan pada " {{board}} "',
   'notifications.empty.body':
     'Jemputan, simpanan gambar dan suntingan papan terkini akan dipaparkan di sini apabila ia berlaku.',
   'notifications.empty.title': 'Tiada apa-apa yang baharu dalam peti masuk anda',
   'notifications.eyebrow': '{{name}} · peti masuk',
+  'notifications.inviteBody': 'sebagai {{role}} pada "{{board}}"',
   'notifications.inviteTitle': 'Dijemput {{email}}',
   'notifications.snapshotTitle': 'Gambaran ringkas baharu pada " {{board}} "',
+  'present.addFirst': 'Tambah bingkai pertama',
   'present.addFrame': '+ Tambah bingkai',
   'present.boardEyebrow': '{{title}} · pembentangan',
   'present.empty.body':
@@ -115,6 +139,7 @@ export const ui: UiTranslations = {
   'present.empty.title': 'Tiada bingkai lagi',
   'present.exit': 'Pembentangan keluar',
   'present.exitToBoard': 'Kembali ke kanvas',
+  'present.eyebrow': 'Mod persembahan',
   'present.frameBody': 'Perkara perbincangan',
   'present.frameName': 'Nama bingkai',
   'present.frameOf': 'Bingkai {{current}} daripada {{total}}',
@@ -124,21 +149,31 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'Pembentangan secara langsung',
   'present.save': 'Simpan bingkai',
   'present.title': 'Jalankan cerita anda',
+  'present.unnamed': 'Bingkai tanpa tajuk',
+  'pricing.limits.advanced': 'Ciri lanjutan',
   'profile.cursorBody':
     'Disimpan pada peranti ini — rakan sepasukan melihat warna ini di sebelah kursor langsung anda.',
   'profile.cursorEyebrow': 'Warna kursor anda',
   'profile.eyebrow': 'Kad kolaborator awam',
+  'profile.noBoards': 'Belum ada papan — cipta satu untuk bermula.',
+  'profile.recentBoards': 'Papan {{name}} baru disentuh',
   'profile.stat.${s.label}': 'Papan {{nama}} baru-baru ini disentuh',
+  'profile.statsEyebrow': 'Aktiviti anda',
   'profile.title': 'Profil Anda',
+  'reset.backPrompt': 'Perlukan e-mel lain?',
   'reset.cta': 'Tetapkan semula kata laluan & log masuk',
+  'reset.password': 'Kata laluan baharu',
   'reset.subheading':
     'Pilih kata laluan yang kukuh — sekurang-kurangnya 8 aksara dengan satu nombor.',
   'settings.appearance.title': 'Tema & kanvas',
   'settings.eyebrow': 'Keutamaan akaun',
   'settings.notifications.title': 'Keutamaan pemberitahuan',
   'settings.profile.title': 'Kad kolaborator awam',
+  'settings.security.body':
+    'Urus pengesahan dua faktor, sesi aktif dan kata laluan dari papan pemuka akaun anda.',
   'settings.security.title': 'Keselamatan',
   'shared.collaboratorCount': '{{count}} kolaborator',
+  'shared.count': '{{count}} papan',
   'shared.empty.body':
     'Apabila rakan sepasukan menjemput anda ke papan, ia akan dipaparkan di sini secara automatik.',
   'shared.empty.title': 'Tiada apa-apa yang dikongsi dengan anda lagi',
@@ -154,6 +189,9 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Percuma untuk sehingga 3 kolaborator. Kad kredit tidak diperlukan untuk 14 hari pertama.',
   'templateCard.usageCount': '{{count}} kegunaan',
+  'templateDetail.allTemplates': 'Semua templat',
+  'templateDetail.body':
+    'Klik "Guna templat" untuk menyalin {{count}} elemen permulaan ke papan baharu bertajuk "{{name}}". Edit, kongsi dan jalankan bengkel anda dari situ.',
   'templateDetail.delete': 'Padam templat',
   'templateDetail.elementsCount': '{{count}} elemen pemula',
   'templateDetail.eyebrow': '{{kind}} templat',
@@ -166,16 +204,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'Simpan templat tersuai',
   'templates.empty.body':
     'Cipta templat tersuai daripada mana-mana papan yang anda miliki — buka papan, simpan petikan, kemudian simpannya sebagai templat yang boleh diguna semula di sini.',
+  'templates.empty.title': 'Tiada templat lagi',
   'templates.eyebrow': 'Kit bengkel & templat yang disimpan',
   'templates.filter.${c}': 'Tiada templat lagi',
   'templates.nameLabel': 'Nama templat',
   'templates.systemBadge': 'Terbina dalam',
   'templates.userBadge': 'Milik anda',
   'versionHistory.backToBoard': 'Kembali ke kanvas',
+  'versionHistory.elementsTotal': '{{count}} elemen ditangkap',
   'versionHistory.empty.body':
     'Gambar kecil dicipta daripada kanvas papan dengan "Simpan gambar kecil" — gambar kecil dipaparkan di sini supaya anda boleh memulihkan sebarang keadaan lalu.',
+  'versionHistory.empty.cta': 'Buka kanvas untuk mengambil satu',
   'versionHistory.empty.title': 'Tiada gambar lagi',
   'versionHistory.eyebrow': '{{title}} · sejarah',
+  'versionHistory.eyebrowFallback': 'Sejarah papan',
   'versionHistory.latest': 'Terkini',
   'versionHistory.restore': 'Pulihkan versi ini',
   'versionHistory.restored': 'Gambar dipulihkan.',
@@ -186,6 +228,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'Papan baharu',
   'whiteboardLayout.primaryNav': 'Navigasi utama',
   'workspace.boardLabel': 'Lembaga',
+  'workspace.empty': 'Belum ada kolaborator — jemput seseorang ke papan anda.',
   'workspace.eyebrow': '{{name}} · ruang kerja',
   'workspace.invite': 'Jemput rakan usaha sama',
   'workspace.inviteSent': 'Jemputan dihantar.',
@@ -194,4 +237,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'Pengulas',
   'workspace.role.editor': 'Editor',
   'workspace.role.viewer': 'Penonton',
+  'workspace.title': 'Ahli & peranan',
 }

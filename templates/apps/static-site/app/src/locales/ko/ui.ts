@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': '플랜이 업데이트되었습니다.',
   'planUpdated.returnHome': '홈으로 돌아가기',
   'planUpdated.thankYou': '감사합니다!',
+  'post.markdown': '이 게시물을 markdown으로 보기',
+  'post.readingTime': '읽는 데 {{minutes}}분',
   'post.tags': '태그',
   'project.error.nameAndTypeRequired': 'name과 projectType은 필수입니다',
   'project.error.notFound': '찾을 수 없습니다',

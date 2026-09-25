@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ප්‍රතිචාර තිබේද, දෝෂයක් හමු වුණාද, නැතහොත් ඔබේ ලීගය සඳහා {{app}} අවශ්‍යද? ඔබේ ගිණුම් සැකසුම් වෙතින් අප හමුවන්න — සෑම පණිවිඩයක්ම කණ්ඩායමේ සැබෑ පුද්ගලයෙකුට යයි.',
+  'about.contactTitle': 'සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'about.featureAlerts':
+    'ලකුණු යාවත්කාලීන, වෙළඳ ඇඟවීම්, ආබාධ වාර්තා සහ ලීග නිවේදන සඳහා පුෂ් දැනුම්දීම්.',
+  'about.featureRosters':
+    'සෑම ක්‍රීඩකයෙකුටම සම්පූර්ණ සංචිත, වාර එකතු, උණුසුම්/සිසිල් ධාරා සහ හිසට-හිස බෙදීම් සහිත කණ්ඩායම් පිටු.',
+  'about.featureSchedule':
+    'සෑම තරගයක් සහ ප්‍රතිඵලයක් වටා සැලසුම් කිරීමට වාර දින දර්ශනයක් සහ කාලසටහන් දසුනක්.',
+  'about.featureScoreboard':
+    'ඔබට කිසිදා ගෝලයක් අතපසු නොවන පරිදි සෑම පිටුවකම ඉහළින්ම සවි කර ඇති විකාශන-ශ්‍රේණියේ ලකුණු පුවරු ටිකරයක්.',
+  'about.featureStandings':
+    'සජීවී ශ්‍රේණිගත කිරීම් — තත්‍ය කාලීන ජය-පරාජය-සම ලකුණු වාර්තා, ලකුණු, ජය-ප්‍රතිශතය සහ ප්ලේඅෆ් රේඛාව, සෑම විසිල් පිඹීමකදීම යාවත්කාලීන වේ.',
+  'about.intro':
+    '{{app}} යනු ඔබේ ලීගය සඳහා විකාශන-තත්ත්වයේ නිවහනකි. කණ්ඩායම්, කාලසටහන්, සජීවී ලකුණු සහ ශ්‍රේණිගත කිරීම් එක් වේගවත්, අවුල් රහිත උපකරණ පුවරුවකට එකට එකතු වේ — එවිට රසිකයන්, පුහුණුකරුවන් සහ ලීග සංවිධායකයන් සැමවිටම දන්නවා වාරය කොතැනද සිටින්නේ කියා.',
+  'about.missionBody':
+    'ලීගයක් අනුගමනය කිරීම යනු වෙනත් තෙවන පාර්ශවීය ලකුණු පුවරු පහක් නැවුම් කිරීම නොවිය යුතුය. සෑම ලීගයකටම ශ්‍රේණිගත කිරීම්, කාලසටහන සහ ඇත්තටම වැදගත් සංඛ්‍යාලේඛන සඳහා තනි සත්‍ය මූලාශ්‍රයක් ලබා දීමට අපි එය ගොඩනැගුවෙමු — සෑම විසිල් පිඹීමකදීම යාවත්කාලීන වන, වාරය සඳහා නොමිලේ.',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
+  'about.whatYouGet': 'ඔබට ලැබෙන දේ',
   'appShell.closeNav': 'සංචාලනය වසන්න',
   'appShell.openNav': 'සංචාලනය විවෘත කරන්න',
   'common.dashboard': 'උපකරණ පුවරුව',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'සියලුම තරඟ බලන්න \\u2192',
   'dashboard.viewAllStandings': 'සම්පූර්ණ ශ්‍රේණිගත කිරීම් \\u2192',
   'dashboard.viewAllStats': 'සියලුම සංඛ්‍යාලේඛන නායකයින් බලන්න \\u2192',
+  'forgot.submitting': 'නැවත සැකසීමේ සබැඳිය යවමින්…',
   'forgot.subtitle': 'යළි පිහිටුවීමේ සබැඳියක් ලබා ගැනීමට ඔබගේ විද්‍යුත් තැපෑල ඇතුළත් කරන්න.',
   'forgot.success': 'යළි පිහිටුවීමේ සබැඳිය යවන ලද්දේ {{email}} . ඔබගේ එන ලිපි පරීක්ෂා කරන්න.',
+  'landing.copyright': '© {{year}} {{app}}. ශ්‍රේණිය හඹා යන්න.',
+  'landing.ctaBody':
+    'ඔබේ ලීගය. ඔබේ ශ්‍රේණිගත කිරීම්. ඔබේ ප්‍රියතම කණ්ඩායම — ඉහළින්ම සවි කර ඇත. සැකසීමට මිනිත්තු දෙකක්, වාරය සඳහා නොමිලේ.',
   'landing.ctaHeading': 'තෙවන පාර්ශවීය ලකුණු පුවරු නැවුම් කිරීම නවත්වන්න',
   'landing.eyebrow': 'රසිකයන්, පුහුණුකරුවන් සහ ලීග් සංවිධායකයින් සඳහා ඉදිකරන ලද්දකි',
   'landing.featuresHeading': 'සෑම සිටගෙන සිටින ස්ථානයකටම ඉදිරි පෙළ ආසනයක්',
   'landing.getStarted': 'ලීගයට එකතු වන්න',
   'landing.heroCta': 'ලීගයට එකතු වන්න',
+  'landing.heroSubtitle':
+    '{{app}} ශ්‍රේණිගත කිරීම්, කාලසටහන් සහ සංඛ්‍යාලේඛන නායකයන් එක් විකාශන-තත්ත්වයේ උපකරණ පුවරුවකට සම්බන්ධ කරයි. සජීවී ලකුණු. සැබෑ වාර්තා. අවුල් නැත.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'අද රෑ ලීගය වටා',
   'landing.statFans': 'රසිකයින් අනුගමනය කිරීම',
   'landing.statGames': 'මෙම කන්නයේ ක්‍රීඩා',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'බ {{period}}',
   'matchDetail.back': 'තරඟ වෙත ආපසු',
   'matchDetail.eventsHeading': 'ක්‍රීඩාවෙන් ක්‍රීඩාවට',
+  'matchDetail.final': 'අවසාන',
   'matchDetail.finalScore': 'අවසාන',
   'matchDetail.live': 'සජීවී',
   'matchDetail.liveNow': 'දැන් සජීවීව',
   'matchDetail.noEvents': 'තවමත් සිදුවීම් කිසිවක් වාර්තා වී නොමැත.',
   'matchDetail.periodClock': 'බ {{period}} · {{clock}}',
+  'matches.empty': 'මෙම දසුනේ තරග නැත — වෙනත් පෙරහනක් උත්සාහ කරන්න.',
   'matches.eyebrow': 'තරඟ දිනය',
   'matches.loading': 'ලෑල්ල ඇදගෙන යනවා...',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'දැනුම්දීම් පූරණය කිරීමට අසමත් විය.',
   'notifications.loading': 'දැනුම්දීම් පූරණය කරමින්\\u2026',
   'pennantHeroCard.eyebrow': 'මේසයේ ඉහළට',
+  'pennantHeroCard.formLabel': 'අවසන් 10',
   'pennantHeroCard.gamesAhead': '{{value}} ඉදිරි තරඟ',
   'pennantHeroCard.pointsLabel': 'පීටීඑස්',
   'pennantLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'ඔබේ ආසනය තෝරන්න',
   'pricing.heading': 'පොහොසත් කාලසටහන, ලකුණු සහ ශ්‍රේණිගත කිරීම් සඳහා උත්ශ්‍රේණි කරන්න.',
   'pricing.limits.schedule': '{{count}} කාලසටහන් ඇතුළත් කිරීම්',
+  'pricing.limits.scores': '{{count}} ලකුණු',
+  'pricing.limits.standings': '{{count}} ශ්‍රේණිගත කිරීම්',
+  'pricing.limits.teams': '{{count}} කණ්ඩායම්',
+  'pricing.subtitle': 'පොහොසත් කාලසටහන, ලකුණු සහ ශ්‍රේණිගත කිරීම් සඳහා උත්ශ්‍රේණි කරන්න.',
   'pricing.upgradeCta': 'උත්ශ්‍රේණි කරන්න {{tierName}}',
   'profile.eyebrow': 'රසික පැතිකඩ',
   'profile.favoritesCount': 'අනුගමනය කළ කණ්ඩායම්',
   'profile.favoritesHeading': 'ප්‍රියතම කණ්ඩායම්',
   'profile.noFavorites': 'තවමත් ප්‍රියතමයන් නොමැත — කණ්ඩායම් පිටුවෙන් කණ්ඩායම් තෝරන්න.',
   'profile.rankRecord': 'ශ්‍රේණිගත කිරීම # {{rank}} · {{record}}',
+  'profile.recordOnly': 'වාර්තාව {{record}}',
   'reset.confirmPlaceholder': 'මුරපදය නැවත කරන්න',
+  'reset.mismatch': 'මුරපද නොගැලපේ.',
   'reset.newLabel': 'නව මුරපදය',
   'reset.subtitle': 'අවම වශයෙන් අක්ෂර 12 ක ශක්තිමත් මුරපදයක් තෝරන්න.',
   'reset.tokenPlaceholder': 'ඊමේල් එකෙන් අලවන්න',
   'schedule.eyebrow': 'ස්ලයිට් එක',
+  'schedule.moreGames': '+ {{count}} තව',
   'schedule.subtitle':
     'වාරය පුරා සවිකිරීම් පිළිබඳ දින දර්ශන දසුන — බොක්ස් ලකුණු සඳහා ඕනෑම දිනක තට්ටු කරන්න.',
   'scoreboardTicker.empty': 'දැන් සජීවී ක්‍රීඩා නැත - පක් ඩ්‍රොප් හිදී නැවත පරීක්ෂා කරන්න.',
@@ -97,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'පුද්ගලීකරණය කරන්න',
   'settings.favoritesBody':
     'මෙම කණ්ඩායම් ඔබගේ උපකරණ පුවරුවට සම්බන්ධ කර ලකුණු ඇඟවීම් අවුලුවනු ලැබේ.',
+  'settings.favoritesHeading': 'ප්‍රියතම කණ්ඩායම්',
   'settings.loading': 'ඔබේ මනාපයන් පූරණය කරමින්\\u2026',
   'settings.noFavorites': 'තවමත් ප්‍රියතමයන් නොමැත \\u2014 කණ්ඩායම් පිටුවෙන් කණ්ඩායම් තෝරන්න.',
   'settings.notificationsHeading': 'දැනුම්දීම් සහ සංදර්ශකය',
@@ -114,6 +151,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'ත',
   'standings.overall': 'සමස්තයක් වශයෙන්',
   'standings.points': 'පීටීඑස්',
+  'standings.rank': '#',
   'standings.subtitle':
     'ඉහළම හතර දෙනා පසු වාරය සඳහා සුදුසුකම් ලබයි — ලකුණු අනුව සම ලකුණු, පසුව ජයග්‍රාහී ප්‍රතිශතය.',
   'standings.title': 'ලීග් ශ්‍රේණිගත කිරීම්',
@@ -132,6 +170,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'ග',
   'teamDetail.colName': 'ක්‍රීඩකයා',
   'teamDetail.colPos': 'තැ.කා.සි.',
+  'teamDetail.pointsLabel': 'ලකුණු',
   'teamDetail.rankLabel': 'ශ්‍රේණිගත කිරීම # {{rank}}',
   'teamDetail.rosterHeading': 'නාමලේඛනය',
   'teamDetail.statGD': 'ඉලක්ක වෙනස',

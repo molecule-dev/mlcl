@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О нас',
+  'about.missionTitle': 'Наша миссия',
   'account.notifications.save': 'Сохранить настройки',
   'account.notifications.saved': 'Настройки сохранены.',
   'account.notifications.saveFailed': 'Не удалось сохранить настройки.',
@@ -12,7 +13,10 @@ export const ui: UiTranslations = {
     'Оплата за сеанс • При переходе на платный тариф предоставляются скидки на бронирование',
   'account.payments.helper':
     'Способ оплаты будет указан при оформлении заказа. Мы никогда не храним полные номера карт — все данные карт обрабатываются Stripe.',
+  'account.payments.paidDescription': 'Подписка активна — управляйте в Stripe.',
   'account.payments.planFree': 'Бесплатный план',
+  'account.payments.title': 'Тариф и оплата',
+  'account.payments.viewPlans': 'Посмотреть тарифы {{appName}} →',
   'account.profile.title': 'Профиль',
   'account.role.body':
     'Переключайтесь между режимом обучения и режимом репетитора в любое время. Ваши активные сессии остаются неизменными в любом режиме.',
@@ -25,6 +29,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Учить с помощью мела',
   'becomeTutor.form.error': 'Не удалось отправить заявку.',
+  'becomeTutor.form.pitch': 'Ваше сообщение (необязательно)',
   'becomeTutor.form.pitchPlaceholder':
     'Несколько предложений, которые студенты увидят в вашем профиле. Будьте конкретны и доброжелательны.',
   'becomeTutor.form.rate': 'Почасовая ставка ($/час): {{rate}}',
@@ -34,6 +39,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.title': 'Расскажите нам о себе',
   'becomeTutor.headline':
     'Зарабатывайте, занимаясь любимым делом. Преподавайте по удобному для вас графику.',
+  'becomeTutor.subhead':
+    'Подайте заявку за 5 минут. После проверки вы появитесь в поиске и сможете принимать занятия.',
+  'booking.duration.title': '3. Как долго?',
   'booking.error.createFailed': 'Не удалось создать бронирование.',
   'booking.error.loadFailed': 'Не удалось загрузить обучающий материал — попробуйте еще раз.',
   'booking.error.noSlot': 'Сначала выберите день и время.',
@@ -48,6 +56,7 @@ export const ui: UiTranslations = {
     'Перенести сеанс можно не позднее чем за 12 часов. С вашей карты списывается сумма только по окончании сеанса.',
   'booking.summary.assurance':
     'Плата взимается только по окончании сеанса. • Бесплатная отмена за 12 часов до начала сеанса.',
+  'booking.summary.back': '← Назад к профилю репетитора',
   'booking.summary.cta': 'Подтвердить бронирование',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'Выберите слот',
@@ -74,18 +83,27 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'Репетитор',
   'bookingConfirm.subject': 'Тема',
   'bookingConfirm.title': 'Вы забронировали место. Остальное мы возьмем на себя.',
+  'bookingConfirm.viewSessions': 'Все занятия →',
   'bookingConfirm.with': 'С репетитором',
   'common.goToDashboard': 'Перейти к панели',
+  'earningsHero.change': '{{sign}}{{percent}}% к прошлому месяцу',
   'earningsHero.eyebrow': 'Прибыль • {{month}}',
+  'earningsHero.greeting': 'С возвращением, {{name}} — не сбавляйте темп.',
   'forgotPassword.heading': 'Забыли пароль?',
   'forgotPassword.subheading':
     'Введите адрес электронной почты, привязанный к вашей учетной записи, и мы вышлем вам ссылку для сброса пароля.',
   'forgotPassword.success.body':
     'Мы отправили ссылку для сброса настроек. {{email}} — Срок действия истекает через 30 минут.',
   'heroSearchSection.eyebrow': 'Более 12 000 проверенных репетиторов • с 2018 года',
+  'heroSearchSection.headline': 'Здесь любознательные ученики находят нужных репетиторов.',
+  'heroSearchSection.searchCta': 'Найти репетитора',
+  'heroSearchSection.searchPlaceholder': 'Поиск предметов, репетиторов или тем…',
   'heroSearchSection.stat.rating': 'Средняя оценка сессии',
+  'heroSearchSection.stat.sessions': 'Проведено занятий',
   'heroSearchSection.stat.subjects': 'Рассматриваемые темы',
   'heroSearchSection.stat.tutors': 'Проверенные репетиторы',
+  'heroSearchSection.subhead':
+    'Проверенные репетиторы. Прозрачные цены. Занятия, которые вписываются в вашу неделю.',
   'landing.featured.eyebrow': 'Рекомендуемые преподаватели',
   'landing.featured.headline':
     'Тщательно отобранные, лучшие по рейтингу и готовые к продаже на этой неделе.',
@@ -93,8 +111,11 @@ export const ui: UiTranslations = {
   'landing.nav.becomeTutor': 'Учить с помощью мела',
   'landing.nav.findTutors': 'Найти репетиторов',
   'landing.pillars.eyebrow': 'Почему мел',
+  'landing.pillars.headline': '{{tagline}} — без лишних сложностей.',
   'landing.testimonials.eyebrow': 'От недавних студентов',
   'landing.testimonials.headline': 'Реальные результаты, рассказанные ими самими.',
+  'landing.tutorCta.body':
+    'Устанавливайте свои цены, зарабатывайте репутацию благодаря проверенным отзывам, а мы берём на себя расписание, оплату и напоминания.',
   'landing.tutorCta.button': 'Подать заявку на преподавание',
   'landing.tutorCta.eyebrow': 'Станьте репетитором',
   'landing.tutorCta.headline':
@@ -106,6 +127,7 @@ export const ui: UiTranslations = {
   'login.signup': 'Создать аккаунт →',
   'login.subheading':
     'Продолжите с того места, где остановились — ваши занятия, сообщения и преподаватели ждут вас.',
+  'login.support': 'Нужна помощь?',
   'messages.draftPlaceholder': 'Введите сообщение…',
   'messages.empty.body':
     'Здесь будут появляться темы, когда вы отправляете сообщение преподавателю или он отправляет сообщение вам.',
@@ -117,9 +139,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'Сообщений пока нет.',
   'messages.selectThread': 'Выберите тему слева.',
   'messages.send': 'Отправить сообщение',
+  'messages.startThreadHint':
+    'Откройте профиль репетитора и нажмите «Написать репетитору», чтобы начать переписку.',
   'messages.thread.empty': 'Поздоровайтесь — начните разговор.',
   'messages.title': 'Общение с преподавателями через чат.',
   'nav.primary': 'Начальный',
+  'planUpdated.body':
+    'Изменение тарифа активировано. Вы можете управлять своим планом в любое время на странице оплаты.',
+  'pricing.advancedFeatures': 'Расширенные возможности:',
   'pricing.dataExport': 'Экспорт данных:',
   'pricing.headingDefault': 'Расширенные возможности:',
   'resetPassword.heading': 'Выберите новый надежный пароль.',
@@ -130,6 +157,7 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'После успешного сброса настроек мы автоматически выполним вход в систему.',
   'resetPassword.submit': 'Сброс и вход в систему',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body':
     'Попробуйте расширить фильтр по теме или снизить пороговое значение для оценки.',
@@ -141,7 +169,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'Рейтинг',
   'search.filter.subject': 'Тема',
   'search.results.count': '{{count}} Репетиторы соответствуют вашим фильтрам',
+  'search.results.fallback': 'Показаны подобранные демо-репетиторы',
   'search.results.loading': 'Загрузка репетиторов…',
+  'search.searchPlaceholder': 'Предмет, имя или тема…',
   'search.subtitle':
     'Фильтрация по предмету, рейтингу и доступности. Только проверенные репетиторы.',
   'search.title': 'Найдите репетитора, с которым у вас сложится взаимопонимание.',
@@ -174,18 +204,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'Занятие началось — приятного обучения!',
   'sessionDetail.startError': 'Не удалось запустить сессию.',
   'sessionDetail.subtitle': 'с {{name}} • {{when}} • {{mins}} мин',
+  'sessionDetail.timeline': 'Хронология статусов',
   'sessionDetail.timeline.afterEnd': 'После окончания сессии',
   'sessionDetail.timeline.auto': 'Авто',
   'sessionDetail.timeline.booked': 'Забронировано',
   'sessionDetail.timeline.confirmed': 'Подтвержденный',
   'sessionDetail.timeline.inSession': 'В ходе заседания',
   'sessionDetail.timeline.now': 'Сейчас',
+  'sessionDetail.timeline.receipt': 'Чек выставлен',
   'sessionDetail.timeline.review': 'Запрос на проверку',
   'sessions.empty.body':
     'Воспользуйтесь поиском на Mentor, чтобы найти репетитора и забронировать время. Подтвержденные занятия отображаются здесь.',
   'sessions.empty.title': 'Здесь пока ничего не запланировано.',
   'sessions.error': 'Не удалось загрузить ваши сессии — пожалуйста, попробуйте еще раз.',
   'sessions.eyebrow': 'Ваши сессии',
+  'sessions.loading': 'Загрузка сессий…',
   'sessions.subtitle':
     'Отслеживайте предстоящие бронирования, переходите в активную сессию и просматривайте завершенные уроки.',
   'sessions.title': 'Все уроки в одном месте.',
@@ -200,22 +233,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'Создать мой {{role}} счет',
   'signup.subheading':
     'Создайте учетную запись, чтобы бронировать занятия, отправлять сообщения преподавателям и отслеживать свой прогресс.',
+  'signup.terms': 'Регистрируясь, вы соглашаетесь с нашими Условиями.',
   'tutorCard.avatarAlt': 'Портрет {{name}}',
   'tutorCard.perHour': '/ час',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'Лучший рейтинг',
   'tutorCard.verified': 'Проверенный репетитор',
+  'tutorDashboard.empty.body':
+    'Укажите свои предметы, ставку за час и доступность — и начинайте зарабатывать.',
+  'tutorDashboard.empty.cta': 'Стать репетитором →',
   'tutorDashboard.empty.title': 'Станьте репетитором, чтобы разблокировать свою панель управления.',
   'tutorDashboard.fallbackName': 'Репетитор',
   'tutorDashboard.loading': 'Загрузка панели управления…',
   'tutorDashboard.recentReviews': 'Последние отзывы',
   'tutorDashboard.reviewsEmpty':
     'У вас пока нет отзывов — они появятся здесь, как только студенты оценят вас.',
+  'tutorDashboard.stats.rating': 'Средняя оценка',
   'tutorDashboard.stats.sessions': 'Занятия в этом месяце',
+  'tutorDashboard.stats.totalSessions': 'Занятий за всё время',
+  'tutorDashboard.studentFallback': 'Студент',
   'tutorDashboard.tutoringFallback': 'Занятие с репетитором',
   'tutorDashboard.upcoming': 'Предстоящие сессии',
   'tutorDashboard.upcomingEmpty':
     'Пока нет запланированных занятий — студенты, забронировавшие ваши места, появятся здесь.',
+  'tutorProfile.availability': 'Доступность на этой неделе',
   'tutorProfile.availabilityHeadline': 'Выберите время начала',
   'tutorProfile.bookCta': 'Записаться на сеанс',
   'tutorProfile.bookFull': 'Полное расписание смотрите здесь.',
@@ -228,6 +269,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / час',
   'tutorProfile.reviews': 'Последние отзывы',
   'tutorProfile.reviews.empty': 'Отзывов пока нет — будьте первыми.',
+  'tutorProfile.stat.repeats': 'Повторные ученики',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'Средний ответ',
   'tutorProfile.stat.responseValue': '{{mins}} мин',

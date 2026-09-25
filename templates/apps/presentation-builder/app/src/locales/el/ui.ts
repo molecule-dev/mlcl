@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε ερωτήσεις, σχόλια ή κάποια λειτουργία που θα θέλατε να είχαμε; Επικοινωνήστε με την ομάδα από τις ρυθμίσεις του λογαριασμού σας — ένας πραγματικός άνθρωπος διαβάζει κάθε μήνυμα.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.missionTitle': 'Η αποστολή μας',
+  'about.whatYouGetTitle': 'Τι αποκτάτε',
   'analytics.empty': 'Δημιουργήστε τράπουλες για να δείτε αναλυτικά στοιχεία εδώ.',
   'analytics.stats.acrossDecks': 'Σε όλα τα καταστρώματα',
   'analytics.stats.allTime': 'Στο στούντιό σας',
@@ -67,6 +71,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Τίτλος τράπουλας',
   'landing.features.eyebrow': 'Γιατί Εισαγωγή',
   'landing.features.heading': 'Όλα όσα χρειάζεστε για να ανεβείτε στη σκηνή είναι έτοιμα.',
+  'landing.finalCta.body':
+    'Στήστε το στούντιό σας σε λιγότερο από ένα λεπτό. Χωρίς πιστωτική κάρτα. Ακύρωση οποιαδήποτε στιγμή.',
   'landing.finalCta.cta': 'Δημιουργήστε το δωρεάν στούντιο σας',
   'landing.finalCta.eyebrow': 'Δωρεάν για να ξεκινήσετε',
   'landing.finalCta.heading': 'Ανεβείτε στη σκηνή με το καλύτερο deck της καριέρας σας.',
@@ -82,10 +88,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Επεξεργάστηκε πριν από 12 λεπτά',
   'notifications.created': 'δημιουργήθηκε',
   'notifications.edited': 'επεξεργασμένο',
+  'notifications.empty.body':
+    'Η δραστηριότητα στα decks σας — σχόλια, αναφορές, εξαγωγές — θα εμφανίζεται εδώ.',
   'notifications.empty.title': 'Δεν υπάρχουν ακόμη ειδοποιήσεις',
   'notifications.eyebrow': 'Σκηνική δραστηριότητα',
   'notifications.loading': 'Φόρτωση…',
   'notifications.shared': 'κοινοποιήθηκε δημόσια',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'present.addSlides': 'Προσθήκη διαφανειών',
   'present.backToDecks': 'Επιστροφή στα καταστρώματα',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.security.notSet': 'Δεν έχει οριστεί',
   'settings.security.passwordBody':
     'Ο κωδικός πρόσβασής σας είναι κρυπτογραφημένος σε κατάσταση ηρεμίας.',
+  'settings.security.reset': 'Επαναφορά',
   'settings.security.title': 'Λογαριασμός + συνεδρίες',
   'shared.empty.body':
     'Οι τράπουλες που κοινοποιείτε δημόσια θα εμφανίζονται εδώ. Ανοίξτε μια τράπουλα και ενεργοποιήστε την επιλογή "δημόσια" για κοινή χρήση.',
@@ -132,6 +145,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Φόρτωση…',
   'shared.title': 'Κοινόχρηστα καταστρώματα',
   'templateCard.slideCount': '{{count}} διαφάνειες',
+  'templateCard.usageCount': '{{count}} χρήσεις',
+  'templates.empty.body': 'Δοκιμάστε διαφορετικό φίλτρο — κυκλοφορούμε νέα πρότυπα κάθε μήνα.',
+  'templates.empty.title': 'Δεν υπάρχουν ακόμη πρότυπα σε αυτή την κατηγορία',
+  'templates.hero.body':
+    'Έτοιμες διατάξεις διαφανειών με θέμα, με μπλοκ γραφημάτων, πλαίσια επίδειξης, σημειώσεις παρουσιαστή και προεπιλογές χρονομέτρου — κάθε πρότυπο είναι έτοιμο για εγγραφή.',
   'templates.hero.eyebrow': 'Επιλεγμένα στάδια',
   'templates.hero.heading': 'Στάδια που χτίζονται για τη στιγμή που χρειάζεται να το προσγειώσετε.',
 }

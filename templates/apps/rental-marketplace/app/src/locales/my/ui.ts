@@ -1,13 +1,30 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ဆက်သွယ်ပါ',
   'about.eyebrow': 'ကြှနျုပျတို့အကွောငျး',
+  'about.featureBooking':
+    'Stripe ဖြင့် လုံခြုံသော ငွေပေးချေမှုနှင့် check-in မတိုင်မီ ၄၈ နာရီအထိ အခမဲ့ ပယ်ဖျက်နိုင်သော ချက်ချင်း သို့မဟုတ် တောင်းဆို၍ ကြိုတင်မှာယူမှုများ။',
+  'about.featureHosting':
+    'ကြော်ငြာများ တင်ရန်၊ ရရှိနိုင်မှုကို စီမံရန်၊ ကြိုတင်မှာယူမှုများကို ခြေရာခံရန်နှင့် ငွေရရှိရန် ပြည့်စုံသော အိမ်ရှင် dashboard။',
+  'about.featureMessaging':
+    'တည်းခိုနေစဉ်နှင့် မတိုင်မီ အိမ်ရှင်များနှင့် တိုက်ရိုက် စာပို့နိုင်ခြင်း၊ နှစ်သက်သော နေရာများကို သိမ်းဆည်းရန် wishlist များ။',
+  'about.featureReviews':
+    'ခရီးသွားများနှင့် အိမ်ရှင်များ နှစ်ဦးစလုံး ယုံကြည်ရသော ဂုဏ်သတင်း တည်ဆောက်နိုင်ရန် ရိုးသားသော နှစ်ဖက်သုံးသပ်ချက်များ။',
+  'about.featureSearch':
+    'အတည်ပြုပြီးသော ကြော်ငြာများကို မြေပုံအခြေခံ ရှာဖွေခြင်း၊ စျေးနှုန်း၊ သာယာအဆင်ပြေမှုများနှင့် ရက်စွဲများအတွက် filter များ။',
+  'about.missionBody':
+    'ခရီးသွားခြင်းသည် သင့်ကို နေရာတစ်ခုနှင့် ချိတ်ဆက်ပေးသင့်သည်၊ ကွင်းဆက်တစ်ခုနှင့် မဟုတ်ပါ။ ကျွန်ုပ်တို့သည် သီးသန့် အိမ်ရှင်များကို ထူးခြားသော အိမ်များ ကြော်ငြာနိုင်ရန် ကူညီပြီး ခရီးသွားများကို ၎င်းတို့ကို ရှာတွေ့နိုင်ရန် ကူညီသည် — ပွင့်လင်းသော စျေးနှုန်း၊ ဝှက်ထားသော အခကြေးငွေ မရှိဘဲ၊ ငွေပေးချေမှုများ၊ အခွန်များနှင့် ခရီးသွား စစ်ဆေးမှုများကို အိမ်ရှင်အတွက် ကိုင်တွယ်ပေးသဖြင့် ၎င်းတို့သည် ဧည့်ဝတ်ကျေပွန်မှုကို အာရုံစိုက်နိုင်သည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'about.subtitle':
+    'စစ်မှန်သော အိမ်များနှင့် စစ်မှန်သော အိမ်ရှင်များကို အခြေခံတည်ဆောက်ထားသော ငှားရမ်းမှု စျေးကွက်။',
   'bookingDetail.afterTime': 'ညနေ ၃:၀၀ နာရီနောက်ပိုင်း',
   'bookingDetail.backCta': 'ဘွတ်ကင်များသို့ ပြန်သွားရန်',
   'bookingDetail.beforeTime': 'နံနက် ၁၁:၀၀ နာရီ မတိုင်မီ',
   'bookingDetail.cancel': 'ကြိုတင်မှာယူမှုကို ပယ်ဖျက်ပါ',
   'bookingDetail.cancelFailed': 'ပယ်ဖျက်၍မရပါ — ထပ်မံကြိုးစားပါ။',
   'bookingDetail.checkIn': 'ရောက်ရှိကြောင်းစာရင်းသွင်းခြင်း',
+  'bookingDetail.cleaningFee': 'သန့်ရှင်းရေးအခကြေးငွေ',
   'bookingDetail.confirmCancel': 'ဤကြိုတင်မှာယူမှုကို ပယ်ဖျက်မလား။ ၎င်းကို ပြန်ပြင်၍မရပါ။',
   'bookingDetail.eyebrow': 'အတည်ပြုချက် · {{code}}',
   'bookingDetail.messageHost': 'မက်ဆေ့ချ် လက်ခံသူ',
@@ -21,14 +38,17 @@ export const ui: UiTranslations = {
   'bookingDetail.viewListing': 'စာရင်းကိုကြည့်ရန်',
   'bookingDetail.yourHost': 'သင့်ရဲ့ အိမ်ရှင်',
   'bookingItineraryRow.nights': '{{count}} ညများ',
+  'bookings.empty.past': 'သင်တည်းခိုပြီးသည်နှင့် ယခင်ကြိုတင်မှာယူမှုများ ဤနေရာတွင် ပေါ်လာပါမည်။',
   'bookings.empty.upcoming': 'ခရီးစဉ်တွေ မရှိဘူး — အဲဒါကို ပြင်ကြရအောင်။',
   'bookings.eyebrow': 'သင့်ရဲ့ခရီးစဉ်များ',
   'bookings.heading': 'ဘွတ်ကင်များ',
   'bookings.loadError': 'ဘွတ်ကင်များကို တင်၍မရပါ။',
+  'bookings.searchCta': 'နောက်ထပ်ခရီးစဉ်တစ်ခုကို စီစဉ်ပါ',
   'bookings.subheading': '{{upcoming}} လာမည့် · {{past}} အတိတ်',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.retry': 'ပြန်ကြိုးစားပါ',
   'createListing.back': 'စာရင်းများသို့ ပြန်သွားရန်',
+  'createListing.bedrooms': 'အိပ်ခန်းများ',
   'createListing.cityLabel': 'ဘယ်မှာလဲ?',
   'createListing.cityPlaceholder': 'မြို့၊ ဒေသ သို့မဟုတ် ရပ်ကွက်',
   'createListing.descPlaceholder':
@@ -38,16 +58,22 @@ export const ui: UiTranslations = {
   'createListing.error.price': 'ထုတ်ဝေခြင်းမပြုမီ တစ်ညတာဈေးနှုန်းကို ထည့်ပါ။',
   'createListing.error.title': 'ထုတ်ဝေခြင်းမပြုမီ ခေါင်းစဉ်ထည့်ပါ။',
   'createListing.heading': 'မင်းရဲ့တံခါးကိုဖွင့်ပါ',
+  'createListing.listingImageAlt': 'ကြော်ငြာ {{number}}',
   'createListing.maxGuests': 'အများဆုံးဧည့်သည်များ',
   'createListing.photos.heading': 'ခရီးသွားတွေကို scroll မလုပ်တော့အောင် ဓာတ်ပုံတွေထည့်ပါ',
+  'createListing.photos.subheading':
+    'ဓာတ်ပုံ အနည်းဆုံး ၃ ပုံ တင်သော အိမ်ရှင်များသည် ပျမ်းမျှအားဖြင့် ၂.၃ ဆ ပိုရရှိသည်။',
   'createListing.place.heading': 'ဘယ်လိုနေရာမျိုးလဲ။',
+  'createListing.price': 'တစ်ည စျေးနှုန်း',
   'createListing.publish': 'စာရင်းထုတ်ဝေရန်',
   'createListing.removePhoto': 'ဓာတ်ပုံကို ဖယ်ရှားပါ',
   'createListing.step.${s.key}.eyebrow': 'ခြေလှမ်း {{n}}',
   'createListing.subheading':
     'သင့်စာရင်းကို တိုက်ရိုက်ထုတ်လွှင့်ရန် မေးခွန်းအနည်းငယ်။ ကျွန်ုပ်တို့သည် သင်၏တိုးတက်မှုကို အဆင့်တိုင်းတွင် သိမ်းဆည်းထားပါမည်။',
+  'createListing.title': 'ကြော်ငြာ ခေါင်းစဉ်',
   'createListing.titlePlaceholder': 'နေရောင်အောက်က ကမ်းပါးဘေးက တဲလေး',
   'createListing.uploadCta': 'ဓာတ်ပုံထည့်ပါ {{n}}',
+  'createListing.useSample': 'နမူနာ ဓာတ်ပုံကို အသုံးပြုပါ',
   'destinationDiscoveryCard.exploreCta': 'တည်းခိုမှုများကို လေ့လာပါ',
   'forgotPassword.eyebrow': 'ပြန်လည်သတ်မှတ်ပါ',
   'forgotPassword.subheading':
@@ -62,6 +88,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelOccupancy': 'နေထိုင်မှု',
   'hostDashboard.hero.labelYtd': 'နှစ်စမှယနေ့အထိ',
   'hostDashboard.loadError': 'သင့်ရဲ့ hosting data ကို တင်လို့မရခဲ့ပါဘူး။ ထပ်ကြိုးစားကြည့်ပါ။',
+  'hostDashboard.queueArrivals': 'လာမည့်အပတ် ရောက်ရှိမှု {{count}} ခု',
+  'hostDashboard.queueListings': '{{count}} လက်ရှိစာရင်းများ',
   'hostDashboard.queueRequests': '{{count}} ကြိုတင်မှာယူမှု တောင်းဆိုမှုများ',
   'hostDashboard.queueReview': 'ပြန်လည်သုံးသပ်ရန် တန်းစီခြင်း',
   'hostDashboard.queueTitle': 'သင့်ရဲ့ တန်းစီဇယား',
@@ -84,11 +112,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': 'စာရင်းမတွေ့ပါ။',
   'hostListingDetail.photos.empty': 'ဓာတ်ပုံများ အပ်လုဒ်လုပ်ထားခြင်း မရှိသေးပါ။',
   'hostListingDetail.photos.heading': 'ဓာတ်ပုံများ',
+  'hostListingDetail.pricing.cleaning': 'သန့်ရှင်းရေးအခကြေးငွေ',
   'hostListingDetail.pricing.save': 'ဈေးနှုန်းသက်သာအောင်',
   'hostListingDetail.pricing.weekday': 'ရက်သတ္တပတ်နှုန်းထား',
   'hostListingDetail.pricing.weekend': 'အားလပ်ရက်နှုန်းထား (ပြသမှုသာ)',
   'hostListingDetail.rules.copy':
     'ဧည့်သည်များ၏ မျှော်လင့်ချက်များကို သတ်မှတ်ပြီး သင့်အိမ်ကို ကာကွယ်ပါ — ၎င်းတို့ကို ဘွတ်ကင်အတည်ပြုချက်မပြုလုပ်မီ ပေါ်လွင်စေပါသည်။',
+  'hostListingDetail.rules.heading': 'အိမ်စည်းကမ်းများ',
   'hostListings.create': 'စာရင်းအသစ်တစ်ခု ဖန်တီးပါ',
   'hostListings.eyebrow': 'သင့်ရဲ့ ရင်းနှီးမြှုပ်နှံမှု အစုစု',
   'hostListings.heading': 'စာရင်းများ',
@@ -98,8 +128,11 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'အိမ်ရှင်များအတွက်',
   'landing.cta.heading': 'သင့်တံခါးကိုဖွင့်ပါ။ သင့်အိမ်ရဲ့တန်ဖိုးကို ရယူလိုက်ပါ။',
   'landing.cta.host': 'လက်ခံကျင်းပခြင်း စတင်ပါ',
+  'landing.cta.subheading':
+    '{{appName}} သည် ငွေပေးချေမှုများ၊ အခွန်များနှင့် ခရီးသွား စစ်ဆေးမှုများကို ကိုင်တွယ်ပေးသဖြင့် သင်သည် အိမ်ရှင်အဖြစ် အာရုံစိုက်နိုင်သည်။ အိမ်ရှင်အသစ် အများစုသည် ရက် ၃၀ အတွင်း ၎င်းတို့၏ ပထမဆုံး $1,000 ကို ရရှိသည်။',
   'landing.destinations.eyebrow': 'နောက်ဘယ်ကိုသွားမလဲ',
   'landing.destinations.heading': 'ကျွန်ုပ်တို့ရဲ့ အိမ်ရှင်တွေ နှစ်သက်တဲ့ နေရာတွေ',
+  'landing.destinations.seeAll': 'ဦးတည်ရာအားလုံးကိုကြည့်ပါ',
   'landing.footer.host': 'အိမ်ရှင်ဖြစ်လာပါ',
   'landing.footer.search': 'တည်းခိုစရာရှာပါ',
   'landing.footer.tagline': 'မင်းနဲ့သက်ဆိုင်သလိုနေပါ။',
@@ -108,8 +141,11 @@ export const ui: UiTranslations = {
   'landing.nav.host': 'အိမ်ရှင်ဖြစ်လာပါ',
   'landing.nav.join': 'Roost မှာ ပါဝင်လိုက်ပါ',
   'landing.nav.search': 'တည်းခိုစရာရှာပါ',
+  'landing.preview.browseAll': 'စုစည်းမှုအပြည့်အစုံကို ကြည့်ရှုပါ',
   'landing.preview.eyebrow': 'အထဲကို တစ်ချက်ချောင်းကြည့်',
   'landing.preview.heading': 'ဒီလအတွက် ရွေးချယ်ထားတဲ့ တည်းခိုခန်းတွေ',
+  'landing.preview.subheading':
+    '{{appName}} ကြော်ငြာတိုင်းကို စစ်မှန်သော လူတစ်ဦးက အိမ်ရှင်အဖြစ် လုပ်ဆောင်သည် — အတည်ပြုပြီး၊ သုံးသပ်ပြီး၊ check-in မတိုင်မီ ၄၈ နာရီအထိ အခမဲ့ ပယ်ဖျက်နိုင်သည်။',
   'listingDetail.about': 'ဤနေရာအကြောင်း',
   'listingDetail.amenities': 'ဒီနေရာက ဘာတွေ ပေးစွမ်းနိုင်လဲ',
   'listingDetail.bathrooms': 'ရေချိုးကန်များ',
@@ -117,7 +153,10 @@ export const ui: UiTranslations = {
   'listingDetail.beds': 'ကုတင်များ',
   'listingDetail.bookFailed':
     'ကြိုတင်မှာယူ၍မရပါ။ ထပ်မံကြိုးစားကြည့်ပါ သို့မဟုတ် ဦးစွာ လက်မှတ်ထိုးဝင်ပါ။',
+  'listingDetail.cleaningFee': 'သန့်ရှင်းရေးအခကြေးငွေ',
+  'listingDetail.guests': 'ဧည့်သည်',
   'listingDetail.hostedBy': 'လက်ခံကျင်းပသူ {{host}}',
+  'listingDetail.hostMeta': '{{years}} နှစ် အိမ်ရှင်အဖြစ် · {{response}}% တုံ့ပြန်မှုနှုန်း',
   'listingDetail.houseRules': 'အိမ်စည်းကမ်းများ',
   'listingDetail.instantBook': 'ယခုပဲ ကြိုတင်မှာယူလိုက်ပါ · ချက်ချင်း ကြိုတင်မှာယူလိုက်ပါ',
   'listingDetail.loadError': 'စာရင်းကို တင်၍မရပါ။',
@@ -127,6 +166,7 @@ export const ui: UiTranslations = {
   'listingDetail.perNight': 'တစ်ညလျှင်',
   'listingDetail.pickDates': 'Check-in နဲ့ Check-out ရက်တွေကို အရင်ရွေးပါ။',
   'listingDetail.priceRow': '{{price}} × {{nights}} ညများ',
+  'listingDetail.requestBook': 'ကြိုတင်မှာယူရန် တောင်းဆိုခြင်း',
   'listingDetail.reserving': 'ကြိုတင်မှာယူနေသည်…',
   'listingDetail.reviews': 'သုံးသပ်ချက်များ',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}} သုံးသပ်ချက်များ',
@@ -134,6 +174,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'စူပါအစီအစဉ်မှူး',
   'login.eyebrow': 'အိမ်ပြန်ကြိုဆိုပါတယ်',
   'login.heading': 'Roost သို့ ဝင်ရောက်ပါ',
+  'login.noAccount': 'Tessera ကို အသစ်လား။',
   'login.signupLink': 'အခမဲ့အကောင့်တစ်ခု ဖန်တီးပါ',
   'login.subheading':
     'သင်ရပ်တန့်ထားသည့်နေရာမှ ဆက်လုပ်ပါ — ခရီးစဉ်များကို စီမံခန့်ခွဲပါ၊ အိမ်ရှင်များထံ မက်ဆေ့ချ်ပို့ပါ၊ နှင့် သင်အိပ်မက်မက်နေသည့် တည်းခိုမှုများကို ကြိုတင်စာရင်းသွင်းပါ။',
@@ -159,6 +200,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'တင်နေသည်…',
   'notifications.subheading':
     '{{count}} မဖတ်ရသေးသော · အရာအားလုံးကို တည်ငြိမ်သော inbox တစ်ခုတည်းတွင်',
+  'pricing.ctaContact': 'အရောင်းဌာနကို ဆက်သွယ်ပါ',
   'pricing.ctaUpgrade': 'အရောင်းဌာနကို ဆက်သွယ်ပါ',
   'pricing.eyebrow': 'ရိုးရှင်းပြီး ပွင့်လင်းမြင်သာတဲ့',
   'pricing.heading': 'သင့်ခရီးသွားစည်းချက်နဲ့ ကိုက်ညီတဲ့ အစီအစဉ်တစ်ခု',
@@ -195,8 +237,12 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'အမှတ်ရစရာတစ်ခုခုကို ရွေးပါ။ သိမ်းဆည်းပြီးတာနဲ့ ကျွန်ုပ်တို့ လက်မှတ်ထိုးဝင်ပေးပါမယ်။',
   'roostAuthShell.brand.eyebrow': 'မင်းနဲ့သက်ဆိုင်သလိုနေပါ',
+  'roostAuthShell.brand.heading':
+    'တောင်တန်းအိမ်များ၊ ကျေးလက်အိမ်များ၊ riad များ — ထိုနေရာတွင် နေထိုင်သော အိမ်ရှင်များထံမှ သင့်ထံ ပေးအပ်သည်။',
   'roostHeroSearchCard.checkInAria': 'ဝင်ရောက်မည့်ရက်စွဲ',
   'roostHeroSearchCard.checkOutAria': 'ထွက်မည့်ရက်စွဲ',
+  'roostHeroSearchCard.destAria': 'ဦးတည်ရာ',
+  'roostHeroSearchCard.destLabel': 'နေရာ',
   'roostHeroSearchCard.destPlaceholder': 'မြို့၊ ဒေသ သို့မဟုတ် ပိုင်ဆိုင်မှု',
   'roostHeroSearchCard.eyebrow': 'ရွေးချယ်ထားသော တည်းခိုမှုများ · အတည်ပြုပြီးသော အိမ်ရှင်များ',
   'roostHeroSearchCard.guestsOption': '{{n}} ဧည့်သည်များ',
@@ -208,6 +254,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'roostListingCard.bookmarkAria': 'စာရင်းကို သိမ်းဆည်းပါ',
   'roostListingCard.night': 'ည',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'သင့်ရှာဖွေမှုနှင့် ကိုက်ညီသော စာရင်းများ မရှိပါ။',
   'search.emptyHint':
     'သင့်ရဲ့ filter တွေကို ချဲ့ကြည့်ပါ ဒါမှမဟုတ် ဈေးနှုန်းကန့်သတ်ချက်ကို ဖယ်ရှားကြည့်ပါ — Roost က နိုင်ငံပေါင်း ၂၆ နိုင်ငံမှာ ဖွင့်လှစ်ထားပါတယ်။',
@@ -215,9 +262,14 @@ export const ui: UiTranslations = {
   'search.heading': 'အိမ်လိုခံစားရတဲ့နေရာတစ်ခု',
   'search.headingForQuery': '"အတွက် တည်းခိုသည် {{q}} "',
   'search.loadError': 'စာရင်းများကို တင်၍မရပါ။',
+  'search.mapHint':
+    'မြေပုံပေါ်တွင် မီးမောင်းထိုးပြရန် ကတ်တစ်ခုကို ဖြတ်ရွှေ့ပါ။ ထုတ်လုပ်မှုတွင် တိုက်ရိုက် Mapbox လွှာများ။',
+  'search.mapPinAria': '{{name}} — တစ်ညလျှင် {{price}}',
   'search.sortLabel': 'အလိုက်စဥ်သည်',
   'search.subheading': '{{count}} စာရင်းများ · {{guests}} ဧည့်သည်များ',
+  'settings.appearance.description': 'အလင်းနှင့် အမှောင်မုဒ်အကြား ပြောင်းပါ။',
   'settings.appearance.title': 'အသွင်အပြင်',
+  'settings.openBilling': 'ငွေတောင်းခံလွှာဖွင့်ခြင်း',
   'settings.payments.heading': 'ငွေပေးချေမှုနည်းလမ်းများ',
   'settings.paymentsHelp':
     'Roost သည် အိမ်ရှင်တစ်ဦးက သင့်ဘွတ်ကင်ကို အတည်ပြုပြီးသည်နှင့် သင့်ကတ်ကို ငွေကောက်ခံပါသည်။ ဈေးနှုန်းစာမျက်နှာတွင် သိမ်းဆည်းထားသော ကတ်များကို စီမံခန့်ခွဲပါ။',

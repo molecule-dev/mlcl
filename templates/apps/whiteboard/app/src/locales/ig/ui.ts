@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Nwere nzaghachi, hụrụ nnukwu nsogbu, ma ọ bụ chọọ atụmatụ ọhụrụ? Anyị na-agụ ozi ọ bụla — kpọtụrụ ndị otu {{appName}} site na ntọala akaụntụ gị, mmadụ n'ezie ga-azaghachi gị.",
   'about.contactTitle': 'Gwa anyị okwu',
+  'about.intro':
+    "{{appName}} bụ kwaaji na-enweghị ngwụcha maka ndị otu imewe, ndị na-ahazi nnọkọ ọrụ, na ndị nkuzi. Debe akwụkwọ nta, see ụdị, see aka n'efu, ma hụ ka ndị otu gị na-eche echiche n'akụkụ gị n'oge n'ezie — niile n'otu ebe ebe echiche gbagwojuru anya nwere ike ịbịakọta ọnụ.",
+  'about.missionBody':
+    'Echiche magburu onwe ya adịghị adị mfe. {{appName}} dị iji nye ndị otu ebe ngwa ngwa na enweghị mgbagwoju anya ebe enwere ike ijide echiche ozugbo ha bịara ma kpụzie ha ọnụ ruo mgbe ha bara uru — na-enweghị igbu oge, ọrụ efu, ma ọ bụ ngwaọrụ siri ike na-egbochi ọganihu.',
+  'about.missionTitle': 'Ọrụ anyị',
+  'authShell.brandFooter':
+    "“Anyị ji {{appName}} dochie ngwaọrụ anọ n'izu anyị wepụtara aha ọhụrụ anyị. Ntụgharị uche ahụ chekwara onwe ya.” — Atlas Studio",
+  'authShell.brandFooterMeta': 'Ndị otu imewe 12,400+ tụkwasịrị obi',
   'authShell.brandHeading': 'Ọrụ dị iche iche maka ndị otu imewe na-eche echiche nke ọma.',
   'billing.canceled': 'Kagburu ndenye aha.',
   'billing.cancelPlan': 'Kagbuo atụmatụ',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': 'Ọkwa mmalite na-enweghị njedebe.',
   'billing.freePlanName': "N'efu",
   'billing.paidPlanBody': 'Ndenye aha na-arụ ọrụ.',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'Atụmatụ na akwụkwọ ọnụahịa',
   'billing.updated': 'Emelitere atụmatụ ahụ.',
   'billing.upgradeTitle': 'Atụmatụ dịnụ',
@@ -18,8 +29,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': 'nke {{max}} gụnyere',
   'boardCanvas.backToBoards': 'Bọọdụ niile',
   'boardCanvas.changeColor': 'Gbanwee agba {{color}}',
+  'boardCanvas.collaboratorsTitle': 'Ndị na-arụkọ ọrụ',
   'boardCanvas.deleteElement': 'Hichapụ ihe',
   'boardCanvas.deselect': 'Wepụ nhọrọ',
+  'boardCanvas.elementLabel': 'ihe {{type}}',
   'boardCanvas.elementsCount': '{{count}} ihe',
   'boardCanvas.elementText': 'Ederede',
   'boardCanvas.empty.body':
@@ -29,10 +42,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': 'Jupụta',
   'boardCanvas.invited': 'A kpọrọ òkù {{email}}',
   'boardCanvas.metaTitle': 'Ọnọdụ',
+  'boardCanvas.metaWH': 'W: {{w}}  H: {{h}}',
   'boardCanvas.metaXY': 'X: {{x}} Y: {{y}}',
   'boardCanvas.noCollaborators':
     'Enwebeghị ndị na-arụkọ ọrụ. Jiri Share kpọọ ndị otu egwuregwu òkù.',
   'boardCanvas.present': 'Ugbu a',
+  'boardCanvas.private': 'Nkeonwe — naanị site na ọkpụkpọ òkù',
   'boardCanvas.properties': 'Njirimara',
   'boardCanvas.public': 'Ọha - onye ọ bụla nwere njikọ nwere ike ịhụ',
   'boardCanvas.roleCommenter': 'Enwere ike ikwu okwu',
@@ -48,6 +63,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'Họrọ agba na-arapara arapara',
   'boardCanvas.summaryCount': '{{count}} ihe ndị dị na kanvas',
   'boardCanvas.summaryTitle': 'Ogbe',
+  'boardCanvas.surface.clear': 'Kwaaji bọọdụ — hichapụ nhọrọ',
+  'boardCanvas.surface.draw': 'Kwaaji bọọdụ — dọrọ iji see',
+  'boardCanvas.surface.place': 'Kwaaji bọọdụ — tinye ihe',
   'boardCanvas.untitled': 'Obodo na-enweghị aha',
   'boardCanvas.visibilityTitle': 'Ọdịdị',
   'boardCanvas.zoomIn': 'Bugharịa gaa na',
@@ -70,6 +88,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'Ọgba ọchụchọ',
   'boards.searchPlaceholder': 'Ọgba ọchụchọ',
   'boards.sharedTitle': 'Ekekọrịtara m',
+  'boards.sortedBy': 'Haziri site na nke emelitere ọhụrụ',
   'boards.startFromTemplate': 'Malite site na ndebiri',
   'boards.title': 'Bọọdụ gị',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -83,6 +102,7 @@ export const ui: UiTranslations = {
   'landing.cta.title':
     "E wuru ya maka echiche na-adịghị mma, nke na-emepụta ihe, na nke na-eme ka mmadụ chee echiche n'onwe ya.",
   'landing.demoBoard.title': 'Ọgbakọ Q1 · Olu Akara',
+  'landing.demoBoard.updated': 'Emelitere nkeji 12 gara aga',
   'landing.featuresEyebrow': 'Gịnị na-eme ka Slate tessellate',
   'landing.featuresTitle': 'Nzaghachi ngwa ngwa. Kanvas mara mma. Enweghị esemokwu.',
   'landing.hero.body':
@@ -95,18 +115,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '••••••••••••',
   'login.signIn': 'Banye na Slate',
   'login.signupCta': "Mepụta ebe ọrụ n'efu",
+  'login.signupPrompt': 'Ị bụ onye ọhụrụ na Tessera?',
   'login.subheading':
     "Malite ebe ọ kwụsịrị na ogbako ahụ — bọọdụ, ihe ndetu na-arapara arapara, na kọsọ niile na-arụkọ ọrụ n'oge ahụ.",
   'mobileNav.closeMenu': 'Mechie menu nsoroụzọ',
   'mobileNav.new': 'Ọhụrụ',
   'mobileNav.openMenu': 'Mepee menu nsoroụzọ',
+  'notifications.editBody': 'Emelitere ọdịnaya bọọdụ ahụ.',
   'notifications.editTitle': 'Na-edezi na " {{board}} "',
   'notifications.empty.body':
     "Ịkpọ òkù, nchekwa foto, na ndezi bọọdụ ndị e degharịrị n'oge na-adịbeghị anya ga-apụta ebe a ka ha na-eme.",
   'notifications.empty.title': 'Ọ dịghị ihe ọhụrụ na igbe mbata gị',
   'notifications.eyebrow': '{{name}} · igbe mbata',
+  'notifications.inviteBody': 'dị ka {{role}} na "{{board}}"',
   'notifications.inviteTitle': 'A kpọrọ òkù {{email}}',
   'notifications.snapshotTitle': 'Foto ọhụrụ na " {{board}} "',
+  'present.addFirst': 'Tinye frem mbụ',
   'present.addFrame': '+ Tinye etiti',
   'present.boardEyebrow': '{{title}} · ngosi',
   'present.empty.body':
@@ -114,6 +138,7 @@ export const ui: UiTranslations = {
   'present.empty.title': 'Enwebeghị fremu ugbu a',
   'present.exit': 'Ọpụpụ ngosi',
   'present.exitToBoard': 'Laghachi na kanvas',
+  'present.eyebrow': 'Ụdị ngosi',
   'present.frameBody': 'Isi okwu',
   'present.frameName': 'Aha freemu',
   'present.frameOf': 'Etiti {{current}} nke {{total}}',
@@ -123,20 +148,30 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'Ihe ngosi dị ndụ',
   'present.save': 'Chekwaa etiti',
   'present.title': 'Gbaa akụkọ gị ọsọ ọsọ',
+  'present.unnamed': 'Frem na-enweghị aha',
+  'pricing.limits.advanced': 'Atụmatụ dị elu',
   'profile.cursorBody':
     "Echekwara na ngwaọrụ a — ndị otu egwuregwu na-ahụ agba a n'akụkụ ihe nrụaka gị dị ndụ.",
   'profile.cursorEyebrow': 'Agba kọsọ gị',
   'profile.eyebrow': 'Kaadị onye mmekọ ọha',
+  'profile.noBoards': 'Enweghị bọọdụ ọ bụla — mepụta otu iji malite.',
+  'profile.recentBoards': "Bọọdụ {{name}} emetụtara n'oge na-adịbeghị anya",
   'profile.stat.${s.label}': 'Mbadamba {{aha}} emetụrụ aka nso nso a',
+  'profile.statsEyebrow': 'Ihe omume gị',
   'profile.title': 'Profaịlụ gị',
+  'reset.backPrompt': 'Ị chọrọ email ọzọ?',
   'reset.cta': 'Tọgharịa paswọọdụ ma banye',
+  'reset.password': 'Okwuntughe Ọhụrụ',
   'reset.subheading': 'Họrọ paswọọdụ siri ike — opekata mpe mkpụrụedemede 8 nwere otu nọmba.',
   'settings.appearance.title': 'Isiokwu na kanvas',
   'settings.eyebrow': 'Mmasị akaụntụ',
   'settings.notifications.title': 'Mmasị ọkwa',
   'settings.profile.title': 'Kaadị onye mmekọ ọha',
+  'settings.security.body':
+    'Jikwaa njirimara nkwenye okpukpu abụọ, nnọkọ ndị na-arụ ọrụ, na paswọọdụ site na dashboard akaụntụ gị.',
   'settings.security.title': 'Nchekwa',
   'shared.collaboratorCount': '{{count}} onye ọrụ(ndị)',
+  'shared.count': 'bọọdụ {{count}}',
   'shared.empty.body':
     'Mgbe onye otu gị kpọrọ gị òkù ka ị bịa na bọọdụ, ọ ga-apụta ebe a na akpaghị aka.',
   'shared.empty.title': 'Ọ dịghị ihe a na-ekerịta na gị ugbu a',
@@ -152,6 +187,9 @@ export const ui: UiTranslations = {
   'signup.subheading':
     "N'efu maka ihe ruru mmadụ atọ jikọrọ aka. Achọghị kaadị kredit maka ụbọchị iri na anọ mbụ.",
   'templateCard.usageCount': '{{count}} ojiji',
+  'templateDetail.allTemplates': 'Ndebiri niile',
+  'templateDetail.body':
+    'Pịa "Jiri ndebiri" iji detuo ihe mmalite {{count}} n\'ime bọọdụ ọhụrụ akpọrọ "{{name}}". Dezie, kesaa, ma duzie nnọkọ ọrụ gị site ebe ahụ.',
   'templateDetail.delete': 'Hichapụ ndebiri',
   'templateDetail.elementsCount': '{{count}} ihe mmalite',
   'templateDetail.eyebrow': '{{kind}} ndebiri',
@@ -164,16 +202,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'Chekwaa ndebiri omenala',
   'templates.empty.body':
     'Mepụta ndebiri ahaziri ahazi site na bọọdụ ọ bụla ị nwere - mepee bọọdụ ahụ, chekwaa foto, wee chekwaa ya dị ka ndebiri enwere ike iji ya ọzọ ebe a.',
+  'templates.empty.title': 'Enwebeghị ndebiri ugbu a',
   'templates.eyebrow': 'Ngwa ọrụ na ndebiri echekwara',
   'templates.filter.${c}': 'Enwebeghị ndebiri ugbu a',
   'templates.nameLabel': 'Aha ndebiri aha',
   'templates.systemBadge': "E wuru n'ime ya",
   'templates.userBadge': 'Nke gị',
   'versionHistory.backToBoard': 'Laghachi na kanvas',
+  'versionHistory.elementsTotal': 'ihe {{count}} ejidere',
   'versionHistory.empty.body':
     'A na-eji ihe osise "Chekwa foto" emepụta foto site na kanvas bọọdụ ahụ — ha na-apụta ebe a ka i wee nwee ike iweghachi ọnọdụ gara aga ọ bụla.',
+  'versionHistory.empty.cta': 'Mepee kwaaji iji were otu',
   'versionHistory.empty.title': 'Enweghị foto ọ bụla',
   'versionHistory.eyebrow': '{{title}} · akụkọ ihe mere eme',
+  'versionHistory.eyebrowFallback': 'Akụkọ ihe mere eme bọọdụ',
   'versionHistory.latest': 'Kacha ọhụrụ',
   'versionHistory.restore': 'Weghachite ụdị a',
   'versionHistory.restored': 'E weghachiri foto ọhụrụ.',
@@ -184,6 +226,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'Ogbe ọhụrụ',
   'whiteboardLayout.primaryNav': 'Ntugharị isi',
   'workspace.boardLabel': 'Ogbe',
+  'workspace.empty': 'Enweghị onye ọrụ ibe — kpọọ mmadụ na bọọdụ gị.',
   'workspace.eyebrow': '{{name}} · ebe ọrụ',
   'workspace.invite': 'Kpọọ ndị ọrụ aka',
   'workspace.inviteSent': 'E zigara òkù.',
@@ -192,4 +235,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'Onye na-ekwu okwu',
   'workspace.role.editor': 'Onye nchịkọta akụkọ',
   'workspace.role.viewer': 'Onye na-ekiri ihe',
+  'workspace.title': 'Ndị otu na ọrụ',
 }

@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Санал хүсэлт байна уу, алдаа олсон уу, эсвэл лигтээ {{app}} авахыг хүсэж байна уу? Бидэнтэй бүртгэлийн тохиргооноос холбогдоорой — илгээсэн мессеж бүр багийн жинхэнэ хүнд хүрдэг.',
+  'about.contactTitle': 'Холбоо барих',
   'about.eyebrow': 'Тухай',
+  'about.featureAlerts':
+    'Онооны шинэчлэлт, солилцооны мэдэгдэл, бэртлийн тайлан, лигийн зарлалд зориулсан push мэдэгдэл.',
+  'about.featureRosters':
+    'Бүрэн бүрэлдэхүүн, улирлын нийт үзүүлэлт, халуун/хүйтэн цуврал, тоглогч бүрийн толгой тулгах хуваалт бүхий багийн хуудсууд.',
+  'about.featureSchedule':
+    'Улирлын хуанли болон тоглолтын хуваарь — тоглолт, үр дүн бүрийг тооцоолон төлөвлөх боломжтой.',
+  'about.featureScoreboard':
+    'Хаалга бүрийг алдахгүйн тулд хуудас бүрийн дээд хэсэгт бэхэлсэн нэвтрүүлгийн түвшний онооны самбарын тикер.',
+  'about.featureStandings':
+    'Шууд хүснэгт — бодит цагийн хожил-хожигдол-тэнцээ, оноо, хожилийн хувь, плейоффын шугам, шүүгч үлээх бүрд шинэчлэгддэг.',
+  'about.intro':
+    '{{app}} бол таны лигийн нэвтрүүлгийн чанартай гэр юм. Багууд, хуваарь, шууд оноо, хүснэгт нэг хурдан, эмх цэгцтэй хяналтын самбарт нэгддэг — тиймээс фенүүд, дасгалжуулагчид, лигийн зохион байгуулагчид улирал хаана явж байгааг үргэлж мэддэг.',
+  'about.missionBody':
+    'Лигийг дагах нь таван өөр гуравдагч этгээдийн онооны самбарыг сэргээх гэсэн үг байх ёсгүй. Бид үүнийг лиг бүрд хүснэгт, хуваарь, үнэхээр чухал статистикийн нэг эх сурвалж болгохын тулд бүтээсэн — шүүгч үлээх бүрд шинэчлэгдэж, улиралд үнэгүй.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
+  'about.whatYouGet': 'Таны авах зүйлс',
   'appShell.closeNav': 'Навигацийг хаах',
   'appShell.openNav': 'Навигацийг нээх',
   'common.dashboard': 'Хяналтын самбар',
@@ -16,14 +35,21 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Бүх тохирлыг харах \\u2192',
   'dashboard.viewAllStandings': 'Бүрэн чансаа \\u2192',
   'dashboard.viewAllStats': 'Бүх статистикийн удирдагчдыг харах \\u2192',
+  'forgot.submitting': 'Сэргээх холбоос илгээж байна…',
   'forgot.subtitle': 'Дахин тохируулах холбоос авахын тулд имэйл хаягаа оруулна уу.',
   'forgot.success': 'Дахин тохируулах холбоос илгээгдсэн {{email}} Ирсэн имэйлээ шалгана уу.',
+  'landing.copyright': '© {{year}} {{app}}. Хүснэгтийг тэмцээрэй.',
+  'landing.ctaBody':
+    'Таны лиг. Таны хүснэгт. Таны дуртай баг — дээд хэсэгт бэхлэгдсэн. Тохируулахад хоёр минут, улиралд үнэгүй.',
   'landing.ctaHeading': 'Гуравдагч талын онооны самбарыг шинэчлэхээ болих',
   'landing.eyebrow':
     'Хөгжөөн дэмжигчид, дасгалжуулагчид болон лигийн зохион байгуулагчдад зориулан бүтээгдсэн',
   'landing.featuresHeading': 'Зогсож буй хүн бүрт урд эгнээний суудал',
   'landing.getStarted': 'Лигт нэгдээрэй',
   'landing.heroCta': 'Лигт нэгдээрэй',
+  'landing.heroSubtitle':
+    '{{app}} нь хүснэгт, хуваарь, статистикийн тэргүүлэгчдийг нэг нэвтрүүлгийн чанартай хяналтын самбарт нэгтгэдэг. Шууд оноо. Жинхэнэ амжилт. Эмх замбараагүй байдалгүй.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Өнөө орой лигийн эргэн тойронд',
   'landing.statFans': 'Фенүүд дагаж байна',
   'landing.statGames': 'Энэ улирлын тоглолтууд',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Тоглолтууд руу буцах',
   'matchDetail.eventsHeading': 'Тоглолт бүрээр',
+  'matchDetail.final': 'ДУУСГАЛ',
   'matchDetail.finalScore': 'Эцсийн',
   'matchDetail.live': 'ШУУД',
   'matchDetail.liveNow': 'Одоо шууд дамжуулалт',
   'matchDetail.noEvents': 'Одоогоор бүртгэгдсэн үйл явдал байхгүй байна.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Энэ харагдацад тоглолт байхгүй — өөр шүүлтүүр туршаад үзээрэй.',
   'matches.eyebrow': 'Тоглолтын өдөр',
   'matches.loading': 'Зайг татаж байна...',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Мэдэгдлүүдийг ачаалж чадсангүй',
   'notifications.loading': 'Мэдэгдлүүдийг ачаалж байна…',
   'pennantHeroCard.eyebrow': 'Ширээний дээд талд',
+  'pennantHeroCard.formLabel': 'Сүүлийн 10',
   'pennantHeroCard.gamesAhead': '{{value}} хөөцөлдөхөөс өмнөх тоглолтууд',
   'pennantHeroCard.pointsLabel': 'Багц',
   'pennantLayout.primaryNavLabel': 'Үндсэн навигаци',
@@ -80,17 +109,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Суудлаа сонгоно уу',
   'pricing.heading': 'Илүү баялаг хуваарь, оноо болон байр суурийг харахын тулд сайжруулна уу.',
   'pricing.limits.schedule': '{{count}} хуваарийн оруулгууд',
+  'pricing.limits.scores': '{{count}} оноо',
+  'pricing.limits.standings': '{{count}} хүснэгт',
+  'pricing.limits.teams': '{{count}} баг',
+  'pricing.subtitle': 'Илүү баялаг хуваарь, оноо, хүснэгтэд шинэчлэх.',
   'pricing.upgradeCta': 'Шинэчлэх {{tierName}}',
   'profile.eyebrow': 'Фен профайл',
   'profile.favoritesCount': 'Дагасан багууд',
   'profile.favoritesHeading': 'Дуртай багууд',
   'profile.noFavorites': 'Дуртай жагсаалт хараахан алга — Багуудын хуудаснаас багуудыг сонгоно уу.',
   'profile.rankRecord': 'Зэрэглэл # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Амжилт {{record}}',
   'reset.confirmPlaceholder': 'Нууц үгийг давтана уу',
+  'reset.mismatch': 'Нууц үгнүүд таарахгүй байна.',
   'reset.newLabel': 'Шинэ нууц үг',
   'reset.subtitle': 'Хамгийн багадаа 12 тэмдэгтээс бүрдсэн хүчтэй нууц үг сонгоно уу.',
   'reset.tokenPlaceholder': 'Имэйлээс буулгах',
   'schedule.eyebrow': 'Шифер',
+  'schedule.moreGames': '+ {{count}} илүү их',
   'schedule.subtitle':
     'Улирлын турш тоглолтын хуваарийн харагдац — хайрцагны оноог харахын тулд дурын өдөр товшино уу.',
   'scoreboardTicker.empty':
@@ -99,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Хувийн болгох',
   'settings.favoritesBody':
     'Эдгээр багууд таны хяналтын самбарт бэхлэгдэж, онооны сэрэмжлүүлгийг идэвхжүүлнэ.',
+  'settings.favoritesHeading': 'Дуртай багууд',
   'settings.loading': 'Таны тохиргоог ачаалж байна\\u2026',
   'settings.noFavorites':
     'Дуртай зүйлс хараахан алга \\u2014 Багуудын хуудаснаас багууд сонгоно уу.',
@@ -117,6 +154,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'Л',
   'standings.overall': 'Нийт',
   'standings.points': 'Багц',
+  'standings.rank': '#',
   'standings.subtitle':
     'Шилдэг дөрвөн тоглогч улирлын дараах тэмцээнд оролцох эрхтэй болно - оноогоор тэнцээ хааж, дараа нь хожсон хувийн харьцаагаар.',
   'standings.title': 'Лигийн чансаа',
@@ -135,6 +173,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Тоглогч',
   'teamDetail.colPos': 'Пос',
+  'teamDetail.pointsLabel': 'Оноо',
   'teamDetail.rankLabel': 'Зэрэглэл # {{rank}}',
   'teamDetail.rosterHeading': 'Бүртгэл',
   'teamDetail.statGD': 'Гоолын зөрүү',

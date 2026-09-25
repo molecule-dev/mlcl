@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Spørgsmål, feedback eller en funktion, du ønsker dig? Kontakt teamet fra dine kontoindstillinger — et rigtigt menneske læser hver besked.',
   'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
+  'about.missionTitle': 'Vores mission',
+  'about.whatYouGetTitle': 'Hvad du får',
   'analytics.empty': 'Opret sæt for at se analyser her.',
   'analytics.stats.acrossDecks': 'På tværs af alle dæk',
   'analytics.stats.allTime': 'I dit studie',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Titel på dæk',
   'landing.features.eyebrow': 'Hvorfor Overture',
   'landing.features.heading': 'Alt du behøver for at være klar på scenen.',
+  'landing.finalCta.body':
+    'Kom i gang med dit studie på under et minut. Intet kreditkort. Opsig når som helst.',
   'landing.finalCta.cta': 'Opret dit gratis studie',
   'landing.finalCta.eyebrow': 'Gratis at starte',
   'landing.finalCta.heading': 'Træd på scenen med din karrieres bedste deck.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Redigeret for 12 minutter siden',
   'notifications.created': 'skabt',
   'notifications.edited': 'redigeret',
+  'notifications.empty.body':
+    'Aktivitet på dine decks — kommentarer, omtaler, eksporter — vises her.',
   'notifications.empty.title': 'Ingen notifikationer endnu',
   'notifications.eyebrow': 'Sceneaktivitet',
   'notifications.loading': 'Indlæser…',
   'notifications.shared': 'delt offentligt',
+  'planUpdated.retry': 'Prøv igen',
+  'planUpdated.verifyFailed': 'Vi kunne ikke bekræfte din betaling endnu.',
+  'planUpdated.verifyFailedBody':
+    'Din betaling er muligvis stadig under behandling. Prøv igen om et øjeblik.',
   'planUpdated.verifying': 'Bekræfter din betaling…',
   'present.addSlides': 'Tilføj slides',
   'present.backToDecks': 'Tilbage til dæk',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Scenekunstner',
   'settings.security.notSet': 'Ikke angivet',
   'settings.security.passwordBody': 'Din adgangskode er krypteret, når den er lagret.',
+  'settings.security.reset': 'Nulstil',
   'settings.security.title': 'Konto + sessioner',
   'shared.empty.body':
     'Decks, du deler offentligt, vises her. Åbn et deck, og slå offentlig deling til.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Indlæser…',
   'shared.title': 'Delte terrasser',
   'templateCard.slideCount': '{{count}} dias',
+  'templateCard.usageCount': '{{count}} bruger',
+  'templates.empty.body': 'Prøv et andet filter — vi udgiver nye skabeloner hver måned.',
+  'templates.empty.title': 'Ingen skabeloner i denne kategori endnu',
+  'templates.hero.body':
+    'Færdigdesignede slide-layouts med diagramblokke, demorammer, præsentationsnoter og timer-forudindstillinger — hver skabelon er klar til optagelse.',
   'templates.hero.eyebrow': 'Kuraterede scener',
   'templates.hero.heading': 'Baner bygget til det øjeblik, du har brug for at lande den.',
 }

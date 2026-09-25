@@ -99,6 +99,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'המסלול שלך עודכן.',
   'planUpdated.returnHome': 'חזרה לדף הבית',
   'planUpdated.thankYou': 'תודה!',
+  'post.markdown': 'הצג פוסט זה כ-markdown',
+  'post.readingTime': '{{minutes}} דקות קריאה',
   'post.tags': 'תגיות',
   'project.error.nameAndTypeRequired': 'נדרשים name ו-projectType',
   'project.error.notFound': 'לא נמצא',

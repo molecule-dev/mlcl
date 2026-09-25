@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пікіріңіз бар ма, қате таптыңыз ба, әлде мүмкіндік ұсынғыңыз келе ме? Тіркелгі параметрлерінен хабарласыңыз — әрбір хабарлама командадағы нақты адамға жетеді.',
+  'about.contactTitle': 'Бізбен байланысыңыз',
+  'about.featureDatabases':
+    'Жеңіл дерекқорлар мен қайта пайдалануға болатын үлгілер — бос жазбаларды құрылымды, қайталанатын жұмыс ағындарына айналдырады.',
+  'about.featureEditor':
+    'Тыныш блок редакторы — тақырыптар, тізімдер, код, шақырулар және тапсырмалар — қажет кезде қиғаш сызық командалары, қажет болмағанда жолыңыздан таса.',
+  'about.featureGraph':
+    'Кері сілтемелер мен білім графы: жазбаны байланыстыру үшін [[ теріңіз және идеяларыңыздың уақыт өте қалай байланысатынын көріңіз.',
+  'about.featureNotebooks':
+    'Кірістірілген дәптерлер мен беттер — жобалар, тақырыптар және күнделікті жазбалар ойлауыңызға дәл сәйкес реттелген күйде қалады.',
+  'about.featureSearch':
+    'Әрбір дәптер бойынша 50 мс-тан аз толық мәтінді іздеу, сонымен қатар дәптерлермен бәсекелеспей, олармен үйлесетін тегтер.',
+  'about.missionTitle': 'Біздің миссиямыз',
   'common.goToDashboard': 'Бақылау тақтасына өту',
   'forgot.eyebrow': 'Қайта кіретін жолды адастырып алдыңыз ба?',
   'forgot.formSubtitle': 'Файлдағы электрондық поштаны айтыңыз.',
+  'forgot.formTitle': 'Құпия сөзді ұмытып қалдым',
   'forgot.headline': 'Құпия сөзіңізді қалпына келтіріңіз.',
   'forgot.subline':
     'Жаңасын таңдай алуыңыз үшін біз сіздің пошта жәшігіңізге бір реттік сілтеме жібереміз.',
+  'forgot.successDetail':
+    'Электрондық поштаңызға қалпына келтіру сілтемесін жібердік. Ол 30 минуттан кейін жарамсыз болады.',
   'graph.eyebrow': 'График',
+  'graph.goToNotes': 'Жазбаларды шолу →',
+  'graph.loadError': 'Графты жүктеу мүмкін болмады: {{message}}',
   'graph.placeholderBody':
     'Жазбалар бір-бірімен байланыса бастағанда ([[wiki]] синтаксисі арқылы), интерактивті күш бағытталған график осында көрсетіледі.',
+  'graph.placeholderTitle': 'Кері сілтемелер графы жақында',
   'graph.subtitle':
     '{{count}} осы жұмыс кеңістігіндегі ескертпелер. Ескертпелер бір-біріне сілтеме жасалғаннан кейін кері сілтеме графигінің көрсетілуі осында пайда болады.',
   'graph.title': 'Білім графигі',
   'home.empty': 'Әлі ешқандай жазба жоқ — біріншісін бастаңыз.',
   'home.favoritesHeading': 'Бекітілген',
   'home.guest': 'дос',
+  'home.loadError': 'Жазбаларыңызды жүктеу мүмкін болмады: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Ескертпені осында сақтау үшін редакторға бекітіңіз.',
   'home.recentHeading': 'Жақында жаңартылды',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Дәптер',
   'home.stats.pinned.label': 'Бекітілген',
   'home.stats.updatedToday.label': 'Бүгін жаңартылды',
+  'home.subtitle': 'Тоқтаған жеріңізден жалғастырыңыз немесе жаңа жазба бастаңыз.',
   'home.viewAll': 'Барлық жазбаларды қарау',
   'landing.cta.body':
     'Жеке пайдалануға тегін. Командаларға арналған кәсіби құрал. Бар жеңілдіктеріңізді әкеліңіз немесе жаңадан бастаңыз — Verso жазбаларыңыз қай жерде болса да сізбен кездеседі.',
+  'landing.cta.button': 'Жұмыс кеңістігімді жасау',
   'landing.cta.heading': 'Бүгінгі бетті ашыңыз.',
   'landing.features.eyebrow': 'Екінші миыңызға қажет әрбір қарапайым адам',
+  'landing.features.heading': 'Мета-жұмыс үшін емес, жұмыс үшін жасалған.',
   'landing.hero.eyebrow': 'Тыныш жазу беті',
   'landing.hero.headlineAccent': 'пішінге келу.',
   'landing.hero.headlineLeading': 'Ойлар қайда',
   'landing.hero.primaryCta': 'Білім қорыңызды бастаңыз',
   'landing.hero.secondaryCta': 'Менің аккаунтым бар',
+  'landing.hero.socialProof': '12 800+ жазушы, студент және PhD {{appName}} көмегімен ойлайды',
   'landing.hero.subline':
     'Verso – білім қызметкерлері мен студенттерге арналған құрылымдалған жазбалар жазуға арналған бет. Блок редакторы, кірістірілген дәптерлер, кері сілтемелер және білім графигі — мұның бәрі типографияны бірінші болып оқу тәжірибесінің артында.',
+  'landing.preview.notebook': 'Білім · Жазу процесі',
+  'landing.preview.title': 'Жел желдерінің тыныс алуына мүмкіндік беру туралы',
   'login.eyebrow': 'Verso-ға қайта қош келдіңіз',
   'login.formSubtitle':
     'Электрондық поштаңызды немесе кез келген қосылған провайдерді пайдаланыңыз.',
@@ -45,6 +72,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Навигация мәзірін жабу',
   'mobileNav.openMenu': 'Навигация мәзірін ашу',
   'noteEditor.backToNotes': 'Ескертпелерге оралу',
+  'noteEditor.bodyLabel': 'Жазба мәтіні',
   'noteEditor.bodyPlaceholder':
     'Жазуды бастаңыз — жазбаңыз терген кезде автоматты түрде сақталады.',
   'noteEditor.confirmTrash': 'Бұл жазбаны себетке жіберу керек пе?',
@@ -53,17 +81,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Себетке жіберу',
   'noteEditor.updated': 'Жаңартылды',
   'notes.defaultWorkspaceName': 'Менің дәптерім',
+  'notes.empty': 'Мұнда әзірге жазба жоқ — дәптерді толтыру үшін біреуін бастаңыз.',
   'notes.eyebrow': 'Дәптер',
   'notes.filterAll': 'Барлық жазбалар',
   'notes.filterPinned': 'Бекітілген',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Жаңа дәптер',
   'notes.newNotebookPrompt': 'Жаңа дәптер атауы',
+  'notes.newNotebookRequired': 'Дәптер атауын енгізіңіз.',
   'notes.notebooksHeading': 'Дәптерлер',
   'notes.subtitle':
     'Сол жақтағы дәптерді таңдап, жаңа жазбаны бастау үшін Жаңа жазба түймесін басыңыз.',
+  'planUpdated.body': 'Жазылымыңыз қазір белсенді.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Кеңейтілген мүмкіндіктер',
   'pricing.heading': 'Ескерту жоспарын таңдаңыз',
+  'reset.changedMind': 'Ойыңызды өзгерттіңіз бе?',
   'reset.eyebrow': 'Аз қалды қайта кіріп кеттім',
   'reset.formSubtitle': 'Сақталғаннан кейін сіз жүйеге кіресіз.',
   'reset.headline': 'Жаңа құпия сөз таңдаңыз.',
@@ -73,7 +106,9 @@ export const ui: UiTranslations = {
     'Біз сізге электрондық пошта арқылы жіберген кодты енгізіп, есте қаларлық нәрсені таңдаңыз.',
   'reset.submit': 'Сақтау және кіру',
   'reset.tokenHint': 'Кіріс жәшігіңізден қойылды.',
+  'search.empty': 'Бұл сұранысқа әзірге сәйкес жазба жоқ.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Рефракт іздеу',
   'search.loading': 'Ізделіп жатыр…',
   'search.noRecent': 'Жазбаларыңыз бойынша іздеуді бастау үшін жоғарыдағы сұрауды теріңіз.',
   'search.recentLabel': 'Соңғы іздеулер',
@@ -81,12 +116,19 @@ export const ui: UiTranslations = {
     'Әрбір дәптердегі толық мәтін. Іздеу үшін теріңіз; терген кезде нәтижелер жаңартылады.',
   'search.title': 'Екінші миды іздеңіз.',
   'settings.account.logout': 'Шығу',
+  'settings.account.title': 'Тіркелгі мәліметтері',
+  'settings.editor.graphHover.body':
+    'Редакторда [[уикисілтеме]] үстінен өткенде кішкентай алдын ала қарау картасын көрсету.',
+  'settings.editor.graphHover.label': 'Кері сілтемелер графының үстінен өткенде алдын ала қарау',
   'settings.editor.lineHeight.body':
     'Дене сызықтары арасында қанша ауа бар. 170% - әдепкі оқу ырғағы.',
+  'settings.editor.lineHeight.label': 'Жол биіктігі',
   'settings.editor.serif.body':
     'Оқу бағанына Georgia пайдаланыңыз. Sans-serif шрифті бүйірлік тақта мен құралдар тақталарында сақталады.',
+  'settings.editor.serif.label': 'Serif мәтін қарпі',
   'settings.editor.title': 'Типография және жазу беті',
   'settings.eyebrow': 'Verso · Параметрлер',
+  'settings.passwordModal.current': 'Ағымдағы құпия сөз',
   'settings.passwordModal.error':
     'Құпия сөзді өзгерту мүмкін болмады — ағымдағы құпия сөзіңізді тексеріңіз.',
   'settings.passwordModal.next': 'Жаңа құпия сөз',
@@ -96,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Әрбір пернені нақты уақыт арнасы арқылы басыңыз. Баяу қосылымдар үшін өшіріңіз.',
   'settings.sync.auto.label': 'Нақты уақыттағы синхрондау',
+  'settings.sync.title': 'Жазбаларыңыз қалай жол жүреді',
   'settings.theme.body':
     'Жарық редакциялық бағанды жарық ұстайды. Сепия кешкі уақытқа арналған бетті жылытады.',
   'settings.theme.dark': 'Қараңғы',
@@ -115,8 +158,12 @@ export const ui: UiTranslations = {
     'Жазба тақырыбына #хэштегтер қосыңыз (мысалы, "Оқу тізімі #кітаптар"), сонда олар автоматты түрде осында пайда болады.',
   'tags.emptyTitle': 'Әлі тегтер жоқ',
   'tags.eyebrow': 'Индекс',
+  'tags.goToNotes': 'Жазбаларға өту →',
+  'tags.loadError': 'Тегтерді жүктеу мүмкін болмады: {{message}}',
   'tags.subtitle':
     '{{tags}} тегтер арқылы {{notes}} жазбалар. Жазба тақырыбына #хэштегтер қосыңыз, сонда олар осында пайда болады.',
+  'versoAuthShell.sample.body':
+    'Ертеңгі екінші оқу бүгінгі түнгі бірінші оқудан әрқашан жақсырақ оқылады. Шикі нұсқаны терең жұмыс қалтасына қойыңыз…',
   'versoAuthShell.sample.label': 'Күнделікті жазба',
   'versoAuthShell.sample.timestamp': 'Бүгін · таңғы 9:14',
   'versoAuthShell.sample.title': 'Жел желдерінің тыныс алуына мүмкіндік беру туралы',
@@ -128,8 +175,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Жазуды жалғастырыңыз',
   'versoTodayHero.createCta': 'Бүгінгі жазбаны бастаңыз',
   'versoTodayHero.dailyLabel': 'Күнделікті жазба',
+  'versoTodayHero.emptyHeadline': 'Бүгін — бос бет.',
   'versoTodayHero.emptySubline':
     'Ойыңызды жазып алыңыз, кездесуді жазыңыз немесе ертеңгі жоспарыңызды жасаңыз. Verso құрылымды тыныш ұстайды, сондықтан жазба қатты болып қалады.',
+  'versoTodayHero.outlineLabel': 'Бүгінгі жоспар',
   'versoTodayHero.streak': '{{count}} - күндізгі серия',
+  'versoTodayHero.unwritten': 'Әзірге сөз жоқ — бастау үшін жазбаны ашыңыз.',
   'versoTodayHero.wordCount': '{{count}} бүгінгі сөздер',
 }

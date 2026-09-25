@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vai jums ir jautājumi par izdevumu, sūtījumu vai abonementu? Sazinieties ar īstu komandas cilvēku pa hello@crate.example — mēs lasām katru ziņu.',
+  'about.contactTitle': 'Runājiet ar kuratoru',
+  'about.feature1':
+    'Katru mēnesi veidoti izdevumi, ko rūpīgi atlasījuši neatkarīgi meistari, ar katra priekšmeta stāstu.',
+  'about.feature2':
+    'Pilna kontrole pār katru kasti — pielāgojiet saturu, nomainiet vai izslēdziet priekšmetus, izlaidiet mēnesi vai mainiet biežumu.',
+  'about.feature3':
+    'Sūtījuma izsekošana no saņemšanas līdz durvīm, ar plastmasu nesaturošu iepakojumu un tiešiem pārvadātāja atjauninājumiem.',
+  'about.feature4':
+    'Elastīgi plāni un caurspīdīga norēķinu sistēma — uzlabojiet, pazeminiet, apturiet vai atceliet jebkurā laikā no sava informācijas paneļa.',
+  'about.intro':
+    '{{app}} ir kurēta abonementa kastes pakalpojums, kas katru mēnesi piegādā jūsu durvīm rūpīgi atlasītu, maza apjoma prieka kasti. Katru izdevumu komplektē strādājoši meistari — neatkarīgi mākslinieki, šefpavāri un mazi zīmoli — nevis algoritms.',
+  'about.missionBody':
+    'Mēs ticam, ka abonementam jāšķiet kā dāvanai, nevis slazdam. {{app}} ir veidots tā, lai jūs paliktu, jo jums patīk tas, kas atnāk — apturiet jebkurā laikā, nomainiet, ko vēlaties, un atceliet ar vienu klikšķi. Nekādu noturēšanas skriptu, nekad.',
+  'about.missionTitle': 'Mūsu misija',
   'about.pageTitle': 'Par {{app}}',
   'appNav.mobileLabel': 'Galvenā navigācija',
   'appNav.primaryLabel': 'Galvenā navigācija',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Rediģēt norēķinu kontaktpersonu',
   'billing.contact.eyebrow': 'Norēķinu kontaktpersona',
   'billing.eyebrow': 'Plāns un maksājumi',
+  'billing.loading': 'Tiek ielādēts rēķins…',
   'billing.payment.body':
     'Maksājumu apstrādā Stripe Checkout — jūsu pilnais kartes numurs nekad nenonāk mūsu serveros. Noklikšķiniet uz jebkura līmeņa zemāk, lai pievienotu vai atjauninātu savu karti.',
   'billing.payment.linked': 'Karte failā, izmantojot Stripe',
@@ -18,10 +35,13 @@ export const ui: UiTranslations = {
   'billing.plan.cta.pause': 'Pārtraukt abonementu',
   'billing.plan.cta.resume': 'Atsākt abonementu',
   'billing.plan.eyebrow': 'Aktīvs plāns',
+  'billing.plan.next': 'Automātiski atjaunojas {{date}}.',
+  'billing.plan.status': 'Statuss: {{status}}',
   'billing.subtitle':
     'Pārvaldiet savu līmeni, maksājuma veidu un pārskatiet iepriekšējās darbības.',
   'billing.tiers.body': 'Izvēlieties līmeni, un mēs jūs novirzīsim uz Stripe Checkout.',
   'billing.tiers.choose': 'Izvēlēties',
+  'billing.tiers.empty': 'Vēl nav konfigurēts neviens līmenis.',
   'billing.tiers.heading': 'Pieejamie līmeņi',
   'boxDetail.backToBoxes': 'Atpakaļ pie visiem izdevumiem',
   'boxDetail.crumb.boxes': 'Izdevumi',
@@ -34,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Izvēlēts darbs',
   'boxDetail.items.heading': '{{count}} kūrēti darbi',
   'boxDetail.itemsBadge': '{{count}} atlasīti vienumi katrā kastē',
+  'boxDetail.loading': 'Ielādē izdevumu…',
   'boxDetail.notFound': 'Šis izdevums vairs nav pieejams.',
   'boxDetail.subscribe.success': 'Abonēts — jūsu pirmais izdevums ir ievietots rindā.',
   'boxDetail.swapBadge': 'Apmainīt uz {{count}} prece(-es) kastē',
@@ -42,22 +63,32 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Nav atbilstošu izdevumu.',
   'boxes.eyebrow': 'Crate arhīvs',
   'boxes.heading': 'Pārlūkot katru izdevumu',
+  'boxes.loadError': 'Mēs nevarējām ielādēt izdevumus. Pārbaudiet savienojumu un mēģiniet vēlreiz.',
   'boxes.loading': 'Notiek izdevumu ielāde…',
+  'boxes.search.label': 'Meklēt izdevumus',
   'boxes.search.placeholder': 'Meklēt izdevumus…',
   'boxes.subtitle':
     'Katrs līmenis ir nelielas partijas stāsts. Pievienojiet vienu savai rindai vai nomainiet to uz nākamo mēnesi.',
+  'boxThemeCard.itemCount': '{{count}} preces',
   'boxThemeCard.perMonth': '/ mēnesī',
+  'boxThemeCard.retailValue': 'Mazumtirdzniecības vērtība {{value}}',
   'common.goToDashboard': 'Uz informācijas paneli',
+  'common.retry': 'Mēģināt vēlreiz',
   'customize.eyebrow': 'Padariet to par savu',
   'customize.heading': 'Pielāgojiet savu nākamo Crate',
+  'customize.items.empty': 'Šim līmenim vēl nav konfigurēts neviens priekšmets.',
   'customize.items.exclude': 'Izlaist šo',
   'customize.items.eyebrow': 'Personalizējiet šo lodziņu',
   'customize.items.heading': 'Preces iekšā {{box}}',
+  'customize.items.helper':
+    'Iekļauti {{count}} no {{total}} priekšmetiem. Izslēgtos priekšmetus nomainām ar kuratora izvēlēm.',
   'customize.items.include': 'Pievienot atpakaļ',
   'customize.items.save': 'Saglabāt pielāgošanu',
   'customize.items.swapsLeft': '{{used}} no {{max}} izmantotās maiņas',
+  'customize.loading': 'Ielādē pielāgošanu…',
   'customize.noSub.body':
     'Vispirms abonējiet līmeni un pēc tam atgriezieties, lai apmainītos ar precēm savā kastē.',
+  'customize.noSub.cta': 'Pārlūkot izdevumus',
   'customize.noSub.heading': 'Nav aktīva abonementa',
   'customize.saved': 'Pielāgojums saglabāts.',
   'customize.subtitle':
@@ -71,23 +102,30 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Sūtījuma izsekošana',
   'dashboard.eyebrow': 'Tavs dārgums',
   'dashboard.greeting': 'Laipni lūgti atpakaļ, {{name}} .',
+  'dashboard.loadError':
+    'Mēs nevarējām ielādēt jūsu informācijas paneli. Pārbaudiet savienojumu un mēģiniet vēlreiz.',
   'dashboard.loading': 'Notiek informācijas paneļa ielāde…',
   'dashboard.next.eyebrow': 'Jūsu nākamais izdevums',
   'dashboard.onboarding.body':
     'Jums vēl nav aktīva abonementa. Izvēlieties līmeni, lai sāktu Crate piegādi katru mēnesi.',
   'dashboard.onboarding.cta': 'Pārlūkot visus izdevumus',
+  'dashboard.onboarding.empty': 'Šobrīd nav pieejamu plānu. Pārbaudiet vēlāk.',
   'dashboard.onboarding.heading': 'Izvēlieties savu pirmo izdevumu',
   'dashboard.renewal.amount': 'Uzlādēts',
   'dashboard.renewal.cadence': 'Kadence',
   'dashboard.renewal.cta': 'Pārvaldīt norēķinus',
   'dashboard.renewal.eyebrow': 'Atjaunošana',
+  'dashboard.renewal.heading': 'Automātiski atjaunojas {{date}}',
   'dashboard.renewal.plan': 'Plāna atslēga',
+  'dashboard.renewal.tbd': 'Atjaunošanas plānošana drīzumā',
   'dashboard.renewal.tier': 'Līmenis',
   'dashboard.stats.days': 'dienas',
   'dashboard.stats.daysToNext': 'Piegāde',
   'dashboard.stats.items': 'Izvēlētie vienumi',
   'dashboard.stats.shipDate': 'Nosūtīšanas datums',
   'dashboard.stats.tbd': 'Nav precizēts',
+  'dashboard.subtitle.active': 'Jūsu nākamais izdevums jau ir ceļā. Lūk, ko gaidīt.',
+  'dashboard.subtitle.idle': 'Izvēlieties līmeni, lai sāktu katru mēnesi sūtīt {{appName}}.',
   'forgotPassword.subtitle':
     'Norādiet mums savu e-pasta adresi, un mēs nosūtīsim jums atiestatīšanas saiti.',
   'forgotPassword.success.body':
@@ -95,6 +133,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Pārbaudi savu iesūtni.',
   'landing.editions.eyebrow': 'Šajā sezonā',
   'landing.editions.heading': 'Izdevumi, kurus mūsu kuratori dievina',
+  'landing.editions.viewAll': 'Pārlūkot visus izdevumus →',
   'landing.footer.contact': 'Runājiet ar kuratoru',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Sāciet savu kastīti →',
@@ -104,6 +143,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Ieskats dalībnieku informācijas panelī — atpakaļskaitīšana, saturs un izsekošana.',
   'landing.hero.social.count': 'Mīlēja {{count}} + abonenti',
+  'landing.hero.social.rating': '{{rating}} vid. atvēršanas vērtējums',
+  'landing.hero.subhead':
+    '{{appName}} sūta jums rūpīgi atlasītu, maza apjoma prieka kasti no neatkarīgiem meistariem. Apturiet jebkurā laikā. Nomainiet, ko vēlaties. Paturiet, kas jums patīk.',
   'landing.nav.start': 'Sāciet savu kastīti',
   'landing.tiers.eyebrow': 'Izvēlieties savu kadenci',
   'landing.tiers.heading':
@@ -114,6 +156,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Pierakstieties, lai ieskatītos nākamā mēneša lodziņā.',
   'login.welcomeBack': 'Laipni lūdzam atpakaļ, kurator.',
   'nextBoxHeroCard.eyebrow': 'Tavs nākamais atradums',
+  'nextBoxHeroCard.itemCount': '{{count}} priekšmeti iekšā',
   'nextBoxHeroCard.itemsLabel': 'Izvēlētie vienumi',
   'nextBoxHeroCard.shipsOnLabel': 'Piegāde',
   'notFound.body':
@@ -137,8 +180,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Pārtraukt abonementu',
   'settings.danger.paused': 'Abonements ir apturēts.',
   'settings.danger.pausing': 'Notiek pauze…',
+  'settings.danger.status': 'Abonementa statuss: {{status}}',
   'settings.danger.subtitle':
     'Pārtraukšana saglabā jūsu līmeni un vēsturi neskartu. Atcelšana aptur turpmākās piegādes un cikla beigās noņem saglabātās maksājuma metodes.',
+  'settings.notifications.saving': '· saglabā…',
   'settings.notifications.subtitle':
     'Izvēlieties, kurus signālus vēlaties no Crate. Noklusējuma iestatījumi ir saprātīgi.',
   'settings.subtitle': 'Atjauniniet savu profilu, piegādes adresi un to, kā Crate sazinās ar jums.',
@@ -153,13 +198,19 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Vēl nav aktīvu sūtījumu',
   'shipments.live.eyebrow': 'Aktīva sūtījuma',
   'shipments.live.unnamed': 'Tava nākamā kaste',
+  'shipments.loadError':
+    'Mēs nevarējām ielādēt jūsu sūtījumus. Pārbaudiet savienojumu un mēģiniet vēlreiz.',
+  'shipments.loading': 'Notiek sūtījumu ielāde…',
+  'shipments.step.delivered': 'Piegādāts',
   'shipments.step.deliveredBody':
     'Atzīmējiet ar tēmturi #crateunbox, lai dalītos savos atklājumos.',
   'shipments.step.ordered': 'Pasūtījums veikts',
   'shipments.step.orderedBody':
     'Jūsu abonements ievietoja šo izdevumu rindā nākamajam piegādes ciklam.',
+  'shipments.step.packed': 'Iepakots ar rokām',
   'shipments.step.packedBody':
     'Katrs gabals iesaiņots un ievietots kastītē ar ar roku rakstītu zīmīti.',
+  'shipments.step.transit': 'Ceļā',
   'shipments.step.transitNot':
     'Izsekošanas informācija parādīsies šeit, tiklīdz jūsu kaste būs ceļā.',
   'shipments.subtitle':

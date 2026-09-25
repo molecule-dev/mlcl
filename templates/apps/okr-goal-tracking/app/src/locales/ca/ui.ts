@@ -3,8 +3,13 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre nosaltres',
+  'about.missionTitle': 'La nostra missió',
+  'about.subtitle':
+    "Seguiment d'OKR ambiciós, responsable i mesurable per a equips que volen pujar.",
   'ascentSideNav.nav.notifications': 'Notificacions',
   'ascentSideNav.newObjective': 'Nou objectiu',
+  'authShell.brandBody':
+    '{{appName}} connecta els objectius amb els resultats clau i els check-ins setmanals perquè el progrés sempre sigui visible — i sempre honest.',
   'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': "Fixa el cim. Marca la puntuació de l'escalada. Entrena l'equip.",
   'authShell.eyebrow': 'OKR que mouen els equips',
@@ -16,19 +21,27 @@ export const ui: UiTranslations = {
   'billing.confirmCancel': 'Voleu cancel·lar la subscripció al final del període actual?',
   'billing.currentPlanFreeFooter':
     "Ets al nivell gratuït. Fes l'actualització per obtenir límits més alts.",
+  'billing.currentPlanPaidFooter': 'Subscripció activa · {{plan}}',
   'billing.downloadCurrent': 'Descarrega el resum',
   'billing.downloading': 'Preparant…',
   'billing.error.priceUnavailable':
     "Aquest pla no està configurat per a la finalització de la compra en l'entorn actual.",
   'billing.eyebrow': 'Espai de treball · Facturació',
   'billing.heading': 'Pla i factures',
+  'billing.message.canceled': 'La subscripció acabarà al final del període actual.',
   'billing.period.year': 'Yearly',
+  'billing.perk.advanced': 'Ressenyes avançades + recordatoris',
   'billing.perk.export': "Exportació de dades + accés a l'API",
   'billing.perk.inApp': "Informes dins de l'aplicació",
+  'billing.perk.keyResults': '{{count}} resultats clau',
+  'billing.perk.objectives': '{{count}} objectius',
+  'billing.perk.retention': "{{count}} dies d'historial",
   'billing.perk.standard': 'Ressenyes estàndard',
+  'billing.perk.unlimitedKrs': 'KR il·limitats',
   'billing.perk.unlimitedObjectives': 'Objectius il·limitats',
   'billing.perk.unlimitedRetention': 'Retenció il·limitada',
   'billing.subheading': 'Ets a la {{name}} pla. Compara els nivells i actualitza a continuació.',
+  'billing.subheading.loading': "S'està carregant el teu pla actual…",
   'billing.tier.unavailable': 'No disponible',
   'billing.tier.upgrade': 'Actualitza a {{name}}',
   'billing.tiersError': "No s'han pogut carregar els preus. Torna-ho a provar més tard.",
@@ -38,12 +51,14 @@ export const ui: UiTranslations = {
   'checkIn.emptyTitle': 'Encara no hi ha res per comprovar',
   'checkIn.eyebrow': 'Cadència setmanal',
   'checkIn.heading': "Registre d'entrada setmanal",
+  'checkIn.loading': "S'estan carregant els teus KR…",
   'checkIn.newObjective': 'Nou objectiu',
   'checkIn.noKrs': "No hi ha resultats clau; afegiu-ne alguns des d'Edita.",
   'checkIn.noteLabel': 'Una nota per al vostre equip',
   'checkIn.notePlaceholder':
     "Punt positiu, bloquejador o pregunta d'entrenament: fes-ho en menys de tres frases.",
   'checkIn.openObjective': 'Obre →',
+  'checkIn.progressLabel': 'KR en bon camí',
   'checkIn.subheading':
     'Actualitza el valor actual per a cada KR, marca la confiança, elimina una nota i envia.',
   'checkIn.submit': "Enviar registre d'entrada",
@@ -60,10 +75,16 @@ export const ui: UiTranslations = {
   'dashboard.allActivity': "Veure tota l'activitat →",
   'dashboard.coachBodyAtRisk':
     '{{atRisk}} Els KR han patit aquesta setmana. Una conversa de 15 minuts avui sol comprar una setmana sencera de recuperació.',
+  'dashboard.coachBodyOk':
+    'Els teus KR semblen saludables aquesta setmana — mantén el ritme i fes el teu check-in.',
+  'dashboard.coachCta': 'Obre el check-in setmanal →',
   'dashboard.coachLabel': "Empenta d'entrenament",
   'dashboard.emptyBody':
     'Esborra el teu primer objectiu per començar a fer un seguiment del progrés setmanal.',
   'dashboard.emptyTitle': 'Encara no hi ha objectius',
+  'dashboard.heroBody':
+    'Tens {{count}} objectius. {{atRisk}} necessiten una mirada més atenta — mantenim-los en bon camí.',
+  'dashboard.heroEmpty': 'Encara no tens cap objectiu. Comença esborrant el primer.',
   'dashboard.heroProgressLabel': 'Progrés del trimestre',
   'dashboard.heroTitle': 'Bona escalada, {{name}} .',
   'dashboard.kpiActiveLabel': 'Objectius actius',
@@ -76,11 +97,14 @@ export const ui: UiTranslations = {
     "Encara no hi ha activitat. Fes un registre d'entrada per començar l'escalada.",
   'dashboard.objectivesHeading': 'Els vostres objectius',
   'dashboard.startCheckIn': 'Feu un registre setmanal',
+  'dashboardLayout.searchAria': 'Cerca objectius',
   'dashboardLayout.searchPlaceholder': 'Objectius de cerca, KR, persones...',
   'editObjective.addKr': 'Afegeix KR',
   'editObjective.archive': "Objectiu de l'arxiu",
   'editObjective.backToList': 'Torna als objectius',
   'editObjective.breadcrumbAll': 'Objectius',
+  'editObjective.confirmArchive':
+    "Arxivar aquest objectiu? El pots trobar més tard a la vista d'arxivats.",
   'editObjective.descriptionLabel': 'Per què això importa',
   'editObjective.eyebrow': "Edita l'objectiu",
   'editObjective.heading': "Actualitza el resultat, els KR, l'alineació o la cadència.",
@@ -94,6 +118,7 @@ export const ui: UiTranslations = {
   'editObjective.targetPlaceholder': 'Objectiu',
   'forgotPassword.emailPlaceholder': 'tu@equip.com',
   'forgotPassword.heading': 'Restableix la teva contrasenya.',
+  'forgotPassword.rememberPrompt': "Te'n recordes? ",
   'forgotPassword.subheading':
     "Introdueix el correu electrònic vinculat al teu compte d'Ascent i t'enviarem un enllaç de restabliment.",
   'forgotPassword.successBody':
@@ -122,6 +147,7 @@ export const ui: UiTranslations = {
   'landing.heroTitle': 'Puja cap al que importa.',
   'login.emailPlaceholder': 'tu@equip.com',
   'login.heading': 'Benvingut/da de nou, escalador/a.',
+  'login.noAccountPrompt': 'Ets nou a {{appName}}? ',
   'login.orContinueWith': 'o continuar amb',
   'login.subheading':
     "Continua on ho vas deixar: els teus registres d'entrada, les teves ressenyes i els teus comentaris t'esperen.",
@@ -130,6 +156,7 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Obre el menú de navegació',
   'newObjective.addKr': 'Afegeix KR',
   'newObjective.coachLabel': "Recordatoris per a l'entrenador",
+  'newObjective.descriptionLabel': 'Per què això importa',
   'newObjective.descriptionPlaceholder': 'Explica el context estratègic en 2 o 3 frases.',
   'newObjective.errorTitleRequired': 'Posa un títol al teu objectiu.',
   'newObjective.eyebrow': 'Nou objectiu · Fixar el cim',
@@ -147,13 +174,18 @@ export const ui: UiTranslations = {
   'newObjective.submit': "Desa l'objectiu",
   'newObjective.targetPlaceholder': 'Objectiu',
   'newObjective.tip1': 'Començar amb un verb: “Convertir-se…”, “Tallar…”, “Guanyar…”',
+  'newObjective.tip2': 'Els KR han de ser mesurables — evita «Millorar X».',
+  'newObjective.tip3': '3–5 KR és el punt òptim. Més crea soroll.',
   'newObjective.titlePlaceholder': "Converteix-te en qui l'enginyeria de productes d'OKR estima",
+  'notifications.emptyBody':
+    'Els recordatoris de coaching, les mencions i els avisos de revisió arriben aquí.',
   'notifications.emptyTitle': 'No hi ha notificacions en aquesta vista.',
   'notifications.eyebrow': "Centre d'activitats",
   'notifications.markRead': '● Marca com a llegit',
   'objective.scopes.company': 'Empresa',
   'objective.scopes.individual': 'Individual',
   'objective.scopes.team': 'Equip',
+  'objectiveCard.krProgress': '{{done}}/{{total}} KR',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Torna als objectius',
   'objectiveDetail.edit': "Edita l'objectiu",
@@ -164,6 +196,10 @@ export const ui: UiTranslations = {
   'objectiveDetail.notFound': 'Objectiu no trobat.',
   'objectiveDetail.owner': 'Propietat de {{name}}',
   'objectiveDetail.runCheckIn': "Executa el registre d'entrada",
+  'objectiveDetail.timelineHeading': 'Cronologia de check-ins',
+  'objectives.emptyBody':
+    'Esborra el teu primer objectiu per començar a fer un seguiment del progrés setmanal.',
+  'objectives.emptyFilteredBody': "Prova d'esborrar el filtre o de començar un objectiu nou.",
   'objectives.emptyFilteredTitle':
     'Encara no hi ha cap objectiu que coincideixi amb aquests filtres.',
   'objectives.emptyTitle': 'Encara no hi ha objectius',
@@ -175,6 +211,11 @@ export const ui: UiTranslations = {
   'objectives.searchPlaceholder': 'Filtra per títol…',
   'objectives.subheading':
     'Seguiment {{count}} objectius. Filtreu per estat per trobar què necessita atenció.',
+  'pricing.limit.advanced': 'Funcions avançades: {{value}}',
+  'pricing.limit.checkIns': '{{count}} check-ins',
+  'pricing.limit.export': 'Exportació de dades: {{value}}',
+  'pricing.limit.keyResults': '{{count}} resultats clau',
+  'pricing.limit.objectives': '{{count}} objectius',
   'profile.achievementCheckInsMany': "{{count}} registres d'entrada registrats",
   'profile.achievementCheckInsOne': "1 registre d'entrada registrat",
   'profile.achievementCompletedMany': 'Objectius {{count}} completats',
@@ -183,6 +224,7 @@ export const ui: UiTranslations = {
   'profile.achievementOnTrackOne': '1 objectiu en camí',
   'profile.activeHeading': 'Objectius actius',
   'profile.allObjectives': 'Tots els objectius →',
+  'profile.createFirst': 'Crea un objectiu',
   'profile.empty': "Encara no hi ha objectius actius; crea'n el primer per començar.",
   'profile.eyebrow': "Perfil d'escalador",
   'profile.guestName': 'Escalador',
@@ -195,13 +237,18 @@ export const ui: UiTranslations = {
   'profile.statsHeading': 'Aquest trimestre',
   'profile.streakLabel': 'Trimestre fins ara',
   'resetPassword.backLink': "Inicia la sessió en comptes d'això",
+  'resetPassword.backPrompt': 'Has decidit no reiniciar? ',
   'resetPassword.emailPlaceholder': 'tu@equip.com',
   'resetPassword.heading': 'Estableix una contrasenya nova.',
+  'resetPassword.passwordLabel': 'Nova contrasenya',
   'resetPassword.reset': 'Actualitza la contrasenya i inicia la sessió',
   'resetPassword.resetting': 'Actualitzant la contrasenya…',
   'resetPassword.subheading':
     'Trieu alguna cosa contundent: un mínim de vuit caràcters i, si podeu, barregeu els números.',
   'reviewDetail.backToList': 'Torna a les ressenyes',
+  'reviewDetail.body':
+    '{{count}} objectiu(s) actiu(s) · qualificació {{grade}}. Edita les reflexions i la qualificació a continuació.',
+  'reviewDetail.colObjective': 'Objectiu',
   'reviewDetail.confirmDelete': 'Voleu suprimir aquest esborrany de revisió?',
   'reviewDetail.delete': "Suprimeix l'esborrany",
   'reviewDetail.eyebrow': '{{estat}} · {{data}}',
@@ -212,8 +259,10 @@ export const ui: UiTranslations = {
   'reviewDetail.reflectionsHeading': 'Reflexions',
   'reviewDetail.reflectionsPlaceholder': 'Què va anar bé? Què no? Notes per al proper trimestre.',
   'reviewDetail.scorecardHeading': 'Quadre de puntuació',
+  'reviewDetail.scoreLabel': 'Puntuació mitjana',
   'reviewDetail.submitted': 'Enviat',
   'reviewDetail.submittedToast': 'Revisió enviada',
+  'reviewDetail.untitled': 'Revisió trimestral · fes clic a continuació per editar',
   'reviews.createDraft': 'Inicia un esborrany',
   'reviews.empty.body':
     'Les revisions trimestrals apareixen aquí un cop comenceu un esborrany. Feu clic a "Comença un esborrany" a dalt per començar.',
@@ -223,12 +272,16 @@ export const ui: UiTranslations = {
   'reviews.eyebrow': 'Retrospectives trimestrals',
   'reviews.grade': 'Grau {{grade}}',
   'reviews.loading': "S'estan carregant les ressenyes…",
+  'reviews.notSubmitted': 'Encara no enviat',
   'reviews.subheading':
     'Quadres de puntuació resumits, reflexions sobre els titulars i notes dels trimestres anteriors.',
+  'reviews.submittedAt': 'Enviat el {{date}}',
+  'reviews.untitled': 'Revisió sense títol · fes clic per editar',
   'settings.billingSubtitle': 'Gestiona plans, seients i factures',
   'settings.billingTitle': 'Facturació i seients',
   'settings.cadenceBody':
     'Trieu amb quina freqüència Ascent vol que el vostre equip faci registres.',
+  'settings.cadenceHeading': 'Cadència',
   'settings.eyebrow': 'Espai de treball · Compte · Cadence',
   'settings.guestName': 'Escalador',
   'settings.openProfile': 'Obre el perfil',
@@ -236,10 +289,15 @@ export const ui: UiTranslations = {
   'settings.saveError': "No s'ha pogut desar: {{error}}",
   'settings.toggleCoachDescription':
     'La superfície a mitjans de trimestre indica quan un KR baixa dos esglaons de confiança.',
+  'settings.toggleCoachLabel': 'Recordatoris de coaching',
   'settings.toggleDigestDescription':
     'Envia un resum dels objectius per estat cada dilluns a cada propietari.',
+  'settings.toggleDigestLabel': 'Correu resum de dilluns',
+  'settings.toggleRemindersDescription':
+    "Avisa l'equip divendres al matí si encara falta un check-in.",
   'settings.toggleRemindersLabel': "Recordatoris setmanals de registre d'entrada",
   'signup.emailPlaceholder': 'tu@equip.com',
+  'signup.haveAccountPrompt': 'Ja tens un compte? ',
   'signup.heading': 'Planifica la teva primera ascensió.',
   'signup.namePlaceholder': 'Avery Mountaineer',
   'signup.orContinueWith': 'o continuar amb',
@@ -258,6 +316,7 @@ export const ui: UiTranslations = {
   'team.newTeamLabel': 'Nou equip',
   'team.newTeamPlaceholder': 'p. ex. Experiència del client',
   'team.objectivesLabel': 'Objectius',
+  'team.progressLabel': "Progrés de l'espai de treball",
   'team.subheading':
     '{{teams}} equips · {{objectives}} objectius. Agrupeu els vostres OKR per equip per veure els resums.',
 }

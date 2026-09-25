@@ -1,8 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ ഒരു ഫീച്ചർ വേണോ? ഞങ്ങൾ എല്ലാ സന്ദേശവും വായിക്കുന്നു — നിങ്ങളുടെ അക്കൗണ്ട് സെറ്റിംഗ്സിൽ നിന്ന് ടീമിനെ സമീപിക്കുക, ഒരു യഥാർത്ഥ വ്യക്തി നിങ്ങളെ തിരികെ ബന്ധപ്പെടും.',
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.intro':
+    '{{app}} ഫ്രീലാൻസർമാർക്കും കൺസൾട്ടന്റുകൾക്കും ഏജൻസികൾക്കും വേണ്ടി നിർമ്മിച്ച കൃത്യമായ സമയ ട്രാക്കിംഗ് ആണ്. ഒരു ക്ലിക്കിൽ ടൈമർ ആരംഭിക്കുക, ഓരോ മിനിറ്റും ഒരു പ്രോജക്റ്റിനോടും ക്ലയന്റിനോടും ബന്ധിപ്പിക്കുക, ബജറ്റുകൾ തത്സമയം കുറയുന്നത് കാണുക, ട്രാക്ക് ചെയ്ത മണിക്കൂറുകൾ Stripe-പിന്തുണയുള്ള ഇൻവോയ്സുകളാക്കി മാറ്റുക — എല്ലാം ഒരിടത്ത്.',
+  'about.missionBody':
+    'സ്വതന്ത്ര പ്രൊഫഷണലുകൾ അവർ ജോലി ചെയ്യുന്ന ഓരോ മിനിറ്റിനും പ്രതിഫലം നേടണമെന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു. ജോലി ചെയ്യുന്നതിനും അതിന് ബിൽ ചെയ്യുന്നതിനും ഇടയിലുള്ള തടസ്സങ്ങൾ ഞങ്ങൾ നീക്കുന്നു, അതുവഴി അഡ്മിൻ ജോലികളിൽ കുറച്ച് സമയവും യഥാർത്ഥത്തിൽ പണം നൽകുന്ന ജോലിയിൽ കൂടുതൽ സമയവും നിങ്ങൾ ചെലവഴിക്കും.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
+  'about.plansBody':
+    '{{app}} 3 പ്രോജക്റ്റുകൾ വരെ സൗജന്യമാണ്. നിങ്ങളുടെ ക്ലയന്റ് ലിസ്റ്റ് വളരുമ്പോൾ Pro അല്ലെങ്കിൽ Team-ലേക്ക് അപ്ഗ്രേഡ് ചെയ്യുക — പരിധിയില്ലാത്ത പ്രോജക്റ്റുകൾ, വിപുലമായ റിപ്പോർട്ടിംഗ്, കൂടുതൽ ചരിത്രം, CSV എക്സ്പോർട്ടുകൾ എന്നിവയ്ക്കായി.',
   'about.plansTitle': 'നിങ്ങളോടൊപ്പം വളരുന്ന പദ്ധതികൾ',
+  'about.whatYouGetTitle': 'നിങ്ങൾക്ക് ലഭിക്കുന്നത്',
+  'auth.legalConsent.prefix': 'തുടരുന്നതിലൂടെ, നിങ്ങൾ {{appName}}ന്റെ',
   'brand.tagline': 'ഓരോ നിമിഷവും',
   'clientDetail.back': 'ക്ലയന്റുകളിലേക്ക് മടങ്ങുക',
   'clientDetail.breadcrumb': 'ക്ലയന്റുകൾ',
@@ -13,6 +25,7 @@ export const ui: UiTranslations = {
   'clientDetail.kpi.hours': 'ആകെ മണിക്കൂർ',
   'clientDetail.kpi.projects': 'സജീവ പ്രോജക്ടുകൾ',
   'clientDetail.loading': 'ക്ലയന്റ് ലോഡ് ചെയ്യുന്നു…',
+  'clientDetail.noDueDate': 'അവസാന തീയതി സെറ്റ് ചെയ്തിട്ടില്ല',
   'clientDetail.noInvoices': 'ഇതുവരെ ഇൻവോയ്‌സുകളൊന്നുമില്ല.',
   'clientDetail.noProjects': 'ഈ ക്ലയന്റിന് ഇതുവരെ പ്രോജക്റ്റുകളൊന്നുമില്ല.',
   'clientDetail.notFound': 'ക്ലയന്റിനെ കണ്ടെത്തിയില്ല.',
@@ -38,6 +51,7 @@ export const ui: UiTranslations = {
   'dashboard.activeProjects': 'സജീവ പ്രോജക്ടുകൾ',
   'dashboard.empty':
     'ഇതുവരെ എൻട്രികളൊന്നുമില്ല. നിങ്ങളുടെ ആദ്യ സെഷൻ ട്രാക്ക് ചെയ്യാൻ ടൈമർ ആരംഭിക്കുക.',
+  'dashboard.errorMessage': 'പുതുക്കാൻ കഴിഞ്ഞില്ല: {{error}}',
   'dashboard.greeting': 'ശുഭദിനം, {{name}}',
   'dashboard.kpi.activeProjects': 'സജീവ പ്രോജക്ടുകൾ',
   'dashboard.kpi.billable': 'ഈ ആഴ്ച ബിൽ ചെയ്യാവുന്നതാണ്',
@@ -51,11 +65,13 @@ export const ui: UiTranslations = {
   'dashboard.recentEntries': 'സമീപകാല എൻട്രികൾ',
   'dashboard.recentEntriesSubtitle':
     'എല്ലാ പ്രോജക്റ്റുകളിലുമുള്ള ഏറ്റവും പുതിയ ട്രാക്ക് ചെയ്ത സെഷനുകൾ.',
+  'dashboard.subtitle': 'നിങ്ങളുടെ ദിവസം ഇങ്ങനെയാണ്. ടൈമർ പ്രവർത്തിപ്പിച്ചുകൊണ്ടിരിക്കുക.',
   'dashboard.viewReports': 'റിപ്പോർട്ടുകൾ കാണുക',
   'dashboard.viewTimesheet': 'ടൈംഷീറ്റ് കാണുക',
   'durationKpiCard.label': '{{label}}',
   'durationKpiCard.trend': '{{trend}}',
   'durationKpiCard.value': '{{value}}',
+  'forgotPassword.remember': 'നിങ്ങളുടെ പാസ്‌വേഡ് ഓർമ്മയുണ്ടോ?',
   'forgotPassword.sentBody':
     'ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയച്ചു {{email}} . ഇത് 60 മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും.',
   'forgotPassword.subheading':
@@ -92,21 +108,27 @@ export const ui: UiTranslations = {
   'landing.copyright': '© {{year}} {{app}} . ഓരോ സെക്കൻഡും, കണക്കിൽ വയ്ക്കുന്നു.',
   'landing.ctaBody':
     '3 പ്രോജക്റ്റുകൾക്ക് വരെ സൗജന്യം. നിങ്ങളുടെ ക്ലയന്റ് ലിസ്റ്റിൽ ഇത് സംഭവിക്കുമ്പോൾ അപ്‌ഗ്രേഡ് ചെയ്യുക.',
+  'landing.ctaHeading': 'ഒരു മിനിറ്റിനുള്ളിൽ ട്രാക്കിംഗ് ആരംഭിക്കുക',
   'landing.eyebrow': 'ബിൽ ചെയ്യാവുന്ന ജോലികൾക്കുള്ള സമയ ട്രാക്കിംഗ്',
   'landing.featuresBody':
     'ടൈമറിന്റെ ആദ്യ ക്ലിക്ക് മുതൽ അന്തിമ ഇൻവോയ്സ് വരെ — ഓരോ ഘട്ടവും സ്വതന്ത്രർ യഥാർത്ഥത്തിൽ പ്രവർത്തിക്കുന്ന രീതിയെ ചുറ്റിപ്പറ്റിയാണ് നിർമ്മിച്ചിരിക്കുന്നത്.',
   'landing.featuresHeading': 'ബില്ല് ചെയ്യാവുന്ന ജോലികൾക്കായി നിർമ്മിച്ചത്',
   'landing.getStarted': 'ട്രാക്കിംഗ് ആരംഭിക്കൂ — സൗജന്യം',
   'landing.heroCta': 'ട്രാക്കിംഗ് ആരംഭിക്കൂ — സൗജന്യം',
+  'landing.heroSubtitle':
+    'ക്ലയന്റുകളിലുടനീളം ബിൽ ചെയ്യാവുന്ന മണിക്കൂറുകൾ ട്രാക്ക് ചെയ്യുക, ബജറ്റുകൾ തത്സമയം കാണുക, ഓരോ മിനിറ്റും Stripe-പിന്തുണയുള്ള ഇൻവോയ്സാക്കി മാറ്റുക. ഫ്രീലാൻസർമാർക്കും കൺസൾട്ടന്റുകൾക്കും ഏജൻസികൾക്കും വേണ്ടി നിർമ്മിച്ചത്.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.export': 'എപ്പോൾ വേണമെങ്കിലും CSV കയറ്റുമതി ചെയ്യുക',
   'landing.proof.freeTier': '3 പ്രോജക്ടുകൾക്ക് വരെ സൗജന്യം',
   'landing.proof.noCard': 'ക്രെഡിറ്റ് കാർഡ് ആവശ്യമില്ല',
   'landing.sampleCardLabel': 'ഇന്ന് ട്രാക്ക് ചെയ്തു',
+  'landing.testimonial.attribution': 'Maya R. · ബ്രാൻഡ് സ്ട്രാറ്റജിസ്റ്റ്, ബ്രൂക്ലിൻ',
   'landing.testimonial.eyebrow': 'സ്വതന്ത്രർ വിശ്വസിക്കുന്നത്',
   'landing.testimonial.quote':
     '\\u201cഞാൻ 30 മിനിറ്റിനുള്ളിൽ ടോഗിളിൽ നിന്ന് മാറി. ബജറ്റ് ബേൺ-ഡൌൺ മാത്രം അതിന്റെ ഫലം നൽകി \\u2014 രണ്ടാഴ്ച തുടർച്ചയായി ഞാൻ കുറച്ചുകാണുന്നത് നിർത്തി.\\u201d',
   'login.brand.headline': '{{tagline}}',
   'login.brand.legal': '© {{year}} ക്രോണോ. ഓരോ സെക്കൻഡും, കണക്കു കൂട്ടി.',
+  'login.brand.sampleLabel': 'ഇന്ന് ഇതുവരെ',
   'login.brand.subtitle':
     'നിങ്ങൾ നിർത്തിയിടത്ത് നിന്ന് ടൈമർ എടുക്കുക — ഒരു പ്രോജക്റ്റ്, ക്ലയന്റ്, ഇൻവോയ്സ് എന്നിവയിലേക്ക് ഇതിനകം മാപ്പ് ചെയ്ത ഓരോ മിനിറ്റും.',
   'login.brand.tracking': 'ട്രാക്കിംഗ്',
@@ -116,6 +138,7 @@ export const ui: UiTranslations = {
   'nav.newEntry': 'പുതിയ എൻട്രി',
   'nav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'nav.primary': 'പ്രാഥമിക നാവിഗേഷൻ',
+  'nav.project': 'പദ്ധതി',
   'nav.workSection': 'ജോലി',
   'notFound.body':
     'നിങ്ങൾ പിന്തുടർന്ന ലിങ്ക് ട്രാക്ക് ചെയ്യുന്നത് നിർത്തിയതായി തോന്നുന്നു. നിങ്ങളുടെ ഡാഷ്‌ബോർഡിലേക്ക് തിരികെ പോകുക \\u2014 അവിടെ നിന്ന് ഞങ്ങൾ എണ്ണിക്കൊണ്ടിരിക്കും.',
@@ -124,6 +147,7 @@ export const ui: UiTranslations = {
   'notFound.home': 'വീട്ടിലേക്ക് പോകൂ',
   'notFound.title': 'ഈ പേജ് പ്രവർത്തിക്കുന്നില്ല.',
   'projectBudgetCard.billable': 'ബിൽ ചെയ്യാവുന്നത്',
+  'projectBudgetCard.budget': 'ബജറ്റ് · {{hours}}h',
   'projectBudgetCard.noClient': 'ആന്തരികം',
   'projectBudgetCard.rate': '$ {{rate}} / മണിക്കൂർ',
   'projectDetail.archive': 'ആർക്കൈവ് പ്രോജക്റ്റ്',
@@ -131,6 +155,7 @@ export const ui: UiTranslations = {
     'ഈ പ്രോജക്റ്റ് ആർക്കൈവ് ചെയ്യണോ? ഇത് ലിസ്റ്റിംഗുകളിൽ നിന്ന് മറയ്ക്കും.',
   'projectDetail.back': 'പ്രോജക്റ്റുകളിലേക്ക് മടങ്ങുക',
   'projectDetail.billable': 'ബിൽ ചെയ്യാവുന്നത് · $ {{rate}} / മണിക്കൂർ',
+  'projectDetail.budget': '{{hours}}h ബജറ്റ്',
   'projectDetail.budgetTitle': 'ബജറ്റ് കത്തിക്കൽ',
   'projectDetail.internal': 'ആന്തരിക പ്രോജക്റ്റ്',
   'projectDetail.kpi.billable': 'ബിൽ ചെയ്യാവുന്ന സമയം',
@@ -143,6 +168,7 @@ export const ui: UiTranslations = {
   'projectDetail.recentEntries': 'സമീപകാല എൻട്രികൾ',
   'projectDetail.remaining': 'ശേഷിക്കുന്നത്',
   'projectDetail.revenue': 'വരുമാനം',
+  'projectDetail.tracked': 'ട്രാക്ക് ചെയ്തത്',
   'projects.empty':
     'ഇതുവരെ പ്രോജക്റ്റുകളൊന്നുമില്ല. മുകളിൽ നിങ്ങളുടെ ആദ്യ പ്രോജക്റ്റ് സൃഷ്ടിക്കുക.',
   'projects.eyebrow': 'സജീവ ഇടപെടലുകൾ',
@@ -163,6 +189,7 @@ export const ui: UiTranslations = {
   'reports.col.project': 'പദ്ധതി',
   'reports.col.revenue': 'വരുമാനം',
   'reports.empty': 'ഈ കാലയളവിൽ ട്രാക്ക് ചെയ്ത സമയമൊന്നുമില്ല.',
+  'reports.errorMessage': 'റിപ്പോർട്ടുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല: {{error}}',
   'reports.eyebrow': 'ഉൾക്കാഴ്ചകൾ',
   'reports.internal': 'ആന്തരികം',
   'reports.kpi.billable': 'ബിൽ ചെയ്യാവുന്ന സമയം',
@@ -174,18 +201,24 @@ export const ui: UiTranslations = {
   'reports.subtitle': 'നിങ്ങളുടെ ജോലി സമയം എവിടെ പോകുന്നു, അവർ എത്രമാത്രം സമ്പാദിക്കുന്നു.',
   'reports.unassigned': 'പ്രോജക്റ്റ് ഇല്ല',
   'reports.weekly.title': 'പ്രതിദിനം മണിക്കൂർ',
+  'resetPassword.password': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.subheading':
     'ഇത് ദീർഘവും അതുല്യവുമാക്കുക. ഞങ്ങൾ നിങ്ങളെ സ്വയമേവ തിരികെ സൈൻ ഇൻ ചെയ്യും.',
+  'settings.billing.endsOn': 'അവസാനിക്കുന്നത് {{date}}',
   'settings.billing.loading': 'ബില്ലിംഗ് ലോഡ് ചെയ്യുന്നു...',
   'settings.billing.redirecting': 'റീഡയറക്‌ട് ചെയ്യുന്നു...',
   'settings.billing.renewsOn': 'പുതുക്കുന്നു {{date}}',
+  'settings.billing.upgrade': 'പ്ലാൻ തിരഞ്ഞെടുക്കുക',
   'settings.profile.email': 'ഇമെയിൽ (വായിക്കാൻ മാത്രം)',
   'settings.profile.nothingToSave': 'സംരക്ഷിക്കാൻ ഒന്നുമില്ല.',
   'settings.profile.title': 'പ്രൊഫൈൽ',
   'settings.security.current': 'നിലവിലെ പാസ്വേഡ്',
   'settings.security.new': 'പുതിയ പാസ്വേഡ്',
   'signup.brand.eyebrow': 'ട്രാക്കിംഗ് ആരംഭിക്കൂ — സൗജന്യം',
+  'signup.brand.headline': '{{tagline}}',
   'signup.brand.legal': '© {{year}} ക്രോണോ.',
+  'signup.brand.subtitle':
+    'മൂന്ന് പ്രോജക്റ്റുകൾ സൗജന്യം. നിങ്ങൾ പ്രോയിലേക്ക് പോകുമ്പോൾ തന്നെ Stripe-പിന്തുണയുള്ള ഇൻവോയ്സുകൾ.',
   'signup.subheading': 'ക്രെഡിറ്റ് കാർഡ് ആവശ്യമില്ല.',
   'timeEntries.addEntry': 'എൻട്രി ചേർക്കുക',
   'timeEntries.addManual': 'മാനുവൽ എൻട്രി ചേർക്കുക',
@@ -222,11 +255,13 @@ export const ui: UiTranslations = {
   'timer.runningWithProject': 'പ്രോജക്റ്റ് ഇല്ല',
   'timer.start': 'ടൈമർ ആരംഭിക്കുക',
   'timer.stop': 'ടൈമർ നിർത്തുക',
+  'timerHeroCard.billableSubtitle': 'ഇതുവരെ {{amount}} ബിൽ ചെയ്യാവുന്നത് · തുടരുക',
   'timerHeroCard.title': 'ഇന്ന് ട്രാക്ക് ചെയ്തു',
   'timerHeroCard.tracked': '{{time}}',
   'timesheet.column.project': 'പദ്ധതി',
   'timesheet.dailyTotal': 'ദിവസേനയുള്ള ആകെ',
   'timesheet.empty': 'ഈ ആഴ്ച ട്രാക്ക് ചെയ്ത എൻട്രികളൊന്നുമില്ല.',
+  'timesheet.errorMessage': 'ടൈംഷീറ്റ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല: {{error}}',
   'timesheet.eyebrow': 'ആഴ്ചതോറുമുള്ള കാഴ്ച',
   'timesheet.internal': 'ആന്തരികം',
   'timesheet.nextWeek': 'അടുത്ത ആഴ്ച',

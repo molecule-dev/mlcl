@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada maklum balas, jumpa pepijat, atau ingin cadangkan ciri? Hubungi kami dari tetapan akaun anda — setiap mesej sampai kepada manusia sebenar dalam pasukan.',
+  'about.contactTitle': 'Hubungi kami',
+  'about.featureDatabases':
+    'Pangkalan data ringan dan templat boleh guna semula untuk mengubah nota berselerak menjadi aliran kerja berstruktur dan berulang.',
+  'about.featureEditor':
+    'Editor blok yang tenang — tajuk, senarai, kod, petunjuk, dan tugasan — dengan arahan slash apabila anda mahu dan tidak mengganggu apabila anda tidak mahu.',
+  'about.featureGraph':
+    'Pautan balik dan graf pengetahuan: taip [[ untuk memautkan nota dan lihat bagaimana idea anda berhubung dari semasa ke semasa.',
+  'about.featureNotebooks':
+    'Nota dan halaman bersarang supaya projek, topik, dan nota harian kekal tersusun tepat seperti cara anda berfikir.',
+  'about.featureSearch':
+    'Carian teks penuh bawah 50ms merentas setiap nota, serta tag yang bergabung dengan nota dan bukannya bertentangan.',
+  'about.missionTitle': 'Misi kami',
   'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'forgot.eyebrow': 'Sesat jalan masuk semula?',
   'forgot.formSubtitle': 'Beritahu kami emel yang ada dalam fail.',
+  'forgot.formTitle': 'Terlupa kata laluan',
   'forgot.headline': 'Tetapkan semula kata laluan anda.',
   'forgot.subline':
     'Kami akan menghantar pautan sekali sahaja ke peti masuk anda supaya anda boleh memilih yang baharu.',
+  'forgot.successDetail':
+    'Kami telah menghantar pautan set semula ke e-mel anda. Ia tamat tempoh dalam 30 minit.',
   'graph.eyebrow': 'Graf',
+  'graph.goToNotes': 'Layari nota →',
+  'graph.loadError': 'Tidak dapat memuatkan graf: {{message}}',
   'graph.placeholderBody':
     'Apabila nota mula berpaut antara satu sama lain (dengan sintaks [[wiki]]), graf interaktif yang diarahkan daya akan dipaparkan di sini.',
+  'graph.placeholderTitle': 'Graf pautan balik akan datang tidak lama lagi',
   'graph.subtitle':
     '{{count}} nota dalam ruang kerja ini. Paparan graf pautan balik akan muncul di sini sebaik sahaja nota dipautkan antara satu sama lain.',
   'graph.title': 'Graf pengetahuan',
   'home.empty': 'Tiada nota lagi — mulakan nota pertama anda.',
   'home.favoritesHeading': 'Dipinkan',
   'home.guest': 'kawan',
+  'home.loadError': 'Tidak dapat memuatkan nota anda: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Sematkan nota dalam editor untuk menyimpannya di sini.',
   'home.recentHeading': 'Dikemas kini baru-baru ini',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Buku nota',
   'home.stats.pinned.label': 'Dipinkan',
   'home.stats.updatedToday.label': 'Dikemas kini hari ini',
+  'home.subtitle': 'Sambung semula dari tempat anda berhenti, atau mulakan nota baharu.',
   'home.viewAll': 'Lihat semua nota',
   'landing.cta.body':
     'Percuma untuk kegunaan peribadi. Profesional untuk pasukan. Bawa pulang diskaun sedia ada anda atau mulakan semula — Verso memenuhi keperluan anda di mana sahaja nota anda berada.',
+  'landing.cta.button': 'Cipta ruang kerja saya',
   'landing.cta.heading': 'Buka halaman hari ini.',
   'landing.features.eyebrow': 'Setiap primitif yang diperlukan oleh otak kedua anda',
+  'landing.features.heading': 'Dibina untuk karya, bukan meta-karya.',
   'landing.hero.eyebrow': 'Permukaan menulis yang tenang',
   'landing.hero.headlineAccent': 'mengambil bentuk.',
   'landing.hero.headlineLeading': 'Di mana fikiran',
   'landing.hero.primaryCta': 'Mulakan pangkalan pengetahuan anda',
   'landing.hero.secondaryCta': 'Saya sudah mempunyai akaun',
+  'landing.hero.socialProof': '12,800+ penulis, pelajar, dan PhD berfikir dengan {{appName}}',
   'landing.hero.subline':
     'Verso ialah permukaan pencatat nota berstruktur untuk pekerja berpengetahuan dan pelajar. Editor blok, buku nota bersarang, pautan balik dan graf pengetahuan — semuanya di sebalik pengalaman membaca tipografi yang didahulukan.',
+  'landing.preview.notebook': 'Pengetahuan · Proses penulisan',
+  'landing.preview.title': 'Membiarkan draf bernafas',
   'login.eyebrow': 'Selamat kembali ke Verso',
   'login.formSubtitle': 'Gunakan emel anda atau mana-mana pembekal yang berkaitan.',
   'login.headline': 'Teruskan di tempat halaman dijeda.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Tutup menu navigasi',
   'mobileNav.openMenu': 'Buka menu navigasi',
   'noteEditor.backToNotes': 'Kembali ke nota',
+  'noteEditor.bodyLabel': 'Isi nota',
   'noteEditor.bodyPlaceholder':
     'Mula menulis — nota anda disimpan secara automatik semasa anda menaip.',
   'noteEditor.confirmTrash': 'Alihkan nota ini ke sampah?',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Pindah ke tong sampah',
   'noteEditor.updated': 'Dikemas kini',
   'notes.defaultWorkspaceName': 'Buku nota saya',
+  'notes.empty': 'Belum ada nota di sini — mulakan satu untuk mengisi nota ini.',
   'notes.eyebrow': 'Buku nota',
   'notes.filterAll': 'Semua nota',
   'notes.filterPinned': 'Dipinkan',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Buku nota baharu',
   'notes.newNotebookPrompt': 'Nama buku nota baharu',
+  'notes.newNotebookRequired': 'Masukkan nama nota.',
   'notes.notebooksHeading': 'Buku Nota',
   'notes.subtitle':
     'Pilih buku nota di sebelah kiri, kemudian tekan butang Nota baharu untuk memulakan entri baharu.',
+  'planUpdated.body': 'Langganan anda kini aktif.',
   'planUpdated.confirmation': 'Pelan anda telah dikemas kini',
+  'pricing.advancedFeatures': 'Ciri lanjutan',
   'pricing.heading': 'Pilih pelan Mencatat Nota anda',
+  'reset.changedMind': 'Berubah fikiran?',
   'reset.eyebrow': 'Hampir kembali',
   'reset.formSubtitle': 'Anda akan dilog masuk setelah ia disimpan.',
   'reset.headline': 'Pilih kata laluan baharu.',
@@ -72,7 +105,9 @@ export const ui: UiTranslations = {
     'Masukkan kod yang baru kami emelkan kepada anda dan pilih sesuatu yang tidak dapat dilupakan.',
   'reset.submit': 'Simpan dan log masuk',
   'reset.tokenHint': 'Ditampal dari peti masuk anda.',
+  'search.empty': 'Belum ada nota yang sepadan dengan pertanyaan ini.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Cari Refract',
   'search.loading': 'Mencari…',
   'search.noRecent': 'Taip pertanyaan di atas untuk mula mencari merentasi nota anda.',
   'search.recentLabel': 'Carian terkini',
@@ -80,12 +115,19 @@ export const ui: UiTranslations = {
     'Teks penuh merentasi setiap buku nota. Taip untuk mencari; hasil carian akan dimuat semula semasa anda menaip.',
   'search.title': 'Cari otak kedua.',
   'settings.account.logout': 'Log keluar',
+  'settings.account.title': 'Butiran akaun',
+  'settings.editor.graphHover.body':
+    'Tunjukkan kad pratonton kecil apabila anda menuding [[wikilink]] dalam editor.',
+  'settings.editor.graphHover.label': 'Pratonton tuding graf pautan balik',
   'settings.editor.lineHeight.body':
     'Berapa banyak udara di antara garisan badan. 170% ialah rentak bacaan lalai.',
+  'settings.editor.lineHeight.label': 'Ketinggian baris',
   'settings.editor.serif.body':
     'Gunakan Georgia untuk ruangan bacaan. Sans-serif kekal di bar sisi dan bar alat.',
+  'settings.editor.serif.label': 'Teks isi serif',
   'settings.editor.title': 'Tipografi & permukaan tulisan',
   'settings.eyebrow': 'Verso · Tetapan',
+  'settings.passwordModal.current': 'Kata laluan semasa',
   'settings.passwordModal.error':
     'Tidak dapat menukar kata laluan — sila semak kata laluan semasa anda.',
   'settings.passwordModal.next': 'Kata laluan baharu',
@@ -95,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Tolak setiap ketukan kekunci melalui saluran masa nyata. Lumpuhkan untuk sambungan yang lebih perlahan.',
   'settings.sync.auto.label': 'Penyegerakan masa nyata',
+  'settings.sync.title': 'Bagaimana nota anda bergerak',
   'settings.theme.body':
     'Cahaya memastikan ruangan editorial sentiasa terang. Sepia menghangatkan halaman untuk waktu petang.',
   'settings.theme.dark': 'Gelap',
@@ -114,8 +157,12 @@ export const ui: UiTranslations = {
     'Tambahkan #hashtag pada tajuk nota (cth. "Senarai bacaan #buku") dan ia akan muncul di sini secara automatik.',
   'tags.emptyTitle': 'Tiada tag lagi',
   'tags.eyebrow': 'Indeks',
+  'tags.goToNotes': 'Pergi ke nota →',
+  'tags.loadError': 'Tidak dapat memuatkan tag: {{message}}',
   'tags.subtitle':
     '{{tags}} tag merentasi {{notes}} nota. Tambahkan #hashtag pada tajuk nota dan ia akan muncul di sini.',
+  'versoAuthShell.sample.body':
+    'Semakan kedua esok selalu lebih baik daripada semakan pertama malam ini. Letakkan draf kasar dalam folder kerja mendalam…',
   'versoAuthShell.sample.label': 'Nota harian',
   'versoAuthShell.sample.timestamp': 'Hari ini · 9:14 pagi',
   'versoAuthShell.sample.title': 'Membiarkan draf bernafas',
@@ -127,8 +174,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Teruskan menulis',
   'versoTodayHero.createCta': 'Mulakan nota hari ini',
   'versoTodayHero.dailyLabel': 'Nota harian',
+  'versoTodayHero.emptyHeadline': 'Hari ini adalah halaman kosong.',
   'versoTodayHero.emptySubline':
     'Rakamkan sesuatu pemikiran, catatkan mesyuarat atau lakaran esok. Verso memastikan strukturnya senyap supaya tulisan kekal kuat.',
+  'versoTodayHero.outlineLabel': 'Rangka hari ini',
   'versoTodayHero.streak': 'Rentetan {{count}} hari',
+  'versoTodayHero.unwritten': 'Belum ada perkataan — buka nota untuk mula.',
   'versoTodayHero.wordCount': '{{count}} perkataan hari ini',
 }

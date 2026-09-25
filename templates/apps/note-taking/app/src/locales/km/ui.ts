@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានមតិកែលម្អ រកឃើញកំហុស ឬចង់ស្នើមុខងារថ្មី? ទាក់ទងមកពីការកំណត់គណនីរបស់អ្នក — រាល់សារទាំងអស់ត្រូវបានផ្ញើទៅមនុស្សពិតប្រាកដក្នុងក្រុម។',
+  'about.contactTitle': 'ទាក់ទងមកយើង',
+  'about.featureDatabases':
+    'មូលដ្ឋានទិន្នន័យស្រាល និងគំរូដែលអាចប្រើឡើងវិញ ដើម្បីបំប្លែងកំណត់ត្រារាយរងចាំង ទៅជាដំណើរការងារដែលមានរចនាសម្ព័ន្ធ និងអាចធ្វើម្តងទៀតបាន។',
+  'about.featureEditor':
+    'កម្មវិធីកែសម្រួលប្លុកស្ងប់ស្ងាត់ — ចំណងជើង បញ្ជី កូដ ប្រអប់សារ និងកិច្ចការត្រូវធ្វើ — ជាមួយពាក្យបញ្ជាសញ្ញាទ្រេត នៅពេលអ្នកចង់បាន ហើយមិនរំខាននៅពេលអ្នកមិនចង់បាន។',
+  'about.featureGraph':
+    'តំណភ្ជាប់ត្រឡប់ និងក្រាហ្វចំណេះដឹង៖ វាយ [[ ដើម្បីភ្ជាប់កំណត់ត្រា ហើយមើលពីរបៀបដែលគំនិតរបស់អ្នកភ្ជាប់គ្នាតាមពេលវេលា។',
+  'about.featureNotebooks':
+    'សៀវភៅកត់ត្រា និងទំព័រជាប់គ្នា ដើម្បីឱ្យគម្រោង ប្រធានបទ និងកំណត់ត្រាប្រចាំថ្ងៃ រៀបចំបានត្រឹមត្រូវតាមរបៀបដែលអ្នកគិត។',
+  'about.featureSearch':
+    'ការស្វែងរកអត្ថបទពេញលេញក្រោម 50ms នៅគ្រប់សៀវភៅកត់ត្រា បូករួមស្លាកដែលផ្សំជាមួយសៀវភៅកត់ត្រា ជំនួសឱ្យការប្រឈមនឹងវា។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
   'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'forgot.eyebrow': 'វង្វេងផ្លូវត្រឡប់មកវិញ?',
   'forgot.formSubtitle': 'សូមប្រាប់យើងពីអ៊ីមែលដែលមានក្នុងឯកសារ។',
+  'forgot.formTitle': 'ភ្លេចពាក្យសម្ងាត់',
   'forgot.headline': 'កំណត់ពាក្យសម្ងាត់របស់អ្នកឡើងវិញ។',
   'forgot.subline':
     'យើងខ្ញុំនឹងផ្ញើតំណភ្ជាប់ដែលអាចប្រើបានតែម្តងទៅកាន់ប្រអប់សាររបស់អ្នក ដើម្បីឲ្យអ្នកអាចជ្រើសរើសតំណភ្ជាប់ថ្មីមួយបាន។',
+  'forgot.successDetail':
+    'យើងបានផ្ញើតំណកំណត់ពាក្យសម្ងាត់ឡើងវិញទៅអ៊ីមែលរបស់អ្នក។ វាផុតកំណត់ក្នុងរយៈពេល 30 នាទី។',
   'graph.eyebrow': 'ក្រាហ្វ',
+  'graph.goToNotes': 'រុករកកំណត់ត្រា →',
+  'graph.loadError': 'មិនអាចផ្ទុកក្រាហ្វបានទេ៖ {{message}}',
   'graph.placeholderBody':
     'នៅពេលដែលកំណត់ចំណាំចាប់ផ្តើមភ្ជាប់ទៅគ្នាទៅវិញទៅមក (ជាមួយវាក្យសម្ព័ន្ធ [[wiki]]) ក្រាហ្វអន្តរកម្មដែលដឹកនាំដោយកម្លាំងនឹងបង្ហាញនៅទីនេះ។',
+  'graph.placeholderTitle': 'ក្រាហ្វតំណភ្ជាប់ត្រឡប់នឹងមកដល់ឆាប់ៗនេះ',
   'graph.subtitle':
     '{{count}} កំណត់ចំណាំនៅក្នុងកន្លែងធ្វើការនេះ។ ការបង្ហាញក្រាហ្វ Backlink នឹងបង្ហាញនៅទីនេះ នៅពេលដែលកំណត់ចំណាំភ្ជាប់ទៅគ្នាទៅវិញទៅមក។',
   'graph.title': 'ក្រាហ្វចំណេះដឹង',
   'home.empty': 'មិនទាន់មានកំណត់ចំណាំនៅឡើយទេ — ចាប់ផ្តើមកំណត់ចំណាំដំបូងរបស់អ្នក។',
   'home.favoritesHeading': 'បានខ្ទាស់',
   'home.guest': 'មិត្តភ័ក្តិ',
+  'home.loadError': 'មិនអាចផ្ទុកកំណត់ត្រារបស់អ្នកបានទេ៖ {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'ខ្ទាស់​កំណត់ចំណាំ​ក្នុង​កម្មវិធី​និពន្ធ​ដើម្បី​រក្សា​វា​នៅ​ទីនេះ។',
   'home.recentHeading': 'បានធ្វើបច្ចុប្បន្នភាពថ្មីៗនេះ',
@@ -23,18 +44,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'សៀវភៅកត់ត្រា',
   'home.stats.pinned.label': 'បានខ្ទាស់',
   'home.stats.updatedToday.label': 'បានធ្វើបច្ចុប្បន្នភាពថ្ងៃនេះ',
+  'home.subtitle': 'បន្តពីកន្លែងដែលអ្នកបានឈប់ ឬចាប់ផ្តើមកំណត់ត្រាថ្មី។',
   'home.viewAll': 'មើល​កំណត់​ចំណាំ​ទាំងអស់',
   'landing.cta.body':
     'ឥតគិតថ្លៃសម្រាប់ការប្រើប្រាស់ផ្ទាល់ខ្លួន។ ជំនាញសម្រាប់ក្រុម។ យកការបញ្ចុះតម្លៃដែលមានស្រាប់របស់អ្នកមក ឬចាប់ផ្តើមថ្មី — Verso ជួបអ្នកគ្រប់ទីកន្លែងដែលកំណត់ចំណាំរបស់អ្នកស្ថិតនៅ។',
+  'landing.cta.button': 'បង្កើតកន្លែងធ្វើការរបស់ខ្ញុំ',
   'landing.cta.heading': 'បើកទំព័រថ្ងៃនេះ។',
   'landing.features.eyebrow': 'ខួរក្បាលទីពីររបស់អ្នកត្រូវការរាល់គ្រាលំបាក',
+  'landing.features.heading': 'បង្កើតឡើងសម្រាប់ការងារ មិនមែនសម្រាប់មេតាការងារទេ។',
   'landing.hero.eyebrow': 'ផ្ទៃសរសេរស្ងាត់',
   'landing.hero.headlineAccent': 'មានរាង។',
   'landing.hero.headlineLeading': 'កន្លែងដែលគំនិត',
   'landing.hero.primaryCta': 'ចាប់ផ្តើមមូលដ្ឋានចំណេះដឹងរបស់អ្នក',
   'landing.hero.secondaryCta': 'ខ្ញុំមានគណនីរួចហើយ',
+  'landing.hero.socialProof':
+    'អ្នកនិពន្ធ សិស្ស និងនិស្សិតបណ្ឌិតជាង 12,800 នាក់គិតជាមួយ {{appName}}',
   'landing.hero.subline':
     'Verso គឺជាផ្ទៃកត់ចំណាំដែលមានរចនាសម្ព័ន្ធសម្រាប់អ្នកធ្វើការផ្នែកចំណេះដឹង និងសិស្សានុសិស្ស។ កម្មវិធីនិពន្ធប្លុក សៀវភៅកត់ត្រាដែលដាក់បញ្ចូលគ្នា តំណភ្ជាប់ខាងក្រោយ និងក្រាហ្វចំណេះដឹង — ទាំងអស់នេះនៅពីក្រោយបទពិសោធន៍អានដែលផ្តោតលើពុម្ពអក្សរជាមុន។',
+  'landing.preview.notebook': 'ចំណេះដឹង · ដំណើរការសរសេរ',
+  'landing.preview.title': 'ស្តីពីការអនុញ្ញាតឱ្យសេចក្តីព្រាងដកដង្ហើម',
   'login.eyebrow': 'សូមស្វាគមន៍មកកាន់ Verso វិញ',
   'login.formSubtitle': 'ប្រើប្រាស់អ៊ីមែលរបស់អ្នក ឬអ្នកផ្តល់សេវាណាមួយដែលបានភ្ជាប់។',
   'login.headline': 'ជ្រើសរើសកន្លែងដែលទំព័របានផ្អាក។',
@@ -44,6 +72,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'បិទម៉ឺនុយរុករក',
   'mobileNav.openMenu': 'បើកម៉ឺនុយរុករក',
   'noteEditor.backToNotes': 'ត្រឡប់ទៅកំណត់ចំណាំវិញ',
+  'noteEditor.bodyLabel': 'ខ្លឹមសារកំណត់ត្រា',
   'noteEditor.bodyPlaceholder':
     'ចាប់ផ្តើមសរសេរ — កំណត់ចំណាំរបស់អ្នកនឹងរក្សាទុកដោយស្វ័យប្រវត្តិនៅពេលអ្នកវាយបញ្ចូល។',
   'noteEditor.confirmTrash': 'ផ្លាស់ទី​កំណត់ចំណាំ​នេះ​ទៅ​ធុងសំរាម?',
@@ -52,17 +81,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'ផ្លាស់ទីទៅធុងសំរាម',
   'noteEditor.updated': 'បានធ្វើបច្ចុប្បន្នភាព',
   'notes.defaultWorkspaceName': 'សៀវភៅកត់ត្រារបស់ខ្ញុំ',
+  'notes.empty': 'មិនទាន់មានកំណត់ត្រានៅទីនេះទេ — ចាប់ផ្តើមមួយដើម្បីបំពេញសៀវភៅកត់ត្រា។',
   'notes.eyebrow': 'សៀវភៅកត់ត្រា',
   'notes.filterAll': 'កំណត់ចំណាំទាំងអស់',
   'notes.filterPinned': 'បានខ្ទាស់',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'សៀវភៅកត់ត្រាថ្មី',
   'notes.newNotebookPrompt': 'ឈ្មោះ​សៀវភៅ​កត់ត្រា​ថ្មី',
+  'notes.newNotebookRequired': 'បញ្ចូលឈ្មោះសៀវភៅកត់ត្រា។',
   'notes.notebooksHeading': 'សៀវភៅកត់ត្រា',
   'notes.subtitle':
     'ជ្រើសរើសសៀវភៅកត់ត្រាមួយនៅខាងឆ្វេង បន្ទាប់មកចុចប៊ូតុង កំណត់ចំណាំថ្មី ដើម្បីចាប់ផ្តើមធាតុថ្មី។',
+  'planUpdated.body': 'ការជាវរបស់អ្នកកំពុងដំណើរការហើយ។',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'លក្ខណៈពិសេសកម្រិតខ្ពស់',
   'pricing.heading': 'ជ្រើសរើសផែនការកត់ចំណាំរបស់អ្នក',
+  'reset.changedMind': 'ប្ដូរចិត្តហើយមែនទេ?',
   'reset.eyebrow': 'ជិតចូលវិញហើយ',
   'reset.formSubtitle': 'អ្នកនឹងត្រូវបានចូលគណនីនៅពេលដែលវាត្រូវបានរក្សាទុក។',
   'reset.headline': 'ជ្រើសរើសពាក្យសម្ងាត់ថ្មី។',
@@ -71,7 +105,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'បញ្ចូលលេខកូដដែលយើងទើបតែផ្ញើអ៊ីមែលទៅអ្នក ហើយជ្រើសរើសអ្វីដែលគួរឱ្យចងចាំ។',
   'reset.submit': 'រក្សាទុក និងចូល',
   'reset.tokenHint': 'បាន​បិទភ្ជាប់​ពី​ប្រអប់​សារ​របស់​អ្នក។',
+  'search.empty': 'មិនទាន់មានកំណត់ត្រាត្រូវនឹងសំណួរនេះទេ។',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'ស្វែងរក​ការ​ឆ្លុះ​បញ្ចាំង',
   'search.loading': 'កំពុង​ស្វែងរក…',
   'search.noRecent': 'វាយបញ្ចូលសំណួរខាងលើដើម្បីចាប់ផ្តើមស្វែងរកនៅទូទាំងកំណត់ចំណាំរបស់អ្នក។',
   'search.recentLabel': 'ការស្វែងរកថ្មីៗ',
@@ -79,12 +115,19 @@ export const ui: UiTranslations = {
     'អត្ថបទពេញលេញនៅទូទាំងសៀវភៅកត់ត្រានីមួយៗ។ វាយបញ្ចូលដើម្បីស្វែងរក; លទ្ធផលនឹងផ្ទុកឡើងវិញនៅពេលអ្នកវាយបញ្ចូល។',
   'search.title': 'ស្វែងរកខួរក្បាលទីពីរ។',
   'settings.account.logout': 'ចាកចេញ',
+  'settings.account.title': 'ព័ត៌មានលម្អិតគណនី',
+  'settings.editor.graphHover.body':
+    'បង្ហាញកាតមើលជាមុនតូចមួយ នៅពេលអ្នកដាក់កណ្តុរលើ [[wikilink]] ក្នុងកម្មវិធីកែសម្រួល។',
+  'settings.editor.graphHover.label': 'ការមើលជាមុនក្រាហ្វតំណភ្ជាប់ត្រឡប់',
   'settings.editor.lineHeight.body':
     'តើខ្យល់រវាងបន្ទាត់រាងកាយមានប៉ុន្មាន។ 170% គឺជាចង្វាក់អានលំនាំដើម។',
+  'settings.editor.lineHeight.label': 'កម្ពស់បន្ទាត់',
   'settings.editor.serif.body':
     'ប្រើ Georgia សម្រាប់ជួរឈរអាន។ Sans-serif រក្សាទុកនៅក្នុងរបារចំហៀង និងរបារឧបករណ៍។',
+  'settings.editor.serif.label': 'អត្ថបទ Serif',
   'settings.editor.title': 'ផ្ទៃ​សម្រាប់​សរសេរ និង​វាយអក្សរ',
   'settings.eyebrow': 'Verso · ការកំណត់',
+  'settings.passwordModal.current': 'ពាក្យសម្ងាត់បច្ចុប្បន្ន',
   'settings.passwordModal.error':
     'មិនអាចផ្លាស់ប្តូរពាក្យសម្ងាត់បានទេ — សូមពិនិត្យមើលពាក្យសម្ងាត់បច្ចុប្បន្នរបស់អ្នក។',
   'settings.passwordModal.next': 'ពាក្យសម្ងាត់ថ្មី',
@@ -94,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'រុញ​គ្រាប់ចុច​នីមួយៗ​ឆ្លងកាត់​ឆានែល​ពេលវេលា​ជាក់ស្តែង។ បិទ​សម្រាប់​ការតភ្ជាប់​យឺតជាង។',
   'settings.sync.auto.label': 'ធ្វើសមកាលកម្មតាមពេលវេលាជាក់ស្តែង',
+  'settings.sync.title': 'របៀបដែលកំណត់ត្រារបស់អ្នកធ្វើដំណើរ',
   'settings.theme.body':
     'ពន្លឺ​ធ្វើ​ឲ្យ​ជួរ​អត្ថបទ​វិចារណកថា​ភ្លឺ​ថ្លា។ ពណ៌​ត្នោត​ខ្ចី​ធ្វើ​ឲ្យ​ទំព័រ​មើល​ទៅ​កក់ក្ដៅ​សម្រាប់​ពេល​ល្ងាច។',
   'settings.theme.dark': 'ងងឹត',
@@ -113,8 +157,12 @@ export const ui: UiTranslations = {
     'បន្ថែម #hashtags ទៅក្នុងចំណងជើងកំណត់ចំណាំ (ឧទាហរណ៍ "បញ្ជីអាន #សៀវភៅ") ហើយវានឹងបង្ហាញនៅទីនេះដោយស្វ័យប្រវត្តិ។',
   'tags.emptyTitle': 'មិនទាន់មានស្លាកនៅឡើយទេ',
   'tags.eyebrow': 'លិបិក្រម',
+  'tags.goToNotes': 'ទៅកាន់កំណត់ត្រា →',
+  'tags.loadError': 'មិនអាចផ្ទុកស្លាកបានទេ៖ {{message}}',
   'tags.subtitle':
     '{{tags}} ស្លាក​ទូទាំង {{notes}} កំណត់ចំណាំ។ បន្ថែម #hashtags ទៅក្នុងចំណងជើងកំណត់ចំណាំ ហើយវានឹងបង្ហាញនៅទីនេះ។',
+  'versoAuthShell.sample.body':
+    'ការអានជាលើកទីពីរនៅថ្ងៃស្អែក តែងតែល្អជាងការអានលើកទីមួយនៅយប់នេះ។ ទុកសេចក្តីព្រាងរដុបក្នុងថតការងារជ្រៅ…',
   'versoAuthShell.sample.label': 'កំណត់ចំណាំប្រចាំថ្ងៃ',
   'versoAuthShell.sample.timestamp': 'ថ្ងៃនេះ · ម៉ោង ៩:១៤ ព្រឹក',
   'versoAuthShell.sample.title': 'ស្តីពីការអនុញ្ញាតឱ្យសេចក្តីព្រាងដកដង្ហើម',
@@ -126,8 +174,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'បន្តសរសេរ',
   'versoTodayHero.createCta': 'ចាប់ផ្តើមកំណត់ចំណាំថ្ងៃនេះ',
   'versoTodayHero.dailyLabel': 'កំណត់ចំណាំប្រចាំថ្ងៃ',
+  'versoTodayHero.emptyHeadline': 'ថ្ងៃនេះគឺជាទំព័រទទេ។',
   'versoTodayHero.emptySubline':
     'ចាប់យកគំនិតមួយ សរសេរកិច្ចប្រជុំ ឬគូសវាសនៅថ្ងៃស្អែក។ Verso រក្សារចនាសម្ព័ន្ធឱ្យស្ងាត់ ដូច្នេះការសរសេរនៅតែឮខ្លាំង។',
+  'versoTodayHero.outlineLabel': 'គ្រោងថ្ងៃនេះ',
   'versoTodayHero.streak': '{{count}} - ស្ទ្រីមប្រចាំថ្ងៃ',
+  'versoTodayHero.unwritten': 'មិនទាន់មានពាក្យទេ — បើកកំណត់ត្រាដើម្បីចាប់ផ្តើម។',
   'versoTodayHero.wordCount': '{{count}} ពាក្យថ្ងៃនេះ',
 }

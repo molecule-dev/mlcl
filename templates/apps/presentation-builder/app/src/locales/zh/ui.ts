@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '有问题、反馈，或希望我们增加的功能？在账户设置中联系团队——每一条消息都有真人阅读。',
   'about.contactTitle': '联系我们',
   'about.eyebrow': '关于',
+  'about.missionTitle': '我们的使命',
+  'about.whatYouGetTitle': '您将获得',
   'analytics.empty': '创建演示文稿后即可在此查看分析数据。',
   'analytics.stats.acrossDecks': '所有演示文稿',
   'analytics.stats.allTime': '在你的工作室',
@@ -65,6 +69,7 @@ export const ui: UiTranslations = {
   'editor.titleAria': '演示文稿标题',
   'landing.features.eyebrow': '为什么选择 Overture',
   'landing.features.heading': '登上舞台所需的一切,一应俱全。',
+  'landing.finalCta.body': '不到一分钟即可创建你的工作室。无需信用卡。随时取消。',
   'landing.finalCta.cta': '免费创建你的工作室',
   'landing.finalCta.eyebrow': '免费开始',
   'landing.finalCta.heading': '用职业生涯中最棒的演示文稿登台。',
@@ -80,10 +85,14 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 分钟前编辑',
   'notifications.created': '已创建',
   'notifications.edited': '已编辑',
+  'notifications.empty.body': '你的演示文稿上的活动——评论、提及、导出——将显示在这里。',
   'notifications.empty.title': '暂无通知',
   'notifications.eyebrow': '舞台动态',
   'notifications.loading': '加载中…',
   'notifications.shared': '已公开共享',
+  'planUpdated.retry': '重试',
+  'planUpdated.verifyFailed': '我们目前还无法确认您的付款。',
+  'planUpdated.verifyFailedBody': '您的付款可能仍在处理中。请稍后再试。',
   'planUpdated.verifying': '确认您的付款中…',
   'present.addSlides': '添加幻灯片',
   'present.backToDecks': '返回演示文稿',
@@ -121,6 +130,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': '舞台表演者',
   'settings.security.notSet': '未设置',
   'settings.security.passwordBody': '你的密码在存储时已加密。',
+  'settings.security.reset': '重置',
   'settings.security.title': '账户与会话',
   'shared.empty.body': '公开共享的演示文稿将显示在这里。打开一份演示文稿并切换为公开即可共享。',
   'shared.empty.title': '暂无共享的演示文稿',
@@ -128,6 +138,11 @@ export const ui: UiTranslations = {
   'shared.loading': '加载中…',
   'shared.title': '共享的演示文稿',
   'templateCard.slideCount': '{{count}} 张幻灯片',
+  'templateCard.usageCount': '{{count}} 次使用',
+  'templates.empty.body': '试试其他筛选条件——我们每月都会推出新模板。',
+  'templates.empty.title': '此类别中暂无模板',
+  'templates.hero.body':
+    '预设主题的幻灯片布局，包含图表区块、演示框架、演讲者备注和计时器预设——每个模板都开箱即用，可直接录制。',
   'templates.hero.eyebrow': '精选舞台',
   'templates.hero.heading': '为你必须拿下的关键时刻而打造的舞台。',
 }

@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Küsimused, tagasiside või soovid mõne funktsiooni järele? Võta meeskonnaga ühendust oma konto seadete kaudu — iga sõnumi loeb läbi päris inimene.',
   'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
+  'about.missionTitle': 'Meie missioon',
+  'about.whatYouGetTitle': 'Mida sa saad',
   'analytics.empty': 'Analüütika nägemiseks loo kaardipakke.',
   'analytics.stats.acrossDecks': 'Kõigis tekkides',
   'analytics.stats.allTime': 'Sinu stuudios',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Paki pealkiri',
   'landing.features.eyebrow': 'Miks avamäng',
   'landing.features.heading': 'Kõik vajalik lavale astumiseks valmis.',
+  'landing.finalCta.body':
+    'Käivita oma stuudio vähem kui minutiga. Krediitkaarti pole vaja. Tühista igal ajal.',
   'landing.finalCta.cta': 'Loo oma tasuta stuudio',
   'landing.finalCta.eyebrow': 'Alustamiseks tasuta',
   'landing.finalCta.heading': 'Astu lavale oma karjääri parima tekiga.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Muudetud 12 minutit tagasi',
   'notifications.created': 'loodud',
   'notifications.edited': 'redigeeritud',
+  'notifications.empty.body':
+    'Sinu tekide tegevus — kommentaarid, mainimised, ekspordid — kuvatakse siin.',
   'notifications.empty.title': 'Teavitusi pole veel',
   'notifications.eyebrow': 'Lava tegevus',
   'notifications.loading': 'Laadimine…',
   'notifications.shared': 'jagatud avalikult',
+  'planUpdated.retry': 'Proovi uuesti',
+  'planUpdated.verifyFailed': 'Me ei saanud teie makset veel kinnitada.',
+  'planUpdated.verifyFailedBody':
+    'Teie makse võib olla veel töötlemisel. Proovige uuesti hetke pärast.',
   'planUpdated.verifying': 'Kinnitan makse…',
   'present.addSlides': 'Lisa slaidid',
   'present.backToDecks': 'Tagasi tekkidele',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Lavaesineja',
   'settings.security.notSet': 'Ei ole määratud',
   'settings.security.passwordBody': 'Teie parool on krüpteeritud puhkeolekus.',
+  'settings.security.reset': 'Lähtesta',
   'settings.security.title': 'Konto + seansid',
   'shared.empty.body':
     'Avalikult jagatud kaardipakid kuvatakse siin. Jagamiseks ava kaart ja lülita avalik sisse.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Laadimine…',
   'shared.title': 'Jagatud tekid',
   'templateCard.slideCount': '{{count}} slaidid',
+  'templateCard.usageCount': '{{count}} kasutusalad',
+  'templates.empty.body': 'Proovi teist filtrit — uusi malle lisandub iga kuu.',
+  'templates.empty.title': 'Selles kategoorias pole veel malle',
+  'templates.hero.body':
+    'Eelteemaga slaidipaigutused koos diagrammiplokkide, demo-raamide, esineja märkmete ja taimeri eelseadetega — iga mall on salvestamiseks valmis.',
   'templates.hero.eyebrow': 'Kureeritud etapid',
   'templates.hero.heading': 'Lavad, mis on ehitatud hetkeks, mil peate selle maanduma.',
 }

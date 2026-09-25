@@ -1,8 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '¿Tienes preguntas sobre una estancia, comentarios o una idea de colaboración? Contacta con el equipo desde tu cuenta o con el conserje de la app: cada mensaje llega a una persona real que también viaja.',
   'about.contactTitle': 'Habla con nosotros',
+  'about.featureBooking.body':
+    'Compara habitaciones, tarifas y servicios en paralelo y reserva en unos toques con cancelación gratuita en cada itinerario.',
+  'about.featureBooking.title': 'Busca, compara y reserva',
+  'about.featureDiscover.body':
+    'Destinos seleccionados por nuestros editores y guías de campo que revelan los lugares que merecen hacer la maleta: sin ruido de agregadores ni contenido patrocinado.',
   'about.featureDiscover.title': 'Inspiración cuidadosamente seleccionada',
+  'about.featureItineraries.body':
+    'Guarda vuelos, estancias y planes en un solo lugar, guarda destinos para después y retoma tu viaje justo donde lo dejaste.',
+  'about.featureItineraries.title': 'Itinerarios siempre organizados',
+  'about.featureStays.title': 'Estancias de confianza',
+  'about.missionTitle': 'Nuestra misión',
+  'about.subtitle':
+    'Inspiración, estancias de confianza y un camino sin fricciones desde el sueño hasta la reserva.',
+  'about.whatYouGetTitle': 'Lo que obtienes',
   'account.addPaymentCta': 'Añadir método de pago',
   'account.addPaymentError': 'No se pudo añadir el método de pago.',
   'account.confirmRemove': 'Confirmar eliminación',
@@ -28,6 +43,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} noches',
   'booking.lineTaxes': 'Impuestos y tarifas',
   'booking.loadError': 'No se pudo cargar la propiedad.',
+  'booking.noChargeYet': 'Todavía no se te cobrará.',
   'booking.noPaymentMethods': 'Sin métodos de pago guardados.',
   'booking.noPaymentSelected': 'Selecciona un método de pago antes de confirmar.',
   'booking.noRoomError': 'Elige una habitación antes de confirmar.',
@@ -39,6 +55,7 @@ export const ui: UiTranslations = {
   'booking.policy1': 'Cancelación gratuita hasta 7 días antes de la entrada.',
   'booking.policy2': 'Sin cargo hoy: tu tarjeta solo queda retenida para la confirmación.',
   'booking.policy3': 'Protección de viaje cubierta por Sojourn: asistencia de conserjería 24/7.',
+  'booking.policyHeading': 'Cancelación y condiciones',
   'booking.roomHeading': 'Elige tu habitación',
   'booking.specialRequests': 'Peticiones especiales',
   'booking.specialRequestsPlaceholder': '¿Algo que deba saber el anfitrión?',
@@ -67,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Miembros de Sojourn',
   'landing.cta.heading': 'Viaja sin preocupaciones. Cada itinerario, siempre.',
   'landing.cta.signup': 'Crear cuenta gratuita',
+  'landing.cta.subheading':
+    'Cancelación gratuita, tarifas exclusivas para miembros y un conserje de viajes 24/7: acumula millas en cada reserva y accede antes que nadie a nuevos alojamientos.',
   'landing.destinations.eyebrow': 'Próximo destino',
   'landing.destinations.heading': 'Destinos destacados',
   'landing.destinations.seeAll': 'Ver todos los destinos',
@@ -75,27 +94,45 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Historias que vale la pena empacar',
   'landing.nav.join': 'Únete a Sojourn',
   'landing.nav.search': 'Buscar estancias',
+  'landing.preview.browseAll': 'Explorar la colección completa',
   'landing.preview.eyebrow': 'Un vistazo por dentro',
   'landing.preview.heading': 'Estancias seleccionadas este mes',
+  'landing.preview.subheading':
+    'Cada alojamiento de {{appName}} está verificado personalmente por nuestro equipo editorial: sin inventario de agregadores, sin anuncios engañosos y con cancelación gratuita en cada itinerario.',
   'login.eyebrow': 'Zona de miembros',
+  'login.noAccount': '¿Nuevo en Tessera?',
   'login.signupLink': 'Crear una cuenta gratuita',
   'login.subheading':
     'Inicia sesión para gestionar tus viajes, ver confirmaciones y retomar donde lo dejaste.',
   'nav.legal': 'Legal',
   'notifications.loading': 'Cargando…',
   'notifications.subheading': '{{count}} sin leer · todo en una bandeja tranquila',
+  'planUpdated.body':
+    'Tu cambio de facturación ya está activo. Puedes gestionar tu plan en cualquier momento desde la página de facturación.',
+  'planUpdated.retry': 'Intentar de nuevo',
+  'planUpdated.verifyFailed': 'Todavía no hemos podido confirmar su pago.',
+  'planUpdated.verifyFailedBody':
+    'Es posible que tu pago aún se esté procesando. Inténtalo de nuevo en un momento.',
   'planUpdated.verifying': 'Confirmando tu pago…',
   'pricing.accommodationsLabel': 'alojamientos',
   'pricing.bookingsLabel': 'reservas',
   'pricing.destinationsLabel': 'destinos guardados',
   'pricing.exportLabel': 'Exportar datos de viaje',
   'pricing.itinerariesLabel': 'itinerarios',
+  'privacy.intro':
+    '{{appName}} protege los datos de tu viaje. Sustituye esta plantilla por tu política de privacidad real antes de lanzar a producción.',
   'propertyDetail.allPhotos': 'Las {{count}} fotos',
   'propertyDetail.amenitiesHeading': 'Lo que ofrece este lugar',
   'propertyDetail.backLink': 'Volver a la búsqueda',
   'propertyDetail.bookCta': 'Reservar',
   'propertyDetail.bookmarkAria': 'Guardar propiedad',
   'propertyDetail.freeCancellation': 'Cancelación gratuita',
+  'propertyDetail.galleryAria': 'Galería de fotos del alojamiento',
+  'propertyDetail.galleryCloseAria': 'Galería de cierre',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': 'Foto {{name}} de {{n}}',
+  'propertyDetail.galleryNextAria': 'Siguiente foto',
+  'propertyDetail.galleryPrevAria': 'Foto anterior',
   'propertyDetail.heroImageAlt': '{{name}} foto principal',
   'propertyDetail.lineCleaning': 'Tarifa de limpieza',
   'propertyDetail.lineRate': '{{price}} × {{nights}} noches',
@@ -104,6 +141,7 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'noche',
   'propertyDetail.noChargeYet': 'Aún no se te cobrará nada',
   'propertyDetail.notFound': 'Propiedad no encontrada.',
+  'propertyDetail.pickDatesHint': 'Elige tus fechas para ver el desglose completo del precio.',
   'propertyDetail.reviewCount': '({{count}} reseñas)',
   'propertyDetail.reviewsHeading': 'Reseñas recientes',
   'propertyDetail.verified': 'Propiedad verificada por Sojourn',
@@ -112,6 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Nueva contraseña',
   'resetPassword.subheading':
     'Elige una nueva contraseña para tu cuenta de Sojourn. Usa al menos 8 caracteres; recomendamos una frase de contraseña.',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'Ninguna propiedad coincide con tu búsqueda.',
   'search.emptyHint':
     'Prueba a ampliar los filtros o quitar el tope de precio: Sojourn tiene estancias en 14 países.',
@@ -119,6 +158,8 @@ export const ui: UiTranslations = {
   'search.heading': 'Estancias seleccionadas para tu viaje',
   'search.headingForQuery': 'Estancias para "{{q}}"',
   'search.loadError': 'No se pudieron cargar las propiedades.',
+  'search.mapHint': 'Pasa el cursor sobre una tarjeta para resaltar su ubicación en el mapa.',
+  'search.mapPinAria': '{{name}} — {{price}} por noche',
   'search.sortLabel': 'Ordenar por',
   'search.subheading': '{{count}} propiedades · {{guests}} huéspedes',
   'settings.openAccount': 'Abrir cuenta completa',
@@ -127,15 +168,22 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Cancelación gratuita, tarifas exclusivas para miembros y un conserje de viaje 24/7: gana millas en cada reserva.',
   'sojournAuthShell.brand.eyebrow': 'Viaja sin preocupaciones',
+  'sojournAuthShell.brand.heading': 'Un camino sin fricciones desde el sueño hasta la reserva.',
   'sojournHeroSearchCard.checkInAria': 'Fecha de entrada',
   'sojournHeroSearchCard.checkOutAria': 'Fecha de salida',
+  'sojournHeroSearchCard.destAria': 'Destino',
+  'sojournHeroSearchCard.destLabel': 'Dónde',
   'sojournHeroSearchCard.destPlaceholder': 'Ciudad, región o propiedad',
   'sojournHeroSearchCard.eyebrow': 'Estancias seleccionadas · Tarifas exclusivas',
   'sojournHeroSearchCard.guestsOption': '{{n}} huéspedes',
   'sojournHeroSearchCard.subtitle':
     'Inspiración, estancias de confianza y un camino sin fricciones del sueño a la reserva: en 14 países y más de 200 propiedades seleccionadas a mano.',
+  'sojournHeroSearchCard.title': 'Viaja sin preocupaciones',
+  'sojournHeroSearchCard.trustLoyalty': 'Acumula millas en cada itinerario',
   'sojournHeroSearchCard.trustProtected': 'Cancelación gratuita, totalmente protegida',
   'sojournHeroSearchCard.trustVetted': 'Solo propiedades verificadas',
+  'terms.intro':
+    'Sustituye esta plantilla por tus condiciones de servicio reales de {{appName}} antes de lanzar a producción.',
   'travelBookingLayout.primaryNavLabel': 'Navegación principal',
   'tripDetail.backLink': 'Volver a viajes',
   'tripDetail.cancelCta': 'Cancelar reserva',
@@ -145,6 +193,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'Opcional: motivo de la cancelación',
   'tripDetail.checkInLabel': 'Entrada',
   'tripDetail.checkOutLabel': 'Salida',
+  'tripDetail.confCode': 'Código · {{code}}',
   'tripDetail.confirmCancelCta': 'Cancelar viaje',
   'tripDetail.hostInfo':
     'Hospedado por {{name}}. Cancelación gratuita hasta 7 días antes de la entrada.',
@@ -152,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'Mantener reserva',
   'tripDetail.lengthLabel': 'Duración',
   'tripDetail.loadError': 'No se pudo cargar el viaje.',
+  'tripDetail.messageHostHeading': 'Envía un mensaje a tu anfitrión',
   'tripDetail.messagePlaceholder':
     'Avisa a tu anfitrión de tu hora de llegada, necesidades alimentarias u otra cosa.',
   'tripDetail.messageSend': 'Enviar mensaje',
@@ -162,9 +212,11 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'Resumen de precio',
   'tripDetail.taxes': 'Impuestos y tarifas',
   'tripItineraryRow.nights': '{{count}} noches',
+  'trips.empty.past': 'Los viajes pasados aparecerán aquí cuando empieces a explorar.',
   'trips.empty.upcoming': 'Aún no hay viajes próximos: pongámosle remedio.',
   'trips.eyebrow': 'Tus viajes',
   'trips.heading': 'Viajes',
   'trips.loadError': 'No se pudieron cargar los viajes.',
+  'trips.searchCta': 'Planear otro viaje',
   'trips.subheading': '{{upcoming}} próximos · {{past}} pasados',
 }

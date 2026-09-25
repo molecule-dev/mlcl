@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ ഒരു ഉപകരണം പിന്തുണയ്ക്കണോ? ക്രമീകരണങ്ങളിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും ഞങ്ങളെ സമീപിക്കാം — ഓരോ സന്ദേശവും ടീമിലെ ഒരു യഥാർത്ഥ മനുഷ്യനിലേക്കാണ് എത്തുന്നത്.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.intro':
+    '{{app}} ലൈറ്റുകൾ, കാലാവസ്ഥ, സുരക്ഷ, ഓട്ടോമേഷനുകൾ എന്നിവയ്ക്കുള്ള ഒരു സ്മാർട്ട് ഹോം ഡാഷ്ബോർഡാണ് — നിങ്ങളുടെ വീട്ടിലെ എല്ലാ ഉപകരണങ്ങളെയും ഒരിടത്തേക്ക് കൊണ്ടുവരുന്ന, ശാന്തവും സ്വയം-ഹോസ്റ്റ് ചെയ്തതുപോലെയുള്ളതുമായ ഒരു ഹബ്: ചുവരിലെ ടാബ്ലെറ്റ്, ഫോൺ, നിങ്ങളുടെ കണ്ണിന്റെ കോണിൽ.',
+  'about.missionBody':
+    'ഒരു സ്മാർട്ട് ഹോം രണ്ടാമത്തെ ജോലിപോലെയല്ല, പരിശ്രമമില്ലാതെ തോന്നണം. നിങ്ങളുടെ വീട് നിയന്ത്രിക്കുന്നത് സ്വകാര്യവും വേഗതയേറിയതും യഥാർത്ഥത്തിൽ ശാന്തത നൽകുന്നതുമായിരിക്കണം എന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു — ഓരോ മുറിയും, രംഗവും, ഓട്ടോമേഷനും ഒരു നോട്ടത്തിൽ, ദൈനംദിന ജീവിതത്തിനായി നിർമ്മിച്ച ഒരു ഹബിന്റെ തത്സമയ അനുഭവത്തോടെ.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
   'activity.empty':
     'ഇതുവരെ ഒരു പ്രവർത്തനവുമില്ല — ഒരു ഉപകരണം ഫ്ലിപ്പ് ചെയ്യുക അല്ലെങ്കിൽ ഒരു രംഗം സജീവമാക്കുക.',
@@ -14,6 +21,7 @@ export const ui: UiTranslations = {
   'addDevice.field.firmware': 'ഫേംവെയർ പതിപ്പ്',
   'addDevice.field.manufacturer': 'നിർമ്മാതാവ്',
   'addDevice.field.room': 'മുറി',
+  'addDevice.formLabel': 'ഒരു ഉപകരണം ചേർക്കുക',
   'addDevice.heading': 'ഒരു ഉപകരണം ചേർക്കുക',
   'addDevice.placeholder.firmware': 'വ്൨.൪.൧',
   'addDevice.placeholder.manufacturer': 'ഓറോറ ലൈറ്റിംഗ്',
@@ -34,6 +42,7 @@ export const ui: UiTranslations = {
   'automationEditor.nameRequired': 'ഓട്ടോമേഷന് ഒരു പേര് നൽകുക.',
   'automationEditor.newHeading': 'പുതിയ ഓട്ടോമേഷൻ',
   'automationEditor.notFound': 'ഓട്ടോമേഷൻ കണ്ടെത്തിയില്ല.',
+  'automationEditor.placeholder.actionTarget': 'ഉപകരണ ഐഡി അല്ലെങ്കിൽ രംഗത്തിന്റെ പേര്',
   'automationEditor.placeholder.actionType':
     'സെറ്റ്_സ്റ്റേറ്റ്, സീൻ_ആക്ടിവേറ്റ് ചെയ്യുക, അറിയിക്കുക...',
   'automationEditor.placeholder.description':
@@ -52,6 +61,7 @@ export const ui: UiTranslations = {
   'automationRow.on': 'On',
   'automationRow.runNowAria': 'ഓടുക {{name}} ഇപ്പോൾ',
   'automations.empty': 'ഇതുവരെ ഓട്ടോമേഷനുകളൊന്നുമില്ല — നിങ്ങളുടെ ആദ്യ ദിനചര്യ സൃഷ്ടിക്കുക.',
+  'automations.emptyFiltered': 'പൊരുത്തപ്പെടുന്ന ഓട്ടോമേഷനുകളൊന്നുമില്ല.',
   'automations.eyebrow': 'ദിനചര്യകൾ',
   'automations.heading': 'ഓട്ടോമേഷനുകൾ',
   'automations.loading': 'ഓട്ടോമേഷനുകൾ ലോഡ് ചെയ്യുന്നു…',
@@ -61,6 +71,7 @@ export const ui: UiTranslations = {
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'ഉപകരണം ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'deviceDetail.loading': 'ഉപകരണം ലോഡ് ചെയ്യുന്നു…',
   'deviceDetail.notFound': 'ഉപകരണം കണ്ടെത്തിയില്ല.',
   'deviceDetail.propertiesHeading': 'പ്രോപ്പർട്ടികൾ',
   'deviceDetail.props.firmware': 'ഫേംവെയർ',
@@ -93,12 +104,15 @@ export const ui: UiTranslations = {
   'energy.watts': '{{watts}} വ',
   'energyMeterCard.drawLabel': 'തത്സമയ നറുക്കെടുപ്പ്',
   'energyMeterCard.title': 'ഇപ്പോൾ പവർ ഉണ്ട്',
+  'energyMeterCard.todaySummary': 'ഇന്ന് {{kwh}} kWh · ${{cost}}',
   'energyMeterCard.utilizationLabel': 'ലക്ഷ്യത്തിന്റെ',
+  'energyMeterCard.utilizationPct': '{{pct}} %',
   'energyMeterCard.watts': '{{watts}} വ',
   'floorplan.eyebrow': 'മാപ്പ്',
   'floorplan.heading': 'ഫ്ലോർപ്ലാൻ',
   'floorplan.legend':
     'സജീവമാകുമ്പോൾ ഉപകരണ പിന്നുകൾ തിളങ്ങുന്നു. റൂം ഡാഷുകൾ അവയുടെ അതിർത്തി കാണിക്കുന്നു; തുരത്താൻ ഏതെങ്കിലും മുറിയിൽ ടാപ്പ് ചെയ്യുക.',
+  'floorplan.roomDevices': '{{count}} ഓൺ',
   'floorplan.subheading':
     'തത്സമയ താപനില ഓവർലേ ഉള്ള എല്ലാ ഉപകരണത്തിന്റെയും മുറിയുടെയും മുകളിൽ നിന്ന് താഴേക്കുള്ള കാഴ്ച.',
   'floorplan.tempBadge': '{{degrees}} °F',
@@ -107,11 +121,17 @@ export const ui: UiTranslations = {
   'homeHeroCard.noTemperature': '— °F',
   'homeHeroCard.temperature': '{{degrees}} °F',
   'homeHeroCard.title': 'ഇപ്പോൾ വീട്ടിൽ',
+  'landing.copyright': '© {{year}} {{app}}. നിങ്ങളുടെ വീട്, എപ്പോഴും തിളങ്ങുന്നു.',
+  'landing.ctaBody':
+    'ഹബ് പ്ലഗ് ചെയ്ത്, QR സ്കാൻ ചെയ്യുക, എന്നിട്ട് {{appName}} നിങ്ങളുടെ നെറ്റ്വർക്കിലെ എല്ലാ Matter, Zigbee, Z-Wave ഉപകരണങ്ങളെയും കണ്ടെത്തും.',
   'landing.ctaHeading': 'പത്ത് മിനിറ്റിനുള്ളിൽ അത് പ്രകാശിപ്പിക്കൂ',
   'landing.eyebrow': 'സ്മാർട്ട് ഹോം, ശാന്തമായി ഓടുക',
   'landing.featuresHeading': 'പശ്ചാത്തലത്തിൽ മൂളൽ കേൾക്കുന്ന ഒരു വീട്',
   'landing.getStarted': 'നിങ്ങളുടെ വീട് സജ്ജമാക്കുക',
   'landing.heroCta': 'നിങ്ങളുടെ വീട് സജ്ജമാക്കുക',
+  'landing.heroSubtitle':
+    'എല്ലാ മുറികളിലുമുള്ള ലൈറ്റുകൾ, കാലാവസ്ഥ, സുരക്ഷ, ഓട്ടോമേഷനുകൾ — ചുവരിനും, ഫോണിനും, നിങ്ങളുടെ കണ്ണിന്റെ കോണിനുമായി നിർമ്മിച്ച ഒരു ഹബിന്റെ തത്സമയ അനുഭവത്തോടെ.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'ഇപ്പോൾ വീട്ടിൽ',
   'landing.sampleScene': 'സിനിമാ രാത്രി',
   'landing.sampleSummary': '12 എണ്ണം · 22 ൽ 18 എണ്ണം ഓൺലൈനിൽ',
@@ -131,6 +151,9 @@ export const ui: UiTranslations = {
   'pricing.automationsLabel': 'ഓട്ടോമേഷനുകൾ',
   'pricing.canExportLabel': 'കയറ്റുമതി ചരിത്രം',
   'pricing.dashboardCta': 'ഡാഷ്‌ബോർഡ് തുറക്കുക',
+  'pricing.devicesLabel': 'ഉപകരണങ്ങൾ',
+  'pricing.heading': 'നിങ്ങളുടെ {{app}} പ്ലാൻ തിരഞ്ഞെടുക്കുക',
+  'pricing.retentionLabel': '{{days}} ദിവസത്തെ ചരിത്രം സൂക്ഷിച്ചിരിക്കുന്നു',
   'pricing.scenesLabel': 'ദൃശ്യങ്ങൾ',
   'roomDetail.areaLabel': 'ഏരിയ',
   'roomDetail.back': 'എല്ലാ മുറികളും',
@@ -146,6 +169,7 @@ export const ui: UiTranslations = {
   'roomDetail.unnamed': 'മുറി',
   'rooms.create.error': 'റൂം സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'rooms.create.nameRequired': 'ആദ്യം മുറിയുടെ പേര് പറയൂ.',
+  'rooms.empty': 'ഇതുവരെ മുറികളില്ല. തുടങ്ങാൻ നിങ്ങളുടെ ആദ്യ മുറി ചേർക്കുക.',
   'rooms.eyebrow': 'വീട്',
   'rooms.heading': 'മുറികൾ',
   'rooms.loadError': 'റൂമുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
@@ -156,6 +180,8 @@ export const ui: UiTranslations = {
   'rooms.new.placeholder': 'സൺറൂം, ഗാരേജ്, കുട്ടികളുടെ കിടപ്പുമുറി...',
   'rooms.subheading':
     'ഓരോ ഉപകരണത്തിനും പൂർണ്ണ നിയന്ത്രണം ലഭിക്കാൻ ഏതെങ്കിലും മുറിയിൽ ടാപ്പ് ചെയ്യുക.',
+  'roomTriad.devicesLabel': 'ഉപകരണങ്ങൾ ഓൺ',
+  'roomTriad.devicesOn': '{{on}}/{{total}}',
   'roomTriad.tempBadge': '{{degrees}} °F',
   'sceneCard.activate': 'സജീവമാക്കുക',
   'sceneCard.deviceCount': '{{count}} ഉപകരണങ്ങൾ',
@@ -168,11 +194,13 @@ export const ui: UiTranslations = {
   'scenes.loading': 'ദൃശ്യങ്ങൾ ലോഡ് ചെയ്യുന്നു...',
   'scenes.new.create': 'രംഗം സൃഷ്ടിക്കുക',
   'scenes.new.descPlaceholder': 'ഈ രംഗം എന്താണ് ചെയ്യുന്നത് - ഒരു ദ്രുത സംഗ്രഹം.',
+  'scenes.new.icon': 'ഐക്കൺ',
   'scenes.new.name': 'രംഗത്തിന്റെ പേര്',
   'scenes.new.namePlaceholder': 'ഡേറ്റ് നൈറ്റ്, ഉണരുക, അവധിക്കാല വിളക്കുകൾ...',
   'scenes.new.open': '+ പുതിയ രംഗം',
   'scenes.subheading':
     'ഒരു ടാപ്പ്, എല്ലാ ഉപകരണങ്ങളും — ഏത് നിമിഷത്തേക്കുമുള്ള മാനസികാവസ്ഥ സജ്ജമാക്കുക.',
+  'security.alertsHeading': 'സമീപകാല അലേർട്ടുകൾ',
   'security.camerasHeading': 'ലൈവ് ക്യാമറകൾ',
   'security.eyebrow': 'കാവൽ',
   'security.lastChange': 'അവസാന മാറ്റം {{time}}',
@@ -187,6 +215,7 @@ export const ui: UiTranslations = {
   'settings.plan.subheading': 'നിങ്ങളുടെ നിലവിലെ അവകാശങ്ങളും പരിധികളും.',
   'settings.plan.upgrade': 'പ്ലാനുകൾ കാണുക',
   'settings.security.heading': 'സുരക്ഷ',
+  'settings.security.subheading': 'പാസ്വേഡും രണ്ട്-ഘടക പ്രാമാണീകരണവും.',
   'settings.subheading': 'പ്ലാൻ, ഹബ്ബുകൾ, അക്കൗണ്ട് മുൻഗണനകൾ.',
   'smartHomeDashboardLayout.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'smartHomeDashboardLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',

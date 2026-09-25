@@ -1,21 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ມີຄຳຕິຊົມ, ພົບບັກ, ຫຼືຢາກສະເໜີຟີເຈີບໍ? ຕິດຕໍ່ພວກເຮົາຈາກການຕັ້ງຄ່າບັນຊີຂອງທ່ານ — ທຸກຂໍ້ຄວາມຈະສົ່ງເຖິງຄົນຈິງໃນທີມ.',
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
+  'about.featureDatabases':
+    'ຖານຂໍ້ມູນແບບເບົາ ແລະ ເທມເພລດທີ່ໃຊ້ຄືນໄດ້ ເພື່ອປ່ຽນບັນທຶກທີ່ກະຈາຍໃຫ້ເປັນຂະບວນການທີ່ມີໂຄງສ້າງ ແລະ ເຮັດຊ້ຳໄດ້.',
+  'about.featureEditor':
+    'ຕົວແກ້ໄຂແບບບລັອກທີ່ງຽບສະຫງັດ — ຫົວຂໍ້, ລາຍການ, ໂຄ້ດ, ກ່ອງຂໍ້ຄວາມ, ແລະ ລາຍການຕ້ອງເຮັດ — ພ້ອມຄຳສັ່ງ slash ເມື່ອຕ້ອງການ ແລະ ບໍ່ລົບກວນເມື່ອບໍ່ຕ້ອງການ.',
+  'about.featureGraph':
+    'ລິ້ງຍ້ອນກັບ ແລະ ແຜນພູມຄວາມຮູ້: ພິມ [[ ເພື່ອເຊື່ອມຕໍ່ບັນທຶກ ແລະ ເບິ່ງວ່າແນວຄິດຂອງທ່ານເຊື່ອມຕໍ່ກັນແນວໃດໃນໄລຍະເວລາ.',
+  'about.featureNotebooks':
+    'ປຶ້ມບັນທຶກ ແລະ ໜ້າແບບຊ້ອນກັນ ເພື່ອໃຫ້ໂຄງການ, ຫົວຂໍ້, ແລະ ບັນທຶກປະຈຳວັນຢູ່ໃນລະບຽບຕາມວິທີທີ່ທ່ານຄິດ.',
+  'about.featureSearch':
+    'ການຄົ້ນຫາແບບເຕັມຂໍ້ຄວາມພາຍໃນ 50ms ໃນທຸກປຶ້ມບັນທຶກ ພ້ອມແທັກທີ່ປະສົມກັບປຶ້ມບັນທຶກ ແທນທີ່ຈະຂັດກັນ.',
+  'about.missionTitle': 'ພາລະກິດຂອງພວກເຮົາ',
   'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'forgot.eyebrow': 'ຫຼົງທາງກັບຄືນບໍ?',
   'forgot.formSubtitle': 'ບອກພວກເຮົາກ່ຽວກັບອີເມວທີ່ບັນທຶກໄວ້.',
+  'forgot.formTitle': 'ລືມລະຫັດຜ່ານ',
   'forgot.headline': 'ຕັ້ງລະຫັດຜ່ານຂອງທ່ານຄືນໃໝ່.',
   'forgot.subline':
     'ພວກເຮົາຈະສົ່ງລິ້ງຄັ້ງດຽວໄປຫາກ່ອງຈົດໝາຍຂອງທ່ານ ເພື່ອໃຫ້ທ່ານສາມາດເລືອກລິ້ງໃໝ່ໄດ້.',
+  'forgot.successDetail': 'ພວກເຮົາໄດ້ສົ່ງລິ້ງຣີເຊັດໄປຍັງອີເມວຂອງທ່ານ. ມັນຈະໝົດອາຍຸໃນ 30 ນາທີ.',
   'graph.eyebrow': 'ກຣາຟ',
+  'graph.goToNotes': 'ເບິ່ງບັນທຶກ →',
+  'graph.loadError': 'ບໍ່ສາມາດໂຫຼດແຜນພູມໄດ້: {{message}}',
   'graph.placeholderBody':
     'ເມື່ອບັນທຶກເລີ່ມເຊື່ອມໂຍງເຊິ່ງກັນແລະກັນ (ດ້ວຍໄວຍາກອນ [[wiki]]), ກຣາຟທີ່ມີກຳລັງໂຕ້ຕອບຈະສະແດງຢູ່ທີ່ນີ້.',
+  'graph.placeholderTitle': 'ແຜນພູມລິ້ງຍ້ອນກັບຈະມາໄວໆນີ້',
   'graph.subtitle':
     '{{count}} ບັນທຶກໃນພື້ນທີ່ເຮັດວຽກນີ້. ການສະແດງກຣາຟ Backlink ຈະປາກົດຢູ່ທີ່ນີ້ເມື່ອບັນທຶກເຊື່ອມໂຍງເຂົ້າກັນ.',
   'graph.title': 'ກຣາຟຄວາມຮູ້',
   'home.empty': 'ຍັງບໍ່ມີບັນທຶກເທື່ອ — ເລີ່ມບັນທຶກທຳອິດຂອງເຈົ້າໄດ້ເລີຍ.',
   'home.favoritesHeading': 'ປັກໝຸດແລ້ວ',
   'home.guest': 'ເພື່ອນ',
+  'home.loadError': 'ບໍ່ສາມາດໂຫຼດບັນທຶກຂອງທ່ານໄດ້: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'ປັກໝຸດບັນທຶກໃນຕົວແກ້ໄຂເພື່ອເກັບມັນໄວ້ບ່ອນນີ້.',
   'home.recentHeading': 'ອັບເດດເມື່ອບໍ່ດົນມານີ້',
@@ -23,18 +43,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'ປື້ມບັນທຶກ',
   'home.stats.pinned.label': 'ປັກໝຸດແລ້ວ',
   'home.stats.updatedToday.label': 'ອັບເດດມື້ນີ້',
+  'home.subtitle': 'ສືບຕໍ່ຈາກບ່ອນທີ່ທ່ານຢຸດໄວ້, ຫຼື ເລີ່ມບັນທຶກໃໝ່.',
   'home.viewAll': 'ເບິ່ງບັນທຶກທັງໝົດ',
   'landing.cta.body':
     'ຟຣີສຳລັບການນຳໃຊ້ສ່ວນຕົວ. ມືອາຊີບສຳລັບທີມ. ນຳເອົາເຄື່ອງຫຼຸດລາຄາທີ່ມີຢູ່ແລ້ວຂອງທ່ານມານຳ ຫຼື ເລີ່ມຕົ້ນໃໝ່ — Verso ຈະພົບກັບທ່ານບໍ່ວ່າບັນທຶກຂອງທ່ານຈະຢູ່ໃສກໍຕາມ.',
+  'landing.cta.button': 'ສ້າງພື້ນທີ່ເຮັດວຽກຂອງຂ້ອຍ',
   'landing.cta.heading': 'ເປີດໜ້າເວັບມື້ນີ້.',
   'landing.features.eyebrow': 'ສະໝອງອັນດັ້ງເດີມທຸກຢ່າງທີ່ເຈົ້າຕ້ອງການ',
+  'landing.features.heading': 'ສ້າງຂຶ້ນສຳລັບວຽກງານ, ບໍ່ແມ່ນ meta-work.',
   'landing.hero.eyebrow': 'ໜ້າເຈ້ຍຂຽນທີ່ງຽບສະຫງົບ',
   'landing.hero.headlineAccent': 'ເປັນຮູບຮ່າງ.',
   'landing.hero.headlineLeading': 'ບ່ອນທີ່ຄວາມຄິດ',
   'landing.hero.primaryCta': 'ເລີ່ມຖານຄວາມຮູ້ຂອງທ່ານ',
   'landing.hero.secondaryCta': 'ຂ້ອຍມີບັນຊີແລ້ວ',
+  'landing.hero.socialProof': 'ນັກຂຽນ, ນັກສຶກສາ, ແລະ ນັກປະລິນຍາເອກ 12,800+ ຄົນຄິດກັບ {{appName}}',
   'landing.hero.subline':
     'Verso ເປັນໜ້າເວັບບັນທຶກທີ່ມີໂຄງສ້າງສຳລັບຜູ້ທີ່ເຮັດວຽກດ້ານຄວາມຮູ້ ແລະ ນັກສຶກສາ. ຕົວແກ້ໄຂບລັອກ, ປື້ມບັນທຶກທີ່ຊ້ອນກັນ, backlinks, ແລະ ກຣາຟຄວາມຮູ້ — ທັງໝົດນີ້ຢູ່ເບື້ອງຫຼັງປະສົບການການອ່ານທີ່ເນັ້ນໃສ່ການພິມເປັນຫຼັກ.',
+  'landing.preview.notebook': 'ຄວາມຮູ້ · ຂະບວນການຂຽນ',
+  'landing.preview.title': 'ກ່ຽວກັບການປ່ອຍໃຫ້ຮ່າງຫາຍໃຈ',
   'login.eyebrow': 'ຍິນດີຕ້ອນຮັບກັບຄືນສູ່ Verso',
   'login.formSubtitle': 'ໃຊ້ອີເມວຂອງທ່ານ ຫຼື ຜູ້ໃຫ້ບໍລິການທີ່ເຊື່ອມຕໍ່ໃດໆ.',
   'login.headline': 'ເລືອກບ່ອນທີ່ໜ້າເວັບຢຸດຊົ່ວຄາວ.',
@@ -43,6 +69,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'ປິດເມນູນຳທາງ',
   'mobileNav.openMenu': 'ເປີດເມນູນຳທາງ',
   'noteEditor.backToNotes': 'ກັບໄປທີ່ບັນທຶກ',
+  'noteEditor.bodyLabel': 'ເນື້ອຫາບັນທຶກ',
   'noteEditor.bodyPlaceholder': 'ເລີ່ມຂຽນ — ບັນທຶກຂອງທ່ານຈະບັນທຶກອັດຕະໂນມັດໃນຂະນະທີ່ທ່ານພິມ.',
   'noteEditor.confirmTrash': 'ຍ້າຍບັນທຶກນີ້ໄປໃສ່ຖັງຂີ້ເຫຍື້ອບໍ?',
   'noteEditor.pinToggle': 'ສະຫຼັບລາຍການທີ່ມັກ',
@@ -50,16 +77,21 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'ຍ້າຍໄປຖັງຂີ້ເຫຍື້ອ',
   'noteEditor.updated': 'ອັບເດດແລ້ວ',
   'notes.defaultWorkspaceName': 'ປື້ມບັນທຶກຂອງຂ້ອຍ',
+  'notes.empty': 'ຍັງບໍ່ມີບັນທຶກຢູ່ນີ້ — ເລີ່ມຂຽນເພື່ອເຕີມປຶ້ມບັນທຶກ.',
   'notes.eyebrow': 'ປື້ມບັນທຶກ',
   'notes.filterAll': 'ບັນທຶກທັງໝົດ',
   'notes.filterPinned': 'ປັກໝຸດແລ້ວ',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'ປື້ມບັນທຶກໃໝ່',
   'notes.newNotebookPrompt': 'ຊື່ປື້ມບັນທຶກໃໝ່',
+  'notes.newNotebookRequired': 'ປ້ອນຊື່ປຶ້ມບັນທຶກ.',
   'notes.notebooksHeading': 'ປື້ມບັນທຶກ',
   'notes.subtitle': 'ເລືອກປື້ມບັນທຶກຢູ່ເບື້ອງຊ້າຍ, ຈາກນັ້ນກົດປຸ່ມບັນທຶກໃໝ່ເພື່ອເລີ່ມຕົ້ນລາຍການໃໝ່.',
+  'planUpdated.body': 'ການສະໝັກສະມາຊິກຂອງທ່ານເປີດໃຊ້ງານແລ້ວ',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'ຄຸນສົມບັດຂັ້ນສູງ',
   'pricing.heading': 'ເລືອກແຜນການຈົດບັນທຶກຂອງທ່ານ',
+  'reset.changedMind': 'ປ່ຽນໃຈແລ້ວບໍ?',
   'reset.eyebrow': 'ເກືອບກັບມາອີກແລ້ວ',
   'reset.formSubtitle': 'ທ່ານຈະເຂົ້າສູ່ລະບົບໄດ້ເມື່ອມັນຖືກບັນທຶກໄວ້ແລ້ວ.',
   'reset.headline': 'ເລືອກລະຫັດຜ່ານໃໝ່.',
@@ -68,7 +100,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'ໃສ່ລະຫັດທີ່ພວກເຮົາຫາກໍ່ສົ່ງອີເມວຫາທ່ານ ແລະ ເລືອກສິ່ງທີ່ໜ້າຈົດຈຳ.',
   'reset.submit': 'ບັນທຶກ ແລະ ເຂົ້າສູ່ລະບົບ',
   'reset.tokenHint': 'ວາງຈາກກ່ອງຈົດໝາຍຂອງທ່ານແລ້ວ.',
+  'search.empty': 'ຍັງບໍ່ມີບັນທຶກທີ່ກົງກັບຄຳຄົ້ນຫານີ້.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'ຄົ້ນຫາການຫັກເຫ',
   'search.loading': 'ກຳລັງຊອກຫາ…',
   'search.noRecent': 'ພິມຄຳຖາມຂ້າງເທິງເພື່ອເລີ່ມຄົ້ນຫາໃນບັນທຶກຂອງທ່ານ.',
   'search.recentLabel': 'ການຄົ້ນຫາຫຼ້າສຸດ',
@@ -76,12 +110,19 @@ export const ui: UiTranslations = {
     'ຂໍ້ຄວາມເຕັມໃນທົ່ວທຸກໆປື້ມບັນທຶກ. ພິມເພື່ອຄົ້ນຫາ; ຜົນໄດ້ຮັບຈະໂຫຼດຄືນໃໝ່ເມື່ອທ່ານພິມ.',
   'search.title': 'ຄົ້ນຫາສະໝອງທີສອງ.',
   'settings.account.logout': 'ອອກຈາກລະບົບ',
+  'settings.account.title': 'ລາຍລະອຽດບັນຊີ',
+  'settings.editor.graphHover.body':
+    'ສະແດງບັດຕົວຢ່າງນ້ອຍໆເມື່ອທ່ານວາງເມົາສ໌ໃສ່ [[wikilink]] ໃນຕົວແກ້ໄຂ.',
+  'settings.editor.graphHover.label': 'ຕົວຢ່າງເມົາສ໌ເບິ່ງກຣາຟລິ້ງຍ້ອນກັບ',
   'settings.editor.lineHeight.body':
     'ປະລິມານອາກາດລະຫວ່າງເສັ້ນຮ່າງກາຍ. 170% ແມ່ນຈັງຫວະການອ່ານເລີ່ມຕົ້ນ.',
+  'settings.editor.lineHeight.label': 'ຄວາມສູງແຖວ',
   'settings.editor.serif.body':
     'ໃຊ້ Georgia ສຳລັບຖັນການອ່ານ. Sans-serif ເກັບໄວ້ໃນແຖບດ້ານຂ້າງ ແລະ ແຖບເຄື່ອງມື.',
+  'settings.editor.serif.label': 'ຂໍ້ຄວາມຕົວໜັງສື Serif',
   'settings.editor.title': 'ໜ້າຜິວຕົວອັກສອນ ແລະ ການຂຽນ',
   'settings.eyebrow': 'Verso · ການຕັ້ງຄ່າ',
+  'settings.passwordModal.current': 'ລະຫັດຜ່ານປັດຈຸບັນ',
   'settings.passwordModal.error':
     'ບໍ່ສາມາດປ່ຽນລະຫັດຜ່ານໄດ້ — ກະລຸນາກວດສອບລະຫັດຜ່ານປັດຈຸບັນຂອງທ່ານ.',
   'settings.passwordModal.next': 'ລະຫັດຜ່ານໃໝ່',
@@ -91,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'ກົດທຸກໆການກົດແປ້ນພິມຜ່ານຊ່ອງທາງເວລາຈິງ. ປິດໃຊ້ງານສຳລັບການເຊື່ອມຕໍ່ທີ່ຊ້າກວ່າ.',
   'settings.sync.auto.label': 'ການຊິ້ງຂໍ້ມູນແບບສົດໆ',
+  'settings.sync.title': 'ບັນທຶກຂອງທ່ານເດີນທາງແນວໃດ',
   'settings.theme.body':
     'ແສງສະຫວ່າງເຮັດໃຫ້ຄໍລໍາບັນນາທິການສົດໃສ. ສີຊີເປຍເຮັດໃຫ້ໜ້າເວັບອົບອຸ່ນຂຶ້ນສຳລັບຕອນແລງ.',
   'settings.theme.dark': 'ມືດ',
@@ -110,8 +152,12 @@ export const ui: UiTranslations = {
     'ເພີ່ມ #hashtags ໃສ່ຫົວຂໍ້ບັນທຶກ (ຕົວຢ່າງ "ລາຍຊື່ການອ່ານ #books") ແລະພວກມັນຈະປາກົດຢູ່ທີ່ນີ້ໂດຍອັດຕະໂນມັດ.',
   'tags.emptyTitle': 'ຍັງບໍ່ມີແທັກເທື່ອ',
   'tags.eyebrow': 'ດັດຊະນີ',
+  'tags.goToNotes': 'ໄປທີ່ບັນທຶກ →',
+  'tags.loadError': 'ບໍ່ສາມາດໂຫຼດແທັກໄດ້: {{message}}',
   'tags.subtitle':
     '{{tags}} ແທັກທົ່ວ {{notes}} ບັນທຶກ. ເພີ່ມ #hashtags ໃສ່ຫົວຂໍ້ບັນທຶກ ແລະ ພວກມັນຈະປາກົດຢູ່ທີ່ນີ້.',
+  'versoAuthShell.sample.body':
+    'ການອ່ານຮອບທີສອງໃນມື້ອື່ນມັກຈະອ່ານໄດ້ດີກວ່າຮອບທຳອິດໃນຄືນນີ້. ເກັບສະບັບຮ່າງໄວ້ໃນໂຟນເດີວຽກເລິກ…',
   'versoAuthShell.sample.label': 'ບັນທຶກປະຈຳວັນ',
   'versoAuthShell.sample.timestamp': 'ມື້ນີ້ · 9:14 ໂມງເຊົ້າ',
   'versoAuthShell.sample.title': 'ກ່ຽວກັບການປ່ອຍໃຫ້ຮ່າງຫາຍໃຈ',
@@ -123,8 +169,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'ສືບຕໍ່ຂຽນ',
   'versoTodayHero.createCta': 'ເລີ່ມບັນທຶກຂອງມື້ນີ້',
   'versoTodayHero.dailyLabel': 'ບັນທຶກປະຈຳວັນ',
+  'versoTodayHero.emptyHeadline': 'ມື້ນີ້ແມ່ນໜ້າຫວ່າງເປົ່າ.',
   'versoTodayHero.emptySubline':
     'ບັນທຶກຄວາມຄິດ, ບັນທຶກກອງປະຊຸມ, ຫຼື ແຕ້ມຮູບໃນມື້ອື່ນ. Verso ເຮັດໃຫ້ໂຄງສ້າງງຽບເພື່ອໃຫ້ການຂຽນມີສຽງດັງ.',
+  'versoTodayHero.outlineLabel': 'ໂຄງຮ່າງຂອງມື້ນີ້',
   'versoTodayHero.streak': '{{count}} - ຕິດຕໍ່ກັນມື້',
+  'versoTodayHero.unwritten': 'ຍັງບໍ່ມີຄຳໃດ — ເປີດບັນທຶກເພື່ອເລີ່ມຕົ້ນ.',
   'versoTodayHero.wordCount': '{{count}} ຄຳສັບໃນມື້ນີ້',
 }

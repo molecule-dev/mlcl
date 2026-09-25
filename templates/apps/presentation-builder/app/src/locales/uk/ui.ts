@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маєте запитання, відгук або хочете запропонувати функцію? Напишіть команді в налаштуваннях акаунта — кожне повідомлення читає реальна людина.',
   'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.missionTitle': 'Наша місія',
+  'about.whatYouGetTitle': 'Що Ви отримаєте',
   'analytics.empty': 'Створіть колоди, щоб переглядати аналітику тут.',
   'analytics.stats.acrossDecks': 'На всіх палубах',
   'analytics.stats.allTime': 'У вашій студії',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Назва колоди',
   'landing.features.eyebrow': 'Чому увертюра',
   'landing.features.heading': 'Все необхідне для виходу на сцену готове.',
+  'landing.finalCta.body':
+    'Запустіть свою студію менш ніж за хвилину. Без кредитної картки. Скасувати можна будь-коли.',
   'landing.finalCta.cta': 'Створіть свою безкоштовну студію',
   'landing.finalCta.eyebrow': 'Вільний початок',
   'landing.finalCta.heading': 'Вийди на сцену з найкращою колодою своєї кар’єри.',
@@ -81,10 +87,15 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Відредаговано 12 хв. тому',
   'notifications.created': 'створений',
   'notifications.edited': 'відредаговано',
+  'notifications.empty.body':
+    "Активність на ваших деках — коментарі, згадки, експорти — з'являтиметься тут.",
   'notifications.empty.title': 'Поки що немає сповіщень',
   'notifications.eyebrow': 'Сценічна діяльність',
   'notifications.loading': 'Завантаження…',
   'notifications.shared': 'опубліковано',
+  'planUpdated.retry': 'Спробувати ще раз',
+  'planUpdated.verifyFailed': 'Нам ще не вдалося підтвердити ваш платіж.',
+  'planUpdated.verifyFailedBody': 'Можливо, ваш платіж ще обробляється. Спробуйте ще раз за мить.',
   'planUpdated.verifying': 'Підтвердження платежу…',
   'present.addSlides': 'Додати слайди',
   'present.backToDecks': 'Повернутися до колод',
@@ -122,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Сценічний артист',
   'settings.security.notSet': 'Не встановлено',
   'settings.security.passwordBody': 'Ваш пароль зашифровано в стані спокою.',
+  'settings.security.reset': 'Скинути',
   'settings.security.title': 'Обліковий запис + сеанси',
   'shared.empty.body':
     'Колоди, якими ви поділитеся публічно, з’являться тут. Відкрийте колоду та перемкніть її на публічний доступ, щоб поділитися.',
@@ -130,6 +142,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Завантаження…',
   'shared.title': 'Спільні тераси',
   'templateCard.slideCount': '{{count}} слайди',
+  'templateCard.usageCount': '{{count}} використовує',
+  'templates.empty.body': 'Спробуйте інший фільтр — ми випускаємо нові шаблони щомісяця.',
+  'templates.empty.title': 'У цій категорії ще немає шаблонів',
+  'templates.hero.body':
+    'Готові слайди з тематичним оформленням, блоками діаграм, демонстраційними рамками, нотатками доповідача й таймерами — кожен шаблон готовий до запису.',
   'templates.hero.eyebrow': 'Кураторські етапи',
   'templates.hero.heading': 'Етапи, побудовані для того моменту, коли вам потрібно його висадити.',
 }

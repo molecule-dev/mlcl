@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'تم تحديث خطتك.',
   'planUpdated.returnHome': 'العودة للرئيسية',
   'planUpdated.thankYou': 'شكراً لك!',
+  'post.markdown': 'عرض هذا المنشور بصيغة markdown',
+  'post.readingTime': '{{minutes}} دقيقة قراءة',
   'post.tags': 'الوسوم',
   'project.error.nameAndTypeRequired': 'مطلوب name و projectType',
   'project.error.notFound': 'غير موجود',

@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada maklum balas, jumpa pepijat, atau ingin membawa {{app}} ke sekolah atau pasukan anda? Kami baca setiap mesej — hubungi kami dari tetapan akaun anda dan manusia sebenar akan membalas.',
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.intro':
+    '{{app}} ialah platform kuiz langsung untuk bilik darjah, malam permainan dan acara pasukan. Bina pek soalan yang menyeronokkan, hoskan permainan masa nyata dengan kod sertai, dan saksikan bilik itu meriah dengan soalan bermasa, pemarkahan dan papan pendahulu.',
+  'about.missionBody':
+    'Pembelajaran melekat apabila ia terasa seperti permainan. Kami memudahkan sesiapa sahaja mengubah sesuatu topik menjadi permainan pantas dan kompetitif — supaya hos boleh mengajar sambil bermain dan pemain kekal dalam rentetan.',
+  'about.missionTitle': 'Misi kami',
   'about.title': 'Perihal {{app}}',
   'auth.login.noAccount': 'Baru kenal Sparq?',
   'auth.login.or': 'atau teruskan dengan',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Tiada kuiz yang sepadan lagi.',
   'discover.headline': 'Cari kuiz kegemaran anda yang seterusnya.',
   'discover.loading': 'Memuatkan…',
+  'discover.searchPlaceholder': 'Cari kuiz mengikut tajuk…',
   'discover.subhead':
     'Layari pustaka penuh, tapis mengikut kategori atau cari mengikut tajuk. Tekan kad untuk bermain solo atau mengacara secara langsung.',
   'forgotPassword.subhead':
     'Masukkan emel anda dan kami akan menghantar pautan untuk menetapkan semula.',
   'forgotPassword.success.body':
     'Jika akaun wujud untuk {{email}} , anda akan mendapat pautan tetapan semula dalam beberapa minit.',
+  'forgotPassword.success.title': 'Semak peti masuk anda.',
   'hostLobby.back': 'Kembali ke kuiz',
   'hostLobby.copied': 'Kod sambung disalin ke papan keratan.',
   'hostLobby.creating': 'Meriahkan lobi anda…',
@@ -30,19 +39,25 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Batalkan lobi',
   'hostLobby.players.count': '{{count}} hidup',
   'hostLobby.players.title': 'Pemain di lobi',
+  'hostLobby.players.waiting': 'Menunggu pemain. Kongsi kod {{code}} supaya mereka boleh sertai.',
   'hostLobby.rules.title': 'Peraturan rumah',
   'hostLobby.startError': 'Tidak dapat memulakan permainan.',
   'hostLobby.starting': 'Memulakan percikan api…',
   'joinCodeHero.headline': 'Beritahu pemain anda untuk melompat masuk.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Atau kunjungi',
   'joinCodeHero.liveLabel': 'Lobi secara langsung',
+  'joinCodeHero.playerJoined': '{{name}} telah menyertai',
   'joinCodeHero.playersLabel': 'Pemain',
   'joinCodeHero.qrLabel': 'Imbas untuk menyertai',
   'joinCodeHero.startGame': 'Mulakan percikan api',
   'joinCodeHero.subhead':
     'Kongsikan kod penyertaan atau imbas QR. Permainan bermula sebaik sahaja anda menyalakan percikan api.',
+  'landing.cta.button': 'Cipta kuiz pertama anda',
   'landing.cta.eyebrow': 'Percuma untuk pendidik',
   'landing.cta.heading': 'Bawalah semangat dalam setiap pengajaran.',
+  'landing.cta.subhead':
+    'Daftar dalam 30 saat. Hoskan permainan langsung tanpa had, rangka kuiz dengan AI dan pastikan setiap pemain kekal dalam rentetan.',
   'landing.eyebrow': 'Nyalakan setiap jawapan',
   'landing.features.heading': 'Studio kuiz yang sesuai dengan cara anda mengajar dan bermain.',
   'landing.hero.ctaPrimary': 'Mulakan pengehosan percuma',
@@ -57,6 +72,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Kuiz popular',
   'landing.popular.eyebrow': 'Popular minggu ini',
   'landing.popular.heading': 'Pengacara kuiz sedang menjalankan sesi pendaftaran hari ini.',
+  'landing.popular.viewAll': 'Layari semua kategori →',
+  'leaderboard.empty.body': 'Main kuiz untuk meletakkan skor anda pada papan pendahulu global.',
   'leaderboard.empty.title': 'Belum ada permainan di papan lagi — jadilah yang pertama.',
   'leaderboard.eyebrow': 'Papan Pendahulu',
   'leaderboard.fullRanking': 'Kedudukan penuh',
@@ -64,6 +81,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Agregat skor merentasi setiap sesi kuiz yang telah anda mainkan. Naik dengan bermain lebih banyak.',
   'leaderboard.title': 'Pakar kuiz teratas',
+  'leaderboard.totalPlayers': '{{count}} pemain berkedudukan',
   'leaderboardRow.points': 'mata',
   'leaderboardRow.streak': '{{days}}h',
   'login.headline': 'Selamat kembali, ketua kuiz.',
@@ -75,10 +93,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Bina kuiz pertama anda →',
   'myQuizzes.empty.created': 'Anda belum membina kuiz lagi.',
   'myQuizzes.empty.played': 'Tiada kuiz yang diterbitkan lagi.',
+  'myQuizzes.loading': 'Memuatkan…',
   'myQuizzes.subhead':
     'Draf yang telah anda bina, serta kuiz yang diterbitkan yang boleh anda mainkan.',
   'myQuizzes.title': 'Kuiz saya',
   'nav.legal': 'Undang-undang',
+  'nav.primaryNavLabel': 'Navigasi utama',
   'notFound.backHome': 'Kembali ke laman utama',
   'notFound.backToDiscover': 'Layari kuiz',
   'notFound.body': 'Cuba kod lain atau kembali ke lobi.',
@@ -87,17 +107,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Memuatkan…',
   'notifications.subhead':
     '{{count}} percikan api yang belum dibaca. Jemputan, pergerakan papan pendahulu dan pencapaian semuanya dalam satu strim.',
+  'planUpdated.retry': 'Cuba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengesahkan pembayaran anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran anda mungkin masih diproses. Cuba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
+  'pricing.advancedFeatures': 'Ciri lanjutan: {{yes}}',
+  'pricing.canExport': 'Eksport data: {{yes}}',
   'pricing.checkoutError': 'Tidak dapat memulakan daftar keluar. Sila cuba lagi.',
   'pricing.heading': 'Pilih pelan {{app}} anda',
   'pricing.included': 'Termasuk',
   'pricing.loadError': 'Tidak dapat memuatkan pelan.',
+  'pricing.maxQuestions': '{{count}} soalan',
   'pricing.maxQuizzes': '{{count}} kuiz',
+  'pricing.maxSessions': '{{count}} sesi',
   'pricing.subhead':
     'Percuma untuk hos dan pemain. Tingkatkan untuk had yang lebih tinggi dan ciri-ciri lanjutan.',
   'pricing.yearly': 'Tahunan',
   'privacy.collect.account':
     'Akaun: e-mel, kata laluan yang di-hash, nama paparan, log masuk terakhir.',
+  'privacy.intro':
+    '{{app}} menghormati privasi anda. Halaman ini merumuskan data yang kami simpan, sebab kami menyimpannya, dan cara untuk memadamnya.',
   'privacy.rights.body':
     'Padam akaun anda daripada Tetapan untuk mengalih keluar semua data anda secara kekal dalam tempoh 30 hari.',
   'privacy.share.body':
@@ -121,6 +151,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'ID kuiz: {{id}}',
   'quizBuilder.loadError': 'Tidak dapat memuatkan kuiz.',
   'quizBuilder.loading': 'Memuatkan editor…',
+  'quizBuilder.markCorrect': 'Tandakan {{letter}} sebagai betul',
   'quizBuilder.noQuestions': 'Tiada soalan lagi — tambah satu untuk bermula.',
   'quizBuilder.notFound': 'Kuiz tidak ditemui.',
   'quizBuilder.preview': 'Lihat',
@@ -137,7 +168,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} pemasa s',
   'quizBuilder.title': 'Bina kuiz anda',
   'quizBuilder.titleLabel': 'Tajuk kuiz',
+  'quizBuilder.untitled': 'Soalan tanpa tajuk',
   'quizCard.plays': '{{count}} bermain',
+  'quizCard.questionCount': '{{count}} S',
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': 'Hos berbilang pemain',
   'quizDetail.leaderboardEmpty':
@@ -153,26 +186,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Kembali ke kuiz',
   'quizPlay.empty': 'Kuiz ini belum mempunyai soalan lagi.',
   'quizPlay.error': 'Tidak dapat memuatkan kuiz ini. Sila cuba lagi.',
+  'quizPlay.exit': 'Keluar',
   'quizPlay.feedback.correct': '🔥 Percikan api diperoleh — ke peringkat seterusnya!',
+  'quizPlay.feedback.incorrect': 'Jawapannya ialah {{correct}}. Teruskan.',
   'quizPlay.loading': 'Memuatkan kuiz…',
   'quizPlay.next': 'Soalan seterusnya',
   'quizPlay.questionCounter': 'Soalan {{current}} daripada {{total}}',
   'quizPlay.score': '{{score}} mata',
+  'quizPlay.seeResults': 'Lihat keputusan',
   'quizPlay.sessionFailed': 'Tidak dapat memulakan sesi.',
   'quizPlay.streak': '{{count}} coretan',
+  'resetPassword.subhead': 'Pilih kata laluan baharu untuk kembali ke rentetan anda.',
   'results.backToDiscover': 'Kembali ke Discover',
   'results.error': 'Tidak dapat memuatkan keputusan.',
   'results.exit': 'Kembali ke Discover',
   'results.loading': 'Mengira skor anda…',
   'results.missingSession': 'Tiada sesi untuk meringkaskan.',
+  'results.recap.correctAnswer': 'Betul: {{answer}}',
   'results.recap.questionLabel': 'Soalan {{number}}',
   'results.recap.title': 'Ringkasan soalan',
+  'results.recap.yourAnswer': 'Anda: {{answer}}',
   'results.unknownQuiz': 'Kuiz',
   'scoreBreakdownCard.accuracyLabel': 'Ketepatan',
+  'scoreBreakdownCard.correctLabel': 'Betul',
   'scoreBreakdownCard.eyebrow': 'Kuiz Selesai',
   'scoreBreakdownCard.headline': 'Kerja yang bagus pada " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Mata',
   'scoreBreakdownCard.rankLabel': 'Pangkat',
+  'scoreBreakdownCard.streakBonus': 'Bonus rentetan +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Semangat anda terserlah. Semak pecahan di bawah untuk terus mendaki papan pendahulu.',
   'settings.danger.body': 'Alih keluar akaun Sparq anda dan semua kuiz yang dibuat secara kekal.',
   'settings.danger.confirm': 'Ya, padam selama-lamanya',
   'settings.guest': 'Tetamu',
@@ -189,5 +232,7 @@ export const ui: UiTranslations = {
     'Anda bertanggungjawab ke atas kandungan yang anda terbitkan, soalan yang anda karang dan sebarang permainan yang anda anjurkan. Jangan menyamar sebagai orang lain.',
   'terms.billing.body':
     'Pelan berbayar diperbaharui secara automatik sehingga dibatalkan daripada Tetapan. Anda boleh membatalkan pada bila-bila masa; akses berterusan sehingga akhir tempoh pengebilan semasa.',
+  'terms.intro':
+    'Dengan menggunakan {{app}} anda bersetuju dengan peraturan di bawah. Jika anda tidak dapat menerimanya, sila jangan gunakan perkhidmatan ini.',
   'terms.title': 'Terma perkhidmatan',
 }

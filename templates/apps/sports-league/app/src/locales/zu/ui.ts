@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uthole ibhagi, noma ufuna {{app}} yeligi yakho? Xhumana nathi kusukela kuzilungiselelo ze-akhawunti yakho — yonke imiyalezo ifinyelela kumuntu wangempela eqenjini.',
+  'about.contactTitle': 'Xhumana nathi',
   'about.eyebrow': 'Mayelana',
+  'about.featureAlerts':
+    'Izaziso zokucindezela zokubuyekezwa kwezikolo, izexwayiso zokuhweba, imibiko yokulimala, nezimemezelo zeligi.',
+  'about.featureRosters':
+    'Amakhasi eqembu anohlu oluphelele lwabadlali, izibalo zesizini, ukulandelana kokushisa/ukubanda, kanye nokuhlukaniswa kobuso nobuso kumdlali ngamunye.',
+  'about.featureSchedule':
+    'Ikhalenda yesizini kanye nokubuka uhlelo ukuze uhlelele yonke imidlalo nemiphumela.',
+  'about.featureScoreboard':
+    'Umbhalo weskhodi wezinga lokusakaza obekwe phezulu kukho konke ikhasi ukuze ungaphuthelwa igoli.',
+  'about.featureStandings':
+    'Izikhundla ezibukhoma — amarekhodi okunqoba-ukuhlulwa-ukulingana esikhathini sangempela, amaphuzu, iphesenti lokunqoba, kanye nomugqa wokuhlungela umdlalo wokugcina, kubuyekezwa kuzo zonke izikhathi.',
+  'about.intro':
+    '{{app}} iyikhaya lezinga lokusakaza leligi yakho. Amaqembu, izinhlelo, izikolo ezibukhoma, nezikhundla kuhlangana kudashibhodi eyodwa esheshayo, engenasiphazamisi — ukuze abalandeli, abaqeqeshi, nabahleli beligi bazi njalo ukuthi isizini imi kuphi.',
+  'about.missionBody':
+    'Ukulandela iligi akufanele kusho ukuthi uvuselela amaskhodi amathathu ahlukene ezingaphandle. Sakhela ukunikeza yonke iligi umthombo owodwa weqiniso wezikhundla, uhlelo, nezibalo ezibalulekile ngempela — kubuyekezwa kuzo zonke izikhathi, mahhala isizini yonke.',
+  'about.missionTitle': 'Umsebenzi wethu',
+  'about.whatYouGet': 'Lokho okutholayo',
   'appShell.closeNav': 'Vala ukuzulazula',
   'appShell.openNav': 'Vula ukuzulazula',
   'common.dashboard': 'Ideshibhodi',
@@ -16,14 +35,21 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Buka konke okufanayo \\u2192',
   'dashboard.viewAllStandings': 'Ukuma okugcwele \\u2192',
   'dashboard.viewAllStats': 'Buka bonke abaholi bezibalo \\u2192',
+  'forgot.submitting': 'Ithumela isixhumanisi sokusetha kabusha…',
   'forgot.subtitle': 'Faka i-imeyili yakho ukuze uthole isixhumanisi sokusetha kabusha.',
   'forgot.success':
     'Setha kabusha isixhumanisi esithunyelwe ku- {{email}} Hlola ibhokisi lakho lokungenayo.',
+  'landing.copyright': '© {{year}} {{app}}. Landela isikhundla.',
+  'landing.ctaBody':
+    'Iligi yakho. Izikhundla zakho. Iqembu lakho olithandayo — libekwe phezulu. Amaminithi amabili ukusetha, mahhala isizini yonke.',
   'landing.ctaHeading': 'Yeka ukuvuselela amabhodi wamaphuzu enkampani yangaphandle',
   'landing.eyebrow': 'Yakhelwe abalandeli, abaqeqeshi, kanye nabahleli beligi',
   'landing.featuresHeading': 'Isihlalo sangaphambili kubo bonke abame',
   'landing.getStarted': 'Joyina iligi',
   'landing.heroCta': 'Joyina iligi',
+  'landing.heroSubtitle':
+    '{{app}} ihlanganisa izikhundla, izinhlelo, kanye nabaholi bezibalo kudashibhodi eyodwa yezinga lokusakaza. Izikolo ezibukhoma. Amarekhodi angempela. Akunasiphazamisi.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Namuhla ebusuku kulo lonke iligi',
   'landing.statFans': 'Abalandeli abalandelayo',
   'landing.statGames': 'Imidlalo kule sizini',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Buyela emidlalweni',
   'matchDetail.eventsHeading': 'Ukudlala ngokudlala',
+  'matchDetail.final': 'OKOKUGCINA',
   'matchDetail.finalScore': 'Okokugcina',
   'matchDetail.live': 'BUKHOMA',
   'matchDetail.liveNow': 'Bukhoma manje',
   'matchDetail.noEvents': 'Azikho izehlakalo ezirekhodiwe okwamanje.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Awekho umdlalo kulesi sibonisi — zama isihlungi esihlukile.',
   'matches.eyebrow': 'Usuku Lomdlalo',
   'matches.loading': 'Ukudonsa isleti…',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Yehlulekile ukulayisha izaziso',
   'notifications.loading': 'Ilayisha izaziso...',
   'pennantHeroCard.eyebrow': 'Phezulu kwetafula',
+  'pennantHeroCard.formLabel': 'Okokugcina okungu-10',
   'pennantHeroCard.gamesAhead': '{{value}} imidlalo ngaphambi kokujaha',
   'pennantHeroCard.pointsLabel': 'I-PTS',
   'pennantLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
@@ -80,17 +109,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Khetha isihlalo sakho',
   'pricing.heading': 'Thuthukisa ukuze uthole ishejuli ecebile, amaphuzu, kanye nokuma.',
   'pricing.limits.schedule': '{{count}} okufakiwe kweshejuli',
+  'pricing.limits.scores': 'Izikolo ze-{{count}}',
+  'pricing.limits.standings': 'Izikhundla ze-{{count}}',
+  'pricing.limits.teams': 'Amaqembu e-{{count}}',
+  'pricing.subtitle': 'Thuthukisa ukuze uthole uhlelo, izikolo, nezikhundla ezinothile.',
   'pricing.upgradeCta': 'Thuthukela ku- {{tierName}}',
   'profile.eyebrow': 'Iphrofayela yabalandeli',
   'profile.favoritesCount': 'Amaqembu alandelwe',
   'profile.favoritesHeading': 'Amaqembu athandwayo',
   'profile.noFavorites': 'Azikho izintandokazi okwamanje — khetha amaqembu ekhasini lamaQembu.',
   'profile.rankRecord': 'Isikhundla # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Irekhodi {{record}}',
   'reset.confirmPlaceholder': 'Phinda iphasiwedi',
+  'reset.mismatch': 'Amaphasiwedi awafani.',
   'reset.newLabel': 'Iphasiwedi Entsha',
   'reset.subtitle': 'Khetha iphasiwedi eqinile okungenani enezinhlamvu ezingu-12.',
   'reset.tokenPlaceholder': 'Namathisela kusuka ku-imeyili',
   'schedule.eyebrow': 'Isleti',
+  'schedule.moreGames': '+ {{count}} Okuningi',
   'schedule.subtitle':
     'Ukubukwa kwekhalenda kwemidlalo kuyo yonke isizini — thepha noma yiluphi usuku ukuthola amaphuzu ebhokisi.',
   'scoreboardTicker.empty': 'Ayikho imidlalo ebukhoma njengamanje — hlola futhi ku-puck drop.',
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Yenza kube ngokwakho',
   'settings.favoritesBody':
     'Lawa maqembu afakwa kudeshibhodi yakho bese eqala izexwayiso zamaphuzu.',
+  'settings.favoritesHeading': 'Amaqembu athandwayo',
   'settings.loading': 'Ilayisha izintandokazi zakho...',
   'settings.noFavorites':
     'Azikho izintandokazi okwamanje \\u2014 khetha amaqembu ekhasini lamaQembu.',
@@ -117,6 +154,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Sekukonke',
   'standings.points': 'I-PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Abane abaphezulu bafanelekela i-postseason — i-tiebreakers ngamaphuzu, bese iwina i-pct.',
   'standings.title': 'Ukuma kweligi',
@@ -136,6 +174,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Umdlali',
   'teamDetail.colPos': 'I-Pos',
+  'teamDetail.pointsLabel': 'Amaphuzu',
   'teamDetail.rankLabel': 'Isikhundla # {{rank}}',
   'teamDetail.rosterHeading': 'Uhlu',
   'teamDetail.statGD': 'Umehluko Wegoli',

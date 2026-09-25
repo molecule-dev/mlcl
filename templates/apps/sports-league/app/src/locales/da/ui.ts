@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du feedback, fundet en fejl, eller vil du have {{app}} til din liga? Kontakt os via dine kontindstillinger — hver besked går til en rigtig person på teamet.',
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
+  'about.featureAlerts':
+    'Push-notifikationer om resultatopdateringer, handelsalarmer, skadesrapporter og ligameddelelser.',
+  'about.featureRosters':
+    'Holdside med fulde trupper, sæsontotaler, hot/cold-streaks og indbyrdes opgør for hver spiller.',
+  'about.featureSchedule':
+    'En sæsonkalender og programvisning, så du kan planlægge efter hver kamp og resultat.',
+  'about.featureScoreboard':
+    'Et resultatticker i broadcast-kvalitet fastgjort i toppen af hver side, så du aldrig misser et mål.',
+  'about.featureStandings':
+    'Live stillinger — realtidsstatistik for sejr-tab-uafgjort, point, sejrsprocent og playoff-linjen, opdateret ved hvert fløjt.',
+  'about.intro':
+    '{{app}} er et hjem i broadcast-kvalitet til din liga. Hold, programmer, live-resultater og stillinger samles i et hurtigt dashboard uden rod — så fans, trænere og ligaarrangører altid ved, hvor sæsonen står.',
+  'about.missionBody':
+    'At følge en liga bør ikke betyde, at man skal opdatere fem forskellige tredjeparts-resultattavler. Vi byggede det for at give hver liga én kilde til sandheden om stillinger, programmet og de statistikker, der faktisk betyder noget — opdateret ved hvert fløjt, gratis for sæsonen.',
+  'about.missionTitle': 'Vores mission',
+  'about.whatYouGet': 'Hvad du får',
   'appShell.closeNav': 'Luk navigation',
   'appShell.openNav': 'Åbn navigation',
   'common.dashboard': 'Oversigt',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Se alle kampe \\u2192',
   'dashboard.viewAllStandings': 'Fuld stilling \\u2192',
   'dashboard.viewAllStats': 'Se alle statsledere \\u2192',
+  'forgot.submitting': 'Sender nulstillingslink…',
   'forgot.subtitle': 'Indtast din e-mail for at modtage et nulstillingslink.',
   'forgot.success': 'Nulstil link sendt til {{email}} Tjek din indbakke.',
+  'landing.copyright': '© {{year}} {{app}}. Chase the standing.',
+  'landing.ctaBody':
+    'Din liga. Dine stillinger. Dit yndlingshold — fastgjort i toppen. To minutter at sætte op, gratis for sæsonen.',
   'landing.ctaHeading': 'Stop med at opdatere tredjepartsresultattavler',
   'landing.eyebrow': 'Bygget til fans, trænere og ligaarrangører',
   'landing.featuresHeading': 'En plads på forreste række til alle, der står',
   'landing.getStarted': 'Bliv medlem af ligaen',
   'landing.heroCta': 'Bliv medlem af ligaen',
+  'landing.heroSubtitle':
+    '{{app}} samler stillinger, programmer og statistiske topscorere i et dashboard i broadcast-kvalitet. Live-resultater. Rigtige rekorder. Ingen rod.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Rundt i ligaen i aften',
   'landing.statFans': 'Følgende fans',
   'landing.statGames': 'Kampe i denne sæson',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Tilbage til kampene',
   'matchDetail.eventsHeading': 'Spil for spil',
+  'matchDetail.final': 'FINAL',
   'matchDetail.finalScore': 'Endelig',
   'matchDetail.live': 'LEVENDE',
   'matchDetail.liveNow': 'Live nu',
   'matchDetail.noEvents': 'Ingen begivenheder registreret endnu.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Ingen kampe i denne visning — prøv et andet filter.',
   'matches.eyebrow': 'Kampdag',
   'matches.loading': 'Trækker tavlen…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Kunne ikke indlæse notifikationer',
   'notifications.loading': 'Indlæser notifikationer\\u2026',
   'pennantHeroCard.eyebrow': 'Toppen af tabellen',
+  'pennantHeroCard.formLabel': 'Seneste 10',
   'pennantHeroCard.gamesAhead': '{{value}} spil forud for jagten',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Primær navigation',
@@ -78,17 +107,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Vælg din plads',
   'pricing.heading': 'Opgrader for at få et bedre program, flere resultater og bedre stillinger.',
   'pricing.limits.schedule': '{{count}} planlægningsposter',
+  'pricing.limits.scores': '{{count}} resultater',
+  'pricing.limits.standings': '{{count}} stillinger',
+  'pricing.limits.teams': '{{count}} hold',
+  'pricing.subtitle': 'Opgrader for et rigere program, resultater og stillinger.',
   'pricing.upgradeCta': 'Opgrader til {{tierName}}',
   'profile.eyebrow': 'Fanprofil',
   'profile.favoritesCount': 'Hold fulgt',
   'profile.favoritesHeading': 'Favorithold',
   'profile.noFavorites': 'Ingen favoritter endnu — vælg hold fra Hold-siden.',
   'profile.rankRecord': 'Rang # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Rekord {{record}}',
   'reset.confirmPlaceholder': 'Indtast adgangskoden igen',
+  'reset.mismatch': 'Adgangskoderne stemmer ikke overens.',
   'reset.newLabel': 'Ny adgangskode',
   'reset.subtitle': 'Vælg en stærk adgangskode på mindst 12 tegn.',
   'reset.tokenPlaceholder': 'Indsæt fra e-mail',
   'schedule.eyebrow': 'Skiferen',
+  'schedule.moreGames': '+ {{count}} mere',
   'schedule.subtitle':
     'Kalendervisning af kampe i løbet af sæsonen — tryk på en hvilken som helst dag for at se statistikker.',
   'scoreboardTicker.empty': 'Ingen livekampe lige nu — tjek tilbage ved puck drop.',
@@ -96,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Tilpas',
   'settings.favoritesBody':
     'Disse hold bliver fastgjort til dit dashboard og udløser scorealarmer.',
+  'settings.favoritesHeading': 'Favorithold',
   'settings.loading': 'Indlæser dine præferencer\\u2026',
   'settings.noFavorites': 'Ingen favoritter endnu \\u2014 vælg hold fra Hold-siden.',
   'settings.notificationsHeading': 'Notifikationer og visning',
@@ -113,6 +150,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Samlet',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'De fire bedste kvalificerer sig til slutspillet — tiebreakere efter point, derefter vinder-pct.',
   'standings.title': 'Ligastillingen',
@@ -131,6 +169,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Spiller',
   'teamDetail.colPos': 'Pos.',
+  'teamDetail.pointsLabel': 'Point',
   'teamDetail.rankLabel': 'Rang # {{rank}}',
   'teamDetail.rosterHeading': 'Holdliste',
   'teamDetail.statGD': 'Målforskel',

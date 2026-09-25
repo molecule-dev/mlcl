@@ -1,21 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'પ્રતિસાદ છે, બગ મળ્યો છે, કે કોઈ સુવિધા સૂચવવી છે? તમારા એકાઉન્ટ સેટિંગ્સમાંથી સંપર્ક કરો — દરેક સંદેશ ટીમના સાચા માણસ સુધી પહોંચે છે.',
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
+  'about.featureDatabases':
+    'ઢીલી નોંધોને વ્યવસ્થિત, પુનરાવર્તનયોગ્ય કાર્યપ્રવાહમાં ફેરવવા માટે હલકી ડેટાબેઝ અને ફરી વાપરી શકાય તેવા ટેમ્પલેટ.',
+  'about.featureEditor':
+    'એક શાંત બ્લોક એડિટર — હેડિંગ, યાદી, કોડ, કૉલઆઉટ અને ટુ-ડુ — જ્યારે જોઈએ ત્યારે સ્લેશ-કમાન્ડ સાથે, અને ન જોઈએ ત્યારે રસ્તામાંથી દૂર.',
+  'about.featureGraph':
+    'બેકલિંક અને નોલેજ ગ્રાફ: નોંધ લિંક કરવા [[ લખો અને સમય સાથે તમારા વિચારો કેવી રીતે જોડાય છે તે જુઓ.',
+  'about.featureNotebooks':
+    'નેસ્ટેડ નોટબુક અને પેજ, જેથી પ્રોજેક્ટ, વિષયો અને દૈનિક નોંધો તમે વિચારો તે જ રીતે વ્યવસ્થિત રહે.',
+  'about.featureSearch':
+    'દરેક નોટબુકમાં 50ms થી ઓછી ફુલ-ટેક્સ્ટ શોધ, સાથે ટૅગ્સ જે નોટબુક સાથે મળી જાય છે, લડતા નથી.',
+  'about.missionTitle': 'અમારું ધ્યેય',
   'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'forgot.eyebrow': 'પાછા ફરવાનો રસ્તો ભૂલી ગયા?',
   'forgot.formSubtitle': 'ફાઇલ પરનો ઇમેઇલ અમને જણાવો.',
+  'forgot.formTitle': 'પાસવર્ડ ભૂલી ગયા છો',
   'forgot.headline': 'તમારો પાસવર્ડ રીસેટ કરો.',
   'forgot.subline':
     'અમે તમારા ઇનબોક્સમાં એક વખતની લિંક મોકલીશું જેથી તમે એક નવી લિંક પસંદ કરી શકો.',
+  'forgot.successDetail': 'અમે તમારા ઈમેલ પર રીસેટ લિંક મોકલી છે. તે 30 મિનિટમાં સમાપ્ત થાય છે.',
   'graph.eyebrow': 'ગ્રાફ',
+  'graph.goToNotes': 'નોંધ બ્રાઉઝ કરો →',
+  'graph.loadError': 'ગ્રાફ લોડ થઈ શક્યો નહીં: {{message}}',
   'graph.placeholderBody':
     'જ્યારે નોંધો એકબીજા સાથે જોડવાનું શરૂ કરે છે ([[wiki]] વાક્યરચના સાથે), ત્યારે એક ઇન્ટરેક્ટિવ ફોર્સ-ડિરેક્ટેડ ગ્રાફ અહીં રેન્ડર થશે.',
+  'graph.placeholderTitle': 'બેકલિંક ગ્રાફ ટૂંક સમયમાં આવી રહ્યો છે',
   'graph.subtitle':
     '{{count}} આ કાર્યસ્થળમાં નોંધો. નોંધો એકબીજા સાથે લિંક થયા પછી બેકલિંક ગ્રાફ રેન્ડરિંગ અહીં દેખાશે.',
   'graph.title': 'જ્ઞાનનો આલેખ',
   'home.empty': 'હજુ સુધી કોઈ નોંધ નથી — તમારી પહેલી નોંધ શરૂ કરો.',
   'home.favoritesHeading': 'પિન કરેલ',
   'home.guest': 'મિત્ર',
+  'home.loadError': 'તમારી નોંધો લોડ થઈ શકી નહીં: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'અહીં રાખવા માટે એડિટરમાં એક નોંધ પિન કરો.',
   'home.recentHeading': 'તાજેતરમાં અપડેટ કરેલ',
@@ -23,18 +43,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'નોટબુક',
   'home.stats.pinned.label': 'પિન કરેલ',
   'home.stats.updatedToday.label': 'આજે અપડેટ કરેલ',
+  'home.subtitle': 'જ્યાં છોડ્યું હતું ત્યાંથી શરૂ કરો, અથવા નવી નોંધ શરૂ કરો.',
   'home.viewAll': 'બધી નોંધો જુઓ',
   'landing.cta.body':
     'વ્યક્તિગત ઉપયોગ માટે મફત. ટીમો માટે પ્રો. તમારા હાલના માર્કડાઉન લાવો અથવા નવી શરૂઆત કરો — વર્સો તમારી નોંધો જ્યાં પણ હોય ત્યાં તમને મળે છે.',
+  'landing.cta.button': 'મારું કાર્યસ્થળ બનાવો',
   'landing.cta.heading': 'આજનું પેજ ખોલો.',
   'landing.features.eyebrow': 'તમારા બીજા મગજને જોઈતી દરેક આદિમ વસ્તુ',
+  'landing.features.heading': 'કાર્ય માટે બનાવેલ છે, મેટા-વર્ક માટે નહીં.',
   'landing.hero.eyebrow': 'શાંત લેખન સપાટી',
   'landing.hero.headlineAccent': 'આકાર લો.',
   'landing.hero.headlineLeading': 'જ્યાં વિચારો',
   'landing.hero.primaryCta': 'તમારા જ્ઞાનનો આધાર શરૂ કરો',
   'landing.hero.secondaryCta': 'મારી પાસે પહેલેથી જ એક ખાતું છે.',
+  'landing.hero.socialProof':
+    '12,800+ લેખકો, વિદ્યાર્થીઓ અને PhD વિદ્યાર્થીઓ {{appName}} સાથે વિચારે છે',
   'landing.hero.subline':
     'વર્સો એ જ્ઞાન કાર્યકરો અને વિદ્યાર્થીઓ માટે એક સંરચિત નોંધ લેવાનું સપાટી છે. બ્લોક એડિટર, નેસ્ટેડ નોટબુક્સ, બેકલિંક્સ અને જ્ઞાન ગ્રાફ - આ બધું ટાઇપોગ્રાફી-પ્રથમ વાંચન અનુભવ પાછળ છે.',
+  'landing.preview.notebook': 'જ્ઞાન · લેખન પ્રક્રિયા',
+  'landing.preview.title': 'ડ્રાફ્ટ્સને શ્વાસ લેવા દેવા પર',
   'login.eyebrow': 'વર્સોમાં ફરી આપનું સ્વાગત છે.',
   'login.formSubtitle': 'તમારા ઇમેઇલ અથવા કોઈપણ કનેક્ટેડ પ્રદાતાનો ઉપયોગ કરો.',
   'login.headline': 'જ્યાંથી પેજ થોભાવ્યું હતું ત્યાંથી શરૂ કરો.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'નેવિગેશન મેનૂ બંધ કરો',
   'mobileNav.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'noteEditor.backToNotes': 'નોંધો પર પાછા જાઓ',
+  'noteEditor.bodyLabel': 'નોંધનું મુખ્ય ભાગ',
   'noteEditor.bodyPlaceholder':
     'લખવાનું શરૂ કરો — તમારી નોંધ લખતાની સાથે જ આપમેળે સાચવવામાં આવે છે.',
   'noteEditor.confirmTrash': 'આ નોંધને ટ્રેશમાં ખસેડીએ?',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'ટ્રેશમાં ખસેડો',
   'noteEditor.updated': 'અપડેટ કરેલ',
   'notes.defaultWorkspaceName': 'મારી નોટબુક',
+  'notes.empty': 'અહીં હજી કોઈ નોંધ નથી — નોટબુક ભરવા એક શરૂ કરો.',
   'notes.eyebrow': 'નોટબુક',
   'notes.filterAll': 'બધી નોંધો',
   'notes.filterPinned': 'પિન કરેલ',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'નવી નોટબુક',
   'notes.newNotebookPrompt': 'નવી નોટબુકનું નામ',
+  'notes.newNotebookRequired': 'નોટબુકનું નામ દાખલ કરો.',
   'notes.notebooksHeading': 'નોટબુક્સ',
   'notes.subtitle':
     'ડાબી બાજુએ એક નોટબુક પસંદ કરો, પછી નવી એન્ટ્રી શરૂ કરવા માટે નવી નોંધ બટન દબાવો.',
+  'planUpdated.body': 'તમારું સબ્સ્ક્રિપ્શન હવે સક્રિય છે.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'અદ્યતન સુવિધાઓ',
   'pricing.heading': 'તમારો નોંધ લેવાનો પ્લાન પસંદ કરો',
+  'reset.changedMind': 'મન બદલ્યું?',
   'reset.eyebrow': 'લગભગ પાછા આવી ગયા',
   'reset.formSubtitle': 'એકવાર તે સાચવાઈ જાય પછી તમે સાઇન ઇન થઈ જશો.',
   'reset.headline': 'નવો પાસવર્ડ પસંદ કરો.',
@@ -71,7 +104,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'અમે તમને હમણાં જ ઇમેઇલ કરેલો કોડ દાખલ કરો અને કંઈક યાદગાર પસંદ કરો.',
   'reset.submit': 'સાચવો અને સાઇન ઇન કરો',
   'reset.tokenHint': 'તમારા ઇનબોક્સમાંથી પેસ્ટ કર્યું.',
+  'search.empty': 'હજી આ ક્વેરી સાથે કોઈ નોંધ મેળ ખાતી નથી.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'શોધ રીફ્રેક્ટ',
   'search.loading': 'શોધી રહ્યું છે...',
   'search.noRecent': 'તમારી નોંધોમાં શોધવાનું શરૂ કરવા માટે ઉપર એક ક્વેરી લખો.',
   'search.recentLabel': 'તાજેતરની શોધો',
@@ -79,11 +114,18 @@ export const ui: UiTranslations = {
     'દરેક નોટબુકમાં પૂર્ણ-ટેક્સ્ટ. શોધવા માટે ટાઇપ કરો; ટાઇપ કરતાની સાથે પરિણામો રિફ્રેશ થાય છે.',
   'search.title': 'બીજા મગજને શોધો.',
   'settings.account.logout': 'લોગ આઉટ કરો',
+  'settings.account.title': 'એકાઉન્ટ વિગતો',
+  'settings.editor.graphHover.body':
+    'એડિટરમાં [[વિકિલિંક]] પર હોવર કરો ત્યારે નાનું પ્રીવ્યૂ કાર્ડ બતાવો.',
+  'settings.editor.graphHover.label': 'બેકલિંક ગ્રાફ હોવર પ્રીવ્યૂ',
   'settings.editor.lineHeight.body': 'શરીરની રેખાઓ વચ્ચે કેટલી હવા છે. ૧૭૦% એ ડિફોલ્ટ વાંચન લય છે.',
+  'settings.editor.lineHeight.label': 'લાઈન ઊંચાઈ',
   'settings.editor.serif.body':
     'વાંચન કોલમ માટે જ્યોર્જિયાનો ઉપયોગ કરો. સેન્સ-સેરીફ સાઇડબાર અને ટૂલબારમાં રહે છે.',
+  'settings.editor.serif.label': 'સેરિફ બોડી ટેક્સ્ટ',
   'settings.editor.title': 'ટાઇપોગ્રાફી અને લેખન સપાટી',
   'settings.eyebrow': 'Verso · સેટિંગ્સ',
+  'settings.passwordModal.current': 'હાલનો પાસવર્ડ',
   'settings.passwordModal.error': 'પાસવર્ડ બદલી શકાયો નથી — કૃપા કરીને તમારો હાલનો પાસવર્ડ તપાસો.',
   'settings.passwordModal.next': 'નવો પાસવર્ડ',
   'settings.passwordModal.submit': 'પાસવર્ડ સાચવો',
@@ -92,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'રીઅલટાઇમ ચેનલ દ્વારા દરેક કીસ્ટ્રોક દબાવો. ધીમા કનેક્શન માટે અક્ષમ કરો.',
   'settings.sync.auto.label': 'રીઅલટાઇમ સિંક',
+  'settings.sync.title': 'તમારી નોંધો કેવી રીતે મુસાફરી કરે છે',
   'settings.theme.body':
     'પ્રકાશ સંપાદકીય કોલમને તેજસ્વી રાખે છે. સેપિયા સાંજ માટે પૃષ્ઠને ગરમ કરે છે.',
   'settings.theme.dark': 'શ્યામ',
@@ -111,8 +154,12 @@ export const ui: UiTranslations = {
     'નોંધના શીર્ષકમાં #હેશટેગ્સ ઉમેરો (દા.ત. "વાંચન સૂચિ #પુસ્તકો") અને તે અહીં આપમેળે દેખાશે.',
   'tags.emptyTitle': 'હજુ સુધી કોઈ ટૅગ્સ નથી',
   'tags.eyebrow': 'અનુક્રમણિકા',
+  'tags.goToNotes': 'નોંધ પર જાઓ →',
+  'tags.loadError': 'ટૅગ્સ લોડ થઈ શક્યા નહીં: {{message}}',
   'tags.subtitle':
     '{{tags}} ટૅગ્સ સમગ્ર {{notes}} નોંધો. નોંધના શીર્ષકમાં #હેશટેગ્સ ઉમેરો અને તે અહીં દેખાશે.',
+  'versoAuthShell.sample.body':
+    'આજે રાત્રે પહેલા ડ્રાફ્ટ કરતાં આવતીકાલે બીજો વાંચન હંમેશા સારું લાગે. કાચો ડ્રાફ્ટ ડીપ વર્ક ફોલ્ડરમાં મૂકો…',
   'versoAuthShell.sample.label': 'દૈનિક નોંધ',
   'versoAuthShell.sample.timestamp': 'આજે · સવારે ૯:૧૪ વાગ્યે',
   'versoAuthShell.sample.title': 'ડ્રાફ્ટ્સને શ્વાસ લેવા દેવા પર',
@@ -124,8 +171,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'લખવાનું ચાલુ રાખો',
   'versoTodayHero.createCta': 'આજની નોંધ શરૂ કરો',
   'versoTodayHero.dailyLabel': 'દૈનિક નોંધ',
+  'versoTodayHero.emptyHeadline': 'આજ એક કોરું પાનું છે.',
   'versoTodayHero.emptySubline':
     'આવતીકાલનો વિચાર કેદ કરો, મીટિંગ લખો અથવા સ્કેચ બનાવો. વર્સો રચનાને શાંત રાખે છે જેથી લખાણ મોટેથી રહે.',
+  'versoTodayHero.outlineLabel': 'આજની રૂપરેખા',
   'versoTodayHero.streak': '{{count}} - દિવસનો દોર',
+  'versoTodayHero.unwritten': 'હજી કોઈ શબ્દ નથી — શરૂ કરવા નોંધ ખોલો.',
   'versoTodayHero.wordCount': '{{count}} આજના શબ્દો',
 }

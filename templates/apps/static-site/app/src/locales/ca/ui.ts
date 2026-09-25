@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': "El teu pla s'ha actualitzat.",
   'planUpdated.returnHome': "Torna a l'inici",
   'planUpdated.thankYou': 'Gràcies!',
+  'post.markdown': 'Mostra aquesta publicació com a markdown',
+  'post.readingTime': '{{minutes}} lectura mínima',
   'post.tags': 'Etiquetes',
   'project.error.nameAndTypeRequired': 'Es requereixen nom i tipus de projecte',
   'project.error.notFound': 'No trobat',

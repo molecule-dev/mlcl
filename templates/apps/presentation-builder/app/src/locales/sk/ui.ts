@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte otázky, spätnú väzbu alebo funkciu, ktorú by ste uvítali? Ozvite sa tímu v nastaveniach účtu — každú správu číta skutočný človek.',
   'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'about.missionTitle': 'Naše poslanie',
+  'about.whatYouGetTitle': 'Čo získate',
   'analytics.empty': 'Vytvorte si balíčky, aby ste si tu mohli pozrieť analytické údaje.',
   'analytics.stats.acrossDecks': 'Na všetkých palubách',
   'analytics.stats.allTime': 'Vo vašom štúdiu',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Názov balíčka',
   'landing.features.eyebrow': 'Prečo predohra',
   'landing.features.heading': 'Všetko, čo potrebujete na vystúpenie na pódium, pripravené.',
+  'landing.finalCta.body':
+    'Spustite svoje štúdio za menej ako minútu. Bez kreditnej karty. Zrušiť môžete kedykoľvek.',
   'landing.finalCta.cta': 'Vytvorte si bezplatné štúdio',
   'landing.finalCta.eyebrow': 'Začiatok je voľný',
   'landing.finalCta.heading': 'Vystúpte na pódium s najlepším balíčkom kariet svojej kariéry.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Upravené pred 12 minútami',
   'notifications.created': 'vytvorené',
   'notifications.edited': 'upravené',
+  'notifications.empty.body':
+    'Aktivita na vašich prezentáciách — komentáre, zmienky, exporty — sa zobrazí tu.',
   'notifications.empty.title': 'Zatiaľ žiadne upozornenia',
   'notifications.eyebrow': 'Aktivita na javiskách',
   'notifications.loading': 'Načítava sa…',
   'notifications.shared': 'zdieľané verejne',
+  'planUpdated.retry': 'Skúste to znova',
+  'planUpdated.verifyFailed': 'Vašu platbu sme zatiaľ nemohli potvrdiť.',
+  'planUpdated.verifyFailedBody':
+    'Vaša platba sa možno stále spracováva. Skúste to znova o chvíľu.',
   'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'present.addSlides': 'Pridať snímky',
   'present.backToDecks': 'Späť na paluby',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Javiskový umelec',
   'settings.security.notSet': 'Nie je nastavené',
   'settings.security.passwordBody': 'Vaše heslo je v pokoji zašifrované.',
+  'settings.security.reset': 'Obnoviť',
   'settings.security.title': 'Účet + relácie',
   'shared.empty.body':
     'Balíčky, ktoré zdieľate verejne, sa zobrazia tu. Otvorte balíček a prepnite ho na verejné zdieľanie.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Načítava sa…',
   'shared.title': 'Zdieľané terasy',
   'templateCard.slideCount': '{{count}} snímky',
+  'templateCard.usageCount': '{{count}} použitia',
+  'templates.empty.body': 'Skúste iný filter — každý mesiac pridávame nové šablóny.',
+  'templates.empty.title': 'V tejto kategórii zatiaľ nie sú žiadne šablóny',
+  'templates.hero.body':
+    'Predpripravené rozloženia snímok s blokmi grafov, ukážkovými rámcami, poznámkami prednášajúceho a predvoľbami časovača — každá šablóna je pripravená na nahrávanie.',
   'templates.hero.eyebrow': 'Vybrané etapy',
   'templates.hero.heading': 'Etapy postavené pre okamih, keď ich potrebujete pristáť.',
 }

@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ertu með endurgjöf, fannst þú villu eða vilt þú fá skólann þinn með? Hafðu samband í stillingum reikningsins eða sendu skólastjóranum skilaboð — hver skilaboð berast raunverulegum einstaklingi í teyminu.',
   'about.contactTitle': 'Hafðu samband við okkur',
+  'about.missionTitle': 'Markmið okkar',
   'announcementsFeed.empty': 'Engar tilkynningar ennþá.',
   'announcementsFeed.eyebrow': '{{count}} uppfærslur',
   'announcementsFeed.title': 'Nýjustu tilkynningar',
   'assignmentDetail.alreadySubmitted': 'Þú hefur þegar skilað þessu verkefni.',
   'assignmentDetail.backLink': 'Til baka í verkefni',
+  'assignmentDetail.dropBody':
+    'Notaðu Velja skrár til að hengja við verkefnið þitt — við skráum tímann á innsendingunni þegar þú staðfestir.',
   'assignmentDetail.dropButton': 'Veldu skrár',
+  'assignmentDetail.dropPrompt': 'Slepptu PDF- eða myndpakkanum þínum hér',
   'assignmentDetail.due': 'Gjalddagi {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Leiðbeiningar',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Metið',
   'assignmentDetail.statusSubmitted': 'Sent inn',
   'assignmentDetail.statusTitle': 'Staða innsendingar',
+  'assignmentDetail.submitError':
+    'Við gátum ekki skráð þessa innsendingu. Reyndu aftur eftir smástund.',
   'assignmentDetail.submitted': 'Innsending skráð — kennaranum þínum hefur verið tilkynnt.',
+  'assignmentDetail.submittedAt': 'Sent {{when}}',
+  'assignmentDetail.submitTitle': 'Sendu inn verkefnið þitt',
   'assignmentRow.courseDue': '{{course}} · Gjalddagi {{due}}',
   'assignments.empty': 'Ekkert hér',
   'assignments.emptyBody': 'Skiptu um síur að ofan til að sjá verkefni í annarri stöðu.',
@@ -37,9 +47,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Dagleg skrá yfir viðveru, fjarveru og seinkomu — með athugasemdum ef við á.',
+  'attendance.summary.absences': 'Fjarverur',
   'attendance.summary.absencesCaption': 'Undir 5 daga íhlutunarmörkum',
   'attendance.summary.attendance': 'Mæting',
   'attendance.summary.attendanceCaption': '{{count}} nútíð þessa kjörtímabils',
+  'attendance.summary.tardies': 'Seinkanir',
   'attendance.summary.tardiesCaption':
     'Þar á meðal athugasemdir vegna tafa á strætó / tímapöntunum',
   'attendance.title': 'Mætingarsaga',
@@ -53,6 +65,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Einkunnir',
   'courseDetail.currentGrade': 'Núverandi einkunn',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Yfirlit áfangans',
   'courseDetail.gradesTitle': 'Nýlegar einkunnir',
   'courseDetail.messageTeacher': 'Skilaboð kennara',
   'courseDetail.noGrades': 'Engar einkunnir birtar ennþá.',
@@ -65,13 +78,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Sjá allt',
   'dashboard.assignmentsTitle': 'Næst í þessari viku',
   'dashboard.greeting': 'Hæ {{name}} , tilbúinn fyrir tímann?',
+  'dashboard.subtitle':
+    'Vikan þín í stuttu máli — stundaskrá, einkunnir og verkefni í einu rólegu yfirliti.',
+  'dashboard.viewReportCard': 'Skoða einkunnablað',
+  'dashboard.weekFocusBody':
+    'Sendu inn æfingasett 7 í annars stigs jöfnum og kaflaprófið. Leiðsagnarstofan er opin þriðjudaga og fimmtudaga eftir 7. tíma.',
+  'dashboard.weekFocusCta': 'Sjá alla áætlun',
   'dashboard.weekFocusEyebrow': 'Vikulegt áhersluatriði',
   'dashboard.weekFocusTitle': 'Hækkaðu Algebru II um 4 stig',
   'forgotPassword.subheading':
     'Sláðu inn skólanetfangið þitt og við sendum þér endurstillingarhlekk.',
   'forgotPassword.successBody':
     'Ef {{email}} passar við Chalk reikning, þá er tengill til að endurstilla lykilorð væntanlegur. Tenglar renna út eftir 30 mínútur.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} GPA-meðaltal',
+  'gpaHeroCard.summary': '{{count}} tímar í dag',
   'grades.col.grade': 'Einkunn',
   'grades.col.teacher': 'Kennari',
   'grades.col.trend': 'Þróun',
@@ -83,10 +104,17 @@ export const ui: UiTranslations = {
     'Einkunnir í rauntíma, bæði bókstafir og prósentur. Þróunarörvar sýna hvort þú ert að færast upp, vera á sama stigi eða lækka.',
   'grades.title': 'Einkunnir þínar, námskeið fyrir námskeið',
   'grades.trendStable': 'Stöðugt',
+  'grades.viewReportCard': 'Skoða formlegt einkunnablað',
   'landing.copyright': '© {{year}} {{app}} . Hannað fyrir nemendur, gert fyrir fjölskyldur.',
+  'landing.ctaBody':
+    'Ókeypis fyrstu 30 dagana, engin kreditkort nauðsynleg. Skólasvæði geta tekið upp skólavíðtækt stig á einum eftirmiðdegi.',
+  'landing.ctaButton': 'Búðu til gáttina þína',
   'landing.ctaHeading': 'Rólegri skóladagur byrjar á örfáum mínútum',
   'landing.eyebrow': 'Fyrir mið- og framhaldsskólanema',
   'landing.featuresHeading': 'Skóladagurinn er skipulagður í kringum nemandann',
+  'landing.heroSubtitle':
+    '{{appName}} dregur saman alla áfanga, einkunnir, verkefni og skilaboð í eitt rólegt mælaborð svo þú getir eytt minni tíma í leit og meiri tíma í nám.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'FERPA-samhæft sjálfgefið',
   'landing.proof.rating': '4,8 í 12.000 fjölskyldum',
   'landing.sampleTerm': 'Vor',
@@ -95,6 +123,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Fela lykilorð',
   'login.noAccount': 'Nýr í Krít?',
   'login.showPassword': 'Sýna lykilorð',
+  'messages.compose': 'Ný skilaboð',
   'messages.composer.email': 'Netfang viðtakanda (valfrjálst)',
   'messages.composer.errorEmpty': 'Skilaboð mega ekki vera tóm.',
   'messages.composer.errorRecipient': 'Nafn viðtakanda er krafist.',
@@ -125,9 +154,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Heiðurslisti · Vorönn',
   'nav.unreadMessages': 'Ólesin skilaboð',
   'notifications.eyebrow': '{{count}} uppfærslur',
+  'notifications.feedTitle': 'Öll nýleg virkni',
   'notifications.subtitle':
     'Einkunnir, áminningar, skilaboð og skólatilkynningar. Stilltu hvaða rásir hver tilkynning notar í Stillingum.',
+  'planUpdated.body':
+    'Greiðslubreytingin þín er nú virk. Þú getur stýrt áskriftinni þinni hvenær sem er á greiðslusíðunni.',
+  'planUpdated.retry': 'Reyndu aftur',
+  'planUpdated.verifyFailed': 'Við gátum ekki staðfest greiðsluna þína ennþá.',
+  'planUpdated.verifyFailedBody':
+    'Greiðslan þín gæti enn verið í vinnslu. Reyndu aftur eftir smástund.',
   'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
+  'pricing.announcementsLabel': 'tilkynningar',
   'pricing.attendanceLabel': 'mæting',
   'pricing.gradesLabel': 'einkunnir',
   'pricing.heading': 'tilkynningar',
@@ -142,6 +179,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': '2. ársfjórðungur',
   'reportCard.crumb': 'Skýrslukort',
   'reportCard.cumulativeGpa': 'Uppsafnað meðaleinkunn',
+  'reportCard.download': 'Sækja PDF-skjal',
   'reportCard.downloaded': 'Skýrslukort opnaði í nýjum flipa.',
   'reportCard.downloading': 'Búa til PDF…',
   'reportCard.empty': 'Engar einkunnir skráðar ennþá.',
@@ -149,6 +187,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Einkunnamat · {{term}}',
   'reportCard.subtitle':
     'Formleg afrit af námslokum með vegnum einkunnum, mætingu og prentvænu PDF skjali til niðurhals.',
+  'reportCard.title': 'Skýrslukort',
+  'resetPassword.newPassword': 'Nýtt lykilorð',
   'resetPassword.subheading': 'Veldu eitthvað eftirminnilegt en erfitt að giska á.',
   'resetPassword.tokenPlaceholder': 'Límdu inn kóðann úr tölvupóstinum þínum',
   'schedule.empty': 'Engir tímar áætlaðir.',
@@ -171,12 +211,19 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Ókeypis í 30 daga. Engin þörf á kreditkorti.',
   'subjectStatsTriad.assignmentsCaption': '{{due48}} á gjalddaga innan 48 klst., {{overdue}} seint',
   'subjectStatsTriad.assignmentsLabel': 'Verkefni í bið',
+  'subjectStatsTriad.attendanceCaption':
+    '{{absent}} fjarverur á þessu misseri · {{tardy}} seinkanir',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Er að reikna mætingartölur…',
+  'subjectStatsTriad.attendanceLabel': 'Mæting',
   'subjectStatsTriad.gradesCaption': 'Þvert yfir {{percent}} % vegið meðaltal',
+  'subjectStatsTriad.gradesCaptionLoading': 'Hleður einkunnir…',
+  'subjectStatsTriad.gradesLabel': 'Meðaleinkunn bekkjar',
   'todayScheduleStrip.empty': 'Engin kennsla í dag.',
   'todayScheduleStrip.eyebrow': '{{count}} námskeið',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Dagskrá dagsins',
   'topbar.guestName': 'Nemandi',
   'topbar.searchPlaceholder': 'Leita að námskeiðum, verkefnum…',
+  'topbar.studentRole': 'Nemandi',
   'topbar.studentTag': 'Nemandi · # {{id}}',
 }

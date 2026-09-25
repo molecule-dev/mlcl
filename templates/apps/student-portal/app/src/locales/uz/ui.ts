@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fikr-mulohazangiz bormi, xatolik topdingizmi yoki maktabingizni jalb qilmoqchimisiz? Hisob sozlamalaridan murojaat qiling yoki maktab administratoringizga xabar yuboring — har bir xabar jamoamizdagi haqiqiy insonga yetib boradi.',
   'about.contactTitle': "Biz bilan bog'laning",
+  'about.missionTitle': 'Bizning vazifamiz',
   'announcementsFeed.empty': "Hali hech qanday e'lon yo'q.",
   'announcementsFeed.eyebrow': '{{count}} yangilanishlar',
   'announcementsFeed.title': "So'nggi e'lonlar",
   'assignmentDetail.alreadySubmitted': 'Siz bu topshiriqni allaqachon topshirgansiz.',
   'assignmentDetail.backLink': 'Topshiriqlarga qaytish',
+  'assignmentDetail.dropBody':
+    "Ishingizni biriktirish uchun Fayllarni tanlang dan foydalaning — tasdiqlaganingizdan so'ng topshirilgan vaqtni qayd etamiz.",
   'assignmentDetail.dropButton': 'Fayllarni tanlang',
+  'assignmentDetail.dropPrompt': "PDF yoki rasm to'plamingizni shu yerga tashlang",
   'assignmentDetail.due': "To'lov muddati {{due}}",
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': "Ko'rsatmalar",
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Baholangan',
   'assignmentDetail.statusSubmitted': 'Yuborildi',
   'assignmentDetail.statusTitle': 'Yuborish holati',
+  'assignmentDetail.submitError':
+    "Bu topshiriqni qayd eta olmadik. Birozdan so'ng qayta urinib ko'ring.",
   'assignmentDetail.submitted': "Topshirish yozib olindi — o'qituvchingizga xabar berildi.",
+  'assignmentDetail.submittedAt': '{{when}} da topshirildi',
+  'assignmentDetail.submitTitle': 'Ishingizni topshiring',
   'assignmentRow.courseDue': "{{course}} · To'lov muddati {{due}}",
   'assignments.empty': "Bu yerda hech narsa yo'q",
   'assignments.emptyBody':
@@ -39,9 +49,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     "Kundalik mavjudlik, yo'qlik va kechikishlar jurnali — kerak bo'lganda qaydlar bilan.",
+  'attendance.summary.absences': 'Kelmagan kunlar',
   'attendance.summary.absencesCaption': '5 kunlik aralashuv chegarasidan pastda',
   'attendance.summary.attendance': 'Davomat',
   'attendance.summary.attendanceCaption': '{{count}} hozirgi kunda bu muddat',
+  'attendance.summary.tardies': 'Kechikishlar',
   'attendance.summary.tardiesCaption':
     "Avtobus/uchrashuv kechikishlari uchun eslatmalarni o'z ichiga oladi",
   'attendance.title': 'Davomat tarixi',
@@ -56,6 +68,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Baholar',
   'courseDetail.currentGrade': 'Joriy baho',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': "Kurs umumiy ko'rinishi",
   'courseDetail.gradesTitle': "So'nggi baholar",
   'courseDetail.messageTeacher': "O'qituvchiga xabar",
   'courseDetail.noGrades': 'Hali baholar joylashtirilmadi.',
@@ -68,13 +81,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': "Barchasini ko'rish",
   'dashboard.assignmentsTitle': 'Keyingi haftada',
   'dashboard.greeting': 'Salom {{name}} , Darsga tayyormisiz?',
+  'dashboard.subtitle':
+    "Haftangiz bir qarashda — jadval, baholar va topshiriqlar bir joyda, xotirjam ko'rinishda.",
+  'dashboard.viewReportCard': "Baholash varaqasini ko'rish",
+  'dashboard.weekFocusBody':
+    "Kvadrat tenglamalar bo'yicha 7-mashq to'plamini va bob testini topshiring. Repetitorlik xonasi seshanba va payshanba kunlari 7-darsdan keyin ochiq.",
+  'dashboard.weekFocusCta': "To'liq rejani ko'rish",
   'dashboard.weekFocusEyebrow': 'Hafta diqqat markazida',
   'dashboard.weekFocusTitle': 'Algebra II ni 4 ballga oshiring',
   'forgotPassword.subheading':
     'Maktab elektron pochtangizni kiriting, shunda biz sizga qayta tiklash havolasini yuboramiz.',
   'forgotPassword.successBody':
     "Agar {{email}} Chalk hisobiga mos keladi, parolni tiklash havolasi yo'lda. Havolalar 30 daqiqada amal qilish muddati tugaydi.",
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} muddatli GPA',
+  'gpaHeroCard.summary': 'Bugun {{count}} ta dars',
   'grades.col.grade': 'Baho',
   'grades.col.teacher': "O'qituvchi",
   'grades.col.trend': 'Trend',
@@ -86,10 +107,17 @@ export const ui: UiTranslations = {
     "Jonli harflar va foizli baholar. Trend strelkalari sizning yuqoriga ko'tarilishingizni, darajangizni yoki pasayishingizni ko'rsatadi.",
   'grades.title': 'Kursma-kurs baholaringiz',
   'grades.trendStable': 'Otxona',
+  'grades.viewReportCard': "Rasmiy baholash varaqasini ko'rish",
   'landing.copyright': '© {{year}} {{app}} . Talabalar uchun, oilalar uchun yaratilgan.',
+  'landing.ctaBody':
+    'Birinchi 30 kun bepul, kredit karta talab qilinmaydi. Tumanlar maktab miqyosidagi tarifni bir kunda joriy qilishlari mumkin.',
+  'landing.ctaButton': 'Portalingizni yarating',
   'landing.ctaHeading': 'Bir necha daqiqada tinchroq maktab kuni boshlanadi',
   'landing.eyebrow': "O'rta va oliy maktab o'quvchilari uchun",
   'landing.featuresHeading': "O'quvchi atrofida tashkil etilgan maktab kuni",
+  'landing.heroSubtitle':
+    "{{appName}} barcha sinflar, baholar, topshiriqlar va xabarlarni bitta xotirjam panelga jamlaydi — izlashga kamroq, o'qishga ko'proq vaqt ajratasiz.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': "Sukut bo'yicha FERPA-ga mos keladi",
   'landing.proof.rating': '12 ming oilada 4,8 ta',
   'landing.sampleTerm': 'Bahor',
@@ -98,6 +126,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Parolni yashirish',
   'login.noAccount': 'Chalkda yangimisiz?',
   'login.showPassword': "Parolni ko'rsatish",
+  'messages.compose': 'Yangi xabar',
   'messages.composer.email': 'Qabul qiluvchining elektron pochta manzili (ixtiyoriy)',
   'messages.composer.errorEmpty': "Xabar bo'sh bo'lishi mumkin emas.",
   'messages.composer.errorRecipient': 'Qabul qiluvchining ismi talab qilinadi.',
@@ -128,9 +157,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Faxriy yorliq · Bahorgi semestr',
   'nav.unreadMessages': "O'qilmagan xabarlar",
   'notifications.eyebrow': '{{count}} yangilanishlar',
+  'notifications.feedTitle': "Barcha so'nggi faoliyat",
   'notifications.subtitle':
     "Baholar, eslatmalar, xabarlar va maktab e'lonlari. Sozlamalarda har bir bildirishnoma qaysi kanallardan foydalanishini sozlang.",
+  'planUpdated.body':
+    "Hisob-kitob o'zgarishingiz endi faol. Tarifingizni istalgan vaqtda hisob-kitob sahifasidan boshqarishingiz mumkin.",
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
+  'pricing.announcementsLabel': "e'lonlar",
   'pricing.attendanceLabel': 'davomat',
   'pricing.gradesLabel': 'baholar',
   'pricing.heading': "e'lonlar",
@@ -145,6 +182,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': '2-chorak',
   'reportCard.crumb': 'Hisobot kartasi',
   'reportCard.cumulativeGpa': 'Kümülatif GPA',
+  'reportCard.download': 'PDF yuklab olish',
   'reportCard.downloaded': 'Hisobot kartasi yangi yorliqda ochildi.',
   'reportCard.downloading': 'PDF yaratilmoqda…',
   'reportCard.empty': "Hali hech qanday baho yo'q.",
@@ -152,6 +190,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Yakuniy GPA · {{term}}',
   'reportCard.subtitle':
     "Semestr oxiridagi rasmiy transkript, kurs baholari, davomat va chop etish mumkin bo'lgan PDF formatida yuklab olish.",
+  'reportCard.title': 'Hisobot kartasi',
+  'resetPassword.newPassword': 'Yangi parol',
   'resetPassword.subheading': "Esda qolarli, ammo taxmin qilish qiyin bo'lgan narsani tanlang.",
   'resetPassword.tokenPlaceholder': 'Elektron pochtangizdan kodni joylashtiring',
   'schedule.empty': 'Hech qanday dars rejalashtirilmagan.',
@@ -177,12 +217,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Kutilayotgan topshiriqlar',
   'subjectStatsTriad.attendanceCaption':
     "{{absent}} bu semestrda yo'qliklar · {{tardy}} kechikishlar",
+  'subjectStatsTriad.attendanceCaptionLoading': 'Davomat raqamlari hisoblanmoqda…',
+  'subjectStatsTriad.attendanceLabel': 'Davomat',
   'subjectStatsTriad.gradesCaption': "Bo'ylab {{percent}} O'rtacha og'irlikdagi foiz",
+  'subjectStatsTriad.gradesCaptionLoading': 'Baholar yuklanmoqda…',
+  'subjectStatsTriad.gradesLabel': "Sinf o'rtachasi",
   'todayScheduleStrip.empty': "Bugun darslar yo'q.",
   'todayScheduleStrip.eyebrow': '{{count}} sinflar',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Bugungi jadval',
   'topbar.guestName': 'Talaba',
   'topbar.searchPlaceholder': 'Darslar, topshiriqlarni qidirish…',
+  'topbar.studentRole': 'Talaba',
   'topbar.studentTag': 'Talaba · # {{id}}',
 }

@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Àwọn ìbéèrè, èsì, tàbí ẹ̀yà tí o fẹ́ kí a ní? Kàn sí ẹgbẹ́ náà láti inú ètò àkọsílẹ̀ rẹ — ènìyàn gidi ni ó ń ka gbogbo ìṣẹ́.',
   'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
+  'about.missionTitle': 'Iṣẹ́ àwa',
+  'about.whatYouGetTitle': 'Ohun tí o gbà',
   'analytics.empty': 'Ṣẹ̀dá àwọn àgbékalẹ̀ láti wo àwọn àgbékalẹ̀ ìwádìí níbí.',
   'analytics.stats.acrossDecks': 'Jákèjádò gbogbo àwọn ilẹ̀kùn',
   'analytics.stats.allTime': 'Nínú studio rẹ',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Àkọlé pákì',
   'landing.features.eyebrow': 'Kí nìdí tí a fi ń ṣe àtúnṣe',
   'landing.features.heading': 'Gbogbo ohun tí o nílò láti rìn lórí pèpéle ti ṣetán.',
+  'landing.finalCta.body':
+    'Ṣí ilé-iṣẹ́ rẹ ní abẹ́ ìṣẹ́jú kan. Kò sí káàdì kírẹ́dítì. Fagilé nígbàkigbà.',
   'landing.finalCta.cta': 'Ṣẹ̀dá ilé iṣẹ́ ọ̀fẹ́ rẹ',
   'landing.finalCta.eyebrow': 'Ofe lati bẹrẹ',
   'landing.finalCta.heading': 'Gbé orí pèpéle pẹ̀lú àga tó dára jùlọ nínú iṣẹ́ rẹ.',
@@ -81,10 +87,15 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'A ṣe àtúnṣe ní ìṣẹ́jú 12 sẹ́yìn',
   'notifications.created': 'ṣẹ̀dá',
   'notifications.edited': 'tí a ṣe àtúnṣe',
+  'notifications.empty.body':
+    'Ìṣe lórí àwọn deki rẹ — àwọn ọ̀rọ̀ àsọyé, àwọn ìdárúkọ, àwọn ìkójáde — yóò farahàn níbí.',
   'notifications.empty.title': 'Ko si awọn iwifunni sibẹsibẹ',
   'notifications.eyebrow': 'Ìgbòkègbodò orí ìtàgé',
   'notifications.loading': 'N n gbe…',
   'notifications.shared': 'pín ní gbangba',
+  'planUpdated.retry': 'Gbìyànjú lẹ́ẹ̀kan sí i',
+  'planUpdated.verifyFailed': 'A kò tíì lè jẹ́rìí ìsanwó rẹ.',
+  'planUpdated.verifyFailedBody': 'Ìsanwó rẹ ṣì lè ń lọ lọ́wọ́. Gbìyànjú lẹ́ẹ̀kan sí i ní ìṣẹ́jú díẹ̀.',
   'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'present.addSlides': 'Fi awọn ifaworanhan kun',
   'present.backToDecks': 'Pada si awọn deki',
@@ -122,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Olùṣeré orí ìtàgé',
   'settings.security.notSet': 'Kò ṣètò',
   'settings.security.passwordBody': 'Ọ̀rọ̀ ìpamọ́ rẹ ni a fi pamọ nígbà ìsinmi.',
+  'settings.security.reset': 'Ṣe atunto',
   'settings.security.title': 'Àkọọ́lẹ̀ + àwọn ìpàdé',
   'shared.empty.body':
     'Àwọn páákì tí o bá pín ní gbangba yóò farahàn níbí. Ṣí páákì kan kí o sì yí gbogbo ènìyàn padà láti pín.',
@@ -130,6 +142,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'N n gbe…',
   'shared.title': 'Àwọn pákì tí a pín',
   'templateCard.slideCount': '{{count}} awọn ifaworanhan',
+  'templateCard.usageCount': '{{count}} awọn lilo',
+  'templates.empty.body': 'Gbìyànjú àlẹ̀mọ́ mìíràn — a ń gbé àwọn àwòṣe tuntun jáde lóṣooṣù.',
+  'templates.empty.title': 'Kò sí àwọn àwòṣe nínú ẹ̀ka yìí síbẹ̀',
+  'templates.hero.body':
+    'Àwọn ìṣètò fàìlì oní àkòrí pẹ̀lú àwọn bulọ́ọ̀kì ìtẹ̀jáde, àwọn férémù ìfihàn, àwọn àkọsílẹ̀ olùgbékalẹ̀, àti àwọn ìṣètò aago — gbogbo àwòṣe wá ní ṣetán láti gbà á.',
   'templates.hero.eyebrow': 'Àwọn ìpele tí a ṣètò',
   'templates.hero.heading': 'Àwọn ìpele tí a kọ́ fún àkókò tí o nílò láti dé ibẹ̀.',
 }

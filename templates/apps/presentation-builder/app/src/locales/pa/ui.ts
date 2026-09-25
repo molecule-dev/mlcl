@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ਸਵਾਲ, ਫੀਡਬੈਕ, ਜਾਂ ਕੋਈ ਫੀਚਰ ਜੋ ਤੁਸੀਂ ਚਾਹੁੰਦੇ ਹੋ? ਆਪਣੀ ਖਾਤਾ ਸੈਟਿੰਗਾਂ ਤੋਂ ਟੀਮ ਨਾਲ ਸੰਪਰਕ ਕਰੋ — ਹਰ ਸੁਨੇਹਾ ਇੱਕ ਅਸਲੀ ਵਿਅਕਤੀ ਪੜ੍ਹਦਾ ਹੈ।',
   'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
+  'about.missionTitle': 'ਸਾਡਾ ਮਿਸ਼ਨ',
+  'about.whatYouGetTitle': 'ਤੁਹਾਨੂੰ ਕੀ ਮਿਲਦਾ ਹੈ',
   'analytics.empty': 'ਇੱਥੇ ਵਿਸ਼ਲੇਸ਼ਣ ਦੇਖਣ ਲਈ ਡੈੱਕ ਬਣਾਓ।',
   'analytics.stats.acrossDecks': 'ਸਾਰੇ ਡੇਕਾਂ ਦੇ ਪਾਰ',
   'analytics.stats.allTime': 'ਤੁਹਾਡੇ ਸਟੂਡੀਓ ਵਿੱਚ',
@@ -65,6 +69,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'ਡੈੱਕ ਸਿਰਲੇਖ',
   'landing.features.eyebrow': 'ਓਵਰਚਰ ਕਿਉਂ',
   'landing.features.heading': 'ਸਟੇਜ ’ਤੇ ਚੱਲਣ ਲਈ ਤੁਹਾਨੂੰ ਜੋ ਵੀ ਚਾਹੀਦਾ ਹੈ, ਉਹ ਤਿਆਰ ਹੈ।',
+  'landing.finalCta.body':
+    'ਇੱਕ ਮਿੰਟ ਤੋਂ ਘੱਟ ਸਮੇਂ ਵਿੱਚ ਆਪਣਾ ਸਟੂਡੀਓ ਸ਼ੁਰੂ ਕਰੋ। ਕੋਈ ਕ੍ਰੈਡਿਟ ਕਾਰਡ ਨਹੀਂ। ਕਦੇ ਵੀ ਰੱਦ ਕਰੋ।',
   'landing.finalCta.cta': 'ਆਪਣਾ ਮੁਫ਼ਤ ਸਟੂਡੀਓ ਬਣਾਓ',
   'landing.finalCta.eyebrow': 'ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਮੁਫ਼ਤ',
   'landing.finalCta.heading': 'ਆਪਣੇ ਕਰੀਅਰ ਦੇ ਸਭ ਤੋਂ ਵਧੀਆ ਡੈੱਕ ਨਾਲ ਸਟੇਜ ’ਤੇ ਕਦਮ ਰੱਖੋ।',
@@ -80,10 +86,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 ਮਿੰਟ ਪਹਿਲਾਂ ਸੰਪਾਦਿਤ ਕੀਤਾ ਗਿਆ',
   'notifications.created': 'ਬਣਾਇਆ',
   'notifications.edited': 'ਸੋਧਿਆ ਗਿਆ',
+  'notifications.empty.body':
+    'ਤੁਹਾਡੇ ਡੈੱਕਾਂ ਉੱਤੇ ਗਤੀਵਿਧੀ — ਟਿੱਪਣੀਆਂ, ਜ਼ਿਕਰ, ਐਕਸਪੋਰਟ — ਇੱਥੇ ਦਿਖਾਈ ਦੇਵੇਗੀ।',
   'notifications.empty.title': 'ਹਾਲੇ ਕੋਈ ਸੂਚਨਾਵਾਂ ਨਹੀਂ',
   'notifications.eyebrow': 'ਸਟੇਜ ਗਤੀਵਿਧੀ',
   'notifications.loading': 'ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...',
   'notifications.shared': 'ਜਨਤਕ ਤੌਰ ’ਤੇ ਸਾਂਝਾ ਕੀਤਾ ਗਿਆ',
+  'planUpdated.retry': 'ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
+  'planUpdated.verifyFailed': 'ਅਸੀਂ ਅਜੇ ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰ ਸਕੇ।',
+  'planUpdated.verifyFailedBody':
+    'ਤੁਹਾਡਾ ਭੁਗਤਾਨ ਅਜੇ ਵੀ ਪ੍ਰਕਿਰਿਆ ਅਧੀਨ ਹੋ ਸਕਦਾ ਹੈ। ਕੁਝ ਦੇਰ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'present.addSlides': 'ਸਲਾਈਡਾਂ ਸ਼ਾਮਲ ਕਰੋ',
   'present.backToDecks': 'ਡੈੱਕਾਂ ’ਤੇ ਵਾਪਸ ਜਾਓ',
@@ -121,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'ਸਟੇਜ ਪ੍ਰਫਾਰਮਰ',
   'settings.security.notSet': 'ਸੈੱਟ ਨਹੀਂ ਹੈ',
   'settings.security.passwordBody': 'ਤੁਹਾਡਾ ਪਾਸਵਰਡ ਆਰਾਮ ਨਾਲ ਏਨਕ੍ਰਿਪਟ ਕੀਤਾ ਗਿਆ ਹੈ।',
+  'settings.security.reset': 'ਰੀਸੈੱਟ',
   'settings.security.title': 'ਖਾਤਾ + ਸੈਸ਼ਨ',
   'shared.empty.body':
     'ਤੁਹਾਡੇ ਵੱਲੋਂ ਜਨਤਕ ਤੌਰ ’ਤੇ ਸਾਂਝੇ ਕੀਤੇ ਗਏ ਡੈੱਕ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ। ਇੱਕ ਡੈੱਕ ਖੋਲ੍ਹੋ ਅਤੇ ਸਾਂਝਾ ਕਰਨ ਲਈ ਜਨਤਕ ਟੌਗਲ ਕਰੋ।',
@@ -129,6 +142,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...',
   'shared.title': 'ਸਾਂਝੇ ਡੈੱਕ',
   'templateCard.slideCount': '{{count}} ਸਲਾਈਡਾਂ',
+  'templateCard.usageCount': '{{count}} ਵਰਤਦਾ ਹੈ',
+  'templates.empty.body': 'ਕੋਈ ਵੱਖਰਾ ਫਿਲਟਰ ਅਜ਼ਮਾਓ — ਅਸੀਂ ਹਰ ਮਹੀਨੇ ਨਵੇਂ ਟੈਂਪਲੇਟ ਭੇਜਦੇ ਹਾਂ।',
+  'templates.empty.title': 'ਇਸ ਸ਼੍ਰੇਣੀ ਵਿੱਚ ਅਜੇ ਕੋਈ ਟੈਂਪਲੇਟ ਨਹੀਂ',
+  'templates.hero.body':
+    'ਚਾਰਟ ਬਲਾਕਾਂ, ਡੈਮੋ ਫਰੇਮਾਂ, ਪ੍ਰਸਤੁਤਕਰਤਾ ਨੋਟਾਂ, ਅਤੇ ਟਾਈਮਰ ਪ੍ਰੀਸੈਟਾਂ ਵਾਲੇ ਪਹਿਲਾਂ-ਥੀਮ ਵਾਲੇ ਸਲਾਈਡ ਲੇਆਉਟ — ਹਰ ਟੈਂਪਲੇਟ ਰਿਕਾਰਡ ਕਰਨ ਲਈ ਤਿਆਰ ਆਉਂਦਾ ਹੈ।',
   'templates.hero.eyebrow': 'ਚੁਣੇ ਹੋਏ ਪੜਾਅ',
   'templates.hero.heading': 'ਉਸ ਪਲ ਲਈ ਬਣਾਏ ਗਏ ਪੜਾਅ ਜਿਸਦੀ ਤੁਹਾਨੂੰ ਇਸਨੂੰ ਲੈਂਡ ਕਰਨ ਦੀ ਲੋੜ ਹੈ।',
 }

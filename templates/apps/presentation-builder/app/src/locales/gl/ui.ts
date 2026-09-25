@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tes preguntas, suxestións ou algunha función que che gustaría que tivésemos? Contacta co equipo desde a configuración da túa conta — unha persoa real le cada mensaxe.',
   'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Acerca de',
+  'about.missionTitle': 'A nosa misión',
+  'about.whatYouGetTitle': 'O que obtés',
   'analytics.empty': 'Crea mazos para ver as análises aquí.',
   'analytics.stats.acrossDecks': 'En todas as plataformas',
   'analytics.stats.allTime': 'No teu estudo',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Título da baralla',
   'landing.features.eyebrow': 'Por que abertura',
   'landing.features.heading': 'Todo o que necesitas para subir ao escenario listo.',
+  'landing.finalCta.body':
+    'Pon en marcha o teu estudo en menos dun minuto. Sen tarxeta de crédito. Cancela cando queiras.',
   'landing.finalCta.cta': 'Crea o teu estudo gratuíto',
   'landing.finalCta.eyebrow': 'Gratis para comezar',
   'landing.finalCta.heading': 'Sube ao escenario coa mellor baralla da túa carreira.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Editado hai 12 minutos',
   'notifications.created': 'creado',
   'notifications.edited': 'editado',
+  'notifications.empty.body':
+    'A actividade nos teus decks — comentarios, mencións, exportacións — aparecerá aquí.',
   'notifications.empty.title': 'Aínda non hai notificacións',
   'notifications.eyebrow': 'Actividade escénica',
   'notifications.loading': 'Cargando…',
   'notifications.shared': 'compartido publicamente',
+  'planUpdated.retry': 'Téntao de novo',
+  'planUpdated.verifyFailed': 'Aínda non puidemos confirmar o teu pagamento.',
+  'planUpdated.verifyFailedBody':
+    'É posible que o teu pago aínda estea procesándose. Téntao de novo nun momento.',
   'planUpdated.verifying': 'Confirmando o teu pago…',
   'present.addSlides': 'Engadir diapositivas',
   'present.backToDecks': 'Volver ás barallas',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Artista de escena',
   'settings.security.notSet': 'Sen definir',
   'settings.security.passwordBody': 'O teu contrasinal está cifrado en repouso.',
+  'settings.security.reset': 'Restablecer',
   'settings.security.title': 'Conta + sesións',
   'shared.empty.body':
     'As barallas que compartas publicamente aparecerán aquí. Abre unha baralla e activa a opción pública para compartila.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Cargando…',
   'shared.title': 'Cubertas compartidas',
   'templateCard.slideCount': '{{count}} diapositivas',
+  'templateCard.usageCount': '{{count}} usos',
+  'templates.empty.body': 'Proba un filtro diferente — publicamos novos modelos cada mes.',
+  'templates.empty.title': 'Aínda non hai modelos nesta categoría',
+  'templates.hero.body':
+    'Diapositivas con temas predefinidos, bloques de gráficos, marcos de demostración, notas do presentador e temporizadores preconfigurados — todos os modelos veñen listos para gravar.',
   'templates.hero.eyebrow': 'Etapas seleccionadas',
   'templates.hero.heading': 'Escenarios construídos para o momento en que necesitas aterralo.',
 }

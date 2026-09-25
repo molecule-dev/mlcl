@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'A csomagja frissítve lett.',
   'planUpdated.returnHome': 'Vissza a főoldalra',
   'planUpdated.thankYou': 'Köszönjük!',
+  'post.markdown': 'Bejegyzés megtekintése markdownként',
+  'post.readingTime': '{{minutes}} perc olvasás',
   'post.tags': 'Címkék',
   'project.error.nameAndTypeRequired': 'A név és a projectType megadása kötelező',
   'project.error.notFound': 'Nem található',

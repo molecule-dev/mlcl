@@ -1,10 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'எங்களைப் பற்றி',
+  'about.featureAssignments':
+    'பணிகள், கோப்பு சமர்ப்பிப்புகள், மதிப்பீட்டு அளவுகோல்கள், நேரடி கருத்துகள், மற்றும் மாணவர்களையும் பெற்றோரையும் தெரிவித்திருக்கும் அமைதியான மதிப்பெண் புத்தகம்.',
+  'about.featureBreakouts':
+    'ஒரே தட்டலில் பிரேக்அவுட் அறைகள் — மாணவர்களைத் தானாகக் கலக்கி, அறிவிப்புகளை ஒளிபரப்பி, நேரம் முடிந்ததும் அனைவரையும் மீண்டும் ஒன்றாகக் கொண்டு வாருங்கள்.',
+  'about.featureChat':
+    'பொருத்தப்பட்ட வகுப்பு அரட்டை, பின் செய்யப்பட்ட சுருக்கங்கள் மற்றும் அமர்வின் போது அமைதியான பயிற்சிக்கான ஆசிரியருக்கு மட்டுமான பக்க சேனல்களுடன்.',
+  'about.featureVideo':
+    'செயலில் உள்ள பேச்சாளர் கவனம், கேலரி மற்றும் ஸ்பாட்லைட் தளவமைப்புகள், மற்றும் ஆசிரியர்களுக்கான இழுக்கக்கூடிய படம்-இன்-படம் கொண்ட திரைப்படத் தரம் வாய்ந்த நேரடி வீடியோ.',
+  'about.featureWhiteboard':
+    'லேசர் பாயிண்டர் மற்றும் முழு வண்ணத் தட்டுடன் கூடிய எல்லையற்ற ஒயிட்போர்டு, ஒவ்வொரு அமர்வும் ஒவ்வொரு பாடத்திற்கும் சேமிக்கப்படுவதால் வேலை வகுப்புகளுக்கு இடையே தொடரும்.',
+  'about.missionBody':
+    'தொலைநிலை மற்றும் கலப்பு கற்றல் ஒரு கருத்தரங்க மேசையைப் போலவே நேரடியாகவும் மனிதநேயத்துடனும் இருக்க வேண்டும் என்று நாங்கள் நம்புகிறோம். எனவே நேரடி இருப்பை முதலில் வைக்கிறோம் — உண்மையான முகங்கள், பகிரப்பட்ட கேன்வாஸ், சிறு-குழு பிரேக்அவுட்கள் — மேலும் தேவைப்படும் வரை மதிப்பீடு மற்றும் நிர்வாகப் பணிகளை அமைதியாக ஒதுக்கி வைக்கிறோம்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'assignmentDetail.attachmentsTitle': 'இணைப்புகள்',
   'assignmentDetail.back': 'அனைத்து பணிகள்',
   'assignmentDetail.code': 'பயோ 211',
+  'assignmentDetail.context': 'செல் உயிரியல் I · {{instructor}} இடுகையிட்டது · {{due}} தேதி',
   'assignmentDetail.continueDraft': 'வரைவைத் தொடரவும்',
   'assignmentDetail.draftBody':
     'கடைசியாக 14 நிமிடங்களுக்கு முன்பு திருத்தப்பட்டது · ஒவ்வொரு மாற்றத்தின்போதும் தானாகவே சேமிக்கப்படும்.',
@@ -23,6 +38,7 @@ export const ui: UiTranslations = {
   'assignmentRow.statusInProgress': 'வரைவு',
   'assignmentRow.statusSubmitted': 'சமர்ப்பிக்கப்பட்டது',
   'assignmentRow.title': 'ஆய்வக அறிக்கை — மைட்டோகாண்ட்ரியல் டிஎன்ஏ',
+  'assignmentRow.weight': 'மதிப்பெண்ணில் {{percent}}% மதிப்புடையது',
   'assignments.body':
     'உங்கள் பாடநெறிகள் முழுவதும் ஒவ்வொரு கட்டுரை, கணக்குத் தொகுப்பு மற்றும் செயல்திட்டத்தையும் கண்காணிக்கவும்.',
   'assignments.empty': 'தற்போது இந்தப் பாதையில் ஒன்றுமில்லை - இந்த அமைதியை அனுபவியுங்கள்.',
@@ -33,6 +49,8 @@ export const ui: UiTranslations = {
   'assignments.statTotal': 'செயலில் உள்ள பணிகள்',
   'assignments.title': 'பணிகள்',
   'aulaAuthShell.backHome': '← வீட்டிற்குத் திரும்பு',
+  'aulaAuthShell.brandBody':
+    '{{appName}} வீடியோ, ஒயிட்போர்டு, பிரேக்அவுட்கள், அரட்டை மற்றும் மதிப்பீட்டை ஒரே கவனமான தாவலில் கொண்டு வருகிறது — தாவல்களை மேய்க்காமல் கற்பிக்க விரும்பும் ஆசிரியர்களுக்காக உருவாக்கப்பட்டது.',
   'aulaAuthShell.brandEyebrow': 'கற்றல் உயிர்ப்பெறும் இடம்',
   'aulaAuthShell.brandTitle': 'வகுப்பறையில் இருப்பது போன்ற இதமான உணர்வுடன் கூடிய நேரடி வகுப்புகள்.',
   'aulaAuthShell.sampleAttending': 'மேலும் 24 பேர் கலந்துகொள்கின்றனர்',
@@ -42,6 +60,9 @@ export const ui: UiTranslations = {
   'aulaSideNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'aulaSideNav.label': 'முதன்மை வழிசெலுத்தல்',
   'aulaSideNav.weeklyClasses': 'இந்த வாரம்',
+  'aulaSideNav.weeklyClassesCount': '{{done}} / {{total}}',
+  'aulaSideNav.weeklyHelp':
+    'இந்த வாரத்தின் பாடங்களை முடிக்கும் பாதையில் நீங்கள் இருக்கிறீர்கள். தொடருங்கள்!',
   'aulaTopBar.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'aulaTopBar.searchPlaceholder': 'பாடநெறிகள், வகுப்புகள், ஒப்படைப்புகள் போன்றவற்றைத் தேடுங்கள்…',
   'aulaTopBar.title': 'ஆலா',
@@ -54,6 +75,8 @@ export const ui: UiTranslations = {
   'calendar.statTotal': 'வரவிருக்கும் நிகழ்வுகளை உள்ளடக்குங்கள்',
   'classroom.chatCount': '{{count}} செய்திகள்',
   'classroom.chatEmpty': 'இன்னும் செய்திகள் வரவில்லை — இந்த மௌனத்தைக் கலைக்க ஒரு ஹலோ சொல்லுங்கள்.',
+  'classroom.chatInputLabel': 'வகுப்பு அரட்டைச் செய்தி',
+  'classroom.chatLoading': 'உரையாடல் ஏற்றப்படுகிறது…',
   'classroom.chatPlaceholder': 'வகுப்பிற்கு அனுப்பவும்…',
   'classroom.chatTitle': 'வகுப்பு அரட்டை',
   'classroom.detailJoin': 'Join code',
@@ -80,23 +103,30 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'courseDetail.assignmentsTitle': 'பாடநெறி பணிகள்',
   'courseDetail.back': 'அனைத்து படிப்புகளும்',
+  'courseDetail.body':
+    'கோடு தொகையீடுகளிலிருந்து டைவர்ஜென்ஸ் மற்றும் கர்ல் வரை கட்டமைக்கும் இரண்டாம் செமஸ்டர் பாடம். ஒவ்வொரு செவ்வாய்/வியாழனும் நேரடி, வெள்ளிக்கிழமை ஆய்வகம் மற்றும் வாராந்திர அலுவலக நேரங்களுடன்.',
+  'courseDetail.ca1Course': 'கால்குலஸ் II',
   'courseDetail.ca1Due': 'வியாழன் · மாலை 5:00 மணிக்கு',
   'courseDetail.ca1Title': 'திசையன் புலப் பாய்வு சிக்கல் தொகுப்பு',
   'courseDetail.ca2Course': 'கால்குலஸ் II',
   'courseDetail.ca2Due': 'திங்கள் அன்று சமர்ப்பிக்கப்பட்டது',
   'courseDetail.ca2Score': 'பின்னூட்டத்திற்காகக் காத்திருக்கிறது',
   'courseDetail.ca2Title': 'ஸ்டோக்ஸ் தேற்றத்தின் நிரூபணங்கள்',
+  'courseDetail.ca3Course': 'கால்குலஸ் II',
   'courseDetail.ca3Due': 'திரும்பியது · 9 நாட்களுக்கு முன்பு',
   'courseDetail.ca3Score': 'அ · 94%',
   'courseDetail.ca3Title': 'வரி ஒருங்கிணைப்பு மதிப்பாய்வு வினாடி வினா',
   'courseDetail.cls1Course': 'நுண்கணிதம் II · MTH 202',
   'courseDetail.cls1Instructor': 'பேராசிரியர் மாயா ஒகாஃபோர்',
+  'courseDetail.cls1Room': 'ஆலா அறை · லாவெண்டர்',
   'courseDetail.cls1Title': 'திசையன் புலங்கள் மற்றும் பாய்வு',
   'courseDetail.cls2Course': 'நுண்கணிதம் II · MTH 202',
   'courseDetail.cls2Instructor': 'பேராசிரியர் மாயா ஒகாஃபோர்',
+  'courseDetail.cls2Room': 'ஆலா அறை · லாவெண்டர்',
   'courseDetail.cls2Title': 'கோட்டுத் தொகையீடுகள் மதிப்பாய்வு',
   'courseDetail.cls3Course': 'நுண்கணிதம் II · MTH 202',
   'courseDetail.cls3Instructor': 'டி.ஏ. ஃபெலிக்ஸ் பாயர்',
+  'courseDetail.cls3Room': '{{appName}} அறை · Petal',
   'courseDetail.cls3Title': 'ஆய்வகம்: ஸ்டோக்ஸ் கணக்குத் தொகுப்பு',
   'courseDetail.code': 'எம்.டி.எச் 202',
   'courseDetail.materialsTitle': 'பொருட்கள்',
@@ -135,15 +165,20 @@ export const ui: UiTranslations = {
   'courses.loading': 'பாடநெறிகள் ஏற்றப்படுகின்றன…',
   'courses.noBrowse':
     'பாடத்திட்டங்களைத் தேடிப் பார்க்கத் தேவையில்லை — வெளியிடப்படும் அனைத்திலும் நீங்கள் பதிவு செய்யப்பட்டுள்ளீர்கள்.',
+  'courses.noCourses':
+    'இன்னும் பாடங்கள் இல்லை — மேலே உள்ள பொத்தானைப் பயன்படுத்தி ஒன்றை உருவாக்குங்கள்.',
   'courses.title': 'உங்கள் கற்றல் நூலகம்',
   'courseTileCard.code': 'ECN 312',
   'courseTileCard.continue': 'படிப்பைத் தொடரவும்',
   'courseTileCard.enroll': 'பாடநெறியைக் காண்க',
   'courseTileCard.imageAlt': 'பாடநெறி சிறுபடம்',
   'courseTileCard.instructor': 'டாக்டர் இட்ரிஸ் ஹாலோவே',
+  'courseTileCard.lessonsRemaining': '{{count}} மீதமுள்ள பாடம்',
   'courseTileCard.levelAdvanced': 'மேம்பட்ட',
   'courseTileCard.levelBeginner': 'ஆரம்பநிலை',
   'courseTileCard.levelIntermediate': 'இடைநிலை',
+  'courseTileCard.preview':
+    'பாடத்திட்டத்தை முன்னோட்டமிடுங்கள், விரிவுரைகளை உலாவுங்கள், சேர்க்கைக்குக் கோருங்கள்.',
   'courseTileCard.progressComplete': '{{percent}} % நிறைவு',
   'courseTileCard.title': 'நவீன பேரியல் பொருளாதாரம்',
   'dashboard.assignmentsAll': 'அனைத்தையும் காண்க →',
@@ -164,12 +199,16 @@ export const ui: UiTranslations = {
     'சமர்ப்பிக்க வேண்டிய பணிகள் எதுவும் இல்லை — இந்த அமைதியை அனுபவியுங்கள்.',
   'dashboard.noCourses': 'இன்னும் பாடநெறிகள் இல்லை — உங்கள் முதல் பாடநெறி இங்கே தோன்றும்.',
   'dashboard.noDueDate': 'காலக்கெடு இல்லை',
+  'dashboard.scheduleAula': 'ஆலா அறை',
   'dashboard.scheduleEmpty': 'வரவிருக்கும் நேரடி வகுப்புகள் எதுவும் திட்டமிடப்படவில்லை.',
   'dashboard.scheduleHostedYou': 'உங்களால் வழங்கப்பட்டது',
+  'dashboard.scheduleJoinCode': 'இணைப்புக் குறியீடு · {{code}}',
+  'dashboard.statAssignmentsLabel': 'பணிகள் நிறைவு தேதி',
   'dashboard.statClassesDelta': '{{n}} செயலில் உள்ள பாடநெறி',
   'dashboard.statClassesLabel': 'நேரலை அறைகள்',
   'dashboard.statCoursesDelta': '{{n}} பதிவு',
   'dashboard.statCoursesLabel': 'படிப்புகள்',
+  'dashboard.statNotificationsLabel': 'படிக்காத எச்சரிக்கைகள்',
   'dashboard.tipBody':
     'மேலே உள்ள ஹீரோ கார்டிலிருந்து லைவ் ரூமைத் திறந்து, ஒயிட்போர்டில் ஒரு கோடு வரையலாம் அல்லது ஒரு அரட்டைச் செய்தியைப் பதிவிடலாம் — ஒவ்வொரு செயலும் நிலைத்திருக்கும்.',
   'dashboard.tipCta': 'வெள்ளைப்பலகையை முயற்சித்துப் பாருங்கள்',
@@ -183,6 +222,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success':
     'அந்த மின்னஞ்சலுக்கு ஒரு கணக்கு இருந்தால், மீட்டமைப்பு இணைப்பு அனுப்பப்பட்டுக்கொண்டிருக்கும்.',
   'forgotPassword.toLogin': 'உள்நுழைவுக்குத் திரும்பு',
+  'grades.assignmentsCount': '{{n}} மதிப்பெண்கள்',
   'grades.body':
     'ஒவ்வொரு பாடத்திட்டம் குறித்த ஒரு நிதானமான கண்ணோட்டம் — தற்போதைய தரமதிப்பீடு, சமீபத்திய பின்னூட்டம், மற்றும் அடுத்த வாரம் எதில் கவனம் செலுத்த வேண்டும் என்பது உட்பட.',
   'grades.empty':
@@ -195,43 +235,59 @@ export const ui: UiTranslations = {
   'grades.statTrendUnit': 'படிப்புகள்',
   'grades.statWatchLabel': 'கவனம் தேவை',
   'grades.title': 'தரமதிப்பீடுகள் மற்றும் பின்னூட்டம்',
+  'landing.ctaBody':
+    'ஒரு மாதிரிப் பாடத்தை உருவாக்கி, இணை-ஆசிரியரை அழைத்து, மணி அடிக்கும் முன் ஒரு வகுப்பை எப்படி பிரேக்அவுட்களாக மாற்றுவது என்பதைக் காட்டுவோம்.',
   'landing.ctaButton': 'உங்கள் பள்ளியை உருவாக்குங்கள்',
   'landing.ctaPrimary': 'இலவச காலத்தைத் தொடங்குங்கள்',
   'landing.ctaSecondary': 'வகுப்புச் சுற்றுப்பயணத்தைக் காணுங்கள்',
   'landing.ctaTitle': 'மூன்று நிமிடங்களுக்குள் உங்கள் முதல் வகுப்பறையைத் திறக்கவும்.',
+  'landing.demoCourse': 'உலக இலக்கியம் · LIT 240',
+  'landing.demoInstructor': 'பேரா. இமானி டேவிஸ்',
+  'landing.demoTitle': 'மந்திர யதார்த்தம் — போர்கெஸ் & முரகாமி',
   'landing.eyebrow': 'நேரலை · வெண்பலகை · குழு விவாதங்கள் · மதிப்பிடுதல்',
   'landing.feat1Body':
     'பயிற்றுவிப்பாளர்களுக்காக, தானாக அமைக்கப்படும் ஸ்பாட்லைட் + கேலரி, ஒலிபெருக்கியின் ஒலித்தடங்கள், மற்றும் இழுத்துச் செல்லக்கூடிய பிக்சர்-இன்-பிக்சர் அம்சம்.',
   'landing.feat1Title': 'சினிமா வீடியோ கட்டம்',
   'landing.feat2Body':
     'எல்லையற்ற கேன்வாஸ், லேசர் பாயிண்டர், எட்டு வண்ண மாதிரிகள் கொண்ட தட்டு, மற்றும் ஒவ்வொரு பாடநெறிக்கும் தொடர்ச்சியான அமர்வுகள்.',
+  'landing.feat2Title': 'சிந்தித்துப் பேசும் ஒயிட்போர்டு',
   'landing.feat3Body':
     'மாணவர்களைத் தானாகவே அறைகளுக்குள் மாற்றி அனுப்பும், அறிவிப்புகளை ஒளிபரப்பும், மற்றும் ஒரே தட்டலில் அனைவரையும் மீண்டும் அழைத்து வரும்.',
+  'landing.feat3Title': 'இரண்டு கிளிக்குகளில் பிரேக்அவுட்கள்',
   'landing.feat4Body':
     'மதிப்பீட்டு அளவுகோல்கள், கோப்புச் சமர்ப்பிப்புகள், நேரடிப் பின்னூட்டம், மற்றும் பெற்றோர்களுக்குத் தகவல் தெரிவிக்கும் ஒரு நிதானமான மதிப்பெண் பட்டியல்.',
+  'landing.feat4Title': 'பணிகள் + மதிப்பெண் புத்தகம்',
   'landing.feat5Body':
     'ஒவ்வொரு வகுப்புக்குமான தொடர் உரையாடல்கள், முதன்மைப்படுத்தப்பட்ட சுருக்கங்கள், மற்றும் இரகசியப் பயிற்சிக்கான பயிற்றுவிப்பாளர் மட்டுமேயான பக்கவாட்டு சேனல்கள்.',
+  'landing.feat5Title': 'வகுப்பு சூழலுடன் அரட்டை',
   'landing.feat6Body':
     'மாவட்ட விவரப்பட்டியல்கள், வயதுக்கு ஏற்ற மதிப்பீட்டுச் சரிபார்ப்பு மற்றும் ஒவ்வொரு வகுப்பறைக்குமான தணிக்கைப் பதிவேடுகளுடன் கூடிய SSO.',
+  'landing.feat6Title': 'இயல்பாகவே பாதுகாப்பானது',
   'landing.featuresEyebrow': 'வாழ்க்கைக்காக கட்டப்பட்டது',
   'landing.featuresTitle': 'ஒரு வகுப்பிற்குத் தேவையான அனைத்தும், ஒரே பிரத்யேகப் பகுதியில்.',
   'landing.footerCopy': '© {{year}} ஆலா. கல்வியாளர்களுக்காக அக்கறையுடன் உருவாக்கப்பட்டது.',
   'landing.footerStart': 'ஒரு பள்ளியைத் தொடங்குங்கள்',
   'landing.heroBody':
     'ஆலா நேரலைக் காணொளி, வெண்பலகை, குழு விவாதங்கள், அரட்டை மற்றும் ஒப்படைப்புகளை ஒரே இதமான, கல்விசார் தளத்தில் கொண்டுவருகிறது. குறைவான பணித்தாள்களையும் அதிக கவனத்தையும் விரும்பும் பயிற்றுவிப்பாளர்களுக்காக இது உருவாக்கப்பட்டுள்ளது.',
+  'landing.heroLine1': 'ஒவ்வொரு வகுப்பறையும் எங்கே',
   'landing.heroLine2': 'அறையில் உணரவைக்கிறது.',
   'landing.navSchools': 'பள்ளிகளுக்கு',
   'landing.navStart': 'ஒரு வகுப்பறையைத் திறக்கவும்',
   'landing.previewCourse1': 'நவீன பேரியல் பொருளாதாரம்',
   'landing.previewCourse2': 'ஸ்டுடியோ ஓவியம் II',
   'landing.previewCourse3': 'தரவு நெறிமுறைகளுக்கான அறிமுகம்',
+  'landing.previewEyebrow': 'பட்டியலைப் பார்வையிடுங்கள்',
   'landing.previewInstructor1': 'டாக்டர் இட்ரிஸ் ஹாலோவே',
   'landing.previewInstructor2': 'பேராசிரியர் லிலா மரின்',
   'landing.previewInstructor3': 'டாக்டர் நவோமி ரென்',
   'landing.previewTitle': 'உங்கள் மாணவர்கள் உண்மையில் தொடங்கும் பாடநெறிகள்.',
+  'landing.socialProofBody':
+    'உலகம் முழுவதும் 380 பள்ளிகள், பூட்கேம்ப்கள் மற்றும் நிறுவனப் பயிற்சியாளர்களால் பயன்படுத்தப்படுகிறது.',
   'landing.socialProofTitle': 'இந்த பருவத்தில் 14,200க்கும் மேற்பட்ட வகுப்புகள் நடத்தப்பட்டன.',
   'liveClassHeroCard.bodyLive':
     '{{instructor}} இப்போதுதான் அறையைத் திறந்தேன். {{count}} சக மாணவர்கள் ஏற்கனவே உள்ளே இருக்கிறார்கள் — வருகைப் பதிவிற்கு முன் உள்ளே நழுவிச் செல்லுங்கள்.',
+  'liveClassHeroCard.bodyUpcoming':
+    '{{instructor}} இன்னும் {{minutes}} நிமிடங்களில் தொகுத்து வழங்குகிறார். கேமரா மற்றும் மைக் சோதனை இப்போது திறந்திருக்கிறது.',
   'liveClassHeroCard.course': 'நுண்கணிதம் II — MTH 202',
   'liveClassHeroCard.elapsed': 'கடந்த காலம்',
   'liveClassHeroCard.elapsedValue': '12:08',
@@ -244,6 +300,7 @@ export const ui: UiTranslations = {
   'liveClassHeroCard.title': 'விரிவுரை 14 — திசையன் புலங்கள்',
   'liveClassHeroCard.viewSchedule': 'முழு அட்டவணையைக் காண்க',
   'login.emailPlaceholder': 'நீங்கள்@பள்ளி.edu',
+  'login.footerPrompt': 'டெஸ்ஸெராவுக்குப் புதியவரா?',
   'login.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'login.rememberMe': 'என்னை உள்நுழைந்த நிலையிலேயே வைத்திருக்கவும்',
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
@@ -255,6 +312,7 @@ export const ui: UiTranslations = {
     'உங்களிடம் {{count}} உங்கள் வகுப்புகளிலிருந்து படிக்கப்படாத புதுப்பிப்புகள்.',
   'notifications.bodyNone': 'நீங்கள் அனைத்தையும் தெரிந்துகொண்டீர்கள்.',
   'notifications.loading': 'ஏற்றப்படுகிறது…',
+  'pricing.advancedFeatures': 'மேம்பட்ட அம்சங்கள்',
   'profile.bio':
     'திசையன் நுண்கணிதம் மற்றும் இடவியல் · 14 வருட கற்பித்தல் அனுபவம் · ஆலா சமூக ஒருங்கிணைப்பாளர். அலுவலக நேரம்: திங்கள்/புதன் 11–12, லாவெண்டர் அறையில்.',
   'profile.course1Instructor': 'பேராசிரியர் மாயா ஒகாஃபோர்',
@@ -275,8 +333,11 @@ export const ui: UiTranslations = {
   'profile.statStudentsLabel': 'இந்த பருவத்தில் மாணவர்கள்',
   'resetPassword.confirmPasswordPlaceholder': 'புதிய கடவுச்சொல்லை மீண்டும் உள்ளிடவும்',
   'resetPassword.emailPlaceholder': 'நீங்கள்@பள்ளி.edu',
+  'resetPassword.mismatch': 'கடவுச்சொற்கள் இன்னும் பொருந்தவில்லை.',
+  'resetPassword.newPassword': 'புதிய கடவுச்சொல்',
   'resetPassword.subtitle':
     'யூகிக்கக் கடினமாக இருக்கும் அளவுக்கு நீளமாகவும், விரைவாகத் தட்டச்சு செய்யும் அளவுக்குச் சுருக்கமாகவும் ஆக்குங்கள்.',
+  'resetPassword.title': 'புதிய கடவுச்சொல்லைத் தேர்ந்தெடுங்கள்',
   'scheduleItem.course': 'படைப்பிலக்கியம் · ENG 220',
   'scheduleItem.endTime': 'பிற்பகல் 3:30 மணி',
   'scheduleItem.instructor': 'டாக்டர் யூசுஃப் அடெலானா',
@@ -300,10 +361,19 @@ export const ui: UiTranslations = {
   'settings.language.title': 'மொழி',
   'settings.photoHint': 'JPG அல்லது PNG · சதுரம் சிறப்பாகச் செயல்படும்',
   'settings.profileTitle': 'சுயவிவரம்',
+  'settings.securityTitle': 'உள்நுழைவு & பாதுகாப்பு',
   'settings.twoFactorCode': 'அங்கீகாரக் குறியீடு',
   'settings.twoFactorDisable': 'முடக்கு',
+  'settings.twoFactorDisableTitle': 'இரு-காரணி அங்கீகாரத்தை முடக்கு',
   'settings.twoFactorEnable': 'இயக்கு',
+  'settings.twoFactorEnableTitle': 'இரு-காரணி அங்கீகாரத்தை இயக்கு',
   'settings.twoFactorInvalidCode': 'தவறான குறியீடு',
+  'settings.twoFactorOffBody': 'இயக்கப்படவில்லை',
+  'settings.twoFactorOnBody': 'இயக்கப்பட்டது · அங்கீகார செயலி',
+  'settings.twoFactorQrAlt': 'இரு-காரணி QR குறியீடு',
+  'settings.twoFactorScan':
+    'உங்கள் அங்கீகரிப்பு செயலியில் இந்த QR குறியீட்டை ஸ்கேன் செய்து, 6 இலக்கக் குறியீட்டை உள்ளிடவும்.',
+  'settings.twoFactorUnavailable': 'இந்த செயலியில் இரு காரணி அங்கீகாரம் கிடைக்காது.',
   'settings.twoFactorVerify': 'சரிபார்த்து இயக்கு',
   'signup.email': 'பள்ளி மின்னஞ்சல்',
   'signup.emailPlaceholder': 'நீங்கள்@பள்ளி.edu',
@@ -311,6 +381,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'ஐயானா',
   'signup.lastNamePlaceholder': 'வேகா',
   'signup.roleInstructor': 'பயிற்றுவிப்பாளர்',
+  'signup.roleLabel': 'நான் ஒரு…',
   'signup.roleStudent': 'மாணவர்',
   'signup.subtitle':
     'முதல் 30 நாட்களுக்கு ஆலா இலவசம் — கடன் அட்டை தேவையில்லை. உங்கள் சக ஆசிரியர்களை எப்போது வேண்டுமானாலும் அழைக்கலாம்.',
@@ -323,6 +394,8 @@ export const ui: UiTranslations = {
   'whiteboard.colorLabel': 'நிறம் {{color}}',
   'whiteboard.export': 'ஏற்றுமதி SVG',
   'whiteboard.loading': 'ஏற்றும் பலகை…',
+  'whiteboard.persistenceNote':
+    'கோடுகள் அறை ஒயிட்போர்டில் நிலைத்திருக்கும். பக்கத்தை மீண்டும் ஏற்றுங்கள் — போர்டின் நிலை இன்னும் அப்படியே இருக்க வேண்டும்.',
   'whiteboard.roomNotFound': 'இந்த இணைப்பிற்கான வெண்பலகை காணப்படவில்லை.',
   'whiteboard.savedAt': '{{count}} கோடுகள் · கடைசியாக சேமிக்கப்பட்டது {{when}}',
   'whiteboard.title': 'லைவ் ஒயிட்போர்டு',

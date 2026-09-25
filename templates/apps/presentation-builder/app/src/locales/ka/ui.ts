@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ კითხვები, გამოხმაურება ან გსურთ რომ გვქონდეს ახალი ფუნქცია? დაუკავშირდით გუნდს ანგარიშის პარამეტრებიდან — ყველა შეტყობინებას ნამდვილი ადამიანი კითხულობს.',
   'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.missionTitle': 'ჩვენი მისია',
+  'about.whatYouGetTitle': 'რას იღებთ',
   'analytics.empty': 'შექმენით დასტები ანალიტიკის სანახავად აქ.',
   'analytics.stats.acrossDecks': 'ყველა გემბანზე',
   'analytics.stats.allTime': 'თქვენს სტუდიაში',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'დასტის სათაური',
   'landing.features.eyebrow': 'რატომ უვერტიურა',
   'landing.features.heading': 'სცენაზე გასასვლელად ყველაფერი მზადაა.',
+  'landing.finalCta.body':
+    'შექმენით თქვენი სტუდია ერთ წუთზე ნაკლებ დროში. საკრედიტო ბარათი არ არის საჭირო. გააუქმეთ ნებისმიერ დროს.',
   'landing.finalCta.cta': 'შექმენით თქვენი უფასო სტუდია',
   'landing.finalCta.eyebrow': 'უფასოა დაწყება',
   'landing.finalCta.heading': 'სცენაზე გადი შენი კარიერის საუკეთესო დასტით.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'რედაქტირებულია 12 წუთის წინ',
   'notifications.created': 'შექმნილი',
   'notifications.edited': 'რედაქტირებულია',
+  'notifications.empty.body':
+    'თქვენს დეკებზე აქტივობა — კომენტარები, ხსენებები, ექსპორტები — აქ გამოჩნდება.',
   'notifications.empty.title': 'შეტყობინებები ჯერ არ არის',
   'notifications.eyebrow': 'სცენის აქტივობა',
   'notifications.loading': 'იტვირთება…',
   'notifications.shared': 'საჯაროდ გაზიარებული',
+  'planUpdated.retry': 'ხელახლა სცადეთ',
+  'planUpdated.verifyFailed': 'თქვენი გადახდის დადასტურება ჯერ ვერ შევძელით.',
+  'planUpdated.verifyFailedBody':
+    'შესაძლოა, თქვენი გადახდა ჯერ კიდევ მუშავდება. სცადეთ ხელახლა ცოტა ხანში.',
   'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'present.addSlides': 'სლაიდების დამატება',
   'present.backToDecks': 'უკან დასტებზე',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'სცენის შემსრულებელი',
   'settings.security.notSet': 'არ არის დაყენებული',
   'settings.security.passwordBody': 'თქვენი პაროლი დაშიფრულია შენახული მდგომარეობით.',
+  'settings.security.reset': 'გადატვირთვა',
   'settings.security.title': 'ანგარიში + სესიები',
   'shared.empty.body':
     'თქვენს მიერ საჯაროდ გაზიარებული დასტები აქ გამოჩნდება. გახსენით დასტა და გადართეთ საჯაროზე გასაზიარებლად.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'იტვირთება…',
   'shared.title': 'საერთო გემბანები',
   'templateCard.slideCount': '{{count}} სლაიდები',
+  'templateCard.usageCount': '{{count}} იყენებს',
+  'templates.empty.body': 'სცადეთ სხვა ფილტრი — ყოველთვიურად ახალ შაბლონებს ვუშვებთ.',
+  'templates.empty.title': 'ამ კატეგორიაში ჯერ არ არის შაბლონები',
+  'templates.hero.body':
+    'წინასწარ თემატიზებული სლაიდების განლაგება დიაგრამის ბლოკებით, დემო ჩარჩოებით, მომხსენებლის შენიშვნებითა და ტაიმერის წინასწარ დაყენებებით — ყველა შაბლონი ჩაწერისთვის მზადაა.',
   'templates.hero.eyebrow': 'შერჩეული ეტაპები',
   'templates.hero.heading': 'ეტაპები აგებულია იმ მომენტისთვის, როდესაც მისი დაშვება გჭირდებათ.',
 }

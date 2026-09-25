@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, βρήκες κάποιο σφάλμα ή θέλεις να φέρεις το {{app}} στο σχολείο ή την ομάδα σου; Διαβάζουμε κάθε μήνυμα — επικοινώνησε από τις ρυθμίσεις του λογαριασμού σου και θα σου απαντήσει ένας πραγματικός άνθρωπος.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.intro':
+    'Το {{app}} είναι μια πλατφόρμα ζωντανών κουίζ για τάξεις, βραδιές παιχνιδιών και ομαδικές εκδηλώσεις. Δημιουργήστε διασκεδαστικά πακέτα ερωτήσεων, φιλοξενήστε παιχνίδια σε πραγματικό χρόνο με κωδικό συμμετοχής και δείτε την αίθουσα να ζωντανεύει με χρονομετρημένες ερωτήσεις, βαθμολογία και πίνακες κατάταξης.',
+  'about.missionBody':
+    'Η μάθηση μένει όταν μοιάζει με παιχνίδι. Κάνουμε εύκολο για τον καθένα να μετατρέψει ένα θέμα σε ένα γρήγορο, ανταγωνιστικό παιχνίδι — ώστε οι οικοδεσπότες να διδάσκουν κάνοντας και οι παίκτες να διατηρούν το σερί τους.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.title': 'Σχετικά με το {{app}}',
   'auth.login.noAccount': 'Νέος/η στο Sparq;',
   'auth.login.or': 'ή συνεχίστε με',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Δεν υπάρχουν ακόμη κουίζ που να ταιριάζουν.',
   'discover.headline': 'Βρείτε το επόμενο αγαπημένο σας κουίζ.',
   'discover.loading': 'Φόρτωση…',
+  'discover.searchPlaceholder': 'Αναζήτηση κουίζ με τίτλο…',
   'discover.subhead':
     'Περιηγηθείτε σε ολόκληρη τη βιβλιοθήκη, φιλτράρετε ανά κατηγορία ή αναζητήστε ανά τίτλο. Παίξτε μια κάρτα για να παίξετε σόλο ή να παρουσιάσετε ζωντανά.',
   'forgotPassword.subhead':
     'Εισαγάγετε το email σας και θα σας στείλουμε έναν σύνδεσμο για επαναφορά.',
   'forgotPassword.success.body':
     'Εάν υπάρχει λογαριασμός για {{email}} , θα λάβετε έναν σύνδεσμο επαναφοράς σε λίγα λεπτά.',
+  'forgotPassword.success.title': 'Ελέγξτε τα εισερχόμενά σας.',
   'hostLobby.back': 'Επιστροφή στο κουίζ',
   'hostLobby.copied': 'Ο κώδικας συμμετοχής αντιγράφηκε στο πρόχειρο.',
   'hostLobby.creating': 'Αναβαθμίζοντας το λόμπι σας…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Ακύρωση λόμπι',
   'hostLobby.players.count': '{{count}} ζω',
   'hostLobby.players.title': 'Παίκτες στο λόμπι',
+  'hostLobby.players.waiting':
+    'Αναμονή για παίκτες. Μοιραστείτε τον κωδικό {{code}} για να μπορούν να συμμετάσχουν.',
   'hostLobby.rules.title': 'Κανόνες σπιτιού',
   'hostLobby.startError': 'Δεν ήταν δυνατή η έναρξη του παιχνιδιού.',
   'hostLobby.starting': 'Ξεκινώντας τη σπίθα…',
   'joinCodeHero.headline': 'Πείτε στους παίκτες σας να μπουν στη μέση.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Ή επισκεφθείτε',
   'joinCodeHero.liveLabel': 'Λόμπι ζωντανά',
+  'joinCodeHero.playerJoined': 'Ο {{name}} συμμετείχε',
   'joinCodeHero.playersLabel': 'Παίκτες',
   'joinCodeHero.qrLabel': 'Σάρωση για συμμετοχή',
   'joinCodeHero.startGame': 'Ξεκινήστε τη σπίθα',
   'joinCodeHero.subhead':
     'Μοιραστείτε τον κωδικό συμμετοχής ή σαρώστε το QR. Το παιχνίδι ξεκινά τη στιγμή που θα ενεργοποιήσετε τη σπίθα.',
+  'landing.cta.button': 'Δημιουργήστε το πρώτο σας κουίζ',
   'landing.cta.eyebrow': 'Δωρεάν για εκπαιδευτικούς',
   'landing.cta.heading': 'Δώστε πνοή σε κάθε μάθημα.',
+  'landing.cta.subhead':
+    'Εγγραφείτε σε 30 δευτερόλεπτα. Φιλοξενήστε απεριόριστα ζωντανά παιχνίδια, σχεδιάστε κουίζ με AI και κρατήστε κάθε παίκτη σε σερί.',
   'landing.eyebrow': 'Ανάψτε κάθε απάντηση',
   'landing.features.heading':
     'Ένα στούντιο κουίζ που ταιριάζει στον τρόπο που διδάσκετε και παίζετε.',
@@ -58,6 +74,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Δημοφιλή κουίζ',
   'landing.popular.eyebrow': 'Δημοφιλή αυτήν την εβδομάδα',
   'landing.popular.heading': 'Οι διοργανωτές του Drop into a quiz τρέχουν σήμερα.',
+  'landing.popular.viewAll': 'Περιήγηση σε όλες τις κατηγορίες →',
+  'leaderboard.empty.body':
+    'Παίξτε ένα κουίζ για να βάλετε τη βαθμολογία σας στον παγκόσμιο πίνακα κατάταξης.',
   'leaderboard.empty.title': 'Δεν υπάρχουν ακόμα παιχνίδια στο ταμπλό — γίνετε ο πρώτος.',
   'leaderboard.eyebrow': 'Πίνακας κατάταξης',
   'leaderboard.fullRanking': 'Πλήρης κατάταξη',
@@ -65,6 +84,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Συγκεντρώστε τη βαθμολογία σας σε κάθε συνεδρία κουίζ που έχετε παίξει. Ανεβείτε παίζοντας περισσότερο.',
   'leaderboard.title': 'Κορυφαίοι κριτές',
+  'leaderboard.totalPlayers': '{{count}} παίκτες στην κατάταξη',
   'leaderboardRow.points': 'πόντοι',
   'leaderboardRow.streak': '{{days}}η',
   'login.headline': 'Καλώς ήρθες πίσω, κουίζ μάνατζερ.',
@@ -76,10 +96,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Δημιουργήστε το πρώτο σας κουίζ →',
   'myQuizzes.empty.created': 'Δεν έχετε δημιουργήσει ακόμα κουίζ.',
   'myQuizzes.empty.played': 'Δεν υπάρχουν ακόμη δημοσιευμένα κουίζ.',
+  'myQuizzes.loading': 'Φόρτωση…',
   'myQuizzes.subhead':
     'Προσχέδια που έχετε δημιουργήσει, καθώς και δημοσιευμένα κουίζ που μπορείτε να παίξετε.',
   'myQuizzes.title': 'Τα κουίζ μου',
   'nav.legal': 'Νομικά',
+  'nav.primaryNavLabel': 'Κύρια πλοήγηση',
   'notFound.backHome': 'Επιστροφή στην αρχική',
   'notFound.backToDiscover': 'Περιήγηση σε κουίζ',
   'notFound.body': 'Δοκιμάστε έναν διαφορετικό κωδικό ή επιστρέψτε στο λόμπι.',
@@ -88,17 +110,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Φόρτωση…',
   'notifications.subhead':
     '{{count}} Αδιάβαστες σπίθες. Προσκλήσεις, κινήσεις στον πίνακα κατάταξης και επιτεύγματα, όλα σε μία ροή.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
+  'pricing.advancedFeatures': 'Σύνθετες λειτουργίες: {{yes}}',
+  'pricing.canExport': 'Εξαγωγή δεδομένων: {{yes}}',
   'pricing.checkoutError': 'Δεν ήταν δυνατή η έναρξη ολοκλήρωσης αγοράς. Παρακαλώ δοκιμάστε ξανά.',
   'pricing.heading': 'Επιλέξτε το πλάνο {{app}} σας',
   'pricing.included': 'Συμπεριλαμβανομένος',
   'pricing.loadError': 'Δεν ήταν δυνατή η φόρτωση των σχεδίων.',
+  'pricing.maxQuestions': '{{count}} ερωτήσεις',
   'pricing.maxQuizzes': '{{count}} αινίγματα',
+  'pricing.maxSessions': '{{count}} συνεδρίες',
   'pricing.subhead':
     'Δωρεάν για οικοδεσπότες και παίκτες. Αναβαθμίστε για υψηλότερα όρια και προηγμένες λειτουργίες.',
   'pricing.yearly': 'Ετήσιο',
   'privacy.collect.account':
     'Λογαριασμός: email, κατακερματισμένος κωδικός πρόσβασης, εμφανιζόμενο όνομα, τελευταία σύνδεση.',
+  'privacy.intro':
+    'Το {{app}} σέβεται το απόρρητό σου. Αυτή η σελίδα συνοψίζει τα δεδομένα που αποθηκεύουμε, γιατί τα αποθηκεύουμε και πώς να τα διαγράψεις.',
   'privacy.rights.body':
     'Διαγράψτε τον λογαριασμό σας από τις Ρυθμίσεις για να διαγράψετε οριστικά όλα τα δεδομένα σας εντός 30 ημερών.',
   'privacy.share.body':
@@ -122,6 +154,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Αναγνωριστικό κουίζ: {{id}}',
   'quizBuilder.loadError': 'Δεν ήταν δυνατή η φόρτωση του κουίζ.',
   'quizBuilder.loading': 'Φόρτωση επεξεργαστή…',
+  'quizBuilder.markCorrect': 'Σημειώστε το {{letter}} ως σωστό',
   'quizBuilder.noQuestions': 'Δεν υπάρχουν ακόμη ερωτήσεις — προσθέστε μία για να ξεκινήσετε.',
   'quizBuilder.notFound': 'Το κουίζ δεν βρέθηκε.',
   'quizBuilder.preview': 'Προβολή',
@@ -138,7 +171,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} χρονόμετρο',
   'quizBuilder.title': 'Δημιουργήστε το κουίζ σας',
   'quizBuilder.titleLabel': 'Τίτλος κουίζ',
+  'quizBuilder.untitled': 'Ερώτηση χωρίς τίτλο',
   'quizCard.plays': '{{count}} θεατρικά έργα',
+  'quizCard.questionCount': '{{count}} ερωτήσεις',
   'quizDetail.duration': '~ {{minutes}} λεπτά',
   'quizDetail.hostMultiplayer': 'Παιχνίδι για πολλούς παίκτες οικοδεσπότη',
   'quizDetail.leaderboardEmpty':
@@ -154,26 +189,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Επιστροφή στο κουίζ',
   'quizPlay.empty': 'Αυτό το κουίζ δεν έχει ακόμη ερωτήσεις.',
   'quizPlay.error': 'Δεν ήταν δυνατή η φόρτωση αυτού του κουίζ. Δοκιμάστε ξανά.',
+  'quizPlay.exit': 'Έξοδος',
   'quizPlay.feedback.correct': '🔥 Κερδίστε σπίθα — προχωρήστε στο επόμενο!',
+  'quizPlay.feedback.incorrect': 'Η απάντηση ήταν {{correct}}. Συνεχίστε.',
   'quizPlay.loading': 'Φόρτωση κουίζ…',
   'quizPlay.next': 'Επόμενη ερώτηση',
   'quizPlay.questionCounter': 'Ερώτηση {{current}} από {{total}}',
   'quizPlay.score': '{{score}} πόντοι',
+  'quizPlay.seeResults': 'Δείτε τα αποτελέσματα',
   'quizPlay.sessionFailed': 'Δεν ήταν δυνατή η έναρξη μιας συνεδρίας.',
   'quizPlay.streak': '{{count}} ράβδωση',
+  'resetPassword.subhead': 'Διάλεξε νέο κωδικό πρόσβασης για να επιστρέψεις στο σερί σου.',
   'results.backToDiscover': 'Επιστροφή στην Ανακάλυψη',
   'results.error': 'Δεν ήταν δυνατή η φόρτωση αποτελεσμάτων.',
   'results.exit': 'Επιστροφή στην Ανακάλυψη',
   'results.loading': 'Υπολογίζοντας το σκορ σας…',
   'results.missingSession': 'Δεν υπάρχει συνεδρία για να συνοψίσουμε.',
+  'results.recap.correctAnswer': 'Σωστά: {{answer}}',
   'results.recap.questionLabel': 'Ερώτηση {{number}}',
   'results.recap.title': 'Ανακεφαλαίωση ερώτησης',
+  'results.recap.yourAnswer': 'Εσείς: {{answer}}',
   'results.unknownQuiz': 'Κουίζ',
   'scoreBreakdownCard.accuracyLabel': 'Ακρίβεια',
+  'scoreBreakdownCard.correctLabel': 'Σωστό',
   'scoreBreakdownCard.eyebrow': 'Το κουίζ ολοκληρώθηκε',
   'scoreBreakdownCard.headline': 'Ωραία δουλειά στο " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Πόντοι',
   'scoreBreakdownCard.rankLabel': 'Τάξη',
+  'scoreBreakdownCard.streakBonus': 'Μπόνους σερί +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Η σπίθα σας φαίνεται. Δείτε την ανάλυση παρακάτω για να συνεχίσετε να ανεβαίνετε στον πίνακα κατάταξης.',
   'settings.danger.body':
     'Διαγράψτε οριστικά τον λογαριασμό σας Sparq και όλα τα κουίζ που έχετε δημιουργήσει.',
   'settings.danger.confirm': 'Ναι, διαγραφή οριστικά',
@@ -192,5 +237,7 @@ export const ui: UiTranslations = {
     'Είστε υπεύθυνοι για το περιεχόμενο που δημοσιεύετε, τις ερωτήσεις που συντάσσετε και τυχόν παιχνίδια που φιλοξενείτε. Μην υποδύεστε άλλα άτομα.',
   'terms.billing.body':
     'Τα προγράμματα επί πληρωμή ανανεώνονται αυτόματα μέχρι να ακυρωθούν από τις Ρυθμίσεις. Μπορείτε να ακυρώσετε ανά πάσα στιγμή. Η πρόσβαση συνεχίζεται μέχρι το τέλος της τρέχουσας περιόδου χρέωσης.',
+  'terms.intro':
+    'Χρησιμοποιώντας το {{app}} συμφωνείς με τους παρακάτω κανόνες. Αν δεν μπορείς να τους αποδεχτείς, μην χρησιμοποιήσεις την υπηρεσία.',
   'terms.title': 'Όροι παροχής υπηρεσιών',
 }

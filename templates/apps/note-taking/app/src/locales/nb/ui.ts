@@ -1,20 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du tilbakemeldinger, funnet en feil eller vil foreslå en funksjon? Ta kontakt fra kontoinneinnstillingene dine — hver melding går til et ekte menneske på teamet.',
+  'about.contactTitle': 'Snakk med oss',
+  'about.featureDatabases':
+    'Lette databaser og gjenbrukbare maler som gjør løse notater om til strukturerte, repeterbare arbeidsflyter.',
+  'about.featureEditor':
+    'En rolig blokkredigerer — overskrifter, lister, kode, utrop og gjøremål — med skråstrek-kommandoer når du vil ha dem, og ute av veien når du ikke vil.',
+  'about.featureGraph':
+    'Tilbakelenker og en kunnskapsgraf: skriv [[ for å lenke til et notat og se hvordan ideene dine henger sammen over tid.',
+  'about.featureNotebooks':
+    'Nestede notatbøker og sider slik at prosjekter, emner og daglige notater holder seg organisert akkurat slik du tenker.',
+  'about.featureSearch':
+    'Fulltekstsøk på under 50 ms på tvers av alle notatbøker, pluss tagger som spiller sammen med notatbøkene i stedet for å kjempe mot dem.',
+  'about.missionTitle': 'Vårt oppdrag',
   'common.goToDashboard': 'Gå til oversikt',
   'forgot.eyebrow': 'Mistet veien tilbake?',
   'forgot.formSubtitle': 'Oppgi e-postadressen vi har registrert.',
+  'forgot.formTitle': 'Glemt passord',
   'forgot.headline': 'Tilbakestill passordet ditt.',
   'forgot.subline': 'Vi sender en engangslenke til innboksen din, slik at du kan velge en ny.',
+  'forgot.successDetail':
+    'Vi har sendt en tilbakestillingslenke til e-posten din. Den utløper om 30 minutter.',
   'graph.eyebrow': 'Kurve',
+  'graph.goToNotes': 'Bla gjennom notater →',
+  'graph.loadError': 'Kunne ikke laste grafen: {{message}}',
   'graph.placeholderBody':
     'Når notater begynner å lenke til hverandre (med [[wiki]]-syntaks), vil en interaktiv tvangsstyrt graf gjengis her.',
+  'graph.placeholderTitle': 'Graf over tilbakelenker kommer snart',
   'graph.subtitle':
     '{{count}} notater i dette arbeidsområdet. Gjengivelse av tilbakekoblingsgrafer vil vises her når notater lenker til hverandre.',
   'graph.title': 'Kunnskapsgraf',
   'home.empty': 'Ingen notater ennå – start din første.',
   'home.favoritesHeading': 'Festet',
   'home.guest': 'venn',
+  'home.loadError': 'Kunne ikke laste notatene dine: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Fest et notat i redigeringsprogrammet for å beholde det her.',
   'home.recentHeading': 'Nylig oppdatert',
@@ -22,18 +43,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Notisbok',
   'home.stats.pinned.label': 'Festet',
   'home.stats.updatedToday.label': 'Oppdatert i dag',
+  'home.subtitle': 'Fortsett der du slapp, eller start et nytt notat.',
   'home.viewAll': 'Se alle notater',
   'landing.cta.body':
     'Gratis for personlig bruk. Pro for team. Ta med deg eksisterende rabatt eller start på nytt – Verso møter deg uansett hvor notatene dine er.',
+  'landing.cta.button': 'Opprett arbeidsområdet mitt',
   'landing.cta.heading': 'Åpne dagens side.',
   'landing.features.eyebrow': 'Hver primitiv den andre hjernen din trenger',
+  'landing.features.heading': 'Bygget for arbeidet, ikke metaarbeidet.',
   'landing.hero.eyebrow': 'En stille skriveflate',
   'landing.hero.headlineAccent': 'ta form.',
   'landing.hero.headlineLeading': 'Hvor tanker',
   'landing.hero.primaryCta': 'Start kunnskapsbasen din',
   'landing.hero.secondaryCta': 'Jeg har allerede en konto',
+  'landing.hero.socialProof':
+    '12 800+ forfattere, studenter og doktorgradsstipendiater tenker med {{appName}}',
   'landing.hero.subline':
     'Verso er en strukturert notatplattform for kunnskapsarbeidere og studenter. Blokkredigerer, nestede notatbøker, tilbakelenker og en kunnskapsgraf – alt bak en typografisk leseopplevelse.',
+  'landing.preview.notebook': 'Kunnskap · Skriveprosess',
+  'landing.preview.title': 'Om å la utkast puste',
   'login.eyebrow': 'Velkommen tilbake til Verso',
   'login.formSubtitle': 'Bruk e-posten din eller en annen tilkoblet leverandør.',
   'login.headline': 'Fortsett der siden stoppet.',
@@ -43,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Lukk navigasjonsmenyen',
   'mobileNav.openMenu': 'Åpne navigasjonsmenyen',
   'noteEditor.backToNotes': 'Tilbake til notatene',
+  'noteEditor.bodyLabel': 'Notattekst',
   'noteEditor.bodyPlaceholder': 'Begynn å skrive – notatet lagres automatisk mens du skriver.',
   'noteEditor.confirmTrash': 'Flytte dette notatet til papirkurven?',
   'noteEditor.pinToggle': 'Slå av/på favoritt',
@@ -50,17 +79,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Flytt til papirkurv',
   'noteEditor.updated': 'Oppdatert',
   'notes.defaultWorkspaceName': 'Min notatbok',
+  'notes.empty': 'Ingen notater her ennå – start ett for å fylle notatboken.',
   'notes.eyebrow': 'Notisbok',
   'notes.filterAll': 'Alle notater',
   'notes.filterPinned': 'Festet',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Ny notatbok',
   'notes.newNotebookPrompt': 'Nytt navn på notatboken',
+  'notes.newNotebookRequired': 'Skriv inn et navn på notatboken.',
   'notes.notebooksHeading': 'Notatbøker',
   'notes.subtitle':
     'Velg en notatbok til venstre, og trykk deretter på Nytt notat-knappen for å starte en ny oppføring.',
+  'planUpdated.body': 'Abonnementet ditt er nå aktivt.',
   'planUpdated.confirmation': 'Planen din er oppdatert',
+  'pricing.advancedFeatures': 'Avanserte funksjoner',
   'pricing.heading': 'Velg din notatplan',
+  'reset.changedMind': 'Ombestemt deg?',
   'reset.eyebrow': 'Nesten tilbake',
   'reset.formSubtitle': 'Du blir logget på når den er lagret.',
   'reset.headline': 'Velg et nytt passord.',
@@ -69,7 +103,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'Skriv inn koden vi nettopp sendte deg på e-post, og velg noe du vil huske.',
   'reset.submit': 'Lagre og logg inn',
   'reset.tokenHint': 'Limt inn fra innboksen din.',
+  'search.empty': 'Ingen notater samsvarer med dette søket ennå.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Søk i Refract',
   'search.loading': 'Søker…',
   'search.noRecent': 'Skriv inn et søk ovenfor for å begynne å søke i notatene dine.',
   'search.recentLabel': 'Nylige søk',
@@ -77,12 +113,19 @@ export const ui: UiTranslations = {
     'Fulltekst på tvers av alle notatbøker. Skriv for å søke; resultatene oppdateres mens du skriver.',
   'search.title': 'Søk i den andre hjernen.',
   'settings.account.logout': 'Logg ut',
+  'settings.account.title': 'Kontodetaljer',
+  'settings.editor.graphHover.body':
+    'Vis et lite forhåndskort når du holder markøren over en [[wikilink]] i redigeringsprogrammet.',
+  'settings.editor.graphHover.label': 'Forhåndsvisning ved hover i tilbakelenkegraf',
   'settings.editor.lineHeight.body':
     'Hvor mye luft mellom kroppslinjene. 170 % er standard leserytme.',
+  'settings.editor.lineHeight.label': 'Linjehøyde',
   'settings.editor.serif.body':
     'Bruk Georgia for lesespalten. Sans-serif forblir i sidefeltet og verktøylinjene.',
+  'settings.editor.serif.label': 'Brødtekst med serif',
   'settings.editor.title': 'Typografi og skriveflate',
   'settings.eyebrow': 'Verso · Innstillinger',
+  'settings.passwordModal.current': 'Nåværende passord',
   'settings.passwordModal.error':
     'Kunne ikke endre passord – vennligst sjekk ditt nåværende passord.',
   'settings.passwordModal.next': 'Nytt passord',
@@ -92,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Skyv hvert tastetrykk gjennom sanntidskanalen. Deaktiver for tregere tilkoblinger.',
   'settings.sync.auto.label': 'Synkronisering i sanntid',
+  'settings.sync.title': 'Hvordan notatene dine reiser',
   'settings.theme.body': 'Lys holder lederspalten lys. Sepia varmer opp siden om kvelden.',
   'settings.theme.dark': 'Mørk',
   'settings.theme.light': 'Lys',
@@ -110,8 +154,12 @@ export const ui: UiTranslations = {
     'Legg til #emneknagger i en notattittel (f.eks. «Leseliste #bøker»), så vises de her automatisk.',
   'tags.emptyTitle': 'Ingen tagger ennå',
   'tags.eyebrow': 'Indeks',
+  'tags.goToNotes': 'Gå til notater →',
+  'tags.loadError': 'Kunne ikke laste tagger: {{message}}',
   'tags.subtitle':
     '{{tags}} tagger på tvers {{notes}} notater. Legg til #emneknagger i en notattittel, så vises de her.',
+  'versoAuthShell.sample.body':
+    'En ny gjennomgang i morgen leser alltid bedre enn en første gjennomgang i kveld. Legg råutkastet i dypjobbmappen …',
   'versoAuthShell.sample.label': 'Daglig notat',
   'versoAuthShell.sample.timestamp': 'I dag · 09:14',
   'versoAuthShell.sample.title': 'Om å la utkast puste',
@@ -123,8 +171,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Fortsett å skrive',
   'versoTodayHero.createCta': 'Start dagens notat',
   'versoTodayHero.dailyLabel': 'Daglig notat',
+  'versoTodayHero.emptyHeadline': 'I dag er et blankt ark.',
   'versoTodayHero.emptySubline':
     'Fang en tanke, skriv et møte eller skisse i morgen. Verso holder strukturen stille slik at skriften forblir høy.',
+  'versoTodayHero.outlineLabel': 'Dagens disposisjon',
   'versoTodayHero.streak': '{{count}} dager på rad',
+  'versoTodayHero.unwritten': 'Ingen ord ennå – åpne notatet for å begynne.',
   'versoTodayHero.wordCount': '{{count}} ord i dag',
 }

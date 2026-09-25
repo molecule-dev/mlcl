@@ -101,6 +101,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Il-pjan tiegħek ġie aġġornat.',
   'planUpdated.returnHome': 'Mur lura għad-dar',
   'planUpdated.thankYou': 'Grazzi!',
+  'post.markdown': 'Ara dan il-post bħala markdown',
+  'post.readingTime': '{{minutes}} qari minimu',
   'post.tags': 'Tikketti',
   'project.error.nameAndTypeRequired': 'isem u projectType mehtieghin',
   'project.error.notFound': 'Ma nstabx',

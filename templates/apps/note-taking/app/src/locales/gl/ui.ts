@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tes suxestións, atopaches un erro ou queres propoñer unha función? Escríbenos desde a configuración da túa conta — cada mensaxe chega a unha persoa real do equipo.',
+  'about.contactTitle': 'Fala connosco',
+  'about.featureDatabases':
+    'Bases de datos lixeiras e modelos reutilizables para converter notas soltas en fluxos de traballo estruturados e repetibles.',
+  'about.featureEditor':
+    'Un editor de bloques discreto — títulos, listas, código, avisos e tarefas — con comandos de barra cando os queres e fóra do camiño cando non.',
+  'about.featureGraph':
+    'Ligazóns inversas e un grafo de coñecemento: escribe [[ para ligar unha nota e observa como se conectan as túas ideas co tempo.',
+  'about.featureNotebooks':
+    'Cadernos e páxinas aniñados para que os proxectos, os temas e as notas diarias se manteñan organizados exactamente como pensas.',
+  'about.featureSearch':
+    'Busca de texto completo en menos de 50 ms en todos os cadernos, ademais de etiquetas que se combinan cos cadernos en vez de loitar contra eles.',
+  'about.missionTitle': 'A nosa misión',
   'common.goToDashboard': 'Ir ao panel',
   'forgot.eyebrow': 'Perdiches o camiño de volta?',
   'forgot.formSubtitle': 'Indícanos o correo electrónico que tes rexistrado.',
+  'forgot.formTitle': 'Esquecín o contrasinal?',
   'forgot.headline': 'Restablecer o contrasinal.',
   'forgot.subline':
     'Enviarémosche unha ligazón de uso único á túa caixa de entrada para que poidas escoller unha nova.',
+  'forgot.successDetail':
+    'Enviámosche unha ligazón de restablecemento ao teu correo. Caduca en 30 minutos.',
   'graph.eyebrow': 'Gráfico',
+  'graph.goToNotes': 'Explorar notas →',
+  'graph.loadError': 'Non se puido cargar o grafo: {{message}}',
   'graph.placeholderBody':
     'Cando as notas comecen a enlazar entre si (coa sintaxe [[wiki]]), renderizarase aquí un gráfico interactivo dirixido por forza.',
+  'graph.placeholderTitle': 'Grafo de ligazóns inversas moi pronto',
   'graph.subtitle':
     '{{count}} notas neste espazo de traballo. A renderización do gráfico de backlinks aparecerá aquí unha vez que as notas se vinculen entre si.',
   'graph.title': 'Gráfico de coñecemento',
   'home.empty': 'Aínda non tes notas. Comeza a primeira.',
   'home.favoritesHeading': 'Fixado',
   'home.guest': 'amigo/a',
+  'home.loadError': 'Non se puideron cargar as túas notas: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Fixa unha nota no editor para mantela aquí.',
   'home.recentHeading': 'Actualizado recentemente',
@@ -23,18 +44,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Caderno',
   'home.stats.pinned.label': 'Fixado',
   'home.stats.updatedToday.label': 'Actualizado hoxe',
+  'home.subtitle': 'Continúa onde o deixaches ou comeza unha nota nova.',
   'home.viewAll': 'Ver todas as notas',
   'landing.cta.body':
     'Gratis para uso persoal. Profesional para equipos. Trae o teu Mark-off actual ou comeza de cero: Verso atópate onde queiras que estean as túas notas.',
+  'landing.cta.button': 'Crear o meu espazo de traballo',
   'landing.cta.heading': 'Abrir a páxina de hoxe.',
   'landing.features.eyebrow': 'Todas as primitivas que o teu segundo cerebro necesita',
+  'landing.features.heading': 'Construído para a obra, non para a meta-obra.',
   'landing.hero.eyebrow': 'Unha superficie de escritura tranquila',
   'landing.hero.headlineAccent': 'tomar forma.',
   'landing.hero.headlineLeading': 'Onde os pensamentos',
   'landing.hero.primaryCta': 'Comeza a túa base de coñecementos',
   'landing.hero.secondaryCta': 'Xa teño unha conta',
+  'landing.hero.socialProof':
+    'Máis de 12.800 escritores, estudantes e doutorandos pensan con {{appName}}',
   'landing.hero.subline':
     'Verso é unha superficie estruturada para tomar notas para traballadores do coñecemento e estudantes. Editor de bloques, cadernos aniñados, ligazóns externas e un gráfico de coñecemento: todo detrás dunha experiencia de lectura centrada na tipografía.',
+  'landing.preview.notebook': 'Coñecemento · Proceso de escritura',
+  'landing.preview.title': 'Deixar respirar as correntes de aire',
   'login.eyebrow': 'Benvido/a de volta a Verso',
   'login.formSubtitle': 'Usa o teu correo electrónico ou calquera provedor conectado.',
   'login.headline': 'Continuar onde se detivo a páxina.',
@@ -44,6 +72,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Pechar o menú de navegación',
   'mobileNav.openMenu': 'Abrir menú de navegación',
   'noteEditor.backToNotes': 'Volver ás notas',
+  'noteEditor.bodyLabel': 'Corpo da nota',
   'noteEditor.bodyPlaceholder':
     'Comeza a escribir: a túa nota gárdase automaticamente mentres escribes.',
   'noteEditor.confirmTrash': 'Queres mover esta nota á papeleira?',
@@ -52,17 +81,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Mover á papeleira',
   'noteEditor.updated': 'Actualizado',
   'notes.defaultWorkspaceName': 'O meu caderno',
+  'notes.empty': 'Aínda non hai notas aquí — comeza unha para encher o caderno.',
   'notes.eyebrow': 'Caderno',
   'notes.filterAll': 'Todas as notas',
   'notes.filterPinned': 'Fixado',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Novo caderno',
   'notes.newNotebookPrompt': 'Nome do novo caderno',
+  'notes.newNotebookRequired': 'Escribe un nome de caderno.',
   'notes.notebooksHeading': 'Cadernos',
   'notes.subtitle':
     'Escolle un caderno á esquerda e preme o botón Nova nota para comezar unha nova entrada.',
+  'planUpdated.body': 'A túa subscrición xa está activa.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Funcións avanzadas',
   'pricing.heading': 'Escolle o teu plan de toma de notas',
+  'reset.changedMind': 'Cambiaches de opinión?',
   'reset.eyebrow': 'Case de volta',
   'reset.formSubtitle': 'Iniciarás sesión unha vez que estea gardado.',
   'reset.headline': 'Escolle un novo contrasinal.',
@@ -72,7 +106,9 @@ export const ui: UiTranslations = {
     'Introduce o código que che acabamos de enviar por correo electrónico e escolle algo que che resulte memorable.',
   'reset.submit': 'Gardar e iniciar sesión',
   'reset.tokenHint': 'Pegado desde a túa caixa de entrada.',
+  'search.empty': 'Aínda non hai notas que coincidan con esta consulta.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Buscar Refractar',
   'search.loading': 'Buscando…',
   'search.noRecent': 'Escribe unha consulta enriba para comezar a buscar nas túas notas.',
   'search.recentLabel': 'Buscas recentes',
@@ -80,12 +116,19 @@ export const ui: UiTranslations = {
     'Texto completo en todos os cadernos. Escribe para buscar; os resultados actualízanse a medida que escribes.',
   'search.title': 'Busca o segundo cerebro.',
   'settings.account.logout': 'Pechar sesión',
+  'settings.account.title': 'Detalles da conta',
+  'settings.editor.graphHover.body':
+    'Mostra unha pequena tarxeta de vista previa ao pasar o rato por unha [[wikilink]] no editor.',
+  'settings.editor.graphHover.label': 'Vista previa do grafo de ligazóns inversas ao pasar o rato',
   'settings.editor.lineHeight.body':
     'Canto aire hai entre as liñas do corpo. 170 % é o ritmo de lectura predeterminado.',
+  'settings.editor.lineHeight.label': 'Altura da liña',
   'settings.editor.serif.body':
     'Usa Xeorxia para a columna de lectura. Sans-serif mantén a barra lateral e as barras de ferramentas.',
+  'settings.editor.serif.label': 'Texto do corpo con serifa',
   'settings.editor.title': 'Tipografía e superficie de escritura',
   'settings.eyebrow': 'Verso · Configuración',
+  'settings.passwordModal.current': 'Contrasinal actual',
   'settings.passwordModal.error':
     'Non se puido cambiar o contrasinal. Comprobe o seu contrasinal actual.',
   'settings.passwordModal.next': 'Novo contrasinal',
@@ -95,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Prema cada tecla a través do canal en tempo real. Desactíveo para conexións máis lentas.',
   'settings.sync.auto.label': 'Sincronización en tempo real',
+  'settings.sync.title': 'Como viaxan as túas notas',
   'settings.theme.body':
     'A luz mantén brillante a columna editorial. A sepia quenta a páxina polas noites.',
   'settings.theme.dark': 'Escuro',
@@ -114,8 +158,12 @@ export const ui: UiTranslations = {
     'Engade #etiquetas ao título dunha nota (por exemplo, "Lista de lectura #libros") e aparecerán aquí automaticamente.',
   'tags.emptyTitle': 'Aínda non hai etiquetas',
   'tags.eyebrow': 'Índice',
+  'tags.goToNotes': 'Ir ás notas →',
+  'tags.loadError': 'Non se puideron cargar as etiquetas: {{message}}',
   'tags.subtitle':
     '{{tags}} etiquetas en {{notes}} notas. Engade #etiquetas ao título dunha nota e aparecerán aquí.',
+  'versoAuthShell.sample.body':
+    'Unha segunda pasada mañá sempre se le mellor que unha primeira pasada esta noite. Deixa o borrador na carpeta de traballo profundo…',
   'versoAuthShell.sample.label': 'Nota diaria',
   'versoAuthShell.sample.timestamp': 'Hoxe · 9:14 h',
   'versoAuthShell.sample.title': 'Deixar respirar as correntes de aire',
@@ -127,8 +175,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Continuar escribindo',
   'versoTodayHero.createCta': 'Comeza a nota de hoxe',
   'versoTodayHero.dailyLabel': 'Nota diaria',
+  'versoTodayHero.emptyHeadline': 'Hoxe é unha páxina en branco.',
   'versoTodayHero.emptySubline':
     'Captura unha idea, anota unha reunión ou fai un esbozo para mañá. Verso mantén a estrutura silenciosa para que a escritura se manteña en voz alta.',
+  'versoTodayHero.outlineLabel': 'Esquema de hoxe',
   'versoTodayHero.streak': '{{count}} racha de días',
+  'versoTodayHero.unwritten': 'Aínda non hai palabras — abre a nota para comezar.',
   'versoTodayHero.wordCount': '{{count}} palabras hoxe',
 }

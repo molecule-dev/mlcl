@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ප්‍රතිචාර තිබේද, දෝෂයක් හමු වුණාද, නැතහොත් විශේෂාංගයක් යෝජනා කිරීමට අවශ්‍යද? ඔබේ ගිණුම් සැකසුම් වෙතින් අප හා සම්බන්ධ වන්න — සෑම පණිවිඩයක්ම කණ්ඩායමේ සැබෑ මිනිසෙකු වෙත යයි.',
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
+  'about.featureDatabases':
+    'ලිහිල් සටහන් ව්‍යුහගත, පුනරාවර්තනීය කාර්ය ප්‍රවාහ බවට පත් කිරීමට සැහැල්ලු දත්ත සමුදායන් සහ නැවත භාවිත කළ හැකි අච්චු.',
+  'about.featureEditor':
+    'නිහඬ බ්ලොක් සංස්කාරකයක් — ශීර්ෂ, ලැයිස්තු, කේත, කැඳවුම් සහ කළ යුතු දේ — ඔබට අවශ්‍ය විට slash-විධාන සමඟ, අවශ්‍ය නොවන විට ඉවත්ව.',
+  'about.featureGraph':
+    'පසු සබැඳි සහ දැනුම් ප්‍රස්තාරයක්: සටහනක් සම්බන්ධ කිරීමට [[ ටයිප් කරන්න, ඔබේ අදහස් කාලයත් සමඟ සම්බන්ධ වන ආකාරය බලන්න.',
+  'about.featureNotebooks':
+    'ව්‍යාපෘති, මාතෘකා සහ දෛනික සටහන් ඔබ සිතන ආකාරයටම සංවිධානය වී තබා ගැනීමට කැදැලි සටහන් පොත් සහ පිටු.',
+  'about.featureSearch':
+    'සෑම සටහන් පොතක් පුරාම තත්පරයට 50ms ට අඩු පූර්ණ පෙළ සෙවීම, එසේම සටහන් පොත් සමඟ ගැටෙනවා වෙනුවට ඒවා සමඟ එකට ක්‍රියා කරන ටැග්.',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
   'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'forgot.eyebrow': 'ආපහු එන්න පාර වැරදුනාද?',
   'forgot.formSubtitle': 'ගොනුවේ ඇති විද්‍යුත් තැපෑල අපට කියන්න.',
+  'forgot.formTitle': 'මුරපදය අමතක වුණා ද',
   'forgot.headline': 'ඔබගේ මුරපදය නැවත සකසන්න.',
   'forgot.subline':
     'ඔබට අලුත් එකක් තෝරා ගැනීමට හැකි වන පරිදි අපි ඔබේ එන ලිපි පෙට්ටියට එක් වරක් පමණක් භාවිතා කළ හැකි සබැඳියක් එවන්නෙමු.',
+  'forgot.successDetail':
+    'අපි ඔබේ ඊමේල් වෙත යළි සැකසුම් සබැඳියක් යැව්වෙමු. එය මිනිත්තු 30කින් කල් ඉකුත් වේ.',
   'graph.eyebrow': 'ප්‍රස්තාරය',
+  'graph.goToNotes': 'සටහන් බලන්න →',
+  'graph.loadError': 'ප්‍රස්තාරය පූරණය කළ නොහැකි විය: {{message}}',
   'graph.placeholderBody':
     'සටහන් එකිනෙකට සම්බන්ධ වීමට පටන් ගත් විට ([[wiki]] වාක්‍ය ඛණ්ඩය සමඟ), අන්තර්ක්‍රියාකාරී බල-යොමු කරන ලද ප්‍රස්ථාරයක් මෙහි විදහා දක්වනු ඇත.',
+  'graph.placeholderTitle': 'පසු සබැඳි ප්‍රස්තාරය ඉදිරියේදී',
   'graph.subtitle':
     '{{count}} මෙම වැඩබිමෙහි සටහන්. සටහන් එකිනෙක සම්බන්ධ වූ පසු පසු සබැඳි ප්‍රස්ථාර විදැහුම්කරණය මෙහි දිස්වනු ඇත.',
   'graph.title': 'දැනුම ප්‍රස්තාරය',
   'home.empty': 'තවම සටහන් නැත — ඔබේ පළමු එක ආරම්භ කරන්න.',
   'home.favoritesHeading': 'පින් කරන ලදී',
   'home.guest': 'මිතුරා',
+  'home.loadError': 'ඔබේ සටහන් පූරණය කළ නොහැකි විය: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'එය මෙහි තබා ගැනීමට සංස්කාරකයේ සටහනක් අමුණන්න.',
   'home.recentHeading': 'මෑතකදී යාවත්කාලීන කරන ලදී',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'සටහන් පොත',
   'home.stats.pinned.label': 'පින් කරන ලදී',
   'home.stats.updatedToday.label': 'අද යාවත්කාලීන කරන ලදී',
+  'home.subtitle': 'ඔබ නැවැත්වූ තැනින් අඛණ්ඩව කරගෙන යන්න, නැතහොත් නව සටහනක් අරඹන්න.',
   'home.viewAll': 'සියලුම සටහන් බලන්න',
   'landing.cta.body':
     'පුද්ගලික භාවිතය සඳහා නොමිලේ. කණ්ඩායම් සඳහා Pro. ඔබගේ පවතින සටහන් ගෙන එන්න හෝ අලුතින් ආරම්භ කරන්න — ඔබේ සටහන් කොතැනක සිටියත් Verso ඔබව හමුවෙයි.',
+  'landing.cta.button': 'මගේ වැඩබිම සාදන්න',
   'landing.cta.heading': 'අද පිටුව විවෘත කරන්න.',
   'landing.features.eyebrow': 'ඔබේ දෙවන මොළයට අවශ්‍ය සෑම ප්‍රාථමික දෙයක්ම',
+  'landing.features.heading': 'මෙටා-වැඩ සඳහා නොව, කාර්යය සඳහා ගොඩනගා ඇත.',
   'landing.hero.eyebrow': 'නිහඬ ලිවීමේ මතුපිටක්',
   'landing.hero.headlineAccent': 'හැඩය ගන්න.',
   'landing.hero.headlineLeading': 'සිතුවිලි කොහෙද',
   'landing.hero.primaryCta': 'ඔබේ දැනුම් පදනම ආරම්භ කරන්න',
   'landing.hero.secondaryCta': 'මට දැනටමත් ගිණුමක් තියෙනවා.',
+  'landing.hero.socialProof': '12,800+ ලේඛකයන්, සිසුන් සහ PhD ශිෂ්‍යයන් {{appName}} සමඟ සිතති',
   'landing.hero.subline':
     'Verso යනු දැනුම සේවකයින් සහ සිසුන් සඳහා ව්‍යුහගත සටහන් ගැනීමේ මතුපිටකි. බ්ලොක් සංස්කාරකය, කැදැලි සටහන් පොත්, පසු සබැඳි සහ දැනුම ප්‍රස්ථාරයක් - මේ සියල්ල මුද්‍රණ ශිල්පයේ පළමු කියවීමේ අත්දැකීමක් පිටුපස ඇත.',
+  'landing.preview.notebook': 'දැනුම · ලේඛන ක්‍රියාවලිය',
+  'landing.preview.title': 'කෙටුම්පත් වලට හුස්ම ගැනීමට ඉඩ දීම ගැන',
   'login.eyebrow': 'වර්සෝ වෙත නැවත සාදරයෙන් පිළිගනිමු.',
   'login.formSubtitle': 'ඔබගේ විද්‍යුත් තැපෑල හෝ සම්බන්ධිත ඕනෑම සැපයුම්කරුවෙකු භාවිතා කරන්න.',
   'login.headline': 'පිටුව විරාමයක් තැබූ තැනින් අරගන්න.',
@@ -43,6 +70,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'සංචාලන මෙනුව වසන්න',
   'mobileNav.openMenu': 'සංචාලන මෙනුව විවෘත කරන්න',
   'noteEditor.backToNotes': 'සටහන් වෙත ආපසු',
+  'noteEditor.bodyLabel': 'සටහන් පෙළ',
   'noteEditor.bodyPlaceholder':
     'ලිවීම ආරම්භ කරන්න — ඔබ ටයිප් කරන විට ඔබේ සටහන ස්වයංක්‍රීයව සුරැකේ.',
   'noteEditor.confirmTrash': 'මෙම සටහන කුණු කූඩයට ගෙන යන්නද?',
@@ -51,16 +79,21 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'කුණු කූඩයට ගෙන යන්න',
   'noteEditor.updated': 'යාවත්කාලීන කරන ලදී',
   'notes.defaultWorkspaceName': 'මගේ සටහන් පොත',
+  'notes.empty': 'මෙහි තවම සටහන් නැත — සටහන් පොත පිරවීමට එකක් අරඹන්න.',
   'notes.eyebrow': 'සටහන් පොත',
   'notes.filterAll': 'සියලුම සටහන්',
   'notes.filterPinned': 'පින් කරන ලදී',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'නව සටහන් පොත',
   'notes.newNotebookPrompt': 'නව සටහන් පොතේ නම',
+  'notes.newNotebookRequired': 'සටහන් පොතක නමක් ඇතුළත් කරන්න.',
   'notes.notebooksHeading': 'සටහන් පොත්',
   'notes.subtitle': 'වම් පස ඇති සටහන් පොතක් තෝරාගෙන, නව සටහනක් ආරම්භ කිරීමට නව සටහන් බොත්තම ඔබන්න.',
+  'planUpdated.body': 'ඔබේ දායකත්වය දැන් සක්‍රීයයි.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'උසස් විශේෂාංග',
   'pricing.heading': 'ඔබගේ සටහන් ගැනීමේ සැලැස්ම තෝරන්න',
+  'reset.changedMind': 'ඔබේ අදහස වෙනස් වුණාද?',
   'reset.eyebrow': 'ආපසු එන්න ආසන්නයි',
   'reset.formSubtitle': 'එය සුරැකුණු පසු ඔබ පුරනය වනු ඇත.',
   'reset.headline': 'නව මුරපදයක් තෝරන්න.',
@@ -69,7 +102,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'අපි ඔබට දැන් ඊමේල් කළ කේතය ඇතුළත් කර අමතක නොවන දෙයක් තෝරන්න.',
   'reset.submit': 'සුරකින්න සහ පුරනය වන්න',
   'reset.tokenHint': 'ඔබගේ එන ලිපි වලින් අලවන ලදී.',
+  'search.empty': 'මෙම විමසුමට තවම සටහන් නොගැළපේ.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'වර්තනය සොයන්න',
   'search.loading': 'සොයමින්...',
   'search.noRecent': 'ඔබගේ සටහන් හරහා සෙවීම ආරම්භ කිරීමට ඉහත විමසුමක් ටයිප් කරන්න.',
   'search.recentLabel': 'මෑත කාලීන සෙවීම්',
@@ -77,11 +112,18 @@ export const ui: UiTranslations = {
     'සෑම සටහන් පොතකම සම්පූර්ණ පෙළ. සෙවීමට ටයිප් කරන්න; ඔබ ටයිප් කරන විට ප්‍රතිඵල නැවුම් වේ.',
   'search.title': 'දෙවන මොළය සොයන්න.',
   'settings.account.logout': 'ඉවත් වන්න',
+  'settings.account.title': 'ගිණුම් විස්තර',
+  'settings.editor.graphHover.body':
+    'සංස්කාරකයේ [[විකි සබැඳියක්]] මත කර්සරය තබන විට කුඩා පෙරදසුන් කාඩ්පතක් පෙන්වන්න.',
+  'settings.editor.graphHover.label': 'පසු සබැඳි ප්‍රස්තාර කර්සර පෙරදසුන',
   'settings.editor.lineHeight.body': 'ශරීර රේඛා අතර කොපමණ වාතයක්ද. 170% පෙරනිමි කියවීමේ රිද්මයයි.',
+  'settings.editor.lineHeight.label': 'පේළි උස',
   'settings.editor.serif.body':
     'කියවීමේ තීරුව සඳහා ජෝර්ජියා භාවිතා කරන්න. Sans-serif පැති තීරුවේ සහ මෙවලම් තීරුවල තබා ගනී.',
+  'settings.editor.serif.label': 'Serif සටහන් පෙළ',
   'settings.editor.title': 'මුද්‍රණ ශිල්පය සහ ලිවීමේ මතුපිට',
   'settings.eyebrow': 'Verso · සැකසීම්',
+  'settings.passwordModal.current': 'වත්මන් මුර පදය',
   'settings.passwordModal.error':
     'මුරපදය වෙනස් කළ නොහැකි විය — කරුණාකර ඔබගේ වත්මන් මුරපදය පරීක්ෂා කරන්න.',
   'settings.passwordModal.next': 'නව මුරපදය',
@@ -91,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'සෑම යතුරු පහරක්ම තත්‍ය කාලීන නාලිකාව හරහා තල්ලු කරන්න. මන්දගාමී සම්බන්ධතා සඳහා අක්‍රීය කරන්න.',
   'settings.sync.auto.label': 'තත්‍ය කාලීන සමමුහුර්තය',
+  'settings.sync.title': 'ඔබේ සටහන් ගමන් කරන ආකාරය',
   'settings.theme.body':
     'කතුවැකි තීරුව දීප්තිමත්ව තබා ගැනීමට ආලෝකය උපකාරී වේ. සේපියා සවස් කාලය සඳහා පිටුව උණුසුම් කරයි.',
   'settings.theme.dark': 'අඳුරු',
@@ -110,8 +153,12 @@ export const ui: UiTranslations = {
     'සටහන් මාතෘකාවකට #hashtags එක් කරන්න (උදා: "කියවීමේ ලැයිස්තුව #පොත්") එවිට ඒවා ස්වයංක්‍රීයව මෙහි දිස්වනු ඇත.',
   'tags.emptyTitle': 'තවමත් ටැග් නැත.',
   'tags.eyebrow': 'දර්ශකය',
+  'tags.goToNotes': 'සටහන් වෙත යන්න →',
+  'tags.loadError': 'ටැග් පූරණය කළ නොහැකි විය: {{message}}',
   'tags.subtitle':
     '{{tags}} ටැග් හරහා {{notes}} සටහන්. සටහන් මාතෘකාවකට #hashtags එක් කරන්න, එවිට ඒවා මෙහි දිස්වනු ඇත.',
+  'versoAuthShell.sample.body':
+    'හෙට දිනක දෙවන වරට කියවීම අද රාත්‍රියේ පළමු වරට කියවීමට වඩා හොඳින් කියවේ. අමු කෙටුම්පත ගැඹුරු වැඩ ෆෝල්ඩරයේ තබන්න…',
   'versoAuthShell.sample.label': 'දෛනික සටහන',
   'versoAuthShell.sample.timestamp': 'අද · පෙ.ව. 9:14',
   'versoAuthShell.sample.title': 'කෙටුම්පත් වලට හුස්ම ගැනීමට ඉඩ දීම ගැන',
@@ -123,8 +170,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'ලිවීම දිගටම කරගෙන යන්න',
   'versoTodayHero.createCta': 'අද සටහන ආරම්භ කරන්න',
   'versoTodayHero.dailyLabel': 'දෛනික සටහන',
+  'versoTodayHero.emptyHeadline': 'අද හිස් පිටුවකි.',
   'versoTodayHero.emptySubline':
     'හෙට සිතුවිල්ලක් ග්‍රහණය කරගන්න, රැස්වීමක් සටහන් කරගන්න, නැතහොත් සටහනක් තබන්න. ලිවීම ශබ්ද නඟා තබා ගැනීම සඳහා Verso ව්‍යුහය නිහඬව තබා ගනී.',
+  'versoTodayHero.outlineLabel': 'අදේ සැලසුම',
   'versoTodayHero.streak': '{{count}} - දින රේඛාව',
+  'versoTodayHero.unwritten': 'තවම වචන නැත — ආරම්භ කිරීමට සටහන විවෘත කරන්න.',
   'versoTodayHero.wordCount': '{{count}} අද වචන',
 }

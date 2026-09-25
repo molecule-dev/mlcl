@@ -1,10 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'हमारे बारे में',
+  'about.featureAssignments':
+    'असाइनमेंट, फ़ाइल सबमिशन, रूब्रिक, इनलाइन फ़ीडबैक, और एक शांत ग्रेडबुक जो छात्रों और अभिभावकों को जानकारी में रखता है।',
+  'about.featureBreakouts':
+    'एक-टैप ब्रेकआउट रूम — छात्रों को ऑटो-शफ़ल करें, घोषणाएँ प्रसारित करें, और समय समाप्त होने पर सभी को वापस एक साथ लाएँ।',
+  'about.featureChat':
+    'पिन किए गए सारांशों और सत्र के दौरान शांत कोचिंग के लिए केवल प्रशिक्षक के लिए साइड चैनलों वाली थ्रेडेड क्लास चैट।',
+  'about.featureVideo':
+    'सक्रिय-वक्ता फ़ोकस, गैलरी और स्पॉटलाइट लेआउट, और प्रशिक्षकों के लिए खींचने योग्य पिक्चर-इन-पिक्चर के साथ सिनेमैटिक लाइव वीडियो।',
+  'about.featureWhiteboard':
+    'लेज़र पॉइंटर और पूर्ण रंग पैलेट वाला एक अनंत व्हाइटबोर्ड, जिसमें हर सत्र प्रति कोर्स सहेजा जाता है ताकि काम कक्षाओं के बीच बना रहे।',
+  'about.missionBody':
+    'हमारा मानना है कि दूरस्थ और हाइब्रिड शिक्षा एक सेमिनार टेबल जितनी उपस्थित और मानवीय महसूस होनी चाहिए। इसलिए हम लाइव उपस्थिति को सबसे पहले रखते हैं — असली चेहरे, एक साझा कैनवास, और छोटे समूह के ब्रेकआउट — और ग्रेडिंग व लॉजिस्टिक्स को चुपचाप रास्ते से हटाकर रखते हैं जब तक आपको उनकी ज़रूरत न हो।',
+  'about.missionTitle': 'हमारा विशेष कार्य',
   'assignmentDetail.attachmentsTitle': 'संलग्नक',
   'assignmentDetail.back': 'सभी असाइनमेंट',
   'assignmentDetail.code': 'बायो 211',
+  'assignmentDetail.context':
+    'Cell Biology I · {{instructor}} द्वारा पोस्ट किया गया · {{due}} को देय',
   'assignmentDetail.continueDraft': 'मसौदा जारी रखें',
   'assignmentDetail.draftBody':
     'अंतिम संपादन 14 मिनट पहले हुआ · प्रत्येक परिवर्तन पर स्वतः सहेजा जाता है।',
@@ -23,6 +39,7 @@ export const ui: UiTranslations = {
   'assignmentRow.statusInProgress': 'मसौदा',
   'assignmentRow.statusSubmitted': 'प्रस्तुत किया गया',
   'assignmentRow.title': 'प्रयोगशाला रिपोर्ट — माइटोकॉन्ड्रियल डीएनए',
+  'assignmentRow.weight': 'ग्रेड का {{percent}}% मूल्य',
   'assignments.body':
     'अपने सभी पाठ्यक्रमों में प्रत्येक प्रश्नपत्र, समस्या सेट और परियोजना पर नज़र रखें।',
   'assignments.empty': 'इस लेन में अभी कुछ भी नहीं है - शांति का आनंद लें।',
@@ -33,6 +50,8 @@ export const ui: UiTranslations = {
   'assignments.statTotal': 'सक्रिय असाइनमेंट',
   'assignments.title': 'असाइनमेंट',
   'aulaAuthShell.backHome': '← वापस होम पेज पर',
+  'aulaAuthShell.brandBody':
+    '{{appName}} वीडियो, व्हाइटबोर्ड, ब्रेकआउट, चैट और ग्रेडिंग को एक केंद्रित टैब में लाता है — उन प्रशिक्षकों के लिए बनाया गया जो पढ़ाना चाहते हैं, टैब नहीं चराना।',
   'aulaAuthShell.brandEyebrow': 'जहां सीखना जीवंत हो उठता है',
   'aulaAuthShell.brandTitle': 'कक्षा में उपस्थित होने की गर्माहट के साथ जीवंत कक्षाएं।',
   'aulaAuthShell.sampleAttending': '+24 और लोग शामिल होंगे',
@@ -42,6 +61,8 @@ export const ui: UiTranslations = {
   'aulaSideNav.closeMenu': 'नेविगेशन मेनू बंद करें',
   'aulaSideNav.label': 'प्राथमिक नेविगेशन',
   'aulaSideNav.weeklyClasses': 'इस सप्ताह',
+  'aulaSideNav.weeklyClassesCount': '{{done}} / {{total}}',
+  'aulaSideNav.weeklyHelp': 'आप इस सप्ताह के पाठ पूरा करने की राह पर हैं। लगे रहें!',
   'aulaTopBar.openMenu': 'नेविगेशन मेनू खोलें',
   'aulaTopBar.searchPlaceholder': 'कोर्स, क्लास, असाइनमेंट खोजें…',
   'aulaTopBar.title': 'औला',
@@ -54,6 +75,8 @@ export const ui: UiTranslations = {
   'calendar.statTotal': 'आगामी कार्यक्रमों की कुल संख्या',
   'classroom.chatCount': '{{count}} संदेश',
   'classroom.chatEmpty': 'अभी तक कोई संदेश नहीं आया है — चुप्पी तोड़ने के लिए नमस्ते कहें।',
+  'classroom.chatInputLabel': 'क्लास चैट संदेश',
+  'classroom.chatLoading': 'बातचीत लोड हो रही है…',
   'classroom.chatPlaceholder': 'कक्षा में भेजें…',
   'classroom.chatTitle': 'कक्षा में बातचीत',
   'classroom.detailJoin': 'Join code',
@@ -80,23 +103,30 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'courseDetail.assignmentsTitle': 'पाठ्यक्रम असाइनमेंट',
   'courseDetail.back': 'सभी पाठ्यक्रम',
+  'courseDetail.body':
+    'लाइन इंटीग्रल से डाइवर्जेंस और कर्ल तक बढ़ता दूसरे सेमेस्टर का कोर्स। हर मंगल/गुरु को लाइव, शुक्रवार की लैब और साप्ताहिक ऑफ़िस आवर्स के साथ।',
+  'courseDetail.ca1Course': 'कैलकुलस II',
   'courseDetail.ca1Due': 'गुरुवार शाम 5:00 बजे तक जमा करें',
   'courseDetail.ca1Title': 'वेक्टर क्षेत्र फ्लक्स समस्या सेट',
   'courseDetail.ca2Course': 'कैलकुलस II',
   'courseDetail.ca2Due': 'सोमवार को जमा किया गया',
   'courseDetail.ca2Score': 'प्रतिक्रिया की प्रतीक्षा है',
   'courseDetail.ca2Title': 'स्टोक्स प्रमेय के प्रमाण',
+  'courseDetail.ca3Course': 'कैलकुलस II',
   'courseDetail.ca3Due': 'लौटाया गया · 9 दिन पहले',
   'courseDetail.ca3Score': 'ए · 94%',
   'courseDetail.ca3Title': 'लाइन इंटीग्रल समीक्षा प्रश्नोत्तरी',
   'courseDetail.cls1Course': 'कैलकुलस II · MTH 202',
   'courseDetail.cls1Instructor': 'प्रो. माया ओकाफोर',
+  'courseDetail.cls1Room': 'औला कक्ष · लैवेंडर',
   'courseDetail.cls1Title': 'वेक्टर क्षेत्र और प्रवाह',
   'courseDetail.cls2Course': 'कैलकुलस II · MTH 202',
   'courseDetail.cls2Instructor': 'प्रो. माया ओकाफोर',
+  'courseDetail.cls2Room': 'औला कक्ष · लैवेंडर',
   'courseDetail.cls2Title': 'लाइन इंटीग्रल की समीक्षा',
   'courseDetail.cls3Course': 'कैलकुलस II · MTH 202',
   'courseDetail.cls3Instructor': 'टीए फेलिक्स बाउर',
+  'courseDetail.cls3Room': '{{appName}} रूम · Petal',
   'courseDetail.cls3Title': 'प्रयोगशाला: स्टोक्स समस्या सेट',
   'courseDetail.code': 'एमटीएच 202',
   'courseDetail.materialsTitle': 'मटीरियल',
@@ -135,15 +165,19 @@ export const ui: UiTranslations = {
   'courses.loading': 'पाठ्यक्रम लोड हो रहे हैं…',
   'courses.noBrowse':
     'ब्राउज़ करने के लिए कोई कोर्स नहीं हैं — आप प्रकाशित सभी कोर्सों में पहले से ही नामांकित हैं।',
+  'courses.noCourses': 'अभी कोई कोर्स नहीं — ऊपर दिए बटन से एक बनाएँ।',
   'courses.title': 'आपकी शिक्षण लाइब्रेरी',
   'courseTileCard.code': 'ईसीएन 312',
   'courseTileCard.continue': 'पाठ्यक्रम जारी रखें',
   'courseTileCard.enroll': 'कोर्स देखें',
   'courseTileCard.imageAlt': 'कोर्स का संक्षिप्त विवरण',
   'courseTileCard.instructor': 'डॉ. इदरीस हैलोवे',
+  'courseTileCard.lessonsRemaining': '{{count}} पाठ शेष',
   'courseTileCard.levelAdvanced': 'उन्नत',
   'courseTileCard.levelBeginner': 'शुरुआती',
   'courseTileCard.levelIntermediate': 'मध्यवर्ती',
+  'courseTileCard.preview':
+    'सिलेबस का पूर्वावलोकन करें, व्याख्यान ब्राउज़ करें, और नामांकन का अनुरोध करें।',
   'courseTileCard.progressComplete': '{{percent}}% पूर्ण',
   'courseTileCard.title': 'आधुनिक मैक्रोइकॉनॉमिक्स',
   'dashboard.assignmentsAll': 'सभी देखें →',
@@ -163,12 +197,16 @@ export const ui: UiTranslations = {
   'dashboard.noAssignments': 'कोई असाइनमेंट जमा करने की अंतिम तिथि नहीं है - शांति का आनंद लें।',
   'dashboard.noCourses': 'अभी कोई कोर्स उपलब्ध नहीं है — आपका पहला कोर्स यहां दिखाई देगा।',
   'dashboard.noDueDate': 'कोई नियत तिथि नहीं',
+  'dashboard.scheduleAula': 'औला कमरा',
   'dashboard.scheduleEmpty': 'आगामी समय में कोई लाइव क्लास निर्धारित नहीं है।',
   'dashboard.scheduleHostedYou': 'आपके द्वारा आयोजित',
+  'dashboard.scheduleJoinCode': 'ज्वाइन कोड · {{code}}',
+  'dashboard.statAssignmentsLabel': 'असाइनमेंट देय',
   'dashboard.statClassesDelta': '{{n}} सक्रिय पाठ्यक्रम',
   'dashboard.statClassesLabel': 'लाइव कमरे',
   'dashboard.statCoursesDelta': '{{n}} दाखिला लिया',
   'dashboard.statCoursesLabel': 'कोर्स',
+  'dashboard.statNotificationsLabel': 'अपठित अलर्ट',
   'dashboard.tipBody':
     'व्हाइटबोर्ड पर रेखा खींचने या चैट संदेश पोस्ट करने के लिए ऊपर दिए गए हीरो कार्ड से लाइव रूम खोलें - प्रत्येक क्रिया स्थायी रहती है।',
   'dashboard.tipCta': 'व्हाइटबोर्ड का उपयोग करके देखें',
@@ -182,6 +220,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success':
     'यदि उस ईमेल पते पर कोई खाता मौजूद है, तो रीसेट लिंक जल्द ही भेजा जाएगा।',
   'forgotPassword.toLogin': 'लॉग इन पर वापस जाएँ',
+  'grades.assignmentsCount': '{{n}} ग्रेड',
   'grades.body':
     'प्रत्येक पाठ्यक्रम का एक शांत अवलोकन — चल रहे ग्रेड, हालिया प्रतिक्रिया और अगले सप्ताह किस पर ध्यान केंद्रित करना है।',
   'grades.empty':
@@ -194,43 +233,59 @@ export const ui: UiTranslations = {
   'grades.statTrendUnit': 'पाठ्यक्रम',
   'grades.statWatchLabel': 'ध्यान देने की आवश्यकता है',
   'grades.title': 'ग्रेड और प्रतिक्रिया',
+  'landing.ctaBody':
+    'हम एक नमूना कोर्स बनाएँगे, सह-शिक्षक को आमंत्रित करेंगे, और घंटी बजने से पहले आपको दिखाएँगे कि कक्षा को ब्रेकआउट में कैसे बदलें।',
   'landing.ctaButton': 'अपना स्कूल बनाएं',
   'landing.ctaPrimary': 'एक निःशुल्क सत्र शुरू करें',
   'landing.ctaSecondary': 'कक्षा का भ्रमण देखें',
   'landing.ctaTitle': 'तीन मिनट से भी कम समय में अपना पहला क्लासरूम खोलें।',
+  'landing.demoCourse': 'World Literature · LIT 240',
+  'landing.demoInstructor': 'प्रो. Imani Davies',
+  'landing.demoTitle': 'जादुई यथार्थवाद — Borges और Murakami',
   'landing.eyebrow': 'वितरित टीमें, अंत-से-अंत तक',
   'landing.feat1Body':
     'ऑटोमेटिक स्पॉटलाइट + गैलरी, एक्टिव-स्पीकर एक्सेंट और इंस्ट्रक्टरों के लिए ड्रैग करने योग्य पिक्चर-इन-पिक्चर की सुविधा।',
   'landing.feat1Title': 'सिनेमाई वीडियो ग्रिड',
   'landing.feat2Body':
     'असीमित कैनवास, लेजर पॉइंटर, आठ-स्वॉच पैलेट और प्रत्येक कोर्स के लिए निरंतर सत्र।',
+  'landing.feat2Title': 'व्हाइटबोर्ड जो ज़ोर से सोचता है',
   'landing.feat3Body':
     'छात्रों को स्वचालित रूप से कमरों में भेजें, घोषणाएं प्रसारित करें और एक टैप से सभी को वापस बुला लें।',
+  'landing.feat3Title': 'दो क्लिक में ब्रेकआउट',
   'landing.feat4Body':
     'मूल्यांकन मानदंड, फाइल सबमिशन, ऑनलाइन फीडबैक और एक सुव्यवस्थित ग्रेडबुक जो अभिभावकों को सूचित रखती है।',
+  'landing.feat4Title': 'असाइनमेंट + ग्रेडबुक',
   'landing.feat5Body':
     'प्रत्येक कक्षा के लिए थ्रेडेड चैट, पिन किए गए सारांश और प्रशिक्षक के लिए विशेष साइड चैनल जहां से उन्हें गुप्त रूप से मार्गदर्शन दिया जा सकता है।',
+  'landing.feat5Title': 'कक्षा के संदर्भ के साथ चैट',
   'landing.feat6Body':
     'जिला निर्देशिकाओं, आयु-उपयुक्त मॉडरेशन और प्रत्येक कक्षा के लिए ऑडिट लॉग के साथ एसएसओ।',
+  'landing.feat6Title': 'डिफ़ॉल्ट रूप से सुरक्षित',
   'landing.featuresEyebrow': 'लाइव के लिए निर्मित',
   'landing.featuresTitle': 'कक्षा की सभी ज़रूरतें एक ही टैब में उपलब्ध हैं।',
   'landing.footerCopy': '© {{year}} औला। शिक्षकों के लिए सावधानीपूर्वक बनाया गया।',
   'landing.footerStart': 'स्कूल शुरू करें',
   'landing.heroBody':
     'औला लाइव वीडियो, व्हाइटबोर्ड, ब्रेकआउट सेशन, चैट और असाइनमेंट जैसी सुविधाओं को एक ही आरामदायक और शैक्षिक मंच पर उपलब्ध कराता है। यह उन शिक्षकों के लिए बनाया गया है जो कम टैब खोलकर छात्रों पर अधिक ध्यान देना चाहते हैं।',
+  'landing.heroLine1': 'जहाँ हर कक्षा',
   'landing.heroLine2': 'कमरे में होने का एहसास होता है।',
   'landing.navSchools': 'स्कूलों के लिए',
   'landing.navStart': 'कक्षा खोलें',
   'landing.previewCourse1': 'आधुनिक मैक्रोइकॉनॉमिक्स',
   'landing.previewCourse2': 'स्टूडियो पेंटिंग II',
   'landing.previewCourse3': 'डेटा नैतिकता का परिचय',
+  'landing.previewEyebrow': 'कैटलॉग का दौरा करें',
   'landing.previewInstructor1': 'डॉ. इदरीस हैलोवे',
   'landing.previewInstructor2': 'प्रो. लीला मारिन',
   'landing.previewInstructor3': 'डॉ. नाओमी व्रेन',
   'landing.previewTitle': 'ऐसे कोर्स जिन्हें आपके छात्र वास्तव में खोलेंगे।',
+  'landing.socialProofBody':
+    'दुनिया भर के 380 स्कूलों, बूटकैंपों और कॉर्पोरेट प्रशिक्षकों द्वारा उपयोग किया जाता है।',
   'landing.socialProofTitle': 'इस सत्र में 14,200 से अधिक कक्षाएं आयोजित की गईं।',
   'liveClassHeroCard.bodyLive':
     '{{instructor}} अभी-अभी कमरा खोला है। {{count}} सहपाठी पहले से ही अंदर हैं - हाजिरी लगने से पहले अंदर आ जाओ।',
+  'liveClassHeroCard.bodyUpcoming':
+    '{{instructor}} {{minutes}} मिनट में होस्ट कर रहे हैं। कैमरा और माइक जाँच अभी खुली है।',
   'liveClassHeroCard.course': 'कैलकुलस II — MTH 202',
   'liveClassHeroCard.elapsed': 'बीत चुका',
   'liveClassHeroCard.elapsedValue': '12:08',
@@ -243,6 +298,7 @@ export const ui: UiTranslations = {
   'liveClassHeroCard.title': 'व्याख्यान 14 — सदिश क्षेत्र',
   'liveClassHeroCard.viewSchedule': 'पूरा शेड्यूल देखें',
   'login.emailPlaceholder': 'you@school.edu',
+  'login.footerPrompt': 'Tessera पर नए हैं?',
   'login.hidePassword': 'पासवर्ड छिपाएं',
   'login.rememberMe': 'मुझे साइन इन रखें',
   'login.showPassword': 'पासवर्ड दिखाएं',
@@ -252,6 +308,7 @@ export const ui: UiTranslations = {
   'notifications.body': 'आपके पास {{count}} आपकी कक्षाओं से अपठित अपडेट।',
   'notifications.bodyNone': 'आप सब कुछ पढ़ चुके हैं।',
   'notifications.loading': 'लोड हो रहा है…',
+  'pricing.advancedFeatures': 'उन्नत सुविधाएँ',
   'profile.bio':
     'वेक्टर कैलकुलस और टोपोलॉजी · 14 वर्षों का शिक्षण अनुभव · ऑला समुदाय मॉडरेटर। सोमवार/बुधवार को सुबह 11 से 12 बजे तक लैवेंडर कक्ष में कार्यालय समय।',
   'profile.course1Instructor': 'प्रो. माया ओकाफोर',
@@ -272,8 +329,11 @@ export const ui: UiTranslations = {
   'profile.statStudentsLabel': 'इस सत्र के छात्र',
   'resetPassword.confirmPasswordPlaceholder': 'नया पासवर्ड दोबारा दर्ज करें',
   'resetPassword.emailPlaceholder': 'you@school.edu',
+  'resetPassword.mismatch': 'पासवर्ड अभी मेल नहीं खाते।',
+  'resetPassword.newPassword': 'नया पासवर्ड',
   'resetPassword.subtitle':
     'इसे इतना लंबा रखें कि इसका अनुमान लगाना मुश्किल हो और इतना छोटा रखें कि इसे जल्दी से टाइप किया जा सके।',
+  'resetPassword.title': 'एक नया पासवर्ड चुनें',
   'scheduleItem.course': 'रचनात्मक लेखन · ENG 220',
   'scheduleItem.endTime': 'दोपहर 3:30 बजे',
   'scheduleItem.instructor': 'डॉ. यूसुफ अदेलाना',
@@ -296,10 +356,19 @@ export const ui: UiTranslations = {
   'settings.language.title': 'भाषा',
   'settings.photoHint': 'जेपीजी या पीएनजी · वर्गाकार फॉर्मेट सबसे अच्छा रहता है',
   'settings.profileTitle': 'प्रोफ़ाइल',
+  'settings.securityTitle': 'साइन-इन और सुरक्षा',
   'settings.twoFactorCode': 'प्रमाणीकरण कोड',
   'settings.twoFactorDisable': 'अक्षम करें',
+  'settings.twoFactorDisableTitle': 'दो-कारक प्रमाणीकरण बंद करें',
   'settings.twoFactorEnable': 'सक्षम करें',
+  'settings.twoFactorEnableTitle': 'दो-कारक प्रमाणीकरण चालू करें',
   'settings.twoFactorInvalidCode': 'अवैध कोड',
+  'settings.twoFactorOffBody': 'सक्षम नहीं है',
+  'settings.twoFactorOnBody': 'सक्षम · ऑथेंटिकेटर ऐप',
+  'settings.twoFactorQrAlt': 'दो-कारक QR कोड',
+  'settings.twoFactorScan':
+    'इस QR कोड को अपने ऑथेंटिकेटर ऐप से स्कैन करें, फिर 6 अंकों का कोड दर्ज करें।',
+  'settings.twoFactorUnavailable': 'इस ऐप के लिए टू-फैक्टर ऑथेंटिकेशन उपलब्ध नहीं है।',
   'settings.twoFactorVerify': 'सत्यापित करें और सक्षम करें',
   'signup.email': 'स्कूल ईमेल',
   'signup.emailPlaceholder': 'you@school.edu',
@@ -307,6 +376,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'ऐयाना',
   'signup.lastNamePlaceholder': 'वेगा',
   'signup.roleInstructor': 'प्रशिक्षक',
+  'signup.roleLabel': 'मैं हूँ…',
   'signup.roleStudent': 'छात्र',
   'signup.subtitle':
     'ऑला पहले 30 दिनों के लिए निःशुल्क है — इसके लिए क्रेडिट कार्ड की आवश्यकता नहीं है। आप अपने सह-शिक्षकों को कभी भी आमंत्रित कर सकते हैं।',
@@ -319,6 +389,8 @@ export const ui: UiTranslations = {
   'whiteboard.colorLabel': 'रंग {{color}}',
   'whiteboard.export': 'SVG निर्यात करें',
   'whiteboard.loading': 'लोडिंग बोर्ड…',
+  'whiteboard.persistenceNote':
+    'स्ट्रोक रूम व्हाइटबोर्ड में सहेजे जाते हैं। पेज रीलोड करें — बोर्ड की स्थिति अब भी वहीं होनी चाहिए।',
   'whiteboard.roomNotFound': 'इस लिंक के लिए व्हाइटबोर्ड नहीं मिला।',
   'whiteboard.savedAt': '{{count}} स्ट्रोक · अंतिम बार सहेजा गया {{when}}',
   'whiteboard.title': 'लाइव व्हाइटबोर्ड',

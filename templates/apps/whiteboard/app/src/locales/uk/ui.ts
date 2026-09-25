@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маєте відгук, натрапили на помилку чи хочете нову функцію? Ми читаємо кожне повідомлення — напишіть команді {{appName}} із налаштувань акаунта, і вам відповість реальна людина.',
   'about.contactTitle': "Зв'яжіться з нами",
+  'about.intro':
+    '{{appName}} — це спільне нескінченне полотно для дизайн-команд, фасилітаторів воркшопів та освітян. Додавайте стікери, малюйте фігури, робіть начерки від руки й дивіться, як колеги думають разом із вами в реальному часі — усе в одному місці, де хаотичні, генеративні ідеї нарешті можуть зійтися.',
+  'about.missionBody':
+    'Великі думки рідко бувають охайними. {{appName}} існує, щоб дати командам швидку поверхню з мінімальним тертям, де ідеї можна зафіксувати в мить їхньої появи та разом формувати, доки вони не набудуть сенсу — без затримок, втраченої роботи чи жорстких інструментів, що вбивають імпульс.',
+  'about.missionTitle': 'Наша місія',
+  'authShell.brandFooter':
+    '«Ми замінили чотири інструменти на {{appName}} того тижня, коли випустили ребрендинг. Ретро збереглося саме собою.» — Atlas Studio',
+  'authShell.brandFooterMeta': 'Нам довіряють понад 12 400 дизайн-команд',
   'authShell.brandHeading':
     'Багатокористувацькі полотна для дизайнерських команд, які мислять вголос.',
   'billing.canceled': 'Підписку скасовано.',
@@ -11,6 +21,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': 'Початковий рівень назавжди безкоштовно.',
   'billing.freePlanName': 'Безкоштовно',
   'billing.paidPlanBody': 'Активна підписка.',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'План і рахунки-фактури',
   'billing.updated': 'План оновлено.',
   'billing.upgradeTitle': 'Доступні плани',
@@ -19,8 +30,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': 'з {{max}} включено',
   'boardCanvas.backToBoards': 'Усі дошки',
   'boardCanvas.changeColor': 'Змінити колір {{color}}',
+  'boardCanvas.collaboratorsTitle': 'Співробітники',
   'boardCanvas.deleteElement': 'Видалити елемент',
   'boardCanvas.deselect': 'Скасувати вибір',
+  'boardCanvas.elementLabel': 'Елемент {{type}}',
   'boardCanvas.elementsCount': '{{count}} елементи',
   'boardCanvas.elementText': 'Текст',
   'boardCanvas.empty.body':
@@ -30,10 +43,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': 'Заповнити',
   'boardCanvas.invited': 'Запрошено {{email}}',
   'boardCanvas.metaTitle': 'Позиція',
+  'boardCanvas.metaWH': 'Ш: {{w}}  В: {{h}}',
   'boardCanvas.metaXY': 'Х: {{x}} Y: {{y}}',
   'boardCanvas.noCollaborators':
     'Поки що немає співавторів. Використайте функцію "Поділитися", щоб запросити членів команди.',
   'boardCanvas.present': 'Подарунок',
+  'boardCanvas.private': 'Приватна — лише за запрошенням',
   'boardCanvas.properties': 'Властивості',
   'boardCanvas.public': 'Загальнодоступний — переглядати може кожен, хто має посилання',
   'boardCanvas.roleCommenter': 'Можна коментувати',
@@ -49,6 +64,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'Виберіть липкий колір',
   'boardCanvas.summaryCount': '{{count}} елементи на полотні',
   'boardCanvas.summaryTitle': 'Дошка',
+  'boardCanvas.surface.clear': 'Полотно дошки — очистити вибір',
+  'boardCanvas.surface.draw': 'Полотно дошки — перетягніть, щоб намалювати',
+  'boardCanvas.surface.place': 'Полотно дошки — розмістити елемент',
   'boardCanvas.untitled': 'Дошка без назви',
   'boardCanvas.visibilityTitle': 'Видимість',
   'boardCanvas.zoomIn': 'Збільшити',
@@ -71,6 +89,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'Пошукові дошки',
   'boards.searchPlaceholder': 'Пошукові дошки',
   'boards.sharedTitle': 'Поділилися зі мною',
+  'boards.sortedBy': 'Сортовано за нещодавно оновленими',
   'boards.startFromTemplate': 'Почати з шаблону',
   'boards.title': 'Ваші дошки',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -84,6 +103,8 @@ export const ui: UiTranslations = {
   'landing.cta.signupButton': 'Створіть свою безкоштовну дошку',
   'landing.cta.title': 'Створено для безладного, генеративного мислення в реальному житті.',
   'landing.demoBoard.title': 'Семінар за перший квартал · Голос бренду',
+  'landing.demoBoard.updated': 'Оновлено 12 хв тому',
+  'landing.featuresEyebrow': 'Що робить {{appName}} мозаїчним',
   'landing.featuresTitle': "Швидкий зворотний зв'язок. Чудові полотна. Нульове тертя.",
   'landing.hero.body':
     '{{appName}} — це багатокористувацька дошка для команд дизайнерів, фасилітаторів семінарів та викладачів, які проводять живі мозкові штурми та потребують зібрання ідей в одному місці.',
@@ -95,18 +116,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '••••••••••••',
   'login.signIn': 'Увійти до Nimbus',
   'login.signupCta': 'Створіть безкоштовне робоче місце',
+  'login.signupPrompt': 'Вперше в Tessera?',
   'login.subheading':
     'Продовжуйте з того місця, де зупинився семінар — дошки, стікери та курсори синхронізуються в режимі реального часу.',
   'mobileNav.closeMenu': 'Закрити меню навігації',
   'mobileNav.new': 'Нові',
   'mobileNav.openMenu': 'Відкрити меню навігації',
+  'notifications.editBody': 'Вміст дошки оновлено.',
   'notifications.editTitle': 'Редагування до " {{board}} "',
   'notifications.empty.body':
     'Запрошення, збережені знімки та нещодавні редагування дошки відображатимуться тут у міру їх внесення.',
   'notifications.empty.title': 'Нічого нового у вашій поштовій скриньці',
   'notifications.eyebrow': '{{name}} · вхідні',
+  'notifications.inviteBody': 'як {{role}} на «{{board}}»',
   'notifications.inviteTitle': 'Запрошено {{email}}',
   'notifications.snapshotTitle': 'Новий знімок на " {{board}} "',
+  'present.addFirst': 'Додати перший фрейм',
   'present.addFrame': '+ Додати рамку',
   'present.boardEyebrow': '{{title}} · презентація',
   'present.empty.body':
@@ -114,6 +139,7 @@ export const ui: UiTranslations = {
   'present.empty.title': 'Поки що немає кадрів',
   'present.exit': 'Вийти з презентації',
   'present.exitToBoard': 'Повернутися до полотна',
+  'present.eyebrow': 'Режим презентації',
   'present.frameBody': 'Тези для обговорення',
   'present.frameName': 'Назва кадру',
   'present.frameOf': 'Рамка {{current}} з {{total}}',
@@ -123,20 +149,30 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'Презентація в прямому ефірі',
   'present.save': 'Зберегти кадр',
   'present.title': 'Розкажіть свою історію',
+  'present.unnamed': 'Фрейм без назви',
+  'pricing.limits.advanced': 'Розширені функції',
   'profile.cursorBody':
     'Збережено на цьому пристрої — товариші по команді бачать цей колір поруч із вашим активним курсором.',
   'profile.cursorEyebrow': 'Колір вашого курсора',
   'profile.eyebrow': 'Картка публічного співавтора',
+  'profile.noBoards': 'Дошок ще немає — створіть одну, щоб почати.',
+  'profile.recentBoards': 'Дошки, яких торкалися {{name}} нещодавно',
   'profile.stat.${s.label}': "Дошки {{ім'я}} нещодавно торкнувся",
+  'profile.statsEyebrow': 'Ваша активність',
   'profile.title': 'Ваш профіль',
+  'reset.backPrompt': 'Потрібна інша електронна адреса?',
   'reset.cta': 'Скинути пароль і ввійти',
+  'reset.password': 'Новий пароль',
   'reset.subheading': 'Оберіть надійний пароль — щонайменше 8 символів, включаючи одну цифру.',
   'settings.appearance.title': 'Тема та полотно',
   'settings.eyebrow': 'Налаштування рахунку',
   'settings.notifications.title': 'Налаштування сповіщень',
   'settings.profile.title': 'Картка публічного співавтора',
+  'settings.security.body':
+    'Керуйте двофакторною автентифікацією, активними сеансами та паролем із панелі акаунта.',
   'settings.security.title': 'Безпека',
   'shared.collaboratorCount': '{{count}} співробітник(и)',
+  'shared.count': 'Дошок: {{count}}',
   'shared.empty.body':
     'Коли товариш по команді запрошує вас на дошку, вона автоматично відображатиметься тут.',
   'shared.empty.title': 'З вами ще нічого не поділилися',
@@ -152,6 +188,9 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Безкоштовно для максимум 3 співавторів. Кредитна картка не потрібна протягом перших 14 днів.',
   'templateCard.usageCount': '{{count}} використовує',
+  'templateDetail.allTemplates': 'Усі шаблони',
+  'templateDetail.body':
+    'Натисніть «Використати шаблон», щоб скопіювати стартові елементи {{count}} на нову дошку з назвою «{{name}}». Редагуйте, діліться та проводьте воркшоп звідти.',
   'templateDetail.delete': 'Видалити шаблон',
   'templateDetail.elementsCount': '{{count}} стартерні елементи',
   'templateDetail.eyebrow': '{{kind}} шаблон',
@@ -164,16 +203,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'Зберегти власний шаблон',
   'templates.empty.body':
     'Створіть власний шаблон з будь-якої дошки, яка у вас є — відкрийте дошку, збережіть знімок, а потім збережіть його як шаблон багаторазового використання тут.',
+  'templates.empty.title': 'Поки що немає шаблонів',
   'templates.eyebrow': 'Набори для майстер-класів та збережені шаблони',
   'templates.filter.${c}': 'Поки що немає шаблонів',
   'templates.nameLabel': 'Назва шаблону',
   'templates.systemBadge': 'Вбудований',
   'templates.userBadge': 'Ваш',
   'versionHistory.backToBoard': 'Повернутися до полотна',
+  'versionHistory.elementsTotal': 'Захоплено елементів: {{count}}',
   'versionHistory.empty.body':
     'Знімки створюються з полотна дошки за допомогою опції «Зберегти знімок» — вони відображаються тут, щоб ви могли відновити будь-який попередній стан.',
+  'versionHistory.empty.cta': 'Відкрийте полотно, щоб додати',
   'versionHistory.empty.title': 'Знімків поки що немає',
   'versionHistory.eyebrow': '{{title}} · історія',
+  'versionHistory.eyebrowFallback': 'Історія дошки',
   'versionHistory.latest': 'Останні новини',
   'versionHistory.restore': 'Відновити цю версію',
   'versionHistory.restored': 'Знімок відновлено.',
@@ -184,6 +227,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'Нова дошка',
   'whiteboardLayout.primaryNav': 'Основна навігація',
   'workspace.boardLabel': 'Дошка',
+  'workspace.empty': 'Співавторів ще немає — запросіть когось на свої дошки.',
   'workspace.eyebrow': '{{name}} · робочий простір',
   'workspace.invite': 'Запросити співавторів',
   'workspace.inviteSent': 'Запрошення надіслано.',
@@ -192,4 +236,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'Коментатор',
   'workspace.role.editor': 'Редактор',
   'workspace.role.viewer': 'Переглядач',
+  'workspace.title': 'Учасники та ролі',
 }

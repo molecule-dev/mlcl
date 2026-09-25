@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்விகள், கருத்துகள் அல்லது உங்கள் சொந்த குழுவுடன் {{app}}-ஐப் பார்க்க விரும்புகிறீர்களா? உங்கள் பணியிட அமைப்புகளிலிருந்து எங்களைத் தொடர்பு கொள்ளுங்கள் — ஒவ்வொரு செய்தியும் எங்கள் குழுவில் உள்ள ஒரு உண்மையான நபருக்கே செல்கிறது.',
   'about.contactTitle': 'எங்களை தொடர்பு கொள்ளுங்கள்',
   'about.eyebrow': '{{tagline}}',
+  'about.intro':
+    '{{app}} என்பது மணிநேர அடிப்படையில் பணிபுரியும் குழுக்களுக்கான ஷிப்ட்-திட்டமிடல் பணியிடம். வாராந்திர பணியாளர் பட்டியல்கள், கிடைக்கும் நேரம், மாற்று ஒப்புதல்கள், திறந்த ஷிப்ட்கள் மற்றும் நேரப் பட்டியல்கள் அனைத்தும் ஒரே நம்பகமான தரவாக இருக்கும் — நிறுவன மொழி அல்ல, உங்கள் குழுவுக்குத் தேவையான பணியிட பாதுகாப்பு மட்டுமே.',
+  'about.missionBody':
+    'மணிநேர அடிப்படையில் பணிபுரியும் குழுக்களின் மேலாளர்கள் ஒரு வாரத்தை நிரப்ப குறுஞ்செய்தி அனுப்பி, விரிதாள் தயாரித்து, மீண்டும் குறுஞ்செய்தி அனுப்பி பல மணிநேரங்களை செலவிடுகிறார்கள். சலிப்பான ஆனால் அத்தியாவசியமான திட்டமிடல் அடித்தளத்தை — பணியாளர் பட்டியல்கள், கிடைக்கும் நேரம், மாற்றங்கள் மற்றும் கோரிக்கைகள் — நாங்கள் உருவாக்குகிறோம், இதனால் மேலாளர்கள் தங்கள் ஆற்றலை பணியிடத்தில் செலவிடுவார்கள், தொலைபேசியில் அல்ல.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.title': '{{app}} பற்றி',
   'auth.backToSignIn': 'உள்நுழைவுக்குத் திரும்பு',
   'auth.legalConsent': 'தொடர்வதன் மூலம், நீங்கள் எங்களுடைய விதிமுறைகளை ஏற்கிறீர்கள்',
@@ -34,6 +41,8 @@ export const ui: UiTranslations = {
   'availability.showFor': 'காட்டு',
   'availability.subheading':
     'வாராந்திர மீண்டும் நிகழும் சாளரங்கள் மற்றும் ஒருமுறை கருப்புக் காலம் தேதிகள். அவற்றுக்கு வெளியே திட்டமிடுதல் அனுமதிக்கப்படுகிறது ஆனால் குறியிடப்படுகிறது.',
+  'availability.windowsEmpty':
+    'எந்த நேரச் சாளரங்களும் அறிவிக்கப்படவில்லை — முழுமையாக நெகிழ்வானதாகக் கருதப்படுகிறது.',
   'availability.windowsHeading': 'வாராந்திர சாளரங்கள்',
   'claims.actionFailed': 'செயல் தோல்வியடைந்தது.',
   'common.advancedFeatures': 'மேம்பட்ட அம்சங்கள்',
@@ -64,13 +73,19 @@ export const ui: UiTranslations = {
   'dashboard.coverageEyebrow': 'வாரம்',
   'dashboard.coverageHeading': 'நாள்வாரி பணியாள்கள்',
   'dashboard.empty': 'இன்னும் தரவு இல்லை.',
+  'dashboard.eyebrow': 'இந்த வாரம் {{appName}} இல்',
+  'dashboard.heading': 'அட்டவணை மேலோட்டம்',
+  'dashboard.kpi.hours': 'திட்டமிடப்பட்ட மணிநேரங்கள்',
   'dashboard.kpi.hoursHint': 'அதிகபட்ச மணிநேர வரவுசெலவில்.',
   'dashboard.kpi.openHint': 'வெளியிடப்பட்டது & உரிமைகோரப்படவில்லை.',
+  'dashboard.kpi.openShifts': 'திறந்த ஷிஃப்ட்கள்',
   'dashboard.kpi.pending': 'நிலுவை அங்கீகாரங்கள்',
   'dashboard.kpi.staff': 'பட்டியலில் உள்ள ஊழியர்கள்',
   'dashboard.openCount': '{{count}} திறந்தவை',
+  'dashboard.openScheduleCta': 'திறந்த அட்டவணை',
   'dashboard.openShift': 'திறந்த ஷிஃப்ட்',
   'dashboard.shift': 'ஷிஃப்ட்',
+  'dashboard.subheading': 'பாதுகாப்பு, ஒப்புதல்கள் மற்றும் நிரப்ப வேண்டிய இடைவெளிகள்.',
   'dashboard.todayEmpty': 'இன்று தளத்தில் எதுவும் இல்லை.',
   'dashboard.todayHeading': 'இன்றைய ஷிஃப்ட்கள்',
   'dashboard.viewAllRequests': 'அனைத்தையும் பார்க்கவும் →',
@@ -79,6 +94,7 @@ export const ui: UiTranslations = {
   'footer.language': 'மொழி',
   'forgotPassword.checkEmail':
     'புதிய கடவுச்சொல்லை அமைப்பதற்கான வழிமுறைகளுக்கு {{email}} ஐப் பார்க்கவும்.',
+  'forgotPassword.emailPlaceholder': 'you@shiftly.example',
   'forgotPassword.sent': 'மீட்டமை இணைப்பு அனுப்பப்பட்டது.',
   'forgotPassword.subheading':
     'உங்கள் பணி மின்னஞ்சலை உள்ளிடவும், நாங்கள் உங்களுக்கு மீட்டமை இணைப்பை அனுப்புவோம்.',
@@ -87,6 +103,7 @@ export const ui: UiTranslations = {
   'form.firstName': 'முதல் பெயர்',
   'form.lastName': 'கடைசி பெயர்',
   'form.role': 'பதவி',
+  'landing.copyright': '© {{year}} {{app}} மாலிக்யூல் கொண்டு உருவாக்கப்பட்டது.',
   'landing.eyebrow': 'திட்டமிடுதல் — குழு அரட்டை இல்லாமல்',
   'landing.featuresEyebrow': 'இது எப்படி வேலை செய்கிறது',
   'landing.featuresHeading': 'உருவாக்கு. வெளியிடு. சுவாசி.',
@@ -94,12 +111,16 @@ export const ui: UiTranslations = {
     'வெற்று வாரத்திலிருந்து வெளியிடப்பட்ட பட்டியலுக்கு நிர்வாகியை அழைத்துச் செல்லும் நான்கு மேற்பரப்புகள் — மற்றும் வாழ்க்கை நடக்கும்போது அதை நிலைக்க வைக்கவும்.',
   'landing.footerNavLabel': 'அடிக்குறிப்பு',
   'landing.heroCta': '30 நாட்களுக்கு இலவசமாகத் தொடங்கவும்',
+  'landing.heroProof':
+    'கிரெடிட் கார்டு தேவையில்லை. எப்போது வேண்டுமானாலும் ரத்து செய்யலாம். Pro இல் CSV ஊதிய ஏற்றுமதி.',
   'landing.heroSecondary': 'நேரடி டெமோவைக் காணவும் →',
   'landing.heroSubtitle':
     '{{appName}} என்பது மணிநேர குழுக்களுக்கான ஷிஃப்ட் திட்டமிடல் பணியிடம். பட்டியல் கட்டத்தில் வாரத்தை உருவாக்கி, வெளியிடவும், மாற்றங்கள், விடுவிப்புகள் மற்றும் திறந்த ஷிஃப்ட் உரிமைகோரல்களை அங்கீகாரங்கள் வழியாகப் பாய்ச்சவும் — பதினொரு உரைச் செய்திகள் வழியாக அல்ல.',
   'landing.heroTitle': '{{tagline}}.',
   'landing.preview.open': '3 திறந்த ஷிஃப்ட்கள்',
   'landing.preview.pending': '2 அங்கீகாரங்கள் காத்திருக்கின்றன',
+  'landing.preview.shifts': '28 ஷிப்ட்கள் பணியாளர்களுடன்',
+  'landing.previewLabel': 'இந்த வாரம் {{appName}} இல் — முன்னோட்டம்',
   'landing.pricingEyebrow': 'விலை நிர்ணயம்',
   'landing.pricingHeading': 'ஒவ்வொரு குழு அளவுக்கும் திட்டங்கள்.',
   'landing.socialEyebrow': 'குழுக்களை ஷிஃப்ட்டில் வைத்திருத்தல்',
@@ -113,9 +134,13 @@ export const ui: UiTranslations = {
     'பட்டியலைத் திறக்கவும், வாரத்தை வெளியிடவும், ஒவ்வொரு ஷிஃப்ட்டையும் பாதுகாக்கவும்.',
   'loginBrandPanel.badge.claimed': 'உரிமைகோரப்பட்டது',
   'loginBrandPanel.badge.open': 'திறந்த',
+  'loginBrandPanel.badge.published': 'வெளியிடப்பட்டது',
   'loginBrandPanel.copyright':
     '© {{year}} {{app}} Scheduling Co. மணிநேர குழுக்களுக்காக உருவாக்கப்பட்டது.',
   'loginBrandPanel.headline': 'ஒவ்வொரு ஷிஃப்ட்டும்,',
+  'loginBrandPanel.headlineLine2': 'சரியான நேரத்தில் ஈடுசெய்யப்பட்டது.',
+  'loginBrandPanel.subtext':
+    'வாராந்திர பணியாளர் பட்டியல்கள், கிடைக்கும் நேரம், மாற்று ஒப்புதல்கள், திறந்த ஷிப்ட்கள் மற்றும் நேரப் பட்டியல்கள் — ஒரே நம்பகமான தரவு. நியாயமான, முன்னறிவிக்கக்கூடிய அட்டவணைகளைப் பற்றி அக்கறை கொள்ளும் மணிநேர குழு மேலாளர்களுக்காக உருவாக்கப்பட்டது.',
   'nav.about': 'பற்றி',
   'nav.auditLog': 'தணிக்கை பதிவு',
   'nav.failedToLoad': 'ஏற்றுவது தோல்வியடைந்தது.',
@@ -125,6 +150,7 @@ export const ui: UiTranslations = {
   'nav.settings': 'அமைப்புகள்',
   'nav.terms': 'விதிமுறைகள்',
   'nav.workspace': 'பணியிடம்',
+  'openShifts.claim': 'ஷிஃப்ட்டை உரிமைகோரவும்',
   'openShifts.claimFailed': 'உரிமைகோரல் தோல்வியடைந்தது.',
   'openShifts.claimingAs': 'என உரிமைகோருகிறது',
   'openShifts.dialogHeading': 'ஷிஃப்ட்டை உரிமைகோரவும்',
@@ -132,15 +158,24 @@ export const ui: UiTranslations = {
   'openShifts.empty': 'திறந்த ஷிஃப்ட்கள் இல்லை — வாரம் முழுவதும் பணியாளர்கள் உள்ளனர்.',
   'openShifts.eyebrow': 'உரிமைகோரல் பலகை',
   'openShifts.heading': 'திறந்த ஷிஃப்ட்கள்',
+  'openShifts.manageHint':
+    'மேலாளர்கள் ஷிப்ட் விவரப் பக்கத்திலிருந்து கோரிக்கைகளை ஒப்புதல் அளிக்கிறார்கள் — ',
   'openShifts.pickStaff': 'யார் உரிமைகோருகிறார் என்பதைத் தேர்ந்தெடுக்கவும்.',
+  'openShifts.reviewLink': 'நிலுவையில் உள்ள ஒப்புதல்களை மதிப்பாய்வு செய்யவும் →',
+  'openShifts.subheading':
+    'பொறுப்பாளர் இல்லாமல் வெளியிடப்பட்ட ஷிப்ட்கள் — ஒன்றைக் கோரவும், மேலாளர் ஒப்புதல் அளிப்பார்.',
   'openShifts.submitClaim': 'உரிமைகோரலைச் சமர்ப்பிக்கவும்',
+  'openShifts.youClaimed': '{{name}} — ஒப்புதலுக்காகக் காத்திருக்கிறது',
   'planUpdated.message': 'உங்கள் திட்டம் புதுப்பிக்கப்பட்டது.',
   'planUpdated.thankYou': 'நன்றி!',
   'pricing.limits.shifts': 'வாரத்திற்கு ஷிஃப்ட்கள்',
+  'pricing.limits.staff': 'பணியாளர் பட்டியலில் உள்ள பணியாளர்கள்',
   'requestStatus.approved': 'அங்கீகரிக்கப்பட்டது',
   'requestStatus.denied': 'நிராகரிக்கப்பட்டது',
   'requestStatus.pending': 'நிலுவையில் உள்ளது',
   'resetPassword.passwordLabel': 'புதிய கடவுச்சொல்',
+  'resetPassword.signInCta': 'உள்நுழை →',
+  'resetPassword.signInPrompt': 'உள்நுழைய உங்கள் புதிய கடவுச்சொல்லைப் பயன்படுத்துங்கள்.',
   'resetPassword.subheading':
     'வலுவான கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும் — குறைந்தது 12 எழுத்துகள் கலப்பு எழுத்துக்களுடன்.',
   'schedule.addShift': 'ஷிஃப்ட் சேர்க்கவும்',
@@ -159,7 +194,9 @@ export const ui: UiTranslations = {
   'schedule.prevWeek': 'முந்தைய வாரம்',
   'schedule.publishFailed': 'வெளியீடு தோல்வியடைந்தது.',
   'schedule.publishWeek': 'வாரத்தை வெளியிடு',
+  'schedule.shiftCount': '{{count}} ஷிப்ட்கள்',
   'schedule.staffColumn': 'ஊழியர்கள்',
+  'schedule.state.draftCount': 'வரைவு · {{count}} வெளியிடப்படாதது',
   'schedule.state.published': 'வெளியிடப்பட்டது',
   'schedule.subheading':
     'ஷிஃப்ட்களை ஒதுக்கவும், இடைவெளிகளைத் திறந்து விடவும், வாரம் தயாரானதும் வெளியிடவும்.',
@@ -167,19 +204,27 @@ export const ui: UiTranslations = {
   'schedule.thisWeek': 'இன்று',
   'schedule.unpublish': 'வெளியீட்டை நிறுத்து',
   'schedule.weekRange': '{{start}} – {{end}}',
+  'settings.audit.detail':
+    'கீழே முழு ஊட்டத்தைப் பார்க்கவும். பணியாளர் பட்டியல் அல்லது அட்டவணை வரிசைக்கு எதிரான ஒவ்வொரு CRUD செயலும் பதிவு செய்யப்படுகிறது.',
   'settings.audit.empty': 'இன்னும் மாற்றங்கள் இல்லை.',
   'settings.audit.heading': 'சமீபத்திய மாற்றங்கள்',
   'settings.billing': 'பில்லிங்',
   'settings.closeCta': 'அருகில்',
   'settings.company.displayName': 'உங்கள் காட்சிப் பெயர்',
   'settings.company.workspace': 'பணியிட பெயர்',
+  'settings.integrations.detail':
+    'OAuth வழங்குநர்கள் மற்றும் webhooks API bonds-உடன் வழங்கப்படுகின்றன. உங்கள் .env-இல் ரகசியங்களை அமைக்கவும் (Stripe, Mailgun, OAuth client IDs).',
+  'settings.permissions.detail':
+    'இயல்புநிலை பங்கு: நிர்வாகி (நீங்கள்). பணியாளர்கள் என்பதிலிருந்து குழு உறுப்பினர்களைச் சேர்த்து, பின்னர் பணியாளர் பட்டியலிலிருந்து மேலாளர் / தலைவர் பங்குகளை ஒதுக்கவும்.',
   'settings.profileSaveError': 'சுயவிவரத்தைச் சேமிக்க முடியவில்லை.',
   'settings.security.heading': 'பாதுகாப்பு',
   'settings.security.subheading':
     'உங்கள் கடவுச்சொல்லை மாற்றவும் மற்றும் இரு காரணி அங்கீகாரத்துடன் உங்கள் பணியிடத்தைப் பாதுகாக்கவும்.',
   'settings.subheading': 'நிறுவனத் தகவல், அனுமதிகள், ஒருங்கிணைப்புகள் மற்றும் தணிக்கை பதிவு.',
   'shiftDetail.assignmentHeading': 'ஒதுக்கீடு',
+  'shiftDetail.availabilityWarning': 'அறிவிக்கப்பட்ட கிடைக்கும் நேரத்திற்கு வெளியே',
   'shiftDetail.backToSchedule': '← அட்டவணைக்குத் திரும்பு',
+  'shiftDetail.blackoutWarning': 'இந்த நபருக்கான தடை தேதி',
   'shiftDetail.claimsHeading': 'உரிமைகோரல்கள்',
   'shiftDetail.deleteFailed': 'நீக்குவது தோல்வியடைந்தது.',
   'shiftDetail.deletePrompt': 'இந்த ஷிப்டை நீக்கவா?',
@@ -187,8 +232,10 @@ export const ui: UiTranslations = {
   'shiftDetail.drop': 'விடுவி',
   'shiftDetail.handTo': 'ஒப்படை',
   'shiftDetail.hours': 'ம',
+  'shiftDetail.noClaims': 'இந்த ஷிப்டை இன்னும் யாரும் கோரவில்லை.',
   'shiftDetail.noRequests': 'இந்த ஷிஃப்ட்டில் திறந்த கோரிக்கைகள் இல்லை.',
   'shiftDetail.noteLabel': 'குறிப்பு',
+  'shiftDetail.notes': 'குறிப்புகள்',
   'shiftDetail.notFound': 'ஷிஃப்ட் கிடைக்கவில்லை.',
   'shiftDetail.openHint':
     'ஊழியர்கள் திறந்த ஷிஃப்ட்களிலிருந்து இதை உரிமைகோரலாம்; கீழே உள்ள உரிமைகோரலை அங்கீகரிக்கவும்.',
@@ -201,6 +248,7 @@ export const ui: UiTranslations = {
   'shiftDetail.swap': 'மாற்று',
   'shiftDetail.targetRequired': 'ஷிஃப்ட்டை ஒப்படைக்க அணி உறுப்பினரைத் தேர்ந்தெடுக்கவும்.',
   'shiftlyLayout.closeNav': 'வழிசெலுத்தல் மெனுவை மூடுக',
+  'shiftlyLayout.openNav': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'shiftlyLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'signup.cta': 'பணியிடத்தை உருவாக்கு',
   'signup.eyebrow': '30 நாட்களுக்கு இலவசம் · கிரெடிட் கார்டு தேவையில்லை',
@@ -219,8 +267,13 @@ export const ui: UiTranslations = {
   'staff.fieldsRequired': 'முதல் பெயர், கடைசி பெயர் மற்றும் மின்னஞ்சல் தேவை.',
   'staff.heading': 'ஊழியர் பட்டியல்',
   'staff.maxHours': 'அதிகபட்சம் ம/வாரம்',
+  'staff.searchLabel': 'பணியாளர்களைத் தேடு',
+  'staff.searchPlaceholder': 'பெயர், மின்னஞ்சல், பங்கு… தேடு',
   'staff.statusFailed': 'நிலையைப் புதுப்பிக்க முடியவில்லை.',
+  'staff.subheading':
+    'பங்குகள், அதிகபட்ச வாராந்திர மணிநேரங்கள் மற்றும் இந்த வாரத்தில் ஒவ்வொருவரும் எவ்வளவு சுமக்கிறார்கள்.',
   'staff.submitFailed': 'ஊழியரைச் சேர்க்க முடியவில்லை.',
+  'staff.toggleStatus': 'நிலையை மாற்று',
   'status.inactive': 'செயலற்ற நிலையில்',
   'swapRequests.allHeading': 'அனைத்து கோரிக்கைகளும்',
   'swapRequests.empty': 'இங்கே எதுவும் இல்லை.',
@@ -235,6 +288,12 @@ export const ui: UiTranslations = {
   'swapRequests.viewAs': 'என காண்பி',
   'swaps.actionFailed': 'செயல் தோல்வியடைந்தது.',
   'timesheets.empty': 'இந்த வாரம் இன்னும் முடிக்கப்பட்ட ஷிஃப்ட்கள் இல்லை.',
+  'timesheets.exportCta': 'CSV-ஐ ஏற்றுமதி செய்',
   'timesheets.eyebrow': 'சம்பளப் பார்வை',
   'timesheets.heading': 'நேரத்தாள்கள்',
+  'timesheets.scheduledVsClaimed': '{{scheduled}}ம திட்டமிடப்பட்டது · {{claimed}}ம கோரப்பட்டது',
+  'timesheets.subheading':
+    'ஒவ்வொரு நபருக்கும் ஒவ்வொரு வாரமும் முடிக்கப்பட்ட ஷிப்ட்கள் — திட்டமிடப்பட்டது மற்றும் கோரப்பட்டது, CSV ஆக ஏற்றுமதி செய்யக்கூடியது.',
+  'timesheets.toggleDetail': 'ஷிப்ட் விவரத்தை மாற்று',
+  'timesheets.totalHours': '{{hours}} மணிநேரங்கள் முடிக்கப்பட்டது',
 }

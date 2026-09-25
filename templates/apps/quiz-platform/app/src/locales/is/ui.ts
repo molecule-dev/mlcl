@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ertu með endurgjöf, fannst þú villu eða vilt þú koma {{app}} í skólann þinn eða lið? Við lesum hverja skilaboð — hafðu samband í gegnum reikningsstillingarnar þínar og alvöru manneskja mun svara.',
   'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
+  'about.intro':
+    '{{app}} er vettvangur fyrir lifandi spurningakeppni fyrir skólastofur, spilakvöld og liðviðburði. Búðu til skemmtileg spurningasett, stýrðu keppni í rauntíma með innskráningarkóða og fylgstu með stemningunni þegar tímasettar spurningar, stigagjöf og stigatöflur taka við.',
+  'about.missionBody':
+    'Nám festist í minni þegar það er leikur. Við gerum það einfalt fyrir hvern sem er að breyta umfjöllunarefni í skjóta og spennandi keppni — svo stjórnendur geti kennt með því að gera og leikmenn haldi röðinni sinni.',
+  'about.missionTitle': 'Markmið okkar',
   'about.title': 'Um {{app}}',
   'auth.login.noAccount': 'Nýr í Sparq?',
   'auth.login.or': 'eða halda áfram með',
@@ -17,11 +24,13 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Engar spurningakeppnir ennþá.',
   'discover.headline': 'Finndu næsta uppáhalds spurningakeppnina þína.',
   'discover.loading': 'Hleður…',
+  'discover.searchPlaceholder': 'Leita í spurningakeppnum eftir titli…',
   'discover.subhead':
     'Skoðaðu allt safnið, síaðu eftir flokki eða leitaðu eftir titli. Ýttu á spil til að spila einn eða til að vera með í beinni.',
   'forgotPassword.subhead': 'Sláðu inn netfangið þitt og við sendum þér tengil til að endurstilla.',
   'forgotPassword.success.body':
     'Ef reikningur er til staðar fyrir {{email}} , þú færð endurstillingarhlekk eftir nokkrar mínútur.',
+  'forgotPassword.success.title': 'Kíktu á pósthólfið þitt.',
   'hostLobby.back': 'Til baka í spurningakeppnina',
   'hostLobby.copied': 'Tengingarkóði afritaður á klippiborð.',
   'hostLobby.creating': 'Að snúa við anddyrinu þínu…',
@@ -29,19 +38,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Hætta við anddyri',
   'hostLobby.players.count': '{{count}} lifa',
   'hostLobby.players.title': 'Spilarar í anddyri',
+  'hostLobby.players.waiting':
+    'Bíð eftir leikmönnum. Deildu kóðanum {{code}} svo þeir geti skráð sig inn.',
   'hostLobby.rules.title': 'Húsreglur',
   'hostLobby.startError': 'Gat ekki ræst leikinn.',
   'hostLobby.starting': 'Að byrja að kveikja…',
   'joinCodeHero.headline': 'Segðu leikmönnum þínum að stökkva inn í.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Eða heimsækja',
   'joinCodeHero.liveLabel': 'Anddyri í beinni',
+  'joinCodeHero.playerJoined': '{{name}} skráði sig inn',
   'joinCodeHero.playersLabel': 'Leikmenn',
   'joinCodeHero.qrLabel': 'Skannaðu til að taka þátt',
   'joinCodeHero.startGame': 'Byrjaðu neistann',
   'joinCodeHero.subhead':
     'Deildu aðildarkóðanum eða skannaðu QR-kóðann. Leikurinn byrjar um leið og þú kveikir neistann.',
+  'landing.cta.button': 'Búðu til þína fyrstu spurningakeppni',
   'landing.cta.eyebrow': 'Ókeypis fyrir kennara',
   'landing.cta.heading': 'Bringðu neistann í hverja kennslustund.',
+  'landing.cta.subhead':
+    'Skráðu þig á 30 sekúndum. Stýrðu ótakmörkuðum leikjum í rauntíma, búðu til spurningakeppnir með gervigreind og haltu hverjum leikmanni í röð.',
   'landing.eyebrow': 'Kveikja á hverju svari',
   'landing.features.heading': 'Spurningakeppnisstofa sem hentar kennslu- og leikstíl þínum.',
   'landing.hero.ctaPrimary': 'Byrjaðu að hýsa ókeypis',
@@ -56,6 +72,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Vinsælar spurningakeppnir',
   'landing.popular.eyebrow': 'Vinsælt í þessari viku',
   'landing.popular.heading': 'Kíktu við í spurningakeppni sem hýsir í dag.',
+  'landing.popular.viewAll': 'Skoða alla flokka →',
+  'leaderboard.empty.body':
+    'Spilaðu spurningakeppni til að setja stig þín á alþjóðlegu stigatöfluna.',
   'leaderboard.empty.title': 'Engar leikir á borðinu ennþá — vertu fyrstur.',
   'leaderboard.eyebrow': 'Stigatafla',
   'leaderboard.fullRanking': 'Full röðun',
@@ -63,6 +82,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Samanlagður skora úr hverri spurningakeppni sem þú hefur tekið þátt í. Klífðu með því að spila meira.',
   'leaderboard.title': 'Bestu spurningakeppnisstjórarnir',
+  'leaderboard.totalPlayers': '{{count}} leikmenn í röð',
   'leaderboardRow.points': 'stig',
   'leaderboardRow.streak': '{{days}} d',
   'login.headline': 'Velkominn aftur, spurningakeppnisstjóri.',
@@ -74,10 +94,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Búðu til fyrsta prófið þitt →',
   'myQuizzes.empty.created': 'Þú hefur ekki búið til próf ennþá.',
   'myQuizzes.empty.played': 'Engar birtar próf enn.',
+  'myQuizzes.loading': 'Hleður…',
   'myQuizzes.subhead':
     'Drög sem þú hefur búið til, auk birtra spurningakeppni sem þú getur spilað.',
   'myQuizzes.title': 'Prófin mín',
   'nav.legal': 'Löglegt',
+  'nav.primaryNavLabel': 'Aðalflakk',
   'notFound.backHome': 'Heima',
   'notFound.backToDiscover': 'Skoða próf',
   'notFound.body': 'Prófaðu annan kóða eða farðu aftur í anddyrið.',
@@ -86,17 +108,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Hleður…',
   'notifications.subhead':
     '{{count}} Ólesnir neistar. Boð, stigatöflur og afrek, allt í einum straumi.',
+  'planUpdated.retry': 'Reyndu aftur',
+  'planUpdated.verifyFailed': 'Við gátum ekki staðfest greiðsluna þína ennþá.',
+  'planUpdated.verifyFailedBody':
+    'Greiðslan þín gæti enn verið í vinnslu. Reyndu aftur eftir smástund.',
   'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
+  'pricing.advancedFeatures': 'Ítarlegir eiginleikar: {{yes}}',
+  'pricing.canExport': 'Útflutningur gagna: {{yes}}',
   'pricing.checkoutError': 'Gat ekki hafið greiðslu. Vinsamlegast reyndu aftur.',
   'pricing.heading': 'Veldu {{app}} áætlunina þína',
   'pricing.included': 'Innifalið',
   'pricing.loadError': 'Gat ekki hlaðið inn áætlunum.',
+  'pricing.maxQuestions': '{{count}} spurningar',
   'pricing.maxQuizzes': '{{count}} spurningakeppnir',
+  'pricing.maxSessions': '{{count}} lotur',
   'pricing.subhead':
     'Ókeypis fyrir gestgjafa og spilara. Uppfærðu til að fá hærri mörk og ítarlegri eiginleika.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Reikningur: netfang, dulkóðað lykilorð, birtingarnafn, síðasta innskráning.',
+  'privacy.intro':
+    '{{app}} virðir friðhelgi þína. Þessi síða dregur saman gögnin sem við geymum, hvers vegna við geymum þau og hvernig á að eyða þeim.',
   'privacy.rights.body':
     'Eyddu reikningnum þínum úr stillingum til að eyða öllum gögnum þínum varanlega innan 30 daga.',
   'privacy.share.body':
@@ -120,6 +152,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Prófauðkenni: {{id}}',
   'quizBuilder.loadError': 'Gat ekki hlaðið prófinu.',
   'quizBuilder.loading': 'Hleður ritstjóra…',
+  'quizBuilder.markCorrect': 'Merkja {{letter}} sem rétt',
   'quizBuilder.noQuestions': 'Engar spurningar ennþá — bættu einni við til að byrja.',
   'quizBuilder.notFound': 'Spurningakeppni fannst ekki.',
   'quizBuilder.preview': 'Skoða',
@@ -136,7 +169,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} tímamælir',
   'quizBuilder.title': 'Búðu til spurningakeppnina þína',
   'quizBuilder.titleLabel': 'Titill spurningakeppninnar',
+  'quizBuilder.untitled': 'Spurning án titils',
   'quizCard.plays': '{{count}} leikrit',
+  'quizCard.questionCount': '{{count}} spurningar',
   'quizDetail.duration': '~ {{minutes}} mín.',
   'quizDetail.hostMultiplayer': 'Hýsa fjölspilunarforrit',
   'quizDetail.leaderboardEmpty': 'Engar leikir ennþá — vertu fyrstur til að setja stig.',
@@ -151,26 +186,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Til baka í spurningakeppnina',
   'quizPlay.empty': 'Þetta próf hefur engar spurningar ennþá.',
   'quizPlay.error': 'Ekki tókst að hlaða þessari prófraun. Vinsamlegast reyndu aftur.',
+  'quizPlay.exit': 'Hætta',
   'quizPlay.feedback.correct': '🔥 Neisti unninn — á næsta stig!',
+  'quizPlay.feedback.incorrect': 'Rétta svarið var {{correct}}. Haltu áfram.',
   'quizPlay.loading': 'Hleður spurningakeppni…',
   'quizPlay.next': 'Næsta spurning',
   'quizPlay.questionCounter': 'Spurning {{current}} af {{total}}',
   'quizPlay.score': '{{score}} stig',
+  'quizPlay.seeResults': 'Sjá niðurstöður',
   'quizPlay.sessionFailed': 'Gat ekki hafið lotu.',
   'quizPlay.streak': '{{count}} rák',
+  'resetPassword.subhead': 'Veldu nýtt lykilorð til að komast aftur í röðina þína.',
   'results.backToDiscover': 'Til baka í Uppgötva',
   'results.error': 'Ekki tókst að hlaða niðurstöðum.',
   'results.exit': 'Til baka í Uppgötva',
   'results.loading': 'Að telja stigin þín…',
   'results.missingSession': 'Enginn fundur til að taka saman.',
+  'results.recap.correctAnswer': 'Rétt: {{answer}}',
   'results.recap.questionLabel': 'Spurning {{number}}',
   'results.recap.title': 'Samantekt spurninga',
+  'results.recap.yourAnswer': 'Þú: {{answer}}',
   'results.unknownQuiz': 'Spurningakeppni',
   'scoreBreakdownCard.accuracyLabel': 'Nákvæmni',
+  'scoreBreakdownCard.correctLabel': 'Rétt',
   'scoreBreakdownCard.eyebrow': 'Spurningakeppni lokið',
   'scoreBreakdownCard.headline': 'Fín vinna á " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Stig',
   'scoreBreakdownCard.rankLabel': 'Röðun',
+  'scoreBreakdownCard.streakBonus': 'Röðubónus +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Neistinn þinn er að sjást. Skoðaðu sundurliðunina hér að neðan til að halda áfram upp stigatöfluna.',
   'settings.danger.body': 'Fjarlægðu Sparq aðganginn þinn og öll búin til próf varanlega.',
   'settings.danger.confirm': 'Já, eyða fyrir fullt og allt',
   'settings.guest': 'Gestur',
@@ -187,5 +232,7 @@ export const ui: UiTranslations = {
     'Þú berð ábyrgð á efninu sem þú birtir, spurningunum sem þú skrifar og öllum leikjum sem þú hýsir. Ekki þykjast vera annað fólk.',
   'terms.billing.body':
     'Greiddar áskriftir endurnýjast sjálfkrafa þar til þær eru sagt upp í Stillingum. Þú getur sagt upp áskriftinni hvenær sem er; aðgangur heldur áfram til loka núverandi reikningstímabils.',
+  'terms.intro':
+    'Með því að nota {{app}} samþykkir þú reglurnar hér að neðan. Ef þú getur ekki samþykkt þær skaltu ekki nota þjónustuna.',
   'terms.title': 'Þjónustuskilmálar',
 }

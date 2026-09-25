@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានសំណួរ មតិកែលម្អ ឬមុខងារដែលអ្នកចង់បាន? ទាក់ទងក្រុមការងារពីការកំណត់គណនីរបស់អ្នក — មនុស្សពិតប្រាកដអានរាល់សារ។',
   'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
+  'about.whatYouGetTitle': 'អ្វីដែលអ្នកទទួលបាន',
   'analytics.empty': 'បង្កើត​វេទិកា​ដើម្បី​មើល​ការវិភាគ​នៅទីនេះ។',
   'analytics.stats.acrossDecks': 'ឆ្លងកាត់គ្រប់ជាន់ទាំងអស់',
   'analytics.stats.allTime': 'នៅក្នុងស្ទូឌីយោរបស់អ្នក',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'ចំណងជើង​នៃ​សន្លឹកបៀ',
   'landing.features.eyebrow': 'ហេតុអ្វីបានជាការបើកឆាក',
   'landing.features.heading': 'អ្វីគ្រប់យ៉ាងដែលអ្នកត្រូវការដើម្បីដើរលើឆាករួចរាល់ហើយ។',
+  'landing.finalCta.body':
+    'បង្កើតស្ទូឌីយោរបស់អ្នកក្នុងរយៈពេលតិចជាងមួយនាទី។ មិនត្រូវការកាតឥណទាន។ បោះបង់បានពេលណាក៏បាន។',
   'landing.finalCta.cta': 'បង្កើតស្ទូឌីយោឥតគិតថ្លៃរបស់អ្នក',
   'landing.finalCta.eyebrow': 'ឥតគិតថ្លៃដើម្បីចាប់ផ្តើម',
   'landing.finalCta.heading': 'ឡើងលើឆាកជាមួយនឹងក្រុមតន្រ្តីដ៏ល្អបំផុតនៃអាជីពរបស់អ្នក។',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'បានកែសម្រួល 12 នាទីមុន',
   'notifications.created': 'បានបង្កើត',
   'notifications.edited': 'កែសម្រួល',
+  'notifications.empty.body':
+    'សកម្មភាពលើដេករបស់អ្នក — មតិយោបល់ ការលើកឡើង ការនាំចេញ — នឹងបង្ហាញនៅទីនេះ។',
   'notifications.empty.title': 'មិនទាន់មានការជូនដំណឹងនៅឡើយទេ',
   'notifications.eyebrow': 'សកម្មភាពលើឆាក',
   'notifications.loading': 'កំពុងផ្ទុក…',
   'notifications.shared': 'ចែករំលែកជាសាធារណៈ',
+  'planUpdated.retry': 'ព្យាយាមម្តងទៀត',
+  'planUpdated.verifyFailed': 'យើងមិនទាន់អាចបញ្ជាក់ការទូទាត់របស់អ្នកបាននៅឡើយទេ។',
+  'planUpdated.verifyFailedBody':
+    'ការទូទាត់របស់អ្នកប្រហែលជានៅតែកំពុងដំណើរការ។ សូមព្យាយាមម្តងទៀតនៅពេលបន្តិចទៀត។',
   'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'present.addSlides': 'បន្ថែមស្លាយ',
   'present.backToDecks': 'ត្រឡប់ទៅផ្ទាំងថ្មវិញ',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'អ្នកសំដែងលើឆាក',
   'settings.security.notSet': 'មិនទាន់កំណត់',
   'settings.security.passwordBody': 'ពាក្យសម្ងាត់របស់អ្នកត្រូវបានអ៊ិនគ្រីបនៅពេលមិនមានសកម្មភាព។',
+  'settings.security.reset': 'កំណត់ឡើងវិញ',
   'settings.security.title': 'គណនី + វគ្គ',
   'shared.empty.body':
     'សន្លឹកបៀដែលអ្នកចែករំលែកជាសាធារណៈនឹងបង្ហាញនៅទីនេះ។ បើកសន្លឹកបៀមួយ ហើយបិទ/បើកជាសាធារណៈដើម្បីចែករំលែក។',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'កំពុងផ្ទុក…',
   'shared.title': 'នាវា​ដែល​បាន​ចែករំលែក',
   'templateCard.slideCount': '{{count}} ស្លាយ',
+  'templateCard.usageCount': '{{count}} ការប្រើប្រាស់',
+  'templates.empty.body': 'សាកល្បងតម្រងផ្សេង — យើងចេញគំរូថ្មីៗជារៀងរាល់ខែ។',
+  'templates.empty.title': 'មិនទាន់មានគំរូក្នុងប្រភេទនេះទេ',
+  'templates.hero.body':
+    'ប្លង់ស្លាយដែលមានស្បែកជាមុន ជាមួយប្លុកក្រាហ្វ ស៊ុមសាកល្បង កំណត់ចំណាំអ្នកបង្ហាញ និងការកំណត់ម៉ោងជាមុន — គំរូទាំងអស់រួចរាល់សម្រាប់ការថត។',
   'templates.hero.eyebrow': 'ដំណាក់កាលដែលបានជ្រើសរើស',
   'templates.hero.heading': 'ដំណាក់កាលត្រូវបានសាងសង់សម្រាប់ពេលនេះដែលអ្នកត្រូវការចុះចតវា។',
 }

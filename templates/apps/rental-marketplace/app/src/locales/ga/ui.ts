@@ -1,13 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Téigh i dteagmháil',
   'about.eyebrow': 'Fúinn',
+  'about.featureBooking':
+    'Áirithintí láithreacha nó iarratais-chun-áirithinte le híocaíochtaí slána Stripe agus cealú saor in aisce suas le 48 uair an chloig roimh sheiceáil isteach.',
+  'about.featureHosting':
+    'Deais iomlán óstach chun liostaí a fhoilsiú, infhaighteacht a bhainistiú, áirithintí a rianú, agus íocaíocht a fháil.',
+  'about.featureMessaging':
+    'Teachtaireachtaí díreacha le hóstaigh roimh agus le linn do chónaithe, chomh maith le liostaí mianta chun na háiteanna is fearr leat a shábháil.',
+  'about.featureReviews':
+    'Léirmheasanna macánta déthreocha ionas go dtógfaidh taistealaithe agus óstaigh araon cáil iontaofa.',
+  'about.featureSearch':
+    'Cuardach bunaithe ar léarscáil ar fud liostaí fíoraithe, le scagairí do phraghas, áiseanna, agus dátaí.',
+  'about.missionBody':
+    'Ba cheart go nascfadh taisteal thú le háit, ní le slabhra. Cabhraímid le hóstaigh neamhspleácha tithe uathúla a liostú agus cabhraímid le taistealaithe iad a aimsiú — le praghsáil thrédhearcach, gan aon táillí folaithe, agus íocaíochtaí, cánacha, agus grinnfhiosrú taistealaithe á láimhseáil don óstach ionas gur féidir leo díriú ar an óstánacht.',
+  'about.missionTitle': 'Ár misean',
+  'about.subtitle': 'Margadh cíosa a tógadh timpeall ar fhíor-thithe agus fíor-óstaigh.',
   'bookingDetail.afterTime': 'Tar éis 3:00 PM',
   'bookingDetail.backCta': 'Ar ais chuig na háirithintí',
   'bookingDetail.beforeTime': 'Roimh 11:00 AM',
   'bookingDetail.cancel': 'Cealaigh an áirithint',
   'bookingDetail.cancelFailed': 'Níorbh fhéidir cealú — déan iarracht arís.',
   'bookingDetail.checkIn': 'Seiceáil isteach',
+  'bookingDetail.cleaningFee': 'Táille glantacháin',
   'bookingDetail.confirmCancel':
     'An bhfuil tú ag iarraidh an áirithint seo a chealú? Ní féidir é seo a chealú.',
   'bookingDetail.eyebrow': 'Deimhniú · {{code}}',
@@ -22,14 +38,17 @@ export const ui: UiTranslations = {
   'bookingDetail.viewListing': 'Féach ar an liostú',
   'bookingDetail.yourHost': "D'óstach",
   'bookingItineraryRow.nights': '{{count}} oícheanta',
+  'bookings.empty.past': 'Beidh áirithintí roimhe seo le feiceáil anseo nuair a fhanfaidh tú.',
   'bookings.empty.upcoming': 'Gan aon turais ar na leabhair — déanaimis é sin a shocrú.',
   'bookings.eyebrow': 'Do thurais',
   'bookings.heading': 'Áirithintí',
   'bookings.loadError': 'Theip ar lódáil na n-áirithintí.',
+  'bookings.searchCta': 'Pleanáil turas eile',
   'bookings.subheading': '{{upcoming}} atá le teacht · {{past}} san am atá thart',
   'common.goToDashboard': 'Téigh chuig an Deais',
   'common.retry': 'Déan iarracht eile',
   'createListing.back': 'Ar ais chuig na liostaí',
+  'createListing.bedrooms': 'Seomraí Leapa',
   'createListing.cityLabel': 'Cá bhfuil sé?',
   'createListing.cityPlaceholder': 'Cathair, réigiún, nó comharsanacht',
   'createListing.descPlaceholder':
@@ -39,17 +58,23 @@ export const ui: UiTranslations = {
   'createListing.error.price': 'Cuir praghas oíche leis roimh fhoilsiú.',
   'createListing.error.title': 'Cuir teideal leis sula bhfoilsítear é.',
   'createListing.heading': 'Oscail do dhoras',
+  'createListing.listingImageAlt': 'Liostú {{number}}',
   'createListing.maxGuests': 'Uasmhéid aíonna',
   'createListing.photos.heading':
     'Cuir grianghraif leis a chuirfidh stop le scrolláil ar thaistealaithe',
+  'createListing.photos.subheading':
+    'Óstaigh a uaslódálann 3 ghrianghraf ar a laghad tuilleann siad 2.3× níos mó ar an meán.',
   'createListing.place.heading': 'Cén sórt áite atá ann?',
+  'createListing.price': 'Praghas in aghaidh na hoíche',
   'createListing.publish': 'Foilsigh liostú',
   'createListing.removePhoto': 'Bain grianghraf',
   'createListing.step.${s.key}.eyebrow': 'Céim {{n}}',
   'createListing.subheading':
     'Cúpla ceist chun do liostú a chur beo. Sábhálfaimid do dhul chun cinn ag gach céim.',
+  'createListing.title': 'Teideal an liostaithe',
   'createListing.titlePlaceholder': 'Cabán Taobh na hAille faoi Ghrian',
   'createListing.uploadCta': 'Cuir grianghraf leis {{n}}',
+  'createListing.useSample': 'Úsáid grianghraf samplach',
   'destinationDiscoveryCard.exploreCta': 'Iniúchadh a dhéanamh ar fhanacht',
   'forgotPassword.eyebrow': 'Athshocraigh',
   'forgotPassword.subheading':
@@ -64,6 +89,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelOccupancy': 'Áitíocht',
   'hostDashboard.hero.labelYtd': 'Bliain go dtí seo',
   'hostDashboard.loadError': 'Theip ar do shonraí óstála a lódáil. Déan iarracht arís.',
+  'hostDashboard.queueArrivals': '{{count}} teacht isteach an tseachtain seo chugainn',
+  'hostDashboard.queueListings': '{{count}} liostálacha gníomhacha',
   'hostDashboard.queueRequests': '{{count}} iarratais áirithinte',
   'hostDashboard.queueReview': 'Scuaine athbhreithnithe',
   'hostDashboard.queueTitle': 'Do scuaine',
@@ -85,11 +112,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': 'Níor aimsíodh an liostú.',
   'hostListingDetail.photos.empty': 'Níl aon ghrianghraif uaslódáilte fós.',
   'hostListingDetail.photos.heading': 'Grianghraif',
+  'hostListingDetail.pricing.cleaning': 'Táille glantacháin',
   'hostListingDetail.pricing.save': 'Sábháil praghsáil',
   'hostListingDetail.pricing.weekday': 'Ráta laethanta seachtaine',
   'hostListingDetail.pricing.weekend': 'Ráta deireadh seachtaine (taispeántas amháin)',
   'hostListingDetail.rules.copy':
     'Socraigh ionchais na n-aíonna agus cosain do theach — cuirtear iad seo i láthair roimh dheimhniú an áirithinte.',
+  'hostListingDetail.rules.heading': 'Rialacha an tí',
   'hostListings.create': 'Cruthaigh liostú nua',
   'hostListings.eyebrow': 'Do phunann',
   'hostListings.heading': 'Liostaí',
@@ -99,8 +128,11 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Do óstaigh',
   'landing.cta.heading': 'Oscail do dhoras. Tuill an méid is fiú do theach.',
   'landing.cta.host': 'Tosaigh ag óstáil',
+  'landing.cta.subheading':
+    "Tugann {{appName}} aire d'íocaíochtaí, cánacha, agus grinnfhiosrú taistealaithe ionas gur féidir leat díriú ar an óstánacht. Tuilleann formhór na n-óstach nua a gcéad $1,000 laistigh de 30 lá.",
   'landing.destinations.eyebrow': 'Cá háit le dul ina dhiaidh seo',
   'landing.destinations.heading': 'Ceann scríbe is ansa lenár n-óstach',
+  'landing.destinations.seeAll': 'Féach ar na cinn scríbe go léir',
   'landing.footer.host': 'Bí i do óstach',
   'landing.footer.search': 'Aimsigh áit lóistín',
   'landing.footer.tagline': 'Fan mar a bhaineann tú leat.',
@@ -109,8 +141,11 @@ export const ui: UiTranslations = {
   'landing.nav.host': 'Bí i do óstach',
   'landing.nav.join': 'Bígí Linn ar Roost',
   'landing.nav.search': 'Aimsigh áit lóistín',
+  'landing.preview.browseAll': 'Brabhsáil an bailiúchán iomlán',
   'landing.preview.eyebrow': 'Súil istigh',
   'landing.preview.heading': 'Fanachtaí roghnaithe go cúramach an mhí seo',
+  'landing.preview.subheading':
+    'Tá gach liostú {{appName}} á óstáil ag fíor-duine — fíoraithe, léirmheasaithe, agus saor in aisce le cealú suas le 48 uair an chloig roimh sheiceáil isteach.',
   'listingDetail.about': 'Maidir leis an áit seo',
   'listingDetail.amenities': 'Cad a thairgeann an áit seo',
   'listingDetail.bathrooms': 'folcadáin',
@@ -118,7 +153,10 @@ export const ui: UiTranslations = {
   'listingDetail.beds': 'leapacha',
   'listingDetail.bookFailed':
     'Níorbh fhéidir áirithint a dhéanamh. Déan iarracht eile nó sínigh isteach ar dtús.',
+  'listingDetail.cleaningFee': 'Táille glantacháin',
+  'listingDetail.guests': 'aíonna',
   'listingDetail.hostedBy': 'Arna óstáil ag {{host}}',
+  'listingDetail.hostMeta': '{{years}} bliain ag óstáil · {{response}}% ráta freagartha',
   'listingDetail.houseRules': 'Rialacha an tí',
   'listingDetail.instantBook': 'Áirithint anois · Áirithint láithreach',
   'listingDetail.loadError': 'Theip ar an liostú a lódáil.',
@@ -128,6 +166,7 @@ export const ui: UiTranslations = {
   'listingDetail.perNight': 'in aghaidh na hoíche',
   'listingDetail.pickDates': 'Roghnaigh dátaí seiceáil isteach agus seiceáil amach ar dtús.',
   'listingDetail.priceRow': '{{price}} × {{nights}} oícheanta',
+  'listingDetail.requestBook': 'Iarratas chun áirithint a dhéanamh',
   'listingDetail.reserving': 'Ag áirithint…',
   'listingDetail.reviews': 'léirmheasanna',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}} léirmheasanna',
@@ -135,6 +174,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'Sáróstach',
   'login.eyebrow': 'Fáilte abhaile',
   'login.heading': 'Sínigh isteach chuig Roost',
+  'login.noAccount': 'Nua i dTessera?',
   'login.signupLink': 'Cruthaigh cuntas saor in aisce',
   'login.subheading':
     'Lean ort san áit ar fhág tú é — bainistigh turais, seol teachtaireachtaí chuig óstaigh, agus cuir áirithint ar chuairteanna a bhfuil tú ag brionglóideach fúthu.',
@@ -159,6 +199,7 @@ export const ui: UiTranslations = {
   'notFound.heading': 'Ní féidir linn an áit chónaithe sin a aimsiú',
   'notifications.loading': 'Ag lódáil…',
   'notifications.subheading': '{{count}} gan léamh · gach rud i mbosca isteach amháin socair',
+  'pricing.ctaContact': 'Déan teagmháil le díolacháin',
   'pricing.ctaUpgrade': 'Déan teagmháil le díolacháin',
   'pricing.eyebrow': 'Simplí, trédhearcach',
   'pricing.heading': 'Plean a oireann do rithim taistil',
@@ -195,8 +236,12 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Roghnaigh rud éigin a bheidh cuimhneach ort. Logálfaimid isteach thú a luaithe a shábhálfaidh tú.',
   'roostAuthShell.brand.eyebrow': 'Fan mar a bhaineann tú leat',
+  'roostAuthShell.brand.heading':
+    'Cábáin, teachíní, riad — tugtha duit ag óstaigh a chónaíonn ann.',
   'roostHeroSearchCard.checkInAria': 'Dáta seiceáil isteach',
   'roostHeroSearchCard.checkOutAria': 'Dáta seiceáil amach',
+  'roostHeroSearchCard.destAria': 'Ceann Scríbe',
+  'roostHeroSearchCard.destLabel': 'Cá háit',
   'roostHeroSearchCard.destPlaceholder': 'Cathair, réigiún, nó maoin',
   'roostHeroSearchCard.eyebrow': 'Fanacht roghnaithe de láimh · Óstaigh fíoraithe',
   'roostHeroSearchCard.guestsOption': '{{n}} aíonna',
@@ -208,6 +253,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'roostListingCard.bookmarkAria': 'Sábháil liostú',
   'roostListingCard.night': 'oíche',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'Ní thagann aon liostaí le do chuardach.',
   'search.emptyHint':
     'Bain triail as do scagairí a leathnú nó an uasteorainn praghais a bhaint — tá Roost ag fanacht i 26 tír.',
@@ -215,9 +261,14 @@ export const ui: UiTranslations = {
   'search.heading': 'Áit a bhraitheann cosúil le baile',
   'search.headingForQuery': 'Fanann ar feadh " {{q}} "',
   'search.loadError': 'Theip ar na liostaí a lódáil.',
+  'search.mapHint':
+    'Cuir an luiche ar chárta chun é a aibhsiú ar an léarscáil. Tíleanna Mapbox beo i dtáirgeadh.',
+  'search.mapPinAria': '{{name}} — {{price}} in aghaidh na hoíche',
   'search.sortLabel': 'Sórtáil de réir',
   'search.subheading': '{{count}} liostaí · {{guests}} aíonna',
+  'settings.appearance.description': 'Athraigh idir mód geal agus dorcha.',
   'settings.appearance.title': 'Dealramh',
+  'settings.openBilling': 'Billeáil oscailte',
   'settings.payments.heading': 'Modhanna íocaíochta',
   'settings.paymentsHelp':
     'Gearrann Roost táille ar do chárta a luaithe a dheimhníonn óstach d’áirithint. Bainistigh cártaí sábháilte ar an leathanach Praghsála.',

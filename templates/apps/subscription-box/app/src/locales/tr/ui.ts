@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Bir edisyon, gönderi veya aboneliğinizle ilgili sorularınız mı var? hello@crate.example adresinden ekibimizdeki gerçek bir insana ulaşın — her mesajı okuyoruz.',
+  'about.contactTitle': 'Bir küratörle konuşun',
+  'about.feature1':
+    'Bağımsız üreticilerin özenle seçtiği aylık edisyonlar, her ürünün arkasındaki hikâyeyle birlikte.',
+  'about.feature2':
+    'Her kutuda tam kontrol — içeriği özelleştirin, ürünleri değiştirin veya hariç tutun, bir ayı atlayın ya da sıklığınızı değiştirin.',
+  'about.feature3':
+    'Alımdan kapınıza kadar uçtan uca gönderi takibi, plastiksiz ambalaj ve canlı kargo güncellemeleriyle.',
+  'about.feature4':
+    'Esnek planlar ve şeffaf faturalandırma — kontrol panelinizden istediğiniz zaman yükseltin, düşürün, duraklatın veya iptal edin.',
+  'about.intro':
+    '{{app}}, her ay kapınıza özenle seçilmiş, küçük partili bir mutluluk kutusu teslim eden bir küratörlü abonelik kutusu hizmetidir. Her edisyon bir algoritma değil, çalışan üreticiler — bağımsız sanatçılar, şefler ve küçük markalar — tarafından hazırlanır.',
+  'about.missionBody':
+    'Bir aboneliğin tuzak değil, hediye gibi hissettirmesi gerektiğine inanıyoruz. {{app}}, geleni sevdiğiniz için kaldığınız şekilde tasarlandı — istediğiniz zaman duraklatın, istediğinizi değiştirin ve tek tıkla iptal edin. Asla elde tutma senaryoları yok.',
+  'about.missionTitle': 'Misyonumuz',
   'about.pageTitle': '{{app}} hakkında',
   'appNav.mobileLabel': 'Birincil gezinme',
   'appNav.primaryLabel': 'Birincil gezinme',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Fatura iletişim bilgilerini düzenle',
   'billing.contact.eyebrow': 'Fatura iletişimi',
   'billing.eyebrow': 'Plan ve ödemeler',
+  'billing.loading': 'Faturalandırma yükleniyor…',
   'billing.payment.body':
     'Ödeme Stripe Checkout tarafından yönetilir — tam kart numaranız hiçbir zaman sunucularımıza ulaşmaz. Kartınızı eklemek veya güncellemek için aşağıdaki herhangi bir kademeye tıklayın.',
   'billing.payment.linked': 'Stripe üzerinden kayıtlı kart',
@@ -20,9 +37,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Aboneliği devam ettir',
   'billing.plan.eyebrow': 'Aktif plan',
   'billing.plan.next': '{{date}} tarihinde otomatik olarak yenilenir.',
+  'billing.plan.status': 'Durum: {{status}}',
   'billing.subtitle': 'Kademenizi, ödeme yönteminizi yönetin ve geçmiş etkinlikleri inceleyin.',
   'billing.tiers.body': "Bir kademe seçin, sizi Stripe Checkout'a yönlendirelim.",
   'billing.tiers.choose': 'Seçin',
+  'billing.tiers.empty': 'Henüz yapılandırılmış kademe yok.',
   'billing.tiers.heading': 'Mevcut kademeler',
   'boxDetail.backToBoxes': 'Tüm sürümlere geri dön',
   'boxDetail.crumb.boxes': 'Sürümler',
@@ -35,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Seçilmiş ürün',
   'boxDetail.items.heading': '{{count}} seçilmiş ürün',
   'boxDetail.itemsBadge': 'Her kutuda {{count}} seçilmiş ürün',
+  'boxDetail.loading': 'Edisyon yükleniyor…',
   'boxDetail.notFound': 'Bu sürüm artık mevcut değil.',
   'boxDetail.subscribe.success': 'Abone oldunuz — ilk sürümünüz sıraya alındı.',
   'boxDetail.swapBadge': 'Her kutuda {{count}} ürüne kadar değiştirin',
@@ -43,14 +63,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Henüz hiçbir şey eşleşmiyor.',
   'boxes.eyebrow': 'Crate arşivi',
   'boxes.heading': 'Her sürüme göz atın',
+  'boxes.loadError': 'Edisyonlar yüklenemedi. Bağlantınızı kontrol edip yeniden deneyin.',
   'boxes.loading': 'Sürümler yükleniyor…',
+  'boxes.search.label': 'Edisyon ara',
   'boxes.search.placeholder': 'Sürümlerde arama yapın…',
   'boxes.subtitle':
     'Her kademe küçük ölçekli bir hikâyedir. Birini kuyruğunuza ekleyin veya gelecek aya geçirin.',
+  'boxThemeCard.itemCount': '{{count}} öğe',
   'boxThemeCard.perMonth': '/ ay',
+  'boxThemeCard.retailValue': 'Perakende değeri {{value}}',
   'common.goToDashboard': 'Panele Git',
+  'common.retry': 'Tekrar dene',
   'customize.eyebrow': 'Size özel yapın',
   'customize.heading': "Bir sonraki Crate'unuzu özelleştirin",
+  'customize.items.empty': 'Bu kademe için henüz yapılandırılmış ürün yok.',
   'customize.items.exclude': 'Bunu atla',
   'customize.items.eyebrow': 'Bu kutuyu kişiselleştirin',
   'customize.items.heading': '{{box}} içindeki ürünler',
@@ -59,8 +85,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Geri ekle',
   'customize.items.save': 'Özelleştirmeyi kaydet',
   'customize.items.swapsLeft': '{{used}} değişim hakkından {{max}} tanesi kullanıldı',
+  'customize.loading': 'Özelleştirme yükleniyor…',
   'customize.noSub.body':
     'Önce bir kademeye abone olun, sonra kutunuzdaki ürünleri değiştirmek için geri gelin.',
+  'customize.noSub.cta': 'Edisyonlara göz at',
   'customize.noSub.heading': 'Aktif abonelik yok',
   'customize.saved': 'Özelleştirme kaydedildi.',
   'customize.subtitle':
@@ -74,11 +102,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Gönderiyi takip edin',
   'dashboard.eyebrow': "Sizin Crate'unuz",
   'dashboard.greeting': 'Tekrar hoş geldiniz, {{name}}.',
+  'dashboard.loadError':
+    'Kontrol paneliniz yüklenemedi. Bağlantınızı kontrol edip yeniden deneyin.',
   'dashboard.loading': 'Kontrol paneli yükleniyor…',
   'dashboard.next.eyebrow': 'Bir sonraki sürümünüz',
   'dashboard.onboarding.body':
     'Henüz aktif bir aboneliğiniz yok. Her ay bir Crate göndermeye başlamak için bir kademe seçin.',
   'dashboard.onboarding.cta': 'Tüm sürümleri inceleyin',
+  'dashboard.onboarding.empty': 'Şu anda plan yok. Yakında tekrar bakın.',
   'dashboard.onboarding.heading': 'İlk sürümünüzü seçin',
   'dashboard.renewal.amount': 'Tahsil edildi',
   'dashboard.renewal.cadence': 'Sıklık',
@@ -86,18 +117,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Yenileme',
   'dashboard.renewal.heading': '{{date}} tarihinde otomatik yenilenir',
   'dashboard.renewal.plan': 'Plan anahtarı',
+  'dashboard.renewal.tbd': 'Yenileme planlaması birazdan',
   'dashboard.renewal.tier': 'Kademe',
   'dashboard.stats.days': 'gün',
   'dashboard.stats.daysToNext': 'Gönderime kalan',
   'dashboard.stats.items': 'Seçilmiş ürünler',
   'dashboard.stats.shipDate': 'Gönderi tarihi',
   'dashboard.stats.tbd': 'Belirlenecek',
+  'dashboard.subtitle.active': 'Sıradaki edisyonunuz yolda. İşte bekleyebilecekleriniz.',
+  'dashboard.subtitle.idle': 'Her ay bir {{appName}} göndermeye başlamak için bir kademe seçin.',
   'forgotPassword.subtitle': 'E-postanızı söyleyin, sıfırlama bağlantısı gönderelim.',
   'forgotPassword.success.body':
     'Eğer {{email}} Kayıt işleminiz tamamlandığında, birkaç dakika içinde sıfırlama bağlantısı alacaksınız.',
   'forgotPassword.success.title': 'Gelen kutunuzu kontrol edin.',
   'landing.editions.eyebrow': 'Bu sezon',
   'landing.editions.heading': 'Küratörlerimizin bayıldığı sürümler',
+  'landing.editions.viewAll': 'Tüm edisyonlara göz at →',
   'landing.footer.contact': 'Bir küratörle konuşun',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Kutunuzu başlatın →',
@@ -106,6 +141,9 @@ export const ui: UiTranslations = {
   'landing.hero.headline': 'Her ay beklenmedik olanı paketten çıkarın.',
   'landing.hero.previewCaption': 'Üye kontrol paneline bir bakış — geri sayım, içerikler ve takip.',
   'landing.hero.social.count': '{{count}}+ aboneye sevildi',
+  'landing.hero.social.rating': '{{rating}} ort. kutu açma puanı',
+  'landing.hero.subhead':
+    '{{appName}} size bağımsız üreticilerden özenle seçilmiş, küçük partili bir mutluluk kutusu gönderir. İstediğiniz zaman duraklatın. İstediğinizi değiştirin. Sevdiğinizi saklayın.',
   'landing.nav.start': 'Kutunuzu başlatın',
   'landing.tiers.eyebrow': 'Sıklığınızı seçin',
   'landing.tiers.heading':
@@ -116,6 +154,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Gelecek ayın kutusuna göz atmak için giriş yapın.',
   'login.welcomeBack': 'Tekrar hoş geldiniz, küratör.',
   'nextBoxHeroCard.eyebrow': "BİR SONRAKİ CRATE'UNUZ",
+  'nextBoxHeroCard.itemCount': 'İçinde {{count}} parça',
   'nextBoxHeroCard.itemsLabel': 'Seçilmiş ürünler',
   'nextBoxHeroCard.shipsOnLabel': 'Gönderim tarihi',
   'notFound.body':
@@ -140,8 +179,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Aboneliği duraklat',
   'settings.danger.paused': 'Abonelik duraklatıldı.',
   'settings.danger.pausing': 'Duraklatılıyor…',
+  'settings.danger.status': 'Abonelik durumu: {{status}}',
   'settings.danger.subtitle':
     'Duraklatma kademenizi ve geçmişinizi korur. İptal etme, gelecekteki gönderileri durdurur ve döngünün sonunda kayıtlı ödeme yöntemlerinizi kaldırır.',
+  'settings.notifications.saving': '· kaydediliyor…',
   'settings.notifications.subtitle':
     "Crate'dan hangi sinyalleri almak istediğinizi seçin. Varsayılanlar makuldür.",
   'settings.subtitle':
@@ -157,13 +198,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Henüz aktif gönderi yok',
   'shipments.live.eyebrow': 'Aktif gönderi',
   'shipments.live.unnamed': 'Bir sonraki kutunuz',
+  'shipments.loadError': 'Gönderileriniz yüklenemedi. Bağlantınızı kontrol edip yeniden deneyin.',
+  'shipments.loading': 'Sevkiyatlar yükleniyor…',
+  'shipments.step.delivered': 'Teslim edildi',
   'shipments.step.deliveredBody':
     'Keşfettiklerinizi paylaşmak için #crateunbox etiketini kullanın.',
   'shipments.step.ordered': 'Sipariş verildi',
   'shipments.step.orderedBody':
     'Aboneliğiniz bu sürümü bir sonraki gönderi döngüsü için sıraya aldı.',
+  'shipments.step.packed': 'Elle paketlenmiş',
   'shipments.step.packedBody':
     'Her parça sarıldı ve el yazısı bir notla birlikte kutuya yerleştirildi.',
+  'shipments.step.transit': 'Yolda',
   'shipments.step.transitNot': 'Kutunuz yola çıktığında takip burada görünecek.',
   'shipments.subtitle':
     'Kutunuzun size ulaşma yolculuğunu takip edin, ardından daha önce açtığınız her sürüme yeniden göz atın.',

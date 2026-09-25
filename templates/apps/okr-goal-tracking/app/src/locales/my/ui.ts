@@ -3,8 +3,13 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'ကြှနျုပျတို့အကွောငျး',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'about.subtitle':
+    'တက်လှမ်းနေသော အဖွဲ့များအတွက် ရည်မှန်းချက်မြင့်၊ တာဝန်ခံနိုင်သော၊ တိုင်းတာနိုင်သော OKR ခြေရာခံစနစ်။',
   'ascentSideNav.nav.notifications': 'အကြောင်းကြားချက်များ',
   'ascentSideNav.newObjective': 'ရည်မှန်းချက်အသစ်',
+  'authShell.brandBody':
+    '{{appName}} သည် ရည်မှန်းချက်များကို အဓိကရလဒ်များနှင့် အပတ်စဉ် check-in များမှတစ်ဆင့် ချိတ်ဆက်ပေးသဖြင့် တိုးတက်မှုကို အမြဲမြင်နိုင်ပြီး — အမြဲရိုးသားမှုရှိပါသည်။',
   'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': 'ထိပ်ကိုသတ်မှတ်ပါ။ တောင်တက်မှတ်ယူပါ။ အသင်းကို နည်းပြပါ။',
   'authShell.eyebrow': 'အဖွဲ့များကို ရွှေ့ပြောင်းပေးသော OKR များ',
@@ -16,20 +21,28 @@ export const ui: UiTranslations = {
   'billing.confirmCancel': 'လက်ရှိကာလကုန်ဆုံးချိန်တွင် သင်၏စာရင်းသွင်းမှုကို ပယ်ဖျက်လိုပါသလား။',
   'billing.currentPlanFreeFooter':
     'သင်သည် အခမဲ့အဆင့်တွင် ရှိနေသည်။ ပိုမိုမြင့်မားသော ကန့်သတ်ချက်များအတွက် အဆင့်မြှင့်တင်ပါ။',
+  'billing.currentPlanPaidFooter': 'အသုံးပြုနေသော subscription · {{plan}}',
   'billing.downloadCurrent': 'အကျဉ်းချုပ်ကို ဒေါင်းလုဒ်လုပ်ပါ',
   'billing.downloading': 'ပြင်ဆင်နေသည်…',
   'billing.error.priceUnavailable':
     'လက်ရှိပတ်ဝန်းကျင်တွင် ဤအစီအစဉ်ကို ငွေရှင်းရန်အတွက် ပြင်ဆင်သတ်မှတ်မထားပါ။',
   'billing.eyebrow': 'အလုပ်ခွင် · ငွေတောင်းခံလွှာ',
   'billing.heading': 'အစီအစဉ်နှင့် ငွေတောင်းခံလွှာများ',
+  'billing.message.canceled': 'စာရင်းသွင်းမှုသည် လက်ရှိကာလ ကုန်ဆုံးချိန်တွင် အဆုံးသတ်ပါမည်။',
   'billing.period.year': 'Yearly',
+  'billing.perk.advanced': 'အဆင့်မြင့် review များ + သတိပေးချက်များ',
   'billing.perk.export': 'ဒေတာထုတ်ယူမှု + API ဝင်ရောက်ခွင့်',
   'billing.perk.inApp': 'အက်ပ်အတွင်း အစီရင်ခံခြင်း',
+  'billing.perk.keyResults': 'အဓိကရလဒ် {{count}} ခု',
+  'billing.perk.objectives': 'ရည်မှန်းချက် {{count}} ခု',
+  'billing.perk.retention': 'ရက်ပေါင်း {{count}} ရာဇဝင်',
   'billing.perk.standard': 'စံသတ်မှတ်ထားသော သုံးသပ်ချက်များ',
+  'billing.perk.unlimitedKrs': 'အကန့်အသတ်မဲ့ KR များ',
   'billing.perk.unlimitedObjectives': 'အကန့်အသတ်မရှိသော ရည်မှန်းချက်များ',
   'billing.perk.unlimitedRetention': 'အကန့်အသတ်မရှိ ထိန်းသိမ်းခြင်း',
   'billing.subheading':
     'မင်းအပေါ်မှာ {{name}} အစီအစဉ်။ အဆင့်များကို နှိုင်းယှဉ်ပြီး အောက်တွင် အဆင့်မြှင့်တင်ပါ။',
+  'billing.subheading.loading': 'သင့်လက်ရှိအစီအစဉ်ကို ဖွင့်နေသည်…',
   'billing.tier.unavailable': 'မရရှိနိုင်ပါ',
   'billing.tier.upgrade': 'အဆင့်မြှင့်တင်ရန် {{name}}',
   'billing.tiersError': 'ဈေးနှုန်းတင်၍မရပါ။ နောက်မှ ထပ်မံကြိုးစားပါ။',
@@ -40,12 +53,14 @@ export const ui: UiTranslations = {
   'checkIn.emptyTitle': 'ဘာမှ စစ်ဆေးစရာ မရှိသေးပါ',
   'checkIn.eyebrow': 'အပတ်စဉ် စည်းချက်',
   'checkIn.heading': 'အပတ်စဉ် ဝင်ရောက်ခြင်း',
+  'checkIn.loading': 'သင့် KR များကို ဖွင့်နေသည်…',
   'checkIn.newObjective': 'ရည်မှန်းချက်အသစ်',
   'checkIn.noKrs': 'အဓိကရလဒ်များ မရှိပါ — Edit မှ အချို့ကို ထည့်ပါ။',
   'checkIn.noteLabel': 'သင့်အဖွဲ့အတွက် မှတ်စုတစ်ခု',
   'checkIn.notePlaceholder':
     'အားသာချက်၊ ပိတ်ဆို့သည့် မေးခွန်း သို့မဟုတ် နည်းပြမေးခွန်း — စာကြောင်းသုံးကြောင်းအောက်တွင် ထားပါ။',
   'checkIn.openObjective': 'ဖွင့်ရန် →',
+  'checkIn.progressLabel': 'လမ်းကြောင်းမှန်နေသော KR များ',
   'checkIn.subheading':
     'KR တစ်ခုစီအတွက် လက်ရှိတန်ဖိုးကို အပ်ဒိတ်လုပ်ပါ၊ ယုံကြည်မှုကို မှတ်သားပါ၊ မှတ်စုတစ်ခုချပြီး တင်သွင်းပါ။',
   'checkIn.submit': 'စစ်ဆေးဝင်ခြင်း တင်သွင်းပါ',
@@ -63,9 +78,16 @@ export const ui: UiTranslations = {
   'dashboard.allActivity': 'လုပ်ဆောင်ချက်အားလုံးကိုကြည့်ပါ →',
   'dashboard.coachBodyAtRisk':
     '{{atRisk}} KR များ ယခုအပတ်တွင် ကျဆင်းသွားခဲ့သည်။ ယနေ့ မိနစ် ၁၅ စကားပြောဆိုမှုသည် ပုံမှန်အားဖြင့် တစ်ပတ်လုံး ပြန်လည်ကောင်းမွန်လာမှုကို ဝယ်ယူနိုင်သည်။',
+  'dashboard.coachBodyOk':
+    'ဒီအပတ် သင့် KR များ ကျန်းမာနေပါသည် — ပုံမှန်အတိုင်း ဆက်လုပ်ပြီး သင့် check-in ကို လုပ်ဆောင်ပါ။',
+  'dashboard.coachCta': 'အပတ်စဉ် check-in ဖွင့်ရန် →',
   'dashboard.coachLabel': 'နည်းပြတွန်းအားပေးခြင်း',
   'dashboard.emptyBody': 'အပတ်စဉ် တိုးတက်မှုကို ခြေရာခံရန် သင်၏ ပထမဆုံးရည်မှန်းချက်ကို ရေးဆွဲပါ။',
   'dashboard.emptyTitle': 'ရည်မှန်းချက်တွေ မရှိသေး',
+  'dashboard.heroBody':
+    'သင် ရည်မှန်းချက် {{count}} ခုကို ပိုင်ဆိုင်ထားသည်။ {{atRisk}} ကို ပိုမိုနီးကပ်စွာ ကြည့်ရန် လိုသည် — လမ်းကြောင်းမှန်အောင် ထိန်းထားကြရအောင်။',
+  'dashboard.heroEmpty':
+    'သင့်တွင် ရည်မှန်းချက် မရှိသေးပါ။ ပထမဆုံးတစ်ခုကို ရေးဆွဲခြင်းဖြင့် စတင်ပါ။',
   'dashboard.heroProgressLabel': 'သုံးလပတ်တိုးတက်မှု',
   'dashboard.heroTitle': 'တောင်တက်တာကောင်းတယ်၊ {{name}} ။',
   'dashboard.kpiActiveLabel': 'တက်ကြွသော ရည်မှန်းချက်များ',
@@ -77,11 +99,14 @@ export const ui: UiTranslations = {
   'dashboard.noActivity': 'လှုပ်ရှားမှု မရှိသေးပါ။ တောင်တက်ရန် check-in ဝင်ပါ။',
   'dashboard.objectivesHeading': 'သင့်ရဲ့ ရည်မှန်းချက်တွေ',
   'dashboard.startCheckIn': 'အပတ်စဉ် စစ်ဆေးဝင်ရောက်မှုကို လုပ်ဆောင်ပါ',
+  'dashboardLayout.searchAria': 'ရည်မှန်းချက်များ ရှာဖွေရန်',
   'dashboardLayout.searchPlaceholder': 'ရှာဖွေမှုရည်မှန်းချက်များ၊ KR များ၊ လူများ...',
   'editObjective.addKr': 'KR ထည့်ပါ',
   'editObjective.archive': 'မော်ကွန်းတင်ခြင်း ရည်ရွယ်ချက်',
   'editObjective.backToList': 'ရည်မှန်းချက်များဆီသို့ ပြန်သွားပါ',
   'editObjective.breadcrumbAll': 'ရည်မှန်းချက်များ',
+  'editObjective.confirmArchive':
+    'ဤရည်မှန်းချက်ကို archive လုပ်မလား? နောက်ပိုင်း archived view အောက်တွင် ရှာတွေ့နိုင်ပါသည်။',
   'editObjective.descriptionLabel': 'ဒါက ဘာကြောင့် အရေးကြီးတာလဲ',
   'editObjective.eyebrow': 'ရည်ရွယ်ချက်ကို တည်းဖြတ်ပါ',
   'editObjective.heading': 'ရလဒ်၊ KR များ၊ ချိန်ညှိမှု သို့မဟုတ် cadence ကို အပ်ဒိတ်လုပ်ပါ။',
@@ -95,6 +120,7 @@ export const ui: UiTranslations = {
   'editObjective.targetPlaceholder': 'ပစ်မှတ်',
   'forgotPassword.emailPlaceholder': 'you@team.com',
   'forgotPassword.heading': 'သင့်စကားဝှက်ကို ပြန်လည်သတ်မှတ်ပါ။',
+  'forgotPassword.rememberPrompt': 'မှတ်မိသွားပြီလား? ',
   'forgotPassword.subheading':
     'သင့်ရဲ့ Ascent အကောင့်နဲ့ ချိတ်ဆက်ထားတဲ့ အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က reset link ပို့ပေးပါမယ်။',
   'forgotPassword.successBody':
@@ -122,6 +148,7 @@ export const ui: UiTranslations = {
   'landing.heroTitle': 'အရေးကြီးတဲ့အရာဆီ ချီတက်ပါ။',
   'login.emailPlaceholder': 'you@team.com',
   'login.heading': 'ပြန်လည်ကြိုဆိုပါတယ်၊ တောင်တက်သမား။',
+  'login.noAccountPrompt': '{{appName}} ကို အသစ်လား။ ',
   'login.orContinueWith': 'သို့မဟုတ် ဆက်လက်လုပ်ဆောင်ပါ',
   'login.subheading':
     'သင်ရပ်ထားသည့်နေရာမှ ဆက်သွားပါ — သင်၏ check-in များ၊ KR များနှင့် သုံးသပ်ချက်များက စောင့်ကြိုနေပါသည်။',
@@ -130,6 +157,7 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'newObjective.addKr': 'KR ထည့်ပါ',
   'newObjective.coachLabel': 'နည်းပြသတိပေးချက်များ',
+  'newObjective.descriptionLabel': 'ဒါက ဘာကြောင့် အရေးကြီးတာလဲ',
   'newObjective.descriptionPlaceholder':
     'ဗျူဟာမြောက်နောက်ခံအခြေအနေကို စာကြောင်း ၂ ကြောင်းမှ ၃ ကြောင်းအထိ ရှင်းပြပါ။',
   'newObjective.errorTitleRequired': 'သင့်ရည်မှန်းချက်ကို ခေါင်းစဉ်တစ်ခုပေးပါ။',
@@ -149,13 +177,18 @@ export const ui: UiTranslations = {
   'newObjective.submit': 'ရည်ရွယ်ချက်ကို သိမ်းဆည်းပါ',
   'newObjective.targetPlaceholder': 'ပစ်မှတ်',
   'newObjective.tip1': 'ကြိယာဖြင့် စတင်ပါ- “ဖြစ်လာသည်…”၊ “ဖြတ်သည်…”၊ “အနိုင်ရသည်…”',
+  'newObjective.tip2': 'KR များသည် တိုင်းတာနိုင်ရမည် — “X ကို တိုးတက်စေရန်” ကဲ့သို့ ရှောင်ပါ။',
+  'newObjective.tip3': 'KR ၃–၅ ခုသည် အကောင်းဆုံးဖြစ်သည်။ ပိုများလျှင် ဆူညံမှု ဖြစ်စေသည်။',
   'newObjective.titlePlaceholder': 'OKR ထုတ်ကုန်အင်ဂျင်နီယာကို နှစ်သက်သူဖြစ်လာပါ',
+  'notifications.emptyBody':
+    'Coaching သတိပေးချက်များ၊ mention များနှင့် review သတိပေးချက်များ ဤနေရာတွင် ရောက်လာမည်။',
   'notifications.emptyTitle': 'ဤမြင်ကွင်းတွင် အကြောင်းကြားချက်များ မရှိပါ။',
   'notifications.eyebrow': 'လှုပ်ရှားမှုစင်တာ',
   'notifications.markRead': '● ဖတ်ပြီးဟု မှတ်သားပါ',
   'objective.scopes.company': 'ကုမ္ပဏီ',
   'objective.scopes.individual': 'တစ်ဦးချင်း',
   'objective.scopes.team': 'အသင်း',
+  'objectiveCard.krProgress': 'KR {{done}}/{{total}}',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'ရည်မှန်းချက်များဆီသို့ ပြန်သွားပါ',
   'objectiveDetail.edit': 'ရည်ရွယ်ချက်ကို တည်းဖြတ်ပါ',
@@ -166,6 +199,9 @@ export const ui: UiTranslations = {
   'objectiveDetail.notFound': 'ရည်ရွယ်ချက် မတွေ့ရဘူး။',
   'objectiveDetail.owner': 'ပိုင်ဆိုင်သူ {{name}}',
   'objectiveDetail.runCheckIn': 'ချက်အင်ဝင်ရန် လုပ်ဆောင်ပါ',
+  'objectiveDetail.timelineHeading': 'Check-in အချိန်ဇယား',
+  'objectives.emptyBody': 'အပတ်စဉ် တိုးတက်မှုကို ခြေရာခံရန် သင်၏ ပထမဆုံးရည်မှန်းချက်ကို ရေးဆွဲပါ။',
+  'objectives.emptyFilteredBody': 'filter ကို ရှင်းလင်းကြည့်ပါ သို့မဟုတ် ရည်မှန်းချက်အသစ် စတင်ပါ။',
   'objectives.emptyFilteredTitle': 'ထိုစစ်ထုတ်မှုများနှင့် ကိုက်ညီသော ရည်မှန်းချက်များ မရှိသေးပါ။',
   'objectives.emptyTitle': 'ရည်မှန်းချက်တွေ မရှိသေး',
   'objectives.eyebrow': 'ကုမ္ပဏီအစီအစဉ်',
@@ -176,6 +212,11 @@ export const ui: UiTranslations = {
   'objectives.searchPlaceholder': 'ခေါင်းစဉ်အလိုက် စစ်ထုတ်ပါ…',
   'objectives.subheading':
     'ခြေရာခံခြင်း {{count}} ရည်မှန်းချက်များ။ အာရုံစိုက်ရန် လိုအပ်သည်များကို ရှာဖွေရန် အခြေအနေအလိုက် စစ်ထုတ်ပါ။',
+  'pricing.limit.advanced': 'အဆင့်မြင့်လုပ်ဆောင်ချက်များ- {{value}}',
+  'pricing.limit.checkIns': 'check-in {{count}} ခု',
+  'pricing.limit.export': 'ဒေတာထုတ်ယူခြင်း- {{value}}',
+  'pricing.limit.keyResults': 'အဓိကရလဒ် {{count}} ခု',
+  'pricing.limit.objectives': 'ရည်မှန်းချက် {{count}} ခု',
   'profile.achievementCheckInsMany': '{{count}} မှတ်ပုံတင်ထားသော check-in များ',
   'profile.achievementCheckInsOne': '၁ ခု စစ်ဆေးဝင်ရောက်မှု မှတ်တမ်းတင်ထားသည်',
   'profile.achievementCompletedMany': 'ရည်မှန်းချက် {{count}} ပြီးမြောက်ခဲ့သည်',
@@ -184,6 +225,7 @@ export const ui: UiTranslations = {
   'profile.achievementOnTrackOne': 'ရည်မှန်းချက် ၁ ခု လမ်းကြောင်းမှန်ပေါ်ရောက်နေပါပြီ',
   'profile.activeHeading': 'တက်ကြွသော ရည်မှန်းချက်များ',
   'profile.allObjectives': 'ရည်မှန်းချက်အားလုံး →',
+  'profile.createFirst': 'ရည်မှန်းချက် ဖန်တီးရန်',
   'profile.empty':
     'တက်ကြွသော ရည်မှန်းချက်များ မရှိသေးပါ — စတင်ရန်အတွက် သင်၏ ပထမဆုံးရည်မှန်းချက်ကို ဖန်တီးပါ။',
   'profile.eyebrow': 'တောင်တက်သမားပရိုဖိုင်',
@@ -197,13 +239,18 @@ export const ui: UiTranslations = {
   'profile.statsHeading': 'ယခုသုံးလပတ်',
   'profile.streakLabel': 'ယခုအချိန်အထိ လေးပုံတစ်ပုံ',
   'resetPassword.backLink': 'အစားထိုးဝင်ရောက်ပါ',
+  'resetPassword.backPrompt': 'reset မလုပ်တော့ဘူးလား? ',
   'resetPassword.emailPlaceholder': 'you@team.com',
   'resetPassword.heading': 'စကားဝှက်အသစ်တစ်ခု သတ်မှတ်ပါ။',
+  'resetPassword.passwordLabel': 'စကားဝှက်အသစ်',
   'resetPassword.reset': 'စကားဝှက်ကို အပ်ဒိတ်လုပ်ပြီး လက်မှတ်ထိုးဝင်ပါ',
   'resetPassword.resetting': 'စကားဝှက်ကို အပ်ဒိတ်လုပ်နေသည်…',
   'resetPassword.subheading':
     'အနည်းဆုံး စာလုံး ရှစ်လုံး၊ ဖြစ်နိုင်ရင် ဂဏန်းတွေကို ရောမွှေပြီး ခိုင်မာတဲ့ တစ်ခုခုကို ရွေးချယ်ပါ။',
   'reviewDetail.backToList': 'သုံးသပ်ချက်များသို့ ပြန်သွားရန်',
+  'reviewDetail.body':
+    'အသုံးပြုနေသော ရည်မှန်းချက် {{count}} ခု · အဆင့် {{grade}}။ အောက်တွင် ပြန်လည်သုံးသပ်ချက်များနှင့် အဆင့်ကို တည်းဖြတ်ပါ။',
+  'reviewDetail.colObjective': 'ရည်မှန်းချက်',
   'reviewDetail.confirmDelete': 'ဤသုံးသပ်ချက်မူကြမ်းကို ဖျက်ပစ်မလား။',
   'reviewDetail.delete': 'မူကြမ်းကို ဖျက်ပါ',
   'reviewDetail.eyebrow': '{{အခြေအနေ}} · {{ရက်စွဲ}}',
@@ -216,8 +263,10 @@ export const ui: UiTranslations = {
   'reviewDetail.reflectionsPlaceholder':
     'ဘာတွေ အဆင်ပြေခဲ့လဲ။ ဘာတွေ မပြေလည်ခဲ့လဲ။ နောက်သုံးလပတ်အတွက် မှတ်စုများ။',
   'reviewDetail.scorecardHeading': 'ရမှတ်ကတ်',
+  'reviewDetail.scoreLabel': 'ပျမ်းမျှရမှတ်',
   'reviewDetail.submitted': 'တင်သွင်းပြီးပါပြီ',
   'reviewDetail.submittedToast': 'သုံးသပ်ချက် တင်သွင်းပြီးပါပြီ',
+  'reviewDetail.untitled': 'သုံးလတစ်ကြိမ် review · တည်းဖြတ်ရန် အောက်တွင် နှိပ်ပါ',
   'reviews.createDraft': 'မူကြမ်းတစ်ခု စတင်ပါ',
   'reviews.empty.body':
     'မူကြမ်းတစ်ခုစတင်ပြီးသည်နှင့် ဤနေရာတွင် သုံးလပတ်သုံးသပ်ချက်များ ပေါ်လာပါမည်။ စတင်ရန် အထက်ပါ "မူကြမ်းတစ်ခုစတင်ပါ" ကိုနှိပ်ပါ။',
@@ -227,12 +276,16 @@ export const ui: UiTranslations = {
   'reviews.eyebrow': 'သုံးလပတ် ပြန်လည်ကြည့်ရှုခြင်း',
   'reviews.grade': 'အဆင့် {{grade}}',
   'reviews.loading': 'သုံးသပ်ချက်များကို တင်နေသည်…',
+  'reviews.notSubmitted': 'မတင်သွင်းရသေးပါ',
   'reviews.subheading':
     'ယခင်သုံးလပတ်များမှ ಉಪನ್ಯಾನು ရမှတ်ကတ်များ၊ ခေါင်းစဉ်ပြန်လည်သုံးသပ်ချက်များနှင့် အဆင့်များ။',
+  'reviews.submittedAt': '{{date}} တွင် တင်သွင်းခဲ့သည်',
+  'reviews.untitled': 'ခေါင်းစဉ်မဲ့ review · တည်းဖြတ်ရန် နှိပ်ပါ',
   'settings.billingSubtitle': 'အစီအစဉ်၊ ထိုင်ခုံများနှင့် ငွေတောင်းခံလွှာများကို စီမံခန့်ခွဲပါ',
   'settings.billingTitle': 'ငွေတောင်းခံလွှာနှင့် ထိုင်ခုံများ',
   'settings.cadenceBody':
     'Ascent မှ သင့်အဖွဲ့အား check-in များပြုလုပ်ရန် မည်မျှမကြာခဏ တိုက်တွန်းသည်ကို ရွေးချယ်ပါ။',
+  'settings.cadenceHeading': 'ကဒန့်စ်',
   'settings.eyebrow': 'အလုပ်ခွင် · အကောင့် · Cadence',
   'settings.guestName': 'တောင်တက်သမား',
   'settings.openProfile': 'ပရိုဖိုင်ဖွင့်ပါ',
@@ -240,10 +293,15 @@ export const ui: UiTranslations = {
   'settings.saveError': 'သိမ်းဆည်းမှု မအောင်မြင်ပါ- {{error}}',
   'settings.toggleCoachDescription':
     'KR သည် ယုံကြည်မှုအဆင့်နှစ်ဆင့် ချော်သွားသောအခါ အလယ်ပိုင်းသုံးလပတ်တွင် အချက်ပြမှုများ ပေါ်လာသည်။',
+  'settings.toggleCoachLabel': 'Coaching သတိပေးချက်များ',
   'settings.toggleDigestDescription':
     'ပိုင်ရှင်တိုင်းထံ အခြေအနေအလိုက် ရည်မှန်းချက်များ၏ တနင်္လာနေ့ အစီရင်ခံစာကို ပေးပို့သည်။',
+  'settings.toggleDigestLabel': 'တနင်္လာနေ့ digest အီးမေးလ်',
+  'settings.toggleRemindersDescription':
+    'check-in ပျောက်နေသေးလျှင် သောကြာနေ့မနက် အဖွဲ့ကို အသိပေးပါ။',
   'settings.toggleRemindersLabel': 'အပတ်စဉ် စစ်ဆေးဝင်ရောက်မှု သတိပေးချက်များ',
   'signup.emailPlaceholder': 'you@team.com',
+  'signup.haveAccountPrompt': 'အကောင့်ရှိပြီးသားလား။ ',
   'signup.heading': 'သင့်ရဲ့ ပထမဆုံး တောင်တက်ခရီးစဉ်ကို စီစဉ်ပါ။',
   'signup.namePlaceholder': 'အေဗရီ တောင်တက်သမား',
   'signup.orContinueWith': 'သို့မဟုတ် ဆက်လက်လုပ်ဆောင်ပါ',
@@ -263,6 +321,7 @@ export const ui: UiTranslations = {
   'team.newTeamLabel': 'အသင်းသစ်',
   'team.newTeamPlaceholder': 'ဥပမာ ဖောက်သည်အတွေ့အကြုံ',
   'team.objectivesLabel': 'ရည်မှန်းချက်များ',
+  'team.progressLabel': 'Workspace တိုးတက်မှု',
   'team.subheading':
     '{{teams}} အသင်းများ · {{objectives}} ရည်မှန်းချက်များ။ rollup များကိုကြည့်ရှုရန် သင်၏ OKR များကို အဖွဲ့လိုက်အုပ်စုဖွဲ့ပါ။',
 }

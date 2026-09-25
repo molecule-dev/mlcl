@@ -3,9 +3,14 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
+  'about.missionBody':
+    'Οι απομακρυσμένες ομάδες αξίζουν συ reunions που να νιώθουν παρούσες, όχι εξαντλητικές. Έχουμε εμμονή με την ποιότητα των μέσων, τις άμεσες συνδέσεις και τις ηχογραφήσεις που κάνουν κάθε συζήτηση αναζητήσιμη — ώστε η ομάδα σας να μπορεί να βρίσκεται στο ίδιο δωμάτιο από οπουδήποτε στον κόσμο.',
+  'about.missionTitle': 'Η αποστολή μας',
   'app.tagline': 'Όπου οι ομάδες ζωντανεύουν',
   'auth.email': 'E-mail',
   'auth.eyebrow': 'Συγκαλώ',
+  'auth.forgotPassword.emailSent':
+    'Ελέγξτε τα εισερχόμενά σας — στείλαμε σύνδεσμο επαναφοράς στο {{email}}.',
   'auth.forgotSubtitle': 'Θα σας στείλουμε μέσω email έναν σύνδεσμο επαναφοράς.',
   'auth.hasAccount': 'Έχετε ήδη χώρο εργασίας;',
   'auth.loginSubtitle': 'Συνδεθείτε στον χώρο εργασίας σας',
@@ -14,6 +19,7 @@ export const ui: UiTranslations = {
     'Επιλέξτε έναν ισχυρό κωδικό πρόσβασης για να ασφαλίσετε τον χώρο εργασίας σας.',
   'auth.signupSubtitle': 'Φέρτε την ομάδα σας σε μια ενιαία αίθουσα συσκέψεων.',
   'auth.signupTitle': 'Δημιουργήστε τον χώρο εργασίας σας στο Convoke',
+  'auth.workspaceLabel': 'Όνομα χώρου εργασίας',
   'billing.contactSales':
     'Επικοινωνήστε με το τμήμα πωλήσεων για να ενεργοποιήσετε αυτό το πρόγραμμα.',
   'billing.error.unavailable': 'Αυτό το σχέδιο δεν είναι ακόμη διαθέσιμο.',
@@ -30,6 +36,7 @@ export const ui: UiTranslations = {
   'dashboard.instantTitle': 'Άμεση συνάντηση',
   'dashboard.joinInvalidCode': 'Μη έγκυρος κωδικός σύσκεψης',
   'dashboard.joinMeeting': 'Συμμετοχή με κωδικό',
+  'dashboard.loadError': 'Δεν ήταν δυνατή η σύνδεση με τον διακομιστή. Ελέγξτε τη σύνδεσή σας.',
   'dashboard.noActivity': 'Δεν υπάρχει ακόμη δραστηριότητα χώρου εργασίας.',
   'dashboard.noMeetings': 'Δεν υπάρχουν ακόμη επερχόμενες συναντήσεις.',
   'dashboard.noRecordings': 'Δεν υπάρχουν ακόμη ηχογραφήσεις.',
@@ -82,10 +89,14 @@ export const ui: UiTranslations = {
   'meetingDetail.attendees': 'Συμμετέχοντες',
   'meetingDetail.cancel': 'Ακύρωση συνάντησης',
   'meetingDetail.confirmCancel': 'Ναι, ακύρωση',
+  'meetingDetail.confirmCancelBody':
+    'Αυτό διαγράφει οριστικά τη συνάντηση και τις προσκλήσεις της.',
+  'meetingDetail.confirmCancelTitle': 'Ακύρωση αυτής της συνάντησης;',
   'meetingDetail.edit': 'Επεξεργασία σύσκεψης',
   'meetingDetail.editForm': 'Επεξεργασία σύσκεψης',
   'meetingDetail.invite': 'Καλώ',
   'meetingDetail.invitesRequired': 'Προσθέστε τουλάχιστον μία διεύθυνση ηλεκτρονικού ταχυδρομείου',
+  'meetingDetail.invitesSent': 'Στάλθηκαν {{count}} προσκλήσεις',
   'meetingDetail.keepMeeting': 'Συνέχιση συνάντησης',
   'meetingDetail.noAttendees': 'Δεν υπάρχουν ακόμη συμμετέχοντες.',
   'meetingDetail.noDescription': 'Δεν παρέχεται περιγραφή.',
@@ -141,6 +152,7 @@ export const ui: UiTranslations = {
   'team.columnJoined': 'Εγγράφηκε',
   'team.columnMember': 'Μέλος',
   'team.emailRequired': 'Απαιτείται email',
+  'team.empty': 'Δεν υπάρχουν μέλη ακόμη.',
   'team.invite': 'Πρόσκληση μέλους',
   'team.inviteEmailAria': 'Ηλεκτρονικό μήνυμα πρόσκλησης',
   'team.inviteRoleAria': 'Ρόλος πρόσκλησης',
@@ -148,6 +160,7 @@ export const ui: UiTranslations = {
   'team.role': 'Ρόλος',
   'team.roleAdmin': 'Διαχειριστής',
   'team.roleMember': 'Μέλος',
+  'team.subtitle': 'Όλοι στον χώρο εργασίας σας.',
   'team.subtitleWithWorkspace': 'Όλοι στον χώρο εργασίας σας.',
   'team.title': 'Μέλη ομάδας',
 }

@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ သို့မဟုတ် စက်တစ်ခု ပံ့ပိုးပေးစေလိုပါသလား။ Settings မှ မည်သည့်အချိန်မဆို ဆက်သွယ်နိုင်ပါသည် — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့ထဲရှိ လူတစ်ဦးထံ တိုက်ရိုက် ရောက်ပါသည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.intro':
+    '{{app}} သည် မီးများ၊ ရာသီဥတု၊ လုံခြုံရေးနှင့် အလိုအလျောက်လုပ်ဆောင်မှုများအတွက် စမတ်အိမ် ဒက်ရှ်ဘုတ်တစ်ခုဖြစ်သည် — သင့်အိမ်ရှိ စက်တိုင်းကို နေရာတစ်ခုတည်းသို့ စုစည်းပေးသော အေးချမ်းပြီး ကိုယ်တိုင်လက်ခံကျင်းပသည့် ခံစားချက်ရှိ hub တစ်ခု — နံရံတက်ဘလက်၊ ဖုန်းနှင့် သင့်မျက်စိထောင့်တွင်။',
+  'about.missionBody':
+    'စမတ်အိမ်တစ်ခုသည် ဒုတိယအလုပ်တစ်ခုလို မဟုတ်ဘဲ ကြိုးစားအားထုတ်မှုမလိုဘဲ ခံစားရသင့်သည်။ သင့်အိမ်ကို ထိန်းချုပ်ခြင်းသည် ကိုယ်ပိုင်လုံခြုံမှုရှိပြီး လျင်မြန်ကာ အမှန်တကယ် အေးချမ်းသင့်သည်ဟု ကျွန်ုပ်တို့ ယုံကြည်သည် — အခန်းတိုင်း၊ မြင်ကွင်းတိုင်းနှင့် အလိုအလျောက်လုပ်ဆောင်မှုတိုင်းကို တစ်ချက်ကြည့်ရုံဖြင့် နေ့စဉ်ဘဝအတွက် တည်ဆောက်ထားသော hub တစ်ခု၏ တိုက်ရိုက် realtime ခံစားချက်ဖြင့်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': '{{app}} အကြောင်း',
   'activity.empty':
     'လုပ်ဆောင်ချက် မရှိသေးပါ — စက်ပစ္စည်းတစ်ခုကို လှန်ပါ သို့မဟုတ် မြင်ကွင်းတစ်ခုကို အသက်သွင်းပါ။',
@@ -15,6 +22,7 @@ export const ui: UiTranslations = {
   'addDevice.field.firmware': 'ဖာမ်းဝဲဗားရှင်း',
   'addDevice.field.manufacturer': 'ထုတ်လုပ်သူ',
   'addDevice.field.room': 'အခန်း',
+  'addDevice.formLabel': 'စက်ပစ္စည်းတစ်ခုထည့်ပါ',
   'addDevice.heading': 'စက်ပစ္စည်းတစ်ခုထည့်ပါ',
   'addDevice.placeholder.firmware': 'v၂.၄.၁',
   'addDevice.placeholder.manufacturer': 'အော်ရိုရာ မီးအလင်းရောင်',
@@ -35,6 +43,7 @@ export const ui: UiTranslations = {
   'automationEditor.nameRequired': 'အလိုအလျောက်စနစ်ကို အမည်တစ်ခုပေးပါ။',
   'automationEditor.newHeading': 'အလိုအလျောက်စနစ်အသစ်',
   'automationEditor.notFound': 'အလိုအလျောက်စနစ် မတွေ့ရှိပါ။',
+  'automationEditor.placeholder.actionTarget': 'စက် id သို့မဟုတ် မြင်ကွင်းအမည်',
   'automationEditor.placeholder.actionType':
     'အခြေအနေသတ်မှတ်ခြင်း၊ မြင်ကွင်းအသက်သွင်းခြင်း၊ အကြောင်းကြားခြင်း...',
   'automationEditor.placeholder.description':
@@ -53,6 +62,7 @@ export const ui: UiTranslations = {
   'automationRow.on': 'On',
   'automationRow.runNowAria': 'ပြေးပါ {{name}} အခု',
   'automations.empty': 'အလိုအလျောက်စနစ်များ မရှိသေးပါ — သင့်ပထမဆုံး လုပ်ရိုးလုပ်စဉ်ကို ဖန်တီးပါ။',
+  'automations.emptyFiltered': 'ကိုက်ညီသော အလိုအလျောက်လုပ်ဆောင်မှုများ မရှိပါ။',
   'automations.eyebrow': 'ပုံမှန်လုပ်ရိုးလုပ်စဉ်များ',
   'automations.heading': 'အလိုအလျောက်စနစ်များ',
   'automations.loading': 'အလိုအလျောက်စနစ်များ တင်နေသည်…',
@@ -62,6 +72,7 @@ export const ui: UiTranslations = {
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': 'စက်ပစ္စည်းကို တင်၍မရပါ။',
+  'deviceDetail.loading': 'စက် ဖွင့်နေသည်…',
   'deviceDetail.notFound': 'စက်ပစ္စည်းကို ရှာမတွေ့ပါ။',
   'deviceDetail.propertiesHeading': 'ဂုဏ်သတ္တိများ',
   'deviceDetail.props.firmware': 'ဖာမ်းဝဲ',
@@ -96,12 +107,15 @@ export const ui: UiTranslations = {
   'energy.watts': '{{watts}} W',
   'energyMeterCard.drawLabel': 'တိုက်ရိုက်မဲနှိုက်ခြင်း',
   'energyMeterCard.title': 'အခုအချိန်မှာ ပါဝါ',
+  'energyMeterCard.todaySummary': 'ယနေ့ {{kwh}} kWh · ${{cost}}',
   'energyMeterCard.utilizationLabel': 'ပစ်မှတ်၏',
+  'energyMeterCard.utilizationPct': '{{pct}} %',
   'energyMeterCard.watts': '{{watts}} W',
   'floorplan.eyebrow': 'မြေပုံ',
   'floorplan.heading': 'အထပ်ပုံစံ',
   'floorplan.legend':
     'စက်ပစ္စည်းပင်များ အသက်ဝင်နေချိန်တွင် လင်းနေပါသည်။ အခန်းဒက်ရှ်များသည် ၎င်းတို့၏နယ်နိမိတ်ကို ပြသသည်။ အသေးစိတ်ကြည့်ရှုရန် မည်သည့်အခန်းကိုမဆို တို့ပါ။',
+  'floorplan.roomDevices': '{{count}} ဖွင့်ထားသည်',
   'floorplan.subheading':
     'တိုက်ရိုက်အပူချိန်အလွှာဖြင့် စက်ပစ္စည်းတိုင်းနှင့် အခန်းတိုင်းကို အပေါ်မှအောက်သို့ မြင်ကွင်း။',
   'floorplan.tempBadge': '{{degrees}} °F',
@@ -110,11 +124,17 @@ export const ui: UiTranslations = {
   'homeHeroCard.noTemperature': '— °F',
   'homeHeroCard.temperature': '{{degrees}} °F',
   'homeHeroCard.title': 'အခုချက်ချင်းအိမ်မှာ',
+  'landing.copyright': '© {{year}} {{app}}။ သင့်အိမ်၊ အမြဲတမ်း လင်းလက်နေသည်။',
+  'landing.ctaBody':
+    'hub ကို ပလပ်ထိုးပါ၊ QR ကို စကင်ဖတ်ပါ၊ ထို့နောက် {{appName}} သည် သင့်ကွန်ရက်ရှိ Matter၊ Zigbee နှင့် Z-Wave စက်တိုင်းကို ရှာဖွေတွေ့ရှိပါမည်။',
   'landing.ctaHeading': 'ဆယ်မိနစ်အတွင်း မီးထွန်းပါ',
   'landing.eyebrow': 'စမတ်ကျတဲ့အိမ်၊ အေးအေးဆေးဆေးလည်ပတ်ပါ',
   'landing.featuresHeading': 'နောက်ခံမှာ ဆူညံသံတွေကြားရတဲ့ အိမ်တစ်လုံး',
   'landing.getStarted': 'သင့်အိမ်ကို စနစ်ထည့်သွင်းပါ',
   'landing.heroCta': 'သင့်အိမ်ကို စနစ်ထည့်သွင်းပါ',
+  'landing.heroSubtitle':
+    'အခန်းတိုင်းရှိ မီးများ၊ ရာသီဥတု၊ လုံခြုံရေးနှင့် အလိုအလျောက်လုပ်ဆောင်မှုများ — နံရံ၊ ဖုန်းနှင့် သင့်မျက်စိထောင့်အတွက် တည်ဆောက်ထားသော hub တစ်ခု၏ တိုက်ရိုက် realtime ခံစားချက်ဖြင့်။',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'အခုချက်ချင်းအိမ်မှာ',
   'landing.sampleScene': 'ရုပ်ရှင်ည',
   'landing.sampleSummary': '၁၂ ရက်နေ့ · ၂၂ ရက်နေ့များတွင် ၁၈ ရက်နေ့အထိ အွန်လိုင်း',
@@ -134,6 +154,9 @@ export const ui: UiTranslations = {
   'pricing.automationsLabel': 'အလိုအလျောက်စနစ်များ',
   'pricing.canExportLabel': 'တင်ပို့မှုမှတ်တမ်း',
   'pricing.dashboardCta': 'ဒက်ရှ်ဘုတ်ဖွင့်ပါ',
+  'pricing.devicesLabel': 'စက်ပစ္စည်းများ',
+  'pricing.heading': 'သင့် {{app}} အစီအစဉ် ရွေးချယ်ပါ',
+  'pricing.retentionLabel': '{{days}} ရက် မှတ်တမ်း သိမ်းဆည်းထားသည်',
   'pricing.scenesLabel': 'မြင်ကွင်းများ',
   'roomDetail.areaLabel': 'ဧရိယာ',
   'roomDetail.back': 'အခန်းအားလုံး',
@@ -149,6 +172,7 @@ export const ui: UiTranslations = {
   'roomDetail.unnamed': 'အခန်း',
   'rooms.create.error': 'အခန်းကို ဖန်တီး၍မရပါ။ ထပ်ကြိုးစားပါ။',
   'rooms.create.nameRequired': 'အခန်းနာမည်ကို အရင်ပြောပါ။',
+  'rooms.empty': 'အခန်း မရှိသေးပါ။ စတင်ရန် သင့်ပထမဆုံးအခန်းကို ထည့်ပါ။',
   'rooms.eyebrow': 'အိမ်',
   'rooms.heading': 'အခန်းများ',
   'rooms.loadError': 'အခန်းများကို ဖွင့်၍မရပါ။',
@@ -158,6 +182,8 @@ export const ui: UiTranslations = {
   'rooms.new.open': '+ အခန်းအသစ်',
   'rooms.new.placeholder': 'နေပူခန်း၊ ကားဂိုဒေါင်၊ ကလေးအိပ်ခန်း…',
   'rooms.subheading': 'စက်ပစ္စည်းတစ်ခုချင်းစီကို အပြည့်အဝထိန်းချုပ်ရန် မည်သည့်အခန်းကိုမဆို တို့ပါ။',
+  'roomTriad.devicesLabel': 'စက်များ ဖွင့်ထားသည်',
+  'roomTriad.devicesOn': '{{on}}/{{total}}',
   'roomTriad.tempBadge': '{{degrees}} °F',
   'sceneCard.activate': 'အသက်သွင်းပါ',
   'sceneCard.deviceCount': '{{count}} စက်ပစ္စည်းများ',
@@ -170,11 +196,13 @@ export const ui: UiTranslations = {
   'scenes.loading': 'မြင်ကွင်းများကို တင်နေသည်…',
   'scenes.new.create': 'မြင်ကွင်းဖန်တီးပါ',
   'scenes.new.descPlaceholder': 'ဒီဇာတ်ဝင်ခန်းက ဘာကိုဆိုလိုသလဲ — အကျဉ်းချုပ်။',
+  'scenes.new.icon': 'အိုင်ကွန်',
   'scenes.new.name': 'မြင်ကွင်းအမည်',
   'scenes.new.namePlaceholder': 'ချိန်းတွေ့ည၊ နိုးထချိန်၊ အားလပ်ရက်မီးများ…',
   'scenes.new.open': '+ မြင်ကွင်းအသစ်',
   'scenes.subheading':
     'တစ်ချက်နှိပ်ရုံဖြင့် စက်ပစ္စည်းတိုင်း - မည်သည့်အခိုက်အတန့်အတွက်မဆို စိတ်ခံစားချက်ကို သတ်မှတ်လိုက်ပါ။',
+  'security.alertsHeading': 'မကြာသေးမီက သတိပေးချက်များ',
   'security.camerasHeading': 'တိုက်ရိုက်ကင်မရာများ',
   'security.eyebrow': 'ကြည့်ရှုပါ',
   'security.lastChange': 'နောက်ဆုံးပြောင်းလဲမှု {{time}}',
@@ -189,6 +217,7 @@ export const ui: UiTranslations = {
   'settings.plan.subheading': 'သင်၏ လက်ရှိရပိုင်ခွင့်နှင့် ကန့်သတ်ချက်များ။',
   'settings.plan.upgrade': 'အစီအစဉ်များကိုကြည့်ပါ',
   'settings.security.heading': 'လုံခြုံရေး',
+  'settings.security.subheading': 'စကားဝှက်နှင့် နှစ်ဆင့်စစ်မှန်ကြောင်းအတည်ပြုခြင်း။',
   'settings.subheading': 'အစီအစဉ်၊ hubs နှင့် အကောင့် ဦးစားပေးမှုများ။',
   'smartHomeDashboardLayout.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'smartHomeDashboardLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',

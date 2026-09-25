@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.missionTitle': 'Наша місія',
   'account.notifications.save': 'Зберегти налаштування',
   'account.notifications.saved': 'Налаштування збережено.',
   'account.notifications.saveFailed': 'Не вдалося зберегти вподобання.',
@@ -12,7 +13,10 @@ export const ui: UiTranslations = {
     'Оплата за сеанс • Оновіть тарифний план для отримання знижок на бронювання',
   'account.payments.helper':
     'Ваш спосіб оплати оголошується під час оформлення замовлення. Ми ніколи не зберігаємо повні номери карток — Stripe обробляє всі дані карток.',
+  'account.payments.paidDescription': 'Підписка активна — керуйте в Stripe.',
   'account.payments.planFree': 'Безкоштовний план',
+  'account.payments.title': 'План і оплата',
+  'account.payments.viewPlans': 'Переглянути плани {{appName}} →',
   'account.profile.title': 'Профіль',
   'account.role.body':
     'Перемикайтеся між режимом учня та режимом репетитора будь-коли. Ваші активні сесії залишаються незмінними в будь-якому режимі.',
@@ -25,6 +29,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Навчайте крейдою',
   'becomeTutor.form.error': 'Не вдалося подати заявку.',
+  'becomeTutor.form.pitch': "Ваша презентація (необов'язково)",
   'becomeTutor.form.pitchPlaceholder':
     'Кілька речень, які студенти побачать у вашому профілі. Зробіть їх конкретними та теплими.',
   'becomeTutor.form.rate': 'Погодинна ставка ($/год): {{rate}}',
@@ -34,6 +39,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.title': 'Розкажіть нам про себе',
   'becomeTutor.headline':
     'Заробляйте, займаючись улюбленою справою. Навчайтеся за власним графіком.',
+  'becomeTutor.subhead':
+    "Подайте заявку за 5 хвилин. Після перевірки ви з'явитеся в пошуку та зможете приймати заняття.",
+  'booking.duration.title': '3. Як довго?',
   'booking.error.createFailed': 'Не вдалося створити бронювання.',
   'booking.error.loadFailed': 'Не вдалося завантажити репетитора — спробуйте ще раз.',
   'booking.error.noSlot': 'Спочатку оберіть день і час.',
@@ -47,6 +55,7 @@ export const ui: UiTranslations = {
   'booking.subtitle':
     'Сеанси можна перенести на інший термін (до 12 годин). Кошти з вашої картки списуються лише після завершення сеансу.',
   'booking.summary.assurance': 'Безкоштовно до кінця сеансу • Безкоштовне скасування до 12 годин',
+  'booking.summary.back': '← Назад до профілю репетитора',
   'booking.summary.cta': 'Підтвердити бронювання',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'Виберіть слот',
@@ -73,26 +82,38 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'Репетитор',
   'bookingConfirm.subject': 'Тема',
   'bookingConfirm.title': 'Ви заброньовані. Ми подбаємо про решту.',
+  'bookingConfirm.viewSessions': 'Переглянути всі заняття →',
   'bookingConfirm.with': 'З репетитором',
   'common.goToDashboard': 'До панелі',
+  'earningsHero.change': '{{sign}}{{percent}}% порівняно з минулим місяцем',
   'earningsHero.eyebrow': 'Заробіток • {{month}}',
+  'earningsHero.greeting': 'З поверненням, {{name}} — не втрачайте темп.',
   'forgotPassword.heading': 'Забули пароль?',
   'forgotPassword.subheading':
     'Введіть електронну адресу, прив’язану до вашого облікового запису, і ми надішлемо вам посилання для скидання налаштувань.',
   'forgotPassword.success.body':
     'Ми надіслали посилання для скидання налаштувань {{email}} — термін дії закінчується через 30 хвилин.',
   'heroSearchSection.eyebrow': 'Понад 12 000 перевірених репетиторів • з 2018 року',
+  'heroSearchSection.headline': 'Тут допитливі уми знаходять потрібних репетиторів.',
+  'heroSearchSection.searchCta': 'Знайти репетитора',
+  'heroSearchSection.searchPlaceholder': 'Пошук предметів, репетиторів або тем…',
   'heroSearchSection.stat.rating': 'Середній рейтинг сесії',
+  'heroSearchSection.stat.sessions': 'Проведених занять',
   'heroSearchSection.stat.subjects': 'Розглянуті теми',
   'heroSearchSection.stat.tutors': 'Перевірені репетитори',
+  'heroSearchSection.subhead':
+    'Перевірені репетитори. Прозорі ціни. Заняття, що пасують вашому тижню.',
   'landing.featured.eyebrow': 'Рекомендовані репетитори',
   'landing.featured.headline': 'Ретельно відібрані, найвищого рейтингу та готові цього тижня.',
   'landing.featured.viewAll': 'Переглянути всіх репетиторів',
   'landing.nav.becomeTutor': 'Навчайте крейдою',
   'landing.nav.findTutors': 'Знайти репетиторів',
   'landing.pillars.eyebrow': 'Чому саме крейда',
+  'landing.pillars.headline': '{{tagline}} — без зайвих труднощів.',
   'landing.testimonials.eyebrow': 'Від нещодавніх студентів',
   'landing.testimonials.headline': 'Реальні результати, їхніми власними словами.',
+  'landing.tutorCta.body':
+    'Встановлюйте власні ставки, будуйте репутацію завдяки перевіреним відгукам, а ми подбаємо про розклад, оплату та нагадування.',
   'landing.tutorCta.button': 'Подати заявку на викладання',
   'landing.tutorCta.eyebrow': 'Станьте репетитором',
   'landing.tutorCta.headline':
@@ -104,6 +125,7 @@ export const ui: UiTranslations = {
   'login.signup': 'Створити обліковий запис →',
   'login.subheading':
     'Продовжуйте з того місця, де зупинилися — ваші сесії, повідомлення та репетитори чекають на вас.',
+  'login.support': 'Потрібна допомога?',
   'messages.draftPlaceholder': 'Введіть повідомлення…',
   'messages.empty.body':
     'Тут з’являтимуться теми обговорення, коли ви напишете репетитору або він напише вам.',
@@ -115,9 +137,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'Поки що немає повідомлень.',
   'messages.selectThread': 'Виберіть нитку ліворуч.',
   'messages.send': 'Надіслати повідомлення',
+  'messages.startThreadHint':
+    'Відкрийте профіль репетитора та натисніть "Написати репетитору", щоб почати розмову.',
   'messages.thread.empty': 'Привітайтеся — почніть розмову.',
   'messages.title': 'Теми спілкування з вашими репетиторами.',
   'nav.primary': 'Основний',
+  'planUpdated.body':
+    'Зміну оплати активовано. Ви можете керувати своїм планом будь-коли на сторінці оплати.',
+  'pricing.advancedFeatures': 'Розширені функції:',
   'pricing.dataExport': 'Експорт даних:',
   'pricing.headingDefault': 'Розширені функції:',
   'resetPassword.heading': 'Оберіть новий надійний пароль.',
@@ -128,6 +155,7 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Ми автоматично ввійдемо в систему після успішного скидання налаштувань.',
   'resetPassword.submit': 'Скинути та ввійти',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body': 'Спробуйте розширити тематичний фільтр або послабити поріг оцінювання.',
   'search.empty.title': 'Поки що немає відповідних репетиторів.',
@@ -138,7 +166,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'Рейтинг',
   'search.filter.subject': 'Тема',
   'search.results.count': '{{count}} репетитори відповідають вашим фільтрам',
+  'search.results.fallback': 'Показано дібрані демо-профілі репетиторів',
   'search.results.loading': 'Завантаження репетиторів…',
+  'search.searchPlaceholder': "Предмет, ім'я або тема…",
   'search.subtitle':
     'Фільтруйте за предметом, рейтингом та доступністю. Тільки перевірені репетитори.',
   'search.title': 'Знайдіть репетитора, який клацає',
@@ -171,18 +201,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'Сесія розпочата — приємного навчання.',
   'sessionDetail.startError': 'Не вдалося розпочати сеанс.',
   'sessionDetail.subtitle': 'з {{name}} • {{when}} • {{mins}} хв',
+  'sessionDetail.timeline': 'Хронологія статусу',
   'sessionDetail.timeline.afterEnd': 'Після завершення сеансу',
   'sessionDetail.timeline.auto': 'Авто',
   'sessionDetail.timeline.booked': 'Заброньовано',
   'sessionDetail.timeline.confirmed': 'Підтверджено',
   'sessionDetail.timeline.inSession': 'На сесії',
   'sessionDetail.timeline.now': 'Зараз',
+  'sessionDetail.timeline.receipt': 'Квитанцію видано',
   'sessionDetail.timeline.review': 'Запит на перевірку',
   'sessions.empty.body':
     'Перегляньте Mentor, щоб знайти репетитора та забронювати час. Підтверджені заняття відображаються тут.',
   'sessions.empty.title': 'Тут ще нічого не заплановано.',
   'sessions.error': 'Не вдалося завантажити ваші сесії — спробуйте ще раз.',
   'sessions.eyebrow': 'Ваші сеанси',
+  'sessions.loading': 'Завантаження сеансів…',
   'sessions.subtitle':
     'Відстежуйте майбутні бронювання, переходьте до активної кімнати для занять та переглядайте завершені уроки.',
   'sessions.title': 'Кожен урок в одному місці.',
@@ -197,22 +230,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'Створити мій {{role}} обліковий запис',
   'signup.subheading':
     'Створіть обліковий запис, щоб бронювати заняття, надсилати повідомлення репетиторам та відстежувати свій прогрес.',
+  'signup.terms': 'Реєструючись, ви погоджуєтеся з нашими Умовами.',
   'tutorCard.avatarAlt': 'Портрет {{name}}',
   'tutorCard.perHour': '/ год',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'Найвищий рейтинг',
   'tutorCard.verified': 'Перевірений репетитор',
+  'tutorDashboard.empty.body':
+    'Вкажіть свої предмети, погодинну ставку та доступність — і починайте заробляти.',
+  'tutorDashboard.empty.cta': 'Стати репетитором →',
   'tutorDashboard.empty.title': 'Станьте репетитором, щоб розблокувати свою інформаційну панель.',
   'tutorDashboard.fallbackName': 'Репетитор',
   'tutorDashboard.loading': 'Завантаження панелі…',
   'tutorDashboard.recentReviews': 'Останні відгуки',
   'tutorDashboard.reviewsEmpty':
     'У вас ще немає відгуків — вони з’являться тут, щойно студенти оцінять вас.',
+  'tutorDashboard.stats.rating': 'Сер. оцінка',
   'tutorDashboard.stats.sessions': 'Сесії цього місяця',
+  'tutorDashboard.stats.totalSessions': 'Занять за весь час',
+  'tutorDashboard.studentFallback': 'Студент',
   'tutorDashboard.tutoringFallback': 'Репетиторство',
   'tutorDashboard.upcoming': 'Майбутні сесії',
   'tutorDashboard.upcomingEmpty':
     'Поки що немає майбутніх сесій — тут з’являться студенти, які бронюють ваші місця.',
+  'tutorProfile.availability': 'Доступність цього тижня',
   'tutorProfile.availabilityHeadline': 'Виберіть слот для початку',
   'tutorProfile.bookCta': 'Забронювати сеанс',
   'tutorProfile.bookFull': 'Дивитися повний розклад',
@@ -225,6 +266,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / год',
   'tutorProfile.reviews': 'Останні відгуки',
   'tutorProfile.reviews.empty': 'Поки що немає відгуків — будьте першим.',
+  'tutorProfile.stat.repeats': 'Постійні учні',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'Середня відповідь',
   'tutorProfile.stat.responseValue': '{{mins}} хв',

@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានមតិកែលម្អ រកឃើញកំហុស ឬចង់បាន {{app}} សម្រាប់លីគរបស់អ្នក? ទាក់ទងយើងពីការកំណត់គណនីរបស់អ្នក — រាល់សារទាំងអស់ត្រូវបានផ្ញើទៅមនុស្សពិតប្រាកដក្នុងក្រុម។',
+  'about.contactTitle': 'ទាក់ទងមកយើងខ្ញុំ',
   'about.eyebrow': 'អំពី',
+  'about.featureAlerts':
+    'ការជូនដំណឹងពេលមានពិន្ទុថ្មី ការជូនដំណឹងពាណិជ្ជកម្ម របាយការណ៍របួស និងសេចក្តីប្រកាសរបស់លីគ។',
+  'about.featureRosters':
+    'ទំព័រក្រុមដែលមានបញ្ជីឈ្មោះពេញលេញ សរុបរដូវកាល ស្ថិតិក្តៅ/ត្រជាក់ និងការបែងចែកជើងទល់មុខសម្រាប់កីឡាករម្នាក់ៗ។',
+  'about.featureSchedule':
+    'ប្រតិទិនរដូវកាល និងទិដ្ឋភាពកាលវិភាគ ដើម្បីឱ្យអ្នកអាចរៀបចំផែនការជុំវិញរាល់ការប្រកួត និងលទ្ធផល។',
+  'about.featureScoreboard':
+    'របារពិន្ទុគុណភាពផ្សាយដែលបិទភ្ជាប់នៅផ្នែកខាងលើនៃរាល់ទំព័រ ដើម្បីឱ្យអ្នកមិនខកខានគ្រាប់បាល់ណាមួយ។',
+  'about.featureStandings':
+    'តារាងចំណាត់ថ្នាក់ផ្ទាល់ — កំណត់ត្រាឈ្នះ-ចាញ់-ស្មើ ពិន្ទុ ភាគរយឈ្នះ និងបន្ទាត់ចូលវគ្គផ្តាច់ព្រ័ត្រ ដែលធ្វើបច្ចុប្បន្នភាពរាល់ពេលកូនកណ្តុរផ្លុំ។',
+  'about.intro':
+    '{{app}} គឺជាផ្ទះគុណភាពផ្សាយសម្រាប់លីគរបស់អ្នក។ ក្រុម កាលវិភាគ ពិន្ទុផ្ទាល់ និងតារាងចំណាត់ថ្នាក់ ប្រមូលផ្តុំគ្នានៅក្នុងផ្ទាំងគ្រប់គ្រងតែមួយដ៏រហ័ស និងគ្មានភាពរញ៉េរញ៉ៃ — ដើម្បីឱ្យអ្នកគាំទ្រ គ្រូបង្វឹក និងអ្នករៀបចំលីគ ដឹងជានិច្ចថារដូវកាលកំពុងស្ថិតនៅណា។',
+  'about.missionBody':
+    'ការតាមដានលីគមួយមិនគួរមានន័យថាត្រូវធ្វើបច្ចុប្បន្នភាពតារាងពិន្ទុភាគីទីបីប្រាំផ្សេងគ្នានោះទេ។ យើងបានបង្កើតវាឡើងដើម្បីផ្តល់ឱ្យលីគនីមួយៗនូវប្រភពពិតតែមួយសម្រាប់តារាងចំណាត់ថ្នាក់ កាលវិភាគ និងស្ថិតិដែលសំខាន់ពិតប្រាកដ — ធ្វើបច្ចុប្បន្នភាពរាល់ពេលកូនកណ្តុរផ្លុំ ឥតគិតថ្លៃសម្រាប់រដូវកាល។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
+  'about.whatYouGet': 'អ្វីដែលអ្នកទទួលបាន',
   'appShell.closeNav': 'បិទការរុករក',
   'appShell.openNav': 'បើកការរុករក',
   'common.dashboard': 'ផ្ទាំងគ្រប់គ្រង',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'មើល​ការ​ប្រកួត​ទាំង​អស់ \\u2192',
   'dashboard.viewAllStandings': 'ចំណាត់ថ្នាក់ពេញលេញ \\u2192',
   'dashboard.viewAllStats': 'មើល​អ្នកដឹកនាំ​ស្ថិតិ​ទាំងអស់ \\u2192',
+  'forgot.submitting': 'កំពុងផ្ញើតំណកំណត់ពាក្យសម្ងាត់ឡើងវិញ…',
   'forgot.subtitle': 'បញ្ចូលអ៊ីមែលរបស់អ្នក ដើម្បីទទួលបានតំណភ្ជាប់កំណត់ឡើងវិញ។',
   'forgot.success': 'បានផ្ញើតំណកំណត់ឡើងវិញទៅ {{email}} សូមពិនិត្យមើលប្រអប់សំបុត្ររបស់អ្នក។',
+  'landing.copyright': '© {{year}} {{app}}។ ដេញតាមចំណាត់ថ្នាក់។',
+  'landing.ctaBody':
+    'លីគរបស់អ្នក។ តារាងចំណាត់ថ្នាក់របស់អ្នក។ ក្រុមដែលអ្នកចូលចិត្ត — បិទភ្ជាប់នៅផ្នែកខាងលើ។ ចំណាយពេលពីរនាទីដើម្បីរៀបចំ ឥតគិតថ្លៃសម្រាប់រដូវកាល។',
   'landing.ctaHeading': 'ឈប់​ធ្វើ​ឲ្យ​ផ្ទាំង​ពិន្ទុ​ភាគី​ទីបី​ស្រស់​ឡើង​វិញ',
   'landing.eyebrow': 'បង្កើតឡើងសម្រាប់អ្នកគាំទ្រ គ្រូបង្វឹក និងអ្នករៀបចំលីគ',
   'landing.featuresHeading': 'កៅអីជួរមុខសម្រាប់រាល់ការឈរ',
   'landing.getStarted': 'ចូលរួមលីគ',
   'landing.heroCta': 'ចូលរួមលីគ',
+  'landing.heroSubtitle':
+    '{{app}} ភ្ជាប់តារាងចំណាត់ថ្នាក់ កាលវិភាគ និងអ្នកនាំមុខផ្នែកស្ថិតិចូលគ្នាជាផ្ទាំងគ្រប់គ្រងគុណភាពផ្សាយតែមួយ។ ពិន្ទុផ្ទាល់។ កំណត់ត្រាពិតប្រាកដ។ គ្មានភាពរញ៉េរញ៉ៃ។',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'យប់នេះជុំវិញលីគ',
   'landing.statFans': 'អ្នកគាំទ្រកំពុងតាមដាន',
   'landing.statGames': 'ការប្រកួតរដូវកាលនេះ',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'សំណួរ {{period}}',
   'matchDetail.back': 'ត្រឡប់ទៅការប្រកួតវិញ',
   'matchDetail.eventsHeading': 'លេងម្តងមួយៗ',
+  'matchDetail.final': 'បញ្ចប់',
   'matchDetail.finalScore': 'វគ្គផ្តាច់ព្រ័ត្រ',
   'matchDetail.live': 'ផ្សាយផ្ទាល់',
   'matchDetail.liveNow': 'រស់នៅឥឡូវនេះ',
   'matchDetail.noEvents': 'មិនទាន់មានព្រឹត្តិការណ៍ណាមួយត្រូវបានកត់ត្រានៅឡើយទេ។',
   'matchDetail.periodClock': 'សំណួរ {{period}} · {{clock}}',
+  'matches.empty': 'គ្មានការប្រកួតក្នុងទិដ្ឋភាពនេះទេ — សាកល្បងតម្រងផ្សេង។',
   'matches.eyebrow': 'ថ្ងៃប្រកួត',
   'matches.loading': 'កំពុងទាញបន្ទះឈើ…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'មិនអាចផ្ទុកការជូនដំណឹងបានទេ',
   'notifications.loading': 'កំពុងផ្ទុកការជូនដំណឹង\\u2026',
   'pennantHeroCard.eyebrow': 'កំពូលតារាង',
+  'pennantHeroCard.formLabel': '១០ ចុងក្រោយ',
   'pennantHeroCard.gamesAhead': '{{value}} ល្បែង​មុន​ការ​ដេញ​តាម',
   'pennantHeroCard.pointsLabel': 'ពិន្ទុ​ពិន្ទុ',
   'pennantLayout.primaryNavLabel': 'ការរុករកចម្បង',
@@ -78,17 +107,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'ជ្រើសរើសកៅអីរបស់អ្នក',
   'pricing.heading': 'ធ្វើឱ្យប្រសើរឡើងសម្រាប់កាលវិភាគ ពិន្ទុ និងចំណាត់ថ្នាក់កាន់តែសម្បូរបែប។',
   'pricing.limits.schedule': '{{count}} ធាតុ​កាលវិភាគ',
+  'pricing.limits.scores': 'ពិន្ទុ {{count}}',
+  'pricing.limits.standings': 'តារាងចំណាត់ថ្នាក់ {{count}}',
+  'pricing.limits.teams': 'ក្រុម {{count}}',
+  'pricing.subtitle': 'ដំឡើងកម្រិតសម្រាប់កាលវិភាគ ពិន្ទុ និងតារាងចំណាត់ថ្នាក់កាន់តែសម្បូរបែប។',
   'pricing.upgradeCta': 'ធ្វើឱ្យប្រសើរឡើងទៅ {{tierName}}',
   'profile.eyebrow': 'ប្រវត្តិរូបអ្នកគាំទ្រ',
   'profile.favoritesCount': 'ក្រុម​ដែល​បាន​តាមដាន',
   'profile.favoritesHeading': 'ក្រុមដែលចូលចិត្ត',
   'profile.noFavorites': 'មិនទាន់មានក្រុមដែលពេញចិត្តនៅឡើយទេ — សូមជ្រើសរើសក្រុមពីទំព័រក្រុម។',
   'profile.rankRecord': 'ចំណាត់ថ្នាក់លេខ {{rank}} · {{record}}',
+  'profile.recordOnly': 'កំណត់ត្រា {{record}}',
   'reset.confirmPlaceholder': 'ធ្វើពាក្យសម្ងាត់ម្តងទៀត',
+  'reset.mismatch': 'ពាក្យសម្ងាត់មិនត្រូវគ្នា។',
   'reset.newLabel': 'ពាក្យសម្ងាត់ថ្មី',
   'reset.subtitle': 'ជ្រើសរើសពាក្យសម្ងាត់ដ៏រឹងមាំដែលមានយ៉ាងហោចណាស់ ១២ តួអក្សរ។',
   'reset.tokenPlaceholder': 'បិទភ្ជាប់ពីអ៊ីមែល',
   'schedule.eyebrow': 'បន្ទះ​ថ្ម​ក្រាល',
+  'schedule.moreGames': '+ {{count}} ច្រើនទៀត',
   'schedule.subtitle':
     'ទិដ្ឋភាពប្រតិទិននៃការប្រកួតទូទាំងរដូវកាល — ចុចលើថ្ងៃណាមួយសម្រាប់ពិន្ទុប្រអប់។',
   'scoreboardTicker.empty':
@@ -97,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'ធ្វើឱ្យផ្ទាល់ខ្លួន',
   'settings.favoritesBody':
     'ក្រុមទាំងនេះត្រូវបានខ្ទាស់ទៅផ្ទាំងគ្រប់គ្រងរបស់អ្នក ហើយបង្កឱ្យមានការជូនដំណឹងអំពីពិន្ទុ។',
+  'settings.favoritesHeading': 'ក្រុមដែលចូលចិត្ត',
   'settings.loading': 'កំពុងផ្ទុកចំណូលចិត្តរបស់អ្នក\\u2026',
   'settings.noFavorites': 'មិនទាន់មានក្រុមដែលពេញចិត្តនៅឡើយទេ \\u2014 សូមជ្រើសរើសក្រុមពីទំព័រក្រុម។',
   'settings.notificationsHeading': 'ការជូនដំណឹង និងការបង្ហាញ',
@@ -114,6 +151,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'ល',
   'standings.overall': 'សរុប',
   'standings.points': 'ពិន្ទុ​ពិន្ទុ',
+  'standings.rank': '#',
   'standings.subtitle':
     'ក្រុមកំពូលទាំងបួនមានសិទ្ធិឡើងទៅវគ្គ Playoffs — ក្រុមដែលមានពិន្ទុស្មើគ្នា បន្ទាប់មកឈ្នះភាគរយ។',
   'standings.title': 'ចំណាត់ថ្នាក់លីគ',
@@ -132,6 +170,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'ជី',
   'teamDetail.colName': 'អ្នកលេង',
   'teamDetail.colPos': 'តំណែង',
+  'teamDetail.pointsLabel': 'ពិន្ទុ',
   'teamDetail.rankLabel': 'ចំណាត់ថ្នាក់លេខ {{rank}}',
   'teamDetail.rosterHeading': 'បញ្ជីឈ្មោះ',
   'teamDetail.statGD': 'ភាពខុសគ្នានៃគោលដៅ',

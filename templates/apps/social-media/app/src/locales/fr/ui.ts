@@ -1,13 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Vous avez des commentaires, vous avez trouvé un bug ou vous souhaitez collaborer avec {{app}} ? Écrivez-nous depuis les paramètres de votre compte — chaque message est lu par une vraie personne de l'équipe.",
   'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
+  'about.intro':
+    "{{app}} est un fil social dynamique, pensé pour les créateurs — publications, stories et profils riches en couleurs. Nous l'avons conçu pour celles et ceux qui créent et partagent vraiment, pas pour les rivières de publicités et l'appât du défilement infini.",
+  'about.missionBody':
+    'Les réseaux sociaux devraient ressembler à une toile calme et colorée — un lieu où les créateurs sont crédités et où les conversations restent humaines. Aucun entraînement de modèle sur vos publications, aucune publicité dans le fil, aucun dark pattern.',
+  'about.missionTitle': 'Notre mission',
   'about.pageTitle': 'À propos de {{app}}',
   'common.goToDashboard': 'Aller au tableau de bord',
   'common.retry': 'Réessayer',
   'compose.cancel': 'Annuler',
+  'compose.caption': 'Légende',
   'compose.captionPlaceholder': "Qu'avez-vous en tête ?",
+  'compose.hashtags': 'Hashtags',
   'compose.heading': 'Partagez un moment',
   'compose.subheading':
     "La légende d'abord ; nous brancherons les téléversements d'images ensuite.",
@@ -15,9 +24,11 @@ export const ui: UiTranslations = {
   'explore.emptyBody':
     "Soyez le premier à publier — la grille d'exploration se remplit à mesure que la communauté partage.",
   'explore.emptyTitle': 'Rien ne fait tendance pour le moment.',
+  'explore.error': 'Impossible de charger le fil Explorer.',
   'explore.eyebrow': 'Tendances du jour',
   'explore.heading': 'Explorer',
   'explore.subheading': "Sélectionné par les éditeurs et l'algorithme — surtout par les éditeurs.",
+  'explore.suggestionsEyebrow': 'Pour vous',
   'explore.suggestionsHeading': 'Créateurs qui valent le détour',
   'feed.compose': 'Nouvelle publication',
   'feed.emptyBody':
@@ -34,12 +45,19 @@ export const ui: UiTranslations = {
     'Saisissez votre e-mail et nous vous enverrons un lien de réinitialisation.',
   'forgotPassword.success':
     'Si {{email}} correspond à un compte, vous recevrez un lien de réinitialisation sous peu.',
+  'landing.ctaBody':
+    "Gratuit pour toujours pour l'essentiel. Les offres Pro débloquent la vidéo longue durée et les outils de collaboration — commencez quand vous voulez.",
   'landing.ctaHeading': 'Mettez en ligne votre version vivante',
   'landing.exploreCta': 'Ouvrir Explorer',
   'landing.eyebrow': 'Stories · Publications · Fil temps réel',
   'landing.featuresHeading': 'Conçu pour ceux qui publient vraiment',
+  'landing.featuresSubheading':
+    "Un fil pensé pour les créateurs, avec le poli d'un magazine et la rapidité d'un chat. Créez, partagez, discutez — c'est tout.",
   'landing.getStarted': 'Rejoindre Vivid',
   'landing.heroCta': 'Commencer à partager',
+  'landing.heroSubtitle':
+    "{{app}} est un fil social pensé pour les créateurs — stories vibrantes, publications dignes d'une galerie et conversations humaines. Pas de rivières de publicités en défilement infini, pas de bruit algorithmique.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.noAds': 'Pas de publicités dans le fil',
   'landing.noTraining': "Pas d'entraînement de modèles sur vos publications",
   'landing.online': "2,4 M de créateurs en ligne aujourd'hui",
@@ -55,6 +73,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Se connecter',
   'messages.composePlaceholder': 'Envoyer un message…',
   'messages.empty': 'Sélectionnez une conversation pour commencer à discuter.',
+  'messages.error': 'Impossible de charger les conversations.',
   'messages.noConversations':
     "Aucune conversation pour l'instant — visitez un profil et envoyez un message.",
   'messages.noMessages': "Aucun message pour l'instant — dites bonjour !",
@@ -79,10 +98,15 @@ export const ui: UiTranslations = {
   'notifications.kind.tag': 'vous a identifié dans une publication',
   'notifications.subheading': '{{count}} non lues.',
   'postCard.commentAria': 'Voir les commentaires',
+  'postCard.copyFailed':
+    'La copie automatique a échoué — sélectionnez le lien et copiez-le manuellement.',
+  'postCard.copyLinkDescription': 'Copiez le lien ci-dessous pour partager cette publication.',
+  'postCard.copyLinkTitle': 'Copier ce lien',
   'postCard.likeAria': "J'aime",
   'postCard.live': 'EN DIRECT',
   'postCard.moreAria': "Plus d'options",
   'postCard.openAria': 'Ouvrir la publication de @{{handle}}',
+  'postCard.viewAllComments': 'Voir les {{count}} commentaires',
   'postDetail.backCta': 'Retour au fil',
   'postDetail.commentPlaceholder': 'Ajouter un commentaire…',
   'postDetail.commentsEmpty': 'Aucun commentaire — soyez le premier.',
@@ -91,12 +115,25 @@ export const ui: UiTranslations = {
   'postDetail.loading': 'Chargement de la publication…',
   'postDetail.notFoundTitle': 'Publication introuvable',
   'postDetail.post': 'Publier',
+  'pricing.advancedFeatures': 'Fonctionnalités avancées : {{yes}}',
+  'pricing.canExport': 'Exportation des données : {{yes}}',
+  'pricing.heading': 'Choisissez votre forfait {{app}}',
+  'pricing.maxFollows': '{{count}} abonnés',
+  'pricing.maxPosts': '{{count}} publications',
+  'pricing.maxStories': '{{count}} articles',
+  'profile.composeCta': 'Nouvelle publication',
+  'profile.empty':
+    "Aucune publication pour l'instant — dès qu'il y en aura, elles apparaîtront ici.",
   'profile.emptySelf':
     "Vous n'avez encore rien publié — passez par Nouvelle publication pour partager.",
   'profile.exploreCta': 'Parcourir Explorer',
   'profile.loadingPosts': 'Chargement des publications…',
   'profile.notFoundTitle': 'Profil introuvable',
   'profile.youEyebrow': "C'est vous",
+  'profileHeaderCard.copyFailed':
+    'La copie automatique a échoué — sélectionnez le lien et copiez-le manuellement.',
+  'profileHeaderCard.copyLinkDescription': 'Copiez le lien ci-dessous pour partager ce profil.',
+  'profileHeaderCard.copyLinkTitle': 'Copier le lien de ce profil',
   'profileHeaderCard.followers': 'Abonnés',
   'profileHeaderCard.message': 'Message',
   'profileHeaderCard.posts': 'Publications',
@@ -113,22 +150,29 @@ export const ui: UiTranslations = {
   'search.peoplePrompt': 'Tapez un nom, un identifiant ou un e-mail pour trouver des créateurs.',
   'search.postsHeading': 'Publications',
   'search.subheading': 'Personnes, hashtags, légendes — tout ce qui circule sur Vivid.',
+  'search.tagsHeading': 'Hashtags',
   'settings.account.passwordNote':
     "Ouvrez le menu de l'avatar dans l'en-tête pour changer de mot de passe ou supprimer votre compte.",
   'settings.billing.body':
     'Consultez la page Tarifs pour passer à un forfait supérieur et gérer votre abonnement.',
+  'settings.billing.cta': 'Voir les tarifs et les offres',
   'settings.loading': 'Chargement des paramètres…',
+  'settings.notif.comments': 'Commentaires et réponses',
   'settings.notif.commentsDesc':
     'Notification push pour les réponses directes et les commentaires en fil.',
+  'settings.notif.follows': 'Nouveaux abonnés',
   'settings.notif.followsDesc': 'Résumé quotidien, jamais par événement.',
   'settings.notif.likes': "J'aime et réactions",
   'settings.notif.likesDesc': "Notification push quand quelqu'un réagit à vos publications.",
+  'settings.notif.live': 'Alertes en direct',
   'settings.notif.liveDesc':
     'Notification push quand les comptes que vous suivez passent en direct.',
   'settings.previewEyebrow': 'Édition',
+  'settings.priv.activity': "Statut d'activité",
   'settings.priv.activityDesc': 'Affichez votre point en ligne sur les stories et les DM.',
   'settings.priv.private': 'Compte privé',
   'settings.priv.privateDesc': 'Seuls les abonnés approuvés voient vos publications.',
+  'settings.priv.tagging': "Autorisation d'identification",
   'settings.priv.taggingDesc': 'Seules les personnes que vous suivez peuvent vous identifier.',
   'settings.profile.displayName': 'Nom affiché',
   'settings.profile.handle': 'Identifiant',
@@ -139,12 +183,14 @@ export const ui: UiTranslations = {
   'socialMediaLayout.closeMenu': 'Fermer le menu de navigation',
   'socialMediaLayout.openMenu': 'Ouvrir le menu de navigation',
   'socialMediaLayout.primaryNavLabel': 'Navigation principale',
+  'storyRail.addAria': 'Ajouter à votre story',
   'storyRail.heading': 'Stories',
   'storyRail.label': 'Stories',
   'storyRail.openAria': 'Ouvrir la story de {{handle}}',
   'storyRail.you': 'Votre story',
   'suggestionsRail.eyebrow': 'Pour vous',
   'suggestionsRail.heading': 'Créateurs à suivre',
+  'suggestionsRail.postCount': '{{count}} publications',
   'suggestionsRail.seeAll': 'Tout voir',
   'suggestionsRail.trendingEyebrow': 'Tendance',
   'suggestionsRail.trendingHeading': 'Hashtags qui explosent maintenant',

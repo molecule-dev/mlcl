@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang kami',
+  'about.missionTitle': 'Misi kami',
   'account.notifications.save': 'Simpan keutamaan',
   'account.notifications.saved': 'Keutamaan disimpan.',
   'account.notifications.saveFailed': 'Tidak dapat menyimpan keutamaan.',
@@ -11,7 +12,10 @@ export const ui: UiTranslations = {
   'account.payments.freeDescription': 'Bayar setiap sesi • Naik taraf untuk diskaun tempahan',
   'account.payments.helper':
     'Kaedah pembayaran anda akan diambil semasa pembayaran. Kami tidak pernah menyimpan nombor kad penuh — Stripe mengendalikan semua data kad.',
+  'account.payments.paidDescription': 'Langganan aktif — urus di Stripe.',
   'account.payments.planFree': 'Pelan percuma',
+  'account.payments.title': 'Pelan & pembayaran',
+  'account.payments.viewPlans': 'Lihat pelan {{appName}} →',
   'account.profile.title': 'Profil',
   'account.role.body':
     'Bertukar antara mod pelajar dan tutor pada bila-bila masa. Sesi aktif anda kekal utuh dalam mana-mana mod.',
@@ -24,6 +28,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Mengajar di atas Kapur',
   'becomeTutor.form.error': 'Tidak dapat menghantar permohonan.',
+  'becomeTutor.form.pitch': 'Pitch anda (pilihan)',
   'becomeTutor.form.pitchPlaceholder':
     'Beberapa ayat yang akan dilihat oleh pelajar pada profil anda. Pastikan ia spesifik dan mesra.',
   'becomeTutor.form.rate': 'Kadar setiap jam ($/jam): {{rate}}',
@@ -33,6 +38,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.title': 'Beritahu kami tentang anda',
   'becomeTutor.headline':
     'Dapatkan pendapatan dengan melakukan apa yang anda suka. Ajar mengikut jadual anda.',
+  'becomeTutor.subhead':
+    'Mohon dalam 5 minit. Setelah disahkan, anda akan muncul dalam carian dan mula menerima tempahan sesi.',
+  'booking.duration.title': '3. Berapa lama?',
   'booking.error.createFailed': 'Tidak dapat membuat tempahan.',
   'booking.error.loadFailed': 'Tidak dapat memuatkan tutor — cuba lagi.',
   'booking.error.noSlot': 'Pilih hari dan masa dahulu.',
@@ -46,6 +54,7 @@ export const ui: UiTranslations = {
     'Sesi boleh dijadualkan semula sehingga 12 jam lebih awal. Kad anda hanya akan dicaj apabila sesi tamat.',
   'booking.summary.assurance':
     'Tiada caj sehingga sesi tamat • Batal percuma sehingga 12 jam sebelum',
+  'booking.summary.back': '← Kembali ke profil tutor',
   'booking.summary.cta': 'Sahkan tempahan',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'Pilih slot',
@@ -71,18 +80,26 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'Tutor',
   'bookingConfirm.subject': 'Subjek',
   'bookingConfirm.title': 'Anda telah menempah. Kami akan uruskan selebihnya.',
+  'bookingConfirm.viewSessions': 'Lihat semua sesi →',
   'bookingConfirm.with': 'Dengan tutor',
   'common.goToDashboard': 'Pergi ke Papan Pemuka',
+  'earningsHero.change': '{{sign}}{{percent}}% berbanding bulan lepas',
   'earningsHero.eyebrow': 'Pendapatan • {{month}}',
+  'earningsHero.greeting': 'Selamat kembali, {{name}} — teruskan momentum.',
   'forgotPassword.heading': 'Lupa kata laluan anda?',
   'forgotPassword.subheading':
     'Masukkan e-mel yang dikaitkan dengan akaun anda dan kami akan menghantar pautan tetapan semula.',
   'forgotPassword.success.body':
     'Kami telah menghantar pautan tetapan semula kepada {{email}} — ia tamat tempoh dalam masa 30 minit.',
   'heroSearchSection.eyebrow': '12,000+ tutor yang disahkan • sejak 2018',
+  'heroSearchSection.headline': 'Tempat minda ingin tahu bertemu tutor yang tepat.',
+  'heroSearchSection.searchCta': 'Cari tutor',
+  'heroSearchSection.searchPlaceholder': 'Cari subjek, tutor atau topik…',
   'heroSearchSection.stat.rating': 'Penilaian sesi purata',
+  'heroSearchSection.stat.sessions': 'Sesi diselesaikan',
   'heroSearchSection.stat.subjects': 'Subjek yang diliputi',
   'heroSearchSection.stat.tutors': 'Tutor yang disahkan',
+  'heroSearchSection.subhead': 'Tutor disahkan. Harga telus. Sesi yang sesuai dengan minggu anda.',
   'landing.featured.eyebrow': 'Tutor pilihan',
   'landing.featured.headline':
     'Dipilih dengan teliti, mendapat penilaian terbaik dan sedia minggu ini.',
@@ -90,8 +107,11 @@ export const ui: UiTranslations = {
   'landing.nav.becomeTutor': 'Mengajar di atas Kapur',
   'landing.nav.findTutors': 'Cari tutor',
   'landing.pillars.eyebrow': 'Mengapa Kapur',
+  'landing.pillars.headline': '{{tagline}} — tanpa kerumitan.',
   'landing.testimonials.eyebrow': 'Daripada pelajar baru-baru ini',
   'landing.testimonials.headline': 'Hasil sebenar, dengan kata-kata mereka sendiri.',
+  'landing.tutorCta.body':
+    'Tetapkan kadar anda sendiri, bina reputasi dengan ulasan disahkan, dan kami uruskan jadual, pembayaran dan peringatan.',
   'landing.tutorCta.button': 'Mohon untuk mengajar',
   'landing.tutorCta.eyebrow': 'Jadilah tutor',
   'landing.tutorCta.headline':
@@ -103,6 +123,7 @@ export const ui: UiTranslations = {
   'login.signup': 'Buat akaun →',
   'login.subheading':
     'Sambung dari tempat anda berhenti — sesi, mesej dan tutor anda sedang menunggu.',
+  'login.support': 'Perlukan bantuan?',
   'messages.draftPlaceholder': 'Taip mesej…',
   'messages.empty.body':
     'Utas akan muncul di sini apabila anda menghantar mesej kepada tutor atau seseorang menghantar mesej kepada anda.',
@@ -114,9 +135,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'Tiada mesej lagi.',
   'messages.selectThread': 'Pilih thread di sebelah kiri.',
   'messages.send': 'Hantar mesej',
+  'messages.startThreadHint':
+    'Lawati profil tutor dan ketik "Mesej tutor" untuk memulakan perbualan.',
   'messages.thread.empty': 'Ucapkan hai — mulakan perbualan.',
   'messages.title': 'Berbual secara berperingkat dengan tutor anda.',
   'nav.primary': 'Utama',
+  'planUpdated.body':
+    'Perubahan bil anda kini aktif. Anda boleh urus pelan anda bila-bila masa dari halaman bil.',
+  'pricing.advancedFeatures': 'Ciri-ciri lanjutan:',
   'pricing.dataExport': 'Eksport data:',
   'pricing.headingDefault': 'Ciri-ciri lanjutan:',
   'resetPassword.heading': 'Pilih kata laluan baharu yang kukuh.',
@@ -127,6 +153,7 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Kami akan melog masuk anda secara automatik selepas penetapan semula berjaya.',
   'resetPassword.submit': 'Tetapkan semula & daftar masuk',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body': 'Cuba luaskan penapis subjek atau longgarkan ambang penilaian.',
   'search.empty.title': 'Tiada tutor yang sepadan lagi.',
@@ -137,7 +164,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'Penilaian',
   'search.filter.subject': 'Subjek',
   'search.results.count': '{{count}} tutor sepadan dengan penapis anda',
+  'search.results.fallback': 'Memaparkan tutor demo pilihan',
   'search.results.loading': 'Memuatkan tutor…',
+  'search.searchPlaceholder': 'Subjek, nama atau topik…',
   'search.subtitle':
     'Tapis mengikut subjek, penilaian dan ketersediaan. Tutor yang disahkan sahaja.',
   'search.title': 'Cari tutor yang sesuai',
@@ -170,18 +199,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'Sesi bermula — selamat belajar.',
   'sessionDetail.startError': 'Tidak dapat memulakan sesi.',
   'sessionDetail.subtitle': 'dengan {{name}} • {{when}} • {{mins}} min',
+  'sessionDetail.timeline': 'Garis masa status',
   'sessionDetail.timeline.afterEnd': 'Selepas sesi tamat',
   'sessionDetail.timeline.auto': 'Auto',
   'sessionDetail.timeline.booked': 'Telah ditempah',
   'sessionDetail.timeline.confirmed': 'Disahkan',
   'sessionDetail.timeline.inSession': 'Dalam sesi',
   'sessionDetail.timeline.now': 'Sekarang',
+  'sessionDetail.timeline.receipt': 'Resit dikeluarkan',
   'sessionDetail.timeline.review': 'Gesaan semakan',
   'sessions.empty.body':
     'Layari Mentor untuk mencari tutor dan menempah slot. Sesi yang disahkan dipaparkan di sini.',
   'sessions.empty.title': 'Tiada apa-apa yang dijadualkan di sini lagi.',
   'sessions.error': 'Tidak dapat memuatkan sesi anda — sila cuba lagi.',
   'sessions.eyebrow': 'Sesi anda',
+  'sessions.loading': 'Memuatkan sesi…',
   'sessions.subtitle':
     'Jejaki tempahan akan datang, masuk ke bilik sesi aktif dan lawati semula pelajaran yang telah selesai.',
   'sessions.title': 'Setiap pelajaran, di satu tempat.',
@@ -196,22 +228,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'Cipta saya {{role}} akaun',
   'signup.subheading':
     'Cipta akaun untuk menempah sesi, menghantar mesej kepada tutor dan menjejaki kemajuan anda.',
+  'signup.terms': 'Dengan mendaftar, anda bersetuju dengan Terma kami.',
   'tutorCard.avatarAlt': 'Potret {{name}}',
   'tutorCard.perHour': '/ jam',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'Penilaian tertinggi',
   'tutorCard.verified': 'Tutor yang disahkan',
+  'tutorDashboard.empty.body':
+    'Tetapkan subjek, kadar setiap jam dan ketersediaan anda — kemudian mula menjana pendapatan.',
+  'tutorDashboard.empty.cta': 'Jadi tutor →',
   'tutorDashboard.empty.title': 'Jadilah tutor untuk membuka kunci papan pemuka anda.',
   'tutorDashboard.fallbackName': 'Tutor',
   'tutorDashboard.loading': 'Memuatkan papan pemuka…',
   'tutorDashboard.recentReviews': 'Ulasan terkini',
   'tutorDashboard.reviewsEmpty':
     'Anda belum mempunyai sebarang ulasan — ulasan tersebut akan dipaparkan di sini sebaik sahaja pelajar menilai anda.',
+  'tutorDashboard.stats.rating': 'Penilaian purata',
   'tutorDashboard.stats.sessions': 'Sesi bulan ini',
+  'tutorDashboard.stats.totalSessions': 'Jumlah sesi sepanjang masa',
+  'tutorDashboard.studentFallback': 'Pelajar',
   'tutorDashboard.tutoringFallback': 'Sesi tunjuk ajar',
   'tutorDashboard.upcoming': 'Sesi akan datang',
   'tutorDashboard.upcomingEmpty':
     'Tiada sesi akan datang lagi — pelajar yang menempah slot anda akan dipaparkan di sini.',
+  'tutorProfile.availability': 'Ketersediaan minggu ini',
   'tutorProfile.availabilityHeadline': 'Pilih slot untuk bermula',
   'tutorProfile.bookCta': 'Tempah sesi',
   'tutorProfile.bookFull': 'Lihat jadual penuh',
@@ -224,6 +264,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / jam',
   'tutorProfile.reviews': 'Ulasan terkini',
   'tutorProfile.reviews.empty': 'Tiada ulasan lagi — jadilah yang pertama.',
+  'tutorProfile.stat.repeats': 'Pelajar berulang',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'Purata tindak balas',
   'tutorProfile.stat.responseValue': '{{mins}} min',

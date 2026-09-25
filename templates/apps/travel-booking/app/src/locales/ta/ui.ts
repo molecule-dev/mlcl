@@ -1,13 +1,27 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'தங்குமிடம் பற்றிய கேள்விகள், கருத்துகள் அல்லது கூட்டாண்மை யோசனையா? உங்கள் கணக்கிலிருந்தோ ஆப் உள்ளேயே உள்ள உதவியாளரிடமிருந்தோ குழுவை அணுகுங்கள் — ஒவ்வொரு செய்தியும் பயணம் செய்யும் உண்மையான மனிதரையே சென்றடையும்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.featureBooking.body':
+    'அறைகள், கட்டணங்கள் மற்றும் வசதிகளை பக்கத்துக்கு பக்கம் ஒப்பிட்டு, ஒவ்வொரு பயணத்திட்டத்திலும் இலவச ரத்துக்களுடன் சில தட்டல்களில் முன்பதிவு செய்யுங்கள்.',
+  'about.featureBooking.title': 'தேடுங்கள், ஒப்பிடுங்கள், முன்பதிவு செய்யுங்கள்',
+  'about.featureDiscover.body':
+    'தொகுப்பாளர் தேர்ந்தெடுத்த இடங்களும் கள வழிகாட்டிகளும் — பேக் செய்யத் தகுந்த இடங்களை முன்னிறுத்துகின்றன; திரட்டி சத்தமில்லை, விளம்பரக் குழப்பமில்லை.',
   'about.featureDiscover.title': 'உத்வேகம், கவனமாகத் தேர்ந்தெடுக்கப்பட்டது',
+  'about.featureItineraries.body':
+    'விமானங்கள், தங்குமிடங்கள் மற்றும் திட்டங்களை ஒரே இடத்தில் வைத்திருங்கள், இடங்களை பின்னர் பார்ப்பதற்குச் சேமியுங்கள், விட்ட இடத்திலிருந்தே பயணத்தைத் தொடருங்கள்.',
+  'about.featureItineraries.title': 'ஒழுங்காக இருக்கும் பயணத்திட்டங்கள்',
+  'about.featureStays.title': 'நம்பகமான தங்குமிடங்கள்',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
+  'about.subtitle': 'ஊக்கம், நம்பகமான தங்குமிடங்கள், கனவிலிருந்து முன்பதிவு வரை தடையற்ற பாதை.',
+  'about.whatYouGetTitle': 'நீங்கள் பெறுவது',
   'account.addPaymentCta': 'பணம் செலுத்தும் முறையைச் சேர்க்கவும்',
   'account.addPaymentError': 'பணம் செலுத்தும் முறையைச் சேர்க்க முடியவில்லை.',
   'account.confirmRemove': 'அகற்றுவதை உறுதிப்படுத்தவும்',
   'account.defaultBadge': 'இயல்புநிலை',
-  'account.loyalty.pointsTowardNext': '{{புள்ளிகள்}} இன் {{அடுத்து}} மைல்கள் வரை {{nextTier}}',
+  'account.loyalty.pointsTowardNext': '{{nextTier}} வரை {{next}} மைல்களில் {{points}}',
   'account.loyalty.tier': 'தற்போதைய அடுக்கு',
   'account.navLabel': 'கணக்குப் பிரிவுகள்',
   'account.payments.empty': 'இதுவரை எந்த கட்டண முறைகளும் சேமிக்கப்படவில்லை.',
@@ -29,6 +43,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} இரவுகள்',
   'booking.lineTaxes': 'வரிகள் மற்றும் கட்டணங்கள்',
   'booking.loadError': 'சொத்தை ஏற்ற முடியவில்லை.',
+  'booking.noChargeYet': 'இன்னும் கட்டணம் வசூலிக்கப்படாது.',
   'booking.noPaymentMethods': 'சேமிக்கப்பட்ட கட்டண முறைகள் எதுவும் இல்லை.',
   'booking.noPaymentSelected':
     'உறுதிப்படுத்துவதற்கு முன் பணம் செலுத்தும் முறையைத் தேர்ந்தெடுக்கவும்.',
@@ -42,6 +57,7 @@ export const ui: UiTranslations = {
   'booking.policy2':
     'இன்று கட்டணம் இல்லை — உறுதிப்படுத்தலுக்காக மட்டும் உங்கள் அட்டை நிறுத்தி வைக்கப்படும்.',
   'booking.policy3': 'சோஜர்ன் வழங்கும் பயணப் பாதுகாப்பு — 24/7 நேரடி உதவிச் சேவை.',
+  'booking.policyHeading': 'ரத்து & விதிமுறைகள்',
   'booking.roomHeading': 'உங்கள் அறையைத் தேர்ந்தெடுக்கவும்',
   'booking.specialRequests': 'சிறப்பு கோரிக்கைகள்',
   'booking.specialRequestsPlaceholder': 'தொகுப்பாளர் தெரிந்துகொள்ள வேண்டியது ஏதேனும் உள்ளதா?',
@@ -71,6 +87,8 @@ export const ui: UiTranslations = {
   'landing.cta.heading':
     'கவலையின்றி சுற்றித் திரியுங்கள். ஒவ்வொரு பயணத்திட்டமும், ஒவ்வொரு முறையும்.',
   'landing.cta.signup': 'இலவச கணக்கை உருவாக்கவும்',
+  'landing.cta.subheading':
+    'இலவச ரத்து, உறுப்பினர்களுக்கு மட்டுமான கட்டணங்கள், 24/7 பயண உதவியாளர் — ஒவ்வொரு முன்பதிவிலும் மைல்கள் சம்பாதியுங்கள், புதிய தங்குமிடங்களுக்கு முதல் அணுகலைத் திறங்கள்.',
   'landing.destinations.eyebrow': 'அடுத்து எங்கே',
   'landing.destinations.heading': 'சிறப்பு இடங்கள்',
   'landing.destinations.seeAll': 'அனைத்து இடங்களையும் காண்க',
@@ -79,27 +97,45 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'பயணத்திற்குத் தகுதியான கதைகள்',
   'landing.nav.join': 'சோஜர்னில் சேருங்கள்',
   'landing.nav.search': 'தேடல் தங்குகிறது',
+  'landing.preview.browseAll': 'முழுத் தொகுப்பையும் உலாவுங்கள்',
   'landing.preview.eyebrow': 'உள்ளே ஒரு பார்வை',
   'landing.preview.heading': 'இந்த மாதம் கவனமாகத் தேர்ந்தெடுக்கப்பட்ட தங்குமிடங்கள்',
+  'landing.preview.subheading':
+    '{{appName}} இல் உள்ள ஒவ்வொரு தங்குமிடமும் எங்கள் தொகுப்பாளர் குழுவால் தனிப்பட்ட முறையில் சரிபார்க்கப்படுகிறது — திரட்டி இருப்பு இல்லை, ஏமாற்று பட்டியல்கள் இல்லை, ஒவ்வொரு பயணத்திட்டத்திலும் இலவச ரத்து.',
   'login.eyebrow': 'உறுப்பினர்கள் பகுதி',
+  'login.noAccount': 'டெஸ்ஸெராவுக்குப் புதியவரா?',
   'login.signupLink': 'இலவச கணக்கை உருவாக்கவும்',
   'login.subheading':
     'உங்கள் பயணங்களை நிர்வகிக்கவும், உறுதிப்படுத்தல்களைப் பார்க்கவும், நீங்கள் விட்ட இடத்திலிருந்து தொடரவும் உள்நுழையுங்கள்.',
   'nav.legal': 'சட்டப்பூர்வமான',
   'notifications.loading': 'ஏற்றப்படுகிறது…',
   'notifications.subheading': '{{count}} படிக்காதவை · அனைத்தும் ஒரே அமைதியான இன்பாக்ஸில்',
+  'planUpdated.body':
+    'உங்கள் பில்லிங் மாற்றம் இப்போது செயலில் உள்ளது. பில்லிங் பக்கத்திலிருந்து எப்போது வேண்டுமானாலும் உங்கள் திட்டத்தை நிர்வகிக்கலாம்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.accommodationsLabel': 'தங்குமிடங்கள்',
   'pricing.bookingsLabel': 'புத்தகங்கள்',
   'pricing.destinationsLabel': 'சேமிக்கப்பட்ட இலக்குகள்',
   'pricing.exportLabel': 'பயணத் தரவை ஏற்றுமதி செய்க',
   'pricing.itinerariesLabel': 'பயணத் திட்டங்கள்',
+  'privacy.intro':
+    '{{appName}} உங்கள் பயணத் தரவைப் பாதுகாக்கிறது. உற்பத்திக்கு வெளியிடுவதற்கு முன் இந்த டெம்ப்ளேட்டை உங்கள் உண்மையான தனியுரிமைக் கொள்கையால் மாற்றுங்கள்.',
   'propertyDetail.allPhotos': 'அனைத்தும் {{count}} புகைப்படங்கள்',
   'propertyDetail.amenitiesHeading': 'இந்த இடம் வழங்குபவை',
   'propertyDetail.backLink': 'தேடலுக்குத் திரும்பு',
   'propertyDetail.bookCta': 'இருப்பு',
   'propertyDetail.bookmarkAria': 'சொத்தை சேமிக்கவும்',
   'propertyDetail.freeCancellation': 'இலவச ரத்து',
+  'propertyDetail.galleryAria': 'தங்குமிட புகைப்படத் தொகுப்பு',
+  'propertyDetail.galleryCloseAria': 'கேலரியை மூடுக',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': '{{name}} புகைப்படம் {{n}}',
+  'propertyDetail.galleryNextAria': 'அடுத்த புகைப்படம்',
+  'propertyDetail.galleryPrevAria': 'முந்தைய புகைப்படம்',
   'propertyDetail.heroImageAlt': '{{name}} கதாநாயகனின் புகைப்படம்',
   'propertyDetail.lineCleaning': 'துப்புரவுக் கட்டணம்',
   'propertyDetail.lineRate': '{{price}} × {{nights}} இரவுகள்',
@@ -108,6 +144,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'இரவு',
   'propertyDetail.noChargeYet': 'உங்களுக்கு இன்னும் கட்டணம் விதிக்கப்படாது',
   'propertyDetail.notFound': 'சொத்து காணப்படவில்லை.',
+  'propertyDetail.pickDatesHint':
+    'முழு விலை விவரத்தைப் பார்க்க உங்கள் தேதிகளைத் தேர்ந்தெடுக்கவும்.',
   'propertyDetail.reviewCount': '( {{count}} மதிப்புரைகள்)',
   'propertyDetail.reviewsHeading': 'சமீபத்திய மதிப்புரைகள்',
   'propertyDetail.verified': 'சோஜர்ன்-சரிபார்க்கப்பட்ட சொத்து',
@@ -116,6 +154,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.subheading':
     'உங்கள் சோஜர்ன் கணக்கிற்கு ஒரு புதிய கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும். குறைந்தபட்சம் 8 எழுத்துக்களைப் பயன்படுத்தவும்; ஒரு சொற்றொடரைப் பயன்படுத்துமாறு நாங்கள் பரிந்துரைக்கிறோம்.',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'உங்கள் தேடலுக்குப் பொருத்தமான சொத்துக்கள் எதுவும் இல்லை.',
   'search.emptyHint':
     'உங்கள் வடிகட்டிகளை விரிவுபடுத்திப் பாருங்கள் அல்லது விலை உச்சவரம்பை நீக்குங்கள் — சோஜர்ன் 14 நாடுகளில் தங்கும் வசதிகளைக் கொண்டுள்ளது.',
@@ -123,23 +162,34 @@ export const ui: UiTranslations = {
   'search.heading': 'உங்கள் பயணத்திற்காகத் தேர்ந்தெடுக்கப்பட்ட தங்குமிடங்கள்',
   'search.headingForQuery': '"க்கான தங்குமிடங்கள் {{q}} "',
   'search.loadError': 'பண்புகளை ஏற்ற முடியவில்லை.',
+  'search.mapHint':
+    'ஒரு அட்டையின் மேல் கர்சரை வைத்தால் வரைபடத்தில் அதன் இருப்பிடம் சிறப்பிக்கப்படும்.',
+  'search.mapPinAria': '{{name}} — {{price}} ஒரு இரவுக்கு',
   'search.sortLabel': 'வரிசைப்படுத்து',
+  'search.subheading': '{{count}} தங்குமிடங்கள் · {{guests}} விருந்தினர்கள்',
   'settings.openAccount': 'முழு கணக்கைத் திறக்கவும்',
   'signup.eyebrow': 'உறுப்பினராகுங்கள்',
   'signup.heading': 'உங்கள் சோஜர்ன் கணக்கை உருவாக்கவும்',
   'signup.subheading':
     'இலவச ரத்து, உறுப்பினர்களுக்கான பிரத்யேக கட்டணங்கள், மற்றும் 24/7 பயண உதவியாளர் — ஒவ்வொரு முன்பதிவிலும் மைல்களைப் பெறுங்கள்.',
   'sojournAuthShell.brand.eyebrow': 'கவலையின்றி சுற்றித் திரியுங்கள்',
+  'sojournAuthShell.brand.heading': 'கனவிலிருந்து முன்பதிவு வரை தடையற்ற பாதை.',
   'sojournHeroSearchCard.checkInAria': 'செக்-இன் தேதி',
   'sojournHeroSearchCard.checkOutAria': 'வெளியேறும் தேதி',
+  'sojournHeroSearchCard.destAria': 'இலக்கு',
+  'sojournHeroSearchCard.destLabel': 'எங்கே',
   'sojournHeroSearchCard.destPlaceholder': 'நகரம், பிராந்தியம் அல்லது சொத்து',
   'sojournHeroSearchCard.eyebrow':
     'தேர்ந்தெடுக்கப்பட்ட தங்குமிடங்கள் · உறுப்பினர்களுக்கு மட்டுமேயான கட்டணங்கள்',
   'sojournHeroSearchCard.guestsOption': '{{n}} பிரிவுகள்',
   'sojournHeroSearchCard.subtitle':
     'உத்வேகம், நம்பகமான தங்குமிடங்கள், மற்றும் பகற்கனவிலிருந்து முன்பதிவு வரையிலான ஒரு தடையற்ற பாதை — 14 நாடுகளில் மற்றும் கவனமாகத் தேர்ந்தெடுக்கப்பட்ட 200-க்கும் மேற்பட்ட தங்குமிடங்களில்.',
+  'sojournHeroSearchCard.title': 'கவலையின்றி சுற்றித் திரியுங்கள்',
+  'sojournHeroSearchCard.trustLoyalty': 'ஒவ்வொரு பயணத்திட்டத்திலும் மைல்கள் சம்பாதியுங்கள்',
   'sojournHeroSearchCard.trustProtected': 'இலவச ரத்து, முழுமையான பாதுகாப்பு',
   'sojournHeroSearchCard.trustVetted': 'கையால் சரிபார்க்கப்பட்ட சொத்துக்கள் மட்டும்',
+  'terms.intro':
+    'உற்பத்திக்கு வெளியிடுவதற்கு முன் இந்த டெம்ப்ளேட்டை உங்கள் உண்மையான {{appName}} சேவை விதிமுறைகளால் மாற்றுங்கள்.',
   'travelBookingLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'tripDetail.backLink': 'பயணங்களுக்குத் திரும்பு',
   'tripDetail.cancelCta': 'முன்பதிவை ரத்து செய்',
@@ -149,6 +199,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'விருப்பத்தேர்வு — ரத்து செய்வதற்கான காரணம்',
   'tripDetail.checkInLabel': 'செக்-இன்',
   'tripDetail.checkOutLabel': 'செக்-அவுட்',
+  'tripDetail.confCode': 'குறியீடு · {{code}}',
   'tripDetail.confirmCancelCta': 'பயணத்தை ரத்து செய்',
   'tripDetail.hostInfo':
     'தொகுத்து வழங்குபவர் {{name}} தங்குவதற்கு 7 நாட்களுக்கு முன்பு வரை முன்பதிவை இலவசமாக ரத்து செய்யலாம்.',
@@ -156,6 +207,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'புத்தகத்தை வைத்திருங்கள்',
   'tripDetail.lengthLabel': 'நீளம்',
   'tripDetail.loadError': 'பயணத்தை ஏற்ற முடியவில்லை.',
+  'tripDetail.messageHostHeading': 'உங்கள் விருந்தளிப்பாளருக்கு செய்தி அனுப்புங்கள்',
   'tripDetail.messagePlaceholder':
     'நீங்கள் வரும் நேரம், உணவுத் தேவைகள் அல்லது வேறு ஏதேனும் விவரங்களை உங்கள் விருந்தோம்பாளரிடம் தெரிவிக்கவும்.',
   'tripDetail.messageSend': 'செய்திகளை அனுப்பு',
@@ -166,8 +218,11 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'விலை சுருக்கம்',
   'tripDetail.taxes': 'வரிகள் மற்றும் கட்டணங்கள்',
   'tripItineraryRow.nights': '{{count}} இரவுகள்',
+  'trips.empty.past': 'நீங்கள் அலைந்து திரிந்ததும் கடந்த பயணங்கள் இங்கே தோன்றும்.',
   'trips.empty.upcoming': 'இன்னும் வரவிருக்கும் பயணங்கள் எதுவும் இல்லை — அதைச் சரிசெய்வோம்.',
   'trips.eyebrow': 'உங்கள் அலைகள்',
   'trips.heading': 'பயணங்கள்',
   'trips.loadError': 'பயணங்களை ஏற்ற முடியவில்லை.',
+  'trips.searchCta': 'மற்றொரு பயணத்தைத் திட்டமிடுங்கள்',
+  'trips.subheading': '{{upcoming}} வரவிருக்கும் · {{past}} கடந்த',
 }

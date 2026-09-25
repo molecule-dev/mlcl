@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Masz opinię, znalazłeś błąd lub chcesz {{app}} dla swojej ligi? Napisz do nas w ustawieniach konta — każda wiadomość trafia do prawdziwej osoby z zespołu.',
+  'about.contactTitle': 'Skontaktuj się',
   'about.eyebrow': 'O nas',
+  'about.featureAlerts':
+    'Powiadomienia push o zmianach wyników, alertach o wymianach, raportach kontuzji i ogłoszeniach ligi.',
+  'about.featureRosters':
+    'Strony drużyn z pełnymi składami, sumami sezonu, seriami gorących/zimnych występów i podziałami head-to-head dla każdego zawodnika.',
+  'about.featureSchedule':
+    'Kalendarz sezonu i widok terminarza, abyś mógł planować wokół każdego meczu i wyniku.',
+  'about.featureScoreboard':
+    'Pasek wyników na poziomie transmisji przypięty u góry każdej strony, abyś nigdy nie przegapił gola.',
+  'about.featureStandings':
+    'Tabela na żywo — rekordy zwycięstw-porażek-remisów w czasie rzeczywistym, punkty, procent zwycięstw i linia play-off, odświeżane przy każdym gwizdku.',
+  'about.intro':
+    '{{app}} to dom na poziomie transmisji dla Twojej ligi. Drużyny, terminarze, wyniki na żywo i tabele łączą się w jeden szybki, przejrzysty panel — dzięki temu kibice, trenerzy i organizatorzy ligi zawsze wiedzą, na jakim etapie jest sezon.',
+  'about.missionBody':
+    'Śledzenie ligi nie powinno oznaczać odświeżania pięciu różnych zewnętrznych tabel. Stworzyliśmy to, aby każda liga miała jedno źródło prawdy o tabelach, terminarzu i statystykach, które naprawdę się liczą — aktualizowane przy każdym gwizdku, bezpłatnie przez cały sezon.',
+  'about.missionTitle': 'Nasza misja',
+  'about.whatYouGet': 'Co Pan/Pani otrzymuje',
   'appShell.closeNav': 'Zamknij menu nawigacyjne',
   'appShell.openNav': 'Otwórz menu nawigacyjne',
   'common.dashboard': 'Pulpit',
@@ -16,14 +35,21 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Zobacz wszystkie mecze →',
   'dashboard.viewAllStandings': 'Pełna tabela →',
   'dashboard.viewAllStats': 'Zobacz wszystkich liderów statystyk →',
+  'forgot.submitting': 'Wysyłanie linku resetowania…',
   'forgot.subtitle': 'Prosimy podać adres e-mail, aby otrzymać link resetujący.',
   'forgot.success':
     'Link resetujący wysłany na adres {{email}}. Prosimy sprawdzić skrzynkę odbiorczą.',
+  'landing.copyright': '© {{year}} {{app}}. Gonić tabelę.',
+  'landing.ctaBody':
+    'Twoja liga. Twoje tabele. Twoja ulubiona drużyna — przypięta u góry. Dwie minuty na konfigurację, bezpłatnie przez cały sezon.',
   'landing.ctaHeading': 'Niech Pan/Pani przestanie odświeżać zewnętrzne tablice wyników',
   'landing.eyebrow': 'Stworzone dla kibiców, trenerów i organizatorów rozgrywek',
   'landing.featuresHeading': 'Miejsce w pierwszym rzędzie do każdej tabeli',
   'landing.getStarted': 'Dołącz do ligi',
   'landing.heroCta': 'Dołącz do ligi',
+  'landing.heroSubtitle':
+    '{{app}} łączy tabele, terminarze i liderów statystycznych w jeden panel na poziomie transmisji. Wyniki na żywo. Prawdziwe rekordy. Bez bałaganu.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Dziś wieczorem w lidze',
   'landing.statFans': 'Kibiców obserwujących',
   'landing.statGames': 'Meczów w tym sezonie',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q{{period}}',
   'matchDetail.back': 'Powrót do meczów',
   'matchDetail.eventsHeading': 'Akcja po akcji',
+  'matchDetail.final': 'KONIEC',
   'matchDetail.finalScore': 'Końcowy',
   'matchDetail.live': 'NA ŻYWO',
   'matchDetail.liveNow': 'Trwa teraz',
   'matchDetail.noEvents': 'Nie zarejestrowano jeszcze żadnych zdarzeń.',
   'matchDetail.periodClock': 'Q{{period}} · {{clock}}',
+  'matches.empty': 'Brak meczów w tym widoku — spróbuj innego filtra.',
   'matches.eyebrow': 'Dzień meczowy',
   'matches.loading': 'Pobieranie terminarza…',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Nie udało się załadować powiadomień',
   'notifications.loading': 'Ładowanie powiadomień…',
   'pennantHeroCard.eyebrow': 'Czoło tabeli',
+  'pennantHeroCard.formLabel': 'Ostatnie 10',
   'pennantHeroCard.gamesAhead': '{{value}} meczów przewagi nad pościgiem',
   'pennantHeroCard.pointsLabel': 'PKT',
   'pennantLayout.primaryNavLabel': 'Nawigacja główna',
@@ -81,17 +110,24 @@ export const ui: UiTranslations = {
   'pricing.heading':
     'Niech Pan/Pani zaktualizuje plan, aby mieć bogatszy terminarz, wyniki i tabele.',
   'pricing.limits.schedule': '{{count}} pozycji w terminarzu',
+  'pricing.limits.scores': 'Wyniki {{count}}',
+  'pricing.limits.standings': 'Tabele {{count}}',
+  'pricing.limits.teams': 'Drużyny {{count}}',
+  'pricing.subtitle': 'Ulepsz, aby uzyskać bogatszy terminarz, wyniki i tabele.',
   'pricing.upgradeCta': 'Przejdź na plan {{tierName}}',
   'profile.eyebrow': 'Profil kibica',
   'profile.favoritesCount': 'Obserwowanych drużyn',
   'profile.favoritesHeading': 'Ulubione drużyny',
   'profile.noFavorites': 'Brak ulubionych — prosimy wybrać drużyny na stronie Drużyny.',
   'profile.rankRecord': 'Miejsce #{{rank}} · {{record}}',
+  'profile.recordOnly': 'Rekord {{record}}',
   'reset.confirmPlaceholder': 'Niech Pan/Pani powtórzy hasło',
+  'reset.mismatch': 'Hasła nie są zgodne.',
   'reset.newLabel': 'Nowe hasło',
   'reset.subtitle': 'Prosimy wybrać silne hasło zawierające co najmniej 12 znaków.',
   'reset.tokenPlaceholder': 'Niech Pan/Pani wklei z wiadomości e-mail',
   'schedule.eyebrow': 'Plan',
+  'schedule.moreGames': '+{{count}} więcej',
   'schedule.subtitle':
     'Widok kalendarza meczów w sezonie — prosimy dotknąć dnia, aby zobaczyć protokoły.',
   'scoreboardTicker.empty':
@@ -99,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.addFavorite': 'Dodaj drużynę',
   'settings.eyebrow': 'Personalizacja',
   'settings.favoritesBody': 'Te drużyny zostają przypięte do panelu i wyzwalają alerty wynikowe.',
+  'settings.favoritesHeading': 'Ulubione drużyny',
   'settings.loading': 'Ładowanie preferencji…',
   'settings.noFavorites': 'Brak ulubionych — prosimy wybrać drużyny na stronie Drużyny.',
   'settings.notificationsHeading': 'Powiadomienia i wyświetlanie',
@@ -116,6 +153,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'P',
   'standings.overall': 'Łącznie',
   'standings.points': 'PKT',
+  'standings.rank': '#',
   'standings.subtitle':
     'Pierwsza czwórka awansuje do play-offów — o miejscu decydują punkty, następnie procent wygranych.',
   'standings.title': 'Tabela ligowa',
@@ -134,6 +172,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Zawodnik',
   'teamDetail.colPos': 'Poz',
+  'teamDetail.pointsLabel': 'Punkty',
   'teamDetail.rankLabel': 'Miejsce #{{rank}}',
   'teamDetail.rosterHeading': 'Skład',
   'teamDetail.statGD': 'Bilans bramek',

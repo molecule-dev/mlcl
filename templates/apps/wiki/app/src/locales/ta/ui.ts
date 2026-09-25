@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.featureEditor':
+    'நேரடி-பிரிவு முன்னோட்டம், slash கட்டளைகள், நீண்ட வாசிப்புகளுக்கு தேவைப்படும்போது AI சுருக்கங்கள் கொண்ட கவனம் செலுத்தும் Markdown தொகுப்பி.',
+  'about.featurePermissions':
+    'நுட்பமான பங்குகள் மற்றும் அனுமதிகளுடன் கூடிய Spaces, மேலும் முழு-உரை தேடல் — சரியான வாசகர் சரியான பக்கத்தை எப்போதும் கண்டறியும்.',
+  'about.featureTree':
+    'ஒவ்வொரு space-க்கும் நிலையான பக்க அட்லஸ்: மறுவரிசைப்படுத்த இழுக்கவும், தாவத் தேடவும், நிலைத்திருக்க breadcrumbs.',
+  'about.featureVersioning':
+    'ஒவ்வொரு சேமிப்பும் ஒரு பதிப்பு — ஒரு பத்தியையும் இழக்காத பக்க-பக்க காலவரிசையிலிருந்து எந்த வரைவையும் மீட்டெடுக்கவும்.',
+  'about.missionBody':
+    'ஒரு குழு ஒரு விஷயத்தை ஒருமுறை எழுதி, அது கண்டறியக்கூடியதாக, நடப்பாக, பெயர்ச்சேர்த்ததாக இருக்கும் என நம்ப முடிய வேண்டும் என நாங்கள் நம்புகிறோம். இருண்ட வடிவங்கள் இல்லை, முடிவில்லா-ஸ்க்ரோல் தூண்டில் இல்லை — உங்கள் மக்கள் தினமும் உருவாக்கும் அறிவுக்கு அமைதியான, நன்கு ஒழுங்கமைக்கப்பட்ட இல்லம் மட்டுமே.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'aiSummaryCard.beta': 'பீட்டா',
   'aiSummaryCard.heading': 'AI சுருக்கம்',
   'aiSummaryCard.regenerate': 'Regenerate',
@@ -14,6 +26,9 @@ export const ui: UiTranslations = {
   'authShell.footer.poweredBy': 'Molecule.dev ஆல் இயக்கப்படுகிறது',
   'authShell.sampleEdited': 'அலெக்ஸ் லின் அவர்களால் 2 நிமிடங்களுக்கு முன்பு புதுப்பிக்கப்பட்டது',
   'authShell.samplePageEyebrow': 'பொறியியல் · குறிப்பு',
+  'authShell.samplePageSummary':
+    '2026 ஸ்டாக் ஒரு மெல்லிய GraphQL நுழைவாயிலுக்குப் பின்னால் sharded Postgres கிளஸ்டரில் இயங்குகிறது. Edge cache hit-rate 89%, ஒரு மில்லியனுக்கான செலவு ஆண்டுக்கு ஆண்டு 38% குறைந்தது.',
+  'authShell.samplePageTitle': 'கட்டமைப்பு மேலோட்டம் — 2026',
   'comments.eyebrow': 'பணியிட உரையாடல்கள்',
   'comments.heading': 'தீர்க்கப்படாத இழைகள்',
   'comments.openFor': 'திறந்த {{age}}',
@@ -25,22 +40,34 @@ export const ui: UiTranslations = {
     'தி {{count}} பதிலுக்காகவோ அல்லது தீர்வுக்காகவோ இன்னும் காத்திருக்கும் உரையாடல்கள். காலத்தின் அடிப்படையில் வரிசைப்படுத்தப்பட்டுள்ளது — எதுவும் காலாவதியாகாமல் இருக்க, முதலில் பழமையானவை.',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'forgotPassword.sentTo': 'மீட்டமை இணைப்பு அனுப்பப்பட்டது {{email}}',
+  'forgotPassword.subheading':
+    'உங்கள் வேலை மின்னஞ்சலை உள்ளிடவும், மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.successSubheading':
     'உங்கள் இன்பாக்ஸைச் சரிபார்க்கவும் — நாங்கள் இப்போதுதான் மீட்டமைப்பு இணைப்பை அனுப்பியுள்ளோம். அது 30 நிமிடங்களில் காலாவதியாகிவிடும்.',
+  'forgotPassword.tip':
+    'வரவில்லையா? Spam-ஐ சரிபார்க்கவும், அல்லது 60 வினாடிகள் காத்திருந்து மற்றொன்றைக் கோரவும்.',
   'home.activity.empty': 'இன்னும் அறிவிப்புகள் வரவில்லை.',
   'home.defaultName': 'நண்பர்',
   'home.eyebrow': 'இன்று கெய்ர்னில்',
+  'home.heroLastEdited': '{{name}} ஆல் {{when}} புதுப்பிக்கப்பட்டது',
+  'home.heroNoEdits': 'இன்னும் எதுவும் திருத்தப்படவில்லை — ஒரு பக்கத்தை எழுதத் தொடங்கவும்.',
   'home.newPage': 'புதிய பக்கம்',
   'home.recent.empty':
     'இன்னும் பக்கங்கள் உருவாக்கப்படவில்லை — ஒன்றை உருவாக்குவதன் மூலம் தொடங்குங்கள்.',
   'home.recent.title': 'சமீபத்திய பக்கங்கள்',
   'home.spaces.empty': 'இன்னும் இடங்கள் நிரம்பவில்லை.',
   'home.spaces.pageCount': '{{count}} பக்கங்கள்',
+  'home.spaces.title': 'உங்கள் இடங்கள்',
+  'home.subtitle': 'படிக்காத குறிப்புகள் இல்லை — எழுதத் தொடங்க ஒரு space-ஐத் திறக்கவும்.',
   'home.unreadSubtitle': '{{count}} நீங்கள் கடைசியாக இங்கு வந்ததிலிருந்து படிக்காத அறிவிப்புகள்.',
   'knowledgeHeroCard.eyebrow': '{{workspace}} அறிவுக் குவியல்',
+  'knowledgeHeroCard.subtitle':
+    'பணியிடம் முழுவதும் அடுக்கப்பட்ட பக்கங்கள், {{contributors}} பங்களிப்பாளர்களால் பராமரிக்கப்படுகின்றன.',
   'landing.ctaPrimary': 'ஒரு பணியிடத்தைத் தொடங்குங்கள்',
   'landing.ctaSecondary': 'ஒரு மாதிரி விக்கியைச் சுற்றிப் பாருங்கள்',
   'landing.eyebrow': 'அறிவுத் தளம் · ஆழமான குழுக்களுக்கு',
+  'landing.featuresHeadline': 'மூன்று தூண்கள், அமைதியாக அடுக்கப்பட்டவை.',
+  'landing.featuresSubtitle': 'தொகுப்பி, காப்பகம், அட்லஸ் — அனைத்தும் ஒரே அமைதியான ஷெல்லில்.',
   'landing.footer.copyright': '© {{name}}',
   'landing.headline': 'அறிவைச் சேகரியுங்கள். பாதையை வகுத்துக் காட்டுங்கள்.',
   'landing.heroLastEdited': 'அலெக்ஸ் லின் அவர்களால் 2 நிமிடங்களுக்கு முன்பு புதுப்பிக்கப்பட்டது',
@@ -49,18 +76,21 @@ export const ui: UiTranslations = {
     'ஆழ்ந்து வாசிக்கும் குழுக்களுக்கான, அமைதியான, தலையங்க விக்கி. பதிப்புப்படுத்தப்பட்ட பக்கங்கள், செயற்கை நுண்ணறிவால் சுருக்கப்பட்ட நீண்ட கட்டுரைகள், மற்றும் இறுதியாகக் காகித வேலை போல அல்லாமல் ஓர் தளவாடம் போலத் தோற்றமளிக்கும் பக்க அமைப்பு.',
   'login.heading': 'உங்கள் கல் குவியலில் உள்நுழையவும்',
   'login.signupLink': 'ஒன்றை ஆரம்பிக்கவும்',
+  'login.signupPrompt': 'இன்னும் ஒரு பணியிடம் இல்லையா?',
   'login.subheading':
     'குழுவினர் விட்ட இடத்திலிருந்து தொடருங்கள் — உங்கள் கடைசித் திருத்தம் இரண்டு நிமிடங்களுக்கு முன்பு செய்யப்பட்டது.',
   'notifications.empty.body':
     'குறிப்புகள், பதில்கள் மற்றும் ஒதுக்கீடுகளை அவை நிகழும்போதே இங்கே காண்பீர்கள்.',
   'notifications.empty.title': 'இன்பாக்ஸ் அமைதியாக உள்ளது — எதுவும் காத்திருக்கவில்லை.',
   'notifications.eyebrow': 'இன்பாக்ஸ் · கெய்ர்ன்',
+  'notifications.subtitle': 'குறிப்புகள், பதில்கள், ஒப்படைப்புகள் — நாள் வாரியாக தொகுக்கப்பட்டவை.',
   'pageEditor.bodyLabel': 'மார்க் டவுன் பாடி',
   'pageEditor.eyebrowEdit': 'எடிட்டிங்',
   'pageEditor.eyebrowNew': 'புதிய பக்கம்',
   'pageEditor.previewLabel': 'நேரடி முன்னோட்டம்',
   'pageEditor.savedAt': 'சேமிக்கப்பட்டது {{when}}',
   'pageEditor.summaryLabel': 'AI சுருக்கம்',
+  'pageEditor.tags.placeholder': 'குறிச்சொல் சேர்…',
   'pageEditor.tags.remove': 'குறிச்சொல்லை அகற்று {{tag}}',
   'pageEditor.titlePlaceholder': 'பக்கத் தலைப்பு…',
   'pageEditor.toolbar.summarize': 'செயற்கை நுண்ணறிவு சுருக்கம்',
@@ -77,21 +107,26 @@ export const ui: UiTranslations = {
   'pageView.notFoundTitle': 'பக்கம் காணப்படவில்லை',
   'pageView.summarize': 'சுருக்கத்தை உருவாக்கு',
   'pageView.summarizing': 'சுருக்கமாக…',
+  'pageView.summaryEmpty':
+    'இன்னும் AI சுருக்கம் இல்லை — பக்க உள்ளடக்கத்திலிருந்து ஒன்றை உருவாக்கவும்.',
   'pageView.summaryUnavailable': 'இந்தப் பணிச்சூழலுக்கு AI சுருக்கம் உள்ளமைக்கப்படவில்லை.',
   'pageView.tocTitle': 'இந்தப் பக்கத்தில்',
   'pageView.trash': 'குப்பை',
   'pageView.trashing': 'குப்பையாக்குதல்…',
   'pageView.versionBadge': 'வி{{version}}',
+  'pricing.limits.advanced': 'மேம்பட்ட அம்சங்கள்',
   'profile.badges.title': 'பேட்ஜ்கள்',
   'profile.owned.title': 'சொந்தமான பக்கங்கள்',
   'profile.recent.title': 'சமீபத்திய பங்களிப்புகள்',
   'resetPassword.newPassword': 'புதிய கடவுச்சொல்',
   'resetPassword.subheading':
     'குறைந்தது 12 எழுத்துகள் நீளமுள்ள ஒன்றைத் தேர்ந்தெடுக்கவும். நீங்கள் சேமித்தவுடன் நாங்கள் உங்களை உள்நுழையச் செய்வோம்.',
+  'search.empty.body': 'சிறிய சொற்றொடரை முயற்சிக்கவும் அல்லது ஒரு வடிகட்டியை நீக்கவும்.',
   'search.empty.title': 'அந்தக் கற்குவியலில் உள்ள எதுவும் இதுவரை அதனுடன் பொருந்தவில்லை.',
   'search.eyebrow': 'அனைத்து இடங்களிலும்',
   'search.heading': 'கெய்ர்னைத் தேடு',
   'search.resultCount': '{{count}} முடிவுகள்',
+  'search.startTyping': 'cairn-ஐத் தேட தட்டச்சு செய்யவும்.',
   'search.subtitle':
     'பக்கங்கள், கருத்துகள், பங்களிப்பாளர்கள் — அனைத்தும் உடனடியானவை, அனைத்தும் உள்ளூர் சார்ந்தவை.',
   'search.unknownSpace': 'விண்வெளி',
@@ -115,6 +150,7 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'உங்கள் குழுவுடன் அறிவைப் பகிர்ந்துகொள்ளுங்கள் — முதல் 5 எடிட்டர்களுக்கு இலவசம்.',
   'spaces.dialog.create': 'இடத்தை உருவாக்குங்கள்',
+  'spaces.dialog.title': 'புதிய இடம்',
   'spaces.empty.body': 'எழுதத் தொடங்குவதற்கான உங்கள் முதல் இடத்தை உருவாக்குங்கள்.',
   'spaces.empty.title': 'இன்னும் இடங்கள் நிரம்பவில்லை.',
   'spaces.eyebrow': 'பணியிடங்கள் · கெய்ர்ன்',
@@ -139,19 +175,23 @@ export const ui: UiTranslations = {
   'trash.confirmPurge': 'நிரந்தரமாக நீக்குவதா?',
   'trash.confirmPurgeAria': 'உறுதிப்படுத்து: {{title}} ஐ நிரந்தரமாக நீக்கவும்',
   'trash.daysUntilPurge': '{{days}} மீதமுள்ள நாட்கள்',
+  'trash.deletedWhen': '{{when}} நீக்கப்பட்டது',
   'trash.empty.body':
     'நீக்கப்பட்ட பக்கங்கள் முழுமையாக அழிக்கப்படுவதற்கு முன்பு 30 நாட்களுக்கு இங்கே தோன்றும்.',
   'trash.empty.title': 'குப்பைத்தொட்டி காலியாக உள்ளது.',
   'trash.eyebrow': 'காப்பகம் · 30 நாள் தக்கவைப்பு',
   'trash.heading': 'குப்பை',
+  'trash.loading': 'குப்பையை ஏற்றுகிறது…',
   'trash.purge': 'புகே',
   'trash.purging': 'தூய்மைப்படுத்துதல்…',
   'trash.restore': 'மீட்டெடு',
   'trash.restoring': 'மீட்டமைத்தல்…',
   'trash.subtitle':
     'நீக்கப்பட்ட பக்கங்கள் 30 நாட்களுக்கு இங்கே இருக்கும். உங்களுக்கு இன்னும் தேவைப்படும் பக்கங்களை மீட்டெடுக்கவும், தேவையில்லாதவற்றை அகற்றவும் — நீங்கள் சொல்லும் வரை எதுவும் நீங்காது.',
+  'versionHistory.attribution': 'சேமிக்கப்பட்டது {{when}}',
   'versionHistory.backLink': 'பக்கத்திற்குத் திரும்பு',
   'versionHistory.diffHeading': 'வேறுபாடு · v{{v}}',
+  'versionHistory.empty.title': 'இன்னும் பதிப்புகள் இல்லை.',
   'versionHistory.heading': 'பதிப்பு வரலாறு',
   'versionHistory.older': 'வயதானவர்',
   'versionHistory.restore': 'இந்தப் பதிப்பை மீட்டமைக்கவும்',

@@ -1,6 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Des questions, des retours, ou envie d'une démo pour votre équipe ? Contactez-nous depuis les paramètres de votre espace de travail — une vraie personne de l'équipe {{app}} lit chaque message.",
+  'about.contactTitle': 'Nous contacter',
+  'about.featureChannels':
+    'Des canaux publics et privés qui gardent chaque projet, équipe et sujet organisés.',
+  'about.featureFiles':
+    'Partage de fichiers par glisser-déposer avec aperçus enrichis, là où la discussion a lieu.',
+  'about.featurePlans':
+    "Gratuit pour commencer, avec les offres Pro et Team qui débloquent plus de canaux, de membres, de rétention et d'intégrations externes à mesure que vous grandissez.",
+  'about.featureRealtime':
+    'Messagerie en temps réel avec notifications instantanées, plus une recherche en texte intégral dans tout ce que votre équipe a dit.',
+  'about.featureThreads':
+    'Réponses en fil et réactions emoji pour que les conversations parallèles restent ordonnées et les retours rapides.',
+  'about.intro':
+    "{{app}} est l'endroit où votre équipe travaille ensemble — canaux organisés, fils ciblés, réactions, partage de fichiers et recherche, le tout dans un espace de travail rapide et en temps réel.",
+  'about.missionBody':
+    "L'e-mail enterre les décisions et les outils de chat dispersés fracturent le contexte. {{app}} garde chaque conversation à la vue de tous, consultable et liée au canal auquel elle appartient — pour que votre équipe reste alignée sans le bruit.",
+  'about.missionTitle': 'Notre mission',
   'activityCard.mentions': 'Mentions',
   'activityCard.mentionsCount': '{{count}}',
   'activityCard.reactions': 'Réactions',
@@ -11,7 +29,9 @@ export const ui: UiTranslations = {
   'app.workspace': 'Molecule Studios',
   'channel.attachFile': 'Joindre un fichier',
   'channel.backToDashboard': 'Retour au tableau de bord',
+  'channel.darkMode': 'Activer le mode sombre',
   'channel.document': 'Document',
+  'channel.downloadFile': 'Télécharger {{name}}',
   'channel.edited': '(modifié)',
   'channel.formatBold': 'Gras',
   'channel.formatCode': 'Code',
@@ -19,27 +39,39 @@ export const ui: UiTranslations = {
   'channel.forNewLine': 'pour nouvelle ligne',
   'channel.insertEmoji': 'Émoji',
   'channel.insertLink': 'Lien',
+  'channel.lastReply': 'Dernière réponse {{time}}',
   'channel.linkPrompt': 'URL du lien',
   'channel.memberCount': '{{count}} membres',
   'channel.mention': 'Mention',
+  'channel.messageInputLabel': 'Écrivez un message',
   'channel.messagePlaceholder': 'Message à #{{name}}',
   'channel.noMembers': 'Aucun membre',
+  'channel.noMessages':
+    "C'est le début de la conversation. Envoyez le premier message pour lancer les choses.",
   'channel.noSearchResults': 'Aucun message ne correspond à votre recherche',
   'channel.notFound': 'Canal introuvable',
   'channel.notFoundHint':
     "Ce canal a peut-être été supprimé ou vous n'avez pas la permission d'y accéder.",
   'channel.pinnedLabel': '{{count}} messages épinglés',
+  'channel.replies': '{{count}} réponses',
   'channel.returnKey': 'Entrée',
+  'channel.searchLabel': 'Rechercher des messages dans ce canal',
   'channel.searchPlaceholder': "Rechercher dans l'historique des messages",
   'channel.sendError': "L'envoi du message a échoué — veuillez réessayer.",
   'channel.sendLabel': 'Envoyer le message',
   'channel.shiftReturn': 'Maj + Entrée',
+  'channel.toggleMembers': 'Afficher/masquer le panneau des membres',
   'channel.toSend': 'pour envoyer',
+  'channel.tryDifferentSearch':
+    'Essayez un autre terme de recherche ou effacez le filtre de recherche',
+  'channel.welcomeChannel': 'Bienvenue dans #{{name}}',
   'channelIntro.authorName': '{{name}}',
   'channelIntro.avatarAlt':
     'Portrait de {{author}}, cadre souriant, arrière-plan de bureau professionnel',
   'channelIntro.leadIn': "Très bien ! J'ai ajouté mes commentaires sur la section ingénierie. ",
   'channelIntro.reviewPrompt': ' pouvez-vous examiner le budget infra ?',
+  'channelIntro.timestamp': '{{time}}',
+  'channelIntro.userMention': '@{{username}}',
   'channelMessageFeed.unknownAuthor': 'Utilisateur',
   'channelsList.addChannel': 'Nouvelle chaîne',
   'channelsList.design': 'design',
@@ -64,6 +96,7 @@ export const ui: UiTranslations = {
   'common.unknown': 'Utilisateur inconnu',
   'common.user': 'Utilisateur',
   'common.yes': '✓',
+  'dashboard.browseChannels': 'Parcourir les canaux',
   'dashboard.browseChannelsDesc': 'Explorez les discussions publiques existantes',
   'dashboard.channelNamePlaceholder': 'ex. revues-design',
   'dashboard.createChannel': 'Créer un canal',
@@ -74,8 +107,10 @@ export const ui: UiTranslations = {
   'dashboard.newMessage': 'Nouveau message',
   'dashboard.noUnreadMessages': 'Aucun message non lu',
   'dashboard.quickActions': 'Actions rapides',
+  'dashboard.startDm': 'Démarrer un MP',
   'dashboard.startDmDesc': 'Envoyez un message direct à un coéquipier',
   'dashboard.unreadMessages': 'Messages non lus',
+  'dateSeparator.date': '{{weekday}}, {{month}} {{day}}',
   'directMessageButton.contactName': '{{name}}',
   'directMessagesSection.addDm': 'Nouveau message direct',
   'directMessagesSection.empty': 'Aucun message direct pour le moment.',
@@ -103,10 +138,14 @@ export const ui: UiTranslations = {
   'messageComposer.italic': 'Italique',
   'messageComposer.link': 'Lien',
   'messageComposer.mention': 'Mention',
+  'messageComposer.placeholder': 'Envoyer un message à {{channel}}',
   'messageComposer.urlPlaceholder': 'url',
   'messageItem.authorName': '{{name}}',
+  'messageItem.body':
+    "Salut l'équipe ! Le document de planification du T2 est prêt pour relecture. Merci d'y jeter un œil avant le standup de jeudi.",
   'messageItem.timestamp': '{{time}}',
   'messagePreviewCard.authorSeparator': ':',
+  'messagePreviewCard.unknownChannel': '#canal',
   'nav.appTitle': 'Pulse',
   'nav.channelName': '#{{name}}',
   'nav.channels': 'Canaux',
@@ -126,7 +165,14 @@ export const ui: UiTranslations = {
   'parentMessage.sampleTimestamp': '10:23',
   'pinnedItemsEmpty.description': 'Épinglez ici les messages importants.',
   'pinnedItemsEmpty.title': 'Aucun élément épinglé pour le moment.',
+  'planUpdated.body':
+    'Votre changement de facturation est maintenant actif. Vous pouvez gérer votre offre à tout moment depuis la page de facturation.',
+  'planUpdated.retry': 'Réessayer',
+  'planUpdated.verifyFailed': "Nous n'avons pas encore pu confirmer votre paiement.",
+  'planUpdated.verifyFailedBody':
+    'Votre paiement est peut-être encore en cours de traitement. Veuillez réessayer dans quelques instants.',
   'planUpdated.verifying': 'Confirmation de votre paiement…',
+  'pricing.channelsLabel': 'canaux',
   'pricing.externalIntegrationsLabel': 'Intégrations externes',
   'pricing.fileUploadMbLabel': 'Mo / fichier téléversé',
   'pricing.heading': 'chaînes',
@@ -134,6 +180,8 @@ export const ui: UiTranslations = {
   'pricing.messagesPerDayLabel': 'messages / jour',
   'pricing.threadsEnabledLabel': 'Réponses en fil',
   'pricing.voiceVideoLabel': 'Appels voix / vidéo',
+  'privacy.intro':
+    'Nous respectons votre vie privée. {{app}} ne stocke que les données que vous fournissez explicitement et ne les vend ni ne les partage jamais sans votre consentement.',
   'recommendedChannels.channel': '{{name}}',
   'recommendedChannels.empty': 'Aucune suggestion pour le moment — créez un canal pour commencer.',
   'recommendedChannels.title': 'Vous pourriez aimer',
@@ -145,6 +193,8 @@ export const ui: UiTranslations = {
   'resetPassword.error': 'Impossible de réinitialiser le mot de passe',
   'resetPassword.newPassword': 'Nouveau mot de passe',
   'resetPassword.reset': 'Réinitialiser le mot de passe',
+  'resetPassword.resetting': 'Réinitialisation...',
+  'resetPassword.subtitle': 'Saisissez votre nouveau mot de passe ci-dessous',
   'resetPassword.successSubtitle':
     'Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.',
   'resetPassword.successTitle': 'Mot de passe réinitialisé avec succès',
@@ -160,10 +210,14 @@ export const ui: UiTranslations = {
   'settings.title': 'Paramètres',
   'sideNavFooter.inviteMembers': 'Inviter des membres',
   'signup.backgroundAlt': 'Arrière-plan esthétique de design',
+  'signup.creating': 'Création du compte...',
   'signup.failed': "Échec de l'inscription",
   'signup.subtitle': 'Lancez-vous avec Pulse',
   'sso.continue': 'Continuer avec SSO',
+  'terms.intro':
+    "En utilisant {{app}}, vous acceptez de bien vous entendre avec votre équipe, de respecter les règles des canaux et d'accepter que les fonctionnalités payantes nécessitent un abonnement actif.",
   'thread.backToChannel': 'Retour à la chaîne',
+  'thread.noReplies': "Aucune réponse pour l'instant — lancez le fil ci-dessous.",
   'thread.notFound': 'Fil introuvable.',
   'thread.replyError': "L'envoi de la réponse a échoué — veuillez réessayer.",
   'threadHeader.additionalParticipants': '+{{count}}',
@@ -174,7 +228,9 @@ export const ui: UiTranslations = {
   'threadIndicator.lastReplyTime': 'Dernière réponse il y a {{minutes}} minutes',
   'threadIndicator.moreParticipants': '+{{count}}',
   'threadIndicator.participantAvatarAlt': 'petit avatar du participant',
+  'threadIndicator.replies': '{{count}} réponses',
   'topAppBar.defaultChannelName': 'général',
+  'topAppBar.defaultTopic': "Annonces et mises à jour pour toute l'entreprise",
   'topAppBar.favoriteChannel': 'Chaîne préférée',
   'topAppBar.memberCount': '{{count}} membres',
   'topAppBar.searchPlaceholder': "Rechercher dans l'historique des messages",
@@ -182,6 +238,9 @@ export const ui: UiTranslations = {
   'topNavBar.search': 'Rechercher des messages',
   'topNavBar.threads': 'Fils',
   'welcomeHero.badge': "Aperçu de l'espace de travail",
+  'welcomeHero.description':
+    "Votre hub de communication d'équipe. Tout ce qu'il vous faut pour rester synchronisé, au même endroit.",
   'workspaceHeader.defaultName': 'Votre espace de travail',
+  'workspaceHeader.subtitle': 'Espace de travail {{type}}',
   'workspaceHeader.title': '{{name}}',
 }

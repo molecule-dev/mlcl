@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ {{app}} നിങ്ങളുടെ സ്കൂളിലേക്കോ ടീമിലേക്കോ കൊണ്ടുവരാൻ ആഗ്രഹിക്കുന്നുണ്ടോ? ഞങ്ങൾ എല്ലാ സന്ദേശവും വായിക്കുന്നു — നിങ്ങളുടെ അക്കൗണ്ട് ക്രമീകരണങ്ങളിൽ നിന്ന് ബന്ധപ്പെടുക, ഒരു യഥാർത്ഥ മനുഷ്യൻ മറുപടി നൽകും.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.intro':
+    '{{app}} ക്ലാസ്‌മുറികൾ, ഗെയിം നൈറ്റുകൾ, ടീം ഇവന്റുകൾ എന്നിവയ്ക്കുള്ള ഒരു ലൈവ് ക്വിസ് പ്ലാറ്റ്ഫോമാണ്. കളിയായ ചോദ്യ പാക്കുകൾ നിർമ്മിക്കുക, ജോയിൻ കോഡ് ഉപയോഗിച്ച് തത്സമയ ഗെയിമുകൾ ഹോസ്റ്റ് ചെയ്യുക, സമയബന്ധിത ചോദ്യങ്ങൾ, സ്കോറിംഗ്, ലീഡർബോർഡുകൾ എന്നിവയാൽ മുറി തിളങ്ങുന്നത് കാണുക.',
+  'about.missionBody':
+    'കളിയായി തോന്നുമ്പോൾ പഠനം ഉറയ്ക്കും. ആർക്കും ഒരു വിഷയത്തെ വേഗതയേറിയ, മത്സരാധിഷ്ഠിത ഗെയിമാക്കി മാറ്റാൻ ഞങ്ങൾ എളുപ്പമാക്കുന്നു — അതുവഴി ഹോസ്റ്റുകൾക്ക് ചെയ്തുകൊണ്ട് പഠിപ്പിക്കാം, കളിക്കാർ സ്ട്രീക്കിൽ തുടരാം.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.title': '{{app}} നെക്കുറിച്ച്',
   'auth.login.noAccount': 'സ്പാർക്കിൽ പുതിയ ആളാണോ?',
   'auth.login.or': 'അല്ലെങ്കിൽ തുടരുക',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'ഇതുവരെ ഒരു ക്വിസും പൊരുത്തപ്പെടുന്നില്ല.',
   'discover.headline': 'നിങ്ങളുടെ അടുത്ത പ്രിയപ്പെട്ട ക്വിസ് കണ്ടെത്തുക.',
   'discover.loading': 'ലോഡ് ചെയ്യുന്നു...',
+  'discover.searchPlaceholder': 'ശീർഷകം അനുസരിച്ച് ക്വിസുകൾ തിരയുക…',
   'discover.subhead':
     'മുഴുവൻ ലൈബ്രറിയും ബ്രൗസ് ചെയ്യുക, വിഭാഗം അനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക, അല്ലെങ്കിൽ പേര് അനുസരിച്ച് തിരയുക. സോളോ കളിക്കാനോ ലൈവ് ഹോസ്റ്റ് ചെയ്യാനോ ഒരു കാർഡ് അമർത്തുക.',
   'forgotPassword.subhead':
     'നിങ്ങളുടെ ഇമെയിൽ നൽകുക, പുനഃസജ്ജമാക്കുന്നതിനുള്ള ഒരു ലിങ്ക് ഞങ്ങൾ നിങ്ങൾക്ക് അയയ്ക്കും.',
   'forgotPassword.success.body':
     'ഒരു അക്കൗണ്ട് നിലവിലുണ്ടെങ്കിൽ {{email}} , കുറച്ച് മിനിറ്റിനുള്ളിൽ നിങ്ങൾക്ക് ഒരു റീസെറ്റ് ലിങ്ക് ലഭിക്കും.',
+  'forgotPassword.success.title': 'നിങ്ങളുടെ ഇൻബോക്സ് പരിശോധിക്കുക.',
   'hostLobby.back': 'ക്വിസിലേക്ക് മടങ്ങുക',
   'hostLobby.copied': 'ജോയിൻ കോഡ് ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്തി.',
   'hostLobby.creating': 'നിങ്ങളുടെ ലോബി സ്പിൻ ചെയ്യുന്നു...',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'ലോബി റദ്ദാക്കുക',
   'hostLobby.players.count': '{{count}} തത്സമയം',
   'hostLobby.players.title': 'ലോബിയിലെ കളിക്കാർ',
+  'hostLobby.players.waiting':
+    'കളിക്കാർക്കായി കാത്തിരിക്കുന്നു. അവർക്ക് ജോയിൻ ചെയ്യാൻ കോഡ് {{code}} പങ്കിടുക.',
   'hostLobby.rules.title': 'വീട്ടു നിയമങ്ങൾ',
   'hostLobby.startError': 'കളി ആരംഭിക്കാൻ കഴിഞ്ഞില്ല.',
   'hostLobby.starting': 'സ്പാർക്ക് ആരംഭിക്കുന്നു…',
   'joinCodeHero.headline': 'നിങ്ങളുടെ കളിക്കാരോട് ചാടി ഇറങ്ങാൻ പറയൂ.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'അല്ലെങ്കിൽ സന്ദർശിക്കുക',
   'joinCodeHero.liveLabel': 'ലോബി ലൈവ്',
+  'joinCodeHero.playerJoined': '{{name}} ജോയിൻ ചെയ്തു',
   'joinCodeHero.playersLabel': 'കളിക്കാർ',
   'joinCodeHero.qrLabel': 'ചേരാൻ സ്കാൻ ചെയ്യുക',
   'joinCodeHero.startGame': 'സ്പാർക്ക് ആരംഭിക്കുക',
   'joinCodeHero.subhead':
     'ജോയിൻ കോഡ് പങ്കിടുക അല്ലെങ്കിൽ QR സ്കാൻ ചെയ്യുക. നിങ്ങൾ തീപ്പൊരി കത്തിക്കുന്ന നിമിഷം മുതൽ ഗെയിം ആരംഭിക്കും.',
+  'landing.cta.button': 'നിങ്ങളുടെ ആദ്യ ക്വിസ് സൃഷ്ടിക്കുക',
   'landing.cta.eyebrow': 'അധ്യാപകർക്ക് സൗജന്യം',
   'landing.cta.heading': 'ഓരോ പാഠത്തിലേക്കും ഒരു തീപ്പൊരി കൊണ്ടുവരിക.',
+  'landing.cta.subhead':
+    '30 സെക്കൻഡിൽ സൈൻ അപ്പ് ചെയ്യുക. പരിധിയില്ലാത്ത ലൈവ് ഗെയിമുകൾ ഹോസ്റ്റ് ചെയ്യുക, AI ഉപയോഗിച്ച് ക്വിസുകൾ തയ്യാറാക്കുക, എല്ലാ കളിക്കാരെയും സ്ട്രീക്കിൽ നിലനിർത്തുക.',
   'landing.eyebrow': 'എല്ലാ ഉത്തരങ്ങളും ജ്വലിപ്പിക്കുക',
   'landing.features.heading':
     'നിങ്ങൾ പഠിപ്പിക്കുന്നതിനും കളിക്കുന്നതിനും അനുയോജ്യമായ ഒരു ക്വിസ് സ്റ്റുഡിയോ.',
@@ -58,6 +74,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'ജനപ്രിയ ക്വിസുകൾ',
   'landing.popular.eyebrow': 'ഈ ആഴ്ചയിലെ ജനപ്രിയമായത്',
   'landing.popular.heading': 'ഇന്ന് ഹോസ്റ്റുകൾ നടത്തുന്ന ഒരു ക്വിസിൽ പങ്കെടുക്കൂ.',
+  'landing.popular.viewAll': 'എല്ലാ വിഭാഗങ്ങളും കാണുക →',
+  'leaderboard.empty.body': 'ഗ്ലോബൽ ലീഡർബോർഡിൽ നിങ്ങളുടെ സ്കോർ ചേർക്കാൻ ഒരു ക്വിസ് കളിക്കുക.',
   'leaderboard.empty.title': 'ബോർഡിൽ ഇതുവരെ കളികളൊന്നുമില്ല — ഒന്നാമനാകൂ.',
   'leaderboard.eyebrow': 'ലീഡർബോർഡ്',
   'leaderboard.fullRanking': 'പൂർണ്ണ റാങ്കിംഗ്',
@@ -65,6 +83,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'നിങ്ങൾ കളിച്ച ഓരോ ക്വിസ് സെഷനിലും മൊത്തം സ്കോർ നേടൂ. കൂടുതൽ കളിച്ച് ഉയരങ്ങളിലെത്തൂ.',
   'leaderboard.title': 'മുൻനിര ക്വിസ്മാസ്റ്റർമാർ',
+  'leaderboard.totalPlayers': '{{count}} റാങ്കുള്ള കളിക്കാർ',
   'leaderboardRow.points': 'പോയിന്റുകൾ',
   'leaderboardRow.streak': '{{days}} ഡി',
   'login.headline': 'ക്വിസ് മാസ്റ്റർ, വീണ്ടും സ്വാഗതം.',
@@ -76,10 +95,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'നിങ്ങളുടെ ആദ്യ ക്വിസ് നിർമ്മിക്കുക →',
   'myQuizzes.empty.created': 'നിങ്ങൾ ഇതുവരെ ഒരു ക്വിസ് നിർമ്മിച്ചിട്ടില്ല.',
   'myQuizzes.empty.played': 'ഇതുവരെ പ്രസിദ്ധീകരിച്ച ക്വിസുകളൊന്നുമില്ല.',
+  'myQuizzes.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'myQuizzes.subhead':
     'നിങ്ങൾ നിർമ്മിച്ച ഡ്രാഫ്റ്റുകളും നിങ്ങൾക്ക് കളിക്കാൻ കഴിയുന്ന പ്രസിദ്ധീകരിച്ച ക്വിസുകളും.',
   'myQuizzes.title': 'എന്റെ ക്വിസുകൾ',
   'nav.legal': 'നിയമപരമായ',
+  'nav.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'notFound.backHome': 'വീട്ടിലേക്ക് മടങ്ങുക',
   'notFound.backToDiscover': 'ക്വിസുകൾ ബ്രൗസ് ചെയ്യുക',
   'notFound.body': 'മറ്റൊരു കോഡ് പരീക്ഷിക്കുക അല്ലെങ്കിൽ ലോബിയിലേക്ക് മടങ്ങുക.',
@@ -88,16 +109,26 @@ export const ui: UiTranslations = {
   'notifications.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'notifications.subhead':
     '{{count}} വായിക്കാത്ത സ്പാർക്കുകൾ. ക്ഷണങ്ങൾ, ലീഡർബോർഡ് നീക്കങ്ങൾ, നേട്ടങ്ങൾ എന്നിവയെല്ലാം ഒരു സ്ട്രീമിൽ.',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
+  'pricing.advancedFeatures': 'വിപുലമായ സവിശേഷതകൾ: {{yes}}',
+  'pricing.canExport': 'ഡാറ്റ എക്സ്പോർട്ട്: {{yes}}',
   'pricing.checkoutError': 'ചെക്ക്ഔട്ട് ആരംഭിക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'pricing.heading': 'നിങ്ങളുടെ {{app}} പ്ലാൻ തിരഞ്ഞെടുക്കുക',
   'pricing.included': 'ഉൾപ്പെടുത്തിയത്',
   'pricing.loadError': 'പ്ലാനുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'pricing.maxQuestions': '{{count}} ചോദ്യങ്ങൾ',
   'pricing.maxQuizzes': '{{count}} ക്വിസുകൾ',
+  'pricing.maxSessions': '{{count}} സെഷനുകൾ',
   'pricing.subhead':
     'ഹോസ്റ്റുകൾക്കും കളിക്കാർക്കും സൗജന്യം. ഉയർന്ന പരിധികൾക്കും വിപുലമായ സവിശേഷതകൾക്കും വേണ്ടി അപ്‌ഗ്രേഡ് ചെയ്യുക.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account': 'അക്കൗണ്ട്: ഇമെയിൽ, ഹാഷ് ചെയ്ത പാസ്‌വേഡ്, പ്രദർശന നാമം, അവസാന സൈൻ-ഇൻ.',
+  'privacy.intro':
+    '{{app}} നിങ്ങളുടെ സ്വകാര്യതയെ മാനിക്കുന്നു. ഞങ്ങൾ സൂക്ഷിക്കുന്ന ഡാറ്റ, അത് എന്തിന് സൂക്ഷിക്കുന്നു, അത് എങ്ങനെ നീക്കം ചെയ്യാം എന്നിവ ഈ പേജ് സംഗ്രഹിക്കുന്നു.',
   'privacy.rights.body':
     '30 ദിവസത്തിനുള്ളിൽ നിങ്ങളുടെ എല്ലാ ഡാറ്റയും ശാശ്വതമായി നീക്കം ചെയ്യുന്നതിന് ക്രമീകരണങ്ങളിൽ നിന്ന് നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കുക.',
   'privacy.share.body':
@@ -121,6 +152,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'ക്വിസ് ഐഡി: {{id}}',
   'quizBuilder.loadError': 'ക്വിസ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'quizBuilder.loading': 'എഡിറ്റർ ലോഡ് ചെയ്യുന്നു…',
+  'quizBuilder.markCorrect': '{{letter}} ശരിയെന്ന് അടയാളപ്പെടുത്തുക',
   'quizBuilder.noQuestions': 'ഇതുവരെ ചോദ്യങ്ങളൊന്നുമില്ല — ആരംഭിക്കാൻ ഒന്ന് ചേർക്കുക.',
   'quizBuilder.notFound': 'ക്വിസ് കണ്ടെത്തിയില്ല.',
   'quizBuilder.preview': 'കാണുക',
@@ -137,7 +169,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} എസ് ടൈമർ',
   'quizBuilder.title': 'നിങ്ങളുടെ ക്വിസ് നിർമ്മിക്കുക',
   'quizBuilder.titleLabel': 'ക്വിസ് ശീർഷകം',
+  'quizBuilder.untitled': 'ശീർഷകമില്ലാത്ത ചോദ്യം',
   'quizCard.plays': '{{count}} നാടകങ്ങൾ',
+  'quizCard.questionCount': '{{count}} ചോദ്യങ്ങൾ',
   'quizDetail.duration': '~ {{minutes}} മിനിറ്റ്',
   'quizDetail.hostMultiplayer': 'ഹോസ്റ്റ് മൾട്ടിപ്ലെയർ',
   'quizDetail.leaderboardEmpty': 'ഇതുവരെ കളികളൊന്നുമില്ല — സ്കോർ നിശ്ചയിക്കുന്ന ആദ്യത്തെയാളാകൂ.',
@@ -152,26 +186,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'ക്വിസിലേക്ക് മടങ്ങുക',
   'quizPlay.empty': 'ഈ ക്വിസിൽ ഇതുവരെ ചോദ്യങ്ങളൊന്നുമില്ല.',
   'quizPlay.error': 'ഈ ക്വിസ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
+  'quizPlay.exit': 'പുറത്തുകടക്കുക',
   'quizPlay.feedback.correct': '🔥 സ്പാർക്ക് നേടി — അടുത്തതിലേക്ക്!',
+  'quizPlay.feedback.incorrect': 'ഉത്തരം {{correct}} ആയിരുന്നു. തുടരുക.',
   'quizPlay.loading': 'ക്വിസ് ലോഡ് ചെയ്യുന്നു...',
   'quizPlay.next': 'അടുത്ത ചോദ്യം',
   'quizPlay.questionCounter': 'ചോദ്യം {{current}} യുടെ {{total}}',
   'quizPlay.score': '{{score}} പോയിന്റുകൾ',
+  'quizPlay.seeResults': 'ഫലങ്ങൾ കാണുക',
   'quizPlay.sessionFailed': 'ഒരു സെഷൻ ആരംഭിക്കാൻ കഴിഞ്ഞില്ല.',
   'quizPlay.streak': '{{count}} സ്ട്രീക്ക്',
+  'resetPassword.subhead': 'നിങ്ങളുടെ സ്ട്രീക്കിലേക്ക് മടങ്ങാൻ ഒരു പുതിയ പാസ്വേഡ് തിരഞ്ഞെടുക്കുക.',
   'results.backToDiscover': 'Discover-ലേക്ക് തിരികെ പോകുക',
   'results.error': 'ഫലങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'results.exit': 'Discover-ലേക്ക് തിരികെ പോകുക',
   'results.loading': 'നിങ്ങളുടെ സ്കോർ കണക്കാക്കുന്നു...',
   'results.missingSession': 'സംഗ്രഹിക്കാൻ സെഷനൊന്നുമില്ല.',
+  'results.recap.correctAnswer': 'ശരി: {{answer}}',
   'results.recap.questionLabel': 'ചോദ്യം {{number}}',
   'results.recap.title': 'ചോദ്യത്തിന്റെ സംഗ്രഹം',
+  'results.recap.yourAnswer': 'നിങ്ങൾ: {{answer}}',
   'results.unknownQuiz': 'ക്വിസ്',
   'scoreBreakdownCard.accuracyLabel': 'കൃത്യത',
+  'scoreBreakdownCard.correctLabel': 'ശരി',
   'scoreBreakdownCard.eyebrow': 'ക്വിസ് പൂർത്തിയായി',
   'scoreBreakdownCard.headline': '"" എന്നതിൽ നല്ല ജോലി. {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'പോയിന്റുകൾ',
   'scoreBreakdownCard.rankLabel': 'റാങ്ക്',
+  'scoreBreakdownCard.streakBonus': 'സ്ട്രീക്ക് ബോണസ് +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'നിങ്ങളുടെ തീപ്പൊരി തെളിയുന്നു. ലീഡർബോർഡിൽ കയറാൻ താഴെയുള്ള വിശകലനം പരിശോധിക്കുക.',
   'settings.danger.body':
     'നിങ്ങളുടെ സ്പാർക് അക്കൗണ്ടും സൃഷ്ടിച്ച എല്ലാ ക്വിസുകളും ശാശ്വതമായി നീക്കം ചെയ്യുക.',
   'settings.danger.confirm': 'അതെ, എന്നെന്നേക്കുമായി ഇല്ലാതാക്കുക',
@@ -190,5 +234,7 @@ export const ui: UiTranslations = {
     'നിങ്ങൾ പ്രസിദ്ധീകരിക്കുന്ന ഉള്ളടക്കം, നിങ്ങൾ രചിക്കുന്ന ചോദ്യങ്ങൾ, നിങ്ങൾ ഹോസ്റ്റ് ചെയ്യുന്ന ഗെയിമുകൾ എന്നിവയ്ക്ക് നിങ്ങൾ ഉത്തരവാദിയാണ്. മറ്റുള്ളവരെപ്പോലെ ആൾമാറാട്ടം നടത്തരുത്.',
   'terms.billing.body':
     'ക്രമീകരണങ്ങളിൽ നിന്ന് റദ്ദാക്കുന്നതുവരെ പണമടച്ചുള്ള പ്ലാനുകൾ യാന്ത്രികമായി പുതുക്കും. നിങ്ങൾക്ക് എപ്പോൾ വേണമെങ്കിലും റദ്ദാക്കാം; നിലവിലെ ബില്ലിംഗ് കാലയളവിന്റെ അവസാനം വരെ ആക്‌സസ് തുടരും.',
+  'terms.intro':
+    '{{app}} ഉപയോഗിക്കുന്നതിലൂടെ താഴെയുള്ള നിയമങ്ങൾ നിങ്ങൾ അംഗീകരിക്കുന്നു. അവ സ്വീകരിക്കാൻ കഴിയുന്നില്ലെങ്കിൽ, ദയവായി സേവനം ഉപയോഗിക്കരുത്.',
   'terms.title': 'സേവന നിബന്ധനകൾ',
 }

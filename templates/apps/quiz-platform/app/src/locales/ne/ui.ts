@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'प्रतिक्रिया छ, बग भेट्टाइयो, वा {{app}} आफ्नो विद्यालय वा टोलीमा ल्याउन चाहनुहुन्छ? हामी हरेक सन्देश पढ्छौं — आफ्नो खाता सेटिङबाट सम्पर्क गर्नुहोस् र एक वास्तविक मान्छेले जवाफ दिनेछ।',
   'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'बारेमा',
+  'about.intro':
+    '{{app}} कक्षाकोठा, गेम नाइट र टोली कार्यक्रमहरूका लागि प्रत्यक्ष क्विज प्लेटफर्म हो। रमाइला प्रश्न प्याकहरू बनाउनुहोस्, जोइन कोडसहित वास्तविक-समयका खेलहरू होस्ट गर्नुहोस्, र समयबद्ध प्रश्न, स्कोरिङ र लिडरबोर्डले कोठा झलमल्ल बनेको हेर्नुहोस्।',
+  'about.missionBody':
+    'खेलजस्तो लाग्दा सिकाइ टिकिरहन्छ। जोसुकैले पनि कुनै विषयलाई छिटो, प्रतिस्पर्धात्मक खेलमा बदल्न सकून् भनेर हामी सजिलो बनाउँछौं — होस्टहरूले गर्दै सिकाउन सकून् र खेलाडीहरू लगातार सक्रिय रहून्।',
+  'about.missionTitle': 'हाम्रो मिशन',
   'about.title': '{{app}} बारे',
   'auth.login.noAccount': 'Sparq मा नयाँ हुनुहुन्छ?',
   'auth.login.or': 'वा जारी राख्नुहोस्',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'अहिलेसम्म कुनै पनि क्विज मिलेको छैन।',
   'discover.headline': 'आफ्नो अर्को मनपर्ने क्विज खोज्नुहोस्।',
   'discover.loading': 'लोड हुँदै...',
+  'discover.searchPlaceholder': 'शीर्षकद्वारा क्विज खोज्नुहोस्…',
   'discover.subhead':
     'पूरा पुस्तकालय ब्राउज गर्नुहोस्, कोटी अनुसार फिल्टर गर्नुहोस्, वा शीर्षक अनुसार खोज्नुहोस्। एकल खेल्न वा लाइभ होस्ट गर्न कार्डमा थिच्नुहोस्।',
   'forgotPassword.subhead':
     'तपाईंको इमेल प्रविष्ट गर्नुहोस् र हामी तपाईंलाई रिसेट गर्न लिङ्क पठाउनेछौं।',
   'forgotPassword.success.body':
     'यदि कुनै खाता अवस्थित छ भने {{email}} , तपाईंले केही मिनेटमा रिसेट लिङ्क प्राप्त गर्नुहुनेछ।',
+  'forgotPassword.success.title': 'आफ्नो इनबक्स जाँच गर्नुहोस्।',
   'hostLobby.back': 'क्विजमा फर्कनुहोस्',
   'hostLobby.copied': 'क्लिपबोर्डमा प्रतिलिपि गरिएको जोड कोड।',
   'hostLobby.creating': 'तपाईंको लबीलाई घुमाउँदै...',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'लबी रद्द गर्नुहोस्',
   'hostLobby.players.count': '{{count}} प्रत्यक्ष',
   'hostLobby.players.title': 'लबीमा रहेका खेलाडीहरू',
+  'hostLobby.players.waiting':
+    'खेलाडीहरूको प्रतीक्षामा। उनीहरूले सहभागी हुन सकून् भनेर कोड {{code}} साझा गर्नुहोस्।',
   'hostLobby.rules.title': 'घरका नियमहरू',
   'hostLobby.startError': 'खेल सुरु गर्न सकिएन।',
   'hostLobby.starting': 'स्पार्क सुरु गर्दै...',
   'joinCodeHero.headline': 'आफ्ना खेलाडीहरूलाई हाम फाल्न भन्नुहोस्।',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'अथवा भ्रमण गर्नुहोस्',
   'joinCodeHero.liveLabel': 'लबी लाइभ',
+  'joinCodeHero.playerJoined': '{{name}} सहभागी भए',
   'joinCodeHero.playersLabel': 'खेलाडीहरू',
   'joinCodeHero.qrLabel': 'सामेल हुन स्क्यान गर्नुहोस्',
   'joinCodeHero.startGame': 'स्पार्क सुरु गर्नुहोस्',
   'joinCodeHero.subhead':
     'जोडिने कोड सेयर गर्नुहोस् वा QR स्क्यान गर्नुहोस्। तपाईंले स्पार्क सुरु गर्ने बित्तिकै खेल सुरु हुन्छ।',
+  'landing.cta.button': 'आफ्नो पहिलो क्विज बनाउनुहोस्',
   'landing.cta.eyebrow': 'शिक्षकहरूका लागि नि:शुल्क',
   'landing.cta.heading': 'हरेक पाठमा जोश ल्याउनुहोस्।',
+  'landing.cta.subhead':
+    '३० सेकेन्डमा साइन अप गर्नुहोस्। असीमित प्रत्यक्ष खेलहरू होस्ट गर्नुहोस्, AI सँग क्विजको मस्यौदा बनाउनुहोस्, र हरेक खेलाडीलाई लगातार सक्रिय राख्नुहोस्।',
   'landing.eyebrow': 'हरेक उत्तरलाई प्रज्वलित गर्नुहोस्',
   'landing.features.heading': 'तपाईंले सिकाउने र खेल्ने तरिकामा मिल्ने क्विज स्टुडियो।',
   'landing.hero.ctaPrimary': 'नि:शुल्क होस्टिङ सुरु गर्नुहोस्',
@@ -57,6 +73,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'लोकप्रिय क्विजहरू',
   'landing.popular.eyebrow': 'यस हप्ता लोकप्रिय',
   'landing.popular.heading': 'आज क्विज आयोजकहरू सञ्चालनमा छन्।',
+  'landing.popular.viewAll': 'सबै श्रेणीहरू हेर्नुहोस् →',
+  'leaderboard.empty.body': 'विश्वव्यापी लिडरबोर्डमा आफ्नो स्कोर राख्न एउटा क्विज खेल्नुहोस्।',
   'leaderboard.empty.title': 'बोर्डमा अहिलेसम्म कुनै नाटक छैन — पहिलो बन्नुहोस्।',
   'leaderboard.eyebrow': 'लिडरबोर्ड',
   'leaderboard.fullRanking': 'पूर्ण श्रेणीकरण',
@@ -64,6 +82,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'तपाईंले खेल्नुभएको प्रत्येक क्विज सत्रको योगफल स्कोर। धेरै खेलेर बढ्नुहोस्।',
   'leaderboard.title': 'शीर्ष क्विजमास्टरहरू',
+  'leaderboard.totalPlayers': '{{count}} क्रमबद्ध खेलाडीहरू',
   'leaderboardRow.points': 'अंकहरू',
   'leaderboardRow.streak': '{{days}} घ',
   'login.headline': 'स्वागत छ, क्विजमास्टर।',
@@ -75,10 +94,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'आफ्नो पहिलो क्विज बनाउनुहोस् →',
   'myQuizzes.empty.created': 'तपाईंले अहिलेसम्म क्विज बनाउनुभएको छैन।',
   'myQuizzes.empty.played': 'अहिलेसम्म कुनै पनि प्रकाशित क्विजहरू छैनन्।',
+  'myQuizzes.loading': 'लोड हुँदै...',
   'myQuizzes.subhead':
     'तपाईंले बनाउनुभएका ड्राफ्टहरू, साथै प्रकाशित क्विजहरू जुन तपाईं खेल्न सक्नुहुन्छ।',
   'myQuizzes.title': 'मेरा क्विजहरू',
   'nav.legal': 'कानुनी',
+  'nav.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'notFound.backHome': 'घर फर्कनुहोस्',
   'notFound.backToDiscover': 'क्विजहरू ब्राउज गर्नुहोस्',
   'notFound.body': 'फरक कोड प्रयास गर्नुहोस् वा लबीमा फर्कनुहोस्।',
@@ -87,16 +108,26 @@ export const ui: UiTranslations = {
   'notifications.loading': 'लोड हुँदै...',
   'notifications.subhead':
     '{{count}} नपढिएका स्पार्कहरू। निमन्त्रणाहरू, लिडरबोर्ड चालहरू, र उपलब्धिहरू सबै एउटै स्ट्रिममा।',
+  'planUpdated.retry': 'फेरि प्रयास गर्नुहोस्',
+  'planUpdated.verifyFailed': 'हामीले तपाईंको भुक्तानी अझै पुष्टि गर्न सकेनौं।',
+  'planUpdated.verifyFailedBody':
+    'तपाईंको भुक्तानी अझै पनि प्रशोधन भइरहेको हुन सक्छ। केही बेरमा फेरि प्रयास गर्नुहोस्।',
   'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
+  'pricing.advancedFeatures': 'उन्नत सुविधाहरू: {{yes}}',
+  'pricing.canExport': 'डेटा निर्यात: {{yes}}',
   'pricing.checkoutError': 'चेकआउट सुरु गर्न सकिएन। कृपया फेरि प्रयास गर्नुहोस्।',
   'pricing.heading': 'आफ्नो {{app}} योजना छनोट गर्नुहोस्',
   'pricing.included': 'समावेश गरिएको',
   'pricing.loadError': 'योजनाहरू लोड गर्न सकिएन।',
+  'pricing.maxQuestions': '{{count}} प्रश्नहरू',
   'pricing.maxQuizzes': '{{count}} क्विजहरू',
+  'pricing.maxSessions': '{{count}} सत्रहरू',
   'pricing.subhead':
     'आयोजक र खेलाडीहरूको लागि नि:शुल्क। उच्च सीमा र उन्नत सुविधाहरूको लागि अपग्रेड गर्नुहोस्।',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account': 'खाता: इमेल, ह्यास गरिएको पासवर्ड, प्रदर्शन नाम, अन्तिम साइन-इन।',
+  'privacy.intro':
+    '{{app}} तपाईंको गोपनीयताको सम्मान गर्छ। यो पृष्ठले हामीले भण्डारण गर्ने डेटा, किन भण्डारण गर्छौं, र कसरी हटाउने भन्ने सारांश दिन्छ।',
   'privacy.rights.body':
     '३० दिन भित्र आफ्नो सबै डेटा स्थायी रूपमा मेटाउन सेटिङहरूबाट आफ्नो खाता मेटाउनुहोस्।',
   'privacy.share.body':
@@ -120,6 +151,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'क्विज आईडी: {{id}}',
   'quizBuilder.loadError': 'क्विज लोड गर्न सकिएन।',
   'quizBuilder.loading': 'सम्पादक लोड गर्दै...',
+  'quizBuilder.markCorrect': '{{letter}} लाई सही भनी चिन्ह लगाउनुहोस्',
   'quizBuilder.noQuestions': 'अहिलेसम्म कुनै प्रश्न छैन — सुरु गर्न एउटा थप्नुहोस्।',
   'quizBuilder.notFound': 'क्विज भेटिएन।',
   'quizBuilder.preview': 'हेर्नुहोस्',
@@ -136,7 +168,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} s टाइमर',
   'quizBuilder.title': 'आफ्नो क्विज बनाउनुहोस्',
   'quizBuilder.titleLabel': 'क्विज शीर्षक',
+  'quizBuilder.untitled': 'शीर्षक नभएको प्रश्न',
   'quizCard.plays': '{{count}} नाटकहरू',
+  'quizCard.questionCount': '{{count}} प्रश्नहरू',
   'quizDetail.duration': '~ {{minutes}} न्यूनतम',
   'quizDetail.hostMultiplayer': 'मल्टिप्लेयर होस्ट गर्नुहोस्',
   'quizDetail.leaderboardEmpty': 'अहिलेसम्म कुनै खेल भएको छैन — स्कोर सेट गर्ने पहिलो बन्नुहोस्।',
@@ -151,26 +185,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'क्विजमा फर्कनुहोस्',
   'quizPlay.empty': 'यो क्विजमा अहिलेसम्म कुनै प्रश्न छैन।',
   'quizPlay.error': 'यो क्विज लोड गर्न सकिएन। कृपया फेरि प्रयास गर्नुहोस्।',
+  'quizPlay.exit': 'बाहिर निस्कनुहोस्',
   'quizPlay.feedback.correct': '🔥 स्पार्क कमाइयो — अर्कोमा!',
+  'quizPlay.feedback.incorrect': 'उत्तर {{correct}} थियो। जारी राख्नुहोस्।',
   'quizPlay.loading': 'क्विज लोड गर्दै...',
   'quizPlay.next': 'अर्को प्रश्न',
   'quizPlay.questionCounter': 'प्रश्न {{current}} को {{total}}',
   'quizPlay.score': '{{score}} अंकहरू',
+  'quizPlay.seeResults': 'नतिजा हेर्नुहोस्',
   'quizPlay.sessionFailed': 'सत्र सुरु गर्न सकिएन।',
   'quizPlay.streak': '{{count}} स्ट्रिक',
+  'resetPassword.subhead': 'आफ्नो स्ट्रिकमा फर्किन नयाँ पासवर्ड छान्नुहोस्।',
   'results.backToDiscover': 'डिस्कभरमा फर्कनुहोस्',
   'results.error': 'परिणामहरू लोड गर्न सकिएन।',
   'results.exit': 'डिस्कभरमा फर्कनुहोस्',
   'results.loading': 'तपाईंको स्कोरको तालिका मिलाउँदै...',
   'results.missingSession': 'संक्षेप गर्न कुनै सत्र छैन।',
+  'results.recap.correctAnswer': 'सही: {{answer}}',
   'results.recap.questionLabel': 'प्रश्न {{number}}',
   'results.recap.title': 'प्रश्नको सारांश',
+  'results.recap.yourAnswer': 'तपाईं: {{answer}}',
   'results.unknownQuiz': 'क्विज',
   'scoreBreakdownCard.accuracyLabel': 'शुद्धता',
+  'scoreBreakdownCard.correctLabel': 'सही',
   'scoreBreakdownCard.eyebrow': 'क्विज पूरा भयो',
   'scoreBreakdownCard.headline': '"मा राम्रो काम" {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'अंकहरू',
   'scoreBreakdownCard.rankLabel': 'श्रेणी',
+  'scoreBreakdownCard.streakBonus': 'स्ट्रिक बोनस +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'तपाईंको चमक देखिँदैछ। लिडरबोर्डमा माथि चढिरहन तलको विवरण हेर्नुहोस्।',
   'settings.danger.body':
     'तपाईंको Sparq खाता र सबै सिर्जना गरिएका क्विजहरू स्थायी रूपमा हटाउनुहोस्।',
   'settings.danger.confirm': 'हो, सदाको लागि मेटाउनुहोस्',
@@ -189,5 +233,7 @@ export const ui: UiTranslations = {
     'तपाईंले प्रकाशित गर्नुभएको सामग्री, तपाईंले लेख्नुभएका प्रश्नहरू, र तपाईंले होस्ट गर्नुभएका कुनै पनि खेलहरूको लागि तपाईं जिम्मेवार हुनुहुन्छ। अरू मानिसहरूको नक्कल नगर्नुहोस्।',
   'terms.billing.body':
     'सशुल्क योजनाहरू सेटिङहरूबाट रद्द नभएसम्म स्वचालित रूपमा नवीकरण हुन्छन्। तपाईं जुनसुकै बेला रद्द गर्न सक्नुहुन्छ; हालको बिलिङ अवधिको अन्त्यसम्म पहुँच जारी रहन्छ।',
+  'terms.intro':
+    '{{app}} प्रयोग गरेर तपाईं तलका नियमहरूमा सहमत हुनुहुन्छ। यदि तपाईं तिनलाई स्वीकार गर्न सक्नुहुन्न भने, कृपया सेवा प्रयोग नगर्नुहोस्।',
   'terms.title': 'सेवाका सर्तहरू',
 }

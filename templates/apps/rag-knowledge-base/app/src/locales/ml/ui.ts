@@ -1,13 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ ഞങ്ങൾ ഇതുവരെ പിന്തുണയ്ക്കാത്ത ഒരു കണക്ടർ വേണോ? നിങ്ങളുടെ അക്കൗണ്ടിൽ നിന്ന് {{appName}} ടീമിനെ സമീപിക്കുക — ഓരോ സന്ദേശവും ഉൽപ്പന്നത്തിൽ പ്രവർത്തിക്കുന്ന ഒരു യഥാർത്ഥ മനുഷ്യനിലേക്ക് എത്തുന്നു.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.intro':
+    '{{appName}} ഒരു retrieval-augmented നോളജ് ബേസ് ആണ്. ഇത് നിങ്ങളുടെ ടീമിന്റെ ഡോക്യുമെന്റുകളും വിക്കികളും ചാറ്റ് ലോഗുകളും ഒരു സെമാന്റിക് മെമ്മറിയിലേക്ക് ഇൻഡക്സ് ചെയ്യുന്നു, തുടർന്ന് ലളിതമായ ഇംഗ്ലീഷിൽ ചോദ്യങ്ങൾക്ക് ഉത്തരം നൽകുന്നു — ഓരോ ഉത്തരത്തിലും കൃത്യമായ ഉറവിടത്തിലേക്ക് ലിങ്ക് ചെയ്ത സൈറ്റേഷനുകളോടെ.',
+  'about.missionBody':
+    'അറിവ് ചിതറിക്കിടക്കുന്ന ടൂളുകളിൽ പൂട്ടിയിടരുത്, അല്ലെങ്കിൽ ആരും വിശ്വസിക്കാത്ത സെർച്ച് ഫലങ്ങളിൽ കുഴിച്ചിടരുത്. ഓരോ ഉത്തരവും തൽക്ഷണവും കൃത്യവും പരിശോധനായോഗ്യവുമായിരിക്കണം എന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു — അങ്ങനെ ടീമുകൾക്ക് ഡോക്യുമെന്റുകളിൽ തിരയുന്നത് നിർത്തി അവർക്ക് ഇതിനകം അറിയാവുന്നത് ഓർത്തെടുക്കാൻ കഴിയും.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.pageTitle': 'കുറിച്ച് {{appName}}',
   'analytics.error': 'അനലിറ്റിക്സ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'analytics.heading': 'വീണ്ടെടുക്കൽ അനലിറ്റിക്സ്',
   'analytics.last30Days': '30 ദിവസം',
   'analytics.loading': 'അനലിറ്റിക്സ് ലോഡുചെയ്യുന്നു\\u2026',
   'analytics.metric.latency': 'P50 ലേറ്റൻസി',
+  'analytics.metric.queriesPerAsker': 'ക്വറികൾ / ചോദിക്കുന്നയാൾ',
   'analytics.metric.relevance': 'ശരാശരി പ്രസക്തി',
   'analytics.metric.totalQueries': 'ആകെ അന്വേഷണങ്ങൾ',
   'analytics.metric.unanswered': 'ഉത്തരം ലഭിക്കാത്തത്',
@@ -23,6 +31,7 @@ export const ui: UiTranslations = {
   'answerCard.eyebrow': 'ചോദ്യം',
   'ask.empty':
     'നിങ്ങളുടെ സൂചികയിലാക്കിയ പ്രമാണങ്ങളിൽ നിന്ന് എടുത്ത ഒരു ഉദ്ധരിച്ച ഉത്തരം കാണാൻ ഒരു ചോദ്യം ചോദിക്കുക.',
+  'ask.error.failed': 'അസിസ്റ്റന്റിനെ സമീപിക്കാൻ കഴിഞ്ഞില്ല.',
   'ask.error.noAnswer': 'മോഡൽ മറുപടി നൽകിയില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'ask.eyebrow': 'ഇന്നത്തെ സെമാന്റിക് ചോദ്യോത്തരം',
   'ask.heading': 'നിങ്ങളുടെ അറിവിന്റെ അടിത്തറയോട് ചോദിക്കുക',
@@ -30,7 +39,9 @@ export const ui: UiTranslations = {
   'ask.metric.latencyCaption': 'ഉൾച്ചേർക്കൽ + വീണ്ടെടുക്കൽ + ജനറേഷൻ',
   'ask.metric.relevance': 'ടോപ്പ്-1 പ്രസക്തി',
   'ask.placeholder': 'നിങ്ങളുടെ വിജ്ഞാന അടിത്തറയെക്കുറിച്ച് എന്തും ചോദിക്കൂ\\u2026',
+  'ask.recent.heading': 'സമീപകാല ചോദ്യങ്ങൾ',
   'ask.searching': 'തിരയുന്നു\\u2026',
+  'ask.shortcut': '\\u2318K',
   'ask.subheading':
     'ലളിതമായ ഭാഷയിലുള്ള ചോദ്യങ്ങൾ. ഉദ്ധരിച്ച ഉത്തരങ്ങൾ. പൊരുത്തപ്പെടുന്ന ഭാഗം പ്രിവ്യൂ ചെയ്യാൻ ഏതെങ്കിലും ഉറവിടത്തിൽ ഹോവർ ചെയ്യുക.',
   'ask.submit': 'ചോദിക്കുക',
@@ -63,6 +74,7 @@ export const ui: UiTranslations = {
   'documentDetail.chunks.heading': 'സൂചികയിലാക്കിയ ചങ്കുകൾ',
   'documentDetail.col.content': 'ഉള്ളടക്ക പ്രിവ്യൂ',
   'documentDetail.col.heading': 'തലക്കെട്ട്',
+  'documentDetail.col.index': '#',
   'documentDetail.col.tokens': 'ടോക്കണുകൾ',
   'documentDetail.fts': 'പോസ്റ്റ്ഗ്രെസ്ക്യുഎൽ എഫ്ടിഎസ് റിട്രീവർ',
   'documentDetail.loading': 'പ്രമാണം ലോഡുചെയ്യുന്നു\\u2026',
@@ -72,8 +84,12 @@ export const ui: UiTranslations = {
   'documentDetail.notFound': 'പ്രമാണം കണ്ടെത്തിയില്ല.',
   'documentDetail.uploadedSource': 'മാനുവൽ അപ്‌ലോഡ്',
   'documents.closePaste': 'കമ്പോസർ അടയ്ക്കുക',
+  'documents.composer.bodyPlaceholder':
+    'മാർക്ക്ഡൗൺ അല്ലെങ്കിൽ പ്ലെയിൻ ടെക്സ്റ്റ് പേസ്റ്റ് ചെയ്യുക…',
   'documents.composer.save': 'സൂചിക പ്രമാണം',
+  'documents.composer.saving': 'സൂചികയിലാക്കുന്നു...',
   'documents.composer.titlePlaceholder': 'പ്രമാണത്തിന്റെ പേര്',
+  'documents.empty': 'ആ ഫിൽട്ടറുകളുമായി പൊരുത്തപ്പെടുന്ന ഡോക്യുമെന്റുകളില്ല.',
   'documents.emptyAll':
     'ഇതുവരെ ഡോക്യുമെന്റുകളൊന്നുമില്ല. ചോദ്യങ്ങൾ ചോദിക്കാൻ ഒന്ന് അപ്‌ലോഡ് ചെയ്യുക.',
   'documents.error.load': 'പ്രമാണങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
@@ -91,11 +107,14 @@ export const ui: UiTranslations = {
   'documents.uploadFailed': 'അപ്‌ലോഡ് പരാജയപ്പെട്ടു.',
   'documents.uploading': 'അപ്‌ലോഡ് ചെയ്യുന്നു...',
   'engramHeroCard.change': '{{sign}}{{amount}} ഇന്നലത്തേതുമായി താരതമ്യം ചെയ്യുമ്പോൾ %',
+  'engramHeroCard.relevance': 'ഉദ്ധരിച്ച ഉത്തരങ്ങളിലുടനീളം ശരാശരി ടോപ്പ്-1 പ്രസക്തി {{value}}%',
   'engramHeroCard.title': 'ഇന്ന് ഉത്തരം ലഭിച്ച ചോദ്യങ്ങൾ',
   'engramLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
+  'forgotPassword.backToSignIn': '\\u2190 സൈൻ ഇന്നിലേക്ക് മടങ്ങുക',
   'forgotPassword.sentBody':
     'അത് കാണുന്നില്ലെങ്കിൽ, നിങ്ങളുടെ സ്പാം ഫോൾഡർ പരിശോധിക്കുക. ലിങ്ക് 30 മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും.',
   'forgotPassword.sentSubtitle': '\\u2190 സൈൻ ഇൻ എന്നതിലേക്ക് മടങ്ങുക',
+  'forgotPassword.submitting': 'അയയ്ക്കുന്നു\\u2026',
   'forgotPassword.subtitle': 'റീസെറ്റ് ലിങ്ക് ലഭിക്കാൻ നിങ്ങളുടെ ഇമെയിൽ നൽകുക.',
   'graph.cluster.all': 'എല്ലാ ക്ലസ്റ്ററുകളും',
   'graph.empty':
@@ -103,6 +122,8 @@ export const ui: UiTranslations = {
   'graph.error': 'നോളജ് ഗ്രാഫ് ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'graph.eyebrow': 'സെമാന്റിക് ഗ്രാഫ്',
   'graph.heading': 'വിജ്ഞാന ഗ്രാഫ്',
+  'graph.legend':
+    'ബന്ധപ്പെട്ട ഡോക്യുമെന്റുകൾ ഹൈലൈറ്റ് ചെയ്യാൻ ഒരു ക്ലസ്റ്റർ ഫിൽട്ടറിൽ ക്ലിക്ക് ചെയ്യുക',
   'graph.loading': 'നോളജ് ഗ്രാഫ് ലോഡ് ചെയ്യുന്നു\\u2026',
   'graph.metric.clusters': 'ക്ലസ്റ്ററുകൾ',
   'graph.metric.edges': 'അരികുകൾ',
@@ -114,19 +135,30 @@ export const ui: UiTranslations = {
   'graph.svgAria': 'വിജ്ഞാന ഗ്രാഫ് ദൃശ്യവൽക്കരണം',
   'history.empty.all':
     'നിങ്ങൾ ഇതുവരെ ചോദ്യങ്ങളൊന്നും ചോദിച്ചിട്ടില്ല. ആരംഭിക്കാൻ Ask സന്ദർശിക്കുക.',
+  'history.empty.filtered': 'ആ തിരയലുമായി പൊരുത്തപ്പെടുന്ന മുൻ ചോദ്യങ്ങളില്ല.',
   'history.error.load': 'ചരിത്രം ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'history.heading': 'ചോദ്യോത്തര ചരിത്രം',
+  'history.loading': 'ചരിത്രം ലോഡ് ചെയ്യുന്നു\\u2026',
   'history.noAnswer': '(ഉത്തരം രേഖപ്പെടുത്തിയിട്ടില്ല)',
   'history.searchPlaceholder': 'പഴയ ചോദ്യങ്ങളും ഉത്തരങ്ങളും തിരയുക\\u2026',
   'history.subheading': 'നീ ചോദിച്ച ഓരോ ചോദ്യവും തിരിച്ചു വന്ന ഉദ്ധരിച്ച ഉത്തരവും.',
+  'landing.copyright':
+    '\\u00a9 {{year}} {{app}}. തങ്ങളുടെ ജോലി ഉദ്ധരിക്കുന്ന ടീമുകൾക്കായി നിർമ്മിച്ചത്.',
   'landing.ctaBody':
     '14 ദിവസത്തെ ട്രയൽ. ക്രെഡിറ്റ് കാർഡ് ഇല്ല. നോഷൻ, ഡ്രൈവ്, കൺഫ്ലുവൻസ്, സ്ലാക്ക്, ഗിറ്റ്ഹബ് എന്നിവയിലേക്ക് 5 മിനിറ്റിനുള്ളിൽ കണക്റ്റ് ചെയ്യുന്നു.',
   'landing.ctaHeading': 'തിരയുന്നത് നിർത്തൂ. ഓർമ്മിക്കാൻ തുടങ്ങൂ.',
   'landing.eyebrow': 'വീണ്ടെടുക്കൽ \\u00b7 ഉൾച്ചേർക്കലുകൾ \\u00b7 ഉദ്ധരിച്ച ചോദ്യോത്തരങ്ങൾ',
   'landing.featuresHeading': 'സ്വയം വിശദീകരിക്കുന്ന അറിവ്',
+  'landing.heroSubtitle':
+    '{{appName}} നിങ്ങളുടെ ഡോക്സുകളും വിക്കികളും ചാറ്റ് ലോഗുകളും ഒരു സെമാന്റിക് മെമ്മറിയിലേക്ക് ഇൻഡക്സ് ചെയ്യുന്നു. ലളിതമായ ഇംഗ്ലീഷിൽ എന്തും ചോദിക്കുക; കൃത്യമായ ഖണ്ഡികയിലേക്ക് ലിങ്ക് ചെയ്ത സൈറ്റേഷനുകളോടെ ഒരു ഉത്തരം നേടുക.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleAnswer':
+    'വാർഷിക പ്ലാനുകൾക്ക് 30 ദിവസത്തിനുള്ളിൽ ആനുപാതികമായ റീഫണ്ടിന് അർഹതയുണ്ട്, കസ്റ്റമർ ഉടമ്പടിയിലെ റീഫണ്ട് പോളിസി വിഭാഗം അനുസരിച്ച്',
   'landing.sampleCardLabel': 'ഇന്നത്തെ \\u00b\\u003e ചോദ്യോത്തരം',
   'landing.sampleQuestion':
     '\\u201cവാർഷിക ഉപഭോക്താക്കൾക്കുള്ള ഞങ്ങളുടെ റീഫണ്ട് നയം എന്താണ്?\\u201d',
+  'landing.sampleSourcesLabel': 'ഉറവിടങ്ങൾ',
+  'login.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
   'login.passwordPlaceholder':
     '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'login.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
@@ -158,11 +190,16 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': 'വീണ്ടെടുക്കാൻ കഴിയില്ല',
   'notFound.title': 'സൂചികയിൽ അത്തരമൊരു ഭാഗം ഇല്ല.',
   'notifications.dismiss': 'നിരസിക്കുക',
+  'notifications.error.delete': 'അറിയിപ്പ് ഡിസ്മിസ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'notifications.error.update': 'അറിയിപ്പ് വായിച്ചതായി അടയാളപ്പെടുത്താൻ കഴിഞ്ഞില്ല.',
+  'notifications.loading': 'അറിയിപ്പുകൾ ലോഡ് ചെയ്യുന്നു\\u2026',
   'notifications.markRead': 'വായിച്ചതായി അടയാളപ്പെടുത്തുക',
   'notifications.subheading': 'അറിയിപ്പുകൾ ലോഡ് ചെയ്യുന്നു\\u2026',
+  'resetPassword.backToSignIn': '\\u2190 സൈൻ ഇന്നിലേക്ക് മടങ്ങുക',
   'resetPassword.confirmPlaceholder':
     '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
+  'resetPassword.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
+  'resetPassword.mismatch': 'പാസ്‌വേഡുകൾ പൊരുത്തപ്പെടുന്നില്ല.',
   'resetPassword.passwordLabel': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.passwordPlaceholder':
     '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
@@ -173,11 +210,17 @@ export const ui: UiTranslations = {
   'settings.apiKeys.col.created': 'സൃഷ്ടിച്ചു',
   'settings.apiKeys.col.lastUsed': 'അവസാനം ഉപയോഗിച്ചത്',
   'settings.apiKeys.col.name': 'ലേബൽ',
+  'settings.apiKeys.copyNow': 'ഇത് കോപ്പി ചെയ്യുക — ഇത് വീണ്ടും കാണില്ല',
+  'settings.apiKeys.create': 'പുതിയ കീ സൃഷ്ടിക്കുക',
   'settings.apiKeys.createFailed': 'കീ സൃഷ്ടിക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
   'settings.apiKeys.description':
     'നിങ്ങളുടെ സേവനങ്ങളിൽ നിന്ന് /v1/qa/ask, /v1/documents, /v1/sources എന്നിവയിലേക്ക് വിളിക്കാൻ ഇവ ഉപയോഗിക്കുക.',
+  'settings.apiKeys.empty':
+    'ഇതുവരെ API കീകളില്ല — {{appName}} API വിളിക്കാൻ ഒന്ന് ജനറേറ്റ് ചെയ്യുക.',
   'settings.apiKeys.labelPlaceholder': 'ഉത്പാദനം / സ്റ്റേജിംഗ് / CI',
+  'settings.apiKeys.new': 'പുതിയ API കീ',
   'settings.apiKeys.revokeFailed': 'കീ പിൻവലിക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'settings.apiKeys.title': 'API കീകൾ',
   'settings.profile.description':
     'നിങ്ങളുടെ ടീമിന് പൊതുവായത് — നിങ്ങളുടെ ചോദ്യങ്ങൾക്ക് അടുത്തായി ദൃശ്യമാകും.',
   'settings.profile.saveFailed': 'പ്രൊഫൈൽ സംരക്ഷിക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
@@ -196,7 +239,9 @@ export const ui: UiTranslations = {
   'signup.confirmPlaceholder':
     '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'signup.firstNamePlaceholder': 'അഡ',
+  'signup.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
   'signup.lastNamePlaceholder': 'ലവ്ലേസ്',
+  'signup.mismatch': 'പാസ്‌വേഡുകൾ പൊരുത്തപ്പെടുന്നില്ല.',
   'signup.passwordPlaceholder':
     '\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022\\u2022',
   'signup.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
@@ -212,10 +257,12 @@ export const ui: UiTranslations = {
   'sourceDetail.loading': 'ഉറവിടം ലോഡ് ചെയ്യുന്നു\\u2026',
   'sourceDetail.metric.created': 'സൃഷ്ടിച്ചു',
   'sourceDetail.metric.docs': 'ലിങ്ക് ചെയ്‌ത ഡോക്‌സ്',
+  'sourceDetail.metric.lastSync': 'അവസാന സമന്വയം',
   'sourceDetail.notFound': 'ഉറവിടം കണ്ടെത്തിയില്ല.',
   'sourceDetail.sync.busy': 'സമന്വയിപ്പിക്കുന്നു\\u2026',
   'sourceDetail.sync.now': 'ഇപ്പോൾ സമന്വയിപ്പിക്കുക',
   'sources.activeHeading': 'സജീവ കണക്ടറുകൾ',
+  'sources.add': 'ഉറവിടം ചേർക്കുക',
   'sources.add.heading': 'ഒരു പുതിയ ഉറവിടം ചേർക്കുക',
   'sources.add.label': 'ലേബൽ',
   'sources.add.labelPlaceholder': 'എന്റെ ഡോക്യുമെന്റേഷൻ സൈറ്റ്',

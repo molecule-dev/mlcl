@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'মতামত আছে, বাগ পেয়েছেন, বা কোনো ফিচার সাজেস্ট করতে চান? আপনার অ্যাকাউন্ট সেটিংস থেকে জানান — প্রতিটি বার্তা টিমের একজন সত্যিকারের মানুষের কাছে পৌঁছায়।',
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
+  'about.featureDatabases':
+    'হালকা ডেটাবেস আর পুনর্ব্যবহারযোগ্য টেমপ্লেট, যা এলোমেলো নোটকে গোছানো ও পুনরাবৃত্তিযোগ্য ওয়ার্কফ্লোতে বদলে দেয়।',
+  'about.featureEditor':
+    'একটি শান্ত ব্লক এডিটর — হেডিং, লিস্ট, কোড, কলআউট আর টু-ডু — স্ল্যাশ-কমান্ড যখন চান তখন হাতের কাছে, আবার যখন চান না তখন একপাশে।',
+  'about.featureGraph':
+    'ব্যাকলিংক আর একটি নলেজ গ্রাফ: একটি নোট লিংক করতে [[ টাইপ করুন আর দেখুন সময়ের সাথে আপনার ভাবনাগুলো কীভাবে জুড়ে যায়।',
+  'about.featureNotebooks':
+    'নেস্টেড নোটবুক ও পেজ, যাতে প্রজেক্ট, টপিক আর দৈনিক নোট ঠিক আপনার ভাবার মতো করেই গোছানো থাকে।',
+  'about.featureSearch':
+    'প্রতিটি নোটবুকে ৫০ মিলিসেকেন্ডেরও কম সময়ে ফুল-টেক্সট সার্চ, সাথে ট্যাগ যা নোটবুকের সাথে মিলে যায়, লড়াই করে না।',
+  'about.missionTitle': 'আমাদের লক্ষ্য',
   'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'forgot.eyebrow': 'ফেরার পথ হারিয়ে ফেলেছেন?',
   'forgot.formSubtitle': 'আমাদের কাছে সংরক্ষিত ইমেল ঠিকানাটি জানান।',
+  'forgot.formTitle': 'পাসওয়ার্ড ভুলে গেছেন',
   'forgot.headline': 'আপনার পাসওয়ার্ড পুনরায় সেট করুন।',
   'forgot.subline':
     'আমরা আপনার ইনবক্সে একটি এককালীন লিঙ্ক পাঠাবো, যাতে আপনি একটি নতুন বেছে নিতে পারেন।',
+  'forgot.successDetail':
+    'আমরা আপনার ইমেইলে একটি রিসেট লিংক পাঠিয়েছি। এটি ৩০ মিনিটে মেয়াদোত্তীর্ণ হবে।',
   'graph.eyebrow': 'গ্রাফ',
+  'graph.goToNotes': 'নোট ব্রাউজ করুন →',
+  'graph.loadError': 'গ্রাফ লোড করা যায়নি: {{message}}',
   'graph.placeholderBody':
     'যখন নোটগুলো একে অপরের সাথে লিঙ্ক করা শুরু করবে ([[wiki]] সিনট্যাক্স ব্যবহার করে), তখন এখানে একটি ইন্টারেক্টিভ ফোর্স-ডিরেক্টেড গ্রাফ রেন্ডার হবে।',
+  'graph.placeholderTitle': 'ব্যাকলিংক গ্রাফ শীঘ্রই আসছে',
   'graph.subtitle':
     '{{count}} এই ওয়ার্কস্পেসে নোটগুলো রয়েছে। নোটগুলো একে অপরের সাথে লিঙ্ক করা হলে এখানে ব্যাকলিঙ্ক গ্রাফ রেন্ডারিং দেখা যাবে।',
   'graph.title': 'জ্ঞান গ্রাফ',
   'home.empty': 'এখনো কোনো নোট তৈরি হয়নি — আপনার প্রথমটি শুরু করুন।',
   'home.favoritesHeading': 'পিন করা',
   'home.guest': 'বন্ধু',
+  'home.loadError': 'আপনার নোট লোড করা যায়নি: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'নোটটি এখানে রাখার জন্য এডিটরে পিন করুন।',
   'home.recentHeading': 'সম্প্রতি আপডেট করা হয়েছে',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'নোটবুক',
   'home.stats.pinned.label': 'পিন করা',
   'home.stats.updatedToday.label': 'আজ আপডেট করা হয়েছে',
+  'home.subtitle': 'যেখানে ছেড়েছিলেন সেখান থেকেই শুরু করুন, বা একটি নতুন নোট খুলুন।',
   'home.viewAll': 'সমস্ত নোট দেখুন',
   'landing.cta.body':
     'ব্যক্তিগত ব্যবহারের জন্য বিনামূল্যে। টিমের জন্য প্রো। আপনার বিদ্যমান মার্কডাউন ব্যবহার করুন অথবা নতুন করে শুরু করুন — আপনার নোট যেখানেই থাকুক না কেন, ভার্সো আপনার পাশেই রয়েছে।',
+  'landing.cta.button': 'আমার কর্মক্ষেত্র তৈরি করুন',
   'landing.cta.heading': 'আজকের পৃষ্ঠাটি খুলুন।',
   'landing.features.eyebrow': 'আপনার দ্বিতীয় মস্তিষ্কের প্রয়োজনীয় প্রতিটি আদিম উপাদান',
+  'landing.features.heading': 'কাজের জন্য নির্মিত, তাত্ত্বিক বা তাত্ত্বিক কাজের জন্য নয়।',
   'landing.hero.eyebrow': 'একটি শান্ত লেখার পৃষ্ঠতল',
   'landing.hero.headlineAccent': 'আকার ধারণ করা',
   'landing.hero.headlineLeading': 'যেখানে চিন্তা',
   'landing.hero.primaryCta': 'আপনার জ্ঞানভান্ডার শুরু করুন',
   'landing.hero.secondaryCta': 'আমার ইতিমধ্যেই একটি অ্যাকাউন্ট আছে।',
+  'landing.hero.socialProof': '১২,৮০০+ লেখক, শিক্ষার্থী ও পিএইচডি {{appName}} দিয়ে ভাবেন',
   'landing.hero.subline':
     'ভার্সো হলো জ্ঞানকর্মী ও শিক্ষার্থীদের জন্য একটি সুসংগঠিত নোট নেওয়ার প্ল্যাটফর্ম। ব্লক এডিটর, নেস্টেড নোটবুক, ব্যাকলিঙ্ক এবং নলেজ গ্রাফ—এই সবকিছুই টাইপোগ্রাফিকে প্রাধান্য দেওয়া এক পাঠ অভিজ্ঞতার আবহে রয়েছে।',
+  'landing.preview.notebook': 'জ্ঞান · লেখার প্রক্রিয়া',
+  'landing.preview.title': 'খসড়াগুলোকে শ্বাস নিতে দেওয়ার বিষয়ে',
   'login.eyebrow': 'ভার্সোতে আপনাকে আবার স্বাগতম।',
   'login.formSubtitle': 'আপনার ইমেল বা সংযুক্ত যেকোনো পরিষেবা প্রদানকারী ব্যবহার করুন।',
   'login.headline': 'পৃষ্ঠাটি যেখানে থেমেছিল সেখান থেকে আবার শুরু করুন।',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
   'mobileNav.openMenu': 'নেভিগেশন মেনু খুলুন',
   'noteEditor.backToNotes': 'নোটে ফিরে যান',
+  'noteEditor.bodyLabel': 'নোটের মূল অংশ',
   'noteEditor.bodyPlaceholder':
     'লিখতে শুরু করুন — টাইপ করার সাথে সাথে আপনার নোটটি স্বয়ংক্রিয়ভাবে সেভ হয়ে যাবে।',
   'noteEditor.confirmTrash': 'এই নোটটি ট্র্যাশে সরাবেন?',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'আবর্জনায় সরান',
   'noteEditor.updated': 'আপডেট করা হয়েছে',
   'notes.defaultWorkspaceName': 'আমার নোটবুক',
+  'notes.empty': 'এখানে এখনো কোনো নোট নেই — নোটবুক ভরাতে একটি শুরু করুন।',
   'notes.eyebrow': 'নোটবুক',
   'notes.filterAll': 'সমস্ত নোট',
   'notes.filterPinned': 'পিন করা',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'নতুন নোটবুক',
   'notes.newNotebookPrompt': 'নতুন নোটবুকের নাম',
+  'notes.newNotebookRequired': 'একটি নোটবুকের নাম লিখুন।',
   'notes.notebooksHeading': 'নোটবুক',
   'notes.subtitle':
     "বাম দিক থেকে একটি নোটবুক বেছে নিন, তারপর নতুন করে লেখা শুরু করতে 'নতুন নোট' বোতামটি চাপুন।",
+  'planUpdated.body': 'আপনার সাবস্ক্রিপশন এখন সক্রিয়।',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'উন্নত বৈশিষ্ট্য',
   'pricing.heading': 'আপনার নোট নেওয়ার পরিকল্পনা বেছে নিন',
+  'reset.changedMind': 'মন পরিবর্তন করেছেন?',
   'reset.eyebrow': 'প্রায় ফিরে এসেছি',
   'reset.formSubtitle': 'সংরক্ষণ করা হয়ে গেলেই আপনি সাইন ইন হয়ে যাবেন।',
   'reset.headline': 'একটি নতুন পাসওয়ার্ড বেছে নিন।',
@@ -72,7 +105,9 @@ export const ui: UiTranslations = {
     'আমরা আপনাকে এইমাত্র যে কোডটি ইমেল করেছি সেটি প্রবেশ করান এবং স্মরণীয় কিছু বেছে নিন।',
   'reset.submit': 'সংরক্ষণ করুন এবং সাইন ইন করুন',
   'reset.tokenHint': 'আপনার ইনবক্স থেকে কপি করা।',
+  'search.empty': 'এই কোয়েরির সাথে এখনো কোনো নোট মেলে না।',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'অনুসন্ধান প্রতিসরণ',
   'search.loading': 'অনুসন্ধান করা হচ্ছে…',
   'search.noRecent': 'আপনার নোটগুলোর মধ্যে অনুসন্ধান শুরু করতে উপরে একটি কোয়েরি টাইপ করুন।',
   'search.recentLabel': 'সাম্প্রতিক অনুসন্ধান',
@@ -80,12 +115,19 @@ export const ui: UiTranslations = {
     'প্রতিটি নোটবুকে সম্পূর্ণ লেখা দেখুন। অনুসন্ধানের জন্য টাইপ করুন; টাইপ করার সাথে সাথে ফলাফল রিফ্রেশ হবে।',
   'search.title': 'দ্বিতীয় মস্তিষ্ক অনুসন্ধান করুন।',
   'settings.account.logout': 'লগ আউট',
+  'settings.account.title': 'অ্যাকাউন্টের বিবরণ',
+  'settings.editor.graphHover.body':
+    'এডিটরে একটি [[wikilink]]-এর উপর হোভার করলে ছোট একটি প্রিভিউ কার্ড দেখান।',
+  'settings.editor.graphHover.label': 'ব্যাকলিংক গ্রাফ হোভার প্রিভিউ',
   'settings.editor.lineHeight.body':
     'মূল রেখাগুলোর মধ্যে কতটা ফাঁকা জায়গা। ১৭০% হলো স্বাভাবিক পাঠের গতি।',
+  'settings.editor.lineHeight.label': 'লাইনের উচ্চতা',
   'settings.editor.serif.body':
     'রিডিং কলামের জন্য জর্জিয়া ফন্ট ব্যবহার করুন। সাইডবার এবং টুলবারে স্যানস-সেরিফ ফন্ট রাখুন।',
+  'settings.editor.serif.label': 'সেরিফ বডি টেক্সট',
   'settings.editor.title': 'টাইপোগ্রাফি এবং লেখার পৃষ্ঠতল',
   'settings.eyebrow': 'Verso · সেটিংস',
+  'settings.passwordModal.current': 'বর্তমান পাসওয়ার্ড',
   'settings.passwordModal.error':
     'পাসওয়ার্ড পরিবর্তন করা যায়নি — অনুগ্রহ করে আপনার বর্তমান পাসওয়ার্ডটি যাচাই করুন।',
   'settings.passwordModal.next': 'নতুন পাসওয়ার্ড',
@@ -95,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'প্রতিটি কীস্ট্রোক রিয়েলটাইম চ্যানেলের মাধ্যমে প্রেরণ করুন। ধীরগতির সংযোগের ক্ষেত্রে এটি নিষ্ক্রিয় করুন।',
   'settings.sync.auto.label': 'রিয়েলটাইম সিঙ্ক',
+  'settings.sync.title': 'আপনার নোট কীভাবে ভ্রমণ করে',
   'settings.theme.body':
     'আলো সম্পাদকীয় কলামকে উজ্জ্বল রাখে। সেপিয়া রঙ সন্ধ্যার জন্য পাতাকে উষ্ণতা দেয়।',
   'settings.theme.dark': 'অন্ধকার',
@@ -114,8 +157,12 @@ export const ui: UiTranslations = {
     'নোটের শিরোনামে #হ্যাশট্যাগ যোগ করুন (যেমন "পড়ার তালিকা #বই") এবং সেগুলি এখানে স্বয়ংক্রিয়ভাবে প্রদর্শিত হবে।',
   'tags.emptyTitle': 'এখনো কোনো ট্যাগ নেই',
   'tags.eyebrow': 'সূচী',
+  'tags.goToNotes': 'নোটে যান →',
+  'tags.loadError': 'ট্যাগ লোড করা যায়নি: {{message}}',
   'tags.subtitle':
     '{{tags}} ট্যাগ জুড়ে {{notes}} নোট। নোটের শিরোনামে #হ্যাশট্যাগ যোগ করুন এবং সেগুলি এখানে প্রদর্শিত হবে।',
+  'versoAuthShell.sample.body':
+    'আজ রাতে প্রথম ড্রাফটের চেয়ে কাল সকালের দ্বিতীয় পাঠ সবসময় ভালো লাগে। অসম্পূর্ণ লেখাটা ডিপ ওয়ার্ক ফোল্ডারে রেখে দিন…',
   'versoAuthShell.sample.label': 'দৈনিক নোট',
   'versoAuthShell.sample.timestamp': 'আজ · সকাল ৯:১৪',
   'versoAuthShell.sample.title': 'খসড়াগুলোকে শ্বাস নিতে দেওয়ার বিষয়ে',
@@ -127,8 +174,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'লেখা চালিয়ে যান',
   'versoTodayHero.createCta': 'আজকের নোট শুরু করুন',
   'versoTodayHero.dailyLabel': 'দৈনিক নোট',
+  'versoTodayHero.emptyHeadline': 'আজ একটি সাদা পাতা।',
   'versoTodayHero.emptySubline':
     'একটি ভাবনা লিখে রাখুন, মিটিংয়ের পরিকল্পনা টুকে নিন, বা আগামীকালের রূপরেখা আঁকুন। ভার্সো এর কাঠামোকে সংযত রাখে, ফলে এর লেখা হয়ে ওঠে জোরালো।',
+  'versoTodayHero.outlineLabel': 'আজকের রূপরেখা',
   'versoTodayHero.streak': '{{count}} -দিনের ধারা',
+  'versoTodayHero.unwritten': 'এখনো কোনো শব্দ নেই — শুরু করতে নোটটি খুলুন।',
   'versoTodayHero.wordCount': '{{count}} আজকের শব্দ',
 }

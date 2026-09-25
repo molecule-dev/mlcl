@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fragen zu einer Edition, einer Lieferung oder deinem Abo? Erreiche einen echten Menschen aus dem Team unter hello@crate.example — wir lesen jede Nachricht.',
+  'about.contactTitle': 'Mit einem Kurator sprechen',
+  'about.feature1':
+    'Monatlich kuratierte Editionen, handverlesen von unabhängigen Machern, mit der Geschichte hinter jedem Artikel.',
+  'about.feature2':
+    'Volle Kontrolle über jede Box — Inhalte anpassen, Artikel tauschen oder ausschließen, einen Monat überspringen oder deinen Rhythmus ändern.',
+  'about.feature3':
+    'Sendungsverfolgung von der Abholung bis zur Haustür, mit plastikfreier Verpackung und Live-Updates des Zustellers.',
+  'about.feature4':
+    'Flexible Tarife und transparente Abrechnung — upgrade, downgrade, pausieren oder kündigen jederzeit in deinem Dashboard.',
+  'about.intro':
+    '{{app}} ist ein kuratierter Abo-Box-Service, der dir jeden Monat eine handverlesene Freudenbox in kleiner Auflage vor die Tür liefert. Jede Edition wird von arbeitenden Machern zusammengestellt — unabhängige Künstler, Köche und kleine Marken — nicht von einem Algorithmus.',
+  'about.missionBody':
+    'Wir finden, ein Abo sollte sich wie ein Geschenk anfühlen, nicht wie eine Falle. {{app}} ist so gebaut, dass du bleibst, weil du liebst, was ankommt — pausiere jederzeit, tausche, was du möchtest, und kündige mit einem Klick. Nie Retention-Skripte.',
+  'about.missionTitle': 'Unsere Mission',
   'about.pageTitle': 'Über {{app}}',
   'appNav.mobileLabel': 'Hauptnavigation',
   'appNav.primaryLabel': 'Hauptnavigation',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Rechnungskontakt bearbeiten',
   'billing.contact.eyebrow': 'Rechnungskontakt',
   'billing.eyebrow': 'Plan & Zahlungen',
+  'billing.loading': 'Abrechnung wird geladen…',
   'billing.payment.body':
     'Die Zahlung wird über Stripe Checkout abgewickelt — Ihre vollständige Kartennummer berührt unsere Server nie. Klicken Sie auf einen Tier unten, um Ihre Karte hinzuzufügen oder zu aktualisieren.',
   'billing.payment.linked': 'Karte hinterlegt über Stripe',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Abonnement fortsetzen',
   'billing.plan.eyebrow': 'Aktiver Plan',
   'billing.plan.next': 'Erneuert sich automatisch am {{date}}.',
+  'billing.plan.status': 'Status: {{status}}',
   'billing.subtitle':
     'Verwalten Sie Ihren Tier, Ihre Zahlungsmethode und sehen Sie vergangene Aktivitäten ein.',
   'billing.tiers.body': 'Wählen Sie einen Tier und wir leiten Sie zu Stripe Checkout weiter.',
   'billing.tiers.choose': 'Auswählen',
+  'billing.tiers.empty': 'Noch keine Stufen konfiguriert.',
   'billing.tiers.heading': 'Verfügbare Tiers',
   'boxDetail.backToBoxes': 'Zurück zu allen Editionen',
   'boxDetail.crumb.boxes': 'Editionen',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Kuratiertes Stück',
   'boxDetail.items.heading': '{{count}} kuratierte Stücke',
   'boxDetail.itemsBadge': '{{count}} kuratierte Artikel pro Box',
+  'boxDetail.loading': 'Edition wird geladen…',
   'boxDetail.notFound': 'Diese Edition ist nicht mehr verfügbar.',
   'boxDetail.subscribe.success': 'Abonniert — Ihre erste Edition ist in der Warteschlange.',
   'boxDetail.swapBadge': 'Tauschen Sie bis zu {{count}} Artikel pro Box',
@@ -44,14 +64,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Nichts passt dazu.',
   'boxes.eyebrow': 'Das Crate-Archiv',
   'boxes.heading': 'Alle Editionen durchstöbern',
+  'boxes.loadError':
+    'Die Editionen konnten nicht geladen werden. Prüfe deine Verbindung und versuche es erneut.',
   'boxes.loading': 'Editionen werden geladen…',
+  'boxes.search.label': 'Editionen suchen',
   'boxes.search.placeholder': 'Editionen suchen…',
   'boxes.subtitle':
     'Jeder Tier ist eine kleine Geschichte. Fügen Sie eine zu Ihrer Warteschlange hinzu oder tauschen Sie sie in Ihren nächsten Monat.',
+  'boxThemeCard.itemCount': '{{count}} Einträge',
   'boxThemeCard.perMonth': '/ Monat',
+  'boxThemeCard.retailValue': 'Einzelhandelswert {{value}}',
   'common.goToDashboard': 'Zum Dashboard',
+  'common.retry': 'Erneut versuchen',
   'customize.eyebrow': 'Machen Sie es zu Ihrem',
   'customize.heading': 'Passen Sie Ihr nächstes Crate an',
+  'customize.items.empty': 'Für diese Stufe sind noch keine Artikel konfiguriert.',
   'customize.items.exclude': 'Überspringen',
   'customize.items.eyebrow': 'Diese Box personalisieren',
   'customize.items.heading': 'Artikel in {{box}}',
@@ -60,8 +87,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Wieder hinzufügen',
   'customize.items.save': 'Anpassung speichern',
   'customize.items.swapsLeft': '{{used}} von {{max}} Tauschen verwendet',
+  'customize.loading': 'Anpassung wird geladen…',
   'customize.noSub.body':
     'Abonnieren Sie zuerst einen Tier und kommen Sie dann zurück, um Artikel in Ihrer Box zu tauschen.',
+  'customize.noSub.cta': 'Editionen durchsuchen',
   'customize.noSub.heading': 'Kein aktives Abonnement',
   'customize.saved': 'Anpassung gespeichert.',
   'customize.subtitle':
@@ -75,11 +104,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Versand verfolgen',
   'dashboard.eyebrow': 'Ihr Crate',
   'dashboard.greeting': 'Willkommen zurück, {{name}}.',
+  'dashboard.loadError':
+    'Dein Dashboard konnte nicht geladen werden. Prüfe deine Verbindung und versuche es erneut.',
   'dashboard.loading': 'Dashboard wird geladen…',
   'dashboard.next.eyebrow': 'Ihre nächste Edition',
   'dashboard.onboarding.body':
     'Sie haben noch kein aktives Abonnement. Wählen Sie einen Tier, um jeden Monat ein Crate zu erhalten.',
   'dashboard.onboarding.cta': 'Alle Editionen durchstöbern',
+  'dashboard.onboarding.empty': 'Derzeit sind keine Pläne verfügbar. Schau bald wieder vorbei.',
   'dashboard.onboarding.heading': 'Wählen Sie Ihre erste Edition',
   'dashboard.renewal.amount': 'Berechnet',
   'dashboard.renewal.cadence': 'Kadenz',
@@ -87,18 +119,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Verlängerung',
   'dashboard.renewal.heading': 'Automatische Verlängerung am {{date}}',
   'dashboard.renewal.plan': 'Plan-Schlüssel',
+  'dashboard.renewal.tbd': 'Verlängerung wird in Kürze geplant',
   'dashboard.renewal.tier': 'Tier',
   'dashboard.stats.days': 'Tage',
   'dashboard.stats.daysToNext': 'Versand in',
   'dashboard.stats.items': 'Kuratierte Artikel',
   'dashboard.stats.shipDate': 'Versanddatum',
   'dashboard.stats.tbd': 'Wird noch festgelegt',
+  'dashboard.subtitle.active': 'Deine nächste Edition ist unterwegs. Das erwartet dich.',
+  'dashboard.subtitle.idle': 'Wähle ein Paket, um jeden Monat eine {{appName}} zu erhalten.',
   'forgotPassword.subtitle': 'Nennen Sie uns Ihre E-Mail und wir senden Ihnen einen Reset-Link.',
   'forgotPassword.success.body':
     'Wenn {{email}} Wenn Sie registriert sind, erhalten Sie innerhalb weniger Minuten einen Link zum Zurücksetzen des Kontos.',
   'forgotPassword.success.title': 'Prüfen Sie Ihren Posteingang.',
   'landing.editions.eyebrow': 'Diese Saison',
   'landing.editions.heading': 'Editionen, die unsere Kuratoren lieben',
+  'landing.editions.viewAll': 'Alle Editionen durchsuchen →',
   'landing.footer.contact': 'Mit einem Kurator sprechen',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Starten Sie Ihre Box →',
@@ -108,6 +144,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Ein Blick auf das Mitglieder-Dashboard — Countdown, Inhalte und Tracking.',
   'landing.hero.social.count': 'Geliebt von über {{count}} Abonnenten',
+  'landing.hero.social.rating': '{{rating}} Ø-Bewertung beim Auspacken',
+  'landing.hero.subhead':
+    '{{appName}} schickt dir eine handverlesene, kleine Box voller Freude von unabhängigen Machern. Jederzeit pausieren. Tausche, was du möchtest. Behalte, was du liebst.',
   'landing.nav.start': 'Starten Sie Ihre Box',
   'landing.tiers.eyebrow': 'Wählen Sie Ihre Kadenz',
   'landing.tiers.heading': 'Klein anfangen, jederzeit aufrüsten, genauso leicht kündigen.',
@@ -117,6 +156,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Melden Sie sich an, um einen Blick auf die nächste Monatsbox zu werfen.',
   'login.welcomeBack': 'Willkommen zurück, Kurator.',
   'nextBoxHeroCard.eyebrow': 'IHR NÄCHSTES CRATE',
+  'nextBoxHeroCard.itemCount': '{{count}} Teile enthalten',
   'nextBoxHeroCard.itemsLabel': 'Kuratierte Artikel',
   'nextBoxHeroCard.shipsOnLabel': 'Versand am',
   'notFound.body':
@@ -140,8 +180,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Abonnement pausieren',
   'settings.danger.paused': 'Abonnement pausiert.',
   'settings.danger.pausing': 'Pausieren…',
+  'settings.danger.status': 'Abo-Status: {{status}}',
   'settings.danger.subtitle':
     'Pausieren behält Ihren Tier und Ihre Historie bei. Kündigen stoppt zukünftige Sendungen und entfernt Ihre gespeicherten Zahlungsmethoden am Ende des Zyklus.',
+  'settings.notifications.saving': '· Wird gespeichert…',
   'settings.notifications.subtitle':
     'Wählen Sie, welche Signale Sie von Crate erhalten möchten. Die Standardwerte sind sinnvoll.',
   'settings.subtitle':
@@ -158,12 +200,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Noch keine aktive Sendung',
   'shipments.live.eyebrow': 'Aktive Sendung',
   'shipments.live.unnamed': 'Ihre nächste Box',
+  'shipments.loadError':
+    'Deine Sendungen konnten nicht geladen werden. Prüfe deine Verbindung und versuche es erneut.',
+  'shipments.loading': 'Sendungen werden geladen…',
+  'shipments.step.delivered': 'Geliefert',
   'shipments.step.deliveredBody': 'Verwenden Sie #crateunbox, um zu teilen, was Sie entdecken.',
   'shipments.step.ordered': 'Bestellung aufgegeben',
   'shipments.step.orderedBody':
     'Ihr Abonnement hat diese Edition für den nächsten Versandzyklus in die Warteschlange gestellt.',
+  'shipments.step.packed': 'Handverpackt',
   'shipments.step.packedBody':
     'Jedes Stück eingewickelt und mit einer handgeschriebenen Notiz in die Box gelegt.',
+  'shipments.step.transit': 'Unterwegs',
   'shipments.step.transitNot': 'Das Tracking erscheint hier, sobald Ihre Box unterwegs ist.',
   'shipments.subtitle':
     'Verfolgen Sie die Box auf ihrem Weg zu Ihnen und werfen Sie noch einmal einen Blick auf jede Edition, die Sie bereits ausgepackt haben.',

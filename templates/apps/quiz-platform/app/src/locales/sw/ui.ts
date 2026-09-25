@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Una maoni, umepata hitilafu, au unataka kuleta {{app}} shuleni kwako au kwa timu yako? Tunasoma kila ujumbe — wasiliana nasi kutoka kwenye mipangilio ya akaunti yako na mtu halisi atakujibu.',
   'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.intro':
+    '{{app}} ni jukwaa la maswali ya moja kwa moja kwa madarasa, jioni za michezo, na hafla za timu. Tengeneza pakiti za maswali za kufurahisha, andaa michezo ya wakati halisi kwa kutumia msimbo wa kujiunga, na uone chumba kikiwaka kwa maswali yenye muda, alama, na orodha za viongozi.',
+  'about.missionBody':
+    'Kujifunza hukaa akilini kunapofana na mchezo. Tunafanya iwe rahisi kwa mtu yeyote kubadilisha mada kuwa mchezo wa haraka na wa ushindani — ili waandaaji waweze kufundisha kwa vitendo na wachezaji waendelee na mfululizo.',
+  'about.missionTitle': 'Dhamira yetu',
   'about.title': 'Kuhusu {{app}}',
   'auth.login.noAccount': 'Mgeni kwa Sparq?',
   'auth.login.or': 'au endelea na',
@@ -17,11 +24,13 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Hakuna majaribio yanayolingana bado.',
   'discover.headline': 'Tafuta jaribio lako lijalo unalopenda zaidi.',
   'discover.loading': 'Inapakia…',
+  'discover.searchPlaceholder': 'Tafuta maswali kwa kichwa…',
   'discover.subhead':
     'Vinjari maktaba nzima, chuja kwa kategoria, au tafuta kwa kichwa. Bonyeza kadi ili kucheza peke yako au uandae moja kwa moja.',
   'forgotPassword.subhead': 'Ingiza barua pepe yako nasi tutakutumia kiungo cha kuweka upya.',
   'forgotPassword.success.body':
     'Ikiwa akaunti ipo kwa {{email}} , utapata kiungo cha kuweka upya baada ya dakika chache.',
+  'forgotPassword.success.title': 'Angalia kikasha chako cha barua pepe.',
   'hostLobby.back': 'Rudi kwenye jaribio',
   'hostLobby.copied': 'Nambari ya kujiunga imenakiliwa kwenye ubao wa kunakili.',
   'hostLobby.creating': 'Kuboresha ukumbi wako wa kushawishi…',
@@ -29,19 +38,25 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Ghairi ukumbi wa kushawishi',
   'hostLobby.players.count': '{{count}} moja kwa moja',
   'hostLobby.players.title': 'Wachezaji katika ukumbi',
+  'hostLobby.players.waiting': 'Inasubiri wachezaji. Shiriki msimbo {{code}} ili waweze kujiunga.',
   'hostLobby.rules.title': 'Sheria za nyumba',
   'hostLobby.startError': 'Haikuweza kuanza mchezo.',
   'hostLobby.starting': 'Kuanzisha cheche…',
   'joinCodeHero.headline': 'Waambie wachezaji wako waingie.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Au tembelea',
   'joinCodeHero.liveLabel': 'Kumbi moja kwa moja',
+  'joinCodeHero.playerJoined': '{{name}} amejiunga',
   'joinCodeHero.playersLabel': 'Wachezaji',
   'joinCodeHero.qrLabel': 'Changanua ili ujiunge',
   'joinCodeHero.startGame': 'Anza cheche',
   'joinCodeHero.subhead':
     'Shiriki msimbo wa kujiunga au changanua QR. Mchezo unaanza mara tu unapoanza.',
+  'landing.cta.button': 'Tengeneza jaribio lako la kwanza',
   'landing.cta.eyebrow': 'Bure kwa waelimishaji',
   'landing.cta.heading': 'Lete cheche katika kila somo.',
+  'landing.cta.subhead':
+    'Jisajili kwa sekunde 30. Andaa michezo ya moja kwa moja bila kikomo, andika maswali kwa AI, na uendelee kila mchezaji kwenye mfululizo.',
   'landing.eyebrow': 'Washa kila jibu',
   'landing.features.heading':
     'Studio ya majaribio inayolingana na jinsi unavyofundisha na kucheza.',
@@ -57,6 +72,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Majaribio maarufu',
   'landing.popular.eyebrow': 'Maarufu wiki hii',
   'landing.popular.heading': 'Waandaaji wa jaribio wanaendelea leo.',
+  'landing.popular.viewAll': 'Vinjari aina zote →',
+  'leaderboard.empty.body':
+    'Cheza jaribio ili kuweka alama zako kwenye orodha ya viongozi ya kimataifa.',
   'leaderboard.empty.title': 'Hakuna michezo kwenye ubao bado — kuwa wa kwanza.',
   'leaderboard.eyebrow': 'Ubao wa wanaoongoza',
   'leaderboard.fullRanking': 'Nafasi kamili',
@@ -64,6 +82,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Jumlisha alama katika kila kipindi cha jaribio ulichocheza. Panda kwa kucheza zaidi.',
   'leaderboard.title': 'Waalimu bora wa majaribio',
+  'leaderboard.totalPlayers': 'Wachezaji {{count}} waliorodheshwa',
   'leaderboardRow.points': 'pointi',
   'leaderboardRow.streak': '{{days}} d',
   'login.headline': 'Karibu tena, mwalimu wa maswali.',
@@ -75,10 +94,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Jenga jaribio lako la kwanza →',
   'myQuizzes.empty.created': 'Hujatengeneza jaribio bado.',
   'myQuizzes.empty.played': 'Hakuna majaribio yaliyochapishwa bado.',
+  'myQuizzes.loading': 'Inapakia…',
   'myQuizzes.subhead':
     'Rasimu ulizotengeneza, pamoja na majaribio yaliyochapishwa ambayo unaweza kucheza.',
   'myQuizzes.title': 'Majaribio yangu',
   'nav.legal': 'Kisheria',
+  'nav.primaryNavLabel': 'Usogezaji mkuu',
   'notFound.backHome': 'Kurudi nyumbani',
   'notFound.backToDiscover': 'Vinjari maswali',
   'notFound.body': 'Jaribu msimbo tofauti au rudi kwenye ukumbi.',
@@ -87,17 +108,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Inapakia…',
   'notifications.subhead':
     '{{count}} cheche ambazo hazijasomwa. Mialiko, hatua za ubao wa wanaoongoza, na mafanikio yote katika mkondo mmoja.',
+  'planUpdated.retry': 'Jaribu tena',
+  'planUpdated.verifyFailed': 'Hatukuweza kuthibitisha malipo yako bado.',
+  'planUpdated.verifyFailedBody':
+    'Huenda malipo yako bado yanashughulikiwa. Jaribu tena baada ya muda mfupi.',
   'planUpdated.verifying': 'Inathibitisha malipo yako…',
+  'pricing.advancedFeatures': 'Vipengele vya hali ya juu: {{yes}}',
+  'pricing.canExport': 'Usafirishaji wa data: {{yes}}',
   'pricing.checkoutError': 'Haikuweza kuanza kulipa. Tafadhali jaribu tena.',
   'pricing.heading': 'Chagua mpango wako wa {{app}}',
   'pricing.included': 'Imejumuishwa',
   'pricing.loadError': 'Haikuweza kupakia mipango.',
+  'pricing.maxQuestions': '{{count}} maswali',
   'pricing.maxQuizzes': '{{count}} majaribio',
+  'pricing.maxSessions': 'Vipindi {{count}}',
   'pricing.subhead':
     'Bure kwa wenyeji na wachezaji. Boresha kwa ajili ya mipaka ya juu na vipengele vya hali ya juu.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Akaunti: barua pepe, nenosiri lililoharakishwa, jina la kuonyesha, kuingia kwa mwisho.',
+  'privacy.intro':
+    '{{app}} inaheshimu faragha yako. Ukurasa huu unafupisha data tunayohifadhi, kwa nini tunaihifadhi, na jinsi ya kuiondoa.',
   'privacy.rights.body':
     'Futa akaunti yako kutoka kwa Mipangilio ili uondoe kabisa data yako yote ndani ya siku 30.',
   'privacy.share.body':
@@ -121,6 +152,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Kitambulisho cha jaribio: {{id}}',
   'quizBuilder.loadError': 'Haikuweza kupakia jaribio.',
   'quizBuilder.loading': 'Inapakia kihariri…',
+  'quizBuilder.markCorrect': 'Weka alama {{letter}} kama sahihi',
   'quizBuilder.noQuestions': 'Hakuna maswali bado — ongeza moja kuanza.',
   'quizBuilder.notFound': 'Jaribio halikupatikana.',
   'quizBuilder.preview': 'Tazama',
@@ -137,7 +169,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} kipima muda',
   'quizBuilder.title': 'Jenga jaribio lako',
   'quizBuilder.titleLabel': 'Kichwa cha jaribio',
+  'quizBuilder.untitled': 'Swali lisilo na kichwa',
   'quizCard.plays': '{{count}} michezo',
+  'quizCard.questionCount': 'Maswali {{count}}',
   'quizDetail.duration': '~ {{minutes}} dakika',
   'quizDetail.hostMultiplayer': 'Mwenyeji wa wachezaji wengi',
   'quizDetail.leaderboardEmpty': 'Hakuna michezo bado — kuwa wa kwanza kuweka alama.',
@@ -152,26 +186,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Rudi kwenye jaribio',
   'quizPlay.empty': 'Jaribio hili halina maswali bado.',
   'quizPlay.error': 'Haikuweza kupakia jaribio hili. Tafadhali jaribu tena.',
+  'quizPlay.exit': 'Toka',
   'quizPlay.feedback.correct': '🔥 Spark imepatikana — kwenye ijayo!',
+  'quizPlay.feedback.incorrect': 'Jibu lilikuwa {{correct}}. Endelea.',
   'quizPlay.loading': 'Inapakia jaribio…',
   'quizPlay.next': 'Swali linalofuata',
   'quizPlay.questionCounter': 'Swali {{current}} ya {{total}}',
   'quizPlay.score': '{{score}} pointi',
+  'quizPlay.seeResults': 'Ona matokeo',
   'quizPlay.sessionFailed': 'Haikuweza kuanzisha kipindi.',
   'quizPlay.streak': '{{count}} mstari',
+  'resetPassword.subhead': 'Chagua nenosiri jipya ili kurudi kwenye mfululizo wako.',
   'results.backToDiscover': 'Rudi kwenye Gundua',
   'results.error': 'Haikuweza kupakia matokeo.',
   'results.exit': 'Rudi kwenye Gundua',
   'results.loading': 'Kuhesabu alama zako…',
   'results.missingSession': 'Hakuna kipindi cha muhtasari.',
+  'results.recap.correctAnswer': 'Sahihi: {{answer}}',
   'results.recap.questionLabel': 'Swali {{number}}',
   'results.recap.title': 'Muhtasari wa swali',
+  'results.recap.yourAnswer': 'Wewe: {{answer}}',
   'results.unknownQuiz': 'Jaribio',
   'scoreBreakdownCard.accuracyLabel': 'Usahihi',
+  'scoreBreakdownCard.correctLabel': 'Sahihi',
   'scoreBreakdownCard.eyebrow': 'Jaribio Limekamilika',
   'scoreBreakdownCard.headline': 'Kazi nzuri " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Pointi',
   'scoreBreakdownCard.rankLabel': 'Cheo',
+  'scoreBreakdownCard.streakBonus': 'Bonasi ya mfululizo +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Cheche yako inaonekana. Pitia mchanganuo hapa chini ili kuendelea kupanda kwenye orodha ya viongozi.',
   'settings.danger.body': 'Ondoa kabisa akaunti yako ya Sparq na maswali yote yaliyoundwa.',
   'settings.danger.confirm': 'Ndiyo, futa milele',
   'settings.guest': 'Mgeni',
@@ -189,5 +233,7 @@ export const ui: UiTranslations = {
     'Unawajibika kwa maudhui unayochapisha, maswali unayoandika, na michezo yoyote unayoandaa. Usiige watu wengine.',
   'terms.billing.body':
     'Mipango ya kulipia husasishwa kiotomatiki hadi itakapoghairiwa kutoka kwa Mipangilio. Unaweza kughairi wakati wowote; ufikiaji unaendelea hadi mwisho wa kipindi cha sasa cha bili.',
+  'terms.intro':
+    'Kwa kutumia {{app}} unakubali sheria zilizo hapa chini. Ikiwa hauwezi kuzikubali, tafadhali usitumie huduma hii.',
   'terms.title': 'Sheria na Masharti',
 }

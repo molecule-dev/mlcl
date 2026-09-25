@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಒಂದು ಆವೃತ್ತಿ, ರವಾನೆ ಅಥವಾ ನಿಮ್ಮ ಚಂದಾದಾರಿಕೆಯ ಬಗ್ಗೆ ಪ್ರಶ್ನೆಗಳಿವೆಯೇ? hello@crate.example ನಲ್ಲಿ ತಂಡದ ನಿಜವಾದ ವ್ಯಕ್ತಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ — ನಾವು ಪ್ರತಿ ಸಂದೇಶವನ್ನೂ ಓದುತ್ತೇವೆ.',
+  'about.contactTitle': 'ಕ್ಯುರೇಟರ್ ಜೊತೆ ಮಾತನಾಡಿ',
+  'about.feature1':
+    'ಸ್ವತಂತ್ರ ತಯಾರಕರಿಂದ ಆಯ್ದುಕೊಳ್ಳಲಾದ ಮಾಸಿಕ ಆವೃತ್ತಿಗಳು, ಪ್ರತಿ ವಸ್ತುವಿನ ಹಿಂದಿನ ಕಥೆಯೊಂದಿಗೆ.',
+  'about.feature2':
+    'ಪ್ರತಿ ಪೆಟ್ಟಿಗೆಯ ಮೇಲೆ ಪೂರ್ಣ ನಿಯಂತ್ರಣ — ವಿಷಯಗಳನ್ನು ಕಸ್ಟಮೈಸ್ ಮಾಡಿ, ವಸ್ತುಗಳನ್ನು ಬದಲಾಯಿಸಿ ಅಥವಾ ಹೊರಗಿಡಿ, ಒಂದು ತಿಂಗಳು ಸ್ಕಿಪ್ ಮಾಡಿ, ಅಥವಾ ನಿಮ್ಮ ಆವರ್ತನವನ್ನು ಬದಲಾಯಿಸಿ.',
+  'about.feature3':
+    'ಪಿಕಪ್ನಿಂದ ಪೋರ್ಚ್ವರೆಗೆ ಎಂಡ್-ಟು-ಎಂಡ್ ರವಾನೆ ಟ್ರ್ಯಾಕಿಂಗ್, ಪ್ಲಾಸ್ಟಿಕ್-ಮುಕ್ತ ಪ್ಯಾಕೇಜಿಂಗ್ ಮತ್ತು ಲೈವ್ ಕ್ಯಾರಿಯರ್ ಅಪ್ಡೇಟ್ಗಳೊಂದಿಗೆ.',
+  'about.feature4':
+    'ಹೊಂದಿಕೊಳ್ಳುವ ಯೋಜನೆಗಳು ಮತ್ತು ಪಾರದರ್ಶಕ ಬಿಲ್ಲಿಂಗ್ — ಯಾವಾಗ ಬೇಕಾದರೂ ನಿಮ್ಮ ಡ್ಯಾಶ್ಬೋರ್ಡ್ನಿಂದ ಅಪ್ಗ್ರೇಡ್, ಡೌನ್ಗ್ರೇಡ್, ವಿರಾಮ ಅಥವಾ ರದ್ದು ಮಾಡಿ.',
+  'about.intro':
+    '{{app}} ಒಂದು ಕ್ಯುರೇಟೆಡ್ ಚಂದಾದಾರಿಕೆ-ಪೆಟ್ಟಿಗೆ ಸೇವೆಯಾಗಿದ್ದು, ಪ್ರತಿ ತಿಂಗಳು ನಿಮ್ಮ ಬಾಗಿಲಿಗೆ ಕೈಯಿಂದ ಆಯ್ದ, ಸಣ್ಣ-ಬ್ಯಾಚ್ ಸಂತೋಷದ ಪೆಟ್ಟಿಗೆಯನ್ನು ತಲುಪಿಸುತ್ತದೆ. ಪ್ರತಿ ಆವೃತ್ತಿಯನ್ನೂ ಕೆಲಸ ಮಾಡುವ ತಯಾರಕರು — ಸ್ವತಂತ್ರ ಕಲಾವಿದರು, ಬಾಣಸಿಗರು ಮತ್ತು ಸಣ್ಣ ಬ್ರ್ಯಾಂಡ್ಗಳು — ಜೋಡಿಸುತ್ತಾರೆ, ಅಲ್ಗಾರಿದಮ್ ಅಲ್ಲ.',
+  'about.missionBody':
+    'ಚಂದಾದಾರಿಕೆ ಬಲೆ ಅಲ್ಲ, ಉಡುಗೊರೆಯಂತೆ ಅನಿಸಬೇಕು ಎಂದು ನಾವು ನಂಬುತ್ತೇವೆ. {{app}} ಅನ್ನು ಹಾಗೆ ನಿರ್ಮಿಸಲಾಗಿದೆ — ಬರುವುದು ಇಷ್ಟವಾದ ಕಾರಣ ನೀವು ಉಳಿಯುತ್ತೀರಿ — ಯಾವಾಗ ಬೇಕಾದರೂ ವಿರಾಮ, ಬೇಕಾದದ್ದನ್ನು ಬದಲಾಯಿಸಿ, ಒಂದು ಕ್ಲಿಕ್ನಲ್ಲಿ ರದ್ದು ಮಾಡಿ. ಎಂದಿಗೂ ಧಾರಣಾ ಸ್ಕ್ರಿಪ್ಟ್ಗಳಿಲ್ಲ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
   'appNav.mobileLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'appNav.primaryLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'ಬಿಲ್ಲಿಂಗ್ ಸಂಪರ್ಕವನ್ನು ಸಂಪಾದಿಸಿ',
   'billing.contact.eyebrow': 'ಬಿಲ್ಲಿಂಗ್ ಸಂಪರ್ಕ',
   'billing.eyebrow': 'ಯೋಜನೆ ಮತ್ತು ಪಾವತಿಗಳು',
+  'billing.loading': 'ಬಿಲ್ಲಿಂಗ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'billing.payment.body':
     'ಪಾವತಿಯನ್ನು ಸ್ಟ್ರೈಪ್ ಚೆಕ್ಔಟ್ ನಿರ್ವಹಿಸುತ್ತದೆ - ನಿಮ್ಮ ಪೂರ್ಣ ಕಾರ್ಡ್ ಸಂಖ್ಯೆ ನಮ್ಮ ಸರ್ವರ್‌ಗಳನ್ನು ಎಂದಿಗೂ ಮುಟ್ಟುವುದಿಲ್ಲ. ನಿಮ್ಮ ಕಾರ್ಡ್ ಸೇರಿಸಲು ಅಥವಾ ನವೀಕರಿಸಲು ಕೆಳಗಿನ ಯಾವುದೇ ಶ್ರೇಣಿಯನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ.',
   'billing.payment.linked': 'ಸ್ಟ್ರೈಪ್ ಮೂಲಕ ಫೈಲ್‌ನಲ್ಲಿರುವ ಕಾರ್ಡ್',
@@ -20,11 +37,13 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'ಚಂದಾದಾರಿಕೆಯನ್ನು ಪುನರಾರಂಭಿಸಿ',
   'billing.plan.eyebrow': 'ಸಕ್ರಿಯ ಯೋಜನೆ',
   'billing.plan.next': 'ಸ್ವಯಂಚಾಲಿತವಾಗಿ ನವೀಕರಣಗೊಳ್ಳುತ್ತದೆ {{date}} .',
+  'billing.plan.status': 'ಸ್ಥಿತಿ: {{status}}',
   'billing.subtitle':
     'ನಿಮ್ಮ ಶ್ರೇಣಿ, ಪಾವತಿ ವಿಧಾನವನ್ನು ನಿರ್ವಹಿಸಿ ಮತ್ತು ಹಿಂದಿನ ಚಟುವಟಿಕೆಯನ್ನು ಪರಿಶೀಲಿಸಿ.',
   'billing.tiers.body':
     'ಒಂದು ಶ್ರೇಣಿಯನ್ನು ಆರಿಸಿ, ನಾವು ನಿಮ್ಮನ್ನು ಸ್ಟ್ರೈಪ್ ಚೆಕ್‌ಔಟ್‌ಗೆ ಕರೆದೊಯ್ಯುತ್ತೇವೆ.',
   'billing.tiers.choose': 'ಆಯ್ಕೆಮಾಡಿ',
+  'billing.tiers.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಶ್ರೇಣಿಗಳನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿಲ್ಲ.',
   'billing.tiers.heading': 'ಲಭ್ಯವಿರುವ ಶ್ರೇಣಿಗಳು',
   'boxDetail.backToBoxes': 'ಎಲ್ಲಾ ಆವೃತ್ತಿಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'boxDetail.crumb.boxes': 'ಆವೃತ್ತಿಗಳು',
@@ -37,6 +56,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'ಕ್ಯುರೇಟೆಡ್ ತುಣುಕು',
   'boxDetail.items.heading': '{{count}} ಸಂಗ್ರಹಿಸಲಾದ ತುಣುಕುಗಳು',
   'boxDetail.itemsBadge': '{{count}} ಪ್ರತಿ ಪೆಟ್ಟಿಗೆಗೆ ಸಂಗ್ರಹಿಸಲಾದ ವಸ್ತುಗಳು',
+  'boxDetail.loading': 'ಆವೃತ್ತಿ ಲೋಡ್ ಆಗುತ್ತಿದೆ…',
   'boxDetail.notFound': 'ಆ ಆವೃತ್ತಿ ಇನ್ನು ಮುಂದೆ ಲಭ್ಯವಿಲ್ಲ.',
   'boxDetail.subscribe.success': 'ಚಂದಾದಾರರಾಗಿದ್ದಾರೆ — ನಿಮ್ಮ ಮೊದಲ ಆವೃತ್ತಿ ಸರದಿಯಲ್ಲಿದೆ.',
   'boxDetail.swapBadge': 'ವರೆಗೆ ವಿನಿಮಯ ಮಾಡಿಕೊಳ್ಳಿ {{count}} ಪ್ರತಿ ಪೆಟ್ಟಿಗೆಗೆ ಐಟಂ(ಗಳು)',
@@ -45,14 +65,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'ಯಾವುದೇ ಆವೃತ್ತಿಗಳು ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ.',
   'boxes.eyebrow': 'ದಿ ಟ್ರೋವ್ ಆರ್ಕೈವ್',
   'boxes.heading': 'ಪ್ರತಿಯೊಂದು ಆವೃತ್ತಿಯನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ',
+  'boxes.loadError':
+    'ನಮಗೆ ಆವೃತ್ತಿಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ನಿಮ್ಮ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'boxes.loading': 'ಆವೃತ್ತಿಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
+  'boxes.search.label': 'ಆವೃತ್ತಿಗಳನ್ನು ಹುಡುಕಿ',
   'boxes.search.placeholder': 'ಆವೃತ್ತಿಗಳನ್ನು ಹುಡುಕಿ...',
   'boxes.subtitle':
     'ಪ್ರತಿಯೊಂದು ಹಂತವು ಸಣ್ಣ-ಬ್ಯಾಚ್ ಕಥೆಯಾಗಿದೆ. ನಿಮ್ಮ ಸರದಿಗೆ ಒಂದನ್ನು ಸೇರಿಸಿ ಅಥವಾ ಅದನ್ನು ನಿಮ್ಮ ಮುಂದಿನ ತಿಂಗಳಿಗೆ ವಿನಿಮಯ ಮಾಡಿಕೊಳ್ಳಿ.',
+  'boxThemeCard.itemCount': '{{count}} ವಸ್ತುಗಳು',
   'boxThemeCard.perMonth': '/ ತಿಂಗಳು',
+  'boxThemeCard.retailValue': 'ಚಿಲ್ಲರೆ ಮೌಲ್ಯ {{value}}',
   'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
+  'common.retry': 'ಮರುಪ್ರಯತ್ನಿಸಿ',
   'customize.eyebrow': 'ಅದನ್ನು ನಿಮ್ಮದಾಗಿಸಿಕೊಳ್ಳಿ',
   'customize.heading': 'ನಿಮ್ಮ ಮುಂದಿನ ಟ್ರೋವ್ ಅನ್ನು ಕಸ್ಟಮೈಸ್ ಮಾಡಿ',
+  'customize.items.empty': 'ಈ ಶ್ರೇಣಿಗೆ ಇನ್ನೂ ಯಾವುದೇ ವಸ್ತುಗಳನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿಲ್ಲ.',
   'customize.items.exclude': 'ಇದನ್ನು ಬಿಟ್ಟುಬಿಡಿ',
   'customize.items.eyebrow': 'ಈ ಪೆಟ್ಟಿಗೆಯನ್ನು ವೈಯಕ್ತಿಕಗೊಳಿಸಿ',
   'customize.items.heading': 'ಇದರಲ್ಲಿನ ವಸ್ತುಗಳು {{box}}',
@@ -61,8 +88,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'ಮರಳಿ ಸೇರಿಸಿ',
   'customize.items.save': 'ಕಸ್ಟಮೈಸೇಶನ್ ಉಳಿಸಿ',
   'customize.items.swapsLeft': '{{used}} ನ {{max}} ಬಳಸಿದ ವಿನಿಮಯಗಳು',
+  'customize.loading': 'ಕಸ್ಟಮೈಸೇಶನ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ…',
   'customize.noSub.body':
     'ಮೊದಲು ಒಂದು ಶ್ರೇಣಿಗೆ ಚಂದಾದಾರರಾಗಿ, ನಂತರ ನಿಮ್ಮ ಪೆಟ್ಟಿಗೆಯಲ್ಲಿರುವ ವಸ್ತುಗಳನ್ನು ವಿನಿಮಯ ಮಾಡಿಕೊಳ್ಳಲು ಹಿಂತಿರುಗಿ.',
+  'customize.noSub.cta': 'ಆವೃತ್ತಿಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ',
   'customize.noSub.heading': 'ಯಾವುದೇ ಸಕ್ರಿಯ ಚಂದಾದಾರಿಕೆ ಇಲ್ಲ.',
   'customize.saved': 'ಕಸ್ಟಮೈಸೇಶನ್ ಉಳಿಸಲಾಗಿದೆ.',
   'customize.subtitle':
@@ -76,11 +105,15 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'ಸಾಗಣೆಯನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ',
   'dashboard.eyebrow': 'ನಿಮ್ಮ ಟ್ರೋವ್',
   'dashboard.greeting': 'ಮರಳಿ ಸ್ವಾಗತ, {{name}} .',
+  'dashboard.loadError':
+    'ನಿಮ್ಮ ಡ್ಯಾಶ್ಬೋರ್ಡ್ ಅನ್ನು ನಮಗೆ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ನಿಮ್ಮ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'dashboard.loading': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'dashboard.next.eyebrow': 'ನಿಮ್ಮ ಮುಂದಿನ ಆವೃತ್ತಿ',
   'dashboard.onboarding.body':
     'ನೀವು ಇನ್ನೂ ಸಕ್ರಿಯ ಚಂದಾದಾರಿಕೆಯನ್ನು ಹೊಂದಿಲ್ಲ. ಪ್ರತಿ ತಿಂಗಳು ಟ್ರೋವ್ ಅನ್ನು ಸಾಗಿಸಲು ಪ್ರಾರಂಭಿಸಲು ಒಂದು ಶ್ರೇಣಿಯನ್ನು ಆರಿಸಿ.',
   'dashboard.onboarding.cta': 'ಎಲ್ಲಾ ಆವೃತ್ತಿಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ',
+  'dashboard.onboarding.empty':
+    'ಸದ್ಯಕ್ಕೆ ಯಾವುದೇ ಯೋಜನೆಗಳು ಲಭ್ಯವಿಲ್ಲ. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪರಿಶೀಲಿಸಿ.',
   'dashboard.onboarding.heading': 'ನಿಮ್ಮ ಮೊದಲ ಆವೃತ್ತಿಯನ್ನು ಆರಿಸಿ',
   'dashboard.renewal.amount': 'ಶುಲ್ಕ ವಿಧಿಸಲಾಗಿದೆ',
   'dashboard.renewal.cadence': 'ಕ್ಯಾಡೆನ್ಸ್',
@@ -88,12 +121,16 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'ನವೀಕರಣ',
   'dashboard.renewal.heading': 'ಸ್ವಯಂ ನವೀಕರಣ ದಿನಾಂಕ {{date}}',
   'dashboard.renewal.plan': 'ಪ್ಲಾನ್ ಕೀ',
+  'dashboard.renewal.tbd': 'ನವೀಕರಣ ಶೀಘ್ರದಲ್ಲೇ ನಿಗದಿಯಾಗುತ್ತದೆ',
   'dashboard.renewal.tier': 'ಶ್ರೇಣಿ',
   'dashboard.stats.days': 'ದಿನಗಳು',
   'dashboard.stats.daysToNext': 'ರವಾನೆಯಾಗುತ್ತದೆ',
   'dashboard.stats.items': 'ಕ್ಯುರೇಟೆಡ್ ಐಟಂಗಳು',
   'dashboard.stats.shipDate': 'ರವಾನೆ ದಿನಾಂಕ',
   'dashboard.stats.tbd': 'ಟಿಬಿಡಿ',
+  'dashboard.subtitle.active':
+    'ನಿಮ್ಮ ಮುಂದಿನ ಆವೃತ್ತಿ ದಾರಿಯಲ್ಲಿದೆ. ಏನನ್ನು ನಿರೀಕ್ಷಿಸಬಹುದು ಎಂಬುದು ಇಲ್ಲಿದೆ.',
+  'dashboard.subtitle.idle': 'ಪ್ರತಿ ತಿಂಗಳು {{appName}} ರವಾನಿಸಲು ಒಂದು ಶ್ರೇಣಿಯನ್ನು ಆಯ್ಕೆಮಾಡಿ.',
   'forgotPassword.subtitle':
     'ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ನಮಗೆ ತಿಳಿಸಿ, ನಾವು ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
   'forgotPassword.success.body':
@@ -101,6 +138,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ.',
   'landing.editions.eyebrow': 'ಈ ಸೀಸನ್',
   'landing.editions.heading': 'ನಮ್ಮ ಕ್ಯುರೇಟರ್‌ಗಳು ಇಷ್ಟಪಡುವ ಆವೃತ್ತಿಗಳು',
+  'landing.editions.viewAll': 'ಎಲ್ಲಾ ಆವೃತ್ತಿಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ →',
   'landing.footer.contact': 'ಕ್ಯುರೇಟರ್ ಜೊತೆ ಮಾತನಾಡಿ',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ನಿಮ್ಮ ಪೆಟ್ಟಿಗೆಯನ್ನು ಪ್ರಾರಂಭಿಸಿ →',
@@ -110,6 +148,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'ಸದಸ್ಯರ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ನ ಇಣುಕು ನೋಟ — ಕೌಂಟ್‌ಡೌನ್, ವಿಷಯಗಳು ಮತ್ತು ಟ್ರ್ಯಾಕಿಂಗ್.',
   'landing.hero.social.count': 'ಇಷ್ಟಪಟ್ಟವರು {{count}} + ಚಂದಾದಾರರು',
+  'landing.hero.social.rating': '{{rating}} ಸರಾಸರಿ ಅನ್ಬಾಕ್ಸಿಂಗ್ ರೇಟಿಂಗ್',
+  'landing.hero.subhead':
+    '{{appName}} ಸ್ವತಂತ್ರ ತಯಾರಕರಿಂದ ಕೈಯಿಂದ ಆಯ್ದ, ಸಣ್ಣ-ಬ್ಯಾಚ್ ಸಂತೋಷದ ಪೆಟ್ಟಿಗೆಯನ್ನು ನಿಮಗೆ ಕಳುಹಿಸುತ್ತದೆ. ಯಾವಾಗ ಬೇಕಾದರೂ ವಿರಾಮ. ಬೇಕಾದದ್ದನ್ನು ಬದಲಾಯಿಸಿ. ಇಷ್ಟವಾದದ್ದನ್ನು ಇಟ್ಟುಕೊಳ್ಳಿ.',
   'landing.nav.start': 'ನಿಮ್ಮ ಪೆಟ್ಟಿಗೆಯನ್ನು ಪ್ರಾರಂಭಿಸಿ',
   'landing.tiers.eyebrow': 'ನಿಮ್ಮ ಕ್ಯಾಡೆನ್ಸ್ ಅನ್ನು ಆರಿಸಿ',
   'landing.tiers.heading':
@@ -120,6 +161,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'ಮುಂದಿನ ತಿಂಗಳ ಬಾಕ್ಸ್ ನೋಡಲು ಸೈನ್ ಇನ್ ಮಾಡಿ.',
   'login.welcomeBack': 'ಕ್ಯುರೇಟರ್, ಮತ್ತೆ ಸ್ವಾಗತ.',
   'nextBoxHeroCard.eyebrow': 'ನಿಮ್ಮ ಮುಂದಿನ ಪ್ರಯಾಣ',
+  'nextBoxHeroCard.itemCount': 'ಒಳಗೆ {{count}} ತುಣುಕುಗಳು',
   'nextBoxHeroCard.itemsLabel': 'ಕ್ಯುರೇಟೆಡ್ ಐಟಂಗಳು',
   'nextBoxHeroCard.shipsOnLabel': 'ರವಾನಿಸಲಾಗುತ್ತದೆ',
   'notFound.body':
@@ -144,8 +186,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'ಚಂದಾದಾರಿಕೆಯನ್ನು ವಿರಾಮಗೊಳಿಸಿ',
   'settings.danger.paused': 'ಚಂದಾದಾರಿಕೆಯನ್ನು ವಿರಾಮಗೊಳಿಸಲಾಗಿದೆ.',
   'settings.danger.pausing': 'ವಿರಾಮಗೊಳಿಸಲಾಗುತ್ತಿದೆ...',
+  'settings.danger.status': 'ಚಂದಾದಾರಿಕೆ ಸ್ಥಿತಿ: {{status}}',
   'settings.danger.subtitle':
     'ವಿರಾಮಗೊಳಿಸುವುದರಿಂದ ನಿಮ್ಮ ಶ್ರೇಣಿ ಮತ್ತು ಇತಿಹಾಸವು ಹಾಗೆಯೇ ಇರುತ್ತದೆ. ರದ್ದುಗೊಳಿಸುವುದರಿಂದ ಭವಿಷ್ಯದ ಸಾಗಣೆಗಳು ನಿಲ್ಲುತ್ತವೆ ಮತ್ತು ಚಕ್ರದ ಕೊನೆಯಲ್ಲಿ ನಿಮ್ಮ ಸಂಗ್ರಹಿಸಿದ ಪಾವತಿ ವಿಧಾನಗಳನ್ನು ತೆಗೆದುಹಾಕಲಾಗುತ್ತದೆ.',
+  'settings.notifications.saving': '· ಉಳಿಸುತ್ತಿದೆ…',
   'settings.notifications.subtitle':
     'ಟ್ರೋವ್‌ನಿಂದ ನಿಮಗೆ ಯಾವ ಸಿಗ್ನಲ್‌ಗಳು ಬೇಕು ಎಂಬುದನ್ನು ಆರಿಸಿ. ಡೀಫಾಲ್ಟ್‌ಗಳು ಸಮಂಜಸವಾಗಿರುತ್ತವೆ.',
   'settings.subtitle':
@@ -162,13 +206,19 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಸಕ್ರಿಯ ಸಾಗಣೆ ಇಲ್ಲ.',
   'shipments.live.eyebrow': 'ಸಕ್ರಿಯ ಸಾಗಣೆ',
   'shipments.live.unnamed': 'ನಿಮ್ಮ ಮುಂದಿನ ಪೆಟ್ಟಿಗೆ',
+  'shipments.loadError':
+    'ನಿಮ್ಮ ರವಾನೆಗಳನ್ನು ನಮಗೆ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ನಿಮ್ಮ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+  'shipments.loading': 'ಸಾಗಣೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
+  'shipments.step.delivered': 'ತಲುಪಿಸಲಾಗಿದೆ',
   'shipments.step.deliveredBody':
     'ನೀವು ಕಂಡುಕೊಳ್ಳುವುದನ್ನು ಹಂಚಿಕೊಳ್ಳಲು #crateunbox ಅನ್ನು ಟ್ಯಾಗ್ ಮಾಡಿ.',
   'shipments.step.ordered': 'ಆರ್ಡರ್ ಮಾಡಲಾಗಿದೆ',
   'shipments.step.orderedBody':
     'ನಿಮ್ಮ ಚಂದಾದಾರಿಕೆಯು ಈ ಆವೃತ್ತಿಯನ್ನು ಮುಂದಿನ ಸಾಗಣೆ ಚಕ್ರಕ್ಕೆ ಸರದಿಯಲ್ಲಿರಿಸಿದೆ.',
+  'shipments.step.packed': 'ಕೈಯಿಂದ ಪ್ಯಾಕ್ ಮಾಡಲಾಗಿದೆ',
   'shipments.step.packedBody':
     'ಪ್ರತಿಯೊಂದು ತುಂಡನ್ನು ಸುತ್ತಿ ಕೈಯಿಂದ ಬರೆದ ಟಿಪ್ಪಣಿಯೊಂದಿಗೆ ಪೆಟ್ಟಿಗೆಯೊಳಗೆ ಸೇರಿಸಲಾಯಿತು.',
+  'shipments.step.transit': 'ದಾರಿಯಲ್ಲಿದೆ',
   'shipments.step.transitNot': 'ನಿಮ್ಮ ಬಾಕ್ಸ್ ಸಾಗಣೆಗೆ ಬಂದ ನಂತರ ಟ್ರ್ಯಾಕಿಂಗ್ ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ.',
   'shipments.subtitle':
     'ಬಾಕ್ಸ್ ನಿಮ್ಮನ್ನು ತಲುಪುವ ದಾರಿಯನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ, ನಂತರ ನೀವು ಮೊದಲು ಅನ್‌ಬಾಕ್ಸ್ ಮಾಡಿದ ಪ್ರತಿಯೊಂದು ಆವೃತ್ತಿಯನ್ನು ಮತ್ತೆ ಭೇಟಿ ಮಾಡಿ.',

@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens preguntes sobre una edició, un enviament o la teva subscripció? Parla amb una persona real de l'equip a hello@crate.example — llegim tots els missatges.",
+  'about.contactTitle': 'Parla amb un curador',
+  'about.feature1':
+    'Edicions mensuals seleccionades per artesans independents, amb la història darrere de cada article.',
+  'about.feature2':
+    'Control total sobre cada caixa — personalitza el contingut, canvia o exclou articles, omet un mes o modifica la freqüència.',
+  'about.feature3':
+    "Seguiment d'enviament d'extrem a extrem, des de la recollida fins al portal, amb embalatge sense plàstic i actualitzacions en directe de la transportista.",
+  'about.feature4':
+    'Plans flexibles i facturació transparent — millora, rebaixa, posa en pausa o cancel·la des del teu tauler quan vulguis.',
+  'about.intro':
+    "{{app}} és un servei de subscripció de caixes seleccionades que et porta cada mes a la porta una caixa de felicitat escollida amb cura i de producció petita. Cada edició l'elaboren artesans en actiu — artistes independents, xefs i petites marques —, no un algorisme.",
+  'about.missionBody':
+    "Creiem que una subscripció hauria de semblar un regal, no una trampa. {{app}} està dissenyat perquè et quedis perquè t'encanta el que arriba — posa en pausa quan vulguis, canvia el que vulguis i cancel·la amb un clic. Mai cap guió de retenció.",
+  'about.missionTitle': 'La nostra missió',
   'about.pageTitle': 'Sobre {{app}}',
   'appNav.mobileLabel': 'Navegació principal',
   'appNav.primaryLabel': 'Navegació principal',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Edita el contacte de facturació',
   'billing.contact.eyebrow': 'Contacte de facturació',
   'billing.eyebrow': 'Pla i pagaments',
+  'billing.loading': "S'està carregant la facturació…",
   'billing.payment.body':
     'El pagament es gestiona a través de Stripe Checkout; el número complet de la targeta no arriba mai als nostres servidors. Feu clic a qualsevol nivell a continuació per afegir o actualitzar la vostra targeta.',
   'billing.payment.linked': 'Targeta arxivada a través de Stripe',
@@ -20,9 +37,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Reprendre la subscripció',
   'billing.plan.eyebrow': 'Pla actiu',
   'billing.plan.next': 'Es renova automàticament el {{date}} .',
+  'billing.plan.status': 'Estat: {{status}}',
   'billing.subtitle': "Gestiona el teu nivell, el mètode de pagament i revisa l'activitat passada.",
   'billing.tiers.body': 'Tria un nivell i et dirigirem a Stripe Checkout.',
   'billing.tiers.choose': 'Tria',
+  'billing.tiers.empty': 'Encara no hi ha nivells configurats.',
   'billing.tiers.heading': 'Nivells disponibles',
   'boxDetail.backToBoxes': 'Torna a totes les edicions',
   'boxDetail.crumb.boxes': 'Edicions',
@@ -35,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Peça seleccionada',
   'boxDetail.items.heading': '{{count}} peces seleccionades',
   'boxDetail.itemsBadge': '{{count}} articles seleccionats per caixa',
+  'boxDetail.loading': "S'està carregant l'edició…",
   'boxDetail.notFound': 'Aquella edició ja no està disponible.',
   'boxDetail.subscribe.success': 'Subscrit: la teva primera edició està en cua.',
   'boxDetail.swapBadge': 'Intercanvia fins a {{count}} article(s) per caixa',
@@ -43,14 +63,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': "No hi ha coincidències d'edicions.",
   'boxes.eyebrow': "L'arxiu de Crate",
   'boxes.heading': 'Navega per totes les edicions',
+  'boxes.loadError':
+    'No hem pogut carregar les edicions. Comprova la connexió i torna-ho a provar.',
   'boxes.loading': "S'estan carregant les edicions…",
+  'boxes.search.label': 'Cerca edicions',
   'boxes.search.placeholder': 'Cerca edicions…',
   'boxes.subtitle':
     'Cada nivell és una història de lot petit. Afegeix-ne una a la teva cua o canvia-la per al teu proper mes.',
+  'boxThemeCard.itemCount': '{{count}} articles',
   'boxThemeCard.perMonth': '/ mes',
+  'boxThemeCard.retailValue': 'Valor de venda al públic {{value}}',
   'common.goToDashboard': 'Anar al panell',
+  'common.retry': 'Torna-ho a intentar',
   'customize.eyebrow': 'Fes-ho teu',
   'customize.heading': 'Personalitza el teu proper Crate',
+  'customize.items.empty': 'Encara no hi ha articles configurats per a aquest nivell.',
   'customize.items.exclude': 'Omet això',
   'customize.items.eyebrow': 'Personalitza aquesta caixa',
   'customize.items.heading': 'Elements a {{box}}',
@@ -59,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Afegeix de nou',
   'customize.items.save': 'Desa la personalització',
   'customize.items.swapsLeft': '{{used}} de {{max}} swaps utilitzats',
+  'customize.loading': "S'està carregant la personalització…",
   'customize.noSub.body':
     'Subscriu-te primer a un nivell i després torna per intercanviar articles de la teva caixa.',
+  'customize.noSub.cta': 'Explora les edicions',
   'customize.noSub.heading': 'Cap subscripció activa',
   'customize.saved': 'Personalització desada.',
   'customize.subtitle':
@@ -74,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': "Seguiment de l'enviament",
   'dashboard.eyebrow': 'El teu tresor',
   'dashboard.greeting': 'Benvingut/da de nou, {{name}} .',
+  'dashboard.loadError':
+    'No hem pogut carregar el teu tauler. Comprova la connexió i torna-ho a provar.',
   'dashboard.loading': "S'està carregant el tauler de control…",
   'dashboard.next.eyebrow': 'La teva propera edició',
   'dashboard.onboarding.body':
     'Encara no tens una subscripció activa. Tria un nivell per començar a enviar un Crate cada mes.',
   'dashboard.onboarding.cta': 'Navega per totes les edicions',
+  'dashboard.onboarding.empty': 'Ara mateix no hi ha plans disponibles. Torna-ho a mirar aviat.',
   'dashboard.onboarding.heading': 'Tria la teva primera edició',
   'dashboard.renewal.amount': 'Càrrec',
   'dashboard.renewal.cadence': 'Cadència',
@@ -86,12 +118,15 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Renovació',
   'dashboard.renewal.heading': 'Renovació automàtica activada {{date}}',
   'dashboard.renewal.plan': 'Clau del pla',
+  'dashboard.renewal.tbd': 'Programació de renovació en breu',
   'dashboard.renewal.tier': 'Nivell',
   'dashboard.stats.days': 'dies',
   'dashboard.stats.daysToNext': 'Enviaments a',
   'dashboard.stats.items': 'Elements seleccionats',
   'dashboard.stats.shipDate': "Data d'enviament",
   'dashboard.stats.tbd': 'Per determinar',
+  'dashboard.subtitle.active': 'La teva propera edició està de camí. Això és el que pots esperar.',
+  'dashboard.subtitle.idle': 'Tria un nivell per començar a rebre una {{appName}} cada mes.',
   'forgotPassword.subtitle':
     "Digue'ns el teu correu electrònic i t'enviarem un enllaç de restabliment.",
   'forgotPassword.success.body':
@@ -99,6 +134,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': "Revisa la teva safata d'entrada.",
   'landing.editions.eyebrow': 'Aquesta temporada',
   'landing.editions.heading': 'Edicions que encanten als nostres curadors',
+  'landing.editions.viewAll': 'Explora totes les edicions →',
   'landing.footer.contact': 'Parla amb un curador',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Comença la teva caixa →',
@@ -108,6 +144,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Una ullada al tauler de control dels membres: compte enrere, contingut i seguiment.',
   'landing.hero.social.count': 'Estimat per {{count}} + subscriptors',
+  'landing.hero.social.rating': 'Valoració mitjana de desembalatge de {{rating}}',
+  'landing.hero.subhead':
+    "{{appName}} t'envia una caixa de felicitat escollida amb cura i de producció petita d'artesans independents. Posa en pausa quan vulguis. Canvia el que vulguis. Queda't amb el que t'encanta.",
   'landing.nav.start': 'Comença la teva caixa',
   'landing.tiers.eyebrow': 'Tria la teva cadència',
   'landing.tiers.heading':
@@ -118,6 +157,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Inicia la sessió per veure la caixa del mes que ve.',
   'login.welcomeBack': 'Benvingut/da de nou, comissari/a.',
   'nextBoxHeroCard.eyebrow': 'EL TEU PRÒXIM TRESO',
+  'nextBoxHeroCard.itemCount': '{{count}} peces a dins',
   'nextBoxHeroCard.itemsLabel': 'Elements seleccionats',
   'nextBoxHeroCard.shipsOnLabel': 'Enviaments en',
   'notFound.body':
@@ -142,8 +182,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Pausa la subscripció',
   'settings.danger.paused': 'Subscripció en pausa.',
   'settings.danger.pausing': 'Pausant…',
+  'settings.danger.status': 'Estat de la subscripció: {{status}}',
   'settings.danger.subtitle':
     "Si poseu en pausa, mantindreu el vostre nivell i historial intactes. Si cancel·leu, s'aturaran els enviaments futurs i s'eliminaran els mètodes de pagament emmagatzemats al final del cicle.",
+  'settings.notifications.saving': "· s'està desant…",
   'settings.notifications.subtitle':
     'Trieu els senyals que voleu de Crate. Els valors per defecte són sensats.',
   'settings.subtitle':
@@ -160,12 +202,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Encara no hi ha cap enviament actiu',
   'shipments.live.eyebrow': 'Enviament actiu',
   'shipments.live.unnamed': 'La teva propera caixa',
+  'shipments.loadError':
+    'No hem pogut carregar els teus enviaments. Comprova la connexió i torna-ho a provar.',
+  'shipments.loading': 'Carregant enviaments…',
+  'shipments.step.delivered': 'Lliurat',
   'shipments.step.deliveredBody': 'Etiqueta #crateunbox per compartir el que descobreixis.',
   'shipments.step.ordered': 'Comanda realitzada',
   'shipments.step.orderedBody':
     "La teva subscripció ha posat aquesta edició en cua per al proper cicle d'enviament.",
+  'shipments.step.packed': 'Embalat a mà',
   'shipments.step.packedBody':
     'Cada peça embolicada i ficada a la caixa amb una nota escrita a mà.',
+  'shipments.step.transit': 'De camí',
   'shipments.step.transitNot': 'El seguiment apareixerà aquí un cop la caixa estigui en trànsit.',
   'shipments.subtitle':
     'Fes un seguiment de la caixa fins on arriba i, a continuació, revisa totes les edicions que hagis desempaquetat abans.',

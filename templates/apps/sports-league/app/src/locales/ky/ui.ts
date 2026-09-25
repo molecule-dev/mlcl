@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пикир калтырғыңыз келеби, ката таптыңызбы же лигаңыз үчүн {{app}} каалайсызбы? Бизге аккаунт жөндөөлөрүңүздөн кайрылыңыз — ар бир билдирүү командадагы чыныгы адамга жетет.',
+  'about.contactTitle': 'Байланышка чыгыңыз',
   'about.eyebrow': 'Жөнүндө',
+  'about.featureAlerts':
+    'Эсеп жаңыртуулары, алмашуу эскертүүлөрү, жаракат отчеттору жана лига жарыялары үчүн push билдирүүлөр.',
+  'about.featureRosters':
+    'Толук курамдар, сезондук жыйынтыктар, ысык/муздак сериялар жана ар бир оюнчу үчүн бетме-бет бөлүштүрүүлөр менен команда барактары.',
+  'about.featureSchedule':
+    'Сезондук календарь жана график көрүнүшү — ар бир оюн менен жыйынтыкты пландай аласыз.',
+  'about.featureScoreboard':
+    'Ар бир беттин жогорку бөлүгүндө бекитилген телевидение деңгээлиндеги табло тилкеси — голду эч качан өткөрүп жибербейсиз.',
+  'about.featureStandings':
+    'Жандуу турнирдик таблица — реалдуу убакыттагы жеңиш-жеңилүү-тең оюн жазуулары, упайлар, жеңиш пайызы жана плей-офф сызыгы, ар бир ышкырыкта жаңыртылат.',
+  'about.intro':
+    '{{app}} — лигаңыз үчүн телевидение сапатындагы үй. Командалар, графиктер, жандуу эсептер жана турнирдик таблицалар бир тез, таза панелде биригет — ошентип күйөрмандар, машыктыруучулар жана лига уюштуруучулары сезондун абалын дайыма билип турушат.',
+  'about.missionBody':
+    'Лиганы көзөмөлдөө беш түрдүү үчүнчү тараптын таблолорун жаңыртуу дегенди билдирбеши керек. Биз аны ар бир лигага турнирдик таблица, график жана чындап маанилүү статистика үчүн бирдиктүү булак берүү үчүн куруп чыктык — ар бир ышкырыкта жаңыртылат, сезон бою акысыз.',
+  'about.missionTitle': 'Биздин миссиябыз',
+  'about.whatYouGet': 'Эмне аласыз',
   'appShell.closeNav': 'Навигацияны жабуу',
   'appShell.openNav': 'Навигацияны ачуу',
   'common.dashboard': 'Башкаруу панели',
@@ -17,15 +36,22 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Бардык дал келүүлөрдү көрүү \\u2192',
   'dashboard.viewAllStandings': 'Толук турнирдик таблица \\u2192',
   'dashboard.viewAllStats': 'Бардык статистикалык лидерлерди көрүү \\u2192',
+  'forgot.submitting': 'Калыбына келтирүү шилтемеси жөнөтүлүүдө…',
   'forgot.subtitle':
     'Кайра калыбына келтирүү шилтемесин алуу үчүн электрондук почтаңызды киргизиңиз.',
   'forgot.success':
     'Баштапкы абалга келтирүү шилтемеси жөнөтүлдү {{email}} . Келген каттар кутучаңызды текшериңиз.',
+  'landing.copyright': '© {{year}} {{app}}. Турнирдик таблицаны көздө.',
+  'landing.ctaBody':
+    'Сиздин лига. Сиздин турнирдик таблица. Сүйүктүү командаңыз — жогорку бөлүккө бекитилген. Орнотууга эки мүнөт, сезон бою акысыз.',
   'landing.ctaHeading': 'Үчүнчү тараптын упай такталарын жаңыртууну токтотуу',
   'landing.eyebrow': 'Күйөрмандар, машыктыруучулар жана лиганын уюштуруучулары үчүн курулган',
   'landing.featuresHeading': 'Ар бир турган адамга алдыңкы катардагы орундук',
   'landing.getStarted': 'Лигага кошулуңуз',
   'landing.heroCta': 'Лигага кошулуңуз',
+  'landing.heroSubtitle':
+    '{{app}} турнирдик таблицаларды, графиктерди жана статистикалык лидерлерди бир телевидение сапатындагы панелге бириктирет. Жандуу эсептер. Чыныгы жазуулар. Таза.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Бүгүн кечинде лиганын айланасында',
   'landing.statFans': 'Күйөрмандар жазылууда',
   'landing.statGames': 'Бул сезондогу оюндар',
@@ -37,11 +63,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'С {{period}}',
   'matchDetail.back': 'Дал келүүлөргө кайтуу',
   'matchDetail.eventsHeading': 'Оюндан оюнга',
+  'matchDetail.final': 'АЯКТАДЫ',
   'matchDetail.finalScore': 'Финалдык',
   'matchDetail.live': 'ТҮЗ ЭФИРДЕ',
   'matchDetail.liveNow': 'Азыр түз эфирде',
   'matchDetail.noEvents': 'Азырынча эч кандай окуя катталган жок.',
   'matchDetail.periodClock': 'С {{period}} · {{clock}}',
+  'matches.empty': 'Бул көрүнүштө матч жок — башка фильтрди колдонуп көрүңүз.',
   'matches.eyebrow': 'Беттеш күнү',
   'matches.loading': 'Тактайчаны тартуу…',
   'matches.subtitle':
@@ -55,6 +83,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Эскертмелер жүктөлбөй калды',
   'notifications.loading': 'Эскертмелер жүктөлүүдө\\u2026',
   'pennantHeroCard.eyebrow': 'Столдун үстүндө',
+  'pennantHeroCard.formLabel': 'Акыркы 10',
   'pennantHeroCard.gamesAhead': '{{value}} кууп жетүү алдындагы оюндар',
   'pennantHeroCard.pointsLabel': 'Атайын тапшырмалар',
   'pennantLayout.primaryNavLabel': 'Негизги навигация',
@@ -82,17 +111,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Орун тандаңыз',
   'pricing.heading': 'Көбүрөөк график, упайлар жана турнирдик таблица үчүн жаңыртыңыз.',
   'pricing.limits.schedule': '{{count}} график жазуулары',
+  'pricing.limits.scores': '{{count}} эсептери',
+  'pricing.limits.standings': '{{count}} турнирдик таблицасы',
+  'pricing.limits.teams': '{{count}} командасы',
+  'pricing.subtitle': 'Баяндуу график, эсептер жана турнирдик таблица үчүн жаңыртыңыз.',
   'pricing.upgradeCta': 'Жаңыртуу {{tierName}}',
   'profile.eyebrow': 'Күйөрман профили',
   'profile.favoritesCount': 'Көз салган командалар',
   'profile.favoritesHeading': 'Сүйүктүү командалар',
   'profile.noFavorites': 'Азырынча сүйүктүүлөр жок — командаларды "Командалар" барагынан тандаңыз.',
   'profile.rankRecord': 'Ранжы # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Жазуу {{record}}',
   'reset.confirmPlaceholder': 'Сырсөздү кайталаңыз',
+  'reset.mismatch': 'Сырсөздөр дал келген жок.',
   'reset.newLabel': 'Жаңы сыр сөз',
   'reset.subtitle': 'Кеминде 12 белгиден турган күчтүү сырсөз тандаңыз.',
   'reset.tokenPlaceholder': 'Электрондук почтадан чаптоо',
   'schedule.eyebrow': 'Тактайча',
+  'schedule.moreGames': '+ {{count}} көбүрөөк',
   'schedule.subtitle':
     'Сезон боюнча беттештердин календардык көрүнүшү — кутучадагы упайларды көрүү үчүн каалаган күндү басыңыз.',
   'scoreboardTicker.empty': 'Учурда түз эфирдеги оюндар жок — шайба ыргытылганда кайра текшериңиз.',
@@ -100,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Жекелештирүү',
   'settings.favoritesBody':
     'Бул командалар сиздин башкаруу панелиңизге кадалып, упайлар жөнүндө эскертмелерди иштетет.',
+  'settings.favoritesHeading': 'Сүйүктүү командалар',
   'settings.loading': 'Параметрлериңиз жүктөлүүдө\\u2026',
   'settings.noFavorites':
     'Азырынча сүйүктүүлөр жок \\u2014 Командалар барагынан командаларды тандаңыз.',
@@ -119,6 +156,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'Л',
   'standings.overall': 'Жалпысынан',
   'standings.points': 'Атайын тапшырмалар',
+  'standings.rank': '#',
   'standings.subtitle':
     'Алдыңкы төртөө плей-оффко жолдомо алышат — упайлар боюнча тай-брейк, андан кийин пайыздык эсеп менен жеңиш.',
   'standings.title': 'Лиганын турнирдик таблицасы',
@@ -137,6 +175,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Оюнчу',
   'teamDetail.colPos': 'Поз',
+  'teamDetail.pointsLabel': 'Упайлар',
   'teamDetail.rankLabel': 'Ранжы # {{rank}}',
   'teamDetail.rosterHeading': 'Курамы',
   'teamDetail.statGD': 'Гол айырмасы',

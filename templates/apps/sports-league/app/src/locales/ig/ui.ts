@@ -1,7 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Nwere nzaghachi, hụrụ nsogbu, ma ọ bụ chọrọ {{app}} maka otu gị? Kpọtụrụ anyị site na ntọala akaụntụ gị — ozi ọ bụla na-erute onye n'ezie nọ n'òtù ahụ.",
+  'about.contactTitle': 'Kpọtụrụ anyị',
   'about.eyebrow': 'Banyere',
+  'about.featureAlerts': 'Ọkwa ọkwa maka mmelite akara, ọkwa ahịa, akụkọ mmerụ ahụ, na ọkwa otu.',
+  'about.featureRosters':
+    'Ibe otu nwere ndepụta ndị otu zuru ezu, ngụkọta oge, usoro ọkụ/oyi, na nkewa isi-na-isi maka onye ọ bụla.',
+  'about.featureSchedule':
+    'Kalenda oge na nlele nhazi oge ka ị nwee ike hazie gburugburu egwuregwu na nsonaazụ ọ bụla.',
+  'about.featureScoreboard':
+    "Ebe ngosi akara nke ọkwa mgbasa ozi tinyere n'elu ibe ọ bụla ka ị ghara ịhapụ goolu.",
+  'about.featureStandings':
+    "Ọnọdụ ndị dị ndụ — ndekọ mmeri-mfu-draw n'ezie, isi, pasent mmeri, na ahịrị playoff, na-emelite na oge ọ bụla.",
+  'about.intro':
+    "{{app}} bụ ebe obibi nke ọkwa mgbasa ozi maka otu gị. Ndị otu, nhazi oge, akara ndị dị ndụ, na ọnọdụ na-ejikọta n'otu dashboard ngwa ngwa na-enweghị mgbagwoju anya — ka ndị fan, ndị nkuzi, na ndị nhazi otu mara mgbe niile ebe oge ahụ kwụ.",
+  'about.missionBody':
+    "Ịgbaso otu ekwesịghị ịpụta na ị na-eme ka ebe akara nke atọ dị iche iche dị ọhụrụ. Anyị wuru ya iji nye otu ọ bụla otu isi iyi nke eziokwu maka ọnọdụ, nhazi oge, na ọnụ ọgụgụ ndị dị mkpa n'ezie — na-emelite na oge ọ bụla, n'efu maka oge ahụ.",
+  'about.missionTitle': 'Ọrụ anyị',
+  'about.whatYouGet': 'Ihe ị nwetara',
   'appShell.closeNav': 'Mechie nhazigharị',
   'appShell.openNav': 'Mepee nhazigharị',
   'common.dashboard': 'Dashboard',
@@ -16,13 +34,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Lee ihe niile dabara adaba \\u2192',
   'dashboard.viewAllStandings': 'Ọkwa zuru oke \\u2192',
   'dashboard.viewAllStats': 'Lee ndị isi steeti niile \\u2192',
+  'forgot.submitting': 'Na-eziga njikọ nrụpụta…',
   'forgot.subtitle': 'Tinye email gị iji nweta njikọ nrụpụta.',
   'forgot.success': 'Tụgharịa njikọ e zigara na {{email}} Lelee igbe mbata gị.',
+  'landing.copyright': '© {{year}} {{app}}. Chụsoo ọnọdụ ahụ.',
+  'landing.ctaBody':
+    "Otu gị. Ọnọdụ gị. Otu ọkacha mmasị gị — tinyere n'elu. Nkeji abụọ iji melite, n'efu maka oge ahụ.",
   'landing.ctaHeading': 'Kwụsị ime ka akara ndị ọzọ dị ọhụrụ',
   'landing.eyebrow': 'E wuru ya maka ndị na-akwado ya, ndị nkuzi, na ndị nhazi otu egwuregwu',
   'landing.featuresHeading': "Oche dị n'ihu maka ndị niile guzoro ọtọ",
   'landing.getStarted': 'Jikọọ na otu egwuregwu ahụ',
   'landing.heroCta': 'Jikọọ na otu egwuregwu ahụ',
+  'landing.heroSubtitle':
+    "{{app}} na-ejikọta ọnọdụ, nhazi oge, na ndị isi ọnụ ọgụgụ n'otu dashboard nke ọkwa mgbasa ozi. Akara ndị dị ndụ. Ezigbo ndekọ. Enweghị mgbagwoju anya.",
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': "N'abalị a gburugburu otu egwuregwu ahụ",
   'landing.statFans': 'Ndị na-akwado na-eso',
   'landing.statGames': "Egwuregwu n'oge a",
@@ -34,11 +59,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Laghachi na egwuregwu',
   'matchDetail.eventsHeading': 'Egwuregwu-site-egwuregwu',
+  'matchDetail.final': 'FINAL',
   'matchDetail.finalScore': 'Ikpeazụ',
   'matchDetail.live': 'Ndụ',
   'matchDetail.liveNow': 'Biri ndụ ugbu a',
   'matchDetail.noEvents': 'E dekọbeghị ihe omume ọ bụla.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Enweghị egwuregwu na nlele a — nwaa nzacha ọzọ.',
   'matches.eyebrow': 'Ụbọchị asọmpi',
   'matches.loading': 'Ịdọpụta slate...',
   'matches.subtitle':
@@ -52,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Awụlighị ọkwa ọkwa',
   'notifications.loading': 'Na-ebugo ọkwa\\u2026',
   'pennantHeroCard.eyebrow': 'Elu tebụl ahụ',
+  'pennantHeroCard.formLabel': '10 ikpeazụ',
   'pennantHeroCard.gamesAhead': '{{value}} egwuregwu tupu ịchụso',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Ntugharị isi',
@@ -78,17 +106,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Họrọ oche gị',
   'pricing.heading': 'Kwalite maka usoro ihe omume, akara, na ọkwa bara ụba.',
   'pricing.limits.schedule': '{{count}} nhazi oge ntinye',
+  'pricing.limits.scores': 'Akara {{count}}',
+  'pricing.limits.standings': 'Ọnọdụ {{count}}',
+  'pricing.limits.teams': 'Otu {{count}}',
+  'pricing.subtitle': 'Kwalite maka nhazi oge, akara, na ọnọdụ bara ụba.',
   'pricing.upgradeCta': 'Kwalite na {{tierName}}',
   'profile.eyebrow': 'Profaịlụ ndị ofufe',
   'profile.favoritesCount': 'Ndị otu sochiri',
   'profile.favoritesHeading': 'Ndị otu kachasị amasị',
   'profile.noFavorites': "Enwebeghị onye ị hụrụ n'anya — họrọ otu ndị otu site na ibe Ndị otu.",
   'profile.rankRecord': 'Ọkwa # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Ndekọ {{record}}',
   'reset.confirmPlaceholder': 'Megharịa paswọọdụ ahụ',
+  'reset.mismatch': 'Okwuntughe adabaghị.',
   'reset.newLabel': 'Okwuntughe Ọhụrụ',
   'reset.subtitle': 'Họrọ paswọọdụ siri ike nke nwere ma ọ dịkarịa ala mkpụrụedemede iri na abụọ.',
   'reset.tokenPlaceholder': 'Mado site na email',
   'schedule.eyebrow': 'Slate ahụ',
+  'schedule.moreGames': '+ {{count}} Ọzọ',
   'schedule.subtitle':
     "Echiche kalenda nke ihe eji eme ihe n'oge niile - pịa ụbọchị ọ bụla maka akara igbe.",
   'scoreboardTicker.empty': 'Enweghị egwuregwu dị ndụ ugbu a — lelee azụ na puck drop.',
@@ -96,6 +131,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Mee ka ahaziri onwe gị nke ọma',
   'settings.favoritesBody':
     'A na-etinye otu ndị a na dashboard gị ma na-enye gị ozi gbasara akara mmalite.',
+  'settings.favoritesHeading': 'Ndị otu kachasị amasị',
   'settings.loading': 'Na-ebugo mmasị gị\\u2026',
   'settings.noFavorites':
     'Enweghị ndị otu kachasị amasị ugbu a - họrọ ndị otu site na ibe Ndị otu.',
@@ -115,6 +151,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': "N'ozuzu ya",
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Ndị anọ kacha elu ruru eru maka oge asọmpi ahụ — ndị na-agba bọọlụ site na isi ihe, wee merie na nkezi.',
   'standings.title': 'Ọkwa otu egwuregwu',
@@ -133,6 +170,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Onye ọkpụkpọ',
   'teamDetail.colPos': 'Ọnọdụ',
+  'teamDetail.pointsLabel': 'Isi ihe',
   'teamDetail.rankLabel': 'Ọkwa # {{rank}}',
   'teamDetail.rosterHeading': 'Ndepụta aha',
   'teamDetail.statGD': 'Ọdịiche Goolu',

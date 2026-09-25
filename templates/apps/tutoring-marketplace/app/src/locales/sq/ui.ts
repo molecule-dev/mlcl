@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Na kontaktoni',
   'about.eyebrow': 'Rreth nesh',
+  'about.missionTitle': 'Misioni ynë',
   'account.notifications.save': 'Ruaj preferencat',
   'account.notifications.saved': 'Preferencat u ruajtën.',
   'account.notifications.saveFailed': 'Nuk mund të ruheshin preferencat.',
@@ -11,7 +12,10 @@ export const ui: UiTranslations = {
   'account.payments.freeDescription': 'Pagesë për seancë • Përmirësim për zbritje rezervimesh',
   'account.payments.helper':
     'Metoda juaj e pagesës merret në arkë. Ne nuk i ruajmë kurrë numrat e plotë të kartave — Stripe trajton të gjitha të dhënat e kartave.',
+  'account.payments.paidDescription': 'Abonimi aktiv — menaxhoje në Stripe.',
   'account.payments.planFree': 'Plan falas',
+  'account.payments.title': 'Plani & pagesa',
+  'account.payments.viewPlans': 'Shiko planet {{appName}} →',
   'account.profile.title': 'Profili',
   'account.role.body':
     'Kaloni midis modalitetit të nxënësit dhe atij të tutorit në çdo kohë. Seancat tuaja aktive mbeten të paprekura në të dyja modalitetet.',
@@ -24,6 +28,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Mëso me shkumës',
   'becomeTutor.form.error': 'Nuk mund të dërgohej aplikimi.',
+  'becomeTutor.form.pitch': 'Prezantimi yt (opsional)',
   'becomeTutor.form.pitchPlaceholder':
     'Disa fjali që studentët do të shihnin në profilin tuaj. Mbajeni specifike dhe të ngrohta.',
   'becomeTutor.form.rate': 'Tarifa orare ($/orë): {{rate}}',
@@ -32,6 +37,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.submitted': 'Aplikimi u dorëzua. Po ridrejtohemi në profilin tuaj…',
   'becomeTutor.form.title': 'Na trego për ty',
   'becomeTutor.headline': 'Fitoni duke bërë atë që doni. Mësoni sipas orarit tuaj.',
+  'becomeTutor.subhead':
+    'Apliko në 5 minuta. Pasi të verifikohesh, do të shfaqesh në kërkim dhe do të fillosh të marrësh rezervime.',
+  'booking.duration.title': '3. Sa zgjat?',
   'booking.error.createFailed': 'Nuk mund të krijohej rezervim.',
   'booking.error.loadFailed': 'Nuk mundi të ngarkonte tutorin — provo përsëri.',
   'booking.error.noSlot': 'Zgjidhni një ditë dhe orë së pari.',
@@ -46,6 +54,7 @@ export const ui: UiTranslations = {
     'Seancat mund të ricaktohen deri në 12 orë më parë. Karta juaj do të ngarkohet vetëm kur seanca të mbarojë.',
   'booking.summary.assurance':
     'Pa pagesë deri në përfundim të seancës • Anulimi është falas deri në 12 orë më parë',
+  'booking.summary.back': '← Kthehu te profili i mësuesit',
   'booking.summary.cta': 'Konfirmo rezervimin',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'Zgjidh një vend',
@@ -72,18 +81,27 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'Tutor',
   'bookingConfirm.subject': 'Subjekti',
   'bookingConfirm.title': 'Je i rezervuar. Për pjesën tjetër do të merremi ne.',
+  'bookingConfirm.viewSessions': 'Shiko të gjitha seancat →',
   'bookingConfirm.with': 'Me mësues privat',
   'common.goToDashboard': 'Shko te paneli',
+  'earningsHero.change': '{{sign}}{{percent}}% krahasuar me muajin e kaluar',
   'earningsHero.eyebrow': 'Fitimet • {{month}}',
+  'earningsHero.greeting': 'Mirë se u ktheve, {{name}} — vazhdo me të njëjtin ritëm.',
   'forgotPassword.heading': 'Harruat fjalëkalimin?',
   'forgotPassword.subheading':
     "Shkruani email-in e lidhur me llogarinë tuaj dhe ne do t'ju dërgojmë një lidhje rivendosjeje.",
   'forgotPassword.success.body':
     'Ne dërguam një lidhje rivendosjeje te {{email}} — skadon për 30 minuta.',
   'heroSearchSection.eyebrow': '12,000+ mësues privatë të verifikuar • që nga viti 2018',
+  'heroSearchSection.headline': 'Aty ku mendjet kureshtare takojnë mësuesit e duhur.',
+  'heroSearchSection.searchCta': 'Gjej mësues',
+  'heroSearchSection.searchPlaceholder': 'Kërko lëndë, mësues ose tema…',
   'heroSearchSection.stat.rating': 'Vlerësimi mesatar i seancës',
+  'heroSearchSection.stat.sessions': 'Seancat e kryera',
   'heroSearchSection.stat.subjects': 'Lëndët e mbuluara',
   'heroSearchSection.stat.tutors': 'Tutorë të verifikuar',
+  'heroSearchSection.subhead':
+    'Mësues të verifikuar. Çmime të qarta. Seanca që përshtaten me javën tënde.',
   'landing.featured.eyebrow': 'Tutorë të paraqitur',
   'landing.featured.headline':
     'Të zgjedhura me kujdes, të vlerësuara më së miri dhe gati këtë javë.',
@@ -91,8 +109,11 @@ export const ui: UiTranslations = {
   'landing.nav.becomeTutor': 'Mëso me shkumës',
   'landing.nav.findTutors': 'Gjej mësues privatë',
   'landing.pillars.eyebrow': 'Pse shkumës',
+  'landing.pillars.headline': '{{tagline}} — pa pengesa.',
   'landing.testimonials.eyebrow': 'Nga studentët e fundit',
   'landing.testimonials.headline': 'Rezultate reale, me fjalët e tyre.',
+  'landing.tutorCta.body':
+    'Cakto tarifat e tua, ndërto reputacion me vlerësime të verifikuara, ndërsa ne merremi me planifikimin, pagesat dhe kujtuesit.',
   'landing.tutorCta.button': 'Apliko për të dhënë mësim',
   'landing.tutorCta.eyebrow': 'Bëhu mësues privat',
   'landing.tutorCta.headline': 'Fitoni duke bërë atë që doni. Mësoni sipas orarit tuaj.',
@@ -102,6 +123,7 @@ export const ui: UiTranslations = {
   'login.signIn': 'Hyr në Mentor',
   'login.signup': 'Krijo një llogari →',
   'login.subheading': 'Vazhdo nga ku e latë — seancat, mesazhet dhe tutorët të presin.',
+  'login.support': 'Keni nevojë për ndihmë?',
   'messages.draftPlaceholder': 'Shkruaj një mesazh…',
   'messages.empty.body':
     "Temat do të shfaqen këtu kur t'i dërgoni mesazh një mësuesi ose kur dikush t'ju dërgojë mesazh.",
@@ -113,9 +135,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'Nuk ka ende mesazhe.',
   'messages.selectThread': 'Zgjidhni një fije në të majtë.',
   'messages.send': 'Dërgo mesazh',
+  'messages.startThreadHint':
+    'Vizito profilin e një mësuesi dhe trokit "Dërgo mesazh mësuesit" për të nisur një bisedë.',
   'messages.thread.empty': 'Përshëndetje — fillo bisedën.',
   'messages.title': 'Tema me tutorët tuaj.',
   'nav.primary': 'Kryesore',
+  'planUpdated.body':
+    'Ndryshimi i faturimit tani është aktiv. Mund ta menaxhoni planin tuaj në çdo kohë nga faqja e faturimit.',
+  'pricing.advancedFeatures': 'Karakteristika të avancuara:',
   'pricing.dataExport': 'Eksporti i të dhënave:',
   'pricing.headingDefault': 'Karakteristika të avancuara:',
   'resetPassword.heading': 'Zgjidh një fjalëkalim të ri të fortë.',
@@ -125,6 +152,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Shfaq fjalëkalimin',
   'resetPassword.subheading': "Do t'ju identifikojmë automatikisht pasi rivendosja të ketë sukses.",
   'resetPassword.submit': 'Rivendos dhe identifikohu',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body':
     'Provo ta zgjerosh filtrin e subjektit ose ta lehtësosh pragun e vlerësimit.',
@@ -136,7 +164,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'Vlerësimi',
   'search.filter.subject': 'Subjekti',
   'search.results.count': '{{count}} mësuesit që përputhen me filtrat tuaj',
+  'search.results.fallback': 'Po shfaqen mësues demo të përzgjedhur',
   'search.results.loading': 'Duke ngarkuar mësuesit privatë…',
+  'search.searchPlaceholder': 'Lëndë, emër ose temë…',
   'search.subtitle':
     'Filtro sipas lëndës, vlerësimit dhe disponueshmërisë. Vetëm mësues privatë të verifikuar.',
   'search.title': 'Gjeni një mësues privat që klikon',
@@ -169,18 +199,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'Seanca filloi — mësim të mbarë.',
   'sessionDetail.startError': 'Nuk mundi të niste seancën.',
   'sessionDetail.subtitle': 'me {{name}} • {{when}} • {{mins}} min',
+  'sessionDetail.timeline': 'Historiku i statusit',
   'sessionDetail.timeline.afterEnd': 'Pas përfundimit të seancës',
   'sessionDetail.timeline.auto': 'Automatik',
   'sessionDetail.timeline.booked': 'Rezervuar',
   'sessionDetail.timeline.confirmed': 'Konfirmuar',
   'sessionDetail.timeline.inSession': 'Në seancë',
   'sessionDetail.timeline.now': 'Tani',
+  'sessionDetail.timeline.receipt': 'Fatura u lëshua',
   'sessionDetail.timeline.review': 'Kërkesa për rishikim',
   'sessions.empty.body':
     'Shfletoni Mentor për të gjetur një mësues privat dhe për të rezervuar një vend. Seancat e konfirmuara shfaqen këtu.',
   'sessions.empty.title': 'Nuk ka ende asgjë të planifikuar këtu.',
   'sessions.error': 'Nuk mund të ngarkoheshin sesionet tuaja — ju lutemi provoni përsëri.',
   'sessions.eyebrow': 'Sesionet tuaja',
+  'sessions.loading': 'Po ngarkohen sesionet…',
   'sessions.subtitle':
     'Ndiqni rezervimet e ardhshme, hyni në dhomën aktive të seancave dhe rivizitoni mësimet e përfunduara.',
   'sessions.title': 'Çdo mësim, në një vend.',
@@ -195,11 +228,15 @@ export const ui: UiTranslations = {
   'signup.signUp': 'Krijo tim {{role}} llogari',
   'signup.subheading':
     "Krijo një llogari për të rezervuar seanca, për t'u dërguar mesazhe tutorëve dhe për të ndjekur progresin tënd.",
+  'signup.terms': 'Duke u regjistruar, ti pranon Kushtet tona.',
   'tutorCard.avatarAlt': 'Portret i {{name}}',
   'tutorCard.perHour': '/ orë',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'Vlerësimi më i lartë',
   'tutorCard.verified': 'Mësues i verifikuar',
+  'tutorDashboard.empty.body':
+    'Cakto lëndët, tarifën për orë dhe disponueshmërinë — pastaj fillo të fitosh.',
+  'tutorDashboard.empty.cta': 'Bëhu mësues →',
   'tutorDashboard.empty.title':
     'Bëhuni një mësues privat për të zhbllokuar panelin tuaj të kontrollit.',
   'tutorDashboard.fallbackName': 'Tutor',
@@ -207,11 +244,15 @@ export const ui: UiTranslations = {
   'tutorDashboard.recentReviews': 'Vlerësimet e fundit',
   'tutorDashboard.reviewsEmpty':
     'Nuk ke ende asnjë vlerësim — ato do të shfaqen këtu pasi studentët të të vlerësojnë.',
+  'tutorDashboard.stats.rating': 'Vlerësimi mesatar',
   'tutorDashboard.stats.sessions': 'Seancat e këtij muaji',
+  'tutorDashboard.stats.totalSessions': 'Seancat gjithsej',
+  'tutorDashboard.studentFallback': 'Student',
   'tutorDashboard.tutoringFallback': 'Seancë mësimdhënieje',
   'tutorDashboard.upcoming': 'Seancat e ardhshme',
   'tutorDashboard.upcomingEmpty':
     'Nuk ka ende seanca të ardhshme — studentët që kanë rezervuar vendet tuaja do të shfaqen këtu.',
+  'tutorProfile.availability': 'Disponueshmëria këtë javë',
   'tutorProfile.availabilityHeadline': 'Zgjidh një vend për të filluar',
   'tutorProfile.bookCta': 'Rezervoni një seancë',
   'tutorProfile.bookFull': 'Shihni orarin e plotë',
@@ -224,6 +265,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / orë',
   'tutorProfile.reviews': 'Vlerësimet e fundit',
   'tutorProfile.reviews.empty': 'Ende nuk ka vlerësime — bëhu i pari.',
+  'tutorProfile.stat.repeats': 'Studentë të përsëritur',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'Përgjigje mesatare',
   'tutorProfile.stat.responseValue': '{{mins}} min',

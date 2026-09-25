@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Вашиот план е ажуриран.',
   'planUpdated.returnHome': 'Врати се на почетна',
   'planUpdated.thankYou': 'Ви благодариме!',
+  'post.markdown': 'Прегледај ја оваа објава како markdown',
+  'post.readingTime': '{{minutes}} мин. читање',
   'post.tags': 'Ознаки',
   'project.error.nameAndTypeRequired': 'name и projectType се задолжителни',
   'project.error.notFound': 'Не е пронајдено',

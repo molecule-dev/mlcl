@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte zpětnou vazbu, našli jste chybu nebo chcete {{app}} pro svou ligu? Napište nám v nastavení účtu — každá zpráva se dostane ke skutečnému člověku z týmu.',
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O aplikaci',
+  'about.featureAlerts':
+    'Push oznámení pro aktualizace skóre, upozornění na výměny, zprávy o zraněních a oznámení ligy.',
+  'about.featureRosters':
+    'Týmové stránky s kompletními soupiskami, sezónními součty, sériemi horkých/studených výkonů a vzájemnými bilancemi pro každého hráče.',
+  'about.featureSchedule':
+    'Kalendář sezóny a přehled rozvrhu, abyste mohli plánovat kolem každého zápasu a výsledku.',
+  'about.featureScoreboard':
+    'Vysílací výsledková lišta připnutá na vrcholu každé stránky, abyste nikdy nezmeškali gól.',
+  'about.featureStandings':
+    'Živé tabulky — aktuální bilance výher-proher-remíz, body, procento výher a hranice play-off, aktualizované při každém hvizdu.',
+  'about.intro':
+    '{{app}} je vysílací domov pro vaši ligu. Týmy, rozvrhy, živé skóre a tabulky se spojují v jeden rychlý dashboard bez zbytečností — takže fanoušci, trenéři i organizátoři ligy vždy vědí, jak si sezóna stojí.',
+  'about.missionBody':
+    'Sledovat ligu by nemělo znamenat obnovovat pět různých výsledkových tabulek třetích stran. Vytvořili jsme to, aby každá liga měla jediný zdroj pravdy pro tabulky, rozvrh a statistiky, na kterých skutečně záleží — aktualizované při každém hvizdu, zdarma na celou sezónu.',
+  'about.missionTitle': 'Naše poslání',
+  'about.whatYouGet': 'Co získáte',
   'appShell.closeNav': 'Zavřít navigaci',
   'appShell.openNav': 'Otevřít navigaci',
   'common.dashboard': 'Přehled',
@@ -16,14 +35,21 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Zobrazit všechny zápasy \\u2192',
   'dashboard.viewAllStandings': 'Kompletní tabulka \\u2192',
   'dashboard.viewAllStats': 'Zobrazit všechny statistiky vedoucích hráčů \\u2192',
+  'forgot.submitting': 'Odesílání odkazu pro obnovení…',
   'forgot.subtitle': 'Zadejte svůj e-mail a obdržíte odkaz pro obnovení.',
   'forgot.success':
     'Odkaz na resetování byl odeslán uživateli {{email}} Zkontrolujte si doručenou poštu.',
+  'landing.copyright': '© {{year}} {{app}}. Chase the standing.',
+  'landing.ctaBody':
+    'Vaše liga. Vaše tabulky. Váš oblíbený tým — připnutý nahoře. Dvě minuty na nastavení, zdarma na celou sezónu.',
   'landing.ctaHeading': 'Zastavit aktualizaci výsledkových tabulek třetích stran',
   'landing.eyebrow': 'Vytvořeno pro fanoušky, trenéry a organizátory ligy',
   'landing.featuresHeading': 'Místo v první řadě pro každého stojícího',
   'landing.getStarted': 'Připojte se k lize',
   'landing.heroCta': 'Připojte se k lize',
+  'landing.heroSubtitle':
+    '{{app}} spojuje tabulky, rozvrhy a statistické lídry do jednoho dashboardu ve vysílací kvalitě. Živé skóre. Skutečné rekordy. Žádný nepořádek.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Dnes večer v lize',
   'landing.statFans': 'Fanoušci sledující',
   'landing.statGames': 'Zápasy v této sezóně',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Otázka {{period}}',
   'matchDetail.back': 'Zpět k zápasům',
   'matchDetail.eventsHeading': 'Postupné sledování',
+  'matchDetail.final': 'KONEC',
   'matchDetail.finalScore': 'Finále',
   'matchDetail.live': 'ŽÍT',
   'matchDetail.liveNow': 'Live nyní',
   'matchDetail.noEvents': 'Zatím nebyly zaznamenány žádné události.',
   'matchDetail.periodClock': 'Otázka {{period}} · {{clock}}',
+  'matches.empty': 'V tomto zobrazení nejsou žádné zápasy — zkuste jiný filtr.',
   'matches.eyebrow': 'Den zápasu',
   'matches.loading': 'Tahání břidlice…',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Nepodařilo se načíst oznámení',
   'notifications.loading': 'Načítání oznámení\\u2026',
   'pennantHeroCard.eyebrow': 'Vrchol tabulky',
+  'pennantHeroCard.formLabel': 'Posledních 10',
   'pennantHeroCard.gamesAhead': '{{value}} zápasy před honbou za vítězstvím',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Primární navigace',
@@ -80,17 +109,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Vyberte si své sedadlo',
   'pricing.heading': 'Vylepšete si program a získejte bohatší rozpis, skóre a tabulky.',
   'pricing.limits.schedule': '{{count}} položky v plánu',
+  'pricing.limits.scores': '{{count}} skóre',
+  'pricing.limits.standings': '{{count}} tabulky',
+  'pricing.limits.teams': '{{count}} týmů',
+  'pricing.subtitle': 'Upgradujte pro bohatší rozvrh, skóre a tabulky.',
   'pricing.upgradeCta': 'Přejít na {{tierName}}',
   'profile.eyebrow': 'Profil fanouška',
   'profile.favoritesCount': 'Sledované týmy',
   'profile.favoritesHeading': 'Oblíbené týmy',
   'profile.noFavorites': 'Zatím žádné oblíbené – vyberte si týmy na stránce Týmy.',
   'profile.rankRecord': 'Pořadí č. {{rank}} · {{record}}',
+  'profile.recordOnly': 'Bilance {{record}}',
   'reset.confirmPlaceholder': 'Zadejte heslo znovu',
+  'reset.mismatch': 'Hesla se neshodují.',
   'reset.newLabel': 'Nové heslo',
   'reset.subtitle': 'Zvolte silné heslo o délce alespoň 12 znaků.',
   'reset.tokenPlaceholder': 'Vložit z e-mailu',
   'schedule.eyebrow': 'Břidlice',
+  'schedule.moreGames': '+ {{count}} více',
   'schedule.subtitle':
     'Kalendář zápasů v celé sezóně – klepnutím na kterýkoli den zobrazíte výsledky zápasů v boxech.',
   'scoreboardTicker.empty': 'Momentálně žádné živé zápasy – zkuste to později, až bude vhozen puk.',
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Přizpůsobit',
   'settings.favoritesBody':
     'Tyto týmy se vám připnou na řídicí panel a spustí upozornění na skóre.',
+  'settings.favoritesHeading': 'Oblíbené týmy',
   'settings.loading': 'Načítání vašich preferencí\\u2026',
   'settings.noFavorites': 'Zatím žádní oblíbení \\u2014 vyberte si týmy na stránce Týmy.',
   'settings.notificationsHeading': 'Oznámení a zobrazení',
@@ -115,6 +152,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Celkově',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Do play-off se kvalifikují čtyři nejlepší – v případě remízy na body se pak utkávají dva týmy s procentuálním vyhraním.',
   'standings.title': 'Pořadí ligy',
@@ -133,6 +171,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Hráč',
   'teamDetail.colPos': 'Pozice',
+  'teamDetail.pointsLabel': 'Body',
   'teamDetail.rankLabel': 'Pořadí č. {{rank}}',
   'teamDetail.rosterHeading': 'Seznam',
   'teamDetail.statGD': 'Rozdíl gólů',

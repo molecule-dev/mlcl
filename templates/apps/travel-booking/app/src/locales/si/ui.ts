@@ -1,13 +1,28 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'නවාතැන් ගැන ප්‍රශ්න, ප්‍රතිචාර, නැතිනම් හවුල්කාරිත්ව අදහසක්ද? ඔබේ ගිණුමෙන් හෝ යෙදුම තුළ ඇති concierge හරහා කණ්ඩායම හමුවන්න — සෑම පණිවිඩයක්ම ගමන් කරන සැබෑ මිනිසෙකු වෙත යයි.',
   'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
+  'about.featureBooking.body':
+    'කාමර, ගාස්තු සහ පහසුකම් පැත්තෙන් පැත්තට සසඳා, සෑම ගමන් සැලසුමකම නොමිලේ අවලංගු කිරීම සමඟ ටැප් කිහිපයකින් වෙන් කරන්න.',
+  'about.featureBooking.title': 'සොයන්න, සසඳන්න, වෙන් කරන්න',
+  'about.featureDiscover.body':
+    'සංස්කාරකයන් විසින් තෝරාගත් ගමනාන්ත සහ ක්ෂේත්‍ර මාර්ගෝපදේශ, ගමන් මල්ල බැඳගත යුතු ස්ථාන ඉස්මතු කරයි — aggregator කෝලාහල නැත, අනුග්‍රාහක අවුල් නැත.',
   'about.featureDiscover.title': 'ආශ්වාදයක්, අතින් තෝරාගත්',
+  'about.featureItineraries.body':
+    'ගුවන් ගමන්, නවාතැන් සහ සැලසුම් එකම තැනක තබාගන්න, ගමනාන්ත පසුව සඳහා සුරකින්න, සහ ඔබ නතර කළ තැනින්ම ඔබේ ගමන නැවත අරගන්න.',
+  'about.featureItineraries.title': 'සංවිධානය වී තිබෙන ගමන් සැලසුම්',
+  'about.featureStays.title': 'විශ්වාසදායක නවාතැන්',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
+  'about.subtitle':
+    'ආශ්වාදය, විශ්වාසදායක නවාතැන්, සහ සිහිනයේ සිට වෙන් කිරීම දක්වා බාධා රහිත මාවතක්.',
+  'about.whatYouGetTitle': 'ඔබට ලැබෙන දේ',
   'account.addPaymentCta': 'ගෙවීමේ ක්‍රමය එක් කරන්න',
   'account.addPaymentError': 'ගෙවීමේ ක්‍රමය එක් කිරීමට නොහැකි විය.',
   'account.confirmRemove': 'ඉවත් කිරීම තහවුරු කරන්න',
   'account.defaultBadge': 'පෙරනිමිය',
-  'account.loyalty.pointsTowardNext': '{{ලකුණු}} වල {{ඊළඟ}} සැතපුම් {{ඊළඟ ස්ථරය}}',
+  'account.loyalty.pointsTowardNext': '{{nextTier}} වෙත {{next}} සැතපුම්වලින් {{points}}',
   'account.loyalty.tier': 'වත්මන් ස්ථරය',
   'account.navLabel': 'ගිණුම් අංශ',
   'account.payments.empty': 'තවමත් ගෙවීම් ක්‍රම කිසිවක් සුරැකී නොමැත.',
@@ -28,6 +43,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} රාත්‍රීන්',
   'booking.lineTaxes': 'බදු සහ ගාස්තු',
   'booking.loadError': 'ගුණාංගය පූරණය කිරීමට අසමත් විය.',
+  'booking.noChargeYet': 'ඔබෙන් තවම ගාස්තු අය නොකෙරේ.',
   'booking.noPaymentMethods': 'සුරැකි ගෙවීම් ක්‍රම නොමැත.',
   'booking.noPaymentSelected': 'තහවුරු කිරීමට පෙර ගෙවීමේ ක්‍රමයක් තෝරන්න.',
   'booking.noRoomError': 'තහවුරු කිරීමට පෙර කාමරයක් තෝරන්න.',
@@ -39,6 +55,7 @@ export const ui: UiTranslations = {
   'booking.policy2':
     'අද දින කිසිදු ගාස්තුවක් අය නොකෙරේ — ඔබගේ කාඩ්පත තහවුරු කිරීම සඳහා පමණක් රඳවා තබා ගනී.',
   'booking.policy3': 'Sojourn මගින් ආවරණය වන චාරිකා ආරක්ෂාව — 24/7 හෘදසාක්ෂික සහාය.',
+  'booking.policyHeading': 'අවලංගු කිරීම සහ නියම',
   'booking.roomHeading': 'ඔබේ කාමරය තෝරන්න',
   'booking.specialRequests': 'විශේෂ ඉල්ලීම්',
   'booking.specialRequestsPlaceholder': 'සත්කාරකයා දැනගත යුතු යමක් තිබේද?',
@@ -67,6 +84,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'තාවකාලික සාමාජිකයන්',
   'landing.cta.heading': 'කරදරයකින් තොරව ගමන් කරන්න. සෑම ගමන් විස්තරයක්ම, සෑම අවස්ථාවකම.',
   'landing.cta.signup': 'නොමිලේ ගිණුමක් සාදන්න',
+  'landing.cta.subheading':
+    'නොමිලේ අවලංගු කිරීම, සාමාජිකයන්ට පමණක් ගාස්තු, සහ 24/7 ගමන් concierge — සෑම වෙන් කිරීමකින්ම සැතපුම් උපයන්න සහ නව දේපළවලට පළමු ප්‍රවේශය ලබාගන්න.',
   'landing.destinations.eyebrow': 'ඊළඟට කොහෙද?',
   'landing.destinations.heading': 'විශේෂාංගගත ගමනාන්ත',
   'landing.destinations.seeAll': 'සියලුම ගමනාන්ත බලන්න',
@@ -75,27 +94,45 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'ඇසුරුම් කිරීමට වටින කතා',
   'landing.nav.join': 'සොජෝර්න් හා එක්වන්න',
   'landing.nav.search': 'සෙවීම් නවාතැන්',
+  'landing.preview.browseAll': 'සම්පූර්ණ එකතුව බලන්න',
   'landing.preview.eyebrow': 'ඇතුළත එබී බැලීමක්',
   'landing.preview.heading': 'මෙම මාසයේ අතින් තෝරාගත් නවාතැන්',
+  'landing.preview.subheading':
+    '{{appName}} හි සෑම දේපළක්ම අපගේ සංස්කාරක කණ්ඩායම විසින් පුද්ගලිකව පරීක්ෂා කර ඇත — aggregator තොග නැත, රවටන ලැයිස්තු නැත, සහ සෑම ගමන් සැලසුමකම නොමිලේ අවලංගු කිරීම.',
   'login.eyebrow': 'සාමාජික ප්‍රදේශය',
+  'login.noAccount': 'ටෙසේරා වලට අලුත්ද?',
   'login.signupLink': 'නොමිලේ ගිණුමක් සාදන්න',
   'login.subheading':
     'ඔබගේ සංචාර කළමනාකරණය කිරීමට, තහවුරු කිරීම් බැලීමට සහ ඔබ නතර කළ තැනින් නැවත ආරම්භ කිරීමට පුරන්න.',
   'nav.legal': 'නීතිමය',
   'notifications.loading': 'පූරණය වෙමින්...',
   'notifications.subheading': '{{count}} නොකියවූ · සියල්ල එකම සන්සුන් එන ලිපි පෙට්ටියක',
+  'planUpdated.body':
+    'ඔබේ බිල්පත් වෙනස දැන් සක්‍රීයයි. ඕනෑම වේලාවක බිල්පත් පිටුවෙන් ඔබේ සැලසුම කළමනාකරණය කළ හැක.',
+  'planUpdated.retry': 'නැවත උත්සාහ කරන්න',
+  'planUpdated.verifyFailed': 'අපට තවමත් ඔබගේ ගෙවීම තහවුරු කිරීමට නොහැකි විය.',
+  'planUpdated.verifyFailedBody':
+    'ඔබේ ගෙවීම තවමත් සැකසෙමින් තිබිය හැක. මොහොතකින් නැවත උත්සාහ කරන්න.',
   'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.accommodationsLabel': 'නවාතැන්',
   'pricing.bookingsLabel': 'වෙන් කිරීම්',
   'pricing.destinationsLabel': 'සුරැකි ගමනාන්ත',
   'pricing.exportLabel': 'චාරිකා දත්ත අපනයනය කරන්න',
   'pricing.itinerariesLabel': 'ගමන් විස්තර',
+  'privacy.intro':
+    '{{appName}} ඔබේ ගමන් දත්ත ආරක්ෂා කරයි. නිෂ්පාදනයට දියත් කිරීමට පෙර මෙම අච්චුව ඔබේ සැබෑ රහස්‍යතා ප්‍රතිපත්තිය සමඟ ප්‍රතිස්ථාපනය කරන්න.',
   'propertyDetail.allPhotos': 'සියල්ල {{count}} ඡායාරූප',
   'propertyDetail.amenitiesHeading': 'මෙම ස්ථානය පිරිනමන දේ',
   'propertyDetail.backLink': 'සෙවීමට ආපසු',
   'propertyDetail.bookCta': 'රක්ෂිතය',
   'propertyDetail.bookmarkAria': 'දේපළ සුරකින්න',
   'propertyDetail.freeCancellation': 'නොමිලේ අවලංගු කිරීම',
+  'propertyDetail.galleryAria': 'දේපළ ඡායාරූප ගැලරිය',
+  'propertyDetail.galleryCloseAria': 'ගැලරිය වසන්න',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': '{{name}} ඡායාරූපය {{n}}',
+  'propertyDetail.galleryNextAria': 'ඊළඟ ඡායාරූපය',
+  'propertyDetail.galleryPrevAria': 'පෙර ඡායාරූපය',
   'propertyDetail.heroImageAlt': '{{name}} වීර ඡායාරූපය',
   'propertyDetail.lineCleaning': 'පිරිසිදු කිරීමේ ගාස්තුව',
   'propertyDetail.lineRate': '{{price}} × {{nights}} රාත්‍රීන්',
@@ -104,6 +141,7 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'රාත්‍රිය',
   'propertyDetail.noChargeYet': 'ඔබෙන් තවමත් අය නොකෙරේ.',
   'propertyDetail.notFound': 'දේපළ හමු නොවීය.',
+  'propertyDetail.pickDatesHint': 'සම්පූර්ණ මිල බෙදීම බැලීමට ඔබේ දින තෝරන්න.',
   'propertyDetail.reviewCount': '( {{count}} සමාලෝචන)',
   'propertyDetail.reviewsHeading': 'මෑත සමාලෝචන',
   'propertyDetail.verified': 'නවාතැන් සත්‍යාපනය කළ දේපළ',
@@ -112,6 +150,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'නව මුරපදය',
   'resetPassword.subheading':
     'ඔබගේ Sojourn ගිණුම සඳහා නව මුරපදයක් තෝරන්න. අවම වශයෙන් අක්ෂර 8ක් භාවිතා කරන්න; අපි මුරපදයක් නිර්දේශ කරමු.',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'ඔබගේ සෙවුමට ගැලපෙන ගුණාංග කිසිවක් නොමැත.',
   'search.emptyHint':
     'ඔබේ පෙරහන් පුළුල් කිරීමට හෝ මිල සීමාව ඉවත් කිරීමට උත්සාහ කරන්න - Sojourn රටවල් 14 ක රැඳී සිටී.',
@@ -119,6 +158,8 @@ export const ui: UiTranslations = {
   'search.heading': 'ඔබේ සංචාරය සඳහා තෝරාගත් නවාතැන්',
   'search.headingForQuery': '"" සඳහා රැඳී සිටියි. {{q}} "',
   'search.loadError': 'ගුණාංග පූරණය කිරීමට අසමත් විය.',
+  'search.mapHint': 'සිතියමේ එහි ස්ථානය ඉස්මතු කිරීමට කාඩ්පතක් මත cursor තබන්න.',
+  'search.mapPinAria': '{{name}} — රාත්‍රියකට {{price}}',
   'search.sortLabel': 'අනුව තෝරන්න',
   'search.subheading': '{{count}} දේපළ · {{guests}} අමුත්තන්',
   'settings.openAccount': 'සම්පූර්ණ ගිණුම විවෘත කරන්න',
@@ -127,15 +168,22 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'නොමිලේ අවලංගු කිරීම, සාමාජිකයින්ට-පමණි ගාස්තු, සහ 24/7 චාරිකා සහායක සේවාවක් — සෑම වෙන් කිරීමකින්ම සැතපුම් උපයන්න.',
   'sojournAuthShell.brand.eyebrow': 'කරදරයකින් තොරව සැරිසරන්න',
+  'sojournAuthShell.brand.heading': 'සිහිනයේ සිට වෙන් කිරීම දක්වා බාධා රහිත මාවතක්.',
   'sojournHeroSearchCard.checkInAria': 'ඇතුළත් වීමේ දිනය',
   'sojournHeroSearchCard.checkOutAria': 'පිටවීමේ දිනය',
+  'sojournHeroSearchCard.destAria': 'ගමනාන්තය',
+  'sojournHeroSearchCard.destLabel': 'කොහේද',
   'sojournHeroSearchCard.destPlaceholder': 'නගරය, කලාපය හෝ දේපළ',
   'sojournHeroSearchCard.eyebrow': 'තෝරාගත් නවාතැන් · සාමාජිකයින්ට-පමණි අනුපාත',
   'sojournHeroSearchCard.guestsOption': '{{n}} අමුත්තන්',
   'sojournHeroSearchCard.subtitle':
     'ආශ්වාදයක්, විශ්වාසදායක නවාතැන් සහ දවල් සිහිනෙන් වෙන්කරවා ගත් ස්ථාන දක්වා ඝර්ෂණ රහිත මාර්ගයක් - රටවල් 14ක් සහ අතින් පරීක්ෂා කරන ලද දේපළ 200+ක් හරහා.',
+  'sojournHeroSearchCard.title': 'කරදරයකින් තොරව සැරිසරන්න',
+  'sojournHeroSearchCard.trustLoyalty': 'සෑම ගමන් සැලසුමකින්ම සැතපුම් උපයන්න',
   'sojournHeroSearchCard.trustProtected': 'නොමිලේ අවලංගු කිරීම, සම්පූර්ණයෙන්ම ආරක්ෂිතයි',
   'sojournHeroSearchCard.trustVetted': 'අතින් පරීක්ෂා කරන ලද දේපල පමණි',
+  'terms.intro':
+    'නිෂ්පාදනයට දියත් කිරීමට පෙර මෙම අච්චුව ඔබේ සැබෑ {{appName}} සේවා නියම සමඟ ප්‍රතිස්ථාපනය කරන්න.',
   'travelBookingLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'tripDetail.backLink': 'සංචාර වෙත ආපසු',
   'tripDetail.cancelCta': 'වෙන් කිරීම අවලංගු කරන්න',
@@ -145,6 +193,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'විකල්ප — අවලංගු කිරීමට හේතුව',
   'tripDetail.checkInLabel': 'පැමිණීම වාර්තා කරන්න',
   'tripDetail.checkOutLabel': 'පරීක්ෂාකාරී වන්න',
+  'tripDetail.confCode': 'කේතය · {{code}}',
   'tripDetail.confirmCancelCta': 'සංචාරය අවලංගු කරන්න',
   'tripDetail.hostInfo':
     'සත්කාරකත්වය දරනු ලබන්නේ {{name}} . ඇතුල්වීමට දින 7කට පෙර නොමිලේ අවලංගු කිරීම.',
@@ -152,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'වෙන්කරවා ගැනීම දිගටම කරගෙන යන්න',
   'tripDetail.lengthLabel': 'දිග',
   'tripDetail.loadError': 'සංචාරය පූරණය කිරීමට අසමත් විය.',
+  'tripDetail.messageHostHeading': 'ඔබේ සත්කාරකයාට පණිවිඩ යවන්න',
   'tripDetail.messagePlaceholder':
     'ඔබගේ පැමිණීමේ වේලාව, ආහාර අවශ්‍යතා හෝ වෙනත් ඕනෑම දෙයක් ඔබගේ ධාරක පුද්ගලයාට දන්වන්න.',
   'tripDetail.messageSend': 'පණිවිඩය යවන්න',
@@ -162,9 +212,11 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'මිල සාරාංශය',
   'tripDetail.taxes': 'බදු සහ ගාස්තු',
   'tripItineraryRow.nights': '{{count}} රාත්‍රීන්',
+  'trips.empty.past': 'ඔබ අතරමං වූ පසු පෙර ගමන් මෙහි දිස්වනු ඇත.',
   'trips.empty.upcoming': 'තවම ඉදිරි සංචාර නැත — අපි එය නිවැරදි කරමු.',
   'trips.eyebrow': 'ඔබේ ඉබාගාතේ',
   'trips.heading': 'චාරිකා',
   'trips.loadError': 'චාරිකා පූරණය කිරීමට අසමත් විය.',
+  'trips.searchCta': 'තවත් ගමනක් සැලසුම් කරන්න',
   'trips.subheading': '{{upcoming}} ඉදිරියේදී · {{past}} අතීතය',
 }

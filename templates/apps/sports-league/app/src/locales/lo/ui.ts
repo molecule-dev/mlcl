@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ມີຄຳຕິຊົມ, ພົບບັກ, ຫຼືຕ້ອງການ {{app}} ສຳລັບລີກຂອງທ່ານບໍ? ຕິດຕໍ່ພວກເຮົາຈາກການຕັ້ງຄ່າບັນຊີຂອງທ່ານ — ທຸກຂໍ້ຄວາມຈະສົ່ງໄປຫາຄົນຈິງໃນທີມ.',
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
+  'about.featureAlerts':
+    'ການແຈ້ງເຕືອນສຳລັບການອັບເດດຄະແນນ, ການແຈ້ງເຕືອນການແລກປ່ຽນ, ລາຍງານການບາດເຈັບ, ແລະການປະກາດຂອງລີກ.',
+  'about.featureRosters':
+    'ໜ້າທີມພ້ອມລາຍຊື່ນັກເຕະຄົບຖ້ວນ, ຍອດລວມລະດູການ, ສະຖິຕິຮ້ອນ/ເຢັນ, ແລະການແບ່ງປຽບທຽບແບບຕົວຕໍ່ຕົວສຳລັບນັກເຕະທຸກຄົນ.',
+  'about.featureSchedule':
+    'ປະຕິທິນລະດູການ ແລະ ມຸມມອງຕາຕະລາງເວລາ ເພື່ອໃຫ້ທ່ານວາງແຜນກັບທຸກນັດ ແລະ ຜົນການແຂ່ງຂັນ.',
+  'about.featureScoreboard':
+    'ແຖບສະກໍຣ໌ບອດຄຸນນະພາບການອອກອາກາດທີ່ປັກໝຸດຢູ່ດ້ານເທິງຂອງທຸກໜ້າ ເພື່ອໃຫ້ທ່ານບໍ່ພາດໂກນ.',
+  'about.featureStandings':
+    'ຕາຕະລາງຄະແນນສົດ — ບັນທຶກຊະນະ-ແພ້-ເສີມ ແບບເວລາຈິງ, ຄະແນນ, ເປີເຊັນຊະນະ, ແລະ ເສັ້ນເຂົ້າຮອບເພລອຟ, ອັບເດດທຸກຄັ້ງທີ່ເປົ່ານົກຫວີດ.',
+  'about.intro':
+    '{{app}} ເປັນເຮືອນຄຸນນະພາບການອອກອາກາດສຳລັບລີກຂອງທ່ານ. ທີມ, ຕາຕະລາງເວລາ, ຄະແນນສົດ, ແລະ ຕາຕະລາງຄະແນນມາລວມກັນໃນແດຊບອດດຽວທີ່ໄວ ແລະ ບໍ່ວຸ້ນວາຍ — ເພື່ອໃຫ້ແຟນບານ, ຄູຝຶກ, ແລະ ຜູ້ຈັດການລີກຮູ້ສະເໝີວ່າລະດູການຢູ່ຈຸດໃດ.',
+  'about.missionBody':
+    'ການຕິດຕາມລີກບໍ່ຄວນໝາຍເຖິງການຣີເຟຣຊຕາຕະລາງຄະແນນຂອງພາກສ່ວນທີສາມຫ້າແຫ່ງ. ພວກເຮົາສ້າງມັນຂຶ້ນເພື່ອໃຫ້ທຸກລີກມີແຫຼ່ງຄວາມຈິງດຽວສຳລັບຕາຕະລາງຄະແນນ, ຕາຕະລາງເວລາ, ແລະ ສະຖິຕິທີ່ສຳຄັນຈິງໆ — ອັບເດດທຸກຄັ້ງທີ່ເປົ່ານົກຫວີດ, ຟຣີສຳລັບລະດູການ.',
+  'about.missionTitle': 'ພາລະກິດຂອງພວກເຮົາ',
+  'about.whatYouGet': 'ສິ່ງທີ່ເຈົ້າໄດ້ຮັບ',
   'appShell.closeNav': 'ປິດການນຳທາງ',
   'appShell.openNav': 'ເປີດການນຳທາງ',
   'common.dashboard': 'ໜ້າຄວບຄຸມ',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'ເບິ່ງການແຂ່ງຂັນທັງໝົດ \\u2192',
   'dashboard.viewAllStandings': 'ອັນດັບເຕັມ \\u2192',
   'dashboard.viewAllStats': 'ເບິ່ງຜູ້ນຳສະຖິຕິທັງໝົດ \\u2192',
+  'forgot.submitting': 'ກຳລັງສົ່ງລິ້ງຣີເຊັດ…',
   'forgot.subtitle': 'ໃສ່ອີເມວຂອງທ່ານເພື່ອຮັບລິ້ງຕັ້ງຄ່າໃໝ່.',
   'forgot.success': 'ຣີເຊັດລິ້ງຖືກສົ່ງໄປທີ່ {{email}} ກວດສອບກ່ອງຈົດໝາຍຂອງທ່ານ.',
+  'landing.copyright': '© {{year}} {{app}}. ໄລ່ຕາມຕາຕະລາງຄະແນນ.',
+  'landing.ctaBody':
+    'ລີກຂອງທ່ານ. ຕາຕະລາງຄະແນນຂອງທ່ານ. ທີມທີ່ທ່ານມັກ — ປັກໝຸດຢູ່ດ້ານເທິງ. ສອງນາທີໃນການຕັ້ງຄ່າ, ຟຣີສຳລັບລະດູການ.',
   'landing.ctaHeading': 'ຢຸດການໂຫຼດໜ້າຈໍກະດານຄະແນນພາກສ່ວນທີສາມຄືນໃໝ່',
   'landing.eyebrow': 'ສ້າງຂຶ້ນສຳລັບແຟນໆ, ຄູຝຶກ ແລະ ຜູ້ຈັດງານລີກ',
   'landing.featuresHeading': 'ບ່ອນນັ່ງແຖວໜ້າສຳລັບທຸກໆບ່ອນນັ່ງທີ່ຢືນ',
   'landing.getStarted': 'ເຂົ້າຮ່ວມລີກ',
   'landing.heroCta': 'ເຂົ້າຮ່ວມລີກ',
+  'landing.heroSubtitle':
+    '{{app}} ເຊື່ອມຕາຕະລາງຄະແນນ, ຕາຕະລາງເວລາ, ແລະ ຜູ້ນຳດ້ານສະຖິຕິເຂົ້າກັນເປັນແດຊບອດຄຸນນະພາບການອອກອາກາດດຽວ. ຄະແນນສົດ. ບັນທຶກຈິງ. ບໍ່ວຸ້ນວາຍ.',
+  'landing.heroTitle': 'ຄຳເວົ້າ .',
   'landing.scoreboardLabel': 'ຄືນນີ້ຮອບລີກ',
   'landing.statFans': 'ແຟນໆທີ່ຕິດຕາມ',
   'landing.statGames': 'ເກມໃນລະດູການນີ້',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'ຖ. {{period}}',
   'matchDetail.back': 'ກັບໄປຫາການແຂ່ງຂັນ',
   'matchDetail.eventsHeading': 'ຫຼິ້ນຕໍ່ຫຼິ້ນ',
+  'matchDetail.final': 'ສຸດທ້າຍ',
   'matchDetail.finalScore': 'ສຸດທ້າຍ',
   'matchDetail.live': 'ສົດ',
   'matchDetail.liveNow': 'ຖ່າຍທອດສົດດຽວນີ້',
   'matchDetail.noEvents': 'ຍັງບໍ່ມີການບັນທຶກເຫດການໃດໆເທື່ອ.',
   'matchDetail.periodClock': 'ຖ. {{period}} · {{clock}}',
+  'matches.empty': 'ບໍ່ມີນັດໃນມຸມມອງນີ້ — ລອງໃຊ້ຕົວກອງອື່ນ.',
   'matches.eyebrow': 'ມື້ແຂ່ງຂັນ',
   'matches.loading': 'ກຳລັງດຶງແຜ່ນຫີນ…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'ໂຫຼດການແຈ້ງເຕືອນບໍ່ສຳເລັດ',
   'notifications.loading': 'ກຳລັງໂຫຼດການແຈ້ງເຕືອນ...',
   'pennantHeroCard.eyebrow': 'ດ້ານເທິງຂອງໂຕະ',
+  'pennantHeroCard.formLabel': '10 ນັດຫຼ້າສຸດ',
   'pennantHeroCard.gamesAhead': '{{value}} ເກມກ່ອນການໄລ່ລ່າ',
   'pennantHeroCard.pointsLabel': 'ຄະແນນ',
   'pennantLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
@@ -78,17 +107,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'ເລືອກບ່ອນນັ່ງຂອງທ່ານ',
   'pricing.heading': 'ອັບເກຣດເພື່ອຕາຕະລາງເວລາ, ຄະແນນ ແລະ ອັນດັບທີ່ສົມບູນກວ່າເກົ່າ.',
   'pricing.limits.schedule': '{{count}} ລາຍການກຳນົດເວລາ',
+  'pricing.limits.scores': 'ຄະແນນ {{count}}',
+  'pricing.limits.standings': 'ຕາຕະລາງຄະແນນ {{count}}',
+  'pricing.limits.teams': 'ທີມ {{count}}',
+  'pricing.subtitle': 'ອັບເກຣດເພື່ອຕາຕະລາງເວລາ, ຄະແນນ, ແລະ ຕາຕະລາງຄະແນນທີ່ອຸດົມກວ່າ.',
   'pricing.upgradeCta': 'ອັບເກຣດເປັນ {{tierName}}',
   'profile.eyebrow': 'ໂປຣໄຟລ໌ແຟນ',
   'profile.favoritesCount': 'ທີມທີ່ຕິດຕາມ',
   'profile.favoritesHeading': 'ທີມທີ່ມັກ',
   'profile.noFavorites': 'ຍັງບໍ່ມີທີມທີ່ມັກເທື່ອ — ເລືອກທີມຈາກໜ້າທີມ.',
   'profile.rankRecord': 'ອັນດັບທີ # {{rank}} · {{record}}',
+  'profile.recordOnly': 'ບັນທຶກ {{record}}',
   'reset.confirmPlaceholder': 'ຢືນຢັນລະຫັດຜ່ານອີກຄັ້ງ',
+  'reset.mismatch': 'ລະຫັດຜ່ານບໍ່ກົງກັນ.',
   'reset.newLabel': 'ລະຫັດຜ່ານໃໝ່',
   'reset.subtitle': 'ເລືອກລະຫັດຜ່ານທີ່ເຂັ້ມແຂງຢ່າງໜ້ອຍ 12 ຕົວອັກສອນ.',
   'reset.tokenPlaceholder': 'ວາງຈາກອີເມວ',
   'schedule.eyebrow': 'ກະດານຫີນ',
+  'schedule.moreGames': '+ {{count}} ເພີ່ມເຕີມ',
   'schedule.subtitle':
     'ມຸມມອງປະຕິທິນຂອງການແຂ່ງຂັນຕະຫຼອດລະດູການ — ແຕະມື້ໃດກໍໄດ້ເພື່ອເບິ່ງຄະແນນກ່ອງ.',
   'scoreboardTicker.empty': 'ບໍ່ມີການແຂ່ງຂັນສົດໃນຕອນນີ້ — ກວດສອບຄືນໄດ້ທີ່ puck drop.',
@@ -96,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'ປັບແຕ່ງ',
   'settings.favoritesBody':
     'ທີມເຫຼົ່ານີ້ຈະຖືກປັກໝຸດໄວ້ໃນແຜງຄວບຄຸມຂອງທ່ານ ແລະ ກະຕຸ້ນການແຈ້ງເຕືອນຄະແນນ.',
+  'settings.favoritesHeading': 'ທີມທີ່ມັກ',
   'settings.loading': 'ກຳລັງໂຫຼດການຕັ້ງຄ່າຂອງທ່ານ\\u2026',
   'settings.noFavorites': 'ຍັງບໍ່ມີທີມທີ່ມັກເທື່ອ \\u2014 ເລືອກທີມຈາກໜ້າທີມ.',
   'settings.notificationsHeading': 'ການແຈ້ງເຕືອນ ແລະ ການສະແດງຜົນ',
@@ -113,6 +150,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'ລ',
   'standings.overall': 'ໂດຍລວມ',
   'standings.points': 'ຄະແນນ',
+  'standings.rank': '#',
   'standings.subtitle':
     'ສີ່ທີມອັນດັບທຳອິດຈະຜ່ານເຂົ້າຮອບຕໍ່ໄປໃນຮອບ Playoffs — ທີມທີ່ຕັດຄະແນນເທົ່າກັນດ້ວຍຄະແນນ, ຈາກນັ້ນຈະຊະນະໃນອັດຕາເປີເຊັນ.',
   'standings.title': 'ອັນດັບລີກ',
@@ -131,6 +169,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'ກ',
   'teamDetail.colName': 'ຜູ້ຫຼິ້ນ',
   'teamDetail.colPos': 'ຕຳແໜ່ງ',
+  'teamDetail.pointsLabel': 'ຄະແນນ',
   'teamDetail.rankLabel': 'ອັນດັບທີ # {{rank}}',
   'teamDetail.rosterHeading': 'ບັນຊີລາຍຊື່',
   'teamDetail.statGD': 'ຄວາມແຕກຕ່າງຂອງເປົ້າໝາຍ',

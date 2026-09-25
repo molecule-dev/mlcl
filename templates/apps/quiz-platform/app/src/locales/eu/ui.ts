@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Iritzia duzu, akats bat aurkitu duzu, edo {{app}} zure eskolara edo taldera eraman nahi duzu? Mezu guztiak irakurtzen ditugu — jarri harremanetan zure kontuaren ezarpenetatik eta benetako pertsona batek erantzungo dizu.',
   'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'about.intro':
+    '{{app}} zuzeneko galdetegi plataforma bat da ikasgelentzat, joko gauetarako eta talde ekitaldietarako. Sortu galdera-sorta jostagarriak, antolatu denbora errealeko jokoak sartze-kode batekin, eta ikusi nola pizten den gela denboradun galderak, puntuazioa eta sailkapen-taulak.',
+  'about.missionBody':
+    'Ikaskuntza itsasten da jolas moduan sentitzen denean. Edonorentzat erraz egiten dugu gai bat joko azkar eta lehiakor bihurtzea — antolatzaileek eginez irakatsi dezaten eta jokalariek bolada mantendu dezaten.',
+  'about.missionTitle': 'Gure misioa',
   'about.title': '{{app}}(r)i buruz',
   'auth.login.noAccount': 'Sparq-en berria zara?',
   'auth.login.or': 'edo jarraitu honekin',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Ez dago oraindik bat datorren galdetegirik.',
   'discover.headline': 'Aurkitu zure hurrengo galdetegi gogokoena.',
   'discover.loading': 'Kargatzen…',
+  'discover.searchPlaceholder': 'Bilatu galdetegiak izenburuaren arabera…',
   'discover.subhead':
     'Arakatu liburutegi osoa, iragazi kategoriaren arabera edo bilatu izenburuaren arabera. Sakatu txartel bat bakarrik jotzeko edo zuzenean jotzeko.',
   'forgotPassword.subhead':
     'Sartu zure helbide elektronikoa eta berrezartzeko esteka bat bidaliko dizugu.',
   'forgotPassword.success.body':
     'Kontu bat badago {{email}} , berrezartzeko esteka bat jasoko duzu minutu gutxiren buruan.',
+  'forgotPassword.success.title': 'Begiratu zure sarrera-ontzia.',
   'hostLobby.back': 'Galdetegira itzuli',
   'hostLobby.copied': 'Batuketa-kodea arbelean kopiatu da.',
   'hostLobby.creating': 'Zure ataria martxan jartzen…',
@@ -30,19 +39,25 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Utzi ataria',
   'hostLobby.players.count': '{{count}} bizi',
   'hostLobby.players.title': 'Jokalariak aretoan.',
+  'hostLobby.players.waiting': 'Jokalarien zain. Partekatu {{code}} kodea batu daitezen.',
   'hostLobby.rules.title': 'Etxeko arauak',
   'hostLobby.startError': 'Ezin izan da jokoa hasi.',
   'hostLobby.starting': 'Txingarra pizten…',
   'joinCodeHero.headline': 'Esan zure jokalariei barrura sartzeko.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Edo bisitatu',
   'joinCodeHero.liveLabel': 'Zuzeneko sarrerako aretoa',
+  'joinCodeHero.playerJoined': '{{name}} batu da',
   'joinCodeHero.playersLabel': 'Jokalariak',
   'joinCodeHero.qrLabel': 'Eskaneatu sartzeko',
   'joinCodeHero.startGame': 'Txingarra piztu.',
   'joinCodeHero.subhead':
     'Partekatu sartzeko kodea edo eskaneatu QR kodea. Jokoa txinparta pizten duzun unean hasten da.',
+  'landing.cta.button': 'Sortu zure lehen galdetegia',
   'landing.cta.eyebrow': 'Doakoa hezitzaileentzat.',
   'landing.cta.heading': 'Ekarri txinparta ikasgai guztietara.',
+  'landing.cta.subhead':
+    'Eman izena 30 segundotan. Antolatu mugarik gabeko zuzeneko jokoak, prestatu galdetegiak AIarekin eta mantendu jokalari bakoitza boladan.',
   'landing.eyebrow': 'Erantzun guztiak piztu',
   'landing.features.heading':
     'Irakasteko eta jolasteko zure modura egokitzen den galdetegi estudio bat.',
@@ -58,6 +73,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Galdetegi ezagunak',
   'landing.popular.eyebrow': 'Aste honetako ezagunenak',
   'landing.popular.heading': 'Galdetegi baten antolatzaileak gaur lanean ari dira.',
+  'landing.popular.viewAll': 'Arakatu kategoria guztiak →',
+  'leaderboard.empty.body': 'Jokatu galdetegi bat zure puntuazioa sailkapen globalera igotzeko.',
   'leaderboard.empty.title': 'Ez dago jokaldirik taulan oraindik — izan zaitez lehena.',
   'leaderboard.eyebrow': 'Sailkapen-taula',
   'leaderboard.fullRanking': 'Sailkapen osoa',
@@ -65,6 +82,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Jokatu dituzun galdetegi saio guztietako puntuazioa lortu. Igo maila gehiago jokatuz.',
   'leaderboard.title': 'Galdetegi-maisu nagusiak',
+  'leaderboard.totalPlayers': '{{count}} sailkatutako jokalari',
   'leaderboardRow.points': 'puntuak',
   'leaderboardRow.streak': '{{days}} d',
   'login.headline': 'Ongi etorri berriro, galdetegi-maisu.',
@@ -76,9 +94,11 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Sortu zure lehen galdetegia →',
   'myQuizzes.empty.created': 'Oraindik ez duzu galdetegirik sortu.',
   'myQuizzes.empty.played': 'Ez dago argitaratutako galdetegirik oraindik.',
+  'myQuizzes.loading': 'Kargatzen…',
   'myQuizzes.subhead': 'Zuk sortutako zirriborroak, eta argitaratutako galdetegiak ere bai.',
   'myQuizzes.title': 'Nire galdetegiak',
   'nav.legal': 'Legezko',
+  'nav.primaryNavLabel': 'Nabigazio nagusia',
   'notFound.backHome': 'Etxera itzuli',
   'notFound.backToDiscover': 'Arakatu galdetegiak',
   'notFound.body': 'Saiatu beste kode batekin edo itzuli harrerara.',
@@ -87,17 +107,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Kargatzen…',
   'notifications.subhead':
     '{{count}} Irakurri gabeko txinpartak. Gonbidapenak, sailkapeneko mugimenduak eta lorpenak, dena korronte bakarrean.',
+  'planUpdated.retry': 'Saiatu berriro',
+  'planUpdated.verifyFailed': 'Ezin izan dugu oraindik zure ordainketa baieztatu.',
+  'planUpdated.verifyFailedBody':
+    'Baliteke zure ordainketa prozesatzen ari izatea oraindik. Saiatu berriro une batean.',
   'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
+  'pricing.advancedFeatures': 'Eginbide aurreratuak: {{yes}}',
+  'pricing.canExport': 'Datuen esportazioa: {{yes}}',
   'pricing.checkoutError': 'Ezin izan da ordainketa hasi. Saiatu berriro.',
   'pricing.heading': 'Aukeratu zure {{app}} plana',
   'pricing.included': 'Barne',
   'pricing.loadError': 'Ezin izan dira planoak kargatu.',
+  'pricing.maxQuestions': '{{count}} galderak',
   'pricing.maxQuizzes': '{{count}} galdetegiak',
+  'pricing.maxSessions': '{{count}} saio',
   'pricing.subhead':
     'Doan ostalari eta jokalarientzat. Eguneratu muga handiagoak eta funtzio aurreratuak lortzeko.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Kontua: helbide elektronikoa, pasahitza hash bidez, bistaratzeko izena, azken saioa hasi zen.',
+  'privacy.intro':
+    '{{app}}k zure pribatutasuna errespetatzen du. Orri honek gordetzen ditugun datuak, zergatik gordetzen ditugun eta nola ezabatu laburbiltzen du.',
   'privacy.rights.body':
     'Ezabatu zure kontua Ezarpenetatik zure datu guztiak 30 eguneko epean behin betiko ezabatzeko.',
   'privacy.share.body':
@@ -121,6 +151,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Galdetegiaren IDa: {{id}}',
   'quizBuilder.loadError': 'Ezin izan da galdetegia kargatu.',
   'quizBuilder.loading': 'Editorea kargatzen…',
+  'quizBuilder.markCorrect': 'Markatu {{letter}} zuzen gisa',
   'quizBuilder.noQuestions': 'Oraindik ez dago galderarik — gehitu bat hasteko.',
   'quizBuilder.notFound': 'Galdetegia ez da aurkitu.',
   'quizBuilder.preview': 'Ikusi',
@@ -137,7 +168,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} tenporizadorea',
   'quizBuilder.title': 'Eraiki zure galdetegia',
   'quizBuilder.titleLabel': 'Galdetegiaren izenburua',
+  'quizBuilder.untitled': 'Izenbururik gabeko galdera',
   'quizCard.plays': '{{count}} antzezlanak',
+  'quizCard.questionCount': '{{count}} galdera',
   'quizDetail.duration': '~ {{minutes}} minutu',
   'quizDetail.hostMultiplayer': 'Antolatzaile jokalari anitzekoa',
   'quizDetail.leaderboardEmpty':
@@ -153,26 +186,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Galdetegira itzuli',
   'quizPlay.empty': 'Galdetegi honek ez du galderarik oraindik.',
   'quizPlay.error': 'Ezin izan da galdetegi hau kargatu. Saiatu berriro.',
+  'quizPlay.exit': 'Irten',
   'quizPlay.feedback.correct': '🔥 Txingarra irabazita — hurrengora!',
+  'quizPlay.feedback.incorrect': 'Erantzuna {{correct}} zen. Jarraitu.',
   'quizPlay.loading': 'Galdetegia kargatzen…',
   'quizPlay.next': 'Hurrengo galdera',
   'quizPlay.questionCounter': 'Galdera {{current}} -ren {{total}}',
   'quizPlay.score': '{{score}} puntuak',
+  'quizPlay.seeResults': 'Ikusi emaitzak',
   'quizPlay.sessionFailed': 'Ezin izan da saioa hasi.',
   'quizPlay.streak': '{{count}} marra',
+  'resetPassword.subhead': 'Aukeratu pasahitz berri bat zure boladara itzultzeko.',
   'results.backToDiscover': 'Itzuli Discover-era',
   'results.error': 'Ezin izan dira emaitzak kargatu.',
   'results.exit': 'Itzuli Discover-era',
   'results.loading': 'Puntuazioa zenbatzen…',
   'results.missingSession': 'Ez dago laburbiltzeko saiorik.',
+  'results.recap.correctAnswer': 'Zuzena: {{answer}}',
   'results.recap.questionLabel': 'Galdera {{number}}',
   'results.recap.title': 'Galdera laburpena',
+  'results.recap.yourAnswer': 'Zu: {{answer}}',
   'results.unknownQuiz': 'Galdetegia',
   'scoreBreakdownCard.accuracyLabel': 'Zehaztasuna',
+  'scoreBreakdownCard.correctLabel': 'Zuzena',
   'scoreBreakdownCard.eyebrow': 'Galdetegia osatuta',
   'scoreBreakdownCard.headline': 'Lan bikaina " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Puntuak',
   'scoreBreakdownCard.rankLabel': 'Sailkapena',
+  'scoreBreakdownCard.streakBonus': 'Bolada-saria +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Zure txinparta agerian dago. Begiratu beheko xehetasunak sailkapenean gora egiten jarraitzeko.',
   'settings.danger.body': 'Kendu betiko zure Sparq kontua eta sortutako galdetegi guztiak.',
   'settings.danger.confirm': 'Bai, ezabatu betiko',
   'settings.guest': 'Gonbidatua',
@@ -189,5 +232,7 @@ export const ui: UiTranslations = {
     'Zu zara argitaratzen duzun edukiaren, idazten dituzun galderen eta ostatatzen dituzun jokoen arduraduna. Ez imitatu beste pertsonen izena.',
   'terms.billing.body':
     'Ordainpeko planak automatikoki berritzen dira Ezarpenetatik bertan behera utzi arte. Edozein unetan bertan behera utzi dezakezu; sarbidea uneko fakturazio-aldiaren amaierara arte mantenduko da.',
+  'terms.intro':
+    '{{app}} erabiliz gero, beheko arauak onartzen dituzu. Onartu ezin badituzu, mesedez ez erabili zerbitzua.',
   'terms.title': 'Zerbitzu-baldintzak',
 }

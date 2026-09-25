@@ -1,13 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Poseu-vos en contacte',
   'about.eyebrow': 'Sobre nosaltres',
+  'about.featureBooking':
+    'Reserves instantànies o sota petició amb pagaments segurs amb Stripe i cancel·lació gratuïta fins a 48 hores abans del check-in.',
+  'about.featureHosting':
+    "Un panell d'amfitrió complet per publicar anuncis, gestionar la disponibilitat, fer el seguiment de les reserves i cobrar.",
+  'about.featureMessaging':
+    "Missatgeria directa amb els amfitrions abans i durant l'estada, a més de llistes de desitjos per guardar els llocs que t'agraden.",
+  'about.featureReviews':
+    'Ressenyes honestes bidireccionals perquè tant els viatgers com els amfitrions construeixin una reputació de confiança.',
+  'about.featureSearch':
+    'Cerca al mapa entre anuncis verificats, amb filtres per preu, serveis i dates.',
+  'about.missionBody':
+    "Viatjar hauria de connectar-te amb un lloc, no amb una cadena. Ajudem els amfitrions independents a publicar cases úniques i ajudem els viatgers a trobar-les — amb preus transparents, sense comissions ocultes, i amb pagaments, impostos i verificació de viatgers gestionats per a l'amfitrió perquè es pugui centrar en l'hospitalitat.",
+  'about.missionTitle': 'La nostra missió',
+  'about.subtitle': 'Un mercat de lloguer construït al voltant de cases reals i amfitrions reals.',
   'bookingDetail.afterTime': 'Després de les 15:00',
   'bookingDetail.backCta': 'Torna a les reserves',
   'bookingDetail.beforeTime': 'Abans de les 11:00 AM',
   'bookingDetail.cancel': 'Cancel·la la reserva',
   'bookingDetail.cancelFailed': "No s'ha pogut cancel·lar. Torna-ho a intentar.",
   'bookingDetail.checkIn': "Registre d'entrada",
+  'bookingDetail.cleaningFee': 'Tarifa de neteja',
   'bookingDetail.confirmCancel': 'Voleu cancel·lar aquesta reserva? Això no es pot desfer.',
   'bookingDetail.eyebrow': 'Confirmació · {{code}}',
   'bookingDetail.messageHost': 'Amfitrió del missatge',
@@ -21,14 +37,17 @@ export const ui: UiTranslations = {
   'bookingDetail.viewListing': 'Veure fitxa',
   'bookingDetail.yourHost': 'El vostre amfitrió',
   'bookingItineraryRow.nights': '{{count}} nits',
+  'bookings.empty.past': "Les reserves passades apareixeran aquí un cop t'hi allotgis.",
   'bookings.empty.upcoming': 'No hi ha viatges previstos, arreglem-ho.',
   'bookings.eyebrow': 'Els teus viatges',
   'bookings.heading': 'Reserves',
   'bookings.loadError': "No s'han pogut carregar les reserves.",
+  'bookings.searchCta': 'Planifica un altre viatge',
   'bookings.subheading': '{{upcoming}} properament · {{past}} passat',
   'common.goToDashboard': 'Anar al panell',
   'common.retry': 'Torna-ho a intentar',
   'createListing.back': 'Torna als anuncis',
+  'createListing.bedrooms': 'Dormitoris',
   'createListing.cityLabel': 'On és?',
   'createListing.cityPlaceholder': 'Ciutat, regió o barri',
   'createListing.descPlaceholder':
@@ -38,16 +57,22 @@ export const ui: UiTranslations = {
   'createListing.error.price': 'Afegeix un preu per nit abans de publicar.',
   'createListing.error.title': 'Afegeix un títol abans de publicar.',
   'createListing.heading': 'Obre la teva porta',
+  'createListing.listingImageAlt': 'Anunci {{number}}',
   'createListing.maxGuests': 'Màxim de convidats',
   'createListing.photos.heading': 'Afegeix fotos que facin que els viatgers deixin de desplaçar-se',
+  'createListing.photos.subheading':
+    'Els amfitrions que pugen com a mínim 3 fotos guanyen de mitjana 2,3 vegades més.',
   'createListing.place.heading': 'Quin tipus de lloc és?',
+  'createListing.price': 'Preu per nit',
   'createListing.publish': "Publica l'anunci",
   'createListing.removePhoto': 'Elimina la foto',
   'createListing.step.${s.key}.eyebrow': 'Pas {{n}}',
   'createListing.subheading':
     'Unes quantes preguntes per publicar el teu anunci. Desarem el teu progrés a cada pas.',
+  'createListing.title': "Títol de l'anunci",
   'createListing.titlePlaceholder': 'Cabana assolellada al costat del penya-segat',
   'createListing.uploadCta': 'Afegeix una foto {{n}}',
+  'createListing.useSample': "Utilitza una foto d'exemple",
   'destinationDiscoveryCard.exploreCta': 'Explora allotjaments',
   'forgotPassword.eyebrow': 'Restablir',
   'forgotPassword.subheading':
@@ -62,6 +87,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelOccupancy': 'Ocupació',
   'hostDashboard.hero.labelYtd': 'Any fins a la data',
   'hostDashboard.loadError': "No s'han pogut carregar les dades d'allotjament. Torna-ho a provar.",
+  'hostDashboard.queueArrivals': '{{count}} arribades la setmana que ve',
+  'hostDashboard.queueListings': '{{count}} anuncis actius',
   'hostDashboard.queueRequests': '{{count}} sol·licituds de reserva',
   'hostDashboard.queueReview': 'Cua de revisió',
   'hostDashboard.queueTitle': 'La teva cua',
@@ -83,11 +110,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': "No s'ha trobat l'anunci.",
   'hostListingDetail.photos.empty': "Encara no s'han penjat fotos.",
   'hostListingDetail.photos.heading': 'Fotos',
+  'hostListingDetail.pricing.cleaning': 'Tarifa de neteja',
   'hostListingDetail.pricing.save': 'Desa preus',
   'hostListingDetail.pricing.weekday': 'Tarifa entre setmana',
   'hostListingDetail.pricing.weekend': 'Tarifa de cap de setmana (només per visualitzar)',
   'hostListingDetail.rules.copy':
     'Estableix les expectatives dels hostes i protegeix la teva llar: aquestes es plantegen abans de la confirmació de la reserva.',
+  'hostListingDetail.rules.heading': 'Normes de la casa',
   'hostListings.create': 'Crea un anunci nou',
   'hostListings.eyebrow': 'El vostre portafoli',
   'hostListings.heading': 'Llistats',
@@ -97,8 +126,11 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Per a amfitrions',
   'landing.cta.heading': 'Obre la teva porta. Guanya el que val la teva llar.',
   'landing.cta.host': 'Comença a allotjar',
+  'landing.cta.subheading':
+    "{{appName}} s'encarrega dels pagaments, els impostos i la verificació dels viatgers perquè puguis centrar-te a hostatjar. La majoria d'amfitrions nous guanyen els primers 1.000 $ en 30 dies.",
   'landing.destinations.eyebrow': 'On anar després?',
   'landing.destinations.heading': 'Destinacions que encanten als nostres amfitrions',
+  'landing.destinations.seeAll': 'Veure totes les destinacions',
   'landing.footer.host': 'Fes-te amfitrió/a',
   'landing.footer.search': 'Troba un allotjament',
   'landing.footer.tagline': 'Sigues com si pertanyessis.',
@@ -107,8 +139,11 @@ export const ui: UiTranslations = {
   'landing.nav.host': 'Fes-te amfitrió/a',
   'landing.nav.join': 'Uneix-te a Roost',
   'landing.nav.search': 'Troba un allotjament',
+  'landing.preview.browseAll': 'Explora la col·lecció completa',
   'landing.preview.eyebrow': "Una ullada a l'interior",
   'landing.preview.heading': 'Estades seleccionades a mà aquest mes',
+  'landing.preview.subheading':
+    "Cada allotjament de {{appName}} l'ofereix una persona real: verificada, valorada i amb cancel·lació gratuïta fins a 48 hores abans de l'entrada.",
   'listingDetail.about': 'Sobre aquest lloc',
   'listingDetail.amenities': 'Què ofereix aquest lloc',
   'listingDetail.bathrooms': 'banys',
@@ -116,7 +151,10 @@ export const ui: UiTranslations = {
   'listingDetail.beds': 'llits',
   'listingDetail.bookFailed':
     "No s'ha pogut reservar. Torna-ho a provar o inicia la sessió primer.",
+  'listingDetail.cleaningFee': 'Tarifa de neteja',
+  'listingDetail.guests': 'hostes',
   'listingDetail.hostedBy': 'Allotjat per {{host}}',
+  'listingDetail.hostMeta': '{{years}} anys com a amfitrió · {{response}}% de taxa de resposta',
   'listingDetail.houseRules': 'Normes de la casa',
   'listingDetail.instantBook': 'Reserva ara · Reserva instantània',
   'listingDetail.loadError': "No s'ha pogut carregar la fitxa.",
@@ -126,6 +164,7 @@ export const ui: UiTranslations = {
   'listingDetail.perNight': 'per nit',
   'listingDetail.pickDates': "Trieu primer les dates d'entrada i sortida.",
   'listingDetail.priceRow': '{{price}} × {{nights}} nits',
+  'listingDetail.requestBook': 'Sol·licitud de reserva',
   'listingDetail.reserving': 'Reservant…',
   'listingDetail.reviews': 'ressenyes',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}} ressenyes',
@@ -133,6 +172,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'Superhost',
   'login.eyebrow': 'Benvingut a casa',
   'login.heading': 'Inicia la sessió a Roost',
+  'login.noAccount': 'Ets nou a Tessera?',
   'login.signupLink': 'Crea un compte gratuït',
   'login.subheading':
     'Continua on ho havies deixat: gestiona viatges, envia missatges als amfitrions i reserva estades amb les quals has estat somiant.',
@@ -157,6 +197,7 @@ export const ui: UiTranslations = {
   'notFound.heading': 'No podem trobar aquesta estada',
   'notifications.loading': "S'està carregant…",
   'notifications.subheading': "{{count}} sense llegir · tot en una safata d'entrada tranquil·la",
+  'pricing.ctaContact': 'Contacta amb vendes',
   'pricing.ctaUpgrade': 'Contacta amb vendes',
   'pricing.eyebrow': 'Simple, transparent',
   'pricing.heading': "Un pla que s'adapta al teu ritme de viatge",
@@ -193,8 +234,12 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     "Tria alguna cosa memorable. Iniciarem la sessió un cop l'hagis desat.",
   'roostAuthShell.brand.eyebrow': 'Estigues com si pertanyessis',
+  'roostAuthShell.brand.heading':
+    "Cabanyes, casetes, riads: te'ls ofereixen amfitrions que hi viuen.",
   'roostHeroSearchCard.checkInAria': "Data d'entrada",
   'roostHeroSearchCard.checkOutAria': 'Data de sortida',
+  'roostHeroSearchCard.destAria': 'Destinació',
+  'roostHeroSearchCard.destLabel': 'On',
   'roostHeroSearchCard.destPlaceholder': 'Ciutat, regió o propietat',
   'roostHeroSearchCard.eyebrow': 'Estades seleccionades a mà · Amfitrions verificats',
   'roostHeroSearchCard.guestsOption': '{{n}} convidats',
@@ -207,6 +252,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'Navegació principal',
   'roostListingCard.bookmarkAria': "Desa l'anunci",
   'roostListingCard.night': 'nit',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'No hi ha cap anunci que coincideixi amb la teva cerca.',
   'search.emptyHint':
     "Prova d'ampliar els filtres o d'eliminar el límit de preus: Roost té estades a 26 països.",
@@ -214,9 +260,14 @@ export const ui: UiTranslations = {
   'search.heading': 'Un lloc que et fa sentir com a casa',
   'search.headingForQuery': 'Es queda per a " {{q}} "',
   'search.loadError': "No s'han pogut carregar els anuncis.",
+  'search.mapHint':
+    'Passa el cursor per una targeta per ressaltar-la al mapa. Rajoles de Mapbox en directe a producció.',
+  'search.mapPinAria': '{{name}} — {{price}} per nit',
   'search.sortLabel': 'Ordena per',
   'search.subheading': '{{count}} llistats · {{guests}} convidats',
+  'settings.appearance.description': 'Alterna entre el mode clar i el mode fosc.',
   'settings.appearance.title': 'Aspecte',
+  'settings.openBilling': 'Facturació oberta',
   'settings.payments.heading': 'Mètodes de pagament',
   'settings.paymentsHelp':
     'Roost carrega la teva targeta en el moment en què un amfitrió confirma la teva reserva. Gestiona les targetes desades a la pàgina de Preus.',

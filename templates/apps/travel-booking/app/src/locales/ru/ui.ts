@@ -1,13 +1,27 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть вопросы о проживании, отзыв или идея для партнёрства? Свяжитесь с командой из своего аккаунта или через консьержа в приложении — каждое сообщение попадает к реальному человеку, который тоже путешествует.',
   'about.contactTitle': 'Свяжитесь с нами',
+  'about.featureBooking.body':
+    'Сравнивайте номера, цены и удобства рядом друг с другом, а затем бронируйте в пару касаний с бесплатной отменой для любого маршрута.',
+  'about.featureBooking.title': 'Поиск, сравнение и бронирование',
+  'about.featureDiscover.body':
+    'Направления, отобранные редакцией, и путеводители показывают места, ради которых стоит собирать чемодан — без шума агрегаторов и рекламного мусора.',
   'about.featureDiscover.title': 'Вдохновение, отобранное вручную',
+  'about.featureItineraries.body':
+    'Храните перелёты, проживание и планы в одном месте, сохраняйте направления на потом и продолжайте поездку ровно с того места, где остановились.',
+  'about.featureItineraries.title': 'Маршруты, которые всегда в порядке',
+  'about.featureStays.title': 'Надёжное проживание',
+  'about.missionTitle': 'Наша миссия',
+  'about.subtitle': 'Вдохновение, надёжное проживание и лёгкий путь от мечты до брони.',
+  'about.whatYouGetTitle': 'Что вы получите',
   'account.addPaymentCta': 'Добавить способ оплаты',
   'account.addPaymentError': 'Не удалось добавить способ оплаты.',
   'account.confirmRemove': 'Подтвердить удаление',
   'account.defaultBadge': 'По умолчанию',
-  'account.loyalty.pointsTowardNext': '{{points}} из {{следующий}} мили до {{nextTier}}',
+  'account.loyalty.pointsTowardNext': '{{points}} из {{next}} миль до {{nextTier}}',
   'account.loyalty.tier': 'Текущий уровень',
   'account.navLabel': 'Разделы учетной записи',
   'account.payments.empty': 'Способы оплаты пока не сохранены.',
@@ -30,6 +44,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} ночи',
   'booking.lineTaxes': 'Налоги и сборы',
   'booking.loadError': 'Не удалось загрузить свойство.',
+  'booking.noChargeYet': 'С вас пока не спишут деньги.',
   'booking.noPaymentMethods': 'Нет сохраненных способов оплаты.',
   'booking.noPaymentSelected': 'Выберите способ оплаты перед подтверждением.',
   'booking.noRoomError': 'Выберите номер перед подтверждением бронирования.',
@@ -43,6 +58,7 @@ export const ui: UiTranslations = {
     'Сегодня оплата бесплатна — ваша карта будет заблокирована только для подтверждения.',
   'booking.policy3':
     'Страховка поездки предоставляется компанией Sojourn — круглосуточная консьерж-поддержка.',
+  'booking.policyHeading': 'Отмена и условия',
   'booking.roomHeading': 'Выберите номер',
   'booking.specialRequests': 'Особые запросы',
   'booking.specialRequestsPlaceholder': 'Что следует знать организатору мероприятия?',
@@ -71,6 +87,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Участники Sojourn',
   'landing.cta.heading': 'Путешествуйте без забот. Любой маршрут, всегда.',
   'landing.cta.signup': 'Создать бесплатный аккаунт',
+  'landing.cta.subheading':
+    'Бесплатная отмена, тарифы только для участников и консьерж для поездок 24/7 — получайте мили за каждое бронирование и открывайте ранний доступ к новым объектам.',
   'landing.destinations.eyebrow': 'Куда дальше?',
   'landing.destinations.heading': 'Рекомендуемые направления',
   'landing.destinations.seeAll': 'Посмотреть все направления',
@@ -79,27 +97,45 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Истории, ради которых стоит взять с собой вещи.',
   'landing.nav.join': 'Присоединяйтесь к Sojourn',
   'landing.nav.search': 'Поиск проживания',
+  'landing.preview.browseAll': 'Смотреть всю коллекцию',
   'landing.preview.eyebrow': 'Взгляд изнутри',
   'landing.preview.heading': 'Тщательно отобранные варианты размещения в этом месяце',
+  'landing.preview.subheading':
+    'Каждый объект на {{appName}} лично проверен нашей редакцией — без инвентаря агрегаторов, без вводящих в заблуждение объявлений и с бесплатной отменой для любого маршрута.',
   'login.eyebrow': 'Личный кабинет',
+  'login.noAccount': 'Впервые пользуетесь Tessera?',
   'login.signupLink': 'Создайте бесплатный аккаунт',
   'login.subheading':
     'Войдите в систему, чтобы управлять своими поездками, просматривать подтверждения и продолжить с того места, где вы остановились.',
   'nav.legal': 'Юридические',
   'notifications.loading': 'Загрузка…',
   'notifications.subheading': '{{count}} непрочитанное · все в одном спокойном почтовом ящике',
+  'planUpdated.body':
+    'Изменение тарифа активировано. Вы можете управлять своим планом в любое время на странице оплаты.',
+  'planUpdated.retry': 'Попробуйте ещё раз',
+  'planUpdated.verifyFailed': 'Мы пока не можем подтвердить ваш платеж.',
+  'planUpdated.verifyFailedBody':
+    'Ваш платеж, возможно, еще обрабатывается. Попробуйте еще раз через минуту.',
   'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.accommodationsLabel': 'размещение',
   'pricing.bookingsLabel': 'бронирования',
   'pricing.destinationsLabel': 'сохраненные пункты назначения',
   'pricing.exportLabel': 'Экспорт данных о поездках',
   'pricing.itinerariesLabel': 'маршруты',
+  'privacy.intro':
+    '{{appName}} защищает данные вашей поездки. Замените этот шаблон на свою настоящую политику конфиденциальности перед запуском в продакшен.',
   'propertyDetail.allPhotos': 'Все {{count}} фотографии',
   'propertyDetail.amenitiesHeading': 'Что предлагает это место',
   'propertyDetail.backLink': 'Вернуться к поиску',
   'propertyDetail.bookCta': 'Бронировать',
   'propertyDetail.bookmarkAria': 'Сохранить объект',
   'propertyDetail.freeCancellation': 'Бесплатная отмена',
+  'propertyDetail.galleryAria': 'Фотогалерея объекта',
+  'propertyDetail.galleryCloseAria': 'Закрыть галерею',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': 'Фото {{name}} из {{n}}',
+  'propertyDetail.galleryNextAria': 'Следующее фото',
+  'propertyDetail.galleryPrevAria': 'Предыдущее фото',
   'propertyDetail.heroImageAlt': '{{name}} фотография героя',
   'propertyDetail.lineCleaning': 'плата за уборку',
   'propertyDetail.lineRate': '{{price}} × {{nights}} ночи',
@@ -108,6 +144,7 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'ночь',
   'propertyDetail.noChargeYet': 'С вас пока не будет взиматься плата.',
   'propertyDetail.notFound': 'Объект не найден.',
+  'propertyDetail.pickDatesHint': 'Выберите даты, чтобы увидеть полную разбивку цены.',
   'propertyDetail.reviewCount': '( {{count}} отзывы)',
   'propertyDetail.reviewsHeading': 'Последние отзывы',
   'propertyDetail.verified': 'Объект недвижимости, подтвержденный Sojourn.',
@@ -116,6 +153,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Новый пароль',
   'resetPassword.subheading':
     'Выберите новый пароль для своей учетной записи Sojourn. Используйте не менее 8 символов; мы рекомендуем кодовую фразу.',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'По вашему запросу не найдено ни одного объекта недвижимости.',
   'search.emptyHint':
     'Попробуйте расширить фильтры или снять ограничение по цене — на Sojourn доступны варианты размещения в 14 странах.',
@@ -123,6 +161,8 @@ export const ui: UiTranslations = {
   'search.heading': 'Специально подобранные варианты размещения для ваших путешествий',
   'search.headingForQuery': 'Остается на " {{q}} "',
   'search.loadError': 'Не удалось загрузить свойства.',
+  'search.mapHint': 'Наведите курсор на карточку, чтобы подсветить её местоположение на карте.',
+  'search.mapPinAria': '{{name}} — {{price}} за ночь',
   'search.sortLabel': 'Сортировать по',
   'search.subheading': '{{count}} характеристики · {{guests}} гости',
   'settings.openAccount': 'Открыть полный счет',
@@ -131,16 +171,23 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Бесплатная отмена бронирования, специальные тарифы для участников программы лояльности и круглосуточная помощь гида — зарабатывайте мили за каждое бронирование.',
   'sojournAuthShell.brand.eyebrow': 'Путешествуйте без забот.',
+  'sojournAuthShell.brand.heading': 'Лёгкий путь от мечты до брони.',
   'sojournHeroSearchCard.checkInAria': 'Дата заезда',
   'sojournHeroSearchCard.checkOutAria': 'Дата выезда',
+  'sojournHeroSearchCard.destAria': 'Место назначения',
+  'sojournHeroSearchCard.destLabel': 'Где',
   'sojournHeroSearchCard.destPlaceholder': 'Город, регион или недвижимость',
   'sojournHeroSearchCard.eyebrow':
     'Специально подобранные предложения · Тарифы только для участников',
   'sojournHeroSearchCard.guestsOption': '{{n}} гости',
   'sojournHeroSearchCard.subtitle':
     'Вдохновение, надежное размещение и беспроблемный путь от мечты до бронирования — в 14 странах и более чем 200 тщательно отобранных объектах размещения.',
+  'sojournHeroSearchCard.title': 'Путешествуйте без забот.',
+  'sojournHeroSearchCard.trustLoyalty': 'Получайте мили за каждый маршрут',
   'sojournHeroSearchCard.trustProtected': 'Бесплатная отмена, полная защита',
   'sojournHeroSearchCard.trustVetted': 'Только тщательно отобранные объекты недвижимости.',
+  'terms.intro':
+    'Замените этот шаблон на свои настоящие условия обслуживания {{appName}} перед запуском в продакшен.',
   'travelBookingLayout.primaryNavLabel': 'Основная навигация',
   'tripDetail.backLink': 'Вернуться к поездкам',
   'tripDetail.cancelCta': 'Отменить бронирование',
@@ -150,6 +197,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'Необязательно — причина отмены',
   'tripDetail.checkInLabel': 'Регистрироваться',
   'tripDetail.checkOutLabel': 'Проверить',
+  'tripDetail.confCode': 'Код · {{code}}',
   'tripDetail.confirmCancelCta': 'Отменить поездку',
   'tripDetail.hostInfo':
     'Ведущий: {{name}} Бесплатная отмена бронирования возможна за 7 дней до заезда.',
@@ -157,6 +205,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'Продолжайте бронировать.',
   'tripDetail.lengthLabel': 'Длина',
   'tripDetail.loadError': 'Не удалось загрузить данные о поездке.',
+  'tripDetail.messageHostHeading': 'Напишите хозяину',
   'tripDetail.messagePlaceholder':
     'Сообщите хозяину время вашего прибытия, ваши диетические потребности или любую другую информацию.',
   'tripDetail.messageSend': 'Отправить сообщение',
@@ -167,9 +216,11 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'Сводка цен',
   'tripDetail.taxes': 'Налоги и сборы',
   'tripItineraryRow.nights': '{{count}} ночи',
+  'trips.empty.past': 'Прошлые поездки появятся здесь, как только вы отправитесь в путь.',
   'trips.empty.upcoming': 'Пока нет запланированных поездок — давайте это исправим.',
   'trips.eyebrow': 'Ваши странствия',
   'trips.heading': 'Путешествия',
   'trips.loadError': 'Не удалось загрузить данные о поездках.',
+  'trips.searchCta': 'Запланируйте еще одну поездку',
   'trips.subheading': '{{upcoming}} предстоящие · {{past}} прошлое',
 }

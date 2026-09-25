@@ -1,10 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang kami',
+  'about.featureAssignments':
+    'Tugas, pengumpulan berkas, rubrik, umpan balik langsung, dan buku nilai yang rapi agar siswa dan orang tua tetap terinformasi.',
+  'about.featureBreakouts':
+    'Ruang kelompok sekali ketuk — acak siswa otomatis, siarkan pengumuman, dan tarik semua orang kembali saat waktu habis.',
+  'about.featureChat':
+    'Obrolan kelas berutas dengan ringkasan tersemat dan saluran samping khusus pengajar untuk pembinaan tenang selama sesi.',
+  'about.featureVideo':
+    'Video langsung sinematik dengan fokus pembicara aktif, tata letak galeri dan sorotan, serta picture-in-picture yang bisa digeser untuk pengajar.',
+  'about.featureWhiteboard':
+    'Papan tulis tak terbatas dengan penunjuk laser dan palet warna lengkap, dengan setiap sesi disimpan per kursus agar pekerjaan berlanjut antar kelas.',
+  'about.missionBody':
+    'Kami percaya pembelajaran jarak jauh dan hibrida harus terasa sehadir dan semanusiawi meja seminar. Jadi kami mengutamakan kehadiran langsung — wajah nyata, kanvas bersama, dan kelompok kecil — dan kami menyisihkan penilaian serta logistik hingga Anda membutuhkannya.',
+  'about.missionTitle': 'Misi kami',
   'assignmentDetail.attachmentsTitle': 'Lampiran',
   'assignmentDetail.back': 'Semua tugas',
   'assignmentDetail.code': 'BIO 211',
+  'assignmentDetail.context': 'Biologi Sel I · Diposting oleh {{instructor}} · Tenggat {{due}}',
   'assignmentDetail.continueDraft': 'Lanjutkan draf',
   'assignmentDetail.draftBody':
     'Terakhir diedit 14 menit yang lalu · menyimpan otomatis setiap kali ada perubahan.',
@@ -23,6 +38,7 @@ export const ui: UiTranslations = {
   'assignmentRow.statusInProgress': 'Penyusunan draf',
   'assignmentRow.statusSubmitted': 'Dikirim',
   'assignmentRow.title': 'Laporan laboratorium — DNA mitokondria',
+  'assignmentRow.weight': 'Bernilai {{percent}}% dari nilai',
   'assignments.body':
     'Catat setiap makalah, kumpulan soal, dan proyek di seluruh mata kuliah Anda.',
   'assignments.empty': 'Saat ini tidak ada lalu lintas di jalur ini — nikmati ketenangannya.',
@@ -33,6 +49,8 @@ export const ui: UiTranslations = {
   'assignments.statTotal': 'Tugas aktif',
   'assignments.title': 'Tugas',
   'aulaAuthShell.backHome': '← Kembali ke halaman utama',
+  'aulaAuthShell.brandBody':
+    '{{appName}} menyatukan video, papan tulis, ruang kelompok, obrolan, dan penilaian dalam satu tab terfokus — dibuat untuk pengajar yang ingin mengajar, bukan menggembalakan tab.',
   'aulaAuthShell.brandEyebrow': 'Tempat di mana pembelajaran menjadi hidup.',
   'aulaAuthShell.brandTitle':
     'Ruang kelas langsung dengan kehangatan suasana berada di ruangan yang sama.',
@@ -43,6 +61,9 @@ export const ui: UiTranslations = {
   'aulaSideNav.closeMenu': 'Tutup menu navigasi',
   'aulaSideNav.label': 'Navigasi utama',
   'aulaSideNav.weeklyClasses': 'Minggu ini',
+  'aulaSideNav.weeklyClassesCount': '{{done}} / {{total}}',
+  'aulaSideNav.weeklyHelp':
+    'Anda berada di jalur yang tepat untuk menyelesaikan pelajaran minggu ini. Teruskan!',
   'aulaTopBar.openMenu': 'Buka menu navigasi',
   'aulaTopBar.searchPlaceholder': 'Cari kursus, kelas, tugas…',
   'aulaTopBar.title': 'Aula',
@@ -55,6 +76,8 @@ export const ui: UiTranslations = {
   'calendar.statTotal': 'Total acara mendatang',
   'classroom.chatCount': '{{count}} pesan',
   'classroom.chatEmpty': 'Belum ada pesan — sapa kami untuk memecah keheningan.',
+  'classroom.chatInputLabel': 'Pesan obrolan kelas',
+  'classroom.chatLoading': 'Memuat percakapan…',
   'classroom.chatPlaceholder': 'Kirim ke kelas…',
   'classroom.chatTitle': 'Obrolan kelas',
   'classroom.detailJoin': 'Join code',
@@ -81,23 +104,30 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'Ke Dashboard',
   'courseDetail.assignmentsTitle': 'Tugas kuliah',
   'courseDetail.back': 'Semua kursus',
+  'courseDetail.body':
+    'Kursus semester kedua yang membangun dari integral garis hingga divergensi dan curl. Live setiap Sel/Kam, dengan lab Jumat dan jam kantor mingguan.',
+  'courseDetail.ca1Course': 'Kalkulus II',
   'courseDetail.ca1Due': 'Jatuh tempo Kamis · 17.00',
   'courseDetail.ca1Title': 'Kumpulan soal fluks medan vektor',
   'courseDetail.ca2Course': 'Kalkulus II',
   'courseDetail.ca2Due': 'Dikirim Senin',
   'courseDetail.ca2Score': 'Menunggu tanggapan',
   'courseDetail.ca2Title': 'Bukti teorema Stokes',
+  'courseDetail.ca3Course': 'Kalkulus II',
   'courseDetail.ca3Due': 'Dikembalikan · 9 hari yang lalu',
   'courseDetail.ca3Score': 'A · 94%',
   'courseDetail.ca3Title': 'Kuis ulasan integral garis',
   'courseDetail.cls1Course': 'Kalkulus II · MTH 202',
   'courseDetail.cls1Instructor': 'Profesor Maya Okafor',
+  'courseDetail.cls1Room': 'Ruang Aula · Lavender',
   'courseDetail.cls1Title': 'Medan vektor & fluks',
   'courseDetail.cls2Course': 'Kalkulus II · MTH 202',
   'courseDetail.cls2Instructor': 'Profesor Maya Okafor',
+  'courseDetail.cls2Room': 'Ruang Aula · Lavender',
   'courseDetail.cls2Title': 'Tinjauan integral garis',
   'courseDetail.cls3Course': 'Kalkulus II · MTH 202',
   'courseDetail.cls3Instructor': 'TA Felix Bauer',
+  'courseDetail.cls3Room': 'Ruang {{appName}} · Petal',
   'courseDetail.cls3Title': 'Praktikum: Kumpulan soal Stokes',
   'courseDetail.code': 'MTH 202',
   'courseDetail.materialsTitle': 'Material',
@@ -136,15 +166,18 @@ export const ui: UiTranslations = {
   'courses.loading': 'Memuat kursus…',
   'courses.noBrowse':
     'Tidak perlu menelusuri kursus apa pun — Anda terdaftar di semua kursus yang dipublikasikan.',
+  'courses.noCourses': 'Belum ada kursus — buat satu dengan tombol di atas.',
   'courses.title': 'Perpustakaan pembelajaran Anda',
   'courseTileCard.code': 'ECN 312',
   'courseTileCard.continue': 'Lanjutkan kursus',
   'courseTileCard.enroll': 'Lihat kursus',
   'courseTileCard.imageAlt': 'Gambar mini kursus',
   'courseTileCard.instructor': 'Dokter Idris Halloway',
+  'courseTileCard.lessonsRemaining': '{{count}} pelajaran tersisa',
   'courseTileCard.levelAdvanced': 'Lanjutan',
   'courseTileCard.levelBeginner': 'Pemula',
   'courseTileCard.levelIntermediate': 'Intermediat',
+  'courseTileCard.preview': 'Pratinjau silabus, jelajahi kuliah, dan ajukan pendaftaran.',
   'courseTileCard.progressComplete': '{{percent}}% selesai',
   'courseTileCard.title': 'Makroekonomi Modern',
   'dashboard.assignmentsAll': 'Lihat semua →',
@@ -164,12 +197,16 @@ export const ui: UiTranslations = {
   'dashboard.noAssignments': 'Tidak ada tugas yang harus dikumpulkan — nikmati ketenangan.',
   'dashboard.noCourses': 'Belum ada kursus — kursus pertama Anda akan muncul di sini.',
   'dashboard.noDueDate': 'Tanpa tenggat',
+  'dashboard.scheduleAula': 'Ruang Aula',
   'dashboard.scheduleEmpty': 'Tidak ada kelas langsung yang dijadwalkan dalam waktu dekat.',
   'dashboard.scheduleHostedYou': 'Diselenggarakan oleh Anda',
+  'dashboard.scheduleJoinCode': 'Kode gabung · {{code}}',
+  'dashboard.statAssignmentsLabel': 'Tenggat tugas',
   'dashboard.statClassesDelta': '{{n}} kursus aktif',
   'dashboard.statClassesLabel': 'Ruang siaran langsung',
   'dashboard.statCoursesDelta': '{{n}} terdaftar',
   'dashboard.statCoursesLabel': 'Kursus',
+  'dashboard.statNotificationsLabel': 'Peringatan belum dibaca',
   'dashboard.tipBody':
     'Buka ruang obrolan langsung dari kartu utama di atas untuk menggambar garis di papan tulis atau memposting pesan obrolan — setiap tindakan akan tersimpan.',
   'dashboard.tipCta': 'Cobalah papan tulis.',
@@ -183,6 +220,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success':
     'Jika akun tersebut terdaftar untuk email tersebut, tautan pengaturan ulang akan segera dikirimkan.',
   'forgotPassword.toLogin': 'Kembali ke halaman masuk',
+  'grades.assignmentsCount': '{{n}} nilai',
   'grades.body':
     'Gambaran menyeluruh tentang setiap mata kuliah — nilai yang diperoleh, umpan balik terbaru, dan area yang perlu difokuskan minggu depan.',
   'grades.empty':
@@ -195,43 +233,59 @@ export const ui: UiTranslations = {
   'grades.statTrendUnit': 'kursus',
   'grades.statWatchLabel': 'Membutuhkan perhatian',
   'grades.title': 'Nilai & umpan balik',
+  'landing.ctaBody':
+    'Kami akan membuat kursus contoh, mengundang rekan pengajar, dan menunjukkan cara mengubah kelas menjadi ruang kelompok sebelum bel berbunyi.',
   'landing.ctaButton': 'Buat sekolahmu',
   'landing.ctaPrimary': 'Mulai masa percobaan gratis',
   'landing.ctaSecondary': 'Saksikan tur kelas.',
   'landing.ctaTitle': 'Buka ruang kelas pertama Anda dalam waktu kurang dari tiga menit.',
+  'landing.demoCourse': 'Sastra Dunia · LIT 240',
+  'landing.demoInstructor': 'Prof. Imani Davies',
+  'landing.demoTitle': 'Realisme magis — Borges & Murakami',
   'landing.eyebrow': 'Tim terdistribusi, dari awal hingga akhir',
   'landing.feat1Body':
     'Fitur sorotan otomatis + galeri, aksen pembicara aktif, dan gambar dalam gambar yang dapat diseret untuk instruktur.',
   'landing.feat1Title': 'Kisi-kisi video sinematik',
   'landing.feat2Body':
     'Kanvas tak terbatas, penunjuk laser, palet delapan warna, dan sesi berkelanjutan per kursus.',
+  'landing.feat2Title': 'Papan tulis yang berpikir keras',
   'landing.feat3Body':
     'Secara otomatis memasukkan siswa ke dalam ruangan, menyiarkan pengumuman, dan menarik semua orang kembali dengan sekali sentuh.',
+  'landing.feat3Title': 'Ruang kelompok dalam dua klik',
   'landing.feat4Body':
     'Rubrik penilaian, pengiriman berkas, umpan balik langsung, dan buku nilai yang tenang yang membuat orang tua selalu mendapat informasi.',
+  'landing.feat4Title': 'Tugas + buku nilai',
   'landing.feat5Body':
     'Obrolan berantai per kelas, ringkasan yang disematkan, dan saluran samping khusus instruktur untuk bimbingan pribadi.',
+  'landing.feat5Title': 'Obrolan dengan konteks kelas',
   'landing.feat6Body':
     'SSO dengan direktori distrik, moderasi yang sesuai usia, dan catatan audit untuk setiap ruang kelas.',
+  'landing.feat6Title': 'Aman secara bawaan',
   'landing.featuresEyebrow': 'Dibuat untuk siaran langsung',
   'landing.featuresTitle': 'Semua yang dibutuhkan kelas, dalam satu tab yang terfokus.',
   'landing.footerCopy': '© {{year}} Aula. Dibuat dengan penuh perhatian untuk para pendidik.',
   'landing.footerStart': 'Mendirikan sekolah',
   'landing.heroBody':
     'Aula menghadirkan video langsung, papan tulis virtual, ruang diskusi kelompok, obrolan, dan tugas dalam satu platform yang nyaman dan akademis. Dirancang untuk pengajar yang menginginkan lebih sedikit tab dan lebih banyak perhatian.',
+  'landing.heroLine1': 'Tempat setiap ruang kelas',
   'landing.heroLine2': 'terasa di dalam ruangan.',
   'landing.navSchools': 'Untuk sekolah',
   'landing.navStart': 'Buka ruang kelas',
   'landing.previewCourse1': 'Makroekonomi Modern',
   'landing.previewCourse2': 'Lukisan Studio II',
   'landing.previewCourse3': 'Pengantar Etika Data',
+  'landing.previewEyebrow': 'Jelajahi katalog',
   'landing.previewInstructor1': 'Dokter Idris Halloway',
   'landing.previewInstructor2': 'Profesor Lila Marin',
   'landing.previewInstructor3': 'Dokter Naomi Wren',
   'landing.previewTitle': 'Kursus yang akan benar-benar dibuka oleh siswa Anda.',
+  'landing.socialProofBody':
+    'Digunakan oleh 380 sekolah, bootcamp, dan pelatih korporat di seluruh dunia.',
   'landing.socialProofTitle': 'Lebih dari 14.200 kelas diselenggarakan pada semester ini.',
   'liveClassHeroCard.bodyLive':
     '{{instructor}} baru saja membuka ruangan itu. {{count}} Teman-teman sekelas sudah berada di dalam — masuklah sebelum absensi dimulai.',
+  'liveClassHeroCard.bodyUpcoming':
+    '{{instructor}} akan menjadi tuan rumah dalam {{minutes}} menit. Pemeriksaan kamera dan mikrofon sudah dibuka.',
   'liveClassHeroCard.course': 'Kalkulus II — MTH 202',
   'liveClassHeroCard.elapsed': 'Berlalu',
   'liveClassHeroCard.elapsedValue': '12:08',
@@ -244,6 +298,7 @@ export const ui: UiTranslations = {
   'liveClassHeroCard.title': 'Kuliah 14 — Medan vektor',
   'liveClassHeroCard.viewSchedule': 'Lihat jadwal lengkap',
   'login.emailPlaceholder': 'Anda@sekolah.edu',
+  'login.footerPrompt': 'Baru di Tessera?',
   'login.hidePassword': 'Sembunyikan kata sandi',
   'login.rememberMe': 'Tetap masuk',
   'login.showPassword': 'Tampilkan kata sandi',
@@ -254,6 +309,7 @@ export const ui: UiTranslations = {
   'notifications.body': 'Anda memiliki {{count}} Pembaruan yang belum dibaca dari kelas Anda.',
   'notifications.bodyNone': 'Anda sudah membaca semuanya.',
   'notifications.loading': 'Memuat…',
+  'pricing.advancedFeatures': 'Fitur lanjutan',
   'profile.bio':
     'Kalkulus vektor & topologi · 14 tahun mengajar · Moderator komunitas Aula. Jam konsultasi Senin/Rabu 11–12 di ruang Lavender.',
   'profile.course1Instructor': 'Profesor Maya Okafor',
@@ -274,8 +330,11 @@ export const ui: UiTranslations = {
   'profile.statStudentsLabel': 'Mahasiswa semester ini',
   'resetPassword.confirmPasswordPlaceholder': 'Masukkan kembali kata sandi baru',
   'resetPassword.emailPlaceholder': 'Anda@sekolah.edu',
+  'resetPassword.mismatch': 'Kata sandi belum cocok.',
+  'resetPassword.newPassword': 'Kata sandi baru',
   'resetPassword.subtitle':
     'Buatlah cukup panjang agar sulit ditebak, tetapi cukup pendek agar dapat diketik dengan cepat.',
+  'resetPassword.title': 'Pilih kata sandi baru',
   'scheduleItem.course': 'Penulisan Kreatif · ENG 220',
   'scheduleItem.endTime': 'Pukul 15.30',
   'scheduleItem.instructor': 'Dokter Yusuf Adelana',
@@ -299,10 +358,19 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Bahasa',
   'settings.photoHint': 'JPG atau PNG · format persegi paling baik',
   'settings.profileTitle': 'Profil',
+  'settings.securityTitle': 'Masuk & keamanan',
   'settings.twoFactorCode': 'Kode otentikasi',
   'settings.twoFactorDisable': 'Nonaktifkan',
+  'settings.twoFactorDisableTitle': 'Nonaktifkan autentikasi dua faktor',
   'settings.twoFactorEnable': 'Aktifkan',
+  'settings.twoFactorEnableTitle': 'Aktifkan autentikasi dua faktor',
   'settings.twoFactorInvalidCode': 'Kode tidak valid',
+  'settings.twoFactorOffBody': 'Tidak diaktifkan',
+  'settings.twoFactorOnBody': 'Aktif · aplikasi autentikator',
+  'settings.twoFactorQrAlt': 'Kode QR dua faktor',
+  'settings.twoFactorScan':
+    'Pindai kode QR ini dengan aplikasi autentikator Anda, lalu masukkan kode 6 digit.',
+  'settings.twoFactorUnavailable': 'Autentikasi dua faktor tidak tersedia untuk aplikasi ini.',
   'settings.twoFactorVerify': 'Verifikasi & aktifkan',
   'signup.email': 'Email sekolah',
   'signup.emailPlaceholder': 'Anda@sekolah.edu',
@@ -310,6 +378,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Aiyana',
   'signup.lastNamePlaceholder': 'Vega',
   'signup.roleInstructor': 'Instruktur',
+  'signup.roleLabel': 'Saya adalah…',
   'signup.roleStudent': 'Siswa',
   'signup.subtitle':
     'Aula gratis selama 30 hari pertama — tidak perlu kartu kredit. Undang rekan guru Anda kapan saja.',
@@ -322,6 +391,8 @@ export const ui: UiTranslations = {
   'whiteboard.colorLabel': 'Warna {{color}}',
   'whiteboard.export': 'Ekspor SVG',
   'whiteboard.loading': 'Papan pemuatan…',
+  'whiteboard.persistenceNote':
+    'Goresan tersimpan ke papan tulis ruangan. Muat ulang halaman — status papan seharusnya masih ada.',
   'whiteboard.roomNotFound': 'Papan tulis digital tidak ditemukan untuk tautan ini.',
   'whiteboard.savedAt': '{{count}} goresan · terakhir disimpan {{when}}',
   'whiteboard.title': 'Papan tulis interaktif',

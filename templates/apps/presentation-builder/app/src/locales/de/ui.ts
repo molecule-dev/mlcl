@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fragen, Feedback oder ein Feature, das du dir wünschst? Erreiche das Team über deine Kontoeinstellungen — jede Nachricht wird von einem echten Menschen gelesen.',
   'about.contactTitle': 'Kontaktieren Sie uns',
   'about.eyebrow': 'Über',
+  'about.missionTitle': 'Unsere Mission',
+  'about.whatYouGetTitle': 'Was Sie erhalten',
   'analytics.empty': 'Erstellen Sie Präsentationen, um hier Analysen zu sehen.',
   'analytics.stats.acrossDecks': 'Über alle Präsentationen',
   'analytics.stats.allTime': 'In Ihrem Studio',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Titel der Präsentation',
   'landing.features.eyebrow': 'Warum Overture',
   'landing.features.heading': 'Alles, was Sie brauchen, um vorbereitet auf die Bühne zu gehen.',
+  'landing.finalCta.body':
+    'Starte dein Studio in unter einer Minute. Keine Kreditkarte. Jederzeit kündbar.',
   'landing.finalCta.cta': 'Erstellen Sie Ihr kostenloses Studio',
   'landing.finalCta.eyebrow': 'Kostenlos starten',
   'landing.finalCta.heading': 'Betreten Sie die Bühne mit der besten Präsentation Ihrer Karriere.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Vor 12 Min. bearbeitet',
   'notifications.created': 'erstellte',
   'notifications.edited': 'bearbeitete',
+  'notifications.empty.body':
+    'Aktivitäten auf deinen Decks — Kommentare, Erwähnungen, Exporte — erscheinen hier.',
   'notifications.empty.title': 'Noch keine Benachrichtigungen',
   'notifications.eyebrow': 'Bühnenaktivität',
   'notifications.loading': 'Wird geladen…',
   'notifications.shared': 'öffentlich geteilt',
+  'planUpdated.retry': 'Erneut versuchen',
+  'planUpdated.verifyFailed': 'Wir konnten deine Zahlung noch nicht bestätigen.',
+  'planUpdated.verifyFailedBody':
+    'Deine Zahlung wird möglicherweise noch verarbeitet. Versuche es gleich noch einmal.',
   'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'present.addSlides': 'Folien hinzufügen',
   'present.backToDecks': 'Zurück zu den Präsentationen',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Bühnenkünstler',
   'settings.security.notSet': 'Nicht festgelegt',
   'settings.security.passwordBody': 'Ihr Passwort ist im Ruhezustand verschlüsselt.',
+  'settings.security.reset': 'Zurücksetzen',
   'settings.security.title': 'Konto und Sitzungen',
   'shared.empty.body':
     'Öffentlich geteilte Präsentationen erscheinen hier. Öffnen Sie eine Präsentation und schalten Sie sie auf öffentlich, um sie zu teilen.',
@@ -130,6 +143,12 @@ export const ui: UiTranslations = {
   'shared.loading': 'Wird geladen…',
   'shared.title': 'Geteilte Präsentationen',
   'templateCard.slideCount': '{{count}} Folien',
+  'templateCard.usageCount': '{{count}} Verwendungen',
+  'templates.empty.body':
+    'Probiere einen anderen Filter aus — wir veröffentlichen jeden Monat neue Vorlagen.',
+  'templates.empty.title': 'Noch keine Vorlagen in dieser Kategorie',
+  'templates.hero.body':
+    'Vorgestaltete Folienlayouts mit Diagrammblöcken, Demo-Frames, Notizen für Präsentierende und Timer-Voreinstellungen — jede Vorlage ist sofort aufnahmebereit.',
   'templates.hero.eyebrow': 'Kuratierte Bühnen',
   'templates.hero.heading': 'Bühnen für den Moment, in dem Sie überzeugen müssen.',
 }

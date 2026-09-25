@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An bhfuil aiseolas agat, aimsíodh fabht, nó ar mhaith leat {{app}} do do shraith? Déan teagmháil linn ó shocruithe do chuntais — téann gach teachtaireacht chuig duine fíor ar an bhfoireann.',
+  'about.contactTitle': 'Téigh i dteagmháil',
   'about.eyebrow': 'Maidir',
+  'about.featureAlerts':
+    'Fógraí brú le haghaidh nuashonruithe scóir, foláirimh trádála, tuairiscí gortaithe, agus fógraí sraithe.',
+  'about.featureRosters':
+    'Leathanaigh foirne le hiomlán róstair, iomláin shéasúir, sraitheanna te/fuar, agus scoilteanna ceann-le-ceann do gach imreoir.',
+  'about.featureSchedule':
+    'Amharc féilire agus sceideal séasúir ionas gur féidir leat pleanáil timpeall gach cluiche agus toradh.',
+  'about.featureScoreboard':
+    'Ticéir scórchláir de chaighdeán craolacháin atá greamaithe de bharr gach leathanaigh ionas nach gcaillfidh tú cúl riamh.',
+  'about.featureStandings':
+    'Rangú beo — taifid bhuailte-caillte-comhionannithe fíor-ama, pointí, céatadán buaite, agus an líne athimeartha, athnuachan ag gach feadóg.',
+  'about.intro':
+    'Is baile de chaighdeán craolacháin do do shraith é {{app}}. Tagann foirne, sceidil, scóir bheo, agus rangú le chéile i ndeaisbhord amháin tapa, saor ó shuaitheadh — ionas go mbeidh a fhios ag lucht leanúna, cóitseálaithe, agus eagraithe sraithe i gcónaí cá bhfuil an séasúr.',
+  'about.missionBody':
+    'Níor cheart go gciallódh sé go mbeifeá ag athnuachan cúig scórchlár éagsúil tríú páirtí chun sraith a leanúint. Thógamar é chun foinse amháin fírinne a thabhairt do gach sraith maidir leis an rangú, an sceideal, agus na staitisticí a bhfuil tábhacht cheart leo — nuashonraithe ag gach feadóg, saor in aisce don séasúr.',
+  'about.missionTitle': 'Ár misean',
+  'about.whatYouGet': 'Cad a gheobhaidh tú',
   'appShell.closeNav': 'Dún nascleanúint',
   'appShell.openNav': 'Oscail nascleanúint',
   'common.dashboard': 'Painéal Rialaithe',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Féach ar na cluichí go léir \\u2192',
   'dashboard.viewAllStandings': 'Seasamh iomlán \\u2192',
   'dashboard.viewAllStats': 'Féach ar gach ceannaire staitisticí \\u2192',
+  'forgot.submitting': 'Ag seoladh nasc athshocraithe…',
   'forgot.subtitle': 'Cuir isteach do sheoladh ríomhphoist chun nasc athshocraithe a fháil.',
   'forgot.success': 'Athshocraigh an nasc a seoladh chuig {{email}} Seiceáil do bhosca isteach.',
+  'landing.copyright': '© {{year}} {{app}}. Lean an rangú.',
+  'landing.ctaBody':
+    'Do shraith. Do rangú. Do fhoireann is fearr leat — greamaithe de bharr. Dhá nóiméad le socrú, saor in aisce don séasúr.',
   'landing.ctaHeading': 'Stop ag athnuachan scórchlár tríú páirtí',
   'landing.eyebrow': 'Tógtha do lucht leanúna, cóitseálaithe agus eagraithe sraithe',
   'landing.featuresHeading': 'Suíochán sa chéad tsraith do gach duine atá ina sheasamh',
   'landing.getStarted': 'Bígí páirteach sa tsraith',
   'landing.heroCta': 'Bígí páirteach sa tsraith',
+  'landing.heroSubtitle':
+    'Ceanglaíonn {{app}} rangú, sceidil, agus ceannairí staitistiúla le chéile i ndeaisbhord amháin de chaighdeán craolacháin. Scóir bheo. Fíorthaifid. Gan aon suaitheadh.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Anocht timpeall na sraithe',
   'landing.statFans': 'Leantóirí ag leanúint',
   'landing.statGames': 'Cluichí an séasúr seo',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Ar ais chuig na cluichí',
   'matchDetail.eventsHeading': 'Súgradh ar súgradh',
+  'matchDetail.final': 'CRÍOCH',
   'matchDetail.finalScore': 'Deiridh',
   'matchDetail.live': 'BEÓ',
   'matchDetail.liveNow': 'Cónaigh anois',
   'matchDetail.noEvents': 'Níl aon imeachtaí taifeadta fós.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Níl aon chluiche san amharc seo — bain triail as scagaire eile.',
   'matches.eyebrow': 'Lá an chluiche',
   'matches.loading': 'Ag tarraingt an scláta…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Theip ar fhógraí a lódáil',
   'notifications.loading': 'Fógraí á lódáil\\u2026',
   'pennantHeroCard.eyebrow': 'Barr an tábla',
+  'pennantHeroCard.formLabel': 'Deireanach 10',
   'pennantHeroCard.gamesAhead': '{{value}} cluichí roimh an ruaig',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Príomh-loingseoireacht',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Roghnaigh do shuíochán',
   'pricing.heading': 'Uasghrádaigh le haghaidh sceideal, scóir agus seastáin níos saibhre.',
   'pricing.limits.schedule': '{{count}} iontrálacha sceidil',
+  'pricing.limits.scores': 'Scóir {{count}}',
+  'pricing.limits.standings': 'Rangú {{count}}',
+  'pricing.limits.teams': 'Foirne {{count}}',
+  'pricing.subtitle': 'Uasghrádaigh le haghaidh sceideal, scóir, agus rangú níos saibhre.',
   'pricing.upgradeCta': 'Uasghrádaigh go {{tierName}}',
   'profile.eyebrow': 'Próifíl lucht leanúna',
   'profile.favoritesCount': 'Foirne a leanadh',
   'profile.favoritesHeading': 'Foirne is fearr leat',
   'profile.noFavorites': 'Gan aon rogha fós — roghnaigh foirne ón leathanach Foirne.',
   'profile.rankRecord': 'Rang # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Taifead {{record}}',
   'reset.confirmPlaceholder': 'Déan an focal faire arís',
+  'reset.mismatch': 'Ní hionann na pasfhocail.',
   'reset.newLabel': 'Pasfhocal nua',
   'reset.subtitle': 'Roghnaigh pasfhocal láidir de 12 charachtar ar a laghad.',
   'reset.tokenPlaceholder': 'Greamaigh ó ríomhphost',
   'schedule.eyebrow': 'An leac',
+  'schedule.moreGames': '+ {{count}} níos mó',
   'schedule.subtitle':
     'Radharc féilire ar chluichí i rith an tséasúir — tapáil aon lá le haghaidh scóir na mboscaí.',
   'scoreboardTicker.empty':
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Pearsantaigh',
   'settings.favoritesBody':
     'Cuirtear na foirne seo i bhfeidhm ar do phainéal rialaithe agus spreagann siad foláirimh scóir.',
+  'settings.favoritesHeading': 'Foirne is fearr leat',
   'settings.loading': 'Ag lódáil do chuid roghanna\\u2026',
   'settings.noFavorites': 'Gan aon rogha fós \\u2014 roghnaigh foirne ón leathanach Foirne.',
   'settings.notificationsHeading': 'Fógraí & taispeáint',
@@ -116,6 +153,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Foriomlán',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Cáilíonn na ceathrar is fearr do na babhtaí iar-shéasúir — bristear comhscór de réir pointí, ansin bua faoin gcéad.',
   'standings.title': 'Seasamh na sraithe',
@@ -134,6 +172,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Imreoir',
   'teamDetail.colPos': 'Pos',
+  'teamDetail.pointsLabel': 'Pointí',
   'teamDetail.rankLabel': 'Rang # {{rank}}',
   'teamDetail.rosterHeading': 'Clár',
   'teamDetail.statGD': 'Difríocht Sprioc',

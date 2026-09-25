@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ထုတ်ဝေမှု၊ ပို့ဆောင်မှု သို့မဟုတ် သင့်စာရင်းသွင်းမှုအကြောင်း မေးခွန်းများရှိပါသလား။ အဖွဲ့ထဲမှ လူတစ်ဦးအစစ်ကို hello@crate.example တွင် ဆက်သွယ်နိုင်ပါသည် — မက်ဆေ့ခ်ျတိုင်းကို ကျွန်ုပ်တို့ ဖတ်ပါသည်။',
+  'about.contactTitle': 'ပြတိုက်မှူးတစ်ဦးနှင့် စကားပြောပါ',
+  'about.feature1':
+    'လွတ်လပ်သော ဖန်တီးရှင်များက ရွေးချယ်ပေးသော လစဉ် ထုတ်ဝေမှုများနှင့်အတူ ပစ္စည်းတိုင်း၏ နောက်ခံဇာတ်လမ်းပါဝင်သည်။',
+  'about.feature2':
+    'သေတ္တာတိုင်းအပေါ် အပြည့်အဝ ထိန်းချုပ်နိုင်သည် — ပါဝင်ပစ္စည်းများကို စိတ်ကြိုက်ပြင်ဆင်ခြင်း၊ ပစ္စည်းများ လဲလှယ်ခြင်း သို့မဟုတ် ဖယ်ထုတ်ခြင်း၊ တစ်လ ကျော်ခြင်း သို့မဟုတ် သင့်အကြိမ်အရေအတွက် ပြောင်းလဲခြင်း။',
+  'about.feature3':
+    'ပစ္စည်းယူသည့်နေရာမှ သင့်အိမ်တံခါးအထိ အစမှအဆုံး ပို့ဆောင်မှု ခြေရာခံခြင်း၊ ပလတ်စတစ်ကင်းစင်သော ထုပ်ပိုးမှုနှင့် ပို့ဆောင်သူ၏ တိုက်ရိုက်အခြေအနေများ။',
+  'about.feature4':
+    'ပြောင်းလွယ်သော အစီအစဉ်များနှင့် ပွင့်လင်းသော ငွေတောင်းခံမှု — သင့်ဒက်ရှ်ဘုတ်မှ အဆင့်မြှင့်ခြင်း၊ အဆင့်လျှော့ခြင်း၊ ခေတ္တရပ်ခြင်း သို့မဟုတ် အချိန်မရွေး ပယ်ဖျက်ခြင်း။',
+  'about.intro':
+    '{{app}} သည် လစဉ် သင့်အိမ်တံခါးဝသို့ ရွေးချယ်ထားသော သေးငယ်သုတ်တစ်သုတ်ကို ပို့ဆောင်ပေးသည့် ရွေးချယ်စုစည်းထားသော စာရင်းသွင်းမှု သေတ္တာဝန်ဆောင်မှုတစ်ခုဖြစ်သည်။ ထုတ်ဝေမှုတိုင်းကို အယ်လဂိုရီသမ်မဟုတ်ဘဲ လုပ်ကိုင်နေသော ဖန်တီးရှင်များ — လွတ်လပ်သော အနုပညာရှင်များ၊ စားဖိုမှူးများနှင့် အသေးစားအမှတ်တံဆိပ်များ — က စုစည်းပေးသည်။',
+  'about.missionBody':
+    'စာရင်းသွင်းမှုတစ်ခုသည် ထောင်ချောက်မဟုတ်ဘဲ လက်ဆောင်တစ်ခုအဖြစ် ခံစားရသင့်သည်ဟု ကျွန်ုပ်တို့ ယုံကြည်သည်။ {{app}} ကို ရောက်လာသည့်အရာကို သင်နှစ်သက်သောကြောင့် ဆက်ရှိနေစေရန် တည်ဆောက်ထားသည် — အချိန်မရွေး ခေတ္တရပ်နိုင်သည်၊ လိုချင်သည့်အရာကို လဲလှယ်နိုင်သည်၊ တစ်ချက်နှိပ်ပြီး ပယ်ဖျက်နိုင်သည်။ ထိန်းသိမ်းရေး ဇာတ်ညွှန်းများ ဘယ်တော့မှ မရှိပါ။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': '{{app}} အကြောင်း',
   'appNav.mobileLabel': 'အဓိက လမ်းညွှန်ချက်',
   'appNav.primaryLabel': 'အဓိက လမ်းညွှန်ချက်',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'ငွေတောင်းခံလွှာပို့ရန် အဆက်အသွယ်ကို တည်းဖြတ်ပါ',
   'billing.contact.eyebrow': 'ငွေတောင်းခံလွှာပေးပို့သူ အဆက်အသွယ်',
   'billing.eyebrow': 'အစီအစဉ်နှင့် ငွေပေးချေမှုများ',
+  'billing.loading': 'ငွေတောင်းခံလွှာတင်နေသည်…',
   'billing.payment.body':
     'ငွေပေးချေမှုကို Stripe Checkout မှ ကိုင်တွယ်ပါသည် — သင့်ကတ်နံပါတ်အပြည့်အစုံကို ကျွန်ုပ်တို့၏ဆာဗာများသို့ ဘယ်တော့မှ မထိခိုက်ပါ။ သင့်ကတ်ကို ထည့်သွင်းရန် သို့မဟုတ် အပ်ဒိတ်လုပ်ရန် အောက်ပါအဆင့်တစ်ခုခုကို နှိပ်ပါ။',
   'billing.payment.linked': 'Stripe မှတစ်ဆင့် ဖိုင်တွင် ကတ်ရှိသည်',
@@ -20,11 +37,13 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'စာရင်းသွင်းမှုကို ပြန်လည်စတင်ပါ',
   'billing.plan.eyebrow': 'လက်ရှိအစီအစဉ်',
   'billing.plan.next': 'အလိုအလျောက် သက်တမ်းတိုးသည် {{date}} ။',
+  'billing.plan.status': 'အခြေအနေ − {{status}}',
   'billing.subtitle':
     'သင့်အဆင့်၊ ငွေပေးချေမှုနည်းလမ်းကို စီမံခန့်ခွဲပြီး ယခင်လုပ်ဆောင်ချက်ကို ပြန်လည်သုံးသပ်ပါ။',
   'billing.tiers.body':
     'အဆင့်တစ်ခုကို ရွေးချယ်ပါ၊ ကျွန်ုပ်တို့သည် သင့်အား Stripe Checkout သို့ လမ်းညွှန်ပေးပါမည်။',
   'billing.tiers.choose': 'ရွေးချယ်ပါ',
+  'billing.tiers.empty': 'အဆင့်များ မသတ်မှတ်ရသေးပါ။',
   'billing.tiers.heading': 'ရရှိနိုင်သော အဆင့်များ',
   'boxDetail.backToBoxes': 'ထုတ်ဝေမှုအားလုံးသို့ ပြန်သွားရန်',
   'boxDetail.crumb.boxes': 'ထုတ်ဝေမှုများ',
@@ -37,6 +56,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'ရွေးချယ်ထားသော အပိုင်း',
   'boxDetail.items.heading': '{{count}} ရွေးချယ်ထားသော အပိုင်းအစများ',
   'boxDetail.itemsBadge': '{{count}} ဘူးတစ်ဘူးချင်းစီအတွက် ရွေးချယ်ထားသောပစ္စည်းများ',
+  'boxDetail.loading': 'ထုတ်ဝေမှုကို ဖွင့်နေသည်…',
   'boxDetail.notFound': 'ထိုထုတ်ဝေမှုကို ရရှိနိုင်တော့မည်မဟုတ်ပါ။',
   'boxDetail.subscribe.success': 'စာရင်းသွင်းပြီး — သင်၏ ပထမထုတ်ဝေမှုကို စောင့်ဆိုင်းနေပါသည်။',
   'boxDetail.swapBadge': 'အထိ လဲလှယ်ပါ {{count}} ဘူးတစ်ဘူးလျှင် ပစ္စည်း(များ)',
@@ -45,14 +65,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'ကိုက်ညီသော ထုတ်ဝေမှုများ မရှိပါ။',
   'boxes.eyebrow': 'Crate မော်ကွန်းတိုက်',
   'boxes.heading': 'ထုတ်ဝေမှုတိုင်းကို ကြည့်ရှုပါ',
+  'boxes.loadError': 'ထုတ်ဝေမှုများကို ဖွင့်၍မရပါ။ သင့်ချိတ်ဆက်မှုကို စစ်ဆေးပြီး ထပ်စမ်းကြည့်ပါ။',
   'boxes.loading': 'ထုတ်ဝေမှုများကို တင်နေသည်…',
+  'boxes.search.label': 'ထုတ်ဝေမှုများ ရှာဖွေရန်',
   'boxes.search.placeholder': 'ထုတ်ဝေမှုများကို ရှာဖွေပါ…',
   'boxes.subtitle':
     'အဆင့်တစ်ခုစီသည် အသုတ်ငယ်ဇာတ်လမ်းတစ်ပုဒ်ဖြစ်သည်။ သင့်စာရင်းဇယားထဲသို့ တစ်ခုကိုထည့်ပါ သို့မဟုတ် ၎င်းကို သင့်နောက်လတွင် လဲလှယ်ပါ။',
+  'boxThemeCard.itemCount': '{{count}} ပစ္စည်းများ',
   'boxThemeCard.perMonth': '/ လ',
+  'boxThemeCard.retailValue': 'လက်လီတန်ဖိုး {{value}}',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
+  'common.retry': 'ပြန်ကြိုးစားပါ',
   'customize.eyebrow': 'သင့်စိတ်ကြိုက်ဖြစ်အောင်လုပ်ပါ',
   'customize.heading': 'သင့်ရဲ့ နောက်ထပ် Crate ကို စိတ်ကြိုက်ပြင်ဆင်ပါ',
+  'customize.items.empty': 'ဤအဆင့်အတွက် ပစ္စည်းများ မသတ်မှတ်ရသေးပါ။',
   'customize.items.exclude': 'ဒါကိုကျော်သွားပါ',
   'customize.items.eyebrow': 'ဒီအကွက်ကို စိတ်ကြိုက်ပြင်ဆင်ပါ',
   'customize.items.heading': 'ပစ္စည်းများ {{box}}',
@@ -61,8 +87,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'ပြန်ထည့်ရန်',
   'customize.items.save': 'စိတ်ကြိုက်ပြင်ဆင်မှုကို သိမ်းဆည်းပါ',
   'customize.items.swapsLeft': '{{used}} ၏ {{max}} အသုံးပြုထားသော လဲလှယ်မှုများ',
+  'customize.loading': 'စိတ်ကြိုက်ပြင်ဆင်မှုကို ဖွင့်နေသည်…',
   'customize.noSub.body':
     'အဆင့်တစ်ခုကို ဦးစွာစာရင်းသွင်းပါ၊ ထို့နောက် သင့်သေတ္တာရှိပစ္စည်းများကို လဲလှယ်ရန် ပြန်လာပါ။',
+  'customize.noSub.cta': 'ထုတ်ဝေမှုများကို ကြည့်ရှုရန်',
   'customize.noSub.heading': 'လက်ရှိစာရင်းသွင်းမှုမရှိပါ',
   'customize.saved': 'စိတ်ကြိုက်ပြင်ဆင်မှုကို သိမ်းဆည်းပြီးပါပြီ။',
   'customize.subtitle':
@@ -76,11 +104,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'ပို့ဆောင်မှုကို ခြေရာခံပါ',
   'dashboard.eyebrow': 'သင့်ရဲ့ ရတနာသိုက်',
   'dashboard.greeting': 'ကြိုဆိုပါတယ်, {{name}} ။',
+  'dashboard.loadError':
+    'သင့်ဒက်ရှ်ဘုတ်ကို ဖွင့်၍မရပါ။ သင့်ချိတ်ဆက်မှုကို စစ်ဆေးပြီး ထပ်စမ်းကြည့်ပါ။',
   'dashboard.loading': 'ဒက်ရှ်ဘုတ်ကို တင်နေသည်…',
   'dashboard.next.eyebrow': 'သင့်ရဲ့ နောက်ထုတ်ဝေမှု',
   'dashboard.onboarding.body':
     'သင်တွင် လက်ရှိစာရင်းသွင်းမှု မရှိသေးပါ။ Crate ကို လစဉ် ပို့ဆောင်ရန် အဆင့်တစ်ခုကို ရွေးချယ်ပါ။',
   'dashboard.onboarding.cta': 'ထုတ်ဝေမှုအားလုံးကို ကြည့်ရှုပါ',
+  'dashboard.onboarding.empty': 'ယခုအချိန်တွင် အစီအစဉ်များ မရနိုင်ပါ။ မကြာမီ ပြန်စစ်ကြည့်ပါ။',
   'dashboard.onboarding.heading': 'သင့်ရဲ့ ပထမဆုံးထုတ်ဝေမှုကို ရွေးချယ်ပါ',
   'dashboard.renewal.amount': 'အားသွင်းပြီးပါပြီ',
   'dashboard.renewal.cadence': 'ကဒန့်စ်',
@@ -88,12 +119,16 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'သက်တမ်းတိုးခြင်း',
   'dashboard.renewal.heading': 'အလိုအလျောက်သက်တမ်းတိုးခြင်း ဖွင့်ထားသည် {{date}}',
   'dashboard.renewal.plan': 'အစီအစဉ်သော့',
+  'dashboard.renewal.tbd': 'သက်တမ်းတိုးမှု အစီအစဉ် မကြာမီ',
   'dashboard.renewal.tier': 'အဆင့်',
   'dashboard.stats.days': 'ရက်များ',
   'dashboard.stats.daysToNext': 'သင်္ဘောများ',
   'dashboard.stats.items': 'ရွေးချယ်ထားသော အရာများ',
   'dashboard.stats.shipDate': 'ပို့ဆောင်သည့်ရက်စွဲ',
   'dashboard.stats.tbd': 'နောက်မှ သိရပါမည်',
+  'dashboard.subtitle.active':
+    'သင့်နောက်ထုတ်ဝေမှု လမ်းပေါ်ရောက်နေပြီ။ ဘာမျှော်ရမည်ကို ဖော်ပြထားသည်။',
+  'dashboard.subtitle.idle': 'လစဉ် {{appName}} ပို့ဆောင်ရန် အဆင့်တစ်ခုကို ရွေးပါ။',
   'forgotPassword.subtitle':
     'သင့်အီးမေးလ်ကို ကျွန်ုပ်တို့အား ပြောပြပါ၊ ကျွန်ုပ်တို့က ပြန်လည်သတ်မှတ်ရန်လင့်ခ် ပို့ပေးပါမည်။',
   'forgotPassword.success.body':
@@ -101,6 +136,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'သင့်ဝင်စာပုံးကို စစ်ဆေးပါ။',
   'landing.editions.eyebrow': 'ဒီရာသီ',
   'landing.editions.heading': 'ကျွန်ုပ်တို့၏ ပြတိုက်မှူးများ နှစ်သက်သော ထုတ်ဝေမှုများ',
+  'landing.editions.viewAll': 'ထုတ်ဝေမှုအားလုံးကို ကြည့်ရှုရန် →',
   'landing.footer.contact': 'ပြတိုက်မှူးတစ်ဦးနှင့် စကားပြောပါ',
   'landing.footer.tagline': '{{tagline}}။',
   'landing.hero.ctaPrimary': 'သင့်အကွက်ကို စတင်ပါ →',
@@ -110,6 +146,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'အဖွဲ့ဝင် ဒက်ရှ်ဘုတ်ကို ချောင်းကြည့်ခြင်း — countdown၊ အကြောင်းအရာများနှင့် ခြေရာခံခြင်း။',
   'landing.hero.social.count': 'ချစ်ခင်သူ {{count}} + စာရင်းသွင်းသူများ',
+  'landing.hero.social.rating': '{{rating}} ပျမ်းမျှ ဖွင့်ကြည့်အဆင့်သတ်မှတ်ချက်',
+  'landing.hero.subhead':
+    '{{appName}} သည် လွတ်လပ်သော ဖန်တီးရှင်များထံမှ ရွေးချယ်ထားသော သေးငယ်သုတ်တစ်သုတ်ကို သင့်ထံ ပို့ဆောင်ပေးသည်။ အချိန်မရွေး ခေတ္တရပ်နိုင်သည်။ လိုချင်သည့်အရာကို လဲလှယ်နိုင်သည်။ နှစ်သက်သည့်အရာကို သိမ်းထားနိုင်သည်။',
   'landing.nav.start': 'သင့်ရဲ့ box ကိုစတင်ပါ',
   'landing.tiers.eyebrow': 'သင့်ရဲ့ စည်းချက်ကို ရွေးချယ်ပါ',
   'landing.tiers.heading': 'သေးငယ်စွာစတင်ပါ၊ အချိန်မရွေး အဆင့်မြှင့်တင်ပါ၊ အလွယ်တကူ ပယ်ဖျက်ပါ။',
@@ -119,6 +158,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'နောက်လအတွက် ဘောက်စ်ကို ကြည့်ရှုရန် အကောင့်ဝင်ပါ။',
   'login.welcomeBack': 'ပြန်လည်ကြိုဆိုပါတယ်၊ ပြတိုက်မှူး။',
   'nextBoxHeroCard.eyebrow': 'မင်းရဲ့ နောက်ထပ် ရတနာသိုက်',
+  'nextBoxHeroCard.itemCount': 'အတွင်းပါဝင်သည့် အရေအတွက် {{count}}',
   'nextBoxHeroCard.itemsLabel': 'ရွေးချယ်ထားသော အရာများ',
   'nextBoxHeroCard.shipsOnLabel': 'ပို့ဆောင်မည့်ရက်များ',
   'notFound.body':
@@ -144,8 +184,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'စာရင်းသွင်းမှုကို ခေတ္တရပ်ပါ',
   'settings.danger.paused': 'စာရင်းသွင်းမှုကို ခေတ္တရပ်ထားသည်။',
   'settings.danger.pausing': 'ခေတ္တရပ်နေသည်…',
+  'settings.danger.status': 'စာရင်းသွင်းမှု အခြေအနေ − {{status}}',
   'settings.danger.subtitle':
     'ခေတ္တရပ်ထားခြင်းဖြင့် သင့်အဆင့်နှင့် မှတ်တမ်းကို မပျက်စီးစေပါ။ ပယ်ဖျက်ခြင်းသည် အနာဂတ်ပို့ဆောင်မှုများကို ရပ်တန့်စေပြီး ዑደ့ကာလအဆုံးတွင် သင်သိမ်းဆည်းထားသော ငွေပေးချေမှုနည်းလမ်းများကို ဖယ်ရှားပေးပါသည်။',
+  'settings.notifications.saving': '· သိမ်းနေသည်…',
   'settings.notifications.subtitle':
     'Crate မှ သင်လိုချင်သော အချက်ပြမှုများကို ရွေးချယ်ပါ။ ပုံသေများသည် ကျိုးကြောင်းဆီလျော်ပါသည်။',
   'settings.subtitle':
@@ -162,13 +204,19 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'လက်ရှိပို့ဆောင်မှု မရှိသေးပါ',
   'shipments.live.eyebrow': 'လက်ရှိပို့ဆောင်မှု',
   'shipments.live.unnamed': 'မင်းရဲ့နောက်ထပ်အကွက်',
+  'shipments.loadError':
+    'သင့်ပို့ဆောင်မှုများကို ဖွင့်၍မရပါ။ သင့်ချိတ်ဆက်မှုကို စစ်ဆေးပြီး ထပ်စမ်းကြည့်ပါ။',
+  'shipments.loading': 'ပို့ဆောင်မှုများကို တင်နေသည်…',
+  'shipments.step.delivered': 'ပို့ဆောင်ပြီးပါပြီ',
   'shipments.step.deliveredBody':
     'သင်ရှာဖွေတွေ့ရှိထားတာတွေကို မျှဝေဖို့ #crateunbox ကို tag လုပ်ပါ။',
   'shipments.step.ordered': 'မှာယူမှု ပြုလုပ်ပြီးပါပြီ',
   'shipments.step.orderedBody':
     'သင်၏စာရင်းသွင်းမှုသည် ဤထုတ်ဝေမှုကို နောက်သင်္ဘောခရီးစဉ်အတွက် တန်းစီထားသည်။',
+  'shipments.step.packed': 'လက်ဖြင့် ထုပ်ပိုးထားသည်',
   'shipments.step.packedBody':
     'အပိုင်းအစတစ်ခုစီကို ထုပ်ပိုးပြီး လက်ရေးမှတ်စုတစ်ခုနှင့်အတူ ဘူးထဲတွင် ထည့်ထားသည်။',
+  'shipments.step.transit': 'လမ်းပေါ်ရောက်နေသည်',
   'shipments.step.transitNot': 'သင့်ဘူး ပို့ဆောင်ပြီးသည်နှင့် ခြေရာခံခြင်း ဤနေရာတွင် ပေါ်လာပါမည်။',
   'shipments.subtitle':
     'သင့်ထံသို့ ရောက်ရှိလာသော ဘူးကို ခြေရာခံပြီးနောက် ယခင်က ဘူးဖွင့်ဖူးသော ထုတ်ဝေမှုတိုင်းကို ပြန်လည်ကြည့်ရှုပါ။',

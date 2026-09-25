@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai întrebări, sugestii sau îți dorești o funcție care ne lipsește? Contactează echipa din setările contului tău — o persoană reală citește fiecare mesaj.',
   'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'about.missionTitle': 'Misiunea noastră',
+  'about.whatYouGetTitle': 'Ce primiți',
   'analytics.empty': 'Creează seturi de cărți pentru a vedea analizele aici.',
   'analytics.stats.acrossDecks': 'Pe toate punțile',
   'analytics.stats.allTime': 'În studioul tău',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Titlul pachetului',
   'landing.features.eyebrow': 'De ce Overture',
   'landing.features.heading': 'Tot ce ai nevoie pentru a urca pe scenă este pregătit.',
+  'landing.finalCta.body':
+    'Pornește-ți studioul în mai puțin de un minut. Fără card de credit. Anulezi oricând.',
   'landing.finalCta.cta': 'Creează-ți studioul gratuit',
   'landing.finalCta.eyebrow': 'Liber pentru început',
   'landing.finalCta.heading': 'Urcă pe scenă cu cel mai bun pachet de cărți din cariera ta.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Editat acum 12 minute',
   'notifications.created': 'creat',
   'notifications.edited': 'editat',
+  'notifications.empty.body':
+    'Activitatea de pe deck-urile tale — comentarii, mențiuni, exporturi — va apărea aici.',
   'notifications.empty.title': 'Nicio notificare încă',
   'notifications.eyebrow': 'Activitate scenică',
   'notifications.loading': 'Se încarcă…',
   'notifications.shared': 'distribuit public',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
   'present.addSlides': 'Adăugați diapozitive',
   'present.backToDecks': 'Înapoi la pachete',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Interpret de scenă',
   'settings.security.notSet': 'Nesetat',
   'settings.security.passwordBody': 'Parola ta este criptată în repaus.',
+  'settings.security.reset': 'Resetare',
   'settings.security.title': 'Cont + sesiuni',
   'shared.empty.body':
     'Pachetele pe care le partajați public vor apărea aici. Deschideți un pachet și comutați la modul public pentru a-l partaja.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Se încarcă…',
   'shared.title': 'Terase comune',
   'templateCard.slideCount': '{{count}} diapozitive',
+  'templateCard.usageCount': '{{count}} utilizări',
+  'templates.empty.body': 'Încearcă un alt filtru — lansăm șabloane noi în fiecare lună.',
+  'templates.empty.title': 'Încă nu există șabloane în această categorie',
+  'templates.hero.body':
+    'Aspecte de slide cu temă predefinită, cu blocuri de diagrame, cadre demo, note pentru prezentator și presetări de cronometru — fiecare șablon este gata de înregistrare.',
   'templates.hero.eyebrow': 'Etape selectate',
   'templates.hero.heading': 'Etape construite pentru momentul în care trebuie să le aterizezi.',
 }

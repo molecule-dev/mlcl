@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai feedback, ai găsit un bug sau vrei să aduci {{app}} în școala sau echipa ta? Citim fiecare mesaj — scrie-ne din setările contului și îți va răspunde un om real.',
   'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'about.intro':
+    '{{app}} este o platformă de quiz live pentru săli de clasă, seri de jocuri și evenimente de echipă. Creează pachete de întrebări jucăușe, găzduiește jocuri în timp real cu un cod de alăturare și privește cum sala se aprinde cu întrebări cronometrate, punctaj și clasamente.',
+  'about.missionBody':
+    'Învățarea prinde rădăcini când pare joacă. Facem ca oricine să transforme un subiect într-un joc rapid și competitiv fără efort — astfel încât gazdele să predea prin practică, iar jucătorii să rămână într-un șir de victorii.',
+  'about.missionTitle': 'Misiunea noastră',
   'about.title': 'Despre {{app}}',
   'auth.login.noAccount': 'Ești nou pe Sparq?',
   'auth.login.or': 'sau continuați cu',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Niciun test nu se potrivește încă.',
   'discover.headline': 'Găsește următorul tău test preferat.',
   'discover.loading': 'Se încarcă…',
+  'discover.searchPlaceholder': 'Caută quiz-uri după titlu…',
   'discover.subhead':
     'Răsfoiește întreaga bibliotecă, filtrează după categorie sau caută după titlu. Apasă o carte pentru a cânta solo sau a găzdui un spectacol live.',
   'forgotPassword.subhead':
     'Introdu adresa ta de e-mail și îți vom trimite un link pentru resetare.',
   'forgotPassword.success.body':
     'Dacă există un cont pentru {{email}} , vei primi un link de resetare în câteva minute.',
+  'forgotPassword.success.title': 'Verificați căsuța de e-mail.',
   'hostLobby.back': 'Înapoi la test',
   'hostLobby.copied': 'Codul de alăturare a fost copiat în clipboard.',
   'hostLobby.creating': 'Îți îmbunătățești holul…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Anulează lobby-ul',
   'hostLobby.players.count': '{{count}} trăi',
   'hostLobby.players.title': 'Jucători în hol',
+  'hostLobby.players.waiting':
+    'Se așteaptă jucătorii. Distribuie codul {{code}} ca să se poată alătura.',
   'hostLobby.rules.title': 'Regulile casei',
   'hostLobby.startError': 'Nu s-a putut porni jocul.',
   'hostLobby.starting': 'Aprinzând scânteia…',
   'joinCodeHero.headline': 'Spune-le jucătorilor tăi să intre în joc.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Sau vizitați',
   'joinCodeHero.liveLabel': 'Lobby live',
+  'joinCodeHero.playerJoined': '{{name}} s-a alăturat',
   'joinCodeHero.playersLabel': 'Jucători',
   'joinCodeHero.qrLabel': 'Scanează pentru a te alătura',
   'joinCodeHero.startGame': 'Pornește scânteia',
   'joinCodeHero.subhead':
     'Distribuie codul de înscriere sau scanează codul QR. Jocul începe în momentul în care aprinzi scânteia.',
+  'landing.cta.button': 'Creează primul tău quiz',
   'landing.cta.eyebrow': 'Gratuit pentru educatori',
   'landing.cta.heading': 'Adu scânteia în fiecare lecție.',
+  'landing.cta.subhead':
+    'Înscrie-te în 30 de secunde. Găzduiește jocuri live nelimitate, creează quiz-uri cu AI și ține fiecare jucător într-un șir de victorii.',
   'landing.eyebrow': 'Aprinde fiecare răspuns',
   'landing.features.heading':
     'Un studio de quiz care se potrivește modului în care predai și te joci.',
@@ -58,6 +74,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Teste populare',
   'landing.popular.eyebrow': 'Populare săptămâna aceasta',
   'landing.popular.heading': 'Gazdele de la Drop in a chestionar rulează astăzi.',
+  'landing.popular.viewAll': 'Răsfoiește toate categoriile →',
+  'leaderboard.empty.body': 'Joacă un quiz pentru a-ți pune punctajul pe clasamentul global.',
   'leaderboard.empty.title': 'Nicio schemă pe tablă încă — fii primul.',
   'leaderboard.eyebrow': 'Clasament',
   'leaderboard.fullRanking': 'Clasament complet',
@@ -65,6 +83,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Adună scorul pentru fiecare sesiune de chestionare pe care ai jucat-o. Urcă jucând mai mult.',
   'leaderboard.title': 'Cei mai buni moderatori de teste',
+  'leaderboard.totalPlayers': '{{count}} jucători clasați',
   'leaderboardRow.points': 'puncte',
   'leaderboardRow.streak': '{{days}}z',
   'login.headline': 'Bine ați revenit, domnule maestru de concurs.',
@@ -76,10 +95,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Creează-ți primul test →',
   'myQuizzes.empty.created': 'Nu ai creat încă un test.',
   'myQuizzes.empty.played': 'Încă nu există chestionare publicate.',
+  'myQuizzes.loading': 'Se încarcă…',
   'myQuizzes.subhead':
     'Schițe pe care le-ați creat, plus chestionare publicate pe care le puteți juca.',
   'myQuizzes.title': 'Testele mele',
   'nav.legal': 'Legal',
+  'nav.primaryNavLabel': 'Navigare principală',
   'notFound.backHome': 'Înapoi acasă',
   'notFound.backToDiscover': 'Răsfoiți testele',
   'notFound.body': 'Încearcă un cod diferit sau întoarce-te în hol.',
@@ -88,16 +109,26 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Se încarcă…',
   'notifications.subhead':
     '{{count}} Scântei necitite. Invitații, mutări în clasament și realizări, toate într-un singur flux.',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
+  'pricing.advancedFeatures': 'Funcții avansate: {{yes}}',
+  'pricing.canExport': 'Export de date: {{yes}}',
   'pricing.checkoutError': 'Nu s-a putut iniția casa de plată. Vă rugăm să încercați din nou.',
   'pricing.heading': 'Alege planul {{app}}',
   'pricing.included': 'Inclus',
   'pricing.loadError': 'Nu s-au putut încărca planurile.',
+  'pricing.maxQuestions': '{{count}} întrebări',
   'pricing.maxQuizzes': '{{count}} chestionare',
+  'pricing.maxSessions': '{{count}} sesiuni',
   'pricing.subhead':
     'Gratuit pentru gazde și jucători. Faceți upgrade pentru limite mai mari și funcții avansate.',
   'pricing.yearly': 'Anual',
   'privacy.collect.account': 'Cont: e-mail, parolă hash, nume afișat, ultima conectare.',
+  'privacy.intro':
+    '{{app}} îți respectă confidențialitatea. Această pagină rezumă datele pe care le stocăm, de ce le stocăm și cum le poți șterge.',
   'privacy.rights.body':
     'Șterge-ți contul din Setări pentru a elimina definitiv toate datele în termen de 30 de zile.',
   'privacy.share.body':
@@ -121,6 +152,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'ID-ul testului: {{id}}',
   'quizBuilder.loadError': 'Nu s-a putut încărca quiz-ul.',
   'quizBuilder.loading': 'Se încarcă editorul…',
+  'quizBuilder.markCorrect': 'Marchează {{letter}} ca fiind corect',
   'quizBuilder.noQuestions': 'Nicio întrebare încă — adăugați una pentru început.',
   'quizBuilder.notFound': 'Test negăsit.',
   'quizBuilder.preview': 'Vizualizați',
@@ -137,7 +169,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} cronometru',
   'quizBuilder.title': 'Construiește-ți testul',
   'quizBuilder.titleLabel': 'Titlul testului',
+  'quizBuilder.untitled': 'Întrebare fără titlu',
   'quizCard.plays': '{{count}} piese de teatru',
+  'quizCard.questionCount': '{{count}} întrebări',
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': 'Multiplayer gazdă',
   'quizDetail.leaderboardEmpty': 'Nicio acțiune încă — fii primul care stabilește un scor.',
@@ -152,26 +186,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Înapoi la test',
   'quizPlay.empty': 'Acest test nu are încă întrebări.',
   'quizPlay.error': 'Nu s-a putut încărca acest test. Vă rugăm să încercați din nou.',
+  'quizPlay.exit': 'Ieși',
   'quizPlay.feedback.correct': '🔥 Scânteie câștigată — trecem la următoarea!',
+  'quizPlay.feedback.incorrect': 'Răspunsul a fost {{correct}}. Continuă.',
   'quizPlay.loading': 'Se încarcă testul…',
   'quizPlay.next': 'Următoarea întrebare',
   'quizPlay.questionCounter': 'Întrebarea {{current}} din {{total}}',
   'quizPlay.score': '{{score}} puncte',
+  'quizPlay.seeResults': 'Vezi rezultatele',
   'quizPlay.sessionFailed': 'Nu s-a putut începe o sesiune.',
   'quizPlay.streak': '{{count}} dungă',
+  'resetPassword.subhead': 'Alege o parolă nouă pentru a-ți relua seria.',
   'results.backToDiscover': 'Înapoi la Descoperă',
   'results.error': 'Nu s-au putut încărca rezultatele.',
   'results.exit': 'Înapoi la Descoperă',
   'results.loading': 'Se calculează scorul…',
   'results.missingSession': 'Nicio sesiune de rezumat.',
+  'results.recap.correctAnswer': 'Corect: {{answer}}',
   'results.recap.questionLabel': 'Întrebare {{number}}',
   'results.recap.title': 'Recapitulare întrebare',
+  'results.recap.yourAnswer': 'Tu: {{answer}}',
   'results.unknownQuiz': 'Quiz',
   'scoreBreakdownCard.accuracyLabel': 'Precizie',
+  'scoreBreakdownCard.correctLabel': 'Corect',
   'scoreBreakdownCard.eyebrow': 'Test finalizat',
   'scoreBreakdownCard.headline': 'Bună treabă la „ {{quizTitle}} „!',
   'scoreBreakdownCard.pointsLabel': 'Puncte',
   'scoreBreakdownCard.rankLabel': 'Rang',
+  'scoreBreakdownCard.streakBonus': 'Bonus de șir +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Scânteia ta se vede. Analizează detalierea de mai jos ca să urci în clasament.',
   'settings.danger.body': 'Ștergeți definitiv contul dvs. Sparq și toate testele create.',
   'settings.danger.confirm': 'Da, șterge definitiv',
   'settings.guest': 'Vizitator',
@@ -188,5 +232,7 @@ export const ui: UiTranslations = {
     'Ești responsabil pentru conținutul pe care îl publici, întrebările pe care le creezi și orice jocuri pe care le găzduiești. Nu te dai drept altcineva.',
   'terms.billing.body':
     'Abonamentele plătite se reînnoiesc automat până la anularea lor din Setări. Puteți anula oricând; accesul continuă până la sfârșitul perioadei de facturare curente.',
+  'terms.intro':
+    'Prin utilizarea {{app}} ești de acord cu regulile de mai jos. Dacă nu le poți accepta, te rugăm să nu folosești serviciul.',
   'terms.title': 'Termeni de serviciu',
 }

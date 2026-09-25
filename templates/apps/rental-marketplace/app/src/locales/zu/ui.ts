@@ -1,13 +1,30 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xhumana nathi',
   'about.eyebrow': 'Mayelana NATHI',
+  'about.featureBooking':
+    'Ukubhuka ngokushesha noma ngokucela ukubhuka ngokukhokha okuphephile kwe-Stripe kanye nokukhansela mahhala kuze kube amahora angu-48 ngaphambi kokungena.',
+  'about.featureHosting':
+    'Idashibhodi ephelele yomsingathi yokushicilela izindawo, ukuphatha ukutholakala, ukulandelela ukubhuka, nokukhokhelwa.',
+  'about.featureMessaging':
+    'Ukuxhumana ngqo nomsingathi ngaphambi nangesikhathi sokuhlala kwakho, kanye nohlu lwezifiso lokugcina izindawo ozithandayo.',
+  'about.featureReviews':
+    'Izibuyekezo ezithembekile zezinhlangothi zombili ukuze izihambi nomsingathi bakhe isithunzi esethenjwayo.',
+  'about.featureSearch':
+    'Ukusesha okusekelwe emephini kuzo zonke izindawo eziqinisekisiwe, ngezihlungi zentengo, izinsiza, nezinsuku.',
+  'about.missionBody':
+    'Uhambo kufanele kukuxhumanise nendawo, hhayi uchungechunge. Sisiza abasingathi abazimele ukuthi bashicilele amakhaya ahlukile futhi sisiza izihambi ukuthi ziwathole — ngentengo esobala, ngaphandle kwezindleko ezifihliwe, futhi izinkokhelo, izintela, nokuqinisekiswa kwezihambi kwenziwa umsingathi ukuze agxile ekwamukeleni izivakashi.',
+  'about.missionTitle': 'Umsebenzi wethu',
+  'about.subtitle':
+    'Indawo yemakethe yokuqashisa eyakhelwe emakhaya angempela nabasingathi bangempela.',
   'bookingDetail.afterTime': 'Ngemva kuka-3:00 ntambama',
   'bookingDetail.backCta': 'Buyela ekubhukheni',
   'bookingDetail.beforeTime': 'Ngaphambi kuka-11:00 ekuseni',
   'bookingDetail.cancel': 'Khansela ukubhukha',
   'bookingDetail.cancelFailed': 'Ayikwazanga ukukhansela — sicela uzame futhi.',
   'bookingDetail.checkIn': 'Ngena',
+  'bookingDetail.cleaningFee': 'Imali yokuhlanza',
   'bookingDetail.confirmCancel': 'Khansela lokhu kubhukha? Lokhu akukwazi ukuhlehliswa.',
   'bookingDetail.eyebrow': 'Ukuqinisekiswa · {{code}}',
   'bookingDetail.messageHost': 'Umphathi womlayezo',
@@ -21,14 +38,17 @@ export const ui: UiTranslations = {
   'bookingDetail.viewListing': 'Buka uhlu',
   'bookingDetail.yourHost': 'Umbungazi wakho',
   'bookingItineraryRow.nights': '{{count}} ubusuku',
+  'bookings.empty.past': 'Ukubhuka okwedlule kuzovela lapha uma usuhlalile.',
   'bookings.empty.upcoming': 'Akukho ukuhamba ezincwadini — ake sikulungise lokho.',
   'bookings.eyebrow': 'Uhambo lwakho',
   'bookings.heading': 'Ukubhukha',
   'bookings.loadError': 'Yehlulekile ukulayisha ukubhukha.',
+  'bookings.searchCta': 'Hlela olunye uhambo',
   'bookings.subheading': '{{upcoming}} okuzayo · {{past}} okwedlule',
   'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.retry': 'Zama futhi',
   'createListing.back': 'Buyela ohlwini',
+  'createListing.bedrooms': 'Amakamelo okulala',
   'createListing.cityLabel': 'Kuphi?',
   'createListing.cityPlaceholder': 'Idolobha, isifunda, noma indawo',
   'createListing.descPlaceholder':
@@ -38,16 +58,22 @@ export const ui: UiTranslations = {
   'createListing.error.price': 'Engeza intengo yobusuku ngaphambi kokushicilela.',
   'createListing.error.title': 'Engeza isihloko ngaphambi kokushicilela.',
   'createListing.heading': 'Vula umnyango wakho',
+  'createListing.listingImageAlt': 'Isihloko esingu-{{number}}',
   'createListing.maxGuests': 'Izivakashi eziphezulu',
   'createListing.photos.heading': 'Engeza izithombe ezenza abahambi bayeke ukuskrola',
+  'createListing.photos.subheading':
+    'Abasingathi abafaka okungenani izithombe ezi-3 bathola ama-2.3× amaningi ngokwesilinganiso.',
   'createListing.place.heading': 'Luhlobo luni lwendawo?',
+  'createListing.price': 'Intengo ngobusuku',
   'createListing.publish': 'Shicilela uhlu',
   'createListing.removePhoto': 'Susa isithombe',
   'createListing.step.${s.key}.eyebrow': 'Isinyathelo {{n}}',
   'createListing.subheading':
     'Imibuzo embalwa yokwenza uhlu lwakho luphile. Sizolondoloza intuthuko yakho kuzo zonke izinyathelo.',
+  'createListing.title': 'Isihloko sesihloko',
   'createListing.titlePlaceholder': 'Ikhabhini Eliseceleni Kwe-Cliff Elikhanyiswe Yilanga',
   'createListing.uploadCta': 'Engeza isithombe {{n}}',
+  'createListing.useSample': 'Sebenzisa isithombe esiyisampula',
   'destinationDiscoveryCard.exploreCta': 'Hlola ukuhlala',
   'forgotPassword.eyebrow': 'Setha kabusha',
   'forgotPassword.subheading':
@@ -62,6 +88,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelOccupancy': 'Ukuhlala',
   'hostDashboard.hero.labelYtd': 'Unyaka kuze kube manje',
   'hostDashboard.loadError': 'Yehlulekile ukulayisha idatha yakho yokubamba. Sicela uzame futhi.',
+  'hostDashboard.queueArrivals': 'Abafikayo abangu-{{count}} ngesonto elizayo',
+  'hostDashboard.queueListings': '{{count}} uhlu olusebenzayo',
   'hostDashboard.queueRequests': '{{count}} izicelo zokubhukha',
   'hostDashboard.queueReview': 'Umugqa wokubuyekeza',
   'hostDashboard.queueTitle': 'Ulayini wakho',
@@ -83,11 +111,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': 'Uhlu alutholakalanga.',
   'hostListingDetail.photos.empty': 'Azikho izithombe ezilayishiwe okwamanje.',
   'hostListingDetail.photos.heading': 'Izithombe',
+  'hostListingDetail.pricing.cleaning': 'Imali yokuhlanza',
   'hostListingDetail.pricing.save': 'Londoloza intengo',
   'hostListingDetail.pricing.weekday': 'Isilinganiso sangesonto',
   'hostListingDetail.pricing.weekend': 'Isilinganiso sempelasonto (ukuboniswa kuphela)',
   'hostListingDetail.rules.copy':
     'Beka okulindelwe yizivakashi futhi uvikele ikhaya lakho — lokhu kuyavela ngaphambi kokuqinisekiswa kokubhukha.',
+  'hostListingDetail.rules.heading': 'Imithetho yendlu',
   'hostListings.create': 'Dala uhlu olusha',
   'hostListings.eyebrow': 'Iphothifoliyo yakho',
   'hostListings.heading': 'Uhlu',
@@ -97,8 +127,11 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Kwababungazi',
   'landing.cta.heading': 'Vula umnyango wakho. Thola lokho okubiza ikhaya lakho.',
   'landing.cta.host': 'Qala ukusingathwa',
+  'landing.cta.subheading':
+    'U-{{appName}} unakekela izinkokhelo, izintela, nokuqinisekiswa kwezihambi ukuze wena ugxile ekusingatheni. Abasingathi abasha abaningi bathola u-$1,000 wabo wokuqala phakathi nezinsuku ezingama-30.',
   'landing.destinations.eyebrow': 'Lapho uya khona ngokulandelayo',
   'landing.destinations.heading': 'Izindawo ababungazi bethu abazithandayo',
+  'landing.destinations.seeAll': 'Bona zonke izindawo oya kuzo',
   'landing.footer.host': 'Yiba ngumbungazi',
   'landing.footer.search': 'Thola indawo yokuhlala',
   'landing.footer.tagline': 'Hlala sengathi ungowakho.',
@@ -107,15 +140,22 @@ export const ui: UiTranslations = {
   'landing.nav.host': 'Yiba ngumbungazi',
   'landing.nav.join': 'Joyina i-Roost',
   'landing.nav.search': 'Thola indawo yokuhlala',
+  'landing.preview.browseAll': 'Phequlula iqoqo eliphelele',
   'landing.preview.eyebrow': 'Ukubheka ngaphakathi',
   'landing.preview.heading': 'Ukuhlala okukhethwe ngesandla kule nyanga',
+  'landing.preview.subheading':
+    'Yonke indawo ebhaliswe ngu-{{appName}} isingathwa umuntu wangempela — oqinisekisiwe, obuyekezwe, futhi okhululekile ukukhansela kuze kube amahora angu-48 ngaphambi kokungena.',
   'listingDetail.about': 'Mayelana nale ndawo',
   'listingDetail.amenities': 'Lokho okunikezwa yile ndawo',
   'listingDetail.bathrooms': 'izindlu zangasese',
   'listingDetail.bedrooms': 'amakamelo okulala',
   'listingDetail.beds': 'imibhede',
   'listingDetail.bookFailed': 'Ayikwazanga ukubhukha. Zama futhi noma ungene ngemvume kuqala.',
+  'listingDetail.cleaningFee': 'Imali yokuhlanza',
+  'listingDetail.guests': 'izivakashi',
   'listingDetail.hostedBy': 'Ibungazwe ngu- {{host}}',
+  'listingDetail.hostMeta':
+    'Iminyaka engu-{{years}} yokusingatha · izinga lokuphendula elingu-{{response}}%',
   'listingDetail.houseRules': 'Imithetho yendlu',
   'listingDetail.instantBook': 'Bhukha manje · Bhukha ngokushesha',
   'listingDetail.loadError': 'Yehlulekile ukulayisha uhlu.',
@@ -125,6 +165,7 @@ export const ui: UiTranslations = {
   'listingDetail.perNight': 'ngobusuku ngabunye',
   'listingDetail.pickDates': 'Khetha izinsuku zokungena nezokuphuma kuqala.',
   'listingDetail.priceRow': '{{price}} × {{nights}} ubusuku',
+  'listingDetail.requestBook': 'Cela ukubhukha',
   'listingDetail.reserving': 'Ukubhukha…',
   'listingDetail.reviews': 'izibuyekezo',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}} izibuyekezo',
@@ -132,6 +173,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'Umphathi Omkhulu',
   'login.eyebrow': 'Siyakwamukela ekhaya',
   'login.heading': 'Ngena ngemvume ku-Roost',
+  'login.noAccount': 'Usanda kufika eTessera?',
   'login.signupLink': 'Dala i-akhawunti yamahhala',
   'login.subheading':
     'Qhubeka lapho ugcine khona — phatha uhambo, thumela imiyalezo kubabungazi, futhi ubhukhe izindawo zokuhlala obulokhu uziphupha.',
@@ -157,6 +199,7 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Iyalayisha…',
   'notifications.subheading':
     '{{count}} akufundiwe · konke ebhokisini lokungenayo elilodwa elizolile',
+  'pricing.ctaContact': 'Xhumana nokuthengisa',
   'pricing.ctaUpgrade': 'Xhumana nokuthengisa',
   'pricing.eyebrow': 'Kulula, kusobala',
   'pricing.heading': 'Uhlelo oluhambisana nesigqi sakho sokuhamba',
@@ -193,8 +236,12 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Khetha into ekhumbulekayo. Sizokungenisa ngemvume uma usuyigcinile imali.',
   'roostAuthShell.brand.eyebrow': 'Hlala sengathi ungowakho',
+  'roostAuthShell.brand.heading':
+    'Ama-cabin, ama-cottage, ama-riad — anikezwa abasingathi abahlala khona.',
   'roostHeroSearchCard.checkInAria': 'Usuku lokungena',
   'roostHeroSearchCard.checkOutAria': 'Usuku lokuphuma',
+  'roostHeroSearchCard.destAria': 'Indawo oya kuyo',
+  'roostHeroSearchCard.destLabel': 'Kuphi',
   'roostHeroSearchCard.destPlaceholder': 'Idolobha, isifunda, noma impahla',
   'roostHeroSearchCard.eyebrow': 'Ukuhlala okukhethwe ngesandla · Ababungazi abaqinisekisiwe',
   'roostHeroSearchCard.guestsOption': '{{n}} izivakashi',
@@ -207,6 +254,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'roostListingCard.bookmarkAria': 'Londoloza uhlu',
   'roostListingCard.night': 'ubusuku',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'Azikho izinhla ezihambisana nosesho lwakho.',
   'search.emptyHint':
     'Zama ukwandisa izihlungi zakho noma ukususa umkhawulo wentengo — iRoost inezinsalela emazweni angu-26.',
@@ -214,9 +262,14 @@ export const ui: UiTranslations = {
   'search.heading': 'Indawo ezwakala sengathi iyikhaya',
   'search.headingForQuery': '"Ihlala" {{q}} "',
   'search.loadError': 'Yehlulekile ukulayisha uhlu.',
+  'search.mapHint':
+    'Hambisa ikhadi ukuze uqhakambise kumephu. Amathayela e-Mapbox abukhoma ekukhiqizeni.',
+  'search.mapPinAria': '{{name}} — {{price}} ngobusuku',
   'search.sortLabel': 'Hlunga nge',
   'search.subheading': '{{count}} uhlu · {{guests}} izivakashi',
+  'settings.appearance.description': 'Shintsha phakathi kwemodi yokukhanya neyomnyama.',
   'settings.appearance.title': 'Ukubukeka',
+  'settings.openBilling': 'Vula inkokhelo',
   'settings.payments.heading': 'Izindlela zokukhokha',
   'settings.paymentsHelp':
     'I-Roost ishaja ikhadi lakho ngesikhathi umbungazi eqinisekisa ukubhukha kwakho. Phatha amakhadi agciniwe ekhasini lentengo.',

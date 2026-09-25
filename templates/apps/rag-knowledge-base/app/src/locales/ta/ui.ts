@@ -1,13 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது நாங்கள் இன்னும் ஆதரிக்காத இணைப்பி வேண்டுமா? உங்கள் கணக்கிலிருந்து {{appName}} குழுவை அணுகவும் — ஒவ்வொரு செய்தியும் தயாரிப்பில் பணிபுரியும் உண்மையான மனிதரையே சென்றடையும்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.intro':
+    '{{appName}} என்பது மீட்டெடுப்பு-மேம்படுத்தப்பட்ட அறிவுத் தளம். இது உங்கள் குழுவின் ஆவணங்கள், விக்கிகள், அரட்டைப் பதிவுகளை ஒரு பொருள்சார் நினைவகமாக அட்டவணைப்படுத்தி, எளிய ஆங்கிலத்தில் கேள்விகளுக்குப் பதிலளிக்கிறது — ஒவ்வொரு பதிலிலும் சரியான மூலத்திற்கு இணைக்கப்பட்ட மேற்கோள்களுடன்.',
+  'about.missionBody':
+    'அறிவு சிதறிய கருவிகளில் பூட்டி வைக்கப்படவோ, யாரும் நம்பாத தேடல் முடிவுகளில் புதைந்து போகவோ கூடாது. ஒவ்வொரு பதிலும் உடனடியாகவும், துல்லியமாகவும், சரிபார்க்கக்கூடியதாகவும் இருக்க வேண்டும் என்று நாங்கள் நம்புகிறோம் — அதனால் குழுக்கள் ஆவணங்களைத் தேடுவதை நிறுத்திவிட்டு, தங்களுக்கு ஏற்கனவே தெரிந்ததை நினைவுகூரத் தொடங்கலாம்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': 'பற்றி {{appName}}',
   'analytics.error': 'பகுப்பாய்வுகளை ஏற்ற முடியவில்லை.',
   'analytics.heading': 'மீட்டெடுப்பு பகுப்பாய்வு',
   'analytics.last30Days': '30 நாட்கள்',
   'analytics.loading': 'பகுப்பாய்வுகள் ஏற்றப்படுகின்றன...',
   'analytics.metric.latency': 'P50 தாமதம்',
+  'analytics.metric.queriesPerAsker': 'வினவல்கள் / கேட்பவர்',
   'analytics.metric.relevance': 'சராசரி பொருத்தம்',
   'analytics.metric.totalQueries': 'மொத்த வினவல்கள்',
   'analytics.metric.unanswered': 'பதிலளிக்கப்படாத',
@@ -23,6 +31,7 @@ export const ui: UiTranslations = {
   'answerCard.eyebrow': 'கேள்வி',
   'ask.empty':
     'உங்கள் அட்டவணைப்படுத்தப்பட்ட ஆவணங்களிலிருந்து எடுக்கப்பட்ட மேற்கோள் பதிலைக் காண, ஒரு கேள்வியைக் கேளுங்கள்.',
+  'ask.error.failed': 'உதவியாளரை அணுக முடியவில்லை.',
   'ask.error.noAnswer': 'மாதிரி எந்தப் பதிலையும் அளிக்கவில்லை. தயவுசெய்து மீண்டும் முயற்சிக்கவும்.',
   'ask.eyebrow': 'இன்று → சொற்பொருள் கேள்வி பதில்',
   'ask.heading': 'உங்கள் அறிவுத்தளத்தைக் கேளுங்கள்',
@@ -30,7 +39,9 @@ export const ui: UiTranslations = {
   'ask.metric.latencyCaption': 'உட்பொதித்தல் + மீட்டெடுத்தல் + உருவாக்குதல்',
   'ask.metric.relevance': 'முதல்-நிலை பொருத்தம்',
   'ask.placeholder': 'உங்கள் அறிவுத்தளம் பற்றி எதையும் கேளுங்கள்…',
+  'ask.recent.heading': 'சமீபத்திய கேள்விகள்',
   'ask.searching': 'தேடுகிறது…',
+  'ask.shortcut': '\\u2318K',
   'ask.subheading':
     'எளிய மொழி கேள்விகள் உள்ளே. மேற்கோள் காட்டப்பட்ட பதில்கள் வெளியே. பொருத்தமான பகுதியை முன்னோட்டமிட, எந்தவொரு மூலத்தின் மீதும் சுட்டியைக் கொண்டு செல்லவும்.',
   'ask.submit': 'கேளுங்கள்',
@@ -64,6 +75,7 @@ export const ui: UiTranslations = {
   'documentDetail.chunks.heading': 'குறியிடப்பட்ட தொகுதிகள்',
   'documentDetail.col.content': 'உள்ளடக்க முன்னோட்டம்',
   'documentDetail.col.heading': 'தலைப்பு',
+  'documentDetail.col.index': '#',
   'documentDetail.col.tokens': 'டோக்கன்கள்',
   'documentDetail.fts': 'PostgreSQL FTS மீட்டெடுப்பான்',
   'documentDetail.loading': 'ஆவணம் ஏற்றப்படுகிறது…',
@@ -73,8 +85,11 @@ export const ui: UiTranslations = {
   'documentDetail.notFound': 'ஆவணம் காணப்படவில்லை.',
   'documentDetail.uploadedSource': 'கைமுறை பதிவேற்றம்',
   'documents.closePaste': 'நெருக்கமான இசையமைப்பாளர்',
+  'documents.composer.bodyPlaceholder': 'மார்க்டவுன் அல்லது எளிய உரையை ஒட்டவும்…',
   'documents.composer.save': 'குறியீட்டு ஆவணம்',
+  'documents.composer.saving': 'குறியிடல்…',
   'documents.composer.titlePlaceholder': 'ஆவணத்தின் தலைப்பு',
+  'documents.empty': 'அந்த வடிகட்டிகளுடன் எந்த ஆவணமும் பொருந்தவில்லை.',
   'documents.emptyAll': 'இன்னும் ஆவணங்கள் இல்லை. கேள்விகள் கேட்கத் தொடங்க, ஒன்றை பதிவேற்றவும்.',
   'documents.error.load': 'ஆவணங்களை ஏற்ற முடியவில்லை.',
   'documents.heading': 'குறியிடப்பட்ட ஆவணங்கள்',
@@ -91,17 +106,21 @@ export const ui: UiTranslations = {
   'documents.uploadFailed': 'பதிவேற்றம் தோல்வியடைந்தது.',
   'documents.uploading': 'பதிவேற்றப்படுகிறது…',
   'engramHeroCard.change': '{{sign}}{{amount}} நேற்றைய தினத்துடன் ஒப்பிடுகையில் சதவீதம்',
+  'engramHeroCard.relevance': 'மேற்கோள் காட்டப்பட்ட பதில்களில் சராசரி முதல்-1 பொருத்தம் {{value}}%',
   'engramHeroCard.title': 'கேள்விகளுக்கு இன்று பதிலளிக்கப்பட்டது',
   'engramLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
+  'forgotPassword.backToSignIn': '\\u2190 உள்நுழைவுக்குத் திரும்பு',
   'forgotPassword.sentBody':
     'அது தெரியவில்லை எனில், உங்கள் ஸ்பேம் கோப்புறையைச் சரிபார்க்கவும். இந்த இணைப்பு 30 நிமிடங்களில் காலாவதியாகிவிடும்.',
   'forgotPassword.sentSubtitle': '➡ உள்நுழைவிற்குத் திரும்பு',
+  'forgotPassword.submitting': 'அனுப்புகிறது…',
   'forgotPassword.subtitle': 'மீட்டமைப்பு இணைப்பைப் பெற உங்கள் மின்னஞ்சலை உள்ளிடவும்.',
   'graph.cluster.all': 'அனைத்து கிளஸ்டர்களும்',
   'graph.empty': 'உங்கள் அறிவு வரைபடத்தை உருவாக்கத் தொடங்க, ஆவணங்களைப் பதிவேற்றவும்.',
   'graph.error': 'அறிவு வரைபடத்தை ஏற்ற முடியவில்லை.',
   'graph.eyebrow': 'சொற்பொருள் வரைபடம்',
   'graph.heading': 'அறிவு வரைபடம்',
+  'graph.legend': 'தொடர்புடைய ஆவணங்களை முன்னிலைப்படுத்த ஒரு கிளஸ்டர் வடிகட்டியைக் கிளிக் செய்யவும்',
   'graph.loading': 'அறிவு வரைபடத்தை ஏற்றுகிறது—',
   'graph.metric.clusters': 'கொத்துகள்',
   'graph.metric.edges': 'விளிம்புகள்',
@@ -113,19 +132,30 @@ export const ui: UiTranslations = {
   'graph.svgAria': 'அறிவு வரைபடக் காட்சிப்படுத்தல்',
   'history.empty.all':
     "நீங்கள் இன்னும் எந்தக் கேள்வியும் கேட்கவில்லை. தொடங்குவதற்கு, 'கேளுங்கள்' பகுதிக்குச் செல்லவும்.",
+  'history.empty.filtered': 'அந்தத் தேடலுடன் எந்தக் கடந்த கேள்வியும் பொருந்தவில்லை.',
   'history.error.load': 'வரலாற்றை ஏற்ற முடியவில்லை.',
   'history.heading': 'கேள்வி பதில் வரலாறு',
+  'history.loading': 'வரலாறு ஏற்றப்படுகிறது\\u2026',
   'history.noAnswer': '(பதில் எதுவும் பதிவு செய்யப்படவில்லை)',
   'history.searchPlaceholder': 'முந்தைய கேள்விகள் மற்றும் பதில்களைத் தேடவும்',
   'history.subheading': 'நீங்கள் கேட்ட ஒவ்வொரு கேள்வியும், அதற்கு ஆதாரமாகக் கிடைத்த பதிலும்.',
+  'landing.copyright':
+    '\\u00a9 {{year}} {{app}}. தங்கள் பணியை மேற்கோள் காட்டும் குழுக்களுக்காக உருவாக்கப்பட்டது.',
   'landing.ctaBody':
     '14 நாள் சோதனைக் காலம். கடன் அட்டை தேவையில்லை. 5 நிமிடங்களுக்குள் Notion, Drive, Confluence, Slack மற்றும் GitHub உடன் இணைகிறது.',
   'landing.ctaHeading': 'தேடுவதை நிறுத்துங்கள். நினைவுகூரத் தொடங்குங்கள்.',
   'landing.eyebrow': 'மீட்டெடுப்பு > உட்பொதிப்புகள் > மேற்கோள் காட்டப்பட்ட கேள்வி பதில்',
   'landing.featuresHeading': 'தன்னைத்தானே விளக்கும் அறிவு',
+  'landing.heroSubtitle':
+    '{{appName}} உங்கள் ஆவணங்கள், விக்கிகள், அரட்டைப் பதிவுகளை ஒரு பொருள்சார் நினைவகமாக அட்டவணைப்படுத்துகிறது. எதையும் எளிய ஆங்கிலத்தில் கேளுங்கள்; சரியான பத்திக்கு இணைக்கப்பட்ட மேற்கோள்களுடன் பதிலைப் பெறுங்கள்.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleAnswer':
+    'வாடிக்கையாளர் ஒப்பந்தத்தின் பணத்திருப்பிச் செலுத்தல் கொள்கை பிரிவின்படி, ஆண்டுத் திட்டங்கள் 30 நாட்களுக்குள் விகிதாசார பணத்திருப்பிச் செலுத்தலுக்குத் தகுதியுடையவை',
   'landing.sampleCardLabel': 'இன்றைய கேள்வி பதில்',
   'landing.sampleQuestion':
     '"ஆண்டுதோறும் வாங்கும் வாடிக்கையாளர்களுக்கான எங்கள் பணம் திரும்பப்பெறும் கொள்கை என்ன?"',
+  'landing.sampleSourcesLabel': 'ஆதாரங்கள்',
+  'login.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'login.passwordPlaceholder':
     '• • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •',
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
@@ -157,11 +187,16 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': 'மீட்டெடுக்க முடியவில்லை',
   'notFound.title': 'குறியீட்டில் அப்படிப்பட்ட பகுதி எதுவும் இல்லை',
   'notifications.dismiss': 'நிராகரி',
+  'notifications.error.delete': 'அறிவிப்பை நிராகரிக்க முடியவில்லை.',
   'notifications.error.update': 'அறிவிப்பைப் படித்ததாகக் குறிக்க முடியவில்லை.',
+  'notifications.loading': 'அறிவிப்புகளை ஏற்றுகிறது—',
   'notifications.markRead': 'மார்க் படித்தார்',
   'notifications.subheading': 'அறிவிப்புகளை ஏற்றுகிறது—',
+  'resetPassword.backToSignIn': '\\u2190 உள்நுழைவுக்குத் திரும்பு',
   'resetPassword.confirmPlaceholder':
     '• • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •',
+  'resetPassword.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
+  'resetPassword.mismatch': 'கடவுச்சொற்கள் பொருந்தவில்லை.',
   'resetPassword.passwordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.passwordPlaceholder':
     '• • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •',
@@ -172,11 +207,17 @@ export const ui: UiTranslations = {
   'settings.apiKeys.col.created': 'உருவாக்கப்பட்டது',
   'settings.apiKeys.col.lastUsed': 'கடைசியாகப் பயன்படுத்தப்பட்டது',
   'settings.apiKeys.col.name': 'லேபிள்',
+  'settings.apiKeys.copyNow': 'இதை நகலெடுக்கவும் — இதை மீண்டும் பார்க்க மாட்டீர்கள்',
+  'settings.apiKeys.create': 'புதிய சாவியை உருவாக்கு',
   'settings.apiKeys.createFailed': 'சாவியை உருவாக்க முடியவில்லை.',
   'settings.apiKeys.description':
     'உங்கள் சேவைகளிலிருந்து /v1/qa/ask, /v1/documents மற்றும் /v1/sources ஆகியவற்றை அழைக்க இவற்றைப் பயன்படுத்தவும்.',
+  'settings.apiKeys.empty':
+    'இன்னும் API விசைகள் இல்லை — {{appName}} API-ஐ அழைக்க ஒன்றை உருவாக்கவும்.',
   'settings.apiKeys.labelPlaceholder': 'தயாரிப்பு / மேடையேற்றம் / சிஐ',
+  'settings.apiKeys.new': 'புதிய API விசை',
   'settings.apiKeys.revokeFailed': 'சாவியை ரத்து செய்ய முடியவில்லை.',
+  'settings.apiKeys.title': 'API விசைகள்',
   'settings.profile.description':
     'உங்கள் குழுவிற்குப் பகிரப்படும் — இது உங்கள் கேள்விகளுக்கு அருகில் தோன்றும்.',
   'settings.profile.saveFailed': 'சுயவிவரத்தைச் சேமிக்க முடியவில்லை.',
@@ -195,7 +236,9 @@ export const ui: UiTranslations = {
   'signup.confirmPlaceholder':
     '• • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •',
   'signup.firstNamePlaceholder': 'அடா',
+  'signup.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'signup.lastNamePlaceholder': 'லவ்லேஸ்',
+  'signup.mismatch': 'கடவுச்சொற்கள் பொருந்தவில்லை.',
   'signup.passwordPlaceholder':
     '• • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •',
   'signup.showPassword': 'கடவுச்சொல்லைக் காட்டு',
@@ -211,10 +254,12 @@ export const ui: UiTranslations = {
   'sourceDetail.loading': 'மூலத்தை ஏற்றுகிறது—',
   'sourceDetail.metric.created': 'உருவாக்கப்பட்டது',
   'sourceDetail.metric.docs': 'இணைக்கப்பட்ட ஆவணங்கள்',
+  'sourceDetail.metric.lastSync': 'கடைசி ஒத்திசைவு',
   'sourceDetail.notFound': 'ஆதாரம் கண்டறியப்படவில்லை.',
   'sourceDetail.sync.busy': 'ஒத்திசைத்தல்',
   'sourceDetail.sync.now': 'இப்போது ஒத்திசைக்கவும்',
   'sources.activeHeading': 'செயலில் உள்ள இணைப்பிகள்',
+  'sources.add': 'மூலத்தைச் சேர்க்கவும்',
   'sources.add.heading': 'புதிய மூலத்தைச் சேர்க்கவும்',
   'sources.add.label': 'லேபிள்',
   'sources.add.labelPlaceholder': 'எனது ஆவணத் தளம்',

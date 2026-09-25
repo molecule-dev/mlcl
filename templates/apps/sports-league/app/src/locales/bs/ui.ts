@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate povratne informacije, pronašli ste grešku ili želite {{app}} za svoju ligu? Javite nam se iz postavki računa — svaka poruka stiže do stvarne osobe u timu.',
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nama',
+  'about.featureAlerts':
+    'Push obavještenja za ažuriranja rezultata, obavijesti o razmjenama, izvještaje o povredama i najave lige.',
+  'about.featureRosters':
+    'Stranice timova s punim sastavima, sezonskim ukupnim rezultatima, nizovima pobjeda/poraza i međusobnim rezultatima za svakog igrača.',
+  'about.featureSchedule':
+    'Kalendar sezone i prikaz rasporeda kako biste mogli planirati svaku utakmicu i rezultat.',
+  'about.featureScoreboard':
+    'Rezultatska traka emiterskog kvaliteta prikvačena na vrh svake stranice da nikad ne propustite gol.',
+  'about.featureStandings':
+    'Tabela uživo — pobjede-porazi-neriješeno u realnom vremenu, bodovi, postotak pobjeda i linija doigravanja, osvježeno na svaki znak suca.',
+  'about.intro':
+    '{{app}} je dom emiterskog kvaliteta za vašu ligu. Timovi, rasporedi, rezultati uživo i tabele na jednom brzom, preglednom dashboardu — tako da navijači, treneri i organizatori lige uvijek znaju gdje je sezona stigla.',
+  'about.missionBody':
+    'Praćenje lige ne bi trebalo značiti osvježavanje pet različitih rezultatskih tabli trećih strana. Napravili smo ga da svakoj ligi pruži jedinstveni izvor istine za tabelu, raspored i statistiku koja je zaista važna — ažurirano na svaki znak suca, besplatno za sezonu.',
+  'about.missionTitle': 'Naša misija',
+  'about.whatYouGet': 'Šta dobijete',
   'appShell.closeNav': 'Zatvori navigaciju',
   'appShell.openNav': 'Otvori navigaciju',
   'common.dashboard': 'Kontrolna ploča',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Pogledajte sve mečeve \\u2192',
   'dashboard.viewAllStandings': 'Kompletan plasman \\u2192',
   'dashboard.viewAllStats': 'Pogledajte sve statistike lidera \\u2192',
+  'forgot.submitting': 'Šaljem link za resetovanje…',
   'forgot.subtitle': 'Unesite svoju e-mail adresu da biste primili link za resetiranje.',
   'forgot.success': 'Resetiraj link poslan na {{email}} Provjerite pristiglu poštu.',
+  'landing.copyright': '© {{year}} {{app}}. Jurite plasman.',
+  'landing.ctaBody':
+    'Vaša liga. Vaša tabela. Vaš omiljeni tim — prikvačen na vrhu. Dvije minute za postavljanje, besplatno za sezonu.',
   'landing.ctaHeading': 'Zaustavi osvježavanje rezultata trećih strana',
   'landing.eyebrow': 'Napravljeno za navijače, trenere i organizatore lige',
   'landing.featuresHeading': 'Sjedalo u prvom redu za svakog ko stoji',
   'landing.getStarted': 'Pridruži se ligi',
   'landing.heroCta': 'Pridruži se ligi',
+  'landing.heroSubtitle':
+    '{{app}} spaja tabele, rasporede i statističke lidere u jedan dashboard emiterskog kvaliteta. Rezultati uživo. Pravi rezultati. Bez nereda.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Večeras oko lige',
   'landing.statFans': 'Praćenje obožavatelja',
   'landing.statGames': 'Utakmice ove sezone',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'P {{period}}',
   'matchDetail.back': 'Nazad na utakmice',
   'matchDetail.eventsHeading': 'Detaljan prikaz',
+  'matchDetail.final': 'KONAČNO',
   'matchDetail.finalScore': 'Konačno',
   'matchDetail.live': 'UŽIVO',
   'matchDetail.liveNow': 'Uživo sada',
   'matchDetail.noEvents': 'Još nema zabilježenih događaja.',
   'matchDetail.periodClock': 'P {{period}} · {{clock}}',
+  'matches.empty': 'Nema utakmica u ovom prikazu — pokušajte s drugim filterom.',
   'matches.eyebrow': 'Dan utakmice',
   'matches.loading': 'Povlačenje liste...',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Učitavanje obavještenja nije uspjelo',
   'notifications.loading': 'Učitavanje obavještenja\\u2026',
   'pennantHeroCard.eyebrow': 'Vrh tabele',
+  'pennantHeroCard.formLabel': 'Posljednjih 10',
   'pennantHeroCard.gamesAhead': '{{value}} utakmice prije početka utrke',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Primarna navigacija',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Odaberite svoje sjedište',
   'pricing.heading': 'Nadogradite za bogatiji raspored, rezultate i tabele.',
   'pricing.limits.schedule': '{{count}} unosi u raspored',
+  'pricing.limits.scores': '{{count}} rezultata',
+  'pricing.limits.standings': '{{count}} tabela',
+  'pricing.limits.teams': '{{count}} timova',
+  'pricing.subtitle': 'Nadogradite za bogatiji raspored, rezultate i tabele.',
   'pricing.upgradeCta': 'Nadogradite na {{tierName}}',
   'profile.eyebrow': 'Profil obožavatelja',
   'profile.favoritesCount': 'Praćeni timovi',
   'profile.favoritesHeading': 'Omiljeni timovi',
   'profile.noFavorites': 'Još nema favorita — odaberite timove sa stranice Timovi.',
   'profile.rankRecord': 'Rang # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Rezultat {{record}}',
   'reset.confirmPlaceholder': 'Ponovite lozinku',
+  'reset.mismatch': 'Lozinke se ne podudaraju.',
   'reset.newLabel': 'Nova lozinka',
   'reset.subtitle': 'Odaberite jaku lozinku od najmanje 12 znakova.',
   'reset.tokenPlaceholder': 'Zalijepi iz e-pošte',
   'schedule.eyebrow': 'Škriljevac',
+  'schedule.moreGames': '+ {{count}} više',
   'schedule.subtitle':
     'Kalendarski prikaz utakmica tokom sezone - dodirnite bilo koji dan za rezultate utakmica.',
   'scoreboardTicker.empty':
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Personaliziraj',
   'settings.favoritesBody':
     'Ovi timovi se prikače na vašu kontrolnu ploču i aktiviraju upozorenja o rezultatima.',
+  'settings.favoritesHeading': 'Omiljeni timovi',
   'settings.loading': 'Učitavanje vaših postavki\\u2026',
   'settings.noFavorites': 'Još nema favorita \\u2014 odaberite timove sa stranice Timovi.',
   'settings.notificationsHeading': 'Obavještenja i prikaz',
@@ -115,6 +152,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Ukupno',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Prve četiri ekipe se kvalifikuju za postsezonu — u slučaju tie-breaka po bodovima, a zatim sa postotkom pobjeda.',
   'standings.title': 'Tabela lige',
@@ -133,6 +171,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Igrač',
   'teamDetail.colPos': 'Poz',
+  'teamDetail.pointsLabel': 'Bodovi',
   'teamDetail.rankLabel': 'Rang # {{rank}}',
   'teamDetail.rosterHeading': 'Spisak igrača',
   'teamDetail.statGD': 'Gol razlika',

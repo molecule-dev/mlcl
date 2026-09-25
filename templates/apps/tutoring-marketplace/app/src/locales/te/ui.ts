@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'సంప్రదించండి',
   'about.eyebrow': 'మా గురించి',
+  'about.missionTitle': 'మా లక్ష్యం',
   'account.notifications.save': 'ప్రాధాన్యతలను సేవ్ చేయండి',
   'account.notifications.saved': 'ప్రాధాన్యతలు సేవ్ చేయబడ్డాయి.',
   'account.notifications.saveFailed': 'ప్రాధాన్యతలను సేవ్ చేయలేకపోయాను.',
@@ -12,7 +13,10 @@ export const ui: UiTranslations = {
     'సెషన్‌కు చెల్లించండి • బుకింగ్ డిస్కౌంట్‌ల కోసం అప్‌గ్రేడ్ చేసుకోండి',
   'account.payments.helper':
     'చెల్లింపు సమయంలో మీ చెల్లింపు పద్ధతి సేకరించబడుతుంది. మేము పూర్తి కార్డ్ నంబర్‌లను ఎప్పుడూ నిల్వ చేయము — స్ట్రైప్ మొత్తం కార్డ్ డేటాను నిర్వహిస్తుంది.',
+  'account.payments.paidDescription': 'సబ్‌స్క్రిప్షన్ యాక్టివ్ — Stripeలో నిర్వహించండి.',
   'account.payments.planFree': 'ఉచిత ప్రణాళిక',
+  'account.payments.title': 'ప్లాన్ & చెల్లింపు',
+  'account.payments.viewPlans': '{{appName}} ప్లాన్‌లను చూడండి →',
   'account.profile.title': 'ప్రొఫైల్',
   'account.role.body':
     'అభ్యాసకుడు మరియు ట్యూటర్ మోడ్‌ల మధ్య ఎప్పుడైనా మారండి. ఏ మోడ్‌లోనైనా మీ యాక్టివ్ సెషన్‌లు చెక్కుచెదరకుండా ఉంటాయి.',
@@ -25,6 +29,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'సుద్దతో బోధించండి',
   'becomeTutor.form.error': 'దరఖాస్తును సమర్పించలేకపోయాను.',
+  'becomeTutor.form.pitch': 'మీ పిచ్ (ఐచ్ఛికం)',
   'becomeTutor.form.pitchPlaceholder':
     'విద్యార్థులు మీ ప్రొఫైల్‌లో చూసే కొన్ని వాక్యాలు. వాటిని నిర్దిష్టంగా మరియు ఆత్మీయంగా ఉంచండి.',
   'becomeTutor.form.rate': 'గంటవారీ రేటు ($/గంట): {{rate}}',
@@ -33,6 +38,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.submitted': 'దరఖాస్తు సమర్పించబడింది. మీ ప్రొఫైల్‌కు మళ్ళించబడుతోంది…',
   'becomeTutor.form.title': 'మీ గురించి మాకు చెప్పండి',
   'becomeTutor.headline': 'మీకు నచ్చిన పని చేస్తూ సంపాదించండి. మీకు అనుకూలమైన సమయంలో బోధించండి.',
+  'becomeTutor.subhead':
+    '5 నిమిషాల్లో దరఖాస్తు చేయండి. ధృవీకరణ తర్వాత, మీరు శోధనలో కనిపిస్తారు మరియు సెషన్‌లను బుక్ చేయడం ప్రారంభిస్తారు.',
+  'booking.duration.title': '3. ఎంత సమయం?',
   'booking.error.createFailed': 'బుకింగ్ సృష్టించలేకపోయాము.',
   'booking.error.loadFailed': 'ట్యూటర్‌ను లోడ్ చేయలేకపోయాము — మళ్ళీ ప్రయత్నించండి.',
   'booking.error.noSlot': 'ముందుగా ఒక రోజు మరియు సమయాన్ని ఎంచుకోండి.',
@@ -46,6 +54,7 @@ export const ui: UiTranslations = {
     'సెషన్‌లను 12 గంటల ముందు వరకు రీషెడ్యూల్ చేసుకోవచ్చు. సెషన్ ముగిసినప్పుడు మాత్రమే మీ కార్డ్ నుండి డబ్బు తీసుకోబడుతుంది.',
   'booking.summary.assurance':
     'సెషన్ ముగిసే వరకు ఎటువంటి రుసుము లేదు • 12 గంటల ముందు వరకు ఉచితంగా రద్దు చేసుకోండి',
+  'booking.summary.back': '← ట్యూటర్ ప్రొఫైల్‌కు తిరిగి వెళ్లండి',
   'booking.summary.cta': 'బుకింగ్‌ను నిర్ధారించండి',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'ఒక స్లాట్‌ను ఎంచుకోండి',
@@ -72,18 +81,27 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'ట్యూటర్',
   'bookingConfirm.subject': 'విషయం',
   'bookingConfirm.title': 'మీ బుకింగ్ పూర్తయింది. మిగతాది మేము చూసుకుంటాము.',
+  'bookingConfirm.viewSessions': 'అన్ని సెషన్‌లను చూడండి →',
   'bookingConfirm.with': 'ట్యూటర్‌తో',
   'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
+  'earningsHero.change': 'గత నెలతో పోలిస్తే {{sign}}{{percent}}%',
   'earningsHero.eyebrow': 'ఆదాయాలు • {{month}}',
+  'earningsHero.greeting': 'తిరిగి స్వాగతం, {{name}} — ఈ వేగాన్ని కొనసాగించండి.',
   'forgotPassword.heading': 'మీ పాస్‌వర్డ్‌ను మర్చిపోయారా?',
   'forgotPassword.subheading':
     'మీ ఖాతాకు అనుసంధానించబడిన ఇమెయిల్‌ను నమోదు చేయండి, మేము రీసెట్ లింక్‌ను పంపుతాము.',
   'forgotPassword.success.body':
     'మేము రీసెట్ లింక్‌ను పంపాము {{email}} — దీని గడువు 30 నిమిషాల్లో ముగుస్తుంది.',
   'heroSearchSection.eyebrow': '12,000+ ధృవీకరించబడిన ట్యూటర్లు • 2018 నుండి',
+  'heroSearchSection.headline': 'ఆసక్తిగల మనసులు సరైన ట్యూటర్లను కలిసే చోటు.',
+  'heroSearchSection.searchCta': 'ట్యూటర్‌ను కనుగొనండి',
+  'heroSearchSection.searchPlaceholder': 'సబ్జెక్టులు, ట్యూటర్లు లేదా అంశాలను శోధించండి…',
   'heroSearchSection.stat.rating': 'సగటు సెషన్ రేటింగ్',
+  'heroSearchSection.stat.sessions': 'పూర్తయిన సెషన్‌లు',
   'heroSearchSection.stat.subjects': 'కవర్ చేయబడిన అంశాలు',
   'heroSearchSection.stat.tutors': 'ధృవీకరించబడిన ట్యూటర్లు',
+  'heroSearchSection.subhead':
+    'ధృవీకరించిన ట్యూటర్లు. స్పష్టమైన ధరలు. మీ వారానికి సరిపోయే సెషన్‌లు.',
   'landing.featured.eyebrow': 'ప్రముఖ ట్యూటర్లు',
   'landing.featured.headline':
     'ప్రత్యేకంగా ఎంపిక చేయబడినవి, అత్యుత్తమ రేటింగ్ పొందినవి, మరియు ఈ వారానికే సిద్ధంగా ఉన్నాయి.',
@@ -91,8 +109,11 @@ export const ui: UiTranslations = {
   'landing.nav.becomeTutor': 'సుద్దతో బోధించండి',
   'landing.nav.findTutors': 'ట్యూటర్లను కనుగొనండి',
   'landing.pillars.eyebrow': 'సుద్ద ఎందుకు',
+  'landing.pillars.headline': '{{tagline}} — ఎటువంటి ఇబ్బంది లేకుండా.',
   'landing.testimonials.eyebrow': 'ఇటీవలి విద్యార్థుల నుండి',
   'landing.testimonials.headline': 'వాస్తవ ఫలితాలు, వారి మాటల్లోనే.',
+  'landing.tutorCta.body':
+    'మీ స్వంత ధరలను నిర్ణయించుకోండి, ధృవీకరించిన సమీక్షలతో పేరు సంపాదించండి, షెడ్యూలింగ్, చెల్లింపులు మరియు రిమైండర్లను మేము చూసుకుంటాము.',
   'landing.tutorCta.button': 'బోధించడానికి దరఖాస్తు చేసుకోండి',
   'landing.tutorCta.eyebrow': 'ట్యూటర్ అవ్వండి',
   'landing.tutorCta.headline':
@@ -104,6 +125,7 @@ export const ui: UiTranslations = {
   'login.signup': 'ఖాతాను సృష్టించండి →',
   'login.subheading':
     'మీరు ఆపివేసిన చోటి నుండే కొనసాగించండి — మీ సెషన్‌లు, సందేశాలు మరియు ట్యూటర్‌లు మీ కోసం వేచి ఉన్నాయి.',
+  'login.support': 'సహాయం కావాలా?',
   'messages.draftPlaceholder': 'సందేశాన్ని టైప్ చేయండి…',
   'messages.empty.body':
     'మీరు ట్యూటర్‌కు సందేశం పంపినప్పుడు లేదా ట్యూటర్ మీకు సందేశం పంపినప్పుడు, ఇక్కడ సంభాషణలు కనిపిస్తాయి.',
@@ -115,9 +137,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'ఇంకా సందేశాలు రాలేదు.',
   'messages.selectThread': 'ఎడమ వైపున ఉన్న థ్రెడ్‌ను ఎంచుకోండి.',
   'messages.send': 'సందేశం పంపండి',
+  'messages.startThreadHint':
+    'సంభాషణ ప్రారంభించడానికి ట్యూటర్ ప్రొఫైల్‌ను సందర్శించి "ట్యూటర్‌కు సందేశం పంపండి" నొక్కండి.',
   'messages.thread.empty': 'పలకరించండి — సంభాషణను ప్రారంభించండి.',
   'messages.title': 'మీ ట్యూటర్లతో సంభాషణలు.',
   'nav.primary': 'ప్రాథమిక',
+  'planUpdated.body':
+    'మీ బిల్లింగ్ మార్పు ఇప్పుడు యాక్టివ్గా ఉంది. మీ ప్లాన్ను బిల్లింగ్ పేజీ నుండి ఎప్పుడైనా నిర్వహించవచ్చు.',
+  'pricing.advancedFeatures': 'అధునాతన ఫీచర్లు:',
   'pricing.dataExport': 'డేటా ఎగుమతి:',
   'pricing.headingDefault': 'అధునాతన ఫీచర్లు:',
   'resetPassword.heading': 'బలమైన కొత్త పాస్‌వర్డ్‌ను ఎంచుకోండి.',
@@ -128,6 +155,7 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'రీసెట్ విజయవంతం అయిన తర్వాత మేము మిమ్మల్ని ఆటోమేటిక్‌గా సైన్ ఇన్ చేస్తాము.',
   'resetPassword.submit': 'రీసెట్ చేసి సైన్ ఇన్ చేయండి',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body':
     'సబ్జెక్ట్ ఫిల్టర్‌ను విస్తృతం చేయడానికి లేదా రేటింగ్ థ్రెషోల్డ్‌ను సడలించడానికి ప్రయత్నించండి.',
@@ -139,7 +167,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'రేటింగ్',
   'search.filter.subject': 'విషయం',
   'search.results.count': '{{count}} మీ ఫిల్టర్‌లకు సరిపోయే ట్యూటర్లు',
+  'search.results.fallback': 'క్యూరేటెడ్ డెమో ట్యూటర్లను చూపుతోంది',
   'search.results.loading': 'ట్యూటర్లు లోడ్ అవుతున్నారు…',
+  'search.searchPlaceholder': 'సబ్జెక్ట్, పేరు లేదా అంశం…',
   'search.subtitle':
     'విషయం, రేటింగ్ మరియు లభ్యత ఆధారంగా ఫిల్టర్ చేయండి. ధృవీకరించబడిన ట్యూటర్లు మాత్రమే.',
   'search.title': 'మీకు నచ్చిన ట్యూటర్‌ను కనుగొనండి',
@@ -172,18 +202,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'సెషన్ ప్రారంభమైంది — ఆనందంగా నేర్చుకోండి.',
   'sessionDetail.startError': 'సెషన్‌ను ప్రారంభించలేకపోయాము.',
   'sessionDetail.subtitle': 'తో {{name}} • {{when}} • {{mins}} నిమిషాలు',
+  'sessionDetail.timeline': 'స్థితి టైమ్‌లైన్',
   'sessionDetail.timeline.afterEnd': 'సెషన్ ముగిసిన తర్వాత',
   'sessionDetail.timeline.auto': 'ఆటో',
   'sessionDetail.timeline.booked': 'బుక్ చేయబడింది',
   'sessionDetail.timeline.confirmed': 'ధృవీకరించబడింది',
   'sessionDetail.timeline.inSession': 'సెషన్‌లో',
   'sessionDetail.timeline.now': 'ఇప్పుడు',
+  'sessionDetail.timeline.receipt': 'రసీదు జారీ చేయబడింది',
   'sessionDetail.timeline.review': 'సమీక్ష ప్రాంప్ట్',
   'sessions.empty.body':
     'ట్యూటర్‌ను కనుగొని, స్లాట్‌ను బుక్ చేసుకోవడానికి చాక్‌లో బ్రౌజ్ చేయండి. ధృవీకరించబడిన సెషన్‌లు ఇక్కడ కనిపిస్తాయి.',
   'sessions.empty.title': 'ఇక్కడ ఇంకా ఏమీ షెడ్యూల్ చేయలేదు.',
   'sessions.error': 'మీ సెషన్‌లను లోడ్ చేయలేకపోయాము — దయచేసి మళ్ళీ ప్రయత్నించండి.',
   'sessions.eyebrow': 'మీ సెషన్‌లు',
+  'sessions.loading': 'సెషన్‌లు లోడ్ అవుతున్నాయి…',
   'sessions.subtitle':
     'రాబోయే బుకింగ్‌లను ట్రాక్ చేయండి, యాక్టివ్ సెషన్ రూమ్‌లోకి ప్రవేశించండి మరియు పూర్తయిన పాఠాలను తిరిగి చూడండి.',
   'sessions.title': 'ప్రతి పాఠం, ఒకే చోట.',
@@ -198,22 +231,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'నాది సృష్టించండి {{role}} ఖాతా',
   'signup.subheading':
     'సెషన్‌లను బుక్ చేసుకోవడానికి, ట్యూటర్‌లకు సందేశాలు పంపడానికి మరియు మీ పురోగతిని తెలుసుకోవడానికి ఒక ఖాతాను సృష్టించుకోండి.',
+  'signup.terms': 'సైన్ అప్ చేయడం ద్వారా మీరు మా నిబంధనలకు అంగీకరిస్తున్నారు.',
   'tutorCard.avatarAlt': 'చిత్రపటం {{name}}',
   'tutorCard.perHour': '/ గంట',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'అగ్రశ్రేణి రేటింగ్',
   'tutorCard.verified': 'ధృవీకరించబడిన ట్యూటర్',
+  'tutorDashboard.empty.body':
+    'మీ సబ్జెక్టులు, గంటవారీ ధర మరియు అందుబాటును సెట్ చేయండి — ఆపై సంపాదించడం ప్రారంభించండి.',
+  'tutorDashboard.empty.cta': 'ట్యూటర్ అవ్వండి →',
   'tutorDashboard.empty.title': 'మీ డాష్‌బోర్డ్‌ను అన్‌లాక్ చేయడానికి ట్యూటర్ అవ్వండి.',
   'tutorDashboard.fallbackName': 'ట్యూటర్',
   'tutorDashboard.loading': 'డాష్‌బోర్డ్ లోడ్ అవుతోంది…',
   'tutorDashboard.recentReviews': 'ఇటీవలి సమీక్షలు',
   'tutorDashboard.reviewsEmpty':
     'మీకు ఇంకా ఎలాంటి సమీక్షలు లేవు — విద్యార్థులు మీకు రేటింగ్ ఇచ్చిన తర్వాత అవి ఇక్కడ కనిపిస్తాయి.',
+  'tutorDashboard.stats.rating': 'సగటు రేటింగ్',
   'tutorDashboard.stats.sessions': 'ఈ నెల సెషన్‌లు',
+  'tutorDashboard.stats.totalSessions': 'మొత్తం సెషన్‌లు',
+  'tutorDashboard.studentFallback': 'విద్యార్థి',
   'tutorDashboard.tutoringFallback': 'ట్యూటరింగ్ సెషన్',
   'tutorDashboard.upcoming': 'రాబోయే సెషన్‌లు',
   'tutorDashboard.upcomingEmpty':
     'రాబోయే సెషన్‌లు ఇంకా ఏవీ లేవు — మీ స్లాట్‌లను బుక్ చేసుకున్న విద్యార్థులు ఇక్కడ కనిపిస్తారు.',
+  'tutorProfile.availability': 'ఈ వారం అందుబాటు',
   'tutorProfile.availabilityHeadline': 'ప్రారంభించడానికి ఒక స్లాట్‌ను ఎంచుకోండి',
   'tutorProfile.bookCta': 'సెషన్ బుక్ చేసుకోండి',
   'tutorProfile.bookFull': 'పూర్తి షెడ్యూల్‌ను చూడండి',
@@ -226,6 +267,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / గంట',
   'tutorProfile.reviews': 'ఇటీవలి సమీక్షలు',
   'tutorProfile.reviews.empty': 'ఇంకా సమీక్షలు లేవు — మొదటి వ్యక్తి మీరే అవ్వండి.',
+  'tutorProfile.stat.repeats': 'పునరావృత విద్యార్థులు',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'సగటు ప్రతిస్పందన',
   'tutorProfile.stat.responseValue': '{{mins}} నిమిషాలు',

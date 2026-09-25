@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Có câu hỏi, góp ý hay mong muốn một tính năng nào đó? Hãy liên hệ với đội ngũ từ phần cài đặt tài khoản — luôn có người thật đọc từng tin nhắn.',
   'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
+  'about.whatYouGetTitle': 'Quý vị nhận được gì',
   'analytics.empty': 'Hãy tạo bộ slide để xem phân tích tại đây.',
   'analytics.stats.acrossDecks': 'Trên tất cả bộ slide',
   'analytics.stats.allTime': 'Trong studio của quý vị',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Tiêu đề bộ slide',
   'landing.features.eyebrow': 'Tại sao chọn Overture',
   'landing.features.heading': 'Mọi thứ quý vị cần để sẵn sàng bước lên sân khấu.',
+  'landing.finalCta.body':
+    'Khởi tạo studio của bạn trong chưa đầy một phút. Không cần thẻ tín dụng. Hủy bất cứ lúc nào.',
   'landing.finalCta.cta': 'Tạo studio miễn phí',
   'landing.finalCta.eyebrow': 'Bắt đầu miễn phí',
   'landing.finalCta.heading':
@@ -82,10 +88,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Đã chỉnh sửa 12 phút trước',
   'notifications.created': 'đã tạo',
   'notifications.edited': 'đã chỉnh sửa',
+  'notifications.empty.body':
+    'Hoạt động trên các deck của bạn — bình luận, lượt nhắc đến, xuất bản — sẽ hiển thị ở đây.',
   'notifications.empty.title': 'Chưa có thông báo nào',
   'notifications.eyebrow': 'Hoạt động sân khấu',
   'notifications.loading': 'Đang tải…',
   'notifications.shared': 'đã chia sẻ công khai',
+  'planUpdated.retry': 'Thử lại',
+  'planUpdated.verifyFailed': 'Chúng tôi chưa thể xác nhận thanh toán của bạn.',
+  'planUpdated.verifyFailedBody':
+    'Giao dịch thanh toán của bạn có thể vẫn đang được xử lý. Vui lòng thử lại sau một lát.',
   'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'present.addSlides': 'Thêm slide',
   'present.backToDecks': 'Quay lại bộ slide',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Nghệ sĩ sân khấu',
   'settings.security.notSet': 'Chưa thiết lập',
   'settings.security.passwordBody': 'Mật khẩu của quý vị được mã hóa khi lưu trữ.',
+  'settings.security.reset': 'Đặt lại',
   'settings.security.title': 'Tài khoản + phiên',
   'shared.empty.body':
     'Các bộ slide quý vị chia sẻ công khai sẽ xuất hiện tại đây. Mở một bộ slide và bật chế độ công khai để chia sẻ.',
@@ -131,6 +144,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Đang tải…',
   'shared.title': 'Bộ slide đã chia sẻ',
   'templateCard.slideCount': '{{count}} slide',
+  'templateCard.usageCount': '{{count}} lượt dùng',
+  'templates.empty.body': 'Hãy thử bộ lọc khác — chúng tôi ra mắt mẫu mới mỗi tháng.',
+  'templates.empty.title': 'Chưa có mẫu nào trong danh mục này',
+  'templates.hero.body':
+    'Bố cục slide theo chủ đề sẵn với khối biểu đồ, khung demo, ghi chú người thuyết trình và cài đặt sẵn đồng hồ đếm ngược — mọi mẫu đều sẵn sàng để ghi.',
   'templates.hero.eyebrow': 'Sân khấu tuyển chọn',
   'templates.hero.heading': 'Sân khấu được tạo cho khoảnh khắc quý vị cần chinh phục.',
 }

@@ -1,12 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маєте відгук, знайшли помилку або хочете бачити {{app}} на своєму доку? Напишіть нам через довідку в застосунку — кожне повідомлення потрапляє до реальної людини з команди.',
   'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.intro':
+    '{{app}} — це програмне забезпечення для складської комплектації операторського рівня — замовлення, відбір, пакування та відправлення в одному місці. Воно створене для команд комплектації, які обробляють реальні обсяги й потребують, щоб кожна дія на складі була швидкою, спостережуваною та неможливою підробити.',
+  'about.missionBody':
+    'Операції тримаються на буденних речах — відборі, пакуванні та наклейках для відправлень. Ми робимо буденні речі швидкими, спостережуваними та надійними, щоб склади відправляли термінові, експрес- та стандартні замовлення, жодного разу не переплутавши напрямки.',
+  'about.missionTitle': 'Наша місія',
   'about.pageTitle': 'Про {{app}}',
   'auth.signup.passwordHint': 'Щонайменше 12 символів',
   'authShell.brandSubtitle': 'Консоль виконання',
   'authShell.eyebrow': 'Ласкаво просимо до Сортхауса',
+  'authShell.footer': '{{appName}} · Консоль операцій',
   'authShell.pitch':
     'Консоль зі сканером для підлоги. Комплектація, пакування та відправка з однієї консолі — створена для керівників операцій, які цінують те, що має значення, і не допускають, щоб замовлення вислизнуло.',
   'authShell.sampleCaption': 'відправлені замовлення · 8 рампових дверей · 3 зони',
@@ -17,6 +25,7 @@ export const ui: UiTranslations = {
   'dashboard.empty.action': 'Дані зразків насіння',
   'dashboard.empty.body':
     'Заповніть вибірковий набір даних (замовлення, запаси, відвантаження), щоб ви могли проаналізувати весь процес від початку до кінця.',
+  'dashboard.empty.seeding': 'Початкове наповнення…',
   'dashboard.empty.title': 'Ваш склад порожній',
   'dashboard.errorFallback': 'Дані в реальному часі тимчасово недоступні.',
   'dashboard.eyebrow': 'Команда поверху',
@@ -37,23 +46,31 @@ export const ui: UiTranslations = {
   'dashboard.queue.viewAll': 'Відкрити чергу',
   'dashboard.subtitle': '{{active}} замовлення в русі · активна книга',
   'dashboard.title': 'Сьогоднішні зміни',
+  'dashboard.zones.bins': '{{count}} сміттєві баки',
   'dashboard.zones.empty': 'Налаштуйте зони, щоб бачити активність на поверсі.',
+  'dashboard.zones.eyebrow': 'Теплова карта зон',
   'dashboard.zones.title': 'Активність на підлозі',
   'forgot.subheading':
     'Введіть свою робочу електронну адресу, і ми надішлемо посилання для скидання облікового запису на вашу електронну пошту.',
   'forgot.successBody':
     'Якщо {{email}} в команді, посилання для скидання вже в дорозі. Посилання дійсне 30 хвилин.',
   'fulfillmentHeroCard.eyebrow': 'Зміни в русі',
+  'fulfillmentHeroCard.onTime': '{{rate}}% вчасно',
+  'fulfillmentHeroCard.ordersShipped': 'замовлень відправлено сьогодні',
+  'fulfillmentHeroCard.ordersShippedWithPeriod': 'замовлень відправлено · {{period}}',
   'fulfillmentHeroCard.subtitle': '{{units}} підрозділи упаковані та вивезені з доку',
   'inventory.cols.bin': 'Сміттєвий контейнер',
   'inventory.cols.onHand': 'Під рукою',
   'inventory.cols.reorder': 'Змінити порядок пунктів',
+  'inventory.cols.sku': 'Артикул',
   'inventory.empty': 'Немає SKU, що відповідають вашому пошуку.',
+  'inventory.errorFallback': 'Дані в реальному часі тимчасово недоступні.',
   'inventory.eyebrow': 'Інвентаризація на складі',
   'inventory.kpis.low': 'Низький запас',
   'inventory.kpis.lowHint': 'Нижче точки повторного замовлення',
   'inventory.kpis.out': 'Немає в наявності',
   'inventory.kpis.outHint': 'Потрібно повторне замовлення сьогодні',
+  'inventory.kpis.skus': 'Активні артикули',
   'inventory.kpis.skusHint': 'Відстежується в різних контейнерах',
   'inventory.kpis.units': 'Одиниці в наявності',
   'inventory.kpis.unitsHint': 'По всіх контейнерах',
@@ -108,6 +125,7 @@ export const ui: UiTranslations = {
   'locations.title': 'Зони, проходи та контейнери',
   'locations.utilization': 'Використання',
   'login.heading': 'Увійти до Sorthaus',
+  'login.noAccount': 'Вперше в Tessera?',
   'login.subheading': 'Командування поверхом для кожного наказу, кожної хвилі, кожного доку.',
   'notFound.body':
     'Жоден кошик не відповідає цьому маршруту. Можливо, сторінку було відправлено, скасовано або розміщено не в тому проході.',
@@ -119,6 +137,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle': '{{count}} сповіщення · {{unread}} непрочитаний',
   'orderDetail.back': 'Назад до замовлень',
   'orderDetail.cancel': 'Скасувати замовлення',
+  'orderDetail.items.empty': 'Немає предметів.',
   'orderDetail.items.eyebrow': 'Список вибору',
   'orderDetail.items.line': 'Лінія',
   'orderDetail.items.qty': 'К-сть',
@@ -141,7 +160,16 @@ export const ui: UiTranslations = {
   'pickList.notFound': 'Замовлення не знайдено.',
   'pickList.progress.eyebrow': 'Вибір прогресу',
   'pickListItem.progress': 'Вибрано {{picked}} з {{total}}',
+  'pickListItem.qty': 'К-сть',
   'pickListItem.toggleAria': 'Перемикач вибору для {{sku}}',
+  'pricing.advancedFeatures': 'Розширені функції: {{yes}}',
+  'pricing.canExport': 'Експорт даних: {{yes}}',
+  'pricing.heading': 'Оберіть тариф {{app}}',
+  'pricing.maxOrders': '{{count}} замовлень',
+  'pricing.maxPacking': '{{count}} пакування',
+  'pricing.maxPicks': '{{count}} відборів',
+  'pricing.maxShipments': '{{count}} відправлень',
+  'pricing.maxZones': '{{count}} зони',
   'profile.editTitle': 'Дані оператора',
   'profile.eyebrow': 'Профіль оператора',
   'profile.field.shift': 'Зсунути вікно',
@@ -176,9 +204,11 @@ export const ui: UiTranslations = {
   'reports.kpis.healthHint': '100% означає відсутність OOS',
   'reports.kpis.units': 'Одиниці в наявності',
   'reports.kpis.unitsHint': 'Для всіх активних SKU',
+  'reports.loadError': 'Не вдалося завантажити дані звіту.',
   'reports.subtitle':
     'Знімок стану замовлень, їх життєвого циклу та стану запасів у реальному часі',
   'reports.title': 'Звіти про пропускну здатність',
+  'reset.changedMind': 'Передумали?',
   'reset.password': 'Новий пароль',
   'reset.subheading':
     "Оберіть щось, що ваша команда запам'ятає на майданчику — щонайменше 12 символів.",
@@ -191,6 +221,7 @@ export const ui: UiTranslations = {
   'returns.loading': 'Завантаження повернень…',
   'returns.new': 'Новий дозвіл на повернення коштів',
   'returns.reason': 'Причина',
+  'returns.reasonPlaceholder': 'Чому це повертається?',
   'returns.subtitle': '{{count}} RMA, що очікують на розгляд',
   'returns.title': 'Повернення медичного сортування',
   'scanner.back': 'Вихідний сканер',
@@ -201,6 +232,7 @@ export const ui: UiTranslations = {
   'scanner.placeholder': 'Введіть SO-#, SKU або код зони…',
   'scanner.recent.empty': 'Поки що немає сканів — спробуйте один із вищезазначених.',
   'scanner.recent.eyebrow': 'Нещодавні сканування',
+  'scanner.submit': 'Пошук',
   'scanner.title': 'Тримай. Прицілюйся. Натягуй.',
   'settings.autoAllocate':
     'Автоматичне призначення термінових замовлень наступному доступному комплектувальнику',
@@ -250,4 +282,5 @@ export const ui: UiTranslations = {
   'warehouseFulfillmentLayout.scanAria': 'Відкрити сканер',
   'warehouseFulfillmentLayout.scanCta': 'Сканування',
   'warehouseFulfillmentLayout.searchAria': 'Пошук замовлень, артикулів, контейнерів',
+  'warehouseFulfillmentLayout.searchPlaceholder': 'Пошук замовлень, SKU, комірок…',
 }

@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Oes gennych adborth, wedi dod o hyd i fyg, neu eisiau dod â'ch ysgol ar fwrdd? Cysylltwch o'ch gosodiadau cyfrif neu anfonwch neges at weinyddwr eich ysgol — mae pob nodyn yn cyrraedd person go iawn ar y tîm.",
   'about.contactTitle': 'Siaradwch â ni',
+  'about.missionTitle': 'Ein cenhadaeth',
   'announcementsFeed.empty': 'Dim cyhoeddiadau eto.',
   'announcementsFeed.eyebrow': '{{count}} diweddariadau',
   'announcementsFeed.title': 'Cyhoeddiadau diweddaraf',
   'assignmentDetail.alreadySubmitted': "Rydych chi eisoes wedi cyflwyno'r aseiniad hwn.",
   'assignmentDetail.backLink': 'Yn ôl at aseiniadau',
+  'assignmentDetail.dropBody':
+    "Defnyddiwch Dewis ffeiliau i atodi eich gwaith — byddwn yn cofnodi'r stamp amser cyflwyno unwaith y byddwch yn cadarnhau.",
   'assignmentDetail.dropButton': 'Dewiswch ffeiliau',
+  'assignmentDetail.dropPrompt': 'Gollwng eich pecyn PDF neu ffoto yma',
   'assignmentDetail.due': 'Dyledus {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Cyfarwyddiadau',
@@ -19,8 +25,12 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': "Wedi'i raddio",
   'assignmentDetail.statusSubmitted': "Wedi'i gyflwyno",
   'assignmentDetail.statusTitle': 'Statws y cyflwyniad',
+  'assignmentDetail.submitError':
+    "Doeddwn ni ddim yn gallu cofnodi'r cyflwyniad hwnnw. Rhowch gynnig arall arni mewn munud.",
   'assignmentDetail.submitted':
     "Cyflwyniad wedi'i recordio — mae eich athro/athrawes wedi cael gwybod.",
+  'assignmentDetail.submittedAt': 'Cyflwynwyd {{when}}',
+  'assignmentDetail.submitTitle': 'Cyflwynwch eich gwaith',
   'assignmentRow.courseDue': '{{course}} · Dyledus {{due}}',
   'assignments.empty': 'Dim byd yma',
   'assignments.emptyBody': 'Newidiwch hidlwyr uchod i weld aseiniadau mewn cyflwr gwahanol.',
@@ -39,9 +49,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     "Cofnod dyddiol o bresenoldeb, absenoldebau, ac oedi — gyda nodiadau pan fo'n berthnasol.",
+  'attendance.summary.absences': 'Absenoldebau',
   'attendance.summary.absencesCaption': "Islaw'r trothwy ymyrraeth 5 diwrnod",
   'attendance.summary.attendance': 'Presenoldeb',
   'attendance.summary.attendanceCaption': '{{count}} y dyddiau presennol y tymor hwn',
+  'attendance.summary.tardies': 'Hwyrfeydd',
   'attendance.summary.tardiesCaption': 'Gan gynnwys nodiadau ar gyfer oedi bysiau / apwyntiadau',
   'attendance.title': 'Hanes presenoldeb',
   'calendar.eyebrow': 'Blwyddyn ysgol · {{year}}',
@@ -55,6 +67,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Graddau',
   'courseDetail.currentGrade': 'Gradd gyfredol',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': "Trosolwg o'r cwrs",
   'courseDetail.gradesTitle': 'Graddau diweddar',
   'courseDetail.messageTeacher': 'Neges athro',
   'courseDetail.noGrades': "Dim graddau wedi'u postio eto.",
@@ -67,13 +80,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Gweld y cyfan',
   'dashboard.assignmentsTitle': 'Nesaf yr wythnos hon',
   'dashboard.greeting': 'Helo {{name}} , yn barod ar gyfer y dosbarth?',
+  'dashboard.subtitle':
+    'Eich wythnos ar gip — amserlen, graddau ac aseiniadau mewn un golwg dawel.',
+  'dashboard.viewReportCard': 'Gweld y cerdyn adrodd',
+  'dashboard.weekFocusBody':
+    "Cyflwynwch set ymarfer 7 Quadratic a chwis y bennod. Mae'r lab diwtora ar agor ddydd Mawrth a dydd Iau ar ôl cyfnod 7.",
+  'dashboard.weekFocusCta': 'Gweld y cynllun llawn',
   'dashboard.weekFocusEyebrow': 'Ffocws yr wythnos',
   'dashboard.weekFocusTitle': 'Codwch Algebra II 4 pwynt i fyny',
   'forgotPassword.subheading':
     'Rhowch eich cyfeiriad e-bost ysgol a byddwn yn anfon dolen ailosod atoch.',
   'forgotPassword.successBody':
     "Os {{email}} yn cyfateb i gyfrif Chalk, mae dolen ailosod cyfrinair ar ei ffordd. Mae dolenni'n dod i ben ymhen 30 munud.",
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} GPA tymor',
+  'gpaHeroCard.summary': '{{count}} dosbarth heddiw',
   'grades.col.grade': 'Gradd',
   'grades.col.teacher': 'Athro/Athrawes',
   'grades.col.trend': 'Tuedd',
@@ -85,11 +106,18 @@ export const ui: UiTranslations = {
     "Graddau llythyren a chanran byw. Mae saethau tuedd yn dangos a ydych chi'n symud i fyny, yn lefel, neu'n llithro.",
   'grades.title': 'Eich graddau, cwrs wrth gwrs',
   'grades.trendStable': 'Sefydlog',
+  'grades.viewReportCard': 'Gweld cerdyn adrodd ffurfiol',
   'landing.copyright':
     "© {{year}} {{app}} . Wedi'i adeiladu ar gyfer myfyrwyr, wedi'i wneud ar gyfer teuluoedd.",
+  'landing.ctaBody':
+    'Am ddim am y 30 diwrnod cyntaf, dim angen cerdyn credyd. Gall ardaloedd gyflwyno haen ysgol gyfan mewn un prynhawn.',
+  'landing.ctaButton': 'Creu eich porth',
   'landing.ctaHeading': 'Mae diwrnod ysgol tawelach yn dechrau mewn munudau',
   'landing.eyebrow': 'Ar gyfer disgyblion ysgol ganol ac uwchradd',
   'landing.featuresHeading': "Diwrnod ysgol wedi'i drefnu o amgylch y myfyriwr",
+  'landing.heroSubtitle':
+    'Mae {{appName}} yn tynnu pob dosbarth, gradd, aseiniad a neges i un dangosfwrdd tawel fel y gallwch dreulio llai o amser yn chwilio a mwy o amser yn dysgu.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Yn cydymffurfio â FERPA yn ddiofyn',
   'landing.proof.rating': '4.8 ar draws 12k o deuluoedd',
   'landing.sampleTerm': 'Gwanwyn',
@@ -98,6 +126,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': "Cuddio'r cyfrinair",
   'login.noAccount': 'Newydd i Chalk?',
   'login.showPassword': 'Dangos cyfrinair',
+  'messages.compose': 'Neges newydd',
   'messages.composer.email': 'E-bost y derbynnydd (dewisol)',
   'messages.composer.errorEmpty': 'Ni all y neges fod yn wag.',
   'messages.composer.errorRecipient': "Mae angen enw'r derbynnydd.",
@@ -128,9 +157,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Rhestr anrhydedd · Tymor y gwanwyn',
   'nav.unreadMessages': 'Negeseuon heb eu darllen',
   'notifications.eyebrow': '{{count}} diweddariadau',
+  'notifications.feedTitle': 'Pob gweithgaredd diweddar',
   'notifications.subtitle':
     'Graddau, atgofion, negeseuon, a chyhoeddiadau ysgol. Addaswch pa sianeli y mae pob hysbysiad yn eu defnyddio yn y Gosodiadau.',
+  'planUpdated.body':
+    "Mae eich newid bilio bellach yn weithredol. Gallwch reoli eich cynllun ar unrhyw adeg o'r dudalen filio.",
+  'planUpdated.retry': 'Rhowch gynnig arall arni',
+  'planUpdated.verifyFailed': 'Ni allem gadarnhau eich taliad eto.',
+  'planUpdated.verifyFailedBody':
+    "Mae'n bosibl bod eich taliad yn dal i gael ei brosesu. Rhowch gynnig arall arni ymhen eiliad.",
   'planUpdated.verifying': 'Cadarnhau eich taliad…',
+  'pricing.announcementsLabel': 'cyhoeddiadau',
   'pricing.attendanceLabel': 'presenoldeb',
   'pricing.gradesLabel': 'graddau',
   'pricing.heading': 'cyhoeddiadau',
@@ -145,6 +182,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'Ch2',
   'reportCard.crumb': 'Cerdyn adroddiad',
   'reportCard.cumulativeGpa': 'GPA Cronnus',
+  'reportCard.download': 'Lawrlwytho PDF',
   'reportCard.downloaded': 'Agorwyd cerdyn adroddiad mewn tab newydd.',
   'reportCard.downloading': "Wrthi'n cynhyrchu PDF…",
   'reportCard.empty': 'Dim graddau ar ffeil eto.',
@@ -152,6 +190,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'GPA Terfynol · {{term}}',
   'reportCard.subtitle':
     'Trawsgrifiad ffurfiol diwedd semester gyda graddau cwrs pwysol, presenoldeb, a lawrlwythiad PDF y gellir ei argraffu.',
+  'reportCard.title': 'Cerdyn adroddiad',
+  'resetPassword.newPassword': 'Cyfrinair newydd',
   'resetPassword.subheading': "Dewiswch rywbeth cofiadwy ond sy'n anodd ei ddyfalu.",
   'resetPassword.tokenPlaceholder': "Gludwch y cod o'ch e-bost",
   'schedule.empty': "Dim dosbarthiadau wedi'u hamserlennu.",
@@ -174,12 +214,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsCaption': '{{due48}} yn ddyledus o fewn 48 awr, {{overdue}} hwyr',
   'subjectStatsTriad.assignmentsLabel': "Aseiniadau sy'n Aros",
   'subjectStatsTriad.attendanceCaption': "{{absent}} absenoldebau'r tymor hwn · {{tardy}} hwyr",
+  'subjectStatsTriad.attendanceCaptionLoading': "Yn crynhoi'r niferoedd presenoldeb…",
+  'subjectStatsTriad.attendanceLabel': 'Presenoldeb',
   'subjectStatsTriad.gradesCaption': 'Ar draws {{percent}} Cyfartaledd pwysol %',
+  'subjectStatsTriad.gradesCaptionLoading': "Wrthi'n llwytho graddau…",
+  'subjectStatsTriad.gradesLabel': 'Cyfartaledd y Dosbarth',
   'todayScheduleStrip.empty': 'Dim dosbarthiadau heddiw.',
   'todayScheduleStrip.eyebrow': '{{count}} dosbarthiadau',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Amserlen heddiw',
   'topbar.guestName': 'Myfyriwr',
   'topbar.searchPlaceholder': 'Chwilio am ddosbarthiadau, aseiniadau…',
+  'topbar.studentRole': 'Myfyriwr',
   'topbar.studentTag': 'Myfyriwr · # {{id}}',
 }

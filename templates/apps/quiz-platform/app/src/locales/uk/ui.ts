@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маєте відгук, знайшли помилку або хочете запровадити {{app}} у своїй школі чи команді? Ми читаємо кожне повідомлення — напишіть нам із налаштувань акаунта, і відповість справжня людина.',
   'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.intro':
+    '{{app}} — це жива платформа для вікторин для класів, ігрових вечорів і командних заходів. Створюйте грайливі набори запитань, проводьте ігри в реальному часі за кодом приєднання та спостерігайте, як аудиторія оживає завдяки запитанням на час, підрахунку балів і таблицям лідерів.',
+  'about.missionBody':
+    'Навчання засвоюється, коли воно схоже на гру. Ми робимо так, щоб будь-хто міг без зусиль перетворити тему на швидку змагальну гру — ведучі навчають через дію, а гравці тримають серію.',
+  'about.missionTitle': 'Наша місія',
   'about.title': 'Про {{app}}',
   'auth.login.noAccount': 'Вперше користуєтеся Sparq?',
   'auth.login.or': 'або продовжити через',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Поки що немає збігів вікторин.',
   'discover.headline': 'Знайдіть свою наступну улюблену вікторину.',
   'discover.loading': 'Завантаження…',
+  'discover.searchPlaceholder': 'Пошук вікторин за назвою…',
   'discover.subhead':
     'Перегляньте повну бібліотеку, фільтруйте за категорією або шукайте за назвою. Натисніть на картку, щоб грати самостійно або вести прямий ефір.',
   'forgotPassword.subhead':
     'Введіть свою електронну адресу, і ми надішлемо вам посилання для скидання налаштувань.',
   'forgotPassword.success.body':
     'Якщо обліковий запис існує для {{email}} , ви отримаєте посилання для скидання налаштувань за кілька хвилин.',
+  'forgotPassword.success.title': 'Перевірте свою поштову скриньку.',
   'hostLobby.back': 'Повернутися до вікторини',
   'hostLobby.copied': "Код об'єднання скопійовано в буфер обміну.",
   'hostLobby.creating': 'Розкручування вашого лобі…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Скасувати лобі',
   'hostLobby.players.count': '{{count}} жити',
   'hostLobby.players.title': 'Гравці у лобі',
+  'hostLobby.players.waiting':
+    'Очікуємо на гравців. Поділіться кодом {{code}}, щоб вони могли приєднатися.',
   'hostLobby.rules.title': 'Правила дому',
   'hostLobby.startError': 'Не вдалося розпочати гру.',
   'hostLobby.starting': 'Запалити іскру…',
   'joinCodeHero.headline': 'Скажіть своїм гравцям, щоб вони взялися за справу.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Або відвідайте',
   'joinCodeHero.liveLabel': 'Прямий ефір у лобі',
+  'joinCodeHero.playerJoined': '{{name}} приєднався(-лася)',
   'joinCodeHero.playersLabel': 'Гравці',
   'joinCodeHero.qrLabel': 'Відскануйте, щоб приєднатися',
   'joinCodeHero.startGame': 'Запаліть іскру',
   'joinCodeHero.subhead':
     'Поділіться кодом приєднання або відскануйте QR-код. Гра починається в момент, коли ви запалите іскру.',
+  'landing.cta.button': 'Створіть свою першу вікторину',
   'landing.cta.eyebrow': 'Безкоштовно для освітян',
   'landing.cta.heading': 'Додайте іскри кожному уроці.',
+  'landing.cta.subhead':
+    'Зареєструйтеся за 30 секунд. Проводьте необмежену кількість живих ігор, створюйте вікторини з ШІ та підтримуйте серію кожного гравця.',
   'landing.eyebrow': 'Запаліть кожну відповідь',
   'landing.features.heading': 'Студія вікторин, яка відповідає вашому способу навчання та гри.',
   'landing.hero.ctaPrimary': 'Почніть безкоштовний хостинг',
@@ -57,6 +73,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Популярні вікторини',
   'landing.popular.eyebrow': 'Популярне цього тижня',
   'landing.popular.heading': 'Сьогодні проводяться вікторини-заходи.',
+  'landing.popular.viewAll': 'Переглянути всі категорії →',
+  'leaderboard.empty.body':
+    'Зіграйте у вікторину, щоб потрапити зі своїм результатом до глобальної таблиці лідерів.',
   'leaderboard.empty.title': 'Поки що немає розіграшів на дошці — будьте першим.',
   'leaderboard.eyebrow': 'Таблиця лідерів',
   'leaderboard.fullRanking': 'Повний рейтинг',
@@ -64,6 +83,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Сукупний бал за кожну сесію вікторини, в яку ви пройшли. Піднімайтеся, граючи більше.',
   'leaderboard.title': 'Найкращі вікторини',
+  'leaderboard.totalPlayers': '{{count}} гравців у рейтингу',
   'leaderboardRow.points': 'бали',
   'leaderboardRow.streak': '{{days}} дн.',
   'login.headline': 'Ласкаво просимо назад, ведучий вікторини.',
@@ -75,10 +95,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Створіть свою першу вікторину →',
   'myQuizzes.empty.created': 'Ви ще не створили вікторину.',
   'myQuizzes.empty.played': 'Поки що немає опублікованих вікторин.',
+  'myQuizzes.loading': 'Завантаження…',
   'myQuizzes.subhead':
     'Чернетки, які ви створили, а також опубліковані вікторини, в які ви можете грати.',
   'myQuizzes.title': 'Мої вікторини',
   'nav.legal': 'Юридична інформація',
+  'nav.primaryNavLabel': 'Основна навігація',
   'notFound.backHome': 'На головну',
   'notFound.backToDiscover': 'Переглянути вікторини',
   'notFound.body': 'Спробуйте інший код або поверніться до лобі.',
@@ -87,17 +109,26 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Завантаження…',
   'notifications.subhead':
     '{{count}} непрочитані іскри. Запрошення, переміщення в таблиці лідерів та досягнення — все в одному потоці.',
+  'planUpdated.retry': 'Спробувати ще раз',
+  'planUpdated.verifyFailed': 'Нам ще не вдалося підтвердити ваш платіж.',
+  'planUpdated.verifyFailedBody': 'Можливо, ваш платіж ще обробляється. Спробуйте ще раз за мить.',
   'planUpdated.verifying': 'Підтвердження платежу…',
+  'pricing.advancedFeatures': 'Розширені функції: {{yes}}',
+  'pricing.canExport': 'Експорт даних: {{yes}}',
   'pricing.checkoutError': 'Не вдалося розпочати оформлення. Будь ласка, спробуйте ще раз.',
   'pricing.heading': 'Оберіть тариф {{app}}',
   'pricing.included': 'Включено',
   'pricing.loadError': 'Не вдалося завантажити плани.',
+  'pricing.maxQuestions': '{{count}} питання',
   'pricing.maxQuizzes': '{{count}} вікторини',
+  'pricing.maxSessions': 'Сесії: {{count}}',
   'pricing.subhead':
     'Безкоштовно для хостів та гравців. Оновіть підписку, щоб отримати вищі ліміти та розширені функції.',
   'pricing.yearly': 'Щорічно',
   'privacy.collect.account':
     "Обліковий запис: електронна пошта, хешований пароль, ім'я користувача, останній вхід.",
+  'privacy.intro':
+    '{{app}} поважає вашу приватність. На цій сторінці описано, які дані ми зберігаємо, навіщо та як їх видалити.',
   'privacy.rights.body':
     'Видаліть свій обліковий запис із налаштувань, щоб назавжди видалити всі свої дані протягом 30 днів.',
   'privacy.share.body':
@@ -121,6 +152,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Ідентифікатор вікторини: {{id}}',
   'quizBuilder.loadError': 'Не вдалося завантажити вікторину.',
   'quizBuilder.loading': 'Завантаження редактора…',
+  'quizBuilder.markCorrect': 'Позначити {{letter}} як правильну',
   'quizBuilder.noQuestions': 'Поки що немає питань — додайте одне, щоб почати.',
   'quizBuilder.notFound': 'Вікторину не знайдено.',
   'quizBuilder.preview': 'Переглянути',
@@ -137,7 +169,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} таймер',
   'quizBuilder.title': 'Створіть свою вікторину',
   'quizBuilder.titleLabel': 'Назва вікторини',
+  'quizBuilder.untitled': 'Запитання без назви',
   'quizCard.plays': "{{count}} п'єси",
+  'quizCard.questionCount': '{{count}} запитань',
   'quizDetail.duration': '~ {{minutes}} хв',
   'quizDetail.hostMultiplayer': 'Багатокористувацький хост',
   'quizDetail.leaderboardEmpty':
@@ -153,26 +187,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Повернутися до вікторини',
   'quizPlay.empty': 'У цій вікторині ще немає питань.',
   'quizPlay.error': 'Не вдалося завантажити цей тест. Спробуйте ще раз.',
+  'quizPlay.exit': 'Вийти',
   'quizPlay.feedback.correct': '🔥 Іскра зароблена — переходимо до наступного!',
+  'quizPlay.feedback.incorrect': 'Правильна відповідь — {{correct}}. Продовжуйте.',
   'quizPlay.loading': 'Завантаження вікторини…',
   'quizPlay.next': 'Наступне питання',
   'quizPlay.questionCounter': 'Питання {{current}} з {{total}}',
   'quizPlay.score': '{{score}} бали',
+  'quizPlay.seeResults': 'Переглянути результати',
   'quizPlay.sessionFailed': 'Не вдалося розпочати сеанс.',
   'quizPlay.streak': '{{count}} смуга',
+  'resetPassword.subhead': 'Виберіть новий пароль, щоб повернутися до своєї серії.',
   'results.backToDiscover': 'Назад до Відкриття',
   'results.error': 'Не вдалося завантажити результати.',
   'results.exit': 'Назад до Відкриття',
   'results.loading': 'Підрахунок вашого балу…',
   'results.missingSession': 'Немає сесії для підбиття підсумків.',
+  'results.recap.correctAnswer': 'Правильно: {{answer}}',
   'results.recap.questionLabel': 'Питання {{number}}',
   'results.recap.title': 'Підсумок питання',
+  'results.recap.yourAnswer': 'Ви: {{answer}}',
   'results.unknownQuiz': 'Вікторина',
   'scoreBreakdownCard.accuracyLabel': 'Точність',
+  'scoreBreakdownCard.correctLabel': 'Правильно',
   'scoreBreakdownCard.eyebrow': 'Вікторина завершена',
   'scoreBreakdownCard.headline': 'Гарна робота над " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Очки',
   'scoreBreakdownCard.rankLabel': 'Ранг',
+  'scoreBreakdownCard.streakBonus': 'Бонус за серію +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Ваша іскра видна. Перегляньте розбір нижче, щоб і далі підніматися в таблиці лідерів.',
   'settings.danger.body': 'Назавжди видаліть свій обліковий запис Sparq та всі створені вікторини.',
   'settings.danger.confirm': 'Так, видалити назавжди',
   'settings.guest': 'Гість',
@@ -189,5 +233,7 @@ export const ui: UiTranslations = {
     'Ви несете відповідальність за контент, який публікуєте, питання, які створюєте, та будь-які ігри, які розміщуєте. Не видавайте себе за інших людей.',
   'terms.billing.body':
     'Платні плани автоматично поновлюються, доки їх не скасовують у налаштуваннях. Ви можете скасувати їх будь-коли; доступ зберігається до кінця поточного розрахункового періоду.',
+  'terms.intro':
+    'Користуючись {{app}}, ви погоджуєтеся з наведеними нижче правилами. Якщо ви не можете їх прийняти, будь ласка, не користуйтеся сервісом.',
   'terms.title': 'Умови надання послуг',
 }

@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kérdésed, visszajelzésed van, vagy hiányolsz egy funkciót? Az fiókbeállításaidban érheted el a csapatot — minden üzenetet valódi ember olvas el.',
   'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
+  'about.missionTitle': 'Küldetésünk',
+  'about.whatYouGetTitle': 'Amit kap',
   'analytics.empty': 'Hozz létre paklikat az elemzések megtekintéséhez itt.',
   'analytics.stats.acrossDecks': 'Minden pakliban',
   'analytics.stats.allTime': 'A stúdiódban',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Pakli címe',
   'landing.features.eyebrow': 'Miért nyitány?',
   'landing.features.heading': 'Minden, amire szükséged van a színpadra lépéshez, készen áll.',
+  'landing.finalCta.body':
+    'Indítsd el a stúdiódat egy perc alatt. Bankkártya nélkül. Bármikor lemondhatod.',
   'landing.finalCta.cta': 'Hozd létre az ingyenes stúdiódat',
   'landing.finalCta.eyebrow': 'Ingyenes kezdés',
   'landing.finalCta.heading': 'Lépj színpadra pályafutásod legjobb deckjével.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Szerkesztve 12 perccel ezelőtt',
   'notifications.created': 'létrehozva',
   'notifications.edited': 'szerkesztett',
+  'notifications.empty.body':
+    'A paklijaidon történő aktivitás — hozzászólások, említések, exportálások — itt jelenik meg.',
   'notifications.empty.title': 'Még nincsenek értesítések',
   'notifications.eyebrow': 'Színpadi tevékenység',
   'notifications.loading': 'Betöltés…',
   'notifications.shared': 'nyilvánosan megosztva',
+  'planUpdated.retry': 'Próbálja újra',
+  'planUpdated.verifyFailed': 'Még nem tudtuk megerősíteni a fizetését.',
+  'planUpdated.verifyFailedBody':
+    'Lehetséges, hogy a fizetése még feldolgozás alatt áll. Próbálja újra egy pillanat múlva.',
   'planUpdated.verifying': 'Fizetésed megerősítése…',
   'present.addSlides': 'Diák hozzáadása',
   'present.backToDecks': 'Vissza a fedélzetekhez',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Színpadi előadó',
   'settings.security.notSet': 'Nincs beállítva',
   'settings.security.passwordBody': 'A jelszava titkosítva van inaktív állapotban.',
+  'settings.security.reset': 'Visszaállítás',
   'settings.security.title': 'Fiók + munkamenetek',
   'shared.empty.body':
     'A nyilvánosan megosztott paklik itt jelennek meg. Nyiss meg egy paklit, és válts nyilvánosra a megosztáshoz.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Betöltés…',
   'shared.title': 'Megosztott teraszok',
   'templateCard.slideCount': '{{count}} diák',
+  'templateCard.usageCount': '{{count}} felhasználások',
+  'templates.empty.body': 'Próbálj ki egy másik szűrőt — minden hónapban új sablonokat adunk ki.',
+  'templates.empty.title': 'Ebben a kategóriában még nincsenek sablonok',
+  'templates.hero.body':
+    'Előre témázott diaelrendezések diagramblokkokkal, demókeretekkel, előadói jegyzetekkel és időzítő-beállításokkal — minden sablon azonnal rögzítésre kész.',
   'templates.hero.eyebrow': 'Kurátori szakaszok',
   'templates.hero.heading': 'A leszálláshoz szükséges pillanatra épített szakaszok.',
 }

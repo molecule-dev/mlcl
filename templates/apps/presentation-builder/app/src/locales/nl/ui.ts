@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vragen, feedback of een functie die je graag zou willen zien? Bereik het team via je accountinstellingen — een echt persoon leest elk bericht.',
   'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
+  'about.missionTitle': 'Onze missie',
+  'about.whatYouGetTitle': 'Wat u krijgt',
   'analytics.empty': 'Maak decks aan om hier analyses te zien.',
   'analytics.stats.acrossDecks': 'Over alle decks',
   'analytics.stats.allTime': 'In uw studio',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Decktitel',
   'landing.features.eyebrow': 'Waarom Overture',
   'landing.features.heading': 'Alles wat u nodig hebt om voorbereid het podium op te lopen.',
+  'landing.finalCta.body':
+    'Start je studio in minder dan een minuut. Geen creditcard. Altijd opzegbaar.',
   'landing.finalCta.cta': 'Maak uw gratis studio',
   'landing.finalCta.eyebrow': 'Gratis te starten',
   'landing.finalCta.heading': 'Sta op het podium met het beste deck van uw carrière.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 min geleden bewerkt',
   'notifications.created': 'heeft aangemaakt',
   'notifications.edited': 'heeft bewerkt',
+  'notifications.empty.body':
+    'Activiteit op je decks — reacties, vermeldingen, exports — verschijnt hier.',
   'notifications.empty.title': 'Nog geen meldingen',
   'notifications.eyebrow': 'Podiumactiviteit',
   'notifications.loading': 'Laden…',
   'notifications.shared': 'openbaar gedeeld',
+  'planUpdated.retry': 'Opnieuw proberen',
+  'planUpdated.verifyFailed': 'We hebben uw betaling nog niet kunnen bevestigen.',
+  'planUpdated.verifyFailedBody':
+    'Uw betaling wordt mogelijk nog verwerkt. Probeer het over een moment opnieuw.',
   'planUpdated.verifying': 'Je betaling bevestigen…',
   'present.addSlides': 'Slides toevoegen',
   'present.backToDecks': 'Terug naar decks',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Podiumartiest',
   'settings.security.notSet': 'Niet ingesteld',
   'settings.security.passwordBody': 'Uw wachtwoord wordt versleuteld opgeslagen.',
+  'settings.security.reset': 'Resetten',
   'settings.security.title': 'Account + sessies',
   'shared.empty.body':
     'Decks die u openbaar deelt, verschijnen hier. Open een deck en schakel openbaar in om te delen.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Laden…',
   'shared.title': 'Gedeelde decks',
   'templateCard.slideCount': '{{count}} slides',
+  'templateCard.usageCount': '{{count}} keer gebruikt',
+  'templates.empty.body': 'Probeer een ander filter — we brengen elke maand nieuwe templates uit.',
+  'templates.empty.title': 'Nog geen templates in deze categorie',
+  'templates.hero.body':
+    'Vooraf vormgegeven slidelines met grafiekblokken, demoframes, sprekersnotities en timervoorinstellingen — elke template is klaar om op te nemen.',
   'templates.hero.eyebrow': 'Geselecteerde podia',
   'templates.hero.heading': 'Podia gebouwd voor het moment waarop u moet leveren.',
 }

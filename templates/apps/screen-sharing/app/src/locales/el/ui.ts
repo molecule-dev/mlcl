@@ -1,9 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, βρήκες κάποιο σφάλμα ή θέλεις να επεκτείνεις το {{appName}} σε όλη την ομάδα σου; Επικοινώνησε μαζί μας από τις ρυθμίσεις του λογαριασμού σου — κάθε μήνυμα φτάνει σε ένα πραγματικό μέλος της ομάδας.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.intro':
+    'Το {{appName}} είναι μια πλατφόρμα καταγραφής οθόνης φτιαγμένη για ομάδες που προτιμούν να στείλουν ένα κλιπ παρά να κάθονται σε άλλη μια συνάντηση. Κατέγραψε την οθόνη σου με ήχο, σχόλια και κάμερα, μοιράσου έναν σύνδεσμο και δες ακριβώς πώς αλληλεπιδρούν οι άλλοι — ώστε οι σχεδιαστικές αξιολογήσεις, οι αναφορές σφαλμάτων και οι περιηγήσεις να φτάνουν πιο μακριά από οποιαδήποτε ζωντανή κλήση.',
+  'about.missionBody':
+    'Η απομακρυσμένη εργασία βασίζεται στο κοινό πλαίσιο και το μεγαλύτερο μέρος του χάνεται σε ημερολόγια και σημειώσεις κλήσεων. Το {{appName}} υπάρχει για να κάνει αυτό το πλαίσιο εύκολο στην καταγραφή και εύκολο στην επανεξέταση — ένας τρόπος με προτεραιότητα στην ασύγχρονη επικοινωνία για να δείχνεις τη δουλειά σου, να συγκεντρώνεις σχόλια και να κρατάς όλους ευθυγραμμισμένους χωρίς να τους αναγκάζεις να είναι στην ίδια ζώνη ώρας.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.pageTitle': 'Σχετικά με {{appName}}',
+  'about.tagline': 'Ασύγχρονες καταγραφές οθόνης για απομακρυσμένες ομάδες.',
   'analytics.empty': 'Εγγράψτε το πρώτο σας βίντεο για να δείτε την αλληλεπίδραση εδώ.',
   'analytics.error.load': 'Δεν ήταν δυνατή η φόρτωση των αναλυτικών στοιχείων.',
   'analytics.error.shape': 'Το ωφέλιμο φορτίο του Analytics ήταν μη αναμενόμενο.',
@@ -16,6 +24,7 @@ export const ui: UiTranslations = {
   'analytics.kpi.viewsToday': 'Προβολές σήμερα',
   'analytics.loading': 'Φόρτωση αναλυτικών στοιχείων…',
   'analytics.recent.empty': 'Δεν υπάρχουν θεατές ακόμα.',
+  'analytics.recent.title': 'Πρόσφατοι θεατές',
   'analytics.recent.watching': 'Παρακολούθησα {{title}} · {{percent}} %',
   'analytics.title': 'Πώς ταξιδεύουν οι εκπομπές οθόνης σας',
   'analytics.top.empty': 'Δεν υπάρχουν ακόμη ηχογραφήσεις.',
@@ -30,7 +39,10 @@ export const ui: UiTranslations = {
   'billing.priceMissing': 'Το Stripe priceId δεν έχει ρυθμιστεί για αυτήν την περίοδο.',
   'billing.pricing.title': 'Διαθέσιμα προγράμματα',
   'billing.tier.basic': 'Βασικά χαρακτηριστικά',
+  'billing.tier.exports': 'Οι εξαγωγές είναι ενεργοποιημένες',
+  'billing.tier.maxRecordings': '{{count}} εγγραφές',
   'billing.tier.noExports': 'Δεν υπάρχουν εξαγωγές',
+  'billing.tier.retentionDays': 'Διατήρηση {{days}} ημερών',
   'billing.tier.unlimitedRecordings': 'Απεριόριστες ηχογραφήσεις',
   'billing.tier.unlimitedRetention': 'Απεριόριστη διατήρηση',
   'billing.title': 'Το πρόγραμμα Glint σας',
@@ -41,20 +53,34 @@ export const ui: UiTranslations = {
   'billing.usage.views': 'Προβολές',
   'billing.usage.views.unit': 'προβολές',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
+  'landing.cta.body':
+    'Δωρεάν για απεριόριστα κλιπ 5 λεπτών. Κάνε αναβάθμιση μόλις ενθουσιαστεί η ομάδα σου.',
+  'landing.cta.button': 'Ξεκινήστε την εγγραφή δωρεάν',
   'landing.cta.title': 'Στείλτε καλύτερα σχόλια. Ξεκινήστε με το Glint.',
+  'landing.feature.analytics.body':
+    'Δες ποιοι παρακολούθησαν, πότε αποχώρησαν και πού ξαναείδαν το βίντεο.',
+  'landing.feature.analytics.title': 'Αναλυτικά στοιχεία αφοσίωσης',
   'landing.feature.capture.body':
     'Εγγραφή σε πρόγραμμα περιήγησης, υπολογιστή και κινητό με μικρόφωνο, κάμερα και σχεδίαση.',
   'landing.feature.capture.title': 'Σύλληψη με ένα άγγιγμα',
+  'landing.feature.comments.body':
+    'Οι αξιολογητές αφήνουν σχόλια σε νήματα καρφιτσωμένα σε συγκεκριμένα καρέ.',
+  'landing.feature.comments.title': 'Σχόλια με χρονικό κωδικό',
   'landing.footer.copy': '© {{year}} {{appName}} . Ασύγχρονο, φωτεινό.',
   'landing.hero.cardCaption': 'Δείγμα επισκόπησης χώρου εργασίας — δοκιμάστε το δωρεάν.',
   'landing.hero.primaryCta': 'Ξεκινήστε την εγγραφή δωρεάν',
   'landing.hero.proof.free': 'Δωρεάν για πάντα επίπεδο',
   'landing.hero.proof.privacy': 'SOC 2 έτοιμο',
   'landing.hero.secondaryCta': "Δείτε μια επίδειξη της δεκαετίας του '60",
+  'landing.hero.subtitle':
+    'Το {{appName}} καταγράφει ασύγχρονα screencasts με ήχο, σχόλια και αναλυτικά στοιχεία θεατών — ώστε οι σχεδιαστικές αξιολογήσεις, οι αναφορές σφαλμάτων και οι περιηγήσεις να φτάνουν πιο μακριά από οποιαδήποτε συνάντηση.',
   'landing.hero.title':
     'Ηχογραφήστε μία φορά. Κοινοποιήστε το παντού. Παρακολουθήστε τον αντίκτυπο.',
   'landing.nav.preview': 'Προεπισκόπηση',
   'landing.preview.title': 'Δείτε πραγματικά κλιπ Glint σε δράση',
+  'library.empty.body':
+    'Κατέγραψε την πρώτη σου περιήγηση — η ομάδα σου θα λατρέψει που δεν υπάρχει πρόσκληση ημερολογίου.',
+  'library.empty.cta': 'Κατέγραψε το πρώτο σου κλιπ',
   'library.empty.filtered': 'Δεν υπάρχουν εγγραφές που να αντιστοιχούν σε αυτό το φίλτρο',
   'library.empty.title': 'Δεν υπάρχουν ακόμη ηχογραφήσεις',
   'library.error.load': 'Αποτυχία φόρτωσης εγγραφών.',
@@ -62,6 +88,8 @@ export const ui: UiTranslations = {
   'library.heroStat.avgWatch': 'Μέσος όρος παρακολούθησης',
   'library.heroStat.recordings': 'Ηχογραφήσεις',
   'library.heroStat.views': 'Συνολικές προβολές',
+  'library.heroSubtitle':
+    'Κατέγραψε, μοιράσου και μέτρησε ασύγχρονα screencasts σε όλη την ομάδα σου.',
   'library.heroTitle': '{{count}} ηχογραφήσεις, έτοιμες για κοινή χρήση',
   'library.search.aria': 'Αναζήτηση ηχογραφήσεων',
   'library.searchPlaceholder': 'Αναζήτηση ηχογραφήσεων…',
@@ -76,6 +104,7 @@ export const ui: UiTranslations = {
     'Νέα σχόλια, προβολές και προσκλήσεις θα εμφανίζονται εδώ μόλις εμφανιστούν.',
   'notifications.empty.title': 'Είστε πλήρως ενημερωμένοι',
   'notifications.open': 'Άνοιγμα',
+  'pricing.limits.advanced': 'Προηγμένες λειτουργίες',
   'profile.bio.empty': 'Προσθέστε ένα βιογραφικό για να συστηθείτε στον χώρο εργασίας σας.',
   'profile.featured.empty':
     'Δεν υπάρχουν ακόμη ηχογραφήσεις — καταγράψτε την πρώτη σας για να τη δείτε εδώ.',
@@ -87,8 +116,13 @@ export const ui: UiTranslations = {
   'profile.stat.public': 'Δημόσια κλιπ',
   'profile.stat.recordings': 'Ηχογραφήσεις',
   'profile.stat.views': 'Συνολικές προβολές',
+  'publicShare.captionsLabel': 'Υπότιτλοι',
+  'publicShare.cta.body':
+    'Δωρεάν για απεριόριστα κλιπ 5 λεπτών στο {{appName}}. Δεν απαιτείται κάρτα.',
+  'publicShare.cta.button': 'Ξεκινήστε την εγγραφή δωρεάν',
   'publicShare.cta.title': 'Εγγράψτε τέτοια κλιπ σε 30 δευτερόλεπτα',
   'publicShare.error': 'Αυτός ο σύνδεσμος κοινής χρήσης δεν είναι διαθέσιμος.',
+  'publicShare.footer.copy': '© {{year}} {{appName}} . Ασύγχρονο, φωτεινό.',
   'publicShare.joinFree': 'Δοκιμάστε το Glint δωρεάν',
   'publicShare.loading': 'Φόρτωση εγγραφής…',
   'publicShare.notFound': 'Η εγγραφή δεν βρέθηκε.',
@@ -100,6 +134,8 @@ export const ui: UiTranslations = {
   'record.camBubbleInitial': 'ΓΙΟΥ',
   'record.eyebrow': 'Στούντιο λήψης',
   'record.field.titlePlaceholder': 'Επίδειξη Sprint: χρονοδιάγραμμα σχολίων',
+  'record.field.visibility': 'Ορατότητα',
+  'record.input.cam': 'Κάμερα',
   'record.input.camDevice': 'Προεπιλεγμένη κάμερα συστήματος',
   'record.input.mic': 'Μικρόφωνο',
   'record.input.micDevice': 'Προεπιλεγμένο μικρόφωνο συστήματος',
@@ -108,9 +144,11 @@ export const ui: UiTranslations = {
   'record.save.error': 'Αποτυχία αποθήκευσης ηχογράφησης.',
   'record.source.camera': 'Μόνο κάμερα',
   'record.source.cameraBody': 'Βίντεο με ομιλούντες χωρίς οθόνη',
+  'record.source.screen': 'Μόνο οθόνη',
   'record.source.screenBody': 'Καταγράψτε ολόκληρη την οθόνη',
   'record.source.screenCamera': 'Οθόνη + κάμερα',
   'record.source.screenCameraBody': 'Πλήρης οθόνη με αιωρούμενη φυσαλίδα κάμερας',
+  'record.source.window': 'Συγκεκριμένο παράθυρο',
   'record.source.windowBody': 'Επιλέξτε ένα παράθυρο για λήψη',
   'record.sources.title': 'Πηγή',
   'record.subtitle':
@@ -128,6 +166,7 @@ export const ui: UiTranslations = {
   'recordingDetail.error': 'Αποτυχία φόρτωσης εγγραφής.',
   'recordingDetail.loading': 'Φόρτωση εγγραφής…',
   'recordingDetail.noComments': 'Δεν υπάρχουν ακόμη σχόλια — ξεκινήστε τη συζήτηση παρακάτω.',
+  'recordingDetail.noDescription': 'Δεν παρέχεται περιγραφή.',
   'recordingDetail.notFound': 'Η εγγραφή δεν βρέθηκε.',
   'recordingDetail.noVideo': 'Η ηχογράφηση εξακολουθεί να μεταφορτώνεται.',
   'recordingDetail.play': 'Αναπαραγωγή ηχογράφησης',
@@ -151,6 +190,7 @@ export const ui: UiTranslations = {
   'shared.title': 'Αποσπάσματα που σας έστειλε η ομάδα σας',
   'shareLink.copy': 'Αντιγραφή συνδέσμου',
   'shareLink.expiresAt': 'Λήγει {{date}}',
+  'shareLink.noExpiry': 'Δεν λήγει ποτέ',
   'shareLink.option.private': 'Ιδιωτικό',
   'shareLink.option.public': 'Δημόσιο',
   'shareLink.passwordOff': 'Χωρίς κωδικό πρόσβασης',
@@ -159,10 +199,12 @@ export const ui: UiTranslations = {
     'Δεν υπάρχουν μέλη ακόμα — προσκαλέστε τους συμπαίκτες σας παραπάνω για να ξεκινήσετε.',
   'team.error.load': 'Η φόρτωση της ομάδας απέτυχε.',
   'team.eyebrow': 'Μέλη χώρου εργασίας',
+  'team.invite.error': 'Αποτυχία αποστολής πρόσκλησης.',
   'team.invite.placeholder': 'teammate@yourcompany.com',
   'team.invite.success': 'Πρόσκληση που στάλθηκε σε {{email}} .',
   'team.invite.title': 'Πρόσκληση μέλους ομάδας',
   'team.list.count': '{{count}} σύνολο',
+  'team.role.admin': 'Διαχειριστής',
   'team.stat.pending': 'Εκκρεμείς προσκλήσεις',
   'team.title': 'Ο χώρος εργασίας σας στο Glint',
 }

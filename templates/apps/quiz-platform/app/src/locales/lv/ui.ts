@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ir atsauksmes, atradi kļūdu vai vēlies ieviest {{app}} savā skolā vai komandā? Mēs lasām katru ziņu — sazinies ar mums no sava konta iestatījumiem, un atbildēs īsts cilvēks.',
   'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.intro':
+    '{{app}} ir tiešsaistes viktorīnu platforma klasēm, spēļu vakariem un komandu pasākumiem. Veido rotaļīgus jautājumu komplektus, vadi spēles reāllaikā ar pievienošanās kodu un vēro, kā telpa uzplaukst ar laicīgiem jautājumiem, punktu skaitīšanu un līderu tabulām.',
+  'about.missionBody':
+    'Mācīšanās paliek atmiņā, ja tā šķiet kā spēle. Mēs padarām to vienkāršu ikvienam — pārvērst tēmu ātrā, sacensību pilnā spēlē, lai vadītāji var mācīt darot un spēlētāji turpina sēriju.',
+  'about.missionTitle': 'Mūsu misija',
   'about.title': 'Par {{app}}',
   'auth.login.noAccount': 'Jauns Sparq lietotājs?',
   'auth.login.or': 'vai turpināt ar',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Vēl nav atrasts neviens atbilstošs viktorīnas uzdevums.',
   'discover.headline': 'Atrodi savu nākamo iecienītāko viktorīnu.',
   'discover.loading': 'Notiek ielāde…',
+  'discover.searchPlaceholder': 'Meklēt viktorīnas pēc nosaukuma…',
   'discover.subhead':
     'Pārlūkojiet visu bibliotēku, filtrējiet pēc kategorijas vai meklējiet pēc nosaukuma. Izvēlieties kārti, lai spēlētu solo vai vadītu tiešraidi.',
   'forgotPassword.subhead':
     'Ievadiet savu e-pasta adresi, un mēs nosūtīsim jums saiti atiestatīšanai.',
   'forgotPassword.success.body':
     'Ja konts pastāv {{email}} , pēc dažām minūtēm saņemsiet atiestatīšanas saiti.',
+  'forgotPassword.success.title': 'Pārbaudi savu iesūtni.',
   'hostLobby.back': 'Atpakaļ uz viktorīnu',
   'hostLobby.copied': 'Apvienošanās kods ir kopēts starpliktuvē.',
   'hostLobby.creating': 'Jūsu vestibila gaisotnes uzspiešana…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Atcelt vestibilu',
   'hostLobby.players.count': '{{count}} dzīvot',
   'hostLobby.players.title': 'Spēlētāji vestibilā',
+  'hostLobby.players.waiting':
+    'Gaidām spēlētājus. Kopīgo kodu {{code}}, lai viņi var pievienoties.',
   'hostLobby.rules.title': 'Mājas noteikumi',
   'hostLobby.startError': 'Nevarēja sākt spēli.',
   'hostLobby.starting': 'Iededzinot dzirksteli…',
   'joinCodeHero.headline': 'Lieciet saviem spēlētājiem mesties iekšā.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Vai apmeklējiet',
   'joinCodeHero.liveLabel': 'Vestibila tiešraide',
+  'joinCodeHero.playerJoined': '{{name}} pievienojās',
   'joinCodeHero.playersLabel': 'Spēlētāji',
   'joinCodeHero.qrLabel': 'Skenēt, lai pievienotos',
   'joinCodeHero.startGame': 'Iededz dzirksteli',
   'joinCodeHero.subhead':
     'Kopīgojiet pievienošanās kodu vai noskenējiet QR kodu. Spēle sākas brīdī, kad jūs iededzat dzirksteli.',
+  'landing.cta.button': 'Izveido savu pirmo viktorīnu',
   'landing.cta.eyebrow': 'Bez maksas pedagogiem',
   'landing.cta.heading': 'Ienes dzirksti katrā nodarbībā.',
+  'landing.cta.subhead':
+    'Reģistrējies 30 sekundēs. Vadi neierobežotu skaitu spēļu reāllaikā, veido viktorīnas ar AI un uzturi katru spēlētāju sērijā.',
   'landing.eyebrow': 'Iededzini katru atbildi',
   'landing.features.heading': 'Viktorīnu studija, kas atbilst jūsu mācīšanas un spēlēšanas stilam.',
   'landing.hero.ctaPrimary': 'Sāciet hostingu bez maksas',
@@ -57,6 +73,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Populāras viktorīnas',
   'landing.popular.eyebrow': 'Populāri šonedēļ',
   'landing.popular.heading': 'Iesaisties viktorīnā, ko rīko vadītāji šodien.',
+  'landing.popular.viewAll': 'Pārlūkot visas kategorijas →',
+  'leaderboard.empty.body': 'Spēlē viktorīnu, lai iekļūtu globālajā līderu tabulā.',
   'leaderboard.empty.title': 'Uz spēles laukuma vēl nav nevienas spēles — esi pirmais.',
   'leaderboard.eyebrow': 'Līderu saraksts',
   'leaderboard.fullRanking': 'Pilns rangs',
@@ -64,6 +82,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Apkopojiet rezultātu katrā viktorīnas sesijā, ko esat izspēlējis. Kāpjiet, spēlējot vairāk.',
   'leaderboard.title': 'Labākie viktorīnu meistari',
+  'leaderboard.totalPlayers': '{{count}} ranžēti spēlētāji',
   'leaderboardRow.points': 'punkti',
   'leaderboardRow.streak': '{{days}} d',
   'login.headline': 'Sveicināts atpakaļ, viktorīnas vadītājs.',
@@ -75,10 +94,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Izveidojiet savu pirmo viktorīnu →',
   'myQuizzes.empty.created': 'Jūs vēl neesat izveidojis viktorīnu.',
   'myQuizzes.empty.played': 'Vēl nav publicētu viktorīnu.',
+  'myQuizzes.loading': 'Notiek ielāde…',
   'myQuizzes.subhead':
     'Jūsu izveidotie melnraksti, kā arī publicētās viktorīnas, kuras varat spēlēt.',
   'myQuizzes.title': 'Manas viktorīnas',
   'nav.legal': 'Juridiskā informācija',
+  'nav.primaryNavLabel': 'Galvenā navigācija',
   'notFound.backHome': 'Atpakaļ mājās',
   'notFound.backToDiscover': 'Pārlūkot viktorīnas',
   'notFound.body': 'Izmēģiniet citu kodu vai dodieties atpakaļ uz vestibilu.',
@@ -87,17 +108,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Notiek ielāde…',
   'notifications.subhead':
     '{{count}} nelasītas dzirksteles. Ielūgumi, līderu saraksta gājieni un sasniegumi – viss vienā straumē.',
+  'planUpdated.retry': 'Mēģini vēlreiz',
+  'planUpdated.verifyFailed': 'Mēs vēl nevarējām apstiprināt jūsu maksājumu.',
+  'planUpdated.verifyFailedBody':
+    'Jūsu maksājums, iespējams, joprojām tiek apstrādāts. Pēc brīža mēģiniet vēlreiz.',
   'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
+  'pricing.advancedFeatures': 'Papildu funkcijas: {{yes}}',
+  'pricing.canExport': 'Datu eksports: {{yes}}',
   'pricing.checkoutError': 'Nevarēja sākt norēķināšanos. Lūdzu, mēģiniet vēlreiz.',
   'pricing.heading': 'Izvēlieties savu {{app}} plānu',
   'pricing.included': 'Iekļauts',
   'pricing.loadError': 'Nevarēja ielādēt plānus.',
+  'pricing.maxQuestions': '{{count}} jautājumi',
   'pricing.maxQuizzes': '{{count}} viktorīnas',
+  'pricing.maxSessions': '{{count}} sesijas',
   'pricing.subhead':
     'Bez maksas gan saimniekiem, gan spēlētājiem. Jauniniet uz augstākiem limitiem un papildu funkcijām.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Konts: e-pasts, jaukta parole, parādāmais vārds, pēdējā pieteikšanās.',
+  'privacy.intro':
+    '{{app}} respektē tavu privātumu. Šajā lapā ir apkopots, kādus datus mēs glabājam, kāpēc tos glabājam un kā tos izdzēst.',
   'privacy.rights.body':
     'Lai 30 dienu laikā neatgriezeniski noņemtu visus savus datus, izdzēsiet savu kontu sadaļā Iestatījumi.',
   'privacy.share.body':
@@ -121,6 +152,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Viktorīnas ID: {{id}}',
   'quizBuilder.loadError': 'Nevarēja ielādēt viktorīnu.',
   'quizBuilder.loading': 'Notiek redaktora ielāde…',
+  'quizBuilder.markCorrect': 'Atzīmēt {{letter}} kā pareizu',
   'quizBuilder.noQuestions': 'Vēl nav jautājumu — pievienojiet vienu, lai sāktu.',
   'quizBuilder.notFound': 'Viktorīna nav atrasta.',
   'quizBuilder.preview': 'Skatīt',
@@ -137,7 +169,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} taimeris',
   'quizBuilder.title': 'Izveidojiet savu viktorīnu',
   'quizBuilder.titleLabel': 'Viktorīnas nosaukums',
+  'quizBuilder.untitled': 'Jautājums bez nosaukuma',
   'quizCard.plays': '{{count}} lugas',
+  'quizCard.questionCount': '{{count}} jaut.',
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': 'Rīkojiet vairāku spēlētāju režīmu',
   'quizDetail.leaderboardEmpty': 'Vēl nav nevienas spēles — esi pirmais, kas uzstāda rezultātu.',
@@ -152,25 +186,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Atpakaļ uz viktorīnu',
   'quizPlay.empty': 'Šajā viktorīnā vēl nav jautājumu.',
   'quizPlay.error': 'Nevarēja ielādēt šo viktorīnu. Lūdzu, mēģiniet vēlreiz.',
+  'quizPlay.exit': 'Iziet',
   'quizPlay.feedback.correct': '🔥 Dzirkstelpa nopelnīta — ķeramies klāt!',
+  'quizPlay.feedback.incorrect': 'Pareizā atbilde bija {{correct}}. Turpini.',
   'quizPlay.loading': 'Notiek viktorīnas ielāde…',
   'quizPlay.next': 'Nākamais jautājums',
+  'quizPlay.questionCounter': 'Jautājums {{current}} no {{total}}',
   'quizPlay.score': '{{score}} punkti',
+  'quizPlay.seeResults': 'Skatīt rezultātus',
   'quizPlay.sessionFailed': 'Nevarēja sākt sesiju.',
   'quizPlay.streak': '{{count}} svītra',
+  'resetPassword.subhead': 'Izvēlies jaunu paroli, lai atgrieztos pie savas sērijas.',
   'results.backToDiscover': 'Atpakaļ uz Discover',
   'results.error': 'Nevarēja ielādēt rezultātus.',
   'results.exit': 'Atpakaļ uz Discover',
   'results.loading': 'Notiek jūsu rezultāta skaitīšana…',
   'results.missingSession': 'Nav sesijas, ko apkopot.',
+  'results.recap.correctAnswer': 'Pareizi: {{answer}}',
   'results.recap.questionLabel': 'Jautājums {{number}}',
   'results.recap.title': 'Jautājuma kopsavilkums',
+  'results.recap.yourAnswer': 'Tu: {{answer}}',
   'results.unknownQuiz': 'Viktorīna',
   'scoreBreakdownCard.accuracyLabel': 'Precizitāte',
+  'scoreBreakdownCard.correctLabel': 'Pareizi',
   'scoreBreakdownCard.eyebrow': 'Viktorīna pabeigta',
   'scoreBreakdownCard.headline': 'Labs darbs pie " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Punkti',
   'scoreBreakdownCard.rankLabel': 'Rangs',
+  'scoreBreakdownCard.streakBonus': 'Sērijas bonuss +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Tavs dzirksts ir redzams. Apskati sadalījumu zemāk, lai turpinātu kāpt līderu tabulā.',
   'settings.danger.body':
     'Neatgriezeniski noņemiet savu Sparq kontu un visas izveidotās viktorīnas.',
   'settings.danger.confirm': 'Jā, dzēst uz visiem laikiem',
@@ -188,5 +233,7 @@ export const ui: UiTranslations = {
     'Jūs esat atbildīgs par publicēto saturu, uzdotajiem jautājumiem un visām jūsu rīkotajām spēlēm. Neizliecieties par citiem cilvēkiem.',
   'terms.billing.body':
     'Apmaksātie plāni tiek automātiski atjaunoti, līdz tie tiek atcelti sadaļā Iestatījumi. Varat tos atcelt jebkurā laikā; piekļuve turpinās līdz pašreizējā norēķinu perioda beigām.',
+  'terms.intro':
+    'Izmantojot {{app}}, tu piekrīti tālāk norādītajiem noteikumiem. Ja nevari tos pieņemt, lūdzu, neizmanto pakalpojumu.',
   'terms.title': 'Lietošanas noteikumi',
 }

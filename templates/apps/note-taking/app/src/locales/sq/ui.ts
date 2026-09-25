@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Keni komente, keni gjetur një gabim ose dëshironi të sugjeroni një veçori? Na shkruani nga cilësimet e llogarisë — çdo mesazh shkon te një person i vërtetë i ekipit.',
+  'about.contactTitle': 'Kontaktoni me ne',
+  'about.featureDatabases':
+    "Baza të dhënash të lehta dhe shabllone të ripërdorshme për t'i kthyer shënimet e shpërndara në rrjedha pune të strukturuara e të përsëritshme.",
+  'about.featureEditor':
+    "Një editor i qetë me blloqe — tituj, lista, kod, kuti theksimi dhe detyra — me komanda me slash kur t'i dëshironi dhe larg rrugës kur jo.",
+  'about.featureGraph':
+    'Lidhje të kthyera dhe një grafik njohurish: shkruani [[ për të lidhur një shënim dhe shikoni si lidhen idetë tuaja me kalimin e kohës.',
+  'about.featureNotebooks':
+    'Fletore dhe faqe të mbivendosura, që projektet, temat dhe shënimet ditore të mbeten të organizuara pikërisht ashtu si mendoni.',
+  'about.featureSearch':
+    'Kërkim me tekst të plotë nën 50ms në çdo fletore, plus etiketa që kombinohen me fletoret në vend që të përplasen me to.',
+  'about.missionTitle': 'Misioni ynë',
   'common.goToDashboard': 'Shko te paneli',
   'forgot.eyebrow': 'Ke humbur rrugën e kthimit?',
   'forgot.formSubtitle': 'Na tregoni email-in në dosje.',
+  'forgot.formTitle': 'Harrova fjalëkalimin',
   'forgot.headline': 'Rivendos fjalëkalimin tënd.',
   'forgot.subline':
     'Do të dërgojmë një lidhje një herëshe në kutinë tuaj postare në mënyrë që të zgjidhni një të re.',
+  'forgot.successDetail':
+    'Dërguam një lidhje rivendosjeje në emailin tuaj. Skadon pas 30 minutash.',
   'graph.eyebrow': 'Grafik',
+  'graph.goToNotes': 'Shfleto shënimet →',
+  'graph.loadError': 'Grafiku nuk u ngarkua: {{message}}',
   'graph.placeholderBody':
     'Kur shënimet fillojnë të lidhen me njëra-tjetrën (me sintaksën [[wiki]]), këtu do të shfaqet një grafik interaktiv i drejtuar nga forca.',
+  'graph.placeholderTitle': 'Grafiku i lidhjeve të kthyera së shpejti',
   'graph.subtitle':
     '{{count}} shënime në këtë hapësirë pune. Paraqitja e grafikut të lidhjes prapa do të shfaqet këtu pasi shënimet të lidhen me njëra-tjetrën.',
   'graph.title': 'Grafiku i njohurive',
   'home.empty': 'Ende nuk ka shënime — fillo të parin.',
   'home.favoritesHeading': 'I fiksuar',
   'home.guest': 'mik',
+  'home.loadError': 'Shënimet tuaja nuk u ngarkuan: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Ngul një shënim në redaktues për ta mbajtur këtu.',
   'home.recentHeading': 'Përditësuar së fundmi',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Fletore',
   'home.stats.pinned.label': 'I fiksuar',
   'home.stats.updatedToday.label': 'Përditësuar sot',
+  'home.subtitle': 'Vazhdoni aty ku e latë, ose nisni një shënim të ri.',
   'home.viewAll': 'Shiko të gjitha shënimet',
   'landing.cta.body':
     'Falas për përdorim personal. Profesional për ekipet. Sillni zbritjet tuaja ekzistuese ose filloni nga e para — Verso ju takon kudo që të jenë shënimet tuaja.',
+  'landing.cta.button': 'Krijo hapësirën time të punës',
   'landing.cta.heading': 'Hap faqen e sotme.',
   'landing.features.eyebrow': 'Çdo primitiv që i duhet trurit tuaj të dytë',
+  'landing.features.heading': 'Ndërtuar për punën, jo për meta-veprën.',
   'landing.hero.eyebrow': 'Një sipërfaqe e qetë shkrimi',
   'landing.hero.headlineAccent': 'marrin formë.',
   'landing.hero.headlineLeading': 'Ku mendimet',
   'landing.hero.primaryCta': 'Filloni bazën tuaj të njohurive',
   'landing.hero.secondaryCta': 'Unë tashmë kam një llogari',
+  'landing.hero.socialProof': '12,800+ shkrimtarë, studentë dhe doktorantë mendojnë me {{appName}}',
   'landing.hero.subline':
     'Verso është një sipërfaqe e strukturuar për mbajtjen e shënimeve për punonjësit e dijes dhe studentët. Redaktor blloqesh, fletore të ndërthurura, lidhje prapa dhe një grafik dijesh — të gjitha pas një përvoje leximi ku tipografia është e para.',
+  'landing.preview.notebook': 'Njohuri · Procesi i shkrimit',
+  'landing.preview.title': 'Duke i lënë rrymat të marrin frymë',
   'login.eyebrow': 'Mirë se vini përsëri në Verso',
   'login.formSubtitle': 'Përdorni emailin tuaj ose çdo ofrues të lidhur.',
   'login.headline': 'Vazhdo aty ku faqja u ndal.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
   'mobileNav.openMenu': 'Hap menynë e navigimit',
   'noteEditor.backToNotes': 'Kthehu te shënimet',
+  'noteEditor.bodyLabel': 'Trupi i shënimit',
   'noteEditor.bodyPlaceholder':
     'Filloni të shkruani — shënimi juaj ruhet automatikisht ndërsa shkruani.',
   'noteEditor.confirmTrash': 'Të zhvendoset ky shënim në koshin e plehrave?',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Zhvendos në kosh',
   'noteEditor.updated': 'Përditësuar',
   'notes.defaultWorkspaceName': 'Fletorja ime',
+  'notes.empty': 'Ende pa shënime këtu — nisni një për të mbushur fletoren.',
   'notes.eyebrow': 'Fletore',
   'notes.filterAll': 'Të gjitha shënimet',
   'notes.filterPinned': 'I fiksuar',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Fletore e re',
   'notes.newNotebookPrompt': 'Emri i ri i fletores së shënimeve',
+  'notes.newNotebookRequired': 'Vendosni një emër fletoreje.',
   'notes.notebooksHeading': 'Fletore',
   'notes.subtitle':
     'Zgjidh një fletore në të majtë, pastaj shtyp butonin Shënim i ri për të filluar një hyrje të re.',
+  'planUpdated.body': 'Abonimi juaj tani është aktiv.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Karakteristika të përparuara',
   'pricing.heading': 'Zgjidhni planin tuaj të marrjes së shënimeve',
+  'reset.changedMind': 'Ndryshove mendje?',
   'reset.eyebrow': 'Pothuajse përsëri brenda',
   'reset.formSubtitle': 'Do të identifikohesh pasi të ruhet.',
   'reset.headline': 'Zgjidhni një fjalëkalim të ri.',
@@ -71,7 +104,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'Fut kodin që sapo të dërguam me email dhe zgjidh diçka të paharrueshme.',
   'reset.submit': 'Ruaj dhe identifikohu',
   'reset.tokenHint': 'U ngjit nga kutia juaj hyrëse.',
+  'search.empty': 'Ende asnjë shënim nuk përputhet me këtë kërkim.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Kërko Refraktimin',
   'search.loading': 'Duke kërkuar…',
   'search.noRecent': 'Shkruaj një pyetje më sipër për të filluar kërkimin nëpër shënimet e tua.',
   'search.recentLabel': 'Kërkimet e fundit',
@@ -79,12 +114,19 @@ export const ui: UiTranslations = {
     'Tekst i plotë në çdo fletore shënimesh. Shkruaj për të kërkuar; rezultatet rifreskohen ndërsa shkruan.',
   'search.title': 'Kërko trurin e dytë.',
   'settings.account.logout': 'Dil nga llogaria',
+  'settings.account.title': 'Detajet e llogarisë',
+  'settings.editor.graphHover.body':
+    'Shfaq një kartë të vogël paraprake kur kaloni kursorin mbi një [[wikilink]] në editor.',
+  'settings.editor.graphHover.label': 'Parapamje e grafikës së lidhjeve të kthyera',
   'settings.editor.lineHeight.body':
     'Sa ajër midis vijave të trupit. 170% është ritmi i parazgjedhur i leximit.',
+  'settings.editor.lineHeight.label': 'Lartësia e rreshtit',
   'settings.editor.serif.body':
     'Përdorni Gjeorgjinë për kolonën e leximit. Sans-serif ruhet në shiritin anësor dhe në shiritat e veglave.',
+  'settings.editor.serif.label': 'Tekst trupi me serif',
   'settings.editor.title': 'Tipografia dhe sipërfaqja e shkrimit',
   'settings.eyebrow': 'Verso · Cilësimet',
+  'settings.passwordModal.current': 'Fjalëkalimi aktual',
   'settings.passwordModal.error':
     'Nuk mundi të ndryshoj fjalëkalimin — ju lutemi kontrolloni fjalëkalimin tuaj aktual.',
   'settings.passwordModal.next': 'Fjalëkalim i ri',
@@ -94,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Kaloni çdo shtypje tastiere përmes kanalit në kohë reale. Çaktivizojeni për lidhje më të ngadalta.',
   'settings.sync.auto.label': 'Sinkronizim në kohë reale',
+  'settings.sync.title': 'Si udhëtojnë shënimet tuaja',
   'settings.theme.body':
     'Drita e mban të ndritshme rubrikën editoriale. Sepia ngroh faqen për mbrëmjet.',
   'settings.theme.dark': 'E errët',
@@ -113,8 +156,12 @@ export const ui: UiTranslations = {
     'Shtoni #hashtagje në titullin e një shënimi (p.sh. "Lista e leximit #libra") dhe ato do të shfaqen këtu automatikisht.',
   'tags.emptyTitle': 'Nuk ka ende etiketa',
   'tags.eyebrow': 'Indeksi',
+  'tags.goToNotes': 'Shko te shënimet →',
+  'tags.loadError': 'Etiketat nuk u ngarkuan: {{message}}',
   'tags.subtitle':
     '{{tags}} etiketat përgjatë {{notes}} shënime. Shtoni #hashtagje në titullin e një shënimi dhe ato do të shfaqen këtu.',
+  'versoAuthShell.sample.body':
+    'Një rishikim i dytë nesër lexohet gjithmonë më mirë se një i parë sonte. Lëreni versionin e papërpunuar në dosjen e punës së thellë…',
   'versoAuthShell.sample.label': 'Shënim ditor',
   'versoAuthShell.sample.timestamp': 'Sot · 9:14am',
   'versoAuthShell.sample.title': 'Duke i lënë rrymat të marrin frymë',
@@ -126,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Vazhdo të shkruash',
   'versoTodayHero.createCta': 'Filloni shënimin e sotëm',
   'versoTodayHero.dailyLabel': 'Shënim ditor',
+  'versoTodayHero.emptyHeadline': 'Sot është një faqe bosh.',
   'versoTodayHero.emptySubline':
     'Kap një mendim, shëno një takim ose skico nesër. Verso e mban strukturën të qetë në mënyrë që shkrimi të mbetet me zë të lartë.',
+  'versoTodayHero.outlineLabel': 'Skica e sotme',
   'versoTodayHero.streak': '{{count}} seri ditore',
+  'versoTodayHero.unwritten': 'Ende pa fjalë — hapni shënimin për të filluar.',
   'versoTodayHero.wordCount': '{{count}} fjalë sot',
 }

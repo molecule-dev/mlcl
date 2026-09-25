@@ -101,6 +101,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Tilauksesi on päivitetty.',
   'planUpdated.returnHome': 'Palaa etusivulle',
   'planUpdated.thankYou': 'Kiitos!',
+  'post.markdown': 'Näytä tämä julkaisu markdownina',
+  'post.readingTime': '{{minutes}} min lukuaika',
   'post.tags': 'Tunnisteet',
   'project.error.nameAndTypeRequired': 'Nimi ja projectType vaaditaan',
   'project.error.notFound': 'Ei löytynyt',

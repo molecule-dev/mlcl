@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uhlangabezane nenkinga, noma ufuna isici esisha? Sifunda yonke imilayezo — xhumana neqembu lakwa-{{appName}} kusuka kuzilungiselelo ze-akhawunti yakho futhi umuntu wangempela uzokuphendula.',
   'about.contactTitle': 'Xoxa nathi',
+  'about.intro':
+    'I-{{appName}} iyindawo yokusebenzisana engapheli yamadizayini, abaqhubi bemihlangano, nothisha. Beka amanothi anamathelayo, dweba izimo, dweba ngesandla, futhi ubuke ozakwenu becabanga nawe ngesikhathi sangempela — konke endaweni eyodwa lapho imibono engahlelekile futhi ekhiqizayo ingahlangana khona ekugcineni.',
+  'about.missionBody':
+    'Ukucabanga okuhle akuvamisile ukuhleleka. I-{{appName}} ikhona ukuze inikeze amaqembu indawo esheshayo, engenazihibe lapho imibono ingaqoshwa khona ngokushesha uma ifika futhi ilungiswe ndawonye ize ibe nengqondo — ngaphandle kokulibala, umsebenzi olahlekile, noma amathuluzi aqinile abulala umfutho.',
+  'about.missionTitle': 'Umsebenzi wethu',
+  'authShell.brandFooter':
+    '“Sashintsha amathuluzi amane ngokufaka i-{{appName}} ngesonto esakhipha ngalo uphawu lwethu olusha. I-retro yazilondoloza yona.” — Atlas Studio',
+  'authShell.brandFooterMeta': 'Kuthenjwa amaqembu okudizayina angaphezu kuka-12,400',
   'authShell.brandHeading':
     'Amakhanvasi abadlali abaningi amaqembu okuklama acabanga ngokuzwakalayo.',
   'billing.canceled': 'Ukubhalisa kukhanseliwe.',
@@ -11,6 +21,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': 'Izinga lokuqala elingenaso isikhathi.',
   'billing.freePlanName': 'Mahhala',
   'billing.paidPlanBody': 'Ukubhalisa okusebenzayo.',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'Uhlelo nama-invoyisi',
   'billing.updated': 'Uhlelo lubuyekeziwe.',
   'billing.upgradeTitle': 'Izinhlelo ezitholakalayo',
@@ -19,8 +30,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': 'kwe {{max}} kufakiwe',
   'boardCanvas.backToBoards': 'Wonke amabhodi',
   'boardCanvas.changeColor': 'Shintsha umbala {{color}}',
+  'boardCanvas.collaboratorsTitle': 'Abahlanganyeli',
   'boardCanvas.deleteElement': 'Susa isici',
   'boardCanvas.deselect': 'Susa ukukhetha',
+  'boardCanvas.elementLabel': 'Isici esingu-{{type}}',
   'boardCanvas.elementsCount': '{{count}} izakhi',
   'boardCanvas.elementText': 'Umbhalo',
   'boardCanvas.empty.body':
@@ -30,10 +43,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': 'Gcwalisa',
   'boardCanvas.invited': 'Umenyiwe {{email}}',
   'boardCanvas.metaTitle': 'Isikhundla',
+  'boardCanvas.metaWH': 'U: {{w}}  V: {{h}}',
   'boardCanvas.metaXY': 'X: {{x}} Y: {{y}}',
   'boardCanvas.noCollaborators':
     'Abekho abahlanganyeli okwamanje. Sebenzisa ukwabelana ukuze umeme ozakwethu.',
   'boardCanvas.present': 'Yethula',
+  'boardCanvas.private': 'Kwangasese — ngesimemo kuphela',
   'boardCanvas.properties': 'Izakhiwo',
   'boardCanvas.public': 'Omphakathi — noma ubani onesixhumanisi angabuka',
   'boardCanvas.roleCommenter': 'Angaphawula',
@@ -49,6 +64,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'Khetha umbala onamathelayo',
   'boardCanvas.summaryCount': '{{count}} izakhi kukhanvasi',
   'boardCanvas.summaryTitle': 'Ibhodi',
+  'boardCanvas.surface.clear': 'Indawo yebhodi — susa okukhethiwe',
+  'boardCanvas.surface.draw': 'Indawo yebhodi — dweba ukuze udwebe',
+  'boardCanvas.surface.place': 'Indawo yebhodi — beka isici',
   'boardCanvas.untitled': 'Ibhodi elingenasihloko',
   'boardCanvas.visibilityTitle': 'Ukubonakala',
   'boardCanvas.zoomIn': 'Sondeza isithombe',
@@ -71,6 +89,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'Amabhodi okusesha',
   'boards.searchPlaceholder': 'Amabhodi okusesha',
   'boards.sharedTitle': 'Kwabelwane nami',
+  'boards.sortedBy': 'Kuhlelwe ngokushintshwa kwakamuva',
   'boards.startFromTemplate': 'Qala kusukela kuthempulethi',
   'boards.title': 'Amabhodi akho',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -84,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.cta.signupButton': 'Dala ibhodi lakho lamahhala',
   'landing.cta.title': 'Yakhelwe ukucabanga okungcolile, okudala, nokungokoqobo.',
   'landing.demoBoard.title': 'I-Workshop ye-Q1 · Izwi Lomkhiqizo',
+  'landing.demoBoard.updated': 'Kubuyekezwe emizuzwini engu-12 edlule',
   'landing.featuresEyebrow': 'Yini eyenza iSlate ibe yi-tessellate',
   'landing.featuresTitle': 'Impendulo esheshayo. Amakhanvasi amahle. Akukho ukungqubuzana.',
   'landing.hero.body':
@@ -96,18 +116,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '•••••••••••',
   'login.signIn': 'Ngena ngemvume ku-Slate',
   'login.signupCta': 'Dala indawo yokusebenza yamahhala',
+  'login.signupPrompt': 'Usanda kufika eTessera?',
   'login.subheading':
     'Qhubeka lapho i-workshop igcine khona — amabhodi, amanothi anamathelayo, kanye nezikhombisi-ndlela konke kuvumelanisa ngesikhathi sangempela.',
   'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
   'mobileNav.new': 'Okusha',
   'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
+  'notifications.editBody': 'Okuqukethwe kwebhodi kubuyekezwe.',
   'notifications.editTitle': 'Ukuhlelwa ku-" {{board}} "',
   'notifications.empty.body':
     'Izimemo, ukulondolozwa kwezithombe, kanye nokuhlelwa kwebhodi kwakamuva kuzovela lapha njengoba kwenzeka.',
   'notifications.empty.title': 'Akukho okusha ebhokisini lakho lokungenayo',
   'notifications.eyebrow': '{{name}} · ibhokisi lokungenayo',
+  'notifications.inviteBody': 'njengo-{{role}} ku-“{{board}}”',
   'notifications.inviteTitle': 'Umenyiwe {{email}}',
   'notifications.snapshotTitle': 'Isithombe esisha ku-" {{board}} "',
+  'present.addFirst': 'Engeza uhlaka lokuqala',
   'present.addFrame': '+ Engeza uhlaka',
   'present.boardEyebrow': '{{title}} · isethulo',
   'present.empty.body':
@@ -115,6 +139,7 @@ export const ui: UiTranslations = {
   'present.empty.title': 'Azikho ozimele okwamanje',
   'present.exit': 'Phuma kwisethulo',
   'present.exitToBoard': 'Buyela kukhanvasi',
+  'present.eyebrow': 'Imodi yokwethula',
   'present.frameBody': 'Amaphuzu okukhuluma ngawo',
   'present.frameName': 'Igama lohlaka',
   'present.frameOf': 'Uhlaka {{current}} kwe {{total}}',
@@ -124,21 +149,31 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'Ukwethula bukhoma',
   'present.save': 'Londoloza uhlaka',
   'present.title': 'Qalisa indaba yakho',
+  'present.unnamed': 'Uhlaka olungenasihloko',
+  'pricing.limits.advanced': 'Izici ezithuthukisiwe',
   'profile.cursorBody':
     'Kulondolozwe kule divayisi — ozakwethu beqembu babona lo mbala eduze kwesikhombisi sakho esibukhoma.',
   'profile.cursorEyebrow': 'Umbala wesikhombisi sakho',
   'profile.eyebrow': 'Ikhadi lomphakathi lomhlanganyeli',
+  'profile.noBoards': 'Awekho amabhodi okwamanje — dala elinye ukuze uqale.',
+  'profile.recentBoards': 'Amabhodi angu-{{name}} asetshenziswe muva nje',
   'profile.stat.${s.label}': 'Amabhodi {{igama}} ukuthintwa muva nje',
+  'profile.statsEyebrow': 'Umsebenzi wakho',
   'profile.title': 'Iphrofayela yakho',
+  'reset.backPrompt': 'Udinga i-imeyili ehlukile?',
   'reset.cta': 'Setha kabusha iphasiwedi bese ungena ngemvume',
+  'reset.password': 'Iphasiwedi Entsha',
   'reset.subheading':
     'Khetha iphasiwedi eqinile — okungenani izinhlamvu ezingu-8 ezinenombolo eyodwa.',
   'settings.appearance.title': 'Itimu kanye nekhanvasi',
   'settings.eyebrow': 'Izintandokazi ze-akhawunti',
   'settings.notifications.title': 'Izintandokazi zesaziso',
   'settings.profile.title': 'Ikhadi lomphakathi lomhlanganyeli',
+  'settings.security.body':
+    'Phatha ukuqinisekiswa kwezinto ezimbili, izikhathi zokusebenza ezisebenzayo, nephasiwedi kusuka kudashibhodi ye-akhawunti yakho.',
   'settings.security.title': 'Ukuphepha',
   'shared.collaboratorCount': '{{count}} umlingani(abalingani)',
+  'shared.count': 'Ibhodi/amabhodi angu-{{count}}',
   'shared.empty.body':
     'Uma umuntu osebenza naye ekumema ebhodini, lizovela lapha ngokuzenzakalelayo.',
   'shared.empty.title': 'Akukho okwabelwana nawe okwamanje',
@@ -154,6 +189,9 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Kumahhala kubalingani abangafika kwabangu-3. Akukho khadi lesikweletu elidingekayo ezinsukwini zokuqala ezingu-14.',
   'templateCard.usageCount': '{{count}} ukusetshenziswa',
+  'templateDetail.allTemplates': 'Zonke izifanekiso',
+  'templateDetail.body':
+    'Chofoza okuthi “Sebenzisa isifanekiso” ukuze ukopishe izici zokuqala ezingu-{{count}} ebhodini elisha elinesihloko esithi “{{name}}”. Hlela, yabelana, futhi uqhube umhlangano wakho kusuka lapho.',
   'templateDetail.delete': 'Susa ithempulethi',
   'templateDetail.elementsCount': '{{count}} izinto zokuqala',
   'templateDetail.eyebrow': '{{kind}} ithempulethi',
@@ -166,16 +204,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'Londoloza ithempulethi elenziwe ngokwezifiso',
   'templates.empty.body':
     'Dala ithempulethi ngokwezifiso kunoma yiliphi ibhodi onalo — vula ibhodi, londoloza isithombe, bese uligcina njengesifanekiso esingasetshenziswa kabusha lapha.',
+  'templates.empty.title': 'Azikho izifanekiso okwamanje',
   'templates.eyebrow': 'Amasethi okusebenzela kanye namathempulethi agciniwe',
   'templates.filter.${c}': 'Azikho izifanekiso okwamanje',
   'templates.nameLabel': 'Igama lesifanekiso',
   'templates.systemBadge': 'Kwakhelwe ngaphakathi',
   'templates.userBadge': 'Eyakho',
   'versionHistory.backToBoard': 'Buyela kukhanvasi',
+  'versionHistory.elementsTotal': 'Izici ezithwetshiwe ezingu-{{count}}',
   'versionHistory.empty.body':
     'Izithombe ezifingqiwe zidalwe kusukela kukhanvasi yebhodi enesihloko esithi "Londoloza isithombe" — zivela lapha ukuze ukwazi ukubuyisela noma yisiphi isimo esidlule.',
+  'versionHistory.empty.cta': 'Vula indawo yokudweba ukuze uthathe eyodwa',
   'versionHistory.empty.title': 'Azikho izithombe okwamanje',
   'versionHistory.eyebrow': '{{title}} · umlando',
+  'versionHistory.eyebrowFallback': 'Umlando webhodi',
   'versionHistory.latest': 'Okwakamuva',
   'versionHistory.restore': 'Buyisela le nguqulo',
   'versionHistory.restored': 'Isithombe esifingqiwe sibuyiselwe.',
@@ -186,6 +228,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'Ibhodi elisha',
   'whiteboardLayout.primaryNav': 'Ukuzulazula okuyinhloko',
   'workspace.boardLabel': 'Ibhodi',
+  'workspace.empty': 'Abasebenzisani okwamanje — mema othile emabhodini akho.',
   'workspace.eyebrow': '{{name}} · indawo yokusebenza',
   'workspace.invite': 'Mema abahlanganyeli',
   'workspace.inviteSent': 'Isimemo sithunyelwe.',
@@ -194,4 +237,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'Umphawuli',
   'workspace.role.editor': 'Umhleli',
   'workspace.role.viewer': 'Isibukeli',
+  'workspace.title': 'Amalungu nezindima',
 }

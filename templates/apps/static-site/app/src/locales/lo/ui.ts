@@ -99,6 +99,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'ແພັກເກດຂອງທ່ານໄດ້ຮັບການອັບເດດແລ້ວ.',
   'planUpdated.returnHome': 'ກັບໄປໜ້າຫຼັກ',
   'planUpdated.thankYou': 'ຂອບໃຈ!',
+  'post.markdown': 'ເບິ່ງໂພສນີ້ເປັນ markdown',
+  'post.readingTime': '{{minutes}} ອ່ານນາທີ',
   'post.tags': 'ແທັກ',
   'project.error.nameAndTypeRequired': 'ຕ້ອງການ name ແລະ projectType',
   'project.error.notFound': 'ບໍ່ພົບ',

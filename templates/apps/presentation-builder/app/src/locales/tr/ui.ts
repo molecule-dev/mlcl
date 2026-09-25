@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Sorularınız, geri bildiriminiz veya olmasını istediğiniz bir özellik mi var? Hesap ayarlarınızdan ekibe ulaşın — her mesajı gerçek bir kişi okur.',
   'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.missionTitle': 'Misyonumuz',
+  'about.whatYouGetTitle': 'Neler elde edersiniz',
   'analytics.empty': 'Burada analizleri görmek için sunumlar oluşturun.',
   'analytics.stats.acrossDecks': 'Tüm sunumlarda',
   'analytics.stats.allTime': 'Stüdyonuzda',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Sunum başlığı',
   'landing.features.eyebrow': 'Neden Overture',
   'landing.features.heading': 'Sahneye hazır çıkmanız için ihtiyacınız olan her şey.',
+  'landing.finalCta.body':
+    'Stüdyonuzu bir dakikadan kısa sürede kurun. Kredi kartı gerekmez. İstediğiniz zaman iptal edin.',
   'landing.finalCta.cta': 'Ücretsiz stüdyonuzu oluşturun',
   'landing.finalCta.eyebrow': 'Ücretsiz başla',
   'landing.finalCta.heading': 'Kariyerinizin en iyi sunumuyla sahneye çıkın.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 dk önce düzenlendi',
   'notifications.created': 'oluşturdu',
   'notifications.edited': 'düzenledi',
+  'notifications.empty.body':
+    'Sunumlarınızdaki etkinlikler — yorumlar, bahsetmeler, dışa aktarımlar — burada görünecek.',
   'notifications.empty.title': 'Henüz bildirim yok',
   'notifications.eyebrow': 'Sahne etkinliği',
   'notifications.loading': 'Yükleniyor…',
   'notifications.shared': 'herkese açık paylaştı',
+  'planUpdated.retry': 'Tekrar dene',
+  'planUpdated.verifyFailed': 'Ödemenizi henüz onaylayamadık.',
+  'planUpdated.verifyFailedBody':
+    'Ödemeniz hala işleniyor olabilir. Lütfen biraz sonra tekrar deneyin.',
   'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'present.addSlides': 'Slayt ekle',
   'present.backToDecks': 'Sunumlara geri dön',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Sahne sanatçısı',
   'settings.security.notSet': 'Ayarlanmadı',
   'settings.security.passwordBody': 'Parolanız bekleme sırasında şifrelenir.',
+  'settings.security.reset': 'Sıfırla',
   'settings.security.title': 'Hesap + oturumlar',
   'shared.empty.body':
     'Herkese açık paylaştığınız sunumlar burada görünecek. Paylaşmak için bir sunum açın ve herkese açık olarak ayarlayın.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Yükleniyor…',
   'shared.title': 'Paylaşılan sunumlar',
   'templateCard.slideCount': '{{count}} slayt',
+  'templateCard.usageCount': '{{count}} kullanım',
+  'templates.empty.body': 'Farklı bir filtre deneyin — her ay yeni şablonlar sunuyoruz.',
+  'templates.empty.title': 'Bu kategoride henüz şablon yok',
+  'templates.hero.body':
+    'Grafik blokları, demo çerçeveleri, sunucu notları ve zamanlayıcı ön ayarlarıyla önceden temalı slayt düzenleri — her şablon kayda hazır olarak gelir.',
   'templates.hero.eyebrow': 'Seçilmiş sahneler',
   'templates.hero.heading': 'Başarmanız gereken an için tasarlanmış sahneler.',
 }

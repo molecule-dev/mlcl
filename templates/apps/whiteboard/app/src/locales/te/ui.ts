@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'అభిప్రాయం ఉందా, బగ్ ఎదురైందా, లేదా ఫీచర్ కావాలా? మేము ప్రతి సందేశాన్ని చదువుతాము — మీ ఖాతా సెట్టింగ్‌ల నుండి {{appName}} టీమ్‌ను సంప్రదించండి, ఒక నిజమైన వ్యక్తి మీకు సమాధానం ఇస్తారు.',
   'about.contactTitle': 'మాతో మాట్లాడండి',
+  'about.intro':
+    '{{appName}} అనేది డిజైన్ టీమ్‌లు, వర్క్‌షాప్ ఫెసిలిటేటర్లు మరియు ఎడ్యుకేటర్ల కోసం ఒక సహకార అనంత కాన్వాస్. స్టికీ నోట్లు వేయండి, ఆకారాలు గీయండి, ఫ్రీహ్యాండ్‌గా గీయండి, మరియు మీ సహచరులు నిజ సమయంలో మీతో పాటు ఆలోచించడం చూడండి — అన్నీ ఒకే చోట, అస్తవ్యస్తమైన, సృజనాత్మక ఆలోచనలు చివరకు ఏకీభవించగలిగే చోట.',
+  'about.missionBody':
+    'గొప్ప ఆలోచన అరుదుగా చక్కగా ఉంటుంది. ఆలోచనలు వచ్చిన క్షణంలోనే వాటిని నమోదు చేసి, అర్థవంతంగా మారే వరకు కలిసి రూపొందించుకోవడానికి — ఆలస్యం, పోయిన పని, లేదా వేగాన్ని చంపే కఠినమైన సాధనాలు లేకుండా — {{appName}} టీమ్‌లకు వేగవంతమైన, తక్కువ ఇబ్బంది ఉన్న ఉపరితలాన్ని అందించడానికి ఉంది.',
+  'about.missionTitle': 'మా లక్ష్యం',
+  'authShell.brandFooter':
+    '“మా రీబ్రాండ్ విడుదల చేసిన వారంలోనే మేము నాలుగు సాధనాలను {{appName}}తో భర్తీ చేసాము. రెట్రో తనను తాను సేవ్ చేసుకుంది.” — Atlas Studio',
+  'authShell.brandFooterMeta': '12,400+ డిజైన్ టీమ్‌ల నమ్మకం',
   'authShell.brandHeading':
     'తమ ఆలోచనలను స్వేచ్ఛగా వ్యక్తపరిచే డిజైన్ బృందాల కోసం మల్టీప్లేయర్ కాన్వాస్‌లు.',
   'billing.canceled': 'సభ్యత్వం రద్దు చేయబడింది.',
@@ -11,6 +21,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': 'శాశ్వతంగా ఉచితమైన ప్రారంభ శ్రేణి.',
   'billing.freePlanName': 'ఉచితం',
   'billing.paidPlanBody': 'క్రియాశీల సభ్యత్వం.',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'ప్రణాళిక & ఇన్‌వాయిస్‌లు',
   'billing.updated': 'ప్రణాళిక నవీకరించబడింది.',
   'billing.upgradeTitle': 'అందుబాటులో ఉన్న ప్రణాళికలు',
@@ -19,8 +30,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': 'యొక్క {{max}} చేర్చబడింది',
   'boardCanvas.backToBoards': 'అన్ని బోర్డులు',
   'boardCanvas.changeColor': 'రంగు మార్చండి {{color}}',
+  'boardCanvas.collaboratorsTitle': 'సహకారులు',
   'boardCanvas.deleteElement': 'మూలకాన్ని తొలగించండి',
   'boardCanvas.deselect': 'ఎంపికను రద్దు చేయండి',
+  'boardCanvas.elementLabel': '{{type}} మూలకం',
   'boardCanvas.elementsCount': '{{count}} అంశాలు',
   'boardCanvas.elementText': 'టెక్స్ట్',
   'boardCanvas.empty.body':
@@ -30,10 +43,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': 'నింపండి',
   'boardCanvas.invited': 'ఆహ్వానించబడ్డారు {{email}}',
   'boardCanvas.metaTitle': 'స్థానం',
+  'boardCanvas.metaWH': 'W: {{w}}  H: {{h}}',
   'boardCanvas.metaXY': 'X: {{x}} వై: {{y}}',
   'boardCanvas.noCollaborators':
     'ఇంకా సహచరులు ఎవరూ లేరు. సహచరులను ఆహ్వానించడానికి షేర్ (Share) ను ఉపయోగించండి.',
   'boardCanvas.present': 'ప్రస్తుతం',
+  'boardCanvas.private': 'ప్రైవేట్ — ఆహ్వానం ద్వారా మాత్రమే',
   'boardCanvas.properties': 'ఆస్తులు',
   'boardCanvas.public': 'పబ్లిక్ — లింక్ ఉన్న ఎవరైనా చూడవచ్చు',
   'boardCanvas.roleCommenter': 'వ్యాఖ్యానించగలరు',
@@ -49,6 +64,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'జిగురు రంగును ఎంచుకోండి',
   'boardCanvas.summaryCount': '{{count}} కాన్వాస్‌పై ఉన్న అంశాలు',
   'boardCanvas.summaryTitle': 'బోర్డు',
+  'boardCanvas.surface.clear': 'బోర్డ్ కాన్వాస్ — ఎంపికను క్లియర్ చేయండి',
+  'boardCanvas.surface.draw': 'బోర్డ్ కాన్వాస్ — గీయడానికి లాగండి',
+  'boardCanvas.surface.place': 'బోర్డ్ కాన్వాస్ — మూలకాన్ని ఉంచండి',
   'boardCanvas.untitled': 'పేరులేని బోర్డు',
   'boardCanvas.visibilityTitle': 'దృశ్యమానత',
   'boardCanvas.zoomIn': 'జూమ్ ఇన్',
@@ -72,6 +90,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'బోర్డులను శోధించండి',
   'boards.searchPlaceholder': 'బోర్డులను శోధించండి',
   'boards.sharedTitle': 'నాతో పంచుకున్నారు',
+  'boards.sortedBy': 'ఇటీవల నవీకరించిన వాటి ప్రకారం క్రమబద్ధీకరించబడింది',
   'boards.startFromTemplate': 'టెంప్లేట్ నుండి ప్రారంభించండి',
   'boards.title': 'మీ బోర్డులు',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -85,6 +104,8 @@ export const ui: UiTranslations = {
   'landing.cta.signupButton': 'మీ ఉచిత బోర్డును సృష్టించండి',
   'landing.cta.title': 'అస్తవ్యస్తమైన, సృజనాత్మకమైన, ముఖాముఖి ఆలోచనల కోసం నిర్మించబడింది.',
   'landing.demoBoard.title': 'Q1 వర్క్‌షాప్ · బ్రాండ్ వాయిస్',
+  'landing.demoBoard.updated': '12 నిమిషాల క్రితం నవీకరించబడింది',
+  'landing.featuresEyebrow': '{{appName}} ఎందుకు టెస్సెల్లేట్ అవుతుంది',
   'landing.featuresTitle': 'వేగవంతమైన స్పందన. అందమైన కాన్వాసులు. ఎటువంటి ఆటంకాలు లేవు.',
   'landing.hero.body':
     '{{appName}} అనేది డిజైన్ బృందాలు, వర్క్‌షాప్ నిర్వాహకులు మరియు విద్యావేత్తల కోసం రూపొందించిన ఒక మల్టీప్లేయర్ వైట్‌బోర్డ్. వీరు ప్రత్యక్షంగా మేధోమథనం నిర్వహించి, తమ ఆలోచనలన్నింటినీ ఒకే చోట కేంద్రీకరించాల్సి ఉంటుంది.',
@@ -96,18 +117,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '••••••••••',
   'login.signIn': 'Nimbus లోకి సైన్ ఇన్ చేయండి',
   'login.signupCta': 'ఉచిత కార్యస్థలాన్ని సృష్టించండి',
+  'login.signupPrompt': 'టెస్సెరాకు కొత్తవారా?',
   'login.subheading':
     'వర్క్‌షాప్ ఎక్కడ ఆగిపోయిందో అక్కడి నుండే కొనసాగించండి — బోర్డులు, స్టిక్కీ నోట్స్ మరియు కర్సర్‌లు అన్నీ రియల్ టైమ్‌లో సింక్ అవుతాయి.',
   'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
   'mobileNav.new': 'కొత్త',
   'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
+  'notifications.editBody': 'బోర్డ్ కంటెంట్ నవీకరించబడింది.',
   'notifications.editTitle': 'సవరణలు {{board}} "',
   'notifications.empty.body':
     'ఆహ్వానాలు, స్నాప్‌షాట్ సేవ్‌లు మరియు ఇటీవలి బోర్డ్ సవరణలు జరిగిన వెంటనే ఇక్కడ కనిపిస్తాయి.',
   'notifications.empty.title': 'మీ ఇన్‌బాక్స్‌లో కొత్తగా ఏమీ లేదు',
   'notifications.eyebrow': '{{name}} · ఇన్‌బాక్స్',
+  'notifications.inviteBody': '"{{board}}"లో {{role}}గా',
   'notifications.inviteTitle': 'ఆహ్వానించబడ్డారు {{email}}',
   'notifications.snapshotTitle': '"పై కొత్త స్నాప్‌షాట్" {{board}} "',
+  'present.addFirst': 'మొదటి ఫ్రేమ్‌ను జోడించండి',
   'present.addFrame': '+ ఫ్రేమ్‌ను జోడించండి',
   'present.boardEyebrow': '{{title}} · ప్రదర్శన',
   'present.empty.body':
@@ -115,6 +140,7 @@ export const ui: UiTranslations = {
   'present.empty.title': 'ఇంకా ఫ్రేమ్‌లు లేవు',
   'present.exit': 'నిష్క్రమణ ప్రదర్శన',
   'present.exitToBoard': 'కాన్వాస్‌కు తిరిగి వెళ్లండి',
+  'present.eyebrow': 'ప్రదర్శన మోడ్',
   'present.frameBody': 'చర్చనీయాంశాలు',
   'present.frameName': 'ఫ్రేమ్ పేరు',
   'present.frameOf': 'ఫ్రేమ్ {{current}} యొక్క {{total}}',
@@ -124,20 +150,30 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'ప్రత్యక్ష ప్రసారం',
   'present.save': 'ఫ్రేమ్‌ను సేవ్ చేయండి',
   'present.title': 'మీ కథను నడపండి',
+  'present.unnamed': 'పేరులేని ఫ్రేమ్',
+  'pricing.limits.advanced': 'అధునాతన ఫీచర్లు',
   'profile.cursorBody':
     'ఈ పరికరంలో సేవ్ చేయబడింది — మీ లైవ్ కర్సర్ పక్కన మీ సహచరులు ఈ రంగును చూస్తారు.',
   'profile.cursorEyebrow': 'మీ కర్సర్ రంగు',
   'profile.eyebrow': 'పబ్లిక్ సహకారి కార్డు',
+  'profile.noBoards': 'ఇంకా బోర్డ్‌లు లేవు — ప్రారంభించడానికి ఒకటి సృష్టించండి.',
+  'profile.recentBoards': 'ఇటీవల తాకిన బోర్డ్‌లు {{name}}',
   'profile.stat.${s.label}': 'బోర్డులు {{name}} ఇటీవల తాకిన',
+  'profile.statsEyebrow': 'మీ కార్యాచరణ',
   'profile.title': 'మీ ప్రొఫైల్',
+  'reset.backPrompt': 'వేరే ఇమెయిల్ కావాలా?',
   'reset.cta': 'పాస్‌వర్డ్‌ను రీసెట్ చేసి, సైన్ ఇన్ చేయండి',
+  'reset.password': 'కొత్త పాస్‌వర్డ్',
   'reset.subheading': 'బలమైన పాస్‌వర్డ్‌ను ఎంచుకోండి — కనీసం 8 అక్షరాలు మరియు ఒక సంఖ్య ఉండాలి.',
   'settings.appearance.title': 'థీమ్ & కాన్వాస్',
   'settings.eyebrow': 'ఖాతా ప్రాధాన్యతలు',
   'settings.notifications.title': 'నోటిఫికేషన్ ప్రాధాన్యతలు',
   'settings.profile.title': 'పబ్లిక్ సహకారి కార్డు',
+  'settings.security.body':
+    'మీ ఖాతా డాష్‌బోర్డ్ నుండి రెండు-దశల ప్రామాణీకరణ, క్రియాశీల సెషన్‌లు మరియు పాస్‌వర్డ్‌ను నిర్వహించండి.',
   'settings.security.title': 'భద్రత',
   'shared.collaboratorCount': '{{count}} సహకారి(లు)',
+  'shared.count': '{{count}} బోర్డ్(లు)',
   'shared.empty.body':
     'మీ సహచరుడు మిమ్మల్ని ఒక బోర్డుకు ఆహ్వానించినప్పుడు, అది ఇక్కడ స్వయంచాలకంగా కనిపిస్తుంది.',
   'shared.empty.title': 'మీతో ఇంకా ఏమీ పంచుకోలేదు',
@@ -153,6 +189,9 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'గరిష్టంగా 3 మంది సహకారుల వరకు ఉచితం. మొదటి 14 రోజులకు క్రెడిట్ కార్డ్ అవసరం లేదు.',
   'templateCard.usageCount': '{{count}} ఉపయోగాలు',
+  'templateDetail.allTemplates': 'అన్ని టెంప్లేట్లు',
+  'templateDetail.body':
+    '"{{name}}" అనే పేరుతో సరికొత్త బోర్డ్‌లోకి {{count}} స్టార్టర్ మూలకాలను కాపీ చేయడానికి "Use template" క్లిక్ చేయండి. అక్కడి నుండి మీ వర్క్‌షాప్‌ను సవరించండి, పంచుకోండి మరియు నిర్వహించండి.',
   'templateDetail.delete': 'టెంప్లేట్‌ను తొలగించండి',
   'templateDetail.elementsCount': '{{count}} ప్రారంభ అంశాలు',
   'templateDetail.eyebrow': '{{kind}} టెంప్లేట్',
@@ -165,16 +204,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'కస్టమ్ టెంప్లేట్‌ను సేవ్ చేయండి',
   'templates.empty.body':
     'మీకు స్వంతమైన ఏదైనా బోర్డ్ నుండి కస్టమ్ టెంప్లేట్‌ను సృష్టించండి — బోర్డ్‌ను తెరిచి, స్నాప్‌షాట్‌ను సేవ్ చేసి, ఆపై దానిని ఇక్కడ పునర్వినియోగ టెంప్లేట్‌గా సేవ్ చేయండి.',
+  'templates.empty.title': 'ఇంకా టెంప్లేట్లు లేవు',
   'templates.eyebrow': 'వర్క్‌షాప్ కిట్‌లు & సేవ్ చేసిన టెంప్లేట్‌లు',
   'templates.filter.${c}': 'ఇంకా టెంప్లేట్లు లేవు',
   'templates.nameLabel': 'టెంప్లేట్ పేరు',
   'templates.systemBadge': 'అంతర్నిర్మిత',
   'templates.userBadge': 'మీ',
   'versionHistory.backToBoard': 'కాన్వాస్‌కు తిరిగి వెళ్లండి',
+  'versionHistory.elementsTotal': '{{count}} సంగ్రహించిన మూలకాలు',
   'versionHistory.empty.body':
     "బోర్డ్ కాన్వాస్‌లోని 'సేవ్ స్నాప్‌షాట్' ద్వారా స్నాప్‌షాట్‌లు సృష్టించబడతాయి — మీరు ఏదైనా గత స్థితిని పునరుద్ధరించుకోవడానికి వీలుగా అవి ఇక్కడ కనిపిస్తాయి.",
+  'versionHistory.empty.cta': 'ఒకటి తీసుకోవడానికి కాన్వాస్ తెరవండి',
   'versionHistory.empty.title': 'ఇంకా స్నాప్‌షాట్‌లు లేవు',
   'versionHistory.eyebrow': '{{title}} · చరిత్ర',
+  'versionHistory.eyebrowFallback': 'బోర్డ్ చరిత్ర',
   'versionHistory.latest': 'తాజా',
   'versionHistory.restore': 'ఈ వెర్షన్‌ను పునరుద్ధరించండి',
   'versionHistory.restored': 'స్నాప్‌షాట్ పునరుద్ధరించబడింది.',
@@ -185,6 +228,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'కొత్త బోర్డు',
   'whiteboardLayout.primaryNav': 'ప్రాథమిక నావిగేషన్',
   'workspace.boardLabel': 'బోర్డు',
+  'workspace.empty': 'ఇంకా సహకారులు లేరు — మీ బోర్డ్‌లకు ఎవరినైనా ఆహ్వానించండి.',
   'workspace.eyebrow': '{{name}} · కార్యస్థలం',
   'workspace.invite': 'సహకారులను ఆహ్వానించండి',
   'workspace.inviteSent': 'ఆహ్వానం పంపబడింది.',
@@ -193,4 +237,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'వ్యాఖ్యాత',
   'workspace.role.editor': 'సంపాదకుడు',
   'workspace.role.viewer': 'వీక్షకుడు',
+  'workspace.title': 'సభ్యులు & పాత్రలు',
 }

@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada maklum balas, jumpa pepijat, atau mahu {{app}} untuk liga anda? Hubungi kami dari tetapan akaun anda — setiap mesej sampai kepada orang sebenar dalam pasukan.',
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.featureAlerts':
+    'Pemberitahuan push untuk kemas kini skor, makluman pertukaran, laporan kecederaan dan pengumuman liga.',
+  'about.featureRosters':
+    'Halaman pasukan dengan senarai penuh, jumlah musim, rentetan panas/sejuk dan pecahan head-to-head untuk setiap pemain.',
+  'about.featureSchedule':
+    'Paparan kalendar dan jadual musim supaya anda boleh merancang setiap perlawanan dan keputusan.',
+  'about.featureScoreboard':
+    'Tiker papan skor bertaraf siaran yang dipinkan di bahagian atas setiap halaman supaya anda tidak terlepas sebarang gol.',
+  'about.featureStandings':
+    'Kedudukan langsung — rekod menang-kalah-seri masa nyata, mata, peratus menang dan garisan playoff, dikemas kini pada setiap wisel.',
+  'about.intro':
+    '{{app}} ialah rumah bertaraf siaran untuk liga anda. Pasukan, jadual, skor langsung dan kedudukan bergabung dalam satu papan pemuka yang pantas dan bersih — supaya peminat, jurulatih dan penganjur liga sentiasa tahu kedudukan musim.',
+  'about.missionBody':
+    'Mengikuti liga tidak sepatutnya bermakna menyegarkan lima papan skor pihak ketiga yang berbeza. Kami membinanya untuk memberi setiap liga satu sumber kebenaran tunggal bagi kedudukan, jadual dan statistik yang benar-benar penting — dikemas kini pada setiap wisel, percuma untuk musim ini.',
+  'about.missionTitle': 'Misi kami',
+  'about.whatYouGet': 'Yang Anda dapatkan',
   'appShell.closeNav': 'Tutup navigasi',
   'appShell.openNav': 'Buka navigasi',
   'common.dashboard': 'Papan Pemuka',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Lihat semua padanan',
   'dashboard.viewAllStandings': 'Kedudukan penuh \\u2192',
   'dashboard.viewAllStats': 'Lihat semua peneraju statistik \\u2192',
+  'forgot.submitting': 'Menghantar pautan set semula…',
   'forgot.subtitle': 'Masukkan e-mel Anda untuk menerima pautan tetapan semula.',
   'forgot.success': 'Tetapkan semula pautan dihantar ke {{email}} Semak peti masuk anda.',
+  'landing.copyright': '© {{year}} {{app}}. Kejar kedudukan.',
+  'landing.ctaBody':
+    'Liga anda. Kedudukan anda. Pasukan kegemaran anda — dipinkan di atas. Dua minit untuk disediakan, percuma untuk musim ini.',
   'landing.ctaHeading': 'Berhenti menyegarkan papan skor pihak ketiga',
   'landing.eyebrow': 'Dibina untuk peminat, jurulatih dan penganjur liga',
   'landing.featuresHeading': 'Tempat duduk barisan hadapan untuk setiap orang yang berdiri',
   'landing.getStarted': 'Sertai liga',
   'landing.heroCta': 'Sertai liga',
+  'landing.heroSubtitle':
+    '{{app}} menggabungkan kedudukan, jadual dan peneraju statistik ke dalam satu papan pemuka bertaraf siaran. Skor langsung. Rekod sebenar. Tanpa kekacauan.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Malam ini di sekitar liga',
   'landing.statFans': 'Peminat mengikuti',
   'landing.statGames': 'Perlawanan musim ini',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Kembali ke perlawanan',
   'matchDetail.eventsHeading': 'Main-demi-main',
+  'matchDetail.final': 'TAMAT',
   'matchDetail.finalScore': 'Akhir',
   'matchDetail.live': 'LANGSUNG',
   'matchDetail.liveNow': 'Live sekarang',
   'matchDetail.noEvents': 'Tiada peristiwa yang direkodkan lagi.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Tiada perlawanan dalam paparan ini — cuba penapis lain.',
   'matches.eyebrow': 'Hari Perlawanan',
   'matches.loading': 'Menarik batu tulis…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Gagal memuatkan pemberitahuan',
   'notifications.loading': 'Memuatkan pemberitahuan\\u2026',
   'pennantHeroCard.eyebrow': 'Bahagian atas meja',
+  'pennantHeroCard.formLabel': '10 Terakhir',
   'pennantHeroCard.gamesAhead': '{{value}} perlawanan menjelang pengejaran',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Navigasi utama',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Pilih tempat duduk anda',
   'pricing.heading': 'Naik taraf untuk jadual, skor dan kedudukan yang lebih kaya.',
   'pricing.limits.schedule': '{{count}} entri jadual',
+  'pricing.limits.scores': 'Skor {{count}}',
+  'pricing.limits.standings': 'Kedudukan {{count}}',
+  'pricing.limits.teams': 'Pasukan {{count}}',
+  'pricing.subtitle': 'Naik taraf untuk jadual, skor dan kedudukan yang lebih kaya.',
   'pricing.upgradeCta': 'Naik taraf ke {{tierName}}',
   'profile.eyebrow': 'Profil peminat',
   'profile.favoritesCount': 'Pasukan mengikuti',
   'profile.favoritesHeading': 'Pasukan kegemaran',
   'profile.noFavorites': 'Tiada pasukan kegemaran lagi — pilih pasukan daripada halaman Pasukan.',
   'profile.rankRecord': 'Kedudukan # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Rekod {{record}}',
   'reset.confirmPlaceholder': 'Ulang kata laluan',
+  'reset.mismatch': 'Kata laluan tidak sepadan.',
   'reset.newLabel': 'Kata laluan baharu',
   'reset.subtitle': 'Pilih kata laluan yang kukuh dengan sekurang-kurangnya 12 aksara.',
   'reset.tokenPlaceholder': 'Tampal daripada e-mel',
   'schedule.eyebrow': 'Batu tulis itu',
+  'schedule.moreGames': '+ {{count}} lebih banyak',
   'schedule.subtitle':
     'Paparan kalendar perlawanan sepanjang musim — ketik pada bila-bila masa untuk skor kotak.',
   'scoreboardTicker.empty':
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Peribadikan',
   'settings.favoritesBody':
     'Pasukan-pasukan ini disematkan pada papan pemuka anda dan mencetuskan makluman skor.',
+  'settings.favoritesHeading': 'Pasukan kegemaran',
   'settings.loading': 'Memuatkan pilihan anda\\u2026',
   'settings.noFavorites': 'Tiada kegemaran lagi \\u2014 pilih pasukan daripada halaman Pasukan.',
   'settings.notificationsHeading': 'Pemberitahuan & paparan',
@@ -115,6 +152,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Keseluruhan',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Empat teratas layak ke postseason — penentuan seri dengan mata, kemudian menang-peratusan.',
   'standings.title': 'Kedudukan liga',
@@ -133,6 +171,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Pemain',
   'teamDetail.colPos': 'Pos',
+  'teamDetail.pointsLabel': 'Mata',
   'teamDetail.rankLabel': 'Pangkat # {{rank}}',
   'teamDetail.rosterHeading': 'Senarai',
   'teamDetail.statGD': 'Perbezaan Gol',

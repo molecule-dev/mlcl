@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fikr-mulohaza bildirmoqchimisiz, xatolik topdingizmi yoki yangi funksiya taklif qilmoqchimisiz? Hisob sozlamalaridan murojaat qiling — har bir xabar jamoamizdagi haqiqiy insonga yetib boradi.',
+  'about.contactTitle': "Biz bilan bog'laning",
+  'about.featureDatabases':
+    "Yengil ma'lumotlar bazalari va qayta ishlatiladigan shablonlar tartibsiz yozuvlarni tuzilgan, takrorlanadigan ish jarayonlariga aylantiradi.",
+  'about.featureEditor':
+    "Sokin blok muharriri — sarlavhalar, ro'yxatlar, kod, chaqiruvlar va vazifalar — kerak bo'lganda slash-buyruqlar bilan, kerak bo'lmaganda esa yo'lingizdan chetga chiqmaydi.",
+  'about.featureGraph':
+    "Orqaga havolalar va bilim grafi: eslatmani bog'lash uchun [[ yozing va g'oyalaringiz vaqt o'tishi bilan qanday bog'lanishini kuzating.",
+  'about.featureNotebooks':
+    "Ichma-ich joylashgan daftarlar va sahifalar — loyihalar, mavzular va kunlik eslatmalar xuddi siz o'ylagandek tartibda saqlanadi.",
+  'about.featureSearch':
+    "Har bir daftar bo'ylab 50ms dan tez to'liq matnli qidiruv, hamda daftarlar bilan kurashmay, ular bilan uyg'unlashadigan teglar.",
+  'about.missionTitle': 'Bizning vazifamiz',
   'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'forgot.eyebrow': "Qaytib kirish yo'lini adashtirdingizmi?",
   'forgot.formSubtitle': 'Fayldagi elektron pochta manzilini bizga ayting.',
+  'forgot.formTitle': 'Parolni unutdingizmi?',
   'forgot.headline': 'Parolingizni qayta tiklang.',
   'forgot.subline':
     'Siz yangisini tanlashingiz uchun biz sizning pochta qutingizga bir martalik havola yuboramiz.',
+  'forgot.successDetail':
+    'Emailingizga tiklash havolasini yubordik. U 30 daqiqada muddati tugaydi.',
   'graph.eyebrow': 'Grafik',
+  'graph.goToNotes': "Eslatmalarni ko'rish →",
+  'graph.loadError': "Grafni yuklab bo'lmadi: {{message}}",
   'graph.placeholderBody':
     "Qaydlar bir-biriga bog'lana boshlaganda ([[wiki]] sintaksisi bilan), bu yerda interaktiv kuchga yo'naltirilgan grafik ko'rsatiladi.",
+  'graph.placeholderTitle': 'Orqaga havolalar grafi tez orada',
   'graph.subtitle':
     "{{count}} Ushbu ish maydonidagi eslatmalar. Eslatmalar bir-biriga bog'langandan so'ng, orqaga qaytish grafigi renderlash bu yerda paydo bo'ladi.",
   'graph.title': 'Bilimlar grafigi',
   'home.empty': "Hali hech qanday eslatma yo'q — birinchisini boshlang.",
   'home.favoritesHeading': 'Mahkamlangan',
   'home.guest': "do'st",
+  'home.loadError': "Eslatmalaringizni yuklab bo'lmadi: {{message}}",
   'home.newNoteCta': 'New note',
   'home.noFavorites': "Bu yerda saqlash uchun muharrirga eslatmani qadab qo'ying.",
   'home.recentHeading': 'Yaqinda yangilandi',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Daftar',
   'home.stats.pinned.label': 'Mahkamlangan',
   'home.stats.updatedToday.label': 'Bugun yangilandi',
+  'home.subtitle': "To'xtagan joyingizdan davom eting yoki yangi eslatma boshlang.",
   'home.viewAll': "Barcha qaydlarni ko'rish",
   'landing.cta.body':
     "Shaxsiy foydalanish uchun bepul. Jamoalar uchun professional. Mavjud chegirmalaringizni olib keling yoki yangidan boshlang — Verso siz bilan qayerda bo'lsangiz ham uchrashadi.",
+  'landing.cta.button': 'Ish joyimni yarating',
   'landing.cta.heading': 'Bugungi sahifani oching.',
   'landing.features.eyebrow': "Ikkinchi miyangizga kerak bo'lgan har bir ibtidoiy narsa",
+  'landing.features.heading': 'Meta-ish uchun emas, balki ish uchun yaratilgan.',
   'landing.hero.eyebrow': 'Jim yozuv yuzasi',
   'landing.hero.headlineAccent': 'shakllanmoq.',
   'landing.hero.headlineLeading': 'Fikrlar qayerda',
   'landing.hero.primaryCta': 'Bilimlar bazangizni ishga tushiring',
   'landing.hero.secondaryCta': 'Menda allaqachon hisob bor',
+  'landing.hero.socialProof': '12 800+ yozuvchi, talaba va PhD {{appName}} bilan fikrlaydi',
   'landing.hero.subline':
     "Verso - bu bilim sohasidagi xodimlar va talabalar uchun tuzilgan yozuvlar olish maydoni. Blok muharriri, ichki daftarlar, orqaga havolalar va bilim grafigi - bularning barchasi tipografiyadan birinchi o'qish tajribasi ortida.",
+  'landing.preview.notebook': 'Bilim · Yozish jarayoni',
+  'landing.preview.title': 'Shamollarning nafas olishiga ruxsat berish haqida',
   'login.eyebrow': 'Versoga yana xush kelibsiz',
   'login.formSubtitle': 'Elektron pochtangizdan yoki ulangan har qanday provayderdan foydalaning.',
   'login.headline': "Sahifa to'xtatilgan joydan davom eting.",
@@ -43,6 +70,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
   'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'noteEditor.backToNotes': 'Qaydlarga qaytish',
+  'noteEditor.bodyLabel': 'Eslatma matni',
   'noteEditor.bodyPlaceholder':
     'Yozishni boshlang — yozuvingiz yozayotganingizda avtomatik ravishda saqlanadi.',
   'noteEditor.confirmTrash': 'Bu qaydni axlat qutisiga tashlaysizmi?',
@@ -51,17 +79,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Chiqindilar qutisiga tashlash',
   'noteEditor.updated': 'Yangilandi',
   'notes.defaultWorkspaceName': 'Mening daftarim',
+  'notes.empty': "Bu yerda hali eslatmalar yo'q — daftarni to'ldirish uchun bittasini boshlang.",
   'notes.eyebrow': 'Daftar',
   'notes.filterAll': 'Barcha qaydlar',
   'notes.filterPinned': 'Mahkamlangan',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Yangi daftar',
   'notes.newNotebookPrompt': 'Yangi daftar nomi',
+  'notes.newNotebookRequired': 'Daftar nomini kiriting.',
   'notes.notebooksHeading': 'Daftarlar',
   'notes.subtitle':
     'Chapdagi daftarni tanlang, so\'ngra yangi yozuvni boshlash uchun "Yangi yozuv" tugmasini bosing.',
+  'planUpdated.body': 'Obunangiz endi faol.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Kengaytirilgan xususiyatlar',
   'pricing.heading': 'Qayd olish rejangizni tanlang',
+  'reset.changedMind': "Fikringizni o'zgartirdingizmi?",
   'reset.eyebrow': 'Deyarli qaytib kirdi',
   'reset.formSubtitle': "Saqlangandan so'ng, tizimga kirasiz.",
   'reset.headline': 'Yangi parol tanlang.',
@@ -71,7 +104,9 @@ export const ui: UiTranslations = {
     'Sizga hozirgina elektron pochta orqali yuborgan kodni kiriting va esda qolarli narsani tanlang.',
   'reset.submit': 'Saqlash va tizimga kirish',
   'reset.tokenHint': 'Kiruvchi xabarlar qutingizdan joylandi.',
+  'search.empty': "Bu so'rovga hali mos eslatma yo'q.",
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Refraktni qidirish',
   'search.loading': 'Qidirilmoqda…',
   'search.noRecent': "Qaydlaringiz bo'ylab qidirishni boshlash uchun yuqoridagi so'rovni kiriting.",
   'search.recentLabel': "So'nggi qidiruvlar",
@@ -79,12 +114,19 @@ export const ui: UiTranslations = {
     "Har bir daftarda to'liq matn. Qidiruv uchun yozing; natijalar siz yozganingizda yangilanadi.",
   'search.title': 'Ikkinchi miyani qidiring.',
   'settings.account.logout': 'Chiqish',
+  'settings.account.title': "Hisob ma'lumotlari",
+  'settings.editor.graphHover.body':
+    "Muharrirda [[vikihavola]] ustiga kursorni olib kelganda kichik ko'rish kartasini ko'rsating.",
+  'settings.editor.graphHover.label': "Orqaga havolalar grafi ustiga kelganda ko'rish",
   'settings.editor.lineHeight.body':
     "Tana chiziqlari orasida qancha havo bor. 170% standart o'qish ritmidir.",
+  'settings.editor.lineHeight.label': 'Qator balandligi',
   'settings.editor.serif.body':
     "O'qish ustuni uchun Georgia dan foydalaning. Sans-serif yon panel va asboblar panellarida saqlanadi.",
+  'settings.editor.serif.label': 'Serif matn',
   'settings.editor.title': 'Tipografiya va yozuv yuzasi',
   'settings.eyebrow': 'Verso · Sozlamalar',
+  'settings.passwordModal.current': 'Joriy parol',
   'settings.passwordModal.error':
     "Parolni o'zgartirib bo'lmadi — iltimos, joriy parolingizni tekshiring.",
   'settings.passwordModal.next': 'Yangi parol',
@@ -94,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     "Har bir tugmani real vaqt rejimida bosish. Sekinroq ulanishlar uchun o'chirib qo'ying.",
   'settings.sync.auto.label': 'Real vaqt rejimida sinxronlashtirish',
+  'settings.sync.title': 'Eslatmalaringiz qanday sayohat qiladi',
   'settings.theme.body':
     "Yorug'lik tahririyat ustunini yorqin saqlaydi. Sepiya sahifani kechqurunlar uchun isitadi.",
   'settings.theme.dark': "Qorong'u",
@@ -113,8 +156,12 @@ export const ui: UiTranslations = {
     "Qayd sarlavhasiga #xeshteglar qo'shing (masalan, \"O'qish ro'yxati #kitoblar\"), ular bu yerda avtomatik ravishda paydo bo'ladi.",
   'tags.emptyTitle': "Hali teglar yo'q",
   'tags.eyebrow': 'Indeks',
+  'tags.goToNotes': "Eslatmalarga o'tish →",
+  'tags.loadError': "Teglarni yuklab bo'lmadi: {{message}}",
   'tags.subtitle':
     "{{tags}} teglar bo'ylab {{notes}} Eslatmalar. Eslatma sarlavhasiga #hashtaglar qo'shing, ular shu yerda ko'rinadi.",
+  'versoAuthShell.sample.body':
+    "Ertaga ikkinchi o'qish har doim bugun kechqurun birinchi o'qishdan yaxshiroq o'qiladi. Qo'pol variantni chuqur ish papkasiga qo'ying…",
   'versoAuthShell.sample.label': 'Kundalik eslatma',
   'versoAuthShell.sample.timestamp': 'Bugun · soat 9:14',
   'versoAuthShell.sample.title': 'Shamollarning nafas olishiga ruxsat berish haqida',
@@ -126,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Yozishni davom eting',
   'versoTodayHero.createCta': 'Bugungi eslatmani boshlang',
   'versoTodayHero.dailyLabel': 'Kundalik eslatma',
+  'versoTodayHero.emptyHeadline': "Bugun bo'sh sahifa.",
   'versoTodayHero.emptySubline':
     'Fikringizni yozib oling, uchrashuvni yozib oling yoki ertaga eskiz yozing. Verso tuzilmani jim saqlaydi, shunda yozuv baland ovozda qoladi.',
+  'versoTodayHero.outlineLabel': 'Bugungi reja',
   'versoTodayHero.streak': '{{count}} -kunlik seriya',
+  'versoTodayHero.unwritten': "Hali so'z yo'q — boshlash uchun eslatmani oching.",
   'versoTodayHero.wordCount': "{{count}} bugungi so'zlar",
 }

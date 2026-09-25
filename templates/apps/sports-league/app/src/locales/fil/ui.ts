@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, may nahanap kang bug, o gusto mo ng {{app}} para sa iyong liga? Makipag-ugnayan sa amin mula sa settings ng iyong account — bawat mensahe ay napupunta sa isang tunay na tao sa team.',
+  'about.contactTitle': 'Makipag-ugnayan',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.featureAlerts':
+    'Mga push notification para sa mga update ng score, alerto sa trade, ulat ng injury, at mga anunsyo ng liga.',
+  'about.featureRosters':
+    'Mga pahina ng team na may kumpletong roster, kabuuang season, hot/cold streaks, at head-to-head splits para sa bawat manlalaro.',
+  'about.featureSchedule':
+    'Isang season calendar at schedule view para maplano mo ang bawat fixture at resulta.',
+  'about.featureScoreboard':
+    'Isang broadcast-grade na scoreboard ticker na naka-pin sa tuktok ng bawat pahina para hindi ka makaligtaan ng goal.',
+  'about.featureStandings':
+    'Live standings — real-time na win-loss-draw records, puntos, win-pct, at ang playoff line, na nire-refresh sa bawat whistle.',
+  'about.intro':
+    'Ang {{app}} ay isang broadcast-quality na tahanan para sa iyong liga. Ang mga team, schedule, live score, at standings ay nagsasama-sama sa isang mabilis at malinis na dashboard — para laging alam ng mga fan, coach, at organizer ng liga kung nasaan na ang season.',
+  'about.missionBody':
+    "Ang pagsunod sa isang liga ay hindi dapat nangangahulugan ng pag-refresh ng limang iba't ibang third-party scoreboard. Ginawa namin ito para mabigyan ang bawat liga ng isang pinagmumulan ng katotohanan para sa standings, schedule, at mga stats na talagang mahalaga — na-update sa bawat whistle, libre para sa season.",
+  'about.missionTitle': 'Ang aming misyon',
+  'about.whatYouGet': 'Ano ang matatanggap ninyo',
   'appShell.closeNav': 'Isara ang nabigasyon',
   'appShell.openNav': 'Buksan ang nabigasyon',
   'common.dashboard': 'Dashboard',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Tingnan ang lahat ng tugma',
   'dashboard.viewAllStandings': 'Kumpletong standing',
   'dashboard.viewAllStats': 'Tingnan ang lahat ng nangunguna sa istatistika',
+  'forgot.submitting': 'Nagpapadala ng reset link…',
   'forgot.subtitle': 'Ilagay ang inyong email para makatanggap ng link para sa pag-reset.',
   'forgot.success': 'Naipadala na ang link sa pag-reset kay {{email}} Tingnan ang iyong inbox.',
+  'landing.copyright': '© {{year}} {{app}}. Chase the standing.',
+  'landing.ctaBody':
+    'Ang iyong liga. Ang iyong standings. Ang paborito mong team — naka-pin sa tuktok. Dalawang minuto para i-set up, libre para sa season.',
   'landing.ctaHeading': 'Itigil ang pag-refresh ng mga scoreboard ng third-party',
   'landing.eyebrow': 'Ginawa para sa mga tagahanga, coach, at mga tagapag-ayos ng liga',
   'landing.featuresHeading': 'Isang upuan sa unahan para sa bawat nakatayo',
   'landing.getStarted': 'Sumali sa liga',
   'landing.heroCta': 'Sumali sa liga',
+  'landing.heroSubtitle':
+    'Pinagsasama ng {{app}} ang standings, schedule, at statistical leaders sa isang broadcast-quality na dashboard. Live scores. Tunay na records. Walang kalat.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Ngayong gabi sa liga',
   'landing.statFans': 'Mga tagahangang sumusunod',
   'landing.statGames': 'Mga laro ngayong season',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Balik sa mga laban',
   'matchDetail.eventsHeading': 'Paglalaro-sa-paglalaro',
+  'matchDetail.final': 'FINAL',
   'matchDetail.finalScore': 'Pangwakas',
   'matchDetail.live': 'LIVE',
   'matchDetail.liveNow': 'Live ngayon',
   'matchDetail.noEvents': 'Wala pang naitalang mga kaganapan.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Walang laban sa view na ito — subukan ang ibang filter.',
   'matches.eyebrow': 'Araw ng Laban',
   'matches.loading': 'Hinihila ang slate…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Nabigo ang pag-load ng mga notification',
   'notifications.loading': 'Naglo-load ng mga notification',
   'pennantHeroCard.eyebrow': 'Itaas ng mesa',
+  'pennantHeroCard.formLabel': 'Huling 10',
   'pennantHeroCard.gamesAhead': '{{value}} mga laro bago ang habulan',
   'pennantHeroCard.pointsLabel': 'Mga PTS',
   'pennantLayout.primaryNavLabel': 'Pangunahing navigation',
@@ -79,6 +108,10 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Piliin ang iyong upuan',
   'pricing.heading': 'Mag-upgrade para sa mas magandang iskedyul, mga iskor, at mga standing.',
   'pricing.limits.schedule': '{{count}} mga entry sa iskedyul',
+  'pricing.limits.scores': '{{count}} scores',
+  'pricing.limits.standings': '{{count}} standings',
+  'pricing.limits.teams': '{{count}} teams',
+  'pricing.subtitle': 'Mag-upgrade para sa mas mayamang schedule, scores, at standings.',
   'pricing.upgradeCta': 'I-upgrade sa {{tierName}}',
   'profile.eyebrow': 'Profile ng tagahanga',
   'profile.favoritesCount': 'Sinundan ng mga koponan',
@@ -86,11 +119,14 @@ export const ui: UiTranslations = {
   'profile.noFavorites':
     'Wala pang mga paborito — pumili ng mga koponan mula sa pahina ng Mga Koponan.',
   'profile.rankRecord': 'Ranggo # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Record {{record}}',
   'reset.confirmPlaceholder': 'Ulitin ang password',
+  'reset.mismatch': 'Hindi magkatugma ang mga password.',
   'reset.newLabel': 'Bagong password',
   'reset.subtitle': 'Pumili ng matibay na password na hindi bababa sa 12 karakter ang haba.',
   'reset.tokenPlaceholder': 'I-paste mula sa email',
   'schedule.eyebrow': 'Ang slate',
+  'schedule.moreGames': '+ {{count}} higit pa',
   'schedule.subtitle':
     'View ng kalendaryo ng mga laro sa buong season — i-tap ang anumang araw para sa mga score sa box.',
   'scoreboardTicker.empty': 'Walang live na laro ngayon — bumalik sa puck drop.',
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'I-personalize',
   'settings.favoritesBody':
     'Ang mga team na ito ay naka-pin sa iyong dashboard at nagti-trigger ng mga alerto sa score.',
+  'settings.favoritesHeading': 'Mga paboritong koponan',
   'settings.loading': 'Nilo-load ang iyong mga kagustuhan\\u2026',
   'settings.noFavorites':
     'Wala pang mga paborito \\u2014 pumili ng mga koponan mula sa pahina ng Mga Koponan.',
@@ -117,6 +154,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Kabuuan',
   'standings.points': 'Mga PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Ang top four ay makakarating sa postseason — tiebreakers sa pamamagitan ng puntos, pagkatapos ay mananalo ng porsyento.',
   'standings.title': 'Mga standing ng liga',
@@ -135,6 +173,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Manlalaro',
   'teamDetail.colPos': 'Posisyon',
+  'teamDetail.pointsLabel': 'Mga Puntos',
   'teamDetail.rankLabel': 'Ranggo # {{rank}}',
   'teamDetail.rosterHeading': 'Listahan',
   'teamDetail.statGD': 'Pagkakaiba sa Layunin',

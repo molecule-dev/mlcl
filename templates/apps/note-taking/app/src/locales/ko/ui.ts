@@ -1,20 +1,40 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '피드백이 있거나, 버그를 발견했거나, 기능을 제안하고 싶으신가요? 계정 설정에서 알려주세요 — 모든 메시지는 팀의 실제 사람에게 전달됩니다.',
+  'about.contactTitle': '문의하기',
+  'about.featureDatabases':
+    '가벼운 데이터베이스와 재사용 가능한 템플릿으로 흩어진 노트를 구조화된 반복 워크플로로 바꿔보세요.',
+  'about.featureEditor':
+    '조용한 블록 에디터 — 제목, 목록, 코드, 콜아웃, 할 일 — 슬래시 명령은 필요할 때 나타나고, 필요 없을 땐 방해하지 않습니다.',
+  'about.featureGraph':
+    '백링크와 지식 그래프: [[ 를 입력해 노트를 연결하고, 시간이 지나며 아이디어가 어떻게 이어지는지 지켜보세요.',
+  'about.featureNotebooks':
+    '중첩된 노트북과 페이지로 프로젝트, 주제, 데일리 노트를 생각하는 그대로 정리하세요.',
+  'about.featureSearch':
+    '모든 노트북을 아우르는 50ms 미만의 전체 텍스트 검색, 그리고 노트북과 충돌하지 않고 어우러지는 태그.',
+  'about.missionTitle': '우리의 사명',
   'common.goToDashboard': '대시보드로 이동',
   'forgot.eyebrow': '다시 들어가는 길을 잃으셨나요?',
   'forgot.formSubtitle': '등록된 이메일을 알려주세요.',
+  'forgot.formTitle': '비밀번호 찾기',
   'forgot.headline': '비밀번호를 재설정하세요.',
   'forgot.subline': '새로운 주소를 선택하실 수 있도록 일회용 링크를 이메일로 보내드리겠습니다.',
+  'forgot.successDetail': '이메일로 재설정 링크를 보냈습니다. 30분 후에 만료됩니다.',
   'graph.eyebrow': '그래프',
+  'graph.goToNotes': '노트 둘러보기 →',
+  'graph.loadError': '그래프를 불러올 수 없습니다: {{message}}',
   'graph.placeholderBody':
     '노트들이 서로 연결되기 시작하면([[wiki]] 구문을 사용하여), 여기에 상호작용하는 힘 방향 그래프가 표시됩니다.',
+  'graph.placeholderTitle': '백링크 그래프 곧 제공 예정',
   'graph.subtitle':
     '{{count}} 이 작업 공간에 있는 메모입니다. 메모들이 서로 연결되면 백링크 그래프 렌더링이 여기에 나타납니다.',
   'graph.title': '지식 그래프',
   'home.empty': '아직 메모가 없습니다. 첫 번째 메모를 작성해 보세요.',
   'home.favoritesHeading': '고정됨',
   'home.guest': '친구',
+  'home.loadError': '노트를 불러올 수 없습니다: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': '이 메모를 편집기에 고정해 두세요.',
   'home.recentHeading': '최근 업데이트됨',
@@ -22,18 +42,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': '공책',
   'home.stats.pinned.label': '고정됨',
   'home.stats.updatedToday.label': '오늘 업데이트됨',
+  'home.subtitle': '하던 곳에서 이어가거나, 새 노트를 시작하세요.',
   'home.viewAll': '모든 메모 보기',
   'landing.cta.body':
     '개인 사용자는 무료입니다. 팀 사용자는 Pro 버전을 이용할 수 있습니다. 기존 마크다운을 가져오거나 새로 시작하세요. Verso는 메모가 어디에 있든 상관없이 모든 상황에 맞춰 사용할 수 있습니다.',
+  'landing.cta.button': '내 워크스페이스 만들기',
   'landing.cta.heading': '오늘의 페이지를 열어보세요.',
   'landing.features.eyebrow': '당신의 두 번째 두뇌에 필요한 모든 원시적인 것들',
+  'landing.features.heading': '메타 작업이 아닌 실제 작업을 위해 만들어졌습니다.',
   'landing.hero.eyebrow': '조용한 필기 표면',
   'landing.hero.headlineAccent': '형체를 갖추다.',
   'landing.hero.headlineLeading': '생각이 있는 곳',
   'landing.hero.primaryCta': '지식 기반을 구축하세요',
   'landing.hero.secondaryCta': '이미 계정이 있습니다',
+  'landing.hero.socialProof':
+    '12,800명 이상의 작가, 학생, 박사 과정 연구자가 {{appName}}와 함께 생각합니다',
   'landing.hero.subline':
     'Verso는 지식 근로자와 학생을 위한 구조화된 노트 필기 공간입니다. 블록 편집기, 중첩 노트북, 백링크, 지식 그래프 등 모든 기능이 타이포그래피를 최우선으로 고려한 읽기 환경 속에 녹아들어 있습니다.',
+  'landing.preview.notebook': '지식 · 글쓰기 과정',
+  'landing.preview.title': '바람이 통하게 하는 것에 대하여',
   'login.eyebrow': 'Verso에 다시 오신 것을 환영합니다.',
   'login.formSubtitle': '이메일이나 연결된 서비스를 사용하세요.',
   'login.headline': '페이지가 멈춘 부분부터 다시 시작하세요.',
@@ -42,6 +69,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': '탐색 메뉴 닫기',
   'mobileNav.openMenu': '탐색 메뉴 열기',
   'noteEditor.backToNotes': '메모로 돌아가기',
+  'noteEditor.bodyLabel': '노트 본문',
   'noteEditor.bodyPlaceholder': '지금 바로 글을 쓰세요. 입력하는 동안 메모가 자동으로 저장됩니다.',
   'noteEditor.confirmTrash': '이 메모를 휴지통으로 옮기시겠습니까?',
   'noteEditor.pinToggle': '즐겨찾기 토글',
@@ -49,16 +77,21 @@ export const ui: UiTranslations = {
   'noteEditor.trash': '휴지통으로 이동',
   'noteEditor.updated': '업데이트됨',
   'notes.defaultWorkspaceName': '내 노트북',
+  'notes.empty': '아직 노트가 없습니다 — 하나를 시작해 노트북을 채워보세요.',
   'notes.eyebrow': '공책',
   'notes.filterAll': '모든 메모',
   'notes.filterPinned': '고정됨',
   'notes.newCta': 'New note',
   'notes.newNotebook': '새 노트북',
   'notes.newNotebookPrompt': '새 노트북 이름',
+  'notes.newNotebookRequired': '노트북 이름을 입력하세요.',
   'notes.notebooksHeading': '노트북',
   'notes.subtitle': "왼쪽에서 노트를 선택한 다음, '새 노트' 버튼을 눌러 새 항목을 시작하세요.",
+  'planUpdated.body': '구독이 활성화되었습니다.',
   'planUpdated.confirmation': '요금제가 업데이트되었습니다',
+  'pricing.advancedFeatures': '고급 기능',
   'pricing.heading': '필기 계획을 선택하세요',
+  'reset.changedMind': '마음이 바뀌셨나요?',
   'reset.eyebrow': '거의 돌아왔습니다',
   'reset.formSubtitle': '저장되는 즉시 로그인됩니다.',
   'reset.headline': '새 비밀번호를 선택하세요.',
@@ -67,7 +100,9 @@ export const ui: UiTranslations = {
   'reset.subline': '방금 이메일로 보내드린 코드를 입력하고 기억에 남을 만한 것을 골라보세요.',
   'reset.submit': '저장 후 로그인',
   'reset.tokenHint': '받은편지함에서 붙여넣으세요.',
+  'search.empty': '아직 이 검색어와 일치하는 노트가 없습니다.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Refract 검색',
   'search.loading': '검색 중…',
   'search.noRecent': '위에 검색어를 입력하여 메모 전체를 검색해 보세요.',
   'search.recentLabel': '최근 검색',
@@ -75,12 +110,19 @@ export const ui: UiTranslations = {
     '모든 노트북의 전체 텍스트를 볼 수 있습니다. 검색어를 입력하면 입력하는 동안 결과가 새로 고쳐집니다.',
   'search.title': '제2의 두뇌를 검색해 보세요.',
   'settings.account.logout': '로그아웃',
+  'settings.account.title': '계정 세부정보',
+  'settings.editor.graphHover.body':
+    '에디터에서 [[위키링크]]에 마우스를 올리면 작은 미리보기 카드를 표시합니다.',
+  'settings.editor.graphHover.label': '백링크 그래프 호버 미리보기',
   'settings.editor.lineHeight.body':
     '신체 라인 사이의 간격은 얼마나 되어야 할까요? 170%가 기본 읽기 리듬입니다.',
+  'settings.editor.lineHeight.label': '줄 높이',
   'settings.editor.serif.body':
     '읽기 열에는 Georgia 글꼴을 사용하세요. 사이드바와 툴바에는 Sansserif 글꼴을 유지하세요.',
+  'settings.editor.serif.label': '세리프 본문 텍스트',
   'settings.editor.title': '타이포그래피 및 필기면',
   'settings.eyebrow': 'Verso · 설정',
+  'settings.passwordModal.current': '현재 비밀번호',
   'settings.passwordModal.error': '비밀번호를 변경할 수 없습니다. 현재 비밀번호를 확인해 주세요.',
   'settings.passwordModal.next': '새 비밀번호',
   'settings.passwordModal.submit': '비밀번호 저장',
@@ -89,6 +131,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     '모든 키 입력을 실시간 채널을 통해 전송합니다. 연결 속도가 느린 경우 이 기능을 비활성화하십시오.',
   'settings.sync.auto.label': '실시간 동기화',
+  'settings.sync.title': '노트가 이동하는 방식',
   'settings.theme.body':
     '밝은 조명은 사설 페이지를 환하게 유지하고, 세피아 톤은 저녁에 따뜻한 분위기를 연출합니다.',
   'settings.theme.dark': '다크',
@@ -108,8 +151,12 @@ export const ui: UiTranslations = {
     '메모 제목에 #해시태그를 추가하면(예: "읽을 책 목록 #책") 여기에 자동으로 표시됩니다.',
   'tags.emptyTitle': '아직 태그가 없습니다',
   'tags.eyebrow': '색인',
+  'tags.goToNotes': '노트로 이동 →',
+  'tags.loadError': '태그를 불러올 수 없습니다: {{message}}',
   'tags.subtitle':
     '{{tags}} 태그 전반에 걸쳐 {{notes}} 메모. 메모 제목에 #해시태그를 추가하면 여기에 표시됩니다.',
+  'versoAuthShell.sample.body':
+    '내일 한 번 더 훑어보면 오늘 밤 처음 훑어본 것보다 항상 더 잘 읽힙니다. 거친 초안은 딥 워크 폴더에 넣어두세요…',
   'versoAuthShell.sample.label': '일일 노트',
   'versoAuthShell.sample.timestamp': '오늘 · 오전 9시 14분',
   'versoAuthShell.sample.title': '바람이 통하게 하는 것에 대하여',
@@ -121,8 +168,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': '계속 작성',
   'versoTodayHero.createCta': '오늘의 메모를 시작하세요',
   'versoTodayHero.dailyLabel': '일일 노트',
+  'versoTodayHero.emptyHeadline': '오늘은 빈 페이지입니다.',
   'versoTodayHero.emptySubline':
     '떠오르는 생각을 기록하고, 회의 내용을 메모하거나, 내일의 계획을 세워보세요. Verso는 구조를 깔끔하게 유지하여 글 자체에 집중할 수 있도록 도와줍니다.',
+  'versoTodayHero.outlineLabel': '오늘의 개요',
   'versoTodayHero.streak': '{{count}}일 연속',
+  'versoTodayHero.unwritten': '아직 단어가 없습니다 — 노트를 열어 시작하세요.',
   'versoTodayHero.wordCount': '{{count}} 오늘의 단어들',
 }

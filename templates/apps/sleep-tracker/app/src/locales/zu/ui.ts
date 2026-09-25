@@ -1,9 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, isicelo sesici, noma uthole iphutha? Sifunda wonke umlayezo — xhumana nathi noma nini futhi umuntu wangempela eqenjini uzokuphendula.',
   'about.contactTitle': 'Xhumana nathi',
+  'about.intro':
+    'I-{{app}} iyisilandi sokulala esibuyisela amandla esiguqula ubusuku ngabunye bube ulwazi olucacile nolusebenzekayo. Ixhumana ne-wearable yakho ukuze ihlele isigaba ngasinye sokulala kwakho, ikalise ukululama kwakho, futhi ikuvuse ngesikhathi esifanele emjikelezweni wakho — ukuze wakhe ubusuku obukushiya uphumule ngempela.',
+  'about.missionBody':
+    'Izinhlelo zokulala eziningi ziyagcina ngenombolo kudashibhodi. Sikholelwa ukuthi ukulala okungcono kuvela ekuqondeni isizathu esingemuva kwesikolo, bese ushintsha into eyodwa encane ngesikhathi. I-{{app}} yakhelwe ukuthula, ayinamsindo — iveza okubalulekile kudatha yakho futhi ingeneleli kuyo yonke ingxenye yobusuku.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'about.pageTitle': 'Mayelana ne-{{app}}',
+  'about.whatYouGetTitle': 'Lokho okutholayo',
+  'authShell.privacyBadge':
+    'Ubusuku bakho buhlala buyimfihlo — bufihlwe nge-encryption lapho bugcinwa.',
+  'authShell.tagline': '{{app}} — {{tagline}}',
   'coaching.activeBanner.continue': 'Funda isihloko',
+  'coaching.activeBanner.eyebrow': 'I-athikili efakiwe',
   'coaching.empty.body': 'Izinhlelo ezintsha zizovela lapha njengoba zengezwa.',
   'coaching.empty.title': 'Azikho izihloko zokuqeqesha okwamanje',
   'coaching.eyebrow': 'Ukuqeqesha',
@@ -16,6 +28,7 @@ export const ui: UiTranslations = {
   'coachingDetail.eyebrow': 'Isihloko',
   'coachingDetail.locked.body':
     'Thuthukisa uhlelo lwakho ukuze ufunde lokhu kanye nezinye izihloko ze-premium.',
+  'coachingDetail.locked.cta': 'Uhlelo lokuthuthukisa',
   'coachingDetail.locked.title': 'Lesi sihloko singese-premium',
   'coachingDetail.notFound': 'Asikwazanga ukuthola lesi sihloko.',
   'coachingDetail.unavailable': 'Isihloko asitholakali',
@@ -23,6 +36,7 @@ export const ui: UiTranslations = {
   'dashboard.empty.body':
     'Bhalisa ubusuku noma uxhume i-wearable ukuze uqale ukubona amaphethini akho okulala.',
   'dashboard.empty.cta': 'Xhuma okugqokwayo',
+  'dashboard.empty.title': 'Akukho busuku obulandelelwe okwamanje',
   'dashboard.eyebrow': 'Namuhla ebusuku',
   'dashboard.heroInsight':
     'Landela obunye ubusuku ukuze ubone izitayela zokulala ubuthongo obukhulu.',
@@ -43,13 +57,19 @@ export const ui: UiTranslations = {
   'devices.loading': 'Ilayisha amadivayisi…',
   'devices.pauseAria': 'Misa isikhashana {{brand}}',
   'devices.providerField': 'Umhlinzeki',
+  'devices.resumeAria': 'Qhubeka ne-{{brand}}',
   'devices.synced': 'Kuvunyelanisiwe {{value}}',
+  'devices.unlink': 'Susa ukuxhumanisa',
   'devices.unlinkAria': 'Susa ukuxhumanisa {{brand}}',
+  'forgotPassword.continueButton': 'Faka ikhodi yokusetha kabusha',
   'forgotPassword.eyebrow': 'Azikho izinkinga',
   'forgotPassword.subheading':
     'Faka i-imeyili yakho bese sizokuthumela isixhumanisi sokusetha kabusha.',
   'forgotPassword.successBody':
     'Uma kukhona i-akhawunti ye- {{email}} , isixhumanisi sokusetha kabusha sisendleleni.',
+  'landing.ctaBody':
+    'Mahhala ekulandeleni kobusuku. I-Pro ivula izinhlelo zokuqeqesha, ukuthumela ngaphandle, nokwabelana nomndeni.',
+  'landing.ctaButton': 'Landelela ubusuku bakho bokuqala',
   'landing.ctaTitle': 'Namuhla ebusuku idatha. Kusasa ukululama.',
   'landing.eyebrow': 'Ukulala, kuchazwe',
   'landing.featuresBody':
@@ -67,16 +87,25 @@ export const ui: UiTranslations = {
   'login.heading': 'Ngena ngemvume ku-Somnia',
   'login.rememberMe': 'Ngigcine ngingene ngemvume',
   'login.signupLink': 'Qala ukulandelela namuhla ebusuku',
+  'login.signupPrompt': 'Usanda kufika eTessera?',
   'login.subheading': 'Qhubeka nobusuku bakho lapho ushiye khona.',
   'logNight.bedtimeField': 'Isikhathi sokulala',
   'logNight.dateField': 'Ubusuku buka',
+  'logNight.errors.missingFields':
+    'Idethi, isikhathi sokulala nesikhathi sokuvuka kuyadingeka konke.',
+  'logNight.errors.noRecord': 'Ubusuku bulondoloziwe kodwa iseva ayibuyisanga irekhodi.',
+  'logNight.errors.saveFailed': 'Ukulondoloza ubusuku kwehlulekile — sicela uzame futhi.',
+  'logNight.errors.zeroLength': 'Isikhathi sokuvuka kufanele sihluke esikhathini sokulala.',
+  'logNight.factorsField': 'Izici',
   'logNight.interruptionsField': 'Ukuvuka ebusuku',
   'logNight.notesField': 'Amanothi (ongakukhetha)',
+  'logNight.qualityField': 'Kukuzwe kuphumule kangakanani? ({{score}}/100)',
   'logNight.save': 'Londoloza ubusuku',
   'logNight.title': 'Ngena ngobusuku',
   'logNight.wakeField': 'Isikhathi sokuvuka',
   'night.backLink': 'Buyela emlandweni',
   'night.eyebrow': 'Ubusuku obubodwa',
+  'night.factorsTitle': 'Izici zibhaliwe',
   'night.heroInsight': 'Thepha isiteji kumugqa wesikhathi ukuze ungene kuwo.',
   'night.loading': 'Ilayisha imininingwane yobusuku…',
   'night.notFound.body': 'Asinalo irekhodi lokulala ngalolu suku.',
@@ -87,6 +116,7 @@ export const ui: UiTranslations = {
   'nightHistory.count': 'Kuboniswa {{count}} ubusuku',
   'nightHistory.empty.body':
     'Bhalisa iseshini yokulala noma uxhume okugqokwayo ukuze ugcwalise umlando wakho.',
+  'nightHistory.empty.title': 'Akukho busuku obulandelelwe okwamanje',
   'nightHistory.heading': 'Njalo ebusuku ubulokhu ulandela',
   'nightHistory.loading': 'Ilayisha ubusuku...',
   'nightHistory.logNight': 'Ngena ngobusuku',
@@ -95,6 +125,7 @@ export const ui: UiTranslations = {
   'nightHistoryRow.hourSuffix': 'ihora',
   'nightHistoryRow.minSuffix': 'umzuzu',
   'nightHistoryRow.rem': '{{pct}} % REM',
+  'nightHistoryRow.scoreAria': 'Amaphuzu {{score}}',
   'notifications.emptyBody':
     'Umsebenzi omusha, izikhumbuzi ze-alamu, kanye nokushukunyiswa kokuqeqesha kuzofika lapha.',
   'notifications.emptyHeading': 'Usuvele ubambekile',
@@ -106,9 +137,16 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Ubuwena bakho bokulala',
   'profile.locked': 'Kukhiyiwe',
   'recoveryRingsTriad.deepCaption': 'Ithagethi {{goal}} % wobusuku',
+  'recoveryRingsTriad.deepLabel': 'Ukulala okujulile',
+  'recoveryRingsTriad.deepValue': '{{pct}} %',
   'recoveryRingsTriad.durationCaption': 'Igoli {{goal}} ubusuku / amahora',
+  'recoveryRingsTriad.durationValue': '{{hours}}h',
+  'recoveryRingsTriad.heartCaption': 'Isisekelo {{baseline}} bpm',
+  'recoveryRingsTriad.heartLabel': 'I-HR yokuphumula',
+  'recoveryRingsTriad.heartValue': '{{bpm}} bpm',
   'resetPassword.eyebrow': 'Isiqalo esisha',
   'resetPassword.mismatchError': 'Amaphasiwedi awafani.',
+  'resetPassword.passwordLabel': 'Iphasiwedi Entsha',
   'resetPassword.subheading': 'Khetha into ephumuzayo — okungenani izinhlamvu ezingu-12.',
   'resetPassword.tokenPlaceholder': 'Setha kabusha ikhodi kusuka ku-imeyili',
   'settings.bedtimeGoal': 'Isikhathi sokulala',
@@ -116,15 +154,21 @@ export const ui: UiTranslations = {
     'Ukusunduza kancane imizuzu engama-30 ngaphambi kwesikhathi sakho sokulala.',
   'settings.bedtimeReminder.label': 'Isikhumbuzi sesikhathi sokulala',
   'settings.durationGoal': 'Umgomo wobude besikhathi (amahora)',
+  'settings.exportDelete.description':
+    'Thola i-CSV yabo bonke ubusuku, noma susa i-akhawunti yakho unomphela.',
   'settings.exportDelete.label': 'Thumela noma susa idatha yakho',
   'settings.goalsCaption': 'Tshela uSomnia ukuthi ubukeka kanjani umuhle',
   'settings.goalsTitle': 'Imigomo yokulala',
+  'settings.shareDevices.description':
+    'Kungaziwa igama, ngokuvuma kwakho. Ungayeka ukwabelana noma nini.',
   'settings.shareDevices.label': 'Yabelana ngedatha yedivayisi nabacwaningi',
   'settings.smartAlarm.description':
     'Vuka ngaphakathi kwefasitela lokulala okulula ngaphambi kwesikhathi se-alamu.',
+  'settings.smartAlarm.label': 'I-alamu ehlakaniphile',
   'settings.wakeGoal': 'Isikhathi sokuvuka',
   'settings.weeklyReport.description':
     'Isifinyezo sangeSonto ekuseni sobude besikhathi, amaphuzu, kanye nobusuku obuvelele.',
+  'settings.weeklyReport.label': 'I-imeyili yesifinyezo samasonto onke',
   'signup.eyebrow': 'Qala namuhla ebusuku',
   'signup.firstNamePlaceholder': 'USam',
   'signup.lastNamePlaceholder': 'Umuntu olele',
@@ -133,6 +177,7 @@ export const ui: UiTranslations = {
   'sleepScoreHeroCard.duration': '{{hours}} h {{mins}} m',
   'sleepScoreHeroCard.outOf': '/ 100',
   'sleepScoreHeroCard.title': 'Izolo ebusuku',
+  'sleepStagesTimeline.ariaLabel': 'Umugqa wesikhathi wezigaba zokulala',
   'sleepStagesTimeline.title': 'I-Hypnogram',
   'sleepTrackerLayout.closeMenu': 'Vala imenyu yokuzulazula',
   'sleepTrackerLayout.openMenu': 'Vula imenyu yokuzulazula',
@@ -145,6 +190,7 @@ export const ui: UiTranslations = {
   'sleepTrendChart.title': 'Umkhuba wobude besikhathi',
   'smartAlarm.addAlarm': 'I-alamu entsha',
   'smartAlarm.daysField': 'Izinsuku',
+  'smartAlarm.deleteAria': 'Susa i-alamu {{label}}',
   'smartAlarm.emptyBody':
     'Engeza isikhathi sokuvuka ukuze uqale ukuvumelanisa nemijikelezo yakho yokulala.',
   'smartAlarm.emptyHeading': 'Azikho izixwayiso okwamanje',
@@ -152,7 +198,9 @@ export const ui: UiTranslations = {
   'smartAlarm.eyebrow': 'Ukuvuka okuhlakaniphile',
   'smartAlarm.heading': 'Vuka ngesikhathi esifanele',
   'smartAlarm.labelField': 'Ilebula',
+  'smartAlarm.loading': 'Ilayisha ama-alamu…',
   'smartAlarm.newDialog': 'I-alamu entsha',
+  'smartAlarm.noAlarmsSubtitle': 'Engeza i-alamu ukuze uthole iwindi lokuvuka elihlakaniphile.',
   'smartAlarm.save': 'Londoloza i-alamu',
   'smartAlarm.soundField': 'Umsindo',
   'smartAlarm.soundsCaption': 'Khetha ithoni yokuvuka yama-alamu amasha',
@@ -171,6 +219,7 @@ export const ui: UiTranslations = {
   'trends.eyebrow': 'Amaphethini',
   'trends.heading': 'Indlela ukulala kwakho okuthrenda ngayo',
   'trends.stageBreakdown.caption': 'Ukuhlukaniswa okumaphakathi ku- {{hours}} h',
+  'trends.stageBreakdown.minutes': '{{minutes}}m',
   'trends.stageBreakdown.title': 'Ukuhlukaniswa kwesiteji',
   'trends.summary.avgDuration': 'Ubude obumaphakathi',
   'trends.summary.avgScore': 'Isilinganiso esimaphakathi',

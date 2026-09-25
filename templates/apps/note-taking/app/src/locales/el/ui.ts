@@ -1,21 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, βρήκες κάποιο σφάλμα ή θέλεις να προτείνεις μια λειτουργία; Επικοινώνησε από τις ρυθμίσεις του λογαριασμού σου — κάθε μήνυμα φτάνει σε έναν πραγματικό άνθρωπο της ομάδας.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.featureDatabases':
+    'Ελαφριές βάσεις δεδομένων και επαναχρησιμοποιήσιμα πρότυπα για να μετατρέπεις τις πρόχειρες σημειώσεις σε δομημένες, επαναλαμβανόμενες ροές εργασίας.',
+  'about.featureEditor':
+    'Ένας ήσυχος επεξεργαστής block — επικεφαλίδες, λίστες, κώδικας, πλαίσια και εκκρεμότητες — με εντολές slash όταν τις θέλεις και μακριά από τον δρόμο σου όταν δεν τις θέλεις.',
+  'about.featureGraph':
+    'Backlinks και γράφος γνώσης: πληκτρολόγησε [[ για να συνδέσεις μια σημείωση και δες πώς συνδέονται οι ιδέες σου με τον χρόνο.',
+  'about.featureNotebooks':
+    'Ένθετα σημειωματάρια και σελίδες ώστε έργα, θέματα και καθημερινές σημειώσεις να μένουν οργανωμένα ακριβώς όπως σκέφτεσαι.',
+  'about.featureSearch':
+    'Αναζήτηση πλήρους κειμένου κάτω από 50ms σε κάθε σημειωματάριο, μαζί με ετικέτες που συνδυάζονται με τα σημειωματάρια αντί να συγκρούονται μαζί τους.',
+  'about.missionTitle': 'Η αποστολή μας',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'forgot.eyebrow': 'Χάσατε τον δρόμο της επιστροφής;',
   'forgot.formSubtitle': 'Πείτε μας το email που έχουμε στο αρχείο.',
+  'forgot.formTitle': 'Ξεχασμένος κωδικός',
   'forgot.headline': 'Επαναφέρετε τον κωδικό πρόσβασής σας.',
   'forgot.subline':
     'Θα στείλουμε έναν εφάπαξ σύνδεσμο στα εισερχόμενά σας, ώστε να μπορείτε να επιλέξετε έναν νέο.',
+  'forgot.successDetail': 'Στείλαμε έναν σύνδεσμο επαναφοράς στο email σου. Λήγει σε 30 λεπτά.',
   'graph.eyebrow': 'Γραφική παράσταση',
+  'graph.goToNotes': 'Περιήγηση σημειώσεων →',
+  'graph.loadError': 'Δεν ήταν δυνατή η φόρτωση του γράφου: {{message}}',
   'graph.placeholderBody':
     'Όταν οι σημειώσεις αρχίζουν να συνδέονται μεταξύ τους (με σύνταξη [[wiki]]), θα εμφανιστεί εδώ ένα διαδραστικό γράφημα που βασίζεται σε εξαναγκασμό.',
+  'graph.placeholderTitle': 'Ο γράφος backlinks έρχεται σύντομα',
   'graph.subtitle':
     '{{count}} σημειώσεις σε αυτόν τον χώρο εργασίας. Η απόδοση γραφήματος οπισθοσύνδεσης θα εμφανιστεί εδώ μόλις οι σημειώσεις συνδεθούν μεταξύ τους.',
   'graph.title': 'Γράφημα γνώσεων',
   'home.empty': 'Δεν υπάρχουν ακόμη σημειώσεις — ξεκινήστε την πρώτη σας.',
   'home.favoritesHeading': 'Καρφιτσωμένα',
   'home.guest': 'φίλος',
+  'home.loadError': 'Δεν ήταν δυνατή η φόρτωση των σημειώσεών σου: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Καρφιτσώστε μια σημείωση στον επεξεργαστή για να τη διατηρήσετε εδώ.',
   'home.recentHeading': 'Πρόσφατα ενημερώθηκε',
@@ -23,18 +43,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Σημειωματάριο',
   'home.stats.pinned.label': 'Καρφιτσωμένα',
   'home.stats.updatedToday.label': 'Ενημερώθηκε σήμερα',
+  'home.subtitle': 'Συνέχισε από εκεί που σταμάτησες ή ξεκίνησε μια νέα σημείωση.',
   'home.viewAll': 'Δείτε όλες τις σημειώσεις',
   'landing.cta.body':
     'Δωρεάν για προσωπική χρήση. Επαγγελματίας για ομάδες. Φέρτε την υπάρχουσα έκπτωση ή ξεκινήστε από την αρχή — το Verso σας συναντά όπου κι αν βρίσκονται οι σημειώσεις σας.',
+  'landing.cta.button': 'Δημιουργία του χώρου εργασίας μου',
   'landing.cta.heading': 'Άνοιξε τη σημερινή σελίδα.',
   'landing.features.eyebrow': 'Κάθε πρωτόγονο που χρειάζεται ο δεύτερος εγκέφαλός σας',
+  'landing.features.heading': 'Φτιαγμένο για το έργο, όχι για το μετα-έργο.',
   'landing.hero.eyebrow': 'Μια ήσυχη επιφάνεια γραφής',
   'landing.hero.headlineAccent': 'παίρνω σχήμα.',
   'landing.hero.headlineLeading': 'Όπου οι σκέψεις',
   'landing.hero.primaryCta': 'Ξεκινήστε τη βάση γνώσεών σας',
   'landing.hero.secondaryCta': 'Έχω ήδη έναν λογαριασμό',
+  'landing.hero.socialProof':
+    '12.800+ συγγραφείς, φοιτητές και διδάκτορες σκέφτονται με το {{appName}}',
   'landing.hero.subline':
     'Το Verso είναι μια δομημένη επιφάνεια λήψης σημειώσεων για εργαζόμενους γνώσης και μαθητές. Επεξεργαστής μπλοκ, ένθετα σημειωματάρια, backlinks και ένα γράφημα γνώσης — όλα πίσω από μια εμπειρία ανάγνωσης με βάση την τυπογραφία.',
+  'landing.preview.notebook': 'Γνώση · Διαδικασία γραφής',
+  'landing.preview.title': 'Αφήνοντας τα ρεύματα να αναπνεύσουν',
   'login.eyebrow': 'Καλώς ήρθατε πίσω στο Verso',
   'login.formSubtitle': 'Χρησιμοποιήστε το email σας ή οποιονδήποτε συνδεδεμένο πάροχο.',
   'login.headline': 'Συνεχίστε από το σημείο που σταμάτησε η σελίδα.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
   'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'noteEditor.backToNotes': 'Επιστροφή στις σημειώσεις',
+  'noteEditor.bodyLabel': 'Σώμα σημείωσης',
   'noteEditor.bodyPlaceholder':
     'Ξεκινήστε να γράφετε — η σημείωσή σας αποθηκεύεται αυτόματα καθώς πληκτρολογείτε.',
   'noteEditor.confirmTrash': 'Μετακίνηση αυτής της σημείωσης στον κάδο απορριμμάτων;',
@@ -52,17 +80,23 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Μετακίνηση στον Κάδο',
   'noteEditor.updated': 'Ενημερώθηκε',
   'notes.defaultWorkspaceName': 'Το σημειωματάριό μου',
+  'notes.empty':
+    'Δεν υπάρχουν σημειώσεις εδώ ακόμη — ξεκίνησε μία για να γεμίσεις το σημειωματάριο.',
   'notes.eyebrow': 'Σημειωματάριο',
   'notes.filterAll': 'Όλες οι σημειώσεις',
   'notes.filterPinned': 'Καρφιτσωμένα',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Νέο σημειωματάριο',
   'notes.newNotebookPrompt': 'Νέο όνομα σημειωματαρίου',
+  'notes.newNotebookRequired': 'Εισαγάγετε όνομα σημειωματαρίου.',
   'notes.notebooksHeading': 'Σημειωματάρια',
   'notes.subtitle':
     'Επιλέξτε ένα σημειωματάριο στα αριστερά και, στη συνέχεια, πατήστε το κουμπί Νέα σημείωση για να ξεκινήσετε μια νέα καταχώρηση.',
+  'planUpdated.body': 'Η συνδρομή σας είναι πλέον ενεργή.',
   'planUpdated.confirmation': 'Το πρόγραμμά σας έχει ενημερωθεί',
+  'pricing.advancedFeatures': 'Προηγμένες λειτουργίες',
   'pricing.heading': 'Επιλέξτε το πρόγραμμα λήψης σημειώσεων που σας ενδιαφέρει',
+  'reset.changedMind': 'Αλλάξατε γνώμη;',
   'reset.eyebrow': 'Σχεδόν ξανά μέσα',
   'reset.formSubtitle': 'Θα συνδεθείτε μόλις αποθηκευτεί.',
   'reset.headline': 'Επιλέξτε έναν νέο κωδικό πρόσβασης.',
@@ -72,7 +106,9 @@ export const ui: UiTranslations = {
     'Εισαγάγετε τον κωδικό που μόλις σας στείλαμε μέσω email και επιλέξτε κάτι που θα σας μείνει αξέχαστο.',
   'reset.submit': 'Αποθήκευση και σύνδεση',
   'reset.tokenHint': 'Επικολλήθηκε από τα εισερχόμενά σας.',
+  'search.empty': 'Καμία σημείωση δεν ταιριάζει ακόμη με αυτό το ερώτημα.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Αναζήτηση Refract',
   'search.loading': 'Αναζήτηση…',
   'search.noRecent':
     'Πληκτρολογήστε ένα ερώτημα παραπάνω για να ξεκινήσετε την αναζήτηση στις σημειώσεις σας.',
@@ -81,12 +117,19 @@ export const ui: UiTranslations = {
     'Πλήρες κείμενο σε κάθε σημειωματάριο. Πληκτρολογήστε για αναζήτηση. Τα αποτελέσματα ανανεώνονται καθώς πληκτρολογείτε.',
   'search.title': 'Ψάξε τον δεύτερο εγκέφαλο.',
   'settings.account.logout': 'Αποσύνδεση',
+  'settings.account.title': 'Στοιχεία λογαριασμού',
+  'settings.editor.graphHover.body':
+    'Εμφάνιση μιας μικροσκοπικής κάρτας προεπισκόπησης όταν περνάς τον δείκτη πάνω από ένα [[wikilink]] στον επεξεργαστή.',
+  'settings.editor.graphHover.label': 'Προεπισκόπηση γράφου backlinks',
   'settings.editor.lineHeight.body':
     'Πόσος αέρας υπάρχει ανάμεσα στις γραμμές του σώματος. Το 170% είναι ο προεπιλεγμένος ρυθμός ανάγνωσης.',
+  'settings.editor.lineHeight.label': 'Ύψος γραμμής',
   'settings.editor.serif.body':
     'Χρησιμοποιήστε τη Georgia για τη στήλη ανάγνωσης. Η Sans-serif διατηρείται στην πλαϊνή μπάρα και στις γραμμές εργαλείων.',
+  'settings.editor.serif.label': 'Σώμα κειμένου με serif',
   'settings.editor.title': 'Τυπογραφία και επιφάνεια γραφής',
   'settings.eyebrow': 'Verso · Ρυθμίσεις',
+  'settings.passwordModal.current': 'Τρέχων κωδικός',
   'settings.passwordModal.error':
     'Δεν ήταν δυνατή η αλλαγή του κωδικού πρόσβασης — ελέγξτε τον τρέχοντα κωδικό πρόσβασής σας.',
   'settings.passwordModal.next': 'Νέος κωδικός πρόσβασης',
@@ -96,6 +139,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Πιέστε κάθε πάτημα πλήκτρου μέσω του καναλιού πραγματικού χρόνου. Απενεργοποιήστε το για πιο αργές συνδέσεις.',
   'settings.sync.auto.label': 'Συγχρονισμός σε πραγματικό χρόνο',
+  'settings.sync.title': 'Πώς ταξιδεύουν οι σημειώσεις σου',
   'settings.theme.body':
     'Το φως διατηρεί τη στήλη του συντάκτη φωτεινή. Η σέπια ζεσταίνει τη σελίδα για τα βράδια.',
   'settings.theme.dark': 'Σκοτεινό',
@@ -115,8 +159,12 @@ export const ui: UiTranslations = {
     'Προσθέστε #hashtags σε έναν τίτλο σημείωσης (π.χ. "Λίστα ανάγνωσης #βιβλία") και αυτά θα εμφανιστούν εδώ αυτόματα.',
   'tags.emptyTitle': 'Δεν υπάρχουν ακόμη ετικέτες',
   'tags.eyebrow': 'Δείκτης',
+  'tags.goToNotes': 'Μετάβαση στις σημειώσεις →',
+  'tags.loadError': 'Δεν ήταν δυνατή η φόρτωση των ετικετών: {{message}}',
   'tags.subtitle':
     '{{tags}} ετικέτες σε όλη {{notes}} σημειώσεις. Προσθέστε #hashtags στον τίτλο μιας σημείωσης και αυτά θα εμφανιστούν εδώ.',
+  'versoAuthShell.sample.body':
+    'Ένα δεύτερο πέρασμα αύριο διαβάζεται πάντα καλύτερα από ένα πρώτο απόψε. Άφησε το πρόχειρο στον φάκελο βαθιάς εργασίας…',
   'versoAuthShell.sample.label': 'Ημερήσια σημείωση',
   'versoAuthShell.sample.timestamp': 'Σήμερα · 9:14 π.μ.',
   'versoAuthShell.sample.title': 'Αφήνοντας τα ρεύματα να αναπνεύσουν',
@@ -128,8 +176,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Συνέχεια γραφής',
   'versoTodayHero.createCta': 'Ξεκινήστε τη σημερινή σημείωση',
   'versoTodayHero.dailyLabel': 'Ημερήσια σημείωση',
+  'versoTodayHero.emptyHeadline': 'Σήμερα είναι μια κενή σελίδα.',
   'versoTodayHero.emptySubline':
     'Αποτυπώστε μια σκέψη, σημειώστε μια συνάντηση ή σχεδιάστε αύριο. Το Verso διατηρεί τη δομή ήσυχη, ώστε η γραφή να παραμένει δυνατή.',
+  'versoTodayHero.outlineLabel': 'Το σημερινό περίγραμμα',
   'versoTodayHero.streak': 'Σερί {{count}} ημερών',
+  'versoTodayHero.unwritten': 'Δεν υπάρχουν λέξεις ακόμη — άνοιξε τη σημείωση για να ξεκινήσεις.',
   'versoTodayHero.wordCount': '{{count}} λέξεις σήμερα',
 }

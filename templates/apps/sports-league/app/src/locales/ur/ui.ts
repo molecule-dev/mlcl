@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'فیڈبیک ہے، کوئی بگ ملا، یا اپنی لیگ کے لیے {{app}} چاہتے ہیں؟ اپنی اکاؤنٹ سیٹنگز سے ہم سے رابطہ کریں — ہر پیغام ٹیم کے کسی حقیقی فرد تک پہنچتا ہے۔',
+  'about.contactTitle': 'رابطہ کریں۔',
   'about.eyebrow': 'کے بارے میں',
+  'about.featureAlerts':
+    'اسکور اپڈیٹس، ٹریڈ الرٹس، انجری رپورٹس، اور لیگ اعلانات کے لیے پش نوٹیفکیشنز۔',
+  'about.featureRosters':
+    'ٹیم صفحات جن میں مکمل روسٹرز، سیزن ٹوٹلز، ہاٹ/کولڈ اسٹریکس، اور ہر کھلاڑی کے لیے ہیڈ ٹو ہیڈ اسپلٹس شامل ہیں۔',
+  'about.featureSchedule':
+    'سیزن کیلنڈر اور شیڈول ویو تاکہ آپ ہر فکسچر اور نتیجے کے مطابق منصوبہ بنا سکیں۔',
+  'about.featureScoreboard':
+    'ہر صفحے کے اوپری حصے میں براڈکاسٹ معیار کا اسکور بورڈ ٹکر تاکہ آپ کوئی گول نہ چھوڑیں۔',
+  'about.featureStandings':
+    'لائیو اسٹینڈنگز — ریئل ٹائم جیت-ہار-ڈرا ریکارڈز، پوائنٹس، جیت فیصد، اور پلے آف لائن، ہر سیٹی پر تازہ۔',
+  'about.intro':
+    '{{app}} آپ کی لیگ کے لیے براڈکاسٹ معیار کا گھر ہے۔ ٹیمیں، شیڈولز، لائیو اسکورز، اور اسٹینڈنگز ایک تیز، بے ترتیب ڈیش بورڈ میں اکٹھے ہو جاتے ہیں — تاکہ شائقین، کوچز، اور لیگ منتظمین ہمیشہ جانیں کہ سیزن کہاں کھڑا ہے۔',
+  'about.missionBody':
+    'کسی لیگ کی پیروی کا مطلب پانچ مختلف تھرڈ پارٹی اسکور بورڈز کو ریفریش کرنا نہیں ہونا چاہیے۔ ہم نے اسے اس لیے بنایا تاکہ ہر لیگ کو اسٹینڈنگز، شیڈول، اور واقعی اہم اعداد و شمار کے لیے ایک واحد مستند ذریعہ ملے — ہر سیٹی پر اپڈیٹ، سیزن کے لیے مفت۔',
+  'about.missionTitle': 'ہمارا مشن',
+  'about.whatYouGet': 'جو آپ کو ملتا ہے۔',
   'appShell.closeNav': 'نیویگیشن بند کریں۔',
   'appShell.openNav': 'نیویگیشن کھولیں۔',
   'common.dashboard': 'ڈیش بورڈ',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'تمام میچز دیکھیں \\u2192',
   'dashboard.viewAllStandings': 'مکمل سٹینڈنگ \\u2192',
   'dashboard.viewAllStats': 'تمام اسٹیٹ لیڈرز دیکھیں \\u2192',
+  'forgot.submitting': 'ری سیٹ لنک بھیجا جا رہا ہے…',
   'forgot.subtitle': 'ری سیٹ لنک حاصل کرنے کے لیے اپنا ای میل درج کریں۔',
   'forgot.success': 'ری سیٹ کا لنک بھیج دیا گیا۔ {{email}} . اپنا ان باکس چیک کریں۔',
+  'landing.copyright': '© {{year}} {{app}}۔ اسٹینڈنگ کے پیچھے۔',
+  'landing.ctaBody':
+    'آپ کی لیگ۔ آپ کی اسٹینڈنگز۔ آپ کی پسندیدہ ٹیم — اوپر پن کی ہوئی۔ سیٹ اپ کے لیے دو منٹ، سیزن کے لیے مفت۔',
   'landing.ctaHeading': 'فریق ثالث کے اسکور بورڈز کو تازہ کرنا بند کریں۔',
   'landing.eyebrow': 'شائقین، کوچز اور لیگ کے منتظمین کے لیے بنایا گیا ہے۔',
   'landing.featuresHeading': 'ہر کھڑے کے لیے اگلی قطار والی سیٹ',
   'landing.getStarted': 'لیگ میں شامل ہوں۔',
   'landing.heroCta': 'لیگ میں شامل ہوں۔',
+  'landing.heroSubtitle':
+    '{{app}} اسٹینڈنگز، شیڈولز، اور شماریاتی لیڈرز کو ایک براڈکاسٹ معیار کے ڈیش بورڈ میں جوڑتا ہے۔ لائیو اسکورز۔ حقیقی ریکارڈز۔ کوئی بے ترتیبی نہیں۔',
+  'landing.heroTitle': '{{tagline}}۔',
   'landing.scoreboardLabel': 'آج رات لیگ کے ارد گرد',
   'landing.statFans': 'پرستار فالو کر رہے ہیں۔',
   'landing.statGames': 'اس سیزن میں گیمز',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'سوال {{period}}',
   'matchDetail.back': 'میچز پر واپس جائیں۔',
   'matchDetail.eventsHeading': 'پلے بہ پلے ۔',
+  'matchDetail.final': 'فائنل',
   'matchDetail.finalScore': 'فائنل',
   'matchDetail.live': 'لائیو',
   'matchDetail.liveNow': 'ابھی جیو',
   'matchDetail.noEvents': 'ابھی تک کوئی واقعات ریکارڈ نہیں ہوئے۔',
   'matchDetail.periodClock': 'سوال {{period}} · {{clock}}',
+  'matches.empty': 'اس ویو میں کوئی میچ نہیں — کوئی مختلف فلٹر آزمائیں۔',
   'matches.eyebrow': 'میچ ڈے',
   'matches.loading': 'سلیٹ کھینچ رہا ہے…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'اطلاعات لوڈ کرنے میں ناکام',
   'notifications.loading': 'اطلاعات لوڈ ہو رہی ہیں\\u2026',
   'pennantHeroCard.eyebrow': 'میز کے اوپر',
+  'pennantHeroCard.formLabel': 'آخری 10',
   'pennantHeroCard.gamesAhead': '{{value}} پیچھا کرنے سے پہلے کھیل',
   'pennantHeroCard.pointsLabel': 'پی ٹی ایس',
   'pennantLayout.primaryNavLabel': 'بنیادی نیویگیشن',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'اپنی نشست کا انتخاب کریں۔',
   'pricing.heading': 'بہتر شیڈول، اسکورز اور سٹینڈنگ کے لیے اپ گریڈ کریں۔',
   'pricing.limits.schedule': '{{count}} شیڈول اندراجات',
+  'pricing.limits.scores': '{{count}} اسکورز',
+  'pricing.limits.standings': '{{count}} اسٹینڈنگز',
+  'pricing.limits.teams': '{{count}} ٹیمیں',
+  'pricing.subtitle': 'بھرپور شیڈول، اسکورز، اور اسٹینڈنگز کے لیے اپ گریڈ کریں۔',
   'pricing.upgradeCta': 'میں اپ گریڈ کریں۔ {{tierName}}',
   'profile.eyebrow': 'فین پروفائل',
   'profile.favoritesCount': 'ٹیموں نے پیروی کی۔',
   'profile.favoritesHeading': 'پسندیدہ ٹیمیں۔',
   'profile.noFavorites': 'ابھی تک کوئی پسندیدہ نہیں — ٹیموں کے صفحہ سے ٹیمیں چنیں۔',
   'profile.rankRecord': 'درجہ # {{rank}} · {{record}}',
+  'profile.recordOnly': 'ریکارڈ {{record}}',
   'reset.confirmPlaceholder': 'پاس ورڈ کو دہرائیں۔',
+  'reset.mismatch': 'پاس ورڈز مماثل نہیں ہیں۔',
   'reset.newLabel': 'نیا پاس ورڈ',
   'reset.subtitle': 'کم از کم 12 حروف کا مضبوط پاس ورڈ منتخب کریں۔',
   'reset.tokenPlaceholder': 'ای میل سے پیسٹ کریں۔',
   'schedule.eyebrow': 'سلیٹ',
+  'schedule.moreGames': '+ {{count}} مزید',
   'schedule.subtitle':
     'پورے سیزن میں فکسچر کا کیلنڈر کا منظر — باکس سکور کے لیے کسی بھی دن کو تھپتھپائیں۔',
   'scoreboardTicker.empty': 'ابھی کوئی لائیو گیمز نہیں ہیں — پک ڈراپ پر دوبارہ چیک کریں۔',
@@ -97,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'ذاتی بنانا',
   'settings.favoritesBody':
     'یہ ٹیمیں آپ کے ڈیش بورڈ پر پن ہو جاتی ہیں اور اسکور الرٹس کو متحرک کرتی ہیں۔',
+  'settings.favoritesHeading': 'پسندیدہ ٹیمیں۔',
   'settings.loading': 'آپ کی ترجیحات لوڈ ہو رہی ہیں\\u2026',
   'settings.noFavorites': 'ابھی تک کوئی پسندیدہ نہیں \\u2014 ٹیموں کے صفحہ سے ٹیمیں چنیں۔',
   'settings.notificationsHeading': 'اطلاعات اور ڈسپلے',
@@ -115,6 +152,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'ایل',
   'standings.overall': 'مجموعی طور پر',
   'standings.points': 'پی ٹی ایس',
+  'standings.rank': '#',
   'standings.subtitle':
     'ٹاپ چار پوسٹ سیزن کے لیے کوالیفائی کرتے ہیں — پوائنٹس کے لحاظ سے ٹائی بریکر، پھر جیت۔',
   'standings.title': 'لیگ سٹینڈنگ',
@@ -133,6 +171,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'جی',
   'teamDetail.colName': 'کھلاڑی',
   'teamDetail.colPos': 'پوزیشن',
+  'teamDetail.pointsLabel': 'پوائنٹس',
   'teamDetail.rankLabel': 'درجہ # {{rank}}',
   'teamDetail.rosterHeading': 'روسٹر',
   'teamDetail.statGD': 'گول کا فرق',

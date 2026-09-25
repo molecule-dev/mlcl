@@ -1,10 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu sisi',
+  'about.featureAssignments':
+    'Kazi, uwasilishaji wa faili, rubriki, maoni ya ndani, na kitabu cha alama tulivu kinachowafahamisha wanafunzi na wazazi.',
+  'about.featureBreakouts':
+    'Vyumba vya vikundi kwa mguso mmoja — badilisha wanafunzi kiotomatiki, tangaza matangazo, na warudishe wote pamoja muda ukiisha.',
+  'about.featureChat':
+    'Gumzo la darasa lenye mada mfululizo, muhtasari uliobandikwa, na njia za faragha za mwalimu pekee kwa mafunzo ya kimya wakati wa kipindi.',
+  'about.featureVideo':
+    'Video ya moja kwa moja ya kiwango cha sinema yenye mwelekeo wa mzungumzaji hai, mipangilio ya gallery na spotlight, na picha-kwa-picha inayovutwa kwa walimu.',
+  'about.featureWhiteboard':
+    'Ubao mweupe usio na kikomo wenye kielekezi cha laser na wigo kamili wa rangi, kila kipindi kikihifadhiwa kwa kozi ili kazi iendelee kati ya madarasa.',
+  'about.missionBody':
+    'Tunaamini kujifunza kwa mbali na mchanganyiko kunapaswa kuhisi kama meza ya semina — yenye uwepo na utu. Kwa hivyo tunaweka uwepo wa moja kwa moja mbele — nyuso halisi, ubao wa pamoja, na vikundi vidogo — na tunaweka uwekaji alama na shughuli kando kwa utulivu hadi unapozihitaji.',
+  'about.missionTitle': 'Dhamira yetu',
   'assignmentDetail.attachmentsTitle': 'Viambatisho',
   'assignmentDetail.back': 'Kazi zote',
   'assignmentDetail.code': 'WASIFU 211',
+  'assignmentDetail.context':
+    'Baiolojia ya Seli I · Ilichapishwa na {{instructor}} · Inatakiwa {{due}}',
   'assignmentDetail.continueDraft': 'Endelea na rasimu',
   'assignmentDetail.draftBody':
     'Ilibadilishwa mara ya mwisho dakika 14 zilizopita · kuhifadhi kiotomatiki kwa kila mabadiliko.',
@@ -23,6 +39,7 @@ export const ui: UiTranslations = {
   'assignmentRow.statusInProgress': 'Uchoraji',
   'assignmentRow.statusSubmitted': 'Imewasilishwa',
   'assignmentRow.title': 'Ripoti ya maabara — DNA ya Mitochondria',
+  'assignmentRow.weight': 'Ina thamani ya {{percent}}% ya alama',
   'assignments.body': 'Fuatilia kila karatasi, seti ya matatizo, na mradi katika kozi zako zote.',
   'assignments.empty': 'Hakuna kitu katika njia hii kwa sasa — furahia utulivu.',
   'assignments.eyebrow': 'Kazi ya kozi',
@@ -32,6 +49,8 @@ export const ui: UiTranslations = {
   'assignments.statTotal': 'Kazi zinazoendelea',
   'assignments.title': 'Kazi',
   'aulaAuthShell.backHome': '← Kurudi nyumbani',
+  'aulaAuthShell.brandBody':
+    '{{appName}} huleta video, ubao mweupe, vikundi, gumzo, na uwekaji alama katika kichupo kimoja kilicholengwa — kimeundwa kwa walimu wanaotaka kufundisha, si kufukuza vichupo.',
   'aulaAuthShell.brandEyebrow': 'Ambapo kujifunza kunaishi',
   'aulaAuthShell.brandTitle': 'Madarasa ya moja kwa moja yenye joto la kuwa ndani ya chumba.',
   'aulaAuthShell.sampleAttending': '+24 zaidi wanaohudhuria',
@@ -41,6 +60,8 @@ export const ui: UiTranslations = {
   'aulaSideNav.closeMenu': 'Funga menyu ya kusogeza',
   'aulaSideNav.label': 'Usogezaji mkuu',
   'aulaSideNav.weeklyClasses': 'Wiki hii',
+  'aulaSideNav.weeklyClassesCount': '{{done}} / {{total}}',
+  'aulaSideNav.weeklyHelp': 'Uko njiani kumaliza masomo ya wiki hii. Endelea!',
   'aulaTopBar.openMenu': 'Fungua menyu ya kusogeza',
   'aulaTopBar.searchPlaceholder': 'Tafuta kozi, madarasa, kazi…',
   'aulaTopBar.title': 'Aula',
@@ -53,6 +74,8 @@ export const ui: UiTranslations = {
   'calendar.statTotal': 'Jumla ya matukio yajayo',
   'classroom.chatCount': '{{count}} ujumbe',
   'classroom.chatEmpty': 'Hakuna ujumbe bado — sema salamu ili kuvunja ukimya.',
+  'classroom.chatInputLabel': 'Ujumbe wa gumzo la darasa',
+  'classroom.chatLoading': 'Inapakia mazungumzo…',
   'classroom.chatPlaceholder': 'Tuma kwa darasa…',
   'classroom.chatTitle': 'Gumzo la darasani',
   'classroom.detailJoin': 'Join code',
@@ -79,23 +102,30 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'courseDetail.assignmentsTitle': 'Kazi za kozi',
   'courseDetail.back': 'Kozi zote',
+  'courseDetail.body':
+    'Kozi ya muhula wa pili inayoanza na viungo vya mstari hadi divergence na curl. Moja kwa moja kila Jumanne/Alhamisi, na maabara ya Ijumaa na saa za ofisi kila wiki.',
+  'courseDetail.ca1Course': 'Kalkulasi II',
   'courseDetail.ca1Due': 'Tarehe ya mwisho Alhamisi · 5:00 PM',
   'courseDetail.ca1Title': 'Seti ya tatizo la mtiririko wa uwanja wa vekta',
   'courseDetail.ca2Course': 'Kalkulasi II',
   'courseDetail.ca2Due': 'Imewasilishwa Jumatatu',
   'courseDetail.ca2Score': 'Inasubiri maoni',
   'courseDetail.ca2Title': 'Ushahidi wa nadharia ya Stokes',
+  'courseDetail.ca3Course': 'Kalkulasi II',
   'courseDetail.ca3Due': 'Imerejeshwa · siku 9 zilizopita',
   'courseDetail.ca3Score': 'A · 94%',
   'courseDetail.ca3Title': 'Jaribio la mapitio ya mstari jumuishi',
   'courseDetail.cls1Course': 'Kalkulasi II · MTH 202',
   'courseDetail.cls1Instructor': 'Profesa Maya Okafor',
+  'courseDetail.cls1Room': 'Chumba cha Aula · Lavender',
   'courseDetail.cls1Title': 'Sehemu za vekta na mtiririko',
   'courseDetail.cls2Course': 'Kalkulasi II · MTH 202',
   'courseDetail.cls2Instructor': 'Profesa Maya Okafor',
+  'courseDetail.cls2Room': 'Chumba cha Aula · Lavender',
   'courseDetail.cls2Title': 'Mapitio ya viunganishi vya mstari',
   'courseDetail.cls3Course': 'Kalkulasi II · MTH 202',
   'courseDetail.cls3Instructor': 'TA Felix Bauer',
+  'courseDetail.cls3Room': 'Chumba cha {{appName}} · Petal',
   'courseDetail.cls3Title': 'Maabara: Seti ya matatizo ya Stokes',
   'courseDetail.code': 'MTH 202',
   'courseDetail.materialsTitle': 'Vifaa',
@@ -134,15 +164,18 @@ export const ui: UiTranslations = {
   'courses.loading': 'Inapakia kozi…',
   'courses.noBrowse':
     'Hakuna kozi za kuvinjari — umejiandikisha katika kila kitu kilichochapishwa.',
+  'courses.noCourses': 'Hakuna kozi bado — tengeneza moja kwa kitufe kilicho juu.',
   'courses.title': 'Maktaba yako ya kujifunza',
   'courseTileCard.code': 'ECN 312',
   'courseTileCard.continue': 'Endelea na kozi',
   'courseTileCard.enroll': 'Tazama kozi',
   'courseTileCard.imageAlt': 'Kijipicha cha kozi',
   'courseTileCard.instructor': 'Dkt. Idris Halloway',
+  'courseTileCard.lessonsRemaining': '{{count}} masomo yamebaki',
   'courseTileCard.levelAdvanced': 'Kina',
   'courseTileCard.levelBeginner': 'Mwanzilishi',
   'courseTileCard.levelIntermediate': 'Kati',
+  'courseTileCard.preview': 'Angalia muhtasari wa kozi, vinjari mihadhara, na omba kujiunga.',
   'courseTileCard.progressComplete': '{{percent}} % imekamilika',
   'courseTileCard.title': 'Uchumi Mkuu wa Kisasa',
   'dashboard.assignmentsAll': 'Tazama zote →',
@@ -162,12 +195,16 @@ export const ui: UiTranslations = {
   'dashboard.noAssignments': 'Hakuna kazi zinazostahili — furahia utulivu.',
   'dashboard.noCourses': 'Hakuna kozi bado — kozi yako ya kwanza itaonekana hapa.',
   'dashboard.noDueDate': 'Hakuna tarehe ya mwisho',
+  'dashboard.scheduleAula': 'Chumba cha Aula',
   'dashboard.scheduleEmpty': 'Hakuna madarasa ya moja kwa moja yanayotarajiwa kufanyika.',
   'dashboard.scheduleHostedYou': 'Mwenyeji wako',
+  'dashboard.scheduleJoinCode': 'Nambari ya kujiunga · {{code}}',
+  'dashboard.statAssignmentsLabel': 'Kazi zinazotakiwa',
   'dashboard.statClassesDelta': '{{n}} kozi zinazoendelea',
   'dashboard.statClassesLabel': 'Vyumba vya kuishi',
   'dashboard.statCoursesDelta': '{{n}} waliojiandikisha',
   'dashboard.statCoursesLabel': 'Kozi',
+  'dashboard.statNotificationsLabel': 'Arifa zisizosomwa',
   'dashboard.tipBody':
     'Fungua sebule kutoka kwenye kadi ya shujaa hapo juu ili kuchora mguso kwenye ubao mweupe au chapisha ujumbe wa gumzo — kila kitendo kinaendelea.',
   'dashboard.tipCta': 'Jaribu ubao mweupe',
@@ -181,6 +218,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success':
     'Ikiwa kuna akaunti ya barua pepe hiyo, kiungo cha kuweka upya kiko njiani.',
   'forgotPassword.toLogin': 'Rudi kwenye kuingia',
+  'grades.assignmentsCount': 'Alama {{n}}',
   'grades.body':
     'Mtazamo tulivu wa kila kozi — daraja la kukimbia, maoni ya hivi karibuni, na mahali pa kuzingatia wiki ijayo.',
   'grades.empty':
@@ -193,24 +231,34 @@ export const ui: UiTranslations = {
   'grades.statTrendUnit': 'kozi',
   'grades.statWatchLabel': 'Inahitaji umakini',
   'grades.title': 'Daraja na maoni',
+  'landing.ctaBody':
+    'Tutaanzisha kozi ya mfano, tutamwalika mwalimu mwenza, na tutakuonyesha jinsi ya kubadilisha darasa kuwa vikundi kabla ya kengele kulia.',
   'landing.ctaButton': 'Unda shule yako',
   'landing.ctaPrimary': 'Anza muhula wa bure',
   'landing.ctaSecondary': 'Tazama ziara ya darasani',
   'landing.ctaTitle': 'Fungua darasa lako la kwanza ndani ya dakika tatu.',
+  'landing.demoCourse': 'Fasihi ya Dunia · LIT 240',
+  'landing.demoInstructor': 'Prof. Imani Davies',
+  'landing.demoTitle': 'Uhalisia wa kichawi — Borges na Murakami',
   'landing.eyebrow': 'Moja kwa moja · ubao mweupe · vipindi vifupi · uainishaji',
   'landing.feat1Body':
     'Mwangaza unaowekwa kiotomatiki + ghala, lafudhi za spika zinazofanya kazi, na picha inayoweza kuburutwa ndani ya picha kwa walimu.',
   'landing.feat1Title': 'Gridi ya video ya sinema',
   'landing.feat2Body':
     'Turubai isiyo na kikomo, kiashiria cha leza, rangi ya vipande nane, na vipindi vinavyoendelea kwa kila kozi.',
+  'landing.feat2Title': 'Ubao mweupe unaofikiri kwa sauti',
   'landing.feat3Body':
     'Wachanganyishe wanafunzi kiotomatiki kwenye vyumba, tangaza matangazo, na uwarudishe kila mtu kwa kubofya.',
+  'landing.feat3Title': 'Vikundi kwa mibofyo miwili',
   'landing.feat4Body':
     'Rubriki, mawasilisho ya faili, maoni ya ndani, na kitabu cha alama cha utulivu kinachowapa wazazi taarifa.',
+  'landing.feat4Title': 'Kazi + kitabu cha alama',
   'landing.feat5Body':
     "Gumzo lililounganishwa kwa kila darasa, muhtasari uliobandikwa, na njia za pembeni za mwalimu pekee kwa ajili ya kufundisha kwa kunong'ona.",
+  'landing.feat5Title': 'Gumzo lenye muktadha wa darasa',
   'landing.feat6Body':
     'SSO yenye saraka za wilaya, usimamizi unaofaa umri, na kumbukumbu za ukaguzi kwa kila darasa.',
+  'landing.feat6Title': 'Salama kwa chaguo-msingi',
   'landing.featuresEyebrow': 'Imeundwa kwa ajili ya kuishi',
   'landing.featuresTitle':
     'Kila kitu ambacho darasa linahitaji, katika kichupo kimoja kinacholenga.',
@@ -218,19 +266,25 @@ export const ui: UiTranslations = {
   'landing.footerStart': 'Anzisha shule',
   'landing.heroBody':
     'Aula huleta video ya moja kwa moja, ubao mweupe, vipindi vya mapumziko, gumzo, na kazi katika nyumba moja yenye joto na ya kitaaluma. Imeundwa kwa ajili ya walimu wanaotaka vichupo vichache na umakini zaidi.',
+  'landing.heroLine1': 'Ambapo kila darasa',
   'landing.heroLine2': 'hisia ndani ya chumba.',
   'landing.navSchools': 'Kwa shule',
   'landing.navStart': 'Fungua darasa',
   'landing.previewCourse1': 'Uchumi Mkuu wa Kisasa',
   'landing.previewCourse2': 'Uchoraji wa Studio II',
   'landing.previewCourse3': 'Utangulizi wa Maadili ya Data',
+  'landing.previewEyebrow': 'Tembelea orodha ya kozi',
   'landing.previewInstructor1': 'Dkt. Idris Halloway',
   'landing.previewInstructor2': 'Profesa Lila Marin',
   'landing.previewInstructor3': 'Dkt. Naomi Wren',
   'landing.previewTitle': 'Kozi ambazo wanafunzi wako watafungua kweli.',
+  'landing.socialProofBody':
+    'Inatumiwa na shule 380, bootcamps, na wakufunzi wa makampuni duniani kote.',
   'landing.socialProofTitle': 'Madarasa 14,200+ yaliandaliwa muhula huu',
   'liveClassHeroCard.bodyLive':
     '{{instructor}} nimefungua chumba tu. {{count}} Wanafunzi wenzako tayari wako ndani — ingia kabla ya wito wa majina.',
+  'liveClassHeroCard.bodyUpcoming':
+    '{{instructor}} anapangisha katika dakika {{minutes}}. Ukaguzi wa kamera na maikrofoni umefunguliwa sasa.',
   'liveClassHeroCard.course': 'Kalkulasi II — MTH 202',
   'liveClassHeroCard.elapsed': 'Imepita',
   'liveClassHeroCard.elapsedValue': '12:08',
@@ -243,6 +297,7 @@ export const ui: UiTranslations = {
   'liveClassHeroCard.title': 'Hotuba ya 14 — Sehemu za vekta',
   'liveClassHeroCard.viewSchedule': 'Tazama ratiba kamili',
   'login.emailPlaceholder': 'wewe@school.edu',
+  'login.footerPrompt': 'Mgeni kwa Tessera?',
   'login.hidePassword': 'Ficha nenosiri',
   'login.rememberMe': 'Niweke nimeingia',
   'login.showPassword': 'Onyesha nenosiri',
@@ -252,6 +307,7 @@ export const ui: UiTranslations = {
   'notifications.body': 'Una {{count}} masasisho ambayo hayajasomwa kutoka kwa madarasa yako.',
   'notifications.bodyNone': 'Nyote mmekwama.',
   'notifications.loading': 'Inapakia…',
+  'pricing.advancedFeatures': 'Vipengele vya hali ya juu',
   'profile.bio':
     'Hesabu ya vekta na topolojia · Miaka 14 ya kufundisha · Msimamizi wa jumuiya ya Aula. Saa za ofisi Jumatatu/Jumatano 11–12 katika chumba cha Lavender.',
   'profile.course1Instructor': 'Profesa Maya Okafor',
@@ -272,8 +328,11 @@ export const ui: UiTranslations = {
   'profile.statStudentsLabel': 'Wanafunzi muhula huu',
   'resetPassword.confirmPasswordPlaceholder': 'Ingiza tena nenosiri jipya',
   'resetPassword.emailPlaceholder': 'wewe@school.edu',
+  'resetPassword.mismatch': 'Nenosiri bado hayafanani.',
+  'resetPassword.newPassword': 'Nenosiri jipya',
   'resetPassword.subtitle':
     'Ifanye iwe ndefu vya kutosha kuwa ngumu kukisia na fupi vya kutosha kuandikwa haraka.',
+  'resetPassword.title': 'Chagua nenosiri jipya',
   'scheduleItem.course': 'Uandishi wa Ubunifu · ENG 220',
   'scheduleItem.endTime': '3:30 PM',
   'scheduleItem.instructor': 'Dkt. Yusuf Adelana',
@@ -296,10 +355,20 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Lugha',
   'settings.photoHint': 'JPG au PNG · mraba hufanya kazi vizuri zaidi',
   'settings.profileTitle': 'Wasifu',
+  'settings.securityTitle': 'Kuingia na usalama',
   'settings.twoFactorCode': 'Nambari ya uthibitishaji',
   'settings.twoFactorDisable': 'Zima',
+  'settings.twoFactorDisableTitle': 'Zima uthibitishaji wa hatua mbili',
   'settings.twoFactorEnable': 'Washa',
+  'settings.twoFactorEnableTitle': 'Washa uthibitishaji wa hatua mbili',
   'settings.twoFactorInvalidCode': 'Nambari batili',
+  'settings.twoFactorOffBody': 'Haijawezeshwa',
+  'settings.twoFactorOnBody': 'Imewezeshwa · programu ya uthibitishaji',
+  'settings.twoFactorQrAlt': 'Msimbo wa QR wa hatua mbili',
+  'settings.twoFactorScan':
+    'Skani msimbo huu wa QR kwa programu yako ya uthibitishaji, kisha weka msimbo wa tarakimu 6.',
+  'settings.twoFactorUnavailable':
+    'Uthibitishaji wa vipengele viwili haupatikani kwa programu hii.',
   'settings.twoFactorVerify': 'Thibitisha na uwashe',
   'signup.email': 'Barua pepe ya shule',
   'signup.emailPlaceholder': 'wewe@school.edu',
@@ -307,6 +376,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Aiyana',
   'signup.lastNamePlaceholder': 'Vega',
   'signup.roleInstructor': 'Mwalimu',
+  'signup.roleLabel': 'Mimi ni…',
   'signup.roleStudent': 'Mwanafunzi',
   'signup.subtitle':
     'Aula ni bure kwa siku 30 za kwanza — hakuna kadi ya mkopo inayohitajika. Waalike walimu wenzako wakati wowote.',
@@ -319,6 +389,8 @@ export const ui: UiTranslations = {
   'whiteboard.colorLabel': 'Rangi {{color}}',
   'whiteboard.export': 'Hamisha SVG',
   'whiteboard.loading': 'Inapakia ubao…',
+  'whiteboard.persistenceNote':
+    'Mistari hubaki kwenye ubao mweupe wa chumba. Pakia upya ukurasa — hali ya ubao inapaswa kuwa bado ipo.',
   'whiteboard.roomNotFound': 'Ubao mweupe haupatikani kwa kiungo hiki.',
   'whiteboard.savedAt': '{{count}} viboko · vilivyohifadhiwa mara ya mwisho {{when}}',
   'whiteboard.title': 'Ubao mweupe wa moja kwa moja',

@@ -3,8 +3,12 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Biz haqimizda',
+  'about.missionTitle': 'Bizning vazifamiz',
+  'about.subtitle': "Jamoalar uchun ilhomlantiruvchi, mas'uliyatli va o'lchanadigan OKR kuzatuvi.",
   'ascentSideNav.nav.notifications': 'Bildirishnomalar',
   'ascentSideNav.newObjective': 'Yangi maqsad',
+  'authShell.brandBody':
+    "{{appName}} maqsadlarni asosiy natijalar va haftalik tekshiruvlar orqali bog'laydi, shunda taraqqiyot doim ko'rinadi — va doim halol bo'ladi.",
   'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle':
     "Cho'qqini o'rnating. Ko'tarilishda ball oling. Jamoaga murabbiylik qiling.",
@@ -17,18 +21,26 @@ export const ui: UiTranslations = {
   'billing.confirmCancel': 'Joriy davr oxirida obunangizni bekor qilasizmi?',
   'billing.currentPlanFreeFooter':
     "Siz bepul darajadasiz. Yuqori limitlarga o'tish uchun yangilang.",
+  'billing.currentPlanPaidFooter': 'Faol obuna · {{plan}}',
   'billing.downloadCurrent': 'Xulosa yuklab olish',
   'billing.downloading': 'Tayyorlanmoqda…',
   'billing.error.priceUnavailable': "Ushbu reja joriy muhitda to'lov uchun sozlanmagan.",
   'billing.eyebrow': 'Ish maydoni · Hisob-kitob',
   'billing.heading': 'Reja va schyot-fakturalar',
+  'billing.message.canceled': 'Obuna joriy davr tugashi bilan yakunlanadi.',
   'billing.period.year': 'Yearly',
+  'billing.perk.advanced': "Kengaytirilgan ko'rib chiqishlar + eslatmalar",
   'billing.perk.export': "Ma'lumotlar eksporti + APIga kirish",
   'billing.perk.inApp': 'Ilova ichidagi hisobot',
+  'billing.perk.keyResults': '{{count}} ta asosiy natija',
+  'billing.perk.objectives': '{{count}} ta maqsad',
+  'billing.perk.retention': '{{count}} kunlik tarix',
   'billing.perk.standard': 'Standart sharhlar',
+  'billing.perk.unlimitedKrs': 'Cheksiz KRlar',
   'billing.perk.unlimitedObjectives': 'Cheksiz maqsadlar',
   'billing.perk.unlimitedRetention': 'Cheksiz saqlash',
   'billing.subheading': 'Siz ... dasiz {{name}} reja. Darajalarni taqqoslang va quyida yangilang.',
+  'billing.subheading.loading': 'Joriy rejangiz yuklanmoqda…',
   'billing.tier.unavailable': 'Mavjud emas',
   'billing.tier.upgrade': 'Yangilash {{name}}',
   'billing.tiersError': "Narxlarni yuklab bo'lmadi. Keyinroq qayta urinib ko'ring.",
@@ -39,12 +51,14 @@ export const ui: UiTranslations = {
   'checkIn.emptyTitle': "Hozircha tekshirish uchun hech narsa yo'q",
   'checkIn.eyebrow': 'Haftalik kadens',
   'checkIn.heading': "Haftalik ro'yxatdan o'tish",
+  'checkIn.loading': 'KRlaringiz yuklanmoqda…',
   'checkIn.newObjective': 'Yangi maqsad',
   'checkIn.noKrs': "Asosiy natijalar yo'q — Tahrirlashdan ba'zilarini qo'shing.",
   'checkIn.noteLabel': 'Jamoangiz uchun bitta eslatma',
   'checkIn.notePlaceholder':
     "Yorqin nuqta, to'siq yoki murabbiylik so'rovi — uni uchta jumladan kam tuting.",
   'checkIn.openObjective': 'Ochish →',
+  'checkIn.progressLabel': 'KRlar rejada',
   'checkIn.subheading':
     'Har bir KR uchun joriy qiymatni yangilang, ishonchni belgilang, bitta eslatma qoldiring va yuboring.',
   'checkIn.submit': "Ro'yxatdan o'tishni yuborish",
@@ -61,10 +75,16 @@ export const ui: UiTranslations = {
   'dashboard.allActivity': "Barcha faollikni ko'rish →",
   'dashboard.coachBodyAtRisk':
     '{{atRisk}} KRlar bu hafta pasayishdi. Bugungi 15 daqiqalik suhbat odatda bir haftalik tiklanishni sotib oladi.',
+  'dashboard.coachBodyOk':
+    "Bu hafta KRlaringiz yaxshi ko'rinadi — sur'atni saqlang va check-in qiling.",
+  'dashboard.coachCta': 'Haftalik check-inni ochish →',
   'dashboard.coachLabel': 'Murabbiylik turtkisi',
   'dashboard.emptyBody':
     'Haftalik taraqqiyotni kuzatishni boshlash uchun birinchi maqsadingizni yozib oling.',
   'dashboard.emptyTitle': "Hali maqsadlar yo'q",
+  'dashboard.heroBody':
+    "Siz {{count}} ta maqsadga egasiz. {{atRisk}} ni yaqinroq ko'rib chiqish kerak — keling, ularni rejada saqlaymiz.",
+  'dashboard.heroEmpty': "Sizda hali maqsadlar yo'q. Birinchisini tuzishdan boshlang.",
   'dashboard.heroProgressLabel': "Chorakdagi o'sish",
   'dashboard.heroTitle': 'Yaxshi toqqa chiqish, {{name}} .',
   'dashboard.kpiActiveLabel': 'Faol maqsadlar',
@@ -77,11 +97,14 @@ export const ui: UiTranslations = {
     "Hali hech qanday faollik yo'q. Tepaga chiqishni boshlash uchun ro'yxatdan o'ting.",
   'dashboard.objectivesHeading': 'Sizning maqsadlaringiz',
   'dashboard.startCheckIn': "Haftalik ro'yxatdan o'tishni amalga oshiring",
+  'dashboardLayout.searchAria': 'Maqsadlarni qidirish',
   'dashboardLayout.searchPlaceholder': 'Qidiruv maqsadlari, KRlar, odamlar...',
   'editObjective.addKr': "KR qo'shish",
   'editObjective.archive': 'Arxiv maqsadi',
   'editObjective.backToList': 'Maqsadlarga qaytish',
   'editObjective.breadcrumbAll': 'Maqsadlar',
+  'editObjective.confirmArchive':
+    "Bu maqsad arxivlansinmi? Keyinchalik arxivlangan ko'rinishda topishingiz mumkin.",
   'editObjective.descriptionLabel': 'Nima uchun bu muhim',
   'editObjective.eyebrow': 'Maqsadni tahrirlash',
   'editObjective.heading': 'Natijani, KRlarni, hizalanishni yoki kadansni yangilang.',
@@ -95,6 +118,7 @@ export const ui: UiTranslations = {
   'editObjective.targetPlaceholder': 'Nishon',
   'forgotPassword.emailPlaceholder': 'you@team.com',
   'forgotPassword.heading': 'Parolingizni qayta tiklang.',
+  'forgotPassword.rememberPrompt': 'Esda saqladingizmi? ',
   'forgotPassword.subheading':
     "Ascent hisobingizga bog'langan elektron pochta manzilini kiriting, shunda biz qayta tiklash havolasini yuboramiz.",
   'forgotPassword.successBody':
@@ -122,6 +146,7 @@ export const ui: UiTranslations = {
   'landing.heroTitle': 'Muhim narsalarga intiling.',
   'login.emailPlaceholder': 'you@team.com',
   'login.heading': 'Xush kelibsiz, alpinist.',
+  'login.noAccountPrompt': '{{appName}}da yangimisiz? ',
   'login.orContinueWith': 'yoki davom eting',
   'login.subheading':
     "To'xtagan joyingizdan davom eting — ro'yxatdan o'tishlaringiz, KR-laringiz va sharhlaringiz kutmoqda.",
@@ -130,6 +155,7 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'newObjective.addKr': "KR qo'shish",
   'newObjective.coachLabel': 'Murabbiy eslatmalari',
+  'newObjective.descriptionLabel': 'Nima uchun bu muhim',
   'newObjective.descriptionPlaceholder': 'Strategik kontekstni 2-3 jumlada tushuntiring.',
   'newObjective.errorTitleRequired': 'Maqsadingizga sarlavha bering.',
   'newObjective.eyebrow': "Yangi maqsad · Cho'qqini belgilang",
@@ -147,13 +173,19 @@ export const ui: UiTranslations = {
   'newObjective.submit': 'Maqsadni saqlang',
   'newObjective.targetPlaceholder': 'Nishon',
   'newObjective.tip1': "Fe'l bilan boshlovchi: “Bo‘l…”, “Kes…”, “G‘alaba…”",
+  'newObjective.tip2':
+    "KRlar o'lchanadigan bo'lishi kerak — “X ni yaxshilash” kabi iboralardan qoching.",
+  'newObjective.tip3': '3–5 ta KR — eng maqbul miqdor. Ko‘prog‘i chalkashlik keltiradi.',
   'newObjective.titlePlaceholder': 'OKR mahsulot muhandisligi sevadigan sohaga aylaning',
+  'notifications.emptyBody':
+    'Murabbiylik eslatmalari, tilga olishlar va ko‘rib chiqish eslatmalari shu yerda ko‘rinadi.',
   'notifications.emptyTitle': "Bu ko'rinishda hech qanday bildirishnoma yo'q.",
   'notifications.eyebrow': 'Faoliyat markazi',
   'notifications.markRead': "● O'qilgan deb belgilash",
   'objective.scopes.company': 'Kompaniya',
   'objective.scopes.individual': 'Shaxsiy',
   'objective.scopes.team': 'Jamoa',
+  'objectiveCard.krProgress': '{{done}}/{{total}} KR',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'Maqsadlarga qaytish',
   'objectiveDetail.edit': 'Maqsadni tahrirlash',
@@ -164,6 +196,10 @@ export const ui: UiTranslations = {
   'objectiveDetail.notFound': 'Maqsad topilmadi.',
   'objectiveDetail.owner': 'Mulkiy {{name}}',
   'objectiveDetail.runCheckIn': "Ro'yxatdan o'tishni ishga tushiring",
+  'objectiveDetail.timelineHeading': 'Check-in vaqt chizig‘i',
+  'objectives.emptyBody':
+    'Haftalik taraqqiyotni kuzatishni boshlash uchun birinchi maqsadingizni yozib oling.',
+  'objectives.emptyFilteredBody': 'Filtrni tozalab ko‘ring yoki yangi maqsad boshlang.',
   'objectives.emptyFilteredTitle': 'Hali hech qanday maqsad bu filtrlarga mos kelmadi.',
   'objectives.emptyTitle': "Hali maqsadlar yo'q",
   'objectives.eyebrow': 'Kompaniya rejasi',
@@ -174,6 +210,11 @@ export const ui: UiTranslations = {
   'objectives.searchPlaceholder': "Sarlavha bo'yicha filtrlash…",
   'objectives.subheading':
     "Kuzatuv {{count}} maqsadlar. E'tiborga muhtoj bo'lgan narsalarni topish uchun holat bo'yicha filtrlang.",
+  'pricing.limit.advanced': 'Kengaytirilgan funksiyalar: {{value}}',
+  'pricing.limit.checkIns': '{{count}} ta check-in',
+  'pricing.limit.export': "Ma'lumotlarni eksport qilish: {{value}}",
+  'pricing.limit.keyResults': '{{count}} ta asosiy natija',
+  'pricing.limit.objectives': '{{count}} ta maqsad',
   'profile.achievementCheckInsMany': "{{count}} ro'yxatdan o'tishlar qayd etildi",
   'profile.achievementCheckInsOne': "1 ta ro'yxatdan o'tish qayd etildi",
   'profile.achievementCompletedMany': 'Bajarilgan {{count}} maqsadlar',
@@ -182,6 +223,7 @@ export const ui: UiTranslations = {
   'profile.achievementOnTrackOne': "1 ta maqsad yo'lda",
   'profile.activeHeading': 'Faol maqsadlar',
   'profile.allObjectives': 'Barcha maqsadlar →',
+  'profile.createFirst': 'Maqsad yaratish',
   'profile.empty': "Hali faol maqsadlar yo'q — boshlash uchun birinchi maqsadingizni yarating.",
   'profile.eyebrow': 'Alpinist profili',
   'profile.guestName': 'Alpinist',
@@ -194,13 +236,18 @@ export const ui: UiTranslations = {
   'profile.statsHeading': 'Bu chorak',
   'profile.streakLabel': 'Hozirgacha chorak',
   'resetPassword.backLink': "Buning o'rniga tizimga kiring",
+  'resetPassword.backPrompt': 'Qayta tiklamaslikka qaror qildingizmi? ',
   'resetPassword.emailPlaceholder': 'you@team.com',
   'resetPassword.heading': "Yangi parol o'rnating.",
+  'resetPassword.passwordLabel': 'Yangi parol',
   'resetPassword.reset': 'Parolni yangilang va tizimga kiring',
   'resetPassword.resetting': 'Parol yangilanmoqda…',
   'resetPassword.subheading':
     "Kuchli narsani tanlang — kamida sakkizta belgi, iloji bo'lsa, raqamlarni aralashtiring.",
   'reviewDetail.backToList': 'Sharhlarga qaytish',
+  'reviewDetail.body':
+    '{{count}} faol maqsad · baho {{grade}}. Quyida mulohazalarni tahrirlang va baholang.',
+  'reviewDetail.colObjective': 'Maqsad',
   'reviewDetail.confirmDelete': 'Ushbu sharh qoralamasi oʻchirib tashlansinmi?',
   'reviewDetail.delete': "Qoralamani o'chirish",
   'reviewDetail.eyebrow': '{{holat}} · {{sana}}',
@@ -212,8 +259,10 @@ export const ui: UiTranslations = {
   'reviewDetail.reflectionsPlaceholder':
     "Nima yaxshi o'tdi? Nima yaxshi o'tmadi? Keyingi chorak uchun eslatmalar.",
   'reviewDetail.scorecardHeading': 'Ballar jadvali',
+  'reviewDetail.scoreLabel': "O'rtacha ball",
   'reviewDetail.submitted': 'Yuborildi',
   'reviewDetail.submittedToast': 'Sharh yuborildi',
+  'reviewDetail.untitled': 'Choraklik ko‘rib chiqish · tahrirlash uchun quyida bosing',
   'reviews.createDraft': 'Qoralamani boshlang',
   'reviews.empty.body':
     'Choraklik sharhlar qoralamani boshlaganingizdan so\'ng bu yerda ko\'rsatiladi. Boshlash uchun yuqoridagi "Qoralamani boshlash" tugmasini bosing.',
@@ -223,12 +272,16 @@ export const ui: UiTranslations = {
   'reviews.eyebrow': 'Chorak retrospektivalari',
   'reviews.grade': 'Baho {{grade}}',
   'reviews.loading': 'Sharhlar yuklanmoqda…',
+  'reviews.notSubmitted': 'Hali topshirilmagan',
   'reviews.subheading':
     'Oldingi choraklardagi ballar jadvallari, sarlavhali mulohazalar va baholar.',
+  'reviews.submittedAt': '{{date}} yuborildi',
+  'reviews.untitled': 'Nomsiz ko‘rib chiqish · tahrirlash uchun bosing',
   'settings.billingSubtitle': "Reja, o'rindiqlar va hisob-fakturalarni boshqaring",
   'settings.billingTitle': "Hisob-kitob va o'rindiqlar",
   'settings.cadenceBody':
     "Ascent jamoangizni ro'yxatdan o'tishga qanchalik tez-tez chaqirishini tanlang.",
+  'settings.cadenceHeading': 'Kadens',
   'settings.eyebrow': 'Ish maydoni · Hisob · Kadens',
   'settings.guestName': 'Alpinist',
   'settings.openProfile': 'Profilni ochish',
@@ -236,10 +289,15 @@ export const ui: UiTranslations = {
   'settings.saveError': 'Saqlash amalga oshmadi: {{error}}',
   'settings.toggleCoachDescription':
     "KR ikkita ishonch pog'onasini tashlab ketganda, chorak o'rtalarida sirt ko'rsatkichi paydo bo'ladi.",
+  'settings.toggleCoachLabel': 'Murabbiylik eslatmalari',
   'settings.toggleDigestDescription':
     "Har bir egasiga holati bo'yicha dushanba kuni maqsadlar ro'yxatini yuboradi.",
+  'settings.toggleDigestLabel': 'Dushanba dayjesti xati',
+  'settings.toggleRemindersDescription':
+    'Agar check-in hali ham yo‘q bo‘lsa, juma kuni ertalab jamoaga xabar bering.',
   'settings.toggleRemindersLabel': "Haftalik ro'yxatdan o'tish eslatmalari",
   'signup.emailPlaceholder': 'you@team.com',
+  'signup.haveAccountPrompt': 'Allaqachon hisobingiz bormi? ',
   'signup.heading': "Birinchi ko'tarilishni rejalashtiring.",
   'signup.namePlaceholder': 'Avery Mountaineer',
   'signup.orContinueWith': 'yoki davom eting',
@@ -259,6 +317,7 @@ export const ui: UiTranslations = {
   'team.newTeamLabel': 'Yangi jamoa',
   'team.newTeamPlaceholder': 'masalan, mijozlar tajribasi',
   'team.objectivesLabel': 'Maqsadlar',
+  'team.progressLabel': 'Ish maydoni jarayoni',
   'team.subheading':
     "{{teams}} jamoalar · {{objectives}} maqsadlar. Jadvallarni ko'rish uchun OKRlaringizni jamoalar bo'yicha guruhlang.",
 }

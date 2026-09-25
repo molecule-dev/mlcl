@@ -1,10 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Бидний тухай',
+  'about.featureAssignments':
+    'Даалгавар, файл илгээх, үнэлгээний шалгуур, шууд сэтгэгдэл, сурагч, эцэг эхэд мэдээлэл хүргэдэг тайван дүнгийн дэвтэр.',
+  'about.featureBreakouts':
+    'Нэг товшилтын breakout өрөө — сурагчдыг автоматаар холих, зарлал дамжуулах, цаг дуусахад бүгдийг буцааж нэгтгэх.',
+  'about.featureChat':
+    'Хавсаргасан хураангуй, багшид зориулсан хажуугийн суваг бүхий урсгалт ангийн чат — хичээлийн үеэр чимээгүй зөвлөгөө өгөхөд.',
+  'about.featureVideo':
+    'Идэвхтэй ярьж буй хүнд төвлөрсөн, gallery болон spotlight байрлал, багшид зориулсан чирж болох picture-in-picture бүхий кино мэт шууд видео.',
+  'about.featureWhiteboard':
+    'Лазер заагч, бүрэн өнгөний палитр бүхий хязгааргүй самбар, хичээл бүрээр хадгалагддаг тул ажил анги хооронд үргэлжилдэг.',
+  'about.missionBody':
+    'Алсын болон хосолсон сургалт семинарын ширээнийх шиг ойр дотно, хүнлэг мэдрэгдэх ёстой гэж бид үздэг. Тиймээс бид шууд оролцоог нэн тэргүүнд тавьдаг — жинхэнэ нүүр царай, хуваалцсан канвас, жижиг бүлгийн breakout — харин дүн тавих болон зохион байгуулалтын ажлыг хэрэгтэй болох хүртэл чимээгүйхэн зайдуулж байдаг.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'assignmentDetail.attachmentsTitle': 'Хавсралтууд',
   'assignmentDetail.back': 'Бүх даалгавар',
   'assignmentDetail.code': 'БИО 211',
+  'assignmentDetail.context': 'Эсийн биологи I · {{instructor}} нийтэлсэн · {{due}} дуусах',
   'assignmentDetail.continueDraft': 'Ноорогыг үргэлжлүүлэх',
   'assignmentDetail.draftBody':
     'Хамгийн сүүлд 14 минутын өмнө засварласан · өөрчлөлт бүрт автоматаар хадгалагдана.',
@@ -23,6 +38,7 @@ export const ui: UiTranslations = {
   'assignmentRow.statusInProgress': 'Ноороглох',
   'assignmentRow.statusSubmitted': 'Илгээсэн',
   'assignmentRow.title': 'Лабораторийн тайлан — Митохондрийн ДНХ',
+  'assignmentRow.weight': 'Дүнгийн {{percent}}%-ийг эзэлнэ',
   'assignments.body':
     'Хичээлүүдийнхээ туршид бичиг баримт, бодлогын багц, төслүүдийг хянаж байгаарай.',
   'assignments.empty': 'Энэ эгнээнд одоо юу ч алга - амар амгаланг мэдрээрэй.',
@@ -33,6 +49,8 @@ export const ui: UiTranslations = {
   'assignments.statTotal': 'Идэвхтэй даалгаварууд',
   'assignments.title': 'Даалгаварууд',
   'aulaAuthShell.backHome': '← Гэртээ буцаж ирэх',
+  'aulaAuthShell.brandBody':
+    '{{appName}} нь видео, самбар, breakout, чат, дүн тавихыг нэг төвлөрсөн табд нэгтгэдэг — олон таб удирдахаас илүүтэй заахыг хүсдэг багш нарт зориулагдсан.',
   'aulaAuthShell.brandEyebrow': 'Суралцах нь хаана амьд болдог вэ',
   'aulaAuthShell.brandTitle':
     'Өрөөндөө байгаа мэт дулаан мэдрэмжийг төрүүлдэг амьд анги танхимууд.',
@@ -43,6 +61,9 @@ export const ui: UiTranslations = {
   'aulaSideNav.closeMenu': 'Навигацийн цэсийг хаах',
   'aulaSideNav.label': 'Үндсэн навигаци',
   'aulaSideNav.weeklyClasses': 'Энэ долоо хоногт',
+  'aulaSideNav.weeklyClassesCount': '{{done}} / {{total}}',
+  'aulaSideNav.weeklyHelp':
+    'Та энэ долоо хоногийн хичээлүүдийг дуусгах замдаа явж байна. Үргэлжлүүлээрэй!',
   'aulaTopBar.openMenu': 'Навигацийн цэсийг нээх',
   'aulaTopBar.searchPlaceholder': 'Сургалт, анги, даалгаврыг хайх...',
   'aulaTopBar.title': 'Аула',
@@ -55,6 +76,8 @@ export const ui: UiTranslations = {
   'calendar.statTotal': 'Удахгүй болох нийт арга хэмжээнүүд',
   'classroom.chatCount': '{{count}} мессежүүд',
   'classroom.chatEmpty': 'Одоогоор мессеж алга — нам гүмийг эвдэхийн тулд сайн уу гэж хэлээрэй.',
+  'classroom.chatInputLabel': 'Ангийн чатын мессеж',
+  'classroom.chatLoading': 'Харилцан яриаг ачаалж байна…',
   'classroom.chatPlaceholder': 'Анги руу илгээх...',
   'classroom.chatTitle': 'Ангийн чат',
   'classroom.detailJoin': 'Join code',
@@ -81,23 +104,30 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'Хянах самбар руу очих',
   'courseDetail.assignmentsTitle': 'Хичээлийн даалгаварууд',
   'courseDetail.back': 'Бүх курсууд',
+  'courseDetail.body':
+    'Шугаман интегралаас эхлээд дивергенц, curl хүртэлх хоёрдугаар семестрийн хичээл. Мягмар/Пүрэв бүр шууд, Баасан гарагт лаборатори, долоо хоног бүр office hours.',
+  'courseDetail.ca1Course': 'Тооцооллын II',
   'courseDetail.ca1Due': 'Пүрэв гараг · 17:00 цагт дуусна',
   'courseDetail.ca1Title': 'Векторын талбайн урсгалын бодлогын багц',
   'courseDetail.ca2Course': 'Тооцооллын II',
   'courseDetail.ca2Due': 'Даваа гарагт илгээсэн',
   'courseDetail.ca2Score': 'Санал хүсэлт хүлээж байна',
   'courseDetail.ca2Title': 'Стокс теоремын баталгаа',
+  'courseDetail.ca3Course': 'Тооцооллын II',
   'courseDetail.ca3Due': 'Буцаж ирсэн · 9 хоногийн өмнө',
   'courseDetail.ca3Score': 'А · 94%',
   'courseDetail.ca3Title': 'Шугамын интегралын давталтын асуулт хариулт',
   'courseDetail.cls1Course': 'Тооцооллын II · MTH 202',
   'courseDetail.cls1Instructor': 'Проф. Майя Окафор',
+  'courseDetail.cls1Room': 'Аула өрөө · Лаванда',
   'courseDetail.cls1Title': 'Векторын талбар ба урсгал',
   'courseDetail.cls2Course': 'Тооцооллын II · MTH 202',
   'courseDetail.cls2Instructor': 'Проф. Майя Окафор',
+  'courseDetail.cls2Room': 'Аула өрөө · Лаванда',
   'courseDetail.cls2Title': 'Шугаман интегралын тойм',
   'courseDetail.cls3Course': 'Тооцооллын II · MTH 202',
   'courseDetail.cls3Instructor': 'TA Феликс Бауэр',
+  'courseDetail.cls3Room': '{{appName}} өрөө · Petal',
   'courseDetail.cls3Title': 'Лаборатори: Стокс бодлогын багц',
   'courseDetail.code': 'MTH 202',
   'courseDetail.materialsTitle': 'Материалууд',
@@ -135,15 +165,18 @@ export const ui: UiTranslations = {
   'courses.filterTeaching': 'Багшлах',
   'courses.loading': 'Курсуудыг ачаалж байна…',
   'courses.noBrowse': 'Үзэх курс байхгүй — та нийтлэгдсэн бүх зүйлд бүртгүүлсэн байна.',
+  'courses.noCourses': 'Одоогоор хичээл байхгүй — дээрх товчоор үүсгэнэ үү.',
   'courses.title': 'Таны сургалтын номын сан',
   'courseTileCard.code': 'ECN 312',
   'courseTileCard.continue': 'Сургалтыг үргэлжлүүлэх',
   'courseTileCard.enroll': 'Курсийг харах',
   'courseTileCard.imageAlt': 'Курсын өнгөц зураг',
   'courseTileCard.instructor': 'Доктор Идрис Халлоуэй',
+  'courseTileCard.lessonsRemaining': '{{count}} үлдсэн хичээлүүд',
   'courseTileCard.levelAdvanced': 'Дэвшилтэт',
   'courseTileCard.levelBeginner': 'Анхан шатны',
   'courseTileCard.levelIntermediate': 'Дунд зэргийн',
+  'courseTileCard.preview': 'Хөтөлбөрийг урьдчилан харах, лекцүүдийг үзэх, бүртгэл хүсэх.',
   'courseTileCard.progressComplete': '{{percent}} % дууссан',
   'courseTileCard.title': 'Орчин үеийн макро эдийн засаг',
   'dashboard.assignmentsAll': 'Бүгдийг харах →',
@@ -163,12 +196,16 @@ export const ui: UiTranslations = {
   'dashboard.noAssignments': 'Даалгавар өгөх шаардлагагүй - тайван байдлыг мэдрээрэй.',
   'dashboard.noCourses': 'Одоогоор сургалт алга байна — таны анхны сургалт энд гарч ирнэ.',
   'dashboard.noDueDate': 'Хугацаа дуусаагүй',
+  'dashboard.scheduleAula': 'Аула өрөө',
   'dashboard.scheduleEmpty': 'Дараагийн шууд хичээлийн хуваарь байхгүй байна.',
   'dashboard.scheduleHostedYou': 'Таны зохион байгуулсан',
+  'dashboard.scheduleJoinCode': 'Нэгдэх код · {{code}}',
+  'dashboard.statAssignmentsLabel': 'Дуусах даалгаврууд',
   'dashboard.statClassesDelta': '{{n}} идэвхтэй сургалтууд',
   'dashboard.statClassesLabel': 'Амьд өрөөнүүд',
   'dashboard.statCoursesDelta': '{{n}} бүртгүүлсэн',
   'dashboard.statCoursesLabel': 'Сургалтууд',
+  'dashboard.statNotificationsLabel': 'Уншаагүй мэдэгдэл',
   'dashboard.tipBody':
     'Дээрх баатрын картаас амьд өрөөг нээж, самбар дээр зураас зурах эсвэл чатын мессеж нийтлээрэй - үйлдэл бүр үргэлжилнэ.',
   'dashboard.tipCta': 'Цагаан самбарыг туршаад үзээрэй',
@@ -182,6 +219,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success':
     'Хэрэв тухайн имэйлд бүртгэл байгаа бол дахин тохируулах холбоос гарч ирнэ.',
   'forgotPassword.toLogin': 'Нэвтрэх рүү буцах',
+  'grades.assignmentsCount': '{{n}} дүн',
   'grades.body':
     'Хичээл бүрийн талаар тайван харах - гүйлтийн дүн, сүүлийн үеийн санал хүсэлт, ирэх долоо хоногт хаана анхаарлаа төвлөрүүлэх.',
   'grades.empty': 'Одоогоор дүн алга байна — багш нарын тань үнэлсэн даалгаврууд энд байрлана.',
@@ -193,24 +231,34 @@ export const ui: UiTranslations = {
   'grades.statTrendUnit': 'курсууд',
   'grades.statWatchLabel': 'Анхаарал хандуулах шаардлагатай',
   'grades.title': 'Үнэлгээ ба санал хүсэлт',
+  'landing.ctaBody':
+    'Бид жишээ хичээл үүсгэж, хамтран багшийг урьж, хонх дуугарахаас өмнө хичээлийг breakout болгон хэрхэн хувиргахыг танд үзүүлнэ.',
   'landing.ctaButton': 'Өөрийн сургуулиа байгуул',
   'landing.ctaPrimary': 'Үнэгүй хугацаа эхлүүлэх',
   'landing.ctaSecondary': 'Хичээлийн аялал үзэх',
   'landing.ctaTitle': 'Гурван минутын дотор анхны ангиа нээ.',
+  'landing.demoCourse': 'Дэлхийн уран зохиол · LIT 240',
+  'landing.demoInstructor': 'Проф. Imani Davies',
+  'landing.demoTitle': 'Ид шидийн реализм — Борхес ба Мураками',
   'landing.eyebrow': 'Шууд · цагаан самбар · цуврал · дүн шинжилгээ',
   'landing.feat1Body':
     'Багш нарт зориулсан автоматаар байрлуулсан гэрэлтүүлэг + галерей, идэвхтэй чанга яригчийн өргөлт болон чирж болох зураг доторх зураг функц.',
   'landing.feat1Title': 'Кинематик видео сүлжээ',
   'landing.feat2Body':
     'Хязгааргүй зураг, лазер заагч, найман загварын палитр, мөн хичээл бүрт тасралтгүй хичээлүүд.',
+  'landing.feat2Title': 'Чанга боддог самбар',
   'landing.feat3Body':
     'Оюутнуудыг өрөөнүүд рүү автоматаар оруулж, зарлал цацаж, нэг товшилтоор бүгдийг нь буцааж тат.',
+  'landing.feat3Title': 'Хоёр товшилтоор breakout',
   'landing.feat4Body':
     'Шалгуур үзүүлэлт, файл илгээх, шууд санал хүсэлт, эцэг эхчүүдийг мэдээллээр хангадаг тайван дүнгийн дэвтэр.',
+  'landing.feat4Title': 'Даалгавар + дүнгийн дэвтэр',
   'landing.feat5Body':
     'Хичээл тус бүрийн сэдэвчилсэн чат, тэмдэглэсэн хураангуй, шивнэх дасгалжуулалтад зориулсан зөвхөн багшид зориулсан хажуугийн сувгууд.',
+  'landing.feat5Title': 'Ангийн нөхцөлтэй чат',
   'landing.feat6Body':
     'Дүүргийн лавлах, насны онцлогт тохирсон зохицуулалт, анги бүрт зориулсан аудитын бүртгэл бүхий SSO.',
+  'landing.feat6Title': 'Анхдагчаар аюулгүй',
   'landing.featuresEyebrow': 'Амьдрахад зориулагдсан',
   'landing.featuresTitle': 'Ангид хэрэгтэй бүх зүйл нэг фокустай таб дээр.',
   'landing.footerCopy':
@@ -218,19 +266,25 @@ export const ui: UiTranslations = {
   'landing.footerStart': 'Сургууль нээх',
   'landing.heroBody':
     'Aula нь шууд видео, цагаан самбар, хэлэлцүүлэг, чат болон даалгавруудыг нэг дулаан, эрдэм шинжилгээний гэрт авчирдаг. Цөөн таб, илүү их анхаарал хандуулахыг хүсдэг багш нарт зориулан бүтээгдсэн.',
+  'landing.heroLine1': 'Хаана ч болсон анги бүр',
   'landing.heroLine2': 'өрөөндөө мэдрэгдэж байна.',
   'landing.navSchools': 'Сургуулиудад зориулсан',
   'landing.navStart': 'Анги нээх',
   'landing.previewCourse1': 'Орчин үеийн макро эдийн засаг',
   'landing.previewCourse2': 'Студио Уран Зураг II',
   'landing.previewCourse3': 'Өгөгдлийн ёс зүйн танилцуулга',
+  'landing.previewEyebrow': 'Каталогийг үзэх',
   'landing.previewInstructor1': 'Доктор Идрис Халлоуэй',
   'landing.previewInstructor2': 'Проф. Лила Марин',
   'landing.previewInstructor3': 'Доктор Наоми Рен',
   'landing.previewTitle': 'Таны оюутнууд үнэхээр нээх сургалтууд.',
+  'landing.socialProofBody':
+    'Дэлхий даяар 380 сургууль, bootcamp, корпорацийн сургагч багш нар ашигладаг.',
   'landing.socialProofTitle': 'Энэ улиралд 14,200+ хичээл зохион байгуулагдсан',
   'liveClassHeroCard.bodyLive':
     '{{instructor}} өрөөг дөнгөж сая онгойлголоо. {{count}} Ангийнхан аль хэдийн дотор байгаа — дуудлагын өмнө шургуу орж ирээрэй.',
+  'liveClassHeroCard.bodyUpcoming':
+    '{{instructor}} {{minutes}} минутын дараа хостлоно. Камер, микрофоны шалгалт одоо нээлттэй.',
   'liveClassHeroCard.course': 'Тооцооллын II — MTH 202',
   'liveClassHeroCard.elapsed': 'Хугацаа дууссан',
   'liveClassHeroCard.elapsedValue': '12:08',
@@ -243,6 +297,7 @@ export const ui: UiTranslations = {
   'liveClassHeroCard.title': 'Лекц 14 — Векторын талбарууд',
   'liveClassHeroCard.viewSchedule': 'Бүрэн хуваарийг харах',
   'login.emailPlaceholder': 'you@school.edu',
+  'login.footerPrompt': 'Тессератай шинээр танилцаж байна уу?',
   'login.hidePassword': 'Нууц үгийг нуух',
   'login.rememberMe': 'Намайг нэвтэрсэн хэвээр байлгах',
   'login.showPassword': 'Нууц үгийг харуулах',
@@ -252,6 +307,7 @@ export const ui: UiTranslations = {
   'notifications.body': 'Танд байна {{count}} таны хичээлүүдийн уншаагүй шинэчлэлтүүд.',
   'notifications.bodyNone': 'Та бүгдийг нь гүйцэж түрүүллээ.',
   'notifications.loading': 'Ачааллаж байна…',
+  'pricing.advancedFeatures': 'Дэвшилтэт функцууд',
   'profile.bio':
     'Векторын тооцоолол ба топологи · 14 жил багшилсан · Aula нийгэмлэгийн модератор. Ажлын цаг: Даваа/Лхагва гарагт 11-12 цагийн хооронд Лаванда цэцгийн өрөөнд.',
   'profile.course1Instructor': 'Проф. Майя Окафор',
@@ -272,7 +328,10 @@ export const ui: UiTranslations = {
   'profile.statStudentsLabel': 'Энэ улирлын оюутнууд',
   'resetPassword.confirmPasswordPlaceholder': 'Шинэ нууц үгээ дахин оруулна уу',
   'resetPassword.emailPlaceholder': 'you@school.edu',
+  'resetPassword.mismatch': 'Нууц үгнүүд одоохондоо таарахгүй байна.',
+  'resetPassword.newPassword': 'Шинэ нууц үг',
   'resetPassword.subtitle': 'Таахад хэцүү урт, хурдан бичихэд хангалттай богино болгоорой.',
+  'resetPassword.title': 'Шинэ нууц үг сонгох',
   'scheduleItem.course': 'Бүтээлч бичих · ENG 220',
   'scheduleItem.endTime': '15:30 цагт',
   'scheduleItem.instructor': 'Доктор Юсуф Аделана',
@@ -296,10 +355,20 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Хэл',
   'settings.photoHint': 'JPG эсвэл PNG · дөрвөлжин хамгийн сайн тохирно',
   'settings.profileTitle': 'Профайл',
+  'settings.securityTitle': 'Нэвтрэх ба аюулгүй байдал',
   'settings.twoFactorCode': 'Баталгаажуулах код',
   'settings.twoFactorDisable': 'Идэвхгүй болгох',
+  'settings.twoFactorDisableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхгүй болгох',
   'settings.twoFactorEnable': 'Идэвхжүүлэх',
+  'settings.twoFactorEnableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхжүүлэх',
   'settings.twoFactorInvalidCode': 'Буруу код',
+  'settings.twoFactorOffBody': 'Идэвхгүй байна',
+  'settings.twoFactorOnBody': 'Идэвхтэй · authenticator апп',
+  'settings.twoFactorQrAlt': 'Хоёр хүчин зүйлийн QR код',
+  'settings.twoFactorScan':
+    'Энэ QR кодыг баталгаажуулагч аппаараа сканнердаж, дараа нь 6 оронтой кодыг оруулна уу.',
+  'settings.twoFactorUnavailable':
+    'Энэ аппликейшнд хоёр хүчин зүйлийн баталгаажуулалт боломжгүй байна.',
   'settings.twoFactorVerify': 'Баталгаажуулах ба идэвхжүүлэх',
   'signup.email': 'Сургуулийн имэйл',
   'signup.emailPlaceholder': 'you@school.edu',
@@ -307,6 +376,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Аяана',
   'signup.lastNamePlaceholder': 'Вега',
   'signup.roleInstructor': 'Багш',
+  'signup.roleLabel': 'Би бол…',
   'signup.roleStudent': 'Оюутан',
   'signup.subtitle':
     'Aula эхний 30 хоногт үнэгүй — кредит карт шаардлагагүй. Хамтран суралцагчдаа хүссэн үедээ урьж болно.',
@@ -319,6 +389,8 @@ export const ui: UiTranslations = {
   'whiteboard.colorLabel': 'Өнгө {{color}}',
   'whiteboard.export': 'SVG экспортлох',
   'whiteboard.loading': 'Самбар ачаалагдаж байна…',
+  'whiteboard.persistenceNote':
+    'Зурсан зураас өрөөний самбарт хадгалагдана. Хуудсыг дахин ачаал — самбарын төлөв байсаар байх ёстой.',
   'whiteboard.roomNotFound': 'Энэ холбоосын цагаан самбар олдсонгүй.',
   'whiteboard.savedAt': '{{count}} цус харвалт · хамгийн сүүлд хадгалсан {{when}}',
   'whiteboard.title': 'Шууд самбар',

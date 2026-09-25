@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маєте відгук, знайшли помилку або хочете {{app}} для своєї ліги? Напишіть нам у налаштуваннях акаунта — кожне повідомлення потрапляє до реальної людини з команди.',
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.featureAlerts':
+    'Push-повідомлення про зміни рахунку, обміни, звіти про травми та оголошення ліги.',
+  'about.featureRosters':
+    'Сторінки команд із повними складами, підсумками сезону, серіями злетів і падінь та очними протистояннями для кожного гравця.',
+  'about.featureSchedule':
+    'Календар сезону та розклад, щоб планувати навколо кожного матчу й результату.',
+  'about.featureScoreboard':
+    'Рядок рахунків трансляційної якості, закріплений угорі кожної сторінки, щоб ви не пропустили жодного гола.',
+  'about.featureStandings':
+    'Живі турнірні таблиці — перемоги-поразки-нічиї, очки, відсоток перемог і межа плей-оф у реальному часі, оновлюються на кожному свистку.',
+  'about.intro':
+    '{{app}} — це домівка трансляційної якості для вашої ліги. Команди, розклад, живі рахунки та турнірні таблиці зібрано в одній швидкій, чистій панелі — тож уболівальники, тренери й організатори ліги завжди знають, як стоїть сезон.',
+  'about.missionBody':
+    "Стежити за лігою не повинно означати оновлення п'яти різних сторонніх табло. Ми створили це, щоб кожна ліга мала єдине джерело істини для таблиць, розкладу та статистики, яка справді важлива — оновлюється на кожному свистку, безкоштовно на весь сезон.",
+  'about.missionTitle': 'Наша місія',
+  'about.whatYouGet': 'Що Ви отримаєте',
   'appShell.closeNav': 'Закрити навігацію',
   'appShell.openNav': 'Відкрити навігацію',
   'common.dashboard': 'Панель керування',
@@ -16,14 +35,21 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Переглянути всі матчі \\u2192',
   'dashboard.viewAllStandings': 'Повна турнірна таблиця \\u2192',
   'dashboard.viewAllStats': 'Переглянути всіх лідерів статистики \\u2192',
+  'forgot.submitting': 'Надсилаємо посилання для скидання…',
   'forgot.subtitle': 'Введіть свою електронну адресу, щоб отримати посилання для скидання.',
   'forgot.success':
     'Скинути посилання, надіслане на адресу {{email}} Перевірте свою поштову скриньку.',
+  'landing.copyright': '© {{year}} {{app}}. Chase the standing.',
+  'landing.ctaBody':
+    'Ваша ліга. Ваші таблиці. Ваша улюблена команда — закріплена вгорі. Дві хвилини на налаштування, безкоштовно на весь сезон.',
   'landing.ctaHeading': 'Зупинити оновлення сторонніх табло результатів',
   'landing.eyebrow': 'Створено для вболівальників, тренерів та організаторів ліги',
   'landing.featuresHeading': 'Місце в першому ряду для кожного, хто стоїть',
   'landing.getStarted': 'Приєднуйтесь до ліги',
   'landing.heroCta': 'Приєднуйтесь до ліги',
+  'landing.heroSubtitle':
+    '{{app}} поєднує таблиці, розклад і статистичних лідерів в одній панелі трансляційної якості. Живі рахунки. Справжні рекорди. Без зайвого.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Сьогодні ввечері навколо ліги',
   'landing.statFans': 'Підписники фанатів',
   'landing.statGames': 'Ігри цього сезону',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'П {{period}}',
   'matchDetail.back': 'Назад до матчів',
   'matchDetail.eventsHeading': 'Поетапний огляд',
+  'matchDetail.final': 'ФІНАЛ',
   'matchDetail.finalScore': 'Фінал',
   'matchDetail.live': 'ПРЯМИЙ ЕФІР',
   'matchDetail.liveNow': 'Зараз наживо',
   'matchDetail.noEvents': 'Поки що не зареєстровано жодних подій.',
   'matchDetail.periodClock': 'П {{period}} · {{clock}}',
+  'matches.empty': 'У цьому поданні немає матчів — спробуйте інший фільтр.',
   'matches.eyebrow': 'День матчу',
   'matches.loading': 'Витягування шиферу…',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Не вдалося завантажити сповіщення',
   'notifications.loading': 'Завантаження сповіщень\\u2026',
   'pennantHeroCard.eyebrow': 'Вершина таблиці',
+  'pennantHeroCard.formLabel': 'Останні 10',
   'pennantHeroCard.gamesAhead': '{{value}} ігри перед погонею',
   'pennantHeroCard.pointsLabel': 'ПТС',
   'pennantLayout.primaryNavLabel': 'Основна навігація',
@@ -81,17 +110,24 @@ export const ui: UiTranslations = {
   'pricing.heading':
     'Оновіть підписку, щоб отримати багатший розклад, результати та турнірну таблицю.',
   'pricing.limits.schedule': '{{count}} записи розкладу',
+  'pricing.limits.scores': 'Рахунки {{count}}',
+  'pricing.limits.standings': 'Таблиці {{count}}',
+  'pricing.limits.teams': 'Команди {{count}}',
+  'pricing.subtitle': 'Оновіть для багатшого розкладу, рахунків і таблиць.',
   'pricing.upgradeCta': 'Перейти на {{tierName}}',
   'profile.eyebrow': 'Профіль фаната',
   'profile.favoritesCount': 'Команди, на які підписані',
   'profile.favoritesHeading': 'Улюблені команди',
   'profile.noFavorites': 'Поки що немає улюблених — оберіть команди на сторінці «Команди».',
   'profile.rankRecord': 'Ранг № {{rank}} · {{record}}',
+  'profile.recordOnly': 'Рекорд {{record}}',
   'reset.confirmPlaceholder': 'Введіть пароль ще раз',
+  'reset.mismatch': 'Паролі не збігаються.',
   'reset.newLabel': 'Новий пароль',
   'reset.subtitle': 'Оберіть надійний пароль щонайменше з 12 символів.',
   'reset.tokenPlaceholder': 'Вставити з електронної пошти',
   'schedule.eyebrow': 'Шифер',
+  'schedule.moreGames': '+ {{count}} більше',
   'schedule.subtitle':
     'Календарний перегляд матчів протягом сезону — торкніться будь-якого дня, щоб переглянути рахунок матчів.',
   'scoreboardTicker.empty':
@@ -100,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Персоналізувати',
   'settings.favoritesBody':
     'Ці команди закріплюються на вашій інформаційній панелі та запускають сповіщення про результати.',
+  'settings.favoritesHeading': 'Улюблені команди',
   'settings.loading': 'Завантаження ваших налаштувань\\u2026',
   'settings.noFavorites': 'Поки що немає улюблених \\u2014 виберіть команди на сторінці Команди.',
   'settings.notificationsHeading': 'Сповіщення та дисплей',
@@ -118,6 +155,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'Л',
   'standings.overall': 'Загалом',
   'standings.points': 'ПТС',
+  'standings.rank': '#',
   'standings.subtitle':
     'Четвірка найкращих кваліфікується до плей-офф — тай-брейки за очками, потім відсоток перемог.',
   'standings.title': 'Турнірна таблиця ліги',
@@ -136,6 +174,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'Г',
   'teamDetail.colName': 'Гравець',
   'teamDetail.colPos': 'Поз',
+  'teamDetail.pointsLabel': 'Очки',
   'teamDetail.rankLabel': 'Ранг № {{rank}}',
   'teamDetail.rosterHeading': 'Склад',
   'teamDetail.statGD': 'Різниця голів',

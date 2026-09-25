@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'سؤال، بازخورد یا قابلیتی که آرزو دارید داشتیم؟ از تنظیمات حساب خود با تیم در تماس باشید — یک انسان واقعی هر پیام را می‌خواند.',
   'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
+  'about.missionTitle': 'ماموریت ما',
+  'about.whatYouGetTitle': 'آنچه به دست می‌آورید',
   'analytics.empty': 'برای دیدن تحلیل‌ها اینجا، دسته‌هایی ایجاد کنید.',
   'analytics.stats.acrossDecks': 'در تمام عرشه‌ها',
   'analytics.stats.allTime': 'در استودیوی شما',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'عنوان عرشه',
   'landing.features.eyebrow': 'چرا اورتور',
   'landing.features.heading': 'هر آنچه برای رفتن روی صحنه نیاز دارید، آماده است.',
+  'landing.finalCta.body':
+    'در کمتر از یک دقیقه استودیوی خود را راه بیندازید. بدون کارت اعتباری. هر زمان لغو کنید.',
   'landing.finalCta.cta': 'استودیوی رایگان خود را بسازید',
   'landing.finalCta.eyebrow': 'رایگان برای شروع',
   'landing.finalCta.heading': 'با بهترین دست کارت‌های دوران حرفه‌ای‌تان روی صحنه بروید.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'ویرایش شده ۱۲ دقیقه پیش',
   'notifications.created': 'ایجاد شده',
   'notifications.edited': 'ویرایش شده',
+  'notifications.empty.body':
+    'فعالیت روی دک‌های شما — نظرات، منشن‌ها، خروجی‌ها — اینجا نمایش داده می‌شود.',
   'notifications.empty.title': 'هنوز هیچ اعلانی وجود ندارد',
   'notifications.eyebrow': 'فعالیت مرحله‌ای',
   'notifications.loading': 'در حال بارگذاری…',
   'notifications.shared': 'به صورت عمومی به اشتراک گذاشته شد',
+  'planUpdated.retry': 'دوباره امتحان کنید',
+  'planUpdated.verifyFailed': 'ما هنوز نتوانستیم پرداخت شما را تأیید کنیم.',
+  'planUpdated.verifyFailedBody':
+    'ممکن است پرداخت شما هنوز در حال پردازش باشد. چند لحظه دیگر دوباره امتحان کنید.',
   'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'present.addSlides': 'اضافه کردن اسلایدها',
   'present.backToDecks': 'بازگشت به عرشه‌ها',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'مجری صحنه',
   'settings.security.notSet': 'تنظیم نشده',
   'settings.security.passwordBody': 'رمز عبور شما در حالت استراحت رمزگذاری شده است.',
+  'settings.security.reset': 'تنظیم مجدد',
   'settings.security.title': 'حساب + جلسات',
   'shared.empty.body':
     'دسته کارت‌هایی که به صورت عمومی به اشتراک می‌گذارید، اینجا نمایش داده می‌شوند. یک دسته کارت را باز کنید و حالت اشتراک‌گذاری عمومی را فعال کنید.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'در حال بارگذاری…',
   'shared.title': 'عرشه‌های مشترک',
   'templateCard.slideCount': '{{count}} اسلایدها',
+  'templateCard.usageCount': '{{count}} استفاده می‌کند',
+  'templates.empty.body': 'فیلتر دیگری را امتحان کنید — هر ماه قالب‌های جدید ارائه می‌دهیم.',
+  'templates.empty.title': 'هنوز قالبی در این دسته نیست',
+  'templates.hero.body':
+    'چیدمان‌های اسلاید با تم آماده همراه با بلوک‌های نمودار، فریم‌های دمو، یادداشت‌های ارائه‌دهنده و پیش‌تنظیم‌های تایمر — هر قالب آماده ضبط ارائه می‌شود.',
   'templates.hero.eyebrow': 'مراحل انتخاب شده',
   'templates.hero.heading': 'مراحلی که برای لحظه‌ای که باید فرود بیایید ساخته شده‌اند.',
 }

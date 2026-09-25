@@ -1,20 +1,40 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kas sul on tagasisidet, leidsid vea või soovid funktsiooni soovitada? Võta ühendust oma konto seadete kaudu — iga sõnum jõuab tiimi päris inimeseni.',
+  'about.contactTitle': 'Võta meiega ühendust',
+  'about.featureDatabases':
+    'Kergekaalulised andmebaasid ja taaskasutatavad mallid, mis muudavad vabad märkmed struktureeritud ja korratavateks töövoogudeks.',
+  'about.featureEditor':
+    'Vaikne plokiredaktor — pealkirjad, loendid, kood, esiletõstmised ja ülesanded — kaldkriipsukäskudega, kui neid vajad, ja eest ära, kui ei vaja.',
+  'about.featureGraph':
+    'Viitelingid ja teadmiste graaf: kirjuta [[, et märget linkida, ja jälgi, kuidas sinu ideed aja jooksul ühenduvad.',
+  'about.featureNotebooks':
+    'Pesastatud märkmikud ja lehed, et projektid, teemad ja päevamärkmed püsiksid korras täpselt nii, nagu sa mõtled.',
+  'about.featureSearch':
+    'Alla 50 ms täistekstiotsing igas märkmikus, lisaks sildid, mis sobivad märkmikega, selle asemel et nendega võidelda.',
+  'about.missionTitle': 'Meie missioon',
   'common.goToDashboard': 'Mine töölauani',
   'forgot.eyebrow': 'Kas kaotasid tee tagasi sisse?',
   'forgot.formSubtitle': 'Andke meile teada failis olev e-posti aadress.',
+  'forgot.formTitle': 'Unustasid parooli?',
   'forgot.headline': 'Taasta oma parool.',
   'forgot.subline': 'Saadame teie postkasti ühekordse lingi, et saaksite uue valida.',
+  'forgot.successDetail': 'Saatsime sinu e-postile lähtestamislingi. See aegub 30 minuti pärast.',
   'graph.eyebrow': 'Graafik',
+  'graph.goToNotes': 'Sirvi märkmeid →',
+  'graph.loadError': 'Graafi ei saanud laadida: {{message}}',
   'graph.placeholderBody':
     'Kui märkmed hakkavad üksteisega linkima ([[wiki]] süntaksi abil), kuvatakse siin interaktiivne jõuga suunatud graaf.',
+  'graph.placeholderTitle': 'Viitelingi graaf tuleb peagi',
   'graph.subtitle':
     '{{count}} Märkmed selles tööruumis. Tagasilinkide graafiku renderdus kuvatakse siin, kui märkmed omavahel lingivad.',
   'graph.title': 'Teadmiste graafik',
   'home.empty': 'Märkmeid veel pole – alusta oma esimesega.',
   'home.favoritesHeading': 'Kinnitatud',
   'home.guest': 'sõber',
+  'home.loadError': 'Sinu märkmeid ei saanud laadida: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Kinnita märkus redaktorisse, et see siin püsiks.',
   'home.recentHeading': 'Hiljuti uuendatud',
@@ -22,18 +42,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Märkmik',
   'home.stats.pinned.label': 'Kinnitatud',
   'home.stats.updatedToday.label': 'Täna uuendatud',
+  'home.subtitle': 'Jätka sealt, kus pooleli jäid, või alusta uut märget.',
   'home.viewAll': 'Kuva kõik märkmed',
   'landing.cta.body':
     'Tasuta isiklikuks kasutamiseks. Professionaalne meeskondadele. Tooge oma olemasolev märkmetöötlus kaasa või alustage puhtalt – Verso on teiega kõikjal, kus teie märkmed asuvad.',
+  'landing.cta.button': 'Loo minu tööruum',
   'landing.cta.heading': 'Ava tänane leht.',
   'landing.features.eyebrow': 'Iga primitiivne asi, mida su teine aju vajab',
+  'landing.features.heading': 'Ehitatud töö, mitte meta-töö jaoks.',
   'landing.hero.eyebrow': 'Vaikne kirjutuspind',
   'landing.hero.headlineAccent': 'kuju võtma.',
   'landing.hero.headlineLeading': 'Kus mõtted',
   'landing.hero.primaryCta': 'Alusta oma teadmistebaasi',
   'landing.hero.secondaryCta': 'Mul on juba konto',
+  'landing.hero.socialProof':
+    '12 800+ kirjutajat, üliõpilast ja doktoranti mõtlevad {{appName}} abil',
   'landing.hero.subline':
     'Verso on struktureeritud märkmete tegemise pind teadmustöötajatele ja üliõpilastele. Plokiredaktor, pesastatud märkmikud, tagasilingid ja teadmiste graafik – kõik tüpograafia-põhise lugemiskogemuse taga.',
+  'landing.preview.notebook': 'Teadmised · Kirjutamisprotsess',
+  'landing.preview.title': 'Mustandite hingamise lubamisest',
   'login.eyebrow': 'Tere tulemast tagasi Versosse',
   'login.formSubtitle': 'Kasutage oma e-posti või mõnda muud ühendatud teenusepakkujat.',
   'login.headline': 'Jätka sealt, kus leht peatus.',
@@ -43,6 +70,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Sulge navigeerimismenüü',
   'mobileNav.openMenu': 'Ava navigeerimismenüü',
   'noteEditor.backToNotes': 'Tagasi märkmete juurde',
+  'noteEditor.bodyLabel': 'Märkme sisu',
   'noteEditor.bodyPlaceholder':
     'Hakka kirjutama – sinu märge salvestub kirjutamise ajal automaatselt.',
   'noteEditor.confirmTrash': 'Kas teisaldada see märkus prügikasti?',
@@ -51,17 +79,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Viia prügikasti',
   'noteEditor.updated': 'Uuendatud',
   'notes.defaultWorkspaceName': 'Minu märkmik',
+  'notes.empty': 'Siin pole veel märkmeid — alusta ühega, et märkmikku täita.',
   'notes.eyebrow': 'Märkmik',
   'notes.filterAll': 'Kõik märkmed',
   'notes.filterPinned': 'Kinnitatud',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Uus märkmik',
   'notes.newNotebookPrompt': 'Uue märkmiku nimi',
+  'notes.newNotebookRequired': 'Sisesta märkmiku nimi.',
   'notes.notebooksHeading': 'Märkmikud',
   'notes.subtitle':
     'Valige vasakult märkmik ja seejärel vajutage uue sissekande alustamiseks nuppu Uus märge.',
+  'planUpdated.body': 'Sinu tellimus on nüüd aktiivne.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Täiustatud funktsioonid',
   'pricing.heading': 'Valige oma märkmete tegemise plaan',
+  'reset.changedMind': 'Mõtlesid ümber?',
   'reset.eyebrow': 'Peaaegu tagasi',
   'reset.formSubtitle': 'Teid logitakse sisse pärast salvestamist.',
   'reset.headline': 'Valige uus parool.',
@@ -71,7 +104,9 @@ export const ui: UiTranslations = {
     'Sisesta kood, mille me sulle just e-postiga saatsime, ja vali midagi meeldejäävat.',
   'reset.submit': 'Salvesta ja logi sisse',
   'reset.tokenHint': 'Kleebitud teie postkastist.',
+  'search.empty': 'Ükski märge ei vasta veel sellele päringule.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Otsi Refract',
   'search.loading': 'Otsitakse…',
   'search.noRecent': 'Märkmete otsimise alustamiseks tippige ülalpool päring.',
   'search.recentLabel': 'Hiljutised otsingud',
@@ -79,12 +114,19 @@ export const ui: UiTranslations = {
     'Täistekst igas märkmikus. Tippige otsinguks; tulemused värskendatakse tippimise ajal.',
   'search.title': 'Otsi teist aju.',
   'settings.account.logout': 'Logi välja',
+  'settings.account.title': 'Konto andmed',
+  'settings.editor.graphHover.body':
+    'Näita pisikest eelvaatekaarti, kui hõljutad redaktoris [[vikilingi]] kohal.',
+  'settings.editor.graphHover.label': 'Viitelingi graafi hõljumiseelvaade',
   'settings.editor.lineHeight.body':
     'Kui palju õhku kehajoonte vahel on. Vaikimisi on lugemisrütm 170%.',
+  'settings.editor.lineHeight.label': 'Rea kõrgus',
   'settings.editor.serif.body':
     'Lugemisveeru jaoks kasutage Georgia kirjastiili. Sans-serif säilib külgribal ja tööriistaribadel.',
+  'settings.editor.serif.label': 'Seriifkirjas põhitekst',
   'settings.editor.title': 'Tüpograafia ja kirjutuspind',
   'settings.eyebrow': 'Verso · Seaded',
+  'settings.passwordModal.current': 'Praegune parool',
   'settings.passwordModal.error':
     'Parooli ei õnnestunud muuta – palun kontrollige oma praegust parooli.',
   'settings.passwordModal.next': 'Uus parool',
@@ -94,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Vajuta iga klahvivajutust reaalajas kanali kaudu. Aeglasema ühenduse korral keela see funktsioon.',
   'settings.sync.auto.label': 'Reaalajas sünkroonimine',
+  'settings.sync.title': 'Kuidas sinu märkmed liiguvad',
   'settings.theme.body':
     'Valgus hoiab toimetuse veeru erksana. Seepiatoon soojendab lehte õhtuteks.',
   'settings.theme.dark': 'Tume',
@@ -113,8 +156,12 @@ export const ui: UiTranslations = {
     'Lisa märkme pealkirjale #hashtagid (nt "Lugemisnimekiri #raamatud") ja need ilmuvad siia automaatselt.',
   'tags.emptyTitle': 'Silte pole veel',
   'tags.eyebrow': 'Indeks',
+  'tags.goToNotes': 'Mine märkmete juurde →',
+  'tags.loadError': 'Silte ei saanud laadida: {{message}}',
   'tags.subtitle':
     '{{tags}} sildid üle {{notes}} märkmed. Lisa märkme pealkirjale #hashtagid ja need kuvatakse siin.',
+  'versoAuthShell.sample.body':
+    'Teine lugemine homme kõlab alati paremini kui esimene täna õhtul. Jäta toores versioon süvatöö kausta…',
   'versoAuthShell.sample.label': 'Päevane märkus',
   'versoAuthShell.sample.timestamp': 'Täna · 9:14',
   'versoAuthShell.sample.title': 'Mustandite hingamise lubamisest',
@@ -126,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Jätka kirjutamist',
   'versoTodayHero.createCta': 'Alusta tänast märkmikku',
   'versoTodayHero.dailyLabel': 'Päevane märkus',
+  'versoTodayHero.emptyHeadline': 'Täna on tühi leht.',
   'versoTodayHero.emptySubline':
     'Jäädvusta mõte, pane kirja kohtumine või visanda homme. Verso hoiab struktuuri vaikse, et kirjutamine jääks valjuks.',
+  'versoTodayHero.outlineLabel': 'Tänane kava',
   'versoTodayHero.streak': '{{count}} -päevane seeria',
+  'versoTodayHero.unwritten': 'Sõnu veel pole — ava märge, et alustada.',
   'versoTodayHero.wordCount': '{{count}} sõnad täna',
 }

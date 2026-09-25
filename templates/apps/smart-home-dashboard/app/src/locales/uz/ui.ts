@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fikr-mulohaza, xatolik topdingizmi yoki qurilma qo‘llab-quvvatlanishini xohlaysizmi? Sozlamalardan istalgan vaqtda bizga murojaat qiling — har bir xabar jamoamizdagi haqiqiy insonga yetib boradi.',
   'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.intro':
+    '{{app}} — chiroqlar, iqlim, xavfsizlik va avtomatlashtirish uchun aqlli uy boshqaruv paneli — uyingizdagi har bir qurilmani bir joyga jamlovchi xotirjam, o‘z serveringizda ishlayotgandek tuyuladigan markaz: devor plansheti, telefon va ko‘z uchingizda.',
+  'about.missionBody':
+    'Aqlli uy ikkinchi ishdek emas, oson tuyulishi kerak. Uyimizni boshqarish maxfiy, tez va chindan ham xotirjam bo‘lishi kerak deb hisoblaymiz — har bir xona, sahna va avtomatlashtirish bir qarashda, kundalik hayot uchun yaratilgan markazning jonli real vaqt tuyg‘usi bilan.',
+  'about.missionTitle': 'Bizning vazifamiz',
   'about.pageTitle': '{{app}} haqida',
   'activity.empty':
     "Hali hech qanday faollik yo'q — qurilmani aylantiring yoki sahnani faollashtiring.",
@@ -15,6 +22,7 @@ export const ui: UiTranslations = {
   'addDevice.field.firmware': "Dasturiy ta'minot versiyasi",
   'addDevice.field.manufacturer': 'Ishlab chiqaruvchi',
   'addDevice.field.room': 'Xona',
+  'addDevice.formLabel': "Qurilma qo'shish",
   'addDevice.heading': "Qurilma qo'shish",
   'addDevice.placeholder.firmware': 'v2.4.1',
   'addDevice.placeholder.manufacturer': 'Aurora yoritish',
@@ -35,6 +43,7 @@ export const ui: UiTranslations = {
   'automationEditor.nameRequired': 'Avtomatizatsiyaga nom bering.',
   'automationEditor.newHeading': 'Yangi avtomatlashtirish',
   'automationEditor.notFound': 'Avtomatlashtirish topilmadi.',
+  'automationEditor.placeholder.actionTarget': 'Qurilma ID yoki sahna nomi',
   'automationEditor.placeholder.actionType':
     "holatni_o'rnatish, sahnani_faollashtirish, xabar berish…",
   'automationEditor.placeholder.description':
@@ -54,6 +63,7 @@ export const ui: UiTranslations = {
   'automationRow.on': 'On',
   'automationRow.runNowAria': 'Yugurish {{name}} hozir',
   'automations.empty': "Hali avtomatlashtirish yo'q — birinchi tartibingizni yarating.",
+  'automations.emptyFiltered': 'Mos avtomatlashtirishlar yo‘q.',
   'automations.eyebrow': 'Rutinlar',
   'automations.heading': 'Avtomatlashtirish',
   'automations.loading': 'Avtomatlashtirishlar yuklanmoqda…',
@@ -63,6 +73,7 @@ export const ui: UiTranslations = {
   'common.no': '—',
   'common.yes': '✓',
   'deviceDetail.loadError': "Qurilmani yuklab bo'lmadi.",
+  'deviceDetail.loading': 'Qurilma yuklanmoqda…',
   'deviceDetail.notFound': 'Qurilma topilmadi.',
   'deviceDetail.propertiesHeading': 'Mulklar',
   'deviceDetail.props.firmware': "Dasturiy ta'minot",
@@ -95,12 +106,15 @@ export const ui: UiTranslations = {
   'energy.watts': "{{watts}} G'arb",
   'energyMeterCard.drawLabel': "Jonli qur'a tashlash",
   'energyMeterCard.title': 'Hozir quvvat',
+  'energyMeterCard.todaySummary': 'Bugun {{kwh}} kWh · ${{cost}}',
   'energyMeterCard.utilizationLabel': 'Maqsaddan',
+  'energyMeterCard.utilizationPct': '{{pct}} %',
   'energyMeterCard.watts': "{{watts}} G'arb",
   'floorplan.eyebrow': 'Xarita',
   'floorplan.heading': 'Qavat rejasi',
   'floorplan.legend':
     "Qurilma pinlari faol bo'lganda yonib-o'chib turadi. Xona panellari o'z chegaralarini ko'rsatadi; burg'ulash uchun istalgan xonaga teging.",
+  'floorplan.roomDevices': '{{count}} yoniq',
   'floorplan.subheading':
     "Jonli harorat qoplamasi bilan har bir qurilma va xonaning yuqoridan pastga ko'rinishi.",
   'floorplan.tempBadge': '{{degrees}} °F',
@@ -109,11 +123,17 @@ export const ui: UiTranslations = {
   'homeHeroCard.noTemperature': '— °F',
   'homeHeroCard.temperature': '{{degrees}} °F',
   'homeHeroCard.title': 'Hozir uyda',
+  'landing.copyright': '© {{year}} {{app}}. Uyingiz doim yorug‘.',
+  'landing.ctaBody':
+    'Markazni quvvatga ulang, QR kodni skanerlang va {{appName}} tarmog‘ingizdagi har bir Matter, Zigbee va Z-Wave qurilmasini topadi.',
   'landing.ctaHeading': "Uni o'n daqiqadan kamroq vaqt ichida yoqing",
   'landing.eyebrow': 'Aqlli uy, xotirjam yugur',
   'landing.featuresHeading': "Orqa fonda g'uvullaydigan uy",
   'landing.getStarted': 'Uyingizni sozlang',
   'landing.heroCta': 'Uyingizni sozlang',
+  'landing.heroSubtitle':
+    'Har bir xonada chiroqlar, iqlim, xavfsizlik va avtomatlashtirish — devor, telefon va ko‘z uchingiz uchun yaratilgan markazning jonli real vaqt tuyg‘usi bilan.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Hozir uyda',
   'landing.sampleScene': 'Kino kechasi',
   'landing.sampleSummary': '12 ta · 22 tadan 18 tasi onlayn',
@@ -132,6 +152,9 @@ export const ui: UiTranslations = {
   'pricing.automationsLabel': 'avtomatlashtirish',
   'pricing.canExportLabel': 'Eksport tarixi',
   'pricing.dashboardCta': 'Boshqaruv panelini ochish',
+  'pricing.devicesLabel': 'qurilmalar',
+  'pricing.heading': '{{app}} rejasini tanlang',
+  'pricing.retentionLabel': '{{days}} kunlik tarix saqlanadi',
   'pricing.scenesLabel': 'sahnalar',
   'roomDetail.areaLabel': 'Maydon',
   'roomDetail.back': 'Barcha xonalar',
@@ -147,6 +170,7 @@ export const ui: UiTranslations = {
   'roomDetail.unnamed': 'Xona',
   'rooms.create.error': "Xona yaratib bo'lmadi. Qaytadan urinib ko'ring.",
   'rooms.create.nameRequired': 'Avval xonaga nom bering.',
+  'rooms.empty': 'Hozircha xonalar yo‘q. Boshlash uchun birinchi xonangizni qo‘shing.',
   'rooms.eyebrow': 'Uy',
   'rooms.heading': 'Xonalar',
   'rooms.loadError': "Xonalarni yuklab bo'lmadi.",
@@ -156,6 +180,8 @@ export const ui: UiTranslations = {
   'rooms.new.open': '+ Yangi xona',
   'rooms.new.placeholder': 'Quyoshli xona, Garaj, Bolalar yotoqxonasi…',
   'rooms.subheading': "Har bir qurilma uchun to'liq boshqaruv uchun istalgan xonaga teging.",
+  'roomTriad.devicesLabel': 'qurilma yoniq',
+  'roomTriad.devicesOn': '{{on}}/{{total}}',
   'roomTriad.tempBadge': '{{degrees}} °F',
   'sceneCard.activate': 'Faollashtirish',
   'sceneCard.deviceCount': '{{count}} qurilmalar',
@@ -168,11 +194,13 @@ export const ui: UiTranslations = {
   'scenes.loading': 'Sahnalar yuklanmoqda…',
   'scenes.new.create': 'Sahna yaratish',
   'scenes.new.descPlaceholder': 'Bu sahna nima qiladi — qisqacha xulosa.',
+  'scenes.new.icon': 'Belgi',
   'scenes.new.name': 'Sahna nomi',
   'scenes.new.namePlaceholder': "Uchrashuv kechasi, uyg'onish, bayram chiroqlari...",
   'scenes.new.open': '+ Yangi sahna',
   'scenes.subheading':
     "Bitta teginish, har bir qurilma — istalgan lahza uchun kayfiyatni o'rnating.",
+  'security.alertsHeading': 'So‘nggi ogohlantirishlar',
   'security.camerasHeading': 'Jonli kameralar',
   'security.eyebrow': 'Soat',
   'security.lastChange': "Oxirgi o'zgarish {{time}}",
@@ -187,6 +215,7 @@ export const ui: UiTranslations = {
   'settings.plan.subheading': 'Sizning hozirgi huquqlaringiz va cheklovlaringiz.',
   'settings.plan.upgrade': "Rejalarni ko'ring",
   'settings.security.heading': 'Xavfsizlik',
+  'settings.security.subheading': 'Parol va ikki faktorli autentifikatsiya.',
   'settings.subheading': 'Reja, markazlar va hisob sozlamalari.',
   'smartHomeDashboardLayout.openMenu': 'Navigatsiya menyusini ochish',
   'smartHomeDashboardLayout.primaryNavLabel': 'Asosiy navigatsiya',

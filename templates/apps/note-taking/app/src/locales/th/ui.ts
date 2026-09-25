@@ -1,21 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'มีข้อเสนอแนะ เจอบั๊ก หรืออยากแนะนำฟีเจอร์ใหม่? ติดต่อเราจากการตั้งค่าบัญชีของคุณ — ทุกข้อความส่งถึงทีมงานจริง ๆ',
+  'about.contactTitle': 'ติดต่อเรา',
+  'about.featureDatabases':
+    'ฐานข้อมูลน้ำหนักเบาและเทมเพลตที่ใช้ซ้ำได้ เพื่อเปลี่ยนบันทึกกระจัดกระจายให้เป็นเวิร์กโฟลว์ที่มีโครงสร้างและทำซ้ำได้',
+  'about.featureEditor':
+    'บล็อกเอดิเตอร์ที่เงียบสงบ — หัวข้อ รายการ โค้ด กล่องข้อความ และสิ่งที่ต้องทำ — พร้อมคำสั่งสแลชเมื่อคุณต้องการ และซ่อนไว้เมื่อไม่ต้องการ',
+  'about.featureGraph':
+    'แบ็คลิงก์และกราฟความรู้: พิมพ์ [[ เพื่อลิงก์บันทึก แล้วดูว่าไอเดียของคุณเชื่อมโยงกันอย่างไรเมื่อเวลาผ่านไป',
+  'about.featureNotebooks':
+    'สมุดโน้ตและหน้าแบบซ้อนกัน เพื่อให้โปรเจกต์ หัวข้อ และบันทึกรายวันเป็นระเบียบตรงตามวิธีคิดของคุณ',
+  'about.featureSearch':
+    'ค้นหาข้อความแบบเต็มรูปแบบทั่วทุกสมุดโน้ตภายในไม่ถึง 50 มิลลิวินาที พร้อมแท็กที่ทำงานร่วมกับสมุดโน้ตแทนที่จะขัดแย้งกัน',
+  'about.missionTitle': 'พันธกิจของเรา',
   'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'forgot.eyebrow': 'หลงทางกลับเข้าไปหรือเปล่า?',
   'forgot.formSubtitle': 'โปรดแจ้งอีเมลที่ลงทะเบียนไว้ให้เราทราบ',
+  'forgot.formTitle': 'ลืมรหัสผ่าน',
   'forgot.headline': 'รีเซ็ตรหัสผ่านของคุณ',
   'forgot.subline':
     'เราจะส่งลิงก์ที่ใช้ได้เพียงครั้งเดียวไปที่กล่องจดหมายของคุณ เพื่อให้คุณสามารถเลือกอันใหม่ได้',
+  'forgot.successDetail': 'เราได้ส่งลิงก์รีเซ็ตไปยังอีเมลของคุณแล้ว ลิงก์จะหมดอายุใน 30 นาที',
   'graph.eyebrow': 'กราฟ',
+  'graph.goToNotes': 'เรียกดูบันทึก →',
+  'graph.loadError': 'โหลดกราฟไม่สำเร็จ: {{message}}',
   'graph.placeholderBody':
     'เมื่อบันทึกเริ่มเชื่อมโยงถึงกัน (ด้วยไวยากรณ์ [[wiki]]) กราฟแบบแรงดึงดูดเชิงโต้ตอบจะปรากฏขึ้นที่นี่',
+  'graph.placeholderTitle': 'กราฟแบ็คลิงก์เร็ว ๆ นี้',
   'graph.subtitle':
     '{{count}} บันทึกในพื้นที่ทำงานนี้ การแสดงผลกราฟลิงก์ย้อนกลับจะปรากฏขึ้นที่นี่เมื่อบันทึกเชื่อมโยงถึงกัน',
   'graph.title': 'กราฟความรู้',
   'home.empty': 'ยังไม่มีบันทึกใดๆ — เริ่มบันทึกแรกของคุณได้เลย',
   'home.favoritesHeading': 'ปักหมุด',
   'home.guest': 'เพื่อน',
+  'home.loadError': 'โหลดบันทึกของคุณไม่สำเร็จ: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'ปักหมุดบันทึกในโปรแกรมแก้ไขเพื่อเก็บไว้ที่นี่',
   'home.recentHeading': 'อัปเดตล่าสุด',
@@ -23,18 +43,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'สมุดบันทึก',
   'home.stats.pinned.label': 'ปักหมุด',
   'home.stats.updatedToday.label': 'อัปเดตวันนี้',
+  'home.subtitle': 'ทำต่อจากที่ค้างไว้ หรือเริ่มบันทึกใหม่',
   'home.viewAll': 'ดูบันทึกทั้งหมด',
   'landing.cta.body':
     'ใช้งานส่วนตัวได้ฟรี ส่วนรุ่นโปรเหมาะสำหรับทีม ใช้ไฟล์ Markdown เดิมของคุณ หรือเริ่มต้นใหม่ก็ได้ Verso พร้อมให้บริการคุณไม่ว่าบันทึกของคุณจะอยู่ที่ไหน',
+  'landing.cta.button': 'สร้างพื้นที่ทำงานของฉัน',
   'landing.cta.heading': 'เปิดหน้าวันนี้',
   'landing.features.eyebrow': 'สมองส่วนที่สองของคุณต้องการทุกสิ่งดั้งเดิม',
+  'landing.features.heading': 'ออกแบบมาเพื่อการทำงาน ไม่ใช่เพื่อการทำงานที่ซับซ้อนกว่านั้น',
   'landing.hero.eyebrow': 'พื้นผิวสำหรับเขียนที่เงียบสงบ',
   'landing.hero.headlineAccent': 'เริ่มเป็นรูปเป็นร่าง',
   'landing.hero.headlineLeading': 'ความคิดอยู่ที่ไหน',
   'landing.hero.primaryCta': 'เริ่มต้นสร้างฐานความรู้ของคุณ',
   'landing.hero.secondaryCta': 'ฉันมีบัญชีอยู่แล้ว',
+  'landing.hero.socialProof':
+    'นักเขียน นักศึกษา และผู้ถือปริญญาเอกกว่า 12,800+ คนคิดด้วย {{appName}}',
   'landing.hero.subline':
     'Verso คือแพลตฟอร์มการจดบันทึกที่มีโครงสร้างสำหรับผู้ทำงานด้านความรู้และนักเรียน ประกอบด้วยตัวแก้ไขแบบบล็อก สมุดบันทึกแบบซ้อนกัน ลิงก์ย้อนกลับ และกราฟความรู้ ทั้งหมดนี้อยู่เบื้องหลังประสบการณ์การอ่านที่เน้นการจัดวางตัวอักษรเป็นหลัก',
+  'landing.preview.notebook': 'ความรู้ · กระบวนการเขียน',
+  'landing.preview.title': 'ปล่อยให้ลมพัดผ่านบ้าง',
   'login.eyebrow': 'ยินดีต้อนรับกลับสู่เวอร์โซ',
   'login.formSubtitle': 'ใช้ที่อยู่อีเมลของคุณหรือผู้ให้บริการเครือข่ายใดก็ได้ที่เชื่อมต่ออยู่',
   'login.headline': 'อ่านต่อจากจุดที่หน้าเว็บหยุดไว้',
@@ -43,6 +70,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'ปิดเมนูนำทาง',
   'mobileNav.openMenu': 'เปิดเมนูนำทาง',
   'noteEditor.backToNotes': 'กลับไปที่บันทึก',
+  'noteEditor.bodyLabel': 'เนื้อหาบันทึก',
   'noteEditor.bodyPlaceholder': 'เริ่มเขียนได้เลย — บันทึกของคุณจะบันทึกอัตโนมัติขณะที่คุณพิมพ์',
   'noteEditor.confirmTrash': 'ย้ายบันทึกนี้ไปที่ถังขยะ?',
   'noteEditor.pinToggle': 'สลับรายการโปรด',
@@ -50,16 +78,21 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'ย้ายไปถังขยะ',
   'noteEditor.updated': 'อัปเดตแล้ว',
   'notes.defaultWorkspaceName': 'สมุดบันทึกของฉัน',
+  'notes.empty': 'ยังไม่มีบันทึกที่นี่ — เริ่มเขียนสักอันเพื่อเติมสมุดโน้ต',
   'notes.eyebrow': 'สมุดบันทึก',
   'notes.filterAll': 'บันทึกทั้งหมด',
   'notes.filterPinned': 'ปักหมุด',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'สมุดบันทึกเล่มใหม่',
   'notes.newNotebookPrompt': 'ชื่อสมุดบันทึกใหม่',
+  'notes.newNotebookRequired': 'ป้อนชื่อสมุดโน้ต',
   'notes.notebooksHeading': 'สมุดบันทึก',
   'notes.subtitle': 'เลือกสมุดบันทึกทางด้านซ้าย จากนั้นกดปุ่ม "บันทึกใหม่" เพื่อเริ่มบันทึกใหม่',
+  'planUpdated.body': 'การสมัครสมาชิกของคุณเปิดใช้งานแล้ว',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'คุณสมบัติขั้นสูง',
   'pricing.heading': 'เลือกแผนการจดบันทึกของคุณ',
+  'reset.changedMind': 'เปลี่ยนใจแล้วหรือ?',
   'reset.eyebrow': 'เกือบกลับมาแล้ว',
   'reset.formSubtitle': 'คุณจะเข้าสู่ระบบได้เมื่อบันทึกเสร็จแล้ว',
   'reset.headline': 'เลือกตั้งรหัสผ่านใหม่',
@@ -68,19 +101,28 @@ export const ui: UiTranslations = {
   'reset.subline': 'กรอกรหัสที่เราเพิ่งส่งอีเมลไปให้คุณ แล้วเลือกสิ่งที่น่าจดจำ',
   'reset.submit': 'บันทึกและเข้าสู่ระบบ',
   'reset.tokenHint': 'คัดลอกมาจากกล่องจดหมายของคุณ',
+  'search.empty': 'ยังไม่มีบันทึกที่ตรงกับคำค้นนี้',
   'search.eyebrow': 'Verso · ⌘เค',
+  'search.inputAria': 'ค้นหาการหักเหของแสง',
   'search.loading': 'กำลังค้นหา…',
   'search.noRecent': 'พิมพ์คำค้นหาด้านบนเพื่อเริ่มค้นหาในบันทึกของคุณ',
   'search.recentLabel': 'การค้นหาล่าสุด',
   'search.subtitle': 'ข้อความเต็มในทุกสมุดบันทึก พิมพ์เพื่อค้นหา ผลการค้นหาจะอัปเดตขณะที่คุณพิมพ์',
   'search.title': 'ค้นหาสมองส่วนที่สอง',
   'settings.account.logout': 'ออกจากระบบ',
+  'settings.account.title': 'รายละเอียดบัญชี',
+  'settings.editor.graphHover.body':
+    'แสดงการ์ดตัวอย่างเล็ก ๆ เมื่อคุณวางเมาส์เหนือ [[wikilink]] ในเอดิเตอร์',
+  'settings.editor.graphHover.label': 'ตัวอย่างเมื่อวางเมาส์บนกราฟแบ็คลิงก์',
   'settings.editor.lineHeight.body':
     'ปริมาณอากาศระหว่างเส้นร่างกายเท่าไหร่? 170% คือจังหวะการอ่านมาตรฐาน',
+  'settings.editor.lineHeight.label': 'ความสูงบรรทัด',
   'settings.editor.serif.body':
     'ใช้แบบอักษร Georgia สำหรับคอลัมน์การอ่าน ส่วนแบบอักษร Sans-serif จะใช้ในแถบด้านข้างและแถบเครื่องมือ',
+  'settings.editor.serif.label': 'ข้อความเนื้อหาแบบเซริฟ',
   'settings.editor.title': 'การจัดวางตัวอักษรและพื้นผิวสำหรับเขียน',
   'settings.eyebrow': 'Verso · การตั้งค่า',
+  'settings.passwordModal.current': 'รหัสผ่านปัจจุบัน',
   'settings.passwordModal.error': 'ไม่สามารถเปลี่ยนรหัสผ่านได้ โปรดตรวจสอบรหัสผ่านปัจจุบันของคุณ',
   'settings.passwordModal.next': 'รหัสผ่านใหม่',
   'settings.passwordModal.submit': 'บันทึกรหัสผ่าน',
@@ -89,6 +131,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'ส่งทุกการกดแป้นพิมพ์ผ่านช่องทางเรียลไทม์ ปิดใช้งานสำหรับ1การเชื่อมต่อที่ช้ากว่า',
   'settings.sync.auto.label': 'การซิงค์แบบเรียลไทม์',
+  'settings.sync.title': 'บันทึกของคุณเดินทางอย่างไร',
   'settings.theme.body':
     'แสงสว่างช่วยให้คอลัมน์บทบรรณาธิการดูสดใส ส่วนสีซีเปียช่วยให้หน้ากระดาษดูอบอุ่นในยามเย็น',
   'settings.theme.dark': 'มืด',
@@ -108,8 +151,12 @@ export const ui: UiTranslations = {
     'เพิ่มแฮชแท็ก (#hashtags) ลงในชื่อบันทึก (เช่น "รายชื่อหนังสือที่อ่าน #books") แล้วแฮชแท็กเหล่านั้นจะปรากฏที่นี่โดยอัตโนมัติ',
   'tags.emptyTitle': 'ยังไม่มีแท็ก',
   'tags.eyebrow': 'ดัชนี',
+  'tags.goToNotes': 'ไปที่บันทึก →',
+  'tags.loadError': 'โหลดแท็กไม่สำเร็จ: {{message}}',
   'tags.subtitle':
     '{{tags}} แท็กทั่ว {{notes}} หมายเหตุ: เพิ่มแฮชแท็ก (#hashtags) ในชื่อหมายเหตุ แล้วแฮชแท็กเหล่านั้นจะปรากฏที่นี่',
+  'versoAuthShell.sample.body':
+    'การอ่านรอบสองในวันพรุ่งนี้ย่อมดีกว่ารอบแรกในคืนนี้เสมอ พักฉบับร่างไว้ในโฟลเดอร์งานหนัก…',
   'versoAuthShell.sample.label': 'บันทึกประจำวัน',
   'versoAuthShell.sample.timestamp': 'วันนี้ · 9:14 น.',
   'versoAuthShell.sample.title': 'ปล่อยให้ลมพัดผ่านบ้าง',
@@ -121,8 +168,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'เขียนต่อไป',
   'versoTodayHero.createCta': 'เริ่มบันทึกประจำวันนี้',
   'versoTodayHero.dailyLabel': 'บันทึกประจำวัน',
+  'versoTodayHero.emptyHeadline': 'วันนี้คือหน้าว่างเปล่า',
   'versoTodayHero.emptySubline':
     'บันทึกความคิด บันทึกการประชุม หรือร่างแบบสำหรับวันพรุ่งนี้ Verso ช่วยรักษารูปแบบให้เรียบง่าย เพื่อให้ตัวหนังสือโดดเด่นขึ้นมา',
+  'versoTodayHero.outlineLabel': 'โครงร่างของวันนี้',
   'versoTodayHero.streak': '{{count}} สถิติรายวัน',
+  'versoTodayHero.unwritten': 'ยังไม่มีคำ — เปิดบันทึกเพื่อเริ่มต้น',
   'versoTodayHero.wordCount': '{{count}} คำพูดในวันนี้',
 }

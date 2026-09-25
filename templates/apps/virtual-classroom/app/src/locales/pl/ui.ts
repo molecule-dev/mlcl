@@ -1,10 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
+  'about.featureAssignments':
+    'Zadania, przesyłanie plików, kryteria oceniania, komentarze w tekście i spokojny dziennik ocen, który informuje uczniów i rodziców.',
+  'about.featureBreakouts':
+    'Sale do pracy w grupach jednym kliknięciem — automatyczne losowanie uczniów, ogłoszenia i przywołanie wszystkich z powrotem, gdy czas minie.',
+  'about.featureChat':
+    'Wątkowa rozmowa klasowa z przypiętymi podsumowaniami i kanałami bocznymi tylko dla prowadzącego do cichego wspierania w trakcie zajęć.',
+  'about.featureVideo':
+    'Kinowa transmisja na żywo z podświetlaniem aktywnego mówcy, układami galerii i reflektora oraz przeciąganym obrazem w obrazie dla prowadzących.',
+  'about.featureWhiteboard':
+    'Nieskończona tablica z laserowym wskaźnikiem i pełną paletą kolorów, a każda sesja zapisywana osobno dla kursu, dzięki czemu praca przechodzi między zajęciami.',
+  'about.missionBody':
+    'Wierzymy, że nauka zdalna i hybrydowa powinna być tak obecna i ludzka jak stół seminaryjny. Dlatego stawiamy na obecność na żywo — prawdziwe twarze, wspólne płótno i pracę w małych grupach — a ocenianie i sprawy organizacyjne trzymamy cicho z boku, dopóki ich nie potrzebujesz.',
+  'about.missionTitle': 'Nasza misja',
   'assignmentDetail.attachmentsTitle': 'Załączniki',
   'assignmentDetail.back': 'Wszystkie zadania',
   'assignmentDetail.code': 'BIO 211',
+  'assignmentDetail.context':
+    'Biologia komórki I · Opublikowane przez {{instructor}} · Termin {{due}}',
   'assignmentDetail.continueDraft': 'Kontynuuj wersję roboczą',
   'assignmentDetail.draftBody':
     'Ostatnia edycja 14 minut temu · automatyczne zapisywanie przy każdej zmianie.',
@@ -23,6 +39,7 @@ export const ui: UiTranslations = {
   'assignmentRow.statusInProgress': 'Redakcja',
   'assignmentRow.statusSubmitted': 'Zgłoszone',
   'assignmentRow.title': 'Raport laboratoryjny — DNA mitochondrialne',
+  'assignmentRow.weight': 'Warte {{percent}}% oceny',
   'assignments.body': 'Śledź każdy artykuł, zestaw zadań i projekt w ramach swoich kursów.',
   'assignments.empty': 'Aktualnie na tym pasie nie dzieje się nic — ciesz się spokojem.',
   'assignments.eyebrow': 'Praca zaliczeniowa',
@@ -32,6 +49,8 @@ export const ui: UiTranslations = {
   'assignments.statTotal': 'Aktywne zadania',
   'assignments.title': 'Zadania',
   'aulaAuthShell.backHome': '← Powrót do domu',
+  'aulaAuthShell.brandBody':
+    '{{appName}} łączy wideo, tablicę, pracę w grupach, czat i ocenianie w jednej skupionej karcie — stworzone dla prowadzących, którzy chcą uczyć, a nie pilnować kart.',
   'aulaAuthShell.brandEyebrow': 'Gdzie nauka ożywa',
   'aulaAuthShell.brandTitle':
     'Zajęcia na żywo, w których panuje ciepło przebywania w pomieszczeniu.',
@@ -42,6 +61,9 @@ export const ui: UiTranslations = {
   'aulaSideNav.closeMenu': 'Zamknij menu nawigacyjne',
   'aulaSideNav.label': 'Nawigacja główna',
   'aulaSideNav.weeklyClasses': 'Ten tydzień',
+  'aulaSideNav.weeklyClassesCount': '{{done}} / {{total}}',
+  'aulaSideNav.weeklyHelp':
+    'Jesteś na dobrej drodze, by ukończyć lekcje z tego tygodnia. Tak trzymaj!',
   'aulaTopBar.openMenu': 'Otwórz menu nawigacyjne',
   'aulaTopBar.searchPlaceholder': 'Szukaj kursów, zajęć, zadań…',
   'aulaTopBar.title': 'Aula',
@@ -54,6 +76,8 @@ export const ui: UiTranslations = {
   'calendar.statTotal': 'Łączna liczba nadchodzących wydarzeń',
   'classroom.chatCount': '{{count}} wiadomości',
   'classroom.chatEmpty': 'Nie ma jeszcze żadnych wiadomości — przywitaj się, aby przerwać ciszę.',
+  'classroom.chatInputLabel': 'Wiadomość na czacie klasowym',
+  'classroom.chatLoading': 'Ładowanie rozmowy…',
   'classroom.chatPlaceholder': 'Wyślij do klasy…',
   'classroom.chatTitle': 'Czat klasowy',
   'classroom.detailJoin': 'Join code',
@@ -80,23 +104,30 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'Przejdź do panelu',
   'courseDetail.assignmentsTitle': 'Zadania kursowe',
   'courseDetail.back': 'Wszystkie kursy',
+  'courseDetail.body':
+    'Kurs drugiego semestru, od całek krzywoliniowych po dywergencję i rotację. Na żywo w każdy wt./czw., z piątkowym laboratorium i cotygodniowymi dyżurami.',
+  'courseDetail.ca1Course': 'Rachunek różniczkowy II',
   'courseDetail.ca1Due': 'Termin: czwartek · 17:00',
   'courseDetail.ca1Title': 'Zestaw problemów ze strumieniem pola wektorowego',
   'courseDetail.ca2Course': 'Rachunek różniczkowy II',
   'courseDetail.ca2Due': 'Wysłano w poniedziałek',
   'courseDetail.ca2Score': 'Oczekiwanie na opinię',
   'courseDetail.ca2Title': 'Dowody twierdzenia Stokesa',
+  'courseDetail.ca3Course': 'Rachunek różniczkowy II',
   'courseDetail.ca3Due': 'Zwrócono · 9 dni temu',
   'courseDetail.ca3Score': 'A · 94%',
   'courseDetail.ca3Title': 'Quiz powtórzeniowy z całki krzywoliniowej',
   'courseDetail.cls1Course': 'Rachunek różniczkowy i całkowy II · MTH 202',
   'courseDetail.cls1Instructor': 'Prof. Maya Okafor',
+  'courseDetail.cls1Room': 'Sala aula · Lawenda',
   'courseDetail.cls1Title': 'Pola wektorowe i strumień',
   'courseDetail.cls2Course': 'Rachunek różniczkowy i całkowy II · MTH 202',
   'courseDetail.cls2Instructor': 'Prof. Maya Okafor',
+  'courseDetail.cls2Room': 'Sala aula · Lawenda',
   'courseDetail.cls2Title': 'Przegląd całek krzywoliniowych',
   'courseDetail.cls3Course': 'Rachunek różniczkowy i całkowy II · MTH 202',
   'courseDetail.cls3Instructor': 'TA Felix Bauer',
+  'courseDetail.cls3Room': 'Pokój {{appName}} · Petal',
   'courseDetail.cls3Title': 'Laboratorium: Zestaw zadań Stokesa',
   'courseDetail.code': 'MTH 202',
   'courseDetail.materialsTitle': 'Materiały',
@@ -135,15 +166,18 @@ export const ui: UiTranslations = {
   'courses.loading': 'Ładowanie kursów…',
   'courses.noBrowse':
     'Nie ma kursów do przeglądania — jesteś zapisany na wszystkie opublikowane kursy.',
+  'courses.noCourses': 'Nie ma jeszcze kursów — utwórz jeden przyciskiem powyżej.',
   'courses.title': 'Twoja biblioteka edukacyjna',
   'courseTileCard.code': 'ECN 312',
   'courseTileCard.continue': 'Kontynuuj kurs',
   'courseTileCard.enroll': 'Zobacz kurs',
   'courseTileCard.imageAlt': 'Miniatura kursu',
   'courseTileCard.instructor': 'Dr Idris Halloway',
+  'courseTileCard.lessonsRemaining': 'Pozostało {{count}} lekcji',
   'courseTileCard.levelAdvanced': 'Zaawansowane',
   'courseTileCard.levelBeginner': 'Początkujący',
   'courseTileCard.levelIntermediate': 'Mediator',
+  'courseTileCard.preview': 'Przejrzyj sylabus, przeglądaj wykłady i poproś o zapis.',
   'courseTileCard.progressComplete': '{{percent}}% ukończone',
   'courseTileCard.title': 'Nowoczesna makroekonomia',
   'dashboard.assignmentsAll': 'Zobacz wszystkie →',
@@ -163,12 +197,16 @@ export const ui: UiTranslations = {
   'dashboard.noAssignments': 'Żadnych zadań do wykonania — ciesz się spokojem.',
   'dashboard.noCourses': 'Brak kursów — tutaj pojawi się Twój pierwszy kurs.',
   'dashboard.noDueDate': 'Bez terminu',
+  'dashboard.scheduleAula': 'Sala aula',
   'dashboard.scheduleEmpty': 'Brak zaplanowanych zajęć na żywo w najbliższym czasie.',
   'dashboard.scheduleHostedYou': 'Gospodarz: Ty',
+  'dashboard.scheduleJoinCode': 'Dołącz do kodu · {{code}}',
+  'dashboard.statAssignmentsLabel': 'Terminy zadań',
   'dashboard.statClassesDelta': '{{n}} aktywne kursy',
   'dashboard.statClassesLabel': 'Pokoje na żywo',
   'dashboard.statCoursesDelta': '{{n}} przyjęty',
   'dashboard.statCoursesLabel': 'Kursy',
+  'dashboard.statNotificationsLabel': 'Nieprzeczytane powiadomienia',
   'dashboard.tipBody':
     'Otwórz pokój na żywo z karty bohatera powyżej, aby narysować kreskę na tablicy lub wysłać wiadomość na czacie — każda czynność zostanie zapisana.',
   'dashboard.tipCta': 'Wypróbuj tablicę',
@@ -182,6 +220,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success':
     'Jeśli konto na tym adresie e-mail już istnieje, link do jego zresetowania zostanie wysłany.',
   'forgotPassword.toLogin': 'Powrót do logowania',
+  'grades.assignmentsCount': 'Oceny: {{n}}',
   'grades.body':
     'Spokojne spojrzenie na każdy kurs — ocena bieżąca, ostatnie opinie i to, na czym należy się skupić w przyszłym tygodniu.',
   'grades.empty': 'Brak ocen — tutaj będą trafiać przesłane zadania ocenione przez instruktorów.',
@@ -193,43 +232,59 @@ export const ui: UiTranslations = {
   'grades.statTrendUnit': 'kursy',
   'grades.statWatchLabel': 'Wymaga uwagi',
   'grades.title': 'Oceny i opinie',
+  'landing.ctaBody':
+    'Utworzymy przykładowy kurs, zaprosimy współprowadzącego i pokażemy, jak zamienić zajęcia w pracę w grupach, zanim zadzwoni dzwonek.',
   'landing.ctaButton': 'Stwórz swoją szkołę',
   'landing.ctaPrimary': 'Rozpocznij bezpłatny semestr',
   'landing.ctaSecondary': 'Obejrzyj wycieczkę klasową',
   'landing.ctaTitle': 'Otwórz swoją pierwszą klasę w mniej niż trzy minuty.',
+  'landing.demoCourse': 'Literatura światowa · LIT 240',
+  'landing.demoInstructor': 'prof. Imani Davies',
+  'landing.demoTitle': 'Realizm magiczny — Borges i Murakami',
   'landing.eyebrow': 'Zespoły rozproszone, od początku do końca',
   'landing.feat1Body':
     'Automatycznie wyświetlane punkty + galeria, akcenty aktywnych mówców i przeciągany obraz w obrazie dla instruktorów.',
   'landing.feat1Title': 'Siatka wideo kinowa',
   'landing.feat2Body':
     'Nieograniczone płótno, wskaźnik laserowy, paleta ośmiu próbek i ciągłe sesje na kurs.',
+  'landing.feat2Title': 'Tablica, która myśli na głos',
   'landing.feat3Body':
     'Automatycznie rozdzielaj uczniów między pokoje, emituj ogłoszenia i wywołuj wszystkich jednym dotknięciem.',
+  'landing.feat3Title': 'Praca w grupach w dwa kliknięcia',
   'landing.feat4Body':
     'Rubryki oceniania, przesyłanie plików, informacje zwrotne w tekście i spokojny dziennik ocen, który na bieżąco informuje rodziców.',
+  'landing.feat4Title': 'Zadania + dziennik ocen',
   'landing.feat5Body':
     'Podział na wątki na zajęcia, przypinane podsumowania i kanały boczne dostępne tylko dla instruktorów umożliwiające szeptane konsultacje.',
+  'landing.feat5Title': 'Czat z kontekstem klasy',
   'landing.feat6Body':
     'SSO z katalogami okręgowymi, moderacją dostosowaną do wieku i dziennikami audytu dla każdej klasy.',
+  'landing.feat6Title': 'Domyślnie bezpieczne',
   'landing.featuresEyebrow': 'Zbudowany do życia',
   'landing.featuresTitle': 'Wszystko, czego potrzebuje klasa, w jednej zakładce.',
   'landing.footerCopy': '© {{year}} Aula. Stworzona z myślą o nauczycielach.',
   'landing.footerStart': 'Załóż szkołę',
   'landing.heroBody':
     'Aula łączy w jednym, ciepłym i naukowym miejscu wideo na żywo, tablicę, sesje w grupach, czat i zadania. Stworzona dla instruktorów, którzy potrzebują mniej zakładek, a więcej uwagi.',
+  'landing.heroLine1': 'Gdzie każda klasa',
   'landing.heroLine2': 'czuje się w pokoju.',
   'landing.navSchools': 'Dla szkół',
   'landing.navStart': 'Otwórz klasę',
   'landing.previewCourse1': 'Nowoczesna makroekonomia',
   'landing.previewCourse2': 'Malarstwo studyjne II',
   'landing.previewCourse3': 'Wprowadzenie do etyki danych',
+  'landing.previewEyebrow': 'Zwiedź katalog',
   'landing.previewInstructor1': 'Dr Idris Halloway',
   'landing.previewInstructor2': 'Prof. Lila Marin',
   'landing.previewInstructor3': 'Dr Naomi Wren',
   'landing.previewTitle': 'Kursy, które Twoi studenci faktycznie otworzą.',
+  'landing.socialProofBody':
+    'Używane przez 380 szkół, bootcampów i trenerów korporacyjnych na całym świecie.',
   'landing.socialProofTitle': 'W tym semestrze odbyło się ponad 14 200 zajęć',
   'liveClassHeroCard.bodyLive':
     '{{instructor}} Właśnie otworzyłem pokój. {{count}} koledzy i koleżanki są już w środku — wślizgnijcie się przed apelem.',
+  'liveClassHeroCard.bodyUpcoming':
+    '{{instructor}} prowadzi zajęcia za {{minutes}} minut. Sprawdzenie kamery i mikrofonu jest już otwarte.',
   'liveClassHeroCard.course': 'Rachunek różniczkowy i całkowy II — MTH 202',
   'liveClassHeroCard.elapsed': 'Upłynęło',
   'liveClassHeroCard.elapsedValue': '12:08',
@@ -242,6 +297,7 @@ export const ui: UiTranslations = {
   'liveClassHeroCard.title': 'Wykład 14 — Pola wektorowe',
   'liveClassHeroCard.viewSchedule': 'Zobacz pełny harmonogram',
   'login.emailPlaceholder': 'ty@school.edu',
+  'login.footerPrompt': 'Nowy w Tesserze?',
   'login.hidePassword': 'Ukryj hasło',
   'login.rememberMe': 'Pozostań zalogowany',
   'login.showPassword': 'Pokaż hasło',
@@ -252,6 +308,7 @@ export const ui: UiTranslations = {
   'notifications.body': 'Masz {{count}} nieprzeczytane aktualizacje z twoich zajęć.',
   'notifications.bodyNone': 'Wszystko nadrobione.',
   'notifications.loading': 'Ładowanie…',
+  'pricing.advancedFeatures': 'Funkcje zaawansowane',
   'profile.bio':
     'Rachunek wektorowy i topologia · 14 lat nauczania · Moderator społeczności auli. Dyżury: poniedziałek/środa 11–12 w sali Lavender.',
   'profile.course1Instructor': 'Prof. Maya Okafor',
@@ -272,8 +329,11 @@ export const ui: UiTranslations = {
   'profile.statStudentsLabel': 'Studenci w tym semestrze',
   'resetPassword.confirmPasswordPlaceholder': 'Wprowadź ponownie nowe hasło',
   'resetPassword.emailPlaceholder': 'ty@school.edu',
+  'resetPassword.mismatch': 'Hasła jeszcze się nie zgadzają.',
+  'resetPassword.newPassword': 'Nowe hasło',
   'resetPassword.subtitle':
     'Tekst powinien być na tyle długi, aby trudno go było odgadnąć, i na tyle krótki, aby można go było szybko wpisać.',
+  'resetPassword.title': 'Wybierz nowe hasło',
   'scheduleItem.course': 'Kreatywne pisanie · ENG 220',
   'scheduleItem.endTime': '15:30',
   'scheduleItem.instructor': 'Dr Yusuf Adelana',
@@ -296,10 +356,20 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Język',
   'settings.photoHint': 'JPG lub PNG · najlepiej sprawdza się format kwadratowy',
   'settings.profileTitle': 'Profil',
+  'settings.securityTitle': 'Logowanie i bezpieczeństwo',
   'settings.twoFactorCode': 'Kod uwierzytelniający',
   'settings.twoFactorDisable': 'Wyłącz',
+  'settings.twoFactorDisableTitle': 'Wyłącz uwierzytelnianie dwuskładnikowe',
   'settings.twoFactorEnable': 'Włącz',
+  'settings.twoFactorEnableTitle': 'Włącz uwierzytelnianie dwuskładnikowe',
   'settings.twoFactorInvalidCode': 'Nieprawidłowy kod',
+  'settings.twoFactorOffBody': 'Nie włączono',
+  'settings.twoFactorOnBody': 'Włączone · aplikacja uwierzytelniająca',
+  'settings.twoFactorQrAlt': 'Kod QR uwierzytelniania dwuskładnikowego',
+  'settings.twoFactorScan':
+    'Zeskanuj ten kod QR w aplikacji uwierzytelniającej, a następnie wpisz 6-cyfrowy kod.',
+  'settings.twoFactorUnavailable':
+    'Uwierzytelnianie dwuskładnikowe nie jest dostępne w tej aplikacji.',
   'settings.twoFactorVerify': 'Zweryfikuj i włącz',
   'signup.email': 'E-mail szkolny',
   'signup.emailPlaceholder': 'ty@school.edu',
@@ -307,6 +377,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Aiyana',
   'signup.lastNamePlaceholder': 'Vega',
   'signup.roleInstructor': 'Instruktor',
+  'signup.roleLabel': 'Jestem…',
   'signup.roleStudent': 'Uczeń',
   'signup.subtitle':
     'Aula jest bezpłatna przez pierwsze 30 dni — nie jest wymagana karta kredytowa. Zaproś swoich współprowadzących w dowolnym momencie.',
@@ -319,6 +390,8 @@ export const ui: UiTranslations = {
   'whiteboard.colorLabel': 'Kolor {{color}}',
   'whiteboard.export': 'Eksportuj SVG',
   'whiteboard.loading': 'Ładowanie płyty…',
+  'whiteboard.persistenceNote':
+    'Pociągnięcia zapisują się na tablicy pokoju. Odśwież stronę — stan tablicy powinien nadal tam być.',
   'whiteboard.roomNotFound': 'Nie znaleziono tablicy dla tego łącza.',
   'whiteboard.savedAt': '{{count}} udary · ostatnio zapisane {{when}}',
   'whiteboard.title': 'Tablica na żywo',

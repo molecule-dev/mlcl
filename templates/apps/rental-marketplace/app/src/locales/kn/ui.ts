@@ -1,13 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ಸಂಪರ್ಕದಲ್ಲಿರಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.featureBooking':
+    'ಸ್ಟ್ರೈಪ್ ಮೂಲಕ ಸುರಕ್ಷಿತ ಪಾವತಿ ಮತ್ತು ಚೆಕ್-ಇನ್ಗೆ 48 ಗಂಟೆಗಳ ಮೊದಲು ಉಚಿತ ರದ್ದತಿಯೊಂದಿಗೆ ತಕ್ಷಣ ಅಥವಾ ವಿನಂತಿ-ಮೂಲಕ ಕಾಯ್ದಿರಿಸುವಿಕೆ.',
+  'about.featureHosting':
+    'ಲಿಸ್ಟಿಂಗ್ಗಳನ್ನು ಪ್ರಕಟಿಸಲು, ಲಭ್ಯತೆಯನ್ನು ನಿರ್ವಹಿಸಲು, ಕಾಯ್ದಿರಿಸುವಿಕೆಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಲು ಮತ್ತು ಹಣ ಪಡೆಯಲು ಪೂರ್ಣ ಹೋಸ್ಟ್ ಡ್ಯಾಶ್ಬೋರ್ಡ್.',
+  'about.featureMessaging':
+    'ನಿಮ್ಮ ವಾಸ್ತವ್ಯದ ಮೊದಲು ಮತ್ತು ಸಮಯದಲ್ಲಿ ಹೋಸ್ಟ್ಗಳೊಂದಿಗೆ ನೇರ ಸಂದೇಶ, ಜೊತೆಗೆ ನೀವು ಇಷ್ಟಪಡುವ ಸ್ಥಳಗಳನ್ನು ಉಳಿಸಲು ವಿಶ್ಲಿಸ್ಟ್ಗಳು.',
+  'about.featureReviews':
+    'ಪ್ರಾಮಾಣಿಕ ದ್ವಿಮುಖ ವಿಮರ್ಶೆಗಳು — ಪ್ರಯಾಣಿಕರು ಮತ್ತು ಹೋಸ್ಟ್ಗಳು ಇಬ್ಬರೂ ವಿಶ್ವಾಸಾರ್ಹ ಖ್ಯಾತಿಯನ್ನು ನಿರ್ಮಿಸುತ್ತಾರೆ.',
+  'about.featureSearch':
+    'ಪರಿಶೀಲಿಸಿದ ಲಿಸ್ಟಿಂಗ್ಗಳಾದ್ಯಂತ ನಕ್ಷೆ-ಆಧಾರಿತ ಹುಡುಕಾಟ, ಬೆಲೆ, ಸೌಲಭ್ಯಗಳು ಮತ್ತು ದಿನಾಂಕಗಳಿಗೆ ಫಿಲ್ಟರ್ಗಳೊಂದಿಗೆ.',
+  'about.missionBody':
+    'ಪ್ರಯಾಣವು ನಿಮ್ಮನ್ನು ಒಂದು ಸ್ಥಳಕ್ಕೆ ಬೆಸೆಯಬೇಕು, ಸರಣಿಗೆ ಅಲ್ಲ. ವಿಶಿಷ್ಟ ಮನೆಗಳನ್ನು ಸ್ವತಂತ್ರ ಹೋಸ್ಟ್ಗಳು ಪಟ್ಟಿ ಮಾಡಲು ಮತ್ತು ಪ್ರಯಾಣಿಕರು ಅವುಗಳನ್ನು ಕಂಡುಕೊಳ್ಳಲು ನಾವು ಸಹಾಯ ಮಾಡುತ್ತೇವೆ — ಪಾರದರ್ಶಕ ಬೆಲೆ, ಗುಪ್ತ ಶುಲ್ಕಗಳಿಲ್ಲ, ಮತ್ತು ಹೋಸ್ಟ್ಗಳಿಗಾಗಿ ಪಾವತಿಗಳು, ತೆರಿಗೆಗಳು ಮತ್ತು ಪ್ರಯಾಣಿಕರ ಪರಿಶೀಲನೆಯನ್ನು ನಿರ್ವಹಿಸಲಾಗುತ್ತದೆ, ಇದರಿಂದ ಅವರು ಆತಿಥ್ಯದ ಮೇಲೆ ಗಮನ ಹರಿಸಬಹುದು.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
+  'about.subtitle': 'ನಿಜವಾದ ಮನೆಗಳು ಮತ್ತು ನಿಜವಾದ ಹೋಸ್ಟ್ಗಳ ಸುತ್ತ ನಿರ್ಮಿಸಲಾದ ಬಾಡಿಗೆ ಮಾರುಕಟ್ಟೆ.',
   'bookingDetail.afterTime': 'ಮಧ್ಯಾಹ್ನ 3:00 ಗಂಟೆಯ ನಂತರ',
   'bookingDetail.backCta': 'ಬುಕಿಂಗ್‌ಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'bookingDetail.beforeTime': 'ಬೆಳಿಗ್ಗೆ 11:00 ಗಂಟೆಯ ಮೊದಲು',
   'bookingDetail.cancel': 'ಕಾಯ್ದಿರಿಸುವಿಕೆಯನ್ನು ರದ್ದುಗೊಳಿಸಿ',
   'bookingDetail.cancelFailed': 'ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ — ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'bookingDetail.checkIn': 'ಚೆಕ್ ಇನ್ ಮಾಡಿ',
+  'bookingDetail.cleaningFee': 'ಶುಚಿಗೊಳಿಸುವ ಶುಲ್ಕ',
   'bookingDetail.confirmCancel':
     'ಈ ಕಾಯ್ದಿರಿಸುವಿಕೆಯನ್ನು ರದ್ದುಗೊಳಿಸುವುದೇ? ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.',
   'bookingDetail.eyebrow': 'ದೃಢೀಕರಣ · {{code}}',
@@ -22,14 +38,17 @@ export const ui: UiTranslations = {
   'bookingDetail.viewListing': 'ಪಟ್ಟಿಯನ್ನು ವೀಕ್ಷಿಸಿ',
   'bookingDetail.yourHost': 'ನಿಮ್ಮ ಹೋಸ್ಟ್',
   'bookingItineraryRow.nights': '{{count}} ರಾತ್ರಿಗಳು',
+  'bookings.empty.past': 'ನೀವು ವಾಸ್ತವ್ಯ ಮಾಡಿದ ನಂತರ ಹಿಂದಿನ ಕಾಯ್ದಿರಿಸುವಿಕೆಗಳು ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ.',
   'bookings.empty.upcoming': 'ಪುಸ್ತಕಗಳ ಮೇಲೆ ಯಾವುದೇ ಪ್ರವಾಸಗಳಿಲ್ಲ - ಅದನ್ನು ಸರಿಪಡಿಸೋಣ.',
   'bookings.eyebrow': 'ನಿಮ್ಮ ಪ್ರವಾಸಗಳು',
   'bookings.heading': 'ಬುಕಿಂಗ್‌ಗಳು',
   'bookings.loadError': 'ಬುಕಿಂಗ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'bookings.searchCta': 'ಇನ್ನೊಂದು ಪ್ರವಾಸವನ್ನು ಯೋಜಿಸಿ',
   'bookings.subheading': '{{upcoming}} ಮುಂಬರುವ · {{past}} ಹಿಂದಿನದು',
   'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'common.retry': 'ಮರುಪ್ರಯತ್ನಿಸಿ',
   'createListing.back': 'ಪಟ್ಟಿಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
+  'createListing.bedrooms': 'ಮಲಗುವ ಕೋಣೆಗಳು',
   'createListing.cityLabel': 'ಅದು ಎಲ್ಲಿದೆ?',
   'createListing.cityPlaceholder': 'ನಗರ, ಪ್ರದೇಶ ಅಥವಾ ನೆರೆಹೊರೆ',
   'createListing.descPlaceholder':
@@ -39,16 +58,22 @@ export const ui: UiTranslations = {
   'createListing.error.price': 'ಪ್ರಕಟಿಸುವ ಮೊದಲು ರಾತ್ರಿಯ ದರವನ್ನು ಸೇರಿಸಿ.',
   'createListing.error.title': 'ಪ್ರಕಟಿಸುವ ಮೊದಲು ಶೀರ್ಷಿಕೆಯನ್ನು ಸೇರಿಸಿ.',
   'createListing.heading': 'ನಿಮ್ಮ ಬಾಗಿಲು ತೆರೆಯಿರಿ.',
+  'createListing.listingImageAlt': 'ಲಿಸ್ಟಿಂಗ್ {{number}}',
   'createListing.maxGuests': 'ಗರಿಷ್ಠ ಅತಿಥಿಗಳು',
   'createListing.photos.heading': 'ಪ್ರಯಾಣಿಕರು ಸ್ಕ್ರೋಲಿಂಗ್ ಮಾಡುವುದನ್ನು ನಿಲ್ಲಿಸುವ ಫೋಟೋಗಳನ್ನು ಸೇರಿಸಿ.',
+  'createListing.photos.subheading':
+    'ಕನಿಷ್ಠ 3 ಫೋಟೋಗಳನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡುವ ಹೋಸ್ಟ್ಗಳು ಸರಾಸರಿ 2.3× ಹೆಚ್ಚು ಗಳಿಸುತ್ತಾರೆ.',
   'createListing.place.heading': 'ಅದು ಯಾವ ರೀತಿಯ ಸ್ಥಳ?',
+  'createListing.price': 'ಪ್ರತಿ ರಾತ್ರಿಯ ಬೆಲೆ',
   'createListing.publish': 'ಪಟ್ಟಿಯನ್ನು ಪ್ರಕಟಿಸಿ',
   'createListing.removePhoto': 'ಫೋಟೋ ತೆಗೆದುಹಾಕಿ',
   'createListing.step.${s.key}.eyebrow': 'ನಡೆಯಿರಿ {{n}}',
   'createListing.subheading':
     'ನಿಮ್ಮ ಪಟ್ಟಿಯನ್ನು ಲೈವ್ ಮಾಡಲು ಕೆಲವು ಪ್ರಶ್ನೆಗಳು. ನಾವು ಪ್ರತಿ ಹಂತದಲ್ಲೂ ನಿಮ್ಮ ಪ್ರಗತಿಯನ್ನು ಉಳಿಸುತ್ತೇವೆ.',
+  'createListing.title': 'ಲಿಸ್ಟಿಂಗ್ ಶೀರ್ಷಿಕೆ',
   'createListing.titlePlaceholder': 'ಸೂರ್ಯನ ಬೆಳಕು ಬಂಡೆಯ ಪಕ್ಕದ ಕ್ಯಾಬಿನ್',
   'createListing.uploadCta': 'ಫೋಟೋ ಸೇರಿಸಿ {{n}}',
+  'createListing.useSample': 'ಮಾದರಿ ಫೋಟೋ ಬಳಸಿ',
   'destinationDiscoveryCard.exploreCta': 'ವಾಸ್ತವ್ಯಗಳನ್ನು ಅನ್ವೇಷಿಸಿ',
   'forgotPassword.eyebrow': 'ಮರುಹೊಂದಿಸಿ',
   'forgotPassword.subheading':
@@ -64,6 +89,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelYtd': 'ವರ್ಷದಿಂದ ಇಲ್ಲಿಯವರೆಗಿನ',
   'hostDashboard.loadError':
     'ನಿಮ್ಮ ಹೋಸ್ಟಿಂಗ್ ಡೇಟಾವನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+  'hostDashboard.queueArrivals': 'ಮುಂದಿನ ವಾರ {{count}} ಆಗಮನಗಳು',
+  'hostDashboard.queueListings': '{{count}} ಸಕ್ರಿಯ ಪಟ್ಟಿಗಳು',
   'hostDashboard.queueRequests': '{{count}} ಕಾಯ್ದಿರಿಸುವಿಕೆ ವಿನಂತಿಗಳು',
   'hostDashboard.queueReview': 'ವಿಮರ್ಶೆ ಸರದಿ',
   'hostDashboard.queueTitle': 'ನಿಮ್ಮ ಸರದಿ',
@@ -85,11 +112,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': 'ಪಟ್ಟಿ ಕಂಡುಬಂದಿಲ್ಲ.',
   'hostListingDetail.photos.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಫೋಟೋಗಳನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿಲ್ಲ.',
   'hostListingDetail.photos.heading': 'ಫೋಟೋಗಳು',
+  'hostListingDetail.pricing.cleaning': 'ಶುಚಿಗೊಳಿಸುವ ಶುಲ್ಕ',
   'hostListingDetail.pricing.save': 'ಬೆಲೆ ಉಳಿಸಿ',
   'hostListingDetail.pricing.weekday': 'ವಾರದ ದಿನದ ದರ',
   'hostListingDetail.pricing.weekend': 'ವಾರಾಂತ್ಯದ ದರ (ಪ್ರದರ್ಶನಕ್ಕೆ ಮಾತ್ರ)',
   'hostListingDetail.rules.copy':
     'ಅತಿಥಿ ನಿರೀಕ್ಷೆಗಳನ್ನು ಹೊಂದಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಮನೆಯನ್ನು ರಕ್ಷಿಸಿ - ಬುಕಿಂಗ್ ದೃಢೀಕರಣದ ಮೊದಲು ಇವುಗಳನ್ನು ಬಹಿರಂಗಪಡಿಸಲಾಗುತ್ತದೆ.',
+  'hostListingDetail.rules.heading': 'ಮನೆಯ ನಿಯಮಗಳು',
   'hostListings.create': 'ಹೊಸ ಪಟ್ಟಿಯನ್ನು ರಚಿಸಿ',
   'hostListings.eyebrow': 'ನಿಮ್ಮ ಪೋರ್ಟ್‌ಫೋಲಿಯೊ',
   'hostListings.heading': 'ಪಟ್ಟಿಗಳು',
@@ -99,8 +128,11 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'ಆತಿಥೇಯರಿಗೆ',
   'landing.cta.heading': 'ನಿಮ್ಮ ಬಾಗಿಲು ತೆರೆಯಿರಿ. ನಿಮ್ಮ ಮನೆಗೆ ಯೋಗ್ಯವಾದದ್ದನ್ನು ಸಂಪಾದಿಸಿ.',
   'landing.cta.host': 'ಹೋಸ್ಟಿಂಗ್ ಪ್ರಾರಂಭಿಸಿ',
+  'landing.cta.subheading':
+    'ಪಾವತಿಗಳು, ತೆರಿಗೆಗಳು ಮತ್ತು ಪ್ರಯಾಣಿಕರ ಪರಿಶೀಲನೆಯನ್ನು {{appName}} ನೋಡಿಕೊಳ್ಳುತ್ತದೆ, ಇದರಿಂದ ನೀವು ಆತಿಥ್ಯದ ಮೇಲೆ ಗಮನ ಹರಿಸಬಹುದು. ಹೆಚ್ಚಿನ ಹೊಸ ಹೋಸ್ಟ್ಗಳು 30 ದಿನಗಳೊಳಗೆ ತಮ್ಮ ಮೊದಲ $1,000 ಗಳಿಸುತ್ತಾರೆ.',
   'landing.destinations.eyebrow': 'ಮುಂದೆ ಎಲ್ಲಿಗೆ ಹೋಗಬೇಕು',
   'landing.destinations.heading': 'ನಮ್ಮ ಆತಿಥೇಯರು ಇಷ್ಟಪಡುವ ತಾಣಗಳು',
+  'landing.destinations.seeAll': 'ಎಲ್ಲಾ ಗಮ್ಯಸ್ಥಾನಗಳನ್ನು ನೋಡಿ',
   'landing.footer.host': 'ಆತಿಥೇಯರಾಗಿ',
   'landing.footer.search': 'ವಸತಿ ಸೌಕರ್ಯವನ್ನು ಹುಡುಕಿ',
   'landing.footer.tagline': 'ನೀವು ಸೇರಿದವರಂತೆ ಇರಿ.',
@@ -109,8 +141,11 @@ export const ui: UiTranslations = {
   'landing.nav.host': 'ಆತಿಥೇಯರಾಗಿ',
   'landing.nav.join': 'ರೂಸ್ಟ್‌ಗೆ ಸೇರಿ',
   'landing.nav.search': 'ವಸತಿ ಸೌಕರ್ಯವನ್ನು ಹುಡುಕಿ',
+  'landing.preview.browseAll': 'ಪೂರ್ಣ ಸಂಗ್ರಹವನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ',
   'landing.preview.eyebrow': 'ಒಳಗೆ ಒಂದು ಇಣುಕು ನೋಟ',
   'landing.preview.heading': 'ಈ ತಿಂಗಳು ಆಯ್ಕೆ ಮಾಡಿದ ವಾಸ್ತವ್ಯಗಳು',
+  'landing.preview.subheading':
+    'ಪ್ರತಿ {{appName}} ಲಿಸ್ಟಿಂಗ್ ಅನ್ನು ನಿಜವಾದ ವ್ಯಕ್ತಿಯು ಹೋಸ್ಟ್ ಮಾಡುತ್ತಾರೆ — ಪರಿಶೀಲಿಸಲಾಗಿದೆ, ವಿಮರ್ಶಿಸಲಾಗಿದೆ, ಮತ್ತು ಚೆಕ್-ಇನ್ಗೆ 48 ಗಂಟೆಗಳ ಮೊದಲು ರದ್ದು ಮಾಡಲು ಉಚಿತ.',
   'listingDetail.about': 'ಈ ಸ್ಥಳದ ಕುರಿತು',
   'listingDetail.amenities': 'ಈ ಸ್ಥಳವು ಏನು ನೀಡುತ್ತದೆ',
   'listingDetail.bathrooms': 'ಸ್ನಾನಗೃಹಗಳು',
@@ -118,7 +153,10 @@ export const ui: UiTranslations = {
   'listingDetail.beds': 'ಹಾಸಿಗೆಗಳು',
   'listingDetail.bookFailed':
     'ಕಾಯ್ದಿರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಮೊದಲು ಸೈನ್ ಇನ್ ಮಾಡಿ.',
+  'listingDetail.cleaningFee': 'ಶುಚಿಗೊಳಿಸುವ ಶುಲ್ಕ',
+  'listingDetail.guests': 'ಅತಿಥಿಗಳು',
   'listingDetail.hostedBy': 'ಆಯೋಜಿಸಿದವರು {{host}}',
+  'listingDetail.hostMeta': '{{years}} ವರ್ಷಗಳ ಹೋಸ್ಟಿಂಗ್ · {{response}}% ಪ್ರತಿಕ್ರಿಯೆ ದರ',
   'listingDetail.houseRules': 'ಮನೆಯ ನಿಯಮಗಳು',
   'listingDetail.instantBook': 'ಈಗಲೇ ಕಾಯ್ದಿರಿಸಿ · ತತ್‌ಕ್ಷಣ ಪುಸ್ತಕ',
   'listingDetail.loadError': 'ಪಟ್ಟಿಯನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
@@ -128,6 +166,7 @@ export const ui: UiTranslations = {
   'listingDetail.perNight': 'ಪ್ರತಿ ರಾತ್ರಿಗೆ',
   'listingDetail.pickDates': 'ಮೊದಲು ಚೆಕ್-ಇನ್ ಮತ್ತು ಚೆಕ್-ಔಟ್ ದಿನಾಂಕಗಳನ್ನು ಆರಿಸಿ.',
   'listingDetail.priceRow': '{{price}} × {{nights}} ರಾತ್ರಿಗಳು',
+  'listingDetail.requestBook': 'ಬುಕ್ ಮಾಡಲು ವಿನಂತಿಸಿ',
   'listingDetail.reserving': 'ಕಾಯ್ದಿರಿಸಲಾಗುತ್ತಿದೆ...',
   'listingDetail.reviews': 'ವಿಮರ್ಶೆಗಳು',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}} ವಿಮರ್ಶೆಗಳು',
@@ -135,6 +174,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'ಸೂಪರ್‌ಹೋಸ್ಟ್',
   'login.eyebrow': 'ಮನೆಗೆ ಸ್ವಾಗತ.',
   'login.heading': 'ರೂಸ್ಟ್‌ಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ',
+  'login.noAccount': 'ಟೆಸ್ಸೆರಾಗೆ ಹೊಸಬರೇ?',
   'login.signupLink': 'ಉಚಿತ ಖಾತೆಯನ್ನು ರಚಿಸಿ',
   'login.subheading':
     'ನೀವು ನಿಲ್ಲಿಸಿದ ಸ್ಥಳದಿಂದ ಪ್ರಾರಂಭಿಸಿ — ನೀವು ಹಗಲುಗನಸು ಕಾಣುತ್ತಿರುವ ಪ್ರವಾಸಗಳು, ಸಂದೇಶ ಹೋಸ್ಟ್‌ಗಳು ಮತ್ತು ಪುಸ್ತಕ ವಾಸ್ತವ್ಯಗಳನ್ನು ನಿರ್ವಹಿಸಿ.',
@@ -159,6 +199,7 @@ export const ui: UiTranslations = {
   'notFound.heading': 'ನಮಗೆ ಆ ವಸತಿ ಸಿಗುತ್ತಿಲ್ಲ.',
   'notifications.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'notifications.subheading': '{{count}} ಓದದಿರುವುದು · ಎಲ್ಲವೂ ಒಂದೇ ಶಾಂತ ಇನ್‌ಬಾಕ್ಸ್‌ನಲ್ಲಿ',
+  'pricing.ctaContact': 'ಮಾರಾಟವನ್ನು ಸಂಪರ್ಕಿಸಿ',
   'pricing.ctaUpgrade': 'ಮಾರಾಟವನ್ನು ಸಂಪರ್ಕಿಸಿ',
   'pricing.eyebrow': 'ಸರಳ, ಪಾರದರ್ಶಕ',
   'pricing.heading': 'ನಿಮ್ಮ ಪ್ರಯಾಣದ ಲಯಕ್ಕೆ ಸರಿಹೊಂದುವ ಯೋಜನೆ',
@@ -195,8 +236,12 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'ಸ್ಮರಣೀಯವಾದದ್ದನ್ನು ಆರಿಸಿ. ನೀವು ಉಳಿಸಿದ ನಂತರ ನಾವು ನಿಮ್ಮನ್ನು ಸೈನ್ ಇನ್ ಮಾಡುತ್ತೇವೆ.',
   'roostAuthShell.brand.eyebrow': 'ನೀವು ಸೇರಿದವರಂತೆ ಇರಿ.',
+  'roostAuthShell.brand.heading':
+    'ಕ್ಯಾಬಿನ್ಗಳು, ಕಾಟೇಜ್ಗಳು, ರಿಯಾದ್ಗಳು — ಅಲ್ಲಿಯೇ ವಾಸಿಸುವ ಹೋಸ್ಟ್ಗಳಿಂದ ನಿಮಗೆ ನೀಡಲಾಗಿದೆ.',
   'roostHeroSearchCard.checkInAria': 'ಚೆಕ್-ಇನ್ ದಿನಾಂಕ',
   'roostHeroSearchCard.checkOutAria': 'ಚೆಕ್-ಔಟ್ ದಿನಾಂಕ',
+  'roostHeroSearchCard.destAria': 'ತಲುಪಬೇಕಾದ ಸ್ಥಳ',
+  'roostHeroSearchCard.destLabel': 'ಎಲ್ಲಿ',
   'roostHeroSearchCard.destPlaceholder': 'ನಗರ, ಪ್ರದೇಶ ಅಥವಾ ಆಸ್ತಿ',
   'roostHeroSearchCard.eyebrow': 'ಆಯ್ಕೆ ಮಾಡಿದ ವಾಸ್ತವ್ಯಗಳು · ಪರಿಶೀಲಿಸಿದ ಹೋಸ್ಟ್‌ಗಳು',
   'roostHeroSearchCard.guestsOption': '{{n}} ಅತಿಥಿಗಳು',
@@ -208,6 +253,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'roostListingCard.bookmarkAria': 'ಪಟ್ಟಿಯನ್ನು ಉಳಿಸಿ',
   'roostListingCard.night': 'ರಾತ್ರಿ',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'ನಿಮ್ಮ ಹುಡುಕಾಟಕ್ಕೆ ಹೊಂದಿಕೆಯಾಗುವ ಯಾವುದೇ ಪಟ್ಟಿಗಳಿಲ್ಲ.',
   'search.emptyHint':
     'ನಿಮ್ಮ ಫಿಲ್ಟರ್‌ಗಳನ್ನು ವಿಸ್ತರಿಸಲು ಅಥವಾ ಬೆಲೆ ಮಿತಿಯನ್ನು ತೆಗೆದುಹಾಕಲು ಪ್ರಯತ್ನಿಸಿ - ರೂಸ್ಟ್ 26 ದೇಶಗಳಲ್ಲಿ ತಂಗುತ್ತದೆ.',
@@ -215,9 +261,14 @@ export const ui: UiTranslations = {
   'search.heading': 'ಮನೆಯಂತೆ ಭಾಸವಾಗುವ ಸ್ಥಳ',
   'search.headingForQuery': '"ಇರುತ್ತದೆ" {{q}} "',
   'search.loadError': 'ಪಟ್ಟಿಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'search.mapHint':
+    'ನಕ್ಷೆಯಲ್ಲಿ ಹೈಲೈಟ್ ಮಾಡಲು ಕಾರ್ಡ್ ಮೇಲೆ ಹೋವರ್ ಮಾಡಿ. ಉತ್ಪಾದನೆಯಲ್ಲಿ ಲೈವ್ Mapbox ಟೈಲ್ಗಳು.',
+  'search.mapPinAria': '{{name}} — ಪ್ರತಿ ರಾತ್ರಿಗೆ {{price}}',
   'search.sortLabel': 'ವಿಂಗಡಿಸಿ',
   'search.subheading': '{{count}} ಪಟ್ಟಿಗಳು · {{guests}} ಅತಿಥಿಗಳು',
+  'settings.appearance.description': 'ಬೆಳಕು ಮತ್ತು ಕತ್ತಲೆ ಮೋಡ್ ನಡುವೆ ಟಾಗಲ್ ಮಾಡಿ.',
   'settings.appearance.title': 'ಗೋಚರತೆ',
+  'settings.openBilling': 'ಬಿಲ್ಲಿಂಗ್ ತೆರೆಯಿರಿ',
   'settings.payments.heading': 'ಪಾವತಿ ವಿಧಾನಗಳು',
   'settings.paymentsHelp':
     'ಹೋಸ್ಟ್ ನಿಮ್ಮ ಬುಕಿಂಗ್ ಅನ್ನು ದೃಢೀಕರಿಸಿದ ಕ್ಷಣ ರೂಸ್ಟ್ ನಿಮ್ಮ ಕಾರ್ಡ್‌ಗೆ ಶುಲ್ಕ ವಿಧಿಸುತ್ತದೆ. ಬೆಲೆ ನಿಗದಿ ಪುಟದಲ್ಲಿ ಉಳಿಸಿದ ಕಾರ್ಡ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ.',

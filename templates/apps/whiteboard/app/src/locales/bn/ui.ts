@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'মতামত আছে, কোনো বাগ পেয়েছেন, বা কোনো ফিচার চান? আমরা প্রতিটি বার্তা পড়ি — আপনার অ্যাকাউন্ট সেটিংস থেকে {{appName}} টিমের সাথে যোগাযোগ করুন এবং একজন প্রকৃত মানুষ আপনার কাছে ফিরে আসবেন।',
   'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
+  'about.intro':
+    '{{appName}} হলো ডিজাইন টিম, ওয়ার্কশপ ফ্যাসিলিটেটর এবং শিক্ষকদের জন্য একটি সহযোগিতামূলক অসীম ক্যানভাস। স্টিকি নোট রাখুন, আকৃতি স্কেচ করুন, হাতে আঁকুন এবং দেখুন কীভাবে সহকর্মীরা রিয়েল টাইমে আপনার সাথে ভাবছেন — সবকিছু এক জায়গায় যেখানে এলোমেলো, সৃজনশীল ধারণাগুলো অবশেষে একত্রিত হতে পারে।',
+  'about.missionBody':
+    'মহান চিন্তা বিরল ক্ষেত্রেই গোছানো হয়। {{appName}} তৈরি হয়েছে টিমকে একটি দ্রুত, কম-ঝামেলার পৃষ্ঠ দেওয়ার জন্য যেখানে ধারণাগুলো আসার মুহূর্তেই ধারণ করা যায় এবং একসাথে অর্থবহ না হওয়া পর্যন্ত গড়ে তোলা যায় — বিলম্ব, হারানো কাজ বা গতি নষ্ট করা অনমনীয় টুল ছাড়াই।',
+  'about.missionTitle': 'আমাদের লক্ষ্য',
+  'authShell.brandFooter':
+    '“আমরা আমাদের রিব্র্যান্ড শিপ করার সপ্তাহেই চারটি টুলের বদলে {{appName}} ব্যবহার করেছি। রেট্রো নিজেই সেভ হয়ে গেছে।” — Atlas Studio',
+  'authShell.brandFooterMeta': '১২,৪০০+ ডিজাইন টিমের আস্থা',
   'authShell.brandHeading':
     'যেসব ডিজাইন টিম উচ্চস্বরে চিন্তা করে, তাদের জন্য মাল্টিপ্লেয়ার ক্যানভাস।',
   'billing.canceled': 'সাবস্ক্রিপশন বাতিল করা হয়েছে।',
@@ -11,6 +21,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': 'চিরস্থায়ীভাবে বিনামূল্যে প্রারম্ভিক স্তর।',
   'billing.freePlanName': 'বিনামূল্যে',
   'billing.paidPlanBody': 'সক্রিয় সাবস্ক্রিপশন।',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'পরিকল্পনা ও চালান',
   'billing.updated': 'পরিকল্পনা হালনাগাদ করা হয়েছে।',
   'billing.upgradeTitle': 'উপলব্ধ প্ল্যানগুলি',
@@ -19,8 +30,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': 'এর {{max}} অন্তর্ভুক্ত',
   'boardCanvas.backToBoards': 'সমস্ত বোর্ড',
   'boardCanvas.changeColor': 'রঙ পরিবর্তন করুন {{color}}',
+  'boardCanvas.collaboratorsTitle': 'সহযোগীরা',
   'boardCanvas.deleteElement': 'উপাদান মুছুন',
   'boardCanvas.deselect': 'নির্বাচন বাতিল করুন',
+  'boardCanvas.elementLabel': '{{type}} এলিমেন্ট',
   'boardCanvas.elementsCount': '{{count}} উপাদান',
   'boardCanvas.elementText': 'পাঠ্য',
   'boardCanvas.empty.body':
@@ -30,10 +43,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': 'পূরণ করুন',
   'boardCanvas.invited': 'আমন্ত্রিত {{email}}',
   'boardCanvas.metaTitle': 'অবস্থান',
+  'boardCanvas.metaWH': 'W: {{w}}  H: {{h}}',
   'boardCanvas.metaXY': 'X: {{x}} Y: {{y}}',
   'boardCanvas.noCollaborators':
     'এখনো কোনো সহযোগী নেই। সতীর্থদের আমন্ত্রণ জানাতে শেয়ার ব্যবহার করুন।',
   'boardCanvas.present': 'বর্তমান',
+  'boardCanvas.private': 'প্রাইভেট — শুধুমাত্র আমন্ত্রণে',
   'boardCanvas.properties': 'বৈশিষ্ট্য',
   'boardCanvas.public': 'সর্বসাধারণ — লিঙ্ক থাকলে যে কেউ দেখতে পারবেন',
   'boardCanvas.roleCommenter': 'মন্তব্য করতে পারেন',
@@ -49,6 +64,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'আঠালো রঙ বেছে নিন',
   'boardCanvas.summaryCount': '{{count}} ক্যানভাসের উপাদানসমূহ',
   'boardCanvas.summaryTitle': 'বোর্ড',
+  'boardCanvas.surface.clear': 'বোর্ড ক্যানভাস — সিলেকশন মুছুন',
+  'boardCanvas.surface.draw': 'বোর্ড ক্যানভাস — আঁকতে ড্র্যাগ করুন',
+  'boardCanvas.surface.place': 'বোর্ড ক্যানভাস — এলিমেন্ট রাখুন',
   'boardCanvas.untitled': 'শিরোনামহীন বোর্ড',
   'boardCanvas.visibilityTitle': 'দৃশ্যমানতা',
   'boardCanvas.zoomIn': 'জুম ইন',
@@ -71,6 +89,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'বোর্ড অনুসন্ধান করুন',
   'boards.searchPlaceholder': 'বোর্ড অনুসন্ধান করুন',
   'boards.sharedTitle': 'আমার সাথে শেয়ার করা হয়েছে',
+  'boards.sortedBy': 'সাম্প্রতিক আপডেট অনুযায়ী সাজানো',
   'boards.startFromTemplate': 'টেমপ্লেট থেকে শুরু করুন',
   'boards.title': 'আপনার বোর্ডগুলি',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -84,6 +103,8 @@ export const ui: UiTranslations = {
   'landing.cta.signupButton': 'আপনার ফ্রি বোর্ড তৈরি করুন',
   'landing.cta.title': 'অগোছালো, সৃজনশীল এবং মুখোমুখি চিন্তাভাবনার জন্য নির্মিত।',
   'landing.demoBoard.title': 'Q1 কর্মশালা · ব্র্যান্ড ভয়েস',
+  'landing.demoBoard.updated': '১২ মিনিট আগে আপডেট হয়েছে',
+  'landing.featuresEyebrow': 'কী {{appName}}-কে টেসেলেট করে',
   'landing.featuresTitle': 'দ্রুত প্রতিক্রিয়া। সুন্দর ক্যানভাস। কোনো বাধা নেই।',
   'landing.hero.body':
     '{{appName}} হলো ডিজাইন টিম, কর্মশালার সঞ্চালক এবং শিক্ষাবিদদের জন্য একটি মাল্টিপ্লেয়ার হোয়াইটবোর্ড, যারা লাইভ ব্রেইনস্টর্মিং পরিচালনা করেন এবং বিভিন্ন ধারণাকে এক জায়গায় একত্রিত করতে চান।',
@@ -95,18 +116,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '••••••••••',
   'login.signIn': 'Nimbusে সাইন ইন করুন',
   'login.signupCta': 'একটি বিনামূল্যের কর্মক্ষেত্র তৈরি করুন',
+  'login.signupPrompt': 'টেসেরা-তে নতুন?',
   'login.subheading':
     'কর্মশালাটি যেখানে শেষ হয়েছিল সেখান থেকেই আবার শুরু করুন — বোর্ড, স্টিকি নোট এবং কার্সার সবই রিয়েল টাইমে সিঙ্ক হয়।',
   'mobileNav.closeMenu': 'নেভিগেশন মেনু বন্ধ করুন',
   'mobileNav.new': 'নতুন',
   'mobileNav.openMenu': 'নেভিগেশন মেনু খুলুন',
+  'notifications.editBody': 'বোর্ডের কনটেন্ট আপডেট হয়েছে।',
   'notifications.editTitle': '"এ সম্পাদনাগুলি {{board}} "',
   'notifications.empty.body':
     'আমন্ত্রণ, সংরক্ষিত স্ন্যাপশট এবং বোর্ডের সাম্প্রতিক সম্পাদনাগুলো ঘটার সাথে সাথেই এখানে প্রদর্শিত হবে।',
   'notifications.empty.title': 'আপনার ইনবক্সে নতুন কিছু নেই',
   'notifications.eyebrow': '{{name}} ইনবক্স',
+  'notifications.inviteBody': '"{{board}}"-এ {{role}} হিসেবে',
   'notifications.inviteTitle': 'আমন্ত্রিত {{email}}',
   'notifications.snapshotTitle': '"এ নতুন স্ন্যাপশট" {{board}} "',
+  'present.addFirst': 'প্রথম ফ্রেম যোগ করুন',
   'present.addFrame': 'ফ্রেম যোগ করুন',
   'present.boardEyebrow': '{{title}} উপস্থাপনা',
   'present.empty.body':
@@ -114,6 +139,7 @@ export const ui: UiTranslations = {
   'present.empty.title': 'এখনো কোনো ফ্রেম নেই',
   'present.exit': 'প্রস্থান উপস্থাপনা',
   'present.exitToBoard': 'ক্যানভাসে ফিরে যান',
+  'present.eyebrow': 'প্রেজেন্টেশন মোড',
   'present.frameBody': 'আলোচনার বিষয়বস্তু',
   'present.frameName': 'ফ্রেমের নাম',
   'present.frameOf': 'ফ্রেম {{current}} এর {{total}}',
@@ -123,21 +149,31 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'সরাসরি উপস্থাপনা',
   'present.save': 'ফ্রেম সংরক্ষণ করুন',
   'present.title': 'আপনার গল্পটি চালান',
+  'present.unnamed': 'শিরোনামহীন ফ্রেম',
+  'pricing.limits.advanced': 'উন্নত বৈশিষ্ট্য',
   'profile.cursorBody':
     'এই ডিভাইসে সংরক্ষিত — আপনার দলের সদস্যরা আপনার লাইভ কার্সরের পাশে এই রঙটি দেখতে পান।',
   'profile.cursorEyebrow': 'আপনার কার্সারের রঙ',
   'profile.eyebrow': 'পাবলিক সহযোগী কার্ড',
+  'profile.noBoards': 'এখনো কোনো বোর্ড নেই — শুরু করতে একটি তৈরি করুন।',
+  'profile.recentBoards': 'বোর্ড {{name}} সম্প্রতি স্পর্শ করা হয়েছে',
   'profile.stat.${s.label}': 'বোর্ড {{name}} সম্প্রতি স্পর্শ করা হয়েছে',
+  'profile.statsEyebrow': 'আপনার কার্যকলাপ',
   'profile.title': 'আপনার প্রোফাইল',
+  'reset.backPrompt': 'অন্য ইমেইল দরকার?',
   'reset.cta': 'পাসওয়ার্ড রিসেট করুন এবং সাইন ইন করুন',
+  'reset.password': 'নতুন পাসওয়ার্ড',
   'reset.subheading':
     'একটি শক্তিশালী পাসওয়ার্ড বেছে নিন — কমপক্ষে ৮টি অক্ষর এবং একটি সংখ্যা থাকতে হবে।',
   'settings.appearance.title': 'থিম এবং ক্যানভাস',
   'settings.eyebrow': 'অ্যাকাউন্ট পছন্দ',
   'settings.notifications.title': 'বিজ্ঞপ্তি পছন্দ',
   'settings.profile.title': 'পাবলিক সহযোগী কার্ড',
+  'settings.security.body':
+    'আপনার অ্যাকাউন্ট ড্যাশবোর্ড থেকে টু-ফ্যাক্টর অথেন্টিকেশন, সক্রিয় সেশন এবং পাসওয়ার্ড পরিচালনা করুন।',
   'settings.security.title': 'নিরাপত্তা',
   'shared.collaboratorCount': '{{count}} সহযোগী(গণ)',
+  'shared.count': '{{count}} বোর্ড',
   'shared.empty.body':
     'যখন কোনো সতীর্থ আপনাকে কোনো বোর্ডে আমন্ত্রণ জানাবে, তখন সেটি স্বয়ংক্রিয়ভাবে এখানে প্রদর্শিত হবে।',
   'shared.empty.title': 'এখনো তোমার সাথে কিছু শেয়ার করা হয়নি',
@@ -153,6 +189,9 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'সর্বোচ্চ ৩ জন সহযোগীর জন্য বিনামূল্যে। প্রথম ১৪ দিনের জন্য কোনো ক্রেডিট কার্ডের প্রয়োজন নেই।',
   'templateCard.usageCount': '{{count}} ব্যবহার',
+  'templateDetail.allTemplates': 'সমস্ত টেমপ্লেট',
+  'templateDetail.body':
+    '"{{name}}" শিরোনামের একটি নতুন বোর্ডে {{count}} স্টার্টার এলিমেন্ট কপি করতে "Use template" ক্লিক করুন। সেখান থেকেই এডিট করুন, শেয়ার করুন এবং আপনার ওয়ার্কশপ চালান।',
   'templateDetail.delete': 'টেমপ্লেট মুছুন',
   'templateDetail.elementsCount': '{{count}} প্রারম্ভিক উপাদান',
   'templateDetail.eyebrow': '{{kind}} টেমপ্লেট',
@@ -165,16 +204,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'একটি কাস্টম টেমপ্লেট সংরক্ষণ করুন',
   'templates.empty.body':
     'আপনার নিজের যেকোনো বোর্ড থেকে একটি কাস্টম টেমপ্লেট তৈরি করুন — বোর্ডটি খুলুন, একটি স্ন্যাপশট নিন, তারপর এটিকে এখানে একটি পুনঃব্যবহারযোগ্য টেমপ্লেট হিসেবে সংরক্ষণ করুন।',
+  'templates.empty.title': 'এখনো কোনো টেমপ্লেট নেই',
   'templates.eyebrow': 'ওয়ার্কশপ কিট এবং সংরক্ষিত টেমপ্লেট',
   'templates.filter.${c}': 'এখনো কোনো টেমপ্লেট নেই',
   'templates.nameLabel': 'টেমপ্লেটের নাম',
   'templates.systemBadge': 'অন্তর্নির্মিত',
   'templates.userBadge': 'আপনার',
   'versionHistory.backToBoard': 'ক্যানভাসে ফিরে যান',
+  'versionHistory.elementsTotal': '{{count}} ক্যাপচার করা এলিমেন্ট',
   'versionHistory.empty.body':
     "বোর্ড ক্যানভাস থেকে 'Save snapshot' বিকল্পটি ব্যবহার করে স্ন্যাপশট তৈরি করা হয় — এগুলো এখানে দেখা যায়, যাতে আপনি অতীতের যেকোনো অবস্থা পুনরুদ্ধার করতে পারেন।",
+  'versionHistory.empty.cta': 'একটি নিতে ক্যানভাস খুলুন',
   'versionHistory.empty.title': 'এখনো কোনো স্ন্যাপশট নেই',
   'versionHistory.eyebrow': '{{title}} ইতিহাস',
+  'versionHistory.eyebrowFallback': 'বোর্ড ইতিহাস',
   'versionHistory.latest': 'সর্বশেষ',
   'versionHistory.restore': 'এই সংস্করণটি পুনরুদ্ধার করুন',
   'versionHistory.restored': 'স্ন্যাপশট পুনরুদ্ধার করা হয়েছে।',
@@ -185,6 +228,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'নতুন বোর্ড',
   'whiteboardLayout.primaryNav': 'প্রাথমিক নেভিগেশন',
   'workspace.boardLabel': 'বোর্ড',
+  'workspace.empty': 'এখনো কোনো সহযোগী নেই — আপনার বোর্ডে কাউকে আমন্ত্রণ জানান।',
   'workspace.eyebrow': '{{name}} কর্মক্ষেত্র',
   'workspace.invite': 'সহযোগীদের আমন্ত্রণ জানান',
   'workspace.inviteSent': 'আমন্ত্রণপত্র পাঠানো হয়েছে।',
@@ -193,4 +237,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'মন্তব্যকারী',
   'workspace.role.editor': 'সম্পাদক',
   'workspace.role.viewer': 'দর্শক',
+  'workspace.title': 'সদস্য ও ভূমিকা',
 }

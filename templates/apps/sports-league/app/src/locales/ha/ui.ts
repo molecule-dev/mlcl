@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Kuna da ra'ayi, kun sami matsala, ko kuna son {{app}} don gasarku? Tuntuɓe mu daga saitunan asusunku — kowane saƙo yana zuwa ga ainihin mutum a ƙungiyar.",
+  'about.contactTitle': 'Tuntuɓi mu',
   'about.eyebrow': 'Game da',
+  'about.featureAlerts':
+    "Sanarwar turawa don sabunta maki, faɗakarwar musayar 'yan wasa, rahotannin rauni, da sanarwar gasa.",
+  'about.featureRosters':
+    "Shafukan ƙungiya da cikakken jerin 'yan wasa, jimillar kakar, jerin zafi/sanyi, da rarrabuwar kai-da-kai ga kowane ɗan wasa.",
+  'about.featureSchedule':
+    'Kalandar kakar da kallon jadawalin wasanni don ku tsara kowane wasa da sakamako.',
+  'about.featureScoreboard':
+    'Ticker na allon maki mai ingancin watsa shirye-shirye da aka makala a saman kowane shafi don kada ku rasa ƙwallo.',
+  'about.featureStandings':
+    'Matsayin lokaci-lokaci — rikodin nasara- rashin nasara- kunnen doki na ainihin lokaci, maki, kaso na nasara, da layin wasan share fage, ana sabuntawa a kowane busa.',
+  'about.intro':
+    '{{app}} gida ne mai ingancin watsa shirye-shirye don gasarku. Ƙungiyoyi, jadawalin wasanni, maki kai tsaye, da matsayi suna haɗuwa a cikin dashboard ɗaya mai sauri, mara cunkoso — don haka magoya baya, masu horarwa, da masu shirya gasa koyaushe suna san inda kakar ta tsaya.',
+  'about.missionBody':
+    'Bin gasa bai kamata ya zama sabunta allon maki daban-daban guda biyar na wasu ba. Mun gina shi don ba kowace gasa tushen gaskiya guda ɗaya don matsayi, jadawalin wasanni, da ƙididdigar da suka fi muhimmanci — ana sabuntawa a kowane busa, kyauta na kakar.',
+  'about.missionTitle': 'Manufarmu',
+  'about.whatYouGet': 'Abin da za ku samu',
   'appShell.closeNav': 'Rufe kewayawa',
   'appShell.openNav': 'Buɗe kewayawa',
   'common.dashboard': 'Allon allo',
@@ -17,13 +36,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Duba duk abubuwan da suka dace \\u2192',
   'dashboard.viewAllStandings': 'Cikakken matsayi \\u2192',
   'dashboard.viewAllStats': 'Duba duk shugabannin kididdiga \\u2192',
+  'forgot.submitting': 'Ana aika hanyar sake saita kalmar sirri…',
   'forgot.subtitle': 'Shigar da imel ɗinka don karɓar hanyar haɗin sake saitawa.',
   'forgot.success': 'An aika da hanyar haɗin sake saitawa zuwa {{email}} Duba akwatin saƙonka.',
+  'landing.copyright': '© {{year}} {{app}}. Bi matsayi.',
+  'landing.ctaBody':
+    'Gasarku. Matsayinku. Ƙungiyar da kuka fi so — an makala a saman. Minti biyu don saitawa, kyauta na kakar.',
   'landing.ctaHeading': 'Dakatar da sabunta allunan sakamako na ɓangare na uku',
   'landing.eyebrow': 'An gina shi ne don magoya baya, masu horarwa, da masu shirya gasar lig',
   'landing.featuresHeading': 'Kujera a jere na gaba ga kowane tsayayye',
   'landing.getStarted': 'Shiga gasar',
   'landing.heroCta': 'Shiga gasar',
+  'landing.heroSubtitle':
+    '{{app}} yana haɗa matsayi, jadawalin wasanni, da jagororin ƙididdiga cikin dashboard ɗaya mai ingancin watsa shirye-shirye. Maki kai tsaye. Ainihin rikodi. Babu cunkoso.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Yau da dare a gasar lig',
   'landing.statFans': 'Masoya masu bibiya',
   'landing.statGames': 'Wasannin wannan kakar',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Komawa ga wasannin da suka dace',
   'matchDetail.eventsHeading': 'Wasa-da-wasa',
+  'matchDetail.final': 'ƘARSHE',
   'matchDetail.finalScore': 'Ƙarshe',
   'matchDetail.live': 'LIVE',
   'matchDetail.liveNow': 'Rayuwa yanzu',
   'matchDetail.noEvents': 'Babu wani abin da aka rubuta tukuna.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Babu wasanni a wannan kallo — gwada wani tacewa.',
   'matches.eyebrow': 'Ranar wasa',
   'matches.loading': 'Jawo allo...',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'An kasa loda sanarwa',
   'notifications.loading': 'Ana loda sanarwa\\u2026',
   'pennantHeroCard.eyebrow': 'Saman teburin',
+  'pennantHeroCard.formLabel': '10 na ƙarshe',
   'pennantHeroCard.gamesAhead': '{{value}} wasanni kafin a fara gasar',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Babban kewayawa',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Zaɓi wurin zama',
   'pricing.heading': 'Haɓakawa don samun tsari mai kyau, maki, da matsayi.',
   'pricing.limits.schedule': '{{count}} shigarwar jadawalin',
+  'pricing.limits.scores': 'Makin {{count}}',
+  'pricing.limits.standings': 'Matsayin {{count}}',
+  'pricing.limits.teams': 'Ƙungiyoyin {{count}}',
+  'pricing.subtitle': 'Haɓaka don ƙarin jadawalin wasanni, maki, da matsayi.',
   'pricing.upgradeCta': 'Haɓakawa zuwa {{tierName}}',
   'profile.eyebrow': 'Bayanin fan',
   'profile.favoritesCount': 'Ƙungiyoyi sun biyo baya',
   'profile.favoritesHeading': 'Ƙungiyoyin da aka fi so',
   'profile.noFavorites': 'Babu wanda aka fi so tukuna — zaɓi ƙungiyoyi daga shafin Ƙungiyoyi.',
   'profile.rankRecord': 'Matsayi # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Rikodi {{record}}',
   'reset.confirmPlaceholder': 'Maimaita kalmar sirri',
+  'reset.mismatch': 'Kalmomin sirri ba su dace ba.',
   'reset.newLabel': 'Sabuwar kalmar sirri',
   'reset.subtitle': 'Zaɓi kalmar sirri mai ƙarfi wacce ta kai harufa 12 aƙalla.',
   'reset.tokenPlaceholder': 'Manna daga imel',
   'schedule.eyebrow': 'Slate ɗin',
+  'schedule.moreGames': '+ {{count}} Kara',
   'schedule.subtitle':
     'Kallon kalanda na wasannin da aka saba yi a duk tsawon kakar wasa - danna kowace rana don samun maki a akwatin.',
   'scoreboardTicker.empty': 'Babu wasanni kai tsaye a yanzu — duba baya a wurin puck drop.',
@@ -97,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Keɓancewa',
   'settings.favoritesBody':
     'Waɗannan ƙungiyoyin za a saka su a kan dashboard ɗinku kuma a sanar da ku game da sakamakon da za a samu.',
+  'settings.favoritesHeading': 'Ƙungiyoyin da aka fi so',
   'settings.loading': 'Ana loda abubuwan da kake so\\u2026',
   'settings.noFavorites':
     'Babu ƙungiyoyin da aka fi so tukuna \\u2014 zaɓaɓɓu daga shafin Ƙungiyoyi.',
@@ -115,6 +152,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Jimilla',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     "Manyan 'yan wasa hudu sun cancanci shiga gasar bayan kakar wasa - masu rashin daidaito da maki, sannan su yi nasara da maki.",
   'standings.title': 'Matsayin gasar',
@@ -133,6 +171,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Ɗan wasa',
   'teamDetail.colPos': 'Matsayi',
+  'teamDetail.pointsLabel': 'Maki',
   'teamDetail.rankLabel': 'Matsayi # {{rank}}',
   'teamDetail.rosterHeading': 'Jerin sunayen',
   'teamDetail.statGD': 'Bambancin Ƙwallo',

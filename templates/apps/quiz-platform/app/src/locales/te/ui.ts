@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'అభిప్రాయం ఉందా, బగ్ కనుగొన్నారా, లేదా {{app}}ని మీ పాఠశాల లేదా జట్టుకు తీసుకురావాలనుకుంటున్నారా? మేము ప్రతి సందేశాన్ని చదువుతాము — మీ ఖాతా సెట్టింగ్‌ల నుండి సంప్రదించండి, నిజమైన వ్యక్తి సమాధానం ఇస్తారు.',
   'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
+  'about.intro':
+    '{{app}} అనేది తరగతి గదులు, గేమ్ నైట్లు మరియు టీమ్ ఈవెంట్ల కోసం ఒక లైవ్ క్విజ్ ప్లాట్ఫారమ్. ఆటలా ప్రశ్న ప్యాక్లను రూపొందించండి, జాయిన్ కోడ్తో నిజ-సమయ ఆటలను నిర్వహించండి మరియు సమయబద్ధ ప్రశ్నలు, స్కోరింగ్ మరియు లీడర్బోర్డ్లతో గది ఉత్సాహంగా మారడాన్ని చూడండి.',
+  'about.missionBody':
+    'ఆటలా అనిపించినప్పుడే నేర్చుకోవడం నిలిచిపోతుంది. ఎవరైనా ఒక అంశాన్ని వేగవంతమైన, పోటీత్మక ఆటగా మార్చుకోవడం మేము సులభం చేస్తాము — హోస్ట్లు చేస్తూ నేర్పగలరు మరియు ఆటగాళ్లు స్ట్రీక్లో కొనసాగుతారు.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'about.title': '{{app}} గురించి',
   'auth.login.noAccount': 'స్పార్క్‌కు కొత్తగా వచ్చారా?',
   'auth.login.or': 'లేదా కొనసాగించండి',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'ఇంకా ఏ క్విజ్‌లు సరిపోలలేదు.',
   'discover.headline': 'మీ తదుపరి ఇష్టమైన క్విజ్‌ను కనుగొనండి.',
   'discover.loading': 'లోడ్ అవుతోంది…',
+  'discover.searchPlaceholder': 'శీర్షిక ద్వారా క్విజ్లను వెతకండి…',
   'discover.subhead':
     'పూర్తి లైబ్రరీని బ్రౌజ్ చేయండి, వర్గం వారీగా ఫిల్టర్ చేయండి లేదా శీర్షిక ద్వారా శోధించండి. సోలోగా ఆడటానికి లేదా లైవ్ హోస్ట్ చేయడానికి ఒక కార్డ్‌ను నొక్కండి.',
   'forgotPassword.subhead':
     'మీ ఇమెయిల్‌ను నమోదు చేయండి, మేము మీకు రీసెట్ చేయడానికి ఒక లింక్‌ను పంపుతాము.',
   'forgotPassword.success.body':
     'ఖాతా ఉంటే {{email}} మీకు కొన్ని నిమిషాల్లో రీసెట్ లింక్ లభిస్తుంది.',
+  'forgotPassword.success.title': 'మీ ఇన్‌బాక్స్‌ను తనిఖీ చేయండి.',
   'hostLobby.back': 'క్విజ్‌కు తిరిగి వెళ్లండి',
   'hostLobby.copied': 'జాయిన్ కోడ్ క్లిప్‌బోర్డ్‌కు కాపీ చేయబడింది.',
   'hostLobby.creating': 'మీ లాబీని సిద్ధం చేస్తున్నాము…',
@@ -30,19 +39,25 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'లాబీని రద్దు చేయండి',
   'hostLobby.players.count': '{{count}} ప్రత్యక్ష ప్రసారం',
   'hostLobby.players.title': 'లాబీలోని ఆటగాళ్లు',
+  'hostLobby.players.waiting': 'ఆటగాళ్ల కోసం వేచి ఉంది. వారు చేరడానికి కోడ్ {{code}} పంచుకోండి.',
   'hostLobby.rules.title': 'ఇంటి నియమాలు',
   'hostLobby.startError': 'ఆటను ప్రారంభించలేకపోయాను.',
   'hostLobby.starting': 'నిప్పురవ్వను రాజేయడం…',
   'joinCodeHero.headline': 'మీ ఆటగాళ్లను లోపలికి దూకమని చెప్పండి.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'లేదా సందర్శించండి',
   'joinCodeHero.liveLabel': 'లాబీ లైవ్',
+  'joinCodeHero.playerJoined': '{{name}} చేరారు',
   'joinCodeHero.playersLabel': 'ఆటగాళ్ళు',
   'joinCodeHero.qrLabel': 'చేరడానికి స్కాన్ చేయండి',
   'joinCodeHero.startGame': 'నిప్పురవ్వను రగిలించండి',
   'joinCodeHero.subhead':
     'జాయిన్ కోడ్‌ను పంచుకోండి లేదా QR కోడ్‌ను స్కాన్ చేయండి. మీరు నిప్పురవ్వను కాల్చిన క్షణం నుండే ఆట మొదలవుతుంది.',
+  'landing.cta.button': 'మీ మొదటి క్విజ్ను సృష్టించండి',
   'landing.cta.eyebrow': 'ఉపాధ్యాయులకు ఉచితం',
   'landing.cta.heading': 'ప్రతి పాఠంలోనూ ఉత్సాహాన్ని తీసుకురండి.',
+  'landing.cta.subhead':
+    '30 సెకన్లలో సైన్ అప్ చేయండి. అపరిమిత లైవ్ గేమ్లను నిర్వహించండి, AIతో క్విజ్లను రూపొందించండి మరియు ప్రతి ఆటగాడిని స్ట్రీక్లో ఉంచండి.',
   'landing.eyebrow': 'ప్రతి సమాధానాన్ని మండించండి',
   'landing.features.heading': 'మీరు బోధించే మరియు ఆడే విధానానికి సరిపోయే క్విజ్ స్టూడియో.',
   'landing.hero.ctaPrimary': 'ఉచితంగా హోస్టింగ్ ప్రారంభించండి',
@@ -57,6 +72,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'జనాదరణ పొందిన క్విజ్‌లు',
   'landing.popular.eyebrow': 'ఈ వారం జనాదరణ పొందినవి',
   'landing.popular.heading': 'హోస్ట్‌లు ఈరోజు నిర్వహిస్తున్న క్విజ్‌లో పాల్గొనండి.',
+  'landing.popular.viewAll': 'అన్ని వర్గాలను బ్రౌజ్ చేయండి →',
+  'leaderboard.empty.body': 'గ్లోబల్ లీడర్బోర్డ్లో మీ స్కోరును ఉంచడానికి ఒక క్విజ్ ఆడండి.',
   'leaderboard.empty.title': 'ఇంకా ఏ ఎత్తుగడలూ నమోదు కాలేదు — మీరే మొదటివారు అవ్వండి.',
   'leaderboard.eyebrow': 'లీడర్‌బోర్డ్',
   'leaderboard.fullRanking': 'పూర్తి ర్యాంకింగ్',
@@ -64,6 +81,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'మీరు ఆడిన ప్రతి క్విజ్ సెషన్‌లోని మొత్తం స్కోరు. మరింత ఎక్కువగా ఆడటం ద్వారా పైకి ఎదగండి.',
   'leaderboard.title': 'టాప్ క్విజ్‌మాస్టర్లు',
+  'leaderboard.totalPlayers': '{{count}} ర్యాంక్ పొందిన ఆటగాళ్లు',
   'leaderboardRow.points': 'పాయింట్లు',
   'leaderboardRow.streak': '{{days}} డి',
   'login.headline': 'తిరిగి స్వాగతం, క్విజ్‌మాస్టర్.',
@@ -75,9 +93,11 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'మీ మొదటి క్విజ్‌ను రూపొందించండి →',
   'myQuizzes.empty.created': 'మీరు ఇంకా క్విజ్‌ను రూపొందించలేదు.',
   'myQuizzes.empty.played': 'ఇంకా క్విజ్‌లు ఏవీ ప్రచురించబడలేదు.',
+  'myQuizzes.loading': 'లోడ్ అవుతోంది…',
   'myQuizzes.subhead': 'మీరు రూపొందించిన డ్రాఫ్ట్‌లు, అలాగే మీరు ఆడగలిగే ప్రచురించిన క్విజ్‌లు.',
   'myQuizzes.title': 'నా క్విజ్‌లు',
   'nav.legal': 'చట్టపరమైన',
+  'nav.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'notFound.backHome': 'తిరిగి ఇంటికి',
   'notFound.backToDiscover': 'క్విజ్‌లను బ్రౌజ్ చేయండి',
   'notFound.body': 'వేరే కోడ్ ప్రయత్నించండి లేదా లాబీకి తిరిగి వెళ్ళండి.',
@@ -86,17 +106,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'లోడ్ అవుతోంది…',
   'notifications.subhead':
     '{{count}} చదవని స్పార్క్స్. ఆహ్వానాలు, లీడర్‌బోర్డ్ కదలికలు మరియు విజయాలు అన్నీ ఒకే స్ట్రీమ్‌లో.',
+  'planUpdated.retry': 'మళ్ళీ ప్రయత్నించండి',
+  'planUpdated.verifyFailed': 'మేము మీ చెల్లింపును ఇంకా ధృవీకరించలేకపోయాము.',
+  'planUpdated.verifyFailedBody':
+    'మీ చెల్లింపు ఇంకా ప్రాసెస్ అవుతూ ఉండవచ్చు. కాసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.',
   'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
+  'pricing.advancedFeatures': 'అధునాతన ఫీచర్లు: {{yes}}',
+  'pricing.canExport': 'డేటా ఎగుమతి: {{yes}}',
   'pricing.checkoutError': 'చెక్‌అవుట్ ప్రారంభించలేకపోయాము. దయచేసి మళ్ళీ ప్రయత్నించండి.',
   'pricing.heading': 'మీ {{app}} ప్లాన్ ఎంచుకోండి',
   'pricing.included': 'చేర్చబడింది',
   'pricing.loadError': 'ప్లాన్‌లను లోడ్ చేయలేకపోయాము.',
+  'pricing.maxQuestions': '{{count}} ప్రశ్నలు',
   'pricing.maxQuizzes': '{{count}} క్విజ్‌లు',
+  'pricing.maxSessions': '{{count}} సెషన్లు',
   'pricing.subhead':
     'హోస్ట్‌లకు మరియు ప్లేయర్‌లకు ఉచితం. అధిక పరిమితులు మరియు అధునాతన ఫీచర్ల కోసం అప్‌గ్రేడ్ చేసుకోండి.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'ఖాతా: ఇమెయిల్, హ్యాష్ చేసిన పాస్‌వర్డ్, ప్రదర్శన పేరు, చివరి సైన్-ఇన్.',
+  'privacy.intro':
+    '{{app}} మీ గోప్యతను గౌరవిస్తుంది. ఈ పేజీ మేము నిల్వ చేసే డేటా, దానిని ఎందుకు నిల్వ చేస్తాము, మరియు దానిని ఎలా తొలగించాలో సంగ్రహిస్తుంది.',
   'privacy.rights.body':
     '30 రోజుల్లోపు మీ డేటా మొత్తాన్ని శాశ్వతంగా తొలగించడానికి సెట్టింగ్స్ నుండి మీ ఖాతాను తొలగించండి.',
   'privacy.share.body':
@@ -120,6 +150,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'క్విజ్ ఐడి: {{id}}',
   'quizBuilder.loadError': 'క్విజ్‌ను లోడ్ చేయలేకపోయాను.',
   'quizBuilder.loading': 'ఎడిటర్ లోడ్ అవుతోంది…',
+  'quizBuilder.markCorrect': '{{letter}}ను సరైనదిగా గుర్తించండి',
   'quizBuilder.noQuestions': 'ఇంకా ప్రశ్నలు లేవు — మొదలు పెట్టడానికి ఒక ప్రశ్నను జోడించండి.',
   'quizBuilder.notFound': 'క్విజ్ కనుగొనబడలేదు.',
   'quizBuilder.preview': 'వీక్షణ',
@@ -136,7 +167,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} టైమర్',
   'quizBuilder.title': 'మీ క్విజ్‌ను రూపొందించండి',
   'quizBuilder.titleLabel': 'క్విజ్ శీర్షిక',
+  'quizBuilder.untitled': 'శీర్షిక లేని ప్రశ్న',
   'quizCard.plays': '{{count}} నాటకాలు',
+  'quizCard.questionCount': '{{count}} ప్రశ్నలు',
   'quizDetail.duration': '~ {{minutes}} నిమిషాలు',
   'quizDetail.hostMultiplayer': 'మల్టీప్లేయర్‌ను హోస్ట్ చేయండి',
   'quizDetail.leaderboardEmpty':
@@ -152,26 +185,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'క్విజ్‌కు తిరిగి వెళ్లండి',
   'quizPlay.empty': 'ఈ క్విజ్‌లో ఇంకా ప్రశ్నలు లేవు.',
   'quizPlay.error': 'ఈ క్విజ్‌ను లోడ్ చేయలేకపోయాము. దయచేసి మళ్ళీ ప్రయత్నించండి.',
+  'quizPlay.exit': 'నిష్క్రమించు',
   'quizPlay.feedback.correct': '🔥 స్ఫూర్తి లభించింది — ఇక తదుపరి దానికి!',
+  'quizPlay.feedback.incorrect': 'సమాధానం {{correct}}. కొనసాగించండి.',
   'quizPlay.loading': 'క్విజ్ లోడ్ అవుతోంది…',
   'quizPlay.next': 'తదుపరి ప్రశ్న',
   'quizPlay.questionCounter': 'ప్రశ్న {{current}} యొక్క {{total}}',
   'quizPlay.score': '{{score}} పాయింట్లు',
+  'quizPlay.seeResults': 'ఫలితాలను చూడండి',
   'quizPlay.sessionFailed': 'సెషన్‌ను ప్రారంభించలేకపోయాను.',
   'quizPlay.streak': '{{count}} స్ట్రీక్',
+  'resetPassword.subhead': 'మీ స్ట్రీక్‌కు తిరిగి వెళ్లడానికి కొత్త పాస్‌వర్డ్‌ను ఎంచుకోండి.',
   'results.backToDiscover': 'డిస్కవర్‌కు తిరిగి వెళ్లండి',
   'results.error': 'ఫలితాలను లోడ్ చేయలేకపోయాము.',
   'results.exit': 'డిస్కవర్‌కు తిరిగి వెళ్లండి',
   'results.loading': 'మీ స్కోరును లెక్కిస్తోంది…',
   'results.missingSession': 'సంగ్రహించడానికి సెషన్ ఏమీ లేదు.',
+  'results.recap.correctAnswer': 'సరైనవి: {{answer}}',
   'results.recap.questionLabel': 'ప్రశ్న {{number}}',
   'results.recap.title': 'ప్రశ్నల పునశ్చరణ',
+  'results.recap.yourAnswer': 'మీరు: {{answer}}',
   'results.unknownQuiz': 'క్విజ్',
   'scoreBreakdownCard.accuracyLabel': 'ఖచ్చితత్వం',
+  'scoreBreakdownCard.correctLabel': 'సరైనది',
   'scoreBreakdownCard.eyebrow': 'క్విజ్ పూర్తయింది',
   'scoreBreakdownCard.headline': 'మంచి పని {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'పాయింట్లు',
   'scoreBreakdownCard.rankLabel': 'ర్యాంక్',
+  'scoreBreakdownCard.streakBonus': 'స్ట్రీక్ బోనస్ +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'మీ స్పార్క్ కనిపిస్తోంది. లీడర్బోర్డ్లో ఎక్కడానికి కొనసాగించడానికి క్రింది విభజనను సమీక్షించండి.',
   'settings.danger.body':
     'మీ స్పార్క్ ఖాతాను మరియు సృష్టించిన అన్ని క్విజ్‌లను శాశ్వతంగా తొలగించండి.',
   'settings.danger.confirm': 'అవును, శాశ్వతంగా తొలగించండి',
@@ -190,5 +233,7 @@ export const ui: UiTranslations = {
     'మీరు ప్రచురించే కంటెంట్‌కు, మీరు రూపొందించే ప్రశ్నలకు, మరియు మీరు నిర్వహించే ఏవైనా ఆటలకు మీరే బాధ్యులు. ఇతరుల వలె నటించవద్దు.',
   'terms.billing.body':
     'సెట్టింగ్స్ నుండి రద్దు చేసే వరకు చెల్లింపు ప్లాన్‌లు స్వయంచాలకంగా పునరుద్ధరించబడతాయి. మీరు ఎప్పుడైనా రద్దు చేసుకోవచ్చు; ప్రస్తుత బిల్లింగ్ వ్యవధి ముగిసే వరకు యాక్సెస్ కొనసాగుతుంది.',
+  'terms.intro':
+    '{{app}}ని ఉపయోగించడం ద్వారా మీరు క్రింది నియమాలకు అంగీకరిస్తారు. మీరు వాటిని అంగీకరించలేకపోతే, దయచేసి సేవను ఉపయోగించవద్దు.',
   'terms.title': 'సేవా నిబంధనలు',
 }

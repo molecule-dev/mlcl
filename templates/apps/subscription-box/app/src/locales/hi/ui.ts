@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'किसी एडिशन, शिपमेंट या अपनी सदस्यता के बारे में सवाल हैं? hello@crate.example पर टीम के किसी असली इंसान से बात करें — हम हर संदेश पढ़ते हैं।',
+  'about.contactTitle': 'किसी क्यूरेटर से बात करें',
+  'about.feature1':
+    'स्वतंत्र निर्माताओं द्वारा चुने गए हर महीने के क्यूरेटेड एडिशन, हर आइटम की कहानी के साथ।',
+  'about.feature2':
+    'हर बॉक्स पर पूरा नियंत्रण — सामग्री को कस्टमाइज़ करें, आइटम बदलें या हटाएँ, एक महीना छोड़ें, या अपनी आवृत्ति बदलें।',
+  'about.feature3':
+    'पिकअप से दरवाज़े तक शिपमेंट की पूरी ट्रैकिंग, प्लास्टिक-मुक्त पैकेजिंग और लाइव कैरियर अपडेट के साथ।',
+  'about.feature4':
+    'लचीले प्लान और पारदर्शी बिलिंग — अपने डैशबोर्ड से कभी भी अपग्रेड, डाउनग्रेड, पॉज़ या कैंसल करें।',
+  'about.intro':
+    '{{app}} एक क्यूरेटेड सब्सक्रिप्शन-बॉक्स सेवा है जो हर महीने आपके दरवाज़े पर हाथ से चुना गया, छोटे बैच का खुशियों का बॉक्स पहुँचाती है। हर एडिशन काम करने वाले निर्माताओं — स्वतंत्र कलाकारों, शेफ़ों और छोटे ब्रांडों — द्वारा तैयार किया जाता है, किसी एल्गोरिदम द्वारा नहीं।',
+  'about.missionBody':
+    'हमारा मानना है कि सदस्यता एक तोहफ़े जैसी लगनी चाहिए, जाल जैसी नहीं। {{app}} इस तरह बनाया गया है कि आप इसलिए रुकें क्योंकि आपको जो आता है वह पसंद है — कभी भी पॉज़ करें, जो चाहें बदलें, और एक क्लिक में कैंसल करें। कोई रिटेंशन स्क्रिप्ट नहीं, कभी नहीं।',
+  'about.missionTitle': 'हमारा विशेष कार्य',
   'about.pageTitle': '{{app}} के बारे में',
   'appNav.mobileLabel': 'प्राथमिक नेविगेशन',
   'appNav.primaryLabel': 'प्राथमिक नेविगेशन',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'बिलिंग संपर्क संपादित करें',
   'billing.contact.eyebrow': 'बिलिंग संपर्क',
   'billing.eyebrow': 'योजना और भुगतान',
+  'billing.loading': 'बिलिंग लोड हो रही है…',
   'billing.payment.body':
     'भुगतान Stripe Checkout द्वारा संभाला जाता है — आपका पूरा कार्ड नंबर कभी हमारे सर्वर तक नहीं पहुँचता। अपना कार्ड जोड़ने या अपडेट करने के लिए नीचे दिए गए किसी भी टियर पर क्लिक करें।',
   'billing.payment.linked': 'Stripe के माध्यम से कार्ड फाइल पर है',
@@ -20,9 +37,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'सदस्यता फिर से शुरू करें',
   'billing.plan.eyebrow': 'सक्रिय योजना',
   'billing.plan.next': '{{date}} को स्वचालित रूप से नवीनीकृत होगी।',
+  'billing.plan.status': 'स्थिति: {{status}}',
   'billing.subtitle': 'अपने टियर, भुगतान विधि का प्रबंधन करें और पिछली गतिविधि की समीक्षा करें।',
   'billing.tiers.body': 'एक टियर चुनें और हम आपको Stripe Checkout पर भेज देंगे।',
   'billing.tiers.choose': 'चुनें',
+  'billing.tiers.empty': 'अभी तक कोई टियर कॉन्फ़िगर नहीं किया गया।',
   'billing.tiers.heading': 'उपलब्ध टियर',
   'boxDetail.backToBoxes': 'सभी संस्करणों पर वापस',
   'boxDetail.crumb.boxes': 'संस्करण',
@@ -35,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'क्यूरेटेड वस्तु',
   'boxDetail.items.heading': '{{count}} क्यूरेटेड वस्तुएँ',
   'boxDetail.itemsBadge': 'प्रति बॉक्स {{count}} क्यूरेटेड वस्तुएँ',
+  'boxDetail.loading': 'एडिशन लोड हो रहा है…',
   'boxDetail.notFound': 'वह संस्करण अब उपलब्ध नहीं है।',
   'boxDetail.subscribe.success': 'सदस्यता ली गई — आपका पहला संस्करण कतार में है।',
   'boxDetail.swapBadge': 'प्रति बॉक्स {{count}} वस्तु(एँ) तक बदल सकते हैं',
@@ -43,14 +63,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'अभी तक कुछ भी मेल नहीं खाता।',
   'boxes.eyebrow': 'Crate अभिलेखागार',
   'boxes.heading': 'हर संस्करण देखें',
+  'boxes.loadError': 'हम एडिशन लोड नहीं कर सके। अपना कनेक्शन जाँचें और फिर से कोशिश करें।',
   'boxes.loading': 'संस्करण लोड हो रहे हैं…',
+  'boxes.search.label': 'एडिशन खोजें',
   'boxes.search.placeholder': 'संस्करण खोजें…',
   'boxes.subtitle':
     'हर टियर एक छोटे-बैच की कहानी है। एक को अपनी कतार में जोड़ें या अगले महीने में बदल दें।',
+  'boxThemeCard.itemCount': '{{count}} आइटम',
   'boxThemeCard.perMonth': '/ माह',
+  'boxThemeCard.retailValue': 'रिटेल मूल्य {{value}}',
   'common.goToDashboard': 'डैशबोर्ड पर जाएं',
+  'common.retry': 'पुनः प्रयास करें',
   'customize.eyebrow': 'इसे अपना बनाएँ',
   'customize.heading': 'अपना अगला Crate कस्टमाइज़ करें',
+  'customize.items.empty': 'इस टियर के लिए अभी तक कोई आइटम कॉन्फ़िगर नहीं किया गया।',
   'customize.items.exclude': 'इसे छोड़ें',
   'customize.items.eyebrow': 'इस बॉक्स को व्यक्तिगत बनाएँ',
   'customize.items.heading': '{{box}} में वस्तुएँ',
@@ -59,8 +85,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'वापस जोड़ें',
   'customize.items.save': 'कस्टमाइज़ेशन सहेजें',
   'customize.items.swapsLeft': '{{used}} में से {{max}} स्वैप उपयोग किए गए',
+  'customize.loading': 'कस्टमाइज़ेशन लोड हो रहा है…',
   'customize.noSub.body':
     'पहले किसी टियर की सदस्यता लें, फिर अपने बॉक्स में वस्तुएँ बदलने के लिए वापस आएँ।',
+  'customize.noSub.cta': 'एडिशन ब्राउज़ करें',
   'customize.noSub.heading': 'कोई सक्रिय सदस्यता नहीं',
   'customize.saved': 'कस्टमाइज़ेशन सहेज लिया गया।',
   'customize.subtitle':
@@ -74,11 +102,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'शिपमेंट ट्रैक करें',
   'dashboard.eyebrow': 'आपका Crate',
   'dashboard.greeting': 'वापस स्वागत है, {{name}}।',
+  'dashboard.loadError':
+    'हम आपका डैशबोर्ड लोड नहीं कर सके। अपना कनेक्शन जाँचें और फिर से कोशिश करें।',
   'dashboard.loading': 'डैशबोर्ड लोड हो रहा है…',
   'dashboard.next.eyebrow': 'आपका अगला संस्करण',
   'dashboard.onboarding.body':
     'आपके पास अभी तक कोई सक्रिय सदस्यता नहीं है। हर महीने एक Crate भेजना शुरू करने के लिए एक टियर चुनें।',
   'dashboard.onboarding.cta': 'सभी संस्करण देखें',
+  'dashboard.onboarding.empty': 'अभी कोई प्लान उपलब्ध नहीं है। जल्द ही फिर देखें।',
   'dashboard.onboarding.heading': 'अपना पहला संस्करण चुनें',
   'dashboard.renewal.amount': 'शुल्क लिया गया',
   'dashboard.renewal.cadence': 'आवृत्ति',
@@ -86,18 +117,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'नवीनीकरण',
   'dashboard.renewal.heading': '{{date}} को स्वतः नवीनीकृत होगा',
   'dashboard.renewal.plan': 'योजना कुंजी',
+  'dashboard.renewal.tbd': 'नवीनीकरण शेड्यूल जल्द ही',
   'dashboard.renewal.tier': 'टियर',
   'dashboard.stats.days': 'दिन',
   'dashboard.stats.daysToNext': 'इतने समय में भेजा जाएगा',
   'dashboard.stats.items': 'क्यूरेटेड वस्तुएँ',
   'dashboard.stats.shipDate': 'शिप तिथि',
   'dashboard.stats.tbd': 'घोषित किया जाना है',
+  'dashboard.subtitle.active': 'आपका अगला एडिशन रास्ते में है। यहाँ देखें कि क्या अपेक्षा करें।',
+  'dashboard.subtitle.idle': 'हर महीने {{appName}} भेजना शुरू करने के लिए एक टियर चुनें।',
   'forgotPassword.subtitle': 'हमें अपना ईमेल बताएँ और हम एक रीसेट लिंक भेजेंगे।',
   'forgotPassword.success.body':
     'अगर {{email}} यदि आपका पंजीकरण हो जाता है, तो आपको कुछ ही मिनटों में रीसेट लिंक प्राप्त हो जाएगा।',
   'forgotPassword.success.title': 'अपना इनबॉक्स देखें।',
   'landing.editions.eyebrow': 'इस मौसम',
   'landing.editions.heading': 'जिन संस्करणों को हमारे क्यूरेटर पसंद कर रहे हैं',
+  'landing.editions.viewAll': 'सभी एडिशन ब्राउज़ करें →',
   'landing.footer.contact': 'किसी क्यूरेटर से बात करें',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'अपना बॉक्स शुरू करें →',
@@ -106,6 +141,9 @@ export const ui: UiTranslations = {
   'landing.hero.headline': 'हर महीने अप्रत्याशित को अनबॉक्स करें।',
   'landing.hero.previewCaption': 'सदस्य डैशबोर्ड की एक झलक — काउंटडाउन, सामग्री और ट्रैकिंग।',
   'landing.hero.social.count': '{{count}}+ ग्राहकों द्वारा पसंद किया गया',
+  'landing.hero.social.rating': '{{rating}} औसत अनबॉक्सिंग रेटिंग',
+  'landing.hero.subhead':
+    '{{appName}} आपको स्वतंत्र निर्माताओं से हाथ से चुना गया, छोटे बैच का खुशियों का बॉक्स भेजता है। कभी भी पॉज़ करें। जो चाहें बदलें। जो पसंद है वह रखें।',
   'landing.nav.start': 'अपना बॉक्स शुरू करें',
   'landing.tiers.eyebrow': 'अपनी आवृत्ति चुनें',
   'landing.tiers.heading': 'छोटे से शुरू करें, कभी भी अपग्रेड करें, उतनी ही आसानी से रद्द करें।',
@@ -115,6 +153,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'अगले महीने के बॉक्स की झलक देखने के लिए साइन इन करें।',
   'login.welcomeBack': 'वापस स्वागत है, क्यूरेटर।',
   'nextBoxHeroCard.eyebrow': 'आपका अगला CRATE',
+  'nextBoxHeroCard.itemCount': 'अंदर {{count}} पीस',
   'nextBoxHeroCard.itemsLabel': 'क्यूरेटेड वस्तुएँ',
   'nextBoxHeroCard.shipsOnLabel': 'इस तिथि को भेजा जाएगा',
   'notFound.body':
@@ -139,8 +178,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'सदस्यता रोकें',
   'settings.danger.paused': 'सदस्यता रोक दी गई।',
   'settings.danger.pausing': 'रोका जा रहा है…',
+  'settings.danger.status': 'सदस्यता स्थिति: {{status}}',
   'settings.danger.subtitle':
     'रोकने से आपका टियर और इतिहास सुरक्षित रहता है। रद्द करने से भविष्य की शिपमेंट रुक जाती है और चक्र के अंत में आपकी संग्रहीत भुगतान विधियाँ हट जाती हैं।',
+  'settings.notifications.saving': '· सहेजा जा रहा है…',
   'settings.notifications.subtitle':
     'चुनें कि आप Crate से कौन-से संकेत चाहते हैं। डिफ़ॉल्ट उचित हैं।',
   'settings.subtitle': 'अपनी प्रोफ़ाइल, शिपिंग पता और Crate कैसे संपर्क करता है, अपडेट करें।',
@@ -155,10 +196,16 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'अभी तक कोई सक्रिय शिपमेंट नहीं',
   'shipments.live.eyebrow': 'सक्रिय शिपमेंट',
   'shipments.live.unnamed': 'आपका अगला बॉक्स',
+  'shipments.loadError':
+    'हम आपके शिपमेंट लोड नहीं कर सके। अपना कनेक्शन जाँचें और फिर से कोशिश करें।',
+  'shipments.loading': 'शिपमेंट लोड हो रहे हैं…',
+  'shipments.step.delivered': 'पहुंचा दिया',
   'shipments.step.deliveredBody': 'जो खोजें उसे साझा करने के लिए #crateunbox टैग करें।',
   'shipments.step.ordered': 'ऑर्डर दिया गया',
   'shipments.step.orderedBody': 'आपकी सदस्यता ने इस संस्करण को अगले शिप चक्र के लिए कतार में रखा।',
+  'shipments.step.packed': 'हाथ से पैक किया गया',
   'shipments.step.packedBody': 'हर वस्तु को हाथ से लिखे नोट के साथ लपेटा और बॉक्स में रखा गया।',
+  'shipments.step.transit': 'रास्ते में',
   'shipments.step.transitNot': 'जब आपका बॉक्स ट्रांज़िट में होगा तब ट्रैकिंग यहाँ दिखाई देगी।',
   'shipments.subtitle':
     'बॉक्स को आप तक पहुँचने के रास्ते पर ट्रैक करें, फिर हर उस संस्करण को फिर से देखें जिसे आपने पहले अनबॉक्स किया है।',

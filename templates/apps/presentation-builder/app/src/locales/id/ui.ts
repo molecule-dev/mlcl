@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada pertanyaan, masukan, atau fitur yang Anda inginkan? Hubungi tim dari pengaturan akun Anda — setiap pesan dibaca oleh orang sungguhan.',
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.missionTitle': 'Misi kami',
+  'about.whatYouGetTitle': 'Apa yang Anda dapatkan',
   'analytics.empty': 'Buat deck untuk melihat analitik di sini.',
   'analytics.stats.acrossDecks': 'Di semua deck',
   'analytics.stats.allTime': 'Di studio Anda',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Judul deck',
   'landing.features.eyebrow': 'Mengapa Overture',
   'landing.features.heading': 'Semua yang Anda butuhkan untuk siap naik panggung.',
+  'landing.finalCta.body':
+    'Siapkan studio Anda dalam waktu kurang dari satu menit. Tanpa kartu kredit. Batalkan kapan saja.',
   'landing.finalCta.cta': 'Buat studio gratis Anda',
   'landing.finalCta.eyebrow': 'Mulai gratis',
   'landing.finalCta.heading': 'Naik panggung dengan deck terbaik dalam karier Anda.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Diedit 12 mnt lalu',
   'notifications.created': 'membuat',
   'notifications.edited': 'mengedit',
+  'notifications.empty.body':
+    'Aktivitas di dek Anda — komentar, sebutan, ekspor — akan muncul di sini.',
   'notifications.empty.title': 'Belum ada notifikasi',
   'notifications.eyebrow': 'Aktivitas panggung',
   'notifications.loading': 'Memuat…',
   'notifications.shared': 'membagikan secara publik',
+  'planUpdated.retry': 'Coba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengkonfirmasi pembayaran Anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran Anda mungkin masih diproses. Coba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'present.addSlides': 'Tambah slide',
   'present.backToDecks': 'Kembali ke deck',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Pemain panggung',
   'settings.security.notSet': 'Tidak diatur',
   'settings.security.passwordBody': 'Kata sandi Anda dienkripsi saat tidak digunakan.',
+  'settings.security.reset': 'Atur ulang',
   'settings.security.title': 'Akun + sesi',
   'shared.empty.body':
     'Deck yang Anda bagikan secara publik akan muncul di sini. Buka deck dan alihkan ke publik untuk membagikannya.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Memuat…',
   'shared.title': 'Deck yang dibagikan',
   'templateCard.slideCount': '{{count}} slide',
+  'templateCard.usageCount': '{{count}} pemakaian',
+  'templates.empty.body': 'Coba filter lain — kami merilis template baru setiap bulan.',
+  'templates.empty.title': 'Belum ada template di kategori ini',
+  'templates.hero.body':
+    'Tata letak slide bertema dengan blok bagan, bingkai demo, catatan presenter, dan preset pengatur waktu — setiap template siap untuk direkam.',
   'templates.hero.eyebrow': 'Panggung pilihan',
   'templates.hero.heading': 'Panggung yang dibuat untuk momen Anda perlu memenangkannya.',
 }

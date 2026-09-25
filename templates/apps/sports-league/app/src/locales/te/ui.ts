@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ఫీడ్‌బ్యాక్ ఉందా, బగ్ కనుగొన్నారా, లేదా మీ లీగ్ కోసం {{app}} కావాలా? మీ ఖాతా సెట్టింగ్‌ల నుండి మమ్మల్ని సంప్రదించండి — ప్రతి సందేశం టీమ్‌లోని నిజమైన వ్యక్తికి చేరుతుంది.',
+  'about.contactTitle': 'సంప్రదించండి',
   'about.eyebrow': 'గురించి',
+  'about.featureAlerts':
+    'స్కోరు అప్‌డేట్‌లు, ట్రేడ్ అలర్ట్‌లు, ఇంజరీ రిపోర్ట్‌లు మరియు లీగ్ ప్రకటనల కోసం పుష్ నోటిఫికేషన్‌లు.',
+  'about.featureRosters':
+    'పూర్తి రోస్టర్‌లు, సీజన్ మొత్తాలు, హాట్/కోల్డ్ స్ట్రీక్‌లు మరియు ప్రతి ఆటగాడికి హెడ్-టు-హెడ్ స్ప్లిట్‌లతో టీమ్ పేజీలు.',
+  'about.featureSchedule':
+    'ప్రతి ఫిక్చర్ మరియు ఫలితం చుట్టూ ప్లాన్ చేసుకోవడానికి సీజన్ క్యాలెండర్ మరియు షెడ్యూల్ వ్యూ.',
+  'about.featureScoreboard':
+    'గోల్ మిస్ కాకుండా ప్రతి పేజీ టాప్‌లో పిన్ చేసిన బ్రాడ్‌కాస్ట్-గ్రేడ్ స్కోర్‌బోర్డ్ టికర్.',
+  'about.featureStandings':
+    'లైవ్ స్టాండింగ్‌లు — రియల్-టైమ్ విజయ-ఓటమి-డ్రా రికార్డులు, పాయింట్లు, విన్-పిసిటి మరియు ప్లేఆఫ్ లైన్, ప్రతి వేజిల్‌కు రిఫ్రెష్ అవుతుంది.',
+  'about.intro':
+    '{{app}} మీ లీగ్ కోసం బ్రాడ్‌కాస్ట్-నాణ్యత గల ఇల్లు. టీమ్‌లు, షెడ్యూల్‌లు, లైవ్ స్కోర్లు మరియు స్టాండింగ్‌లు ఒక వేగవంతమైన, గందరగోళం లేని డాష్‌బోర్డ్‌లో కలుస్తాయి — అభిమానులు, కోచ్‌లు మరియు లీగ్ నిర్వాహకులు సీజన్ ఎక్కడ ఉందో ఎప్పుడూ తెలుసుకుంటారు.',
+  'about.missionBody':
+    'లీగ్‌ను ఫాలో అవ్వడం అంటే ఐదు వేర్వేరు థర్డ్-పార్టీ స్కోర్‌బోర్డ్‌లను రిఫ్రెష్ చేయడం కాదు. స్టాండింగ్‌లు, షెడ్యూల్ మరియు నిజంగా ముఖ్యమైన గణాంకాలకు ప్రతి లీగ్‌కు ఒకే నిజమైన మూలాన్ని అందించడానికి మేము దీన్ని నిర్మించాము — ప్రతి వేజిల్‌కు అప్‌డేట్ అవుతుంది, సీజన్ కోసం ఉచితం.',
+  'about.missionTitle': 'మా లక్ష్యం',
+  'about.whatYouGet': 'మీకు లభించేది',
   'appShell.closeNav': 'నావిగేషన్‌ను మూసివేయండి',
   'appShell.openNav': 'నావిగేషన్‌ను తెరవండి',
   'common.dashboard': 'డాష్‌బోర్డ్',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'అన్ని మ్యాచ్‌లను వీక్షించండి `2192',
   'dashboard.viewAllStandings': 'పూర్తి స్టాండింగ్స్ ➡',
   'dashboard.viewAllStats': 'గణాంకాలలోని అగ్రగాములందరినీ వీక్షించండి',
+  'forgot.submitting': 'రీసెట్ లింక్ పంపుతోంది…',
   'forgot.subtitle': 'రీసెట్ లింక్‌ను పొందడానికి మీ ఇమెయిల్‌ను నమోదు చేయండి.',
   'forgot.success': 'రీసెట్ లింక్ పంపబడింది {{email}} మీ ఇన్‌బాక్స్‌ను తనిఖీ చేయండి.',
+  'landing.copyright': '© {{year}} {{app}}. స్టాండింగ్‌ను ఛేజ్ చేయండి.',
+  'landing.ctaBody':
+    'మీ లీగ్. మీ స్టాండింగ్‌లు. మీ ఇష్టమైన టీమ్ — టాప్‌లో పిన్ చేయబడింది. సెటప్ చేయడానికి రెండు నిమిషాలు, సీజన్ కోసం ఉచితం.',
   'landing.ctaHeading': 'థర్డ్-పార్టీ స్కోర్‌బోర్డ్‌లను రిఫ్రెష్ చేయడం ఆపండి',
   'landing.eyebrow': 'అభిమానులు, కోచ్‌లు మరియు లీగ్ నిర్వాహకుల కోసం నిర్మించబడింది',
   'landing.featuresHeading': 'ప్రతి స్టాండింగ్ ఈవెంట్‌కు ముందు వరుసలో సీటు',
   'landing.getStarted': 'లీగ్‌లో చేరండి',
   'landing.heroCta': 'లీగ్‌లో చేరండి',
+  'landing.heroSubtitle':
+    '{{app}} స్టాండింగ్‌లు, షెడ్యూల్‌లు మరియు గణాంక లీడర్‌లను ఒక బ్రాడ్‌కాస్ట్-నాణ్యత గల డాష్‌బోర్డ్‌లో కలుపుతుంది. లైవ్ స్కోర్లు. నిజమైన రికార్డులు. గందరగోళం లేదు.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'ఈ రాత్రి లీగ్ అంతటా',
   'landing.statFans': 'అభిమానులు అనుసరిస్తున్నారు',
   'landing.statGames': 'ఈ సీజన్‌లో ఆటలు',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'ప్రశ్న {{period}}',
   'matchDetail.back': 'మ్యాచ్‌లకు తిరిగి వెళ్లండి',
   'matchDetail.eventsHeading': 'ప్లే-బై-ప్లే',
+  'matchDetail.final': 'FINAL',
   'matchDetail.finalScore': 'తుది',
   'matchDetail.live': 'ప్రత్యక్ష ప్రసారం',
   'matchDetail.liveNow': 'ఇప్పుడు ప్రత్యక్ష ప్రసారం',
   'matchDetail.noEvents': 'ఇంకా ఎలాంటి సంఘటనలు నమోదు కాలేదు.',
   'matchDetail.periodClock': 'ప్రశ్న {{period}} · {{clock}}',
+  'matches.empty': 'ఈ వ్యూలో మ్యాచ్‌లు లేవు — వేరే ఫిల్టర్ ప్రయత్నించండి.',
   'matches.eyebrow': 'మ్యాచ్ రోజు',
   'matches.loading': 'పలకను లాగడం…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'నోటిఫికేషన్‌లను లోడ్ చేయడంలో విఫలమైంది',
   'notifications.loading': 'నోటిఫికేషన్‌లు లోడ్ అవుతున్నాయి',
   'pennantHeroCard.eyebrow': 'పట్టికలో అగ్రస్థానం',
+  'pennantHeroCard.formLabel': 'చివరి 10',
   'pennantHeroCard.gamesAhead': '{{value}} ఛేజ్‌కు ముందు ఆటలు',
   'pennantHeroCard.pointsLabel': 'పిటిఎస్',
   'pennantLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
@@ -79,17 +108,25 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'మీ సీటును ఎంచుకోండి',
   'pricing.heading': 'మెరుగైన షెడ్యూల్, స్కోర్‌లు మరియు స్టాండింగ్‌ల కోసం అప్‌గ్రేడ్ చేసుకోండి.',
   'pricing.limits.schedule': '{{count}} షెడ్యూల్ ఎంట్రీలు',
+  'pricing.limits.scores': '{{count}} స్కోర్లు',
+  'pricing.limits.standings': '{{count}} స్టాండింగ్‌లు',
+  'pricing.limits.teams': '{{count}} టీమ్‌లు',
+  'pricing.subtitle':
+    'మరింత సమృద్ధిగా షెడ్యూల్, స్కోర్లు మరియు స్టాండింగ్‌ల కోసం అప్‌గ్రేడ్ చేయండి.',
   'pricing.upgradeCta': 'అప్‌గ్రేడ్ చేయండి {{tierName}}',
   'profile.eyebrow': 'అభిమాని ప్రొఫైల్',
   'profile.favoritesCount': 'జట్లు అనుసరించాయి',
   'profile.favoritesHeading': 'ఇష్టమైన జట్లు',
   'profile.noFavorites': 'ఇంకా ఇష్టమైన జట్లు ఏవీ లేవు — జట్ల పేజీ నుండి జట్లను ఎంచుకోండి.',
   'profile.rankRecord': 'ర్యాంక్ # {{rank}} · {{record}}',
+  'profile.recordOnly': 'రికార్డ్ {{record}}',
   'reset.confirmPlaceholder': 'పాస్‌వర్డ్‌ను పునరావృతం చేయండి',
+  'reset.mismatch': 'పాస్‌వర్డ్‌లు సరిపోలడం లేదు.',
   'reset.newLabel': 'కొత్త పాస్‌వర్డ్',
   'reset.subtitle': 'కనీసం 12 అక్షరాలు ఉండే బలమైన పాస్‌వర్డ్‌ను ఎంచుకోండి.',
   'reset.tokenPlaceholder': 'ఇమెయిల్ నుండి అతికించండి',
   'schedule.eyebrow': 'స్లేట్',
+  'schedule.moreGames': '+ {{count}} మరింత',
   'schedule.subtitle':
     'సీజన్ అంతటా మ్యాచ్‌ల క్యాలెండర్ వీక్షణ — బాక్స్ స్కోర్‌ల కోసం ఏ రోజునైనా ట్యాప్ చేయండి.',
   'scoreboardTicker.empty':
@@ -98,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'వ్యక్తిగతీకరించండి',
   'settings.favoritesBody':
     'ఈ జట్లు మీ డాష్‌బోర్డ్‌కు జోడించబడతాయి మరియు స్కోర్ హెచ్చరికలను ప్రేరేపిస్తాయి.',
+  'settings.favoritesHeading': 'ఇష్టమైన జట్లు',
   'settings.loading': 'మీ ప్రాధాన్యతలను లోడ్ చేస్తోంది',
   'settings.noFavorites': 'ఇంకా ఇష్టమైనవి ఏవీ లేవు – జట్ల పేజీ నుండి జట్లను ఎంచుకోండి.',
   'settings.notificationsHeading': 'నోటిఫికేషన్‌లు & డిస్‌ప్లే',
@@ -115,6 +153,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'ఎల్',
   'standings.overall': 'మొత్తంమీద',
   'standings.points': 'పిటిఎస్',
+  'standings.rank': '#',
   'standings.subtitle':
     'పాయింట్ల ఆధారంగా టైబ్రేకర్లు, ఆ తర్వాత గెలుపు శాతం ఆధారంగా మొదటి నాలుగు జట్లు పోస్ట్‌సీజన్‌కు అర్హత సాధిస్తాయి.',
   'standings.title': 'లీగ్ స్టాండింగ్స్',
@@ -133,6 +172,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'జి',
   'teamDetail.colName': 'ఆటగాడు',
   'teamDetail.colPos': 'స్థానం',
+  'teamDetail.pointsLabel': 'పాయింట్లు',
   'teamDetail.rankLabel': 'ర్యాంక్ # {{rank}}',
   'teamDetail.rosterHeading': 'జాబితా',
   'teamDetail.statGD': 'గోల్ తేడా',

@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Fikr-mulohaza, xatolik yoki yangi funksiya kerakmi? Biz har bir xabarni o'qiymiz — hisob sozlamalaringizdan {{appName}} jamoasiga murojaat qiling, haqiqiy inson sizga javob beradi.",
   'about.contactTitle': "Biz bilan bog'laning",
+  'about.intro':
+    "{{appName}} dizayn jamoalari, ustaxona tashkilotchilari va o'qituvchilar uchun hamkorlikdagi cheksiz kanvas. Stikerlar joylashtiring, shakllar chizing, qo'lda rasm torting va jamoadoshlaringiz siz bilan bir vaqtda fikrlashini kuzating — tartibsiz, ijodiy g'oyalar nihoyat bir joyda uchrashadi.",
+  'about.missionBody':
+    "Buyuk fikrlar kamdan-kam tartibli bo'ladi. {{appName}} jamoalarga g'oyalar paydo bo'lgan zahoti qayd etiladigan va mantiqiy shaklga kelguncha birgalikda ishlanadigan tez, qulay muhit yaratish uchun mavjud — kechikish, yo'qolgan ish yoki shiddatni o'ldiradigan qat'iy vositalarsiz.",
+  'about.missionTitle': 'Bizning vazifamiz',
+  'authShell.brandFooter':
+    "“Rebrendingni ishga tushirgan haftada to'rtta vositani {{appName}} bilan almashtirdik. Retrospektiv o'zini o'zi saqlab qoldi.” — Atlas Studio",
+  'authShell.brandFooterMeta': '12 400+ dizayn jamoasi ishonadi',
   'authShell.brandHeading':
     "Ovoz chiqarib fikrlaydigan dizayn guruhlari uchun ko'p o'yinchili tuvallar.",
   'billing.canceled': 'Obuna bekor qilindi.',
@@ -11,6 +21,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': "Abadiy bepul boshlang'ich daraja.",
   'billing.freePlanName': 'Bepul',
   'billing.paidPlanBody': 'Faol obuna.',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'Reja va schyot-fakturalar',
   'billing.updated': 'Reja yangilandi.',
   'billing.upgradeTitle': 'Mavjud rejalar',
@@ -19,8 +30,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': 'ning {{max}} kiritilgan',
   'boardCanvas.backToBoards': 'Barcha taxtalar',
   'boardCanvas.changeColor': "Rangni o'zgartirish {{color}}",
+  'boardCanvas.collaboratorsTitle': 'Hamkorlar',
   'boardCanvas.deleteElement': "Elementni o'chirish",
   'boardCanvas.deselect': 'Tanlovni bekor qilish',
+  'boardCanvas.elementLabel': '{{type}} elementi',
   'boardCanvas.elementsCount': '{{count}} elementlar',
   'boardCanvas.elementText': 'Matn',
   'boardCanvas.empty.body':
@@ -30,10 +43,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': "To'ldirish",
   'boardCanvas.invited': 'Taklif qilingan {{email}}',
   'boardCanvas.metaTitle': 'Lavozim',
+  'boardCanvas.metaWH': 'W: {{w}}  H: {{h}}',
   'boardCanvas.metaXY': 'X: {{x}} Y: {{y}}',
   'boardCanvas.noCollaborators':
     'Hali hamkorlar yo\'q. Jamoadoshlarni taklif qilish uchun "Ulashish" funksiyasidan foydalaning.',
   'boardCanvas.present': 'Hozir',
+  'boardCanvas.private': 'Maxfiy — faqat taklif bilan',
   'boardCanvas.properties': 'Mulklar',
   'boardCanvas.public': "Ommaviy — havolasi bor har kim ko'rishi mumkin",
   'boardCanvas.roleCommenter': 'Fikr bildirishi mumkin',
@@ -49,6 +64,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'Yopishqoq rangni tanlang',
   'boardCanvas.summaryCount': '{{count}} tuvaldagi elementlar',
   'boardCanvas.summaryTitle': 'Kengash',
+  'boardCanvas.surface.clear': 'Doska kanvasi — tanlovni tozalash',
+  'boardCanvas.surface.draw': 'Doska kanvasi — chizish uchun torting',
+  'boardCanvas.surface.place': 'Doska kanvasi — element joylashtirish',
   'boardCanvas.untitled': 'Nomsiz taxta',
   'boardCanvas.visibilityTitle': "Ko'rinish",
   'boardCanvas.zoomIn': 'Yaqinlashtirish',
@@ -71,6 +89,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'Qidiruv taxtalari',
   'boards.searchPlaceholder': 'Qidiruv taxtalari',
   'boards.sharedTitle': "Men bilan baham ko'rilgan",
+  'boards.sortedBy': 'Yaqinda yangilanganlar bo‘yicha saralangan',
   'boards.startFromTemplate': 'Shablondan boshlang',
   'boards.title': 'Sizning forumlaringiz',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -84,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.cta.signupButton': 'Bepul doskangizni yarating',
   'landing.cta.title': 'Tartibsiz, generativ, shaxsan fikrlash uchun yaratilgan.',
   'landing.demoBoard.title': '1-choraklik seminar · Brend ovozi',
+  'landing.demoBoard.updated': '12 daqiqa oldin yangilandi',
   'landing.featuresEyebrow': 'Slate tessellatini nima yaratadi',
   'landing.featuresTitle': 'Tezkor fikr-mulohaza. Chiroyli tuvallar. Nol ishqalanish.',
   'landing.hero.body':
@@ -96,18 +116,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '••••••••••••',
   'login.signIn': 'Slate’ga kirish',
   'login.signupCta': 'Bepul ish maydoni yarating',
+  'login.signupPrompt': 'Tesserada yangimisiz?',
   'login.subheading':
     'Seminar tugagan joydan davom eting — doskalar, yopishqoq yozuvlar va kursorlar real vaqt rejimida sinxronlashtiriladi.',
   'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
   'mobileNav.new': 'Yangi',
   'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
+  'notifications.editBody': 'Doska mazmuni yangilandi.',
   'notifications.editTitle': '"ga tahrirlar {{board}} "',
   'notifications.empty.body':
     "Taklifnomalar, saqlangan suratlar va so'nggi tahrirlar shu yerda paydo bo'ladi.",
   'notifications.empty.title': "Elektron pochtangizda yangilik yo'q",
   'notifications.eyebrow': '{{name}} · Kiruvchi xabarlar qutisi',
+  'notifications.inviteBody': '"{{board}}" da {{role}} sifatida',
   'notifications.inviteTitle': 'Taklif qilingan {{email}}',
   'notifications.snapshotTitle': '""da yangi surat {{board}} "',
+  'present.addFirst': "Birinchi freymni qo'shish",
   'present.addFrame': "+ Ramka qo'shish",
   'present.boardEyebrow': '{{title}} · taqdimot',
   'present.empty.body':
@@ -115,6 +139,7 @@ export const ui: UiTranslations = {
   'present.empty.title': "Hali ramkalar yo'q",
   'present.exit': 'Taqdimotdan chiqish',
   'present.exitToBoard': 'Tuvalga qaytish',
+  'present.eyebrow': 'Taqdimot rejimi',
   'present.frameBody': 'Muhokama qilinadigan fikrlar',
   'present.frameName': 'Ramka nomi',
   'present.frameOf': 'Ramka {{current}} ning {{total}}',
@@ -124,21 +149,31 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'Jonli taqdimot',
   'present.save': 'Kadrni saqlash',
   'present.title': 'Hikoyangizni boshqaring',
+  'present.unnamed': 'Nomsiz freym',
+  'pricing.limits.advanced': 'Kengaytirilgan xususiyatlar',
   'profile.cursorBody':
     "Ushbu qurilmada saqlangan — jamoadoshlar bu rangni jonli kursoringiz yonida ko'rishadi.",
   'profile.cursorEyebrow': 'Kursor rangingiz',
   'profile.eyebrow': 'Jamoatchilik bilan hamkorlik qiluvchi karta',
+  'profile.noBoards': "Hozircha doskalar yo'q — boshlash uchun bittasini yarating.",
+  'profile.recentBoards': 'Yaqinda ochilgan doskalar {{name}}',
   'profile.stat.${s.label}': 'Kengashlar {{nom}} yaqinda tegdi',
+  'profile.statsEyebrow': 'Sizning faoliyatingiz',
   'profile.title': 'Sizning profilingiz',
+  'reset.backPrompt': 'Boshqa email kerakmi?',
   'reset.cta': 'Parolni tiklash va tizimga kirish',
+  'reset.password': 'Yangi parol',
   'reset.subheading':
     "Kuchli parol tanlang — kamida bitta raqam bilan 8 ta belgidan iborat bo'lishi kerak.",
   'settings.appearance.title': 'Mavzu va kanvas',
   'settings.eyebrow': 'Hisob sozlamalari',
   'settings.notifications.title': 'Bildirishnoma sozlamalari',
   'settings.profile.title': 'Jamoatchilik bilan hamkorlik qiluvchi karta',
+  'settings.security.body':
+    'Ikki faktorli autentifikatsiya, faol seanslar va parolni hisob boshqaruv panelingizdan boshqaring.',
   'settings.security.title': 'Xavfsizlik',
   'shared.collaboratorCount': '{{count}} hamkor(lar)',
+  'shared.count': '{{count}} ta doska',
   'shared.empty.body':
     "Jamoadoshingiz sizni forumga taklif qilganda, u avtomatik ravishda shu yerda ko'rsatiladi.",
   'shared.empty.title': 'Siz bilan hali hech narsa ulashilmagan',
@@ -154,6 +189,9 @@ export const ui: UiTranslations = {
   'signup.subheading':
     '3 tagacha hamkor uchun bepul. Dastlabki 14 kun ichida kredit karta talab qilinmaydi.',
   'templateCard.usageCount': '{{count}} foydalanish',
+  'templateDetail.allTemplates': 'Barcha shablonlar',
+  'templateDetail.body':
+    '"{{name}}" nomli yangi doskaga {{count}} ta boshlang\'ich elementni nusxalash uchun "Shablondan foydalanish" tugmasini bosing. U yerdan tahrirlang, ulashing va ustaxonangizni o\'tkazing.',
   'templateDetail.delete': "Shablonni o'chirish",
   'templateDetail.elementsCount': "{{count}} boshlang'ich elementlar",
   'templateDetail.eyebrow': '{{kind}} shablon',
@@ -166,16 +204,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'Maxsus shablonni saqlang',
   'templates.empty.body':
     "O'zingizga tegishli har qanday doskadan maxsus shablon yarating — doskani oching, suratini saqlang, so'ngra uni qayta ishlatiladigan shablon sifatida shu yerga saqlang.",
+  'templates.empty.title': "Hali shablonlar yo'q",
   'templates.eyebrow': "Seminar to'plamlari va saqlangan shablonlar",
   'templates.filter.${c}': "Hali shablonlar yo'q",
   'templates.nameLabel': 'Andoza nomi',
   'templates.systemBadge': "O'rnatilgan",
   'templates.userBadge': 'Sizniki',
   'versionHistory.backToBoard': 'Tuvalga qaytish',
+  'versionHistory.elementsTotal': '{{count}} ta qayd etilgan element',
   'versionHistory.empty.body':
     '"Snapshotni saqlash" tugmasi yordamida oniy tasvirlar doska kanvasidan yaratiladi — ular shu yerda paydo bo\'ladi, shuning uchun siz istalgan o\'tmishdagi holatni tiklashingiz mumkin.',
+  'versionHistory.empty.cta': 'Bittasini olish uchun kanvasni oching',
   'versionHistory.empty.title': "Hali suratlar yo'q",
   'versionHistory.eyebrow': '{{title}} · tarix',
+  'versionHistory.eyebrowFallback': 'Doska tarixi',
   'versionHistory.latest': "Eng so'nggi",
   'versionHistory.restore': 'Ushbu versiyani tiklash',
   'versionHistory.restored': 'Surat tiklandi.',
@@ -186,6 +228,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'Yangi kengash',
   'whiteboardLayout.primaryNav': 'Asosiy navigatsiya',
   'workspace.boardLabel': 'Kengash',
+  'workspace.empty': "Hozircha hamkorlar yo'q — doskalaringizga kimnidir taklif qiling.",
   'workspace.eyebrow': '{{name}} · ish maydoni',
   'workspace.invite': 'Hamkorlarni taklif qiling',
   'workspace.inviteSent': 'Taklifnoma yuborildi.',
@@ -194,4 +237,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'Sharhlovchi',
   'workspace.role.editor': 'Muharrir',
   'workspace.role.viewer': 'Tomoshabin',
+  'workspace.title': "A'zolar va rollar",
 }

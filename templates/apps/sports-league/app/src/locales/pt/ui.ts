@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tem feedback, encontrou um bug ou quer {{app}} para a sua liga? Fale conosco nas configurações da sua conta — todas as mensagens chegam a uma pessoa real da equipe.',
+  'about.contactTitle': 'Fale com a gente',
   'about.eyebrow': 'Sobre',
+  'about.featureAlerts':
+    'Notificações push para atualizações de placar, alertas de trocas, relatórios de lesões e anúncios da liga.',
+  'about.featureRosters':
+    'Páginas de times com escalações completas, totais da temporada, sequências de alta/baixa e confrontos diretos de cada jogador.',
+  'about.featureSchedule':
+    'Um calendário da temporada e visualização da tabela para você se planejar em torno de cada jogo e resultado.',
+  'about.featureScoreboard':
+    'Um ticker de placar com qualidade de transmissão fixado no topo de cada página para você nunca perder um gol.',
+  'about.featureStandings':
+    'Classificação ao vivo — registros de vitórias-derrotas-empates em tempo real, pontos, aproveitamento, e a linha de classificação para os playoffs, atualizados a cada apito.',
+  'about.intro':
+    '{{app}} é uma casa com qualidade de transmissão para a sua liga. Times, tabelas, placares ao vivo e classificações se reúnem em um painel rápido e sem poluição — para que torcedores, técnicos e organizadores da liga sempre saibam como está a temporada.',
+  'about.missionBody':
+    'Acompanhar uma liga não deveria significar atualizar cinco placares de terceiros diferentes. Criamos isso para dar a cada liga uma única fonte de verdade para a classificação, a tabela e as estatísticas que realmente importam — atualizadas a cada apito, grátis durante a temporada.',
+  'about.missionTitle': 'Nossa missão',
+  'about.whatYouGet': 'O que você ganha',
   'appShell.closeNav': 'Fechar navegação',
   'appShell.openNav': 'Abrir navegação',
   'common.dashboard': 'Painel',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Ver todos os jogos →',
   'dashboard.viewAllStandings': 'Classificação completa →',
   'dashboard.viewAllStats': 'Ver todos os líderes →',
+  'forgot.submitting': 'Enviando link de redefinição…',
   'forgot.subtitle': 'Informe seu e-mail para receber um link de redefinição.',
   'forgot.success': 'Link enviado para {{email}}. Confira sua caixa de entrada.',
+  'landing.copyright': '© {{year}} {{app}}. Chase the standing.',
+  'landing.ctaBody':
+    'Sua liga. Sua classificação. Seu time favorito — fixado no topo. Dois minutos para configurar, grátis durante a temporada.',
   'landing.ctaHeading': 'Pare de atualizar placares de terceiros',
   'landing.eyebrow': 'Feito para torcedores, treinadores e organizadores de liga',
   'landing.featuresHeading': 'Lugar na primeira fila para cada classificação',
   'landing.getStarted': 'Entrar na liga',
   'landing.heroCta': 'Entrar na liga',
+  'landing.heroSubtitle':
+    '{{app}} reúne classificações, tabelas e líderes estatísticos em um painel com qualidade de transmissão. Placares ao vivo. Registros reais. Sem poluição.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Esta noite na liga',
   'landing.statFans': 'Torcedores acompanhando',
   'landing.statGames': 'Jogos nesta temporada',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q{{period}}',
   'matchDetail.back': 'Voltar aos jogos',
   'matchDetail.eventsHeading': 'Lance a lance',
+  'matchDetail.final': 'FINAL',
   'matchDetail.finalScore': 'Final',
   'matchDetail.live': 'AO VIVO',
   'matchDetail.liveNow': 'Ao vivo agora',
   'matchDetail.noEvents': 'Ainda não há eventos registrados.',
   'matchDetail.periodClock': 'Q{{period}} · {{clock}}',
+  'matches.empty': 'Nenhuma partida nesta visualização — tente um filtro diferente.',
   'matches.eyebrow': 'Rodada',
   'matches.loading': 'Carregando a tabela…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Falha ao carregar notificações',
   'notifications.loading': 'Carregando notificações…',
   'pennantHeroCard.eyebrow': 'Topo da tabela',
+  'pennantHeroCard.formLabel': 'Últimos 10',
   'pennantHeroCard.gamesAhead': '{{value}} jogos à frente do segundo colocado',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Navegação principal',
@@ -78,23 +107,31 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Escolha seu lugar',
   'pricing.heading': 'Faça upgrade para um calendário, placares e classificação mais completos.',
   'pricing.limits.schedule': '{{count}} entradas de calendário',
+  'pricing.limits.scores': 'Placares do {{count}}',
+  'pricing.limits.standings': 'Classificação do {{count}}',
+  'pricing.limits.teams': 'Times do {{count}}',
+  'pricing.subtitle': 'Faça upgrade para uma tabela, placares e classificação mais completos.',
   'pricing.upgradeCta': 'Fazer upgrade para {{tierName}}',
   'profile.eyebrow': 'Perfil de torcedor',
   'profile.favoritesCount': 'Times acompanhados',
   'profile.favoritesHeading': 'Times favoritos',
   'profile.noFavorites': 'Ainda sem favoritos — escolha times na página Times.',
   'profile.rankRecord': 'Posição #{{rank}} · {{record}}',
+  'profile.recordOnly': 'Registro {{record}}',
   'reset.confirmPlaceholder': 'Repita a senha',
+  'reset.mismatch': 'As senhas não conferem.',
   'reset.newLabel': 'Nova senha',
   'reset.subtitle': 'Escolha uma senha forte com pelo menos 12 caracteres.',
   'reset.tokenPlaceholder': 'Cole do e-mail',
   'schedule.eyebrow': 'A tabela',
+  'schedule.moreGames': '+{{count}} a mais',
   'schedule.subtitle':
     'Visão em calendário dos jogos da temporada — toque em um dia para ver os boxscores.',
   'scoreboardTicker.empty': 'Nenhum jogo ao vivo agora — volte na hora do início.',
   'settings.addFavorite': 'Adicionar time',
   'settings.eyebrow': 'Personalize',
   'settings.favoritesBody': 'Estes times ficam fixos no seu painel e ativam alertas de placar.',
+  'settings.favoritesHeading': 'Times favoritos',
   'settings.loading': 'Carregando suas preferências…',
   'settings.noFavorites': 'Ainda sem favoritos — escolha times na página Times.',
   'settings.notificationsHeading': 'Notificações e exibição',
@@ -112,6 +149,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'D',
   'standings.overall': 'Geral',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Os quatro primeiros vão ao mata-mata — desempate por pontos, depois por aproveitamento.',
   'standings.title': 'Classificação da liga',
@@ -130,6 +168,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Jogador',
   'teamDetail.colPos': 'Pos',
+  'teamDetail.pointsLabel': 'Pontos',
   'teamDetail.rankLabel': 'Posição #{{rank}}',
   'teamDetail.rosterHeading': 'Elenco',
   'teamDetail.statGD': 'Saldo de gols',

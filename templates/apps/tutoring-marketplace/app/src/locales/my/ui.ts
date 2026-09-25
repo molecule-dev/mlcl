@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ဆက်သွယ်ပါ',
   'about.eyebrow': 'ကြှနျုပျတို့အကွောငျး',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'account.notifications.save': 'ဦးစားပေးများကို သိမ်းဆည်းပါ',
   'account.notifications.saved': 'ဦးစားပေးများကို သိမ်းဆည်းပြီးပါပြီ။',
   'account.notifications.saveFailed': 'ဦးစားပေးမှုများကို သိမ်းဆည်း၍မရပါ။',
@@ -12,7 +13,10 @@ export const ui: UiTranslations = {
     'အစည်းအဝေးတစ်ခုလျှင် ငွေပေးချေပါ • ဘွတ်ကင်လျှော့စျေးများအတွက် အဆင့်မြှင့်တင်ပါ',
   'account.payments.helper':
     'သင့်ငွေပေးချေမှုနည်းလမ်းကို ငွေရှင်းသည့်အခါတွင် ကောက်ခံပါသည်။ ကျွန်ုပ်တို့သည် ကတ်နံပါတ်အပြည့်အစုံကို ဘယ်သောအခါမှ သိမ်းဆည်းမည်မဟုတ်ပါ — Stripe သည် ကတ်ဒေတာအားလုံးကို ကိုင်တွယ်ပါသည်။',
+  'account.payments.paidDescription': 'စာရင်းသွင်းမှု အသက်ဝင်နေသည် — Stripe တွင် စီမံပါ။',
   'account.payments.planFree': 'အခမဲ့အစီအစဉ်',
+  'account.payments.title': 'အစီအစဉ်နှင့် ငွေပေးချေမှု',
+  'account.payments.viewPlans': '{{appName}} အစီအစဉ်များကို ကြည့်ရန် →',
   'account.profile.title': 'ပရိုဖိုင်',
   'account.role.body':
     'သင်ယူသူမုဒ်နှင့် ကျူရှင်ဆရာမုဒ်ကို အချိန်မရွေးပြောင်းပါ။ သင်၏ တက်ကြွသောအစည်းအဝေးများသည် မည်သည့်မုဒ်တွင်မဆို အပြောင်းအလဲမရှိပါ။',
@@ -25,6 +29,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'ချော့ခဲပေါ်မှာ သင်ပေး',
   'becomeTutor.form.error': 'လျှောက်လွှာတင်၍မရပါ။',
+  'becomeTutor.form.pitch': 'သင့်မိတ်ဆက် (ရွေးချယ်နိုင်)',
   'becomeTutor.form.pitchPlaceholder':
     'ကျောင်းသားများသည် သင့်ပရိုဖိုင်တွင် မြင်တွေ့ရမည့် စာကြောင်းအနည်းငယ်။ ၎င်းကို တိကျပြီး နွေးထွေးစွာ ဖော်ပြပါ။',
   'becomeTutor.form.rate': 'တစ်နာရီလျှင် နှုန်းထား ($/နာရီ): {{rate}}',
@@ -34,6 +39,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.title': 'သင့်အကြောင်း ကျွန်ုပ်တို့ကို ပြောပြပါ',
   'becomeTutor.headline':
     'သင်နှစ်သက်ရာကို လုပ်ဆောင်ရင်း ငွေရှာပါ။ သင့်အချိန်ဇယားအတိုင်း သင်ကြားပါ။',
+  'becomeTutor.subhead':
+    '၅ မိနစ်အတွင်း လျှောက်ထားပါ။ အတည်ပြုပြီးပါက ရှာဖွေမှုတွင် ပေါ်လာပြီး သင်ခန်းစာများ စတင်စာရင်းသွင်းနိုင်ပါမည်။',
+  'booking.duration.title': '၃။ မည်မျှကြာမည်နည်း။',
   'booking.error.createFailed': 'ဘွတ်ကင်ပြုလုပ်၍မရပါ။',
   'booking.error.loadFailed': 'ကျူရှင်ဆရာကို တင်၍မရပါ — ထပ်ကြိုးစားပါ။',
   'booking.error.noSlot': 'အရင်ဆုံး ရက်နဲ့အချိန်ကို ရွေးပါ။',
@@ -47,6 +55,7 @@ export const ui: UiTranslations = {
     'အစည်းအဝေးများကို ၁၂ နာရီအထိ ပြန်လည်စီစဉ်နိုင်ပါသည်။ အစည်းအဝေးပြီးဆုံးမှသာ သင့်ကတ်ကို ငွေကောက်ခံပါမည်။',
   'booking.summary.assurance':
     'အစည်းအဝေးပြီးဆုံးသည်အထိ အခမဲ့ ပယ်ဖျက်နိုင်ပါသည် • ၁၂ နာရီမတိုင်မီ အခမဲ့ ပယ်ဖျက်နိုင်ပါသည်',
+  'booking.summary.back': '← ကျူတာပရိုဖိုင်သို့ ပြန်သွားရန်',
   'booking.summary.cta': 'ဘွတ်ကင်လုပ်ရန် အတည်ပြုပါ',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'နေရာတစ်ခု ရွေးချယ်ပါ',
@@ -73,18 +82,28 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'ကျူရှင်ဆရာ',
   'bookingConfirm.subject': 'ဘာသာရပ်',
   'bookingConfirm.title': 'မင်းစာရင်းသွင်းပြီးပြီ။ ကျန်တာငါတို့ကိုင်တွယ်ပေးမယ်။',
+  'bookingConfirm.viewSessions': 'သင်ခန်းစာအားလုံးကို ကြည့်ရန် →',
   'bookingConfirm.with': 'ကျူရှင်ဆရာနှင့်အတူ',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
+  'earningsHero.change': 'ပြီးခဲ့သည့်လနှင့် နှိုင်းယှဉ်ပါက {{sign}}{{percent}}%',
   'earningsHero.eyebrow': 'ဝင်ငွေ • {{month}}',
+  'earningsHero.greeting': 'ပြန်လည်ကြိုဆိုပါတယ်၊ {{name}} — ဆက်လက်ကြိုးစားပါ။',
   'forgotPassword.heading': 'သင့်စကားဝှက်ကိုမေ့နေပါသလား?',
   'forgotPassword.subheading':
     'သင့်အကောင့်နှင့် ချိတ်ဆက်ထားသော အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က ပြန်လည်သတ်မှတ်ရန်လင့်ခ် ပို့ပေးပါမည်။',
   'forgotPassword.success.body':
     'ကျွန်ုပ်တို့သည် ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့လိုက်ပါပြီ {{email}} - မိနစ် ၃၀ အတွင်း သက်တမ်းကုန်ဆုံးမည်။',
   'heroSearchSection.eyebrow': '၂၀၁၈ ခုနှစ်မှစ၍ အတည်ပြုပြီးသော ကျူရှင်ဆရာ ၁၂၀၀၀+ •',
+  'heroSearchSection.headline':
+    'စူးစမ်းလိုစိတ်ရှိသူများနှင့် သင့်လျော်သော ကျူတာများ ဆုံတွေ့ရာနေရာ။',
+  'heroSearchSection.searchCta': 'ကျူတာရှာရန်',
+  'heroSearchSection.searchPlaceholder': 'ဘာသာရပ်၊ ကျူတာ သို့မဟုတ် ခေါင်းစဉ်များ ရှာဖွေပါ…',
   'heroSearchSection.stat.rating': 'ပျမ်းမျှ အစည်းအဝေး အဆင့်သတ်မှတ်ချက်',
+  'heroSearchSection.stat.sessions': 'ပေးအပ်ပြီးသော သင်ခန်းစာများ',
   'heroSearchSection.stat.subjects': 'လွှမ်းခြုံထားသော ဘာသာရပ်များ',
   'heroSearchSection.stat.tutors': 'အတည်ပြုထားသော ကျူရှင်ဆရာများ',
+  'heroSearchSection.subhead':
+    'အတည်ပြုပြီးသော ကျူတာများ။ ရှင်းလင်းသော စျေးနှုန်း။ သင့်အပတ်စဉ်နှင့် ကိုက်ညီသော သင်ခန်းစာများ။',
   'landing.featured.eyebrow': 'အထူးပြု ကျူရှင်ဆရာများ',
   'landing.featured.headline':
     'လက်ဖြင့်ရွေးချယ်ထားသော၊ အဆင့်သတ်မှတ်ချက်အမြင့်ဆုံးဖြစ်ပြီး ဤအပတ်တွင် အဆင်သင့်ဖြစ်ပါပြီ။',
@@ -92,8 +111,11 @@ export const ui: UiTranslations = {
   'landing.nav.becomeTutor': 'ချော့ခဲပေါ်မှာ သင်ပေး',
   'landing.nav.findTutors': 'ကျူရှင်ဆရာများ ရှာပါ',
   'landing.pillars.eyebrow': 'ဘာကြောင့် ချော့ခဲသုံးတာလဲ',
+  'landing.pillars.headline': '{{tagline}} — အခက်အခဲမရှိဘဲ။',
   'landing.testimonials.eyebrow': 'မကြာသေးမီက ကျောင်းသားများမှ',
   'landing.testimonials.headline': 'တကယ့်ရလဒ်တွေက သူတို့ရဲ့ကိုယ်ပိုင်စကားအရဆိုရင်ပေါ့။',
+  'landing.tutorCta.body':
+    'သင့်ကိုယ်ပိုင် နှုန်းထားများ သတ်မှတ်ပါ၊ အတည်ပြုပြီးသော သုံးသပ်ချက်များဖြင့် ဂုဏ်သတင်းတည်ဆောက်ပါ၊ အချိန်ဇယား၊ ငွေပေးချေမှုနှင့် သတိပေးချက်များကို ကျွန်ုပ်တို့ ကိုင်တွယ်ပါမည်။',
   'landing.tutorCta.button': 'သင်ကြားရန်လျှောက်ထားပါ',
   'landing.tutorCta.eyebrow': 'ကျူရှင်ဆရာ ဖြစ်လာပါ',
   'landing.tutorCta.headline':
@@ -105,6 +127,7 @@ export const ui: UiTranslations = {
   'login.signup': 'အကောင့်တစ်ခု ဖန်တီးပါ →',
   'login.subheading':
     'သင်ရပ်ထားသည့်နေရာမှ ဆက်လုပ်ဆောင်ပါ — သင်၏ အစည်းအဝေးများ၊ မက်ဆေ့ချ်များနှင့် ကျူရှင်ဆရာများက စောင့်ကြိုနေပါသည်။',
+  'login.support': 'အကူအညီ လိုအပ်ပါသလား။',
   'messages.draftPlaceholder': 'မက်ဆေ့ချ်တစ်ခု ရိုက်ထည့်ပါ…',
   'messages.empty.body':
     'ကျူရှင်ဆရာထံ မက်ဆေ့ချ်ပို့သည့်အခါ သို့မဟုတ် ကျူရှင်ဆရာတစ်ဦးက သင့်ထံ မက်ဆေ့ချ်ပို့သည့်အခါ ဤနေရာတွင် threads များ ပေါ်လာပါမည်။',
@@ -116,9 +139,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'မက်ဆေ့ချ်များ မရှိသေးပါ။',
   'messages.selectThread': 'ဘယ်ဘက်ခြမ်းက ချည်တစ်ခုကို ရွေးပါ။',
   'messages.send': 'မက်ဆေ့ချ်ပို့ပါ',
+  'messages.startThreadHint':
+    'ကျူတာပရိုဖိုင်တစ်ခုသို့ သွားပြီး "ကျူတာကို မက်ဆေ့ချ်ပို့ရန်" ကို နှိပ်ပါ။',
   'messages.thread.empty': 'နှုတ်ဆက်ပါ - စကားစမြည်စပြောပါ။',
   'messages.title': 'သင့်ရဲ့ ကျူရှင်ဆရာတွေနဲ့ ပတ်သက်တဲ့ အကြောင်းအရာတွေ။',
   'nav.primary': 'မူလတန်း',
+  'planUpdated.body':
+    'သင့်ငွေတောင်းခံမှု ပြောင်းလဲမှုသည် ယခု အသက်ဝင်နေပါပြီ။ သင့်အစီအစဉ်ကို ငွေတောင်းခံမှုစာမျက်နှာမှ မည်သည့်အချိန်တွင်မဆို စီမံနိုင်ပါသည်။',
+  'pricing.advancedFeatures': 'အဆင့်မြင့်အင်္ဂါရပ်များ-',
   'pricing.dataExport': 'ဒေတာ ထုတ်ယူမှု-',
   'pricing.headingDefault': 'အဆင့်မြင့်အင်္ဂါရပ်များ-',
   'resetPassword.heading': 'ခိုင်မာတဲ့ စကားဝှက်အသစ်ကို ရွေးချယ်ပါ။',
@@ -129,6 +157,7 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'ပြန်လည်သတ်မှတ်ခြင်း အောင်မြင်ပြီးနောက် ကျွန်ုပ်တို့က သင့်အား အလိုအလျောက် လက်မှတ်ထိုးဝင်ပေးပါမည်။',
   'resetPassword.submit': 'ပြန်လည်သတ်မှတ်ပြီး လက်မှတ်ထိုးဝင်ပါ',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body':
     'ဘာသာရပ်စစ်ထုတ်မှုကို ချဲ့ကြည့်ပါ သို့မဟုတ် အဆင့်သတ်မှတ်ချက် ကန့်သတ်ချက်ကို ဖြေလျှော့ကြည့်ပါ။',
@@ -140,7 +169,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'အဆင့်သတ်မှတ်ချက်',
   'search.filter.subject': 'ဘာသာရပ်',
   'search.results.count': '{{count}} ကျူရှင်ဆရာများသည် သင့် filter များနှင့် ကိုက်ညီသည်',
+  'search.results.fallback': 'ရွေးချယ်ထားသော သရုပ်ပြကျူတာများကို ပြသနေသည်',
   'search.results.loading': 'ကျူရှင်ဆရာများကို တင်နေသည်…',
+  'search.searchPlaceholder': 'ဘာသာရပ်၊ အမည် သို့မဟုတ် ခေါင်းစဉ်…',
   'search.subtitle':
     'ဘာသာရပ်၊ အဆင့်သတ်မှတ်ချက်နှင့် ရရှိနိုင်မှုအလိုက် စစ်ထုတ်ပါ။ အတည်ပြုထားသော ကျူရှင်ဆရာများသာ။',
   'search.title': 'ကလစ်နှိပ်နိုင်တဲ့ ကျူရှင်ဆရာကို ရှာပါ',
@@ -173,18 +204,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'သင်တန်းစတင်ပါပြီ - ပျော်ရွှင်စွာ သင်ယူနိုင်ပါပြီ။',
   'sessionDetail.startError': 'အစည်းအဝေးကို စတင်၍မရပါ။',
   'sessionDetail.subtitle': 'နှင့်အတူ {{name}} • {{when}} • {{mins}} မိနစ်',
+  'sessionDetail.timeline': 'အခြေအနေ အချိန်မှတ်တမ်း',
   'sessionDetail.timeline.afterEnd': 'အစည်းအဝေးပြီးဆုံးပြီးနောက်',
   'sessionDetail.timeline.auto': 'အော်တို',
   'sessionDetail.timeline.booked': 'ကြိုတင်မှာယူထားသည်',
   'sessionDetail.timeline.confirmed': 'အတည်ပြုပြီးပါပြီ',
   'sessionDetail.timeline.inSession': 'အစည်းအဝေးတွင်',
   'sessionDetail.timeline.now': 'ယခု',
+  'sessionDetail.timeline.receipt': 'ပြေစာ ထုတ်ပြီးပါပြီ',
   'sessionDetail.timeline.review': 'ပြန်လည်သုံးသပ်ရန် ညွှန်ကြားချက်',
   'sessions.empty.body':
     'ကျူရှင်ဆရာရှာရန်နှင့် အချိန်ဇယားတစ်ခု ကြိုတင်မှာယူရန် Mentor တွင် ကြည့်ရှုပါ။ အတည်ပြုထားသော သင်တန်းများကို ဤနေရာတွင် ပြသပါမည်။',
   'sessions.empty.title': 'ဒီမှာ ဘာမှ မစီစဉ်ရသေးဘူး။',
   'sessions.error': 'သင့်အစည်းအဝေးများကို တင်၍မရပါ — ထပ်ကြိုးစားပါ။',
   'sessions.eyebrow': 'သင့်ရဲ့ အစည်းအဝေးတွေ',
+  'sessions.loading': 'Session များ ဖွင့်နေသည်…',
   'sessions.subtitle':
     'လာမည့် ဘွတ်ကင်များကို ခြေရာခံပါ၊ လက်ရှိ session room ထဲသို့ ဝင်ရောက်ပါ၊ ပြီးဆုံးသွားသော သင်ခန်းစာများကို ပြန်လည်ကြည့်ရှုပါ။',
   'sessions.title': 'သင်ခန်းစာတိုင်း၊ တစ်နေရာတည်းတွင်။',
@@ -199,22 +233,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'ကျွန်ုပ်၏ ဖန်တီးပါ {{role}} အကောင့်',
   'signup.subheading':
     'သင်တန်းတွေ ကြိုတင်မှာယူဖို့၊ ကျူရှင်ဆရာတွေဆီ မက်ဆေ့ချ်ပို့ဖို့နဲ့ သင့်ရဲ့တိုးတက်မှုကို ခြေရာခံဖို့ အကောင့်တစ်ခု ဖန်တီးပါ။',
+  'signup.terms': 'စာရင်းသွင်းခြင်းဖြင့် ကျွန်ုပ်တို့၏ စည်းကမ်းချက်များကို သင်သဘောတူပါသည်။',
   'tutorCard.avatarAlt': 'ပုံတူ {{name}}',
   'tutorCard.perHour': '/ နာရီ',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'အဆင့်သတ်မှတ်ချက် အမြင့်ဆုံး',
   'tutorCard.verified': 'အတည်ပြုထားသော ကျူရှင်ဆရာ',
+  'tutorDashboard.empty.body':
+    'သင့်ဘာသာရပ်များ၊ နာရီအလိုက် နှုန်းထားနှင့် ရရှိနိုင်ချိန်များကို သတ်မှတ်ပါ — ပြီးလျှင် ဝင်ငွေစတင်ရှာပါ။',
+  'tutorDashboard.empty.cta': 'ကျူတာဖြစ်လာရန် →',
   'tutorDashboard.empty.title': 'သင့် dashboard ကို လော့ခ်ဖွင့်ရန် ကျူရှင်ဆရာတစ်ဦး ဖြစ်လာပါ။',
   'tutorDashboard.fallbackName': 'ကျူရှင်ဆရာ',
   'tutorDashboard.loading': 'ဒက်ရှ်ဘုတ်ကို တင်နေသည်…',
   'tutorDashboard.recentReviews': 'မကြာသေးမီက သုံးသပ်ချက်များ',
   'tutorDashboard.reviewsEmpty':
     'သင်သုံးသပ်ချက်များ မရှိသေးပါ — ကျောင်းသားများက သင့်အား အဆင့်သတ်မှတ်ပြီးသည်နှင့် ဤနေရာတွင် ပေါ်လာပါလိမ့်မည်။',
+  'tutorDashboard.stats.rating': 'ပျမ်းမျှအဆင့်',
   'tutorDashboard.stats.sessions': 'ယခုလတွင် အစည်းအဝေးများ',
+  'tutorDashboard.stats.totalSessions': 'အချိန်အားလုံး၏ သင်ခန်းစာများ',
+  'tutorDashboard.studentFallback': 'ကျောင်းသား',
   'tutorDashboard.tutoringFallback': 'သင်ကြားရေးသင်တန်း',
   'tutorDashboard.upcoming': 'လာမည့် အစည်းအဝေးများ',
   'tutorDashboard.upcomingEmpty':
     'လာမည့်သင်တန်းများ မရှိသေးပါ — သင်၏အချိန်ဇယားကို ကြိုတင်မှာယူထားသော ကျောင်းသားများသည် ဤနေရာတွင် ပေါ်လာပါမည်။',
+  'tutorProfile.availability': 'ဤအပတ် ရရှိနိုင်ချိန်',
   'tutorProfile.availabilityHeadline': 'စတင်ရန် အချိန်ဇယားတစ်ခု ရွေးချယ်ပါ',
   'tutorProfile.bookCta': 'အစည်းအဝေးတစ်ခု ကြိုတင်မှာယူပါ',
   'tutorProfile.bookFull': 'အချိန်ဇယားအပြည့်အစုံကိုကြည့်ပါ',
@@ -227,6 +269,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / နာရီ',
   'tutorProfile.reviews': 'မကြာသေးမီက သုံးသပ်ချက်များ',
   'tutorProfile.reviews.empty': 'သုံးသပ်ချက်များ မရှိသေးပါ — ပထမဆုံးဖြစ်ပါစေ။',
+  'tutorProfile.stat.repeats': 'ထပ်ခါထပ်ခါ သင်ယူသူများ',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'ပျမ်းမျှတုံ့ပြန်မှု',
   'tutorProfile.stat.responseValue': '{{mins}} မိနစ်',

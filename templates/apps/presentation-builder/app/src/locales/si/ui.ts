@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ප්‍රශ්න, ප්‍රතිචාර, නැතහොත් අපට තිබිය යුතු යැයි ඔබ පැතුම් වන විශේෂාංගයක්ද? ඔබේ ගිණුම් සැකසුම් වලින් කණ්ඩායම හමුවන්න — සෑම පණිවිඩයක්ම සැබෑ පුද්ගලයෙක් කියවයි.',
   'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
+  'about.whatYouGetTitle': 'ඔබට ලැබෙන දේ',
   'analytics.empty': 'මෙහි විශ්ලේෂණ බැලීමට තට්ටු සාදන්න.',
   'analytics.stats.acrossDecks': 'සියලුම තට්ටු හරහා',
   'analytics.stats.allTime': 'ඔබේ මැදිරිය තුළ',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'තට්ටුවේ මාතෘකාව',
   'landing.features.eyebrow': 'ඇයි ඕවර්චර්',
   'landing.features.heading': 'වේදිකාවට නැගීමට ඔබට අවශ්‍ය සියල්ල සූදානම්.',
+  'landing.finalCta.body':
+    'විනාඩියකට අඩු කාලයකින් ඔබේ ස්ටුඩියෝව ආරම්භ කරන්න. ක්‍රෙඩිට් කාඩ්පතක් අවශ්‍ය නැත. ඕනෑම වේලාවක අවලංගු කරන්න.',
   'landing.finalCta.cta': 'ඔබේ නොමිලේ චිත්‍රාගාරය සාදන්න',
   'landing.finalCta.eyebrow': 'ආරම්භ කිරීමට නොමිලේ',
   'landing.finalCta.heading': 'ඔබේ වෘත්තීය ජීවිතයේ හොඳම තට්ටුව සමඟ වේදිකාවට පිවිසෙන්න.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'මිනිත්තු 12කට පෙර සංස්කරණය කරන ලදී',
   'notifications.created': 'නිර්මාණය කරන ලදී',
   'notifications.edited': 'සංස්කරණය කරන ලදී',
+  'notifications.empty.body':
+    'ඔබේ ඩෙක්ස් මත ක්‍රියාකාරකම් — අදහස්, සඳහන් කිරීම්, නිර්යාත — මෙහි දිස්වනු ඇත.',
   'notifications.empty.title': 'තවම දැනුම්දීම් නැත',
   'notifications.eyebrow': 'වේදිකා ක්‍රියාකාරකම්',
   'notifications.loading': 'පූරණය වෙමින්...',
   'notifications.shared': 'ප්‍රසිද්ධියේ බෙදා ගන්නා ලදී',
+  'planUpdated.retry': 'නැවත උත්සාහ කරන්න',
+  'planUpdated.verifyFailed': 'අපට තවමත් ඔබගේ ගෙවීම තහවුරු කිරීමට නොහැකි විය.',
+  'planUpdated.verifyFailedBody':
+    'ඔබේ ගෙවීම තවමත් සැකසෙමින් තිබිය හැක. මොහොතකින් නැවත උත්සාහ කරන්න.',
   'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'present.addSlides': 'ස්ලයිඩ එක් කරන්න',
   'present.backToDecks': 'තට්ටු වෙත ආපසු',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'වේදිකා රංගන ශිල්පියා',
   'settings.security.notSet': 'සකසා නැත',
   'settings.security.passwordBody': 'ඔබගේ මුරපදය විවේකයෙන් සංකේතනය කර ඇත.',
+  'settings.security.reset': 'නැවත සකසන්න',
   'settings.security.title': 'ගිණුම + සැසි',
   'shared.empty.body':
     'ඔබ ප්‍රසිද්ධියේ බෙදා ගන්නා තට්ටු මෙහි දිස්වනු ඇත. තට්ටුවක් විවෘත කර බෙදා ගැනීමට පොදු ලෙස ටොගල් කරන්න.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'පූරණය වෙමින්...',
   'shared.title': 'බෙදාගත් තට්ටු',
   'templateCard.slideCount': '{{count}} විනිවිදක',
+  'templateCard.usageCount': '{{count}} භාවිතා කරයි',
+  'templates.empty.body': 'වෙනත් පෙරහනක් උත්සාහ කරන්න — අපි සෑම මාසයකම නව අච්චු නිකුත් කරමු.',
+  'templates.empty.title': 'මෙම කාණ්ඩයේ තවම අච්චු නැත',
+  'templates.hero.body':
+    'ප්‍රස්තාර කොටස්, ආදර්ශ රාමු, ඉදිරිපත් කරන්නන්ගේ සටහන් සහ කාල ගණක පෙරසැකසුම් සහිත පෙර-තේමා ස්ලයිඩ් පිරිසැලසුම් — සෑම අච්චුවක්ම පටිගත කිරීමට සූදානම්ව නිකුත් වේ.',
   'templates.hero.eyebrow': 'තෝරාගත් අදියර',
   'templates.hero.heading': 'ඔබට එය ගොඩබෑමට අවශ්‍ය මොහොත සඳහා ඉදිකරන ලද අදියර.',
 }

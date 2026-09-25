@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Прашања за издание, пратка или претплата? Контактирајте вистински човек од тимот на hello@crate.example — ја читаме секоја порака.',
+  'about.contactTitle': 'Разговарајте со кустос',
+  'about.feature1':
+    'Курирани месечни изданија избрани од независни творци, со приказната зад секој предмет.',
+  'about.feature2':
+    'Целосна контрола над секоја кутија — прилагодете ја содржината, заменете или исклучете предмети, прескокнете месец или променете ја динамиката.',
+  'about.feature3':
+    'Следење на пратката од почеток до крај, од подигање до врата, со пакување без пластика и ажурирања во живо од превозникот.',
+  'about.feature4':
+    'Флексибилни планови и транспарентно наплатување — надградете, намалете, паузирајте или откажете во секое време од вашата контролна табла.',
+  'about.intro':
+    '{{app}} е курирана услуга за претплатнички кутии што секој месец ви доставува рачно избрана кутија радост во мали серии до вашата врата. Секое издание го составуваат активни творци — независни уметници, готвачи и мали брендови — не алгоритам.',
+  'about.missionBody':
+    'Веруваме дека претплатата треба да биде подарок, а не замка. {{app}} е создадена така што останувате затоа што го сакате она што пристигнува — паузирајте во секое време, заменете што сакате и откажете со еден клик. Никогаш никакви скрипти за задржување.',
+  'about.missionTitle': 'Нашата мисија',
   'about.pageTitle': 'За {{app}}',
   'appNav.mobileLabel': 'Примарна навигација',
   'appNav.primaryLabel': 'Примарна навигација',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Уреди контакт за наплата',
   'billing.contact.eyebrow': 'Контакт за наплата',
   'billing.eyebrow': 'План и плаќања',
+  'billing.loading': 'Се вчитува фактурирањето…',
   'billing.payment.body':
     'Плаќањето го обработува Stripe Checkout — вашиот целосен број на картичка никогаш не се поврзува со нашите сервери. Кликнете на кое било ниво подолу за да ја додадете или ажурирате вашата картичка.',
   'billing.payment.linked': 'Картичката е во архива преку Stripe',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Продолжи ја претплатата',
   'billing.plan.eyebrow': 'Активен план',
   'billing.plan.next': 'Се обновува автоматски на {{date}} .',
+  'billing.plan.status': 'Статус: {{status}}',
   'billing.subtitle':
     'Управувајте со вашето ниво, начин на плаќање и прегледајте ја минатата активност.',
   'billing.tiers.body': 'Изберете ниво и ние ќе ве пренасочиме кон Stripe Checkout.',
   'billing.tiers.choose': 'Изберете',
+  'billing.tiers.empty': 'Сè уште нема конфигурирано нивоа.',
   'billing.tiers.heading': 'Достапни нивоа',
   'boxDetail.backToBoxes': 'Назад кон сите изданија',
   'boxDetail.crumb.boxes': 'Изданија',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Курирано дело',
   'boxDetail.items.heading': '{{count}} курирани дела',
   'boxDetail.itemsBadge': '{{count}} курирани артикли по кутија',
+  'boxDetail.loading': 'Се вчитува изданието…',
   'boxDetail.notFound': 'Тоа издание повеќе не е достапно.',
   'boxDetail.subscribe.success': 'Претплатен/а — вашето прво издание е во ред на чекање.',
   'boxDetail.swapBadge': 'Замени на {{count}} ставка(и) по кутија',
@@ -44,14 +64,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Нема совпаѓачки изданија.',
   'boxes.eyebrow': 'Архивата на Троув',
   'boxes.heading': 'Прелистајте секое издание',
+  'boxes.loadError':
+    'Не можевме да ги вчитаме изданијата. Проверете ја врската и обидете се повторно.',
   'boxes.loading': 'Се вчитуваат изданијата…',
+  'boxes.search.label': 'Пребарај изданија',
   'boxes.search.placeholder': 'Пребарувај изданија…',
   'boxes.subtitle':
     'Секое ниво е приказна за мали серии. Додајте едно во вашиот ред или заменете го во следниот месец.',
+  'boxThemeCard.itemCount': '{{count}} предмети',
   'boxThemeCard.perMonth': '/ месец',
+  'boxThemeCard.retailValue': 'Малопродажна вредност {{value}}',
   'common.goToDashboard': 'Оди до контролна табла',
+  'common.retry': 'Обидете се повторно',
   'customize.eyebrow': 'Направете го ваше',
   'customize.heading': 'Прилагодете го вашиот следен ризница',
+  'customize.items.empty': 'Сè уште нема конфигурирано предмети за ова ниво.',
   'customize.items.exclude': 'Прескокни го ова',
   'customize.items.eyebrow': 'Персонализирајте го ова поле',
   'customize.items.heading': 'Ставки во {{box}}',
@@ -60,8 +87,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Додај назад',
   'customize.items.save': 'Зачувај прилагодување',
   'customize.items.swapsLeft': '{{used}} од {{max}} користени замени',
+  'customize.loading': 'Се вчитува прилагодувањето…',
   'customize.noSub.body':
     'Прво претплатете се на ниво, а потоа вратете се за да разменувате артикли во вашата кутија.',
+  'customize.noSub.cta': 'Прегледај изданија',
   'customize.noSub.heading': 'Нема активна претплата',
   'customize.saved': 'Прилагодувањето е зачувано.',
   'customize.subtitle':
@@ -75,11 +104,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Следење на пратката',
   'dashboard.eyebrow': 'Твојата ризница',
   'dashboard.greeting': 'Добредојде назад, {{name}} .',
+  'dashboard.loadError':
+    'Не можевме да ја вчитаме вашата контролна табла. Проверете ја врската и обидете се повторно.',
   'dashboard.loading': 'Се вчитува контролната табла…',
   'dashboard.next.eyebrow': 'Вашето следно издание',
   'dashboard.onboarding.body':
     'Сè уште немате активна претплата. Изберете ниво за да започнете со испорака на Crate секој месец.',
   'dashboard.onboarding.cta': 'Прелистај ги сите изданија',
+  'dashboard.onboarding.empty': 'Во моментов нема достапни планови. Проверете повторно наскоро.',
   'dashboard.onboarding.heading': 'Изберете го вашето прво издание',
   'dashboard.renewal.amount': 'Наполнето',
   'dashboard.renewal.cadence': 'Каденца',
@@ -87,12 +119,15 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Обновување',
   'dashboard.renewal.heading': 'Автоматски се обновува на {{date}}',
   'dashboard.renewal.plan': 'Клуч на планот',
+  'dashboard.renewal.tbd': 'Закажувањето за обновување наскоро',
   'dashboard.renewal.tier': 'Ниво',
   'dashboard.stats.days': 'денови',
   'dashboard.stats.daysToNext': 'Испорачува во',
   'dashboard.stats.items': 'Курирани ставки',
   'dashboard.stats.shipDate': 'Датум на испорака',
   'dashboard.stats.tbd': 'Ќе се утврди',
+  'dashboard.subtitle.active': 'Вашето следно издание е на пат. Еве што да очекувате.',
+  'dashboard.subtitle.idle': 'Изберете ниво за да почнете да добивате {{appName}} секој месец.',
   'forgotPassword.subtitle':
     'Кажете ни ја вашата е-пошта и ние ќе ви испратиме линк за ресетирање.',
   'forgotPassword.success.body':
@@ -100,6 +135,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Проверете го вашето сандаче.',
   'landing.editions.eyebrow': 'Оваа сезона',
   'landing.editions.heading': 'Изданија што ги обожаваат нашите куратори',
+  'landing.editions.viewAll': 'Прегледај ги сите изданија →',
   'landing.footer.contact': 'Разговарајте со кустос',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Стартувајте ја вашата кутија →',
@@ -109,6 +145,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Поглед на контролната табла за членови - одбројување, содржина и следење.',
   'landing.hero.social.count': 'Сакан од {{count}} + претплатници',
+  'landing.hero.social.rating': '{{rating}} просечна оценка за отворање',
+  'landing.hero.subhead':
+    '{{appName}} ви испраќа рачно избрана кутија радост во мали серии од независни творци. Паузирајте во секое време. Заменете што сакате. Задржете го она што го сакате.',
   'landing.nav.start': 'Стартувајте ја вашата кутија',
   'landing.tiers.eyebrow': 'Изберете ја вашата каденца',
   'landing.tiers.heading':
@@ -119,6 +158,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Најавете се за да го видите полето за следниот месец.',
   'login.welcomeBack': 'Добредојде назад, кусторе.',
   'nextBoxHeroCard.eyebrow': 'ТВОЕТО СЛЕДНО РИЗНИЦЕ',
+  'nextBoxHeroCard.itemCount': '{{count}} предмети внатре',
   'nextBoxHeroCard.itemsLabel': 'Курирани ставки',
   'nextBoxHeroCard.shipsOnLabel': 'Се испорачува на',
   'notFound.body':
@@ -143,8 +183,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Паузирај ја претплатата',
   'settings.danger.paused': 'Претплатата е паузирана.',
   'settings.danger.pausing': 'Паузирање…',
+  'settings.danger.status': 'Статус на претплата: {{status}}',
   'settings.danger.subtitle':
     'Паузирањето го задржува вашето ниво и историја недопрени. Откажувањето ги запира идните испораки и ги отстранува вашите зачувани методи на плаќање на крајот од циклусот.',
+  'settings.notifications.saving': '· се зачувува…',
   'settings.notifications.subtitle':
     'Изберете кои сигнали сакате од Crate. Стандардните вредности се разумни.',
   'settings.subtitle': 'Ажурирајте го вашиот профил, адресата за испорака и како Crate контактира.',
@@ -160,12 +202,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Сè уште нема активна пратка',
   'shipments.live.eyebrow': 'Активна пратка',
   'shipments.live.unnamed': 'Вашата следна кутија',
+  'shipments.loadError':
+    'Не можевме да ги вчитаме вашите пратки. Проверете ја врската и обидете се повторно.',
+  'shipments.loading': 'Вчитување на пратките…',
+  'shipments.step.delivered': 'Доставено',
   'shipments.step.deliveredBody': 'Тагни #crateunbox за да споделиш што ќе откриеш.',
   'shipments.step.ordered': 'Нарачката е направена',
   'shipments.step.orderedBody':
     'Вашата претплата го стави ова издание на ред за следниот циклус на испорака.',
+  'shipments.step.packed': 'Рачно спакувано',
   'shipments.step.packedBody':
     'Секое парче беше завиткано и ставено во кутијата со рачно напишана белешка.',
+  'shipments.step.transit': 'На пат',
   'shipments.step.transitNot':
     'Следењето ќе се појави тука откако вашата кутија ќе биде во транзит.',
   'shipments.subtitle':

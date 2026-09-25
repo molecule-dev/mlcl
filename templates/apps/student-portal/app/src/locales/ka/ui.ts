@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ გამოხმაურება, იპოვეთ ხარვეზი ან გსურთ სკოლის ჩართვა? მოგვწერეთ ანგარიშის პარამეტრებიდან ან მიმართეთ სკოლის ადმინისტრატორს — ყველა შენიშვნა გუნდის რეალურ ადამიანამდე აღწევს.',
   'about.contactTitle': 'დაგვიკავშირდით',
+  'about.missionTitle': 'ჩვენი მისია',
   'announcementsFeed.empty': 'ჯერ განცხადებები არ არის.',
   'announcementsFeed.eyebrow': '{{count}} განახლებები',
   'announcementsFeed.title': 'უახლესი განცხადებები',
   'assignmentDetail.alreadySubmitted': 'თქვენ უკვე წარადგინეთ ეს დავალება.',
   'assignmentDetail.backLink': 'დაბრუნება დავალებებზე',
+  'assignmentDetail.dropBody':
+    'გამოიყენეთ ფაილების არჩევა სამუშაოს მისამაგრებლად — გაგზავნის დროს დავაფიქსირებთ დადასტურებისთანავე.',
   'assignmentDetail.dropButton': 'ფაილების არჩევა',
+  'assignmentDetail.dropPrompt': 'ჩააგდეთ თქვენი PDF ან ფოტო პაკეტი აქ',
   'assignmentDetail.due': 'ვადა {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'ინსტრუქციები',
@@ -19,7 +25,10 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'შეფასებული',
   'assignmentDetail.statusSubmitted': 'წარდგენილია',
   'assignmentDetail.statusTitle': 'წარდგენის სტატუსი',
+  'assignmentDetail.submitError': 'ამ გაგზავნის ჩაწერა ვერ მოხერხდა. სცადეთ ცოტა ხანში.',
   'assignmentDetail.submitted': 'წარდგენა ჩაიწერა — თქვენს მასწავლებელს ეცნობა.',
+  'assignmentDetail.submittedAt': 'გაგზავნილია {{when}}',
+  'assignmentDetail.submitTitle': 'გააგზავნეთ თქვენი ნამუშევარი',
   'assignmentRow.courseDue': '{{course}} · ვადა {{due}}',
   'assignments.empty': 'აქ არაფერია',
   'assignments.emptyBody':
@@ -39,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'ყოველდღიური ჟურნალი ყოფნის, არყოფნისა და დაგვიანების შესახებ — საჭიროების შემთხვევაში, შენიშვნებით.',
+  'attendance.summary.absences': 'გაცდენები',
   'attendance.summary.absencesCaption': '5-დღიანი ინტერვენციის ზღურბლზე ნაკლები',
   'attendance.summary.attendance': 'დასწრება',
   'attendance.summary.attendanceCaption': '{{count}} ამჟამინდელი დღეები ამ ტერმინში',
+  'attendance.summary.tardies': 'დაგვიანებები',
   'attendance.summary.tardiesCaption':
     'ავტობუსის / შეხვედრების დაგვიანების შესახებ შენიშვნების ჩათვლით',
   'attendance.title': 'დასწრების ისტორია',
@@ -56,6 +67,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'შეფასებები',
   'courseDetail.currentGrade': 'მიმდინარე კლასი',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'კურსის მიმოხილვა',
   'courseDetail.gradesTitle': 'ბოლო შეფასებები',
   'courseDetail.messageTeacher': 'შეტყობინების მასწავლებელი',
   'courseDetail.noGrades': 'ჯერ არ გამოქვეყნებულა შეფასებები.',
@@ -68,13 +80,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'ყველას ნახვა',
   'dashboard.assignmentsTitle': 'შემდეგი ამ კვირაში',
   'dashboard.greeting': 'გამარჯობა {{name}} , მზად ხარ გაკვეთილისთვის?',
+  'dashboard.subtitle':
+    'თქვენი კვირა ერთი შეხედვით — განრიგი, შეფასებები და დავალებები ერთ მშვიდ ხედში.',
+  'dashboard.viewReportCard': 'ნახეთ შეფასების ფურცელი',
+  'dashboard.weekFocusBody':
+    'გააგზავნეთ კვადრატული განტოლებების სავარჯიშო ნაკრები 7 და თავის ტესტი. რეპეტიტორობის ლაბორატორია ღიაა სამშაბათსა და ხუთშაბათს მე-7 გაკვეთილის შემდეგ.',
+  'dashboard.weekFocusCta': 'ნახეთ სრული გეგმა',
   'dashboard.weekFocusEyebrow': 'კვირის ფოკუსი',
   'dashboard.weekFocusTitle': 'ალგებრა II-ის 4 პუნქტით გაზრდა',
   'forgotPassword.subheading':
     'შეიყვანეთ თქვენი სკოლის ელ. ფოსტა და ჩვენ გამოგიგზავნით გადატვირთვის ბმულს.',
   'forgotPassword.successBody':
     'თუ {{email}} ემთხვევა Chalk-ის ანგარიშს, პაროლის გადაყენების ბმული მოდის. ბმულების ვადა 30 წუთში იწურება.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} სემესტრის საშუალო მაჩვენებელი',
+  'gpaHeroCard.summary': 'დღეს {{count}} გაკვეთილი',
   'grades.col.grade': 'კლასი',
   'grades.col.teacher': 'მასწავლებელი',
   'grades.col.trend': 'ტენდენცია',
@@ -86,10 +106,17 @@ export const ui: UiTranslations = {
     'პირდაპირი ასოებითა და პროცენტებით შეფასება. ტენდენციის ისრები გიჩვენებთ, მაღლა მოძრაობთ, დონით თუ სრიალდებით.',
   'grades.title': 'თქვენი შეფასებები, კურსიდან კურსამდე',
   'grades.trendStable': 'სტაბილური',
+  'grades.viewReportCard': 'ნახეთ ოფიციალური შეფასების ფურცელი',
   'landing.copyright': '© {{year}} {{app}} . შექმნილია სტუდენტებისთვის, ოჯახებისთვის.',
+  'landing.ctaBody':
+    'უფასოა პირველი 30 დღის განმავლობაში, საკრედიტო ბარათი არ არის საჭირო. რაიონებს შეუძლიათ სკოლის მასშტაბის დონე ერთ შუადღეში დანერგონ.',
+  'landing.ctaButton': 'შექმენით თქვენი პორტალი',
   'landing.ctaHeading': 'უფრო მშვიდი სასკოლო დღე წუთებში იწყება',
   'landing.eyebrow': 'საშუალო და უმაღლესი სკოლის მოსწავლეებისთვის',
   'landing.featuresHeading': 'მოსწავლის გარშემო ორგანიზებული სასკოლო დღე',
+  'landing.heroSubtitle':
+    '{{appName}} აერთიანებს ყველა კლასს, შეფასებას, დავალებას და შეტყობინებას ერთ მშვიდ დაფაზე, რომ ნაკლები დრო დახარჯოთ ძებნაზე და მეტი — სწავლაზე.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'FERPA-სთან თავსებადი სტანდარტულად',
   'landing.proof.rating': '4.8 12 ათას ოჯახში',
   'landing.sampleTerm': 'გაზაფხული',
@@ -98,6 +125,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'პაროლის დამალვა',
   'login.noAccount': 'ცარცის ახალი მომხმარებელი ხართ?',
   'login.showPassword': 'პაროლის ჩვენება',
+  'messages.compose': 'ახალი შეტყობინება',
   'messages.composer.email': 'მიმღების ელ. ფოსტა (არასავალდებულო)',
   'messages.composer.errorEmpty': 'შეტყობინება არ შეიძლება იყოს ცარიელი.',
   'messages.composer.errorRecipient': 'მიმღების სახელი აუცილებელია.',
@@ -128,9 +156,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'საპატიო სია · გაზაფხულის სემესტრი',
   'nav.unreadMessages': 'წაუკითხავი შეტყობინებები',
   'notifications.eyebrow': '{{count}} განახლებები',
+  'notifications.feedTitle': 'ყველა ბოლო აქტივობა',
   'notifications.subtitle':
     'შეფასებები, შეხსენებები, შეტყობინებები და სკოლის განცხადებები. პარამეტრებში დაარეგულირეთ, თუ რომელ არხებს იყენებს თითოეული შეტყობინება.',
+  'planUpdated.body':
+    'თქვენი ბილინგის ცვლილება ახლა აქტიურია. გეგმის მართვა ნებისმიერ დროს შეგიძლიათ ბილინგის გვერდიდან.',
+  'planUpdated.retry': 'ხელახლა სცადეთ',
+  'planUpdated.verifyFailed': 'თქვენი გადახდის დადასტურება ჯერ ვერ შევძელით.',
+  'planUpdated.verifyFailedBody':
+    'შესაძლოა, თქვენი გადახდა ჯერ კიდევ მუშავდება. სცადეთ ხელახლა ცოტა ხანში.',
   'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
+  'pricing.announcementsLabel': 'განცხადებები',
   'pricing.attendanceLabel': 'დასწრება',
   'pricing.gradesLabel': 'შეფასებები',
   'pricing.heading': 'განცხადებები',
@@ -145,6 +181,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'მეორე კვარტალი',
   'reportCard.crumb': 'ანგარიშის ბარათი',
   'reportCard.cumulativeGpa': 'კუმულაციური GPA',
+  'reportCard.download': 'PDF-ის ჩამოტვირთვა',
   'reportCard.downloaded': 'ანგარიშის ბარათი ახალ ჩანართში გაიხსნა.',
   'reportCard.downloading': 'PDF-ის გენერირება…',
   'reportCard.empty': 'ფაილში ჯერ შეფასებები არ არის.',
@@ -152,6 +189,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'საბოლოო GPA · {{term}}',
   'reportCard.subtitle':
     'სემესტრის დასრულების ოფიციალური ნიშნების ამონაწერი შეწონილი კურსის შეფასებებით, დასწრებით და დასაბეჭდი PDF ფაილით.',
+  'reportCard.title': 'ანგარიშის ბარათი',
+  'resetPassword.newPassword': 'ახალი პაროლი',
   'resetPassword.subheading': 'აირჩიეთ რაიმე დასამახსოვრებელი, მაგრამ ძნელი მისახვედრი.',
   'resetPassword.tokenPlaceholder': 'ჩასვით კოდი თქვენი ელ. ფოსტიდან',
   'schedule.empty': 'გაკვეთილები დაგეგმილი არ არის.',
@@ -176,12 +215,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'მომლოდინე დავალებები',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} არყოფნები ამ სემესტრში · {{tardy}} დაგვიანებები',
+  'subjectStatsTriad.attendanceCaptionLoading': 'დასწრების მონაცემების დამუშავება…',
+  'subjectStatsTriad.attendanceLabel': 'დასწრება',
   'subjectStatsTriad.gradesCaption': 'გასწვრივ {{percent}} საშუალო შეწონილი პროცენტული მაჩვენებელი',
+  'subjectStatsTriad.gradesCaptionLoading': 'იტვირთება შეფასებები…',
+  'subjectStatsTriad.gradesLabel': 'კლასის საშუალო',
   'todayScheduleStrip.empty': 'დღეს გაკვეთილები არ არის.',
   'todayScheduleStrip.eyebrow': '{{count}} კლასები',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'დღევანდელი გრაფიკი',
   'topbar.guestName': 'სტუდენტი',
   'topbar.searchPlaceholder': 'მოძებნეთ კლასები, დავალებები…',
+  'topbar.studentRole': 'სტუდენტი',
   'topbar.studentTag': 'სტუდენტი · # {{id}}',
 }

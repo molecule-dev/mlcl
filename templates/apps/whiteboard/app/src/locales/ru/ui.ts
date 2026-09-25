@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть отзыв, нашли баг или нужна новая функция? Мы читаем каждое сообщение — напишите команде {{appName}} из настроек аккаунта, и вам ответит живой человек.',
   'about.contactTitle': 'Свяжитесь с нами',
+  'about.intro':
+    '{{appName}} — это совместный бесконечный холст для дизайн-команд, ведущих воркшопов и преподавателей. Добавляйте стикеры, рисуйте фигуры, делайте наброски от руки и наблюдайте, как коллеги думают вместе с вами в реальном времени — всё в одном месте, где хаотичные, генеративные идеи наконец сходятся.',
+  'about.missionBody':
+    'Отличные идеи редко бывают аккуратными. {{appName}} создан, чтобы дать командам быструю и удобную поверхность, где идеи можно зафиксировать в момент их появления и вместе дорабатывать, пока они не обретут смысл — без задержек, потерянной работы и жёстких инструментов, убивающих динамику.',
+  'about.missionTitle': 'Наша миссия',
+  'authShell.brandFooter':
+    '«Мы заменили четыре инструмента на {{appName}} в ту же неделю, когда выпустили ребрендинг. Ретро сохранилось само.» — Atlas Studio',
+  'authShell.brandFooterMeta': 'Нам доверяют более 12 400 дизайн-команд',
   'authShell.brandHeading':
     'Многопользовательские рабочие площадки для дизайнерских команд, которые любят рассуждать вслух.',
   'billing.canceled': 'Подписка отменена.',
@@ -11,6 +21,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': 'Бесплатный стартовый уровень навсегда.',
   'billing.freePlanName': 'Бесплатно',
   'billing.paidPlanBody': 'Активная подписка.',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'Планы и счета-фактуры',
   'billing.updated': 'План обновлен.',
   'billing.upgradeTitle': 'Доступные планы',
@@ -19,8 +30,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': 'из {{max}} включено',
   'boardCanvas.backToBoards': 'Все доски',
   'boardCanvas.changeColor': 'Изменить цвет {{color}}',
+  'boardCanvas.collaboratorsTitle': 'Соавторы',
   'boardCanvas.deleteElement': 'Удалить элемент',
   'boardCanvas.deselect': 'Снять выделение',
+  'boardCanvas.elementLabel': 'Элемент {{type}}',
   'boardCanvas.elementsCount': '{{count}} элементы',
   'boardCanvas.elementText': 'Текст',
   'boardCanvas.empty.body':
@@ -30,10 +43,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': 'Наполнять',
   'boardCanvas.invited': 'Приглашенный {{email}}',
   'boardCanvas.metaTitle': 'Должность',
+  'boardCanvas.metaWH': 'Ш: {{w}}  В: {{h}}',
   'boardCanvas.metaXY': 'X: {{x}} Y: {{y}}',
   'boardCanvas.noCollaborators':
     'Пока нет соавторов. Используйте функцию «Поделиться», чтобы пригласить коллег по команде.',
   'boardCanvas.present': 'Подарок',
+  'boardCanvas.private': 'Приватная — только по приглашению',
   'boardCanvas.properties': 'Характеристики',
   'boardCanvas.public': 'Общедоступно — любой, у кого есть ссылка, может просмотреть.',
   'boardCanvas.roleCommenter': 'Можно оставить комментарий.',
@@ -49,6 +64,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'Выберите цвет прилипания',
   'boardCanvas.summaryCount': '{{count}} элементы на холсте',
   'boardCanvas.summaryTitle': 'Доска',
+  'boardCanvas.surface.clear': 'Холст доски — снять выделение',
+  'boardCanvas.surface.draw': 'Холст доски — потяните, чтобы нарисовать',
+  'boardCanvas.surface.place': 'Холст доски — разместить элемент',
   'boardCanvas.untitled': 'Доска без названия',
   'boardCanvas.visibilityTitle': 'Видимость',
   'boardCanvas.zoomIn': 'Увеличить масштаб',
@@ -71,6 +89,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'Поиск по доскам объявлений',
   'boards.searchPlaceholder': 'Поиск по доскам объявлений',
   'boards.sharedTitle': 'Поделился со мной',
+  'boards.sortedBy': 'Сортировка: недавно обновлённые',
   'boards.startFromTemplate': 'Начните с шаблона',
   'boards.title': 'Ваши доски',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -84,6 +103,8 @@ export const ui: UiTranslations = {
   'landing.cta.signupButton': 'Создайте свою бесплатную доску',
   'landing.cta.title': 'Создано для нестандартного, продуктивного мышления в очном формате.',
   'landing.demoBoard.title': 'Семинар за 1 квартал · Голос бренда',
+  'landing.demoBoard.updated': 'Обновлено 12 мин назад',
+  'landing.featuresEyebrow': 'Что делает {{appName}} мозаичным',
   'landing.featuresTitle': 'Быстрая обратная связь. Прекрасные полотна. Полное отсутствие трения.',
   'landing.hero.body':
     '{{appName}} — это многопользовательская интерактивная доска для дизайнерских команд, ведущих семинаров и преподавателей, которые проводят мозговые штурмы в режиме реального времени и которым необходимо собрать идеи в одном месте.',
@@ -95,18 +116,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '••••••••••',
   'login.signIn': 'Войдите в Slate',
   'login.signupCta': 'Создайте бесплатное рабочее пространство',
+  'login.signupPrompt': 'Впервые пользуетесь Tessera?',
   'login.subheading':
     'Продолжайте с того места, где остановились на мастер-классе — доски, стикеры и курсоры синхронизируются в режиме реального времени.',
   'mobileNav.closeMenu': 'Закрыть меню навигации',
   'mobileNav.new': 'Новый',
   'mobileNav.openMenu': 'Открыть меню навигации',
+  'notifications.editBody': 'Содержимое доски было обновлено.',
   'notifications.editTitle': 'Изменения в " {{board}} "',
   'notifications.empty.body':
     'Приглашения, сохраненные снимки экрана и последние изменения на форуме будут отображаться здесь по мере их появления.',
   'notifications.empty.title': 'В вашей почте ничего нового.',
   'notifications.eyebrow': '{{name}} · входящие',
+  'notifications.inviteBody': 'как {{role}} в «{{board}}»',
   'notifications.inviteTitle': 'Приглашенный {{email}}',
   'notifications.snapshotTitle': 'Новый снимок на " {{board}} "',
+  'present.addFirst': 'Добавить первый фрейм',
   'present.addFrame': '+ Добавить рамку',
   'present.boardEyebrow': '{{title}} · презентация',
   'present.empty.body':
@@ -114,6 +139,7 @@ export const ui: UiTranslations = {
   'present.empty.title': 'Рамок пока нет.',
   'present.exit': 'Заключительная презентация',
   'present.exitToBoard': 'Вернуться на холст',
+  'present.eyebrow': 'Режим презентации',
   'present.frameBody': 'Основные тезисы для обсуждения',
   'present.frameName': 'Название кадра',
   'present.frameOf': 'Рамка {{current}} из {{total}}',
@@ -123,20 +149,30 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'Прямая трансляция',
   'present.save': 'Сохранить кадр',
   'present.title': 'Опубликуйте свою историю',
+  'present.unnamed': 'Фрейм без названия',
+  'pricing.limits.advanced': 'Расширенные функции',
   'profile.cursorBody':
     'Сохранено на этом устройстве — ваши товарищи по команде увидят этот цвет рядом с вашим курсором в реальном времени.',
   'profile.cursorEyebrow': 'Цвет вашего курсора',
   'profile.eyebrow': 'Карта общественного соавтора',
+  'profile.noBoards': 'Досок пока нет — создайте одну, чтобы начать.',
+  'profile.recentBoards': 'Доски, изменённые за последнее время: {{name}}',
   'profile.stat.${s.label}': 'Доски {{имя}} недавно коснулся',
+  'profile.statsEyebrow': 'Ваша активность',
   'profile.title': 'Ваш профиль',
+  'reset.backPrompt': 'Нужна другая почта?',
   'reset.cta': 'Сбросить пароль и войти в систему',
+  'reset.password': 'Новый пароль',
   'reset.subheading': 'Выберите надежный пароль — не менее 8 символов, включая одну цифру.',
   'settings.appearance.title': 'Тема и холст',
   'settings.eyebrow': 'Настройки учетной записи',
   'settings.notifications.title': 'Настройки уведомлений',
   'settings.profile.title': 'Карта общественного соавтора',
+  'settings.security.body':
+    'Управляйте двухфакторной аутентификацией, активными сеансами и паролем из панели аккаунта.',
   'settings.security.title': 'Безопасность',
   'shared.collaboratorCount': '{{count}} соавтор(ы)',
+  'shared.count': 'Досок: {{count}}',
   'shared.empty.body':
     'Когда ваш товарищ по команде пригласит вас на доску, она автоматически отобразится здесь.',
   'shared.empty.title': 'Пока с вами ничего не поделились.',
@@ -152,6 +188,9 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Бесплатно для до 3 участников. В течение первых 14 дней кредитная карта не требуется.',
   'templateCard.usageCount': '{{count}} использует',
+  'templateDetail.allTemplates': 'Все шаблоны',
+  'templateDetail.body':
+    'Нажмите «Использовать шаблон», чтобы скопировать стартовые элементы {{count}} на новую доску под названием «{{name}}». Редактируйте, делитесь и проводите воркшоп прямо там.',
   'templateDetail.delete': 'Удалить шаблон',
   'templateDetail.elementsCount': '{{count}} стартовые элементы',
   'templateDetail.eyebrow': '{{kind}} шаблон',
@@ -164,16 +203,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'Сохраните пользовательский шаблон',
   'templates.empty.body':
     'Создайте собственный шаблон на основе любой принадлежащей вам доски — откройте доску, сохраните снимок, а затем сохраните его здесь как многоразовый шаблон.',
+  'templates.empty.title': 'Шаблонов пока нет.',
   'templates.eyebrow': 'Наборы для мастер-классов и сохраненные шаблоны',
   'templates.filter.${c}': 'Шаблонов пока нет.',
   'templates.nameLabel': 'Название шаблона',
   'templates.systemBadge': 'Встроенный',
   'templates.userBadge': 'Ваш',
   'versionHistory.backToBoard': 'Вернуться на холст',
+  'versionHistory.elementsTotal': 'Захвачено элементов: {{count}}',
   'versionHistory.empty.body':
     'Снимки создаются с холста доски с помощью кнопки "Сохранить снимок" — они отображаются здесь, чтобы вы могли восстановить любое предыдущее состояние.',
+  'versionHistory.empty.cta': 'Откройте холст, чтобы добавить',
   'versionHistory.empty.title': 'Снимков пока нет.',
   'versionHistory.eyebrow': '{{title}} · история',
+  'versionHistory.eyebrowFallback': 'История доски',
   'versionHistory.latest': 'Последние новости',
   'versionHistory.restore': 'Восстановить эту версию',
   'versionHistory.restored': 'Снимок восстановлен.',
@@ -184,6 +227,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'Новая доска',
   'whiteboardLayout.primaryNav': 'Основная навигация',
   'workspace.boardLabel': 'Доска',
+  'workspace.empty': 'Соавторов пока нет — пригласите кого-нибудь на свои доски.',
   'workspace.eyebrow': '{{name}} · рабочее пространство',
   'workspace.invite': 'Пригласите сотрудников',
   'workspace.inviteSent': 'Приглашение отправлено.',
@@ -192,4 +236,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'Автор комментария',
   'workspace.role.editor': 'Редактор',
   'workspace.role.viewer': 'Просмотрщик',
+  'workspace.title': 'Участники и роли',
 }

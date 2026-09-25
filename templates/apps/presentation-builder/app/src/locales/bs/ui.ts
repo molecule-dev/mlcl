@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Pitanja, povratne informacije ili funkcija koju biste željeli da imamo? Obratite se timu iz postavki računa — prava osoba čita svaku poruku.',
   'about.contactTitle': 'Razgovarajte s nama',
   'about.eyebrow': 'O nama',
+  'about.missionTitle': 'Naša misija',
+  'about.whatYouGetTitle': 'Šta dobijete',
   'analytics.empty': 'Kreirajte pakete da biste ovdje vidjeli analitiku.',
   'analytics.stats.acrossDecks': 'Na svim palubama',
   'analytics.stats.allTime': 'U tvom studiju',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Naslov palube',
   'landing.features.eyebrow': 'Zašto uvertira',
   'landing.features.heading': 'Sve što vam je potrebno za izlazak na scenu mora biti spremno.',
+  'landing.finalCta.body':
+    'Pokrenite svoj studio za manje od minute. Bez kreditne kartice. Otkažite bilo kada.',
   'landing.finalCta.cta': 'Kreirajte svoj besplatni studio',
   'landing.finalCta.eyebrow': 'Besplatan početak',
   'landing.finalCta.heading': 'Izađi na scenu s najboljim špilom u svojoj karijeri.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Uređeno prije 12 minuta',
   'notifications.created': 'kreirano',
   'notifications.edited': 'uređeno',
+  'notifications.empty.body':
+    'Aktivnosti na vašim špilovima — komentari, spominjanja, izvozi — pojavit će se ovdje.',
   'notifications.empty.title': 'Još nema obavještenja',
   'notifications.eyebrow': 'Scenska aktivnost',
   'notifications.loading': 'Učitavanje…',
   'notifications.shared': 'javno podijeljeno',
+  'planUpdated.retry': 'Pokušajte ponovo',
+  'planUpdated.verifyFailed': 'Još nismo mogli potvrditi vašu uplatu.',
+  'planUpdated.verifyFailedBody':
+    'Vaša uplata se možda još uvijek obrađuje. Pokušajte ponovo za trenutak.',
   'planUpdated.verifying': 'Potvrđujem vašu uplatu…',
   'present.addSlides': 'Dodaj slajdove',
   'present.backToDecks': 'Nazad na palube',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Scenski izvođač',
   'settings.security.notSet': 'Nije postavljeno',
   'settings.security.passwordBody': 'Vaša lozinka je šifrirana u stanju mirovanja.',
+  'settings.security.reset': 'Resetuj',
   'settings.security.title': 'Račun + sesije',
   'shared.empty.body':
     'Špilovi koje javno dijelite pojavit će se ovdje. Otvorite špil i uključite ga da biste ga javno podijelili.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Učitavanje…',
   'shared.title': 'Zajedničke terase',
   'templateCard.slideCount': '{{count}} slajdovi',
+  'templateCard.usageCount': '{{count}} koristi',
+  'templates.empty.body': 'Isprobajte drugi filter — svakog mjeseca objavljujemo nove predloške.',
+  'templates.empty.title': 'Još nema predložaka u ovoj kategoriji',
+  'templates.hero.body':
+    'Unaprijed tematski rasporedi slajdova s blokovima grafikona, demo okvirima, bilješkama za prezentatora i unaprijed postavljenim mjeračima vremena — svaki predložak dolazi spreman za snimanje.',
   'templates.hero.eyebrow': 'Odabrane pozornice',
   'templates.hero.heading': 'Faze izgrađene za trenutak kada vam je potrebno da ih sletite.',
 }

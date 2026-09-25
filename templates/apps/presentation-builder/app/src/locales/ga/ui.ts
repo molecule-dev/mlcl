@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ceisteanna, aiseolas, nó gné ar mhaith leat a bheith againn? Déan teagmháil leis an bhfoireann ó shocruithe do chuntais — léann duine fíor gach teachtaireacht.',
   'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.missionTitle': 'Ár misean',
+  'about.whatYouGetTitle': 'Cad a gheobhaidh tú',
   'analytics.empty': 'Cruthaigh deiceanna chun anailísíocht a fheiceáil anseo.',
   'analytics.stats.acrossDecks': 'Trasna na deiceanna uile',
   'analytics.stats.allTime': 'I do stiúideo',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Teideal an deic',
   'landing.features.eyebrow': 'Cén fáth Overture',
   'landing.features.heading': 'Gach rud a theastaíonn uait le siúl ar an stáitse réidh.',
+  'landing.finalCta.body':
+    'Cuir do stiúideo ar bun i níos lú ná nóiméad. Gan cárta creidmheasa. Cealaigh am ar bith.',
   'landing.finalCta.cta': 'Cruthaigh do stiúideo saor in aisce',
   'landing.finalCta.eyebrow': 'Saor in aisce le tosú',
   'landing.finalCta.heading': 'Téigh ar an stáitse leis an deic is fearr de do shlí bheatha.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Eagarthóireacht déanta 12 nóiméad ó shin',
   'notifications.created': 'cruthaithe',
   'notifications.edited': 'eagarthóireacht déanta',
+  'notifications.empty.body':
+    'Beidh gníomhaíocht ar do dheiceanna — tráchtanna, luaite, onnmhairithe — le feiceáil anseo.',
   'notifications.empty.title': 'Gan aon fhógraí fós',
   'notifications.eyebrow': 'Gníomhaíocht stáitse',
   'notifications.loading': 'Ag lódáil…',
   'notifications.shared': 'roinnte go poiblí',
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'present.addSlides': 'Cuir sleamhnáin leis',
   'present.backToDecks': 'Ar ais chuig na deiceanna',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Taibheoir stáitse',
   'settings.security.notSet': 'Gan socrú',
   'settings.security.passwordBody': 'Tá do phasfhocal criptithe nuair a bhíonn sé ar fos.',
+  'settings.security.reset': 'Athshocraigh',
   'settings.security.title': 'Cuntas + seisiúin',
   'shared.empty.body':
     'Beidh deiceanna a roinneann tú go poiblí le feiceáil anseo. Oscail deic agus roghnaigh "poiblí" le roinnt.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Ag lódáil…',
   'shared.title': 'Deiceanna comhroinnte',
   'templateCard.slideCount': '{{count}} sleamhnáin',
+  'templateCard.usageCount': '{{count}} úsáidí',
+  'templates.empty.body': 'Bain triail as scagaire eile — seolaimid teimpléid nua gach mí.',
+  'templates.empty.title': 'Níl aon teimpléad sa chatagóir seo fós',
+  'templates.hero.body':
+    'Leaganacha sleamhnán réamhthéamaithe le bloic chairte, frámaí taispeána, nótaí láithreora, agus réamhshocruithe ama — seoltar gach teimpléad réidh le taifeadadh.',
   'templates.hero.eyebrow': 'Céimeanna coimeádta',
   'templates.hero.heading':
     'Céimeanna atá tógtha don nóiméad a chaithfidh tú é a thabhairt i dtír.',

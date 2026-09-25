@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ သို့မဟုတ် အင်္ဂါရပ် တစ်ခု လိုချင်ပါသလား။ Help စာမျက်နှာမှ ကျွန်ုပ်တို့ထံ စာတိုလေး ပို့ပေးပါ — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့ထဲရှိ လူတစ်ဦးဆီ ရောက်ပါတယ်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.featureAudience':
+    'အမှန်တရားကို ပြောပြသည့် ပေးပို့မှု ခွဲခြမ်းစိတ်ဖြာချက် — ပေးပို့ပြီး၊ ဖွင့်ပြီး၊ နှိပ်ပြီး၊ စာစောင်အလိုက်နှင့် အချိန်နှင့်အမျှ — မကောင်းသော ပုံစံများ မပါဘဲ။',
+  'about.featureDiscovery':
+    'အများသိစာတမ်းနှင့် စာရင်းသွင်းရန် ဖောင်တစ်ခု၊ စာဖတ်သူအသစ်များ စာစောင်ကို ရှာတွေ့ပြီး ကိုယ်တိုင် စာရင်းသွင်းနိုင်ရန်။',
+  'about.featureEditor':
+    'စာစောင်များအတွက် အာရုံစိုက်ထားသော အယ်ဒီတာ — ခေါင်းစဉ်၊ အစမ်းကြည့်စာသား၊ markdown ကိုယ်ထည်၊ မူကြမ်းများနှင့် အချိန်စီစဉ် ပေးပို့မှုများ။',
+  'about.featurePricing':
+    'အခမဲ့ စတင်နိုင်သည်။ အချိန်စီစဉ်ခြင်း၊ အခကြေးငွေတန်းများနှင့် အသေးစိတ် ဖွင့်နှုန်း ခွဲခြမ်းစိတ်ဖြာချက် လိုအပ်သော ထုတ်ဝေသူများအတွက် Pro။',
+  'about.intro':
+    '{{appName}} သည် မိမိတို့၏ ပရိသတ်ကို ပိုင်ဆိုင်သော စာရေးသူများအတွက် သတင်းစာစောင် ပလက်ဖောင်းတစ်ခု ဖြစ်သည်။ စာစောင်များ ရေးသားပြီး သင့်စာရင်းသွင်းသူများထံ ပေးပို့ကာ အမှန်တကယ် ဖွင့်ဖတ်သည်ကို ကြည့်ရှုနိုင်သည် — သင့်လက်ရာကို မည်သူ တွေ့မည်ကို အယ်လဂိုရီသမ်က ဆုံးဖြတ်ခြင်း မရှိဘဲ။',
+  'about.missionBody':
+    'စာရေးသူတစ်ဦးနှင့် စာဖတ်သူများအကြား ဆက်ဆံရေးသည် စာရေးသူပိုင် ဖြစ်သည်ဟု ကျွန်ုပ်တို့ ယုံကြည်သည် — feed တစ်ခုပိုင် မဟုတ်ဘဲ။ {{appName}} ၏ အယ်ဒီတာ၊ စာရင်းသွင်းသူစာရင်းနှင့် ပေးပို့မှု ခွဲခြမ်းစိတ်ဖြာချက်အားလုံးသည် ထို အယူအဆအပေါ် အခြေခံထားသည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': 'အကြောင်း {{appName}}',
   'auth.backToSignIn': 'အကောင့်ဝင်ရန် ပြန်သွားရန်',
   'auth.error.loginFailed': 'အကောင့်ဝင်ခြင်း မအောင်မြင်ပါ',
@@ -22,12 +38,14 @@ export const ui: UiTranslations = {
   'common.brandName': '{{appName}}',
   'common.cancel': 'ပယ်ဖျက်ရန်',
   'common.follow': 'စောင့်ကြည့်ရန်',
+  'common.fullName': 'အမည်အပြည့်အစုံ',
   'common.getStarted': 'စတင်ရန်',
   'common.goToDashboard': 'ဒက်ရှ်ဘုတ်သို့ သွားရန်',
   'common.help': 'ကူညီကြပါ',
   'common.large': 'ကြီး',
   'common.loading': 'တင်နေသည်...',
   'common.medium': 'Medium',
+  'common.none': '—',
   'common.or': 'သို့မဟုတ်',
   'common.requestANewLink': 'လင့်ခ်အသစ် တောင်းဆိုရန်',
   'common.resettingEllipsis': 'အစပြန်ပြောင်းနေသည်…',
@@ -40,16 +58,26 @@ export const ui: UiTranslations = {
   'common.small': 'သغေး',
   'common.subscribing': 'စာရင်းသွင်းနေသည်…',
   'common.write': 'စာရေးစတင်ရန်',
+  'dashboard.activeSubscribers': 'လက်ရှိ စာရင်းသွင်းသူများ',
+  'dashboard.allTimeOpenRate': 'စုစုပေါင်း ဖွင့်နှုန်း',
   'dashboard.clicked': 'နှိပ်ခဲ့သည်',
   'dashboard.clickRate': '{{rate}}% နှိပ်နှုန်း',
   'dashboard.delivered': 'ပို့ဆောင်ပြီးပါပြီ',
+  'dashboard.draftsAndScheduled': '{{drafts}} မူကြမ်း · {{scheduled}} အချိန်စီစဉ်ထား',
+  'dashboard.growthHint': 'အရင်းအမြစ်အားလုံးမှ နေ့စဉ် စုစုပေါင်း စာရင်းသွင်းမှုများ။',
   'dashboard.lastIssue': 'နောက်ဆုံးထုတ်ဝေမှု',
+  'dashboard.lastIssueOpenRate': 'နောက်ဆုံးစာစောင် ဖွင့်နှုန်း',
   'dashboard.loadError': 'စာရင်းအင်းများ တင်ခြင်း မအောင်မြင်ပါ',
   'dashboard.manageSubscribers': 'စာရင်းသွင်းသူများ စီမံခန့်ခွဲရန်',
+  'dashboard.noIssuesYet': 'ထုတ်ဝေထားသော စာစောင် မရှိသေးပါ',
   'dashboard.opened': 'ဖွင့်ခဲ့သည်',
+  'dashboard.openedOfDelivered': '{{delivered}} အနက် {{opened}} ပေးပို့ပြီး',
+  'dashboard.paidHint': 'အခကြေးငွေတန်းတွင် {{count}}',
   'dashboard.publishedIssues': 'ထုတ်ဝေပြီးသော ထုတ်ဝေမှုများ',
   'dashboard.publishFirst':
     'ပို့ဆောင်မှု စာရင်းအင်းများကို ဤနေရာတွင် ကြည့်ရှုရန် ပထမဆုံးထုတ်ဝေမှု ထုတ်ဝေပါ။',
+  'dashboard.subhead': 'စာရင်းသွင်းသူ တိုးတက်မှုနှင့် သင့်နောက်ဆုံးစာစောင် မည်သို့ ရောက်ခဲ့သည်။',
+  'dashboard.subscriberGrowth': 'စာရင်းသွင်းသူများ၊ နောက်ဆုံး ရက် ၃၀',
   'dashboard.welcome': 'ထုတ်ဝေမှု အခြုံငုံသုံးသပ်ချက်',
   'dashboard.writeIssue': 'ထုတ်ဝေမှု ရေးသားရန်',
   'footer.about': '{{appName}} အကြောင်း',
@@ -57,28 +85,48 @@ export const ui: UiTranslations = {
   'forgotPassword.emailRequired': 'သင့်အီးမေးလ် ထည့်ပါ',
   'forgotPassword.pageTitle': 'စကားဝှက် မေ့နေပါသလား',
   'forgotPassword.sendError': 'အစပြန်အီးမေးလ် မပို့နိုင်ပါ',
+  'forgotPassword.sentSubtitle':
+    'ကျွန်ုပ်တို့သည် ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို သင့်ဝင်စာပုံးသို့ ပို့လိုက်ပါပြီ။',
   'forgotPassword.sentTitle': 'သင့်အီးမေးလ် စစ်ဆေးပါ',
+  'forgotPassword.subtitle':
+    'သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့ပါမည်။',
+  'forgotPassword.tryDifferent': 'မရဘူးလား။ အခြား အီးမေးလ်တစ်ခု စမ်းကြည့်ပါ',
   'form.bio': 'အကြောင်းအရာ',
+  'help.intro':
+    'ကျွန်ုပ်တို့ အများဆုံးကြားရတဲ့ မေးခွန်းအချို့။ သင်လိုအပ်တာကို ရှာမတွေ့ဘူးလား။ support@writeflow.example ကို အီးမေးလ်ပို့ပါ၊ အဖွဲ့ထဲက တကယ့်လူတစ်ယောက်က သင့်ကို ပြန်ဆက်သွယ်ပေးပါလိမ့်မယ်။',
   'help.title': 'အကူအညီ နှင့် မေးလေ့ရှိသောမေးခွန်းများ',
   'issueDetail.deliveryTitle': 'ပို့ဆောင်မှု',
+  'issueDetail.demoNote':
+    'သရုပ်ပြ ပေးပို့မှု — ပေးပို့မှုများကို စာရင်းသွင်းသူအလိုက် မှတ်တမ်းတင်သည်။ ဖွင့်/နှိပ် မှုများသည် တိုကင် ပါသော အများသိစာစောင် လည်ပတ်မှုများမှ ရသည်။',
   'issueDetail.empty': 'ဤထုတ်ဝေမှုတွင် အကြောင်းအရာ မရှိသေးပါ။',
   'issueDetail.loadFailed': 'ထုတ်ဝေမှု တင်ခြင်း မအောင်မြင်ပါ',
+  'issueDetail.opensOverTime': 'အချိန်နှင့်အမျှ ဖွင့်မှုများ',
   'issueDetail.title': 'ထုတ်ဝေမှု အသေးစိတ်',
   'issueDetail.viewPublic': 'အများမြင် စာမျက်နှာ ကြည့်ရှုရန်',
+  'issueEditor.bodyLabel': 'ကိုယ်ထည် (markdown)',
   'issueEditor.bodyPlaceholder':
     'ထုတ်ဝေမှုကို markdown ဖြင့် ရေးပါ — ## အပိုင်း ခေါင်းစဉ်များအတွက်။',
   'issueEditor.editing': 'ထုတ်ဝေမှု တည်းဖြတ်ရန်',
   'issueEditor.loadFailed': 'ထုတ်ဝေမှု တင်ခြင်း မအောင်မြင်ပါ',
   'issueEditor.newIssue': 'ထုတ်ဝေမှု အသစ်',
+  'issueEditor.pickTime': 'ပေးပို့ချိန် အရင် ရွေးပါ။',
+  'issueEditor.previewLabel': 'အစမ်းကြည့်စာသား',
+  'issueEditor.previewPlaceholder':
+    'အစမ်းကြည့်စာသား (ဝင်စာတိုက်တွင် ခေါင်းစဉ်နောက် လာသည့် စာကြောင်း)',
   'issueEditor.publish': 'ထုတ်ဝေရန်',
   'issueEditor.publishFailed': 'ထုတ်ဝေခြင်း မအောင်မြင်ပါ',
+  'issueEditor.saveBeforeSchedule': 'အချိန်စီစဉ်ခြင်း မပြုမီ မူကြမ်းကို သိမ်းပါ။',
   'issueEditor.savedAt': ' · {{time}} တွင် သိမ်းဆည်းခဲ့သည်',
   'issueEditor.saveDraft': 'မူကြမ်းကို သိမ်းဆည်းပါ',
   'issueEditor.saveFailed': 'သိမ်းဆည်းခြင်း မအောင်မြင်ပါ',
   'issueEditor.schedule': 'အချိန်ဇယား',
+  'issueEditor.scheduleAtLabel': 'ပေးပို့ချိန်',
   'issueEditor.scheduleFailed': 'အချိန်ဇယား သတ်မှတ်ခြင်း မအောင်မြင်ပါ',
+  'issueEditor.scheduleHint':
+    'သိမ်းထားသော မူကြမ်းများသည် ပေးပို့ချိန် ကျော်လွန်သည်နှင့် အလိုအလျောက် ထုတ်ဝေပြီး ပေးပို့သည်။',
   'issueEditor.scheduleTitle': 'နောက်ပိုင်း အချိန်ဇယား',
   'issueEditor.subjectLabel': 'ခေါင်းစဉ်',
+  'issueEditor.subjectPlaceholder': 'စာစောင် ခေါင်းစဉ်',
   'issueEditor.subjectRequired': 'အရင်ဆုံး ခေါင်းစဉ် ရေးပါ။',
   'issueEditor.title': 'ထုတ်ဝေမှု တည်းဖြတ်ကိရိယာ',
   'issues.delete': 'ဖျက်ရန်',
@@ -87,17 +135,23 @@ export const ui: UiTranslations = {
   'issues.edit': 'တည်းဖြတ်ရန်',
   'issues.loadError': 'ထုတ်ဝေမှုများ တင်ခြင်း မအောင်မြင်ပါ',
   'issues.newIssue': 'ထုတ်ဝေမှု အသစ်',
+  'issues.none': 'ဤနေရာတွင် စာစောင် မရှိသေးပါ — သင့်ပထမဆုံးစာစောင်ကို ရေးပါ။',
   'issues.stats': 'စာရင်းအင်းများ',
   'issues.subhead':
     'မူကြမ်းများ၊ အချိန်ဇယား သတ်မှတ်ထားသော ပို့ဆောင်မှုများ၊ နှင့် ပို့ဆောင်ပြီးသော အရာများ အားလုံး။',
   'issues.title': 'သင့်ထုတ်ဝေမှုများ',
   'issues.untitled': 'ခေါင်းစဉ်မဲ့ ထုတ်ဝေမှု',
+  'landing.archiveEmpty': 'ထုတ်ဝေထားသော စာစောင် မရှိသေးပါ — ပထမဆုံးစာစောင်ကို ရေးနေသည်။',
   'landing.archiveTitle': 'နောက်ဆုံးထုတ်ဝေမှုများ',
   'landing.emailLabel': 'အီးမေးလ်လိပ်စာ',
   'landing.emailPlaceholder': 'you@example.com',
+  'landing.headline': 'သင့်စာဖတ်သူများ အမှန်တကယ် ဖွင့်ဖတ်မည့် သတင်းစာစောင် ပေးပို့ပါ။',
   'landing.kicker': 'အပတ်စဉ် သတင်းလွှာ',
   'landing.pageTitle': '{{appName}} — သတင်းလွှာများအကြောင်း သတင်းလွှာ',
+  'landing.subhead':
+    'စာစောင်များ၊ စာရင်းသွင်းသူများနှင့် ဖွင့်နှုန်း ခွဲခြမ်းစိတ်ဖြာချက် — ပထမမူကြမ်းမှ အခကြေးငွေတန်းအထိ ဖန်တီးသူ စနစ်တစ်ခုလုံး။',
   'landing.subscribe': 'စာရင်းသွင်းပါ',
+  'landing.subscribed': 'သင်သည် စာရင်းထဲ ရောက်နေပြီ — သောကြာနေ့ တွေ့မယ်။',
   'landing.subscribeFailed': 'စာရင်းသွင်းခြင်း မအောင်မြင်ပါ — ထပ်စမ်းကြည့်ပါ။',
   'landingFooter.brandName': '{{appName}}',
   'landingFooter.copyright':
@@ -115,6 +169,7 @@ export const ui: UiTranslations = {
   'landingTopNavBar.membership': 'ဈေးနှုန်း',
   'landingTopNavBar.startWriting': 'စာရေးစတင်ရန်',
   'login.pageTitle': 'အကောင့်ဝင်ရန်',
+  'loginFooter.copyright': '© {{year}} စကားရပ်။ မူပိုင်ခွင့်အားလုံးကို သိမ်းဆည်းထားသည်။',
   'loginFooter.help': 'ကူညီကြပါ',
   'loginFormHeader.signInTo': 'သင့်အကောင့်သို့ ဝင်ရောက်ပါ',
   'loginFormHeader.welcomeBack': 'ပြန်လာတာကြိုဆိုပါတယ်။',
@@ -133,18 +188,32 @@ export const ui: UiTranslations = {
   'nav.settings': 'ဆက်တင်များ',
   'nav.terms': 'စည်းကမ်းချက်များ',
   'oauth.continueWith': '{{provider}} ဖြင့် ဆက်လက်လုပ်ဆောင်ရန်',
+  'planUpdated.actionDefault': 'အိမ်သို့ ပြန်သွားပါ',
+  'planUpdated.body':
+    'သင့်ငွေတောင်းခံမှု ပြောင်းလဲမှုသည် ယခု အသက်ဝင်နေပါပြီ။ သင့်အစီအစဉ်ကို ငွေတောင်းခံမှုစာမျက်နှာမှ မည်သည့်အချိန်တွင်မဆို စီမံနိုင်ပါသည်။',
   'planUpdated.message': 'သင့်အစီအစဉ် အပ်ဒိတ်လုပ်ပြီးပါပြီ။',
   'planUpdated.pageTitle': 'အစီအစဉ် အပ်ဒိတ်လုပ်ပြီး',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
   'planUpdated.thankYou': 'ကျေးဇူးတင်ပါတယ်!',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှု အတည်ပြုနေသည်…',
   'privacy.effective': 'နောက်ဆုံး အပ်ဒိတ်လုပ်ခဲ့သည်: 1 May 2026',
   'privacy.title': 'ကိုယ်ရေးကိုယ်တာ မူဝါဒ',
+  'publicIssue.backHome': 'စာစောင်သို့ ပြန်သွားရန်',
+  'publicIssue.notFound': 'ဤစာစောင် မရှိပါ (သို့မဟုတ် မူကြမ်း ဖြစ်နေဆဲ)။',
+  'publicIssue.subscribe': 'ဤသတင်းစာစောင်ကို စာရင်းသွင်းရန်',
+  'publicIssue.unsubscribe': 'ဤသတင်းစာစောင်မှ စာရင်းဖျက်ရန်',
   'resetPassword.error': 'အစပြန်ပြောင်းခြင်း မအောင်မြင်ပါ',
   'resetPassword.invalidLink':
     'ဤစကားဝှက် အစပြန်လင့်ခ်သည် မမှန်ကန်သော သို့မဟုတ် သက်တမ်းကုန်သွားပါပြီ။',
   'resetPassword.newPassword': 'စကားဝှက်အသစ်',
+  'resetPassword.subtitle': 'သင့်အကောင့်အတွက် စကားဝှက် အသစ် ရွေးပါ',
   'resetPassword.tooShort': 'စကားဝှက်သည် အနည်းဆုံး စာလုံး ၈ လုံး ရှိရမည်',
   'settings.billing': 'ငွေတောင်းခံလွှာ',
+  'settings.deleteAccountConfirm':
+    'သင့်အကောင့်ကို အပြီးအပိုင်ဖျက်ချင်တာ သေချာလား။ ဒါကို ပြန်ပြင်လို့မရပါဘူး။',
   'settings.deleteAccountModal.title': 'အကောင့် ဖျက်ရန်',
   'settings.notifications': 'အကြောင်းကြားချက်များ',
   'settings.platform': 'ပလက်ဖောင်း',
@@ -155,6 +224,9 @@ export const ui: UiTranslations = {
     '{{appName}} ကို သင့်ဘရောက်ဆာတွင် မည်သို့ ပြသမည်ကို စိတ်ကြိုက်ပြင်ဆင်ပါ။',
   'settingsAppearanceSection.lightMode': 'လင်းမုဒ်',
   'settingsAppearanceSection.readingFontSize': 'စာဖတ် စာလုံးအရွယ်အစား',
+  'settingsDangerZoneSection.deleteAriaLabel': 'ကျွန်ုပ်၏ အကောင့်ကို အပြီးအပိုင် ဖျက်ပါ',
+  'settingsDangerZoneSection.deleteWarning':
+    'ဤလုပ်ဆောင်ချက်သည် အပြီးအပိုင်ဖြစ်ပြီး ပြန်ပြင်၍မရပါ။ စာစီစာကုံးများ၊ မှတ်ချက်များနှင့် အချက်အလက်အားလုံးကို ကျွန်ုပ်တို့၏ဆာဗာများမှ ဖျက်ပစ်ပါမည်။',
   'settingsDangerZoneSection.description':
     'အရေးကြီးသော အကောင့် လုပ်ဆောင်ချက်များ။ ဂရုတစိုက် ကိုင်တွယ်ပါ။',
   'settingsDangerZoneSection.title': 'အန္တရာယ် ဇုန်',
@@ -165,14 +237,29 @@ export const ui: UiTranslations = {
   'settingsNotificationsSection.mentionsDescription':
     'စာရင်းသွင်းသူတစ်ဦး စာရင်းမှ ထွက်သောအခါ အကြောင်းကြားပါ။',
   'settingsNotificationsSection.newFollowers': 'စာရင်းသွင်းသူအသစ်များ',
+  'settingsNotificationsSection.newFollowersDescription':
+    'စာရင်းထဲ လူအသစ် ဝင်လာသည့်အခါ ကျွန်ုပ်ကို အသိပေးပါ။',
   'settingsNotificationsSection.sectionDescription':
     'အပ်ဒိတ်များကြောင့် အဖြစ်မဖြစ် ရပ်နားစေလိုသော အချိန် ဆုံးဖြတ်ပါ။',
+  'settingsPageHeader.subtitle':
+    'သင့်ထုတ်ဝေမှု အထောက်အထားနှင့် အကောင့် ဦးစားပေးချက်များကို စီမံပါ။',
   'settingsPageHeader.title': 'အကောင့် ဆက်တင်များ',
   'settingsPrivacySection.description': 'သင့်ဒေတာနှင့် တည်ရှိမှု၏ မြင်နိုင်မှုကို ထိန်းချုပ်ပါ။',
+  'settingsPrivacySection.profileVisibilityHint':
+    'ရှာဖွေရေး အင်ဂျင်များက သင့်ပရိုဖိုင်ကို index လုပ်ခွင့်ပြုပါ။',
   'settingsPrivacySection.profileVisibilityLabel': 'အများပြည်သူပရိုဖိုင် မြင်နိုင်မှု',
+  'settingsPrivacySection.showEmailHint':
+    'သင့် ပရော်ဖက်ရှင်နယ် အီးမေးလ်ကို အခြား စာဖတ်သူများထံ ပြသပါ။',
+  'settingsPrivacySection.showEmailLabel': 'ပရိုဖိုင်တွင် အီးမေးလ်ပြပါ',
+  'settingsProfileSection.avatarPreview':
+    'အစမ်းကြည့်ရှုခြင်း {{name}} - အသုံးချရန် ပြောင်းလဲမှုများကို သိမ်းဆည်းပါ။',
+  'settingsProfileSection.changePhoto': 'ဓာတ်ပုံ ပြောင်းရန်',
+  'settingsProfileSection.choosingPhoto': 'avatar အသစ် အစမ်းကြည့်ရန် ဓာတ်ပုံတစ်ခု ရွေးပါ။',
+  'settingsProfileSection.photoFormatHint': 'JPG၊ PNG သို့မဟုတ် GIF။ အများဆုံး 5MB။',
   'settingsProfileSection.profileImage': 'ပရိုဖိုင် ပုံ',
   'settingsProfileSection.sectionDescription':
     'ထုတ်ဝေမှု ဖြည့်စွက်အချက်အလက်အဖြစ် ပြသသော ကိုယ်ရေး အသေးစိတ်များ။',
+  'settingsProfileSection.uploadAvatar': 'ရုပ်ပုံကို အပ်လုဒ်လုပ်ပါ',
   'settingsPublication.fromName': 'ပို့သူ အမည်',
   'settingsPublication.publicationName': 'ထုတ်ဝေမှု အမည်',
   'settingsPublication.save': 'ထုတ်ဝေမှု သိမ်းဆည်းရန်',
@@ -190,14 +277,19 @@ export const ui: UiTranslations = {
   'sideNavBar.signOut': 'ထွက်ရန်',
   'sideNavBar.subscribers': 'စာရင်းသွင်းသူများ',
   'signup.error': 'အကောင့်ဖွင့်ခြင်း မအောင်မြင်ပါ',
+  'signup.errors.emailInvalid': 'ကျေးဇူးပြု၍ မှန်ကန်သော အီးမေးလ်တစ်စောင်ကို ထည့်သွင်းပါ',
   'signup.errors.emailRequired': 'အီးမေးလ် လိုအပ်ပါသည်',
+  'signup.errors.passwordLength': 'စကားဝှက်သည် အနည်းဆုံး စာလုံး ၈ လုံး ရှိရမည်',
+  'signup.errors.passwordRequired': 'စကားဝှက် လိုအပ်ပါသည်',
   'signup.title': 'ကျွန်ုပ်တို့နှင့် ပူးပေါင်းပါ။',
   'subscribers.actionsColumn': 'လုပ်ဆောင်ချက်များ',
   'subscribers.add': 'စာရင်းသွင်းသူ ထည့်ရန်',
   'subscribers.added': 'စာရင်းသွင်းသူ ထည့်ပြီးပါပြီ။',
   'subscribers.addFailed': 'စာရင်းသွင်းသူ ထည့်ခြင်း မအောင်မြင်ပါ',
+  'subscribers.addPlaceholder': 'အီးမေးလ်ဖြင့် စာဖတ်သူ ထည့်ရန်',
   'subscribers.allTiers': 'အဆင့်အားလုံး',
   'subscribers.delete': 'ဖျက်ရန်',
+  'subscribers.deleteConfirm': 'ဤစာရင်းသွင်းသူကို ဖယ်ရှားမလား။ သူတို့၏ မှတ်တမ်းလည်း ဖျက်ပစ်မည်။',
   'subscribers.deleteFailed': 'စာရင်းသွင်းသူ ဖျက်ခြင်း မအောင်မြင်ပါ',
   'subscribers.emailColumn': 'အီးမေးလ်',
   'subscribers.emailLabel': 'အီးမေးလ်လိပ်စာ',
@@ -206,6 +298,7 @@ export const ui: UiTranslations = {
   'subscribers.none': 'ဤမြင်ကွင်းနှင့် ကိုက်ညီသော စာရင်းသွင်းသူ မရှိပါ။',
   'subscribers.paidTier': 'ငွေပေးချေ',
   'subscribers.resubscribe': 'ပြန်စာရင်းသွင်းရန်',
+  'subscribers.searchPlaceholder': 'အီးမေးလ်ဖြင့် ရှာဖွေပါ',
   'subscribers.sourceColumn': 'ရင်းမြစ်',
   'subscribers.statusColumn': 'အခြေအနေ',
   'subscribers.subhead':
@@ -218,6 +311,11 @@ export const ui: UiTranslations = {
   'subscribers.updateFailed': 'စာရင်းသွင်းသူ အပ်ဒိတ်လုပ်ခြင်း မအောင်မြင်ပါ',
   'terms.effective': 'နောက်ဆုံး အပ်ဒိတ်လုပ်ခဲ့သည်: 1 May 2026',
   'terms.title': 'ဝန်ဆောင်မှု စည်းကမ်းချက်များ',
+  'unsubscribe.doneBody':
+    'ဤအီးမေးလ်သည် နောက်လာမည့် စာစောင်များကို လက်ခံရရှိမည် မဟုတ်ပါ။ နောက်ထပ် လုပ်ဆောင်ရန် မလိုအပ်ပါ။',
   'unsubscribe.doneTitle': 'စာရင်းမှ ထွက်ပြီးပါပြီ။',
+  'unsubscribe.errorBody':
+    'ဤစာရင်းမှ ဖြုတ်ရန် လင့်ခ်သည် မသိရှိရပါ သို့မဟုတ် သက်တမ်းကုန်ဆုံးသွားပါပြီ။ မည်သည့်အရာမျှ ပြောင်းလဲခြင်း မရှိပါ။',
+  'unsubscribe.errorTitle': 'ထိုလင့်ခ်သည် တရားဝင် မဟုတ်ပါ။',
   'unsubscribe.pageTitle': 'စာရင်းမှ ထွက်ပြီး',
 }

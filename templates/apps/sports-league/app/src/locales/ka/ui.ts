@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ გამოხმაურება, იპოვეთ ხარვეზი ან გსურთ {{app}} თქვენი ლიგისთვის? მოგვმართეთ ანგარიშის პარამეტრებიდან — ყველა შეტყობინება ნამდვილ ადამიანს ხვდება გუნდში.',
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.featureAlerts':
+    'Push-შეტყობინებები ანგარიშის განახლებების, გაცვლის შეტყობინებების, ტრავმების ანგარიშებისა და ლიგის განცხადებებისთვის.',
+  'about.featureRosters':
+    'გუნდის გვერდები სრული შემადგენლობით, სეზონის ჯამური მაჩვენებლებით, ცხელი/ცივი სერიებით და თითოეული მოთამაშის პირისპირ შედარებით.',
+  'about.featureSchedule':
+    'სეზონის კალენდარი და განრიგის ხედი, რომ ყოველი მატჩისა და შედეგის გარშემო დაგეგმოთ.',
+  'about.featureScoreboard':
+    'მაუწყებლობის დონის ანგარიშის ტიკერი ყოველი გვერდის ზედა ნაწილში, რომ ვერც ერთი გოლი ვერ გამოგრჩეთ.',
+  'about.featureStandings':
+    'ცოცხალი ცხრილი — მოგება-წაგება-ფრე ჩანაწერები რეალურ დროში, ქულები, მოგების პროცენტი და პლეიოფის ხაზი, განახლებული ყოველ სასტვენზე.',
+  'about.intro':
+    '{{app}} მაუწყებლობის ხარისხის სახლია თქვენი ლიგისთვის. გუნდები, განრიგები, ცოცხალი ანგარიშები და ცხრილები ერთ სწრაფ, აურზაურისგან თავისუფალ დაფაზე იყრიან თავს — რომ გულშემატკივრებმა, მწვრთნელებმა და ლიგის ორგანიზატორებმა ყოველთვის იცოდნენ, სად დგას სეზონი.',
+  'about.missionBody':
+    'ლიგის თვალყურის დევნება არ უნდა ნიშნავდეს ხუთი სხვადასხვა მესამე მხარის ანგარიშის განახლებას. ჩვენ ის შევქმენით, რომ ყოველ ლიგას ჰქონდეს ცხრილების, განრიგისა და ნამდვილად მნიშვნელოვანი სტატისტიკის ერთი სიმართლის წყარო — განახლებული ყოველ სასტვენზე, სეზონის განმავლობაში უფასოდ.',
+  'about.missionTitle': 'ჩვენი მისია',
+  'about.whatYouGet': 'რას იღებთ',
   'appShell.closeNav': 'ნავიგაციის დახურვა',
   'appShell.openNav': 'ნავიგაციის გახსნა',
   'common.dashboard': 'დეშბორდი',
@@ -16,14 +35,21 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'ყველა მატჩის ნახვა \\u2192',
   'dashboard.viewAllStandings': 'სრული რეიტინგი \\u2192',
   'dashboard.viewAllStats': 'იხილეთ ყველა სტატისტიკური ლიდერი \\u2192',
+  'forgot.submitting': 'გადატვირთვის ბმულის გაგზავნა…',
   'forgot.subtitle': 'გადატვირთვის ბმულის მისაღებად შეიყვანეთ თქვენი ელ. ფოსტა.',
   'forgot.success': 'გადაყენების ბმული გაიგზავნა {{email}} შეამოწმეთ თქვენი შემოსულები.',
+  'landing.copyright': '© {{year}} {{app}}. დაედევნე ცხრილს.',
+  'landing.ctaBody':
+    'თქვენი ლიგა. თქვენი ცხრილი. თქვენი საყვარელი გუნდი — ზედა ნაწილში მიმაგრებული. ორი წუთი დასაყენებლად, სეზონის განმავლობაში უფასოდ.',
   'landing.ctaHeading': 'შეწყვიტეთ მესამე მხარის ქულების დაფების განახლება',
   'landing.eyebrow':
     'შექმნილია გულშემატკივრებისთვის, მწვრთნელებისთვის და ლიგის ორგანიზატორებისთვის',
   'landing.featuresHeading': 'წინა რიგში ადგილი ყველა მდგომისთვის',
   'landing.getStarted': 'შემოუერთდი ლიგას',
   'landing.heroCta': 'შემოუერთდი ლიგას',
+  'landing.heroSubtitle':
+    '{{app}} ცხრილებს, განრიგებსა და სტატისტიკურ ლიდერებს ერთ მაუწყებლობის ხარისხის დაფაზე აერთიანებს. ცოცხალი ანგარიშები. ნამდვილი ჩანაწერები. აურზაურის გარეშე.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'დღეს საღამოს ლიგის გარშემო',
   'landing.statFans': 'გულშემატკივრები მიჰყვებიან',
   'landing.statGames': 'თამაშები ამ სეზონში',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'მატჩებზე დაბრუნება',
   'matchDetail.eventsHeading': 'თამაში-თამაში',
+  'matchDetail.final': 'დასრულდა',
   'matchDetail.finalScore': 'საბოლოო',
   'matchDetail.live': 'პირდაპირი ეთერი',
   'matchDetail.liveNow': 'პირდაპირ ეთერში ახლა',
   'matchDetail.noEvents': 'ჯერ არცერთი მოვლენა არ არის ჩაწერილი.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'ამ ხედში მატჩები არ არის — სცადეთ სხვა ფილტრი.',
   'matches.eyebrow': 'მატჩის დღე',
   'matches.loading': 'ფიქალის ამოწევა…',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'შეტყობინებების ჩატვირთვა ვერ მოხერხდა',
   'notifications.loading': 'შეტყობინებები იტვირთება\\u2026',
   'pennantHeroCard.eyebrow': 'ცხრილის ზედა ნაწილი',
+  'pennantHeroCard.formLabel': 'ბოლო 10',
   'pennantHeroCard.gamesAhead': '{{value}} თამაშები დევნის წინ',
   'pennantHeroCard.pointsLabel': 'ქულები',
   'pennantLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
@@ -80,17 +109,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'აირჩიეთ თქვენი ადგილი',
   'pricing.heading': 'განაახლეთ უფრო მდიდარი გრაფიკის, ქულებისა და პოზიციების მისაღებად.',
   'pricing.limits.schedule': '{{count}} გრაფიკის ჩანაწერები',
+  'pricing.limits.scores': '{{count}} ანგარიშები',
+  'pricing.limits.standings': '{{count}} ცხრილი',
+  'pricing.limits.teams': '{{count}} გუნდები',
+  'pricing.subtitle': 'განაახლეთ უფრო მდიდარი განრიგის, ანგარიშებისა და ცხრილისთვის.',
   'pricing.upgradeCta': 'განახლება {{tierName}}',
   'profile.eyebrow': 'გულშემატკივრის პროფილი',
   'profile.favoritesCount': 'გუნდები, რომლებსაც მიჰყვებოდნენ',
   'profile.favoritesHeading': 'საყვარელი გუნდები',
   'profile.noFavorites': 'ფავორიტები ჯერ არ არის — აირჩიეთ გუნდები გუნდების გვერდიდან.',
   'profile.rankRecord': 'რანგი # {{rank}} · {{record}}',
+  'profile.recordOnly': 'ჩანაწერი {{record}}',
   'reset.confirmPlaceholder': 'გაიმეორეთ პაროლი',
+  'reset.mismatch': 'პაროლები არ ემთხვევა.',
   'reset.newLabel': 'ახალი პაროლი',
   'reset.subtitle': 'აირჩიეთ ძლიერი პაროლი, მინიმუმ 12 სიმბოლოსგან.',
   'reset.tokenPlaceholder': 'ელფოსტიდან ჩასმა',
   'schedule.eyebrow': 'ფიქალი',
+  'schedule.moreGames': '+ {{count}} მეტი',
   'schedule.subtitle':
     'სეზონის განმავლობაში მიმდინარე მატჩების კალენდარული ხედი — შეეხეთ ნებისმიერ დღეს, რათა ნახოთ ქულები.',
   'scoreboardTicker.empty': 'ამჟამად პირდაპირი თამაშები არ არის — შეამოწმეთ puck drop-ის გვერდი.',
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'პერსონალიზაცია',
   'settings.favoritesBody':
     'ეს გუნდები თქვენს დაფაზე მიმაგრებულია და ქულების შესახებ შეტყობინებებს ააქტიურებს.',
+  'settings.favoritesHeading': 'საყვარელი გუნდები',
   'settings.loading': 'თქვენი პარამეტრები იტვირთება\\u2026',
   'settings.noFavorites': 'ფავორიტები ჯერ არ არის \\u2014 აირჩიეთ გუნდები გუნდების გვერდიდან.',
   'settings.notificationsHeading': 'შეტყობინებები და ჩვენება',
@@ -116,6 +153,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'ლ',
   'standings.overall': 'საერთო ჯამში',
   'standings.points': 'ქულები',
+  'standings.rank': '#',
   'standings.subtitle':
     'ოთხეული გადის პლეი-ოფში — ტაიბრეიკში ქულებით, შემდეგ კი პროცენტული გამარჯვებით.',
   'standings.title': 'ლიგის რეიტინგი',
@@ -134,6 +172,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'გ',
   'teamDetail.colName': 'მოთამაშე',
   'teamDetail.colPos': 'პოზიცია',
+  'teamDetail.pointsLabel': 'ქულები',
   'teamDetail.rankLabel': 'რანგი # {{rank}}',
   'teamDetail.rosterHeading': 'შემადგენლობა',
   'teamDetail.statGD': 'გოლის სხვაობა',

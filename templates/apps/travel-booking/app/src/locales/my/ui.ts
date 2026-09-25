@@ -1,13 +1,28 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တည်းခိုမှုအကြောင်း မေးခွန်းများ၊ အကြံပြုချက် သို့မဟုတ် ပူးပေါင်းဆောင်ရွက်လိုသည့် အကြံဉာဏ်ရှိပါသလား။ သင့်အကောင့် သို့မဟုတ် အက်ပ်အတွင်းရှိ concierge မှတစ်ဆင့် အဖွဲ့ထံ ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း ခရီးသွားလည်းဖြစ်သည့် လူသားတစ်ဦးထံ ရောက်ရှိပါသည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.featureBooking.body':
+    'အခန်းများ၊ နှုန်းထားများနှင့် ဝန်ဆောင်မှုများကို ဘေးချင်းယှဉ် နှိုင်းယှဉ်ပြီး ခရီးစဉ်တိုင်းအတွက် အခမဲ့ ဖျက်သိမ်းခွင့်ဖြင့် အနည်းငယ်သော နှိပ်ချက်များဖြင့် ဘွတ်ကင်လုပ်ပါ။',
+  'about.featureBooking.title': 'ရှာဖွေ၊ နှိုင်းယှဉ်၊ ဘွတ်ကင်လုပ်',
+  'about.featureDiscover.body':
+    'အယ်ဒီတာများ ရွေးချယ်စုစည်းထားသည့် ခရီးစဉ်များနှင့် ကွင်းဆင်းလမ်းညွှန်များက ထုပ်ပိုးသွားရကျိုးနပ်သည့် နေရာများကို ဖော်ပြပေးသည် — aggregator ဆူညံသံမရှိ၊ ကမကထပြု ရှုပ်ထွေးမှုမရှိ။',
   'about.featureDiscover.title': 'လှုံ့ဆော်မှု၊ လက်ဖြင့်ရွေးချယ်ထားသော',
+  'about.featureItineraries.body':
+    'လေယာဉ်ခရီးစဉ်များ၊ တည်းခိုမှုများနှင့် အစီအစဉ်များကို တစ်နေရာတည်းတွင် ထားရှိပါ၊ နေရာများကို နောက်အတွက် သိမ်းဆည်းပါ၊ သင့်ခရီးစဉ်ကို ရပ်ထားခဲ့သည့်နေရာမှ ပြန်လည်စတင်ပါ။',
+  'about.featureItineraries.title': 'စနစ်တကျ စီစဉ်ထားသည့် ခရီးစဉ်များ',
+  'about.featureStays.title': 'ယုံကြည်စိတ်ချရသော တည်းခိုမှုများ',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'about.subtitle':
+    'စိတ်ကူးမှ ဘွတ်ကင်အထိ အနှောင့်အယှက်ကင်းသော လမ်းကြောင်းနှင့် လှုံ့ဆော်မှု၊ ယုံကြည်စိတ်ချရသော တည်းခိုမှုများ။',
+  'about.whatYouGetTitle': 'သင်ရရှိသောအရာ',
   'account.addPaymentCta': 'ငွေပေးချေမှုနည်းလမ်းထည့်ပါ',
   'account.addPaymentError': 'ငွေပေးချေမှုနည်းလမ်းကို ထည့်၍မရပါ။',
   'account.confirmRemove': 'ဖယ်ရှားရန် အတည်ပြုပါ',
   'account.defaultBadge': 'မူရင်း',
-  'account.loyalty.pointsTowardNext': '{{အမှတ်များ}} ၏ {{နောက်တစ်ခု}} မိုင်များသို့ {{nextTier}}',
+  'account.loyalty.pointsTowardNext': '{{nextTier}} သို့ မိုင် {{points}}/{{next}}',
   'account.loyalty.tier': 'လက်ရှိအဆင့်',
   'account.navLabel': 'အကောင့်ကဏ္ဍများ',
   'account.payments.empty': 'ငွေပေးချေမှုနည်းလမ်းများကို မသိမ်းဆည်းရသေးပါ။',
@@ -30,6 +45,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} ညများ',
   'booking.lineTaxes': 'အခွန်နှင့် အခကြေးငွေများ',
   'booking.loadError': 'ဂုဏ်သတ္တိကို တင်၍မရပါ။',
+  'booking.noChargeYet': 'သင့်ထံမှ ငွေကောက်ခံခြင်း မရှိသေးပါ။',
   'booking.noPaymentMethods': 'သိမ်းဆည်းထားသော ငွေပေးချေမှုနည်းလမ်းများ မရှိပါ။',
   'booking.noPaymentSelected': 'အတည်ပြုခြင်းမပြုမီ ငွေပေးချေမှုနည်းလမ်းကို ရွေးချယ်ပါ။',
   'booking.noRoomError': 'အတည်ပြုခြင်းမပြုမီ အခန်းတစ်ခန်းကို ရွေးချယ်ပါ။',
@@ -41,6 +57,7 @@ export const ui: UiTranslations = {
   'booking.policy1': 'check-in မတိုင်ခင် ၇ ရက်အထိ အခမဲ့ ပယ်ဖျက်နိုင်ပါသည်။',
   'booking.policy2': 'ယနေ့ ငွေကောက်ခံခြင်းမရှိပါ — သင့်ကတ်ကို အတည်ပြုရန်အတွက်သာ သိမ်းဆည်းထားပါသည်။',
   'booking.policy3': 'Sojourn မှ ခရီးစဉ်ကာကွယ်မှုကို အကျုံးဝင်သည် — ၂၄/၇ concierge ပံ့ပိုးမှု။',
+  'booking.policyHeading': 'ဖျက်သိမ်းခြင်းနှင့် စည်းကမ်းချက်များ',
   'booking.roomHeading': 'သင့်အခန်းကို ရွေးချယ်ပါ',
   'booking.specialRequests': 'အထူးတောင်းဆိုမှုများ',
   'booking.specialRequestsPlaceholder': 'အိမ်ရှင်သိထားသင့်တဲ့ တစ်ခုခုရှိလား။',
@@ -69,6 +86,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'တည်းခိုခန်းအဖွဲ့ဝင်များ',
   'landing.cta.heading': 'စိတ်ပူစရာမလိုဘဲ လှည့်လည်သွားလာပါ။ ခရီးစဉ်တိုင်း၊ အချိန်တိုင်း။',
   'landing.cta.signup': 'အခမဲ့အကောင့်တစ်ခု ဖန်တီးပါ',
+  'landing.cta.subheading':
+    'အခမဲ့ ဖျက်သိမ်းခွင့်၊ အဖွဲ့ဝင်များအတွက်သာ နှုန်းထားများနှင့် ၂၄/၇ ခရီးစဉ် concierge — ဘွတ်ကင်တိုင်းတွင် မိုင်များ ရယူပြီး အိမ်ခြံမြေအသစ်များအတွက် ပထမဆုံး ဝင်ရောက်ခွင့်ကို ရယူပါ။',
   'landing.destinations.eyebrow': 'နောက်ဘယ်ကိုသွားမလဲ',
   'landing.destinations.heading': 'ထင်ရှားသော နေရာများ',
   'landing.destinations.seeAll': 'ဦးတည်ရာအားလုံးကိုကြည့်ပါ',
@@ -77,9 +96,13 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'ထုပ်ပိုးထားသင့်တဲ့ ဇာတ်လမ်းတွေ',
   'landing.nav.join': 'Sojourn မှာ ပါဝင်လိုက်ပါ',
   'landing.nav.search': 'ရှာဖွေမှု ဆက်လက်တည်ရှိနေပါသည်',
+  'landing.preview.browseAll': 'စုစည်းမှုအပြည့်အစုံကို ကြည့်ရှုပါ',
   'landing.preview.eyebrow': 'အထဲကို တစ်ချက်ချောင်းကြည့်',
   'landing.preview.heading': 'ဒီလအတွက် ရွေးချယ်ထားတဲ့ တည်းခိုခန်းတွေ',
+  'landing.preview.subheading':
+    '{{appName}} ရှိ အိမ်ခြံမြေတိုင်းကို ကျွန်ုပ်တို့၏ အယ်ဒီတာအဖွဲ့မှ ကိုယ်တိုင် စစ်ဆေးအတည်ပြုထားသည် — aggregator စာရင်းမရှိ၊ လှည့်စားသည့် စာရင်းများမရှိ၊ ခရီးစဉ်တိုင်းအတွက် အခမဲ့ ဖျက်သိမ်းခွင့်ရှိသည်။',
   'login.eyebrow': 'အဖွဲ့ဝင်များ ဧရိယာ',
+  'login.noAccount': 'Tessera ကို အသစ်လား။',
   'login.signupLink': 'အခမဲ့အကောင့်တစ်ခု ဖန်တီးပါ',
   'login.subheading':
     'သင့်ခရီးစဉ်များကို စီမံခန့်ခွဲရန်၊ အတည်ပြုချက်များကိုကြည့်ရှုရန်နှင့် သင်ရပ်တန့်ထားသည့်နေရာမှ ဆက်လက်လုပ်ဆောင်ရန် လက်မှတ်ထိုးဝင်ပါ။',
@@ -87,18 +110,32 @@ export const ui: UiTranslations = {
   'notifications.loading': 'တင်နေသည်…',
   'notifications.subheading':
     '{{count}} မဖတ်ရသေးသော · အရာအားလုံးကို တည်ငြိမ်သော inbox တစ်ခုတည်းတွင်',
+  'planUpdated.body':
+    'သင့်ငွေတောင်းခံမှု ပြောင်းလဲမှုသည် ယခု အသက်ဝင်နေပါပြီ။ သင့်အစီအစဉ်ကို ငွေတောင်းခံမှုစာမျက်နှာမှ မည်သည့်အချိန်တွင်မဆို စီမံနိုင်ပါသည်။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.accommodationsLabel': 'နေရာထိုင်ခင်းများ',
   'pricing.bookingsLabel': 'ဘွတ်ကင်များ',
   'pricing.destinationsLabel': 'သိမ်းဆည်းထားသော ခရီးစဉ်များ',
   'pricing.exportLabel': 'ခရီးစဉ်ဒေတာကို ထုတ်ယူပါ',
   'pricing.itinerariesLabel': 'ခရီးစဉ်များ',
+  'privacy.intro':
+    '{{appName}} သည် သင့်ခရီးစဉ် ဒေတာကို ကာကွယ်ပေးသည်။ ထုတ်လုပ်မှုသို့ မထုတ်လွှင့်မီ ဤtemplate ကို သင့်အမှန်တကယ် ကိုယ်ရေးကိုယ်တာ မူဝါဒဖြင့် အစားထိုးပါ။',
   'propertyDetail.allPhotos': 'အားလုံး {{count}} ဓာတ်ပုံများ',
   'propertyDetail.amenitiesHeading': 'ဒီနေရာက ဘာတွေ ပေးစွမ်းနိုင်လဲ',
   'propertyDetail.backLink': 'ရှာဖွေမှုသို့ ပြန်သွားရန်',
   'propertyDetail.bookCta': 'ကြိုတင်မှာယူပါ',
   'propertyDetail.bookmarkAria': 'ပိုင်ဆိုင်မှုကို သိမ်းဆည်းပါ',
   'propertyDetail.freeCancellation': 'အခမဲ့ ပယ်ဖျက်ခြင်း',
+  'propertyDetail.galleryAria': 'အိမ်ခြံမြေ ဓာတ်ပုံပြခန်း',
+  'propertyDetail.galleryCloseAria': 'ပြခန်းကို ပိတ်ပါ',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': 'ဓာတ်ပုံ {{name}}/{{n}}',
+  'propertyDetail.galleryNextAria': 'နောက်ဓာတ်ပုံ',
+  'propertyDetail.galleryPrevAria': 'ယခင်ဓာတ်ပုံ',
   'propertyDetail.heroImageAlt': '{{name}} သူရဲကောင်းဓာတ်ပုံ',
   'propertyDetail.lineCleaning': 'သန့်ရှင်းရေးအခကြေးငွေ',
   'propertyDetail.lineRate': '{{price}} × {{nights}} ညများ',
@@ -107,6 +144,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'ည',
   'propertyDetail.noChargeYet': 'သင့်အား ငွေကောက်ခံမည်မဟုတ်ပါ',
   'propertyDetail.notFound': 'အိမ်ခြံမြေ ရှာမတွေ့ပါ။',
+  'propertyDetail.pickDatesHint':
+    'စျေးနှုန်းအပြည့်အစုံ ခွဲခြမ်းရှင်းလင်းချက်ကို ကြည့်ရန် သင့်ရက်စွဲများကို ရွေးပါ။',
   'propertyDetail.reviewCount': '( {{count}} သုံးသပ်ချက်များ)',
   'propertyDetail.reviewsHeading': 'မကြာသေးမီက သုံးသပ်ချက်များ',
   'propertyDetail.verified': 'တည်းခိုခွင့်အတည်ပြုထားသော အိမ်ခြံမြေ',
@@ -115,6 +154,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'စကားဝှက်အသစ်',
   'resetPassword.subheading':
     'သင့် Sojourn အကောင့်အတွက် စကားဝှက်အသစ်တစ်ခု ရွေးချယ်ပါ။ အနည်းဆုံး စာလုံး ၈ လုံးသုံးပါ။ စကားဝှက်ကို ကျွန်ုပ်တို့ အကြံပြုပါသည်။',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'သင့်ရှာဖွေမှုနှင့် ကိုက်ညီသော အိမ်ခြံမြေများ မရှိပါ။',
   'search.emptyHint':
     'သင့်ရဲ့ filter တွေကို ချဲ့ကြည့်ပါ ဒါမှမဟုတ် ဈေးနှုန်းကန့်သတ်ချက်ကို ဖယ်ရှားကြည့်ပါ — Sojourn ဟာ နိုင်ငံပေါင်း ၁၄ နိုင်ငံမှာ တည်းခိုခွင့်ရှိပါတယ်။',
@@ -122,6 +162,9 @@ export const ui: UiTranslations = {
   'search.heading': 'သင့်ခရီးစဉ်အတွက် ရွေးချယ်ထားသော တည်းခိုမှုများ',
   'search.headingForQuery': '"အတွက် တည်းခိုသည် {{q}} "',
   'search.loadError': 'ဂုဏ်သတ္တိများကို တင်၍မရပါ။',
+  'search.mapHint':
+    'ကတ်တစ်ခုပေါ် မောက်စ်တင်ကြည့်ပါက မြေပုံပေါ်ရှိ ၎င်း၏တည်နေရာကို မီးမောင်းထိုးပြပါမည်။',
+  'search.mapPinAria': '{{name}} — တစ်ညလျှင် {{price}}',
   'search.sortLabel': 'အလိုက်စဥ်သည်',
   'search.subheading': '{{count}} ဂုဏ်သတ္တိများ · {{guests}} ဧည့်သည်များ',
   'settings.openAccount': 'အကောင့်အပြည့်အစုံဖွင့်ပါ',
@@ -130,16 +173,23 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'အခမဲ့ ပယ်ဖျက်ခြင်း၊ အဖွဲ့ဝင်သီးသန့်နှုန်းထားများနှင့် ၂၄/၇ ခရီးစဉ်ဝန်ဆောင်မှုပေးခြင်းတို့ဖြင့် ဘွတ်ကင်တိုင်းတွင် မိုင်များရယူလိုက်ပါ။',
   'sojournAuthShell.brand.eyebrow': 'စိုးရိမ်ပူပန်မှုမရှိဘဲ လှည့်လည်သွားလာပါ',
+  'sojournAuthShell.brand.heading': 'စိတ်ကူးမှ ဘွတ်ကင်အထိ အနှောင့်အယှက်ကင်းသော လမ်းကြောင်း။',
   'sojournHeroSearchCard.checkInAria': 'ဝင်ရောက်မည့်ရက်စွဲ',
   'sojournHeroSearchCard.checkOutAria': 'ထွက်မည့်ရက်စွဲ',
+  'sojournHeroSearchCard.destAria': 'ဦးတည်ရာ',
+  'sojournHeroSearchCard.destLabel': 'နေရာ',
   'sojournHeroSearchCard.destPlaceholder': 'မြို့၊ ဒေသ သို့မဟုတ် ပိုင်ဆိုင်မှု',
   'sojournHeroSearchCard.eyebrow':
     'ရွေးချယ်ထားသော တည်းခိုမှုများ · အဖွဲ့ဝင်များအတွက်သာ နှုန်းထားများ',
   'sojournHeroSearchCard.guestsOption': '{{n}} ဧည့်သည်များ',
   'sojournHeroSearchCard.subtitle':
     'နိုင်ငံပေါင်း ၁၄ နိုင်ငံတွင် လက်ဖြင့်စစ်ဆေးထားသော အိမ်ခြံမြေ ၂၀၀ ကျော်တွင် လှုံ့ဆော်မှု၊ ယုံကြည်စိတ်ချရသော တည်းခိုမှုများနှင့် အိပ်မက်မှ ကြိုတင်မှာယူထားသည့်နေရာအထိ ချောမွေ့သောလမ်းကြောင်း။',
+  'sojournHeroSearchCard.title': 'စိုးရိမ်ပူပန်မှုမရှိဘဲ လှည့်လည်သွားလာပါ',
+  'sojournHeroSearchCard.trustLoyalty': 'ခရီးစဉ်တိုင်းတွင် မိုင်များ ရယူပါ',
   'sojournHeroSearchCard.trustProtected': 'အခမဲ့ပယ်ဖျက်ခြင်း၊ အပြည့်အဝကာကွယ်ခြင်း',
   'sojournHeroSearchCard.trustVetted': 'လက်ဖြင့်စစ်ဆေးထားသော အိမ်ခြံမြေများသာ',
+  'terms.intro':
+    'ထုတ်လုပ်မှုသို့ မထုတ်လွှင့်မီ ဤtemplate ကို သင့်အမှန်တကယ် {{appName}} ဝန်ဆောင်မှုစည်းကမ်းချက်များဖြင့် အစားထိုးပါ။',
   'travelBookingLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'tripDetail.backLink': 'ခရီးစဉ်များသို့ ပြန်သွားပါ',
   'tripDetail.cancelCta': 'ဘွတ်ကင် ပယ်ဖျက်ပါ',
@@ -149,6 +199,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'ရွေးချယ်နိုင်သည် — ပယ်ဖျက်ရသည့် အကြောင်းရင်း',
   'tripDetail.checkInLabel': 'ရောက်ရှိကြောင်းစာရင်းသွင်းခြင်း',
   'tripDetail.checkOutLabel': 'ထွက်ခွာသည်',
+  'tripDetail.confCode': 'ကုဒ် · {{code}}',
   'tripDetail.confirmCancelCta': 'ခရီးစဉ်ကို ပယ်ဖျက်ပါ',
   'tripDetail.hostInfo':
     'လက်ခံကျင်းပသူ {{name}} ။ check-in မတိုင်မီ ၇ ရက်အထိ အခမဲ့ ပယ်ဖျက်နိုင်ပါသည်။',
@@ -156,6 +207,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'ဆက်လက်ဘွတ်ကင်လုပ်ပါ',
   'tripDetail.lengthLabel': 'အရှည်',
   'tripDetail.loadError': 'ခရီးစဉ်ကို တင်၍မရပါ။',
+  'tripDetail.messageHostHeading': 'သင့်အိမ်ရှင်ထံ မက်ဆေ့ခ်ျပို့ပါ',
   'tripDetail.messagePlaceholder':
     'သင့်အိမ်ရှင်အား သင်ရောက်ရှိချိန်၊ အစားအသောက်လိုအပ်ချက်များ သို့မဟုတ် အခြားမည်သည့်အရာကိုမဆို အသိပေးပါ။',
   'tripDetail.messageSend': 'မက်ဆေ့ချ်ပို့ပါ',
@@ -166,9 +218,11 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'ဈေးနှုန်းအကျဉ်းချုပ်',
   'tripDetail.taxes': 'အခွန်နှင့် အခကြေးငွေများ',
   'tripItineraryRow.nights': '{{count}} ညများ',
+  'trips.empty.past': 'သင်လှည့်လည်သွားလာပြီးသည်နှင့် ယခင်ခရီးစဉ်များသည် ဤနေရာတွင် ပေါ်လာပါမည်။',
   'trips.empty.upcoming': 'လာမယ့်ခရီးစဉ်တွေ မရှိသေးပါ — အဲဒါကို ပြင်ကြရအောင်။',
   'trips.eyebrow': 'မင်းရဲ့ လှည့်လည်သွားလာမှုတွေ',
   'trips.heading': 'ခရီးစဉ်များ',
   'trips.loadError': 'ခရီးစဉ်များကို တင်၍မရပါ။',
+  'trips.searchCta': 'နောက်ထပ်ခရီးစဉ်တစ်ခုကို စီစဉ်ပါ',
   'trips.subheading': '{{upcoming}} လာမည့် · {{past}} အတိတ်',
 }

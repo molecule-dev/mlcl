@@ -1,7 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'अभिप्राय आहे, बग सापडला, किंवा तुमच्या लीगसाठी {{app}} हवे आहे? तुमच्या खाते सेटिंग्जमधून आमच्याशी संपर्क साधा — प्रत्येक संदेश संघातील खऱ्या व्यक्तीपर्यंत पोहोचतो.',
+  'about.contactTitle': 'संपर्क साधा',
   'about.eyebrow': 'बद्दल',
+  'about.featureAlerts': 'गुण अपडेट, ट्रेड अलर्ट, दुखापत अहवाल आणि लीग घोषणांसाठी पुश सूचना.',
+  'about.featureRosters':
+    'प्रत्येक खेळाडूसाठी संपूर्ण संघ रचना, हंगामातील एकूण आकडेवारी, हॉट/कोल्ड स्ट्रीक्स आणि हेड-टू-हेड विभाजनांसह संघ पृष्ठे.',
+  'about.featureSchedule':
+    'हंगाम दिनदर्शिका आणि वेळापत्रक दृश्य, जेणेकरून तुम्ही प्रत्येक सामना आणि निकालानुसार नियोजन करू शकाल.',
+  'about.featureScoreboard':
+    'प्रत्येक पृष्ठाच्या शीर्षस्थानी पिन केलेला ब्रॉडकास्ट-दर्जाचा स्कोअरबोर्ड टिकर, जेणेकरून तुम्हाला एकही गोल चुकणार नाही.',
+  'about.featureStandings':
+    'थेट स्टँडिंग्ज — रिअल-टाइम विजय-पराभव-बरोबरी नोंदी, गुण, विजय-टक्केवारी आणि प्लेऑफ रेषा, प्रत्येक शिटीवर रीफ्रेश होते.',
+  'about.intro':
+    '{{app}} हे तुमच्या लीगसाठी ब्रॉडकास्ट-दर्जाचे घर आहे. संघ, वेळापत्रके, थेट गुण आणि स्टँडिंग्ज एका वेगवान, गोंधळमुक्त डॅशबोर्डमध्ये एकत्र येतात — जेणेकरून चाहते, प्रशिक्षक आणि लीग आयोजकांना हंगाम कुठे आहे हे नेहमी कळेल.',
+  'about.missionBody':
+    'लीग फॉलो करणे म्हणजे पाच वेगवेगळ्या तृतीय-पक्षीय स्कोअरबोर्ड रीफ्रेश करणे असू नये. प्रत्येक लीगला स्टँडिंग्ज, वेळापत्रक आणि खऱ्या अर्थाने महत्त्वाच्या आकडेवारीसाठी एकच विश्वासार्ह स्रोत देण्यासाठी आम्ही हे तयार केले — प्रत्येक शिटीवर अपडेट, हंगामासाठी मोफत.',
+  'about.missionTitle': 'आमचे ध्येय',
+  'about.whatYouGet': 'तुम्हाला काय मिळते',
   'appShell.closeNav': 'नेव्हिगेशन बंद करा',
   'appShell.openNav': 'नेव्हिगेशन उघडा',
   'common.dashboard': 'डॅशबोर्ड',
@@ -16,13 +34,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'सर्व सामने पहा',
   'dashboard.viewAllStandings': 'संपूर्ण क्रमवारी •',
   'dashboard.viewAllStats': 'सर्व राज्य नेते पहा',
+  'forgot.submitting': 'रीसेट लिंक पाठवत आहे…',
   'forgot.subtitle': 'रीसेट लिंक मिळवण्यासाठी तुमचा ईमेल प्रविष्ट करा.',
   'forgot.success': 'रीसेट लिंक पाठवली आहे {{email}} तुमचा इनबॉक्स तपासा.',
+  'landing.copyright': '© {{year}} {{app}}. Chase the standing.',
+  'landing.ctaBody':
+    'तुमची लीग. तुमची स्टँडिंग्ज. तुमचा आवडता संघ — शीर्षस्थानी पिन केलेला. सेट करण्यासाठी दोन मिनिटे, हंगामासाठी मोफत.',
   'landing.ctaHeading': 'तृतीय-पक्ष स्कोअरबोर्ड रिफ्रेश करणे थांबवा',
   'landing.eyebrow': 'चाहते, प्रशिक्षक आणि लीग आयोजकांसाठी तयार केलेले',
   'landing.featuresHeading': 'प्रत्येक उभ्या असलेल्या दृश्यासाठी अगदी समोरची जागा',
   'landing.getStarted': 'लीगमध्ये सामील व्हा',
   'landing.heroCta': 'लीगमध्ये सामील व्हा',
+  'landing.heroSubtitle':
+    '{{app}} स्टँडिंग्ज, वेळापत्रके आणि सांख्यिकीय आघाडीवर असलेल्या खेळाडूंना एका ब्रॉडकास्ट-दर्जाच्या डॅशबोर्डमध्ये जोडते. थेट गुण. खऱ्या नोंदी. गोंधळ नाही.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'आज रात्री लीगमध्ये',
   'landing.statFans': 'चाहते अनुसरण करत आहेत',
   'landing.statGames': 'या हंगामातील खेळ',
@@ -34,11 +59,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'प्रश्न {{period}}',
   'matchDetail.back': 'सामन्यांकडे परत जा',
   'matchDetail.eventsHeading': 'खेळाचे थेट वर्णन',
+  'matchDetail.final': 'अंतिम',
   'matchDetail.finalScore': 'अंतिम',
   'matchDetail.live': 'थेट प्रक्षेपण',
   'matchDetail.liveNow': 'आता थेट प्रक्षेपण',
   'matchDetail.noEvents': 'अद्याप कोणत्याही घटनांची नोंद झालेली नाही.',
   'matchDetail.periodClock': 'प्रश्न {{period}} · {{clock}}',
+  'matches.empty': 'या दृश्यात कोणतेही सामने नाहीत — वेगळा फिल्टर वापरून पहा.',
   'matches.eyebrow': 'सामन्याचा दिवस',
   'matches.loading': 'पाटी खेचत आहे…',
   'matches.subtitle':
@@ -52,6 +79,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'सूचना लोड करण्यात अयशस्वी झाले',
   'notifications.loading': 'सूचना लोड होत आहेत •',
   'pennantHeroCard.eyebrow': 'टेबलच्या शीर्षस्थानी',
+  'pennantHeroCard.formLabel': 'शेवटचे १०',
   'pennantHeroCard.gamesAhead': '{{value}} पाठलागाच्या पुढे असलेले खेळ',
   'pennantHeroCard.pointsLabel': 'पीटीएस',
   'pennantLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
@@ -79,17 +107,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'तुमची जागा निवडा',
   'pricing.heading': 'अधिक तपशीलवार वेळापत्रक, स्कोअर आणि क्रमवारीसाठी अपग्रेड करा.',
   'pricing.limits.schedule': '{{count}} वेळापत्रक नोंदी',
+  'pricing.limits.scores': '{{count}} गुण',
+  'pricing.limits.standings': '{{count}} स्टँडिंग्ज',
+  'pricing.limits.teams': '{{count}} संघ',
+  'pricing.subtitle': 'समृद्ध वेळापत्रक, गुण आणि स्टँडिंग्जसाठी अपग्रेड करा.',
   'pricing.upgradeCta': 'अपग्रेड करा {{tierName}}',
   'profile.eyebrow': 'फॅन प्रोफाइल',
   'profile.favoritesCount': 'संघांनी अनुसरण केले',
   'profile.favoritesHeading': 'आवडते संघ',
   'profile.noFavorites': 'अद्याप कोणताही आवडता संघ नाही — संघ पृष्ठावरून संघ निवडा.',
   'profile.rankRecord': 'क्रमांक # {{rank}} · {{record}}',
+  'profile.recordOnly': 'नोंद {{record}}',
   'reset.confirmPlaceholder': 'पासवर्ड पुन्हा टाका',
+  'reset.mismatch': 'पासवर्ड जुळत नाहीत.',
   'reset.newLabel': 'नवीन पासवर्ड',
   'reset.subtitle': 'किमान १२ अक्षरांचा एक मजबूत पासवर्ड निवडा.',
   'reset.tokenPlaceholder': 'ईमेलमधून पेस्ट करा',
   'schedule.eyebrow': 'स्लेट',
+  'schedule.moreGames': '+ {{count}} अधिक',
   'schedule.subtitle':
     'संपूर्ण हंगामातील सामन्यांचे कॅलेंडर दृश्य — स्कोअर पाहण्यासाठी कोणत्याही दिवसावर टॅप करा.',
   'scoreboardTicker.empty': 'सध्या थेट सामने नाहीत — सामना सुरू झाल्यावर पुन्हा तपासा.',
@@ -97,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'वैयक्तिकृत करा',
   'settings.favoritesBody':
     'हे संघ तुमच्या डॅशबोर्डवर पिन केले जातात आणि स्कोअर अलर्ट ट्रिगर करतात.',
+  'settings.favoritesHeading': 'आवडते संघ',
   'settings.loading': 'तुमच्या पसंती लोड होत आहेत…',
   'settings.noFavorites': 'अद्याप कोणतेही आवडते संघ नाहीत — संघ पृष्ठावरून संघ निवडा.',
   'settings.notificationsHeading': 'सूचना आणि प्रदर्शन',
@@ -114,6 +150,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'एल',
   'standings.overall': 'एकूणच',
   'standings.points': 'पीटीएस',
+  'standings.rank': '#',
   'standings.subtitle':
     'अव्वल चार संघ पोस्टसीझनसाठी पात्र ठरतात — टायब्रेकर गुणांवर, त्यानंतर विजयाच्या टक्केवारीवर आधारित असतो.',
   'standings.title': 'लीग क्रमवारी',
@@ -132,6 +169,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'जी',
   'teamDetail.colName': 'खेळाडू',
   'teamDetail.colPos': 'पॉस',
+  'teamDetail.pointsLabel': 'गुण',
   'teamDetail.rankLabel': 'क्रमांक # {{rank}}',
   'teamDetail.rosterHeading': 'रोस्टर',
   'teamDetail.statGD': 'गोल फरक',

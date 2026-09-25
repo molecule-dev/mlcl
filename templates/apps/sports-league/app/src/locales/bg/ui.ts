@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате обратна връзка, открихте бъг или искате {{app}} за вашата лига? Свържете се с нас от настройките на акаунта си — всяко съобщение стига до реален човек от екипа.',
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
+  'about.featureAlerts':
+    'Push известия за промени в резултатите, сигнали за трансфери, доклади за контузии и съобщения на лигата.',
+  'about.featureRosters':
+    'Страници на отборите с пълни състави, сезонни сборове, серии от победи/загуби и статистика за директни сблъсъци за всеки играч.',
+  'about.featureSchedule':
+    'Календар на сезона и изглед на програмата, за да планирате около всеки мач и резултат.',
+  'about.featureScoreboard':
+    'Тикер за резултати в телевизионно качество, закачен в горната част на всяка страница, за да не пропуснете гол.',
+  'about.featureStandings':
+    'Класиране на живо — записи за победи-загуби-равенства в реално време, точки, процент победи и линията за плейофите, обновявани при всеки съдийски сигнал.',
+  'about.intro':
+    '{{app}} е дом в телевизионно качество за вашата лига. Отбори, програми, резултати на живо и класирания се събират в едно бързо табло без излишно — така феновете, треньорите и организаторите на лигата винаги знаят къде се намира сезонът.',
+  'about.missionBody':
+    'Да следиш лига не бива да означава да опресняваш пет различни табла на трети страни. Създадохме го, за да дадем на всяка лига единен източник на истина за класирането, програмата и статистиките, които наистина имат значение — обновявани при всеки съдийски сигнал, безплатно за сезона.',
+  'about.missionTitle': 'Нашата мисия',
+  'about.whatYouGet': 'Какво получавате',
   'appShell.closeNav': 'Затвори навигацията',
   'appShell.openNav': 'Отвори навигацията',
   'common.dashboard': 'Табло',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Вижте всички мачове \\u2192',
   'dashboard.viewAllStandings': 'Пълно класиране \\u2192',
   'dashboard.viewAllStats': 'Вижте всички лидери по статистика \\u2192',
+  'forgot.submitting': 'Изпращане на връзка за нулиране…',
   'forgot.subtitle': 'Въведете имейла си, за да получите линк за нулиране.',
   'forgot.success': 'Връзката за нулиране е изпратена до {{email}} Проверете входящата си поща.',
+  'landing.copyright': '© {{year}} {{app}}. Гонете класирането.',
+  'landing.ctaBody':
+    'Вашата лига. Вашето класиране. Вашият любим отбор — закачен най-отгоре. Две минути за настройка, безплатно за сезона.',
   'landing.ctaHeading': 'Спиране на обновяването на таблата с резултати на трети страни',
   'landing.eyebrow': 'Създаден за фенове, треньори и организатори на лигата',
   'landing.featuresHeading': 'Място на първия ред за всеки стоящ',
   'landing.getStarted': 'Присъединете се към лигата',
   'landing.heroCta': 'Присъединете се към лигата',
+  'landing.heroSubtitle':
+    '{{app}} обединява класирания, програми и статистически лидери в едно табло в телевизионно качество. Резултати на живо. Реални записи. Без излишно.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Тази вечер около лигата',
   'landing.statFans': 'Следващи фенове',
   'landing.statGames': 'Мачове този сезон',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'В {{period}}',
   'matchDetail.back': 'Обратно към мачовете',
   'matchDetail.eventsHeading': 'Действие по действие',
+  'matchDetail.final': 'КРАЙ',
   'matchDetail.finalScore': 'Финал',
   'matchDetail.live': 'НА ЖИВО',
   'matchDetail.liveNow': 'На живо сега',
   'matchDetail.noEvents': 'Все още няма записани събития.',
   'matchDetail.periodClock': 'В {{period}} · {{clock}}',
+  'matches.empty': 'Няма мачове в този изглед — опитайте с друг филтър.',
   'matches.eyebrow': 'Ден на мача',
   'matches.loading': 'Дърпане на шистите…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Не успях да заредя известията',
   'notifications.loading': 'Зареждане на известия\\u2026',
   'pennantHeroCard.eyebrow': 'Върхът на таблицата',
+  'pennantHeroCard.formLabel': 'Последни 10',
   'pennantHeroCard.gamesAhead': '{{value}} игри преди преследването',
   'pennantHeroCard.pointsLabel': 'ПТС',
   'pennantLayout.primaryNavLabel': 'Основна навигация',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Изберете си място',
   'pricing.heading': 'Надстройте за по-богат график, резултати и класиране.',
   'pricing.limits.schedule': '{{count}} записи в графика',
+  'pricing.limits.scores': '{{count}} резултати',
+  'pricing.limits.standings': '{{count}} класиране',
+  'pricing.limits.teams': '{{count}} отбора',
+  'pricing.subtitle': 'Надградете за по-богата програма, резултати и класиране.',
   'pricing.upgradeCta': 'Надстройте до {{tierName}}',
   'profile.eyebrow': 'Профил на фен',
   'profile.favoritesCount': 'Следени отбори',
   'profile.favoritesHeading': 'Любими отбори',
   'profile.noFavorites': 'Все още няма любими — изберете отбори от страницата „Отбори“.',
   'profile.rankRecord': 'Ранг # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Запис {{record}}',
   'reset.confirmPlaceholder': 'Повторете паролата',
+  'reset.mismatch': 'Паролите не съвпадат.',
   'reset.newLabel': 'Нова парола',
   'reset.subtitle': 'Изберете силна парола от поне 12 знака.',
   'reset.tokenPlaceholder': 'Поставяне от имейл',
   'schedule.eyebrow': 'Шиферът',
+  'schedule.moreGames': '+ {{count}} повече',
   'schedule.subtitle':
     'Календарен изглед на мачовете през целия сезон — докоснете който и да е ден за резултати от мачовете.',
   'scoreboardTicker.empty':
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Персонализиране',
   'settings.favoritesBody':
     'Тези отбори се закачват към таблото ви за управление и задействат известия за резултати.',
+  'settings.favoritesHeading': 'Любими отбори',
   'settings.loading': 'Зареждане на предпочитанията ви\\u2026',
   'settings.noFavorites': 'Все още няма любими \\u2014 изберете отбори от страницата „Отбори“.',
   'settings.notificationsHeading': 'Известия и дисплей',
@@ -115,6 +152,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'Л',
   'standings.overall': 'Като цяло',
   'standings.points': 'ПТС',
+  'standings.rank': '#',
   'standings.subtitle':
     'Първите четири се класират за плейофите — тайбрек по точки, след това процент победи.',
   'standings.title': 'Класиране в лигата',
@@ -133,6 +171,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'Г',
   'teamDetail.colName': 'Играч',
   'teamDetail.colPos': 'Поз',
+  'teamDetail.pointsLabel': 'Точки',
   'teamDetail.rankLabel': 'Ранг # {{rank}}',
   'teamDetail.rosterHeading': 'Състав',
   'teamDetail.statGD': 'Голова разлика',

@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ သို့မဟုတ် အင်္ဂါရပ်တစ်ခု လိုချင်ပါသလား။ မက်ဆေ့ခ်ျတိုင်းကို ကျွန်ုပ်တို့ ဖတ်ပါတယ် — သင့်အကောင့် ဆက်တင်များမှ {{appName}} အဖွဲ့ကို ဆက်သွယ်ပါ၊ လူတစ်ဦးက သင့်ကို ပြန်လည် ဆက်သွယ်ပါလိမ့်မယ်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.intro':
+    '{{appName}} သည် ဒီဇိုင်းအဖွဲ့များ၊ အလုပ်ရုံ ဦးဆောင်သူများနှင့် ပညာပေးသူများအတွက် ပူးပေါင်းလုပ်ဆောင်နိုင်သော အဆုံးမဲ့ ကင်းဗတ်စ် တစ်ခု ဖြစ်သည်။ စတစ်ကီ မှတ်စုများ ချပါ၊ ပုံသဏ္ဌာန်များ ရေးဆွဲပါ၊ လက်ဖြင့် ဆွဲပါ၊ ပြီးလျှင် အဖွဲ့ဝင်များ သင့်နှင့်အတူ အချိန်နှင့်တပြေးညီ စဉ်းစားနေသည်ကို ကြည့်ပါ — ရှုပ်ထွေးပြီး ဖန်တီးမှုရှိသော စိတ်ကူးများ နောက်ဆုံးတွင် စုစည်းနိုင်သည့် တစ်နေရာတည်းတွင်။',
+  'about.missionBody':
+    'ကြီးမြတ်သော စဉ်းစားမှုသည် ရှားပါးစွာ သပ်ရပ်သည်။ {{appName}} သည် အဖွဲ့များအတွက် လျင်မြန်ပြီး အတားအဆီးနည်းသော မျက်နှာပြင်တစ်ခု ပေးရန် တည်ရှိသည် — စိတ်ကူးများ ရောက်ရှိသည့် အခိုက်အတန့်တွင် ဖမ်းယူနိုင်ပြီး အဓိပ္ပာယ်ရှိလာသည်အထိ အတူတကွ ပုံဖော်နိုင်သည် — နောက်ကျမှုများ၊ ပျောက်ဆုံးသွားသော အလုပ်များ သို့မဟုတ် အရှိန်ကို သတ်ပစ်သော တင်းကျပ်သည့် ကိရိယာများ မပါဘဲ။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'authShell.brandFooter':
+    '“ကျွန်ုပ်တို့ ပြန်လည်တည်ဆောက်မှု ထုတ်လွှင့်သည့် အပတ်တွင် ကိရိယာလေးခုကို {{appName}} ဖြင့် အစားထိုးခဲ့သည်။ Retro က သူ့ကိုယ်သူ သိမ်းဆည်းခဲ့သည်။” — Atlas Studio',
+  'authShell.brandFooterMeta': 'ဒီဇိုင်းအဖွဲ့ ၁၂,၄၀၀+ က ယုံကြည်စိတ်ချစွာ အသုံးပြုနေသည်',
   'authShell.brandHeading':
     'ကျယ်လောင်စွာ စဉ်းစားတတ်သော ဒီဇိုင်းအဖွဲ့များအတွက် multiplayer ပန်းချီကားများ။',
   'billing.canceled': 'စာရင်းသွင်းမှုကို ပယ်ဖျက်လိုက်ပါပြီ။',
@@ -11,6 +21,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': 'ထာဝရအခမဲ့ အစပြုသူအဆင့်။',
   'billing.freePlanName': 'အခမဲ့',
   'billing.paidPlanBody': 'အသက်ဝင်သော စာရင်းသွင်းမှု။',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'အစီအစဉ်နှင့် ငွေတောင်းခံလွှာများ',
   'billing.updated': 'အစီအစဉ်ကို အပ်ဒိတ်လုပ်ပြီးပါပြီ။',
   'billing.upgradeTitle': 'ရရှိနိုင်သော အစီအစဉ်များ',
@@ -19,8 +30,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': '၏ {{max}} ပါဝင်သည်',
   'boardCanvas.backToBoards': 'ဘုတ်အားလုံး',
   'boardCanvas.changeColor': 'အရောင်ပြောင်းပါ {{color}}',
+  'boardCanvas.collaboratorsTitle': 'ပူးပေါင်းဆောင်ရွက်သူများ',
   'boardCanvas.deleteElement': 'အစိတ်အပိုင်းကို ဖျက်ပါ',
   'boardCanvas.deselect': 'ရွေးချယ်မှုကို ဖျက်ရန်',
+  'boardCanvas.elementLabel': '{{type}} ဒြပ်စင်',
   'boardCanvas.elementsCount': '{{count}} ဒြပ်စင်များ',
   'boardCanvas.elementText': 'စာသား',
   'boardCanvas.empty.body':
@@ -30,10 +43,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': 'ဖြည့်ပါ',
   'boardCanvas.invited': 'ဖိတ်ကြားထားသည် {{email}}',
   'boardCanvas.metaTitle': 'ရာထူး',
+  'boardCanvas.metaWH': 'W: {{w}}  H: {{h}}',
   'boardCanvas.metaXY': 'X: {{x}} Y: {{y}}',
   'boardCanvas.noCollaborators':
     'ပူးပေါင်းဆောင်ရွက်သူများ မရှိသေးပါ။ အသင်းဖော်များကို ဖိတ်ခေါ်ရန် Share ကို အသုံးပြုပါ။',
   'boardCanvas.present': 'လက်ရှိ',
+  'boardCanvas.private': 'သီးသန့် — ဖိတ်ကြားမှုဖြင့်သာ',
   'boardCanvas.properties': 'ဂုဏ်သတ္တိများ',
   'boardCanvas.public': 'အများသုံး — လင့်ခ်ရှိသူတိုင်း ကြည့်ရှုနိုင်သည်',
   'boardCanvas.roleCommenter': 'မှတ်ချက်ပေးနိုင်သည်',
@@ -49,6 +64,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'ကပ်စေးကပ်ကပ်အရောင်ကို ရွေးပါ',
   'boardCanvas.summaryCount': '{{count}} ပတ္တူပေါ်ရှိ အစိတ်အပိုင်းများ',
   'boardCanvas.summaryTitle': 'ဘုတ်အဖွဲ့',
+  'boardCanvas.surface.clear': 'ဘုတ် ကင်းဗတ်စ် — ရွေးချယ်မှု ရှင်းလင်းရန်',
+  'boardCanvas.surface.draw': 'ဘုတ် ကင်းဗတ်စ် — ဆွဲရန် ဆွဲယူပါ',
+  'boardCanvas.surface.place': 'ဘုတ် ကင်းဗတ်စ် — ဒြပ်စင် နေရာချရန်',
   'boardCanvas.untitled': 'ခေါင်းစဉ်မဲ့ဘုတ်',
   'boardCanvas.visibilityTitle': 'မြင်နိုင်စွမ်း',
   'boardCanvas.zoomIn': 'ချဲ့ကြည့်ပါ',
@@ -72,6 +90,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'ရှာဖွေမှုဘုတ်များ',
   'boards.searchPlaceholder': 'ရှာဖွေမှုဘုတ်များ',
   'boards.sharedTitle': 'ကျွန်ုပ်နှင့် မျှဝေထားသည်',
+  'boards.sortedBy': 'မကြာသေးမီက အပ်ဒိတ်လုပ်ထားသည့်အလိုက် စီစဉ်ထားသည်',
   'boards.startFromTemplate': 'ပုံစံမှ စတင်ပါ',
   'boards.title': 'သင့်ရဲ့ ဘုတ်အဖွဲ့တွေ',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -86,6 +105,7 @@ export const ui: UiTranslations = {
   'landing.cta.title':
     'ရှုပ်ထွေးသော၊ ဖန်တီးနိုင်စွမ်းရှိသော၊ လူကိုယ်တိုင် စဉ်းစားတွေးခေါ်မှုအတွက် တည်ဆောက်ထားသည်။',
   'landing.demoBoard.title': 'Q1 အလုပ်ရုံဆွေးနွေးပွဲ · အမှတ်တံဆိပ်အသံ',
+  'landing.demoBoard.updated': '၁၂ မိနစ်က အပ်ဒိတ်လုပ်ခဲ့သည်',
   'landing.featuresEyebrow': 'Slate tesselate ကို ဘာကဖြစ်စေသလဲ',
   'landing.featuresTitle': 'လျင်မြန်သော တုံ့ပြန်ချက်။ လှပသော ပတ္တူများ။ ပွတ်တိုက်မှု လုံးဝမရှိပါ။',
   'landing.hero.body':
@@ -98,18 +118,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '•••••••••••',
   'login.signIn': 'Slate မှာ အကောင့်ဝင်ပါ',
   'login.signupCta': 'အခမဲ့ အလုပ်ခွင်တစ်ခု ဖန်တီးပါ',
+  'login.signupPrompt': 'Tessera ကို အသစ်လား။',
   'login.subheading':
     'အလုပ်ရုံဆွေးနွေးပွဲ ပြီးဆုံးသွားသည့်နေရာမှ ဆက်လုပ်ပါ — ဘုတ်များ၊ ကပ်ခွာမှတ်စုများနှင့် ကာဆာများအားလုံးကို အချိန်နှင့်တပြေးညီ ထပ်တူပြုပါသည်။',
   'mobileNav.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
   'mobileNav.new': 'အသစ်',
   'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
+  'notifications.editBody': 'ဘုတ် အကြောင်းအရာ အပ်ဒိတ်လုပ်ခဲ့သည်။',
   'notifications.editTitle': '"သို့ တည်းဖြတ်မှုများ {{board}} "',
   'notifications.empty.body':
     'ဖိတ်ကြားချက်များ၊ snapshot သိမ်းဆည်းမှုများနှင့် မကြာသေးမီက ဘုတ်ပြင်ဆင်မှုများသည် ဤနေရာတွင် ပေါ်လာပါမည်။',
   'notifications.empty.title': 'သင့် inbox တွင် အသစ်အဆန်းမရှိပါ',
   'notifications.eyebrow': '{{name}} · ဝင်စာပုံး',
+  'notifications.inviteBody': '"{{board}}" တွင် {{role}} အဖြစ်',
   'notifications.inviteTitle': 'ဖိတ်ကြားထားသည် {{email}}',
   'notifications.snapshotTitle': '" မှာ ရိုက်ထားတဲ့ ဓာတ်ပုံအသစ် {{board}} "',
+  'present.addFirst': 'ပထမဆုံး ဖရိမ် ထည့်ရန်',
   'present.addFrame': '+ ဘောင်ထည့်ပါ',
   'present.boardEyebrow': '{{title}} · တင်ဆက်မှု',
   'present.empty.body':
@@ -117,6 +141,7 @@ export const ui: UiTranslations = {
   'present.empty.title': 'ဘောင်များ မရှိသေးပါ',
   'present.exit': 'တင်ဆက်မှုမှ ထွက်ရန်',
   'present.exitToBoard': 'ပတ္တူသို့ ပြန်သွားရန်',
+  'present.eyebrow': 'တင်ဆက်မှု မုဒ်',
   'present.frameBody': 'ဆွေးနွေးချက်အချက်များ',
   'present.frameName': 'ဘောင်အမည်',
   'present.frameOf': 'ဘောင် {{current}} ၏ {{total}}',
@@ -126,21 +151,31 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'တိုက်ရိုက်တင်ဆက်မှု',
   'present.save': 'ဖရိမ်ကို သိမ်းဆည်းပါ',
   'present.title': 'သင့်ဇာတ်လမ်းကို လုပ်ဆောင်ပါ',
+  'present.unnamed': 'ခေါင်းစဉ်မဲ့ ဖရိမ်',
+  'pricing.limits.advanced': 'အဆင့်မြင့် အင်္ဂါရပ်များ',
   'profile.cursorBody':
     'ဤစက်တွင် သိမ်းဆည်းထားသည် — အသင်းဖော်များသည် သင်၏ တိုက်ရိုက်ကာဆာဘေးတွင် ဤအရောင်ကို မြင်ရပါမည်။',
   'profile.cursorEyebrow': 'သင့်ရဲ့ cursor အရောင်',
   'profile.eyebrow': 'အများပြည်သူ ပူးပေါင်းဆောင်ရွက်သူကတ်',
+  'profile.noBoards': 'ဘုတ်များ မရှိသေးပါ — စတင်ရန် တစ်ခု ဖန်တီးပါ။',
+  'profile.recentBoards': 'မကြာသေးမီက ထိတွေ့ခဲ့သော ဘုတ်များ {{name}}',
   'profile.stat.${s.label}': 'ဘုတ်များ {{အမည်}} မကြာသေးမီက ထိတွေ့ခဲ့သော',
+  'profile.statsEyebrow': 'သင့်ရဲ့ လုပ်ဆောင်ချက်',
   'profile.title': 'သင့်ပရိုဖိုင်',
+  'reset.backPrompt': 'အခြားအီးမေးလ် လိုအပ်ပါသလား။',
   'reset.cta': 'စကားဝှက်ကို ပြန်လည်သတ်မှတ်ပြီး လက်မှတ်ထိုးဝင်ပါ',
+  'reset.password': 'စကားဝှက်အသစ်',
   'reset.subheading':
     'ခိုင်မာတဲ့ စကားဝှက်တစ်ခုကို ရွေးချယ်ပါ - အနည်းဆုံး စာလုံး ၈ လုံးနဲ့ ဂဏန်းတစ်လုံး ပါဝင်ပါစေ။',
   'settings.appearance.title': 'အပြင်အဆင်နှင့် ကင်းဗတ်စ်',
   'settings.eyebrow': 'အကောင့် ဦးစားပေးများ',
   'settings.notifications.title': 'အကြောင်းကြားချက် ဦးစားပေးမှုများ',
   'settings.profile.title': 'အများပြည်သူ ပူးပေါင်းဆောင်ရွက်သူကတ်',
+  'settings.security.body':
+    'သင့်အကောင့် ဒက်ရှ်ဘုတ်မှ နှစ်ဆင့် အတည်ပြုခြင်း၊ လက်ရှိ ဆက်ရှင်များနှင့် စကားဝှက်ကို စီမံပါ။',
   'settings.security.title': 'လုံခြုံရေး',
   'shared.collaboratorCount': '{{count}} ပူးပေါင်းဆောင်ရွက်သူ(များ)',
+  'shared.count': 'ဘုတ် {{count}} ခု',
   'shared.empty.body':
     'အသင်းဖော်တစ်ဦးက သင့်အား ဘုတ်တစ်ခုသို့ ဖိတ်ခေါ်သောအခါ၊ ၎င်းသည် ဤနေရာတွင် အလိုအလျောက် ပေါ်လာလိမ့်မည်။',
   'shared.empty.title': 'သင်နှင့် မျှဝေထားခြင်း မရှိသေးပါ',
@@ -155,6 +190,9 @@ export const ui: UiTranslations = {
   'signup.passwordPlaceholder': 'စာလုံး ၈ လုံး+',
   'signup.subheading': 'ပူးပေါင်းဆောင်ရွက်သူ ၃ ဦးအထိ အခမဲ့။ ပထမ ၁၄ ရက်အတွင်း ခရက်ဒစ်ကတ် မလိုအပ်ပါ။',
   'templateCard.usageCount': '{{count}} အသုံးပြုမှုများ',
+  'templateDetail.allTemplates': 'ပုံစံအားလုံး',
+  'templateDetail.body':
+    '"{{name}}" အမည်ရှိ ဘုတ်အသစ်တစ်ခုသို့ {{count}} စတင်ဒြပ်စင်များ ကူးယူရန် "Use template" ကို နှိပ်ပါ။ ထိုနေရာမှ ပြင်ဆင်ပါ၊ မျှဝေပါ၊ သင့်အလုပ်ရုံကို လည်ပတ်ပါ။',
   'templateDetail.delete': 'နမူနာကို ဖျက်ပါ',
   'templateDetail.elementsCount': '{{count}} စတင်သည့် အစိတ်အပိုင်းများ',
   'templateDetail.eyebrow': '{{kind}} ပုံစံ',
@@ -167,16 +205,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'စိတ်ကြိုက် template တစ်ခုကို သိမ်းဆည်းပါ',
   'templates.empty.body':
     'သင်ပိုင်ဆိုင်သော မည်သည့်ဘုတ်မှမဆို စိတ်ကြိုက်တင်းပလိတ်တစ်ခု ဖန်တီးပါ — ဘုတ်ကိုဖွင့်ပါ၊ snapshot တစ်ခုကို သိမ်းဆည်းပါ၊ ထို့နောက် ၎င်းကို ဤနေရာတွင် ပြန်လည်အသုံးပြုနိုင်သော တင်းပလိတ်အဖြစ် သိမ်းဆည်းပါ။',
+  'templates.empty.title': 'ပုံစံများ မရှိသေးပါ',
   'templates.eyebrow': 'အလုပ်ရုံဆွေးနွေးပွဲပစ္စည်းများနှင့် သိမ်းဆည်းထားသော template များ',
   'templates.filter.${c}': 'ပုံစံများ မရှိသေးပါ',
   'templates.nameLabel': 'နမူနာအမည်',
   'templates.systemBadge': 'တပ်ဆင်ထားသော',
   'templates.userBadge': 'မင်းရဲ့ဟာ',
   'versionHistory.backToBoard': 'ပတ္တူသို့ ပြန်သွားရန်',
+  'versionHistory.elementsTotal': 'ဖမ်းယူထားသော ဒြပ်စင် {{count}} ခု',
   'versionHistory.empty.body':
     'Snapshot များကို "Save snapshot" ဖြင့် board canvas မှ ဖန်တီးထားသည် — ၎င်းတို့သည် ဤနေရာတွင် ပေါ်လာသောကြောင့် သင်သည် ယခင်အခြေအနေကို ပြန်လည်ရယူနိုင်သည်။',
+  'versionHistory.empty.cta': 'တစ်ခု ရယူရန် ကင်းဗတ်စ် ဖွင့်ပါ',
   'versionHistory.empty.title': 'လျှပ်တစ်ပြက်ဓာတ်ပုံများ မရှိသေးပါ',
   'versionHistory.eyebrow': '{{title}} · သမိုင်း',
+  'versionHistory.eyebrowFallback': 'ဘုတ် မှတ်တမ်း',
   'versionHistory.latest': 'နောက်ဆုံးပေါ်',
   'versionHistory.restore': 'ဤဗားရှင်းကို ပြန်လည်ရယူပါ',
   'versionHistory.restored': 'လျှပ်တစ်ပြက်ပုံကို ပြန်လည်ရယူပြီးပါပြီ။',
@@ -187,6 +229,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'ဘုတ်အသစ်',
   'whiteboardLayout.primaryNav': 'အဓိက လမ်းညွှန်ချက်',
   'workspace.boardLabel': 'ဘုတ်အဖွဲ့',
+  'workspace.empty': 'ပူးပေါင်းလုပ်ဆောင်သူများ မရှိသေးပါ — သင့်ဘုတ်များသို့ တစ်ဦးကို ဖိတ်ကြားပါ။',
   'workspace.eyebrow': '{{name}} · အလုပ်ခွင်',
   'workspace.invite': 'ပူးပေါင်းဆောင်ရွက်သူများကို ဖိတ်ခေါ်ပါ',
   'workspace.inviteSent': 'ဖိတ်ကြားချက်ပေးပို့ပြီးပါပြီ။',
@@ -196,4 +239,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'မှတ်ချက်ပေးသူ',
   'workspace.role.editor': 'အယ်ဒီတာ',
   'workspace.role.viewer': 'ကြည့်ရှုသူ',
+  'workspace.title': 'အဖွဲ့ဝင်များနှင့် ရာထူးများ',
 }

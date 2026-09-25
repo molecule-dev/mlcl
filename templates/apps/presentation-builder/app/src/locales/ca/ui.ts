@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens preguntes, comentaris o alguna funció que t'agradaria que tinguéssim? Contacta amb l'equip des de la configuració del teu compte: una persona real llegeix cada missatge.",
   'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
+  'about.missionTitle': 'La nostra missió',
+  'about.whatYouGetTitle': 'El que obtens',
   'analytics.empty': 'Crea mapes per veure les anàlisis aquí.',
   'analytics.stats.acrossDecks': 'A totes les cobertes',
   'analytics.stats.allTime': 'Al teu estudi',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Títol de la baralla',
   'landing.features.eyebrow': 'Per què Overture?',
   'landing.features.heading': 'Tot el que necessites per pujar a l’escenari a punt.',
+  'landing.finalCta.body':
+    "Crea el teu estudi en menys d'un minut. Sense targeta de crèdit. Cancel·la quan vulguis.",
   'landing.finalCta.cta': 'Crea el teu estudi gratuït',
   'landing.finalCta.eyebrow': 'Gratuït per començar',
   'landing.finalCta.heading': 'Puja a l’escenari amb la millor baralla de la teva carrera.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Editat fa 12 minuts',
   'notifications.created': 'creat',
   'notifications.edited': 'editat',
+  'notifications.empty.body':
+    "L'activitat a les teves baralles —comentaris, mencions, exportacions— apareixerà aquí.",
   'notifications.empty.title': 'Encara no hi ha notificacions',
   'notifications.eyebrow': 'Activitat escènica',
   'notifications.loading': 'S’està carregant…',
   'notifications.shared': 'compartit públicament',
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
   'present.addSlides': 'Afegeix diapositives',
   'present.backToDecks': 'Torna a les baralles',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Intèrpret d’escena',
   'settings.security.notSet': 'No definit',
   'settings.security.passwordBody': 'La teva contrasenya està xifrada en repòs.',
+  'settings.security.reset': 'Restablir',
   'settings.security.title': 'Compte + sessions',
   'shared.empty.body':
     'Els conjunts de taules que comparteixis públicament apareixeran aquí. Obre un conjunt de taules i activa l’opció pública per compartir-lo.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'S’està carregant…',
   'shared.title': 'terrasses compartides',
   'templateCard.slideCount': '{{count}} diapositives',
+  'templateCard.usageCount': '{{count}} usos',
+  'templates.empty.body': 'Prova un filtre diferent: publiquem plantilles noves cada mes.',
+  'templates.empty.title': 'Encara no hi ha plantilles en aquesta categoria',
+  'templates.hero.body':
+    'Dissenys de diapositives amb temàtica prèvia, blocs de gràfics, marcs de demostració, notes del presentador i temporitzadors predefinits: totes les plantilles estan llestes per gravar.',
   'templates.hero.eyebrow': 'Etapes seleccionades',
   'templates.hero.heading': 'Escenaris construïts per al moment que necessites aterrar-hi.',
 }

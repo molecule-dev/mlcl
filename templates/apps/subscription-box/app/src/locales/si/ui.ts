@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'නිකුතුවක්, නැව්ගත කිරීමක් හෝ ඔබේ දායකත්වය පිළිබඳ ප්‍රශ්නද? hello@crate.example හරහා කණ්ඩායමේ සැබෑ මිනිසෙකු හමුවන්න — අපි සෑම පණිවිඩයක්ම කියවමු.',
+  'about.contactTitle': 'භාරකරුවෙකු සමඟ කතා කරන්න',
+  'about.feature1':
+    'ස්වාධීන නිර්මාණකරුවන් විසින් තෝරාගත් මාසික නිකුතු, සෑම අයිතමයක් පිටුපසම ඇති කතාව සමඟ.',
+  'about.feature2':
+    'සෑම පෙට්ටියක්ම පිළිබඳ පූර්ණ පාලනය — අන්තර්ගතය අභිරුචිකරණය කරන්න, අයිතම මාරු කරන්න හෝ බැහැර කරන්න, මාසයක් මඟහරින්න, නැතහොත් ඔබේ වාර ගණන වෙනස් කරන්න.',
+  'about.feature3':
+    'පිකප් සිට දොරකඩ දක්වා සම්පූර්ණ නැව්ගත කිරීම් ලුහුබැඳීම, ප්ලාස්ටික් රහිත ඇසුරුම් සහ සජීවී ප්‍රවාහක යාවත්කාලීන සමඟ.',
+  'about.feature4':
+    'නම්‍යශීලී සැලසුම් සහ විනිවිද පෙනෙන බිල්පත් — උත්ශ්‍රේණි කරන්න, අවශ්‍රේණි කරන්න, විරාම කරන්න, නැතහොත් ඕනෑම වේලාවක ඔබේ උපකරණ පුවරුවෙන් අවලංගු කරන්න.',
+  'about.intro':
+    '{{app}} යනු සෑම මාසයකම ඔබේ දොරකඩට අතින් තෝරාගත්, කුඩා-පරිමාණ සතුට පෙට්ටියක් බෙදාහරින තෝරාගත් දායකත්ව-පෙට්ටි සේවාවකි. සෑම නිකුතුවක්ම එකලස් කරන්නේ ක්‍රියාකාරී නිර්මාණකරුවන් — ස්වාධීන කලාකරුවන්, සූපවේදීන් සහ කුඩා වෙළඳ නාම — මිස ඇල්ගොරිතමයක් නොවේ.',
+  'about.missionBody':
+    'දායකත්වයක් උගුලක් ලෙස නොව තෑග්ගක් ලෙස දැනිය යුතු යැයි අපි විශ්වාස කරමු. {{app}} ගොඩනගා ඇත්තේ ලැබෙන දේ ඔබට ආදරය කරන නිසාම ඔබ රැඳී සිටින පරිදිය — ඕනෑම වේලාවක විරාම කරන්න, ඔබට අවශ්‍ය දේ මාරු කරන්න, එක ක්ලික් එකකින් අවලංගු කරන්න. රඳවා තබා ගැනීමේ ස්ක්‍රිප්ට් කිසිවිටෙකුත් නැත.',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
   'about.pageTitle': '{{app}} පිළිබඳව',
   'appNav.mobileLabel': 'ප්‍රාථමික සංචාලනය',
   'appNav.primaryLabel': 'ප්‍රාථමික සංචාලනය',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'බිල්පත් සම්බන්ධතාව සංස්කරණය කරන්න',
   'billing.contact.eyebrow': 'බිල්පත් සම්බන්ධතාව',
   'billing.eyebrow': 'සැලැස්ම සහ ගෙවීම්',
+  'billing.loading': 'බිල්පත් පූරණය වෙමින්…',
   'billing.payment.body':
     'ගෙවීම Stripe Checkout මගින් හසුරුවනු ලැබේ — ඔබගේ සම්පූර්ණ කාඩ්පත් අංකය කිසි විටෙකත් අපගේ සේවාදායකයන්ට ස්පර්ශ නොවේ. ඔබගේ කාඩ්පත එක් කිරීමට හෝ යාවත්කාලීන කිරීමට පහත ඕනෑම ස්ථරයක් ක්ලික් කරන්න.',
   'billing.payment.linked': 'Stripe හරහා ගොනුවේ ඇති කාඩ්පත',
@@ -19,10 +36,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'දායකත්වය නැවත ආරම්භ කරන්න',
   'billing.plan.eyebrow': 'ක්‍රියාකාරී සැලැස්ම',
   'billing.plan.next': 'ස්වයංක්‍රීයව අලුත් වේ {{date}} .',
+  'billing.plan.status': 'තත්ත්වය: {{status}}',
   'billing.subtitle':
     'ඔබේ ස්ථරය, ගෙවීමේ ක්‍රමය කළමනාකරණය කරන්න, සහ අතීත ක්‍රියාකාරකම් සමාලෝචනය කරන්න.',
   'billing.tiers.body': 'ස්ථරයක් තෝරන්න, අපි ඔබව Stripe Checkout වෙත යොමු කරන්නෙමු.',
   'billing.tiers.choose': 'තෝරන්න',
+  'billing.tiers.empty': 'තවම මට්ටම් වින්‍යාස කර නැත.',
   'billing.tiers.heading': 'ලබා ගත හැකි ස්ථර',
   'boxDetail.backToBoxes': 'සියලු සංස්කරණ වෙත ආපසු',
   'boxDetail.crumb.boxes': 'සංස්කරණ',
@@ -35,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'තෝරාගත් කොටස',
   'boxDetail.items.heading': '{{count}} තෝරාගත් කෑලි',
   'boxDetail.itemsBadge': '{{count}} පෙට්ටියකට තෝරාගත් අයිතම',
+  'boxDetail.loading': 'නිකුතුව පූරණය වෙමින්…',
   'boxDetail.notFound': 'එම සංස්කරණය තවදුරටත් නොමැත.',
   'boxDetail.subscribe.success': 'දායක විය — ඔබේ පළමු සංස්කරණය පෝලිමේ ඇත.',
   'boxDetail.swapBadge': 'දක්වා මාරු කරන්න {{count}} පෙට්ටියකට අයිතම(ය)',
@@ -43,14 +63,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'කිසිදු සංස්කරණයක් ගැලපෙන්නේ නැත.',
   'boxes.eyebrow': 'ට්‍රෝව් ලේඛනාගාරය',
   'boxes.heading': 'සෑම සංස්කරණයක්ම පිරික්සන්න',
+  'boxes.loadError':
+    'අපට නිකුතු පූරණය කළ නොහැකි විය. ඔබේ සම්බන්ධතාවය පරීක්ෂා කර නැවත උත්සාහ කරන්න.',
   'boxes.loading': 'සංස්කරණ පූරණය වෙමින්...',
+  'boxes.search.label': 'නිකුතු සොයන්න',
   'boxes.search.placeholder': 'සංස්කරණ සොයන්න...',
   'boxes.subtitle':
     'සෑම ස්ථරයක්ම කුඩා කණ්ඩායම් කතාවකි. ඔබේ පෝලිමට එකක් එක් කරන්න හෝ එය ඔබේ ඊළඟ මාසයට මාරු කරන්න.',
+  'boxThemeCard.itemCount': '{{count}} අයිතම',
   'boxThemeCard.perMonth': '/ මස',
+  'boxThemeCard.retailValue': 'සිල්ලර වටිනාකම {{value}}',
   'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
+  'common.retry': 'නැවත උත්සාහ කරන්න',
   'customize.eyebrow': 'එය ඔබේ කරගන්න.',
   'customize.heading': 'ඔබේ ඊළඟ ට්‍රෝව් එක අභිරුචිකරණය කරන්න',
+  'customize.items.empty': 'මෙම මට්ටම සඳහා තවම අයිතම වින්‍යාස කර නැත.',
   'customize.items.exclude': 'මෙය මඟ හරින්න',
   'customize.items.eyebrow': 'මෙම කොටුව පුද්ගලීකරණය කරන්න',
   'customize.items.heading': 'තුළ ඇති අයිතම {{box}}',
@@ -59,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'ආපසු එකතු කරන්න',
   'customize.items.save': 'අභිරුචිකරණය සුරකින්න',
   'customize.items.swapsLeft': '{{used}} වල {{max}} භාවිතා කළ හුවමාරු',
+  'customize.loading': 'අභිරුචිකරණය පූරණය වෙමින්…',
   'customize.noSub.body':
     'පළමුව ස්ථරයකට දායක වන්න, පසුව ඔබේ පෙට්ටියේ ඇති අයිතම හුවමාරු කිරීමට ආපසු එන්න.',
+  'customize.noSub.cta': 'නිකුතු බලන්න',
   'customize.noSub.heading': 'ක්‍රියාකාරී දායකත්වයක් නොමැත',
   'customize.saved': 'අභිරුචිකරණය සුරකින ලදී.',
   'customize.subtitle':
@@ -74,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'නැව්ගත කිරීම ලුහුබඳින්න',
   'dashboard.eyebrow': 'ඔබේ ට්‍රෝව්',
   'dashboard.greeting': 'ආපසු සාදරයෙන් පිළිගනිමු, {{name}} .',
+  'dashboard.loadError':
+    'අපට ඔබේ උපකරණ පුවරුව පූරණය කළ නොහැකි විය. ඔබේ සම්බන්ධතාවය පරීක්ෂා කර නැවත උත්සාහ කරන්න.',
   'dashboard.loading': 'උපකරණ පුවරුව පූරණය වෙමින්…',
   'dashboard.next.eyebrow': 'ඔබේ ඊළඟ සංස්කරණය',
   'dashboard.onboarding.body':
     'ඔබට තවමත් සක්‍රිය දායකත්වයක් නොමැත. සෑම මසකම ට්‍රෝව් නැව්ගත කිරීම ආරම්භ කිරීමට ස්ථරයක් තෝරන්න.',
   'dashboard.onboarding.cta': 'සියලුම සංස්කරණ පිරික්සන්න',
+  'dashboard.onboarding.empty': 'දැනට සැලසුම් නොමැත. ටිකකින් නැවත බලන්න.',
   'dashboard.onboarding.heading': 'ඔබේ පළමු සංස්කරණය තෝරන්න',
   'dashboard.renewal.amount': 'අය කරන ලදී',
   'dashboard.renewal.cadence': 'අවරෝහය',
@@ -86,12 +118,16 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'අලුත් කිරීම',
   'dashboard.renewal.heading': 'ස්වයංක්‍රීයව අලුත් වන දිනය {{date}}',
   'dashboard.renewal.plan': 'සැලසුම් යතුර',
+  'dashboard.renewal.tbd': 'අලුත් කිරීමේ කාලසටහන්කරණය ළඟදීම',
   'dashboard.renewal.tier': 'ස්ථරය',
   'dashboard.stats.days': 'දින',
   'dashboard.stats.daysToNext': 'නැව්ගත කෙරේ',
   'dashboard.stats.items': 'තෝරාගත් අයිතම',
   'dashboard.stats.shipDate': 'නැව්ගත කළ දිනය',
   'dashboard.stats.tbd': 'ක්ෂය රෝගය',
+  'dashboard.subtitle.active': 'ඔබේ ඊළඟ නිකුතුව මගදී. බලාපොරොත්තු විය හැකි දේ මෙන්න.',
+  'dashboard.subtitle.idle':
+    'සෑම මාසයකම {{appName}} එකක් නැව්ගත කිරීම ආරම්භ කිරීමට මට්ටමක් තෝරන්න.',
   'forgotPassword.subtitle':
     'ඔබගේ විද්‍යුත් තැපෑල අපට කියන්න, අපි යළි පිහිටුවීමේ සබැඳියක් එවන්නෙමු.',
   'forgotPassword.success.body':
@@ -99,6 +135,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'ඔබගේ එන ලිපි පරීක්ෂා කරන්න.',
   'landing.editions.eyebrow': 'මෙම කන්නයේ',
   'landing.editions.heading': 'අපගේ භාරකරුවන් ප්‍රිය කරන සංස්කරණ',
+  'landing.editions.viewAll': 'සියලු නිකුතු බලන්න →',
   'landing.footer.contact': 'භාරකරුවෙකු සමඟ කතා කරන්න',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ඔබේ පෙට්ටිය ආරම්භ කරන්න →',
@@ -108,6 +145,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'සාමාජික උපකරණ පුවරුව දෙස එබී බැලීමක් - ගණන් කිරීම, අන්තර්ගතය සහ ලුහුබැඳීම.',
   'landing.hero.social.count': 'ආදරය කළේ {{count}} + ග්‍රාහකයින්',
+  'landing.hero.social.rating': '{{rating}} සාමාන්‍ය ඇසුරුම් විවෘත කිරීමේ ශ්‍රේණිගත කිරීම',
+  'landing.hero.subhead':
+    '{{appName}} ස්වාධීන නිර්මාණකරුවන්ගෙන් අතින් තෝරාගත්, කුඩා-පරිමාණ සතුට පෙට්ටියක් ඔබට එවයි. ඕනෑම වේලාවක විරාම කරන්න. ඔබට අවශ්‍ය දේ මාරු කරන්න. ඔබ ආදරය කරන දේ තබා ගන්න.',
   'landing.nav.start': 'ඔබේ පෙට්ටිය ආරම්භ කරන්න',
   'landing.tiers.eyebrow': 'ඔබේ ස්වරය තෝරන්න',
   'landing.tiers.heading': 'කුඩාවට පටන් ගන්න, ඕනෑම වේලාවක උත්ශ්‍රේණි කරන්න, පහසුවෙන් අවලංගු කරන්න.',
@@ -117,6 +157,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'ලබන මාසයේ කොටුව බැලීමට පුරනය වන්න.',
   'login.welcomeBack': 'භාරකරු, නැවත සාදරයෙන් පිළිගනිමු.',
   'nextBoxHeroCard.eyebrow': 'ඔබේ ඊළඟ ගමන',
+  'nextBoxHeroCard.itemCount': 'ඇතුළත {{count}} කෑලි',
   'nextBoxHeroCard.itemsLabel': 'තෝරාගත් අයිතම',
   'nextBoxHeroCard.shipsOnLabel': 'නැව්ගත කරනු ලබන්නේ',
   'notFound.body':
@@ -140,8 +181,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'දායකත්වය විරාම කරන්න',
   'settings.danger.paused': 'දායකත්වය විරාම කරන ලදී.',
   'settings.danger.pausing': 'විරාම කරමින්...',
+  'settings.danger.status': 'දායකත්ව තත්ත්වය: {{status}}',
   'settings.danger.subtitle':
     'විරාම කිරීම ඔබේ ස්ථරය සහ ඉතිහාසය නොවෙනස්ව තබා ගනී. අවලංගු කිරීම අනාගත නැව්ගත කිරීම් නවත්වන අතර චක්‍රය අවසානයේ ඔබේ ගබඩා කළ ගෙවීම් ක්‍රම ඉවත් කරයි.',
+  'settings.notifications.saving': '· සුරකිමින්…',
   'settings.notifications.subtitle': 'ඔබට Crate වෙතින් අවශ්‍ය සංඥා තෝරන්න. පෙරනිමි අගයන් සාධාරණයි.',
   'settings.subtitle':
     'ඔබගේ පැතිකඩ, නැව්ගත කිරීමේ ලිපිනය සහ ට්‍රෝව් සම්බන්ධ වන ආකාරය යාවත්කාලීන කරන්න.',
@@ -156,10 +199,16 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'තවමත් ක්‍රියාකාරී නැව්ගත කිරීමක් නොමැත.',
   'shipments.live.eyebrow': 'ක්‍රියාකාරී නැව්ගත කිරීම',
   'shipments.live.unnamed': 'ඔබේ ඊළඟ පෙට්ටිය',
+  'shipments.loadError':
+    'අපට ඔබේ නැව්ගත කිරීම් පූරණය කළ නොහැකි විය. ඔබේ සම්බන්ධතාවය පරීක්ෂා කර නැවත උත්සාහ කරන්න.',
+  'shipments.loading': 'නැව්ගත කිරීම් පූරණය වෙමින්…',
+  'shipments.step.delivered': 'භාර දෙන ලදී',
   'shipments.step.deliveredBody': 'ඔබ සොයා ගන්නා දේ බෙදා ගැනීමට #crateunbox ටැග් කරන්න.',
   'shipments.step.ordered': 'ඇණවුම ලබා දෙන ලදී',
   'shipments.step.orderedBody': 'ඔබගේ දායකත්වය ඊළඟ නැව් චක්‍රය සඳහා මෙම සංස්කරණය පෝලිම් කර ඇත.',
+  'shipments.step.packed': 'අතින් ඇසුරුම් කළ',
   'shipments.step.packedBody': 'සෑම කැබැල්ලක්ම ඔතා අතින් ලියන ලද සටහනක් සමඟ පෙට්ටියට දමා ඇත.',
+  'shipments.step.transit': 'මගදී',
   'shipments.step.transitNot': 'ඔබගේ පෙට්ටිය ප්‍රවාහනයට පැමිණි පසු ලුහුබැඳීම මෙහි දිස්වනු ඇත.',
   'shipments.subtitle':
     'ඔබ වෙත එන අතරතුර පෙට්ටිය නිරීක්ෂණය කරන්න, ඉන්පසු ඔබ කලින් පෙට්ටියෙන් ඉවත් කළ සෑම සංස්කරණයක්ම නැවත බලන්න.',

@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ஒரு கேள்வி, நாங்கள் சேர்க்க வேண்டிய விற்பனையாளர், அல்லது தவறாகத் தோன்றும் ஒரு விலை உள்ளதா? எப்போது வேண்டுமானாலும் {{app}} குழுவை அணுகுங்கள் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள ஒரு உண்மையான நபரையே சென்றடையும்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': '{{app}} பற்றி',
+  'about.intro':
+    'அதிக விலை கொடுப்பதை நிறுத்த உறுதி செய்யும் விலை-ஒப்பீட்டுத் துணையே {{app}}. எந்தப் பொருளையும் ஒருமுறை தேடுங்கள், {{app}} 30+ விற்பனையாளர்கள் முழுவதும் பரவி, மொத்த டெலிவரி செலவின் அடிப்படையில் அவற்றை தரவரிசைப்படுத்தி, சரியான தருணத்தில் வாங்கும் வகையில் தொடர்ந்து கண்காணிக்கும்.',
+  'about.missionBody':
+    'பெரிய விற்பனையாளர்கள் தங்களுக்கு எதிராகப் பயன்படுத்தும் அதே விலை நுண்ணறிவு வாடிக்கையாளர்களுக்கும் கிடைக்க வேண்டும். நேர்மையான, அஃபிலியேட் சார்பற்ற விலை வரலாற்றையும் நிகழ்நேர விலை வீழ்ச்சி எச்சரிக்கைகளையும் அனைவரின் கைகளிலும் {{app}} கொண்டு வருகிறது — எனவே சிறந்த விலை உங்களைத் தேடி வரும், நீங்கள் அதைத் தேட வேண்டியதில்லை.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': 'இனி ஒருபோதும் அதிக விலை கொடுக்காதீர்கள்.',
   'alertDetail.alertType': 'எச்சரிக்கை வகை',
   'alertDetail.backToAlerts': 'எச்சரிக்கைகளுக்குத் திரும்பு',
@@ -21,6 +28,7 @@ export const ui: UiTranslations = {
   'alertDetail.resume': 'மீண்டும் தொடங்குவதற்கான அறிவிப்பு',
   'alertDetail.target': 'இலக்கு',
   'alertDetail.timesTriggered': 'செய்திகள் தூண்டப்பட்டன',
+  'alerts.addCta': 'எச்சரிக்கை சேர்',
   'alerts.channel': 'சேனல்',
   'alerts.confirmRemove': 'நீக்குவதை உறுதிப்படுத்தவா?',
   'alerts.current': 'தற்போதைய சிறந்த',
@@ -48,12 +56,14 @@ export const ui: UiTranslations = {
   'billing.error.failed': 'திட்டத்தை மாற்ற முடியவில்லை.',
   'billing.error.noPriceId':
     'செக் அவுட்டை இயக்க, STRIPE_PRICE_COMPARISON_* சூழல் மாறிகளை உள்ளமைக்கவும்.',
+  'billing.heading': '{{appName}} Pro திட்டம்',
   'billing.popular': 'மிகவும் பிரபலமான',
   'categories.aisleCount': '{{count}} தயாரிப்புகள்',
   'categories.allEyebrow': 'அனைத்து வகைகளும்',
   'categories.allHeading': 'ஒவ்வொரு இடைவழியும், அட்டவணைப்படுத்தப்பட்டது',
   'categories.empty': 'பட்டியல் உருவாக்கப்பட்டு வருகிறது — விரைவில் மீண்டும் பார்க்கவும்.',
   'categories.eyebrow': 'உலாவல் சல்லடை',
+  'categories.featuredEyebrow': 'சிறப்புத் தொகுப்புகள்',
   'categories.featuredHeading': 'பருவ வாரியாகத் தொகுக்கப்பட்டது',
   'categories.heading': 'பிரிவுகள்',
   'categories.loadFailed': 'பிரிவுகளை ஏற்ற முடியவில்லை.',
@@ -68,8 +78,11 @@ export const ui: UiTranslations = {
   'dashboard.empty':
     'இன்னும் புதிய வெளியீடுகள் வரவில்லை — தயாரிப்புகளை உங்கள் கண்காணிப்புப் பட்டியலில் சேர்க்கவும்.',
   'dashboard.eyebrow': 'உங்கள் சல்லடை',
+  'dashboard.feedEmpty': 'இன்னும் அறிவிப்புகள் இல்லை — {{appName}} இதை நிரப்பும்.',
   'dashboard.heading': 'மீண்டும் வருக, புத்திசாலியான வாங்குபவரே.',
   'dashboard.recentEyebrow': 'சமீபத்திய',
+  'dashboard.totals':
+    '{{appName}}-இல் சேர்ந்ததிலிருந்து {{count}} கண்காணிக்கப்பட்ட பொருட்களில் {{savings}} சேமித்துள்ளீர்கள்.',
   'dashboard.trendingEyebrow': 'தற்போது பிரபலமாகி வருகிறது',
   'dashboard.trendingHeading': 'உங்கள் கண்காணிப்புப் பட்டியலில் உள்ள சூடான துளிகள்',
   'deals.empty': 'தற்போது நேரலை ஒளிபரப்புகள் இல்லை — விரைவில் மீண்டும் முயற்சிக்கவும்.',
@@ -77,8 +90,10 @@ export const ui: UiTranslations = {
   'deals.heading': 'தற்போதைய மிகவும் பிரபலமான வெளியீடுகள்',
   'deals.hottest': 'மிகவும் சூடானவை: {{name}} {{pct}} தள்ளுபடி சதவீதம்',
   'deals.loadFailed': 'நேரலை டிராப்ஸ்களை ஏற்ற முடியவில்லை.',
+  'deals.loading': 'சலுகைகள் ஏற்றப்படுகின்றன…',
   'deals.subheading':
     'சில்லறை விற்பனையாளரால் சரிபார்க்கப்பட்ட, நிகழ்நேர விலை குறைப்புகள் — அதிகபட்ச தள்ளுபடியின் அடிப்படையில் வரிசைப்படுத்தப்பட்டுள்ளன. விரைந்து செயல்படுங்கள், மிகப்பெரிய தள்ளுபடிகள் சில மணிநேரங்களிலேயே மறைந்துவிடும்.',
+  'deals.totalCount': '{{count}} நேரடி வீழ்ச்சிகள்',
   'forgotPassword.heading': 'உங்கள் கடவுச்சொல்லை மறந்துவிட்டீர்களா?',
   'forgotPassword.newHere': 'இங்கு புதிதா?',
   'forgotPassword.success':
@@ -103,6 +118,7 @@ export const ui: UiTranslations = {
   'landing.trendingHeading': 'பாய்ந்து பிடிக்கத் தகுந்த சூடான துளிகள்',
   'landing.viewAll': 'அனைத்து சலுகைகளையும் காண்க',
   'login.heading': 'மீண்டும் வருக, புத்திசாலியான வாங்குபவரே.',
+  'login.noAccount': 'டெஸ்ஸெராவுக்குப் புதியவரா?',
   'login.signupCta': 'ஒரு கணக்கை உருவாக்கி சேமிக்கத் தொடங்குங்கள்.',
   'login.subheading': 'சிறந்த விலையைத் தொடர்ந்து தேட, உள்நுழையுங்கள்.',
   'login.submit': 'Bargain-இல் உள்நுழைக',
@@ -113,6 +129,10 @@ export const ui: UiTranslations = {
   'notifications.loading': 'செயல்பாடு ஏற்றப்படுகிறது…',
   'notifications.subheading':
     'உங்கள் கண்காணிப்புப் பட்டியலில் உள்ள ஒவ்வொரு புதிய வரவு, மீண்டும் இருப்புக்கு வருதல் மற்றும் அறிவிப்பு — புதியவை முதலில். பொருளுக்குச் செல்ல ஒரு வரிசையைத் தட்டவும்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'priceDropFeed.empty': 'இன்னும் எந்தச் செயல்பாடும் இல்லை.',
   'priceHistory.allEyebrow': 'அனைத்து சில்லறை விற்பனையாளர்களும் கலந்தனர்',
@@ -138,13 +158,21 @@ export const ui: UiTranslations = {
   'priceWatchKpiGrid.expiring': 'எச்சரிக்கைகள்',
   'priceWatchKpiGrid.savings': 'வாழ்நாள் சேமிப்பு',
   'priceWatchKpiGrid.watching': 'பார்க்கப்பட்ட தயாரிப்புகள்',
+  'pricing.advanced': 'மேம்பட்ட அம்சங்கள்: {{value}}',
+  'pricing.alerts': '{{count}} எச்சரிக்கைகள்',
+  'pricing.export': 'தரவு ஏற்றுமதி: {{value}}',
   'pricing.heading': 'உங்கள் விலை ஒப்பீட்டுத் திட்டத்தைத் தேர்ந்தெடுக்கவும்',
   'pricing.limitsLabel': 'திட்ட வரம்புகள்',
+  'pricing.prices': '{{count}} விலைகள்',
+  'pricing.products': '{{count}} தயாரிப்புகள்',
+  'pricing.sources': '{{count}} ஆதாரங்கள்',
+  'productDetail.alertChannel': 'சேனல்',
   'productDetail.alertCreatedAt':
     'அறிவிப்பு செயலில் உள்ளது. எந்தவொரு சில்லறை விற்பனையாளரின் விலையும் $100-க்குக் கீழே குறையும்போது நாங்கள் மின்னஞ்சல் அனுப்புவோம். {{target}}.',
   'productDetail.alertExists':
     'இந்தப் பொருளுக்கு உங்களிடம் ஏற்கனவே ஒரு செயலில் உள்ள எச்சரிக்கை உள்ளது.',
   'productDetail.alertEyebrow': 'விலை எச்சரிக்கை',
+  'productDetail.alertFailed': 'எச்சரிக்கையை உருவாக்க முடியவில்லை.',
   'productDetail.alertField': 'இலக்கு விலை (அமெரிக்க டாலர்)',
   'productDetail.alertHeading': 'அது வெளிவரும்போது எனக்குத் தெரியப்படுத்துங்கள்.',
   'productDetail.alertInvalid': 'ஏற்கத்தக்க இலக்கு விலையை உள்ளிடவும்.',
@@ -154,6 +182,7 @@ export const ui: UiTranslations = {
   'productDetail.bestNow': 'இப்போது சிறந்த விலை',
   'productDetail.deepHistoryCta': 'முழு விலை வரலாற்றைக் காண்க',
   'productDetail.historyEyebrow': 'கடைசி {{period}}',
+  'productDetail.historyHeading': 'விலை வரலாறு',
   'productDetail.loadFailed': 'இந்தத் தயாரிப்பை ஏற்ற முடியவில்லை.',
   'productDetail.loading': 'தயாரிப்பு ஏற்றப்படுகிறது…',
   'productDetail.notFound': 'பொருள் காணப்படவில்லை.',
@@ -175,6 +204,7 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'பொது சுயவிவரம்',
   'profile.guestName': 'ஸ்மார்ட் ஷாப்பர்',
   'profile.inProgress': 'செயல்பாட்டில் உள்ளது',
+  'profile.lifetimeSavings': 'வாழ்நாள் சேமிப்பு',
   'profile.publicWatchesEmpty': 'உங்கள் பொதுக் கண்காணிப்புப் பட்டியல் காலியாக உள்ளது.',
   'profile.publicWatchesEyebrow': 'பொது கண்காணிப்புப் பட்டியல்',
   'profile.publicWatchesHeading': 'நான் சலித்துக்கொண்டிருப்பது',
@@ -192,19 +222,28 @@ export const ui: UiTranslations = {
   'savingsHeroCard.eyebrow': 'வாழ்நாள் சேமிப்பு',
   'savingsHeroCard.tagline':
     '{{drops}} விலைச் சரிவுகள் இந்த வாரம் கண்டறியப்பட்டுள்ளன. தொடர்ந்து சேமியுங்கள்.',
+  'savingsHeroCard.watchingAria': '{{count}} பொருட்கள் கண்காணிக்கப்படுகின்றன',
+  'savingsHeroCard.watchingPill': '{{count}} கண்காணிக்கிறது',
   'search.eyebrow': 'சிறந்த விலையைக் கண்டறியவும்',
   'search.heading': 'ஒவ்வொரு சில்லறை விற்பனையாளரையும் தேடுங்கள்',
   'search.loadFailed': 'பட்டியலை ஏற்ற முடியவில்லை.',
+  'search.loading': 'பட்டியல் ஏற்றப்படுகிறது…',
   'search.maxPriceLabel': 'அதிகபட்ச விலை',
   'search.noResults': 'உங்கள் வடிகட்டிகளுக்கு ஏற்ற தயாரிப்புகள் இன்னும் இல்லை.',
   'search.queryHint': 'பொருட்கள், பிராண்டுகள் அல்லது வகைகளைத் தேடுங்கள்…',
+  'search.queryLabel': 'தேடல் வினா',
   'search.resultCount': '{{count}} கண்டறியப்பட்ட தயாரிப்புகள்',
   'search.subheading':
     'ஒரு தயாரிப்பு, பிராண்ட் அல்லது வகையை உள்ளிடவும். 30-க்கும் மேற்பட்ட சில்லறை விற்பனையாளர்களிடமிருந்து ரசிகர்களைப் பிரித்தெடுத்து, மொத்த விநியோகச் செலவின் அடிப்படையில் அவர்களைத் தரவரிசைப்படுத்துகிறது.',
   'settings.changePasswordError': 'கடவுச்சொல்லை மாற்ற முடியவில்லை.',
   'settings.changingPassword': 'மாறும்…',
+  'settings.confirmPassword': 'கடவுச்சொல்',
   'settings.currentPassword': 'தற்போதைய கடவுச்சொல்',
   'settings.dangerEyebrow': 'அபாய மண்டலம்',
+  'settings.deleteAccountBody':
+    'உங்கள் கணக்கு, கண்காணிப்புப் பட்டியல்கள் மற்றும் எச்சரிக்கைகளை நிரந்தரமாக நீக்கவும். இதை மீட்டெடுக்க முடியாது.',
+  'settings.deleteAccountWarning':
+    'இது உங்கள் கணக்கையும் அதனுடன் தொடர்புடைய அனைத்து தரவையும் நிரந்தரமாக நீக்கும். உறுதிப்படுத்த உங்கள் கடவுச்சொல்லை உள்ளிடவும்.',
   'settings.deleteFailed': 'கணக்கை நீக்க முடியவில்லை',
   'settings.deletingAccount': 'நீக்குகிறது…',
   'settings.deviceLastSeen': 'கடைசியாகச் செயல்பட்ட {{time}}',
@@ -223,14 +262,23 @@ export const ui: UiTranslations = {
   'settings.revokeDeviceWarning':
     'இந்தச் சாதனத்தின் அணுகல் விரைவில் ரத்து செய்யப்படும். வெளியேற்றவா?',
   'settings.saveError': 'மீண்டும் முயற்சிக்கவும்',
+  'settings.securityBody':
+    'உங்கள் கணக்கில் உள்நுழையப் பயன்படுத்தும் கடவுச்சொல்லைப் புதுப்பிக்கவும்.',
+  'settings.securityEyebrow': 'பாதுகாப்பு',
   'settings.securityHeading': 'கடவுச்சொல் மற்றும் உள்நுழைவு',
   'settings.signOutDevice': 'வெளியேறு',
   'settings.unknownDevice': 'அறியப்படாத சாதனம்',
+  'siftAuthShell.heroSubtitle':
+    'ஒவ்வொரு விற்பனையாளரையும் சில வினாடிகளில் ஒப்பிடுங்கள், சரியான தருணத்திற்காகக் காத்திருங்கள், இனி ஒருபோதும் அதிக விலை கொடுக்காதீர்கள்.',
+  'siftAuthShell.heroTitle': '{{tagline}}.',
+  'siftAuthShell.previewEyebrow': 'மாதிரி டாஷ்போர்டு',
   'siftAuthShell.statusLive': 'இன்று 4,800-க்கும் மேற்பட்ட விலை வீழ்ச்சிகள் கண்டறியப்பட்டுள்ளன.',
   'siftLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'signup.heading': 'அதிக விலை கொடுப்பதை நிறுத்துங்கள். பகுத்துப் பார்க்கத் தொடங்குங்கள்.',
+  'signup.legalPrefix': 'கணக்கை உருவாக்குவதன் மூலம் {{appName}} உடன் நீங்கள் ஒப்புக்கொள்கிறீர்கள்',
   'signup.namePlaceholder': 'ஸ்மார்ட் ஷாப்பர்',
   'signup.subheading': 'என்றென்றும் இலவசம். டீம் திட்டத்தில் வரம்பற்ற தயாரிப்புகளைப் பாருங்கள்.',
+  'signup.submit': 'எனது {{appName}} கணக்கை உருவாக்கு',
   'watchlist.addCta': 'கவனிக்க வேண்டிய தயாரிப்புகளைக் கண்டறியவும்',
   'watchlist.confirmRemove': 'நீக்குவதை உறுதிப்படுத்தவா?',
   'watchlist.empty': 'இன்னும் இங்கே எதுவும் இல்லை — தேடலில் இருந்து ஒரு பொருளைச் சேர்க்கவும்.',

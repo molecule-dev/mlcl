@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite klausimų, atsiliepimų ar norite funkcijos, kurios mums dar trūksta? Susisiekite su komanda per savo paskyros nustatymus — kiekvieną žinutę perskaito tikras žmogus.',
   'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'about.missionTitle': 'Mūsų misija',
+  'about.whatYouGetTitle': 'Ką gausite',
   'analytics.empty': 'Sukurkite paketus, kad čia matytumėte analizę.',
   'analytics.stats.acrossDecks': 'Visose kaladėse',
   'analytics.stats.allTime': 'Jūsų studijoje',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Kaladės pavadinimas',
   'landing.features.eyebrow': 'Kodėl uvertiūra',
   'landing.features.heading': 'Viskas, ko reikia norint lipti į sceną, paruošta.',
+  'landing.finalCta.body':
+    'Sukurkite savo studiją greičiau nei per minutę. Nereikia kreditinės kortelės. Galite atšaukti bet kada.',
   'landing.finalCta.cta': 'Sukurkite savo nemokamą studiją',
   'landing.finalCta.eyebrow': 'Nemokama pradėti',
   'landing.finalCta.heading': 'Lipkite į sceną su geriausia savo karjeros denio korta.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Redaguota prieš 12 min.',
   'notifications.created': 'sukurtas',
   'notifications.edited': 'redaguota',
+  'notifications.empty.body':
+    'Veikla jūsų pateikčių rinkiniuose — komentarai, paminėjimai, eksportai — bus rodoma čia.',
   'notifications.empty.title': 'Kol kas nėra pranešimų',
   'notifications.eyebrow': 'Scenos veikla',
   'notifications.loading': 'Kraunama…',
   'notifications.shared': 'bendrinama viešai',
+  'planUpdated.retry': 'Pabandyk dar kartą',
+  'planUpdated.verifyFailed': 'Mes dar negalėjome patvirtinti jūsų mokėjimo.',
+  'planUpdated.verifyFailedBody':
+    'Jūsų mokėjimas vis dar gali būti apdorojamas. Bandykite dar kartą po akimirkos.',
   'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'present.addSlides': 'Pridėti skaidrių',
   'present.backToDecks': 'Atgal į denius',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Scenos atlikėjas',
   'settings.security.notSet': 'Nenustatyta',
   'settings.security.passwordBody': 'Jūsų slaptažodis yra užšifruotas ramybės būsenoje.',
+  'settings.security.reset': 'Atstatyti',
   'settings.security.title': 'Paskyra + sesijos',
   'shared.empty.body':
     'Viešai bendrinamos kaladės bus rodomos čia. Norėdami bendrinti, atidarykite kaladę ir perjunkite ją į viešą.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Kraunama…',
   'shared.title': 'Bendri deniai',
   'templateCard.slideCount': '{{count}} skaidrės',
+  'templateCard.usageCount': '{{count}} panaudojimas',
+  'templates.empty.body': 'Išbandykite kitą filtrą — naujus šablonus pateikiame kiekvieną mėnesį.',
+  'templates.empty.title': 'Šioje kategorijoje šablonų dar nėra',
+  'templates.hero.body':
+    'Iš anksto su temomis suformatuoti skaidrių išdėstymai su diagramų blokais, demonstraciniais kadrais, pranešėjo pastabomis ir laikmačio išankstiniais nustatymais — kiekvienas šablonas paruoštas įrašymui.',
   'templates.hero.eyebrow': 'Kuruojami etapai',
   'templates.hero.heading': 'Etapai, pastatyti tam momentui, kai jums reikia jį nusileisti.',
 }

@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Басылым, жеткізу немесе жазылымыңыз туралы сұрақтарыңыз бар ма? hello@crate.example мекенжайы бойынша командадағы нақты адамға хабарласыңыз — біз әр хабарламаны оқимыз.',
+  'about.contactTitle': 'Куратормен сөйлесіңіз',
+  'about.feature1':
+    'Тәуелсіз шеберлер таңдаған ай сайынғы таңдамалы басылымдар, әр заттың тарихымен бірге.',
+  'about.feature2':
+    'Әр қорапқа толық бақылау — мазмұнын реттеңіз, заттарды ауыстырыңыз немесе алып тастаңыз, бір айды өткізіп жіберіңіз немесе жиілігін өзгертіңіз.',
+  'about.feature3':
+    'Алып кетуден есік алдына дейінгі толық бақылау, пластиксіз қаптама және тасымалдаушының тікелей жаңартулары.',
+  'about.feature4':
+    'Икемді жоспарлар мен ашық төлем — кез келген уақытта бақылау тақтасынан жаңартыңыз, төмендетіңіз, кідіртіңіз немесе тоқтатыңыз.',
+  'about.intro':
+    '{{app}} — ай сайын есігіңізге қуаныш сыйлайтын, қолмен таңдалған шағын топтама қорабын жеткізетін таңдамалы жазылым қызметі. Әр басылымды алгоритм емес, нақты шеберлер — тәуелсіз суретшілер, аспаздар және шағын брендтер жинайды.',
+  'about.missionBody':
+    'Біздің ойымызша, жазылым сыйлық сияқты сезілуі керек, тұзақ емес. {{app}} келген нәрсені ұнатқаныңыз үшін қалатындай жасалған — кез келген уақытта кідіртіңіз, қалағаныңызды ауыстырыңыз және бір басумен тоқтатыңыз. Ешқашан ұстап қалу сценарийлері жоқ.',
+  'about.missionTitle': 'Біздің миссиямыз',
   'about.pageTitle': '{{app}} туралы',
   'appNav.mobileLabel': 'Негізгі навигация',
   'appNav.primaryLabel': 'Негізгі навигация',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Төлем жасаушының байланыс ақпаратын өңдеу',
   'billing.contact.eyebrow': 'Есеп айырысу бойынша байланыс',
   'billing.eyebrow': 'Жоспар және төлемдер',
+  'billing.loading': 'Есепшот жүктелуде…',
   'billing.payment.body':
     'Төлемді Stripe Checkout компаниясы өңдейді — сіздің толық карта нөміріңіз біздің серверлерге ешқашан тимейді. Картаңызды қосу немесе жаңарту үшін төмендегі кез келген деңгейді басыңыз.',
   'billing.payment.linked': 'Карта Stripe арқылы файлда',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Жазылымды жалғастыру',
   'billing.plan.eyebrow': 'Белсенді жоспар',
   'billing.plan.next': 'Автоматты түрде жаңартылады {{date}} .',
+  'billing.plan.status': 'Күйі: {{status}}',
   'billing.subtitle':
     'Деңгейіңізді, төлем әдісін басқарыңыз және өткен әрекеттеріңізді қарап шығыңыз.',
   'billing.tiers.body': 'Деңгейді таңдаңыз, сонда біз сізді Stripe Checkout-қа бағыттаймыз.',
   'billing.tiers.choose': 'Таңдау',
+  'billing.tiers.empty': 'Әзірге деңгейлер реттелмеген.',
   'billing.tiers.heading': 'Қолжетімді деңгейлер',
   'boxDetail.backToBoxes': 'Барлық басылымдарға оралу',
   'boxDetail.crumb.boxes': 'Басылымдар',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Сұрыпталған материал',
   'boxDetail.items.heading': '{{count}} таңдалған бөліктер',
   'boxDetail.itemsBadge': '{{count}} әр қорапқа сұрыпталған элементтер',
+  'boxDetail.loading': 'Басылым жүктелуде…',
   'boxDetail.notFound': 'Ол басылым енді қолжетімді емес.',
   'boxDetail.subscribe.success': 'Жазылдыңыз — сіздің бірінші басылымыңыз кезекке қойылды.',
   'boxDetail.swapBadge': 'Ауыстыру {{count}} қораптағы зат(тар)',
@@ -44,14 +64,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Сәйкес келетін басылымдар жоқ.',
   'boxes.eyebrow': 'Crate мұрағаты',
   'boxes.heading': 'Әр басылымды шолу',
+  'boxes.loadError': 'Басылымдарды жүктей алмадық. Байланысыңызды тексеріп, қайталап көріңіз.',
   'boxes.loading': 'Басылымдар жүктелуде…',
+  'boxes.search.label': 'Басылымдарды іздеу',
   'boxes.search.placeholder': 'Басылымдарды іздеу…',
   'boxes.subtitle':
     'Әрбір деңгей шағын сериялы әңгімеден тұрады. Кезегіңізге біреуін қосыңыз немесе келесі айға ауыстырыңыз.',
+  'boxThemeCard.itemCount': '{{count}} заттар',
   'boxThemeCard.perMonth': '/ ай',
+  'boxThemeCard.retailValue': 'Бөлшек құны {{value}}',
   'common.goToDashboard': 'Бақылау тақтасына өту',
+  'common.retry': 'Қайталап көру',
   'customize.eyebrow': 'Оны өзіңіздікі етіңіз',
   'customize.heading': 'Келесі қазынаңызды реттеңіз',
+  'customize.items.empty': 'Бұл деңгей үшін әзірге заттар реттелмеген.',
   'customize.items.exclude': 'Мұны өткізіп жіберу',
   'customize.items.eyebrow': 'Бұл қорапты жекешелендіру',
   'customize.items.heading': 'Ішіндегі заттар {{box}}',
@@ -60,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Қайта қосу',
   'customize.items.save': 'Теңшелімді сақтау',
   'customize.items.swapsLeft': '{{used}} -ның {{max}} пайдаланылған своптар',
+  'customize.loading': 'Реттеу жүктелуде…',
   'customize.noSub.body':
     'Алдымен деңгейге жазылыңыз, содан кейін қораптағы заттарды ауыстыру үшін қайтып келіңіз.',
+  'customize.noSub.cta': 'Басылымдарды шолу',
   'customize.noSub.heading': 'Белсенді жазылым жоқ',
   'customize.saved': 'Теңшеу сақталды.',
   'customize.subtitle':
@@ -75,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Жөнелтуді бақылау',
   'dashboard.eyebrow': 'Сіздің қазынаңыз',
   'dashboard.greeting': 'Қайтадан қош келдіңіз, {{name}} .',
+  'dashboard.loadError':
+    'Бақылау тақтасын жүктеу мүмкін болмады. Байланысыңызды тексеріп, қайталап көріңіз.',
   'dashboard.loading': 'Басқару тақтасы жүктелуде…',
   'dashboard.next.eyebrow': 'Сіздің келесі басылымыңыз',
   'dashboard.onboarding.body':
     'Сізде әлі белсенді жазылым жоқ. Ай сайын Crate жеткізуді бастау үшін деңгейді таңдаңыз.',
   'dashboard.onboarding.cta': 'Барлық басылымдарды шолу',
+  'dashboard.onboarding.empty': 'Қазір қолжетімді жоспар жоқ. Жақында қайта тексеріңіз.',
   'dashboard.onboarding.heading': 'Бірінші басылымыңызды таңдаңыз',
   'dashboard.renewal.amount': 'Зарядталған',
   'dashboard.renewal.cadence': 'Каденс',
@@ -87,12 +118,15 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Жаңарту',
   'dashboard.renewal.heading': 'Автоматты түрде жаңарту қосулы {{date}}',
   'dashboard.renewal.plan': 'Жоспар кілті',
+  'dashboard.renewal.tbd': 'Жаңартуды жоспарлау жақында',
   'dashboard.renewal.tier': 'Деңгей',
   'dashboard.stats.days': 'күндер',
   'dashboard.stats.daysToNext': 'Жеткізу орны',
   'dashboard.stats.items': 'Таңдалған элементтер',
   'dashboard.stats.shipDate': 'Жөнелту күні',
   'dashboard.stats.tbd': 'Түпнұсқа деректер',
+  'dashboard.subtitle.active': 'Келесі басылымыңыз жолда. Міне, не күтуге болады.',
+  'dashboard.subtitle.idle': 'Ай сайын {{appName}} жіберуді бастау үшін деңгейді таңдаңыз.',
   'forgotPassword.subtitle':
     'Электрондық поштаңызды айтыңыз, біз қалпына келтіру сілтемесін жібереміз.',
   'forgotPassword.success.body':
@@ -100,6 +134,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Кіріс жәшігіңізді тексеріңіз.',
   'landing.editions.eyebrow': 'Осы маусымда',
   'landing.editions.heading': 'Біздің кураторларымыз сүйіп тыңдайтын басылымдар',
+  'landing.editions.viewAll': 'Барлық басылымдарды шолу →',
   'landing.footer.contact': 'Куратормен сөйлесіңіз',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Қорапты іске қосыңыз →',
@@ -109,6 +144,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Мүшелердің басқару тақтасына шолу — кері санақ, мазмұн және бақылау.',
   'landing.hero.social.count': 'Сүйіктісі {{count}} + жазылушылар',
+  'landing.hero.social.rating': '{{rating}} орт. қорапты ашу рейтингі',
+  'landing.hero.subhead':
+    '{{appName}} сізге тәуелсіз шеберлерден қолмен таңдалған, шағын топтамалы қуаныш қорабын жібереді. Кез келген уақытта тоқтата аласыз. Қалағаныңызды ауыстырыңыз. Ұнағанын өзіңізде қалдырыңыз.',
   'landing.nav.start': 'Қорапты іске қосыңыз',
   'landing.tiers.eyebrow': 'Қадаңызды таңдаңыз',
   'landing.tiers.heading':
@@ -119,6 +157,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Келесі айдағы өрісті қарау үшін жүйеге кіріңіз.',
   'login.welcomeBack': 'Қайта қош келдіңіз, куратор.',
   'nextBoxHeroCard.eyebrow': 'КЕЛЕСІ ТАУЫҢЫЗ',
+  'nextBoxHeroCard.itemCount': 'Ішінде {{count}} бөлшек',
   'nextBoxHeroCard.itemsLabel': 'Таңдалған элементтер',
   'nextBoxHeroCard.shipsOnLabel': 'Жеткізу күні',
   'notFound.body':
@@ -143,8 +182,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Жазылымды кідірту',
   'settings.danger.paused': 'Жазылым кідіртілді.',
   'settings.danger.pausing': 'Кідірту…',
+  'settings.danger.status': 'Жазылым мәртебесі: {{status}}',
   'settings.danger.subtitle':
     'Кідірту сіздің деңгейіңіз бен тарихыңызды өзгеріссіз сақтайды. Бас тарту болашақ жөнелтімдерді тоқтатады және цикл соңында сақталған төлем әдістерін жояды.',
+  'settings.notifications.saving': '· сақталуда…',
   'settings.notifications.subtitle':
     'Crate-тан қандай сигналдарды қалайтыныңызды таңдаңыз. Әдепкі параметрлер ақылға қонымды.',
   'settings.subtitle':
@@ -160,10 +201,16 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Әзірге белсенді жеткізу жоқ',
   'shipments.live.eyebrow': 'Белсенді жеткізу',
   'shipments.live.unnamed': 'Сіздің келесі қорабыңыз',
+  'shipments.loadError':
+    'Жөнелтілімдеріңізді жүктеу мүмкін болмады. Байланысыңызды тексеріп, қайталап көріңіз.',
+  'shipments.loading': 'Жүктелуде…',
+  'shipments.step.delivered': 'Жеткізілді',
   'shipments.step.deliveredBody': 'Жаңалықтарыңызбен бөлісу үшін #crateunbox белгісін қойыңыз.',
   'shipments.step.ordered': 'Тапсырыс берілді',
   'shipments.step.orderedBody': 'Жазылымыңыз осы басылымды келесі жеткізу цикліне кезекке қойды.',
+  'shipments.step.packed': 'Қолмен қапталған',
   'shipments.step.packedBody': 'Әрбір бөлік оралып, қолжазбамен қорапқа салынды.',
+  'shipments.step.transit': 'Жолда',
   'shipments.step.transitNot': 'Жәшігіңіз тасымалданғаннан кейін бақылау осында пайда болады.',
   'shipments.subtitle':
     'Қораптың сізге бара жатқанын бақылаңыз, содан кейін бұрын қораптан шығарған әрбір басылымға қайта оралыңыз.',

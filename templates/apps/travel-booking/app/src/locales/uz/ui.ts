@@ -1,13 +1,28 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Sayohat haqida savollar, fikr-mulohaza yoki hamkorlik g'oyasi bormi? Jamoaga hisobingizdan yoki ilova ichidagi konsyerj orqali murojaat qiling — har bir xabar o'zi ham sayohat qiladigan haqiqiy insonga yetib boradi.",
   'about.contactTitle': "Biz bilan bog'laning",
+  'about.featureBooking.body':
+    "Xonalar, narxlar va qulayliklarni yonma-yon solishtiring, so'ng bir necha bosishda band qiling — har bir marshrutda bekor qilish bepul.",
+  'about.featureBooking.title': 'Qidirish, solishtirish va band qilish',
+  'about.featureDiscover.body':
+    "Muharrirlar tanlagan yo'nalishlar va qo'llanmalar sayohatga arziydigan joylarni ko'rsatadi — agregator shovqini yo'q, reklama ortiqchaligi yo'q.",
   'about.featureDiscover.title': "Ilhom, qo'lda tanlangan",
+  'about.featureItineraries.body':
+    "Parvozlar, turar joylar va rejalarni bir joyda saqlang, yo'nalishlarni keyinroq uchun saqlang va sayohatingizni qolgan joyidan davom ettiring.",
+  'about.featureItineraries.title': 'Tartibli marshrutlar',
+  'about.featureStays.title': 'Ishonchli turar joylar',
+  'about.missionTitle': 'Bizning vazifamiz',
+  'about.subtitle':
+    "Ilhom, ishonchli turar joylar va xayoldan band qilishgacha bo'lgan qulay yo'l.",
+  'about.whatYouGetTitle': 'Sizga nima beriladi',
   'account.addPaymentCta': "To'lov usulini qo'shish",
   'account.addPaymentError': "To'lov usulini qo'shib bo'lmadi.",
   'account.confirmRemove': 'Olib tashlashni tasdiqlang',
   'account.defaultBadge': 'Standart',
-  'account.loyalty.pointsTowardNext': '{{ball}} ning {{Keyingisi}} milyagacha {{keyingiTier}}',
+  'account.loyalty.pointsTowardNext': '{{nextTier}} gacha {{next}} mildan {{points}}',
   'account.loyalty.tier': 'Joriy daraja',
   'account.navLabel': "Hisob bo'limlari",
   'account.payments.empty': "Hali hech qanday to'lov usullari saqlanmagan.",
@@ -29,6 +44,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} kechalar',
   'booking.lineTaxes': "Soliqlar va to'lovlar",
   'booking.loadError': "Xususiyatni yuklab bo'lmadi.",
+  'booking.noChargeYet': "Hozircha to'lov olinmaydi.",
   'booking.noPaymentMethods': "Saqlangan to'lov usullari yo'q.",
   'booking.noPaymentSelected': "Tasdiqlashdan oldin to'lov usulini tanlang.",
   'booking.noRoomError': 'Tasdiqlashdan oldin xonani tanlang.',
@@ -40,6 +56,7 @@ export const ui: UiTranslations = {
   'booking.policy1': "Ro'yxatdan o'tishdan 7 kun oldin bepul bekor qilish mumkin.",
   'booking.policy2': "Bugun to'lov yo'q — kartangiz faqat tasdiqlash uchun ushlab turiladi.",
   'booking.policy3': 'Sayohat himoyasi Sojourn tomonidan qoplanadi — 24/7 konsyerj yordami.',
+  'booking.policyHeading': 'Bekor qilish va shartlar',
   'booking.roomHeading': 'Xonangizni tanlang',
   'booking.specialRequests': "Maxsus so'rovlar",
   'booking.specialRequestsPlaceholder': "Uy egasi bilishi kerak bo'lgan biron narsa bormi?",
@@ -68,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': "Sojourn a'zolari",
   'landing.cta.heading': 'Xavotirsiz sayr qiling. Har safar, har safar sayohat qiling.',
   'landing.cta.signup': 'Bepul hisob yarating',
+  'landing.cta.subheading':
+    "Bepul bekor qilish, faqat a'zolar uchun narxlar va 24/7 sayohat konsyerji — har bir band qilishda mil ishlang va yangi mulklarga birinchi bo'lib kirish imkoniyatini qo'lga kiriting.",
   'landing.destinations.eyebrow': 'Keyingi qayerga',
   'landing.destinations.heading': "Tavsiya etilgan yo'nalishlar",
   'landing.destinations.seeAll': "Barcha manzillarni ko'rish",
@@ -76,27 +95,45 @@ export const ui: UiTranslations = {
   'landing.journal.heading': "O'zingizga joylashga arziydigan hikoyalar",
   'landing.nav.join': "Sojournga qo'shiling",
   'landing.nav.search': 'Qidiruv qoladi',
+  'landing.preview.browseAll': "To'liq to'plamni ko'rib chiqing",
   'landing.preview.eyebrow': 'Ichkariga bir nazar',
   'landing.preview.heading': "Bu oyda qo'lda tanlangan turar joylar",
+  'landing.preview.subheading':
+    "{{appName}} dagi har bir mulk tahririyatimiz tomonidan shaxsan tekshirilgan — agregator inventari yo'q, aldamchi e'lonlar yo'q va har bir marshrutda bekor qilish bepul.",
   'login.eyebrow': "A'zolar maydoni",
+  'login.noAccount': 'Tesserada yangimisiz?',
   'login.signupLink': 'Bepul hisob yarating',
   'login.subheading':
     "Sayohatlaringizni boshqarish, tasdiqlarni ko'rish va qolgan joyingizdan davom ettirish uchun tizimga kiring.",
   'nav.legal': 'Huquqiy',
   'notifications.loading': 'Yuklanmoqda…',
   'notifications.subheading': "{{count}} o'qilmagan · hamma narsa bitta xotirjam pochta qutisida",
+  'planUpdated.body':
+    "Hisob-kitob o'zgarishingiz endi faol. Tarifingizni istalgan vaqtda hisob-kitob sahifasidan boshqarishingiz mumkin.",
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.accommodationsLabel': 'turar joylar',
   'pricing.bookingsLabel': 'buyurtmalar',
   'pricing.destinationsLabel': 'saqlangan manzillar',
   'pricing.exportLabel': "Sayohat ma'lumotlarini eksport qilish",
   'pricing.itinerariesLabel': 'sayohat rejalari',
+  'privacy.intro':
+    "{{appName}} sayohat ma'lumotlaringizni himoya qiladi. Ishlab chiqarishga chiqarishdan oldin bu shablonni haqiqiy maxfiylik siyosatingiz bilan almashtiring.",
   'propertyDetail.allPhotos': 'Hammasi {{count}} fotosuratlar',
   'propertyDetail.amenitiesHeading': 'Bu joy nimani taklif qiladi',
   'propertyDetail.backLink': 'Qidiruvga qaytish',
   'propertyDetail.bookCta': 'Bron qilish',
   'propertyDetail.bookmarkAria': 'Mulkni saqlang',
   'propertyDetail.freeCancellation': 'Bepul bekor qilish',
+  'propertyDetail.galleryAria': 'Mulk fotosuratlari galereyasi',
+  'propertyDetail.galleryCloseAria': 'Galereyani yopish',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': '{{name}} fotosurat {{n}}',
+  'propertyDetail.galleryNextAria': 'Keyingi rasm',
+  'propertyDetail.galleryPrevAria': 'Oldingi rasm',
   'propertyDetail.heroImageAlt': '{{name}} qahramon fotosurati',
   'propertyDetail.lineCleaning': 'Tozalash narxi',
   'propertyDetail.lineRate': '{{price}} × {{nights}} kechalar',
@@ -105,6 +142,7 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'kecha',
   'propertyDetail.noChargeYet': "Sizdan hali to'lov olinmaydi",
   'propertyDetail.notFound': 'Mulk topilmadi.',
+  'propertyDetail.pickDatesHint': "To'liq narx taqsimotini ko'rish uchun sanalarni tanlang.",
   'propertyDetail.reviewCount': '( {{count}} sharhlar)',
   'propertyDetail.reviewsHeading': "So'nggi sharhlar",
   'propertyDetail.verified': 'Sojourn tomonidan tasdiqlangan mulk',
@@ -113,6 +151,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Yangi parol',
   'resetPassword.subheading':
     'Sojourn hisobingiz uchun yangi parol tanlang. Kamida 8 ta belgidan foydalaning; biz parolni tavsiya qilamiz.',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'Qidiruvingizga hech qanday mulk mos kelmadi.',
   'search.emptyHint':
     'Filtrlaringizni kengaytirishga yoki narx chegarasini olib tashlashga harakat qiling — Sojourn 14 mamlakatda turar joylarga ega.',
@@ -120,6 +159,8 @@ export const ui: UiTranslations = {
   'search.heading': 'Sayohatingiz uchun tanlangan turar joylar',
   'search.headingForQuery': '"Uchun qoladi" {{q}} "',
   'search.loadError': "Xususiyatlarni yuklab bo'lmadi.",
+  'search.mapHint': "Joylashuvini xaritada ko'rish uchun kartaga sichqonchani olib keling.",
+  'search.mapPinAria': '{{name}} — {{price}} bir kecha uchun',
   'search.sortLabel': 'Saralash turi',
   'search.subheading': '{{count}} mulklar · {{guests}} mehmonlar',
   'settings.openAccount': "To'liq hisobni ochish",
@@ -128,15 +169,22 @@ export const ui: UiTranslations = {
   'signup.subheading':
     "Bepul bekor qilish, faqat a'zolar uchun narxlar va 24/7 sayohat konsyerji — har bir buyurtma uchun milya to'plang.",
   'sojournAuthShell.brand.eyebrow': 'Xavotirsiz sayr qiling',
+  'sojournAuthShell.brand.heading': "Xayoldan band qilishgacha bo'lgan qulay yo'l.",
   'sojournHeroSearchCard.checkInAria': "Ro'yxatdan o'tish sanasi",
   'sojournHeroSearchCard.checkOutAria': 'Chiqish sanasi',
+  'sojournHeroSearchCard.destAria': 'Manzil',
+  'sojournHeroSearchCard.destLabel': 'Qayerda',
   'sojournHeroSearchCard.destPlaceholder': 'Shahar, viloyat yoki mulk',
   'sojournHeroSearchCard.eyebrow': "Tanlangan turar joylar · Faqat a'zolar uchun narxlar",
   'sojournHeroSearchCard.guestsOption': '{{n}} mehmonlar',
   'sojournHeroSearchCard.subtitle':
     "Ilhom, ishonchli turar joylar va orzudan buyurtma qilingangacha bo'lgan oson yo'l — 14 ta mamlakat va 200 dan ortiq qo'lda tekshirilgan mulklar bo'ylab.",
+  'sojournHeroSearchCard.title': 'Xavotirsiz sayr qiling',
+  'sojournHeroSearchCard.trustLoyalty': 'Har bir marshrutda mil ishlang',
   'sojournHeroSearchCard.trustProtected': "Bepul bekor qilish, to'liq himoyalangan",
   'sojournHeroSearchCard.trustVetted': "Faqat qo'lda tekshirilgan mulklar",
+  'terms.intro':
+    "Ishlab chiqarishga chiqarishdan oldin bu shablonni haqiqiy {{appName}} xizmat ko'rsatish shartlari bilan almashtiring.",
   'travelBookingLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'tripDetail.backLink': 'Sayohatlarga qaytish',
   'tripDetail.cancelCta': 'Bronlashni bekor qilish',
@@ -146,6 +194,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'Ixtiyoriy — bekor qilish sababi',
   'tripDetail.checkInLabel': 'Belgilanish',
   'tripDetail.checkOutLabel': "Ro'yxatdan o'chirilish",
+  'tripDetail.confCode': 'Kod · {{code}}',
   'tripDetail.confirmCancelCta': 'Sayohatni bekor qilish',
   'tripDetail.hostInfo':
     "Mezbon {{name}} Ro'yxatdan o'tishdan 7 kun oldin bepul bekor qilish mumkin.",
@@ -153,6 +202,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'Bron qilishni davom eting',
   'tripDetail.lengthLabel': 'Uzunlik',
   'tripDetail.loadError': "Sayohatni yuklab bo'lmadi.",
+  'tripDetail.messageHostHeading': 'Xostga xabar yuboring',
   'tripDetail.messagePlaceholder':
     'Kelish vaqtingiz, ovqatlanish ehtiyojlaringiz yoki boshqa narsalar haqida mezbonga xabar bering.',
   'tripDetail.messageSend': 'Xabar yuborish',
@@ -163,10 +213,12 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'Narxlar xulosasi',
   'tripDetail.taxes': "Soliqlar va to'lovlar",
   'tripItineraryRow.nights': '{{count}} kechalar',
+  'trips.empty.past': "Sayohat qilganingizdan so'ng o'tgan sayohatlar shu yerda paydo bo'ladi.",
   'trips.empty.upcoming':
     "Hozircha yaqinlashib kelayotgan sayohatlar yo'q — keling, buni tuzatamiz.",
   'trips.eyebrow': 'Sizning sayohatlaringiz',
   'trips.heading': 'Sayohatlar',
   'trips.loadError': 'Sayohatlar yuklanmadi.',
+  'trips.searchCta': 'Yana bir sayohatni rejalashtiring',
   'trips.subheading': "{{upcoming}} yaqinlashib kelayotgan · {{past}} o'tmish",
 }

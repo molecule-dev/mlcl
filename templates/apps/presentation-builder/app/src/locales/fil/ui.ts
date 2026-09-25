@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May mga tanong, feedback, o feature na hinihiling mo? Makipag-ugnayan sa team mula sa settings ng iyong account — may tunay na tao na nagbabasa ng bawat mensahe.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.missionTitle': 'Ang aming misyon',
+  'about.whatYouGetTitle': 'Ano ang matatanggap ninyo',
   'analytics.empty': 'Gumawa ng mga deck para makita ang analytics dito.',
   'analytics.stats.acrossDecks': 'Sa lahat ng deck',
   'analytics.stats.allTime': 'Sa iyong studio',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Pamagat ng kubyerta',
   'landing.features.eyebrow': 'Bakit Overture',
   'landing.features.heading': 'Nakahanda na ang lahat ng kailangan mo para makaakyat sa entablado.',
+  'landing.finalCta.body':
+    'Simulan ang iyong studio sa wala pang isang minuto. Walang credit card. Kanselahin anumang oras.',
   'landing.finalCta.cta': 'Gumawa ng iyong libreng studio',
   'landing.finalCta.eyebrow': 'Libre ang pagsisimula',
   'landing.finalCta.heading':
@@ -82,10 +88,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Na-edit 12 minuto ang nakalipas',
   'notifications.created': 'nilikha',
   'notifications.edited': 'na-edit',
+  'notifications.empty.body':
+    'Lalabas dito ang aktibidad sa iyong mga deck — mga komento, mention, export.',
   'notifications.empty.title': 'Wala pang mga abiso',
   'notifications.eyebrow': 'Aktibidad sa entablado',
   'notifications.loading': 'Naglo-load…',
   'notifications.shared': 'ibinahagi sa publiko',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'present.addSlides': 'Magdagdag ng mga slide',
   'present.backToDecks': 'Balik sa mga deck',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Tagaganap sa entablado',
   'settings.security.notSet': 'Hindi nakatakda',
   'settings.security.passwordBody': 'Naka-encrypt ang iyong password habang naka-imbak.',
+  'settings.security.reset': 'I-reset',
   'settings.security.title': 'Account + mga sesyon',
   'shared.empty.body':
     'Lalabas dito ang mga deck na ibinabahagi mo sa publiko. Magbukas ng deck at i-toggle ang public para ibahagi.',
@@ -131,6 +144,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Naglo-load…',
   'shared.title': 'Mga nakabahaging deck',
   'templateCard.slideCount': '{{count}} mga slide',
+  'templateCard.usageCount': '{{count}} mga gamit',
+  'templates.empty.body': 'Subukan ang ibang filter — may bagong template kami bawat buwan.',
+  'templates.empty.title': 'Wala pang template sa kategoryang ito',
+  'templates.hero.body':
+    'Mga layout ng slide na may tema na kasama ang mga chart block, demo frame, presenter notes, at timer preset — handa nang i-record ang bawat template.',
   'templates.hero.eyebrow': 'Mga napiling yugto',
   'templates.hero.heading': 'Mga yugtong itinayo para sa sandaling kailangan mo itong mapunta.',
 }

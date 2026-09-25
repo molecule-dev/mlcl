@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Pyetje për një edicion, një dërgesë ose abonimin tuaj? Kontaktoni një person real të ekipit në hello@crate.example — lexojmë çdo mesazh.',
+  'about.contactTitle': 'Bisedoni me një kurator',
+  'about.feature1':
+    'Edicione mujore të përzgjedhura nga krijues të pavarur, me historinë pas çdo artikulli.',
+  'about.feature2':
+    'Kontroll i plotë mbi çdo kuti — personalizoni përmbajtjen, ndërroni ose përjashtoni artikuj, kaloni një muaj ose ndryshoni ritmin tuaj.',
+  'about.feature3':
+    'Ndjekje e dërgesës nga fillimi në fund, nga marrja deri në derë, me paketim pa plastikë dhe përditësime të drejtpërdrejta nga transportuesi.',
+  'about.feature4':
+    'Plane fleksibël dhe faturim transparent — përmirësoni, ulni, pauzoni ose anuloni në çdo moment nga paneli juaj.',
+  'about.intro':
+    '{{app}} është një shërbim abonimi me kuti të përzgjedhura që ju dërgon çdo muaj në derë një kuti gëzimi të përzgjedhur dhe në sasi të vogël. Çdo edicion përgatitet nga krijues aktivë — artistë të pavarur, kuzhinierë dhe marka të vogla — jo nga një algoritëm.',
+  'about.missionBody':
+    'Ne besojmë se një abonim duhet të ndihet si dhuratë, jo si kurth. {{app}} është ndërtuar që ju të qëndroni sepse e doni atë që vjen — pauzoni në çdo moment, ndërroni atë që dëshironi dhe anuloni me një klikim. Pa skripte mbajtjeje, kurrë.',
+  'about.missionTitle': 'Misioni ynë',
   'about.pageTitle': 'Rreth {{app}}',
   'appNav.mobileLabel': 'Navigimi kryesor',
   'appNav.primaryLabel': 'Navigimi kryesor',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Modifiko kontaktin e faturimit',
   'billing.contact.eyebrow': 'Kontakti i faturimit',
   'billing.eyebrow': 'Plani dhe pagesat',
+  'billing.loading': 'Duke ngarkuar faturimin…',
   'billing.payment.body':
     'Pagesa trajtohet nga Stripe Checkout — numri i plotë i kartës suaj nuk prek kurrë serverat tanë. Klikoni çdo nivel më poshtë për të shtuar ose përditësuar kartën tuaj.',
   'billing.payment.linked': 'Kartë e arkivuar nëpërmjet Stripe',
@@ -19,10 +36,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Rifillo abonimin',
   'billing.plan.eyebrow': 'Plani aktiv',
   'billing.plan.next': 'Rinovohet automatikisht më {{date}} .',
+  'billing.plan.status': 'Statusi: {{status}}',
   'billing.subtitle':
     'Menaxhoni nivelin tuaj, metodën e pagesës dhe rishikoni aktivitetin e kaluar.',
   'billing.tiers.body': "Zgjidhni një nivel dhe ne do t'ju drejtojmë te Stripe Checkout.",
   'billing.tiers.choose': 'Zgjidh',
+  'billing.tiers.empty': 'Nuk ka nivele të konfiguruara ende.',
   'billing.tiers.heading': 'Nivelet e disponueshme',
   'boxDetail.backToBoxes': 'Kthehu te të gjitha botimet',
   'boxDetail.crumb.boxes': 'Botimet',
@@ -35,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Vepër e kuruar',
   'boxDetail.items.heading': '{{count}} pjesë të kuruara',
   'boxDetail.itemsBadge': '{{count}} artikuj të përzgjedhur për kuti',
+  'boxDetail.loading': 'Po ngarkohet edicioni…',
   'boxDetail.notFound': 'Ai botim nuk është më i disponueshëm.',
   'boxDetail.subscribe.success': 'I abonuar — botimi juaj i parë është në radhë.',
   'boxDetail.swapBadge': 'Ndërro me {{count}} artikull(e) për kuti',
@@ -43,14 +63,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Nuk ka botime që përputhen.',
   'boxes.eyebrow': 'Arkivi i Crate',
   'boxes.heading': 'Shfletoni çdo botim',
+  'boxes.loadError': 'Nuk mundëm të ngarkojmë edicionet. Kontrolloni lidhjen dhe provoni përsëri.',
   'boxes.loading': 'Duke ngarkuar botimet…',
+  'boxes.search.label': 'Kërko edicione',
   'boxes.search.placeholder': 'Kërko botimet…',
   'boxes.subtitle':
     'Çdo nivel është një histori me grupe të vogla. Shtoni një në radhën tuaj ose ndërrojeni atë në muajin tuaj të ardhshëm.',
+  'boxThemeCard.itemCount': '{{count}} artikuj',
   'boxThemeCard.perMonth': '/ muaj',
+  'boxThemeCard.retailValue': 'Vlera me pakicë {{value}}',
   'common.goToDashboard': 'Shko te paneli',
+  'common.retry': 'Riprovo',
   'customize.eyebrow': 'Bëje tënden',
   'customize.heading': 'Personalizo Crate-in tënd të ardhshëm',
+  'customize.items.empty': 'Nuk ka artikuj të konfiguruar për këtë nivel ende.',
   'customize.items.exclude': 'Kapërceje këtë',
   'customize.items.eyebrow': 'Personalizo këtë kuti',
   'customize.items.heading': 'Artikuj në {{box}}',
@@ -59,8 +85,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Shto përsëri',
   'customize.items.save': 'Ruaj personalizimin',
   'customize.items.swapsLeft': '{{used}} e {{max}} shkëmbimet e përdorura',
+  'customize.loading': 'Po ngarkohet personalizimi…',
   'customize.noSub.body':
     'Regjistrohu fillimisht në një nivel, pastaj kthehu për të shkëmbyer artikujt në kutinë tënde.',
+  'customize.noSub.cta': 'Shfleto edicionet',
   'customize.noSub.heading': 'Asnjë abonim aktiv',
   'customize.saved': 'Personalizimi u ruajt.',
   'customize.subtitle':
@@ -74,11 +102,15 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Gjurmimi i dërgesës',
   'dashboard.eyebrow': 'Thesari juaj',
   'dashboard.greeting': 'Mirë se erdhe përsëri, {{name}} .',
+  'dashboard.loadError':
+    'Nuk mundëm të ngarkojmë panelin tuaj. Kontrolloni lidhjen dhe provoni përsëri.',
   'dashboard.loading': 'Paneli po ngarkohet…',
   'dashboard.next.eyebrow': 'Botimi juaj i ardhshëm',
   'dashboard.onboarding.body':
     'Nuk ke ende një abonim aktiv. Zgjidh një nivel për të filluar dërgimin e një Crate çdo muaj.',
   'dashboard.onboarding.cta': 'Shfletoni të gjitha botimet',
+  'dashboard.onboarding.empty':
+    'Nuk ka plane të disponueshme tani. Kontrolloni përsëri së shpejti.',
   'dashboard.onboarding.heading': 'Zgjidhni botimin tuaj të parë',
   'dashboard.renewal.amount': 'I ngarkuar',
   'dashboard.renewal.cadence': 'Kadencë',
@@ -86,12 +118,16 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Rinovimi',
   'dashboard.renewal.heading': 'Rinovohet automatikisht në {{date}}',
   'dashboard.renewal.plan': 'Çelësi i planit',
+  'dashboard.renewal.tbd': 'Planifikimi i rinovimit së shpejti',
   'dashboard.renewal.tier': 'Shtresa',
   'dashboard.stats.days': 'ditë',
   'dashboard.stats.daysToNext': 'Anijet në',
   'dashboard.stats.items': 'Artikuj të përzgjedhur',
   'dashboard.stats.shipDate': 'Data e dërgesës',
   'dashboard.stats.tbd': "Për t'u përcaktuar",
+  'dashboard.subtitle.active': 'Edicioni juaj i radhës është në rrugë. Ja çfarë mund të prisni.',
+  'dashboard.subtitle.idle':
+    'Zgjidhni një nivel për të filluar dërgimin e një {{appName}} çdo muaj.',
   'forgotPassword.subtitle':
     "Na tregoni email-in tuaj dhe ne do t'ju dërgojmë një lidhje rivendosjeje.",
   'forgotPassword.success.body':
@@ -99,6 +135,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Kontrolloni kutinë tuaj postare.',
   'landing.editions.eyebrow': 'Këtë sezon',
   'landing.editions.heading': 'Botime që kuratorët tanë i adhurojnë',
+  'landing.editions.viewAll': 'Shfleto të gjitha edicionet →',
   'landing.footer.contact': 'Bisedoni me një kurator',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Filloni kutinë tuaj →',
@@ -108,6 +145,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Një vështrim në panelin e anëtarëve — numërimi mbrapsht, përmbajtja dhe ndjekja.',
   'landing.hero.social.count': 'I dashur nga {{count}} + abonentë',
+  'landing.hero.social.rating': '{{rating}} vlerësim mesatar i hapjes',
+  'landing.hero.subhead':
+    '{{appName}} ju dërgon një kuti gëzimi të përzgjedhur dhe në sasi të vogël nga krijues të pavarur. Pauzoni në çdo moment. Ndërroni atë që dëshironi. Mbani atë që doni.',
   'landing.nav.start': 'Filloni kutinë tuaj',
   'landing.tiers.eyebrow': 'Zgjidh kadencën tënde',
   'landing.tiers.heading':
@@ -118,6 +158,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Kyçu për të parë kutinë e muajit të ardhshëm.',
   'login.welcomeBack': 'Mirë se erdhe përsëri, kurator.',
   'nextBoxHeroCard.eyebrow': 'THESARI JUAJ I ARDHSHËM',
+  'nextBoxHeroCard.itemCount': '{{count}} pjesë brenda',
   'nextBoxHeroCard.itemsLabel': 'Artikuj të përzgjedhur',
   'nextBoxHeroCard.shipsOnLabel': 'Dërgohet në',
   'notFound.body':
@@ -141,8 +182,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Ndërprit abonimin',
   'settings.danger.paused': 'Abonimi u ndërpre.',
   'settings.danger.pausing': 'Duke u ndalur…',
+  'settings.danger.status': 'Statusi i abonimit: {{status}}',
   'settings.danger.subtitle':
     'Ndërprerja e mban nivelin dhe historikun tuaj të paprekur. Anulimi ndalon dërgesat e ardhshme dhe heq metodat e pagesës së ruajtura në fund të ciklit.',
+  'settings.notifications.saving': '· po ruhet…',
   'settings.notifications.subtitle':
     'Zgjidh sinjalet që dëshiron nga Crate. Vlerat fillestare janë të arsyeshme.',
   'settings.subtitle':
@@ -159,12 +202,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Nuk ka ende dërgesë aktive',
   'shipments.live.eyebrow': 'Dërgesë aktive',
   'shipments.live.unnamed': 'Kutia juaj e ardhshme',
+  'shipments.loadError':
+    'Nuk mundëm të ngarkojmë dërgesat tuaja. Kontrolloni lidhjen dhe provoni përsëri.',
+  'shipments.loading': 'Duke ngarkuar dërgesat…',
+  'shipments.step.delivered': 'Dorëzuar',
   'shipments.step.deliveredBody': 'Etiketoni #crateunbox për të ndarë atë që zbuloni.',
   'shipments.step.ordered': 'Porosia u bë',
   'shipments.step.orderedBody':
     'Abonimi juaj e vendosi këtë botim në radhë për ciklin tjetër të dërgesës.',
+  'shipments.step.packed': 'Paketuar me dorë',
   'shipments.step.packedBody':
     'Çdo copë e mbështjellë dhe e futur në kuti me një shënim të shkruar me dorë.',
+  'shipments.step.transit': 'Në rrugë',
   'shipments.step.transitNot': 'Gjurmimi do të shfaqet këtu sapo kutia juaj të jetë në transport.',
   'shipments.subtitle':
     'Gjurmoni kutinë në rrugën e saj për tek ju, pastaj rishikoni çdo botim që keni hapur kutinë më parë.',

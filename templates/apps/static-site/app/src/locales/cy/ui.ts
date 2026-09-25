@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': "Mae eich cynllun wedi'i ddiweddaru.",
   'planUpdated.returnHome': 'Dychwelyd adref',
   'planUpdated.thankYou': 'Diolch!',
+  'post.markdown': 'Gweld y post hwn fel markdown',
+  'post.readingTime': '{{minutes}} darlleniad munud',
   'post.tags': 'Tagiau',
   'project.error.nameAndTypeRequired': 'Mae angen enw a projectType',
   'project.error.notFound': 'Heb ei ganfod',

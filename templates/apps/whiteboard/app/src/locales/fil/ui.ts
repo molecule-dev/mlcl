@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, nakakita ka ng bug, o gusto mo ng feature? Binabasa namin ang bawat mensahe — kontakin ang {{appName}} team mula sa settings ng iyong account at may tunay na tao na sasagot sa iyo.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.intro':
+    'Ang {{appName}} ay isang collaborative infinite canvas para sa mga design team, facilitator ng workshop, at educator. Maglagay ng sticky notes, mag-sketch ng hugis, mag-drawing nang freehand, at panoorin ang mga kasamahan mong nag-iisip kasabay mo sa real time — lahat sa isang lugar kung saan ang magulo at generative na mga ideya ay sa wakas ay nagtatagpo.',
+  'about.missionBody':
+    'Bihirang maayos ang mahusay na pag-iisip. Umiiral ang {{appName}} para bigyan ang mga team ng mabilis at madaling gamiting surface kung saan maaaring mahuli ang mga ideya sa sandaling dumating ang mga ito at hubugin nang sama-sama hanggang sa maging malinaw — walang lag, walang nawawalang trabaho, o matitigas na tool na pumapatay sa momentum.',
+  'about.missionTitle': 'Ang aming misyon',
+  'authShell.brandFooter':
+    '“Pinalitan namin ang apat na tool ng {{appName}} sa linggong inilabas namin ang aming rebrand. Ang retro ay nag-save sa sarili nito.” — Atlas Studio',
+  'authShell.brandFooterMeta': 'Pinagkakatiwalaan ng 12,400+ design team',
   'authShell.brandHeading':
     'Mga multiplayer canvas para sa mga design team na nag-iisip nang malakas.',
   'billing.canceled': 'Subscription nakansela na.',
@@ -11,6 +21,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': 'Walang hanggang libreng panimulang antas.',
   'billing.freePlanName': 'Libre',
   'billing.paidPlanBody': 'Aktibong suskrisyon.',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'Plano at mga invoice',
   'billing.updated': 'Na-update na ang plano.',
   'billing.upgradeTitle': 'Mga magagamit na plano',
@@ -19,8 +30,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': 'ng {{max}} kasama',
   'boardCanvas.backToBoards': 'Lahat ng board',
   'boardCanvas.changeColor': 'Baguhin ang kulay {{color}}',
+  'boardCanvas.collaboratorsTitle': 'Mga Kolaborator',
   'boardCanvas.deleteElement': 'Burahin ang elemento',
   'boardCanvas.deselect': 'Alisin sa pagkakapili',
+  'boardCanvas.elementLabel': 'elemento ng {{type}}',
   'boardCanvas.elementsCount': '{{count}} mga elemento',
   'boardCanvas.elementText': 'Teksto',
   'boardCanvas.empty.body':
@@ -30,10 +43,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': 'Punan',
   'boardCanvas.invited': 'Inimbitahan {{email}}',
   'boardCanvas.metaTitle': 'Posisyon',
+  'boardCanvas.metaWH': 'W: {{w}}  H: {{h}}',
   'boardCanvas.metaXY': 'X: {{x}} Y: {{y}}',
   'boardCanvas.noCollaborators':
     'Wala pang mga kolaborator. Gamitin ang Share para imbitahan ang mga kasamahan sa koponan.',
   'boardCanvas.present': 'Kasalukuyan',
+  'boardCanvas.private': 'Pribado — invite only',
   'boardCanvas.properties': 'Mga Ari-arian',
   'boardCanvas.public': 'Pampubliko — maaaring tingnan ng sinumang may link',
   'boardCanvas.roleCommenter': 'Maaaring magkomento',
@@ -49,6 +64,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'Pumili ng malagkit na kulay',
   'boardCanvas.summaryCount': '{{count}} mga elemento sa canvas',
   'boardCanvas.summaryTitle': 'Lupon',
+  'boardCanvas.surface.clear': 'Board canvas — i-clear ang selection',
+  'boardCanvas.surface.draw': 'Board canvas — i-drag para mag-drawing',
+  'boardCanvas.surface.place': 'Board canvas — maglagay ng elemento',
   'boardCanvas.untitled': 'Walang pamagat na board',
   'boardCanvas.visibilityTitle': 'Kakayahang Makita',
   'boardCanvas.zoomIn': 'Mag-zoom in',
@@ -71,6 +89,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'Mga board ng paghahanap',
   'boards.searchPlaceholder': 'Mga board ng paghahanap',
   'boards.sharedTitle': 'Ibinahagi sa akin',
+  'boards.sortedBy': 'Nakaayos ayon sa kamakailang na-update',
   'boards.startFromTemplate': 'Magsimula sa template',
   'boards.title': 'Ang iyong mga board',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -84,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.cta.signupButton': 'Gumawa ng iyong libreng board',
   'landing.cta.title': 'Ginawa para sa magulo, malikhain, at personal na pag-iisip.',
   'landing.demoBoard.title': 'Q1 Workshop · Boses ng Brand',
+  'landing.demoBoard.updated': 'Na-update 12 min ang nakalipas',
   'landing.featuresEyebrow': 'Ano ang nagpapa-tessellate sa Slate',
   'landing.featuresTitle': 'Mabilis na feedback. Magagandang canvas. Walang friction.',
   'landing.hero.body':
@@ -97,18 +117,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '•••••••••••',
   'login.signIn': 'Mag-sign in sa Slate',
   'login.signupCta': 'Gumawa ng libreng workspace',
+  'login.signupPrompt': 'Bago sa Tessera?',
   'login.subheading':
     'Ipagpatuloy kung saan natapos ang workshop — ang mga board, sticky notes, at cursor ay nagsi-sync nang real time.',
   'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
   'mobileNav.new': 'Bago',
   'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
+  'notifications.editBody': 'Na-update ang nilalaman ng board.',
   'notifications.editTitle': 'Mga pagbabago sa " {{board}} "',
   'notifications.empty.body':
     'Ang mga imbitasyon, mga pag-save ng snapshot, at mga kamakailang pag-edit sa board ay lilitaw dito habang nangyayari ang mga ito.',
   'notifications.empty.title': 'Walang bago sa inbox mo',
   'notifications.eyebrow': '{{name}} · inbox',
+  'notifications.inviteBody': 'bilang {{role}} sa "{{board}}"',
   'notifications.inviteTitle': 'Inimbitahan {{email}}',
   'notifications.snapshotTitle': 'Bagong snapshot sa " {{board}} "',
+  'present.addFirst': 'Magdagdag ng unang frame',
   'present.addFrame': '+ Magdagdag ng frame',
   'present.boardEyebrow': '{{title}} · presentasyon',
   'present.empty.body':
@@ -116,6 +140,7 @@ export const ui: UiTranslations = {
   'present.empty.title': 'Wala pang mga frame',
   'present.exit': 'Presentasyon ng Paglabas',
   'present.exitToBoard': 'Balik sa canvas',
+  'present.eyebrow': 'Presentation mode',
   'present.frameBody': 'Mga puntong pinag-uusapan',
   'present.frameName': 'Pangalan ng frame',
   'present.frameOf': 'Balangkas {{current}} ng {{total}}',
@@ -125,21 +150,31 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'Live na pagtatanghal',
   'present.save': 'I-save ang frame',
   'present.title': 'Patakbuhin ang iyong kwento',
+  'present.unnamed': 'Walang pamagat na frame',
+  'pricing.limits.advanced': 'Mga advanced na feature',
   'profile.cursorBody':
     'Naka-save sa device na ito — makikita ng mga kasamahan sa koponan ang kulay na ito sa tabi ng iyong live na cursor.',
   'profile.cursorEyebrow': 'Kulay ng iyong cursor',
   'profile.eyebrow': 'Kard ng pampublikong kolaborator',
+  'profile.noBoards': 'Wala pang board — gumawa ng isa para makapagsimula.',
+  'profile.recentBoards': 'Mga board na {{name}} kamakailang hinawakan',
   'profile.stat.${s.label}': 'Mga Board {{pangalan}} kamakailan lang nahawakan',
+  'profile.statsEyebrow': 'Ang iyong aktibidad',
   'profile.title': 'Inyong profile',
+  'reset.backPrompt': 'Iba ang email na kailangan mo?',
   'reset.cta': 'I-reset ang password at mag-sign in',
+  'reset.password': 'Bagong password',
   'reset.subheading':
     'Pumili ng matibay na password — hindi bababa sa 8 karakter na may isang numero.',
   'settings.appearance.title': 'Tema at canvas',
   'settings.eyebrow': 'Mga kagustuhan ng account',
   'settings.notifications.title': 'Mga kagustuhan sa abiso',
   'settings.profile.title': 'Kard ng pampublikong kolaborator',
+  'settings.security.body':
+    'Pamahalaan ang two-factor authentication, aktibong session, at password mula sa iyong account dashboard.',
   'settings.security.title': 'Seguridad',
   'shared.collaboratorCount': '{{count}} mga kolaborator',
+  'shared.count': '{{count}} board',
   'shared.empty.body':
     'Kapag inimbitahan ka ng isang kasamahan sa isang board, awtomatiko itong lalabas dito.',
   'shared.empty.title': 'Wala pang naibahagi sa iyo',
@@ -155,6 +190,9 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Libre para sa hanggang 3 na collaborator. Hindi kailangan ng credit card sa unang 14 na araw.',
   'templateCard.usageCount': '{{count}} mga gamit',
+  'templateDetail.allTemplates': 'Lahat ng template',
+  'templateDetail.body':
+    'I-click ang "Use template" para kopyahin ang {{count}} starter element sa isang bagong board na pinamagatang "{{name}}". I-edit, i-share, at patakbuhin ang iyong workshop mula doon.',
   'templateDetail.delete': 'Burahin ang template',
   'templateDetail.elementsCount': '{{count}} mga elemento ng panimulang',
   'templateDetail.eyebrow': '{{kind}} hulmahan',
@@ -167,16 +205,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'Mag-save ng custom na template',
   'templates.empty.body':
     'Gumawa ng custom na template mula sa anumang board na pagmamay-ari mo — buksan ang board, i-save ang isang snapshot, pagkatapos ay i-save ito bilang magagamit muli na template dito.',
+  'templates.empty.title': 'Wala pang mga template',
   'templates.eyebrow': 'Mga kit para sa workshop at mga naka-save na template',
   'templates.filter.${c}': 'Wala pang mga template',
   'templates.nameLabel': 'Pangalan ng template',
   'templates.systemBadge': 'Naka-embed',
   'templates.userBadge': 'Sa iyo',
   'versionHistory.backToBoard': 'Balik sa canvas',
+  'versionHistory.elementsTotal': '{{count}} na-capture na elemento',
   'versionHistory.empty.body':
     'Ang mga snapshot ay ginagawa mula sa canvas ng board gamit ang "I-save ang snapshot" — lumalabas ang mga ito rito para maibalik mo ang anumang dating estado.',
+  'versionHistory.empty.cta': 'Buksan ang canvas para kumuha ng isa',
   'versionHistory.empty.title': 'Wala pang mga snapshot',
   'versionHistory.eyebrow': '{{title}} · kasaysayan',
+  'versionHistory.eyebrowFallback': 'Kasaysayan ng board',
   'versionHistory.latest': 'Pinakabago',
   'versionHistory.restore': 'Ibalik ang bersyong ito',
   'versionHistory.restored': 'Naibalik na ang snapshot.',
@@ -187,6 +229,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'Bagong board',
   'whiteboardLayout.primaryNav': 'Pangunahing navigation',
   'workspace.boardLabel': 'Lupon',
+  'workspace.empty': 'Wala pang collaborator — mag-imbita ng isang tao sa iyong mga board.',
   'workspace.eyebrow': '{{name}} · lugar ng trabaho',
   'workspace.invite': 'Mag-imbita ng mga kolaborator',
   'workspace.inviteSent': 'Naipadala na ang imbitasyon.',
@@ -196,4 +239,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'Tagapagkomento',
   'workspace.role.editor': 'Patnugot',
   'workspace.role.viewer': 'Manonood',
+  'workspace.title': 'Mga Miyembro at Tungkulin',
 }

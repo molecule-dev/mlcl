@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ ဒါမှမဟုတ် သင့်ကျောင်းကို ပါဝင်စေလိုပါသလား။ သင့်အကောင့် ဆက်တင်များမှ ဆက်သွယ်ပါ သို့မဟုတ် သင့်ကျောင်း စီမံခန့်ခွဲသူကို မက်ဆေ့ခ်ျ ပို့ပါ — မှတ်ချက် တစ်ခုချင်းစီသည် အဖွဲ့ထဲရှိ လူတစ်ဦးထံ အမှန်တကယ် ရောက်ပါသည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'announcementsFeed.empty': 'ကြေငြာချက်များ မရှိသေးပါ။',
   'announcementsFeed.eyebrow': '{{count}} အပ်ဒိတ်များ',
   'announcementsFeed.title': 'နောက်ဆုံးရ ကြေငြာချက်များ',
   'assignmentDetail.alreadySubmitted': 'ဤတာဝန်ကို သင်တင်သွင်းပြီးပါပြီ။',
   'assignmentDetail.backLink': 'တာဝန်များသို့ ပြန်သွားရန်',
+  'assignmentDetail.dropBody':
+    'သင့်လုပ်ငန်းကို ပူးတွဲရန် Choose files ကို အသုံးပြုပါ — သင်အတည်ပြုပြီးသည်နှင့် တင်သွင်းချိန် တံဆိပ်ကို ကျွန်ုပ်တို့ မှတ်တမ်းတင်ပါမည်။',
   'assignmentDetail.dropButton': 'ဖိုင်များကို ရွေးချယ်ပါ',
+  'assignmentDetail.dropPrompt': 'သင့် PDF သို့မဟုတ် ဓာတ်ပုံ အစုအဝေးကို ဤနေရာတွင် ချပါ',
   'assignmentDetail.due': 'ပေးရမည့်ရက် {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'ညွှန်ကြားချက်များ',
@@ -19,8 +25,12 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'အဆင့်သတ်မှတ်ထားသည်',
   'assignmentDetail.statusSubmitted': 'တင်သွင်းပြီးပါပြီ',
   'assignmentDetail.statusTitle': 'တင်သွင်းမှု အခြေအနေ',
+  'assignmentDetail.submitError':
+    'ထို တင်သွင်းမှုကို ကျွန်ုပ်တို့ မှတ်တမ်းတင်နိုင်ခြင်း မရှိပါ။ ခဏအကြာ ထပ်စမ်းကြည့်ပါ။',
   'assignmentDetail.submitted':
     'တင်သွင်းချက်ကို မှတ်တမ်းတင်ထားသည် — သင့်ဆရာ/ဆရာမကို အကြောင်းကြားပြီးပါပြီ။',
+  'assignmentDetail.submittedAt': 'တင်သွင်းပြီး {{when}}',
+  'assignmentDetail.submitTitle': 'သင့်လုပ်ငန်းကို တင်သွင်းပါ',
   'assignmentRow.courseDue': '{{course}} · ပေးရန်ရှိသည် {{due}}',
   'assignments.empty': 'ဒီမှာ ဘာမှ မရှိဘူး',
   'assignments.emptyBody':
@@ -40,9 +50,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'နေ့စဉ်ရောက်ရှိမှု၊ ပျက်ကွက်မှုနှင့် နောက်ကျမှုမှတ်တမ်း — သက်ဆိုင်သည့်အခါ မှတ်စုများပါရှိသည်။',
+  'attendance.summary.absences': 'ပျက်ကွက်မှုများ',
   'attendance.summary.absencesCaption': '၅ ရက်ကြာ ကြားဝင်ဆောင်ရွက်မှု ကန့်သတ်ချက်အောက်တွင်',
   'attendance.summary.attendance': 'တက်ရောက်မှု',
   'attendance.summary.attendanceCaption': '{{count}} လက်ရှိကာလ ဒီကာလ',
+  'attendance.summary.tardies': 'နောက်ကျမှုများ',
   'attendance.summary.tardiesCaption':
     'ဘတ်စ်ကား/ချိန်းဆိုမှု နှောင့်နှေးမှုများအတွက် မှတ်စုများ ပါဝင်သည်',
   'attendance.title': 'တက်ရောက်မှုမှတ်တမ်း',
@@ -57,6 +69,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'အဆင့်များ',
   'courseDetail.currentGrade': 'လက်ရှိအဆင့်',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'သင်တန်း ခြုံငုံသုံးသပ်ချက်',
   'courseDetail.gradesTitle': 'မကြာသေးမီက ရမှတ်များ',
   'courseDetail.messageTeacher': 'ဆရာ/ဆရာမထံ မက်ဆေ့ချ်ပို့ပါ',
   'courseDetail.noGrades': 'အဆင့်သတ်မှတ်ချက်တွေ မတင်ရသေးပါဘူး။',
@@ -70,13 +83,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'အားလုံးကြည့်ရန်',
   'dashboard.assignmentsTitle': 'ဒီအပတ်မှာ နောက်အပတ်',
   'dashboard.greeting': 'မင်္ဂလာပါ {{name}} ၊ အတန်းတက်ဖို့ အဆင်သင့်ဖြစ်ပြီလား။',
+  'dashboard.subtitle':
+    'သင့်အပတ်ကို တစ်ချက်ကြည့်ရုံဖြင့် — အချိန်ဇယား၊ အဆင့်များနှင့် တာဝန်များကို တစ်နေရာတည်းတွင် ငြိမ်သက်စွာ ကြည့်ရှုပါ။',
+  'dashboard.viewReportCard': 'အစီရင်ခံစာ ကတ်ကို ကြည့်ပါ',
+  'dashboard.weekFocusBody':
+    'Quadratics လေ့ကျင့်ခန်း အစု 7 နှင့် အခန်း စာမေးပွဲကို တင်သွင်းပါ။ ကျူရှင် ခန်းမသည် အပိုင်း 7 ပြီးနောက် အင်္ဂါနှင့် ကြာသပတေးနေ့များတွင် ဖွင့်ပါသည်။',
+  'dashboard.weekFocusCta': 'အစီအစဉ် အပြည့်အစုံကို ကြည့်ပါ',
   'dashboard.weekFocusEyebrow': 'အပတ်စဉ် အာရုံစိုက်မှု',
   'dashboard.weekFocusTitle': 'အက္ခရာသင်္ချာ II ကို ၄ မှတ်ဖြင့် မြှင့်တင်ပါ။',
   'forgotPassword.subheading':
     'သင့်ကျောင်းအီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့ပါမည်။',
   'forgotPassword.successBody':
     'အကယ်၍ {{email}} Chalk အကောင့်နှင့် ကိုက်ညီပါက၊ စကားဝှက်ပြန်လည်သတ်မှတ်ရန်လင့်ခ်တစ်ခု ရောက်ရှိလာတော့မည်ဖြစ်သည်။ လင့်ခ်များသည် မိနစ် ၃၀ အတွင်း သက်တမ်းကုန်ဆုံးပါမည်။',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} သက်တမ်း GPA',
+  'gpaHeroCard.summary': 'ယနေ့ အတန်း {{count}} ခု',
   'grades.col.grade': 'အဆင့်',
   'grades.col.teacher': 'ဆရာ/ဆရာမ',
   'grades.col.trend': 'ခေတ်ရေစီးကြောင်း',
@@ -88,10 +109,17 @@ export const ui: UiTranslations = {
     'တိုက်ရိုက်စာနှင့် ရာခိုင်နှုန်းအဆင့်များ။ လမ်းကြောင်းမြှားများသည် သင်တက်လှမ်းနေသလား၊ အဆင့်တက်နေသလား သို့မဟုတ် ချော်လဲနေသလားကို ပြသသည်။',
   'grades.title': 'သင့်ရဲ့ အဆင့်တွေ၊ သင်တန်းတစ်ခုချင်းစီ',
   'grades.trendStable': 'တည်ငြိမ်သော',
+  'grades.viewReportCard': 'တရားဝင် အစီရင်ခံစာ ကတ်ကို ကြည့်ပါ',
   'landing.copyright': '© {{year}} {{app}} . ကျောင်းသားများအတွက်၊ မိသားစုများအတွက် ဖန်တီးထားသည်။',
+  'landing.ctaBody':
+    'ပထမ 30 ရက် အခမဲ့၊ ခရက်ဒစ်ကတ် မလိုအပ်ပါ။ ခရိုင်များသည် ကျောင်းတစ်ခုလုံး အဆင့်ကို နေ့လယ်တစ်ခုတည်းတွင် စတင်နိုင်ပါသည်။',
+  'landing.ctaButton': 'သင့်ရဲ့ ပေါ်တယ်ကို ဖန်တီးပါ',
   'landing.ctaHeading': 'တိတ်ဆိတ်ငြိမ်သက်သော ကျောင်းနေ့တစ်နေ့သည် မိနစ်ပိုင်းအတွင်း စတင်သည်',
   'landing.eyebrow': 'အလယ်တန်းနှင့်အထက်တန်းကျောင်းသားများအတွက်',
   'landing.featuresHeading': 'ကျောင်းသားကို အခြေခံပြီး စီစဉ်ထားတဲ့ ကျောင်းတက်ရက်',
+  'landing.heroSubtitle':
+    '{{appName}} သည် အတန်း၊ အဆင့်၊ တာဝန်နှင့် မက်ဆေ့ခ်ျ အားလုံးကို ငြိမ်သက်သော ဒက်ရှ်ဘုတ်တစ်ခုတွင် စုစည်းပေးသဖြင့် ရှာဖွေရန် အချိန်နည်းနည်းနှင့် သင်ယူရန် အချိန်ပိုပို သုံးနိုင်ပါသည်။',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'မူရင်းအားဖြင့် FERPA နှင့် ကိုက်ညီသည်',
   'landing.proof.rating': 'မိသားစု ၁၂၀၀၀ တွင် ၄.၈',
   'landing.sampleTerm': 'နွေဦးရာသီ',
@@ -100,6 +128,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
   'login.noAccount': 'Chalk ကို အသစ်လား။',
   'login.showPassword': 'စကားဝှက်ပြပါ',
+  'messages.compose': 'မက်ဆေ့ချ်အသစ်',
   'messages.composer.email': 'လက်ခံသူ အီးမေးလ် (ရွေးချယ်နိုင်သည်)',
   'messages.composer.errorEmpty': 'မက်ဆေ့ချ်ကို ဗလာထား၍မရပါ။',
   'messages.composer.errorRecipient': 'လက်ခံသူအမည် လိုအပ်ပါသည်။',
@@ -130,9 +159,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'ဂုဏ်ထူးဆောင်စာရင်း · နွေဦးရာသီသင်တန်း',
   'nav.unreadMessages': 'မဖတ်ရသေးသော မက်ဆေ့ချ်များ',
   'notifications.eyebrow': '{{count}} အပ်ဒိတ်များ',
+  'notifications.feedTitle': 'မကြာသေးမီက လုပ်ဆောင်ချက် အားလုံး',
   'notifications.subtitle':
     'အဆင့်များ၊ သတိပေးချက်များ၊ မက်ဆေ့ချ်များနှင့် ကျောင်းကြေငြာချက်များ။ အကြောင်းကြားချက်တစ်ခုစီက မည်သည့်ချန်နယ်များကို အသုံးပြုသည်ကို ဆက်တင်များတွင် ချိန်ညှိပါ။',
+  'planUpdated.body':
+    'သင့်ငွေတောင်းခံမှု ပြောင်းလဲမှုသည် ယခု အသက်ဝင်နေပါပြီ။ သင့်အစီအစဉ်ကို ငွေတောင်းခံမှုစာမျက်နှာမှ မည်သည့်အချိန်တွင်မဆို စီမံနိုင်ပါသည်။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
+  'pricing.announcementsLabel': 'ကြေငြာချက်များ',
   'pricing.attendanceLabel': 'တက်ရောက်မှု',
   'pricing.gradesLabel': 'အဆင့်များ',
   'pricing.heading': 'ကြေငြာချက်များ',
@@ -147,6 +184,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'ဒုတိယသုံးလပတ်',
   'reportCard.crumb': 'အစီရင်ခံစာကတ်',
   'reportCard.cumulativeGpa': 'စုစုပေါင်း GPA',
+  'reportCard.download': 'PDF ကို ဒေါင်းလုဒ်လုပ်ပါ',
   'reportCard.downloaded': 'အစီရင်ခံစာကတ်ကို တဘ်အသစ်တွင် ဖွင့်ထားသည်။',
   'reportCard.downloading': 'PDF ဖိုင်တွေ ထုတ်နေတယ်…',
   'reportCard.empty': 'အမှတ်စာရင်းတော့ မရှိသေးပါဘူး။',
@@ -154,6 +192,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'နောက်ဆုံး GPA · {{term}}',
   'reportCard.subtitle':
     'သင်တန်းအဆင့်များ၊ တက်ရောက်မှုအရေအတွက်နှင့် ပရင့်ထုတ်နိုင်သော PDF ဒေါင်းလုဒ်ပါရှိသော တရားဝင်စာသင်ချိန်အဆုံးမှတ်တမ်း။',
+  'reportCard.title': 'အစီရင်ခံစာကတ်',
+  'resetPassword.newPassword': 'စကားဝှက်အသစ်',
   'resetPassword.subheading': 'မှတ်မိလွယ်ပေမယ့် ခန့်မှန်းရခက်တဲ့ အရာတစ်ခုကို ရွေးချယ်ပါ။',
   'resetPassword.tokenPlaceholder': 'သင့်အီးမေးလ်မှ ကုဒ်ကို ကူးထည့်ပါ',
   'schedule.empty': 'သင်တန်းများ စီစဉ်ထားခြင်း မရှိပါ။',
@@ -180,12 +220,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'ဆိုင်းငံ့ထားသော တာဝန်များ',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} ဤကာလအတွင်း ပျက်ကွက်မှုများ · {{tardy}} နောက်ကျခြင်း',
+  'subjectStatsTriad.attendanceCaptionLoading': 'တက်ရောက်မှု ကိန်းဂဏန်းများကို တွက်ချက်နေသည်…',
+  'subjectStatsTriad.attendanceLabel': 'တက်ရောက်မှု',
   'subjectStatsTriad.gradesCaption': 'တစ်ဖက်တစ်ချက် {{percent}} ပျမ်းမျှအလေးချိန် %',
+  'subjectStatsTriad.gradesCaptionLoading': 'အဆင့်များကို တင်နေသည်…',
+  'subjectStatsTriad.gradesLabel': 'အတန်း ပျမ်းမျှ',
   'todayScheduleStrip.empty': 'ဒီနေ့ သင်တန်းတွေ မရှိဘူး။',
   'todayScheduleStrip.eyebrow': '{{count}} အတန်းများ',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'ဒီနေ့ရဲ့ အချိန်ဇယား',
   'topbar.guestName': 'ကျောင်းသား',
   'topbar.searchPlaceholder': 'အတန်းများ၊ အိမ်စာများကို ရှာဖွေပါ…',
+  'topbar.studentRole': 'ကျောင်းသား',
   'topbar.studentTag': 'ကျောင်းသား · # {{id}}',
 }

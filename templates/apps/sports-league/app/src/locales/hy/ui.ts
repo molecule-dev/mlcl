@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Կարծիք ունե՞ք, սխալ եք գտե՞լ, թե՞ ցանկանում եք {{app}} ձեր լիգայի համար։ Կապվեք մեզ հետ ձեր հաշվի կարգավորումներից — ամեն հաղորդագրություն հասնում է թիմի իրական մարդու։',
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.featureAlerts':
+    'Push ծանուցումներ խաղի հաշվի թարմացումների, տրանսֆերային ահազանգերի, վնասվածքների հաշվետվությունների և լիգայի հայտարարությունների համար։',
+  'about.featureRosters':
+    'Թիմերի էջեր՝ ամբողջական կազմերով, մրցաշրջանի ընդհանուր ցուցանիշներով, տաք/սառը շարքերով և յուրաքանչյուր խաղացողի գլխավոր դիմակայությունների բաշխմամբ։',
+  'about.featureSchedule':
+    'Մրցաշրջանի օրացույց և ժամանակացույցի դիտում, որպեսզի կարողանաք պլանավորել յուրաքանչյուր հանդիպման և արդյունքի շուրջ։',
+  'about.featureScoreboard':
+    'Հեռարձակման որակի հաշվի տախտակի տիկեր, ամրացված յուրաքանչյուր էջի վերևում, որպեսզի երբեք բաց չթողնեք գոլը։',
+  'about.featureStandings':
+    'Կենդանի մրցաշարային աղյուսակ — իրական ժամանակում հաղթանակ-պարտություն-ոչ-ոքի արդյունքներ, միավորներ, հաղթանակի տոկոս և փլեյ-օֆֆի գիծ, թարմացվում է ամեն սուլոցի պահին։',
+  'about.intro':
+    '{{app}}-ը հեռարձակման որակի տուն է ձեր լիգայի համար։ Թիմերը, ժամանակացույցը, կենդանի հաշիվները և մրցաշարային աղյուսակը միավորվում են մեկ արագ, մաքուր վահանակում — որպեսզի երկրպագուները, մարզիչները և լիգայի կազմակերպիչները միշտ իմանան, թե որտեղ է կանգնած մրցաշրջանը։',
+  'about.missionBody':
+    'Լիգային հետևելը չպետք է նշանակի հինգ տարբեր երրորդ կողմի հաշվի տախտակների թարմացում։ Մենք այն կառուցել ենք, որպեսզի յուրաքանչյուր լիգա ունենա մեկ վստահելի աղբյուր մրցաշարային աղյուսակի, ժամանակացույցի և իսկապես կարևոր վիճակագրության համար — թարմացվում է ամեն սուլոցի պահին, անվճար ամբողջ մրցաշրջանի ընթացքում։',
+  'about.missionTitle': 'Մեր առաքելությունը',
+  'about.whatYouGet': 'Ինչ եք ստանում',
   'appShell.closeNav': 'Փակել նավիգացիան',
   'appShell.openNav': 'Բացել նավիգացիան',
   'common.dashboard': 'Կառավարման վահանակ',
@@ -17,13 +36,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Դիտել բոլոր համընկնումները \\u2192',
   'dashboard.viewAllStandings': 'Լրիվ դասակարգում \\u2192',
   'dashboard.viewAllStats': 'Դիտել բոլոր վիճակագրական առաջատարներին \\u2192',
+  'forgot.submitting': 'Վերականգնման հղումն ուղարկվում է…',
   'forgot.subtitle': 'Մուտքագրեք ձեր էլ. փոստը՝ վերակայման հղումը ստանալու համար։',
   'forgot.success': 'Վերագործարկման հղումն ուղարկվել է {{email}} Ստուգեք ձեր էլ. փոստարկղը։',
+  'landing.copyright': '© {{year}} {{app}}. Հետապնդիր աղյուսակը։',
+  'landing.ctaBody':
+    'Ձեր լիգան։ Ձեր մրցաշարային աղյուսակը։ Ձեր սիրելի թիմը — ամրացված վերևում։ Երկու րոպե կարգավորում, անվճար ամբողջ մրցաշրջանի ընթացքում։',
   'landing.ctaHeading': 'Դադարեցրեք երրորդ կողմի ցուցատախտակների թարմացումը',
   'landing.eyebrow': 'Կառուցված է երկրպագուների, մարզիչների և լիգայի կազմակերպիչների համար',
   'landing.featuresHeading': 'Առաջին շարքի նստատեղ՝ յուրաքանչյուր կանգնածի համար',
   'landing.getStarted': 'Միացե՛ք լիգային',
   'landing.heroCta': 'Միացե՛ք լիգային',
+  'landing.heroSubtitle':
+    '{{app}}-ը միավորում է մրցաշարային աղյուսակը, ժամանակացույցը և վիճակագրական առաջատարներին մեկ հեռարձակման որակի վահանակում։ Կենդանի հաշիվներ։ Իրական արդյունքներ։ Առանց ավելորդության։',
+  'landing.heroTitle': '{{tagline}}։',
   'landing.scoreboardLabel': 'Այսօր երեկոյան լիգայի շուրջ',
   'landing.statFans': 'Հետևող երկրպագուներ',
   'landing.statGames': 'Խաղեր այս մրցաշրջանում',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Ք {{period}}',
   'matchDetail.back': 'Վերադառնալ խաղերին',
   'matchDetail.eventsHeading': 'Խաղ-խաղ',
+  'matchDetail.final': 'ՎԵՐՋՆԱԿԱՆ',
   'matchDetail.finalScore': 'Վերջնական',
   'matchDetail.live': 'ԿԵՆԴԱՆԻ',
   'matchDetail.liveNow': 'Ուղիղ եթեր հիմա',
   'matchDetail.noEvents': 'Դեռևս իրադարձություններ չեն գրանցվել։',
   'matchDetail.periodClock': 'Ք {{period}} · {{clock}}',
+  'matches.empty': 'Այս դիտումում խաղեր չկան — փորձեք այլ զտիչ։',
   'matches.eyebrow': 'Խաղի օր',
   'matches.loading': 'Քարտը քաշում եմ…',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Ծանուցումները չհաջողվեց բեռնել',
   'notifications.loading': 'Ծանուցումների բեռնում\\u2026',
   'pennantHeroCard.eyebrow': 'Աղյուսակի վերևում',
+  'pennantHeroCard.formLabel': 'Վերջին 10',
   'pennantHeroCard.gamesAhead': '{{value}} խաղեր հետապնդումից առաջ',
   'pennantHeroCard.pointsLabel': 'Միավորներ',
   'pennantLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
@@ -81,17 +110,25 @@ export const ui: UiTranslations = {
   'pricing.heading':
     'Թարմացրեք՝ ավելի հարուստ ժամանակացույց, միավորներ և մրցաշարային աղյուսակ ստանալու համար։',
   'pricing.limits.schedule': '{{count}} ժամանակացույցի գրառումներ',
+  'pricing.limits.scores': '{{count}} հաշիվներ',
+  'pricing.limits.standings': '{{count}} մրցաշարային աղյուսակ',
+  'pricing.limits.teams': '{{count}} թիմեր',
+  'pricing.subtitle':
+    'Թարմացրեք՝ ավելի հարուստ ժամանակացույցի, հաշիվների և մրցաշարային աղյուսակի համար։',
   'pricing.upgradeCta': 'Թարմացնել մինչև {{tierName}}',
   'profile.eyebrow': 'Երկրպագուի պրոֆիլ',
   'profile.favoritesCount': 'Հետևած թիմեր',
   'profile.favoritesHeading': 'Սիրված թիմեր',
   'profile.noFavorites': 'Դեռևս նախընտրելիներ չկան՝ ընտրեք թիմերը «Թիմեր» էջից։',
   'profile.rankRecord': 'Դասակարգ # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Արդյունք {{record}}',
   'reset.confirmPlaceholder': 'Կրկնել գաղտնաբառը',
+  'reset.mismatch': 'Գաղտնաբառերը չեն համընկնում։',
   'reset.newLabel': 'Նոր գաղտնաբառ',
   'reset.subtitle': 'Ընտրեք առնվազն 12 նիշից բաղկացած ուժեղ գաղտնաբառ։',
   'reset.tokenPlaceholder': 'Տեղադրեք էլ. փոստից',
   'schedule.eyebrow': 'Թիթեղը',
+  'schedule.moreGames': '+ {{count}} ավելին',
   'schedule.subtitle':
     'Մրցաշրջանի խաղերի օրացույցի դիտում. սեղմեք ցանկացած օր՝ խաղի հաշիվները տեսնելու համար։',
   'scoreboardTicker.empty': 'Այս պահին ուղիղ խաղեր չկան՝ կրկին այցելեք puck drop կայքը։',
@@ -99,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Անհատականացնել',
   'settings.favoritesBody':
     'Այս թիմերը ամրացվում են ձեր վահանակին և ակտիվացնում են միավորների մասին ծանուցումներ։',
+  'settings.favoritesHeading': 'Սիրված թիմեր',
   'settings.loading': 'Ձեր նախընտրությունները բեռնվում են\\u2026',
   'settings.noFavorites': 'Դեռևս նախընտրելիներ չկան \\u2014 ընտրեք թիմեր «Թիմեր» էջից։',
   'settings.notificationsHeading': 'Ծանուցումներ և ցուցադրում',
@@ -116,6 +154,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'Լ',
   'standings.overall': 'Ընդհանուր',
   'standings.points': 'Միավորներ',
+  'standings.rank': '#',
   'standings.subtitle':
     'Առաջին չորս թիմերը որակավորվում են հետմրցաշրջանային խաղերում՝ թայբրեյք՝ միավորներով, ապա՝ տոկոսային հարաբերությամբ հաղթանակով։',
   'standings.title': 'Լիգայի մրցաշարային աղյուսակը',
@@ -134,6 +173,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'Գ',
   'teamDetail.colName': 'Խաղացող',
   'teamDetail.colPos': 'Դիրք',
+  'teamDetail.pointsLabel': 'Միավորներ',
   'teamDetail.rankLabel': 'Դասակարգ # {{rank}}',
   'teamDetail.rosterHeading': 'Անվանացանկը',
   'teamDetail.statGD': 'Գոլերի տարբերությունը',

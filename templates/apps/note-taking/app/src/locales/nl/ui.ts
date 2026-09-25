@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Heb je feedback, een bug gevonden of wil je een functie voorstellen? Laat het weten via je accountinstellingen — elk bericht komt bij een echt persoon in het team terecht.',
+  'about.contactTitle': 'Neem contact met ons op',
+  'about.featureDatabases':
+    'Lichtgewicht databases en herbruikbare sjablonen om losse notities om te zetten in gestructureerde, herhaalbare workflows.',
+  'about.featureEditor':
+    "Een rustige blokeditor — koppen, lijsten, code, callouts en to-do's — met slash-commando's wanneer je ze wilt en uit de weg wanneer je ze niet nodig hebt.",
+  'about.featureGraph':
+    'Backlinks en een kennisgraaf: typ [[ om een notitie te linken en zie hoe je ideeën zich in de loop der tijd met elkaar verbinden.',
+  'about.featureNotebooks':
+    "Geneste notitieboeken en pagina's zodat projecten, onderwerpen en dagelijkse notities precies zo georganiseerd blijven als jij denkt.",
+  'about.featureSearch':
+    'Volledige-tekstzoekopdracht in minder dan 50 ms door elk notitieboek, plus tags die samengaan met notitieboeken in plaats van ertegen te vechten.',
+  'about.missionTitle': 'Onze missie',
   'common.goToDashboard': 'Ga naar Dashboard',
   'forgot.eyebrow': 'De weg terug kwijt?',
   'forgot.formSubtitle': 'Geef ons het e-mailadres in onze administratie.',
+  'forgot.formTitle': 'Wachtwoord vergeten',
   'forgot.headline': 'Stel uw wachtwoord opnieuw in.',
   'forgot.subline':
     'We sturen je eenmalig een link naar je inbox, zodat je een nieuwe kunt kiezen.',
+  'forgot.successDetail':
+    'We hebben een resetlink naar je e-mail gestuurd. Deze verloopt over 30 minuten.',
   'graph.eyebrow': 'Grafiek',
+  'graph.goToNotes': 'Notities bekijken →',
+  'graph.loadError': 'Kon de graaf niet laden: {{message}}',
   'graph.placeholderBody':
     'Wanneer notities met elkaar worden verbonden (met de [[wiki]]-syntaxis), wordt hier een interactieve, door krachten gestuurde grafiek weergegeven.',
+  'graph.placeholderTitle': 'Backlinkgraaf komt binnenkort',
   'graph.subtitle':
     '{{count}} Notities in deze werkruimte. De backlinkgrafiek verschijnt hier zodra notities met elkaar zijn verbonden.',
   'graph.title': 'Kennisgraaf',
   'home.empty': 'Nog geen notities — begin met je eerste.',
   'home.favoritesHeading': 'Vastgemaakt',
   'home.guest': 'vriend',
+  'home.loadError': 'Kon je notities niet laden: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Plaats een notitie in de editor om deze hier te bewaren.',
   'home.recentHeading': 'Onlangs bijgewerkt',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Notitieboekje',
   'home.stats.pinned.label': 'Vastgemaakt',
   'home.stats.updatedToday.label': 'Vandaag bijgewerkt',
+  'home.subtitle': 'Ga verder waar je gebleven was, of begin een nieuwe notitie.',
   'home.viewAll': 'Bekijk alle notities',
   'landing.cta.body':
     'Gratis voor persoonlijk gebruik. Pro voor teams. Importeer je bestaande markdown of begin helemaal opnieuw — Verso is er voor je, waar je notities zich ook bevinden.',
+  'landing.cta.button': 'Mijn workspace aanmaken',
   'landing.cta.heading': 'Open de pagina van vandaag.',
   'landing.features.eyebrow': 'Elke primitieve behoefte van je tweede brein',
+  'landing.features.heading': 'Gebouwd voor het werk, niet voor het meta-werk.',
   'landing.hero.eyebrow': 'Een rustig schrijfoppervlak',
   'landing.hero.headlineAccent': 'vorm krijgen.',
   'landing.hero.headlineLeading': 'Waar gedachten',
   'landing.hero.primaryCta': 'Begin met het opbouwen van uw kennisbank.',
   'landing.hero.secondaryCta': 'Ik heb al een account',
+  'landing.hero.socialProof': "12.800+ schrijvers, studenten en PhD's denken met {{appName}}",
   'landing.hero.subline':
     'Verso is een gestructureerd notitieplatform voor kenniswerkers en studenten. Blokeditor, geneste notitieboeken, backlinks en een kennisgrafiek – alles met een typografie als uitgangspunt voor een prettige leeservaring.',
+  'landing.preview.notebook': 'Kennis · Schrijfproces',
+  'landing.preview.title': 'Door tocht de ruimte te geven',
   'login.eyebrow': 'Welkom terug bij Verso',
   'login.formSubtitle': 'Gebruik uw e-mail of een gekoppelde provider.',
   'login.headline': 'Ga verder waar de pagina was gebleven.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Navigatiemenu sluiten',
   'mobileNav.openMenu': 'Navigatiemenu openen',
   'noteEditor.backToNotes': 'Terug naar notities',
+  'noteEditor.bodyLabel': 'Notitietekst',
   'noteEditor.bodyPlaceholder':
     'Begin met schrijven — je notitie wordt automatisch opgeslagen terwijl je typt.',
   'noteEditor.confirmTrash': 'Deze notitie naar de prullenbak verplaatsen?',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Naar prullenbak',
   'noteEditor.updated': 'Bijgewerkt',
   'notes.defaultWorkspaceName': 'Mijn notitieboekje',
+  'notes.empty': 'Nog geen notities hier — begin er een om het notitieboek te vullen.',
   'notes.eyebrow': 'Notitieboekje',
   'notes.filterAll': 'Alle notities',
   'notes.filterPinned': 'Vastgemaakt',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Nieuw notitieboekje',
   'notes.newNotebookPrompt': 'Nieuwe notitieboeknaam',
+  'notes.newNotebookRequired': 'Voer een naam voor het notitieboek in.',
   'notes.notebooksHeading': 'Notitieboekjes',
   'notes.subtitle':
     "Kies een notitieboek aan de linkerkant en druk vervolgens op de knop 'Nieuwe notitie' om een nieuwe notitie te starten.",
+  'planUpdated.body': 'Je abonnement is nu actief.',
   'planUpdated.confirmation': 'Uw abonnement is bijgewerkt',
+  'pricing.advancedFeatures': 'Geavanceerde functies',
   'pricing.heading': 'Kies je notitieplan',
+  'reset.changedMind': 'Van gedachten veranderd?',
   'reset.eyebrow': 'Bijna terug',
   'reset.formSubtitle': 'U wordt ingelogd zodra het is opgeslagen.',
   'reset.headline': 'Kies een nieuw wachtwoord.',
@@ -71,7 +104,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'Voer de code in die we je zojuist hebben gemaild en kies iets gedenkwaardigs.',
   'reset.submit': 'Opslaan en inloggen',
   'reset.tokenHint': 'Geplakt uit uw inbox.',
+  'search.empty': 'Nog geen notities die bij deze zoekopdracht passen.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Refract zoeken',
   'search.loading': 'Zoeken…',
   'search.noRecent': 'Typ hierboven een zoekterm in om te beginnen met zoeken in je notities.',
   'search.recentLabel': 'Recente zoekopdrachten',
@@ -79,12 +114,19 @@ export const ui: UiTranslations = {
     'Volledige tekst in elk notitieboek. Typ om te zoeken; de resultaten worden vernieuwd terwijl u typt.',
   'search.title': 'Zoek in het tweede brein.',
   'settings.account.logout': 'Afmelden',
+  'settings.account.title': 'Accountgegevens',
+  'settings.editor.graphHover.body':
+    'Toon een kleine voorbeeldkaart wanneer je in de editor over een [[wikilink]] zweeft.',
+  'settings.editor.graphHover.label': 'Zweefvoorbeeld van backlinkgraaf',
   'settings.editor.lineHeight.body':
     'Hoeveel lucht tussen de lichaamslijnen? 170% is het standaard leesritme.',
+  'settings.editor.lineHeight.label': 'Regelhoogte',
   'settings.editor.serif.body':
     'Gebruik Georgia voor de leeskolom. Sans-serif wordt gebruikt in de zijbalk en de werkbalken.',
+  'settings.editor.serif.label': 'Serif-tekst voor de body',
   'settings.editor.title': 'Typografie en schrijfoppervlak',
   'settings.eyebrow': 'Verso · Instellingen',
+  'settings.passwordModal.current': 'Huidig wachtwoord',
   'settings.passwordModal.error':
     'Wachtwoord kon niet worden gewijzigd — controleer uw huidige wachtwoord.',
   'settings.passwordModal.next': 'Nieuw wachtwoord',
@@ -94,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Elke toetsaanslag wordt via het realtimekanaal verzonden. Uitschakelen bij tragere verbindingen.',
   'settings.sync.auto.label': 'Realtime synchronisatie',
+  'settings.sync.title': 'Hoe je notities reizen',
   'settings.theme.body':
     'Licht houdt de redactionele column helder. Sepia geeft de pagina een warme uitstraling voor de avonden.',
   'settings.theme.dark': 'Donker',
@@ -113,8 +156,12 @@ export const ui: UiTranslations = {
     'Voeg hashtags toe aan de titel van een notitie (bijvoorbeeld "Leeslijst #boeken") en ze verschijnen hier automatisch.',
   'tags.emptyTitle': 'Nog geen tags',
   'tags.eyebrow': 'Index',
+  'tags.goToNotes': 'Naar notities →',
+  'tags.loadError': 'Kon tags niet laden: {{message}}',
   'tags.subtitle':
     '{{tags}} tags overal {{notes}} Notities. Voeg hashtags toe aan de titel van een notitie en ze verschijnen hier.',
+  'versoAuthShell.sample.body':
+    'Een tweede ronde morgen leest altijd beter dan een eerste ronde vanavond. Zet de ruwe versie in de map voor diep werk…',
   'versoAuthShell.sample.label': 'Dagelijkse notitie',
   'versoAuthShell.sample.timestamp': 'Vandaag · 9:14 uur',
   'versoAuthShell.sample.title': 'Door tocht de ruimte te geven',
@@ -126,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Doorgaan met schrijven',
   'versoTodayHero.createCta': 'Begin vandaag met de notitie',
   'versoTodayHero.dailyLabel': 'Dagelijkse notitie',
+  'versoTodayHero.emptyHeadline': 'Vandaag is een blanco pagina.',
   'versoTodayHero.emptySubline':
     'Leg een gedachte vast, noteer een afspraak of maak een schets voor morgen. Verso houdt de structuur rustig, zodat de tekst krachtig blijft.',
+  'versoTodayHero.outlineLabel': 'De planning van vandaag',
   'versoTodayHero.streak': 'Reeks van {{count}} dagen',
+  'versoTodayHero.unwritten': 'Nog geen woorden — open de notitie om te beginnen.',
   'versoTodayHero.wordCount': '{{count}} woorden vandaag',
 }

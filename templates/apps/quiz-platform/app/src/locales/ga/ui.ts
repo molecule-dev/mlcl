@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An bhfuil aiseolas agat, aimsíodh fabht, nó ar mhaith leat {{app}} a thabhairt chuig do scoil nó do fhoireann? Léimid gach teachtaireacht — déan teagmháil ó shocruithe do chuntais agus freagróidh duine daonna thú.',
   'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.intro':
+    'Is ardán tráth na gceist beo é {{app}} do sheomraí ranga, oícheanta cluichí, agus imeachtaí foirne. Cruthaigh pacáistí ceisteanna spraíúla, óstáil cluichí fíor-ama le cód ceangail, agus féach ar an seomra ag lonrú le ceisteanna ama, scóráil, agus cláir cheannais.',
+  'about.missionBody':
+    'Fanann an fhoghlaim nuair a bhíonn sí spraíúil. Déanaimid éascaíocht do dhuine ar bith ábhar a iompú ina chluiche tapa iomaíoch — ionas gur féidir le hóstaithe múineadh trí dhéanamh agus fanann imreoirí ar stríoc.',
+  'about.missionTitle': 'Ár misean',
   'about.title': 'Faoi {{app}}',
   'auth.login.noAccount': 'Nua le Sparq?',
   'auth.login.or': 'nó lean ar aghaidh le',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Níl aon mheaitseáil tráth na gceist ann go fóill.',
   'discover.headline': 'Aimsigh do chéad tráth na gceist is fearr leat.',
   'discover.loading': 'Ag lódáil…',
+  'discover.searchPlaceholder': 'Cuardaigh tráth na gceist de réir teidil…',
   'discover.subhead':
     'Brabhsáil an leabharlann iomlán, scag de réir catagóire, nó déan cuardach de réir teidil. Buail cárta le seinm ina aonar nó le bheith i do óstach beo.',
   'forgotPassword.subhead':
     'Cuir isteach do sheoladh ríomhphoist agus cuirfimid nasc chugat le hathshocrú.',
   'forgotPassword.success.body':
     'Má tá cuntas ann do {{email}} , gheobhaidh tú nasc athshocraithe i gceann cúpla nóiméad.',
+  'forgotPassword.success.title': 'Seiceáil do bhosca isteach.',
   'hostLobby.back': 'Ar ais chuig an tráth na gceist',
   'hostLobby.copied': 'Cód rannpháirtíochta cóipeáilte chuig an ghearrthaisce.',
   'hostLobby.creating': 'Ag casadh suas do stocaireacht…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Cealaigh an stocaireacht',
   'hostLobby.players.count': '{{count}} maireachtáil',
   'hostLobby.players.title': 'Imreoirí sa stocaireacht',
+  'hostLobby.players.waiting':
+    'Ag fanacht le himreoirí. Roinn cód {{code}} ionas gur féidir leo ceangal.',
   'hostLobby.rules.title': 'Rialacha an tí',
   'hostLobby.startError': 'Níorbh fhéidir an cluiche a thosú.',
   'hostLobby.starting': 'Ag tosú an splanc…',
   'joinCodeHero.headline': 'Abair le do imreoirí léim isteach.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Nó tabhair cuairt',
   'joinCodeHero.liveLabel': 'Stobaireacht beo',
+  'joinCodeHero.playerJoined': 'Tháinig {{name}} isteach',
   'joinCodeHero.playersLabel': 'Imreoirí',
   'joinCodeHero.qrLabel': 'Scanáil le bheith páirteach',
   'joinCodeHero.startGame': 'Tosaigh an splanc',
   'joinCodeHero.subhead':
     'Roinn an cód ballraíochta nó scan an QR. Tosaíonn an cluiche an nóiméad a lasann tú an splanc.',
+  'landing.cta.button': 'Cruthaigh do chéad tráth na gceist',
   'landing.cta.eyebrow': "Saor in aisce d'oideachasóirí",
   'landing.cta.heading': 'Tabhair an splanc isteach i ngach ceacht.',
+  'landing.cta.subhead':
+    'Cláraigh i 30 soicind. Óstáil cluichí beo gan teorainn, dréachtaigh tráth na gceist le AI, agus coinnigh gach imreoir ar stríoc.',
   'landing.eyebrow': 'Las gach freagra',
   'landing.features.heading':
     'Stiúideo tráth na gceist a oireann don bhealach a mhúineann tú agus a imríonn tú.',
@@ -58,6 +74,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Tráth na gceist coitianta',
   'landing.popular.eyebrow': 'Coitianta an tseachtain seo',
   'landing.popular.heading': 'Tabhair cuairt ar thráth na gceist atá á reáchtáil inniu.',
+  'landing.popular.viewAll': 'Brabhsáil gach catagóir →',
+  'leaderboard.empty.body':
+    'Imir tráth na gceist chun do scór a chur ar an gclár ceannais domhanda.',
   'leaderboard.empty.title': 'Níl aon drámaí ar an gclár go fóill — bí ar an gcéad duine.',
   'leaderboard.eyebrow': 'Clár Ceannaireachta',
   'leaderboard.fullRanking': 'Rangú iomlán',
@@ -65,6 +84,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Scór comhiomlán i ngach seisiún tráth na gceist atá imeartha agat. Dreap suas trí níos mó a imirt.',
   'leaderboard.title': 'Tráth na gCeist is Fearr',
+  'leaderboard.totalPlayers': '{{count}} imreoir rangaithe',
   'leaderboardRow.points': 'pointí',
   'leaderboardRow.streak': '{{days}} d',
   'login.headline': 'Fáilte ar ais, a thráth na gceist.',
@@ -76,10 +96,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Tóg do chéad tráth na gceist →',
   'myQuizzes.empty.created': 'Níl tráth na gceist cruthaithe agat fós.',
   'myQuizzes.empty.played': 'Níl aon tráth na gceist foilsithe fós.',
+  'myQuizzes.loading': 'Ag lódáil…',
   'myQuizzes.subhead':
     'Dréachtaí atá tógtha agat, chomh maith le tráth na gceist foilsithe is féidir leat a imirt.',
   'myQuizzes.title': 'Mo thráth na gceist',
   'nav.legal': 'Dlíthiúil',
+  'nav.primaryNavLabel': 'Príomh-loingseoireacht',
   'notFound.backHome': 'Ar ais sa bhaile',
   'notFound.backToDiscover': 'Brabhsáil tráth na gceist',
   'notFound.body': 'Bain triail as cód difriúil nó téigh ar ais chuig an stocaireacht.',
@@ -88,17 +110,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Ag lódáil…',
   'notifications.subhead':
     '{{count}} spréacha gan léamh. Cuirí, gluaiseachtaí ar chlár ceannaireachta, agus éachtaí ar fad in aon sruth amháin.',
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
+  'pricing.advancedFeatures': 'Gnéithe casta: {{yes}}',
+  'pricing.canExport': 'Easpórtáil sonraí: {{yes}}',
   'pricing.checkoutError': 'Níorbh fhéidir an tseiceáil amach a thosú. Déan iarracht arís.',
   'pricing.heading': 'Roghnaigh do phlean {{app}}',
   'pricing.included': 'San áireamh',
   'pricing.loadError': 'Níorbh fhéidir pleananna a lódáil.',
+  'pricing.maxQuestions': '{{count}} ceisteanna',
   'pricing.maxQuizzes': '{{count}} tráth na gceist',
+  'pricing.maxSessions': '{{count}} seisiún',
   'pricing.subhead':
     'Saor in aisce d’óstaigh agus d’imreoirí. Uasghrádaigh le haghaidh teorainneacha níos airde agus gnéithe ardleibhéil.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Cuntas: ríomhphost, pasfhocal haisithe, ainm taispeána, logáil isteach deireanach.',
+  'privacy.intro':
+    'Tá meas ag {{app}} ar do phríobháideachas. Déanann an leathanach seo achoimre ar na sonraí a stórálaimid, cén fáth a stórálaimid iad, agus conas iad a bhaint.',
   'privacy.rights.body':
     'Scrios do chuntas ó na Socruithe chun do chuid sonraí go léir a bhaint go buan laistigh de 30 lá.',
   'privacy.share.body':
@@ -122,6 +154,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Aitheantas tráth na gceist: {{id}}',
   'quizBuilder.loadError': 'Níorbh fhéidir an tráth na gceist a lódáil.',
   'quizBuilder.loading': 'Ag lódáil an eagarthóir…',
+  'quizBuilder.markCorrect': 'Marcáil {{letter}} mar cheart',
   'quizBuilder.noQuestions': 'Gan aon cheist fós — cuir ceann leis le tosú.',
   'quizBuilder.notFound': 'Tráth na gCeist gan aimsiú.',
   'quizBuilder.preview': 'Amharc',
@@ -138,7 +171,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} lasc ama s',
   'quizBuilder.title': 'Tóg do thráth na gceist',
   'quizBuilder.titleLabel': 'Teideal na gceist',
+  'quizBuilder.untitled': 'Ceist gan teideal',
   'quizCard.plays': '{{count}} drámaí',
+  'quizCard.questionCount': '{{count}} Ceisteanna',
   'quizDetail.duration': '~ {{minutes}} nóim',
   'quizDetail.hostMultiplayer': 'Óstach il-imreora',
   'quizDetail.leaderboardEmpty': 'Gan aon drámaí fós — bí ar an gcéad duine chun scór a shocrú.',
@@ -153,26 +188,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Ar ais chuig an tráth na gceist',
   'quizPlay.empty': 'Níl aon cheisteanna sa tráth na gceist seo go fóill.',
   'quizPlay.error': 'Níorbh fhéidir an tráth na gceist seo a lódáil. Déan iarracht arís.',
+  'quizPlay.exit': 'Scoir',
   'quizPlay.feedback.correct': '🔥 Splanc tuillte — ar aghaidh leis an gcéad cheann eile!',
+  'quizPlay.feedback.incorrect': 'Ba é {{correct}} an freagra. Lean ort.',
   'quizPlay.loading': 'Ag lódáil tráth na gceist…',
   'quizPlay.next': 'An chéad cheist eile',
   'quizPlay.questionCounter': 'Ceist {{current}} de {{total}}',
   'quizPlay.score': '{{score}} pointí',
+  'quizPlay.seeResults': 'Féach ar na torthaí',
   'quizPlay.sessionFailed': 'Níorbh fhéidir seisiún a thosú.',
   'quizPlay.streak': '{{count}} stríoc',
+  'resetPassword.subhead': 'Roghnaigh pasfhocal nua chun filleadh ar do shraith.',
   'results.backToDiscover': 'Ar ais go Discover',
   'results.error': 'Níorbh fhéidir na torthaí a lódáil.',
   'results.exit': 'Ar ais go Discover',
   'results.loading': 'Ag comhaireamh do scóir…',
   'results.missingSession': 'Gan aon seisiún le hachoimriú.',
+  'results.recap.correctAnswer': 'Ceart: {{answer}}',
   'results.recap.questionLabel': 'Ceist {{number}}',
   'results.recap.title': 'Achoimre ar an gceist',
+  'results.recap.yourAnswer': 'Tusa: {{answer}}',
   'results.unknownQuiz': 'Tráth na gCeist',
   'scoreBreakdownCard.accuracyLabel': 'Cruinneas',
+  'scoreBreakdownCard.correctLabel': 'Ceart',
   'scoreBreakdownCard.eyebrow': 'Tráth na gCeist Críochnaithe',
   'scoreBreakdownCard.headline': 'Dea-obair ar " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Pointí',
   'scoreBreakdownCard.rankLabel': 'Céim',
+  'scoreBreakdownCard.streakBonus': 'Bónas stríoc +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Tá do spréach le feiceáil. Féach ar an mbriseadh síos thíos chun leanúint ort ag dreapadh an chláir cheannais.',
   'settings.danger.body':
     'Bain do chuntas Sparq agus na tráth na gceist uile a cruthaíodh go buan.',
   'settings.danger.confirm': 'Sea, scrios go deo',
@@ -191,5 +236,7 @@ export const ui: UiTranslations = {
     'Tá tú freagrach as an ábhar a fhoilsíonn tú, na ceisteanna a scríobhann tú, agus aon chluichí a óstálann tú. Ná déan aithris ar dhaoine eile.',
   'terms.billing.body':
     'Déantar pleananna íoctha a athnuachan go huathoibríoch go dtí go gcealaítear iad ó na Socruithe. Is féidir leat cealú am ar bith; leanann rochtain ar aghaidh go dtí deireadh na tréimhse billeála reatha.',
+  'terms.intro':
+    'Trí úsáid a bhaint as {{app}} aontaíonn tú leis na rialacha thíos. Mura féidir leat glacadh leo, ná húsáid an tseirbhís.',
   'terms.title': 'Téarmaí seirbhíse',
 }

@@ -3,8 +3,12 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'మా గురించి',
+  'about.missionTitle': 'మా లక్ష్యం',
+  'about.subtitle': 'ఎదిగే జట్ల కోసం ఆశాజనకమైన, జవాబుదారీతనం ఉన్న, కొలవగల OKR ట్రాకింగ్.',
   'ascentSideNav.nav.notifications': 'నోటిఫికేషన్లు',
   'ascentSideNav.newObjective': 'కొత్త లక్ష్యం',
+  'authShell.brandBody':
+    '{{appName}} లక్ష్యాలను కీలక ఫలితాలు మరియు వారపు చెక్-ఇన్ల ద్వారా అనుసంధానిస్తుంది, తద్వారా పురోగతి ఎప్పుడూ కనిపిస్తుంది — మరియు ఎప్పుడూ నిజాయితీగా ఉంటుంది.',
   'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle':
     'శిఖరాన్ని నిర్దేశించండి. అధిరోహణకు స్కోరు ఇవ్వండి. జట్టుకు శిక్షణ ఇవ్వండి.',
@@ -17,20 +21,28 @@ export const ui: UiTranslations = {
   'billing.confirmCancel': 'ప్రస్తుత కాలం ముగింపులో మీ సభ్యత్వాన్ని రద్దు చేసుకోవాలనుకుంటున్నారా?',
   'billing.currentPlanFreeFooter':
     'మీరు ఉచిత ప్లాన్‌లో ఉన్నారు. అధిక పరిమితుల కోసం అప్‌గ్రేడ్ చేసుకోండి.',
+  'billing.currentPlanPaidFooter': 'క్రియాశీల సభ్యత్వం · {{plan}}',
   'billing.downloadCurrent': 'సారాంశాన్ని డౌన్‌లోడ్ చేయండి',
   'billing.downloading': 'సిద్ధమవుతోంది…',
   'billing.error.priceUnavailable':
     'ప్రస్తుత వాతావరణంలో ఈ ప్లాన్ చెక్అవుట్ కోసం కాన్ఫిగర్ చేయబడలేదు.',
   'billing.eyebrow': 'వర్క్‌స్పేస్ · బిల్లింగ్',
   'billing.heading': 'ప్రణాళిక & ఇన్‌వాయిస్‌లు',
+  'billing.message.canceled': 'ప్రస్తుత కాలం ముగింపులో సబ్స్క్రిప్షన్ ముగుస్తుంది.',
   'billing.period.year': 'Yearly',
+  'billing.perk.advanced': 'అధునాతన సమీక్షలు + ప్రేరణలు',
   'billing.perk.export': 'డేటా ఎగుమతి + API యాక్సెస్',
   'billing.perk.inApp': 'యాప్‌లో రిపోర్టింగ్',
+  'billing.perk.keyResults': '{{count}} కీలక ఫలితాలు',
+  'billing.perk.objectives': '{{count}} లక్ష్యాలు',
+  'billing.perk.retention': '{{count}} రోజుల చరిత్ర',
   'billing.perk.standard': 'ప్రామాణిక సమీక్షలు',
+  'billing.perk.unlimitedKrs': 'అపరిమిత KRs',
   'billing.perk.unlimitedObjectives': 'అపరిమిత లక్ష్యాలు',
   'billing.perk.unlimitedRetention': 'అపరిమిత నిలుపుదల',
   'billing.subheading':
     'మీరు ఉన్నారు {{name}} ప్లాన్. శ్రేణులను పోల్చి, క్రింద అప్‌గ్రేడ్ చేసుకోండి.',
+  'billing.subheading.loading': 'మీ ప్రస్తుత ప్లాన్ లోడ్ అవుతోంది…',
   'billing.tier.unavailable': 'అందుబాటులో లేదు',
   'billing.tier.upgrade': 'అప్‌గ్రేడ్ చేయండి {{name}}',
   'billing.tiersError': 'ధరలను లోడ్ చేయలేకపోయాము. తర్వాత మళ్ళీ ప్రయత్నించండి.',
@@ -40,12 +52,14 @@ export const ui: UiTranslations = {
   'checkIn.emptyTitle': 'ఇంకా తనిఖీ చేయవలసినది ఏమీ లేదు',
   'checkIn.eyebrow': 'వారపు క్రమం',
   'checkIn.heading': 'వారపు చెక్-ఇన్',
+  'checkIn.loading': 'మీ KRs లోడ్ అవుతున్నాయి…',
   'checkIn.newObjective': 'కొత్త లక్ష్యం',
   'checkIn.noKrs': 'కీలక ఫలితాలు లేవు — ఎడిట్ నుండి కొన్నింటిని జోడించండి.',
   'checkIn.noteLabel': 'మీ బృందానికి ఒక సూచన',
   'checkIn.notePlaceholder':
     'ఆశాజనకమైన అంశం, అడ్డంకి, లేదా కోచింగ్ సంబంధిత ప్రశ్న — మూడు వాక్యాలకు మించి ఉండనివ్వకండి.',
   'checkIn.openObjective': 'తెరవండి →',
+  'checkIn.progressLabel': 'KRs సరైన మార్గంలో ఉన్నాయి',
   'checkIn.subheading':
     'ప్రతి KR కోసం ప్రస్తుత విలువను అప్‌డేట్ చేయండి, కాన్ఫిడెన్స్‌ను మార్క్ చేయండి, ఒక నోట్‌ను డ్రాప్ చేసి, సబ్మిట్ చేయండి.',
   'checkIn.submit': 'చెక్-ఇన్ సమర్పించండి',
@@ -62,10 +76,17 @@ export const ui: UiTranslations = {
   'dashboard.allActivity': 'అన్ని కార్యకలాపాలను చూడండి →',
   'dashboard.coachBodyAtRisk':
     '{{atRisk}} ఈ వారం KRలు పడిపోయాయి. ఈ రోజు చేసే 15 నిమిషాల సంభాషణ సాధారణంగా కోలుకోవడానికి పూర్తి వారం సమయం ఇస్తుంది.',
+  'dashboard.coachBodyOk':
+    'ఈ వారం మీ KRs ఆరోగ్యంగా ఉన్నాయి — ఈ లయను కొనసాగించి మీ చెక్-ఇన్ నిర్వహించండి.',
+  'dashboard.coachCta': 'వారపు చెక్-ఇన్ తెరవండి →',
   'dashboard.coachLabel': 'కోచింగ్ ప్రోత్సాహం',
   'dashboard.emptyBody':
     'వారపు పురోగతిని పర్యవేక్షించడం ప్రారంభించడానికి మీ మొదటి లక్ష్యాన్ని రూపొందించుకోండి.',
   'dashboard.emptyTitle': 'ఇంకా లక్ష్యాలు లేవు',
+  'dashboard.heroBody':
+    'మీరు {{count}} లక్ష్యాలను నిర్వహిస్తున్నారు. {{atRisk}} కు సన్నిహిత పరిశీలన అవసరం — వాటిని సరైన మార్గంలో ఉంచుదాం.',
+  'dashboard.heroEmpty':
+    'మీకు ఇంకా లక్ష్యాలు లేవు. మీ మొదటి లక్ష్యాన్ని రూపొందించడం ద్వారా ప్రారంభించండి.',
   'dashboard.heroProgressLabel': 'త్రైమాసిక పురోగతి',
   'dashboard.heroTitle': 'మంచి అధిరోహణ, {{name}} .',
   'dashboard.kpiActiveLabel': 'క్రియాశీల లక్ష్యాలు',
@@ -77,11 +98,14 @@ export const ui: UiTranslations = {
   'dashboard.noActivity': 'ఇంకా ఏ కార్యకలాపం లేదు. అధిరోహణను ప్రారంభించడానికి చెక్-ఇన్ చేయండి.',
   'dashboard.objectivesHeading': 'మీ లక్ష్యాలు',
   'dashboard.startCheckIn': 'వారపు చెక్-ఇన్ నిర్వహించండి',
+  'dashboardLayout.searchAria': 'లక్ష్యాలను వెతకండి',
   'dashboardLayout.searchPlaceholder': 'శోధన లక్ష్యాలు, KRలు, వ్యక్తులు...',
   'editObjective.addKr': 'KRని జోడించండి',
   'editObjective.archive': 'ఆర్కైవ్ లక్ష్యం',
   'editObjective.backToList': 'లక్ష్యాలకు తిరిగి వెళ్లండి',
   'editObjective.breadcrumbAll': 'లక్ష్యాలు',
+  'editObjective.confirmArchive':
+    'ఈ లక్ష్యాన్ని ఆర్కైవ్ చేయాలా? తర్వాత ఆర్కైవ్ చేసిన వ్యూలో దీన్ని కనుగొనవచ్చు.',
   'editObjective.descriptionLabel': 'ఇది ఎందుకు ముఖ్యం',
   'editObjective.eyebrow': 'లక్ష్యాన్ని సవరించండి',
   'editObjective.heading': 'ఫలితం, KRలు, అమరిక లేదా క్రమాన్ని నవీకరించండి.',
@@ -95,6 +119,7 @@ export const ui: UiTranslations = {
   'editObjective.targetPlaceholder': 'లక్ష్యం',
   'forgotPassword.emailPlaceholder': 'you@team.com',
   'forgotPassword.heading': 'మీ పాస్‌వర్డ్‌ను రీసెట్ చేసుకోండి.',
+  'forgotPassword.rememberPrompt': 'గుర్తుందా? ',
   'forgotPassword.subheading':
     'మీ అసెంట్ ఖాతాకు అనుసంధానించబడిన ఇమెయిల్‌ను నమోదు చేయండి, మేము రీసెట్ లింక్‌ను పంపుతాము.',
   'forgotPassword.successBody':
@@ -122,6 +147,7 @@ export const ui: UiTranslations = {
   'landing.heroTitle': 'ముఖ్యమైన వాటి వైపు ఎదగండి.',
   'login.emailPlaceholder': 'you@team.com',
   'login.heading': 'తిరిగి స్వాగతం, పర్వతారోహకుడా.',
+  'login.noAccountPrompt': '{{appName}}కు కొత్తా? ',
   'login.orContinueWith': 'లేదా కొనసాగించండి',
   'login.subheading':
     'మీరు ఆపివేసిన చోటి నుండే కొనసాగించండి — మీ చెక్-ఇన్‌లు, KRలు మరియు సమీక్షలు సిద్ధంగా ఉన్నాయి.',
@@ -130,6 +156,7 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'newObjective.addKr': 'KRని జోడించండి',
   'newObjective.coachLabel': 'కోచ్ రిమైండర్లు',
+  'newObjective.descriptionLabel': 'ఇది ఎందుకు ముఖ్యం',
   'newObjective.descriptionPlaceholder': 'వ్యూహాత్మక సందర్భాన్ని 2–3 వాక్యాలలో వివరించండి.',
   'newObjective.errorTitleRequired': 'మీ లక్ష్యానికి ఒక శీర్షిక ఇవ్వండి.',
   'newObjective.eyebrow': 'కొత్త లక్ష్యం · శిఖరాన్ని ఏర్పాటు చేయండి',
@@ -147,13 +174,18 @@ export const ui: UiTranslations = {
   'newObjective.submit': 'లక్ష్యాన్ని సేవ్ చేయండి',
   'newObjective.targetPlaceholder': 'లక్ష్యం',
   'newObjective.tip1': 'క్రియతో ప్రారంభించండి: “అవ్వడం…”, “కోయడం…”, “గెలవడం…”',
+  'newObjective.tip2': 'KRs కొలవగలిగి ఉండాలి — “X ను మెరుగుపరచండి” అనే మాటలు వద్దు.',
+  'newObjective.tip3': '3–5 KRs ఉత్తమం. ఎక్కువైతే గందరగోళం పెరుగుతుంది.',
   'newObjective.titlePlaceholder': 'OKR ఉత్పత్తి ఇంజనీరింగ్ ఇష్టపడే వ్యక్తిగా మారండి',
+  'notifications.emptyBody':
+    'కోచింగ్ ప్రేరణలు, ప్రస్తావనలు మరియు సమీక్ష రిమైండర్లు ఇక్కడ కనిపిస్తాయి.',
   'notifications.emptyTitle': 'ఈ వీక్షణలో నోటిఫికేషన్‌లు లేవు.',
   'notifications.eyebrow': 'కార్యకలాపాల కేంద్రం',
   'notifications.markRead': '● చదివినట్లుగా గుర్తించండి',
   'objective.scopes.company': 'కంపెనీ',
   'objective.scopes.individual': 'వ్యక్తిగత',
   'objective.scopes.team': 'జట్టు',
+  'objectiveCard.krProgress': '{{done}}/{{total}} KRs',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'లక్ష్యాలకు తిరిగి వెళ్లండి',
   'objectiveDetail.edit': 'లక్ష్యాన్ని సవరించండి',
@@ -164,6 +196,11 @@ export const ui: UiTranslations = {
   'objectiveDetail.notFound': 'లక్ష్యం కనుగొనబడలేదు.',
   'objectiveDetail.owner': 'యాజమాన్యంలో ఉంది {{name}}',
   'objectiveDetail.runCheckIn': 'చెక్-ఇన్ చేయండి',
+  'objectiveDetail.timelineHeading': 'చెక్-ఇన్ టైమ్లైన్',
+  'objectives.emptyBody':
+    'వారపు పురోగతిని పర్యవేక్షించడం ప్రారంభించడానికి మీ మొదటి లక్ష్యాన్ని రూపొందించుకోండి.',
+  'objectives.emptyFilteredBody':
+    'ఫిల్టర్ను క్లియర్ చేయడం లేదా కొత్త లక్ష్యాన్ని ప్రారంభించడం ప్రయత్నించండి.',
   'objectives.emptyFilteredTitle': 'ఆ ఫిల్టర్‌లకు సరిపోయే లక్ష్యాలు ఇంకా ఏవీ లేవు.',
   'objectives.emptyTitle': 'ఇంకా లక్ష్యాలు లేవు',
   'objectives.eyebrow': 'కంపెనీ ప్రణాళిక',
@@ -174,6 +211,11 @@ export const ui: UiTranslations = {
   'objectives.searchPlaceholder': 'శీర్షిక ద్వారా ఫిల్టర్ చేయండి…',
   'objectives.subheading':
     'ట్రాకింగ్ {{count}} లక్ష్యాలు. శ్రద్ధ అవసరమైన వాటిని కనుగొనడానికి స్థితిని బట్టి ఫిల్టర్ చేయండి.',
+  'pricing.limit.advanced': 'అధునాతన ఫీచర్లు: {{value}}',
+  'pricing.limit.checkIns': '{{count}} చెక్-ఇన్లు',
+  'pricing.limit.export': 'డేటా ఎగుమతి: {{value}}',
+  'pricing.limit.keyResults': '{{count}} కీలక-ఫలితాలు',
+  'pricing.limit.objectives': '{{count}} లక్ష్యాలు',
   'profile.achievementCheckInsMany': '{{count}} చెక్-ఇన్‌లు నమోదు చేయబడ్డాయి',
   'profile.achievementCheckInsOne': '1 చెక్-ఇన్ నమోదు చేయబడింది',
   'profile.achievementCompletedMany': '{{count}} లక్ష్యాలు పూర్తి చేయబడ్డాయి',
@@ -182,6 +224,7 @@ export const ui: UiTranslations = {
   'profile.achievementOnTrackOne': '1 లక్ష్యం సరైన మార్గంలో ఉంది',
   'profile.activeHeading': 'క్రియాశీల లక్ష్యాలు',
   'profile.allObjectives': 'అన్ని లక్ష్యాలు →',
+  'profile.createFirst': 'లక్ష్యాన్ని సృష్టించండి',
   'profile.empty':
     'ఇంకా క్రియాశీల లక్ష్యాలు ఏవీ లేవు — ప్రారంభించడానికి మీ మొదటి లక్ష్యాన్ని సృష్టించుకోండి.',
   'profile.eyebrow': 'అధిరోహకుడి ప్రొఫైల్',
@@ -195,13 +238,18 @@ export const ui: UiTranslations = {
   'profile.statsHeading': 'ఈ త్రైమాసికంలో',
   'profile.streakLabel': 'త్రైమాసికంలో ఇప్పటివరకు',
   'resetPassword.backLink': 'బదులుగా సైన్ ఇన్ చేయండి',
+  'resetPassword.backPrompt': 'రీసెట్ చేయకూడదని నిర్ణయించారా? ',
   'resetPassword.emailPlaceholder': 'you@team.com',
   'resetPassword.heading': 'కొత్త పాస్‌వర్డ్‌ను సెట్ చేయండి.',
+  'resetPassword.passwordLabel': 'కొత్త పాస్‌వర్డ్',
   'resetPassword.reset': 'పాస్‌వర్డ్‌ను అప్‌డేట్ చేసి, సైన్ ఇన్ చేయండి',
   'resetPassword.resetting': 'పాస్‌వర్డ్ అప్‌డేట్ అవుతోంది…',
   'resetPassword.subheading':
     'బలమైన పదాన్ని ఎంచుకోండి — కనీసం ఎనిమిది అక్షరాలు, వీలైతే అంకెలను కూడా కలపండి.',
   'reviewDetail.backToList': 'సమీక్షలకు తిరిగి వెళ్లండి',
+  'reviewDetail.body':
+    '{{count}} క్రియాశీల లక్ష్యం(లు) · గ్రేడ్ {{grade}}. ప్రతిబింబాలు మరియు గ్రేడ్ను క్రింద సవరించండి.',
+  'reviewDetail.colObjective': 'లక్ష్యం',
   'reviewDetail.confirmDelete': 'ఈ సమీక్ష ముసాయిదాను తొలగించాలా?',
   'reviewDetail.delete': 'డ్రాఫ్ట్‌ను తొలగించండి',
   'reviewDetail.eyebrow': '{{status}} · {{తేదీ}}',
@@ -214,8 +262,10 @@ export const ui: UiTranslations = {
   'reviewDetail.reflectionsPlaceholder':
     'ఏది బాగా జరిగింది? ఏది జరగలేదు? వచ్చే త్రైమాసికానికి గమనికలు.',
   'reviewDetail.scorecardHeading': 'స్కోర్‌కార్డ్',
+  'reviewDetail.scoreLabel': 'సగటు స్కోరు',
   'reviewDetail.submitted': 'సమర్పించబడింది',
   'reviewDetail.submittedToast': 'సమీక్ష సమర్పించబడింది',
+  'reviewDetail.untitled': 'త్రైమాసిక సమీక్ష · సవరించడానికి క్రింద క్లిక్ చేయండి',
   'reviews.createDraft': 'డ్రాఫ్ట్‌ను ప్రారంభించండి',
   'reviews.empty.body':
     'మీరు డ్రాఫ్ట్‌ను ప్రారంభించిన తర్వాత త్రైమాసిక సమీక్షలు ఇక్కడ కనిపిస్తాయి. ప్రారంభించడానికి పైన ఉన్న "స్టార్ట్ ఎ డ్రాఫ్ట్" పై క్లిక్ చేయండి.',
@@ -225,11 +275,15 @@ export const ui: UiTranslations = {
   'reviews.eyebrow': 'త్రైమాసిక పునరావలోకనాలు',
   'reviews.grade': 'గ్రేడ్ {{grade}}',
   'reviews.loading': 'సమీక్షలు లోడ్ అవుతున్నాయి…',
+  'reviews.notSubmitted': 'ఇంకా సమర్పించలేదు',
   'reviews.subheading':
     'గత త్రైమాసికాల సారాంశ స్కోర్‌కార్డులు, ముఖ్యాంశాల సమీక్షలు మరియు గ్రేడ్‌లు.',
+  'reviews.submittedAt': '{{date}} న సమర్పించారు',
+  'reviews.untitled': 'పేరులేని సమీక్ష · సవరించడానికి క్లిక్ చేయండి',
   'settings.billingSubtitle': 'ప్లాన్, సీట్లు మరియు ఇన్‌వాయిస్‌లను నిర్వహించండి',
   'settings.billingTitle': 'బిల్లింగ్ & సీట్లు',
   'settings.cadenceBody': 'అసెంట్ మీ బృందాన్ని చెక్-ఇన్‌ల కోసం ఎంత తరచుగా అడగాలో ఎంచుకోండి.',
+  'settings.cadenceHeading': 'కేడెన్స్',
   'settings.eyebrow': 'వర్క్‌స్పేస్ · ఖాతా · కేడెన్స్',
   'settings.guestName': 'పర్వతారోహకుడు',
   'settings.openProfile': 'ప్రొఫైల్ తెరవండి',
@@ -237,10 +291,15 @@ export const ui: UiTranslations = {
   'settings.saveError': 'సేవ్ విఫలమైంది: {{error}}',
   'settings.toggleCoachDescription':
     'ఒక KR ఆత్మవిశ్వాసంలో రెండు అడుగులు జారినప్పుడు, త్రైమాసికం మధ్యలో సూచనలు ఇవ్వండి.',
+  'settings.toggleCoachLabel': 'కోచింగ్ ప్రేరణలు',
   'settings.toggleDigestDescription':
     'ప్రతి యజమానికి స్థితి వారీగా లక్ష్యాల సోమవారం సారాంశాన్ని పంపుతుంది.',
+  'settings.toggleDigestLabel': 'సోమవారం డైజెస్ట్ ఇమెయిల్',
+  'settings.toggleRemindersDescription':
+    'చెక్-ఇన్ ఇంకా పూర్తికాకపోతే శుక్రవారం ఉదయం జట్టుకు తెలియజేయండి.',
   'settings.toggleRemindersLabel': 'వారపు చెక్-ఇన్ రిమైండర్‌లు',
   'signup.emailPlaceholder': 'you@team.com',
+  'signup.haveAccountPrompt': 'ఇప్పటికే ఖాతా ఉందా? ',
   'signup.heading': 'మీ మొదటి అధిరోహణకు ప్రణాళిక వేసుకోండి.',
   'signup.namePlaceholder': 'ఏవరీ మౌంటెనీర్',
   'signup.orContinueWith': 'లేదా కొనసాగించండి',
@@ -259,6 +318,7 @@ export const ui: UiTranslations = {
   'team.newTeamLabel': 'కొత్త జట్టు',
   'team.newTeamPlaceholder': 'ఉదా. కస్టమర్ అనుభవం',
   'team.objectivesLabel': 'లక్ష్యాలు',
+  'team.progressLabel': 'వర్క్స్పేస్ పురోగతి',
   'team.subheading':
     '{{teams}} జట్లు · {{objectives}} లక్ష్యాలు. ఫలితాలను చూడటానికి మీ OKRలను జట్టు వారీగా సమూహపరచండి.',
 }

@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'प्रतिक्रिया छ, बग भेट्टाउनुभयो, वा तपाईंको लिगका लागि {{app}} चाहनुहुन्छ? तपाईंको खाता सेटिङबाट हामीलाई सम्पर्क गर्नुहोस् — हरेक सन्देश टोलीको वास्तविक व्यक्तिसम्म पुग्छ।',
+  'about.contactTitle': 'सम्पर्कमा रहनुहोस्',
   'about.eyebrow': 'बारेमा',
+  'about.featureAlerts':
+    'स्कोर अपडेट, ट्रेड अलर्ट, चोटपटक रिपोर्ट, र लिग घोषणाका लागि पुश सूचनाहरू।',
+  'about.featureRosters':
+    'पूर्ण रोस्टर, सिजन जम्मा, हट/कोल्ड स्ट्रिक, र हरेक खेलाडीको हेड-टु-हेड स्प्लिट सहितका टोली पृष्ठहरू।',
+  'about.featureSchedule':
+    'सिजन क्यालेन्डर र तालिका दृश्य, ताकि तपाईं हरेक खेल र नतिजाको योजना बनाउन सक्नुहुन्छ।',
+  'about.featureScoreboard':
+    'हरेक पृष्ठको माथि पिन गरिएको प्रसारण-स्तरको स्कोरबोर्ड टिकर, ताकि तपाईंले कुनै गोल छुटाउनु नपरोस्।',
+  'about.featureStandings':
+    'लाइभ स्ट्यान्डिङ — वास्तविक-समय जित-हार-बराबर रेकर्ड, अंक, जित-प्रतिशत, र प्लेअफ लाइन, हरेक सिटीमा रिफ्रेस हुने।',
+  'about.intro':
+    '{{app}} तपाईंको लिगका लागि प्रसारण-स्तरको घर हो। टोली, तालिका, लाइभ स्कोर, र स्ट्यान्डिङ एउटै छिटो, भद्रगोल-रहित ड्यासबोर्डमा भेला हुन्छन् — ताकि प्रशंसक, प्रशिक्षक, र लिग आयोजकहरूलाई सधैं थाहा होस् कि सिजन कहाँ छ।',
+  'about.missionBody':
+    'लिग फलो गर्नुको अर्थ पाँच फरक तेस्रो-पक्ष स्कोरबोर्ड रिफ्रेस गर्नु हुनु हुँदैन। हामीले यसलाई हरेक लिगलाई स्ट्यान्डिङ, तालिका, र वास्तवमै महत्त्वपूर्ण तथ्याङ्कको लागि एउटै सत्यको स्रोत दिन बनायौं — हरेक सिटीमा अपडेट, सिजनभरि निःशुल्क।',
+  'about.missionTitle': 'हाम्रो मिशन',
+  'about.whatYouGet': 'तपाईंले के पाउनुहुन्छ',
   'appShell.closeNav': 'नेभिगेसन बन्द गर्नुहोस्',
   'appShell.openNav': 'नेभिगेसन खोल्नुहोस्',
   'common.dashboard': 'ड्यासबोर्ड',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'सबै खेलहरू हेर्नुहोस् \\u2192',
   'dashboard.viewAllStandings': 'पूर्ण अङ्कतालिका \\u2192',
   'dashboard.viewAllStats': 'सबै स्टेट लिडरहरू हेर्नुहोस् \\u2192',
+  'forgot.submitting': 'रिसेट लिंक पठाउँदै…',
   'forgot.subtitle': 'रिसेट लिङ्क प्राप्त गर्न आफ्नो इमेल प्रविष्ट गर्नुहोस्।',
   'forgot.success': 'पठाइएको लिङ्क रिसेट गर्नुहोस् {{email}} । आफ्नो इनबक्स जाँच गर्नुहोस्।',
+  'landing.copyright': '© {{year}} {{app}}। स्ट्यान्डिङको पछि लाग्नुहोस्।',
+  'landing.ctaBody':
+    'तपाईंको लिग। तपाईंको स्ट्यान्डिङ। तपाईंको मनपर्ने टोली — माथि पिन गरिएको। सेटअप गर्न दुई मिनेट, सिजनभरि निःशुल्क।',
   'landing.ctaHeading': 'तेस्रो-पक्ष स्कोरबोर्डहरू रिफ्रेस गर्न रोक्नुहोस्',
   'landing.eyebrow': 'प्रशंसक, प्रशिक्षक र लिग आयोजकहरूको लागि निर्मित',
   'landing.featuresHeading': 'प्रत्येक उभिने व्यक्तिको लागि अगाडिको पङ्क्तिको सिट',
   'landing.getStarted': 'लिगमा सामेल हुनुहोस्',
   'landing.heroCta': 'लिगमा सामेल हुनुहोस्',
+  'landing.heroSubtitle':
+    '{{app}} ले स्ट्यान्डिङ, तालिका, र तथ्याङ्कीय अग्रणीहरूलाई एउटै प्रसारण-स्तरको ड्यासबोर्डमा जोड्छ। लाइभ स्कोर। वास्तविक रेकर्ड। भद्रगोल छैन।',
+  'landing.heroTitle': '{{tagline}}।',
   'landing.scoreboardLabel': 'आज राती लिग वरिपरि',
   'landing.statFans': 'फ्यान फलोइङ',
   'landing.statGames': 'यस सिजनका खेलहरू',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'प्रश्न {{period}}',
   'matchDetail.back': 'मिल्दोजुल्दो खेलहरूमा फर्कनुहोस्',
   'matchDetail.eventsHeading': 'प्ले-बाई-प्ले',
+  'matchDetail.final': 'अन्तिम',
   'matchDetail.finalScore': 'फाइनल',
   'matchDetail.live': 'लाइभ',
   'matchDetail.liveNow': 'अहिले लाइभ गर्नुहोस्',
   'matchDetail.noEvents': 'अहिलेसम्म कुनै पनि घटना रेकर्ड गरिएको छैन।',
   'matchDetail.periodClock': 'प्रश्न {{period}} · {{clock}}',
+  'matches.empty': 'यो दृश्यमा कुनै खेल छैन — फरक फिल्टर प्रयास गर्नुहोस्।',
   'matches.eyebrow': 'खेलको दिन',
   'matches.loading': 'स्लेट तान्दै...',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'सूचनाहरू लोड गर्न असफल भयो',
   'notifications.loading': 'सूचनाहरू लोड गर्दै\\u2026',
   'pennantHeroCard.eyebrow': 'तालिकाको शीर्ष स्थानमा',
+  'pennantHeroCard.formLabel': 'अन्तिम १०',
   'pennantHeroCard.gamesAhead': '{{value}} पछ्याउने खेलहरू अगाडि',
   'pennantHeroCard.pointsLabel': 'PTS सम्बन्धी जानकारी',
   'pennantLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'आफ्नो सिट छान्नुहोस्',
   'pricing.heading': 'अझ राम्रो तालिका, स्कोर र स्ट्यान्डिङको लागि स्तरोन्नति गर्नुहोस्।',
   'pricing.limits.schedule': '{{count}} तालिका प्रविष्टिहरू',
+  'pricing.limits.scores': '{{count}} स्कोर',
+  'pricing.limits.standings': '{{count}} स्ट्यान्डिङ',
+  'pricing.limits.teams': '{{count}} टोली',
+  'pricing.subtitle': 'थप समृद्ध तालिका, स्कोर, र स्ट्यान्डिङका लागि अपग्रेड गर्नुहोस्।',
   'pricing.upgradeCta': 'स्तरोन्नति गर्नुहोस् {{tierName}}',
   'profile.eyebrow': 'फ्यान प्रोफाइल',
   'profile.favoritesCount': 'फलो गरिएका टोलीहरू',
   'profile.favoritesHeading': 'मनपर्ने टोलीहरू',
   'profile.noFavorites': 'अहिलेसम्म कुनै मनपर्ने छैन — टोली पृष्ठबाट टोलीहरू छान्नुहोस्।',
   'profile.rankRecord': 'श्रेणी # {{rank}} · {{record}}',
+  'profile.recordOnly': 'रेकर्ड {{record}}',
   'reset.confirmPlaceholder': 'पासवर्ड दोहोर्याउनुहोस्',
+  'reset.mismatch': 'पासवर्डहरू मेल खाँदैनन्।',
   'reset.newLabel': 'नयाँ पासवर्ड',
   'reset.subtitle': 'कम्तिमा १२ अक्षरको बलियो पासवर्ड छान्नुहोस्।',
   'reset.tokenPlaceholder': 'इमेलबाट टाँस्नुहोस्',
   'schedule.eyebrow': 'स्लेट',
+  'schedule.moreGames': '+ {{count}} थप',
   'schedule.subtitle':
     'सिजनभरि खेलहरूको क्यालेन्डर दृश्य — बक्स स्कोरको लागि कुनै पनि दिन ट्याप गर्नुहोस्।',
   'scoreboardTicker.empty': 'अहिले कुनै लाइभ खेल छैन — पक ड्रपमा फेरि जाँच गर्नुहोस्।',
@@ -97,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'निजीकृत गर्नुहोस्',
   'settings.favoritesBody':
     'यी टोलीहरू तपाईंको ड्यासबोर्डमा पिन हुन्छन् र स्कोर अलर्टहरू ट्रिगर गर्छन्।',
+  'settings.favoritesHeading': 'मनपर्ने टोलीहरू',
   'settings.loading': 'तपाईंका प्राथमिकताहरू लोड गर्दै\\u2026',
   'settings.noFavorites': 'अहिलेसम्म कुनै मनपर्ने छैन \\u2014 टोली पृष्ठबाट टोलीहरू छान्नुहोस्।',
   'settings.notificationsHeading': 'सूचना र प्रदर्शन',
@@ -114,6 +151,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'ल',
   'standings.overall': 'समग्रमा',
   'standings.points': 'PTS सम्बन्धी जानकारी',
+  'standings.rank': '#',
   'standings.subtitle':
     'शीर्ष चारले पोस्टसिजनको लागि छनोट हुन्छन् — अंकका आधारमा टाइब्रेकर, त्यसपछि जित-पङ्क्तिबद्ध।',
   'standings.title': 'लिग अङ्क तालिका',
@@ -132,6 +170,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'ग',
   'teamDetail.colName': 'खेलाडी',
   'teamDetail.colPos': 'स्थिति',
+  'teamDetail.pointsLabel': 'अंकहरू',
   'teamDetail.rankLabel': 'श्रेणी # {{rank}}',
   'teamDetail.rosterHeading': 'रोस्टर',
   'teamDetail.statGD': 'लक्ष्य भिन्नता',

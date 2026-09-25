@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, may nahanap kang bug, o gusto mong isali ang iyong paaralan? Makipag-ugnayan mula sa iyong account settings o mag-message sa iyong school administrator — bawat mensahe ay nakakarating sa isang tunay na tao sa team.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.missionTitle': 'Ang aming misyon',
   'announcementsFeed.empty': 'Wala pang mga anunsyo.',
   'announcementsFeed.eyebrow': '{{count}} mga update',
   'announcementsFeed.title': 'Mga pinakabagong anunsyo',
   'assignmentDetail.alreadySubmitted': 'Naisumite mo na ang takdang-aralin na ito.',
   'assignmentDetail.backLink': 'Balik sa mga takdang-aralin',
+  'assignmentDetail.dropBody':
+    'Gamitin ang Choose files para mag-attach ng iyong gawa — ire-record namin ang submission timestamp kapag nag-confirm ka.',
   'assignmentDetail.dropButton': 'Pumili ng mga file',
+  'assignmentDetail.dropPrompt': 'I-drop dito ang iyong PDF o photo packet',
   'assignmentDetail.due': 'Takdang petsa {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Mga Tagubilin',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Na-grado',
   'assignmentDetail.statusSubmitted': 'Isinumite',
   'assignmentDetail.statusTitle': 'Katayuan ng pagsusumite',
+  'assignmentDetail.submitError':
+    'Hindi namin na-record ang submission na iyon. Subukan muli sa ilang sandali.',
   'assignmentDetail.submitted': 'Naitala na ang pagsusumite — naabisuhan na ang iyong guro.',
+  'assignmentDetail.submittedAt': 'Naisumite {{when}}',
+  'assignmentDetail.submitTitle': 'Isumite ang iyong gawa',
   'assignmentRow.courseDue': '{{course}} · Dapat bayaran {{due}}',
   'assignments.empty': 'Walang bagay dito',
   'assignments.emptyBody':
@@ -39,9 +49,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Isang pang-araw-araw na talaan ng presensya, mga pagliban, at mga pagkahuli — kasama ang mga tala kung naaangkop.',
+  'attendance.summary.absences': 'Mga Absensya',
   'attendance.summary.absencesCaption': 'Mas mababa sa 5-araw na limitasyon ng interbensyon',
   'attendance.summary.attendance': 'Pagdalo',
   'attendance.summary.attendanceCaption': '{{count}} kasalukuyang mga araw ngayong termino',
+  'attendance.summary.tardies': 'Mga Pagkahuli',
   'attendance.summary.tardiesCaption':
     'Kasama ang mga tala para sa mga pagkaantala sa bus / appointment',
   'attendance.title': 'Kasaysayan ng pagdalo',
@@ -56,6 +68,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Mga Grado',
   'courseDetail.currentGrade': 'Kasalukuyang grado',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Pangkalahatang tanaw ng kurso',
   'courseDetail.gradesTitle': 'Mga kamakailang grado',
   'courseDetail.messageTeacher': 'Guro ng mensahe',
   'courseDetail.noGrades': 'Wala pang nai-post na mga grado.',
@@ -68,13 +81,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Tingnan lahat',
   'dashboard.assignmentsTitle': 'Susunod ngayong linggo',
   'dashboard.greeting': 'Kumusta {{name}} , handa na para sa klase?',
+  'dashboard.subtitle':
+    'Ang iyong linggo sa isang sulyap — schedule, grades, at assignments sa isang tahimik na view.',
+  'dashboard.viewReportCard': 'Tingnan ang report card',
+  'dashboard.weekFocusBody':
+    'Isumite ang Quadratics practice set 7 at ang chapter quiz. Bukas ang tutoring lab tuwing Martes at Huwebes pagkatapos ng period 7.',
+  'dashboard.weekFocusCta': 'Tingnan ang buong plano',
   'dashboard.weekFocusEyebrow': 'Pokus sa linggo',
   'dashboard.weekFocusTitle': 'Pataasin ang Algebra II ng 4 na puntos',
   'forgotPassword.subheading':
     'Ilagay ang email ng iyong paaralan at magpapadala kami ng link para sa pag-reset.',
   'forgotPassword.successBody':
     'Kung {{email}} tumutugma sa isang Chalk account, may paparating na link sa pag-reset ng password. Mag-e-expire ang mga link sa loob ng 30 minuto.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} GPA sa termino',
+  'gpaHeroCard.summary': '{{count}} klase ngayong araw',
   'grades.col.grade': 'Baitang',
   'grades.col.teacher': 'Guro',
   'grades.col.trend': 'Uso',
@@ -86,12 +107,19 @@ export const ui: UiTranslations = {
     'Mga aktwal na marka ng letra at porsyento. Ipinapakita ng mga arrow ng trend kung ikaw ay pataas, pantay, o nadudulas.',
   'grades.title': 'Ang iyong mga marka, kurso por kurso',
   'grades.trendStable': 'Kuwadra',
+  'grades.viewReportCard': 'Tingnan ang pormal na report card',
   'landing.copyright':
     '© {{year}} {{app}} . Ginawa para sa mga estudyante, ginawa para sa mga pamilya.',
+  'landing.ctaBody':
+    'Libre sa unang 30 araw, walang kailangang credit card. Ang mga distrito ay makakapag-roll out ng school-wide tier sa isang hapon lang.',
+  'landing.ctaButton': 'Gumawa ng iyong portal',
   'landing.ctaHeading':
     'Ang isang mas kalmadong araw ng pasukan ay nagsisimula sa loob ng ilang minuto',
   'landing.eyebrow': 'Para sa mga mag-aaral sa middle at high school',
   'landing.featuresHeading': 'Isang araw ng pasukan na inorganisa sa paligid ng estudyante',
+  'landing.heroSubtitle':
+    'Kinukuha ng {{appName}} ang bawat klase, grade, assignment, at mensahe sa isang kalmadong dashboard para mas kaunting oras ang gugugulin mo sa paghahanap at mas marami sa pag-aaral.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Nakasunod sa FERPA bilang default',
   'landing.proof.rating': '4.8 sa 12k pamilya',
   'landing.sampleTerm': 'Tagsibol',
@@ -100,6 +128,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Itago ang password',
   'login.noAccount': 'Bago sa Chalk?',
   'login.showPassword': 'Ipakita ang password',
+  'messages.compose': 'Bagong mensahe',
   'messages.composer.email': 'Email ng tatanggap (opsyonal)',
   'messages.composer.errorEmpty': 'Hindi maaaring walang laman ang mensahe.',
   'messages.composer.errorRecipient': 'Kinakailangan ang pangalan ng tatanggap.',
@@ -130,9 +159,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Honor roll · Termino ng tagsibol',
   'nav.unreadMessages': 'Mga hindi pa nababasang mensahe',
   'notifications.eyebrow': '{{count}} mga update',
+  'notifications.feedTitle': 'Lahat ng kamakailang aktibidad',
   'notifications.subtitle':
     'Mga grado, paalala, mensahe, at anunsyo sa paaralan. Ayusin kung aling mga channel ang ginagamit ng bawat notification sa Mga Setting.',
+  'planUpdated.body':
+    'Aktibo na ang pagbabago sa iyong billing. Maaari mong pamahalaan ang iyong plano anumang oras mula sa billing page.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
+  'pricing.announcementsLabel': 'mga anunsyo',
   'pricing.attendanceLabel': 'pagdalo',
   'pricing.gradesLabel': 'mga grado',
   'pricing.heading': 'mga anunsyo',
@@ -147,6 +184,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'Q2',
   'reportCard.crumb': 'Kard ng ulat',
   'reportCard.cumulativeGpa': 'Pinagsama-samang GPA',
+  'reportCard.download': 'I-download ang PDF',
   'reportCard.downloaded': 'Binuksan ang report card sa isang bagong tab.',
   'reportCard.downloading': 'Gumagawa ng PDF…',
   'reportCard.empty': 'Wala pang mga markang nakatala.',
@@ -154,6 +192,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Pangwakas na GPA · {{term}}',
   'reportCard.subtitle':
     'Isang pormal na transcript ng katapusan ng semestre na may kasamang weighted course grades, attendance, at isang printable PDF download.',
+  'reportCard.title': 'Kard ng ulat',
+  'resetPassword.newPassword': 'Bagong password',
   'resetPassword.subheading': 'Pumili ng isang bagay na hindi malilimutan ngunit mahirap hulaan.',
   'resetPassword.tokenPlaceholder': 'I-paste ang code mula sa iyong email',
   'schedule.empty': 'Walang naka-iskedyul na klase.',
@@ -180,12 +220,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Mga Nakabinbing Takdang-Aralin',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} mga pagliban ngayong termino · {{tardy}} mga nahuhuli',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Kinakalkula ang attendance numbers…',
+  'subjectStatsTriad.attendanceLabel': 'Pagdalo',
   'subjectStatsTriad.gradesCaption': 'Pahalang {{percent}} % na tinimbang na average',
+  'subjectStatsTriad.gradesCaptionLoading': 'Naglo-load ng mga grado…',
+  'subjectStatsTriad.gradesLabel': 'Class Average',
   'todayScheduleStrip.empty': 'Walang klase ngayon.',
   'todayScheduleStrip.eyebrow': '{{count}} mga klase',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Iskedyul ngayon',
   'topbar.guestName': 'Estudyante',
   'topbar.searchPlaceholder': 'Maghanap ng mga klase, takdang-aralin…',
+  'topbar.studentRole': 'Estudyante',
   'topbar.studentTag': 'Estudyante · # {{id}}',
 }

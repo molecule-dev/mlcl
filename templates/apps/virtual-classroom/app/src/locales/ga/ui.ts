@@ -1,10 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Fúinn',
+  'about.featureAssignments':
+    'Tascanna, aighneachtaí comhad, rubraic, aiseolas inlíne, agus leabhar grád ciúin a choinníonn mic léinn agus tuismitheoirí ar an eolas.',
+  'about.featureBreakouts':
+    'Seomraí brise amach le haon sconna — suaith mic léinn go huathoibríoch, craol fógraí, agus tarraing gach duine ar ais le chéile nuair a bhíonn an t-am istigh.',
+  'about.featureChat':
+    'Comhrá ranga snáitheach le hachoimrí greamaithe agus bealaí taobhúla don teagascóir amháin le haghaidh cóitseála ciúin le linn seisiúin.',
+  'about.featureVideo':
+    'Físeán beo cineamatach le fócas ar an gcainteoir gníomhach, leagan amach gailearaí agus spotsolais, agus pictiúr-i-bpictiúr in-tarraingthe do theagascóirí.',
+  'about.featureWhiteboard':
+    'Clár bán gan teorainn le pointeoir léasair agus pailéad iomlán dathanna, agus gach seisiún sábháilte de réir cúrsa ionas go n-iompraíonn an obair idir ranganna.',
+  'about.missionBody':
+    'Creidimid gur cheart go mbraithfeadh foghlaim chianda agus hibrideach chomh láithreach agus chomh daonna le bord seimineáir. Mar sin cuirimid an láithreacht bheo chun tosaigh — fíor-aghaidheanna, canbhás roinnte, agus grúpaí beaga brise amach — agus coinnímid an grádú agus an lóistíocht go ciúin as an mbealach go dtí go mbeidh siad uait.',
+  'about.missionTitle': 'Ár misean',
   'assignmentDetail.attachmentsTitle': 'Ceangaltáin',
   'assignmentDetail.back': 'Gach tasc',
   'assignmentDetail.code': 'BIO 211',
+  'assignmentDetail.context':
+    'Bitheolaíocht Cheallach I · Postáilte ag {{instructor}} · Dlite {{due}}',
   'assignmentDetail.continueDraft': 'Lean ar aghaidh leis an dréacht',
   'assignmentDetail.draftBody':
     'Eagarthóireacht dheireanach déanta 14 nóiméad ó shin · sábháil uathoibríoch ar gach athrú.',
@@ -23,6 +39,7 @@ export const ui: UiTranslations = {
   'assignmentRow.statusInProgress': 'Dréachtú',
   'assignmentRow.statusSubmitted': 'Cuireadh isteach',
   'assignmentRow.title': 'Tuarascáil saotharlainne — DNA miteacoindreach',
+  'assignmentRow.weight': 'Fiú {{percent}}% den ghrád',
   'assignments.body':
     'Déan rian ar gach páipéar, sraith fadhbanna, agus tionscadal ar fud do chúrsaí.',
   'assignments.empty': 'Níl aon rud sa lána seo faoi láthair — bain sult as an suaimhneas.',
@@ -33,6 +50,8 @@ export const ui: UiTranslations = {
   'assignments.statTotal': 'Sannadh gníomhach',
   'assignments.title': 'Tascanna',
   'aulaAuthShell.backHome': '← Ar ais sa bhaile',
+  'aulaAuthShell.brandBody':
+    'Tagann {{appName}} le físeán, clár bán, briseadh amach, comhrá, agus grádú isteach in aon chluaisín amháin dírithe — tógtha do theagascóirí ar mian leo teagasc, ní seanchluaisíní a aoireacht.',
   'aulaAuthShell.brandEyebrow': 'An áit a dtagann an fhoghlaim beo',
   'aulaAuthShell.brandTitle': 'Seomraí ranga beo le teas a bheith sa seomra.',
   'aulaAuthShell.sampleAttending': '+24 duine eile ag freastal',
@@ -42,6 +61,9 @@ export const ui: UiTranslations = {
   'aulaSideNav.closeMenu': 'Dún an roghchlár nascleanúna',
   'aulaSideNav.label': 'Príomh-loingseoireacht',
   'aulaSideNav.weeklyClasses': 'An tseachtain seo',
+  'aulaSideNav.weeklyClassesCount': '{{done}} / {{total}}',
+  'aulaSideNav.weeklyHelp':
+    'Tá tú ar an mbóthar ceart chun ceachtanna na seachtaine seo a chríochnú. Lean ort!',
   'aulaTopBar.openMenu': 'Oscail an roghchlár nascleanúna',
   'aulaTopBar.searchPlaceholder': 'Cuardaigh cúrsaí, ranganna, tascanna…',
   'aulaTopBar.title': 'Aula',
@@ -55,6 +77,8 @@ export const ui: UiTranslations = {
   'classroom.chatCount': '{{count}} teachtaireachtaí',
   'classroom.chatEmpty':
     'Gan aon teachtaireachtaí go fóill — abair hello chun an tost a bhriseadh.',
+  'classroom.chatInputLabel': 'Teachtaireacht chomhrá ranga',
+  'classroom.chatLoading': 'Ag lódáil an comhrá…',
   'classroom.chatPlaceholder': 'Seol chuig an rang…',
   'classroom.chatTitle': 'Comhrá ranga',
   'classroom.detailJoin': 'Join code',
@@ -81,23 +105,30 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'Téigh chuig an Deais',
   'courseDetail.assignmentsTitle': 'Tascanna cúrsa',
   'courseDetail.back': 'Gach cúrsa',
+  'courseDetail.body':
+    'Cúrsa dara seimeastar a thógann ó dhílisí líne trí éagsúlacht agus cuar. Beo gach Máirt/Déar, le saotharlann Dé hAoine agus uaireanta oifige seachtainiúla.',
+  'courseDetail.ca1Course': 'Cálcalas II',
   'courseDetail.ca1Due': 'Dlite Déardaoin · 5:00 PM',
   'courseDetail.ca1Title': 'Tacar fadhbanna flosc réimse veicteora',
   'courseDetail.ca2Course': 'Cálcalas II',
   'courseDetail.ca2Due': 'Arna chur isteach Dé Luain',
   'courseDetail.ca2Score': 'Ag fanacht le haiseolas',
   'courseDetail.ca2Title': 'Cruthúnais theoirim Stokes',
+  'courseDetail.ca3Course': 'Cálcalas II',
   'courseDetail.ca3Due': 'Ar ais · 9 lá ó shin',
   'courseDetail.ca3Score': 'A · 94%',
   'courseDetail.ca3Title': 'Tráth na gCeist Athbhreithnithe ar Shlándáil Líne',
   'courseDetail.cls1Course': 'Cálcalas II · MTH 202',
   'courseDetail.cls1Instructor': 'An tOllamh Maya Okafor',
+  'courseDetail.cls1Room': 'Seomra Aula · Lavandar',
   'courseDetail.cls1Title': 'Réimsí veicteora & flosc',
   'courseDetail.cls2Course': 'Cálcalas II · MTH 202',
   'courseDetail.cls2Instructor': 'An tOllamh Maya Okafor',
+  'courseDetail.cls2Room': 'Seomra Aula · Lavandar',
   'courseDetail.cls2Title': 'Athbhreithniú ar chomhtháthaithe líneacha',
   'courseDetail.cls3Course': 'Cálcalas II · MTH 202',
   'courseDetail.cls3Instructor': 'TA Felix Bauer',
+  'courseDetail.cls3Room': 'Seomra {{appName}} · Petal',
   'courseDetail.cls3Title': 'Saotharlann: Tacar fadhbanna Stokes',
   'courseDetail.code': 'MTH 202',
   'courseDetail.materialsTitle': 'Ábhair',
@@ -135,15 +166,18 @@ export const ui: UiTranslations = {
   'courses.filterTeaching': 'Teagasc',
   'courses.loading': 'Ag lódáil cúrsaí…',
   'courses.noBrowse': 'Gan aon chúrsaí le brabhsáil — tá tú cláraithe i ngach rud atá foilsithe.',
+  'courses.noCourses': 'Níl aon chúrsaí fós — cruthaigh ceann leis an gcnaipe thuas.',
   'courses.title': 'Do leabharlann foghlama',
   'courseTileCard.code': 'ECN 312',
   'courseTileCard.continue': 'Lean ar aghaidh leis an gcúrsa',
   'courseTileCard.enroll': 'Féach ar an gcúrsa',
   'courseTileCard.imageAlt': 'Mionsamhail chúrsa',
   'courseTileCard.instructor': 'An Dr. Idris Halloway',
+  'courseTileCard.lessonsRemaining': '{{count}} ceachtanna fágtha',
   'courseTileCard.levelAdvanced': 'Ardleibhéil',
   'courseTileCard.levelBeginner': 'Tosaitheoir',
   'courseTileCard.levelIntermediate': 'Idirmheánach',
+  'courseTileCard.preview': 'Réamhamharc ar an siollabas, brabhsáil léachtaí, agus iarr clárú.',
   'courseTileCard.progressComplete': '{{percent}} % críochnaithe',
   'courseTileCard.title': 'Macraeacnamaíocht Nua-Aimseartha',
   'dashboard.assignmentsAll': 'Féach ar fad →',
@@ -163,12 +197,16 @@ export const ui: UiTranslations = {
   'dashboard.noAssignments': 'Gan aon obair bhaile le déanamh — bain taitneamh as an suaimhneas.',
   'dashboard.noCourses': 'Gan aon chúrsaí fós — beidh do chéad chúrsa le feiceáil anseo.',
   'dashboard.noDueDate': 'Gan dáta dlite',
+  'dashboard.scheduleAula': 'Seomra Aula',
   'dashboard.scheduleEmpty': 'Níl aon ranganna beo sceidealaithe atá le teacht.',
   'dashboard.scheduleHostedYou': 'Arna óstáil agatsa',
+  'dashboard.scheduleJoinCode': 'Cód ballraíochta · {{code}}',
+  'dashboard.statAssignmentsLabel': 'Tascanna dlite',
   'dashboard.statClassesDelta': '{{n}} cúrsaí gníomhacha',
   'dashboard.statClassesLabel': 'Seomraí beo',
   'dashboard.statCoursesDelta': '{{n}} cláraithe',
   'dashboard.statCoursesLabel': 'Cúrsaí',
+  'dashboard.statNotificationsLabel': 'Foláirimh neamhléite',
   'dashboard.tipBody':
     'Oscail an seomra beo ón gcárta laoch thuas chun stróc a tharraingt ar an gclár bán nó teachtaireacht comhrá a phostáil — leanann gach gníomh ar aghaidh.',
   'dashboard.tipCta': 'Bain triail as an gclár bán',
@@ -182,6 +220,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success':
     'Má tá cuntas ann don ríomhphost sin, tá nasc athshocraithe ar an mbealach.',
   'forgotPassword.toLogin': 'Fill ar ais chun logáil isteach',
+  'grades.assignmentsCount': '{{n}} grád',
   'grades.body':
     'Léargas socair ar gach cúrsa — an grád reatha, aiseolas le déanaí, agus cá háit le díriú an tseachtain seo chugainn.',
   'grades.empty':
@@ -194,43 +233,59 @@ export const ui: UiTranslations = {
   'grades.statTrendUnit': 'cúrsaí',
   'grades.statWatchLabel': 'Teastaíonn aird',
   'grades.title': 'Gráid & aiseolas',
+  'landing.ctaBody':
+    'Cuirfimid cúrsa samplach ar bun, tabharfaimid cuireadh do chomh-mhúinteoir, agus taispeánfaimid duit conas rang a iompú ina bhriseadh amach sula mbuaileann an clog.',
   'landing.ctaButton': 'Cruthaigh do scoil',
   'landing.ctaPrimary': 'Tosaigh téarma saor in aisce',
   'landing.ctaSecondary': 'Féach ar thuras ranga',
   'landing.ctaTitle': 'Oscail do chéad seomra ranga i níos lú ná trí nóiméad.',
+  'landing.demoCourse': 'Litríocht an Domhain · LIT 240',
+  'landing.demoInstructor': 'An tOll. Imani Davies',
+  'landing.demoTitle': 'Réalachas draíochta — Borges & Murakami',
   'landing.eyebrow': 'Beo · clár bán · seisiúin scrúdaithe · grádú',
   'landing.feat1Body':
     'Spotsolas uathoibrithe + gailearaí, béimniúcháin cainteora ghníomhacha, agus pictiúr-i-bpictiúr intarraingthe do theagascóirí.',
   'landing.feat1Title': 'Greille físe cineamatach',
   'landing.feat2Body':
     'Canbhás gan teorainn, pointeoir léasair, pailéad ocht sampla, agus seisiúin leanúnacha in aghaidh an chúrsa.',
+  'landing.feat2Title': 'Clár bán a smaoiníonn os ard',
   'landing.feat3Body':
     'Uath-shuaitheadh daltaí isteach i seomraí, fógraí a chraoladh, agus gach duine a tharraingt ar ais le tapáil.',
+  'landing.feat3Title': 'Briseadh amach in dhá chliceáil',
   'landing.feat4Body':
     'Rubricí, comhaid a chur isteach, aiseolas inlíne, agus leabhar grád socair a choinníonn na tuismitheoirí ar an eolas.',
+  'landing.feat4Title': 'Tascanna + leabhar grád',
   'landing.feat5Body':
     'Comhrá snáithithe in aghaidh an ranga, achoimrí bioráilte, agus bealaí taobh do theagascóirí amháin le haghaidh cóitseáil cogarnach.',
+  'landing.feat5Title': 'Comhrá le comhthéacs ranga',
   'landing.feat6Body':
     'SSO le heolairí ceantair, modhnóireacht atá oiriúnach don aois, agus logaí iniúchóireachta do gach seomra ranga.',
+  'landing.feat6Title': 'Sábháilte de réir réamhshocraithe',
   'landing.featuresEyebrow': 'Tógtha le haghaidh beo',
   'landing.featuresTitle': 'Gach rud a theastaíonn ó rang, i gcluaisín amháin atá dírithe.',
   'landing.footerCopy': "© {{year}} Aula. Déanta le cúram d'oideoirí.",
   'landing.footerStart': 'Scoil a thosú',
   'landing.heroBody':
     'Tugann Aula físeán beo, clár bán, seisiúin scrúdaithe, comhrá agus tascanna isteach i dteach teolaí scolártha amháin. Tógtha do theagascóirí ar mian leo níos lú cluaisíní agus níos mó airde.',
+  'landing.heroLine1': 'Áit a mbíonn gach seomra ranga',
   'landing.heroLine2': 'mothaíonn sa seomra.',
   'landing.navSchools': 'Do scoileanna',
   'landing.navStart': 'Oscail seomra ranga',
   'landing.previewCourse1': 'Macraeacnamaíocht Nua-Aimseartha',
   'landing.previewCourse2': 'Péintéireacht Stiúideo II',
   'landing.previewCourse3': 'Réamhrá ar Eitic Sonraí',
+  'landing.previewEyebrow': 'Téigh ar thuras tríd an gcatalóg',
   'landing.previewInstructor1': 'An Dr. Idris Halloway',
   'landing.previewInstructor2': 'An tOllamh Lila Marin',
   'landing.previewInstructor3': 'An Dr. Naomi Wren',
   'landing.previewTitle': 'Cúrsaí a osclóidh do mhic léinn i ndáiríre.',
+  'landing.socialProofBody':
+    'Úsáidte ag 380 scoil, bootcamp, agus oiliúnaí corparáideacha ar fud an domhain.',
   'landing.socialProofTitle': 'Breis is 14,200 rang a reáchtáladh an téarma seo',
   'liveClassHeroCard.bodyLive':
     '{{instructor}} díreach tar éis an seomra a oscailt. {{count}} Tá na comhscoláirí istigh cheana féin — sleamhnaigh isteach roimh an rollghlao.',
+  'liveClassHeroCard.bodyUpcoming':
+    'Tá {{instructor}} ag óstáil i gceann {{minutes}} nóiméad. Tá seiceáil ceamara agus micreafóin oscailte anois.',
   'liveClassHeroCard.course': 'Cálcalas II — MTH 202',
   'liveClassHeroCard.elapsed': 'Imithe thart',
   'liveClassHeroCard.elapsedValue': '12:08',
@@ -243,6 +298,7 @@ export const ui: UiTranslations = {
   'liveClassHeroCard.title': 'Léacht 14 — Réimsí veicteoir',
   'liveClassHeroCard.viewSchedule': 'Féach ar an sceideal iomlán',
   'login.emailPlaceholder': 'tusa@scoil.edu',
+  'login.footerPrompt': 'Nua i dTessera?',
   'login.hidePassword': 'Folaigh an focal faire',
   'login.rememberMe': 'Coinnigh mé sínithe isteach',
   'login.showPassword': 'Taispeáin an focal faire',
@@ -253,6 +309,7 @@ export const ui: UiTranslations = {
   'notifications.body': 'Tá agat {{count}} nuashonruithe neamhléite ó do ranganna.',
   'notifications.bodyNone': 'Tá sibh go léir gafa suas.',
   'notifications.loading': 'Ag lódáil…',
+  'pricing.advancedFeatures': 'Gnéithe ardleibhéil',
   'profile.bio':
     'Cálcalas veicteoir & toipeolaíocht · 14 bliana de thaithí múinteoireachta · Modhnóir pobail san Aula. Uaireanta oifige Luan/Céadaoin 11–12 sa seomra Lavender.',
   'profile.course1Instructor': 'An tOllamh Maya Okafor',
@@ -273,8 +330,11 @@ export const ui: UiTranslations = {
   'profile.statStudentsLabel': 'Daltaí an téarma seo',
   'resetPassword.confirmPasswordPlaceholder': 'Ath-iontráil an focal faire nua',
   'resetPassword.emailPlaceholder': 'tusa@scoil.edu',
+  'resetPassword.mismatch': 'Ní thagann na pasfhocail le chéile fós.',
+  'resetPassword.newPassword': 'Pasfhocal nua',
   'resetPassword.subtitle':
     'Déan é fada go leor le go mbeidh sé deacair buille faoi thuairim a thabhairt agus gearr go leor le go mbeidh sé in ann é a chlóscríobh go tapa.',
+  'resetPassword.title': 'Roghnaigh pasfhocal úr',
   'scheduleItem.course': 'Scríbhneoireacht Chruthaitheach · ENG 220',
   'scheduleItem.endTime': '3:30 PM',
   'scheduleItem.instructor': 'An Dr. Yusuf Adelana',
@@ -297,10 +357,19 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Teanga',
   'settings.photoHint': 'JPG nó PNG · oibríonn cearnach is fearr',
   'settings.profileTitle': 'Próifíl',
+  'settings.securityTitle': 'Sínithe isteach & slándáil',
   'settings.twoFactorCode': 'Cód fíordheimhnithe',
   'settings.twoFactorDisable': 'Díchumasaigh',
+  'settings.twoFactorDisableTitle': 'Díchumasaigh fíordheimhniú dhá fhachtóir',
   'settings.twoFactorEnable': 'Cumasaigh',
+  'settings.twoFactorEnableTitle': 'Cumasaigh fíordheimhniú dhá fhachtóir',
   'settings.twoFactorInvalidCode': 'Cód neamhbhailí',
+  'settings.twoFactorOffBody': 'Gan chumasú',
+  'settings.twoFactorOnBody': 'Cumasaithe · aip fhíordhíonta',
+  'settings.twoFactorQrAlt': 'Cód QR dhá fhachtóir',
+  'settings.twoFactorScan':
+    "Scan an cód QR seo le d'aip fhíordheimhniúcháin, ansin cuir isteach an cód 6 dhigit.",
+  'settings.twoFactorUnavailable': 'Níl fíordheimhniú dhá fhachtóir ar fáil don aip seo.',
   'settings.twoFactorVerify': 'Fíoraigh & cumasaigh',
   'signup.email': 'Ríomhphost scoile',
   'signup.emailPlaceholder': 'tusa@scoil.edu',
@@ -308,6 +377,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Aiyana',
   'signup.lastNamePlaceholder': 'Vega',
   'signup.roleInstructor': 'Teagascóir',
+  'signup.roleLabel': 'Is … mé',
   'signup.roleStudent': 'Mac Léinn',
   'signup.subtitle':
     'Tá Aula saor in aisce don chéad 30 lá — níl cárta creidmheasa ag teastáil. Tabhair cuireadh do do chomh-mhúinteoirí am ar bith.',
@@ -320,6 +390,8 @@ export const ui: UiTranslations = {
   'whiteboard.colorLabel': 'Dath {{color}}',
   'whiteboard.export': 'Easpórtáil SVG',
   'whiteboard.loading': 'Ag lódáil an chláir…',
+  'whiteboard.persistenceNote':
+    'Fanann stríoca ar chlár bán an tseomra. Athlódáil an leathanach — ba cheart go mbeadh staid an chláir ann fós.',
   'whiteboard.roomNotFound': 'Níor aimsíodh clár bán don nasc seo.',
   'whiteboard.savedAt': '{{count}} strócanna · sábháilte go deireanach {{when}}',
   'whiteboard.title': 'Clár bán beo',

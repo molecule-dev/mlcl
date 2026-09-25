@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'On tagasisidet, leidsid vea või soovid oma liigale {{app}}? Võta meiega ühendust konto seadete kaudu — iga sõnum jõuab päris inimeseni meeskonnas.',
+  'about.contactTitle': 'Võtke ühendust',
   'about.eyebrow': 'Teave',
+  'about.featureAlerts':
+    'Tõuketeavitused skooriuuenduste, vahetusteatede, vigastusraportite ja liigateadaannete kohta.',
+  'about.featureRosters':
+    'Meeskonna lehed täielike nimekirjade, hooaja kogunäitajate, kuuma/külma seeria ja iga mängija vastasseisu jaotustega.',
+  'about.featureSchedule':
+    'Hooaja kalender ja ajakava vaade, et saaksid planeerida iga mängu ja tulemuse ümber.',
+  'about.featureScoreboard':
+    'Ülekandekvaliteediga skooriticker, mis on kinnitatud iga lehe ülaossa, et sa ei jätaks ühtegi väravat nägemata.',
+  'about.featureStandings':
+    'Reaalajas tabel — võit-kaotus-viik rekordid, punktid, võiduprotsent ja playoffi joon, uuendatakse iga vilega.',
+  'about.intro':
+    '{{app}} on ülekandekvaliteediga kodu sinu liigale. Meeskonnad, ajakavad, reaalajas skoorid ja tabelid tulevad kokku ühes kiires, segaduseta armatuurlaual — nii et fännid, treenerid ja liigakorraldajad teavad alati, kus hooaeg seisab.',
+  'about.missionBody':
+    'Liiga jälgimine ei peaks tähendama viie erineva kolmanda osapoole skooritabeli värskendamist. Lõime selle, et anda igale liigale üks tõeallikas tabelite, ajakava ja oluliste statistika jaoks — uuendatakse iga vilega, hooaja jooksul tasuta.',
+  'about.missionTitle': 'Meie missioon',
+  'about.whatYouGet': 'Mida sa saad',
   'appShell.closeNav': 'Sulge navigeerimisriba',
   'appShell.openNav': 'Ava navigeerimisriba',
   'common.dashboard': 'Armatuurlaud',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Kuva kõik matšid \\u2192',
   'dashboard.viewAllStandings': 'Täielik edetabel \\u2192',
   'dashboard.viewAllStats': 'Kuva kõik statistikajuhid \\u2192',
+  'forgot.submitting': 'Saadan lähtestamislinki…',
   'forgot.subtitle': 'Sisesta oma e-posti aadress, et saada lähtestamislink.',
   'forgot.success': 'Lähtesta link, mis saadeti aadressile {{email}} Kontrollige oma postkasti.',
+  'landing.copyright': '© {{year}} {{app}}. Jälita tabeliseisu.',
+  'landing.ctaBody':
+    'Sinu liiga. Sinu tabelid. Sinu lemmikmeeskond — kinnitatud ülaossa. Kaks minutit seadistamiseks, hooaja jooksul tasuta.',
   'landing.ctaHeading': 'Kolmandate osapoolte tulemustabelite värskendamise lõpetamine',
   'landing.eyebrow': 'Loodud fännidele, treeneritele ja liiga korraldajatele',
   'landing.featuresHeading': 'Esirea koht igale seisjale',
   'landing.getStarted': 'Liitu liigaga',
   'landing.heroCta': 'Liitu liigaga',
+  'landing.heroSubtitle':
+    '{{app}} ühendab tabelid, ajakavad ja statistilised liidrid üheks ülekandekvaliteediga armatuurlaual. Reaalajas skoorid. Päris rekordid. Ei mingit segadust.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Täna õhtul liigas ringi',
   'landing.statFans': 'Fännid jälgivad',
   'landing.statGames': 'Mängud sel hooajal',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'K {{period}}',
   'matchDetail.back': 'Tagasi matšide juurde',
   'matchDetail.eventsHeading': 'Mäng-mängult',
+  'matchDetail.final': 'LÕPP',
   'matchDetail.finalScore': 'Lõplik',
   'matchDetail.live': 'OTSE',
   'matchDetail.liveNow': 'Otseülekanne nüüd',
   'matchDetail.noEvents': 'Ühtegi sündmust pole veel salvestatud.',
   'matchDetail.periodClock': 'K {{period}} · {{clock}}',
+  'matches.empty': 'Selles vaates pole ühtegi mängu — proovi teist filtrit.',
   'matches.eyebrow': 'Mängupäev',
   'matches.loading': 'Tõmban kiltkivi…',
   'matches.subtitle':
@@ -52,6 +80,8 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Teateid ei õnnestunud laadida',
   'notifications.loading': 'Teavituste laadimine\\u2026',
   'pennantHeroCard.eyebrow': 'Tabeli ülaosa',
+  'pennantHeroCard.formLabel': 'Viimased 10',
+  'pennantHeroCard.gamesAhead': '{{value}} mängu enne jälitamist',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Peamine navigeerimine',
   'playerDetail.age': 'Vanus',
@@ -78,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Vali oma istekoht',
   'pricing.heading': 'Täienda oma mängukava, tulemuste ja edetabelite rikkuse saavutamiseks.',
   'pricing.limits.schedule': '{{count}} ajakava kanded',
+  'pricing.limits.scores': '{{count}} skoori',
+  'pricing.limits.standings': '{{count}} tabelit',
+  'pricing.limits.teams': '{{count}} meeskonda',
+  'pricing.subtitle': 'Uuenda, et saada rikkalikum ajakava, skoorid ja tabelid.',
   'pricing.upgradeCta': 'Uuenda versioonile {{tierName}}',
   'profile.eyebrow': 'Fänniprofiil',
   'profile.favoritesCount': 'Jälgitud meeskonnad',
   'profile.favoritesHeading': 'Lemmikmeeskonnad',
   'profile.noFavorites': 'Lemmikuid veel pole — vali meeskonnad meeskondade lehelt.',
   'profile.rankRecord': 'Koht # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Rekord {{record}}',
   'reset.confirmPlaceholder': 'Korda parool',
+  'reset.mismatch': 'Paroolid ei ühti.',
   'reset.newLabel': 'Uus parool',
   'reset.subtitle': 'Valige vähemalt 12 tähemärgi pikkune tugev parool.',
   'reset.tokenPlaceholder': 'Kleebi meilist',
   'schedule.eyebrow': 'Kiltkivi',
+  'schedule.moreGames': '+ {{count}} rohkem',
   'schedule.subtitle':
     'Hooaja mängude kalendrivaade – puudutage suvalist päeva, et näha mängu tulemusi.',
   'scoreboardTicker.empty': 'Hetkel otseülekandeid ei ole – vaadake uuesti ketta langetamise ajal.',
@@ -96,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Isikupärasta',
   'settings.favoritesBody':
     'Need meeskonnad kinnitatakse teie armatuurlauale ja need käivitavad skoorimärguandeid.',
+  'settings.favoritesHeading': 'Lemmikmeeskonnad',
   'settings.loading': 'Eelistuste laadimine\\u2026',
   'settings.noFavorites': 'Lemmikuid veel pole \\u2014 vali meeskonnad meeskondade lehelt.',
   'settings.notificationsHeading': 'Teavitused ja kuvamine',
@@ -114,6 +152,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Kokkuvõttes',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     "Neli paremat pääsevad play-off'i – viigiseisud punktide järgi, seejärel võitude ja osakaalu suhe.",
   'standings.title': 'Liiga edetabel',
@@ -132,6 +171,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Mängija',
   'teamDetail.colPos': 'Pos',
+  'teamDetail.pointsLabel': 'Punktid',
   'teamDetail.rankLabel': 'Koht # {{rank}}',
   'teamDetail.rosterHeading': 'Nimekiri',
   'teamDetail.statGD': 'Väravate erinevus',

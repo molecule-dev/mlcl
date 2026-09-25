@@ -1,10 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Biz haqimizda',
+  'about.featureAssignments':
+    'Topshiriqlar, fayl topshirishlar, rubrikalar, ichki izohlar va o‘quvchilar hamda ota-onalarni xabardor qiluvchi xotirjam baholar jurnali.',
+  'about.featureBreakouts':
+    'Bir bosishda breakout xonalar — o‘quvchilarni avtomatik aralashtirish, e’lonlarni tarqatish va vaqt tugagach hammani yana bir joyga yig‘ish.',
+  'about.featureChat':
+    'Qadalgan xulosalar va mashg‘ulot davomida sokin murabbiylik uchun faqat o‘qituvchiga ochiq yon kanallar bilan mavzuli sinf chati.',
+  'about.featureVideo':
+    'Faol ma’ruzachi fokusida kinematik jonli video, galereya va spotlight tartiblari hamda o‘qituvchilar uchun sudrab o‘tkaziladigan rasm-ichida-rasm.',
+  'about.featureWhiteboard':
+    'Lazer ko‘rsatkich va to‘liq rang palitrasi bilan cheksiz doska, har bir mashg‘ulot kurs bo‘yicha saqlanadi, shunda ishlar darslar orasida davom etadi.',
+  'about.missionBody':
+    'Bizningcha, masofaviy va aralash ta’lim seminar stolidagidek hozirjavob va insoniy bo‘lishi kerak. Shuning uchun jonli ishtirokni birinchi o‘ringa qo‘yamiz — haqiqiy yuzlar, umumiy kanvas va kichik guruhli breakoutlar — baholash va tashkiliy ishlarni esa kerak bo‘lgunga qadar jimgina chetga surib turamiz.',
+  'about.missionTitle': 'Bizning vazifamiz',
   'assignmentDetail.attachmentsTitle': "Qo'shimchalar",
   'assignmentDetail.back': 'Barcha topshiriqlar',
   'assignmentDetail.code': 'BIOGRAFIYA 211',
+  'assignmentDetail.context':
+    'Hujayra biologiyasi I · {{instructor}} joylashtirgan · Muddat {{due}}',
   'assignmentDetail.continueDraft': 'Qoralamani davom ettirish',
   'assignmentDetail.draftBody':
     "Oxirgi marta 14 daqiqa oldin tahrirlangan · har bir o'zgarish avtomatik ravishda saqlanadi.",
@@ -23,6 +39,7 @@ export const ui: UiTranslations = {
   'assignmentRow.statusInProgress': 'Qoralama',
   'assignmentRow.statusSubmitted': 'Yuborildi',
   'assignmentRow.title': 'Laboratoriya hisoboti — Mitoxondrial DNK',
+  'assignmentRow.weight': 'Bahoning {{percent}}% ini tashkil qiladi',
   'assignments.body':
     "Kurslaringiz bo'ylab har bir qog'ozni, muammolar to'plamini va loyihani kuzatib boring.",
   'assignments.empty': "Hozir bu yo'lakda hech narsa yo'q — tinchlikdan zavqlaning.",
@@ -33,6 +50,8 @@ export const ui: UiTranslations = {
   'assignments.statTotal': 'Faol topshiriqlar',
   'assignments.title': 'Topshiriqlar',
   'aulaAuthShell.backHome': '← Uyga qaytish',
+  'aulaAuthShell.brandBody':
+    '{{appName}} video, doska, breakoutlar, chat va baholashni bitta diqqatli oynaga jamlaydi — ko‘p oynalarni boshqarishni emas, dars o‘tishni xohlaydigan o‘qituvchilar uchun.',
   'aulaAuthShell.brandEyebrow': "O'rganish qayerda jonlanadi",
   'aulaAuthShell.brandTitle': "Xonada bo'lish iliqligi bilan jonli sinf xonalari.",
   'aulaAuthShell.sampleAttending': '+24 kishi ishtirok etmoqda',
@@ -42,6 +61,8 @@ export const ui: UiTranslations = {
   'aulaSideNav.closeMenu': 'Navigatsiya menyusini yopish',
   'aulaSideNav.label': 'Asosiy navigatsiya',
   'aulaSideNav.weeklyClasses': 'Ushbu hafta',
+  'aulaSideNav.weeklyClassesCount': '{{done}} / {{total}}',
+  'aulaSideNav.weeklyHelp': 'Bu haftadagi darslarni tugatish yo‘lidasiz. Davom eting!',
   'aulaTopBar.openMenu': 'Navigatsiya menyusini ochish',
   'aulaTopBar.searchPlaceholder': 'Kurslar, darslar, topshiriqlarni qidirish…',
   'aulaTopBar.title': 'Aula',
@@ -54,6 +75,8 @@ export const ui: UiTranslations = {
   'calendar.statTotal': 'Kelgusi tadbirlar jami',
   'classroom.chatCount': '{{count}} xabarlar',
   'classroom.chatEmpty': "Hali xabar yo'q — sukunatni buzish uchun salom ayting.",
+  'classroom.chatInputLabel': 'Sinf chati xabari',
+  'classroom.chatLoading': 'Suhbat yuklanmoqda…',
   'classroom.chatPlaceholder': 'Sinfga yuboring…',
   'classroom.chatTitle': 'Sinf suhbati',
   'classroom.detailJoin': 'Join code',
@@ -80,23 +103,30 @@ export const ui: UiTranslations = {
   'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'courseDetail.assignmentsTitle': 'Kurs topshiriqlari',
   'courseDetail.back': 'Barcha kurslar',
+  'courseDetail.body':
+    'Chiziqli integrallardan divergensiya va rotorgacha qurilgan ikkinchi semestr kursi. Har seshanba/payshanba jonli, juma kuni laboratoriya va haftalik konsultatsiya soatlari.',
+  'courseDetail.ca1Course': 'II matematika',
   'courseDetail.ca1Due': 'Payshanba · soat 17:00 da tugaydi',
   'courseDetail.ca1Title': "Vektor maydoni oqimi muammolari to'plami",
   'courseDetail.ca2Course': 'II matematika',
   'courseDetail.ca2Due': 'Dushanba kuni yuborildi',
   'courseDetail.ca2Score': 'Fikr-mulohaza kutilmoqda',
   'courseDetail.ca2Title': 'Stokes teoremasining isbotlari',
+  'courseDetail.ca3Course': 'II matematika',
   'courseDetail.ca3Due': 'Qaytdi · 9 kun oldin',
   'courseDetail.ca3Score': 'A · 94%',
   'courseDetail.ca3Title': "Chiziqli integralni ko'rib chiqish viktorinasi",
   'courseDetail.cls1Course': 'Matematika II · MTH 202',
   'courseDetail.cls1Instructor': 'Professor Maya Okafor',
+  'courseDetail.cls1Room': 'Aula xonasi · Lavender',
   'courseDetail.cls1Title': 'Vektor maydonlari va oqim',
   'courseDetail.cls2Course': 'Matematika II · MTH 202',
   'courseDetail.cls2Instructor': 'Professor Maya Okafor',
+  'courseDetail.cls2Room': 'Aula xonasi · Lavender',
   'courseDetail.cls2Title': "Chiziqli integrallarni ko'rib chiqish",
   'courseDetail.cls3Course': 'Matematika II · MTH 202',
   'courseDetail.cls3Instructor': 'TA Feliks Bauer',
+  'courseDetail.cls3Room': '{{appName}} xona · Petal',
   'courseDetail.cls3Title': "Laboratoriya: Stokes masalalari to'plami",
   'courseDetail.code': 'MTH 202',
   'courseDetail.materialsTitle': 'Materiallar',
@@ -135,15 +165,19 @@ export const ui: UiTranslations = {
   'courses.loading': 'Kurslar yuklanmoqda…',
   'courses.noBrowse':
     "Ko'rib chiqish uchun kurslar yo'q — siz nashr etilgan barcha narsalarga yozilgansiz.",
+  'courses.noCourses': 'Hozircha kurslar yo‘q — yuqoridagi tugma bilan bittasini yarating.',
   'courses.title': "Sizning o'quv kutubxonangiz",
   'courseTileCard.code': 'ECN 312',
   'courseTileCard.continue': 'Kursni davom ettirish',
   'courseTileCard.enroll': "Kursni ko'rish",
   'courseTileCard.imageAlt': 'Kurs eskizi',
   'courseTileCard.instructor': 'Doktor Idris Xellouey',
+  'courseTileCard.lessonsRemaining': '{{count}} darslar qoldi',
   'courseTileCard.levelAdvanced': "Ilg'or",
   'courseTileCard.levelBeginner': "Boshlang'ich",
   'courseTileCard.levelIntermediate': "O'rta",
+  'courseTileCard.preview':
+    'O‘quv rejasini ko‘rib chiqing, ma’ruzalarni ko‘zdan kechiring va o‘qishga so‘rov yuboring.',
   'courseTileCard.progressComplete': '{{percent}} % bajarildi',
   'courseTileCard.title': 'Zamonaviy makroiqtisodiyot',
   'dashboard.assignmentsAll': "Barchasini ko'rish →",
@@ -163,12 +197,16 @@ export const ui: UiTranslations = {
   'dashboard.noAssignments': "Hech qanday topshiriq yo'q — xotirjamlikdan zavqlaning.",
   'dashboard.noCourses': "Hali kurslar yo'q — birinchi kursingiz shu yerda paydo bo'ladi.",
   'dashboard.noDueDate': "Tugash muddati yo'q",
+  'dashboard.scheduleAula': 'Aula xonasi',
   'dashboard.scheduleEmpty': 'Kelgusi jonli darslar rejalashtirilmagan.',
   'dashboard.scheduleHostedYou': 'Siz mezbonlik qildingiz',
+  'dashboard.scheduleJoinCode': "Qo'shilish kodi · {{code}}",
+  'dashboard.statAssignmentsLabel': 'Topshiriqlar muddati',
   'dashboard.statClassesDelta': '{{n}} faol kurslar',
   'dashboard.statClassesLabel': 'Yashash xonalari',
   'dashboard.statCoursesDelta': "{{n}} ro'yxatdan o'tgan",
   'dashboard.statCoursesLabel': 'Kurslar',
+  'dashboard.statNotificationsLabel': 'O‘qilmagan bildirishnomalar',
   'dashboard.tipBody':
     'Oq doskaga chiziq chizish yoki chat xabarini joylashtirish uchun yuqoridagi qahramon kartasidan jonli xonani oching — har bir harakat davom etadi.',
   'dashboard.tipCta': "Oq doskani sinab ko'ring",
@@ -182,6 +220,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success':
     "Agar o'sha elektron pochta uchun hisob mavjud bo'lsa, qayta tiklash havolasi yo'lda.",
   'forgotPassword.toLogin': 'Kirish uchun qaytish',
+  'grades.assignmentsCount': '{{n}} baho',
   'grades.body':
     "Har bir kursga xotirjamlik bilan qarash — bajarilayotgan baho, so'nggi fikr-mulohazalar va keyingi hafta qayerga e'tibor qaratish kerak.",
   'grades.empty':
@@ -194,43 +233,59 @@ export const ui: UiTranslations = {
   'grades.statTrendUnit': 'kurslar',
   'grades.statWatchLabel': "E'tiborga muhtoj",
   'grades.title': 'Baholar va fikr-mulohazalar',
+  'landing.ctaBody':
+    'Biz namunaviy kurs yaratamiz, hamkasb o‘qituvchini taklif qilamiz va qo‘ng‘iroq chalinishidan oldin darsni breakoutlarga qanday aylantirishni ko‘rsatamiz.',
   'landing.ctaButton': 'Maktabingizni yarating',
   'landing.ctaPrimary': 'Bepul muddatni boshlang',
   'landing.ctaSecondary': 'Sinf turini tomosha qiling',
   'landing.ctaTitle': 'Uch daqiqadan kamroq vaqt ichida birinchi sinfingizni oching.',
+  'landing.demoCourse': 'Jahon adabiyoti · LIT 240',
+  'landing.demoInstructor': 'Prof. Imani Davies',
+  'landing.demoTitle': 'Sehrli realizm — Borxes va Murakami',
   'landing.eyebrow': 'Jonli · oq doska · ajralishlar · baholash',
   'landing.feat1Body':
     "Avtomatik joylashtirilgan yorug'lik chiroqlari + galereya, faol karnay aksentlari va o'qituvchilar uchun sudrab olib boradigan rasm ichidagi rasm funksiyasi.",
   'landing.feat1Title': 'Kinematik video panjara',
   'landing.feat2Body':
     "Cheksiz kanvas, lazer ko'rsatkichi, sakkizta namunaviy palitra va har bir kurs uchun doimiy mashg'ulotlar.",
+  'landing.feat2Title': 'Ovoz chiqarib o‘ylaydigan doska',
   'landing.feat3Body':
     "Talabalarni xonalarga avtomatik ravishda aralashtiring, e'lonlarni efirga uzating va bir teginish bilan hammani orqaga torting.",
+  'landing.feat3Title': 'Ikki bosishda breakoutlar',
   'landing.feat4Body':
     'Reytinglar, fayllarni topshirish, ichki fikr-mulohazalar va ota-onalarni xabardor qilib turadigan xotirjam baholar jurnali.',
+  'landing.feat4Title': 'Topshiriqlar + baholar jurnali',
   'landing.feat5Body':
     "Har bir dars uchun mavzuli chat, mahkamlangan xulosalar va pichirlash bo'yicha murabbiylik uchun faqat o'qituvchilar uchun qo'shimcha kanallar.",
+  'landing.feat5Title': 'Sinf konteksti bilan chat',
   'landing.feat6Body':
     'Har bir sinf uchun tuman kataloglari, yoshga mos moderatsiya va audit jurnallariga ega SSO.',
+  'landing.feat6Title': 'Odatiy holatda xavfsiz',
   'landing.featuresEyebrow': 'Jonli hayot uchun qurilgan',
   'landing.featuresTitle': "Sinfga kerak bo'lgan hamma narsa bitta fokuslangan yorliqda.",
   'landing.footerCopy': "© {{year}} Aula. O'qituvchilar uchun g'amxo'rlik bilan yaratilgan.",
   'landing.footerStart': 'Maktab ochish',
   'landing.heroBody':
     "Aula jonli video, oq doska, treninglar, chat va topshiriqlarni bitta iliq, ilmiy uyga olib keladi. Kamroq yorliqlar va ko'proq e'tiborni istagan o'qituvchilar uchun mo'ljallangan.",
+  'landing.heroLine1': 'Har bir sinf qayerda bo‘lsa',
   'landing.heroLine2': 'xonada his qiladi.',
   'landing.navSchools': 'Maktablar uchun',
   'landing.navStart': 'Sinf xonasini ochish',
   'landing.previewCourse1': 'Zamonaviy makroiqtisodiyot',
   'landing.previewCourse2': 'Studiya rasmlari II',
   'landing.previewCourse3': "Ma'lumotlar etikasiga kirish",
+  'landing.previewEyebrow': 'Katalogni ko‘rish',
   'landing.previewInstructor1': 'Doktor Idris Xellouey',
   'landing.previewInstructor2': 'Professor Lila Marin',
   'landing.previewInstructor3': 'Doktor Naomi Ren',
   'landing.previewTitle': 'Talabalaringiz aslida ochadigan kurslar.',
+  'landing.socialProofBody':
+    'Dunyo bo‘ylab 380 ta maktab, bootcamp va korporativ trenerlar foydalanadi.',
   'landing.socialProofTitle': "Ushbu semestrda 14 200 dan ortiq darslar o'tkazildi",
   'liveClassHeroCard.bodyLive':
     "{{instructor}} hozirgina xonani ochdi. {{count}} Sinfdoshlar allaqachon ichkarida — qo'ng'iroq qilishdan oldin ichkariga kiring.",
+  'liveClassHeroCard.bodyUpcoming':
+    '{{instructor}} {{minutes}} daqiqadan so‘ng mezbonlik qiladi. Kamera va mikrofon tekshiruvi hozir ochiq.',
   'liveClassHeroCard.course': 'Matematika II — MTH 202',
   'liveClassHeroCard.elapsed': "O'tgan",
   'liveClassHeroCard.elapsedValue': '12:08',
@@ -243,6 +298,7 @@ export const ui: UiTranslations = {
   'liveClassHeroCard.title': "14-ma'ruza — Vektor maydonlari",
   'liveClassHeroCard.viewSchedule': "To'liq jadvalni ko'ring",
   'login.emailPlaceholder': 'you@school.edu',
+  'login.footerPrompt': 'Tesserada yangimisiz?',
   'login.hidePassword': 'Parolni yashirish',
   'login.rememberMe': 'Meni tizimga kirgan holda qoldirish',
   'login.showPassword': "Parolni ko'rsatish",
@@ -253,6 +309,7 @@ export const ui: UiTranslations = {
   'notifications.body': "Sizda .. Bor {{count}} darslaringizdan o'qilmagan yangilanishlar.",
   'notifications.bodyNone': 'Hammangiz yetib keldingiz.',
   'notifications.loading': 'Yuklanmoqda…',
+  'pricing.advancedFeatures': 'Kengaytirilgan xususiyatlar',
   'profile.bio':
     "Vektorli hisoblash va topologiya · 14 yillik o'qituvchilik tajribasi · Aula hamjamiyati moderatori. Ish vaqti Dushanba/Chorshanba 11–12 Lavender xonasida.",
   'profile.course1Instructor': 'Professor Maya Okafor',
@@ -273,8 +330,11 @@ export const ui: UiTranslations = {
   'profile.statStudentsLabel': 'Ushbu semestrda talabalar',
   'resetPassword.confirmPasswordPlaceholder': 'Yangi parolni qayta kiriting',
   'resetPassword.emailPlaceholder': 'you@school.edu',
+  'resetPassword.mismatch': 'Parollar hali mos kelmayapti.',
+  'resetPassword.newPassword': 'Yangi parol',
   'resetPassword.subtitle':
     "Uni taxmin qilish qiyin bo'ladigan darajada uzun va tez terish uchun etarlicha qisqa qiling.",
+  'resetPassword.title': 'Yangi parol tanlang',
   'scheduleItem.course': 'Ijodiy yozuv · ENG 220',
   'scheduleItem.endTime': '15:30',
   'scheduleItem.instructor': 'Doktor Yusuf Adelana',
@@ -298,10 +358,19 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Til',
   'settings.photoHint': 'JPG yoki PNG · kvadrat eng yaxshi ishlaydi',
   'settings.profileTitle': 'Profil',
+  'settings.securityTitle': 'Kirish va xavfsizlik',
   'settings.twoFactorCode': 'Autentifikatsiya kodi',
   'settings.twoFactorDisable': "O'chirish",
+  'settings.twoFactorDisableTitle': "Ikki faktorli autentifikatsiyani o'chirish",
   'settings.twoFactorEnable': 'Yoqish',
+  'settings.twoFactorEnableTitle': 'Ikki faktorli autentifikatsiyani yoqish',
   'settings.twoFactorInvalidCode': "Noto'g'ri kod",
+  'settings.twoFactorOffBody': 'Yoqilmagan',
+  'settings.twoFactorOnBody': 'Yoqilgan · autentifikator ilovasi',
+  'settings.twoFactorQrAlt': 'Ikki faktorli QR kod',
+  'settings.twoFactorScan':
+    "Ushbu QR kodni autentifikator ilovangiz bilan skanerlang, so'ng 6 xonali kodni kiriting.",
+  'settings.twoFactorUnavailable': 'Ushbu ilova uchun ikki faktorli autentifikatsiya mavjud emas.',
   'settings.twoFactorVerify': 'Tasdiqlash va yoqish',
   'signup.email': 'Maktab elektron pochtasi',
   'signup.emailPlaceholder': 'you@school.edu',
@@ -309,6 +378,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Aiyana',
   'signup.lastNamePlaceholder': 'Vega',
   'signup.roleInstructor': "O'qituvchi",
+  'signup.roleLabel': 'Men…',
   'signup.roleStudent': 'Talaba',
   'signup.subtitle':
     'Aula dastlabki 30 kun davomida bepul — kredit karta talab qilinmaydi. Hamkasblaringizni istalgan vaqtda taklif qiling.',
@@ -321,6 +391,8 @@ export const ui: UiTranslations = {
   'whiteboard.colorLabel': 'Rang {{color}}',
   'whiteboard.export': 'SVG eksport qilish',
   'whiteboard.loading': 'Doska yuklanmoqda…',
+  'whiteboard.persistenceNote':
+    'Chizmalar xona doskasida saqlanadi. Sahifani yangilang — doska holati hali ham joyida bo‘lishi kerak.',
   'whiteboard.roomNotFound': 'Ushbu havola uchun oq doska topilmadi.',
   'whiteboard.savedAt': '{{count}} zarbalar · oxirgi saqlangan {{when}}',
   'whiteboard.title': 'Jonli oq doska',

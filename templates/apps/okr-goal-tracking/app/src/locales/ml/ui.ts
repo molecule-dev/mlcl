@@ -3,8 +3,13 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'ഞങ്ങളേക്കുറിച്ച്',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'about.subtitle':
+    'കയറ്റം കയറുന്ന ടീമുകൾക്കായി ഉയർന്ന ലക്ഷ്യങ്ങളോടെ, ഉത്തരവാദിത്തത്തോടെ, അളക്കാവുന്ന OKR ട്രാക്കിംഗ്.',
   'ascentSideNav.nav.notifications': 'അറിയിപ്പുകൾ',
   'ascentSideNav.newObjective': 'പുതിയ ലക്ഷ്യം',
+  'authShell.brandBody':
+    '{{appName}} ലക്ഷ്യങ്ങളെ കീ റിസൾട്ടുകളിലൂടെയും പ്രതിവാര ചെക്ക്-ഇന്നുകളിലൂടെയും ബന്ധിപ്പിക്കുന്നു, അതിനാൽ പുരോഗതി എപ്പോഴും ദൃശ്യമാണ് — എപ്പോഴും സത്യസന്ധവും.',
   'authShell.brandFooter': '— {{tagline}}',
   'authShell.brandTitle': 'കൊടുമുടി നിശ്ചയിക്കുക. കയറ്റം സ്കോർ ചെയ്യുക. ടീമിനെ പരിശീലിപ്പിക്കുക.',
   'authShell.eyebrow': 'ടീമുകളെ മാറ്റുന്ന OKR-കൾ',
@@ -16,20 +21,28 @@ export const ui: UiTranslations = {
   'billing.confirmCancel': 'നിലവിലെ കാലയളവ് അവസാനിക്കുമ്പോൾ നിങ്ങളുടെ സബ്‌സ്‌ക്രിപ്‌ഷൻ റദ്ദാക്കണോ?',
   'billing.currentPlanFreeFooter':
     'നിങ്ങൾ സൗജന്യ ടയറിലാണ്. ഉയർന്ന പരിധികൾക്കായി അപ്‌ഗ്രേഡ് ചെയ്യുക.',
+  'billing.currentPlanPaidFooter': 'സജീവ സബ്സ്ക്രിപ്ഷൻ · {{plan}}',
   'billing.downloadCurrent': 'ഡൗൺലോഡ് സംഗ്രഹം',
   'billing.downloading': 'തയ്യാറാക്കുന്നു...',
   'billing.error.priceUnavailable':
     'നിലവിലെ സാഹചര്യത്തിൽ ചെക്ക്ഔട്ടിനായി ഈ പ്ലാൻ കോൺഫിഗർ ചെയ്തിട്ടില്ല.',
   'billing.eyebrow': 'വർക്ക്‌സ്‌പെയ്‌സ് · ബില്ലിംഗ്',
   'billing.heading': 'പ്ലാനും ഇൻവോയ്‌സുകളും',
+  'billing.message.canceled': 'നിലവിലെ കാലയളവിന്റെ അവസാനത്തിൽ സബ്സ്ക്രിപ്ഷൻ അവസാനിക്കും.',
   'billing.period.year': 'Yearly',
+  'billing.perk.advanced': 'വിപുലമായ അവലോകനങ്ങൾ + ഓർമ്മപ്പെടുത്തലുകൾ',
   'billing.perk.export': 'ഡാറ്റ എക്‌സ്‌പോർട്ട് + API ആക്‌സസ്',
   'billing.perk.inApp': 'ഇൻ-ആപ്പ് റിപ്പോർട്ടിംഗ്',
+  'billing.perk.keyResults': '{{count}} കീ റിസൾട്ടുകൾ',
+  'billing.perk.objectives': '{{count}} ലക്ഷ്യങ്ങൾ',
+  'billing.perk.retention': '{{count}} ദിവസത്തെ ചരിത്രം',
   'billing.perk.standard': 'സ്റ്റാൻഡേർഡ് അവലോകനങ്ങൾ',
+  'billing.perk.unlimitedKrs': 'പരിധിയില്ലാത്ത KR-കൾ',
   'billing.perk.unlimitedObjectives': 'പരിധിയില്ലാത്ത ലക്ഷ്യങ്ങൾ',
   'billing.perk.unlimitedRetention': 'പരിധിയില്ലാത്ത നിലനിർത്തൽ',
   'billing.subheading':
     'നിങ്ങൾ ഇതിൽ ആണ് {{name}} പ്ലാൻ. ടയറുകൾ താരതമ്യം ചെയ്ത് താഴെ അപ്‌ഗ്രേഡ് ചെയ്യുക.',
+  'billing.subheading.loading': 'നിങ്ങളുടെ നിലവിലെ പ്ലാൻ ലോഡ് ചെയ്യുന്നു…',
   'billing.tier.unavailable': 'ലഭ്യമല്ല',
   'billing.tier.upgrade': 'ഇതിലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യുക {{name}}',
   'billing.tiersError': 'വിലനിർണ്ണയം ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. പിന്നീട് വീണ്ടും ശ്രമിക്കുക.',
@@ -40,12 +53,14 @@ export const ui: UiTranslations = {
   'checkIn.emptyTitle': 'പരിശോധിക്കാൻ ഇതുവരെ ഒന്നുമില്ല.',
   'checkIn.eyebrow': 'പ്രതിവാര ആവൃത്തി',
   'checkIn.heading': 'ആഴ്ചതോറുമുള്ള ചെക്ക്-ഇൻ',
+  'checkIn.loading': 'നിങ്ങളുടെ KR-കൾ ലോഡ് ചെയ്യുന്നു…',
   'checkIn.newObjective': 'പുതിയ ലക്ഷ്യം',
   'checkIn.noKrs': 'പ്രധാന ഫലങ്ങളൊന്നുമില്ല — എഡിറ്റിൽ നിന്ന് ചിലത് ചേർക്കുക.',
   'checkIn.noteLabel': 'നിങ്ങളുടെ ടീമിനായി ഒരു കുറിപ്പ്',
   'checkIn.notePlaceholder':
     'ബ്രൈറ്റ് സ്പോട്ട്, ബ്ലോക്കർ അല്ലെങ്കിൽ കോച്ചിംഗ് ചോദ്യം - മൂന്ന് വാക്യങ്ങൾക്ക് കീഴിൽ വയ്ക്കുക.',
   'checkIn.openObjective': 'തുറക്കുക →',
+  'checkIn.progressLabel': 'ട്രാക്കിലുള്ള KR-കൾ',
   'checkIn.subheading':
     'ഓരോ KR-നും നിലവിലെ മൂല്യം അപ്ഡേറ്റ് ചെയ്യുക, കോൺഫിഡൻസ് അടയാളപ്പെടുത്തുക, ഒരു കുറിപ്പ് ഇടുക, തുടർന്ന് സമർപ്പിക്കുക.',
   'checkIn.submit': 'ചെക്ക്-ഇൻ സമർപ്പിക്കുക',
@@ -62,10 +77,17 @@ export const ui: UiTranslations = {
   'dashboard.allActivity': 'എല്ലാ പ്രവർത്തനങ്ങളും കാണുക →',
   'dashboard.coachBodyAtRisk':
     '{{atRisk}} ഈ ആഴ്ച KRs കുറഞ്ഞു. ഇന്ന് 15 മിനിറ്റ് സംഭാഷണം നടത്തിയാൽ സാധാരണയായി ഒരു ആഴ്ച മുഴുവൻ സുഖം പ്രാപിക്കും.',
+  'dashboard.coachBodyOk':
+    'ഈ ആഴ്ച നിങ്ങളുടെ KR-കൾ ആരോഗ്യകരമായി കാണുന്നു — ക്രമം നിലനിർത്തി ചെക്ക്-ഇൻ നടത്തുക.',
+  'dashboard.coachCta': 'പ്രതിവാര ചെക്ക്-ഇൻ തുറക്കുക →',
   'dashboard.coachLabel': 'കോച്ചിംഗ് നഡ്ജ്',
   'dashboard.emptyBody':
     'ആഴ്ചതോറുമുള്ള പുരോഗതി ട്രാക്ക് ചെയ്യാൻ തുടങ്ങുന്നതിനുള്ള നിങ്ങളുടെ ആദ്യ ലക്ഷ്യം തയ്യാറാക്കുക.',
   'dashboard.emptyTitle': 'ഇതുവരെ ലക്ഷ്യങ്ങളൊന്നുമില്ല',
+  'dashboard.heroBody':
+    'നിങ്ങൾ {{count}} ലക്ഷ്യങ്ങൾ കൈകാര്യം ചെയ്യുന്നു. {{atRisk}}-ന് കൂടുതൽ ശ്രദ്ധ ആവശ്യമാണ് — അവ ട്രാക്കിൽ നിലനിർത്താം.',
+  'dashboard.heroEmpty':
+    'നിങ്ങൾക്ക് ഇതുവരെ ലക്ഷ്യങ്ങളൊന്നുമില്ല. ആദ്യത്തേത് കരടുരൂപപ്പെടുത്തി തുടങ്ങുക.',
   'dashboard.heroProgressLabel': 'പാദ പുരോഗതി',
   'dashboard.heroTitle': 'നല്ല കയറ്റം, {{name}} .',
   'dashboard.kpiActiveLabel': 'സജീവ ലക്ഷ്യങ്ങൾ',
@@ -77,11 +99,14 @@ export const ui: UiTranslations = {
   'dashboard.noActivity': 'ഇതുവരെ ഒരു പ്രവർത്തനവുമില്ല. കയറ്റം ആരംഭിക്കാൻ ഒരു ചെക്ക്-ഇൻ നടത്തുക.',
   'dashboard.objectivesHeading': 'നിങ്ങളുടെ ലക്ഷ്യങ്ങൾ',
   'dashboard.startCheckIn': 'ആഴ്ചതോറുമുള്ള ചെക്ക്-ഇൻ നടത്തുക',
+  'dashboardLayout.searchAria': 'ലക്ഷ്യങ്ങൾ തിരയുക',
   'dashboardLayout.searchPlaceholder': 'തിരയൽ ലക്ഷ്യങ്ങൾ, KR-കൾ, ആളുകൾ...',
   'editObjective.addKr': 'KR ചേർക്കുക',
   'editObjective.archive': 'ആർക്കൈവ് ഒബ്ജക്റ്റീവ്',
   'editObjective.backToList': 'ലക്ഷ്യങ്ങളിലേക്ക് മടങ്ങുക',
   'editObjective.breadcrumbAll': 'ലക്ഷ്യങ്ങൾ',
+  'editObjective.confirmArchive':
+    'ഈ ലക്ഷ്യം ആർക്കൈവ് ചെയ്യണോ? ആർക്കൈവ് ചെയ്ത കാഴ്ചയിൽ പിന്നീട് കണ്ടെത്താം.',
   'editObjective.descriptionLabel': 'ഇത് എന്തുകൊണ്ട് പ്രധാനമാണ്',
   'editObjective.eyebrow': 'ലക്ഷ്യം എഡിറ്റ് ചെയ്യുക',
   'editObjective.heading': 'ഫലം, KR-കൾ, അലൈൻമെന്റ് അല്ലെങ്കിൽ കാഡൻസ് എന്നിവ അപ്ഡേറ്റ് ചെയ്യുക.',
@@ -95,6 +120,7 @@ export const ui: UiTranslations = {
   'editObjective.targetPlaceholder': 'ലക്ഷ്യം',
   'forgotPassword.emailPlaceholder': 'you@team.com',
   'forgotPassword.heading': 'നിങ്ങളുടെ പാസ്‌വേഡ് പുനഃസജ്ജമാക്കുക.',
+  'forgotPassword.rememberPrompt': 'ഓർമ്മയുണ്ടോ? ',
   'forgotPassword.subheading':
     'നിങ്ങളുടെ Ascent അക്കൗണ്ടുമായി ബന്ധിപ്പിച്ചിരിക്കുന്ന ഇമെയിൽ വിലാസം നൽകുക, ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
   'forgotPassword.successBody':
@@ -122,6 +148,7 @@ export const ui: UiTranslations = {
   'landing.heroTitle': 'പ്രധാനപ്പെട്ടതിലേക്ക് കയറുക.',
   'login.emailPlaceholder': 'you@team.com',
   'login.heading': 'വീണ്ടും സ്വാഗതം, മലകയറ്റക്കാരൻ.',
+  'login.noAccountPrompt': '{{appName}}-ൽ പുതിയതാണോ? ',
   'login.orContinueWith': 'അല്ലെങ്കിൽ തുടരുക',
   'login.subheading':
     'നിർത്തിയിടത്ത് നിന്ന് തുടങ്ങൂ — നിങ്ങളുടെ ചെക്ക്-ഇന്നുകൾ, KR-കൾ, അവലോകനങ്ങൾ എന്നിവ കാത്തിരിക്കുന്നു.',
@@ -130,6 +157,7 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'newObjective.addKr': 'KR ചേർക്കുക',
   'newObjective.coachLabel': 'കോച്ച് ഓർമ്മപ്പെടുത്തലുകൾ',
+  'newObjective.descriptionLabel': 'ഇത് എന്തുകൊണ്ട് പ്രധാനമാണ്',
   'newObjective.descriptionPlaceholder': 'തന്ത്രപരമായ സന്ദർഭം 2-3 വാക്യങ്ങളിൽ വിശദീകരിക്കുക.',
   'newObjective.errorTitleRequired': 'നിങ്ങളുടെ ലക്ഷ്യത്തിന് ഒരു പേര് നൽകുക.',
   'newObjective.eyebrow': 'പുതിയ ലക്ഷ്യം · ഉച്ചകോടി നിശ്ചയിക്കുക',
@@ -147,13 +175,18 @@ export const ui: UiTranslations = {
   'newObjective.submit': 'ഒബ്ജക്റ്റീവ് സംരക്ഷിക്കുക',
   'newObjective.targetPlaceholder': 'ലക്ഷ്യം',
   'newObjective.tip1': 'ഒരു ക്രിയ ഉപയോഗിച്ച് നയിക്കുക: "ആകുക...", "മുറിക്കുക...", "വിജയിക്കുക..."',
+  'newObjective.tip2': 'KR-കൾ അളക്കാവുന്നതായിരിക്കണം — “X മെച്ചപ്പെടുത്തുക” എന്നത് ഒഴിവാക്കുക.',
+  'newObjective.tip3': '3–5 KR-കളാണ് അനുയോജ്യം. കൂടുതലുണ്ടായാൽ ബഹളമാകും.',
   'newObjective.titlePlaceholder': 'OKR ഉൽപ്പന്ന എഞ്ചിനീയറിംഗ് പ്രേമിയാകൂ',
+  'notifications.emptyBody':
+    'കോച്ചിംഗ് ഓർമ്മപ്പെടുത്തലുകൾ, പരാമർശങ്ങൾ, അവലോകന ഓർമ്മപ്പെടുത്തലുകൾ എന്നിവ ഇവിടെ എത്തും.',
   'notifications.emptyTitle': 'ഈ കാഴ്ചയിൽ അറിയിപ്പുകളൊന്നുമില്ല.',
   'notifications.eyebrow': 'പ്രവർത്തന കേന്ദ്രം',
   'notifications.markRead': '● വായിച്ചതായി അടയാളപ്പെടുത്തുക',
   'objective.scopes.company': 'കമ്പനി',
   'objective.scopes.individual': 'വ്യക്തി',
   'objective.scopes.team': 'ടീം',
+  'objectiveCard.krProgress': '{{done}}/{{total}} KR-കൾ',
   'objectiveCard.period': '{{period}}',
   'objectiveDetail.backToList': 'ലക്ഷ്യങ്ങളിലേക്ക് മടങ്ങുക',
   'objectiveDetail.edit': 'ലക്ഷ്യം എഡിറ്റ് ചെയ്യുക',
@@ -164,6 +197,10 @@ export const ui: UiTranslations = {
   'objectiveDetail.notFound': 'ലക്ഷ്യം കണ്ടെത്തിയില്ല.',
   'objectiveDetail.owner': 'ഉടമസ്ഥതയിലുള്ളത് {{name}}',
   'objectiveDetail.runCheckIn': 'ചെക്ക്-ഇൻ പ്രവർത്തിപ്പിക്കുക',
+  'objectiveDetail.timelineHeading': 'ചെക്ക്-ഇൻ ടൈംലൈൻ',
+  'objectives.emptyBody':
+    'ആഴ്ചതോറുമുള്ള പുരോഗതി ട്രാക്ക് ചെയ്യാൻ തുടങ്ങുന്നതിനുള്ള നിങ്ങളുടെ ആദ്യ ലക്ഷ്യം തയ്യാറാക്കുക.',
+  'objectives.emptyFilteredBody': 'ഫിൽട്ടർ മായ്ക്കുകയോ പുതിയ ലക്ഷ്യം തുടങ്ങുകയോ ചെയ്യുക.',
   'objectives.emptyFilteredTitle': 'ആ ഫിൽട്ടറുകളുമായി പൊരുത്തപ്പെടുന്ന ഒരു ലക്ഷ്യവുമില്ല.',
   'objectives.emptyTitle': 'ഇതുവരെ ലക്ഷ്യങ്ങളൊന്നുമില്ല',
   'objectives.eyebrow': 'കമ്പനി പ്ലാൻ',
@@ -174,6 +211,11 @@ export const ui: UiTranslations = {
   'objectives.searchPlaceholder': 'പേര് അനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക...',
   'objectives.subheading':
     'ട്രാക്കിംഗ് {{count}} ലക്ഷ്യങ്ങൾ. ശ്രദ്ധ ആവശ്യമുള്ളത് കണ്ടെത്താൻ സ്റ്റാറ്റസ് അനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക.',
+  'pricing.limit.advanced': 'വിപുലമായ സവിശേഷതകൾ: {{value}}',
+  'pricing.limit.checkIns': '{{count}} ചെക്ക്-ഇന്നുകൾ',
+  'pricing.limit.export': 'ഡാറ്റ എക്സ്പോർട്ട്: {{value}}',
+  'pricing.limit.keyResults': '{{count}} കീ-റിസൾട്ടുകൾ',
+  'pricing.limit.objectives': '{{count}} ലക്ഷ്യങ്ങൾ',
   'profile.achievementCheckInsMany': '{{count}} ചെക്ക്-ഇന്നുകൾ ലോഗിൻ ചെയ്‌തു',
   'profile.achievementCheckInsOne': '1 ചെക്ക്-ഇൻ ലോഗിൻ ചെയ്തു',
   'profile.achievementCompletedMany': '{{count}} ലക്ഷ്യങ്ങൾ പൂർത്തിയാക്കി',
@@ -182,6 +224,7 @@ export const ui: UiTranslations = {
   'profile.achievementOnTrackOne': 'ട്രാക്കിൽ ഒരു ലക്ഷ്യം',
   'profile.activeHeading': 'സജീവ ലക്ഷ്യങ്ങൾ',
   'profile.allObjectives': 'എല്ലാ ലക്ഷ്യങ്ങളും →',
+  'profile.createFirst': 'ലക്ഷ്യം സൃഷ്ടിക്കുക',
   'profile.empty':
     'ഇതുവരെ സജീവ ലക്ഷ്യങ്ങളൊന്നുമില്ല - ആരംഭിക്കുന്നതിന് നിങ്ങളുടെ ആദ്യത്തേത് സൃഷ്ടിക്കുക.',
   'profile.eyebrow': 'ക്ലൈംബർ പ്രൊഫൈൽ',
@@ -195,13 +238,18 @@ export const ui: UiTranslations = {
   'profile.statsHeading': 'ഈ പാദം',
   'profile.streakLabel': 'ഇതുവരെയുള്ള പാദം',
   'resetPassword.backLink': 'പകരം സൈൻ ഇൻ ചെയ്യുക',
+  'resetPassword.backPrompt': 'റീസെറ്റ് ചെയ്യേണ്ടതില്ലെന്ന് തീരുമാനിച്ചോ? ',
   'resetPassword.emailPlaceholder': 'you@team.com',
   'resetPassword.heading': 'ഒരു പുതിയ പാസ്‌വേഡ് സജ്ജമാക്കുക.',
+  'resetPassword.passwordLabel': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.reset': 'പാസ്‌വേഡ് അപ്ഡേറ്റ് ചെയ്ത് സൈൻ ഇൻ ചെയ്യുക',
   'resetPassword.resetting': 'പാസ്‌വേഡ് അപ്‌ഡേറ്റ് ചെയ്യുന്നു…',
   'resetPassword.subheading':
     'ശക്തമായ എന്തെങ്കിലും തിരഞ്ഞെടുക്കുക - കുറഞ്ഞത് എട്ട് പ്രതീകങ്ങൾ, കഴിയുമെങ്കിൽ അക്കങ്ങൾ കൂട്ടിക്കലർത്തുക.',
   'reviewDetail.backToList': 'അവലോകനങ്ങളിലേക്ക് മടങ്ങുക',
+  'reviewDetail.body':
+    '{{count}} സജീവ ലക്ഷ്യം(ങ്ങൾ) · ഗ്രേഡ് {{grade}}. ചിന്തകളും ഗ്രേഡും താഴെ എഡിറ്റ് ചെയ്യുക.',
+  'reviewDetail.colObjective': 'ലക്ഷ്യം',
   'reviewDetail.confirmDelete': 'ഈ അവലോകന ഡ്രാഫ്റ്റ് ഇല്ലാതാക്കണോ?',
   'reviewDetail.delete': 'ഡ്രാഫ്റ്റ് ഇല്ലാതാക്കുക',
   'reviewDetail.eyebrow': '{{സ്റ്റാറ്റസ്}} · {{തീയതി}}',
@@ -213,8 +261,10 @@ export const ui: UiTranslations = {
   'reviewDetail.reflectionsPlaceholder':
     'എന്താണ് നന്നായി പോയത്? എന്താണ് നന്നായി പോയത്? അടുത്ത പാദത്തിലേക്കുള്ള കുറിപ്പുകൾ.',
   'reviewDetail.scorecardHeading': 'സ്കോർകാർഡ്',
+  'reviewDetail.scoreLabel': 'ശരാശരി സ്കോർ',
   'reviewDetail.submitted': 'സമർപ്പിച്ചു',
   'reviewDetail.submittedToast': 'അവലോകനം സമർപ്പിച്ചു',
+  'reviewDetail.untitled': 'ത്രൈമാസ അവലോകനം · എഡിറ്റ് ചെയ്യാൻ താഴെ ക്ലിക്ക് ചെയ്യുക',
   'reviews.createDraft': 'ഒരു ഡ്രാഫ്റ്റ് ആരംഭിക്കുക',
   'reviews.empty.body':
     'നിങ്ങൾ ഒരു ഡ്രാഫ്റ്റ് ആരംഭിച്ചുകഴിഞ്ഞാൽ ത്രൈമാസ അവലോകനങ്ങൾ ഇവിടെ ദൃശ്യമാകും. ആരംഭിക്കാൻ മുകളിലുള്ള "ഒരു ഡ്രാഫ്റ്റ് ആരംഭിക്കുക" ക്ലിക്ക് ചെയ്യുക.',
@@ -224,12 +274,16 @@ export const ui: UiTranslations = {
   'reviews.eyebrow': 'ക്വാർട്ടർ റിട്രോസ്‌പെക്റ്റീവ്സ്',
   'reviews.grade': 'ഗ്രേഡ് {{grade}}',
   'reviews.loading': 'അവലോകനങ്ങൾ ലോഡ് ചെയ്യുന്നു...',
+  'reviews.notSubmitted': 'ഇതുവരെ സമർപ്പിച്ചിട്ടില്ല',
   'reviews.subheading':
     'റോൾ-അപ്പ് സ്കോർകാർഡുകൾ, തലക്കെട്ട് പ്രതിഫലനങ്ങൾ, മുമ്പ് വന്ന ക്വാർട്ടേഴ്സുകളിൽ നിന്നുള്ള ഗ്രേഡുകൾ.',
+  'reviews.submittedAt': '{{date}}-ന് സമർപ്പിച്ചു',
+  'reviews.untitled': 'ശീർഷകമില്ലാത്ത അവലോകനം · എഡിറ്റ് ചെയ്യാൻ ക്ലിക്ക് ചെയ്യുക',
   'settings.billingSubtitle': 'പ്ലാൻ, സീറ്റുകൾ, ഇൻവോയ്‌സുകൾ എന്നിവ കൈകാര്യം ചെയ്യുക',
   'settings.billingTitle': 'ബില്ലിംഗും സീറ്റുകളും',
   'settings.cadenceBody':
     'അസെന്റ് നിങ്ങളുടെ ടീമിനോട് എത്ര തവണ ചെക്ക്-ഇന്നുകൾക്കായി ആവശ്യപ്പെടണമെന്ന് തിരഞ്ഞെടുക്കുക.',
+  'settings.cadenceHeading': 'ആവൃത്തി',
   'settings.eyebrow': 'വർക്ക്‌സ്‌പെയ്‌സ് · അക്കൗണ്ട് · കേഡൻസ്',
   'settings.guestName': 'മലകയറ്റക്കാരൻ',
   'settings.openProfile': 'പ്രൊഫൈൽ തുറക്കുക',
@@ -237,10 +291,15 @@ export const ui: UiTranslations = {
   'settings.saveError': 'സംരക്ഷിക്കാനായില്ല: {{error}}',
   'settings.toggleCoachDescription':
     'ഒരു KR രണ്ട് കോൺഫിഡൻസ് സ്റ്റെപ്പുകൾ വഴുതി വീഴുമ്പോൾ സർഫേസ് മിഡ്-ക്വാർട്ടർ പ്രേരിപ്പിക്കുന്നു.',
+  'settings.toggleCoachLabel': 'കോച്ചിംഗ് ഓർമ്മപ്പെടുത്തലുകൾ',
   'settings.toggleDigestDescription':
     'തിങ്കളാഴ്ച ഓരോ ഉടമയ്ക്കും സ്റ്റാറ്റസ് അനുസരിച്ചുള്ള ലക്ഷ്യങ്ങളുടെ ഒരു റോൾ-അപ്പ് അയയ്ക്കുന്നു.',
+  'settings.toggleDigestLabel': 'തിങ്കളാഴ്ചത്തെ ഡൈജസ്റ്റ് ഇമെയിൽ',
+  'settings.toggleRemindersDescription':
+    'ഒരു ചെക്ക്-ഇൻ ഇപ്പോഴും വിട്ടുപോയിട്ടുണ്ടെങ്കിൽ വെള്ളിയാഴ്ച രാവിലെ ടീമിനെ അറിയിക്കുക.',
   'settings.toggleRemindersLabel': 'ആഴ്ചതോറുമുള്ള ചെക്ക്-ഇൻ ഓർമ്മപ്പെടുത്തലുകൾ',
   'signup.emailPlaceholder': 'you@team.com',
+  'signup.haveAccountPrompt': 'ഇതിനകം ഒരു അക്കൗണ്ട് ഉണ്ടോ? ',
   'signup.heading': 'നിങ്ങളുടെ ആദ്യ കയറ്റം ആസൂത്രണം ചെയ്യുക.',
   'signup.namePlaceholder': 'ആവറി പർവതാരോഹകൻ',
   'signup.orContinueWith': 'അല്ലെങ്കിൽ തുടരുക',
@@ -259,6 +318,7 @@ export const ui: UiTranslations = {
   'team.newTeamLabel': 'പുതിയ ടീം',
   'team.newTeamPlaceholder': 'ഉദാ: ഉപഭോക്തൃ അനുഭവം',
   'team.objectivesLabel': 'ലക്ഷ്യങ്ങൾ',
+  'team.progressLabel': 'വർക്ക്സ്പേസ് പുരോഗതി',
   'team.subheading':
     '{{teams}} ടീമുകൾ · {{objectives}} ലക്ഷ്യങ്ങൾ. റോൾ-അപ്പുകൾ കാണുന്നതിന് നിങ്ങളുടെ OKR-കൾ ടീം അനുസരിച്ച് ഗ്രൂപ്പുചെയ്യുക.',
 }

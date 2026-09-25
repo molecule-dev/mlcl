@@ -1,6 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'มีคำถามเกี่ยวกับอิดิชัน การจัดส่ง หรือการสมัครสมาชิกของคุณไหม? คุยกับทีมงานตัวจริงได้ที่ hello@crate.example — เราอ่านทุกข้อความ',
+  'about.contactTitle': 'พูดคุยกับภัณฑารักษ์',
+  'about.feature1': 'อิดิชันรายเดือนที่คัดสรรโดยเมกเกอร์อิสระ พร้อมเรื่องราวเบื้องหลังของทุกชิ้น',
+  'about.feature2':
+    'ควบคุมทุกกล่องได้เต็มที่ — ปรับแต่งของในกล่อง เปลี่ยนหรือตัดสินค้าออก ข้ามเดือน หรือเปลี่ยนรอบการจัดส่ง',
+  'about.feature3':
+    'ติดตามการจัดส่งแบบครบวงจรตั้งแต่ต้นทางถึงหน้าบ้าน พร้อมบรรจุภัณฑ์ปลอดพลาสติกและอัปเดตจากผู้ให้บริการแบบเรียลไทม์',
+  'about.feature4':
+    'แพ็กเกจที่ยืดหยุ่นและค่าบริการโปร่งใส — อัปเกรด ดาวน์เกรด พัก หรือยกเลิกได้ทุกเมื่อจากแดชบอร์ดของคุณ',
+  'about.intro':
+    '{{app}} เป็นบริการกล่องสมัครสมาชิกที่คัดสรร ซึ่งส่งกล่องแห่งความสุขแบบผลิตจำนวนจำกัดที่คัดเลือกมาเป็นพิเศษถึงหน้าบ้านคุณทุกเดือน ทุกอิดิชันประกอบขึ้นโดยเมกเกอร์ที่ทำงานจริง — ศิลปินอิสระ เชฟ และแบรนด์เล็ก ๆ — ไม่ใช่อัลกอริทึม',
+  'about.missionBody':
+    'เราเชื่อว่าการสมัครสมาชิกควรรู้สึกเหมือนของขวัญ ไม่ใช่กับดัก {{app}} ถูกสร้างมาให้คุณอยู่ต่อเพราะชอบสิ่งที่ได้รับ — พักได้ทุกเมื่อ เปลี่ยนสิ่งที่ต้องการ และยกเลิกได้ในคลิกเดียว ไม่มีสคริปต์รั้งลูกค้าเลย',
+  'about.missionTitle': 'พันธกิจของเรา',
   'about.pageTitle': 'เกี่ยวกับ {{app}}',
   'appNav.mobileLabel': 'การนำทางหลัก',
   'appNav.primaryLabel': 'การนำทางหลัก',
@@ -11,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'แก้ไขข้อมูลติดต่อสำหรับการเรียกเก็บเงิน',
   'billing.contact.eyebrow': 'ข้อมูลติดต่อสำหรับการเรียกเก็บเงิน',
   'billing.eyebrow': 'แผนและการชำระเงิน',
+  'billing.loading': 'กำลังโหลดข้อมูลการเรียกเก็บเงิน…',
   'billing.payment.body':
     'การชำระเงินดำเนินการผ่าน Stripe Checkout — หมายเลขบัตรของคุณจะไม่ถูกส่งไปยังเซิร์ฟเวอร์ของเรา คลิกที่ระดับใดก็ได้ด้านล่างเพื่อเพิ่มหรืออัปเดตข้อมูลบัตรของคุณ',
   'billing.payment.linked': 'บัตรเครดิตที่ลงทะเบียนไว้กับ Stripe',
@@ -20,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'กลับมาสมัครสมาชิกต่อ',
   'billing.plan.eyebrow': 'แผนปฏิบัติการ',
   'billing.plan.next': 'ต่ออายุอัตโนมัติเมื่อ {{date}} .',
+  'billing.plan.status': 'สถานะ: {{status}}',
   'billing.subtitle': 'จัดการระดับสมาชิก วิธีการชำระเงิน และตรวจสอบประวัติการทำธุรกรรมที่ผ่านมา',
   'billing.tiers.body': 'เลือกแพ็กเกจที่คุณต้องการ แล้วเราจะนำคุณไปยังหน้าชำระเงินของ Stripe',
   'billing.tiers.choose': 'เลือก',
+  'billing.tiers.empty': 'ยังไม่ได้ตั้งค่าระดับแพ็กเกจ',
   'billing.tiers.heading': 'ระดับชั้นที่มีให้เลือก',
   'boxDetail.backToBoxes': 'กลับสู่ฉบับทั้งหมด',
   'boxDetail.crumb.boxes': 'ฉบับพิมพ์',
@@ -35,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'ชิ้นงานที่คัดสรรมาอย่างดี',
   'boxDetail.items.heading': '{{count}} ชิ้นงานที่คัดสรรมา',
   'boxDetail.itemsBadge': '{{count}} สินค้าที่คัดสรรมาเป็นพิเศษในแต่ละกล่อง',
+  'boxDetail.loading': 'กำลังโหลดอิดิชัน…',
   'boxDetail.notFound': 'หนังสือฉบับนั้นไม่มีจำหน่ายแล้ว',
   'boxDetail.subscribe.success': 'สมัครรับข้อมูลแล้ว — ฉบับแรกของคุณอยู่ในคิวแล้ว',
   'boxDetail.swapBadge': 'เปลี่ยนไปใช้ {{count}} จำนวนสินค้าต่อกล่อง',
@@ -43,14 +62,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'ไม่มีฉบับใดตรงกัน',
   'boxes.eyebrow': 'คลังข้อมูล Crate',
   'boxes.heading': 'ดูทุกฉบับ',
+  'boxes.loadError': 'เราไม่สามารถโหลดอิดิชันได้ ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง',
   'boxes.loading': 'กำลังโหลดฉบับต่างๆ…',
+  'boxes.search.label': 'ค้นหาอิดิชัน',
   'boxes.search.placeholder': 'ค้นหาฉบับต่างๆ…',
   'boxes.subtitle':
     'แต่ละระดับคือเรื่องราวที่ผลิตขึ้นในจำนวนจำกัด เพิ่มเรื่องใดเรื่องหนึ่งลงในรายการรอของคุณ หรือเปลี่ยนไปอ่านในเดือนถัดไปก็ได้',
+  'boxThemeCard.itemCount': '{{count}} รายการ',
   'boxThemeCard.perMonth': '/ เดือน',
+  'boxThemeCard.retailValue': 'มูลค่าขายปลีก {{value}}',
   'common.goToDashboard': 'ไปที่แดชบอร์ด',
+  'common.retry': 'ลองใหม่อีกครั้ง',
   'customize.eyebrow': 'ทำให้เป็นของคุณเอง',
   'customize.heading': 'ปรับแต่ง Crate ครั้งต่อไปของคุณได้ตามต้องการ',
+  'customize.items.empty': 'ยังไม่ได้ตั้งค่าสินค้าสำหรับระดับแพ็กเกจนี้',
   'customize.items.exclude': 'ข้ามส่วนนี้ไป',
   'customize.items.eyebrow': 'ปรับแต่งกล่องนี้ได้ตามต้องการ',
   'customize.items.heading': 'รายการใน {{box}}',
@@ -59,8 +84,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'เพิ่มกลับเข้าไป',
   'customize.items.save': 'บันทึกการปรับแต่ง',
   'customize.items.swapsLeft': '{{used}} ของ {{max}} การแลกเปลี่ยนที่ใช้',
+  'customize.loading': 'กำลังโหลดการปรับแต่ง…',
   'customize.noSub.body':
     'สมัครสมาชิกในระดับใดระดับหนึ่งก่อน จากนั้นค่อยกลับมาเปลี่ยนสินค้าในกล่องของคุณ',
+  'customize.noSub.cta': 'เรียกดูอิดิชัน',
   'customize.noSub.heading': 'ไม่มีการสมัครสมาชิกที่ใช้งานอยู่',
   'customize.saved': 'บันทึกการตั้งค่าเรียบร้อยแล้ว',
   'customize.subtitle':
@@ -74,11 +101,13 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'ติดตามสถานะการจัดส่ง',
   'dashboard.eyebrow': 'สมบัติของคุณ',
   'dashboard.greeting': 'ยินดีต้อนรับกลับมา {{name}} .',
+  'dashboard.loadError': 'เราไม่สามารถโหลดแดชบอร์ดของคุณได้ ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง',
   'dashboard.loading': 'กำลังโหลดแดชบอร์ด…',
   'dashboard.next.eyebrow': 'ฉบับต่อไปของคุณ',
   'dashboard.onboarding.body':
     'คุณยังไม่มีการสมัครใช้งานที่ใช้งานอยู่ เลือกแพ็กเกจเพื่อเริ่มรับ Crate ทุกเดือน',
   'dashboard.onboarding.cta': 'ดูฉบับทั้งหมด',
+  'dashboard.onboarding.empty': 'ขณะนี้ยังไม่มีแพ็กเกจที่ใช้ได้ กลับมาเช็กอีกครั้งเร็ว ๆ นี้',
   'dashboard.onboarding.heading': 'เลือกฉบับพิมพ์ครั้งแรกของคุณ',
   'dashboard.renewal.amount': 'ถูกตั้งข้อหา',
   'dashboard.renewal.cadence': 'จังหวะ',
@@ -86,18 +115,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'การต่ออายุ',
   'dashboard.renewal.heading': 'ต่ออายุอัตโนมัติเมื่อ {{date}}',
   'dashboard.renewal.plan': 'แผนหลัก',
+  'dashboard.renewal.tbd': 'กำลังกำหนดตารางการต่ออายุ',
   'dashboard.renewal.tier': 'ชั้น',
   'dashboard.stats.days': 'วัน',
   'dashboard.stats.daysToNext': 'เรือใน',
   'dashboard.stats.items': 'สินค้าที่คัดสรรแล้ว',
   'dashboard.stats.shipDate': 'วันที่จัดส่ง',
   'dashboard.stats.tbd': 'ยังไม่กำหนด',
+  'dashboard.subtitle.active': 'อิดิชันถัดไปของคุณกำลังเดินทางมา นี่คือสิ่งที่คุณจะได้รับ',
+  'dashboard.subtitle.idle': 'เลือกระดับแพ็กเกจเพื่อเริ่มจัดส่ง {{appName}} ทุกเดือน',
   'forgotPassword.subtitle': 'แจ้งอีเมลของคุณมา เราจะส่งลิงก์สำหรับรีเซ็ตให้ค่ะ',
   'forgotPassword.success.body':
     'ถ้า {{email}} หากลงทะเบียนเรียบร้อยแล้ว คุณจะได้รับลิงก์สำหรับรีเซ็ตภายในไม่กี่นาที',
   'forgotPassword.success.title': 'โปรดตรวจสอบกล่องจดหมายของคุณ',
   'landing.editions.eyebrow': 'ฤดูกาลนี้',
   'landing.editions.heading': 'ฉบับที่ภัณฑารักษ์ของเราชื่นชอบ',
+  'landing.editions.viewAll': 'เรียกดูอิดิชันทั้งหมด →',
   'landing.footer.contact': 'พูดคุยกับภัณฑารักษ์',
   'landing.footer.tagline': '{{tagline}}',
   'landing.hero.ctaPrimary': 'เริ่มสร้างกล่องของคุณ →',
@@ -107,6 +140,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'ดูตัวอย่างหน้าแดชบอร์ดสมาชิก — การนับถอยหลัง เนื้อหา และการติดตาม',
   'landing.hero.social.count': 'เป็นที่รักของ {{count}} + ผู้ติดตาม',
+  'landing.hero.social.rating': 'คะแนนการแกะกล่องเฉลี่ย {{rating}}',
+  'landing.hero.subhead':
+    '{{appName}} ส่งกล่องแห่งความสุขแบบผลิตจำนวนจำกัดที่คัดเลือกมาเป็นพิเศษจากเมกเกอร์อิสระถึงคุณ พักได้ทุกเมื่อ เปลี่ยนสิ่งที่ต้องการ เก็บสิ่งที่คุณชอบ',
   'landing.nav.start': 'เริ่มเปิดกล่องของคุณ',
   'landing.tiers.eyebrow': 'เลือกจังหวะการก้าวของคุณ',
   'landing.tiers.heading': 'เริ่มต้นด้วยขนาดเล็ก อัปเกรดได้ทุกเมื่อ และยกเลิกได้ง่ายเช่นกัน',
@@ -116,6 +152,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'ลงชื่อเข้าใช้เพื่อดูสินค้าในกล่องของเดือนถัดไป',
   'login.welcomeBack': 'ยินดีต้อนรับกลับมาค่ะ ผู้ดูแลพิพิธภัณฑ์',
   'nextBoxHeroCard.eyebrow': 'ขุมทรัพย์ต่อไปของคุณ',
+  'nextBoxHeroCard.itemCount': 'มี {{count}} ชิ้นข้างใน',
   'nextBoxHeroCard.itemsLabel': 'สินค้าที่คัดสรรแล้ว',
   'nextBoxHeroCard.shipsOnLabel': 'เรือบน',
   'notFound.body':
@@ -140,8 +177,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'ระงับการสมัครสมาชิก',
   'settings.danger.paused': 'การสมัครสมาชิกถูกระงับชั่วคราว',
   'settings.danger.pausing': 'หยุดชั่วคราว…',
+  'settings.danger.status': 'สถานะการสมัครสมาชิก: {{status}}',
   'settings.danger.subtitle':
     'การหยุดชั่วคราวจะคงระดับและประวัติการสั่งซื้อของคุณไว้ การยกเลิกจะหยุดการจัดส่งในอนาคตและลบวิธีการชำระเงินที่บันทึกไว้เมื่อสิ้นสุดรอบการสั่งซื้อ',
+  'settings.notifications.saving': '· กำลังบันทึก…',
   'settings.notifications.subtitle': 'เลือกสัญญาณที่คุณต้องการจาก Crate ค่าเริ่มต้นนั้นเหมาะสมแล้ว',
   'settings.subtitle': 'อัปเดตข้อมูลโปรไฟล์ ที่อยู่จัดส่ง และวิธีการที่ Crate ติดต่อคุณ',
   'shipments.eyebrow': 'การติดตาม',
@@ -156,11 +195,16 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'ยังไม่มีการจัดส่งสินค้าในขณะนี้',
   'shipments.live.eyebrow': 'กำลังจัดส่ง',
   'shipments.live.unnamed': 'กล่องถัดไปของคุณ',
+  'shipments.loadError': 'เราไม่สามารถโหลดการจัดส่งของคุณได้ ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง',
+  'shipments.loading': 'กำลังขนส่งสินค้า…',
+  'shipments.step.delivered': 'จัดส่งแล้ว',
   'shipments.step.deliveredBody': 'ติดแท็ก #crateunbox เพื่อแชร์สิ่งที่คุณค้นพบ',
   'shipments.step.ordered': 'สั่งซื้อเรียบร้อยแล้ว',
   'shipments.step.orderedBody':
     'การสมัครสมาชิกของคุณได้จัดคิวฉบับนี้ไว้สำหรับรอบการจัดส่งครั้งต่อไปแล้ว',
+  'shipments.step.packed': 'บรรจุด้วยมือ',
   'shipments.step.packedBody': 'แต่ละชิ้นถูกห่อและบรรจุลงในกล่องพร้อมกับข้อความที่เขียนด้วยลายมือ',
+  'shipments.step.transit': 'กำลังเดินทาง',
   'shipments.step.transitNot':
     'เมื่อพัสดุของคุณถูกจัดส่งแล้ว คุณจะสามารถติดตามสถานะการจัดส่งได้ที่นี่',
   'shipments.subtitle':

@@ -1,13 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'about.featureBooking':
+    'Dərhal və ya sorğu ilə rezervasiya, təhlükəsiz Stripe ödənişləri və girişdən 48 saat əvvələ qədər pulsuz ləğv imkanı.',
+  'about.featureHosting':
+    'Elanları yerləşdirmək, mövcudluğu idarə etmək, rezervasiyaları izləmək və ödəniş almaq üçün tam ev sahibi paneli.',
+  'about.featureMessaging':
+    'Qalmağınızdan əvvəl və qalma müddətində ev sahibləri ilə birbaşa mesajlaşma, üstəlik sevdiyiniz yerləri yadda saxlamaq üçün istək siyahıları.',
+  'about.featureReviews':
+    'Səyahətçilərin və ev sahiblərinin etibarlı reputasiya qurması üçün dürüst ikitərəfli rəylər.',
+  'about.featureSearch':
+    'Təsdiqlənmiş elanlar üzrə xəritə əsaslı axtarış, qiymət, imkanlar və tarixlər üzrə filtrlərlə.',
+  'about.missionBody':
+    'Səyahət sizi bir zəncirə deyil, bir məkana bağlamalıdır. Biz müstəqil ev sahiblərinə unikal evlərini yerləşdirməyə, səyahətçilərə isə onları tapmağa kömək edirik — şəffaf qiymətlərlə, gizli ödənişlər olmadan və ödənişlər, vergilər və səyahətçi yoxlaması ev sahibi üçün bizim tərəfimizdən həll olunur ki, onlar qonaqpərvərliyə fokuslana bilsinlər.',
+  'about.missionTitle': 'Missiyamız',
+  'about.subtitle': 'Əsl evlər və əsl ev sahibləri üzərində qurulmuş icarə bazarı.',
   'bookingDetail.afterTime': 'Saat 15:00-dan sonra',
   'bookingDetail.backCta': 'Sifarişlərə qayıt',
   'bookingDetail.beforeTime': 'Saat 11:00-dan əvvəl',
   'bookingDetail.cancel': 'Rezervasiyanı ləğv edin',
   'bookingDetail.cancelFailed': 'Ləğv etmək mümkün olmadı — yenidən cəhd edin.',
   'bookingDetail.checkIn': 'Qeydiyyatdan keçin',
+  'bookingDetail.cleaningFee': 'Təmizlik haqqı',
   'bookingDetail.confirmCancel':
     'Bu rezervasiyanı ləğv etmək istəyirsiniz? Bu, geri qaytarıla bilməz.',
   'bookingDetail.eyebrow': 'Təsdiq · {{code}}',
@@ -22,14 +38,17 @@ export const ui: UiTranslations = {
   'bookingDetail.viewListing': 'Siyahıya baxın',
   'bookingDetail.yourHost': 'Ev sahibiniz',
   'bookingItineraryRow.nights': '{{count}} gecələr',
+  'bookings.empty.past': 'Qaldıqdan sonra keçmiş rezervasiyalarınız burada görünəcək.',
   'bookings.empty.upcoming': 'Kitablarda büdrəmə yoxdur — gəlin bunu düzəldək.',
   'bookings.eyebrow': 'Səfərləriniz',
   'bookings.heading': 'Sifarişlər',
   'bookings.loadError': 'Sifarişləri yükləmək alınmadı.',
+  'bookings.searchCta': 'Başqa bir səyahət planlaşdırın',
   'bookings.subheading': '{{upcoming}} yaxınlaşan · {{past}} keçmiş',
   'common.goToDashboard': 'İdarə panelinə keç',
   'common.retry': 'Təkrar cəhd edin',
   'createListing.back': 'Siyahılara qayıt',
+  'createListing.bedrooms': 'Yataq otaqları',
   'createListing.cityLabel': 'Haradadır?',
   'createListing.cityPlaceholder': 'Şəhər, bölgə və ya məhəllə',
   'createListing.descPlaceholder':
@@ -39,16 +58,22 @@ export const ui: UiTranslations = {
   'createListing.error.price': 'Dərc etməzdən əvvəl bir gecəlik qiymət əlavə edin.',
   'createListing.error.title': 'Dərc etməzdən əvvəl başlıq əlavə edin.',
   'createListing.heading': 'Qapınızı açın',
+  'createListing.listingImageAlt': 'Elan {{number}}',
   'createListing.maxGuests': 'Maksimum qonaqlar',
   'createListing.photos.heading': 'Səyahətçilərin sürüşməsini dayandıran şəkillər əlavə edin',
+  'createListing.photos.subheading':
+    'Ən azı 3 foto yükləyən ev sahibləri orta hesabla 2,3× daha çox qazanır.',
   'createListing.place.heading': 'Bu necə bir yerdir?',
+  'createListing.price': 'Gecəlik qiymət',
   'createListing.publish': 'Siyahını dərc edin',
   'createListing.removePhoto': 'Şəkli silin',
   'createListing.step.${s.key}.eyebrow': 'Addım {{n}}',
   'createListing.subheading':
     'Siyahınızı aktivləşdirmək üçün bir neçə sual. Hər addımda irəliləyişinizi yadda saxlayacağıq.',
+  'createListing.title': 'Elanın başlığı',
   'createListing.titlePlaceholder': 'Günəşli Uçurumlu Daxma',
   'createListing.uploadCta': 'Şəkil əlavə edin {{n}}',
+  'createListing.useSample': 'Nümunə foto istifadə et',
   'destinationDiscoveryCard.exploreCta': 'Qonaqlamaları araşdırın',
   'forgotPassword.eyebrow': 'Sıfırla',
   'forgotPassword.subheading':
@@ -64,6 +89,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelYtd': 'İldən-ilə',
   'hostDashboard.loadError':
     'Hostinq məlumatlarınızı yükləmək alınmadı. Zəhmət olmasa, yenidən cəhd edin.',
+  'hostDashboard.queueArrivals': 'Gələn həftə {{count}} gəliş',
+  'hostDashboard.queueListings': '{{count}} aktiv siyahılar',
   'hostDashboard.queueRequests': '{{count}} rezervasiya tələbləri',
   'hostDashboard.queueReview': 'Rəy növbəsi',
   'hostDashboard.queueTitle': 'Növbəniz',
@@ -85,11 +112,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': 'Siyahı tapılmadı.',
   'hostListingDetail.photos.empty': 'Hələ heç bir şəkil yüklənməyib.',
   'hostListingDetail.photos.heading': 'Şəkillər',
+  'hostListingDetail.pricing.cleaning': 'Təmizlik haqqı',
   'hostListingDetail.pricing.save': 'Qiymətlərə qənaət edin',
   'hostListingDetail.pricing.weekday': 'Həftə içi qiymət',
   'hostListingDetail.pricing.weekend': 'Həftəsonu qiyməti (yalnız göstəriləcək)',
   'hostListingDetail.rules.copy':
     'Qonaq gözləntilərinizi müəyyənləşdirin və evinizi qoruyun — bunlar sifariş təsdiqindən əvvəl üzə çıxarılır.',
+  'hostListingDetail.rules.heading': 'Ev qaydaları',
   'hostListings.create': 'Yeni siyahı yaradın',
   'hostListings.eyebrow': 'Portfeliniz',
   'hostListings.heading': 'Siyahılar',
@@ -99,8 +128,11 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Ev sahibləri üçün',
   'landing.cta.heading': 'Qapınızı açın. Evinizin dəyərini qazanın.',
   'landing.cta.host': 'Hostinqə başlayın',
+  'landing.cta.subheading':
+    '{{appName}} ödənişləri, vergiləri və səyahətçi yoxlamasını həll edir ki, siz ev sahibliyinə fokuslana biləsiniz. Yeni ev sahiblərinin çoxu ilk $1,000-ni 30 gün ərzində qazanır.',
   'landing.destinations.eyebrow': 'Növbəti addım',
   'landing.destinations.heading': 'Ev sahiblərimizin sevdiyi yerlər',
+  'landing.destinations.seeAll': 'Bütün təyinat yerlərinə baxın',
   'landing.footer.host': 'Ev sahibi olun',
   'landing.footer.search': 'Qonaqlama yeri tapın',
   'landing.footer.tagline': 'Özünə məxsus kimi qal.',
@@ -109,8 +141,11 @@ export const ui: UiTranslations = {
   'landing.nav.host': 'Ev sahibi olun',
   'landing.nav.join': 'Roost-a qoşulun',
   'landing.nav.search': 'Qonaqlama yeri tapın',
+  'landing.preview.browseAll': 'Tam kolleksiyaya baxın',
   'landing.preview.eyebrow': 'İçəri bir baxış',
   'landing.preview.heading': 'Bu ay əl ilə seçilmiş qonaqlamalar',
+  'landing.preview.subheading':
+    'Hər {{appName}} elanı əsl bir şəxs tərəfindən idarə olunur — təsdiqlənmiş, rəy alınmış və girişdən 48 saat əvvələ qədər pulsuz ləğv edilə bilər.',
   'listingDetail.about': 'Bu yer haqqında',
   'listingDetail.amenities': 'Bu yerin təklif etdiyi şeylər',
   'listingDetail.bathrooms': 'hamamlar',
@@ -118,7 +153,10 @@ export const ui: UiTranslations = {
   'listingDetail.beds': 'çarpayılar',
   'listingDetail.bookFailed':
     'Rezervasiya etmək mümkün olmadı. Yenidən cəhd edin və ya əvvəlcə daxil olun.',
+  'listingDetail.cleaningFee': 'Təmizlik haqqı',
+  'listingDetail.guests': 'qonaq',
   'listingDetail.hostedBy': 'Ev sahibi {{host}}',
+  'listingDetail.hostMeta': '{{years}} il ev sahibliyi · {{response}}% cavab dərəcəsi',
   'listingDetail.houseRules': 'Ev qaydaları',
   'listingDetail.instantBook': 'İndi rezervasiya edin · Ani sifariş',
   'listingDetail.loadError': 'Siyahı yüklənmədi.',
@@ -128,6 +166,7 @@ export const ui: UiTranslations = {
   'listingDetail.perNight': 'gecəlik',
   'listingDetail.pickDates': 'Əvvəlcə giriş və çıxış tarixlərini seçin.',
   'listingDetail.priceRow': '{{price}} × {{nights}} gecələr',
+  'listingDetail.requestBook': 'Sifariş üçün sorğu',
   'listingDetail.reserving': 'Rezervasiya olunur…',
   'listingDetail.reviews': 'rəylər',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}} rəylər',
@@ -135,6 +174,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'Super Ev Sahibi',
   'login.eyebrow': 'Xoş gəlmisiniz',
   'login.heading': 'Roost-a daxil olun',
+  'login.noAccount': 'Tessera-da yenisiniz?',
   'login.signupLink': 'Pulsuz hesab yaradın',
   'login.subheading':
     'Qaldığınız yerdən davam edin — səyahətləri, mesaj göndərənləri və xəyal qurduğunuz sifariş yerlərini idarə edin.',
@@ -159,6 +199,7 @@ export const ui: UiTranslations = {
   'notFound.heading': 'Həmin qalmağı tapa bilmirik',
   'notifications.loading': 'Yüklənir…',
   'notifications.subheading': '{{count}} oxunmamış · hər şey bir sakit gələnlər qutusunda',
+  'pricing.ctaContact': 'Satışla əlaqə saxlayın',
   'pricing.ctaUpgrade': 'Satışla əlaqə saxlayın',
   'pricing.eyebrow': 'Sadə, şəffaf',
   'pricing.heading': 'Səyahət ritminizə uyğun bir plan',
@@ -195,8 +236,12 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Yaddaqalan bir şey seçin. Yadda saxladıqdan sonra sizi daxil edəcəyik.',
   'roostAuthShell.brand.eyebrow': 'Özünə aid olduğun kimi qal',
+  'roostAuthShell.brand.heading':
+    'Daxmalar, kotteclər, riadlar — orada yaşayan ev sahibləri tərəfindən sizə təqdim olunur.',
   'roostHeroSearchCard.checkInAria': 'Giriş tarixi',
   'roostHeroSearchCard.checkOutAria': 'Çıxış tarixi',
+  'roostHeroSearchCard.destAria': 'Təyinat yeri',
+  'roostHeroSearchCard.destLabel': 'Harada',
   'roostHeroSearchCard.destPlaceholder': 'Şəhər, bölgə və ya əmlak',
   'roostHeroSearchCard.eyebrow': 'Əl ilə seçilmiş qonaqlamalar · Təsdiqlənmiş ev sahibləri',
   'roostHeroSearchCard.guestsOption': '{{n}} qonaqlar',
@@ -208,6 +253,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'Əsas naviqasiya',
   'roostListingCard.bookmarkAria': 'Siyahını yadda saxla',
   'roostListingCard.night': 'gecə',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'Axtarışınıza uyğun siyahı yoxdur.',
   'search.emptyHint':
     'Filtrlərinizi genişləndirməyə və ya qiymət tavanını qaldırmağa çalışın — Roost 26 ölkədə qonaqlama yeri təklif edir.',
@@ -215,9 +261,14 @@ export const ui: UiTranslations = {
   'search.heading': 'Özünü ev kimi hiss edən bir yer',
   'search.headingForQuery': '"Müddəti qalır" {{q}} "',
   'search.loadError': 'Siyahıları yükləmək alınmadı.',
+  'search.mapHint':
+    'Xəritədə vurğulamaq üçün kartın üzərinə gəlin. İstehsalda canlı Mapbox plitələri.',
+  'search.mapPinAria': '{{name}} — gecəlik {{price}}',
   'search.sortLabel': 'Sıralama üzrə',
   'search.subheading': '{{count}} siyahılar · {{guests}} qonaqlar',
+  'settings.appearance.description': 'İşıq və qaranlıq rejim arasında keçid edin.',
   'settings.appearance.title': 'Görünüş',
+  'settings.openBilling': 'Açıq faktura',
   'settings.payments.heading': 'Ödəniş üsulları',
   'settings.paymentsHelp':
     'Roost, ev sahibi sifarişinizi təsdiqlədiyi anda kartınızdan pul çıxarır. Yadda saxlanılan kartları Qiymətlər səhifəsində idarə edin.',

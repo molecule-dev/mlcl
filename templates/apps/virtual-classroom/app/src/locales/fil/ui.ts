@@ -1,10 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol sa amin',
+  'about.featureAssignments':
+    'Mga assignment, pagsusumite ng file, rubric, inline na feedback, at kalmadong gradebook na nagpapaalam sa mga estudyante at magulang.',
+  'about.featureBreakouts':
+    'Isang-tap na breakout rooms — awtomatikong pag-shuffle ng mga estudyante, pag-broadcast ng mga anunsyo, at pagpapabalik sa lahat kapag tapos na ang oras.',
+  'about.featureChat':
+    'Threaded na chat ng klase na may naka-pin na mga summary at instructor-only na side channel para sa tahimik na coaching habang may session.',
+  'about.featureVideo':
+    'Cinematic na live video na may active-speaker focus, gallery at spotlight layouts, at draggable na picture-in-picture para sa mga instructor.',
+  'about.featureWhiteboard':
+    'Walang hanggang whiteboard na may laser pointer at kumpletong color palette, at bawat session ay naka-save per course para tuloy-tuloy ang trabaho sa pagitan ng mga klase.',
+  'about.missionBody':
+    'Naniniwala kami na ang remote at hybrid na pag-aaral ay dapat maging kasing-presensya at kasing-tao ng isang seminar table. Kaya inuuna namin ang live presence — totoong mga mukha, shared canvas, at small-group breakouts — at tahimik naming inilalayo ang grading at logistics hanggang kailanganin mo.',
+  'about.missionTitle': 'Ang aming misyon',
   'assignmentDetail.attachmentsTitle': 'Mga Kalakip',
   'assignmentDetail.back': 'Lahat ng takdang-aralin',
   'assignmentDetail.code': 'BIO 211',
+  'assignmentDetail.context': 'Cell Biology I · Nai-post ni {{instructor}} · Due {{due}}',
   'assignmentDetail.continueDraft': 'Ipagpatuloy ang draft',
   'assignmentDetail.draftBody':
     'Huling binago 14 minuto ang nakalipas · awtomatikong nagse-save sa bawat pagbabago.',
@@ -23,6 +38,7 @@ export const ui: UiTranslations = {
   'assignmentRow.statusInProgress': 'Pagbalangkas',
   'assignmentRow.statusSubmitted': 'Isinumite',
   'assignmentRow.title': 'Ulat sa laboratoryo — Mitochondrial DNA',
+  'assignmentRow.weight': 'Worth {{percent}}% ng grade',
   'assignments.body':
     'Subaybayan ang bawat papel, hanay ng problema, at proyekto sa iyong mga kurso.',
   'assignments.empty': 'Walang tao sa lane na ito ngayon — tamasahin ang katahimikan.',
@@ -33,6 +49,8 @@ export const ui: UiTranslations = {
   'assignments.statTotal': 'Mga aktibong takdang-aralin',
   'assignments.title': 'Mga Takdang-Aralin',
   'aulaAuthShell.backHome': '← Nakauwi na',
+  'aulaAuthShell.brandBody':
+    'Pinagsasama ng {{appName}} ang video, whiteboard, breakouts, chat, at grading sa isang focused na tab — ginawa para sa mga instructor na gustong magturo, hindi mag-alaga ng mga tab.',
   'aulaAuthShell.brandEyebrow': 'Kung saan nabubuhay ang pagkatuto',
   'aulaAuthShell.brandTitle':
     'Mga live na silid-aralan na may init ng pagiging nasa loob ng silid.',
@@ -43,6 +61,9 @@ export const ui: UiTranslations = {
   'aulaSideNav.closeMenu': 'Isara ang menu ng nabigasyon',
   'aulaSideNav.label': 'Pangunahing navigation',
   'aulaSideNav.weeklyClasses': 'Ngayong linggo',
+  'aulaSideNav.weeklyClassesCount': '{{done}} / {{total}}',
+  'aulaSideNav.weeklyHelp':
+    'Nasa tamang landas ka para tapusin ang mga aralin ngayong linggo. Ituloy mo lang!',
   'aulaTopBar.openMenu': 'Buksan ang menu ng nabigasyon',
   'aulaTopBar.searchPlaceholder': 'Maghanap ng mga kurso, klase, takdang-aralin...',
   'aulaTopBar.title': 'Aula',
@@ -55,6 +76,8 @@ export const ui: UiTranslations = {
   'calendar.statTotal': 'Kabuuang mga paparating na kaganapan',
   'classroom.chatCount': '{{count}} mga mensahe',
   'classroom.chatEmpty': 'Wala pang mensahe — bumati para basagin ang katahimikan.',
+  'classroom.chatInputLabel': 'Mensahe sa chat ng klase',
+  'classroom.chatLoading': 'Nilo-load ang usapan…',
   'classroom.chatPlaceholder': 'Ipadala sa klase…',
   'classroom.chatTitle': 'Pakikipag-usap sa klase',
   'classroom.detailJoin': 'Join code',
@@ -81,23 +104,30 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'Pumunta sa Dashboard',
   'courseDetail.assignmentsTitle': 'Mga takdang-aralin sa kurso',
   'courseDetail.back': 'Lahat ng kurso',
+  'courseDetail.body':
+    'Isang second-semester na kurso na nagsisimula sa line integrals hanggang divergence at curl. Live tuwing Tue/Thu, may Friday lab at linggong office hours.',
+  'courseDetail.ca1Course': 'Kalkulasyon II',
   'courseDetail.ca1Due': 'Hanggang Huwebes · 5:00 PM',
   'courseDetail.ca1Title': 'Set ng problema sa daloy ng vector field',
   'courseDetail.ca2Course': 'Kalkulasyon II',
   'courseDetail.ca2Due': 'Isinumite noong Lunes',
   'courseDetail.ca2Score': 'Naghihintay ng feedback',
   'courseDetail.ca2Title': 'Mga patunay ng teorama ni Stokes',
+  'courseDetail.ca3Course': 'Kalkulasyon II',
   'courseDetail.ca3Due': 'Ibinalik · 9 na araw ang nakalipas',
   'courseDetail.ca3Score': 'Isang · 94%',
   'courseDetail.ca3Title': 'Pagsusulit sa pagsusuri ng integral ng linya',
   'courseDetail.cls1Course': 'Kalkulasyon II · MTH 202',
   'courseDetail.cls1Instructor': 'Propesor Maya Okafor',
+  'courseDetail.cls1Room': 'Silid ng Aula · Lavender',
   'courseDetail.cls1Title': 'Mga patlang ng vector at daloy',
   'courseDetail.cls2Course': 'Kalkulasyon II · MTH 202',
   'courseDetail.cls2Instructor': 'Propesor Maya Okafor',
+  'courseDetail.cls2Room': 'Silid ng Aula · Lavender',
   'courseDetail.cls2Title': 'Pagsusuri ng mga integral ng linya',
   'courseDetail.cls3Course': 'Kalkulasyon II · MTH 202',
   'courseDetail.cls3Instructor': 'TA Felix Bauer',
+  'courseDetail.cls3Room': '{{appName}} room · Petal',
   'courseDetail.cls3Title': 'Laboratoryo: Nag-ugat ang problema sa Stokes',
   'courseDetail.code': 'MTH 202',
   'courseDetail.materialsTitle': 'Mga Material',
@@ -135,15 +165,19 @@ export const ui: UiTranslations = {
   'courses.filterTeaching': 'Pagtuturo',
   'courses.loading': 'Kino-load ang mga kurso…',
   'courses.noBrowse': 'Walang mga kursong titingnan — naka-enroll ka sa lahat ng nailathala.',
+  'courses.noCourses': 'Wala pang kurso — gumawa gamit ang button sa itaas.',
   'courses.title': 'Ang iyong aklatan ng pag-aaral',
   'courseTileCard.code': 'ECN 312',
   'courseTileCard.continue': 'Ipagpatuloy ang kurso',
   'courseTileCard.enroll': 'Tingnan ang kurso',
   'courseTileCard.imageAlt': 'Thumbnail ng kurso',
   'courseTileCard.instructor': 'Dr. Idris Halloway',
+  'courseTileCard.lessonsRemaining': '{{count}} mga natitirang aralin',
   'courseTileCard.levelAdvanced': 'Maunlad',
   'courseTileCard.levelBeginner': 'Baguhan',
   'courseTileCard.levelIntermediate': 'Panggitna',
+  'courseTileCard.preview':
+    'I-preview ang syllabus, tingnan ang mga lecture, at humiling ng enrollment.',
   'courseTileCard.progressComplete': '{{percent}} % kumpleto',
   'courseTileCard.title': 'Makabagong Makroekonomiks',
   'dashboard.assignmentsAll': 'Tingnan lahat →',
@@ -164,12 +198,16 @@ export const ui: UiTranslations = {
     'Walang dapat ipasa na mga takdang-aralin — tamasahin ang katahimikan.',
   'dashboard.noCourses': 'Wala pang mga kurso — lalabas dito ang una mong kurso.',
   'dashboard.noDueDate': 'Walang takdang petsa',
+  'dashboard.scheduleAula': 'Silid ng Aula',
   'dashboard.scheduleEmpty': 'Walang naka-iskedyul na paparating na live na klase.',
   'dashboard.scheduleHostedYou': 'Hino-host mo',
+  'dashboard.scheduleJoinCode': 'Kodigo ng pagsali · {{code}}',
+  'dashboard.statAssignmentsLabel': 'Mga assignment na due',
   'dashboard.statClassesDelta': '{{n}} mga aktibong kurso',
   'dashboard.statClassesLabel': 'Mga live na silid',
   'dashboard.statCoursesDelta': '{{n}} naka-enroll',
   'dashboard.statCoursesLabel': 'Mga Kurso',
+  'dashboard.statNotificationsLabel': 'Mga hindi pa nababasang alerto',
   'dashboard.tipBody':
     'Buksan ang live room mula sa hero card sa itaas para gumuhit sa whiteboard o mag-post ng chat message — magpapatuloy ang bawat aksyon.',
   'dashboard.tipCta': 'Subukan ang whiteboard',
@@ -183,6 +221,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success':
     'Kung may account para sa email na iyon, may paparating nang link para sa pag-reset.',
   'forgotPassword.toLogin': 'Bumalik para mag-sign in',
+  'grades.assignmentsCount': '{{n}} grades',
   'grades.body':
     'Isang kalmadong tanawin ng bawat kurso — grado sa pagtakbo, mga kamakailang feedback, at kung saan magtutuon sa susunod na linggo.',
   'grades.empty':
@@ -195,43 +234,59 @@ export const ui: UiTranslations = {
   'grades.statTrendUnit': 'mga kurso',
   'grades.statWatchLabel': 'Kailangan ng atensyon',
   'grades.title': 'Mga marka at feedback',
+  'landing.ctaBody':
+    'Gagawa kami ng sample na kurso, mag-iimbita ng co-teacher, at ipapakita sa iyo kung paano gawing breakouts ang isang klase bago tumunog ang bell.',
   'landing.ctaButton': 'Gumawa ng iyong paaralan',
   'landing.ctaPrimary': 'Magsimula ng libreng termino',
   'landing.ctaSecondary': 'Manood ng class tour',
   'landing.ctaTitle': 'Buksan ang iyong unang silid-aralan sa loob ng wala pang tatlong minuto.',
+  'landing.demoCourse': 'World Literature · LIT 240',
+  'landing.demoInstructor': 'Prof. Imani Davies',
+  'landing.demoTitle': 'Magical realism — Borges & Murakami',
   'landing.eyebrow': 'Live · whiteboard · breakouts · pagmamarka',
   'landing.feat1Body':
     'Awtomatikong nakalagay na spotlight + gallery, mga accent na nasa aktibong speaker, at isang nada-drag na picture-in-picture para sa mga instruktor.',
   'landing.feat1Title': 'Grid ng sinematikong video',
   'landing.feat2Body':
     'Walang katapusang canvas, laser pointer, walong-swatch palette, at paulit-ulit na sesyon bawat kurso.',
+  'landing.feat2Title': 'Whiteboard na nag-iisip nang malakas',
   'landing.feat3Body':
     'Awtomatikong i-shuffle ang mga estudyante sa mga silid, i-broadcast ang mga anunsyo, at hilahin pabalik ang lahat gamit ang isang tap.',
+  'landing.feat3Title': 'Breakouts sa dalawang click',
   'landing.feat4Body':
     'Mga rubric, pagsusumite ng file, inline feedback, at isang mahinahong gradebook na nagpapanatili sa mga magulang na may impormasyon.',
+  'landing.feat4Title': 'Assignments + gradebook',
   'landing.feat5Body':
     'May threaded chat kada klase, naka-pin na mga buod, at mga side channel na para lang sa instruktor para sa whisper coaching.',
+  'landing.feat5Title': 'Chat na may konteksto ng klase',
   'landing.feat6Body':
     'SSO na may mga direktoryo ng distrito, moderasyon na naaangkop sa edad, at mga talaan ng audit para sa bawat silid-aralan.',
+  'landing.feat6Title': 'Safe by default',
   'landing.featuresEyebrow': 'Ginawa para sa live',
   'landing.featuresTitle': 'Lahat ng kailangan ng isang klase, sa isang naka-pokus na tab.',
   'landing.footerCopy': '© {{year}} Aula. Ginawa nang may pag-iingat para sa mga tagapagturo.',
   'landing.footerStart': 'Magsimula ng paaralan',
   'landing.heroBody':
     'Dinadala ng Aula ang live video, whiteboard, breakouts, chat, at mga takdang-aralin sa isang mainit at akademikong tahanan. Ginawa para sa mga instruktor na nagnanais ng mas kaunting tabs at mas maraming atensyon.',
+  'landing.heroLine1': 'Kung saan bawat classroom',
   'landing.heroLine2': 'nararamdaman sa silid.',
   'landing.navSchools': 'Para sa mga paaralan',
   'landing.navStart': 'Magbukas ng silid-aralan',
   'landing.previewCourse1': 'Makabagong Makroekonomiks',
   'landing.previewCourse2': 'Pagpipinta sa Studio II',
   'landing.previewCourse3': 'Panimula sa Etika sa Datos',
+  'landing.previewEyebrow': 'Tingnan ang catalogue',
   'landing.previewInstructor1': 'Dr. Idris Halloway',
   'landing.previewInstructor2': 'Propesor Lila Marin',
   'landing.previewInstructor3': 'Dr. Naomi Wren',
   'landing.previewTitle': 'Mga kursong aktwal na bubuksan ng iyong mga estudyante.',
+  'landing.socialProofBody':
+    'Ginagamit ng 380 paaralan, bootcamp, at corporate trainer sa buong mundo.',
   'landing.socialProofTitle': 'Mahigit 14,200 klase ang nag-host ngayong termino',
   'liveClassHeroCard.bodyLive':
     '{{instructor}} binuksan lang ang kwarto. {{count}} Nasa loob na ang mga kaklase ko — pumasok muna bago mag-roll call.',
+  'liveClassHeroCard.bodyUpcoming':
+    'Nagho-host ang {{instructor}} sa loob ng {{minutes}} minuto. Bukas na ngayon ang camera at mic check.',
   'liveClassHeroCard.course': 'Kalkulasyon II — MTH 202',
   'liveClassHeroCard.elapsed': 'Lumipas na',
   'liveClassHeroCard.elapsedValue': '12:08',
@@ -244,6 +299,7 @@ export const ui: UiTranslations = {
   'liveClassHeroCard.title': 'Lektura 14 — Mga patlang na vector',
   'liveClassHeroCard.viewSchedule': 'Tingnan ang buong iskedyul',
   'login.emailPlaceholder': 'you@school.edu',
+  'login.footerPrompt': 'Bago sa Tessera?',
   'login.hidePassword': 'Itago ang password',
   'login.rememberMe': 'Panatilihin akong naka-sign in',
   'login.showPassword': 'Ipakita ang password',
@@ -255,6 +311,7 @@ export const ui: UiTranslations = {
     'Mayroon ka {{count}} mga hindi pa nababasang update mula sa iyong mga klase.',
   'notifications.bodyNone': 'Nasa-up to date na po kayo.',
   'notifications.loading': 'Naglo-load…',
+  'pricing.advancedFeatures': 'Mga advanced na feature',
   'profile.bio':
     'Vector calculus at topology · 14 na taon ng pagtuturo · Moderator ng komunidad ng Aula. Oras ng opisina Lunes/Miyerkules 11–12 sa silid ng Lavender.',
   'profile.course1Instructor': 'Propesor Maya Okafor',
@@ -275,8 +332,11 @@ export const ui: UiTranslations = {
   'profile.statStudentsLabel': 'Mga mag-aaral ngayong termino',
   'resetPassword.confirmPasswordPlaceholder': 'Ilagay muli ang bagong password',
   'resetPassword.emailPlaceholder': 'you@school.edu',
+  'resetPassword.mismatch': 'Hindi pa tugma ang mga password.',
+  'resetPassword.newPassword': 'Bagong password',
   'resetPassword.subtitle':
     'Gawin itong sapat na mahaba upang mahirap hulaan at sapat na maikli upang mabilis na ma-type.',
+  'resetPassword.title': 'Pumili ng bagong password',
   'scheduleItem.course': 'Malikhaing Pagsulat · ENG 220',
   'scheduleItem.endTime': '3:30 PM',
   'scheduleItem.instructor': 'Dr. Yusuf Adelana',
@@ -300,10 +360,20 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Wika',
   'settings.photoHint': 'Pinakamahusay na gumagana ang JPG o PNG · parisukat',
   'settings.profileTitle': 'Profile',
+  'settings.securityTitle': 'Sign-in at seguridad',
   'settings.twoFactorCode': 'Kodigo ng pagpapatunay',
   'settings.twoFactorDisable': 'I-disable',
+  'settings.twoFactorDisableTitle': 'I-disable ang two-factor authentication',
   'settings.twoFactorEnable': 'I-enable',
+  'settings.twoFactorEnableTitle': 'I-enable ang two-factor authentication',
   'settings.twoFactorInvalidCode': 'Hindi wastong code',
+  'settings.twoFactorOffBody': 'Hindi pinagana',
+  'settings.twoFactorOnBody': 'Naka-enable · authenticator app',
+  'settings.twoFactorQrAlt': 'Two-factor QR code',
+  'settings.twoFactorScan':
+    'I-scan ang QR code na ito gamit ang iyong authenticator app, pagkatapos ay ilagay ang 6-digit na code.',
+  'settings.twoFactorUnavailable':
+    'Hindi available ang two-factor authentication para sa app na ito.',
   'settings.twoFactorVerify': 'I-verify at paganahin',
   'signup.email': 'Email ng paaralan',
   'signup.emailPlaceholder': 'you@school.edu',
@@ -311,6 +381,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Aiyana',
   'signup.lastNamePlaceholder': 'Vega',
   'signup.roleInstructor': 'Instruktor',
+  'signup.roleLabel': 'Ako ay isang…',
   'signup.roleStudent': 'Estudyante',
   'signup.subtitle':
     'Libre ang Aula sa unang 30 araw — hindi kailangan ng credit card. Anyayahan ang iyong mga kapwa guro anumang oras.',
@@ -323,6 +394,8 @@ export const ui: UiTranslations = {
   'whiteboard.colorLabel': 'Kulay {{color}}',
   'whiteboard.export': 'I-export ang SVG',
   'whiteboard.loading': 'Naglo-load ng board…',
+  'whiteboard.persistenceNote':
+    'Nananatili ang mga stroke sa whiteboard ng room. I-reload ang page — dapat nandiyan pa rin ang board state.',
   'whiteboard.roomNotFound': 'Hindi natagpuan ang whiteboard para sa link na ito.',
   'whiteboard.savedAt': '{{count}} mga stroke · huling na-save {{when}}',
   'whiteboard.title': 'Live na whiteboard',

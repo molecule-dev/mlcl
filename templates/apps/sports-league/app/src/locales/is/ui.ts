@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ertu með endurgjöf, fannst þú villu eða vilt þú {{app}} fyrir deildina þína? Hafa samband við okkur í reikningsstillingunum þínum — hver skilaboð fara til alvöru manneskju í teyminu.',
+  'about.contactTitle': 'Hafðu samband',
   'about.eyebrow': 'Um',
+  'about.featureAlerts':
+    'Push-tilkynningar fyrir stöðuuppfærslur, viðskiptaviðvaranir, meiðslaskýrslur og deildartilkynningar.',
+  'about.featureRosters':
+    'Liðasíður með fullum leikmannalistum, tímabilstölum, heitum/köldum rásum og innbyrðis skiptingum fyrir hvern leikmann.',
+  'about.featureSchedule':
+    'Tímabilsdagatal og áætlunaryfirlit svo þú getir skipulagt þig í kringum hvern leik og úrslit.',
+  'about.featureScoreboard':
+    'Útsendingargæða stigatafla fest efst á hverri síðu svo þú missir aldrei af marki.',
+  'about.featureStandings':
+    'Staðan í beinni — rauntíma sigrar-tap-jafntefli, stig, sigurhlutfall og umspilslínan, uppfært við hvert flautumerki.',
+  'about.intro':
+    '{{app}} er útsendingargæða heimili fyrir deildina þína. Lið, áætlanir, stöður í beinni og staðan sameinast í einu hröðu, rýmingarlausu mælaborði — svo aðdáendur, þjálfarar og deildarskipuleggjendur viti alltaf hvar tímabilið stendur.',
+  'about.missionBody':
+    'Að fylgja deild ætti ekki að þýða að endurhlaða fimm mismunandi stigatöflum þriðja aðila. Við byggðum það til að gefa hverri deild eina sannleiksheimild fyrir stöðuna, áætlunina og tölfræðina sem skiptir máli — uppfært við hvert flautumerki, ókeypis fyrir tímabilið.',
+  'about.missionTitle': 'Markmið okkar',
+  'about.whatYouGet': 'Það sem þú færð',
   'appShell.closeNav': 'Loka flakki',
   'appShell.openNav': 'Opna flakk',
   'common.dashboard': 'Mælaborð',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Skoða allar leiki \\u2192',
   'dashboard.viewAllStandings': 'Heildarstaðan \\u2192',
   'dashboard.viewAllStats': 'Skoða alla leiðtoga í tölfræði \\u2192',
+  'forgot.submitting': 'Sendi endurstillingartengil…',
   'forgot.subtitle': 'Sláðu inn netfangið þitt til að fá endurstillingarhlekk.',
   'forgot.success': 'Endurstilla tengil sem sendur var til {{email}} Kíktu á pósthólfið þitt.',
+  'landing.copyright': '© {{year}} {{app}}. Elta stöðuna.',
+  'landing.ctaBody':
+    'Deildin þín. Staðan þín. Uppáhaldsliðið þitt — fest efst. Tvær mínútur að setja upp, ókeypis fyrir tímabilið.',
   'landing.ctaHeading': 'Hætta að endurnýja stigatöflur þriðja aðila',
   'landing.eyebrow': 'Hannað fyrir aðdáendur, þjálfara og skipuleggjendur deildarinnar',
   'landing.featuresHeading': 'Sæti í fremstu röð fyrir alla sem standa',
   'landing.getStarted': 'Skráðu þig í deildina',
   'landing.heroCta': 'Skráðu þig í deildina',
+  'landing.heroSubtitle':
+    '{{app}} tengir stöðuna, áætlanir og tölfræðileiðtoga í eitt útsendingargæða mælaborð. Stöður í beinni. Raunveruleg met. Engin ringulreið.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Í kvöld um deildina',
   'landing.statFans': 'Aðdáendur sem fylgja',
   'landing.statGames': 'Leikir þessa tímabils',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Til baka í leiki',
   'matchDetail.eventsHeading': 'Leikur fyrir leik',
+  'matchDetail.final': 'LOKA',
   'matchDetail.finalScore': 'Lokatölur',
   'matchDetail.live': 'Í BEINNI',
   'matchDetail.liveNow': 'Lifðu núna',
   'matchDetail.noEvents': 'Engir viðburðir skráðir ennþá.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Engir leikir í þessu yfirliti — prófaðu aðra síu.',
   'matches.eyebrow': 'Leikdagur',
   'matches.loading': 'Að draga töfluna…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Mistókst að hlaða tilkynningum',
   'notifications.loading': 'Hleður tilkynningar\\u2026',
   'pennantHeroCard.eyebrow': 'Efst á töflunni',
+  'pennantHeroCard.formLabel': 'Síðustu 10',
   'pennantHeroCard.gamesAhead': '{{value}} leikir á undan eftirförinni',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Aðalflakk',
@@ -79,23 +108,31 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Veldu sæti þitt',
   'pricing.heading': 'Uppfærðu fyrir betri dagskrá, stig og stöðu.',
   'pricing.limits.schedule': '{{count}} færslur á dagskrá',
+  'pricing.limits.scores': '{{count}} stöður',
+  'pricing.limits.standings': '{{count}} staðan',
+  'pricing.limits.teams': '{{count}} lið',
+  'pricing.subtitle': 'Uppfærðu fyrir ríkari áætlun, stöður og stöðuna.',
   'pricing.upgradeCta': 'Uppfæra í {{tierName}}',
   'profile.eyebrow': 'Aðdáendaprófíll',
   'profile.favoritesCount': 'Lið sem fylgst er með',
   'profile.favoritesHeading': 'Uppáhaldsliðin',
   'profile.noFavorites': 'Engir uppáhaldsliðar ennþá — veldu lið af liðasíðunni.',
   'profile.rankRecord': 'Röðun # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Met {{record}}',
   'reset.confirmPlaceholder': 'Endurtakið lykilorðið',
+  'reset.mismatch': 'Lykilorðin stemma ekki.',
   'reset.newLabel': 'Nýtt lykilorð',
   'reset.subtitle': 'Veldu sterkt lykilorð sem er að minnsta kosti 12 stafir langt.',
   'reset.tokenPlaceholder': 'Líma úr tölvupósti',
   'schedule.eyebrow': 'Leirplatan',
+  'schedule.moreGames': '+ {{count}} meira',
   'schedule.subtitle':
     'Dagatalsyfirlit yfir leiki tímabilisins — smelltu á hvaða dag sem er til að sjá stöðuna í teignum.',
   'scoreboardTicker.empty': 'Engir leikir í beinni núna — kíkið aftur við pökkinn.',
   'settings.addFavorite': 'Bæta við liði',
   'settings.eyebrow': 'Sérsníða',
   'settings.favoritesBody': 'Þessi lið festast á mælaborðið þitt og virkja tilkynningar um stig.',
+  'settings.favoritesHeading': 'Uppáhaldsliðin',
   'settings.loading': 'Hleður inn stillingarnar þínar\\u2026',
   'settings.noFavorites': 'Engir uppáhaldsliðar ennþá \\u2014 veldu lið af liðasíðunni.',
   'settings.notificationsHeading': 'Tilkynningar og skjár',
@@ -113,6 +150,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Í heildina',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Fjórir efstu komast í úrslitakeppnina — jöfnunarkeppni eftir stigum og síðan sigurhlutfall.',
   'standings.title': 'Staðan í deildinni',
@@ -131,6 +169,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Leikmaður',
   'teamDetail.colPos': 'Póststöð',
+  'teamDetail.pointsLabel': 'Stig',
   'teamDetail.rankLabel': 'Röðun # {{rank}}',
   'teamDetail.rosterHeading': 'Leikmannalisti',
   'teamDetail.statGD': 'Markmiðsmunur',

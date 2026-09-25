@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ప్రశ్నలు, అభిప్రాయం లేదా మీరు కోరుకునే ఫీచర్ ఉందా? మీ ఖాతా సెట్టింగ్‌ల నుండి టీమ్‌ను సంప్రదించండి — ప్రతి సందేశాన్ని ఒక నిజమైన వ్యక్తి చదువుతారు.',
   'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
+  'about.missionTitle': 'మా లక్ష్యం',
+  'about.whatYouGetTitle': 'మీకు లభించేది',
   'analytics.empty': 'ఇక్కడ విశ్లేషణలను చూడటానికి డెక్‌లను సృష్టించండి.',
   'analytics.stats.acrossDecks': 'అన్ని డెక్‌లలో',
   'analytics.stats.allTime': 'మీ స్టూడియోలో',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'డెక్ శీర్షిక',
   'landing.features.eyebrow': 'ఓవర్చర్ ఎందుకు',
   'landing.features.heading': 'వేదికపైకి సిద్ధంగా వెళ్ళడానికి మీకు కావలసినవన్నీ.',
+  'landing.finalCta.body':
+    'ఒక నిమిషంలో మీ స్టూడియోను ప్రారంభించండి. క్రెడిట్ కార్డ్ అవసరం లేదు. ఎప్పుడైనా రద్దు చేసుకోవచ్చు.',
   'landing.finalCta.cta': 'మీ ఉచిత స్టూడియోని సృష్టించండి',
   'landing.finalCta.eyebrow': 'ఉచితంగా ప్రారంభించండి',
   'landing.finalCta.heading': 'మీ కెరీర్‌లోనే అత్యుత్తమమైన డెక్‌తో వేదికపైకి అడుగు పెట్టండి.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 నిమిషాల క్రితం సవరించబడింది',
   'notifications.created': 'సృష్టించబడింది',
   'notifications.edited': 'సవరించబడింది',
+  'notifications.empty.body':
+    'మీ డెక్‌లపై యాక్టివిటీ — కామెంట్‌లు, మెన్షన్‌లు, ఎగుమతులు — ఇక్కడ కనిపిస్తాయి.',
   'notifications.empty.title': 'ఇంకా నోటిఫికేషన్‌లు లేవు',
   'notifications.eyebrow': 'వేదిక కార్యకలాపం',
   'notifications.loading': 'లోడ్ అవుతోంది…',
   'notifications.shared': 'బహిరంగంగా పంచుకోబడింది',
+  'planUpdated.retry': 'మళ్ళీ ప్రయత్నించండి',
+  'planUpdated.verifyFailed': 'మేము మీ చెల్లింపును ఇంకా ధృవీకరించలేకపోయాము.',
+  'planUpdated.verifyFailedBody':
+    'మీ చెల్లింపు ఇంకా ప్రాసెస్ అవుతూ ఉండవచ్చు. కాసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.',
   'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'present.addSlides': 'స్లైడ్‌లను జోడించండి',
   'present.backToDecks': 'డెక్‌లకు తిరిగి వెళ్లండి',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'రంగస్థల ప్రదర్శకుడు',
   'settings.security.notSet': 'సెట్ చేయబడలేదు',
   'settings.security.passwordBody': 'మీ పాస్‌వర్డ్ నిశ్చల స్థితిలో గుప్తీకరించబడింది.',
+  'settings.security.reset': 'రీసెట్',
   'settings.security.title': 'ఖాతా + సెషన్‌లు',
   'shared.empty.body':
     'మీరు బహిరంగంగా పంచుకునే డెక్‌లు ఇక్కడ కనిపిస్తాయి. పంచుకోవడానికి ఒక డెక్‌ను తెరిచి, పబ్లిక్‌ను టోగుల్ చేయండి.',
@@ -130,6 +143,12 @@ export const ui: UiTranslations = {
   'shared.loading': 'లోడ్ అవుతోంది…',
   'shared.title': 'భాగస్వామ్య డెక్స్',
   'templateCard.slideCount': '{{count}} స్లైడ్‌లు',
+  'templateCard.usageCount': '{{count}} ఉపయోగాలు',
+  'templates.empty.body':
+    'వేరే ఫిల్టర్ ప్రయత్నించండి — మేము ప్రతి నెలా కొత్త టెంప్లేట్‌లను విడుదల చేస్తాము.',
+  'templates.empty.title': 'ఈ వర్గంలో ఇంకా టెంప్లేట్‌లు లేవు',
+  'templates.hero.body':
+    'చార్ట్ బ్లాక్‌లు, డెమో ఫ్రేమ్‌లు, ప్రెజెంటర్ నోట్స్ మరియు టైమర్ ప్రీసెట్‌లతో ముందే థీమ్ చేసిన స్లైడ్ లేఅవుట్‌లు — ప్రతి టెంప్లేట్ రికార్డ్ చేయడానికి సిద్ధంగా ఉంటుంది.',
   'templates.hero.eyebrow': 'క్యూరేటెడ్ స్టేజ్‌లు',
   'templates.hero.heading': 'మీరు దాన్ని ల్యాండ్ చేయాల్సిన క్షణం కోసమే నిర్మించిన దశలు.',
 }

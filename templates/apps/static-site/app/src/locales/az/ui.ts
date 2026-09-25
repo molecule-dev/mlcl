@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Planınız yeniləndi.',
   'planUpdated.returnHome': 'Ana səhifəyə qayıt',
   'planUpdated.thankYou': 'Təşəkkürlər!',
+  'post.markdown': 'Bu paylaşımı markdown kimi bax',
+  'post.readingTime': '{{minutes}} minimum oxuma',
   'post.tags': 'Etiketlər',
   'project.error.nameAndTypeRequired': 'ad və projectType tələb olunur',
   'project.error.notFound': 'Tapılmadı',

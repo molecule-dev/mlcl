@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Maswali, maoni, au kipengele ungependa tuwe nacho? Wasiliana na timu kutoka kwenye mipangilio ya akaunti yako — mtu halisi anasoma kila ujumbe.',
   'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.missionTitle': 'Dhamira yetu',
+  'about.whatYouGetTitle': 'Unachopata',
   'analytics.empty': 'Unda deki ili kuona uchanganuzi hapa.',
   'analytics.stats.acrossDecks': 'Katika deki zote',
   'analytics.stats.allTime': 'Katika studio yako',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Kichwa cha staha',
   'landing.features.eyebrow': 'Kwa Nini Utangulizi',
   'landing.features.heading': 'Kila kitu unachohitaji ili kutembea jukwaani tayari.',
+  'landing.finalCta.body':
+    'Anzisha studio yako chini ya dakika moja. Hakuna kadi ya benki. Ghairi wakati wowote.',
   'landing.finalCta.cta': 'Unda studio yako ya bure',
   'landing.finalCta.eyebrow': 'Bure kuanza',
   'landing.finalCta.heading': 'Panda jukwaani ukiwa na staha bora zaidi ya kazi yako.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Ilihaririwa dakika 12 zilizopita',
   'notifications.created': 'imeundwa',
   'notifications.edited': 'imehaririwa',
+  'notifications.empty.body':
+    'Shughuli kwenye deki zako — maoni, kutajwa, uhamishaji — zitaonekana hapa.',
   'notifications.empty.title': 'Hakuna arifa bado',
   'notifications.eyebrow': 'Shughuli ya jukwaani',
   'notifications.loading': 'Inapakia…',
   'notifications.shared': 'imeshirikiwa hadharani',
+  'planUpdated.retry': 'Jaribu tena',
+  'planUpdated.verifyFailed': 'Hatukuweza kuthibitisha malipo yako bado.',
+  'planUpdated.verifyFailedBody':
+    'Huenda malipo yako bado yanashughulikiwa. Jaribu tena baada ya muda mfupi.',
   'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'present.addSlides': 'Ongeza slaidi',
   'present.backToDecks': 'Rudi kwenye deki',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Migizaji wa jukwaani',
   'settings.security.notSet': 'Haijawekwa',
   'settings.security.passwordBody': 'Nenosiri lako limesimbwa kwa njia fiche wakati wa mapumziko.',
+  'settings.security.reset': 'Weka upya',
   'settings.security.title': 'Akaunti + vipindi',
   'shared.empty.body':
     'Deki unazoshiriki hadharani zitaonekana hapa. Fungua deki na ubadilishe umma ili kushiriki.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Inapakia…',
   'shared.title': 'Deki za pamoja',
   'templateCard.slideCount': '{{count}} slaidi',
+  'templateCard.usageCount': '{{count}} matumizi',
+  'templates.empty.body': 'Jaribu kichujio tofauti — tunatoa violezo vipya kila mwezi.',
+  'templates.empty.title': 'Hakuna violezo katika kategoria hii bado',
+  'templates.hero.body':
+    'Mipangilio ya slaidi yenye mandhari tayari ikiwa na vitalu vya chati, fremu za onyesho, madokezo ya mwasilishaji, na mipangilio ya kipima muda — kila kiolezo huja tayari kurekodiwa.',
   'templates.hero.eyebrow': 'Hatua zilizoratibiwa',
   'templates.hero.heading': 'Hatua zilizojengwa kwa wakati unaohitaji kutua.',
 }

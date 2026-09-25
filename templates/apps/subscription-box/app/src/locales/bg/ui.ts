@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Въпроси за издание, пратка или абонамента ви? Свържете се с истински човек от екипа на hello@crate.example — четем всяко съобщение.',
+  'about.contactTitle': 'Говорете с куратор',
+  'about.feature1':
+    'Курирани месечни издания, подбрани от независими творци, с историята зад всеки артикул.',
+  'about.feature2':
+    'Пълен контрол върху всяка кутия — персонализирайте съдържанието, заменете или изключете артикули, пропуснете месец или променете честотата си.',
+  'about.feature3':
+    'Проследяване на пратката от край до край — от вземане до врата, с опаковка без пластмаса и актуализации на превозвача в реално време.',
+  'about.feature4':
+    'Гъвкави планове и прозрачно таксуване — надстройте, понижете, поставете на пауза или отменете по всяко време от таблото си.',
+  'about.intro':
+    '{{app}} е курирана услуга за абонаментни кутии, която всеки месец доставя до вратата ви подбрана кутия радост от малки серии. Всяко издание се сглобява от работещи творци — независими артисти, готвачи и малки марки — не от алгоритъм.',
+  'about.missionBody':
+    'Вярваме, че абонаментът трябва да се усеща като подарък, а не като капан. {{app}} е създаден така, че да останете, защото обичате това, което пристига — поставяйте на пауза по всяко време, заменяйте каквото искате и отменяйте с едно кликване. Никога никакви скриптове за задържане.',
+  'about.missionTitle': 'Нашата мисия',
   'about.pageTitle': 'За {{app}}',
   'appNav.mobileLabel': 'Основна навигация',
   'appNav.primaryLabel': 'Основна навигация',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Редактиране на контакт за фактуриране',
   'billing.contact.eyebrow': 'Контакт за фактуриране',
   'billing.eyebrow': 'План и плащания',
+  'billing.loading': 'Зареждане на сметката…',
   'billing.payment.body':
     'Плащането се обработва от Stripe Checkout — пълният номер на вашата карта никога не докосва нашите сървъри. Кликнете върху което и да е ниво по-долу, за да добавите или актуализирате картата си.',
   'billing.payment.linked': 'Карта, регистрирана чрез Stripe',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Възобновяване на абонамента',
   'billing.plan.eyebrow': 'Активен план',
   'billing.plan.next': 'Подновява се автоматично на {{date}} .',
+  'billing.plan.status': 'Статус: {{status}}',
   'billing.subtitle':
     'Управлявайте нивото си, начина на плащане и преглеждайте миналата си активност.',
   'billing.tiers.body': 'Изберете ниво и ние ще ви насочим към Stripe Checkout.',
   'billing.tiers.choose': 'Изберете',
+  'billing.tiers.empty': 'Още няма конфигурирани нива.',
   'billing.tiers.heading': 'Налични нива',
   'boxDetail.backToBoxes': 'Обратно към всички издания',
   'boxDetail.crumb.boxes': 'Издания',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Курирано произведение',
   'boxDetail.items.heading': '{{count}} курирани произведения',
   'boxDetail.itemsBadge': '{{count}} подбрани артикули в кутия',
+  'boxDetail.loading': 'Зареждане на изданието…',
   'boxDetail.notFound': 'Това издание вече не е налично.',
   'boxDetail.subscribe.success': 'Абонирани — първото ви издание е на опашката.',
   'boxDetail.swapBadge': 'Разменете до {{count}} брой артикули в кутия',
@@ -44,14 +64,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Няма съответстващи издания.',
   'boxes.eyebrow': 'Архивът на Троув',
   'boxes.heading': 'Разгледайте всяко издание',
+  'boxes.loadError': 'Не успяхме да заредим изданията. Проверете връзката си и опитайте отново.',
   'boxes.loading': 'Зареждане на издания…',
+  'boxes.search.label': 'Търсене на издания',
   'boxes.search.placeholder': 'Търсене на издания…',
   'boxes.subtitle':
     'Всяко ниво е малка история. Добавете една към опашката си или я преместете в следващия месец.',
+  'boxThemeCard.itemCount': '{{count}} артикули',
   'boxThemeCard.perMonth': '/ месец',
+  'boxThemeCard.retailValue': 'Стойност на дребно {{value}}',
   'common.goToDashboard': 'Към таблото',
+  'common.retry': 'Опитай отново',
   'customize.eyebrow': 'Направете го ваше',
   'customize.heading': 'Персонализирайте следващия си Crate',
+  'customize.items.empty': 'Още няма конфигурирани артикули за това ниво.',
   'customize.items.exclude': 'Пропуснете това',
   'customize.items.eyebrow': 'Персонализирайте тази кутия',
   'customize.items.heading': 'Елементи в {{box}}',
@@ -60,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Добави обратно',
   'customize.items.save': 'Запазване на персонализацията',
   'customize.items.swapsLeft': '{{used}} от {{max}} използвани суапове',
+  'customize.loading': 'Зареждане на персонализацията…',
   'customize.noSub.body':
     'Първо се абонирайте за ниво, след което се върнете, за да размените артикулите в кутията си.',
+  'customize.noSub.cta': 'Разгледайте изданията',
   'customize.noSub.heading': 'Няма активен абонамент',
   'customize.saved': 'Персонализацията е запазена.',
   'customize.subtitle':
@@ -75,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Проследяване на пратка',
   'dashboard.eyebrow': 'Твоето съкровище',
   'dashboard.greeting': 'Добре дошъл отново, {{name}} .',
+  'dashboard.loadError':
+    'Не успяхме да заредим таблото ви. Проверете връзката си и опитайте отново.',
   'dashboard.loading': 'Зареждане на таблото за управление…',
   'dashboard.next.eyebrow': 'Вашето следващо издание',
   'dashboard.onboarding.body':
     'Все още нямате активен абонамент. Изберете ниво, за да започнете да изпращате Crate всеки месец.',
   'dashboard.onboarding.cta': 'Разгледайте всички издания',
+  'dashboard.onboarding.empty': 'В момента няма налични планове. Проверете отново скоро.',
   'dashboard.onboarding.heading': 'Изберете първото си издание',
   'dashboard.renewal.amount': 'Заредено',
   'dashboard.renewal.cadence': 'Каденс',
@@ -87,18 +118,23 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Подновяване',
   'dashboard.renewal.heading': 'Автоматично подновяване на {{date}}',
   'dashboard.renewal.plan': 'Ключ за плана',
+  'dashboard.renewal.tbd': 'Планиране на подновяването скоро',
   'dashboard.renewal.tier': 'Ниво',
   'dashboard.stats.days': 'дни',
   'dashboard.stats.daysToNext': 'Корабите в',
   'dashboard.stats.items': 'Курирани артикули',
   'dashboard.stats.shipDate': 'Дата на доставка',
   'dashboard.stats.tbd': 'Ще бъде обявено',
+  'dashboard.subtitle.active': 'Следващото ви издание е на път. Ето какво да очаквате.',
+  'dashboard.subtitle.idle':
+    'Изберете ниво, за да започнете да получавате {{appName}} всеки месец.',
   'forgotPassword.subtitle': 'Кажете ни имейла си и ще ви изпратим линк за нулиране.',
   'forgotPassword.success.body':
     'Ако {{email}} е регистриран, ще получите линк за нулиране в рамките на няколко минути.',
   'forgotPassword.success.title': 'Проверете пощенската си кутия.',
   'landing.editions.eyebrow': 'Този сезон',
   'landing.editions.heading': 'Издания, които нашите куратори обожават',
+  'landing.editions.viewAll': 'Разгледайте всички издания →',
   'landing.footer.contact': 'Говорете с куратор',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Започнете вашата кутия →',
@@ -108,6 +144,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Поглед към таблото за управление на членовете — обратно броене, съдържание и проследяване.',
   'landing.hero.social.count': 'Обичан от {{count}} + абонати',
+  'landing.hero.social.rating': '{{rating}} средна оценка от отварянето',
+  'landing.hero.subhead':
+    '{{appName}} ви изпраща подбрана кутия радост от малки серии от независими творци. Поставяйте на пауза по всяко време. Заменяйте каквото искате. Запазвайте това, което обичате.',
   'landing.nav.start': 'Започнете вашата кутия',
   'landing.tiers.eyebrow': 'Изберете си каданс',
   'landing.tiers.heading':
@@ -118,6 +157,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Влезте, за да видите кутията за следващия месец.',
   'login.welcomeBack': 'Добре дошъл отново, кураторе.',
   'nextBoxHeroCard.eyebrow': 'СЛЕДВАЩОТО ВИ НАХОДСТВО',
+  'nextBoxHeroCard.itemCount': '{{count}} артикула вътре',
   'nextBoxHeroCard.itemsLabel': 'Курирани артикули',
   'nextBoxHeroCard.shipsOnLabel': 'Доставка на',
   'notFound.body':
@@ -142,8 +182,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Пауза на абонамента',
   'settings.danger.paused': 'Абонаментът е поставен на пауза.',
   'settings.danger.pausing': 'Пауза…',
+  'settings.danger.status': 'Статус на абонамента: {{status}}',
   'settings.danger.subtitle':
     'Паузирането запазва вашето ниво и история непокътнати. Анулирането спира бъдещите доставки и премахва съхранените ви методи на плащане в края на цикъла.',
+  'settings.notifications.saving': '· запазване…',
   'settings.notifications.subtitle':
     'Изберете кои сигнали искате от Crate. Настройките по подразбиране са разумни.',
   'settings.subtitle':
@@ -159,11 +201,17 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Все още няма активна доставка',
   'shipments.live.eyebrow': 'Активна пратка',
   'shipments.live.unnamed': 'Следващата ви кутия',
+  'shipments.loadError':
+    'Не успяхме да заредим пратките ви. Проверете връзката си и опитайте отново.',
+  'shipments.loading': 'Зареждане на пратки…',
+  'shipments.step.delivered': 'Доставено',
   'shipments.step.deliveredBody': 'Тагвайте #crateunbox, за да споделите какво откривате.',
   'shipments.step.ordered': 'Поръчката е направена',
   'shipments.step.orderedBody':
     'Вашият абонамент постави това издание в опашка за следващия цикъл на доставка.',
+  'shipments.step.packed': 'Опаковано на ръка',
   'shipments.step.packedBody': 'Всяко парче е опаковано и прибрано в кутията с ръкописна бележка.',
+  'shipments.step.transit': 'На път',
   'shipments.step.transitNot':
     'Проследяването ще се покаже тук, след като кутията ви е в процес на транспортиране.',
   'shipments.subtitle':

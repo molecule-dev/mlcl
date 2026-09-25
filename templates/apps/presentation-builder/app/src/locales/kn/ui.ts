@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರಶ್ನೆಗಳು, ಪ್ರತಿಕ್ರಿಯೆ, ಅಥವಾ ನಾವು ಹೊಂದಿರಬೇಕೆಂದು ನೀವು ಬಯಸುವ ವೈಶಿಷ್ಟ್ಯವೇ? ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ತಂಡವನ್ನು ಸಂಪರ್ಕಿಸಿ — ಪ್ರತಿ ಸಂದೇಶವನ್ನೂ ಒಬ್ಬ ನಿಜವಾದ ವ್ಯಕ್ತಿ ಓದುತ್ತಾರೆ.',
   'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
+  'about.whatYouGetTitle': 'ನೀವು ಏನು ಪಡೆಯುತ್ತೀರಿ',
   'analytics.empty': 'ಇಲ್ಲಿ ವಿಶ್ಲೇಷಣೆಗಳನ್ನು ನೋಡಲು ಡೆಕ್‌ಗಳನ್ನು ರಚಿಸಿ.',
   'analytics.stats.acrossDecks': 'ಎಲ್ಲಾ ಡೆಕ್‌ಗಳಾದ್ಯಂತ',
   'analytics.stats.allTime': 'ನಿಮ್ಮ ಸ್ಟುಡಿಯೋದಲ್ಲಿ',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'ಡೆಕ್ ಶೀರ್ಷಿಕೆ',
   'landing.features.eyebrow': 'ಓವರ್ಚರ್ ಏಕೆ?',
   'landing.features.heading': 'ವೇದಿಕೆ ಏರಲು ಬೇಕಾದ ಎಲ್ಲವೂ ಸಿದ್ಧವಾಗಿದೆ.',
+  'landing.finalCta.body':
+    'ಒಂದು ನಿಮಿಷದೊಳಗೆ ನಿಮ್ಮ ಸ್ಟುಡಿಯೋ ಪ್ರಾರಂಭಿಸಿ. ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಬೇಡ. ಯಾವಾಗ ಬೇಕಾದರೂ ರದ್ದುಮಾಡಿ.',
   'landing.finalCta.cta': 'ನಿಮ್ಮ ಉಚಿತ ಸ್ಟುಡಿಯೋವನ್ನು ರಚಿಸಿ',
   'landing.finalCta.eyebrow': 'ಪ್ರಾರಂಭಿಸಲು ಉಚಿತ',
   'landing.finalCta.heading': 'ನಿಮ್ಮ ವೃತ್ತಿಜೀವನದ ಅತ್ಯುತ್ತಮ ಡೆಕ್‌ನೊಂದಿಗೆ ವೇದಿಕೆಯ ಮೇಲೆ ಹೆಜ್ಜೆ ಹಾಕಿ.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 ನಿಮಿಷಗಳ ಹಿಂದೆ ಸಂಪಾದಿಸಲಾಗಿದೆ',
   'notifications.created': 'ಸೃಷ್ಟಿಸಲಾಗಿದೆ',
   'notifications.edited': 'ಸಂಪಾದಿಸಲಾಗಿದೆ',
+  'notifications.empty.body':
+    'ನಿಮ್ಮ ಡೆಕ್ಗಳಲ್ಲಿನ ಚಟುವಟಿಕೆ — ಕಾಮೆಂಟ್ಗಳು, ಉಲ್ಲೇಖಗಳು, ರಫ್ತುಗಳು — ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ.',
   'notifications.empty.title': 'ಇನ್ನೂ ಯಾವುದೇ ಅಧಿಸೂಚನೆಗಳಿಲ್ಲ.',
   'notifications.eyebrow': 'ರಂಗ ಚಟುವಟಿಕೆ',
   'notifications.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'notifications.shared': 'ಸಾರ್ವಜನಿಕವಾಗಿ ಹಂಚಿಕೊಳ್ಳಲಾಗಿದೆ',
+  'planUpdated.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
+  'planUpdated.verifyFailed': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ನಮಗೆ ಇನ್ನೂ ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'planUpdated.verifyFailedBody':
+    'ನಿಮ್ಮ ಪಾವತಿ ಇನ್ನೂ ಪ್ರಕ್ರಿಯೆಗೊಳ್ಳುತ್ತಿರಬಹುದು. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'present.addSlides': 'ಸ್ಲೈಡ್‌ಗಳನ್ನು ಸೇರಿಸಿ',
   'present.backToDecks': 'ಡೆಕ್‌ಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'ರಂಗ ಪ್ರದರ್ಶಕ',
   'settings.security.notSet': 'ಹೊಂದಿಸಿಲ್ಲ',
   'settings.security.passwordBody': 'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ವಿಶ್ರಾಂತಿಯಲ್ಲಿ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗಿದೆ.',
+  'settings.security.reset': 'ಮರುಹೊಂದಿಸಿ',
   'settings.security.title': 'ಖಾತೆ + ಅವಧಿಗಳು',
   'shared.empty.body':
     'ನೀವು ಸಾರ್ವಜನಿಕವಾಗಿ ಹಂಚಿಕೊಳ್ಳುವ ಡೆಕ್‌ಗಳು ಇಲ್ಲಿ ಗೋಚರಿಸುತ್ತವೆ. ಡೆಕ್ ತೆರೆಯಿರಿ ಮತ್ತು ಹಂಚಿಕೊಳ್ಳಲು ಸಾರ್ವಜನಿಕವನ್ನು ಟಾಗಲ್ ಮಾಡಿ.',
@@ -130,6 +143,12 @@ export const ui: UiTranslations = {
   'shared.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'shared.title': 'ಹಂಚಿದ ಡೆಕ್‌ಗಳು',
   'templateCard.slideCount': '{{count}} ಸ್ಲೈಡ್‌ಗಳು',
+  'templateCard.usageCount': '{{count}} ಬಳಸುತ್ತದೆ',
+  'templates.empty.body':
+    'ಬೇರೆ ಫಿಲ್ಟರ್ ಪ್ರಯತ್ನಿಸಿ — ನಾವು ಪ್ರತಿ ತಿಂಗಳು ಹೊಸ ಟೆಂಪ್ಲೇಟ್ಗಳನ್ನು ಬಿಡುಗಡೆ ಮಾಡುತ್ತೇವೆ.',
+  'templates.empty.title': 'ಈ ವರ್ಗದಲ್ಲಿ ಇನ್ನೂ ಟೆಂಪ್ಲೇಟ್ಗಳಿಲ್ಲ',
+  'templates.hero.body':
+    'ಚಾರ್ಟ್ ಬ್ಲಾಕ್ಗಳು, ಡೆಮೊ ಫ್ರೇಮ್ಗಳು, ಪ್ರಸ್ತುತಪಡಿಸುವವರ ಟಿಪ್ಪಣಿಗಳು ಮತ್ತು ಟೈಮರ್ ಪ್ರೀಸೆಟ್ಗಳೊಂದಿಗೆ ಪೂರ್ವ-ಥೀಮ್ ಮಾಡಿದ ಸ್ಲೈಡ್ ಲೇಔಟ್ಗಳು — ಪ್ರತಿ ಟೆಂಪ್ಲೇಟ್ ರೆಕಾರ್ಡ್ ಮಾಡಲು ಸಿದ್ಧವಾಗಿ ಬರುತ್ತದೆ.',
   'templates.hero.eyebrow': 'ಕ್ಯುರೇಟೆಡ್ ಹಂತಗಳು',
   'templates.hero.heading': 'ನೀವು ಅದನ್ನು ಇಳಿಸಬೇಕಾದ ಕ್ಷಣಕ್ಕೆ ನಿರ್ಮಿಸಲಾದ ಹಂತಗಳು.',
 }

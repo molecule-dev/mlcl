@@ -1,9 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tes comentarios, suxestións de funcións ou atopaches un erro? Lemos todas as mensaxes — escríbenos cando queiras e unha persoa real do equipo responderache.',
   'about.contactTitle': 'Ponte en contacto',
+  'about.intro':
+    '{{app}} é un rexistrador de sono reparador que converte cada noite en información clara e accionable. Conéctase co teu wearable para rexistrar cada fase do teu sono, avaliar a túa recuperación e espertarte no momento axeitado do teu ciclo — para que poidas construír noites que realmente te deixen descansado.',
+  'about.missionBody':
+    'A maioría das aplicacións de sono quedan nun número nun panel. Cremos que durmir mellor vén de entender o porqué detrás da puntuación e logo cambiar unha pequena cousa cada vez. {{app}} está deseñada para ser tranquila, nunca ruidosa — amosa o que importa dos teus datos e mantense fóra do teu camiño o resto da noite.',
+  'about.missionTitle': 'A nosa misión',
   'about.pageTitle': 'Acerca de {{app}}',
+  'about.whatYouGetTitle': 'O que obtés',
+  'authShell.privacyBadge': 'As túas noites son privadas — cifradas en repouso.',
+  'authShell.tagline': '{{app}} — {{tagline}}',
   'coaching.activeBanner.continue': 'Ler artigo',
+  'coaching.activeBanner.eyebrow': 'Artigo destacado',
   'coaching.empty.body': 'Os novos programas aparecerán aquí a medida que se vaian engadindo.',
   'coaching.empty.title': 'Aínda non hai artigos de adestramento',
   'coaching.eyebrow': 'Adestramento',
@@ -15,6 +26,7 @@ export const ui: UiTranslations = {
   'coachingDetail.backLink': 'Todos os artigos',
   'coachingDetail.eyebrow': 'Artigo',
   'coachingDetail.locked.body': 'Actualiza o teu plan para ler este e outros artigos premium.',
+  'coachingDetail.locked.cta': 'Plan de actualización',
   'coachingDetail.locked.title': 'Este artigo é premium',
   'coachingDetail.notFound': 'Non puidemos atopar este artigo.',
   'coachingDetail.unavailable': 'Artigo non dispoñible',
@@ -22,6 +34,7 @@ export const ui: UiTranslations = {
   'dashboard.empty.body':
     'Rexistra unha noite ou conecta un dispositivo portátil para comezar a ver os teus patróns de sono.',
   'dashboard.empty.cta': 'Conecta un dispositivo portátil',
+  'dashboard.empty.title': 'Aínda non hai noites rexistradas',
   'dashboard.eyebrow': 'Esta noite',
   'dashboard.heroInsight':
     'Fai un seguimento doutra noite para detectar tendencias de sono profundo.',
@@ -42,13 +55,19 @@ export const ui: UiTranslations = {
   'devices.loading': 'Cargando dispositivos…',
   'devices.pauseAria': 'Pausa {{brand}}',
   'devices.providerField': 'Provedor',
+  'devices.resumeAria': 'Retomar {{brand}}',
   'devices.synced': 'Sincronizado {{value}}',
+  'devices.unlink': 'Desvincular',
   'devices.unlinkAria': 'Desvincular {{brand}}',
+  'forgotPassword.continueButton': 'Introduce o código de restablecemento',
   'forgotPassword.eyebrow': 'Sen preocupacións',
   'forgotPassword.subheading':
     'Introduce o teu correo electrónico e enviarémosche unha ligazón de restablecemento.',
   'forgotPassword.successBody':
     'Se existe unha conta para {{email}} , unha ligazón de restablecemento está en camiño.',
+  'landing.ctaBody':
+    'Gratis para o rexistro nocturno. Pro desbloquea programas de adestramento, exportacións e compartición familiar.',
+  'landing.ctaButton': 'Fai un seguimento da túa primeira noite',
   'landing.ctaTitle': 'Esta noite son datos. Mañá é recuperación.',
   'landing.eyebrow': 'Sono, descodificado',
   'landing.featuresBody':
@@ -66,16 +85,25 @@ export const ui: UiTranslations = {
   'login.heading': 'Iniciar sesión en Somnia',
   'login.rememberMe': 'Manter a sesión iniciada',
   'login.signupLink': 'Comeza o seguimento esta noite',
+  'login.signupPrompt': 'Novo en Tessera?',
   'login.subheading': 'Retoma as túas noites xusto onde as deixaches.',
   'logNight.bedtimeField': 'Hora de durmir',
   'logNight.dateField': 'Noite de',
+  'logNight.errors.missingFields':
+    'A data, a hora de deitarse e a hora de espertar son obrigatorias.',
+  'logNight.errors.noRecord': 'A noite gardouse pero o servidor non devolveu ningún rexistro.',
+  'logNight.errors.saveFailed': 'Non se puido gardar a noite — téntao de novo.',
+  'logNight.errors.zeroLength': 'A hora de espertar debe ser diferente da hora de deitarse.',
+  'logNight.factorsField': 'Factores',
   'logNight.interruptionsField': 'Despertar durante a noite',
   'logNight.notesField': 'Notas (opcional)',
+  'logNight.qualityField': 'Que reparador foi? ({{score}}/100)',
   'logNight.save': 'Gardar noite',
   'logNight.title': 'Rexistrar unha noite',
   'logNight.wakeField': 'Hora de espertar',
   'night.backLink': 'De volta á historia',
   'night.eyebrow': 'Unha soa noite',
+  'night.factorsTitle': 'Factores rexistrados',
   'night.heroInsight': 'Toca unha etapa na liña de tempo para mergullarte nela.',
   'night.loading': 'Cargando detalles da noite…',
   'night.notFound.body': 'Non temos un rexistro de sono para esta data.',
@@ -86,6 +114,7 @@ export const ui: UiTranslations = {
   'nightHistory.count': 'Mostrando {{count}} noites',
   'nightHistory.empty.body':
     'Rexistra unha sesión de sono ou conecta un dispositivo portátil para completar o teu historial.',
+  'nightHistory.empty.title': 'Aínda non hai noites rexistradas',
   'nightHistory.heading': 'Todas as noites que rastrexaches',
   'nightHistory.loading': 'Cargando noites…',
   'nightHistory.logNight': 'Rexistrar unha noite',
@@ -94,6 +123,7 @@ export const ui: UiTranslations = {
   'nightHistoryRow.hourSuffix': 'hora',
   'nightHistoryRow.minSuffix': 'min',
   'nightHistoryRow.rem': '{{pct}} % REM',
+  'nightHistoryRow.scoreAria': 'Puntuación {{score}}',
   'notifications.emptyBody':
     'Aquí chegarán novas actividades, recordatorios de alarmas e consellos prácticos.',
   'notifications.emptyHeading': 'Estás ao día',
@@ -105,9 +135,16 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'A túa identidade no sono',
   'profile.locked': 'Bloqueado',
   'recoveryRingsTriad.deepCaption': 'Obxectivo {{goal}} % da noite',
+  'recoveryRingsTriad.deepLabel': 'Sono profundo',
+  'recoveryRingsTriad.deepValue': '{{pct}} %',
   'recoveryRingsTriad.durationCaption': 'Obxectivo {{goal}} h/noite',
+  'recoveryRingsTriad.durationValue': '{{hours}}h',
+  'recoveryRingsTriad.heartCaption': 'Línea base {{baseline}} bpm',
+  'recoveryRingsTriad.heartLabel': 'FC en repouso',
+  'recoveryRingsTriad.heartValue': '{{bpm}} bpm',
   'resetPassword.eyebrow': 'Un novo comezo',
   'resetPassword.mismatchError': 'Os contrasinais non coinciden.',
+  'resetPassword.passwordLabel': 'Novo contrasinal',
   'resetPassword.subheading': 'Escolle algo tranquilo: polo menos 12 caracteres.',
   'resetPassword.tokenPlaceholder': 'Restablecer o código do correo electrónico',
   'settings.bedtimeGoal': 'Hora de durmir',
@@ -115,15 +152,21 @@ export const ui: UiTranslations = {
     'Un pequeno empurrón 30 minutos antes da túa hora de ir para a cama.',
   'settings.bedtimeReminder.label': 'Recordatorio da hora de durmir',
   'settings.durationGoal': 'Obxectivo de duración (horas)',
+  'settings.exportDelete.description':
+    'Obtén un CSV de cada noite ou elimina a túa conta permanentemente.',
   'settings.exportDelete.label': 'Exportar ou eliminar os teus datos',
   'settings.goalsCaption': 'Dille a Somnia o ben que che parece.',
   'settings.goalsTitle': 'Obxectivos de sono',
+  'settings.shareDevices.description':
+    'Anonimizado, opcional. Podes deixar de compartir cando queiras.',
   'settings.shareDevices.label': 'Compartir datos do dispositivo con investigadores',
   'settings.smartAlarm.description':
     'Desperta nunha xanela de sono lixeiro antes da hora do despertador.',
+  'settings.smartAlarm.label': 'Alarma intelixente',
   'settings.wakeGoal': 'Hora de espertar',
   'settings.weeklyReport.description':
     'Resumo da mañá do domingo con duración, puntuación e noites destacadas.',
+  'settings.weeklyReport.label': 'Correo de resumo semanal',
   'signup.eyebrow': 'Comeza esta noite',
   'signup.firstNamePlaceholder': 'Sam',
   'signup.lastNamePlaceholder': 'Durmiente',
@@ -132,6 +175,7 @@ export const ui: UiTranslations = {
   'sleepScoreHeroCard.duration': '{{hours}} h {{mins}} m',
   'sleepScoreHeroCard.outOf': '/ 100',
   'sleepScoreHeroCard.title': 'Onte á noite',
+  'sleepStagesTimeline.ariaLabel': 'Cronoloxía das fases do sono',
   'sleepStagesTimeline.title': 'Hipnograma',
   'sleepTrackerLayout.closeMenu': 'Pechar o menú de navegación',
   'sleepTrackerLayout.openMenu': 'Abrir menú de navegación',
@@ -144,6 +188,7 @@ export const ui: UiTranslations = {
   'sleepTrendChart.title': 'Tendencia da duración',
   'smartAlarm.addAlarm': 'Nova alarma',
   'smartAlarm.daysField': 'Días',
+  'smartAlarm.deleteAria': 'Eliminar alarma {{label}}',
   'smartAlarm.emptyBody':
     'Engade unha hora de espertar para comezar a sincronización cos teus ciclos de sono.',
   'smartAlarm.emptyHeading': 'Aínda non hai alarmas',
@@ -151,7 +196,10 @@ export const ui: UiTranslations = {
   'smartAlarm.eyebrow': 'Despertar intelixente',
   'smartAlarm.heading': 'Desperta no momento adecuado',
   'smartAlarm.labelField': 'Etiqueta',
+  'smartAlarm.loading': 'Cargando alarmas…',
   'smartAlarm.newDialog': 'Nova alarma',
+  'smartAlarm.noAlarmsSubtitle':
+    'Engade unha alarma para obter unha xanela de espertar intelixente.',
   'smartAlarm.save': 'Gardar alarma',
   'smartAlarm.soundField': 'Son',
   'smartAlarm.soundsCaption': 'Escolle un ton de espertar para as novas alarmas',
@@ -170,6 +218,7 @@ export const ui: UiTranslations = {
   'trends.eyebrow': 'Patróns',
   'trends.heading': 'Como está a ser tendencia o teu sono',
   'trends.stageBreakdown.caption': 'Repartición media entre {{hours}} h',
+  'trends.stageBreakdown.minutes': '{{minutes}}m',
   'trends.stageBreakdown.title': 'Desglose da etapa',
   'trends.summary.avgDuration': 'Duración media',
   'trends.summary.avgScore': 'Puntuación media',

@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ചോദ്യങ്ങളോ ഫീഡ്ബാക്കോ നിങ്ങൾ ആഗ്രഹിക്കുന്ന ഒരു ഫീച്ചറോ ഉണ്ടോ? നിങ്ങളുടെ അക്കൗണ്ട് സെറ്റിംഗ്സിൽ നിന്ന് ടീമിനെ ബന്ധപ്പെടുക — ഓരോ സന്ദേശവും ഒരു യഥാർത്ഥ വ്യക്തി വായിക്കുന്നു.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'about.whatYouGetTitle': 'നിങ്ങൾക്ക് ലഭിക്കുന്നത്',
   'analytics.empty': 'ഇവിടെ അനലിറ്റിക്സ് കാണാൻ ഡെക്കുകൾ സൃഷ്ടിക്കുക.',
   'analytics.stats.acrossDecks': 'എല്ലാ ഡെക്കുകളിലും',
   'analytics.stats.allTime': 'നിങ്ങളുടെ സ്റ്റുഡിയോയിൽ',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'ഡെക്ക് ശീർഷകം',
   'landing.features.eyebrow': 'എന്തിനാണ് ഓവർച്ചർ',
   'landing.features.heading': 'സ്റ്റേജിൽ കയറാൻ വേണ്ടതെല്ലാം തയ്യാറാണ്.',
+  'landing.finalCta.body':
+    'ഒരു മിനിറ്റിനുള്ളിൽ നിങ്ങളുടെ സ്റ്റുഡിയോ ആരംഭിക്കുക. ക്രെഡിറ്റ് കാർഡ് വേണ്ട. എപ്പോൾ വേണമെങ്കിലും റദ്ദാക്കാം.',
   'landing.finalCta.cta': 'നിങ്ങളുടെ സൗജന്യ സ്റ്റുഡിയോ സൃഷ്ടിക്കുക',
   'landing.finalCta.eyebrow': 'ആരംഭിക്കാൻ സൌജന്യമാണ്',
   'landing.finalCta.heading': 'നിങ്ങളുടെ കരിയറിലെ ഏറ്റവും മികച്ച ഡെക്കുമായി വേദിയിലേക്ക് കയറൂ.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 മിനിറ്റ് മുമ്പ് എഡിറ്റ് ചെയ്തു',
   'notifications.created': 'സൃഷ്ടിച്ചു',
   'notifications.edited': 'എഡിറ്റ് ചെയ്തത്',
+  'notifications.empty.body':
+    'നിങ്ങളുടെ ഡെക്കുകളിലെ പ്രവർത്തനങ്ങൾ — കമന്റുകൾ, മെൻഷനുകൾ, എക്സ്പോർട്ടുകൾ — ഇവിടെ കാണാം.',
   'notifications.empty.title': 'ഇതുവരെ അറിയിപ്പുകളൊന്നുമില്ല',
   'notifications.eyebrow': 'സ്റ്റേജ് പ്രവർത്തനം',
   'notifications.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'notifications.shared': 'പൊതുവായി പങ്കിട്ടു',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'present.addSlides': 'സ്ലൈഡുകൾ ചേർക്കുക',
   'present.backToDecks': 'ഡെക്കുകളിലേക്ക് മടങ്ങുക',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.security.notSet': 'സജ്ജീകരിച്ചിട്ടില്ല',
   'settings.security.passwordBody':
     'നിങ്ങളുടെ പാസ്‌വേഡ് വിശ്രമവേളയിൽ എൻക്രിപ്റ്റ് ചെയ്തിരിക്കുന്നു.',
+  'settings.security.reset': 'റീസെറ്റ്',
   'settings.security.title': 'അക്കൗണ്ട് + സെഷനുകൾ',
   'shared.empty.body':
     'നിങ്ങൾ പൊതുവായി പങ്കിടുന്ന ഡെക്കുകൾ ഇവിടെ ദൃശ്യമാകും. ഒരു ഡെക്ക് തുറന്ന് പങ്കിടാൻ പബ്ലിക് ടോഗിൾ ചെയ്യുക.',
@@ -131,6 +144,12 @@ export const ui: UiTranslations = {
   'shared.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'shared.title': 'പങ്കിട്ട ഡെക്കുകൾ',
   'templateCard.slideCount': '{{count}} സ്ലൈഡുകൾ',
+  'templateCard.usageCount': '{{count}} ഉപയോഗങ്ങൾ',
+  'templates.empty.body':
+    'മറ്റൊരു ഫിൽട്ടർ പരീക്ഷിക്കുക — ഞങ്ങൾ എല്ലാ മാസവും പുതിയ ടെംപ്ലേറ്റുകൾ പുറത്തിറക്കുന്നു.',
+  'templates.empty.title': 'ഈ വിഭാഗത്തിൽ ഇതുവരെ ടെംപ്ലേറ്റുകളില്ല',
+  'templates.hero.body':
+    'ചാർട്ട് ബ്ലോക്കുകൾ, ഡെമോ ഫ്രെയിമുകൾ, പ്രസന്റർ കുറിപ്പുകൾ, ടൈമർ പ്രീസെറ്റുകൾ എന്നിവയുള്ള പ്രീ-തീം ചെയ്ത സ്ലൈഡ് ലേഔട്ടുകൾ — ഓരോ ടെംപ്ലേറ്റും റെക്കോർഡ് ചെയ്യാൻ തയ്യാറാണ്.',
   'templates.hero.eyebrow': 'ക്യുറേറ്റ് ചെയ്‌ത ഘട്ടങ്ങൾ',
   'templates.hero.heading': 'നിങ്ങൾക്ക് ലാൻഡ് ചെയ്യേണ്ട നിമിഷത്തിനായി നിർമ്മിച്ച ഘട്ടങ്ങൾ.',
 }

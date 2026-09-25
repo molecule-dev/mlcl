@@ -1,20 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ertu með endurgjöf, fannst þú villu eða vilt þú stinga upp á eiginleika? Hafðu samband í stillingum reikningsins — hver skilaboð fara til alvöru manneskju í teyminu.',
+  'about.contactTitle': 'Hafðu samband við okkur',
+  'about.featureDatabases':
+    'Léttvæg gagnagrunnar og endurnýtanleg sniðmát til að breyta lausum minnispunktum í skipulögð, endurtakanleg vinnuferli.',
+  'about.featureEditor':
+    'Hljóðlátur blokkaritill — fyrirsagnir, listar, kóði, kallar og verkefnalistar — með skástrikkskipunum þegar þú vilt þau og úr vegi þegar þú vilt þau ekki.',
+  'about.featureGraph':
+    'Tenglar til baka og þekkingargraf: skrifaðu [[ til að tengja minnispunkt og fylgstu með því hvernig hugmyndir þínar tengjast með tímanum.',
+  'about.featureNotebooks':
+    'Fellin stílabækur og síður svo verkefni, efni og daglegir minnispunktar haldist skipulögð nákvæmlega eins og þú hugsar.',
+  'about.featureSearch':
+    'Fulltextaleit undir 50 ms í hverri stílabók, auk merkja sem vinna með stílabókum í stað þess að vinna gegn þeim.',
+  'about.missionTitle': 'Markmið okkar',
   'common.goToDashboard': 'Fara á yfirlit',
   'forgot.eyebrow': 'Týndist leiðin til baka inn?',
   'forgot.formSubtitle': 'Segðu okkur netfangið sem við erum með á skrá.',
+  'forgot.formTitle': 'Gleymt lykilorð',
   'forgot.headline': 'Endurstilla lykilorðið þitt.',
   'forgot.subline': 'Við sendum þér einskiptis tengil í pósthólfið þitt svo þú getir valið nýjan.',
+  'forgot.successDetail':
+    'Við sendum endurstillingartengil á netfangið þitt. Hann rennur út eftir 30 mínútur.',
   'graph.eyebrow': 'Graf',
+  'graph.goToNotes': 'Skoða minnispunkta →',
+  'graph.loadError': 'Gat ekki hlaðið grafið: {{message}}',
   'graph.placeholderBody':
     'Þegar glósur byrja að tengjast hver annarri (með [[wiki]] setningafræði), mun gagnvirkt þvingað graf birtast hér.',
+  'graph.placeholderTitle': 'Graf yfir tengla til baka kemur fljótlega',
   'graph.subtitle':
     '{{count}} Glósur í þessu vinnusvæði. Mynd af baktenglagrafi birtist hér þegar glósur tengjast hver annarri.',
   'graph.title': 'Þekkingargraf',
   'home.empty': 'Engar glósur ennþá — byrjaðu á fyrsta.',
   'home.favoritesHeading': 'Fest',
   'home.guest': 'vinur',
+  'home.loadError': 'Gat ekki hlaðið minnispunktunum þínum: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Festið athugasemd í ritlinum til að geyma hana hér.',
   'home.recentHeading': 'Nýlega uppfært',
@@ -22,18 +43,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Minnisbók',
   'home.stats.pinned.label': 'Fest',
   'home.stats.updatedToday.label': 'Uppfært í dag',
+  'home.subtitle': 'Haltu áfram þar sem þú varst, eða byrjaðu á nýjum minnispunkti.',
   'home.viewAll': 'Skoða allar glósur',
   'landing.cta.body':
     'Ókeypis til einkanota. Faglegt fyrir teymi. Nýttu núverandi afslátt eða byrjaðu upp á nýtt — Verso mætir þér hvar sem glósurnar þínar eru.',
+  'landing.cta.button': 'Búa til vinnusvæðið mitt',
   'landing.cta.heading': 'Opnaðu síðuna í dag.',
   'landing.features.eyebrow': 'Sérhver frumstæð eining sem annar heilinn þinn þarfnast',
+  'landing.features.heading': 'Smíðað fyrir verkið, ekki meta-verkið.',
   'landing.hero.eyebrow': 'Hljóðlátt skrifborð',
   'landing.hero.headlineAccent': 'taka á sig mynd.',
   'landing.hero.headlineLeading': 'Hvar hugsanir',
   'landing.hero.primaryCta': 'Byrjaðu þekkingargrunninn þinn',
   'landing.hero.secondaryCta': 'Ég er nú þegar með aðgang',
+  'landing.hero.socialProof': '12.800+ rithöfundar, nemendur og doktorsnemar hugsa með {{appName}}',
   'landing.hero.subline':
     'Verso er skipulagt glósuskrifborð fyrir þekkingarstarfsmenn og nemendur. Ritstjóri fyrir blokkir, innfelldar glósubækur, baktenglar og þekkingargraf — allt á bak við lestursupplifun sem byggir á leturfræði.',
+  'landing.preview.notebook': 'Þekking · Ritferli',
+  'landing.preview.title': 'Að láta drög anda',
   'login.eyebrow': 'Velkomin aftur til Verso',
   'login.formSubtitle': 'Notaðu tölvupóstinn þinn eða hvaða tengdan þjónustuaðila sem er.',
   'login.headline': 'Taktu upp þar sem síðan stöðvaðist.',
@@ -43,6 +70,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Loka flakkvalmynd',
   'mobileNav.openMenu': 'Opna flakkvalmynd',
   'noteEditor.backToNotes': 'Til baka í glósur',
+  'noteEditor.bodyLabel': 'Meginmál minnispunkts',
   'noteEditor.bodyPlaceholder':
     'Byrjaðu að skrifa — glósan þín vistast sjálfkrafa um leið og þú skrifar.',
   'noteEditor.confirmTrash': 'Færa þessa athugasemd í ruslið?',
@@ -51,17 +79,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Færa í ruslið',
   'noteEditor.updated': 'Uppfært',
   'notes.defaultWorkspaceName': 'Minnisbókin mín',
+  'notes.empty': 'Engir minnispunktar hér enn — byrjaðu einn til að fylla stílabókina.',
   'notes.eyebrow': 'Minnisbók',
   'notes.filterAll': 'Allar glósur',
   'notes.filterPinned': 'Fest',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Ný minnisbók',
   'notes.newNotebookPrompt': 'Nýtt nafn á minnisbók',
+  'notes.newNotebookRequired': 'Sláðu inn heiti stílabókar.',
   'notes.notebooksHeading': 'Minnisbækur',
   'notes.subtitle':
     'Veldu minnisbók vinstra megin og ýttu síðan á hnappinn Ný glósa til að byrja á nýrri færslu.',
+  'planUpdated.body': 'Áskriftin þín er nú virk.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Ítarlegri eiginleikar',
   'pricing.heading': 'Veldu glósutökuáætlun þína',
+  'reset.changedMind': 'Hugsaðir þig?',
   'reset.eyebrow': 'Næstum aftur inn',
   'reset.formSubtitle': 'Þú verður skráð(ur) inn um leið og það hefur verið vistað.',
   'reset.headline': 'Veldu nýtt lykilorð.',
@@ -71,7 +104,9 @@ export const ui: UiTranslations = {
     'Sláðu inn kóðann sem við sendum þér í tölvupósti og veldu eitthvað eftirminnilegt.',
   'reset.submit': 'Vista og skrá þig inn',
   'reset.tokenHint': 'Límt úr pósthólfinu þínu.',
+  'search.empty': 'Engir minnispunktar passa við þessa fyrirspurn enn.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Leitarbrot',
   'search.loading': 'Leitar…',
   'search.noRecent': 'Sláðu inn fyrirspurn hér að ofan til að hefja leit í glósunum þínum.',
   'search.recentLabel': 'Nýlegar leitir',
@@ -79,12 +114,19 @@ export const ui: UiTranslations = {
     'Heildartexti í öllum minnisbókum. Sláðu inn til að leita; niðurstöðurnar endurnýjast um leið og þú skrifar.',
   'search.title': 'Leitaðu í seinni heilanum.',
   'settings.account.logout': 'Skrá út',
+  'settings.account.title': 'Reikningsupplýsingar',
+  'settings.editor.graphHover.body':
+    'Sýna örsmáa forskoðunarkort þegar þú heldur músinni yfir [[wikilink]] í ritlinum.',
+  'settings.editor.graphHover.label': 'Forskoðun á graf yfir tengla til baka',
   'settings.editor.lineHeight.body':
     'Hversu mikið loft er á milli líkamslína. 170% er sjálfgefinn lestrartaktur.',
+  'settings.editor.lineHeight.label': 'Línuhæð',
   'settings.editor.serif.body':
     'Notið Georgíu fyrir lesdálkinn. Sans-serif er geymt í hliðarstikunni og verkfærastikunum.',
+  'settings.editor.serif.label': 'Serif meginmál',
   'settings.editor.title': 'Leturgerð og skrifflötur',
   'settings.eyebrow': 'Verso · Stillingar',
+  'settings.passwordModal.current': 'Núverandi lykilorð',
   'settings.passwordModal.error':
     'Gat ekki breytt lykilorðinu — vinsamlegast athugaðu núverandi lykilorð.',
   'settings.passwordModal.next': 'Nýtt lykilorð',
@@ -94,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Ýttu á hverja takka í gegnum rauntímarásina. Slökktu á þessu fyrir hægari tengingar.',
   'settings.sync.auto.label': 'Samstilling í rauntíma',
+  'settings.sync.title': 'Hvernig minnispunktarnir þínir ferðast',
   'settings.theme.body':
     'Ljós heldur ritstjórnarsúlunni björtum. Sepia-liturinn hlýjar síðunni fyrir kvöldin.',
   'settings.theme.dark': 'Dökkt',
@@ -113,8 +156,12 @@ export const ui: UiTranslations = {
     'Bættu #myllumerkjum við titil minnispunkts (t.d. "Leslisti #bækur") og þau birtast sjálfkrafa hér.',
   'tags.emptyTitle': 'Engin merki ennþá',
   'tags.eyebrow': 'Vísitala',
+  'tags.goToNotes': 'Fara í minnispunkta →',
+  'tags.loadError': 'Gat ekki hlaðið merkjum: {{message}}',
   'tags.subtitle':
     '{{tags}} merki yfir {{notes}} glósur. Bættu #myllumerkjum við titil glósu og þau birtast hér.',
+  'versoAuthShell.sample.body':
+    'Önnur yfirferð á morgun les alltaf betur en fyrsta yfirferð í kvöld. Settu grófu útgáfuna í djúpvinnslumöppuna…',
   'versoAuthShell.sample.label': 'Dagleg athugasemd',
   'versoAuthShell.sample.timestamp': 'Í dag · 9:14',
   'versoAuthShell.sample.title': 'Að láta drög anda',
@@ -126,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Haltu áfram að skrifa',
   'versoTodayHero.createCta': 'Byrjaðu glósuna í dag',
   'versoTodayHero.dailyLabel': 'Dagleg athugasemd',
+  'versoTodayHero.emptyHeadline': 'Í dag er auð síða.',
   'versoTodayHero.emptySubline':
     'Skráðu hugsun, skrifaðu niður fund eða teiknaðu upp morgundaginn. Verso heldur uppbyggingunni hljóðlátri svo textinn haldist hávær.',
+  'versoTodayHero.outlineLabel': 'Dagskrá dagsins',
   'versoTodayHero.streak': '{{count}} -dagsröð',
+  'versoTodayHero.unwritten': 'Engin orð enn — opnaðu minnispunktinn til að byrja.',
   'versoTodayHero.wordCount': '{{count}} orð í dag',
 }

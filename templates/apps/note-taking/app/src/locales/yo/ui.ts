@@ -1,20 +1,40 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ṣé ẹ̀dùn ọkàn wa, ṣàwárí àṣìṣe, tàbí o fẹ́ dábàá ẹ̀yà kan? Kàn sí wa láti ètò àkọsílẹ̀ rẹ — gbogbo ìṣẹ́ ni ó ń lọ sí ọwọ́ ènìyàn gidi nínú ẹgbẹ́ wa.',
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
+  'about.featureDatabases':
+    'Àwọn ibi ìpamọ́ ìwúwo fúyẹ́ àti àwọn àwòṣe tí a lè tún lò láti yí àwọn àkọsílẹ̀ tí kò tíì ṣètò padà sí àwọn ìlànà iṣẹ́ tí ó ní ìtòlẹ́sẹẹsẹ tí a sì lè tún ṣe.',
+  'about.featureEditor':
+    'Olùṣàtúnṣe àkọsílẹ̀ tí ó dákẹ́ — àwọn àkọlé, àwọn àkọsílẹ̀, kóòdù, àwọn ìkìlọ̀, àti àwọn iṣẹ́ tí a ó ṣe — pẹ̀lú àwọn àṣẹ slash nígbà tí o bá fẹ́ wọn, tí wọn kò sì sí ní ọ̀nà nígbà tí o kò fẹ́ wọn.',
+  'about.featureGraph':
+    'Àwọn ìsopọ̀ padà àti àwòrán ìmọ̀: tẹ [[ láti so àkọsílẹ̀ kan pọ̀ kí o sì wo bí àwọn èrò rẹ ṣe ń sopọ̀ bí àkókò ti ń lọ.',
+  'about.featureNotebooks':
+    'Àwọn ìwé àkọsílẹ̀ àti àwọn ojú-ìwé tí a tò pọ̀ kí àwọn iṣẹ́, àwọn kókó, àti àwọn àkọsílẹ̀ ojoojúmọ́ lè wà ní ìtòlẹ́sẹẹsẹ gan-an bí o ṣe ń ronú.',
+  'about.featureSearch':
+    'Ìwádìí kíkún nínú kókó-ọ̀rọ̀ tí ó kéré ju 50ms kọjá gbogbo ìwé àkọsílẹ̀, pẹ̀lú àwọn àmì tí ó ń bá àwọn ìwé àkọsílẹ̀ ṣiṣẹ́ pọ̀ dípò kí wọ́n dojú kọ wọ́n.',
+  'about.missionTitle': 'Iṣẹ́ àwa',
   'common.goToDashboard': 'Lọ sí Dashiboodu',
   'forgot.eyebrow': 'Ṣe o padanu ọna lati pada wọle?',
   'forgot.formSubtitle': 'Sọ fún wa ní ìmeeli tó wà lórí fáìlì.',
+  'forgot.formTitle': 'Gbagbe ọrọ aṣina bi',
   'forgot.headline': 'Tun ọrọ igbaniwọle rẹ ṣe.',
   'forgot.subline': 'A ó fi ìjápọ̀ kan ránṣẹ́ sí àpótí ìforúkọsílẹ̀ rẹ kí o lè yan èyí tuntun.',
+  'forgot.successDetail': 'A fi ìsopọ̀ ìtúnṣe ránṣẹ́ sí ímeèlì rẹ. Yóò parí ní ọgbọ̀n ìṣẹ́jú.',
   'graph.eyebrow': 'Àwòrán',
+  'graph.goToNotes': 'Ṣàwárí àwọn àkọsílẹ̀ →',
+  'graph.loadError': 'Kò lè gbé àwòrán náà wọlé: {{message}}',
   'graph.placeholderBody':
     'Nígbà tí àwọn àkọsílẹ̀ bá bẹ̀rẹ̀ sí í so ara wọn pọ̀ (pẹ̀lú ìkọ̀wé [[wiki]]), àwòrán tí a fi agbára ṣe àkóso yóò hàn níbí.',
+  'graph.placeholderTitle': 'Àwòrán ìsopọ̀ padà ń bọ̀ láìpẹ́',
   'graph.subtitle':
     '{{count}} Àwọn àkọsílẹ̀ nínú ibi iṣẹ́ yìí. Àwòrán àwòrán ẹ̀yìn yóò fara hàn níbí nígbà tí àwọn àkọsílẹ̀ bá so pọ̀ mọ́ ara wọn.',
   'graph.title': 'Àwòrán ìmọ̀',
   'home.empty': 'Kò sí àkọsílẹ̀ kankan síbẹ̀ — bẹ̀rẹ̀ èyí àkọ́kọ́ rẹ.',
   'home.favoritesHeading': 'Ti so mọ́lẹ̀',
   'home.guest': 'ọ̀rẹ́',
+  'home.loadError': 'Kò lè gbé àwọn àkọsílẹ̀ rẹ wọlé: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Fi àkọsílẹ̀ kan sí inú olóòtú láti fi pamọ́ síbí.',
   'home.recentHeading': 'Àtúnṣe tuntun',
@@ -22,18 +42,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Ìwé Àkójọ',
   'home.stats.pinned.label': 'Ti so mọ́lẹ̀',
   'home.stats.updatedToday.label': 'Àtúnṣe lónìí',
+  'home.subtitle': 'Bẹ̀rẹ̀ láti ibi tí o ti dáwọ́ dúró, tàbí bẹ̀rẹ̀ àkọsílẹ̀ tuntun.',
   'home.viewAll': 'Wo gbogbo awọn akọsilẹ',
   'landing.cta.body':
     'Ọfẹ́ fún lílo ara ẹni. Ọ̀jọ̀gbọ́n fún àwọn ẹgbẹ́. Mú àmì ìdámọ̀ rẹ wá tàbí bẹ̀rẹ̀ ní tuntun — Verso pàdé rẹ níbikíbi tí àwọn àkọsílẹ̀ rẹ bá wà.',
+  'landing.cta.button': 'Ṣẹ̀dá ibi iṣẹ́ mi',
   'landing.cta.heading': 'Ṣí ojú ìwé òní.',
   'landing.features.eyebrow': 'Gbogbo ipilẹsẹ ọpọlọ keji rẹ nilo',
+  'landing.features.heading': 'A ṣe é fún iṣẹ́ náà, kìí ṣe iṣẹ́-àwòrán.',
   'landing.hero.eyebrow': 'Ibùdó ìkọ̀wé tó dákẹ́jẹ́ẹ́',
   'landing.hero.headlineAccent': 'mú ìrísí.',
   'landing.hero.headlineLeading': 'Ibi tí àwọn èrò wà',
   'landing.hero.primaryCta': 'Bẹ̀rẹ̀ ìpìlẹ̀ ìmọ̀ rẹ',
   'landing.hero.secondaryCta': 'Mo ti ni akọọlẹ kan tẹlẹ',
+  'landing.hero.socialProof': '12,800+ òǹkọ̀wé, akẹ́kọ̀ọ́, àti àwọn PhD ń ronú pẹ̀lú {{appName}}',
   'landing.hero.subline':
     'Verso jẹ́ ojú ìwé àkọsílẹ̀ tí a ṣètò fún àwọn òṣìṣẹ́ ìmọ̀ àti àwọn akẹ́kọ̀ọ́. Olóòtú Àkọsílẹ̀, àwọn ìwé àkọsílẹ̀ tí a kó jọ, àwọn ìjápọ̀, àti àwòrán ìmọ̀ — gbogbo wọn wà lẹ́yìn ìrírí kíkà àkọ́kọ́.',
+  'landing.preview.notebook': 'Ìmọ̀ · Ìlànà kíkọ',
+  'landing.preview.title': 'Nígbà tí a bá jẹ́ kí àwọn ìfọ́lẹ̀ mí',
   'login.eyebrow': 'Kaabọ pada si Verso',
   'login.formSubtitle': 'Lo imeeli rẹ tabi olupese ti o sopọ mọ eyikeyi.',
   'login.headline': 'Gbé ibi tí ojú ìwé náà dúró sí.',
@@ -43,6 +69,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
   'mobileNav.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'noteEditor.backToNotes': 'Pada si awọn akọsilẹ',
+  'noteEditor.bodyLabel': 'Ara àkọsílẹ̀',
   'noteEditor.bodyPlaceholder':
     'Bẹ̀rẹ̀ sí í kọ — àkọsílẹ̀ rẹ yóò máa fipamọ́ láìfọwọ́kọ bí o ṣe ń tẹ̀ ẹ́.',
   'noteEditor.confirmTrash': 'Ṣé o lè gbé àkọsílẹ̀ yìí lọ sí ìdọ̀tí?',
@@ -51,17 +78,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Gbe lọ si idọti',
   'noteEditor.updated': 'Ti ṣe imudojuiwọn',
   'notes.defaultWorkspaceName': 'Àkọsílẹ̀ mi',
+  'notes.empty': 'Kò sí àkọsílẹ̀ kankan níbí síbẹ̀ — bẹ̀rẹ̀ ọ̀kan láti kún ìwé àkọsílẹ̀ náà.',
   'notes.eyebrow': 'Ìwé Àkójọ',
   'notes.filterAll': 'Gbogbo àwọn àkọsílẹ̀',
   'notes.filterPinned': 'Ti so mọ́lẹ̀',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Àkọsílẹ̀ tuntun',
   'notes.newNotebookPrompt': 'Orukọ iwe akọsilẹ tuntun',
+  'notes.newNotebookRequired': 'Tẹ orúkọ ìwé àkọsílẹ̀ kan.',
   'notes.notebooksHeading': 'Àwọn Àkọsílẹ̀',
   'notes.subtitle':
     'Yan ìwé àkọsílẹ̀ kan ní apá òsì, lẹ́yìn náà tẹ bọ́tìnì àkọsílẹ̀ tuntun láti bẹ̀rẹ̀ ìkọ̀wé tuntun.',
+  'planUpdated.body': 'Ìforúkọsílẹ̀ rẹ ti ṣiṣẹ́ báyìí.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Àwọn ẹ̀yà ara tó ti ní ìlọsíwájú',
   'pricing.heading': 'Yan Eto Ikọsilẹ Akọsilẹ rẹ',
+  'reset.changedMind': 'Ṣé o ti yí ọkàn rẹ padà?',
   'reset.eyebrow': 'Ó fẹ́rẹ̀ padà sí ibẹ̀',
   'reset.formSubtitle': 'A o fi ọ silẹ ni kete ti a ba ti fi pamọ.',
   'reset.headline': 'Yan ọrọ igbaniwọle tuntun kan.',
@@ -71,7 +103,9 @@ export const ui: UiTranslations = {
     'Tẹ koodu ti a ṣẹṣẹ fi ranṣẹ si ọ ninu imeeli sii ki o si yan nkan ti o le gbagbe.',
   'reset.submit': 'Fipamọ́ kí o sì wọlé',
   'reset.tokenHint': 'Ti fi sita lati inu apo-iwọle rẹ.',
+  'search.empty': 'Kò sí àkọsílẹ̀ tí ó bá ìbéèrè yìí mu síbẹ̀.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Ṣíṣàwárí Ìfàmọ́ra',
   'search.loading': 'N wa kiri…',
   'search.noRecent': 'Tẹ ìbéèrè kan lókè yìí láti bẹ̀rẹ̀ sí í wá kiri nínú àwọn àkọsílẹ̀ rẹ.',
   'search.recentLabel': 'Àwọn ìwákiri tuntun',
@@ -79,12 +113,19 @@ export const ui: UiTranslations = {
     'Àkọlé kíkún lórí gbogbo ìwé àkọsílẹ̀. Tẹ̀ láti wá kiri; àwọn àbájáde máa ń tún padà bí o ṣe ń tẹ̀.',
   'search.title': 'Ṣe àwárí ọpọlọ keji.',
   'settings.account.logout': 'Jade kuro',
+  'settings.account.title': 'Àwọn àlàyé àkọsílẹ̀',
+  'settings.editor.graphHover.body':
+    'Fi káàdì àwòrán kékeré hàn nígbà tí o bá gbé orí [[wikilink]] kan nínú olùṣàtúnṣe.',
+  'settings.editor.graphHover.label': 'Àwòrán ìsopọ̀ padà nígbà gbígbé orí',
   'settings.editor.lineHeight.body':
     'Iye afẹ́fẹ́ tó wà láàárín àwọn ìlà ara. 170% ni ìró kíkà àìyípadà.',
+  'settings.editor.lineHeight.label': 'Ìga ìlà',
   'settings.editor.serif.body':
     'Lo Georgia fún ọ̀wọ́n kíkà. Sans-serif máa ń wà ní ẹ̀gbẹ́ àti àwọn irinṣẹ́.',
+  'settings.editor.serif.label': 'Àkọsílẹ̀ ara Serif',
   'settings.editor.title': 'Ìtẹ̀wé àti ojú ìkọ̀wé',
   'settings.eyebrow': 'Verso · Àwọn Ètò',
+  'settings.passwordModal.current': 'Ọ̀rọ̀ìpamọ́ lọ́wọ́lọ́wọ́',
   'settings.passwordModal.error': 'Kò le yí ọ̀rọ̀ìpamọ́ padà — jọ̀wọ́ ṣàyẹ̀wò ọ̀rọ̀ìpamọ́ rẹ lọ́wọ́lọ́wọ́.',
   'settings.passwordModal.next': 'Ọrọ aṣina Tuntun',
   'settings.passwordModal.submit': 'Fipamọ ọrọ igbaniwọle',
@@ -93,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Ti gbogbo ìlùkìkì nípasẹ̀ ikanni gidi. Pa a mọ́ fún àwọn ìsopọ̀ tí ó lọ́ra.',
   'settings.sync.auto.label': 'Ìmúṣiṣẹ́pọ̀ ní àkókò gidi',
+  'settings.sync.title': 'Bí àwọn àkọsílẹ̀ rẹ ṣe ń rìn',
   'settings.theme.body':
     'Ìmọ́lẹ̀ máa ń mú kí ojú ìwé olóòtú tàn yanranyanran. Sepia máa ń mú kí ojú ìwé náà gbóná fún àwọn alẹ́.',
   'settings.theme.dark': 'Dúdú',
@@ -112,8 +154,12 @@ export const ui: UiTranslations = {
     'Fi #hashtags kún àkọlé àkọsílẹ̀ kan (fún àpẹẹrẹ "Àkójọ ìwé kíkà") wọn yóò sì farahàn níbí láìfọwọ́sí.',
   'tags.emptyTitle': 'Ko si awọn afi sibẹsibẹ',
   'tags.eyebrow': 'Àtọ́ka',
+  'tags.goToNotes': 'Lọ sí àwọn àkọsílẹ̀ →',
+  'tags.loadError': 'Kò lè gbé àwọn àmì wọlé: {{message}}',
   'tags.subtitle':
     '{{tags}} awọn afi kọja {{notes}} Àwọn àkọsílẹ̀. Fi #hashtags kún àkọlé àkọsílẹ̀ kan, wọn yóò sì hàn níbí.',
+  'versoAuthShell.sample.body':
+    'Ìgbà kejì ní ọ̀la máa ń dára ju ìgbà àkọ́kọ́ ní alẹ́ yìí. Fi ẹ̀yà tí kò tíì pé sí inú fódà iṣẹ́ jíjìn…',
   'versoAuthShell.sample.label': 'Àkọsílẹ̀ ojoojúmọ́',
   'versoAuthShell.sample.timestamp': 'Lónìí · 9:14am',
   'versoAuthShell.sample.title': 'Nígbà tí a bá jẹ́ kí àwọn ìfọ́lẹ̀ mí',
@@ -125,8 +171,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Tẹ̀síwájú láti kọ ọ́',
   'versoTodayHero.createCta': 'Bẹ̀rẹ̀ àkọsílẹ̀ òní',
   'versoTodayHero.dailyLabel': 'Àkọsílẹ̀ ojoojúmọ́',
+  'versoTodayHero.emptyHeadline': 'Òní jẹ́ ojú-ìwé òfo.',
   'versoTodayHero.emptySubline':
     'Ya èrò kan, kọ ìpàdé kan, tàbí ṣe àwòrán ní ọ̀la. Verso mú kí ìṣètò náà dákẹ́ kí ìkọ̀wé náà lè máa lọ sókè.',
+  'versoTodayHero.outlineLabel': 'Ìlà òní',
   'versoTodayHero.streak': '{{count}} -ìṣàn ọjọ́',
+  'versoTodayHero.unwritten': 'Kò sí ọ̀rọ̀ síbẹ̀ — ṣí àkọsílẹ̀ náà láti bẹ̀rẹ̀.',
   'versoTodayHero.wordCount': '{{count}} awọn ọrọ loni',
 }

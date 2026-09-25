@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai feedback, ai găsit o eroare sau vrei să aduci școala ta la bord? Scrie-ne din setările contului sau trimite un mesaj administratorului școlii — fiecare mesaj ajunge la o persoană reală din echipă.',
   'about.contactTitle': 'Contactează-ne',
+  'about.missionTitle': 'Misiunea noastră',
   'announcementsFeed.empty': 'Niciun anunț încă.',
   'announcementsFeed.eyebrow': '{{count}} actualizări',
   'announcementsFeed.title': 'Ultimele anunțuri',
   'assignmentDetail.alreadySubmitted': 'Ai trimis deja această temă.',
   'assignmentDetail.backLink': 'Înapoi la teme',
+  'assignmentDetail.dropBody':
+    'Folosește Alege fișiere pentru a-ți atașa lucrarea — vom înregistra momentul trimiterii după ce confirmi.',
   'assignmentDetail.dropButton': 'Alegeți fișiere',
+  'assignmentDetail.dropPrompt': 'Trage aici pachetul tău PDF sau cu poze',
   'assignmentDetail.due': 'Scadent {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Instrucţiuni',
@@ -19,8 +25,12 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Gradat',
   'assignmentDetail.statusSubmitted': 'Trimis',
   'assignmentDetail.statusTitle': 'Starea trimiterii',
+  'assignmentDetail.submitError':
+    'Nu am putut înregistra acea trimitere. Încearcă din nou într-o clipă.',
   'assignmentDetail.submitted':
     'Trimitere înregistrată — profesorul/profesoara a fost notificat/ă.',
+  'assignmentDetail.submittedAt': 'Trimis {{when}}',
+  'assignmentDetail.submitTitle': 'Trimite-ți lucrarea',
   'assignmentRow.courseDue': '{{course}} · Scadent {{due}}',
   'assignments.empty': 'Nimic aici',
   'assignments.emptyBody':
@@ -40,9 +50,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'O evidență zilnică a prezențelor, absențelor și întârzierilor — cu note, atunci când este cazul.',
+  'attendance.summary.absences': 'Absențe',
   'attendance.summary.absencesCaption': 'Sub pragul de intervenție de 5 zile',
   'attendance.summary.attendance': 'Prezență',
   'attendance.summary.attendanceCaption': '{{count}} zilele noastre, acest termen',
+  'attendance.summary.tardies': 'Întârzieri',
   'attendance.summary.tardiesCaption': 'Inclusiv note pentru întârzieri de autobuz / programări',
   'attendance.title': 'Istoricul prezenței',
   'calendar.eyebrow': 'An școlar · {{year}}',
@@ -56,6 +68,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Note',
   'courseDetail.currentGrade': 'Clasa actuală',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Prezentare generală a cursului',
   'courseDetail.gradesTitle': 'Note recente',
   'courseDetail.messageTeacher': 'Mesaj profesorului',
   'courseDetail.noGrades': 'Încă nu au fost postate note.',
@@ -68,13 +81,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Vezi tot',
   'dashboard.assignmentsTitle': 'Următorul eveniment din această săptămână',
   'dashboard.greeting': 'Hi {{name}} , gata de curs?',
+  'dashboard.subtitle':
+    'Săptămâna ta dintr-o privire — orar, note și teme într-o singură vedere liniștită.',
+  'dashboard.viewReportCard': 'Vezi carnetul de note',
+  'dashboard.weekFocusBody':
+    'Trimite setul 7 de exerciții la Ecuații de gradul doi și testul de capitol. Laboratorul de meditații este deschis marți și joi după ora 7.',
+  'dashboard.weekFocusCta': 'Vezi planul complet',
   'dashboard.weekFocusEyebrow': 'Focusul săptămânii',
   'dashboard.weekFocusTitle': 'Aduceți Algebră II cu 4 puncte',
   'forgotPassword.subheading':
     'Introdu adresa de e-mail a școlii tale și îți vom trimite un link de resetare.',
   'forgotPassword.successBody':
     'Dacă {{email}} se potrivește cu un cont Chalk, un link de resetare a parolei este pe drum. Linkurile expiră în 30 de minute.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} GPA semestrial',
+  'gpaHeroCard.summary': '{{count}} cursuri astăzi',
   'grades.col.grade': 'Grad',
   'grades.col.teacher': 'Profesor',
   'grades.col.trend': 'Tendinţă',
@@ -86,10 +107,17 @@ export const ui: UiTranslations = {
     'Note live cu litere și procente. Săgețile de tendință arată dacă progresezi, nivelezi sau scăderi.',
   'grades.title': 'Notele tale, curs cu curs',
   'grades.trendStable': 'Stabil',
+  'grades.viewReportCard': 'Vezi carnetul de note oficial',
   'landing.copyright': '© {{year}} {{app}} . Creat pentru studenți, conceput pentru familii.',
+  'landing.ctaBody':
+    'Gratuit în primele 30 de zile, fără card de credit. Districtele pot lansa un nivel pentru toată școala într-o singură după-amiază.',
+  'landing.ctaButton': 'Creați-vă portalul',
   'landing.ctaHeading': 'O zi de școală mai liniștită începe în câteva minute',
   'landing.eyebrow': 'Pentru elevii de gimnaziu și liceu',
   'landing.featuresHeading': 'O zi de școală organizată în jurul elevului',
+  'landing.heroSubtitle':
+    '{{appName}} aduce fiecare curs, notă, temă și mesaj într-un singur panou calm, ca să petreci mai puțin timp căutând și mai mult timp învățând.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Conform cu FERPA în mod implicit',
   'landing.proof.rating': '4,8 în 12.000 de familii',
   'landing.sampleTerm': 'Primăvară',
@@ -98,6 +126,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Ascundeți parola',
   'login.noAccount': 'Ești nou pe Chalk?',
   'login.showPassword': 'Afișați parola',
+  'messages.compose': 'Mesaj nou',
   'messages.composer.email': 'Adresa de e-mail a destinatarului (opțional)',
   'messages.composer.errorEmpty': 'Mesajul nu poate fi gol.',
   'messages.composer.errorRecipient': 'Numele destinatarului este obligatoriu.',
@@ -128,9 +157,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Tablou de onoare · Semestrul de primăvară',
   'nav.unreadMessages': 'Mesaje necitite',
   'notifications.eyebrow': '{{count}} actualizări',
+  'notifications.feedTitle': 'Toată activitatea recentă',
   'notifications.subtitle':
     'Note, mementouri, mesaje și anunțuri școlare. Ajustați canalele folosite de fiecare notificare în Setări.',
+  'planUpdated.body':
+    'Modificarea facturării este acum activă. Îți poți gestiona planul oricând din pagina de facturare.',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
+  'pricing.announcementsLabel': 'anunțuri',
   'pricing.attendanceLabel': 'prezență',
   'pricing.gradesLabel': 'note',
   'pricing.heading': 'anunțuri',
@@ -145,6 +182,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'T2',
   'reportCard.crumb': 'Fișă de raport',
   'reportCard.cumulativeGpa': 'Media generală cumulativă',
+  'reportCard.download': 'Descărcați PDF',
   'reportCard.downloaded': 'Fișa de raport s-a deschis într-o filă nouă.',
   'reportCard.downloading': 'Se generează PDF-ul…',
   'reportCard.empty': 'Încă nu există note înregistrate.',
@@ -152,6 +190,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Media generală finală · {{term}}',
   'reportCard.subtitle':
     'O transcriere oficială de sfârșit de semestru cu notele ponderate ale cursului, prezența și un PDF imprimabil pentru descărcare.',
+  'reportCard.title': 'Fișă de raport',
+  'resetPassword.newPassword': 'Parolă nouă',
   'resetPassword.subheading': 'Alege ceva memorabil, dar greu de ghicit.',
   'resetPassword.tokenPlaceholder': 'Lipește codul din e-mailul tău',
   'schedule.empty': 'Nu sunt programate cursuri.',
@@ -176,12 +216,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Sarcini în așteptare',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} absențe în acest semestru · {{tardy}} întârzieri',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Se calculează statisticile de prezență…',
+  'subjectStatsTriad.attendanceLabel': 'Prezență',
   'subjectStatsTriad.gradesCaption': 'Peste tot {{percent}} % medie ponderată',
+  'subjectStatsTriad.gradesCaptionLoading': 'Se încarcă notele…',
+  'subjectStatsTriad.gradesLabel': 'Media clasei',
   'todayScheduleStrip.empty': 'Nu sunt cursuri astăzi.',
   'todayScheduleStrip.eyebrow': '{{count}} clase',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Programul de astăzi',
   'topbar.guestName': 'Student',
   'topbar.searchPlaceholder': 'Caută cursuri, teme…',
+  'topbar.studentRole': 'Student',
   'topbar.studentTag': 'Student · # {{id}}',
 }

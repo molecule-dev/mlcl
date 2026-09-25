@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du feedback, hittat en bugg eller vill ha {{app}} för din liga? Kontakta oss via dina kontoinställningar — varje meddelande går till en riktig person i teamet.',
+  'about.contactTitle': 'Ta kontakt',
   'about.eyebrow': 'Om',
+  'about.featureAlerts':
+    'Pushnotiser för resultatuppdateringar, byten, skaderapporter och ligameddelanden.',
+  'about.featureRosters':
+    'Lagsidor med fullständiga trupper, säsongssummor, hot/cold-sviter och inbördes statistik för varje spelare.',
+  'about.featureSchedule':
+    'En säsongskalender och schemavy så att du kan planera kring varje match och resultat.',
+  'about.featureScoreboard':
+    'En resultatticker i sändningskvalitet fäst högst upp på varje sida så att du aldrig missar ett mål.',
+  'about.featureStandings':
+    'Live-tabeller — realtidsresultat för vinster-förluster-oavgjorda, poäng, vinstprocent och slutspelslinjen, uppdaterade vid varje visselpipa.',
+  'about.intro':
+    '{{app}} är ett hem i sändningskvalitet för din liga. Lag, scheman, liveresultat och tabeller samlas i en snabb, ren instrumentpanel — så att fans, tränare och ligaarrangörer alltid vet var säsongen står.',
+  'about.missionBody':
+    'Att följa en liga borde inte innebära att uppdatera fem olika resultattavlor från tredje part. Vi byggde det för att ge varje liga en enda sanningskälla för tabellen, schemat och statistiken som faktiskt spelar roll — uppdaterad vid varje visselpipa, gratis för säsongen.',
+  'about.missionTitle': 'Vårt uppdrag',
+  'about.whatYouGet': 'Vad du får',
   'appShell.closeNav': 'Stäng navigering',
   'appShell.openNav': 'Öppna navigering',
   'common.dashboard': 'Instrumentpanel',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Visa alla matcher →',
   'dashboard.viewAllStandings': 'Hela tabellen →',
   'dashboard.viewAllStats': 'Visa alla statistikledare →',
+  'forgot.submitting': 'Skickar återställningslänk…',
   'forgot.subtitle': 'Ange din e-postadress för att få en återställningslänk.',
   'forgot.success': 'Återställningslänk skickad till {{email}}. Kontrollera din inkorg.',
+  'landing.copyright': '© {{year}} {{app}}. Jaga tabellplaceringen.',
+  'landing.ctaBody':
+    'Din liga. Din tabell. Ditt favoritlag — fäst högst upp. Två minuter att ställa in, gratis för säsongen.',
   'landing.ctaHeading': 'Sluta uppdatera tredjepartstavlor',
   'landing.eyebrow': 'Byggd för supportrar, tränare och liga­arrangörer',
   'landing.featuresHeading': 'Bästa platsen vid varje tabell',
   'landing.getStarted': 'Gå med i ligan',
   'landing.heroCta': 'Gå med i ligan',
+  'landing.heroSubtitle':
+    '{{app}} knyter samman tabeller, scheman och statistiska ledare i en instrumentpanel i sändningskvalitet. Liveresultat. Riktiga resultat. Ingen röra.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'I kväll runt om i ligan',
   'landing.statFans': 'Supportrar som följer',
   'landing.statGames': 'Matcher denna säsong',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'P{{period}}',
   'matchDetail.back': 'Tillbaka till matcher',
   'matchDetail.eventsHeading': 'Händelse för händelse',
+  'matchDetail.final': 'SLUTRESULTAT',
   'matchDetail.finalScore': 'Slutresultat',
   'matchDetail.live': 'LIVE',
   'matchDetail.liveNow': 'Live just nu',
   'matchDetail.noEvents': 'Inga händelser registrerade ännu.',
   'matchDetail.periodClock': 'P{{period}} · {{clock}}',
+  'matches.empty': 'Inga matcher i den här vyn — prova ett annat filter.',
   'matches.eyebrow': 'Matchdag',
   'matches.loading': 'Hämtar spelschemat…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Kunde inte ladda aviseringar',
   'notifications.loading': 'Läser in aviseringar…',
   'pennantHeroCard.eyebrow': 'Toppen av tabellen',
+  'pennantHeroCard.formLabel': 'Senaste 10',
   'pennantHeroCard.gamesAhead': '{{value}} matcher före jaktstyrkan',
   'pennantHeroCard.pointsLabel': 'P',
   'pennantLayout.primaryNavLabel': 'Huvudnavigering',
@@ -78,23 +107,31 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Välj din plats',
   'pricing.heading': 'Uppgradera för rikare spelschema, resultat och tabeller.',
   'pricing.limits.schedule': '{{count}} matcher i spelschemat',
+  'pricing.limits.scores': '{{count}} resultat',
+  'pricing.limits.standings': '{{count}} tabeller',
+  'pricing.limits.teams': '{{count}} lag',
+  'pricing.subtitle': 'Uppgradera för rikare schema, resultat och tabeller.',
   'pricing.upgradeCta': 'Uppgradera till {{tierName}}',
   'profile.eyebrow': 'Supporterprofil',
   'profile.favoritesCount': 'Lag som följs',
   'profile.favoritesHeading': 'Favoritlag',
   'profile.noFavorites': 'Inga favoriter ännu — välj lag från Lag-sidan.',
   'profile.rankRecord': 'Plats #{{rank}} · {{record}}',
+  'profile.recordOnly': 'Resultat {{record}}',
   'reset.confirmPlaceholder': 'Upprepa lösenordet',
+  'reset.mismatch': 'Lösenorden matchar inte.',
   'reset.newLabel': 'Nytt lösenord',
   'reset.subtitle': 'Välj ett starkt lösenord på minst 12 tecken.',
   'reset.tokenPlaceholder': 'Klistra in från e-post',
   'schedule.eyebrow': 'Spelschemat',
+  'schedule.moreGames': '+{{count}} fler',
   'schedule.subtitle':
     'Kalendervy över matcher genom hela säsongen — tryck på en dag för matchfakta.',
   'scoreboardTicker.empty': 'Inga livematcher just nu — kom tillbaka vid avspark.',
   'settings.addFavorite': 'Lägg till lag',
   'settings.eyebrow': 'Personifiera',
   'settings.favoritesBody': 'Dessa lag fästs på din översikt och triggar resultat­aviseringar.',
+  'settings.favoritesHeading': 'Favoritlag',
   'settings.loading': 'Läser in dina inställningar…',
   'settings.noFavorites': 'Inga favoriter ännu — välj lag från Lag-sidan.',
   'settings.notificationsHeading': 'Aviseringar och visning',
@@ -112,6 +149,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'F',
   'standings.overall': 'Totalt',
   'standings.points': 'P',
+  'standings.rank': '#',
   'standings.subtitle':
     'Topp fyra kvalar till slutspel — särskiljande sker via poäng, sedan vinstprocent.',
   'standings.title': 'Liga­tabell',
@@ -130,6 +168,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'M',
   'teamDetail.colName': 'Spelare',
   'teamDetail.colPos': 'Pos',
+  'teamDetail.pointsLabel': 'Poäng',
   'teamDetail.rankLabel': 'Plats #{{rank}}',
   'teamDetail.rosterHeading': 'Trupp',
   'teamDetail.statGD': 'Målskillnad',

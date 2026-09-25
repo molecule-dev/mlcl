@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε σχόλια, βρήκατε κάποιο σφάλμα ή θέλετε {{app}} για το πρωτάθλημά σας; Επικοινωνήστε μαζί μας από τις ρυθμίσεις του λογαριασμού σας — κάθε μήνυμα φτάνει σε ένα πραγματικό μέλος της ομάδας.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.featureAlerts':
+    'Ειδοποιήσεις push για ενημερώσεις σκορ, ειδοποιήσεις ανταλλαγών, αναφορές τραυματισμών και ανακοινώσεις πρωταθλήματος.',
+  'about.featureRosters':
+    'Σελίδες ομάδων με πλήρεις συνθέσεις, σύνολα σεζόν, σερί φόρμας και στατιστικά κατά κεφαλήν για κάθε παίκτη.',
+  'about.featureSchedule':
+    'Ημερολόγιο σεζόν και προβολή προγράμματος, ώστε να προγραμματίζετε γύρω από κάθε αγώνα και αποτέλεσμα.',
+  'about.featureScoreboard':
+    'Ταινία αποτελεσμάτων ποιότητας τηλεοπτικής μετάδοσης καρφιτσωμένη στην κορυφή κάθε σελίδας, για να μη χάνετε ποτέ γκολ.',
+  'about.featureStandings':
+    'Ζωντανή βαθμολογία — αρχεία νικών-ηττών-ισοπαλιών σε πραγματικό χρόνο, βαθμοί, ποσοστό νικών και η γραμμή των πλέι οφ, ενημερωμένα σε κάθε σφύριγμα.',
+  'about.intro':
+    'Το {{app}} είναι ένα σπίτι ποιότητας τηλεοπτικής μετάδοσης για το πρωτάθλημά σας. Ομάδες, προγράμματα, ζωντανά σκορ και βαθμολογίες ενώνονται σε έναν γρήγορο, καθαρό πίνακα ελέγχου — ώστε οι φίλαθλοι, οι προπονητές και οι διοργανωτές του πρωταθλήματος να ξέρουν πάντα πού βρίσκεται η σεζόν.',
+  'about.missionBody':
+    'Το να ακολουθείς ένα πρωτάθλημα δεν θα έπρεπε να σημαίνει ανανέωση πέντε διαφορετικών πινάκων σκορ τρίτων. Το φτιάξαμε για να δίνουμε σε κάθε πρωτάθλημα μία μοναδική πηγή αλήθειας για τη βαθμολογία, το πρόγραμμα και τα στατιστικά που πραγματικά μετράνε — ενημερωμένα σε κάθε σφύριγμα, δωρεάν για τη σεζόν.',
+  'about.missionTitle': 'Η αποστολή μας',
+  'about.whatYouGet': 'Τι αποκτάτε',
   'appShell.closeNav': 'Κλείσιμο πλοήγησης',
   'appShell.openNav': 'Άνοιγμα πλοήγησης',
   'common.dashboard': 'Πίνακας ελέγχου',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Δείτε όλους τους αγώνες \\u2192',
   'dashboard.viewAllStandings': 'Πλήρης βαθμολογία \\u2192',
   'dashboard.viewAllStats': 'Δείτε όλους τους ηγέτες στατιστικών \\u2192',
+  'forgot.submitting': 'Αποστολή συνδέσμου επαναφοράς…',
   'forgot.subtitle': 'Εισαγάγετε το email σας για να λάβετε σύνδεσμο επαναφοράς.',
   'forgot.success': 'Επαναφορά συνδέσμου που στάλθηκε σε {{email}} Ελέγξτε τα εισερχόμενά σας.',
+  'landing.copyright': '© {{year}} {{app}}. Κυνηγήστε τη βαθμολογία.',
+  'landing.ctaBody':
+    'Το πρωτάθλημά σας. Η βαθμολογία σας. Η αγαπημένη σας ομάδα — καρφιτσωμένη στην κορυφή. Δύο λεπτά για να στηθεί, δωρεάν για τη σεζόν.',
   'landing.ctaHeading': 'Διακοπή ανανέωσης πινάκων βαθμολογίας τρίτων',
   'landing.eyebrow': 'Φτιαγμένο για οπαδούς, προπονητές και διοργανωτές πρωταθλημάτων',
   'landing.featuresHeading': 'Μια θέση στην πρώτη σειρά για κάθε όρθιο',
   'landing.getStarted': 'Γίνετε μέλος του πρωταθλήματος',
   'landing.heroCta': 'Γίνετε μέλος του πρωταθλήματος',
+  'landing.heroSubtitle':
+    'Το {{app}} ενώνει βαθμολογίες, προγράμματα και στατιστικούς πρωτοπόρους σε έναν πίνακα ελέγχου ποιότητας τηλεοπτικής μετάδοσης. Ζωντανά σκορ. Πραγματικά αρχεία. Χωρίς ακαταστασία.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Απόψε γύρω από το πρωτάθλημα',
   'landing.statFans': 'Οι οπαδοί ακολουθούν',
   'landing.statGames': 'Αγώνες αυτής της σεζόν',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Επιστροφή στους αγώνες',
   'matchDetail.eventsHeading': 'Παιχνίδι-παιχνίδι',
+  'matchDetail.final': 'ΤΕΛΙΚΟ',
   'matchDetail.finalScore': 'Τελικός',
   'matchDetail.live': 'ΖΩ',
   'matchDetail.liveNow': 'Live τώρα',
   'matchDetail.noEvents': 'Δεν έχουν καταγραφεί ακόμη συμβάντα.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Δεν υπάρχουν αγώνες σε αυτή την προβολή — δοκιμάστε διαφορετικό φίλτρο.',
   'matches.eyebrow': 'Ημέρα αγώνα',
   'matches.loading': 'Τραβώντας την πλάκα…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Αποτυχία φόρτωσης ειδοποιήσεων',
   'notifications.loading': 'Φόρτωση ειδοποιήσεων\\u2026',
   'pennantHeroCard.eyebrow': 'Κορυφή του πίνακα',
+  'pennantHeroCard.formLabel': 'Τελευταία 10',
   'pennantHeroCard.gamesAhead': '{{value}} παιχνίδια πριν από την καταδίωξη',
   'pennantHeroCard.pointsLabel': 'ΠΤΣ',
   'pennantLayout.primaryNavLabel': 'Κύρια πλοήγηση',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Επιλέξτε τη θέση σας',
   'pricing.heading': 'Αναβαθμίστε για πιο πλούσιο πρόγραμμα, βαθμολογίες και βαθμολογίες.',
   'pricing.limits.schedule': '{{count}} καταχωρίσεις προγράμματος',
+  'pricing.limits.scores': 'Σκορ {{count}}',
+  'pricing.limits.standings': 'Βαθμολογία {{count}}',
+  'pricing.limits.teams': 'Ομάδες {{count}}',
+  'pricing.subtitle': 'Αναβαθμίστε για πλουσιότερο πρόγραμμα, σκορ και βαθμολογία.',
   'pricing.upgradeCta': 'Αναβάθμιση σε {{tierName}}',
   'profile.eyebrow': 'Προφίλ θαυμαστή',
   'profile.favoritesCount': 'Οι ομάδες που ακολούθησαν',
   'profile.favoritesHeading': 'Αγαπημένες ομάδες',
   'profile.noFavorites': 'Δεν υπάρχουν ακόμα αγαπημένα — επιλέξτε ομάδες από τη σελίδα Teams.',
   'profile.rankRecord': 'Κατάταξη # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Αρχείο {{record}}',
   'reset.confirmPlaceholder': 'Επανάλαβε τον κωδικό πρόσβασης',
+  'reset.mismatch': 'Οι κωδικοί πρόσβασης δεν ταιριάζουν.',
   'reset.newLabel': 'Νέος κωδικός πρόσβασης',
   'reset.subtitle': 'Επιλέξτε έναν ισχυρό κωδικό πρόσβασης τουλάχιστον 12 χαρακτήρων.',
   'reset.tokenPlaceholder': 'Επικόλληση από email',
   'schedule.eyebrow': 'Ο σχιστόλιθος',
+  'schedule.moreGames': '+ {{count}} περισσότερο',
   'schedule.subtitle':
     'Προβολή ημερολογίου για τα παιχνίδια σε όλη τη σεζόν — πατήστε οποιαδήποτε ημέρα για τα σκορ των αγώνων.',
   'scoreboardTicker.empty':
@@ -98,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Καθιστώ προσωπικόν',
   'settings.favoritesBody':
     'Αυτές οι ομάδες καρφιτσώνονται στον πίνακα ελέγχου σας και ενεργοποιούν ειδοποιήσεις βαθμολογίας.',
+  'settings.favoritesHeading': 'Αγαπημένες ομάδες',
   'settings.loading': 'Φόρτωση των προτιμήσεών σας\\u2026',
   'settings.noFavorites':
     'Δεν υπάρχουν ακόμη αγαπημένα \\u2014 επιλέξτε ομάδες από τη σελίδα Teams.',
@@ -117,6 +154,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'μεγάλο',
   'standings.overall': 'Γενικά',
   'standings.points': 'ΠΤΣ',
+  'standings.rank': '#',
   'standings.subtitle':
     'Οι τέσσερις πρώτοι προκρίνονται στα πλέι οφ — τάι μπρέικ ανά πόντο και μετά νίκη με ποσοστό.',
   'standings.title': 'Βαθμολογία πρωταθλήματος',
@@ -135,6 +173,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'σολ',
   'teamDetail.colName': 'Παίχτης',
   'teamDetail.colPos': 'Θέση',
+  'teamDetail.pointsLabel': 'Πόντοι',
   'teamDetail.rankLabel': 'Κατάταξη # {{rank}}',
   'teamDetail.rosterHeading': 'Κατάλογος ονομάτων',
   'teamDetail.statGD': 'Διαφορά Γκολ',

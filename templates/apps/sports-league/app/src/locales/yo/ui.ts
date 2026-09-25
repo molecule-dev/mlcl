@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ṣé ẹ ní èrò, ṣe ẹ rí àṣìṣe, tàbí ẹ fẹ́ {{app}} fún líìgì yín? Kàn wá láti ètò àkọsílẹ̀ akọọlẹ rẹ — gbogbo ìṣẹ́ rẹ̀ ń lọ sí ènìyàn gidi nínú ẹgbẹ́.',
+  'about.contactTitle': 'Kàn sí wa',
   'about.eyebrow': 'Nípa',
+  'about.featureAlerts':
+    'Ìfitónilétí titari fún àwọn ìmúdójúìwọ̀n àmì, ìkìlọ̀ ìṣòwò, ìròyìn ọgbẹ́, àti àwọn ìkéde líìgì.',
+  'about.featureRosters':
+    'Àwọn ojú-ìwé ẹgbẹ́ pẹ̀lú àkọsílẹ̀ ẹgbẹ́ kíkún, àpapọ̀ àkókò, àwọn ìgbà gbígbóná/tútù, àti ìpín orí-kọ-orí fún gbogbo agbábọ́ọ̀lù.',
+  'about.featureSchedule':
+    'Kàlẹ́ndà àkókò àti ojú-ìwé ìṣètò kí o lè ṣètò nípa gbogbo ìdíje àti èsì.',
+  'about.featureScoreboard':
+    'Tíkà bọ́ọ̀dù àmì ìpele ìgbóhùnsáfẹ́fẹ́ tí a so mọ́ orí gbogbo ojú-ìwé kí o má ṣe pàdánù góòlù kan.',
+  'about.featureStandings':
+    'Ìdúró lọ́wọ́ — àkọsílẹ̀ ìṣẹ́gun-ìṣẹ́pàdé-ìdọ́gba ní àkókò gidi, àwọn àmì, ìpín ìṣẹ́gun, àti ìlà ìdíje, tí a ń sọ di tuntun ní gbogbo fèrè.',
+  'about.intro':
+    '{{app}} jẹ́ ilé tí ó dára bí ìgbóhùnsáfẹ́fẹ́ fún líìgì rẹ. Àwọn ẹgbẹ́, àwọn ìṣètò, àwọn àmì àkókò gidi, àti àwọn ìdúró lọ́wọ́ wá papọ̀ nínú pátákó ìṣàkóso kan tí ó yára, tí kò ní àkúnwọ́sí — kí àwọn olólùfẹ́, àwọn olùkọ́ni, àti àwọn olùṣètò líìgì máa mọ ibi tí àkókò náà dúró nígbà gbogbo.',
+  'about.missionBody':
+    'Pípa tẹ̀lé líìgì kò yẹ kí ó túmọ̀ sí pípọ́n ojú-ìwé àmì ẹnikẹ́ta márùn-ún. A kọ́ ọ láti fún gbogbo líìgì ní orísun òtítọ́ kan ṣoṣo fún àwọn ìdúró lọ́wọ́, ìṣètò, àti àwọn ìṣirò tí ó ṣe pàtàkì gan — tí a ń ṣe àtúnṣe ní gbogbo fèrè, lọ́fẹ̀ẹ́ fún àkókò náà.',
+  'about.missionTitle': 'Iṣẹ́ àwa',
+  'about.whatYouGet': 'Ohun tí o gbà',
   'appShell.closeNav': 'Ti lilọ kiri pa',
   'appShell.openNav': 'Ṣí ìlọ kiri',
   'common.dashboard': 'Dásíbọ́ọ̀dù',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Wo gbogbo àwọn ìbáramu \\u2192',
   'dashboard.viewAllStandings': 'Awọn ipo kikun \\u2192',
   'dashboard.viewAllStats': 'Wo gbogbo àwọn aṣáájú ìpínlẹ̀ \\u2192',
+  'forgot.submitting': 'Ń fi ìjápọ̀ àtúnṣe ránṣẹ́…',
   'forgot.subtitle': 'Tẹ imeeli rẹ sii lati gba ọna asopọ atunto kan.',
   'forgot.success': 'A ti fi ọna asopọ pada si {{email}} Ṣàyẹ̀wò àpótí ìforúkọsílẹ̀ rẹ.',
+  'landing.copyright': '© {{year}} {{app}}. Lépa ipò.',
+  'landing.ctaBody':
+    'Líìgì rẹ. Àwọn ìdúró lọ́wọ́ rẹ. Ẹgbẹ́ tí o fẹ́ràn jù — tí a so mọ́ orí. Ìṣẹ́jú méjì láti ṣètò, lọ́fẹ̀ẹ́ fún àkókò náà.',
   'landing.ctaHeading': 'Dáwọ́ dúró láti tún àwọn àmì ìdámọ̀ ẹgbẹ́ kẹta ṣe',
   'landing.eyebrow': 'A ṣe é fún àwọn onífẹ̀ẹ́, àwọn olùkọ́ni, àti àwọn olùṣètò líìgì',
   'landing.featuresHeading': 'Ijókòó iwájú sí gbogbo àwọn tí wọ́n dúró',
   'landing.getStarted': 'Darapọ mọ Ajumọṣe naa',
   'landing.heroCta': 'Darapọ mọ Ajumọṣe naa',
+  'landing.heroSubtitle':
+    '{{app}} so àwọn ìdúró lọ́wọ́, àwọn ìṣètò, àti àwọn aṣáájú ìṣirò pọ̀ mọ́ pátákó ìṣàkóso kan tí ó dára bí ìgbóhùnsáfẹ́fẹ́. Àwọn àmì àkókò gidi. Àwọn àkọsílẹ̀ gidi. Kò ní àkúnwọ́sí.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Alẹ́ òní ni ayika liigi naa',
   'landing.statFans': 'Àwọn onífẹ̀ẹ́ tí wọ́n ń tẹ̀lé e',
   'landing.statGames': 'Àwọn eré ní àsìkò yìí',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Pada si awọn ere-idije',
   'matchDetail.eventsHeading': 'Ṣe-nípa-ìṣeré',
+  'matchDetail.final': 'ÌPARÍ',
   'matchDetail.finalScore': 'Ìparí',
   'matchDetail.live': 'LÁÀYÉ',
   'matchDetail.liveNow': 'Gbé ayé nísinsìnyí',
   'matchDetail.noEvents': 'Kò sí ìṣẹ̀lẹ̀ tí a kọ sílẹ̀ síbẹ̀.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Kò sí àwọn ìdíje nínú ojú-ìwé yìí — gbìyànjú àlẹ̀mọ́ mìíràn.',
   'matches.eyebrow': 'Ọjọ́ ìdíje',
   'matches.loading': 'Fífa slate…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Kò ṣeé ṣe láti fi àwọn ìfitónilétí kún un',
   'notifications.loading': 'N n gbe awọn iwifunni soke\\u2026',
   'pennantHeroCard.eyebrow': 'Òkè tábìlì náà',
+  'pennantHeroCard.formLabel': 'Mẹ́wàá tí ó kẹ́yìn',
   'pennantHeroCard.gamesAhead': '{{value}} awọn ere ṣaaju ki o to lepa',
   'pennantHeroCard.pointsLabel': 'Àwọn PTS',
   'pennantLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
@@ -78,17 +107,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Yan ijoko rẹ',
   'pricing.heading': 'Ṣe àtúnṣe sí ìṣètò, àmì àti ipò tó dára jù.',
   'pricing.limits.schedule': '{{count}} awọn titẹ sii iṣeto',
+  'pricing.limits.scores': 'Àwọn àmì {{count}}',
+  'pricing.limits.standings': 'Àwọn ìdúró lọ́wọ́ {{count}}',
+  'pricing.limits.teams': 'Àwọn ẹgbẹ́ {{count}}',
+  'pricing.subtitle': 'Ṣe ìgbéga fún ìṣètò, àwọn àmì, àti àwọn ìdúró lọ́wọ́ tí ó pọ̀ sí i.',
   'pricing.upgradeCta': 'Ṣe igbesoke si {{tierName}}',
   'profile.eyebrow': 'Ìwífún àwọn onífẹ̀ẹ́',
   'profile.favoritesCount': 'Àwọn ẹgbẹ́ tẹ̀lé e',
   'profile.favoritesHeading': 'Àwọn ẹgbẹ́ àyànfẹ́',
   'profile.noFavorites': 'Kò sí àwọn ayanfẹ́ kankan síbẹ̀ — yan àwọn ẹgbẹ́ láti ojú ìwé Àwọn Ẹgbẹ́.',
   'profile.rankRecord': 'Ipò # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Àkọsílẹ̀ {{record}}',
   'reset.confirmPlaceholder': 'Tun ọrọ igbaniwọle naa ṣe',
+  'reset.mismatch': 'Àwọn ọ̀rọ̀ìpamọ́ kò báramu.',
   'reset.newLabel': 'Ọrọ aṣina Tuntun',
   'reset.subtitle': 'Yan ọrọ igbaniwọle to lagbara ti o kere ju awọn ohun kikọ 12 lọ.',
   'reset.tokenPlaceholder': 'Lẹẹmọ lati inu imeeli',
   'schedule.eyebrow': 'Slate náà',
+  'schedule.moreGames': '+ {{count}} jù bẹ́ẹ̀ lọ',
   'schedule.subtitle':
     'Ìwòran kàlẹ́ńdà ti àwọn ohun èlò ìgbà gbogbo ní gbogbo àsìkò náà — tẹ ní gbogbo ọjọ́ láti rí àwọn àmì àpótí.',
   'scoreboardTicker.empty':
@@ -96,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.addFavorite': 'Fi ẹgbẹ́ kún un',
   'settings.eyebrow': 'Ṣe ara ẹni ni ti ara ẹni',
   'settings.favoritesBody': 'Àwọn ẹgbẹ́ yìí ni a so mọ́ dasibodu rẹ, wọ́n sì máa ń fi àmì ìṣírò hàn.',
+  'settings.favoritesHeading': 'Àwọn ẹgbẹ́ àyànfẹ́',
   'settings.loading': 'N n gbe awọn ayanfẹ rẹ soke\\u2026',
   'settings.noFavorites': 'Kò sí àwọn ẹgbẹ́ tí a yàn láti ojú ìwé Àwọn Ẹgbẹ́ tí a yàn.',
   'settings.notificationsHeading': 'Àwọn ìfitónilétí àti àfihàn',
@@ -113,6 +150,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Ni gbogbogbo',
   'standings.points': 'Àwọn PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Àwọn mẹ́rin tó ga jùlọ yẹ fún ìdíje àsìkò yìí — àwọn tó máa jáwé olúborí nípa lílo àmì, lẹ́yìn náà àwọn tó máa jáwé olúborí.',
   'standings.title': 'Ipò ìdíje',
@@ -131,6 +169,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Olùṣeré',
   'teamDetail.colPos': 'Ipo',
+  'teamDetail.pointsLabel': 'Àwọn Àmì',
   'teamDetail.rankLabel': 'Ipò # {{rank}}',
   'teamDetail.rosterHeading': 'Àkójọ ìwé',
   'teamDetail.statGD': 'Iyatọ Góólù',

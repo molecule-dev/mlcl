@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai întrebări despre o ediție, o livrare sau abonamentul tău? Vorbește cu o persoană reală din echipă la hello@crate.example — citim fiecare mesaj.',
+  'about.contactTitle': 'Vorbește cu un curator',
+  'about.feature1':
+    'Ediții lunare curatoriate, alese manual de creatori independenți, cu povestea din spatele fiecărui produs.',
+  'about.feature2':
+    'Control total asupra fiecărei cutii — personalizează conținutul, schimbă sau exclude produse, sari peste o lună sau modifică frecvența.',
+  'about.feature3':
+    'Urmărire completă a livrării, de la ridicare până la ușă, cu ambalaje fără plastic și actualizări live de la curier.',
+  'about.feature4':
+    'Planuri flexibile și facturare transparentă — fă upgrade, downgrade, pauză sau anulează oricând din panoul tău.',
+  'about.intro':
+    '{{app}} este un serviciu de cutii prin abonament curatoriate care îți livrează lunar la ușă o cutie de bucurie aleasă manual, în serie mică. Fiecare ediție este asamblată de creatori activi — artiști independenți, bucătari și branduri mici — nu de un algoritm.',
+  'about.missionBody':
+    'Credem că un abonament ar trebui să fie ca un cadou, nu o capcană. {{app}} este construit astfel încât să rămâi pentru că iubești ce primești — pauzează oricând, schimbă ce vrei și anulează cu un clic. Fără scripturi de retenție, niciodată.',
+  'about.missionTitle': 'Misiunea noastră',
   'about.pageTitle': 'Despre {{app}}',
   'appNav.mobileLabel': 'Navigare principală',
   'appNav.primaryLabel': 'Navigare principală',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Editați contactul de facturare',
   'billing.contact.eyebrow': 'Persoană de contact pentru facturare',
   'billing.eyebrow': 'Plan și plăți',
+  'billing.loading': 'Se încarcă facturarea…',
   'billing.payment.body':
     'Plata este gestionată prin Stripe Checkout — numărul complet al cardului dvs. nu ajunge niciodată pe serverele noastre. Faceți clic pe orice nivel de mai jos pentru a adăuga sau actualiza cardul.',
   'billing.payment.linked': 'Card înregistrat prin Stripe',
@@ -19,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Reluați abonamentul',
   'billing.plan.eyebrow': 'Plan activ',
   'billing.plan.next': 'Se reînnoiește automat pe {{date}} .',
+  'billing.plan.status': 'Stare: {{status}}',
   'billing.subtitle': 'Gestionează-ți nivelul, metoda de plată și verifică activitatea anterioară.',
   'billing.tiers.body': 'Alege un nivel și te vom direcționa către Stripe Checkout.',
   'billing.tiers.choose': 'Alege',
+  'billing.tiers.empty': 'Încă nu sunt configurate niveluri.',
   'billing.tiers.heading': 'Niveluri disponibile',
   'boxDetail.backToBoxes': 'Înapoi la toate edițiile',
   'boxDetail.crumb.boxes': 'Ediții',
@@ -34,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Piesă selectată',
   'boxDetail.items.heading': '{{count}} piese atent selecționate',
   'boxDetail.itemsBadge': '{{count}} articole atent selecționate per cutie',
+  'boxDetail.loading': 'Se încarcă ediția…',
   'boxDetail.notFound': 'Acea ediție nu mai este disponibilă.',
   'boxDetail.subscribe.success': 'Abonat — prima ta ediție este în așteptare.',
   'boxDetail.swapBadge': 'Schimbați până la {{count}} articol(e) per cutie',
@@ -42,14 +62,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Nicio ediție nu corespunde.',
   'boxes.eyebrow': 'Arhiva Crate',
   'boxes.heading': 'Răsfoiți fiecare ediție',
+  'boxes.loadError': 'Nu am putut încărca edițiile. Verifică conexiunea și încearcă din nou.',
   'boxes.loading': 'Se încarcă edițiile…',
+  'boxes.search.label': 'Caută ediții',
   'boxes.search.placeholder': 'Căutați ediții…',
   'boxes.subtitle':
     'Fiecare nivel este o poveste dintr-un lot mic. Adaugă una în coada ta de așteptare sau schimb-o în următoarea lună.',
+  'boxThemeCard.itemCount': '{{count}} elemente',
   'boxThemeCard.perMonth': '/ lună',
+  'boxThemeCard.retailValue': 'Valoare de retail {{value}}',
   'common.goToDashboard': 'Mergi la Tabloul de bord',
+  'common.retry': 'Reîncearcă',
   'customize.eyebrow': 'Fă-l al tău',
   'customize.heading': 'Personalizează-ți următorul Crate',
+  'customize.items.empty': 'Încă nu sunt configurate produse pentru acest nivel.',
   'customize.items.exclude': 'Sari peste asta',
   'customize.items.eyebrow': 'Personalizați această cutie',
   'customize.items.heading': 'Articole în {{box}}',
@@ -58,8 +84,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Adăugați înapoi',
   'customize.items.save': 'Salvați personalizarea',
   'customize.items.swapsLeft': '{{used}} de {{max}} swap-uri utilizate',
+  'customize.loading': 'Se încarcă personalizarea…',
   'customize.noSub.body':
     'Abonează-te mai întâi la un nivel, apoi revino pentru a schimba articolele din cutia ta.',
+  'customize.noSub.cta': 'Răsfoiește edițiile',
   'customize.noSub.heading': 'Niciun abonament activ',
   'customize.saved': 'Personalizarea a fost salvată.',
   'customize.subtitle':
@@ -73,11 +101,13 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Urmăriți expedierea',
   'dashboard.eyebrow': 'Comoara ta',
   'dashboard.greeting': 'Bine ai revenit, {{name}}.',
+  'dashboard.loadError': 'Nu am putut încărca panoul tău. Verifică conexiunea și încearcă din nou.',
   'dashboard.loading': 'Se încarcă tabloul de bord…',
   'dashboard.next.eyebrow': 'Următoarea ta ediție',
   'dashboard.onboarding.body':
     'Nu aveți încă un abonament activ. Alegeți un nivel pentru a începe să expediați un Crate în fiecare lună.',
   'dashboard.onboarding.cta': 'Răsfoiți toate edițiile',
+  'dashboard.onboarding.empty': 'Momentan nu sunt disponibile planuri. Revino curând.',
   'dashboard.onboarding.heading': 'Alege prima ta ediție',
   'dashboard.renewal.amount': 'Încărcat',
   'dashboard.renewal.cadence': 'Cadenţă',
@@ -85,18 +115,23 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Reînnoire',
   'dashboard.renewal.heading': 'Reînnoire automată activată {{date}}',
   'dashboard.renewal.plan': 'Cheie de plan',
+  'dashboard.renewal.tbd': 'Programarea reînnoirii în curând',
   'dashboard.renewal.tier': 'Nivel',
   'dashboard.stats.days': 'zile',
   'dashboard.stats.daysToNext': 'Navele în',
   'dashboard.stats.items': 'Articole selectate',
   'dashboard.stats.shipDate': 'Data expedierii',
   'dashboard.stats.tbd': 'De stabilit',
+  'dashboard.subtitle.active': 'Următoarea ta ediție este pe drum. Iată la ce să te aștepți.',
+  'dashboard.subtitle.idle':
+    'Alege un nivel pentru a începe să primești o cutie {{appName}} în fiecare lună.',
   'forgotPassword.subtitle': 'Spune-ne adresa ta de e-mail și îți vom trimite un link de resetare.',
   'forgotPassword.success.body':
     'Dacă {{email}} este înregistrat, veți primi un link de resetare în câteva minute.',
   'forgotPassword.success.title': 'Verificați căsuța de e-mail.',
   'landing.editions.eyebrow': 'Acest sezon',
   'landing.editions.heading': 'Ediții pe care curatorii noștri le îndrăgesc',
+  'landing.editions.viewAll': 'Răsfoiește toate edițiile →',
   'landing.footer.contact': 'Vorbește cu un curator',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Începe-ți cutia →',
@@ -106,6 +141,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'O privire asupra tabloului de bord al membrilor — numărătoare inversă, conținut și urmărire.',
   'landing.hero.social.count': 'Iubit de {{count}} + abonați',
+  'landing.hero.social.rating': '{{rating}} evaluare medie la despachetare',
+  'landing.hero.subhead':
+    '{{appName}} îți trimite o cutie de bucurie aleasă manual, în serie mică, de la creatori independenți. Pauzează oricând. Schimbă ce vrei. Păstrează ce iubești.',
   'landing.nav.start': 'Începe-ți cutia',
   'landing.tiers.eyebrow': 'Alege-ți cadența',
   'landing.tiers.heading': 'Începeți cu pași mici, faceți upgrade oricând, anulați la fel de ușor.',
@@ -115,6 +153,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Conectați-vă pentru a arunca o privire la cutia lunii viitoare.',
   'login.welcomeBack': 'Bine ai revenit, curator.',
   'nextBoxHeroCard.eyebrow': 'URMĂTOAREA TA COMORĂ',
+  'nextBoxHeroCard.itemCount': '{{count}} piese înăuntru',
   'nextBoxHeroCard.itemsLabel': 'Articole selectate',
   'nextBoxHeroCard.shipsOnLabel': 'Navele pe',
   'notFound.body':
@@ -138,8 +177,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Întrerupeți abonamentul',
   'settings.danger.paused': 'Abonamentul a fost întrerupt.',
   'settings.danger.pausing': 'Se întrerupe…',
+  'settings.danger.status': 'Stare abonament: {{status}}',
   'settings.danger.subtitle':
     'Întreruperea menține intacte nivelul și istoricul comenzii. Anularea oprește livrările viitoare și elimină metodele de plată stocate la sfârșitul ciclului.',
+  'settings.notifications.saving': '· se salvează…',
   'settings.notifications.subtitle':
     'Alegeți semnalele pe care le doriți de la Crate. Setările implicite sunt rezonabile.',
   'settings.subtitle':
@@ -156,12 +197,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Nicio livrare activă încă',
   'shipments.live.eyebrow': 'Livrare activă',
   'shipments.live.unnamed': 'Următoarea ta cutie',
+  'shipments.loadError':
+    'Nu am putut încărca livrările tale. Verifică conexiunea și încearcă din nou.',
+  'shipments.loading': 'Se încarcă expedierile…',
+  'shipments.step.delivered': 'Livrat',
   'shipments.step.deliveredBody': 'Etichetează #crateunbox pentru a împărtăși ce descoperi.',
   'shipments.step.ordered': 'Comandă plasată',
   'shipments.step.orderedBody':
     'Abonamentul tău a pus această ediție în așteptare pentru următorul ciclu de livrare.',
+  'shipments.step.packed': 'Ambalat manual',
   'shipments.step.packedBody':
     'Fiecare piesă împachetată și pusă în cutie cu un bilet scris de mână.',
+  'shipments.step.transit': 'Pe drum',
   'shipments.step.transitNot': 'Urmărirea va apărea aici odată ce cutia dvs. este în tranzit.',
   'shipments.subtitle':
     'Urmărește cutia în drum spre tine, apoi revino la fiecare ediție pe care ai despachetat-o până acum.',

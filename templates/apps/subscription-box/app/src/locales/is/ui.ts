@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Spurningar um útgáfu, sendingu eða áskrift? Náðu í alvöru manneskju úr teyminu á hello@crate.example — við lesum hverja skilaboð.',
+  'about.contactTitle': 'Talaðu við sýningarstjóra',
+  'about.feature1':
+    'Handvaldar mánaðarlegar útgáfur valdar af sjálfstæðum framleiðendum, með sögunni á bak við hvern hlut.',
+  'about.feature2':
+    'Full stjórn á hverri kassa — sérsníddu innihaldið, skiptu út eða slepptu hlutum, slepptu mánuði eða breyttu tíðninni.',
+  'about.feature3':
+    'Sendingarrakning frá upptöku til dyra, með plastlausum umbúðum og uppfærslum frá flutningsaðila í rauntíma.',
+  'about.feature4':
+    'Sveigjanleg áskriftarplön og gagnsæ gjaldtaka — uppfærðu, lækkaðu, settu í bið eða segðu upp frá stjórnborðinu þínu hvenær sem er.',
+  'about.intro':
+    '{{app}} er handvalin áskriftarkassaþjónusta sem sendir handvalinn, lítinn kassa af gleði að dyrum þínum í hverjum mánuði. Hver útgáfa er sett saman af starfandi framleiðendum — sjálfstæðum listamönnum, kokkum og litlum vörumerkjum — ekki reikniriti.',
+  'about.missionBody':
+    'Við trúum því að áskrift eigi að vera gjöf, ekki gildra. {{app}} er byggt þannig að þú verður vegna þess að þér þykir vænt um það sem kemur — settu í bið hvenær sem er, skiptu um það sem þú vilt og segðu upp með einum smelli. Engir viðhaldsskriftir, aldrei.',
+  'about.missionTitle': 'Markmið okkar',
   'about.pageTitle': 'Um {{app}}',
   'appNav.mobileLabel': 'Aðalflakk',
   'appNav.primaryLabel': 'Aðalflakk',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Breyta greiðslutengilið',
   'billing.contact.eyebrow': 'Greiðslutengiliður',
   'billing.eyebrow': 'Áætlun og greiðslur',
+  'billing.loading': 'Hleður inn reikninga…',
   'billing.payment.body':
     'Greiðslan fer fram með Stripe Checkout — allt kortanúmerið þitt snertir aldrei netþjóna okkar. Smelltu á hvaða stig sem er hér að neðan til að bæta við eða uppfæra kortið þitt.',
   'billing.payment.linked': 'Kort skráð í gegnum Stripe',
@@ -20,9 +37,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Halda áfram áskrift',
   'billing.plan.eyebrow': 'Virk áætlun',
   'billing.plan.next': 'Endurnýjast sjálfkrafa þann {{date}} .',
+  'billing.plan.status': 'Staða: {{status}}',
   'billing.subtitle': 'Stjórnaðu greiðsluþrepi þínu, greiðslumáta og skoðaðu fyrri virkni.',
   'billing.tiers.body': 'Veldu þjónustuflokk og við munum beina þér áfram á Stripe Checkout.',
   'billing.tiers.choose': 'Veldu',
+  'billing.tiers.empty': 'Engin stig stillt ennþá.',
   'billing.tiers.heading': 'Tiltæk stig',
   'boxDetail.backToBoxes': 'Til baka í allar útgáfur',
   'boxDetail.crumb.boxes': 'Útgáfur',
@@ -35,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Valið verk',
   'boxDetail.items.heading': '{{count}} valin verk',
   'boxDetail.itemsBadge': '{{count}} úrval af vörum í hverjum kassa',
+  'boxDetail.loading': 'Hleður útgáfu…',
   'boxDetail.notFound': 'Sú útgáfa er ekki lengur fáanleg.',
   'boxDetail.subscribe.success': 'Áskrifandi — fyrsta útgáfan þín er í biðröð.',
   'boxDetail.swapBadge': 'Skipta upp í {{count}} vara(r) í hverjum kassa',
@@ -43,14 +63,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Engar útgáfur passa.',
   'boxes.eyebrow': 'Crate skjalasafnið',
   'boxes.heading': 'Skoðaðu allar útgáfur',
+  'boxes.loadError': 'Ekki tókst að hlaða útgáfunum. Athugaðu tenginguna og reyndu aftur.',
   'boxes.loading': 'Hleður útgáfum…',
+  'boxes.search.label': 'Leita í útgáfum',
   'boxes.search.placeholder': 'Leita í útgáfum…',
   'boxes.subtitle':
     'Hvert stig er saga í litlum hópi. Bættu einni við biðröðina þína eða skiptu henni yfir í næsta mánuð.',
+  'boxThemeCard.itemCount': '{{count}} hlutir',
   'boxThemeCard.perMonth': '/ mánuði',
+  'boxThemeCard.retailValue': 'Smásöluverðmæti {{value}}',
   'common.goToDashboard': 'Fara á yfirlit',
+  'common.retry': 'Reyna aftur',
   'customize.eyebrow': 'Gerðu það að þínu',
   'customize.heading': 'Sérsníddu næsta Crate þinn',
+  'customize.items.empty': 'Engir hlutir stilltir fyrir þetta stig ennþá.',
   'customize.items.exclude': 'Sleppa þessu',
   'customize.items.eyebrow': 'Sérsníddu þennan kassa',
   'customize.items.heading': 'Atriði í {{box}}',
@@ -59,8 +85,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Bæta við aftur',
   'customize.items.save': 'Vista sérstillingar',
   'customize.items.swapsLeft': '{{used}} af {{max}} skipti notuð',
+  'customize.loading': 'Hleður sérsníðingu…',
   'customize.noSub.body':
     'Gerstu fyrst áskrifandi að ákveðnu stigi og komdu svo aftur til að skiptast á hlutum í kassanum þínum.',
+  'customize.noSub.cta': 'Skoða útgáfur',
   'customize.noSub.heading': 'Engin virk áskrift',
   'customize.saved': 'Sérstilling vistuð.',
   'customize.subtitle':
@@ -74,11 +102,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Rekja sendingu',
   'dashboard.eyebrow': 'Safn þitt',
   'dashboard.greeting': 'Velkomin(n) aftur, {{name}} .',
+  'dashboard.loadError':
+    'Ekki tókst að hlaða stjórnborðinu þínu. Athugaðu tenginguna og reyndu aftur.',
   'dashboard.loading': 'Hleður mælaborð…',
   'dashboard.next.eyebrow': 'Næsta útgáfa þín',
   'dashboard.onboarding.body':
     'Þú ert ekki með virka áskrift ennþá. Veldu áskriftarflokk til að byrja að senda Crate mánaðarlega.',
   'dashboard.onboarding.cta': 'Skoða allar útgáfur',
+  'dashboard.onboarding.empty': 'Engin plön í boði núna. Komdu aftur fljótlega.',
   'dashboard.onboarding.heading': 'Veldu fyrstu útgáfuna þína',
   'dashboard.renewal.amount': 'Gjaldfært',
   'dashboard.renewal.cadence': 'Kadensa',
@@ -86,12 +117,15 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Endurnýjun',
   'dashboard.renewal.heading': 'Sjálfvirk endurnýjun virk {{date}}',
   'dashboard.renewal.plan': 'Lykill að áætlun',
+  'dashboard.renewal.tbd': 'Endurnýjun verður tímasett fljótlega',
   'dashboard.renewal.tier': 'Stig',
   'dashboard.stats.days': 'dagar',
   'dashboard.stats.daysToNext': 'Sendir inn',
   'dashboard.stats.items': 'Valdar vörur',
   'dashboard.stats.shipDate': 'Sendingardagur',
   'dashboard.stats.tbd': 'Óákveðið',
+  'dashboard.subtitle.active': 'Næsta útgáfa er á leiðinni. Hér er það sem má búast við.',
+  'dashboard.subtitle.idle': 'Veldu stig til að byrja að senda {{appName}} í hverjum mánuði.',
   'forgotPassword.subtitle':
     'Láttu okkur vita netfangið þitt og við sendum þér tengil til að endurstilla.',
   'forgotPassword.success.body':
@@ -99,6 +133,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Kíktu á pósthólfið þitt.',
   'landing.editions.eyebrow': 'Þessi árstíð',
   'landing.editions.heading': 'Útgáfur sem sýningarstjórar okkar elska',
+  'landing.editions.viewAll': 'Skoða allar útgáfur →',
   'landing.footer.contact': 'Talaðu við sýningarstjóra',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Byrjaðu kassann þinn →',
@@ -107,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.headline': 'Opnaðu óvænta hluti, í hverjum mánuði.',
   'landing.hero.previewCaption': 'Innsýn í stjórnborð meðlima — niðurtalning, efni og rakning.',
   'landing.hero.social.count': 'Elskaður af {{count}} + áskrifendur',
+  'landing.hero.social.rating': '{{rating}} meðaleinkunn við uppökkun',
+  'landing.hero.subhead':
+    '{{appName}} sendir þér handvalinn, lítinn kassa af gleði frá sjálfstæðum framleiðendum. Settu í bið hvenær sem er. Skiptu um það sem þú vilt. Hafðu það sem þér þykir vænt um.',
   'landing.nav.start': 'Byrjaðu kassann þinn',
   'landing.tiers.eyebrow': 'Veldu taktinn þinn',
   'landing.tiers.heading':
@@ -117,6 +155,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Skráðu þig inn til að kíkja á kassann fyrir næsta mánuð 2010.',
   'login.welcomeBack': 'Velkominn aftur, sýningarstjóri.',
   'nextBoxHeroCard.eyebrow': 'NÆSTA VERSLUN ÞÍN',
+  'nextBoxHeroCard.itemCount': '{{count}} hlutir inni',
   'nextBoxHeroCard.itemsLabel': 'Valdar vörur',
   'nextBoxHeroCard.shipsOnLabel': 'Sendir á',
   'notFound.body':
@@ -140,8 +179,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Gera hlé á áskrift',
   'settings.danger.paused': 'Áskrift sett í bið.',
   'settings.danger.pausing': 'Hlé…',
+  'settings.danger.status': 'Áskriftarstaða: {{status}}',
   'settings.danger.subtitle':
     'Með því að gera hlé heldur þú sendingarstigi þínu og sögu óbreyttum. Með því að hætta við stöðvast framtíðarsendingar og vistaðar greiðslumátar eru fjarlægðir í lok ferlisins.',
+  'settings.notifications.saving': '· vista…',
   'settings.notifications.subtitle':
     'Veldu hvaða merki þú vilt fá frá Crate. Sjálfgefin gildi eru skynsamleg.',
   'settings.subtitle': 'Uppfærðu prófílinn þinn, sendingarfang og hvernig Crate hefur samband.',
@@ -156,11 +197,17 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Engin virk sending ennþá',
   'shipments.live.eyebrow': 'Virk sending',
   'shipments.live.unnamed': 'Næsti kassi þinn',
+  'shipments.loadError':
+    'Ekki tókst að hlaða sendingunum þínum. Athugaðu tenginguna og reyndu aftur.',
+  'shipments.loading': 'Hleður sendingum…',
+  'shipments.step.delivered': 'Afhent',
   'shipments.step.deliveredBody': 'Merktu #crateunbox til að deila því sem þú uppgötvar.',
   'shipments.step.ordered': 'Pöntun lögð inn',
   'shipments.step.orderedBody':
     'Áskriftin þín setti þessa útgáfu í biðröð fyrir næstu sendingarlotu.',
+  'shipments.step.packed': 'Handpakkað',
   'shipments.step.packedBody': 'Hvert stykki pakkað inn og sett í kassa með handskrifaðri miða.',
+  'shipments.step.transit': 'Á leiðinni',
   'shipments.step.transitNot': 'Rakning birtist hér þegar kassinn þinn er kominn í flutning.',
   'shipments.subtitle':
     'Fylgstu með kassanum á leiðinni til þín og skoðaðu síðan allar útgáfur sem þú hefur áður tekið úr kassanum.',

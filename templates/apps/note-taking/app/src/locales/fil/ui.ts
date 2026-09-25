@@ -1,20 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, may nahanap kang bug, o gusto mong magmungkahi ng feature? Makipag-ugnayan mula sa iyong account settings — bawat mensahe ay napupunta sa isang tunay na tao sa team.',
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.featureDatabases':
+    'Magaan na mga database at magagamit muli na mga template para gawing organisado at paulit-ulit na workflow ang magulong mga tala.',
+  'about.featureEditor':
+    'Isang tahimik na block editor — headings, lists, code, callouts, at to-dos — may slash-commands kapag kailangan mo at hindi nakakaabala kapag hindi.',
+  'about.featureGraph':
+    'Mga backlink at knowledge graph: i-type ang [[ para i-link ang isang tala at tingnan kung paano nag-uugnay ang iyong mga ideya sa paglipas ng panahon.',
+  'about.featureNotebooks':
+    'Mga nested notebook at page para manatiling organisado ang mga proyekto, paksa, at daily notes nang eksaktong ayon sa iyong pag-iisip.',
+  'about.featureSearch':
+    'Sub-50ms na full-text search sa bawat notebook, kasama ang mga tag na tumutugma sa mga notebook sa halip na makipagtunggali sa kanila.',
+  'about.missionTitle': 'Ang aming misyon',
   'common.goToDashboard': 'Pumunta sa Dashboard',
   'forgot.eyebrow': 'Nawala ang daan pabalik?',
   'forgot.formSubtitle': 'Sabihin sa amin ang email na naka-file.',
+  'forgot.formTitle': 'Nakalimutang password',
   'forgot.headline': 'I-reset ang iyong password.',
   'forgot.subline': 'Magpapadala kami ng one-time link sa iyong inbox para makapili ka ng bago.',
+  'forgot.successDetail':
+    'Nagpadala kami ng reset link sa iyong email. Mag-e-expire ito sa loob ng 30 minuto.',
   'graph.eyebrow': 'Graph',
+  'graph.goToNotes': 'Mag-browse ng mga tala →',
+  'graph.loadError': 'Hindi ma-load ang graph: {{message}}',
   'graph.placeholderBody':
     "Kapag nagsimulang mag-ugnay ang mga tala sa isa't isa (gamit ang syntax na [[wiki]]), isang interactive na force-directed graph ang ipapakita rito.",
+  'graph.placeholderTitle': 'Paparating na ang backlink graph',
   'graph.subtitle':
     '{{count}} mga tala sa workspace na ito. Lalabas dito ang rendering ng backlink graph kapag ang mga tala ay magkakaugnay.',
   'graph.title': 'Graph ng kaalaman',
   'home.empty': 'Wala pang mga tala — simulan ang una mo.',
   'home.favoritesHeading': 'Naka-pin',
   'home.guest': 'kaibigan',
+  'home.loadError': 'Hindi ma-load ang iyong mga tala: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Mag-pin ng tala sa editor para maitago ito rito.',
   'home.recentHeading': 'Kamakailang na-update',
@@ -22,18 +43,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Kuwaderno',
   'home.stats.pinned.label': 'Naka-pin',
   'home.stats.updatedToday.label': 'Na-update ngayon',
+  'home.subtitle': 'Ipagpatuloy kung saan ka tumigil, o magsimula ng bagong tala.',
   'home.viewAll': 'Tingnan ang lahat ng tala',
   'landing.cta.body':
     'Libre para sa personal na paggamit. Pro para sa mga koponan. Dalhin ang iyong kasalukuyang markdown o magsimulang muli — sinasalubong ka ng Verso saanman naroon ang iyong mga tala.',
+  'landing.cta.button': 'Gumawa ng aking workspace',
   'landing.cta.heading': 'Buksan ang pahina ngayon.',
   'landing.features.eyebrow': 'Bawat primitive na kailangan ng iyong pangalawang utak',
+  'landing.features.heading': 'Ginawa para sa gawain, hindi para sa meta-gawa.',
   'landing.hero.eyebrow': 'Isang tahimik na ibabaw ng pagsusulat',
   'landing.hero.headlineAccent': 'magkahugis.',
   'landing.hero.headlineLeading': 'Kung saan ang mga iniisip',
   'landing.hero.primaryCta': 'Simulan ang iyong kaalaman',
   'landing.hero.secondaryCta': 'Mayroon na akong account',
+  'landing.hero.socialProof':
+    '12,800+ na manunulat, estudyante, at PhD ang nag-iisip gamit ang {{appName}}',
   'landing.hero.subline':
     'Ang Verso ay isang nakabalangkas na kagamitan sa pagkuha ng tala para sa mga manggagawang may kaalaman at mga mag-aaral. Block editor, mga nested notebook, mga backlink, at isang knowledge graph — lahat ng ito ay nasa likod ng isang karanasan sa pagbabasa na inuuna ang tipograpiya.',
+  'landing.preview.notebook': 'Kaalaman · Proseso ng pagsusulat',
+  'landing.preview.title': 'Sa pagpapakawala ng hangin mula sa mga draft',
   'login.eyebrow': 'Maligayang pagbabalik sa Verso',
   'login.formSubtitle': 'Gamitin ang iyong email o anumang konektadong provider.',
   'login.headline': 'Ipagpatuloy kung saan huminto ang pahina.',
@@ -43,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
   'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'noteEditor.backToNotes': 'Balik sa mga tala',
+  'noteEditor.bodyLabel': 'Katawan ng tala',
   'noteEditor.bodyPlaceholder':
     'Simulan ang pagsusulat — awtomatikong sine-save ang iyong tala habang nagta-type ka.',
   'noteEditor.confirmTrash': 'Ilipat ang talang ito sa basurahan?',
@@ -51,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Ilipat sa basurahan',
   'noteEditor.updated': 'Na-update',
   'notes.defaultWorkspaceName': 'Ang aking kuwaderno',
+  'notes.empty': 'Wala pang tala dito — magsimula ng isa para punan ang notebook.',
   'notes.eyebrow': 'Kuwaderno',
   'notes.filterAll': 'Lahat ng tala',
   'notes.filterPinned': 'Naka-pin',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Bagong kuwaderno',
   'notes.newNotebookPrompt': 'Bagong pangalan ng kuwaderno',
+  'notes.newNotebookRequired': 'Maglagay ng pangalan ng notebook.',
   'notes.notebooksHeading': 'Mga Notebook',
   'notes.subtitle':
     'Pumili ng notebook sa kaliwa, pagkatapos ay pindutin ang button na Bagong tala para magsimula ng panibagong entry.',
+  'planUpdated.body': 'Aktibo na ang iyong subscription.',
   'planUpdated.confirmation': 'Na-update na ang iyong plano',
+  'pricing.advancedFeatures': 'Mga advanced na feature',
   'pricing.heading': 'Piliin ang iyong plano sa pagkuha ng tala',
+  'reset.changedMind': 'Nagbago ang isip mo?',
   'reset.eyebrow': 'Malapit nang bumalik',
   'reset.formSubtitle': 'Masa-sign in ka na kapag na-save na ito.',
   'reset.headline': 'Pumili ng bagong password.',
@@ -71,7 +105,9 @@ export const ui: UiTranslations = {
     'Ilagay ang code na kaka-email lang namin sa iyo at pumili ng isang bagay na hindi mo malilimutan.',
   'reset.submit': 'I-save at mag-sign in',
   'reset.tokenHint': 'Na-paste mula sa iyong inbox.',
+  'search.empty': 'Wala pang talang tumutugma sa query na ito.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Maghanap sa Refract',
   'search.loading': 'Naghahanap…',
   'search.noRecent': 'Mag-type ng query sa itaas para simulan ang paghahanap sa iyong mga tala.',
   'search.recentLabel': 'Mga kamakailang paghahanap',
@@ -79,12 +115,19 @@ export const ui: UiTranslations = {
     'Buong teksto sa bawat notebook. I-type para maghanap; magre-refresh ang mga resulta habang nagta-type ka.',
   'search.title': 'Hanapin ang pangalawang utak.',
   'settings.account.logout': 'Mag-log out',
+  'settings.account.title': 'Mga detalye ng account',
+  'settings.editor.graphHover.body':
+    'Magpakita ng maliit na preview card kapag nag-hover ka sa isang [[wikilink]] sa editor.',
+  'settings.editor.graphHover.label': 'Hover preview ng backlink graph',
   'settings.editor.lineHeight.body':
     'Gaano karaming hangin sa pagitan ng mga linya ng katawan. 170% ang default na ritmo sa pagbasa.',
+  'settings.editor.lineHeight.label': 'Taas ng linya',
   'settings.editor.serif.body':
     'Gamitin ang Georgia para sa kolum ng pagbabasa. Ang sans-serif ay nananatili sa sidebar at mga toolbar.',
+  'settings.editor.serif.label': 'Serif na teksto ng katawan',
   'settings.editor.title': 'Tipograpiya at ibabaw ng sulatin',
   'settings.eyebrow': 'Verso · Mga Setting',
+  'settings.passwordModal.current': 'Kasalukuyang password',
   'settings.passwordModal.error':
     'Hindi mabago ang password — pakisuri ang kasalukuyan mong password.',
   'settings.passwordModal.next': 'Bagong password',
@@ -94,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Itulak ang bawat pagpindot sa keystroke sa realtime channel. I-disable para sa mas mabagal na koneksyon.',
   'settings.sync.auto.label': 'Pag-sync sa totoong oras',
+  'settings.sync.title': 'Paano naglalakbay ang iyong mga tala',
   'settings.theme.body':
     'Pinapanatiling maliwanag ng liwanag ang kolum ng editoryal. Pinapainit naman ng Sepia ang pahina para sa mga gabi.',
   'settings.theme.dark': 'Madilim',
@@ -113,8 +157,12 @@ export const ui: UiTranslations = {
     'Magdagdag ng mga #hashtag sa pamagat ng isang tala (hal. "Listahan ng babasahin #mga libro") at awtomatiko itong lilitaw dito.',
   'tags.emptyTitle': 'Wala pang mga tag',
   'tags.eyebrow': 'Indeks',
+  'tags.goToNotes': 'Pumunta sa mga tala →',
+  'tags.loadError': 'Hindi ma-load ang mga tag: {{message}}',
   'tags.subtitle':
     '{{tags}} mga tag sa kabuuan {{notes}} mga tala. Magdagdag ng #hashtags sa pamagat ng tala at lilitaw ang mga ito rito.',
+  'versoAuthShell.sample.body':
+    'Mas maganda palagi ang ikalawang pagbasa bukas kaysa sa unang pagbasa ngayong gabi. Itabi ang rough cut sa deep work folder…',
   'versoAuthShell.sample.label': 'Pang-araw-araw na tala',
   'versoAuthShell.sample.timestamp': 'Ngayon · 9:14am',
   'versoAuthShell.sample.title': 'Sa pagpapakawala ng hangin mula sa mga draft',
@@ -126,8 +174,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Ipagpatuloy ang pagsulat',
   'versoTodayHero.createCta': 'Simulan ang tala ngayon',
   'versoTodayHero.dailyLabel': 'Pang-araw-araw na tala',
+  'versoTodayHero.emptyHeadline': 'Ang ngayon ay isang blangkong pahina.',
   'versoTodayHero.emptySubline':
     'Kumuha ng ideya, magsulat ng isang pulong, o mag-sketch bukas. Pinapanatiling tahimik ng Verso ang istruktura para manatiling malakas ang pagkakasulat.',
+  'versoTodayHero.outlineLabel': 'Outline ngayong araw',
   'versoTodayHero.streak': '{{count}}-araw na streak',
+  'versoTodayHero.unwritten': 'Wala pang salita — buksan ang tala para magsimula.',
   'versoTodayHero.wordCount': '{{count}} mga salita ngayon',
 }

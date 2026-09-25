@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai feedback, ai găsit un bug sau vrei {{app}} pentru liga ta? Scrie-ne din setările contului — fiecare mesaj ajunge la o persoană reală din echipă.',
+  'about.contactTitle': 'Contactați-ne',
   'about.eyebrow': 'Despre',
+  'about.featureAlerts':
+    'Notificări push pentru actualizări de scor, alerte de transferuri, rapoarte de accidentări și anunțuri din ligă.',
+  'about.featureRosters':
+    'Pagini de echipă cu loturi complete, totaluri pe sezon, serii de formă bună/proastă și statistici directe pentru fiecare jucător.',
+  'about.featureSchedule':
+    'Un calendar de sezon și o vizualizare a programului, ca să te poți organiza în jurul fiecărui meci și rezultat.',
+  'about.featureScoreboard':
+    'Un ticker de scor de calitate broadcast, fixat în partea de sus a fiecărei pagini, ca să nu ratezi niciun gol.',
+  'about.featureStandings':
+    'Clasamente live — bilanțuri victorii-înfrângeri-egaluri în timp real, puncte, procentaj de victorii și linia play-off-ului, actualizate la fiecare fluier.',
+  'about.intro':
+    '{{app}} este o casă de calitate broadcast pentru liga ta. Echipele, programul, scorurile live și clasamentele se reunesc într-un singur dashboard rapid și fără aglomerație — ca fanii, antrenorii și organizatorii ligii să știe mereu unde se află sezonul.',
+  'about.missionBody':
+    'Să urmărești o ligă nu ar trebui să însemne să reîncarci cinci panouri de scor diferite de la terți. Am construit-o ca să ofere fiecărei ligi o singură sursă de adevăr pentru clasamente, program și statisticile care contează cu adevărat — actualizate la fiecare fluier, gratuit pentru sezon.',
+  'about.missionTitle': 'Misiunea noastră',
+  'about.whatYouGet': 'Ce primiți',
   'appShell.closeNav': 'Închide meniul de navigare',
   'appShell.openNav': 'Deschide meniul de navigare',
   'common.dashboard': 'Tablou de bord',
@@ -16,14 +35,21 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Vezi toate meciurile \\u2192',
   'dashboard.viewAllStandings': 'Clasament complet \\u2192',
   'dashboard.viewAllStats': 'Vedeți toți liderii statisticilor \\u2192',
+  'forgot.submitting': 'Se trimite linkul de resetare…',
   'forgot.subtitle': 'Introduceți adresa de email pentru a primi un link de resetare.',
   'forgot.success':
     'Linkul de resetare a fost trimis către {{email}} Verificați-vă căsuța poștală.',
+  'landing.copyright': '© {{year}} {{app}}. Urmărește clasamentul.',
+  'landing.ctaBody':
+    'Liga ta. Clasamentele tale. Echipa ta preferată — fixată în partea de sus. Două minute de configurare, gratuit pentru sezon.',
   'landing.ctaHeading': 'Opriți actualizarea tabelelor de scor terțe',
   'landing.eyebrow': 'Construit pentru fani, antrenori și organizatori de campionat',
   'landing.featuresHeading': 'Un loc în primul rând pentru fiecare persoană în picioare',
   'landing.getStarted': 'Alătură-te ligii',
   'landing.heroCta': 'Alătură-te ligii',
+  'landing.heroSubtitle':
+    '{{app}} reunește clasamente, programe și lideri statistici într-un singur dashboard de calitate broadcast. Scoruri live. Bilanțuri reale. Fără aglomerație.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'În seara asta, în jurul ligii',
   'landing.statFans': 'Fanii urmăresc',
   'landing.statGames': 'Meciuri din acest sezon',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Î {{period}}',
   'matchDetail.back': 'Înapoi la meciuri',
   'matchDetail.eventsHeading': 'Joc cu joc',
+  'matchDetail.final': 'FINAL',
   'matchDetail.finalScore': 'Final',
   'matchDetail.live': 'TRĂI',
   'matchDetail.liveNow': 'Live acum',
   'matchDetail.noEvents': 'Niciun eveniment înregistrat încă.',
   'matchDetail.periodClock': 'Î {{period}} · {{clock}}',
+  'matches.empty': 'Niciun meci în această vizualizare — încearcă un alt filtru.',
   'matches.eyebrow': 'Ziua de meci',
   'matches.loading': 'Tragând ardezia…',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Încărcarea notificărilor a eșuat',
   'notifications.loading': 'Se încarcă notificările\\u2026',
   'pennantHeroCard.eyebrow': 'În partea de sus a tabelului',
+  'pennantHeroCard.formLabel': 'Ultimele 10',
   'pennantHeroCard.gamesAhead': '{{value}} jocuri înaintea urmăririi',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Navigare principală',
@@ -80,17 +109,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Alege-ți locul',
   'pricing.heading': 'Fă upgrade pentru un program, scoruri și clasamente mai îmbogățite.',
   'pricing.limits.schedule': '{{count}} intrări în program',
+  'pricing.limits.scores': 'Scoruri {{count}}',
+  'pricing.limits.standings': 'Clasamente {{count}}',
+  'pricing.limits.teams': 'Echipe {{count}}',
+  'pricing.subtitle': 'Fă upgrade pentru program, scoruri și clasamente mai bogate.',
   'pricing.upgradeCta': 'Treceți la {{tierName}}',
   'profile.eyebrow': 'Profilul fanului',
   'profile.favoritesCount': 'Echipele au urmat',
   'profile.favoritesHeading': 'Echipele favorite',
   'profile.noFavorites': 'Nicio echipă favorită încă — alegeți echipe din pagina Echipe.',
   'profile.rankRecord': 'Rang # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Bilanț {{record}}',
   'reset.confirmPlaceholder': 'Repetă parola',
+  'reset.mismatch': 'Parolele nu se potrivesc.',
   'reset.newLabel': 'Parolă nouă',
   'reset.subtitle': 'Alege o parolă puternică de cel puțin 12 caractere.',
   'reset.tokenPlaceholder': 'Lipire din e-mail',
   'schedule.eyebrow': 'Ardezia',
+  'schedule.moreGames': '+ {{count}} Mai mult',
   'schedule.subtitle':
     'Vizualizare calendar cu meciurile din sezon — atingeți orice zi pentru scoruri.',
   'scoreboardTicker.empty':
@@ -99,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Personalizați',
   'settings.favoritesBody':
     'Aceste echipe sunt fixate în tabloul de bord și declanșează alerte privind scorul.',
+  'settings.favoritesHeading': 'Echipele favorite',
   'settings.loading': 'Se încarcă preferințele\\u2026',
   'settings.noFavorites': 'Nicio echipă favorită încă \\u2014 alegeți echipe din pagina Echipe.',
   'settings.notificationsHeading': 'Notificări și afișare',
@@ -116,6 +153,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L.',
   'standings.overall': 'General',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Primele patru se califică în postseason — egalitate la puncte, apoi procent de victorii.',
   'standings.title': 'Clasamentul ligii',
@@ -134,6 +172,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G.',
   'teamDetail.colName': 'Player',
   'teamDetail.colPos': 'Poziție',
+  'teamDetail.pointsLabel': 'Puncte',
   'teamDetail.rankLabel': 'Rang # {{rank}}',
   'teamDetail.rosterHeading': 'Listă de membri',
   'teamDetail.statGD': 'Diferența de goluri',

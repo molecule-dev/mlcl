@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது உங்கள் பள்ளியை இணைக்க விரும்புகிறீர்களா? உங்கள் கணக்கு அமைப்புகளிலிருந்து தொடர்பு கொள்ளுங்கள் அல்லது உங்கள் பள்ளி நிர்வாகிக்கு செய்தி அனுப்புங்கள் — ஒவ்வொரு குறிப்பும் குழுவில் உள்ள ஒரு உண்மையான நபரைச் சென்றடைகிறது.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'announcementsFeed.empty': 'இதுவரை எந்த அறிவிப்புகளும் இல்லை.',
   'announcementsFeed.eyebrow': '{{count}} புதுப்பிப்புகள்',
   'announcementsFeed.title': 'சமீபத்திய அறிவிப்புகள்',
   'assignmentDetail.alreadySubmitted': 'நீங்கள் ஏற்கனவே இந்த ஒப்படைப்பைச் சமர்ப்பித்துவிட்டீர்கள்.',
   'assignmentDetail.backLink': 'பணிகளுக்குத் திரும்பு',
+  'assignmentDetail.dropBody':
+    'உங்கள் வேலையை இணைக்க Choose files பயன்படுத்தவும் — நீங்கள் உறுதிப்படுத்தியதும் சமர்ப்பிப்பு நேர முத்திரையைப் பதிவு செய்வோம்.',
   'assignmentDetail.dropButton': 'கோப்புகளைத் தேர்ந்தெடுக்கவும்',
+  'assignmentDetail.dropPrompt': 'உங்கள் PDF அல்லது புகைப்படத் தொகுப்பை இங்கே இடவும்',
   'assignmentDetail.due': 'காரணமாக {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'வழிமுறைகள்',
@@ -19,8 +25,12 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'மதிப்பிடப்பட்டது',
   'assignmentDetail.statusSubmitted': 'சமர்ப்பிக்கப்பட்டது',
   'assignmentDetail.statusTitle': 'சமர்ப்பிப்பு நிலைகள்',
+  'assignmentDetail.submitError':
+    'அந்தச் சமர்ப்பிப்பைப் பதிவு செய்ய முடியவில்லை. சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'assignmentDetail.submitted':
     'சமர்ப்பிப்பு பதிவு செய்யப்பட்டது — உங்கள் ஆசிரியருக்குத் தகவல் தெரிவிக்கப்பட்டுள்ளது.',
+  'assignmentDetail.submittedAt': '{{when}} அனுப்பப்பட்டது',
+  'assignmentDetail.submitTitle': 'உங்கள் வேலையைச் சமர்ப்பிக்கவும்',
   'assignmentRow.courseDue': '{{course}} · Due {{due}}',
   'assignments.empty': 'இங்கே ஒன்றுமில்லை',
   'assignments.emptyBody': 'வேறு மாநிலத்தில் உள்ள பணிகளைக் காண, மேலே உள்ள வடிப்பான்களை மாற்றவும்.',
@@ -39,9 +49,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'வருகை, வருகையின்மை மற்றும் தாமதங்கள் குறித்த தினசரிப் பதிவேடு — தேவைப்படும் இடங்களில் குறிப்புகளுடன்.',
+  'attendance.summary.absences': 'வருகைகள்',
   'attendance.summary.absencesCaption': '5-நாள் தலையீட்டு வரம்பிற்குக் கீழே',
   'attendance.summary.attendance': 'வருகை',
   'attendance.summary.attendanceCaption': '{{count}} தற்காலத்தில் இந்தக் காலம்',
+  'attendance.summary.tardies': 'தாமதங்கள்',
   'attendance.summary.tardiesCaption': 'பேருந்து / சந்திப்பு தாமதங்களுக்கான குறிப்புகள் உட்பட',
   'attendance.title': 'வருகை வரலாறு',
   'calendar.eyebrow': 'கல்வியாண்டு · {{year}}',
@@ -55,6 +67,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'தரங்கள்',
   'courseDetail.currentGrade': 'தற்போதைய தரம்',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'பாடநெறி கண்ணோட்டம்',
   'courseDetail.gradesTitle': 'சமீபத்திய தரங்கள்',
   'courseDetail.messageTeacher': 'செய்தி ஆசிரியர்',
   'courseDetail.noGrades': 'இன்னும் மதிப்பெண்கள் வெளியிடப்படவில்லை.',
@@ -68,13 +81,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'அனைத்தையும் காண்க',
   'dashboard.assignmentsTitle': 'இந்த வாரம் அடுத்து',
   'dashboard.greeting': 'வணக்கம் {{name}} வகுப்பிற்குத் தயாரா?',
+  'dashboard.subtitle':
+    'உங்கள் வாரம் ஒரு பார்வையில் — அட்டவணை, மதிப்பெண்கள், பயிற்சிகள் அனைத்தும் ஒரே அமைதியான பார்வையில்.',
+  'dashboard.viewReportCard': 'அறிக்கை அட்டையைப் பார்க்கவும்',
+  'dashboard.weekFocusBody':
+    'இருபடிச் சமன்பாடுகள் பயிற்சித் தொகுப்பு 7 மற்றும் அத்தியாய வினாடி வினாவைச் சமர்ப்பிக்கவும். பயிற்சி ஆய்வகம் செவ்வாய் & வியாழன் 7ஆம் பாடவேளைக்குப் பிறகு திறந்திருக்கும்.',
+  'dashboard.weekFocusCta': 'முழுத் திட்டத்தையும் பார்க்கவும்',
   'dashboard.weekFocusEyebrow': 'வாரத்தின் கவனம்',
   'dashboard.weekFocusTitle': 'இயற்கணிதம் II-ஐ 4 புள்ளிகள் உயர்த்தவும்',
   'forgotPassword.subheading':
     'உங்கள் பள்ளி மின்னஞ்சலை உள்ளிடவும், நாங்கள் மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.successBody':
     'If {{email}} இது ஒரு சாக் (Chalk) கணக்குடன் பொருந்தினால், கடவுச்சொல் மீட்டமைப்பு இணைப்பு அனுப்பப்படும். இணைப்புகள் 30 நிமிடங்களில் காலாவதியாகிவிடும்.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} பருவ ஜிபிஏ',
+  'gpaHeroCard.summary': 'இன்று {{count}} வகுப்புகள்',
   'grades.col.grade': 'தரம்',
   'grades.col.teacher': 'ஆசிரியர்',
   'grades.col.trend': 'போக்கு',
@@ -86,11 +107,18 @@ export const ui: UiTranslations = {
     'நிகழ்நேர எழுத்து மற்றும் சதவீத மதிப்பெண்கள். உங்கள் மதிப்பெண்கள் உயர்கின்றனவா, ஒரே நிலையில் உள்ளனவா அல்லது பின்தங்குகின்றனவா என்பதைப் போக்கு அம்புக்குறிகள் காட்டுகின்றன.',
   'grades.title': 'ஒவ்வொரு பாடத்திலும் உங்கள் மதிப்பெண்கள்',
   'grades.trendStable': 'நிலையான',
+  'grades.viewReportCard': 'முறையான அறிக்கை அட்டையைப் பார்க்கவும்',
   'landing.copyright':
     '© {{year}} {{app}} . மாணவர்களுக்காக உருவாக்கப்பட்டது, குடும்பங்களுக்காக வடிவமைக்கப்பட்டது.',
+  'landing.ctaBody':
+    'முதல் 30 நாட்களுக்கு இலவசம், கிரெடிட் கார்டு தேவையில்லை. மாவட்டங்கள் ஒரே மதியத்தில் பள்ளி அளவிலான திட்டத்தை அறிமுகப்படுத்தலாம்.',
+  'landing.ctaButton': 'உங்கள் போர்ட்டலை உருவாக்குங்கள்',
   'landing.ctaHeading': 'ஒரு அமைதியான பள்ளி நாள் சில நிமிடங்களில் தொடங்குகிறது.',
   'landing.eyebrow': 'நடுநிலை மற்றும் உயர்நிலைப் பள்ளி மாணவர்களுக்கு',
   'landing.featuresHeading': 'மாணவரை மையமாகக் கொண்டு ஒழுங்கமைக்கப்பட்ட ஒரு பள்ளி நாள்',
+  'landing.heroSubtitle':
+    '{{appName}} ஒவ்வொரு வகுப்பு, மதிப்பெண், பயிற்சி மற்றும் செய்தியையும் ஒரே அமைதியான டாஷ்போர்டில் கொண்டு வருகிறது, எனவே தேடுவதில் குறைவான நேரத்தையும் கற்பதில் அதிக நேரத்தையும் செலவிடலாம்.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'இயல்பாகவே FERPA-இணக்கமானது',
   'landing.proof.rating': '12,000 குடும்பங்களில் 4.8',
   'landing.sampleTerm': 'வசந்தம்',
@@ -99,6 +127,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'login.noAccount': 'சாக்ப் பயன்படுத்தப் புதியவரா?',
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
+  'messages.compose': 'புதிய செய்தி',
   'messages.composer.email': 'பெறுநரின் மின்னஞ்சல் (விருப்பத்திற்குரியது)',
   'messages.composer.errorEmpty': 'செய்தி காலியாக இருக்கக்கூடாது.',
   'messages.composer.errorRecipient': 'பெறுநரின் பெயர் கட்டாயம் தேவை.',
@@ -130,9 +159,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'கௌரவப் பட்டியல் · வசந்த காலப் பருவம்',
   'nav.unreadMessages': 'படிக்காத செய்திகள்',
   'notifications.eyebrow': '{{count}} புதுப்பிப்புகள்',
+  'notifications.feedTitle': 'அனைத்து சமீபத்திய செயல்பாடு',
   'notifications.subtitle':
     'மதிப்பெண்கள், நினைவூட்டல்கள், செய்திகள் மற்றும் பள்ளி அறிவிப்புகள். அமைப்புகளில், ஒவ்வொரு அறிவிப்பும் எந்தெந்த சேனல்களைப் பயன்படுத்த வேண்டும் என்பதைச் சரிசெய்யவும்.',
+  'planUpdated.body':
+    'உங்கள் பில்லிங் மாற்றம் இப்போது செயலில் உள்ளது. பில்லிங் பக்கத்திலிருந்து எப்போது வேண்டுமானாலும் உங்கள் திட்டத்தை நிர்வகிக்கலாம்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
+  'pricing.announcementsLabel': 'அறிவிப்புகள்',
   'pricing.attendanceLabel': 'வருகை',
   'pricing.gradesLabel': 'தரங்கள்',
   'pricing.heading': 'அறிவிப்புகள்',
@@ -147,6 +184,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'கேள்வி 2',
   'reportCard.crumb': 'அறிக்கை அட்டை',
   'reportCard.cumulativeGpa': 'ஒட்டுமொத்த ஜிபிஏ',
+  'reportCard.download': 'PDF-ஐ பதிவிறக்கவும்',
   'reportCard.downloaded': 'மதிப்பெண் அறிக்கை புதிய தாவலில் திறக்கப்பட்டது.',
   'reportCard.downloading': 'PDF உருவாக்கப்படுகிறது…',
   'reportCard.empty': 'இன்னும் மதிப்பெண்கள் பதிவு செய்யப்படவில்லை.',
@@ -154,6 +192,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'இறுதி ஜிபிஏ · {{term}}',
   'reportCard.subtitle':
     'மதிப்பிடப்பட்ட பாட மதிப்பெண்கள், வருகைப் பதிவு மற்றும் அச்சிடக்கூடிய PDF பதிவிறக்கம் ஆகியவற்றுடன் கூடிய முறையான பருவ இறுதி மதிப்பெண் பட்டியல்.',
+  'reportCard.title': 'அறிக்கை அட்டை',
+  'resetPassword.newPassword': 'புதிய கடவுச்சொல்',
   'resetPassword.subheading': 'நினைவில் நிற்கும் ஆனால் யூகிக்கக் கடினமான ஒன்றைத் தேர்ந்தெடுங்கள்.',
   'resetPassword.tokenPlaceholder': 'உங்கள் மின்னஞ்சலில் உள்ள குறியீட்டை ஒட்டவும்.',
   'schedule.empty': 'வகுப்புகள் எதுவும் திட்டமிடப்படவில்லை.',
@@ -180,12 +220,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'நிலுவையில் உள்ள பணிகள்',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} இந்தப் பருவத்தில் வருகையின்மை · {{tardy}} தாமதங்கள்',
+  'subjectStatsTriad.attendanceCaptionLoading': 'வருகை எண்ணிக்கைகளைக் கணக்கிடுகிறது…',
+  'subjectStatsTriad.attendanceLabel': 'வருகை',
   'subjectStatsTriad.gradesCaption': 'குறுக்கே {{percent}} % எடையிடப்பட்ட சராசரி',
+  'subjectStatsTriad.gradesCaptionLoading': 'தரங்கள் ஏற்றப்படுகின்றன…',
+  'subjectStatsTriad.gradesLabel': 'வகுப்பு சராசரி',
   'todayScheduleStrip.empty': 'இன்று வகுப்புகள் இல்லை.',
   'todayScheduleStrip.eyebrow': '{{count}} வகுப்புகள்',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'இன்றைய அட்டவணை',
   'topbar.guestName': 'மாணவர்',
   'topbar.searchPlaceholder': 'வகுப்புகள், ஒப்படைப்புகள் போன்றவற்றைத் தேடுங்கள்…',
+  'topbar.studentRole': 'மாணவர்',
   'topbar.studentTag': 'மாணவர் · # {{id}}',
 }

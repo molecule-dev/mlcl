@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'মতামত আছে, কোনো বাগ পেয়েছেন, বা আপনার লিগের জন্য {{app}} চান? আপনার অ্যাকাউন্ট সেটিংস থেকে আমাদের সাথে যোগাযোগ করুন — প্রতিটি বার্তা টিমের একজন সত্যিকারের মানুষের কাছে পৌঁছায়।',
+  'about.contactTitle': 'যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'about.featureAlerts':
+    'স্কোর আপডেট, ট্রেড অ্যালার্ট, ইনজুরি রিপোর্ট এবং লিগ ঘোষণার জন্য পুশ নোটিফিকেশন।',
+  'about.featureRosters':
+    'প্রতিটি খেলোয়াড়ের সম্পূর্ণ রোস্টার, সিজন টোটাল, হট/কোল্ড স্ট্রিক এবং হেড-টু-হেড স্প্লিটসহ টিম পেজ।',
+  'about.featureSchedule':
+    'একটি সিজন ক্যালেন্ডার এবং শিডিউল ভিউ, যাতে প্রতিটি ফিক্সচার ও ফলাফল ঘিরে আপনি পরিকল্পনা করতে পারেন।',
+  'about.featureScoreboard':
+    'প্রতিটি পেজের উপরে পিন করা ব্রডকাস্ট-মানের স্কোরবোর্ড টিকার, যাতে কোনো গোল মিস না হয়।',
+  'about.featureStandings':
+    'লাইভ স্ট্যান্ডিং — রিয়েল-টাইম জয়-পরাজয়-ড্র রেকর্ড, পয়েন্ট, উইন-পিসিটি এবং প্লে-অফ লাইন, প্রতিটি হুইসেলে রিফ্রেশ হয়।',
+  'about.intro':
+    '{{app}} হলো আপনার লিগের জন্য ব্রডকাস্ট-মানের একটি ঠিকানা। টিম, শিডিউল, লাইভ স্কোর এবং স্ট্যান্ডিং একসাথে আসে একটি দ্রুত, ঝামেলামুক্ত ড্যাশবোর্ডে — যাতে ফ্যান, কোচ এবং লিগ আয়োজকরা সবসময় জানেন সিজন কোথায় দাঁড়িয়ে আছে।',
+  'about.missionBody':
+    'একটি লিগ ফলো করার মানে পাঁচটি আলাদা থার্ড-পার্টি স্কোরবোর্ড রিফ্রেশ করা হওয়া উচিত নয়। আমরা এটি তৈরি করেছি যাতে প্রতিটি লিগ স্ট্যান্ডিং, শিডিউল এবং সত্যিকার অর্থে গুরুত্বপূর্ণ পরিসংখ্যানের জন্য একটি একক নির্ভরযোগ্য সূত্র পায় — প্রতিটি হুইসেলে আপডেট, সিজনের জন্য বিনামূল্যে।',
+  'about.missionTitle': 'আমাদের লক্ষ্য',
+  'about.whatYouGet': 'আপনি যা পাবেন',
   'appShell.closeNav': 'নেভিগেশন বন্ধ করুন',
   'appShell.openNav': 'নেভিগেশন খুলুন',
   'common.dashboard': 'ড্যাশবোর্ড',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'সমস্ত ম্যাচ দেখুন ➡',
   'dashboard.viewAllStandings': 'সম্পূর্ণ স্ট্যান্ডিং \\u2192',
   'dashboard.viewAllStats': 'সকল পরিসংখ্যান নেতাদের দেখুন ➡',
+  'forgot.submitting': 'রিসেট লিংক পাঠানো হচ্ছে…',
   'forgot.subtitle': 'রিসেট লিঙ্ক পেতে আপনার ইমেল লিখুন।',
   'forgot.success': 'রিসেট লিঙ্ক পাঠানো হয়েছে {{email}} আপনার ইনবক্স দেখুন।',
+  'landing.copyright': '© {{year}} {{app}}। Chase the standing.',
+  'landing.ctaBody':
+    'আপনার লিগ। আপনার স্ট্যান্ডিং। আপনার প্রিয় টিম — উপরে পিন করা। সেটআপে দুই মিনিট, সিজনের জন্য বিনামূল্যে।',
   'landing.ctaHeading': 'তৃতীয় পক্ষের স্কোরবোর্ড রিফ্রেশ করা বন্ধ করুন',
   'landing.eyebrow': 'ভক্ত, কোচ এবং লীগ সংগঠকদের জন্য নির্মিত',
   'landing.featuresHeading': 'প্রতিটি দাঁড়িয়ে থাকার মুহূর্তের প্রথম সারির আসন।',
   'landing.getStarted': 'লীগে যোগ দিন',
   'landing.heroCta': 'লীগে যোগ দিন',
+  'landing.heroSubtitle':
+    '{{app}} স্ট্যান্ডিং, শিডিউল এবং পরিসংখ্যানগত লিডারদের একটি ব্রডকাস্ট-মানের ড্যাশবোর্ডে যুক্ত করে। লাইভ স্কোর। আসল রেকর্ড। কোনো ঝামেলা নেই।',
+  'landing.heroTitle': '{{tagline}}।',
   'landing.scoreboardLabel': 'আজ রাতে লীগ জুড়ে',
   'landing.statFans': 'ভক্তদের অনুসরণ',
   'landing.statGames': 'এই মৌসুমের খেলাগুলো',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'প্রশ্ন {{period}}',
   'matchDetail.back': 'ম্যাচগুলিতে ফিরে যান',
   'matchDetail.eventsHeading': 'খেলার ধারাভাষ্য',
+  'matchDetail.final': 'FINAL',
   'matchDetail.finalScore': 'চূড়ান্ত',
   'matchDetail.live': 'সরাসরি',
   'matchDetail.liveNow': 'এখন সরাসরি সম্প্রচারিত হচ্ছে',
   'matchDetail.noEvents': 'এখনো কোনো ঘটনা নথিভুক্ত করা হয়নি।',
   'matchDetail.periodClock': 'প্রশ্ন {{period}} · {{clock}}',
+  'matches.empty': 'এই ভিউতে কোনো ম্যাচ নেই — অন্য ফিল্টার চেষ্টা করুন।',
   'matches.eyebrow': 'ম্যাচডে',
   'matches.loading': 'নতুন করে শুরু করা…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'বিজ্ঞপ্তি লোড করতে ব্যর্থ হয়েছে',
   'notifications.loading': 'বিজ্ঞপ্তি লোড হচ্ছে...',
   'pennantHeroCard.eyebrow': 'টেবিলের শীর্ষে',
+  'pennantHeroCard.formLabel': 'Last 10',
   'pennantHeroCard.gamesAhead': '{{value}} তাড়া করার চেয়ে এগিয়ে থাকা খেলাগুলো',
   'pennantHeroCard.pointsLabel': 'পিটিএস',
   'pennantLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'আপনার আসন বেছে নিন',
   'pricing.heading': 'আরও সমৃদ্ধ সময়সূচী, স্কোর এবং অবস্থান জানতে আপগ্রেড করুন।',
   'pricing.limits.schedule': '{{count}} সময়সূচী এন্ট্রি',
+  'pricing.limits.scores': '{{count}} স্কোর',
+  'pricing.limits.standings': '{{count}} স্ট্যান্ডিং',
+  'pricing.limits.teams': '{{count}} টিম',
+  'pricing.subtitle': 'সমৃদ্ধ শিডিউল, স্কোর এবং স্ট্যান্ডিংয়ের জন্য আপগ্রেড করুন।',
   'pricing.upgradeCta': 'আপগ্রেড করুন {{tierName}}',
   'profile.eyebrow': 'ফ্যান প্রোফাইল',
   'profile.favoritesCount': 'দলগুলো অনুসরণ করেছিল',
   'profile.favoritesHeading': 'প্রিয় দলগুলো',
   'profile.noFavorites': 'এখনো কোনো পছন্দের দল ঠিক করা হয়নি — টিমস পেজ থেকে দল বাছাই করুন।',
   'profile.rankRecord': 'র‍্যাঙ্ক # {{rank}} · {{record}}',
+  'profile.recordOnly': 'রেকর্ড {{record}}',
   'reset.confirmPlaceholder': 'পাসওয়ার্ডটি আবার বলুন।',
+  'reset.mismatch': 'পাসওয়ার্ডগুলো মিলছে না।',
   'reset.newLabel': 'নতুন পাসওয়ার্ড',
   'reset.subtitle': 'কমপক্ষে ১২ অক্ষরের একটি শক্তিশালী পাসওয়ার্ড বেছে নিন।',
   'reset.tokenPlaceholder': 'ইমেল থেকে পেস্ট করুন',
   'schedule.eyebrow': 'স্লেট',
+  'schedule.moreGames': '+ {{count}} আরও',
   'schedule.subtitle':
     'পুরো মৌসুম জুড়ে ফিক্সচারের ক্যালেন্ডার ভিউ — বক্স স্কোর দেখতে যেকোনো দিনে ট্যাপ করুন।',
   'scoreboardTicker.empty': 'এই মুহূর্তে কোনো সরাসরি খেলা নেই — খেলা শুরুর সময় আবার দেখুন।',
@@ -97,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'ব্যক্তিগতকরণ',
   'settings.favoritesBody':
     'এই দলগুলো আপনার ড্যাশবোর্ডে পিন হয়ে যায় এবং স্কোর অ্যালার্ট চালু করে।',
+  'settings.favoritesHeading': 'প্রিয় দলগুলো',
   'settings.loading': 'আপনার পছন্দগুলি লোড করা হচ্ছে •',
   'settings.noFavorites': 'এখনো কোনো পছন্দের দল ঠিক করেননি – টিমস পেজ থেকে দল বাছাই করুন।',
   'settings.notificationsHeading': 'বিজ্ঞপ্তি এবং প্রদর্শন',
@@ -114,6 +151,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'এল',
   'standings.overall': 'সামগ্রিকভাবে',
   'standings.points': 'পিটিএস',
+  'standings.rank': '#',
   'standings.subtitle':
     'শীর্ষ চারটি দল পোস্টসিজনের জন্য যোগ্যতা অর্জন করবে — টাইব্রেকারের ভিত্তিতে, তারপর জয়ের শতাংশের ওপর ভিত্তি করে।',
   'standings.title': 'লিগ স্ট্যান্ডিং',
@@ -132,6 +170,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'জি',
   'teamDetail.colName': 'খেলোয়াড়',
   'teamDetail.colPos': 'পস',
+  'teamDetail.pointsLabel': 'পয়েন্ট',
   'teamDetail.rankLabel': 'র‍্যাঙ্ক # {{rank}}',
   'teamDetail.rosterHeading': 'রোস্টার',
   'teamDetail.statGD': 'গোল পার্থক্য',

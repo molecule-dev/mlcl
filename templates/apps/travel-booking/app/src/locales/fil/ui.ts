@@ -1,13 +1,28 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May mga tanong tungkol sa isang pamamalagi, feedback, o ideya sa partnership? Makipag-ugnayan sa team mula sa iyong account o sa in-app concierge — bawat mensahe ay napupunta sa isang tunay na tao na naglalakbay din.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.featureBooking.body':
+    'Ihambing ang mga kuwarto, rate, at amenity nang magkatabi, pagkatapos ay mag-book sa ilang tap lang na may libreng pagkansela sa bawat itineraryo.',
+  'about.featureBooking.title': 'Maghanap, maghambing, at mag-book',
+  'about.featureDiscover.body':
+    'Mga destinasyong pinili ng editor at field guide ang naglalantad ng mga lugar na sulit balutin — walang ingay ng aggregator, walang sponsored na kalat.',
   'about.featureDiscover.title': 'Inspirasyon, pinili ng kamay',
+  'about.featureItineraries.body':
+    'Panatilihin ang mga flight, pamamalagi, at plano sa isang lugar, i-save ang mga destinasyon para sa ibang pagkakataon, at ipagpatuloy ang iyong biyahe kung saan mo ito iniwan.',
+  'about.featureItineraries.title': 'Mga itineraryong nananatiling organisado',
+  'about.featureStays.title': 'Mapagkakatiwalaang pamamalagi',
+  'about.missionTitle': 'Ang aming misyon',
+  'about.subtitle':
+    'Inspirasyon, mapagkakatiwalaang pamamalagi, at walang hadlang na landas mula sa pangarap tungo sa naka-book.',
+  'about.whatYouGetTitle': 'Ano ang matatanggap ninyo',
   'account.addPaymentCta': 'Magdagdag ng paraan ng pagbabayad',
   'account.addPaymentError': 'Hindi maidagdag ang paraan ng pagbabayad.',
   'account.confirmRemove': 'Kumpirmahin ang pag-alis',
   'account.defaultBadge': 'Default',
-  'account.loyalty.pointsTowardNext': '{{mga puntos}} ng {{susunod}} milya papunta {{nextTier}}',
+  'account.loyalty.pointsTowardNext': '{{points}} ng {{next}} milya papuntang {{nextTier}}',
   'account.loyalty.tier': 'Kasalukuyang antas',
   'account.navLabel': 'Mga seksyon ng account',
   'account.payments.empty': 'Wala pang na-save na mga paraan ng pagbabayad.',
@@ -29,6 +44,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} mga gabi',
   'booking.lineTaxes': 'Mga buwis at bayarin',
   'booking.loadError': 'Nabigong i-load ang property.',
+  'booking.noChargeYet': 'Hindi ka pa sisingilin.',
   'booking.noPaymentMethods': 'Walang naka-save na mga paraan ng pagbabayad.',
   'booking.noPaymentSelected': 'Pumili ng paraan ng pagbabayad bago kumpirmahin.',
   'booking.noRoomError': 'Pumili ng kwarto bago mag-confirm.',
@@ -40,6 +56,7 @@ export const ui: UiTranslations = {
   'booking.policy1': 'Libreng pagkansela hanggang 7 araw bago ang check-in.',
   'booking.policy2': 'Walang bayad ngayon — ang iyong card ay para lamang sa kumpirmasyon.',
   'booking.policy3': 'Ang proteksyon sa biyahe ay sakop ng Sojourn — 24/7 na suporta ng concierge.',
+  'booking.policyHeading': 'Pagkansela at mga tuntunin',
   'booking.roomHeading': 'Pumili ng iyong kwarto',
   'booking.specialRequests': 'Mga espesyal na kahilingan',
   'booking.specialRequestsPlaceholder': 'May dapat bang malaman ang host?',
@@ -68,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Mga miyembro ng Sojourn',
   'landing.cta.heading': 'Maglakbay nang walang pag-aalala. Bawat itineraryo, sa bawat oras.',
   'landing.cta.signup': 'Gumawa ng libreng account',
+  'landing.cta.subheading':
+    'Libreng pagkansela, mga rate para sa miyembro lang, at 24/7 na trip concierge — kumita ng milya sa bawat booking at i-unlock ang unang access sa mga bagong property.',
   'landing.destinations.eyebrow': 'Saan susunod',
   'landing.destinations.heading': 'Mga itinatampok na destinasyon',
   'landing.destinations.seeAll': 'Tingnan ang lahat ng destinasyon',
@@ -76,27 +95,45 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Mga kwentong sulit ipagbili',
   'landing.nav.join': 'Sumali sa Panuluyan',
   'landing.nav.search': 'Mga pananatili sa paghahanap',
+  'landing.preview.browseAll': 'Tingnan ang buong koleksyon',
   'landing.preview.eyebrow': 'Isang sulyap sa loob',
   'landing.preview.heading': 'Mga piling tuluyan ngayong buwan',
+  'landing.preview.subheading':
+    'Bawat property sa {{appName}} ay personal na sinusuri ng aming editorial team — walang aggregator inventory, walang bait-and-switch na listing, at libreng pagkansela sa bawat itineraryo.',
   'login.eyebrow': 'Lugar ng mga Miyembro',
+  'login.noAccount': 'Bago sa Tessera?',
   'login.signupLink': 'Gumawa ng libreng account',
   'login.subheading':
     'Mag-sign in para pamahalaan ang iyong mga biyahe, tingnan ang mga kumpirmasyon, at ipagpatuloy kung saan ka tumigil.',
   'nav.legal': 'Legal',
   'notifications.loading': 'Naglo-load…',
   'notifications.subheading': '{{count}} hindi pa nababasa · lahat sa isang tahimik na inbox',
+  'planUpdated.body':
+    'Aktibo na ang pagbabago sa iyong billing. Maaari mong pamahalaan ang iyong plano anumang oras mula sa billing page.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.accommodationsLabel': 'mga akomodasyon',
   'pricing.bookingsLabel': 'mga booking',
   'pricing.destinationsLabel': 'mga naka-save na destinasyon',
   'pricing.exportLabel': 'I-export ang data ng biyahe',
   'pricing.itinerariesLabel': 'mga itineraryo',
+  'privacy.intro':
+    'Pinoprotektahan ng {{appName}} ang data ng iyong biyahe. Palitan ang template na ito ng iyong tunay na patakaran sa privacy bago ilunsad sa production.',
   'propertyDetail.allPhotos': 'Lahat {{count}} mga larawan',
   'propertyDetail.amenitiesHeading': 'Ang inaalok ng lugar na ito',
   'propertyDetail.backLink': 'Balik sa paghahanap',
   'propertyDetail.bookCta': 'Reserba',
   'propertyDetail.bookmarkAria': 'I-save ang ari-arian',
   'propertyDetail.freeCancellation': 'Libreng pagkansela',
+  'propertyDetail.galleryAria': 'Gallery ng larawan ng property',
+  'propertyDetail.galleryCloseAria': 'Isara ang gallery',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': '{{name}} larawan {{n}}',
+  'propertyDetail.galleryNextAria': 'Susunod na larawan',
+  'propertyDetail.galleryPrevAria': 'Nakaraang larawan',
   'propertyDetail.heroImageAlt': '{{name}} litrato ng bayani',
   'propertyDetail.lineCleaning': 'Bayad sa paglilinis',
   'propertyDetail.lineRate': '{{price}} × {{nights}} mga gabi',
@@ -105,6 +142,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'gabi',
   'propertyDetail.noChargeYet': 'Hindi ka pa sisingilin',
   'propertyDetail.notFound': 'Hindi natagpuan ang ari-arian.',
+  'propertyDetail.pickDatesHint':
+    'Piliin ang iyong mga petsa para makita ang buong breakdown ng presyo.',
   'propertyDetail.reviewCount': '( {{count}} mga review)',
   'propertyDetail.reviewsHeading': 'Mga kamakailang review',
   'propertyDetail.verified': 'Ari-ariang na-verify para sa pamamalagi',
@@ -113,6 +152,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Bagong password',
   'resetPassword.subheading':
     'Pumili ng bagong password para sa iyong Sojourn account. Gumamit ng kahit 8 karakter; inirerekomenda namin ang isang passphrase.',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'Walang mga ari-arian na tumutugma sa iyong paghahanap.',
   'search.emptyHint':
     'Subukang palawakin ang iyong mga filter o alisin ang price ceiling — ang Sojourn ay may mga pamamalagi sa 14 na bansa.',
@@ -120,6 +160,8 @@ export const ui: UiTranslations = {
   'search.heading': 'Mga napiling tuluyan para sa iyong paggala',
   'search.headingForQuery': 'Mananatili para sa " {{q}} "',
   'search.loadError': 'Nabigong i-load ang mga property.',
+  'search.mapHint': 'I-hover ang isang card para i-highlight ang lokasyon nito sa mapa.',
+  'search.mapPinAria': '{{name}} — {{price}} kada gabi',
   'search.sortLabel': 'Ayusin ayon sa',
   'search.subheading': '{{count}} mga ari-arian · {{guests}} mga bisita',
   'settings.openAccount': 'Buksan ang buong account',
@@ -128,15 +170,23 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Libreng pagkansela, mga rate na para lang sa mga miyembro, at 24/7 trip concierge — kumita ng miles sa bawat booking.',
   'sojournAuthShell.brand.eyebrow': 'Maglakad nang walang pag-aalala',
+  'sojournAuthShell.brand.heading':
+    'Isang walang hadlang na landas mula sa pangarap tungo sa naka-book.',
   'sojournHeroSearchCard.checkInAria': 'Petsa ng pag-check in',
   'sojournHeroSearchCard.checkOutAria': 'Petsa ng pag-check out',
+  'sojournHeroSearchCard.destAria': 'Destinasyon',
+  'sojournHeroSearchCard.destLabel': 'Saan',
   'sojournHeroSearchCard.destPlaceholder': 'Lungsod, rehiyon, o ari-arian',
   'sojournHeroSearchCard.eyebrow': 'Mga napiling pamamalagi · Mga rate para sa mga miyembro lamang',
   'sojournHeroSearchCard.guestsOption': '{{n}} mga bisita',
   'sojournHeroSearchCard.subtitle':
     'Inspirasyon, mapagkakatiwalaang mga pamamalagi, at isang walang aberya na landas mula sa pangangarap hanggang sa pag-book — sa 14 na bansa at mahigit 200 na mga ari-ariang sinuri nang mabuti.',
+  'sojournHeroSearchCard.title': 'Maglakad nang walang pag-aalala',
+  'sojournHeroSearchCard.trustLoyalty': 'Kumita ng milya sa bawat itineraryo',
   'sojournHeroSearchCard.trustProtected': 'Libreng pagkansela, ganap na protektado',
   'sojournHeroSearchCard.trustVetted': 'Mga ari-ariang sinuri nang mano-mano lamang',
+  'terms.intro':
+    'Palitan ang template na ito ng iyong tunay na {{appName}} terms of service bago ilunsad sa production.',
   'travelBookingLayout.primaryNavLabel': 'Pangunahing navigation',
   'tripDetail.backLink': 'Balik sa mga biyahe',
   'tripDetail.cancelCta': 'Kanselahin ang booking',
@@ -146,6 +196,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'Opsyonal — dahilan ng pagkansela',
   'tripDetail.checkInLabel': 'Pag-check in',
   'tripDetail.checkOutLabel': 'Pag-checkout',
+  'tripDetail.confCode': 'Code · {{code}}',
   'tripDetail.confirmCancelCta': 'Kanselahin ang biyahe',
   'tripDetail.hostInfo':
     'Hino-host ni {{name}} Libreng pagkansela hanggang 7 araw bago ang check-in.',
@@ -153,6 +204,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'Patuloy na mag-book',
   'tripDetail.lengthLabel': 'Haba',
   'tripDetail.loadError': 'Nabigong i-load ang biyahe.',
+  'tripDetail.messageHostHeading': 'I-message ang iyong host',
   'tripDetail.messagePlaceholder':
     'Ipaalam sa iyong host ang iyong oras ng pagdating, mga pangangailangan sa pagkain, o anumang bagay.',
   'tripDetail.messageSend': 'Magpadala ng mensahe',
@@ -163,9 +215,11 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'Buod ng presyo',
   'tripDetail.taxes': 'Mga buwis at bayarin',
   'tripItineraryRow.nights': '{{count}} mga gabi',
+  'trips.empty.past': 'Lalabas dito ang mga nakaraang biyahe kapag naglibot ka na.',
   'trips.empty.upcoming': 'Wala pang paparating na mga biyahe — ayusin natin iyan.',
   'trips.eyebrow': 'Ang iyong mga paggala',
   'trips.heading': 'Mga Biyahe',
   'trips.loadError': 'Nabigong i-load ang mga biyahe.',
+  'trips.searchCta': 'Magplano ng isa pang biyahe',
   'trips.subheading': '{{upcoming}} paparating · {{past}} nakaraan',
 }

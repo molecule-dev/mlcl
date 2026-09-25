@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Санал хүсэлт байна уу, алдаа олсон уу, эсвэл шинэ боломж санал болгохыг хүсэж байна уу? Бүртгэлийн тохиргооноосоо холбогдоорой — мессеж бүр багийн жинхэнэ хүнд хүрдэг.',
+  'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.featureDatabases':
+    'Хөнгөн мэдээллийн сан болон дахин ашиглах загварууд нь чөлөөт тэмдэглэлээ бүтэцтэй, давтагдах ажлын урсгал болгоход тусална.',
+  'about.featureEditor':
+    'Тайван блок засварлагч — гарчиг, жагсаалт, код, анхааруулга, хийх зүйлс — хэрэгтэй үедээ slash-командууд, хэрэггүй үедээ замд саад болохгүй.',
+  'about.featureGraph':
+    'Буцах холбоос болон мэдлэгийн график: тэмдэглэл холбохын тулд [[ гэж бичээд, санаанууд чинь цаг хугацааны явцад хэрхэн холбогдож байгааг хараарай.',
+  'about.featureNotebooks':
+    'Доторлосон дэвтэр болон хуудсууд нь төсөл, сэдэв, өдөр тутмын тэмдэглэлүүдийг яг өөрийн бодож байгаагаар зохион байгуулж хадгална.',
+  'about.featureSearch':
+    'Дэвтэр бүрээс 50мс-ээс бага хугацаанд бүрэн текст хайлт, мөн дэвтэртэйгээ өрсөлдөхгүйгээр хослон ажилладаг шошгууд.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'common.goToDashboard': 'Хянах самбар руу очих',
   'forgot.eyebrow': 'Буцаж орох замаа алдчихсан уу?',
   'forgot.formSubtitle': 'Файл дээрх имэйл хаягийг бидэнд мэдэгдээрэй.',
+  'forgot.formTitle': 'Нууц үгээ мартсан',
   'forgot.headline': 'Нууц үгээ дахин тохируулна уу.',
   'forgot.subline':
     'Та шинэ холбоос сонгох боломжтой тул бид таны ирсэн имэйл хаяг руу нэг удаагийн холбоос илгээх болно.',
+  'forgot.successDetail':
+    'Бид таны имэйл рүү сэргээх холбоос илгээлээ. Энэ нь 30 минутын дараа хүчингүй болно.',
   'graph.eyebrow': 'График',
+  'graph.goToNotes': 'Тэмдэглэл үзэх →',
+  'graph.loadError': 'Графикийг ачаалж чадсангүй: {{message}}',
   'graph.placeholderBody':
     'Тэмдэглэлүүд хоорондоо холбогдож эхлэхэд ([[wiki]] синтакстай), интерактив хүчээр чиглэсэн график энд дүрслэгдэнэ.',
+  'graph.placeholderTitle': 'Буцах холбоосын график удахгүй',
   'graph.subtitle':
     '{{count}} Энэ ажлын талбарт тэмдэглэлүүд. Тэмдэглэлүүд хоорондоо холбогдсон үед backlink graph render энд гарч ирнэ.',
   'graph.title': 'Мэдлэгийн график',
   'home.empty': 'Одоогоор тэмдэглэл алга байна — эхнийхийгээ эхлүүлээрэй.',
   'home.favoritesHeading': 'Тэмдэглэгдсэн',
   'home.guest': 'найз',
+  'home.loadError': 'Тэмдэглэлүүдийг ачаалж чадсангүй: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Тэмдэглэлийг энд хадгалахын тулд засварлагчид хавсаргана уу.',
   'home.recentHeading': 'Саяхан шинэчлэгдсэн',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Дэвтэр',
   'home.stats.pinned.label': 'Тэмдэглэгдсэн',
   'home.stats.updatedToday.label': 'Өнөөдөр шинэчлэгдсэн',
+  'home.subtitle': 'Зогссон газраасаа үргэлжлүүлэх эсвэл шинэ тэмдэглэл эхлүүлээрэй.',
   'home.viewAll': 'Бүх тэмдэглэлийг харах',
   'landing.cta.body':
     'Хувийн хэрэглээнд үнэгүй. Багуудад зориулсан мэргэжлийн. Одоо байгаа хөнгөлөлтөө авчрах эсвэл шинээр эхлэх — Verso таны тэмдэглэл хаана ч байсан тантай уулзана.',
+  'landing.cta.button': 'Ажлын талбараа үүсгэх',
   'landing.cta.heading': 'Өнөөдрийн хуудсыг нээнэ үү.',
   'landing.features.eyebrow': 'Таны хоёр дахь тархинд хэрэгтэй бүх энгийн зүйл',
+  'landing.features.heading': 'Мета бүтээлд зориулагдаагүй, харин бүтээлд зориулагдуулсан.',
   'landing.hero.eyebrow': 'Чимээгүй бичих гадаргуу',
   'landing.hero.headlineAccent': 'хэлбэржих.',
   'landing.hero.headlineLeading': 'Бодол санаа хаана байна',
   'landing.hero.primaryCta': 'Мэдлэгийн сангаа эхлүүлээрэй',
   'landing.hero.secondaryCta': 'Би аль хэдийн бүртгэлтэй болсон',
+  'landing.hero.socialProof': '12,800+ зохиолч, оюутан, PhD-чид {{appName}}-тэй хамт боддог',
   'landing.hero.subline':
     'Verso бол мэдлэгийн ажилтнууд болон оюутнуудад зориулсан бүтэцлэгдсэн тэмдэглэл хөтлөх гадаргуу юм. Блок засварлагч, үүрлэсэн тэмдэглэлийн дэвтэр, буцах холбоосууд болон мэдлэгийн график - бүгд хэвлэмэл хэлбэрээр унших туршлагын ард байдаг.',
+  'landing.preview.notebook': 'Мэдлэг · Бичих үйл явц',
+  'landing.preview.title': 'Ноорог амьсгалах тухай',
   'login.eyebrow': 'Verso-д дахин тавтай морилно уу',
   'login.formSubtitle': 'Имэйл хаягаа эсвэл холбогдсон аливаа үйлчилгээ үзүүлэгчээ ашиглана уу.',
   'login.headline': 'Хуудас түр зогссон газраас үргэлжлүүлнэ үү.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Навигацийн цэсийг хаах',
   'mobileNav.openMenu': 'Навигацийн цэсийг нээх',
   'noteEditor.backToNotes': 'Тэмдэглэл рүү буцах',
+  'noteEditor.bodyLabel': 'Тэмдэглэлийн агуулга',
   'noteEditor.bodyPlaceholder':
     'Бичиж эхлэх — та бичиж байх үед тэмдэглэл автоматаар хадгалагдана.',
   'noteEditor.confirmTrash': 'Энэ тэмдэглэлийг хогийн сав руу зөөх үү?',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Хогийн сав руу зөөх',
   'noteEditor.updated': 'Шинэчлэгдсэн',
   'notes.defaultWorkspaceName': 'Миний дэвтэр',
+  'notes.empty': 'Энд тэмдэглэл алга — дэвтрийг дүүргэхийн тулд нэгийг эхлүүлээрэй.',
   'notes.eyebrow': 'Дэвтэр',
   'notes.filterAll': 'Бүх тэмдэглэл',
   'notes.filterPinned': 'Тэмдэглэгдсэн',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Шинэ дэвтэр',
   'notes.newNotebookPrompt': 'Шинэ дэвтрийн нэр',
+  'notes.newNotebookRequired': 'Дэвтрийн нэр оруулна уу.',
   'notes.notebooksHeading': 'Дэвтэр',
   'notes.subtitle':
     'Зүүн талд байгаа тэмдэглэлийн дэвтэр сонгоод, шинээр тэмдэглэл эхлүүлэхийн тулд Шинэ тэмдэглэл товчийг дарна уу.',
+  'planUpdated.body': 'Таны захиалга идэвхжлээ.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Дэвшилтэт функцууд',
   'pricing.heading': 'Тэмдэглэл хөтлөх төлөвлөгөөгөө сонгоно уу',
+  'reset.changedMind': 'Бодлоо өөрчилсөн үү?',
   'reset.eyebrow': 'Бараг л буцаж орлоо',
   'reset.formSubtitle': 'Хадгалсны дараа та нэвтэрнэ.',
   'reset.headline': 'Шинэ нууц үг сонгоно уу.',
@@ -71,7 +104,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'Бидний танд имэйлээр илгээсэн кодыг оруулаад, мартагдашгүй зүйл сонгоорой.',
   'reset.submit': 'Хадгалах ба нэвтрэх',
   'reset.tokenHint': 'Таны ирсэн имэйлээс буулгасан.',
+  'search.empty': 'Энэ хайлтад тохирох тэмдэглэл одоогоор алга.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Хайлтын рефракт',
   'search.loading': 'Хайж байна…',
   'search.noRecent': 'Тэмдэглэлүүдээсээ хайлт хийж эхлэхийн тулд дээрх асуулгаа бичнэ үү.',
   'search.recentLabel': 'Саяхны хайлтууд',
@@ -79,12 +114,19 @@ export const ui: UiTranslations = {
     'Тэмдэглэлийн дэвтэр бүр дээр бүтэн текст. Хайхын тулд бичнэ үү; бичих үед үр дүн шинэчлэгдэнэ.',
   'search.title': 'Хоёр дахь тархийг хайх.',
   'settings.account.logout': 'Гарах',
+  'settings.account.title': 'Бүртгэлийн мэдээлэл',
+  'settings.editor.graphHover.body':
+    'Засварлагч дотор [[wikilink]] дээр хулганаа аваачихад жижиг урьдчилсан харагдац харуулах.',
+  'settings.editor.graphHover.label': 'Буцах холбоосын графикийн хулганы урьдчилсан харагдац',
   'settings.editor.lineHeight.body':
     'Биеийн шугамуудын хооронд хэр их агаар байдаг вэ. 170% нь анхдагч унших хэмнэл юм.',
+  'settings.editor.lineHeight.label': 'Мөрийн өндөр',
   'settings.editor.serif.body':
     'Унших баганад Georgia ашиглана уу. Sans-serif нь хажуугийн мөр болон хэрэгслийн мөрөнд хадгалагддаг.',
+  'settings.editor.serif.label': 'Serif үсгийн хэв',
   'settings.editor.title': 'Типографи ба бичгийн гадаргуу',
   'settings.eyebrow': 'Verso · Тохиргоо',
+  'settings.passwordModal.current': 'Одоогийн нууц үг',
   'settings.passwordModal.error': 'Нууц үгийг өөрчилж чадсангүй — одоогийн нууц үгээ шалгана уу.',
   'settings.passwordModal.next': 'Шинэ нууц үг',
   'settings.passwordModal.submit': 'Нууц үгийг хадгалах',
@@ -93,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Товчлуурын даралт бүрийг бодит цагийн сувгаар түлхэнэ үү. Удаан холболтын хувьд идэвхгүй болгоно уу.',
   'settings.sync.auto.label': 'Бодит цагийн синк',
+  'settings.sync.title': 'Таны тэмдэглэлүүд хэрхэн аялдаг',
   'settings.theme.body':
     'Гэрэл нь редакцийн буланг гэрэл гэгээтэй байлгадаг. Сепия нь оройн цагаар хуудсыг дулаацуулдаг.',
   'settings.theme.dark': 'Харанхуй',
@@ -112,8 +155,12 @@ export const ui: UiTranslations = {
     'Тэмдэглэлийн гарчигт #hashtag нэмбэл (жишээ нь "Унших жагсаалт #ном") тэдгээр нь энд автоматаар гарч ирнэ.',
   'tags.emptyTitle': 'Одоогоор шошго алга',
   'tags.eyebrow': 'Индекс',
+  'tags.goToNotes': 'Тэмдэглэл рүү очих →',
+  'tags.loadError': 'Шошгуудыг ачаалж чадсангүй: {{message}}',
   'tags.subtitle':
     '{{tags}} шошго {{notes}} тэмдэглэлүүд. Тэмдэглэлийн гарчигт #hashtag нэмбэл тэдгээр нь энд гарч ирнэ.',
+  'versoAuthShell.sample.body':
+    'Маргааш дахин хийсэн хяналт өнөө оройн эхний хувилбараас үргэлж дээр уншигддаг. Бүдүүлэг хувилбарыг гүнзгий ажлын хавтаст хийгээд…',
   'versoAuthShell.sample.label': 'Өдөр тутмын тэмдэглэл',
   'versoAuthShell.sample.timestamp': 'Өнөөдөр · 9:14 өглөө',
   'versoAuthShell.sample.title': 'Ноорог амьсгалах тухай',
@@ -125,8 +172,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Үргэлжлүүлэн бичих',
   'versoTodayHero.createCta': 'Өнөөдрийн тэмдэглэлийг эхлүүлнэ үү',
   'versoTodayHero.dailyLabel': 'Өдөр тутмын тэмдэглэл',
+  'versoTodayHero.emptyHeadline': 'Өнөөдөр бол хоосон хуудас.',
   'versoTodayHero.emptySubline':
     'Маргаашийн бодлоо тэмдэглэж авах, уулзалтаа тэмдэглэх эсвэл ноорог зурах. Verso нь бүтцийг чимээгүй байлгаж, бичлэгийг чанга байлгадаг.',
+  'versoTodayHero.outlineLabel': 'Өнөөдрийн төлөвлөгөө',
   'versoTodayHero.streak': '{{count}} - өдрийн цуврал',
+  'versoTodayHero.unwritten': 'Үг одоогоор алга — эхлэхийн тулд тэмдэглэлээ нээгээрэй.',
   'versoTodayHero.wordCount': '{{count}} өнөөдрийн үгс',
 }

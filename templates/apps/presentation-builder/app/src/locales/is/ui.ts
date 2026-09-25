@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Spurningar, endurgjöf eða eiginleiki sem þú vildir að við hefðum? Hafðu samband við teymið í stillingum reikningsins þíns — alvöru manneskja les hver skilaboð.',
   'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
+  'about.missionTitle': 'Markmið okkar',
+  'about.whatYouGetTitle': 'Það sem þú færð',
   'analytics.empty': 'Búðu til spilastokka til að sjá greiningar hér.',
   'analytics.stats.acrossDecks': 'Yfir öll þilfar',
   'analytics.stats.allTime': 'Í vinnustofunni þinni',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Titill spilastokks',
   'landing.features.eyebrow': 'Af hverju Overture',
   'landing.features.heading': 'Allt sem þú þarft til að ganga á sviðið tilbúið.',
+  'landing.finalCta.body':
+    'Settu upp stúdíóið þitt á undir mínútu. Engin kreditkort. Hætta hvenær sem er.',
   'landing.finalCta.cta': 'Búðu til ókeypis vinnustofuna þína',
   'landing.finalCta.eyebrow': 'Ókeypis að byrja',
   'landing.finalCta.heading': 'Stígðu á svið með besta spilastokk ferils þíns.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Breytt fyrir 12 mínútum',
   'notifications.created': 'búinn til',
   'notifications.edited': 'breytt',
+  'notifications.empty.body':
+    'Virkni á þínum glærum — athugasemdir, tilvísanir, útflutningar — mun birtast hér.',
   'notifications.empty.title': 'Engar tilkynningar ennþá',
   'notifications.eyebrow': 'Sviðsstarfsemi',
   'notifications.loading': 'Hleður…',
   'notifications.shared': 'deilt opinberlega',
+  'planUpdated.retry': 'Reyndu aftur',
+  'planUpdated.verifyFailed': 'Við gátum ekki staðfest greiðsluna þína ennþá.',
+  'planUpdated.verifyFailedBody':
+    'Greiðslan þín gæti enn verið í vinnslu. Reyndu aftur eftir smástund.',
   'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'present.addSlides': 'Bæta við glærum',
   'present.backToDecks': 'Til baka á þilfar',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Leiklistarmaður',
   'settings.security.notSet': 'Ekki stillt',
   'settings.security.passwordBody': 'Lykilorðið þitt er dulkóðað í hvíld.',
+  'settings.security.reset': 'Endurstilla',
   'settings.security.title': 'Reikningur + lotur',
   'shared.empty.body':
     'Spilastokkar sem þú deilir opinberlega birtast hér. Opnaðu spilastokk og veldu „opinber“ til að deila.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Hleður…',
   'shared.title': 'Sameiginleg þilfar',
   'templateCard.slideCount': '{{count}} glærur',
+  'templateCard.usageCount': '{{count}} notar',
+  'templates.empty.body': 'Prófaðu annan filter — við sendum út ný sniðmát á hverjum mánuði.',
+  'templates.empty.title': 'Engin sniðmát í þessum flokki ennþá',
+  'templates.hero.body':
+    'Þemaðir glæruskipanir með grafblokkum, kynningargluggum, fyrirlestranótum og tímastillingum — hvert sniðmát kemur tilbúið til upptöku.',
   'templates.hero.eyebrow': 'Valin stig',
   'templates.hero.heading': 'Stigar smíðaðir fyrir þá stund sem þú þarft að lenda þeim.',
 }

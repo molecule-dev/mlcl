@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hast du Feedback, einen Bug gefunden oder möchtest du deine Schule mit ins Boot holen? Melde dich in deinen Kontoeinstellungen oder schreibe deiner Schuladministration – jede Nachricht erreicht eine echte Person im Team.',
   'about.contactTitle': 'Kontaktieren Sie uns',
+  'about.missionTitle': 'Unsere Mission',
   'announcementsFeed.empty': 'Noch keine Ankündigungen.',
   'announcementsFeed.eyebrow': '{{count}} updates',
   'announcementsFeed.title': 'Aktuelle Ankündigungen',
   'assignmentDetail.alreadySubmitted': 'Sie haben diese Aufgabe bereits eingereicht.',
   'assignmentDetail.backLink': 'Zurück zu den Aufgaben',
+  'assignmentDetail.dropBody':
+    'Nutze Dateien auswählen, um deine Arbeit anzuhängen – wir erfassen den Abgabezeitpunkt, sobald du bestätigst.',
   'assignmentDetail.dropButton': 'Dateien auswählen',
+  'assignmentDetail.dropPrompt': 'Zieh dein PDF- oder Foto-Paket hierher',
   'assignmentDetail.due': 'Fällig {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Anweisungen',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Bewertet',
   'assignmentDetail.statusSubmitted': 'Eingereicht',
   'assignmentDetail.statusTitle': 'Einreichungsstatus',
+  'assignmentDetail.submitError':
+    'Wir konnten diese Abgabe nicht erfassen. Versuch es gleich noch einmal.',
   'assignmentDetail.submitted': 'Einreichung erfasst — Ihre Lehrkraft wurde informiert.',
+  'assignmentDetail.submittedAt': 'Eingereicht {{when}}',
+  'assignmentDetail.submitTitle': 'Reiche deine Arbeit ein',
   'assignmentRow.courseDue': '{{course}} · Fällig {{due}}',
   'assignments.empty': 'Nichts hier',
   'assignments.emptyBody':
@@ -39,9 +49,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Ein täglicher Eintrag zu Anwesenheit, Abwesenheit und Verspätungen — mit Anmerkungen, wo nötig.',
+  'attendance.summary.absences': 'Abwesenheiten',
   'attendance.summary.absencesCaption': 'Unterhalb der Interventionsschwelle von 5 Tagen',
   'attendance.summary.attendance': 'Anwesenheit',
   'attendance.summary.attendanceCaption': '{{count}} Anwesenheitstage in diesem Quartal',
+  'attendance.summary.tardies': 'Verspätungen',
   'attendance.summary.tardiesCaption': 'Inklusive Notizen zu Bus- / Terminverspätungen',
   'attendance.title': 'Anwesenheitsverlauf',
   'calendar.eyebrow': 'Schuljahr · {{year}}',
@@ -55,6 +67,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Noten',
   'courseDetail.currentGrade': 'Aktuelle Note',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Kursübersicht',
   'courseDetail.gradesTitle': 'Aktuelle Noten',
   'courseDetail.messageTeacher': 'Lehrkraft anschreiben',
   'courseDetail.noGrades': 'Noch keine Noten veröffentlicht.',
@@ -67,13 +80,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Alle anzeigen',
   'dashboard.assignmentsTitle': 'Anstehend in dieser Woche',
   'dashboard.greeting': 'Hallo {{name}}, bereit für den Unterricht?',
+  'dashboard.subtitle':
+    'Deine Woche auf einen Blick — Stundenplan, Noten und Aufgaben in einer ruhigen Ansicht.',
+  'dashboard.viewReportCard': 'Zeugnis ansehen',
+  'dashboard.weekFocusBody':
+    'Gib das Übungsset 7 zu Quadratics und das Kapitelquiz ab. Das Tutorium ist Dienstag und Donnerstag nach der 7. Stunde geöffnet.',
+  'dashboard.weekFocusCta': 'Vollständigen Plan ansehen',
   'dashboard.weekFocusEyebrow': 'Wochenfokus',
   'dashboard.weekFocusTitle': 'Algebra II um 4 Punkte verbessern',
   'forgotPassword.subheading':
     'Geben Sie Ihre Schul-E-Mail ein und wir senden Ihnen einen Reset-Link.',
   'forgotPassword.successBody':
     'Falls {{email}} zu einem Chalk-Konto gehört, ist ein Reset-Link unterwegs. Die Links laufen nach 30 Minuten ab.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': 'GPA des {{term}}-Quartals',
+  'gpaHeroCard.summary': '{{count}} Unterrichtsstunden heute',
   'grades.col.grade': 'Note',
   'grades.col.teacher': 'Lehrkraft',
   'grades.col.trend': 'Trend',
@@ -85,10 +106,17 @@ export const ui: UiTranslations = {
     'Live-Buchstaben- und Prozentnoten. Trendpfeile zeigen, ob es aufwärts, gleich oder abwärts geht.',
   'grades.title': 'Ihre Noten, Kurs für Kurs',
   'grades.trendStable': 'Stabil',
+  'grades.viewReportCard': 'Offizielles Zeugnis ansehen',
   'landing.copyright': '© {{year}} {{app}} . Entwickelt für Schüler, gemacht für Familien.',
+  'landing.ctaBody':
+    'Die ersten 30 Tage kostenlos, keine Kreditkarte erforderlich. Schulen können eine schulweite Stufe an einem einzigen Nachmittag ausrollen.',
+  'landing.ctaButton': 'Erstellen Sie Ihr Portal',
   'landing.ctaHeading': 'Ein ruhigerer Schultag beginnt in wenigen Minuten',
   'landing.eyebrow': 'Für Mittel- und Oberstufenschüler',
   'landing.featuresHeading': 'Ein Schultag, organisiert rund um den Schüler',
+  'landing.heroSubtitle':
+    '{{appName}} bringt jede Klasse, Note, Aufgabe und Nachricht in ein übersichtliches Dashboard, damit du weniger Zeit mit Suchen und mehr Zeit mit Lernen verbringst.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'FERPA-konform standardmäßig',
   'landing.proof.rating': '4,8 bei 12.000 Familien',
   'landing.sampleTerm': 'Frühjahr',
@@ -97,6 +125,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Passwort verbergen',
   'login.noAccount': 'Neu bei Chalk?',
   'login.showPassword': 'Passwort anzeigen',
+  'messages.compose': 'Neue Nachricht',
   'messages.composer.email': 'E-Mail des Empfängers (optional)',
   'messages.composer.errorEmpty': 'Die Nachricht darf nicht leer sein.',
   'messages.composer.errorRecipient': 'Der Name des Empfängers ist erforderlich.',
@@ -127,9 +156,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Ehrentafel · Frühjahrsquartal',
   'nav.unreadMessages': 'Ungelesene Nachrichten',
   'notifications.eyebrow': '{{count}} updates',
+  'notifications.feedTitle': 'Alle letzten Aktivitäten',
   'notifications.subtitle':
     'Noten, Erinnerungen, Nachrichten und Schulankündigungen. Kanäle in den Einstellungen anpassen.',
+  'planUpdated.body':
+    'Deine Abrechnungsänderung ist jetzt aktiv. Du kannst deinen Tarif jederzeit über die Abrechnungsseite verwalten.',
+  'planUpdated.retry': 'Erneut versuchen',
+  'planUpdated.verifyFailed': 'Wir konnten deine Zahlung noch nicht bestätigen.',
+  'planUpdated.verifyFailedBody':
+    'Deine Zahlung wird möglicherweise noch verarbeitet. Versuche es gleich noch einmal.',
   'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
+  'pricing.announcementsLabel': 'Ankündigungen',
   'pricing.attendanceLabel': 'Anwesenheit',
   'pricing.gradesLabel': 'Noten',
   'pricing.heading': 'Ankündigungen',
@@ -144,6 +181,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'Q2',
   'reportCard.crumb': 'Zeugnis',
   'reportCard.cumulativeGpa': 'Kumulativer GPA',
+  'reportCard.download': 'PDF herunterladen',
   'reportCard.downloaded': 'Zeugnis in einem neuen Tab geöffnet.',
   'reportCard.downloading': 'PDF wird erstellt…',
   'reportCard.empty': 'Noch keine Noten vorhanden.',
@@ -151,6 +189,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'End-GPA · {{term}}',
   'reportCard.subtitle':
     'Ein formelles Semesterend-Zeugnis mit gewichteten Kursnoten, Anwesenheit und druckbarem PDF-Download.',
+  'reportCard.title': 'Zeugnis',
+  'resetPassword.newPassword': 'Neues Passwort',
   'resetPassword.subheading': 'Wählen Sie etwas Einprägsames, aber schwer zu Erratendes.',
   'resetPassword.tokenPlaceholder': 'Code aus Ihrer E-Mail einfügen',
   'schedule.empty': 'Keine Stunden geplant.',
@@ -175,12 +215,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Offene Aufgaben',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} Fehltage dieses Quartal · {{tardy}} Verspätungen',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Anwesenheitszahlen werden berechnet…',
+  'subjectStatsTriad.attendanceLabel': 'Anwesenheit',
   'subjectStatsTriad.gradesCaption': 'Bei einem gewichteten Durchschnitt von {{percent}} %',
+  'subjectStatsTriad.gradesCaptionLoading': 'Noten werden geladen…',
+  'subjectStatsTriad.gradesLabel': 'Klassendurchschnitt',
   'todayScheduleStrip.empty': 'Heute keine Stunden.',
   'todayScheduleStrip.eyebrow': '{{count}} Stunden',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Heutiger Stundenplan',
   'topbar.guestName': 'Schüler/in',
   'topbar.searchPlaceholder': 'Klassen, Aufgaben suchen…',
+  'topbar.studentRole': 'Schüler/in',
   'topbar.studentTag': 'Schüler/in · #{{id}}',
 }

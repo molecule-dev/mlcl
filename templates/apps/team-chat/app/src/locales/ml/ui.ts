@@ -1,6 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ചോദ്യങ്ങൾ, ഫീഡ്ബാക്ക്, അല്ലെങ്കിൽ നിങ്ങളുടെ ടീമിനായി ഒരു ഡെമോ വേണോ? നിങ്ങളുടെ വർക്ക്സ്പേസ് സെറ്റിംഗ്സിൽ നിന്ന് ഞങ്ങളെ സമീപിക്കുക — {{app}} ടീമിലെ ഒരു യഥാർത്ഥ വ്യക്തി ഓരോ സന്ദേശവും വായിക്കുന്നു.',
+  'about.contactTitle': 'ബന്ധപ്പെടുക',
+  'about.featureChannels':
+    'ഓരോ പ്രോജക്റ്റും, ടീമും, വിഷയവും ക്രമീകരിച്ച് നിലനിർത്തുന്ന പൊതു, സ്വകാര്യ ചാനലുകൾ.',
+  'about.featureFiles':
+    'ചർച്ച നടക്കുന്നിടത്ത് തന്നെ സമ്പന്നമായ പ്രിവ്യൂകളോടെ ഡ്രാഗ്-ആൻഡ്-ഡ്രോപ്പ് ഫയൽ പങ്കിടൽ.',
+  'about.featurePlans':
+    'സൗജന്യമായി ആരംഭിക്കാം, നിങ്ങൾ വളരുമ്പോൾ കൂടുതൽ ചാനലുകളും, അംഗങ്ങളും, റിട്ടൻഷനും, ബാഹ്യ ഇന്റഗ്രേഷനുകളും അൺലോക്ക് ചെയ്യുന്ന Pro, Team പ്ലാനുകളോടെ.',
+  'about.featureRealtime':
+    'തൽക്ഷണ അറിയിപ്പുകളോടെ തത്സമയ സന്ദേശമയയ്ക്കൽ, കൂടാതെ നിങ്ങളുടെ ടീം പറഞ്ഞ എല്ലാറ്റിനുമുടെയും ഫുൾ-ടെക്സ്റ്റ് സെർച്ച്.',
+  'about.featureThreads':
+    'പാർശ്വ സംഭാഷണങ്ങൾ ക്രമീകരിച്ച് നിലനിർത്താനും ഫീഡ്ബാക്ക് വേഗത്തിലാക്കാനും ത്രെഡഡ് മറുപടികളും ഇമോജി പ്രതികരണങ്ങളും.',
+  'about.intro':
+    'നിങ്ങളുടെ ടീം ഒരുമിച്ച് ജോലി ചെയ്യുന്ന ഇടമാണ് {{app}} — ക്രമീകരിച്ച ചാനലുകൾ, കേന്ദ്രീകൃത ത്രെഡുകൾ, പ്രതികരണങ്ങൾ, ഫയൽ പങ്കിടൽ, സെർച്ച് എന്നിവയെല്ലാം ഒരു വേഗതയേറിയ, തത്സമയ വർക്ക്സ്പേസിൽ.',
+  'about.missionBody':
+    'ഇമെയിൽ തീരുമാനങ്ങളെ കുഴിച്ചുമൂടുന്നു, ചിതറിക്കിടക്കുന്ന ചാറ്റ് ടൂളുകൾ സന്ദർഭം തകർക്കുന്നു. ഓരോ സംഭാഷണവും തുറന്നതും, സെർച്ച് ചെയ്യാവുന്നതും, അതിന്റെ ചാനലുമായി ബന്ധിപ്പിച്ചതുമായി {{app}} നിലനിർത്തുന്നു — അങ്ങനെ നിങ്ങളുടെ ടീം ബഹളമില്ലാതെ ഒത്തൊരുമയോടെ നിലകൊള്ളുന്നു.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'activityCard.mentions': 'പരാമർശങ്ങൾ',
   'activityCard.mentionsCount': '{{count}}',
   'activityCard.reactions': 'പ്രതികരണങ്ങൾ',
@@ -11,7 +29,9 @@ export const ui: UiTranslations = {
   'app.workspace': 'മോളിക്യൂൾ സ്റ്റുഡിയോസ്',
   'channel.attachFile': 'ഫയൽ അറ്റാച്ചുചെയ്യുക',
   'channel.backToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് മടങ്ങുക',
+  'channel.darkMode': 'ഡാർക്ക് മോഡ് ടോഗിൾ ചെയ്യുക',
   'channel.document': 'പ്രമാണം',
+  'channel.downloadFile': '{{name}} ഡൗൺലോഡ് ചെയ്യുക',
   'channel.edited': '(എഡിറ്റ് ചെയ്തത്)',
   'channel.formatBold': 'ബോൾഡ്',
   'channel.formatCode': 'കോഡ്',
@@ -19,28 +39,40 @@ export const ui: UiTranslations = {
   'channel.forNewLine': 'പുതിയ ലൈനിനായി',
   'channel.insertEmoji': 'ഇമോജി',
   'channel.insertLink': 'ലിങ്ക്',
+  'channel.lastReply': 'അവസാന മറുപടി {{time}}',
   'channel.linkPrompt': 'ലിങ്ക് URL',
   'channel.memberCount': '{{count}} അംഗങ്ങൾ',
   'channel.mention': 'പരാമർശം',
+  'channel.messageInputLabel': 'ഒരു സന്ദേശം ടൈപ്പ് ചെയ്യുക',
   'channel.messagePlaceholder': 'സന്ദേശം #{{name}}',
   'channel.noMembers': 'അംഗങ്ങളില്ല',
+  'channel.noMessages':
+    'ഇതാണ് സംഭാഷണത്തിന്റെ തുടക്കം. കാര്യങ്ങൾ ആരംഭിക്കാൻ ആദ്യ സന്ദേശം അയയ്ക്കുക.',
   'channel.noSearchResults': 'നിങ്ങളുടെ തിരയലുമായി പൊരുത്തപ്പെടുന്ന സന്ദേശങ്ങളൊന്നുമില്ല.',
   'channel.notFound': 'ചാനൽ കണ്ടെത്തിയില്ല.',
   'channel.notFoundHint':
     'ഈ ചാനൽ ഇല്ലാതാക്കിയിരിക്കാം അല്ലെങ്കിൽ നിങ്ങൾക്ക് ഇത് ആക്‌സസ് ചെയ്യാൻ അനുമതിയില്ല.',
   'channel.pinnedLabel': '{{count}} പിൻ ചെയ്ത സന്ദേശങ്ങൾ',
+  'channel.replies': '{{count}} മറുപടികൾ',
   'channel.returnKey': 'മടങ്ങുക',
+  'channel.searchLabel': 'ഈ ചാനലിലെ സന്ദേശങ്ങൾ സെർച്ച് ചെയ്യുക',
   'channel.searchPlaceholder': 'സന്ദേശ ചരിത്രം തിരയുക',
   'channel.sendError': 'സന്ദേശം അയയ്ക്കുന്നതിൽ പരാജയപ്പെട്ടു — വീണ്ടും ശ്രമിക്കുക.',
   'channel.sendLabel': 'സന്ദേശം അയയ്ക്കുക',
   'channel.shiftReturn': 'ഷിഫ്റ്റ് + റിട്ടേൺ',
+  'channel.toggleMembers': 'അംഗങ്ങളുടെ പാനൽ ടോഗിൾ ചെയ്യുക',
   'channel.toSend': 'അയയ്ക്കാൻ',
+  'channel.tryDifferentSearch':
+    'മറ്റൊരു സെർച്ച് പദം പരീക്ഷിക്കുക അല്ലെങ്കിൽ സെർച്ച് ഫിൽട്ടർ മായ്ക്കുക',
+  'channel.welcomeChannel': '#{{name}}-ലേക്ക് സ്വാഗതം',
   'channelIntro.authorName': '{{name}}',
   'channelIntro.avatarAlt':
     '{{author}} തലയിൽ വെടി, പുഞ്ചിരിക്കുന്ന പുരുഷ എക്സിക്യൂട്ടീവ്, പ്രൊഫഷണൽ ഓഫീസ് പശ്ചാത്തലം',
   'channelIntro.leadIn':
     'നന്നായി തോന്നുന്നു! എഞ്ചിനീയറിംഗ് വിഭാഗത്തിലെ എന്റെ അഭിപ്രായങ്ങൾ ഞാൻ ചേർത്തിട്ടുണ്ട്. ',
   'channelIntro.reviewPrompt': ' ഇൻഫ്രാ ബജറ്റ് അവലോകനം ചെയ്യാമോ?',
+  'channelIntro.timestamp': '{{time}}',
+  'channelIntro.userMention': '@{{username}}',
   'channelMessageFeed.unknownAuthor': 'ഉപയോക്താവ്',
   'channelsList.addChannel': 'പുതിയ ചാനൽ',
   'channelsList.design': 'ഡിസൈൻ',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'common.unknown': 'അജ്ഞാത ഉപയോക്താവ്',
   'common.user': 'ഉപയോക്താവ്',
   'common.yes': '✓',
+  'dashboard.browseChannels': 'ചാനലുകൾ ബ്രൗസ് ചെയ്യുക',
   'dashboard.browseChannelsDesc': 'നിലവിലുള്ള പൊതു ചർച്ചകൾ പര്യവേക്ഷണം ചെയ്യുക',
   'dashboard.channelNamePlaceholder': 'ഉദാ: ഡിസൈൻ അവലോകനങ്ങൾ',
   'dashboard.createChannel': 'ചാനൽ സൃഷ്ടിക്കുക',
@@ -75,8 +108,10 @@ export const ui: UiTranslations = {
   'dashboard.newMessage': 'പുതിയ സന്ദേശം',
   'dashboard.noUnreadMessages': 'വായിക്കാത്ത സന്ദേശങ്ങളൊന്നുമില്ല.',
   'dashboard.quickActions': 'ദ്രുത പ്രവർത്തനങ്ങൾ',
+  'dashboard.startDm': 'DM ആരംഭിക്കുക',
   'dashboard.startDmDesc': 'ഒരു ടീം അംഗത്തിന് നേരിട്ട് സന്ദേശം അയയ്ക്കുക',
   'dashboard.unreadMessages': 'വായിക്കാത്ത സന്ദേശങ്ങൾ',
+  'dateSeparator.date': '{{weekday}}, {{month}} {{day}}',
   'directMessageButton.contactName': '{{name}}',
   'directMessagesSection.addDm': 'പുതിയ നേരിട്ടുള്ള സന്ദേശം',
   'directMessagesSection.empty': 'ഇതുവരെ നേരിട്ടുള്ള സന്ദേശങ്ങളൊന്നുമില്ല.',
@@ -104,10 +139,14 @@ export const ui: UiTranslations = {
   'messageComposer.italic': 'ഇറ്റാലിക്',
   'messageComposer.link': 'ലിങ്ക്',
   'messageComposer.mention': 'പരാമർശം',
+  'messageComposer.placeholder': '{{channel}}-ന് സന്ദേശം അയയ്ക്കുക',
   'messageComposer.urlPlaceholder': 'URL',
   'messageItem.authorName': '{{name}}',
+  'messageItem.body':
+    'ഹേ ടീം! Q2 പ്ലാനിംഗ് ഡോക്യുമെന്റ് അവലോകനത്തിന് തയ്യാറാണ്. വ്യാഴാഴ്ചത്തെ സ്റ്റാൻഡപ്പിന് മുമ്പ് ഒന്ന് നോക്കുക.',
   'messageItem.timestamp': '{{time}}',
   'messagePreviewCard.authorSeparator': ':',
+  'messagePreviewCard.unknownChannel': '#ചാനൽ',
   'nav.appTitle': 'പൾസ്',
   'nav.channelName': '# ഹേയ്!{{name}}',
   'nav.channels': 'ചാനലുകൾ',
@@ -127,7 +166,14 @@ export const ui: UiTranslations = {
   'parentMessage.sampleTimestamp': 'രാവിലെ 10:23',
   'pinnedItemsEmpty.description': 'പ്രധാനപ്പെട്ട സന്ദേശങ്ങൾ ഇവിടെ പിൻ ചെയ്യുക.',
   'pinnedItemsEmpty.title': 'ഇതുവരെ ഇനങ്ങളൊന്നും പിൻ ചെയ്തിട്ടില്ല.',
+  'planUpdated.body':
+    'നിങ്ങളുടെ ബില്ലിംഗ് മാറ്റം ഇപ്പോൾ സജീവമാണ്. ബില്ലിംഗ് പേജിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും നിങ്ങളുടെ പ്ലാൻ മാനേജ് ചെയ്യാം.',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
+  'pricing.channelsLabel': 'ചാനലുകൾ',
   'pricing.externalIntegrationsLabel': 'ബാഹ്യ സംയോജനങ്ങൾ',
   'pricing.fileUploadMbLabel': 'MB / ഫയൽ അപ്‌ലോഡ്',
   'pricing.heading': 'ചാനലുകൾ',
@@ -135,6 +181,8 @@ export const ui: UiTranslations = {
   'pricing.messagesPerDayLabel': 'സന്ദേശങ്ങൾ / ദിവസം',
   'pricing.threadsEnabledLabel': 'ത്രെഡ് ചെയ്ത മറുപടികൾ',
   'pricing.voiceVideoLabel': 'വോയ്‌സ് / വീഡിയോ കോളുകൾ',
+  'privacy.intro':
+    'ഞങ്ങൾ നിങ്ങളുടെ സ്വകാര്യതയെ മാനിക്കുന്നു. നിങ്ങൾ വ്യക്തമായി നൽകുന്ന ഡാറ്റ മാത്രമേ {{app}} സൂക്ഷിക്കുന്നുള്ളൂ, നിങ്ങളുടെ സമ്മതമില്ലാതെ അത് ഒരിക്കലും വിൽക്കുകയോ പങ്കിടുകയോ ചെയ്യുന്നില്ല.',
   'recommendedChannels.channel': '{{name}}',
   'recommendedChannels.empty': 'ഇതുവരെ നിർദ്ദേശങ്ങളൊന്നുമില്ല — ആരംഭിക്കാൻ ഒരു ചാനൽ സൃഷ്ടിക്കുക.',
   'recommendedChannels.title': 'നിങ്ങൾക്ക് ഇഷ്ടപ്പെട്ടേക്കാം',
@@ -146,6 +194,8 @@ export const ui: UiTranslations = {
   'resetPassword.error': 'പാസ്‌വേഡ് പുനഃസജ്ജമാക്കാൻ കഴിയുന്നില്ല.',
   'resetPassword.newPassword': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.reset': 'പാസ്‌വേഡ് പുനഃക്രമീകരിക്കുക',
+  'resetPassword.resetting': 'റീസെറ്റ് ചെയ്യുന്നു...',
+  'resetPassword.subtitle': 'നിങ്ങളുടെ പുതിയ പാസ്‌വേഡ് താഴെ നൽകുക',
   'resetPassword.successSubtitle': 'നിങ്ങളുടെ പുതിയ പാസ്‌വേഡ് ഉപയോഗിച്ച് ഇപ്പോൾ സൈൻ ഇൻ ചെയ്യാം.',
   'resetPassword.successTitle': 'പാസ്‌വേഡ് പുനഃസജ്ജമാക്കി',
   'settings.appearance.themeSelector': 'തീം സെലക്ടർ',
@@ -160,10 +210,14 @@ export const ui: UiTranslations = {
   'settings.title': 'ക്രമീകരണങ്ങൾ',
   'sideNavFooter.inviteMembers': 'അംഗങ്ങളെ ക്ഷണിക്കുക',
   'signup.backgroundAlt': 'സൗന്ദര്യാത്മക പശ്ചാത്തല രൂപകൽപ്പന',
+  'signup.creating': 'അക്കൗണ്ട് സൃഷ്ടിക്കുന്നു...',
   'signup.failed': 'സൈൻ അപ്പ് പരാജയപ്പെട്ടു',
   'signup.subtitle': 'പൾസ് ഉപയോഗിച്ച് ആരംഭിക്കുക',
   'sso.continue': 'SSO-യിൽ തുടരുക',
+  'terms.intro':
+    '{{app}} ഉപയോഗിക്കുന്നതിലൂടെ, നിങ്ങളുടെ ടീമുമായി സൗഹൃദത്തോടെ പെരുമാറാനും, ചാനൽ മാർഗ്ഗനിർദ്ദേശങ്ങൾ മാനിക്കാനും, പണമടച്ചുള്ള ഫീച്ചറുകൾക്ക് സജീവമായ ഒരു സബ്സ്ക്രിപ്ഷൻ ആവശ്യമാണെന്ന് അംഗീകരിക്കാനും നിങ്ങൾ സമ്മതിക്കുന്നു.',
   'thread.backToChannel': 'ചാനലിലേക്ക് മടങ്ങുക',
+  'thread.noReplies': 'ഇതുവരെ മറുപടികളില്ല — താഴെ ത്രെഡ് ആരംഭിക്കുക.',
   'thread.notFound': 'ത്രെഡ് കണ്ടെത്തിയില്ല.',
   'thread.replyError': 'മറുപടി അയയ്ക്കുന്നതിൽ പരാജയപ്പെട്ടു — വീണ്ടും ശ്രമിക്കുക.',
   'threadHeader.additionalParticipants': '+{{count}}',
@@ -174,7 +228,9 @@ export const ui: UiTranslations = {
   'threadIndicator.lastReplyTime': 'അവസാന മറുപടി {{minutes}} മിനിറ്റ് മുമ്പ്',
   'threadIndicator.moreParticipants': '+{{count}}',
   'threadIndicator.participantAvatarAlt': 'ചെറിയ പങ്കാളി അവതാർ',
+  'threadIndicator.replies': '{{count}} മറുപടികൾ',
   'topAppBar.defaultChannelName': 'പൊതുവായ',
+  'topAppBar.defaultTopic': 'കമ്പനി വ്യാപകമായ അറിയിപ്പുകളും അപ്ഡേറ്റുകളും',
   'topAppBar.favoriteChannel': 'പ്രിയപ്പെട്ട ചാനൽ',
   'topAppBar.memberCount': '{{count}} അംഗങ്ങൾ',
   'topAppBar.searchPlaceholder': 'സന്ദേശ ചരിത്രം തിരയുക',
@@ -182,6 +238,9 @@ export const ui: UiTranslations = {
   'topNavBar.search': 'സന്ദേശങ്ങൾ തിരയുക',
   'topNavBar.threads': 'ത്രെഡുകൾ',
   'welcomeHero.badge': 'വർക്ക്‌സ്‌പെയ്‌സ് അവലോകനം',
+  'welcomeHero.description':
+    'നിങ്ങളുടെ ടീം ആശയവിനിമയ കേന്ദ്രം. ഒത്തൊരുമയോടെ നിലകൊള്ളാൻ വേണ്ടതെല്ലാം ഒരിടത്ത്.',
   'workspaceHeader.defaultName': 'നിങ്ങളുടെ ജോലിസ്ഥലം',
+  'workspaceHeader.subtitle': '{{type}} വർക്ക്സ്പേസ്',
   'workspaceHeader.title': '{{name}}',
 }

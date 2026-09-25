@@ -1,10 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Guri buruz',
+  'about.featureAssignments':
+    'Zereginak, fitxategi-bidalketak, errubrikak, zuzeneko feedbacka eta ikasleak eta gurasoak informatuta mantentzen dituen kalifikazio-liburu lasaia.',
+  'about.featureBreakouts':
+    'Sakaldi bakarreko talde-gelak — ikasleak automatikoki nahastu, iragarkiak eman eta dena berriro elkartu denbora amaitzean.',
+  'about.featureChat':
+    'Klaseko txat hari-eztabaidatsua, laburpen finkatuekin eta irakasleentzako kanal paraleloekin, saioan zehar coaching isila egiteko.',
+  'about.featureVideo':
+    'Zuzeneko bideo zinematografikoa, hizlari aktiboan fokatua, galeria eta foku-diseinuekin, eta irakasleentzako arrastatu daitekeen picture-in-picture batekin.',
+  'about.featureWhiteboard':
+    'Arbel zuri infinitua laser-erakuslearekin eta kolore-paleta osoarekin; saio bakoitza ikastaro bakoitzeko gordetzen da, lana klaseen artean mantentzeko.',
+  'about.missionBody':
+    'Uste dugu urrutiko eta hibrido ikaskuntzak mintegi-mahai bat bezain presente eta gizatiarra izan behar duela. Beraz, zuzeneko presentzia jarri dugu lehenengo — benetako aurpegiak, oihal partekatua eta talde txikiko saioak — eta kalifikazioa eta logistika isilik uzten ditugu, behar dituzun arte.',
+  'about.missionTitle': 'Gure misioa',
   'assignmentDetail.attachmentsTitle': 'Eranskinak',
   'assignmentDetail.back': 'Zeregin guztiak',
   'assignmentDetail.code': 'BIO 211',
+  'assignmentDetail.context':
+    'Zelula Biologia I · {{instructor}}-(e)k argitaratua · Epemuga {{due}}',
   'assignmentDetail.continueDraft': 'Jarraitu zirriborroa',
   'assignmentDetail.draftBody':
     'Azken edizioa duela 14 minutu · Aldaketa bakoitzean automatikoki gordetzen da.',
@@ -23,6 +39,7 @@ export const ui: UiTranslations = {
   'assignmentRow.statusInProgress': 'Zirriborroa',
   'assignmentRow.statusSubmitted': 'Bidalita',
   'assignmentRow.title': 'Laborategiko txostena — DNA mitokondriala',
+  'assignmentRow.weight': 'Kalifikazioaren {{percent}}% balio du',
   'assignments.body':
     'Jarrai ezazu zure ikastaroetako paper, arazo multzo eta proiektu guztien jarraipena.',
   'assignments.empty': 'Ez dago ezer errei honetan oraintxe bertan — gozatu lasaitasunaz.',
@@ -33,6 +50,8 @@ export const ui: UiTranslations = {
   'assignments.statTotal': 'Esleipen aktiboak',
   'assignments.title': 'Zereginak',
   'aulaAuthShell.backHome': '← Etxera itzuli',
+  'aulaAuthShell.brandBody':
+    '{{appName}}-ek bideoa, arbela, talde-gelak, txata eta kalifikazioa fitxa bakar batean biltzen ditu — fitxak artatu beharrean irakatsi nahi duten irakasleentzat egina.',
   'aulaAuthShell.brandEyebrow': 'Ikaskuntza bizirik dagoen lekua',
   'aulaAuthShell.brandTitle': 'Gela biziak, gelan egotearen berotasunarekin.',
   'aulaAuthShell.sampleAttending': '+24 gehiago bertaratu dira',
@@ -42,6 +61,8 @@ export const ui: UiTranslations = {
   'aulaSideNav.closeMenu': 'Itxi nabigazio menua',
   'aulaSideNav.label': 'Nabigazio nagusia',
   'aulaSideNav.weeklyClasses': 'Aste honetan',
+  'aulaSideNav.weeklyClassesCount': '{{done}} / {{total}}',
+  'aulaSideNav.weeklyHelp': 'Aste honetako ikasgaiak amaitzeko bidean zaude. Jarraitu horrela!',
   'aulaTopBar.openMenu': 'Ireki nabigazio menua',
   'aulaTopBar.searchPlaceholder': 'Bilatu ikastaroak, klaseak, lanak…',
   'aulaTopBar.title': 'Aula',
@@ -54,6 +75,8 @@ export const ui: UiTranslations = {
   'calendar.statTotal': 'Hurrengo ekitaldi guztiak',
   'classroom.chatCount': '{{count}} mezuak',
   'classroom.chatEmpty': 'Oraindik ez dago mezurik — esan kaixo isiltasuna hausteko.',
+  'classroom.chatInputLabel': 'Klaseko txat-mezua',
+  'classroom.chatLoading': 'Elkarrizketa kargatzen…',
   'classroom.chatPlaceholder': 'Klasera bidali…',
   'classroom.chatTitle': 'Klaseko txata',
   'classroom.detailJoin': 'Join code',
@@ -80,23 +103,30 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'Joan aginte-panelera',
   'courseDetail.assignmentsTitle': 'Ikastaro-lanak',
   'courseDetail.back': 'Ikastaro guztiak',
+  'courseDetail.body':
+    'Bigarren seihilekoko ikastaroa, integral lerromakurretatik hasi eta dibergentzia eta curl arte. Zuzeneko saioak astearte eta ostegunero, ostiraleko laborategia eta asteko tutoretza-orduak.',
+  'courseDetail.ca1Course': 'Kalkulua II',
   'courseDetail.ca1Due': 'Osteguna · 17:00etan',
   'courseDetail.ca1Title': 'Bektore-eremuaren fluxu-problema multzoa',
   'courseDetail.ca2Course': 'Kalkulua II',
   'courseDetail.ca2Due': 'Astelehena bidalia',
   'courseDetail.ca2Score': 'Iritzien zain',
   'courseDetail.ca2Title': 'Stokes teoremaren frogak',
+  'courseDetail.ca3Course': 'Kalkulua II',
   'courseDetail.ca3Due': 'Duela 9 egun itzuli zen',
   'courseDetail.ca3Score': 'A · %94',
   'courseDetail.ca3Title': 'Lerro integralen berrikuspen galdetegia',
   'courseDetail.cls1Course': 'Kalkulua II · MTH 202',
   'courseDetail.cls1Instructor': 'Maya Okafor irakaslea',
+  'courseDetail.cls1Room': 'Aula gela · Izpilikua',
   'courseDetail.cls1Title': 'Bektore-eremuak eta fluxua',
   'courseDetail.cls2Course': 'Kalkulua II · MTH 202',
   'courseDetail.cls2Instructor': 'Maya Okafor irakaslea',
+  'courseDetail.cls2Room': 'Aula gela · Izpilikua',
   'courseDetail.cls2Title': 'Lerro integralen berrikuspena',
   'courseDetail.cls3Course': 'Kalkulua II · MTH 202',
   'courseDetail.cls3Instructor': 'TA Felix Bauer',
+  'courseDetail.cls3Room': '{{appName}} gela · Petal',
   'courseDetail.cls3Title': 'Laborategia: Stokes arazo multzoa',
   'courseDetail.code': 'MTH 202',
   'courseDetail.materialsTitle': 'Materialak',
@@ -135,15 +165,18 @@ export const ui: UiTranslations = {
   'courses.loading': 'Ikastaroak kargatzen…',
   'courses.noBrowse':
     'Ez dago arakatzeko ikastarorik — argitaratutako guztian matrikulatuta zaude.',
+  'courses.noCourses': 'Oraindik ez dago ikastarorik — sortu bat goiko botoiarekin.',
   'courses.title': 'Zure ikaskuntza liburutegia',
   'courseTileCard.code': 'ECN 312',
   'courseTileCard.continue': 'Jarraitu ikastaroa',
   'courseTileCard.enroll': 'Ikusi ikastaroa',
   'courseTileCard.imageAlt': 'Ikastaroaren miniatura',
   'courseTileCard.instructor': 'Idris Halloway doktorea',
+  'courseTileCard.lessonsRemaining': '{{count}} geratzen diren ikasgaiak',
   'courseTileCard.levelAdvanced': 'Aurreratua',
   'courseTileCard.levelBeginner': 'Hasiberria',
   'courseTileCard.levelIntermediate': 'Tartekoa',
+  'courseTileCard.preview': 'Begiratu ikasketa-plana, arakatu eskolak eta eskatu matrikulazioa.',
   'courseTileCard.progressComplete': '{{percent}} % osatua',
   'courseTileCard.title': 'Makroekonomia modernoa',
   'dashboard.assignmentsAll': 'Ikusi guztiak →',
@@ -163,12 +196,16 @@ export const ui: UiTranslations = {
   'dashboard.noAssignments': 'Ez dago zereginik entregatu beharrik — gozatu lasaitasunaz.',
   'dashboard.noCourses': 'Oraindik ez dago ikastarorik — zure lehen ikastaroa hemen agertuko da.',
   'dashboard.noDueDate': 'Ez dago epea',
+  'dashboard.scheduleAula': 'Aula gela',
   'dashboard.scheduleEmpty': 'Ez dago zuzeneko klaserik programatuta datozen egunetan.',
   'dashboard.scheduleHostedYou': 'Zuk antolatuta',
+  'dashboard.scheduleJoinCode': 'Sartzeko kodea · {{code}}',
+  'dashboard.statAssignmentsLabel': 'Egiteke dauden zereginak',
   'dashboard.statClassesDelta': '{{n}} ikastaro aktiboak',
   'dashboard.statClassesLabel': 'Zuzeneko gelak',
   'dashboard.statCoursesDelta': '{{n}} matrikulatuta',
   'dashboard.statCoursesLabel': 'Ikastaroak',
+  'dashboard.statNotificationsLabel': 'Irakurri gabeko abisuak',
   'dashboard.tipBody':
     'Ireki goiko heroi-txarteleko zuzeneko gela arbelean trazu bat marrazteko edo txat-mezu bat argitaratzeko — ekintza guztiak mantendu egiten dira.',
   'dashboard.tipCta': 'Saiatu arbel zuria',
@@ -182,6 +219,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success':
     'Mezu elektroniko horretarako kontu bat badago, berrezartzeko esteka bidean dago.',
   'forgotPassword.toLogin': 'Itzuli saioa hasteko',
+  'grades.assignmentsCount': '{{n}} kalifikazio',
   'grades.body':
     'Ikastaro bakoitzaren ikuspegi lasaia — lasterketaren kalifikazioa, azken iritziak eta hurrengo astean non zentratu.',
   'grades.empty':
@@ -194,43 +232,59 @@ export const ui: UiTranslations = {
   'grades.statTrendUnit': 'ikastaroak',
   'grades.statWatchLabel': 'Arreta behar du',
   'grades.title': 'Kalifikazioak eta iritzia',
+  'landing.ctaBody':
+    'Ikastaro-lagina sortuko dugu, irakasle-kidea gonbidatuko dugu eta klase bat talde-geletan nola banatu erakutsiko dizugu kanpaia jo baino lehen.',
   'landing.ctaButton': 'Sortu zure eskola',
   'landing.ctaPrimary': 'Hasi doako epea',
   'landing.ctaSecondary': 'Ikusi klaseko bisita gidatua',
   'landing.ctaTitle': 'Ireki zure lehenengo ikasgela hiru minutu baino gutxiagoan.',
+  'landing.demoCourse': 'Munduko Literatura · LIT 240',
+  'landing.demoInstructor': 'Imani Davies irakaslea',
+  'landing.demoTitle': 'Errealismo magikoa — Borges eta Murakami',
   'landing.eyebrow': 'Zuzenean · arbel zuria · zatiketak · kalifikazioa',
   'landing.feat1Body':
     'Automatikoki ezarritako fokua + galeria, hizlari aktiboen azentuak eta irakasleentzako arrastaka eraman daitekeen irudi-irudi bat.',
   'landing.feat1Title': 'Bideo zinematografikoen sareta',
   'landing.feat2Body':
     'Mihise infinitua, laser erakuslea, zortzi laginen paleta eta ikastaro bakoitzeko saio iraunkorrak.',
+  'landing.feat2Title': 'Pentsatzen duen arbela',
   'landing.feat3Body':
     'Ikasleak automatikoki geletan nahastu, iragarkiak eman eta denak berriro ukitu batekin atzera ekarri.',
+  'landing.feat3Title': 'Talde-gelak bi kliketan',
   'landing.feat4Body':
     'Erribrak, fitxategien bidalketak, lineako feedbacka eta gurasoak informatuta mantentzen dituen kalifikazio-liburu lasaia.',
+  'landing.feat4Title': 'Zereginak + kalifikazio-liburua',
   'landing.feat5Body':
     'Klase bakoitzeko hari-txata, laburpen finkoak eta irakasleentzako alboko kanalak xuxurlatzeko trebakuntzarako.',
+  'landing.feat5Title': 'Txata klasearen testuinguruarekin',
   'landing.feat6Body':
     'SSO barrutiko direktorioekin, adinaren araberako moderazioarekin eta ikasgela bakoitzeko auditoria-erregistroekin.',
+  'landing.feat6Title': 'Lehenespenez segurua',
   'landing.featuresEyebrow': 'Zuzenekoetarako eraikia.',
   'landing.featuresTitle': 'Klase batek behar duen guztia, fitxa bakarrean.',
   'landing.footerCopy': '© {{year}} Aula. Hezitzaileentzako arreta handiz egina.',
   'landing.footerStart': 'Eskola bat hasi',
   'landing.heroBody':
     'Aula-k zuzeneko bideoa, arbel zuria, lan-saioak, txata eta zereginak etxe bero eta akademiko bakarrean biltzen ditu. Fitxa gutxiago eta arreta gehiago nahi duten irakasleentzat eraikia.',
+  'landing.heroLine1': 'Non gela bakoitzak',
   'landing.heroLine2': 'sentitzen da gelan.',
   'landing.navSchools': 'Eskoletarako',
   'landing.navStart': 'Ireki ikasgela bat.',
   'landing.previewCourse1': 'Makroekonomia modernoa',
   'landing.previewCourse2': 'Estudioko Pintura II',
   'landing.previewCourse3': 'Datuen Etikaren Sarrera',
+  'landing.previewEyebrow': 'Erakutsi katalogoa',
   'landing.previewInstructor1': 'Idris Halloway doktorea',
   'landing.previewInstructor2': 'Lila Marin irakaslea',
   'landing.previewInstructor3': 'Naomi Wren doktorea',
   'landing.previewTitle': 'Zure ikasleek benetan irekiko dituzten ikastaroak.',
+  'landing.socialProofBody':
+    'Mundu osoan 380 eskola, bootcamp eta enpresako prestatzailek erabilia.',
   'landing.socialProofTitle': '14.200 klase baino gehiago antolatu dira ikasturte honetan',
   'liveClassHeroCard.bodyLive':
     '{{instructor}} gela ireki berri du. {{count}} ikaskideak barruan daude dagoeneko — sartu zerrenda deitu aurretik.',
+  'liveClassHeroCard.bodyUpcoming':
+    '{{instructor}} {{minutes}} minutu barru hasiko da zuzenean. Kamera eta mikrofonoaren proba orain dago zabalik.',
   'liveClassHeroCard.course': 'Kalkulua II — MTH 202',
   'liveClassHeroCard.elapsed': 'Iragana',
   'liveClassHeroCard.elapsedValue': '12:08',
@@ -243,6 +297,7 @@ export const ui: UiTranslations = {
   'liveClassHeroCard.title': '14. hitzaldia — Bektore-eremuak',
   'liveClassHeroCard.viewSchedule': 'Ikusi ordutegi osoa',
   'login.emailPlaceholder': 'zu@eskola.edu',
+  'login.footerPrompt': 'Tesseran berria zara?',
   'login.hidePassword': 'Ezkutatu pasahitza',
   'login.rememberMe': 'Mantendu saioa hasita',
   'login.showPassword': 'Erakutsi pasahitza',
@@ -252,6 +307,7 @@ export const ui: UiTranslations = {
   'notifications.body': 'Baduzu {{count}} Zure klaseetako irakurri gabeko eguneratzeak.',
   'notifications.bodyNone': 'Guztiok harrapatuta zaudete.',
   'notifications.loading': 'Kargatzen…',
+  'pricing.advancedFeatures': 'Ezaugarri aurreratuak',
   'profile.bio':
     'Bektore kalkulua eta topologia · 14 urte irakasten · Aula komunitateko moderatzailea. Bulego ordutegia: astelehena/asteazkena, 11:00etatik 12:00etara, Lavender gelan.',
   'profile.course1Instructor': 'Maya Okafor irakaslea',
@@ -272,8 +328,11 @@ export const ui: UiTranslations = {
   'profile.statStudentsLabel': 'Ikasturte honetako ikasleak',
   'resetPassword.confirmPasswordPlaceholder': 'Sartu berriro pasahitz berria',
   'resetPassword.emailPlaceholder': 'zu@eskola.edu',
+  'resetPassword.mismatch': 'Pasahitzak ez datoz bat oraindik.',
+  'resetPassword.newPassword': 'Pasahitz berria',
   'resetPassword.subtitle':
     'Egin ezazu asmatzeko zaila izan dadin bezain luzea eta azkar idazteko bezain laburra.',
+  'resetPassword.title': 'Aukeratu pasahitz berri bat',
   'scheduleItem.course': 'Idazketa Sortzailea · ING 220',
   'scheduleItem.endTime': '15:30',
   'scheduleItem.instructor': 'Yusuf Adelana doktorea',
@@ -297,10 +356,20 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Hizkuntza',
   'settings.photoHint': 'JPG edo PNG · karratua da egokiena',
   'settings.profileTitle': 'Profila',
+  'settings.securityTitle': 'Saioa hasi eta segurtasuna',
   'settings.twoFactorCode': 'Autentifikazio kodea',
   'settings.twoFactorDisable': 'Desgaitu',
+  'settings.twoFactorDisableTitle': 'Desgaitu bi faktoreko autentifikazioa',
   'settings.twoFactorEnable': 'Gaitu',
+  'settings.twoFactorEnableTitle': 'Gaitu bi faktoreko autentifikazioa',
   'settings.twoFactorInvalidCode': 'Kode baliogabea',
+  'settings.twoFactorOffBody': 'Gaituta ez',
+  'settings.twoFactorOnBody': 'Gaituta · autentifikazio-aplikazioa',
+  'settings.twoFactorQrAlt': 'Bi faktoreko QR kodea',
+  'settings.twoFactorScan':
+    'Eskaneatu QR kode hau zure autentifikazio-aplikazioarekin, eta gero sartu 6 digituko kodea.',
+  'settings.twoFactorUnavailable':
+    'Bi faktoreko autentifikazioa ez dago erabilgarri aplikazio honetarako.',
   'settings.twoFactorVerify': 'Egiaztatu eta gaitu',
   'signup.email': 'Eskolako posta elektronikoa',
   'signup.emailPlaceholder': 'zu@eskola.edu',
@@ -308,6 +377,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Aiyana',
   'signup.lastNamePlaceholder': 'Vega',
   'signup.roleInstructor': 'Irakaslea',
+  'signup.roleLabel': 'Ni naiz…',
   'signup.roleStudent': 'Ikaslea',
   'signup.subtitle':
     'Aula doakoa da lehenengo 30 egunetan — ez da kreditu txartelik behar. Gonbidatu zure lankideak edozein unetan.',
@@ -320,6 +390,8 @@ export const ui: UiTranslations = {
   'whiteboard.colorLabel': 'Kolorea {{color}}',
   'whiteboard.export': 'Esportatu SVG',
   'whiteboard.loading': 'Taula kargatzen…',
+  'whiteboard.persistenceNote':
+    'Trazuak gelako arbel zurian gordetzen dira. Birkargatu orria — arbeletako egoerak han egon behar luke oraindik.',
   'whiteboard.roomNotFound': 'Ez da arbel zuria aurkitu esteka honetarako.',
   'whiteboard.savedAt': '{{count}} trazuak · azken gordetakoak {{when}}',
   'whiteboard.title': 'Arbel zuri bizia',

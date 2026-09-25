@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, βρήκες κάποιο σφάλμα ή θέλεις μια νέα λειτουργία; Διαβάζουμε κάθε μήνυμα — επικοινώνησε με την ομάδα του {{appName}} από τις ρυθμίσεις του λογαριασμού σου και ένας πραγματικός άνθρωπος θα σου απαντήσει.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.intro':
+    'Το {{appName}} είναι ένας συνεργατικός άπειρος καμβάς για ομάδες σχεδιασμού, συντονιστές εργαστηρίων και εκπαιδευτικούς. Τοποθέτησε σημειώσεις, σχεδίασε σχήματα, ζωγράφισε ελεύθερα και δες τους συνεργάτες σου να σκέφτονται μαζί σου σε πραγματικό χρόνο — όλα σε ένα μέρος όπου οι άτακτες, δημιουργικές ιδέες μπορούν επιτέλους να συγκλίνουν.',
+  'about.missionBody':
+    'Η σπουδαία σκέψη σπάνια είναι τακτοποιημένη. Το {{appName}} υπάρχει για να δίνει στις ομάδες μια γρήγορη επιφάνεια με ελάχιστη τριβή, όπου οι ιδέες καταγράφονται τη στιγμή που γεννιούνται και διαμορφώνονται μαζί μέχρι να αποκτήσουν νόημα — χωρίς καθυστερήσεις, χαμένη δουλειά ή άκαμπτα εργαλεία που σκοτώνουν τη δυναμική.',
+  'about.missionTitle': 'Η αποστολή μας',
+  'authShell.brandFooter':
+    '«Αντικαταστήσαμε τέσσερα εργαλεία με το {{appName}} την εβδομάδα που κυκλοφορήσαμε το rebrand μας. Το retro αποθηκεύτηκε μόνο του.» — Atlas Studio',
+  'authShell.brandFooterMeta': 'Το εμπιστεύονται 12.400+ ομάδες σχεδιασμού',
   'authShell.brandHeading':
     'Καμβάδες για πολλούς παίκτες για ομάδες σχεδιασμού που σκέφτονται δυνατά.',
   'billing.canceled': 'Η συνδρομή ακυρώθηκε.',
@@ -11,6 +21,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': 'Βασικό επίπεδο χωρίς χρέωση για πάντα.',
   'billing.freePlanName': 'Δωρεάν',
   'billing.paidPlanBody': 'Ενεργή συνδρομή.',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'Πρόγραμμα & τιμολόγια',
   'billing.updated': 'Το σχέδιο ενημερώθηκε.',
   'billing.upgradeTitle': 'Διαθέσιμα προγράμματα',
@@ -19,8 +30,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': 'του {{max}} συμπεριλαμβανομένος',
   'boardCanvas.backToBoards': 'Όλες οι σανίδες',
   'boardCanvas.changeColor': 'Αλλαγή χρώματος {{color}}',
+  'boardCanvas.collaboratorsTitle': 'Συνεργάτες',
   'boardCanvas.deleteElement': 'Διαγραφή στοιχείου',
   'boardCanvas.deselect': 'Αποεπιλογή',
+  'boardCanvas.elementLabel': 'στοιχείο {{type}}',
   'boardCanvas.elementsCount': '{{count}} στοιχεία',
   'boardCanvas.elementText': 'Κείμενο',
   'boardCanvas.empty.body':
@@ -30,10 +43,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': 'Γέμισμα',
   'boardCanvas.invited': 'Καλεσμένος {{email}}',
   'boardCanvas.metaTitle': 'Θέση',
+  'boardCanvas.metaWH': 'Π: {{w}}  Υ: {{h}}',
   'boardCanvas.metaXY': 'Χ: {{x}} Υ: {{y}}',
   'boardCanvas.noCollaborators':
     'Δεν υπάρχουν ακόμη συνεργάτες. Χρησιμοποιήστε την Κοινή χρήση για να προσκαλέσετε συμπαίκτες.',
   'boardCanvas.present': 'Παρόν',
+  'boardCanvas.private': 'Ιδιωτικός — μόνο με πρόσκληση',
   'boardCanvas.properties': 'Σκηνικά θέατρου',
   'boardCanvas.public': 'Δημόσιο — οποιοσδήποτε έχει τον σύνδεσμο μπορεί να το δει',
   'boardCanvas.roleCommenter': 'Μπορεί να σχολιάσει',
@@ -49,6 +64,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'Επιλέξτε κολλώδες χρώμα',
   'boardCanvas.summaryCount': '{{count}} στοιχεία στον καμβά',
   'boardCanvas.summaryTitle': 'Επιτροπή',
+  'boardCanvas.surface.clear': 'Καμβάς πίνακα — καθαρισμός επιλογής',
+  'boardCanvas.surface.draw': 'Καμβάς πίνακα — σύρε για σχεδίαση',
+  'boardCanvas.surface.place': 'Καμβάς πίνακα — τοποθέτηση στοιχείου',
   'boardCanvas.untitled': 'Πίνακας χωρίς τίτλο',
   'boardCanvas.visibilityTitle': 'Ορατότητα',
   'boardCanvas.zoomIn': 'Μεγέθυνση',
@@ -72,6 +90,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'Πίνακες αναζήτησης',
   'boards.searchPlaceholder': 'Πίνακες αναζήτησης',
   'boards.sharedTitle': 'Μου το έδειξε',
+  'boards.sortedBy': 'Ταξινόμηση κατά πρόσφατη ενημέρωση',
   'boards.startFromTemplate': 'Έναρξη από το πρότυπο',
   'boards.title': 'Οι πίνακές σας',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -85,6 +104,7 @@ export const ui: UiTranslations = {
   'landing.cta.signupButton': 'Δημιουργήστε τον δωρεάν πίνακά σας',
   'landing.cta.title': 'Σχεδιασμένο για ακατάστατη, δημιουργική, προσωπική σκέψη.',
   'landing.demoBoard.title': 'Εργαστήριο 1ου τριμήνου · Φωνή επωνυμίας',
+  'landing.demoBoard.updated': 'Ενημερώθηκε πριν 12 λεπτά',
   'landing.featuresEyebrow': 'Τι κάνει την Slate να έχει σχήμα ψηφίδας;',
   'landing.featuresTitle': 'Γρήγορη ανατροφοδότηση. Όμορφοι καμβάδες. Μηδενική τριβή.',
   'landing.hero.body':
@@ -97,18 +117,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '•••••••••••••',
   'login.signIn': 'Σύνδεση στο Slate',
   'login.signupCta': 'Δημιουργήστε έναν ελεύθερο χώρο εργασίας',
+  'login.signupPrompt': 'Νέος στο Tessera;',
   'login.subheading':
     'Συνεχίστε από εκεί που σταμάτησε το εργαστήριο — οι πίνακες, οι αυτοκόλλητες σημειώσεις και οι κέρσορες συγχρονίζονται σε πραγματικό χρόνο.',
   'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
   'mobileNav.new': 'Νέα',
   'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
+  'notifications.editBody': 'Το περιεχόμενο του πίνακα ενημερώθηκε.',
   'notifications.editTitle': 'Επεξεργασίες σε " {{board}} "',
   'notifications.empty.body':
     'Οι προσκλήσεις, οι αποθηκευμένες εικόνες και οι πρόσφατες επεξεργασίες σε πίνακες θα εμφανίζονται εδώ τη στιγμή που συμβαίνουν.',
   'notifications.empty.title': 'Δεν υπάρχει τίποτα νέο στα εισερχόμενά σας',
   'notifications.eyebrow': '{{name}} · εισερχόμενα',
+  'notifications.inviteBody': 'ως {{role}} στο «{{board}}»',
   'notifications.inviteTitle': 'Καλεσμένος {{email}}',
   'notifications.snapshotTitle': 'Νέο στιγμιότυπο στο " {{board}} "',
+  'present.addFirst': 'Προσθήκη πρώτου πλαισίου',
   'present.addFrame': '+ Προσθήκη πλαισίου',
   'present.boardEyebrow': '{{title}} · παρουσίαση',
   'present.empty.body':
@@ -116,6 +140,7 @@ export const ui: UiTranslations = {
   'present.empty.title': 'Δεν υπάρχουν ακόμη πλαίσια',
   'present.exit': 'Έξοδος από την παρουσίαση',
   'present.exitToBoard': 'Επιστροφή στον καμβά',
+  'present.eyebrow': 'Λειτουργία παρουσίασης',
   'present.frameBody': 'Θέματα συζήτησης',
   'present.frameName': 'Όνομα πλαισίου',
   'present.frameOf': 'Πλαίσιο {{current}} του {{total}}',
@@ -125,21 +150,31 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'Ζωντανή παρουσίαση',
   'present.save': 'Αποθήκευση πλαισίου',
   'present.title': 'Εκτελέστε την ιστορία σας',
+  'present.unnamed': 'Πλαίσιο χωρίς τίτλο',
+  'pricing.limits.advanced': 'Προηγμένες λειτουργίες',
   'profile.cursorBody':
     'Αποθηκευμένο σε αυτήν τη συσκευή — οι συμπαίκτες βλέπουν αυτό το χρώμα δίπλα στον ενεργό κέρσορα σας.',
   'profile.cursorEyebrow': 'Χρώμα κέρσορα',
   'profile.eyebrow': 'Κάρτα δημόσιου συνεργάτη',
+  'profile.noBoards': 'Δεν υπάρχουν πίνακες ακόμη — δημιούργησε έναν για να ξεκινήσεις.',
+  'profile.recentBoards': 'Πίνακες {{name}} με πρόσφατη δραστηριότητα',
   'profile.stat.${s.label}': 'Πίνακες {{όνομα}} πρόσφατα αγγιγμένος',
+  'profile.statsEyebrow': 'Η δραστηριότητά σας',
   'profile.title': 'Το προφίλ σας',
+  'reset.backPrompt': 'Χρειάζεστε διαφορετικό email;',
   'reset.cta': 'Επαναφορά κωδικού πρόσβασης και σύνδεση',
+  'reset.password': 'Νέος κωδικός πρόσβασης',
   'reset.subheading':
     'Επιλέξτε έναν ισχυρό κωδικό πρόσβασης — τουλάχιστον 8 χαρακτήρες με έναν αριθμό.',
   'settings.appearance.title': 'Θέμα & καμβάς',
   'settings.eyebrow': 'Προτιμήσεις λογαριασμού',
   'settings.notifications.title': 'Προτιμήσεις ειδοποιήσεων',
   'settings.profile.title': 'Κάρτα δημόσιου συνεργάτη',
+  'settings.security.body':
+    'Διαχειρίσου τον έλεγχο ταυτότητας δύο παραγόντων, τις ενεργές συνεδρίες και τον κωδικό πρόσβασης από τον πίνακα ελέγχου του λογαριασμού σου.',
   'settings.security.title': 'Ασφάλεια',
   'shared.collaboratorCount': '{{count}} συνεργάτης/ες',
+  'shared.count': '{{count}} πίνακας(-ες)',
   'shared.empty.body':
     'Όταν ένας συμπαίκτης σας προσκαλέσει σε έναν πίνακα, αυτός θα εμφανιστεί αυτόματα εδώ.',
   'shared.empty.title': 'Δεν έχει κοινοποιηθεί τίποτα σε εσάς ακόμα.',
@@ -155,6 +190,9 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Δωρεάν για έως και 3 συνεργάτες. Δεν απαιτείται πιστωτική κάρτα για τις πρώτες 14 ημέρες.',
   'templateCard.usageCount': '{{count}} χρήσεις',
+  'templateDetail.allTemplates': 'Όλα τα πρότυπα',
+  'templateDetail.body':
+    'Κάνε κλικ στο «Χρήση προτύπου» για να αντιγράψεις {{count}} στοιχεία εκκίνησης σε έναν ολοκαίνουργιο πίνακα με τίτλο «{{name}}». Επεξεργάσου, μοιράσου και πραγματοποίησε το εργαστήριό σου από εκεί.',
   'templateDetail.delete': 'Διαγραφή προτύπου',
   'templateDetail.elementsCount': '{{count}} στοιχεία εκκίνησης',
   'templateDetail.eyebrow': '{{kind}} περίγραμμα',
@@ -167,16 +205,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'Αποθήκευση προσαρμοσμένου προτύπου',
   'templates.empty.body':
     'Δημιουργήστε ένα προσαρμοσμένο πρότυπο από οποιονδήποτε πίνακα έχετε στην κατοχή σας — ανοίξτε τον πίνακα, αποθηκεύστε ένα στιγμιότυπο και, στη συνέχεια, αποθηκεύστε το ως επαναχρησιμοποιήσιμο πρότυπο εδώ.',
+  'templates.empty.title': 'Δεν υπάρχουν ακόμη πρότυπα',
   'templates.eyebrow': 'Κιτ εργαστηρίου και αποθηκευμένα πρότυπα',
   'templates.filter.${c}': 'Δεν υπάρχουν ακόμη πρότυπα',
   'templates.nameLabel': 'Όνομα προτύπου',
   'templates.systemBadge': 'Ενσωματωμένο',
   'templates.userBadge': 'Δικό σου',
   'versionHistory.backToBoard': 'Επιστροφή στον καμβά',
+  'versionHistory.elementsTotal': '{{count}} στοιχεία που καταγράφηκαν',
   'versionHistory.empty.body':
     'Τα στιγμιότυπα δημιουργούνται από τον καμβά του πίνακα με την επιλογή "Αποθήκευση στιγμιότυπου" — εμφανίζονται εδώ, ώστε να μπορείτε να επαναφέρετε οποιαδήποτε προηγούμενη κατάσταση.',
+  'versionHistory.empty.cta': 'Άνοιξε τον καμβά για να προσθέσεις ένα',
   'versionHistory.empty.title': 'Δεν υπάρχουν ακόμη στιγμιότυπα',
   'versionHistory.eyebrow': '{{title}} · ιστορία',
+  'versionHistory.eyebrowFallback': 'Ιστορικό πίνακα',
   'versionHistory.latest': 'Τελευταία νέα',
   'versionHistory.restore': 'Επαναφορά αυτής της έκδοσης',
   'versionHistory.restored': 'Το στιγμιότυπο αποκαταστάθηκε.',
@@ -187,6 +229,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'Νέος πίνακας',
   'whiteboardLayout.primaryNav': 'Κύρια πλοήγηση',
   'workspace.boardLabel': 'Επιτροπή',
+  'workspace.empty': 'Δεν υπάρχουν συνεργάτες ακόμη — προσκάλεσε κάποιον στους πίνακες σου.',
   'workspace.eyebrow': '{{name}} · χώρος εργασίας',
   'workspace.invite': 'Πρόσκληση συνεργατών',
   'workspace.inviteSent': 'Η πρόσκληση στάλθηκε.',
@@ -196,4 +239,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'Σχολιαστής',
   'workspace.role.editor': 'Συντάκτης',
   'workspace.role.viewer': 'Προβολέας',
+  'workspace.title': 'Μέλη & ρόλοι',
 }

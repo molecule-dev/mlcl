@@ -1,9 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Masz opinię, trafiłeś na błąd albo chcesz wdrożyć {{appName}} w całym zespole? Napisz do nas z ustawień konta — każda wiadomość trafia do prawdziwej osoby z zespołu.',
   'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
+  'about.intro':
+    '{{appName}} to platforma do nagrywania ekranu stworzona dla zespołów, które wolą wysłać klip, niż siedzieć na kolejnym spotkaniu. Nagrywaj ekran z dźwiękiem, komentarzami i kamerą, udostępniaj link i sprawdzaj dokładnie, jak ludzie angażują się w nagranie — dzięki temu przeglądy projektów, zgłoszenia błędów i instruktaże docierają dalej niż jakiekolwiek spotkanie na żywo.',
+  'about.missionBody':
+    'Praca zdalna opiera się na wspólnym kontekście, a większość z niego ginie w kalendarzach i notatkach ze spotkań. {{appName}} istnieje po to, by ten kontekst łatwo było uchwycić i łatwo do niego wracać — asynchroniczny sposób pokazywania swojej pracy, zbierania opinii i utrzymywania wszystkich w zgodzie bez zmuszania ich do tej samej strefy czasowej.',
+  'about.missionTitle': 'Nasza misja',
   'about.pageTitle': 'O {{appName}}',
+  'about.tagline': 'Asynchroniczne nagrania ekranu dla zespołów zdalnych.',
   'analytics.empty': 'Prosimy nagrać pierwszy klip, aby zobaczyć tutaj zaangażowanie.',
   'analytics.error.load': 'Nie można załadować analityki.',
   'analytics.error.shape': 'Nieoczekiwany format danych analitycznych.',
@@ -16,6 +24,7 @@ export const ui: UiTranslations = {
   'analytics.kpi.viewsToday': 'Wyświetlenia dzisiaj',
   'analytics.loading': 'Ładowanie analityki…',
   'analytics.recent.empty': 'Brak widzów.',
+  'analytics.recent.title': 'Ostatni widzowie',
   'analytics.recent.watching': 'Obejrzano {{title}} · {{percent}}%',
   'analytics.title': 'Jak podróżują Pana/Pani screencasty',
   'analytics.top.empty': 'Brak nagrań.',
@@ -30,7 +39,10 @@ export const ui: UiTranslations = {
   'billing.priceMissing': 'Stripe priceId nie skonfigurowane dla tego okresu.',
   'billing.pricing.title': 'Dostępne plany',
   'billing.tier.basic': 'Funkcje podstawowe',
+  'billing.tier.exports': 'Eksporty włączone',
+  'billing.tier.maxRecordings': 'Nagrania {{count}}',
   'billing.tier.noExports': 'Bez eksportu',
+  'billing.tier.retentionDays': 'Przechowywanie {{days}} dni',
   'billing.tier.unlimitedRecordings': 'Nieograniczone nagrania',
   'billing.tier.unlimitedRetention': 'Nieograniczone przechowywanie',
   'billing.title': 'Pana/Pani plan Glint',
@@ -41,10 +53,19 @@ export const ui: UiTranslations = {
   'billing.usage.views': 'Wyświetlenia',
   'billing.usage.views.unit': 'wyświetleń',
   'common.goToDashboard': 'Przejdź do panelu',
+  'landing.cta.body':
+    'Za darmo dla nieograniczonej liczby 5-minutowych klipów. Ulepsz plan, gdy zespół się wciągnie.',
+  'landing.cta.button': 'Zacznij nagrywać bezpłatnie',
   'landing.cta.title': 'Lepsza informacja zwrotna. Prosimy zacząć od Glint.',
+  'landing.feature.analytics.body':
+    'Zobacz, kto oglądał, kiedy przestał i gdzie wracał do nagrania.',
+  'landing.feature.analytics.title': 'Analityka zaangażowania',
   'landing.feature.capture.body':
     'Nagrywanie w przeglądarce, na komputerze i mobilnie z mikrofonem, kamerą i rysowaniem.',
   'landing.feature.capture.title': 'Nagrywanie jednym dotknięciem',
+  'landing.feature.comments.body':
+    'Recenzenci zostawiają komentarze w wątkach przypięte do konkretnych klatek.',
+  'landing.feature.comments.title': 'Komentarze z kodem czasowym',
   'landing.footer.copy': '© {{year}} {{appName}} . Asynchronicznie, świetliście.',
   'landing.hero.cardCaption':
     'Przykładowy przegląd przestrzeni roboczej — prosimy spróbować bezpłatnie.',
@@ -52,9 +73,14 @@ export const ui: UiTranslations = {
   'landing.hero.proof.free': 'Plan bezpłatny na zawsze',
   'landing.hero.proof.privacy': 'Gotowe na SOC 2',
   'landing.hero.secondaryCta': 'Obejrzyj demo 60s',
+  'landing.hero.subtitle':
+    '{{appName}} nagrywa asynchroniczne screencasty z dźwiękiem, komentarzami i analityką widzów — dzięki temu przeglądy projektów, zgłoszenia błędów i instruktaże docierają dalej niż jakiekolwiek spotkanie.',
   'landing.hero.title': 'Nagraj raz. Udostępniaj wszędzie. Zobacz wpływ.',
   'landing.nav.preview': 'Podgląd',
   'landing.preview.title': 'Prosimy zobaczyć prawdziwe klipy Glint w akcji',
+  'library.empty.body':
+    'Nagraj swój pierwszy instruktaż — zespół pokocha to, że nie ma zaproszenia w kalendarzu.',
+  'library.empty.cta': 'Nagraj swój pierwszy klip',
   'library.empty.filtered': 'Brak nagrań pasujących do tego filtra',
   'library.empty.title': 'Brak nagrań',
   'library.error.load': 'Nie udało się załadować nagrań.',
@@ -62,6 +88,8 @@ export const ui: UiTranslations = {
   'library.heroStat.avgWatch': 'Średnio oglądane',
   'library.heroStat.recordings': 'Nagrania',
   'library.heroStat.views': 'Łączne wyświetlenia',
+  'library.heroSubtitle':
+    'Nagrywaj, udostępniaj i mierz asynchroniczne screencasty w całym zespole.',
   'library.heroTitle': '{{count}} nagrań gotowych do udostępnienia',
   'library.search.aria': 'Szukaj nagrań',
   'library.searchPlaceholder': 'Szukaj nagrań…',
@@ -76,6 +104,7 @@ export const ui: UiTranslations = {
     'Nowe komentarze, wyświetlenia i zaproszenia pojawią się tutaj na bieżąco.',
   'notifications.empty.title': 'Wszystko na bieżąco',
   'notifications.open': 'Otwórz',
+  'pricing.limits.advanced': 'Funkcje zaawansowane',
   'profile.bio.empty': 'Prosimy dodać biogram, aby przedstawić się przestrzeni roboczej.',
   'profile.featured.empty': 'Brak nagrań — prosimy uchwycić pierwsze, aby zobaczyć je tutaj.',
   'profile.featured.subtitle': 'Z biblioteki',
@@ -86,8 +115,13 @@ export const ui: UiTranslations = {
   'profile.stat.public': 'Publiczne klipy',
   'profile.stat.recordings': 'Nagrania',
   'profile.stat.views': 'Łączne wyświetlenia',
+  'publicShare.captionsLabel': 'Napisy',
+  'publicShare.cta.body':
+    'Za darmo dla nieograniczonej liczby 5-minutowych klipów w {{appName}}. Karta nie jest wymagana.',
+  'publicShare.cta.button': 'Zacznij nagrywać bezpłatnie',
   'publicShare.cta.title': 'Prosimy nagrać takie klipy w 30 sekund',
   'publicShare.error': 'Ten link udostępniania jest niedostępny.',
+  'publicShare.footer.copy': '© {{year}} {{appName}} . Asynchronicznie, świetliście.',
   'publicShare.joinFree': 'Wypróbuj Glint bezpłatnie',
   'publicShare.loading': 'Ładowanie nagrania…',
   'publicShare.notFound': 'Nie znaleziono nagrania.',
@@ -99,6 +133,8 @@ export const ui: UiTranslations = {
   'record.camBubbleInitial': 'YO',
   'record.eyebrow': 'Studio nagrywania',
   'record.field.titlePlaceholder': 'Demo sprintu: oś czasu komentarzy',
+  'record.field.visibility': 'Widoczność',
+  'record.input.cam': 'Kamera',
   'record.input.camDevice': 'Domyślna kamera systemu',
   'record.input.mic': 'Mikrofon',
   'record.input.micDevice': 'Domyślny mikrofon systemu',
@@ -107,9 +143,11 @@ export const ui: UiTranslations = {
   'record.save.error': 'Nie udało się zapisać nagrania.',
   'record.source.camera': 'Tylko kamera',
   'record.source.cameraBody': 'Wideo z gadającą głową bez ekranu',
+  'record.source.screen': 'Tylko ekran',
   'record.source.screenBody': 'Przechwyć cały ekran',
   'record.source.screenCamera': 'Ekran + kamera',
   'record.source.screenCameraBody': 'Pełny ekran z pływającą bańką kamery',
+  'record.source.window': 'Konkretne okno',
   'record.source.windowBody': 'Prosimy wybrać okno do przechwycenia',
   'record.sources.title': 'Źródło',
   'record.subtitle':
@@ -127,6 +165,7 @@ export const ui: UiTranslations = {
   'recordingDetail.error': 'Nie udało się załadować nagrania.',
   'recordingDetail.loading': 'Ładowanie nagrania…',
   'recordingDetail.noComments': 'Brak komentarzy — prosimy rozpocząć rozmowę poniżej.',
+  'recordingDetail.noDescription': 'Nie podano opisu.',
   'recordingDetail.notFound': 'Nie znaleziono nagrania.',
   'recordingDetail.noVideo': 'Nagranie jest wciąż przesyłane.',
   'recordingDetail.play': 'Odtwórz nagranie',
@@ -150,6 +189,7 @@ export const ui: UiTranslations = {
   'shared.title': 'Klipy przesłane przez zespół',
   'shareLink.copy': 'Kopiuj link',
   'shareLink.expiresAt': 'Wygasa {{date}}',
+  'shareLink.noExpiry': 'Nigdy nie wygasa',
   'shareLink.option.private': 'Prywatne',
   'shareLink.option.public': 'Publiczne',
   'shareLink.passwordOff': 'Bez hasła',
@@ -157,10 +197,12 @@ export const ui: UiTranslations = {
   'team.empty': 'Brak członków — prosimy zaprosić powyżej członków zespołu, aby zacząć.',
   'team.error.load': 'Nie udało się załadować zespołu.',
   'team.eyebrow': 'Członkowie przestrzeni roboczej',
+  'team.invite.error': 'Nie udało się wysłać zaproszenia.',
   'team.invite.placeholder': 'teammate@yourcompany.com',
   'team.invite.success': 'Zaproszenie wysłane do {{email}}.',
   'team.invite.title': 'Zaproś członka zespołu',
   'team.list.count': 'Łącznie: {{count}}',
+  'team.role.admin': 'Administrator',
   'team.stat.pending': 'Oczekujące zaproszenia',
   'team.title': 'Pana/Pani przestrzeń robocza Glint',
 }

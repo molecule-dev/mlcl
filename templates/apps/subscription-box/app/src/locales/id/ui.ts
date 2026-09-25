@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada pertanyaan tentang edisi, pengiriman, atau langganan Anda? Hubungi orang sungguhan di tim kami di hello@crate.example — kami membaca setiap pesan.',
+  'about.contactTitle': 'Bicara dengan kurator',
+  'about.feature1':
+    'Edisi bulanan pilihan yang dikurasi oleh para perajin independen, lengkap dengan kisah di balik setiap item.',
+  'about.feature2':
+    'Kendali penuh atas setiap kotak — sesuaikan isinya, tukar atau kecualikan item, lewati satu bulan, atau ubah jadwal Anda.',
+  'about.feature3':
+    'Pelacakan pengiriman menyeluruh dari penjemputan hingga depan pintu, dengan kemasan bebas plastik dan pembaruan kurir secara langsung.',
+  'about.feature4':
+    'Paket fleksibel dan penagihan transparan — tingkatkan, turunkan, jeda, atau batalkan kapan saja dari dasbor Anda.',
+  'about.intro':
+    '{{app}} adalah layanan kotak langganan terkurasi yang mengirimkan kotak kebahagiaan produksi kecil pilihan ke depan pintu Anda setiap bulan. Setiap edisi dirakit oleh para perajin aktif — seniman independen, koki, dan merek kecil — bukan algoritma.',
+  'about.missionBody':
+    'Kami percaya langganan seharusnya terasa seperti hadiah, bukan jebakan. {{app}} dibangun agar Anda tetap berlangganan karena menyukai apa yang datang — jeda kapan saja, tukar sesuai keinginan, dan batalkan dengan sekali klik. Tidak ada skrip retensi, selamanya.',
+  'about.missionTitle': 'Misi kami',
   'about.pageTitle': 'Tentang {{app}}',
   'appNav.mobileLabel': 'Navigasi utama',
   'appNav.primaryLabel': 'Navigasi utama',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Edit kontak penagihan',
   'billing.contact.eyebrow': 'Kontak penagihan',
   'billing.eyebrow': 'Paket & pembayaran',
+  'billing.loading': 'Memuat penagihan…',
   'billing.payment.body':
     'Pembayaran ditangani oleh Stripe Checkout — nomor kartu lengkap Anda tidak pernah menyentuh server kami. Klik tingkatan mana pun di bawah untuk menambah atau memperbarui kartu Anda.',
   'billing.payment.linked': 'Kartu tersimpan melalui Stripe',
@@ -20,9 +37,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Lanjutkan langganan',
   'billing.plan.eyebrow': 'Paket aktif',
   'billing.plan.next': 'Diperbarui otomatis pada {{date}}.',
+  'billing.plan.status': 'Status: {{status}}',
   'billing.subtitle': 'Kelola tingkatan, metode pembayaran, dan tinjau aktivitas sebelumnya.',
   'billing.tiers.body': 'Pilih tingkatan dan kami akan mengarahkan Anda ke Stripe Checkout.',
   'billing.tiers.choose': 'Pilih',
+  'billing.tiers.empty': 'Belum ada tingkatan yang dikonfigurasi.',
   'billing.tiers.heading': 'Tingkatan yang tersedia',
   'boxDetail.backToBoxes': 'Kembali ke semua edisi',
   'boxDetail.crumb.boxes': 'Edisi',
@@ -35,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Barang pilihan',
   'boxDetail.items.heading': '{{count}} barang pilihan',
   'boxDetail.itemsBadge': '{{count}} barang pilihan per kotak',
+  'boxDetail.loading': 'Memuat edisi…',
   'boxDetail.notFound': 'Edisi tersebut sudah tidak tersedia.',
   'boxDetail.subscribe.success': 'Berlangganan — edisi pertama Anda telah diantrekan.',
   'boxDetail.swapBadge': 'Tukar hingga {{count}} barang per kotak',
@@ -43,14 +63,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Belum ada yang cocok.',
   'boxes.eyebrow': 'Arsip Crate',
   'boxes.heading': 'Jelajahi setiap edisi',
+  'boxes.loadError': 'Kami tidak dapat memuat edisi. Periksa koneksi Anda dan coba lagi.',
   'boxes.loading': 'Memuat edisi…',
+  'boxes.search.label': 'Cari edisi',
   'boxes.search.placeholder': 'Cari edisi…',
   'boxes.subtitle':
     'Setiap tingkatan adalah cerita batch kecil. Tambahkan satu ke antrean Anda atau tukar ke bulan berikutnya.',
+  'boxThemeCard.itemCount': '{{count}} item',
   'boxThemeCard.perMonth': '/ bulan',
+  'boxThemeCard.retailValue': 'Nilai ritel {{value}}',
   'common.goToDashboard': 'Ke Dashboard',
+  'common.retry': 'Coba lagi',
   'customize.eyebrow': 'Jadikan milik Anda',
   'customize.heading': 'Sesuaikan Crate berikutnya Anda',
+  'customize.items.empty': 'Belum ada item yang dikonfigurasi untuk tingkatan ini.',
   'customize.items.exclude': 'Lewati ini',
   'customize.items.eyebrow': 'Personalisasi kotak ini',
   'customize.items.heading': 'Barang di {{box}}',
@@ -59,8 +85,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Tambahkan kembali',
   'customize.items.save': 'Simpan penyesuaian',
   'customize.items.swapsLeft': '{{used}} dari {{max}} pertukaran digunakan',
+  'customize.loading': 'Memuat kustomisasi…',
   'customize.noSub.body':
     'Berlangganan tingkatan terlebih dahulu, lalu kembali untuk menukar barang di kotak Anda.',
+  'customize.noSub.cta': 'Jelajahi edisi',
   'customize.noSub.heading': 'Tidak ada langganan aktif',
   'customize.saved': 'Penyesuaian disimpan.',
   'customize.subtitle':
@@ -74,11 +102,13 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Lacak pengiriman',
   'dashboard.eyebrow': 'Crate Anda',
   'dashboard.greeting': 'Selamat datang kembali, {{name}}.',
+  'dashboard.loadError': 'Kami tidak dapat memuat dasbor Anda. Periksa koneksi Anda dan coba lagi.',
   'dashboard.loading': 'Memuat dasbor…',
   'dashboard.next.eyebrow': 'Edisi berikutnya Anda',
   'dashboard.onboarding.body':
     'Anda belum memiliki langganan aktif. Pilih tingkatan untuk mulai mengirimkan Crate setiap bulan.',
   'dashboard.onboarding.cta': 'Jelajahi semua edisi',
+  'dashboard.onboarding.empty': 'Tidak ada paket yang tersedia saat ini. Periksa lagi nanti.',
   'dashboard.onboarding.heading': 'Pilih edisi pertama Anda',
   'dashboard.renewal.amount': 'Ditagih',
   'dashboard.renewal.cadence': 'Frekuensi',
@@ -86,12 +116,16 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Pembaruan',
   'dashboard.renewal.heading': 'Diperbarui otomatis pada {{date}}',
   'dashboard.renewal.plan': 'Kunci paket',
+  'dashboard.renewal.tbd': 'Penjadwalan pembaruan sebentar lagi',
   'dashboard.renewal.tier': 'Tingkatan',
   'dashboard.stats.days': 'hari',
   'dashboard.stats.daysToNext': 'Dikirim dalam',
   'dashboard.stats.items': 'Barang pilihan',
   'dashboard.stats.shipDate': 'Tanggal pengiriman',
   'dashboard.stats.tbd': 'Akan ditentukan',
+  'dashboard.subtitle.active':
+    'Edisi berikutnya sedang dalam perjalanan. Berikut yang bisa Anda harapkan.',
+  'dashboard.subtitle.idle': 'Pilih tingkatan untuk mulai mengirimkan {{appName}} setiap bulan.',
   'forgotPassword.subtitle':
     'Beri tahu kami email Anda dan kami akan mengirimkan tautan pengaturan ulang.',
   'forgotPassword.success.body':
@@ -99,6 +133,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Periksa kotak masuk Anda.',
   'landing.editions.eyebrow': 'Musim ini',
   'landing.editions.heading': 'Edisi yang disukai kurator kami',
+  'landing.editions.viewAll': 'Jelajahi semua edisi →',
   'landing.footer.contact': 'Bicara dengan kurator',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Mulai kotak Anda →',
@@ -107,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.headline': 'Buka yang tidak terduga, setiap bulan.',
   'landing.hero.previewCaption': 'Intip dasbor anggota — hitung mundur, isi, dan pelacakan.',
   'landing.hero.social.count': 'Disukai oleh {{count}}+ pelanggan',
+  'landing.hero.social.rating': '{{rating}} rating unboxing rata-rata',
+  'landing.hero.subhead':
+    '{{appName}} mengirimkan kotak kebahagiaan produksi kecil pilihan dari perajin independen. Jeda kapan saja. Tukar sesuai keinginan. Simpan yang Anda suka.',
   'landing.nav.start': 'Mulai kotak Anda',
   'landing.tiers.eyebrow': 'Pilih frekuensi Anda',
   'landing.tiers.heading': 'Mulai kecil, tingkatkan kapan saja, batalkan dengan mudah juga.',
@@ -116,6 +154,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Masuk untuk mengintip kotak bulan depan.',
   'login.welcomeBack': 'Selamat datang kembali, kurator.',
   'nextBoxHeroCard.eyebrow': 'CRATE BERIKUTNYA ANDA',
+  'nextBoxHeroCard.itemCount': '{{count}} item di dalamnya',
   'nextBoxHeroCard.itemsLabel': 'Barang pilihan',
   'nextBoxHeroCard.shipsOnLabel': 'Dikirim pada',
   'notFound.body':
@@ -139,8 +178,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Jeda langganan',
   'settings.danger.paused': 'Langganan dijeda.',
   'settings.danger.pausing': 'Menjeda…',
+  'settings.danger.status': 'Status langganan: {{status}}',
   'settings.danger.subtitle':
     'Menjeda menjaga tingkatan dan riwayat Anda tetap utuh. Membatalkan menghentikan pengiriman di masa depan dan menghapus metode pembayaran tersimpan di akhir siklus.',
+  'settings.notifications.saving': '· menyimpan…',
   'settings.notifications.subtitle':
     'Pilih sinyal yang Anda inginkan dari Crate. Default sudah masuk akal.',
   'settings.subtitle': 'Perbarui profil, alamat pengiriman, dan cara Crate menghubungi Anda.',
@@ -156,12 +197,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Belum ada pengiriman aktif',
   'shipments.live.eyebrow': 'Pengiriman aktif',
   'shipments.live.unnamed': 'Kotak berikutnya Anda',
+  'shipments.loadError':
+    'Kami tidak dapat memuat pengiriman Anda. Periksa koneksi Anda dan coba lagi.',
+  'shipments.loading': 'Memuat pengiriman…',
+  'shipments.step.delivered': 'Telah dikirim',
   'shipments.step.deliveredBody': 'Tag #crateunbox untuk membagikan apa yang Anda temukan.',
   'shipments.step.ordered': 'Pesanan dibuat',
   'shipments.step.orderedBody':
     'Langganan Anda mengantrekan edisi ini untuk siklus pengiriman berikutnya.',
+  'shipments.step.packed': 'Dikemas dengan tangan',
   'shipments.step.packedBody':
     'Setiap barang dibungkus dan dimasukkan ke kotak dengan catatan tulisan tangan.',
+  'shipments.step.transit': 'Dalam perjalanan',
   'shipments.step.transitNot': 'Pelacakan akan muncul di sini setelah kotak Anda dalam perjalanan.',
   'shipments.subtitle':
     'Lacak kotak dalam perjalanan menuju Anda, lalu kunjungi kembali setiap edisi yang pernah Anda buka.',

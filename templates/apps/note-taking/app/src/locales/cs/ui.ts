@@ -1,20 +1,40 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte zpětnou vazbu, našli jste chybu nebo chcete navrhnout funkci? Ozvěte se z nastavení účtu — každá zpráva se dostane k opravdovému člověku z týmu.',
+  'about.contactTitle': 'Kontaktujte nás',
+  'about.featureDatabases':
+    'Odlehčené databáze a znovupoužitelné šablony, které promění volné poznámky ve strukturované a opakovatelné postupy.',
+  'about.featureEditor':
+    'Tichý blokový editor — nadpisy, seznamy, kód, upozornění a úkoly — s lomítkovými příkazy, když je chcete, a mimo cestu, když ne.',
+  'about.featureGraph':
+    'Zpětné odkazy a graf znalostí: napište [[ a propojte poznámku a sledujte, jak se vaše myšlenky v čase propojují.',
+  'about.featureNotebooks':
+    'Vnořené sešity a stránky, aby projekty, témata a denní poznámky zůstaly uspořádané přesně tak, jak myslíte.',
+  'about.featureSearch':
+    'Fulltextové hledání do 50 ms ve všech sešitech a štítky, které se sešity spolupracují, místo aby jim konkurovaly.',
+  'about.missionTitle': 'Naše poslání',
   'common.goToDashboard': 'Přejít na Dashboard',
   'forgot.eyebrow': 'Ztratil jsi cestu zpět?',
   'forgot.formSubtitle': 'Sdělte nám e-mailovou adresu, kterou máme v evidenci.',
+  'forgot.formTitle': 'Zapomenuté heslo',
   'forgot.headline': 'Obnovte si heslo.',
   'forgot.subline': 'Zašleme vám jednorázový odkaz do vaší schránky, abyste si mohli vybrat nový.',
+  'forgot.successDetail': 'Poslali jsme vám na e-mail odkaz pro obnovení. Vyprší za 30 minut.',
   'graph.eyebrow': 'Graf',
+  'graph.goToNotes': 'Procházet poznámky →',
+  'graph.loadError': 'Graf se nepodařilo načíst: {{message}}',
   'graph.placeholderBody':
     'Když se poznámky začnou vzájemně propojovat (pomocí syntaxe [[wiki]]), zobrazí se zde interaktivní graf zaměřený na sílu.',
+  'graph.placeholderTitle': 'Graf zpětných odkazů už brzy',
   'graph.subtitle':
     '{{count}} poznámky v tomto pracovním prostoru. Vykreslení grafu zpětných odkazů se zde zobrazí, jakmile se poznámky vzájemně propojí.',
   'graph.title': 'Graf znalostí',
   'home.empty': 'Zatím žádné poznámky – začněte s první.',
   'home.favoritesHeading': 'Připnuté',
   'home.guest': 'přítel',
+  'home.loadError': 'Vaše poznámky se nepodařilo načíst: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Připněte si poznámku v editoru, abyste ji zde uchovali.',
   'home.recentHeading': 'Nedávno aktualizováno',
@@ -22,18 +42,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Zápisník',
   'home.stats.pinned.label': 'Připnuté',
   'home.stats.updatedToday.label': 'Aktualizováno dnes',
+  'home.subtitle': 'Naváže tam, kde jste skončili, nebo začněte novou poznámku.',
   'home.viewAll': 'Zobrazit všechny poznámky',
   'landing.cta.body':
     'Zdarma pro osobní použití. Profesionální pro týmy. Použijte své stávající poznámky nebo začněte znovu – Verso vás potká, ať už máte poznámky kdekoli.',
+  'landing.cta.button': 'Vytvořit můj pracovní prostor',
   'landing.cta.heading': 'Otevřít dnešní stránku.',
   'landing.features.eyebrow': 'Každý primitiv, který váš druhý mozek potřebuje',
+  'landing.features.heading': 'Postaveno pro práci, ne pro meta-práci.',
   'landing.hero.eyebrow': 'Tichý povrch pro psaní',
   'landing.hero.headlineAccent': 'nabýt tvaru.',
   'landing.hero.headlineLeading': 'Kde myšlenky',
   'landing.hero.primaryCta': 'Začněte svou znalostní bázi',
   'landing.hero.secondaryCta': 'Už mám účet',
+  'landing.hero.socialProof': '12 800+ spisovatelů, studentů a doktorandů myslí s {{appName}}',
   'landing.hero.subline':
     'Verso je strukturovaný povrch pro psaní poznámek pro pracovníky s vědomostmi a studenty. Blokový editor, vnořené poznámkové bloky, zpětné odkazy a graf znalostí – to vše za čtenářským zážitkem zaměřeným na typografii.',
+  'landing.preview.notebook': 'Znalosti · Proces psaní',
+  'landing.preview.title': 'O tom, jak nechat průvan dýchat',
   'login.eyebrow': 'Vítejte zpět ve Versu',
   'login.formSubtitle': 'Použijte svůj e-mail nebo jakéhokoli připojeného poskytovatele.',
   'login.headline': 'Pokračujte tam, kde se stránka pozastavila.',
@@ -43,6 +69,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Zavřít navigační menu',
   'mobileNav.openMenu': 'Otevřít navigační menu',
   'noteEditor.backToNotes': 'Zpět k poznámkám',
+  'noteEditor.bodyLabel': 'Tělo poznámky',
   'noteEditor.bodyPlaceholder': 'Začněte psát – poznámka se bude během psaní automaticky ukládat.',
   'noteEditor.confirmTrash': 'Přesunout tuto poznámku do koše?',
   'noteEditor.pinToggle': 'Přepnout oblíbené',
@@ -50,17 +77,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Přesunout do koše',
   'noteEditor.updated': 'Aktualizováno',
   'notes.defaultWorkspaceName': 'Můj zápisník',
+  'notes.empty': 'Zatím tu nejsou žádné poznámky — začněte jednu a zaplňte sešit.',
   'notes.eyebrow': 'Zápisník',
   'notes.filterAll': 'Všechny poznámky',
   'notes.filterPinned': 'Připnuté',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Nový zápisník',
   'notes.newNotebookPrompt': 'Nový název poznámkového bloku',
+  'notes.newNotebookRequired': 'Zadejte název sešitu.',
   'notes.notebooksHeading': 'Notebooky',
   'notes.subtitle':
     'Vyberte si zápisník vlevo a poté stiskněte tlačítko Nová poznámka pro zahájení nového záznamu.',
+  'planUpdated.body': 'Vaše předplatné je nyní aktivní.',
   'planUpdated.confirmation': 'Váš tarif byl aktualizován',
+  'pricing.advancedFeatures': 'Pokročilé funkce',
   'pricing.heading': 'Vyberte si plán psaní poznámek',
+  'reset.changedMind': 'Rozmysleli jste si to?',
   'reset.eyebrow': 'Téměř zpátky',
   'reset.formSubtitle': 'Po uložení budete přihlášeni.',
   'reset.headline': 'Zvolte nové heslo.',
@@ -70,7 +102,9 @@ export const ui: UiTranslations = {
     'Zadejte kód, který jsme vám právě poslali e-mailem, a vyberte si něco nezapomenutelného.',
   'reset.submit': 'Uložit a přihlásit se',
   'reset.tokenHint': 'Vloženo z vaší doručené pošty.',
+  'search.empty': 'Tomuto dotazu zatím neodpovídá žádná poznámka.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Hledat v Refractu',
   'search.loading': 'Hledání…',
   'search.noRecent': 'Zadejte dotaz výše a spusťte vyhledávání ve svých poznámkách.',
   'search.recentLabel': 'Nedávná vyhledávání',
@@ -78,12 +112,19 @@ export const ui: UiTranslations = {
     'Plný text v každém poznámkovém bloku. Zadejte text pro vyhledávání; výsledky se aktualizují při psaní.',
   'search.title': 'Prohledejte druhý mozek.',
   'settings.account.logout': 'Odhlásit se',
+  'settings.account.title': 'Údaje o účtu',
+  'settings.editor.graphHover.body':
+    'Při najetí na [[wikiodkaz]] v editoru zobrazit malou kartu s náhledem.',
+  'settings.editor.graphHover.label': 'Náhled grafu zpětných odkazů při najetí',
   'settings.editor.lineHeight.body':
     'Kolik vzduchu je mezi liniemi těla. 170 % je výchozí rytmus čtení.',
+  'settings.editor.lineHeight.label': 'Výška řádku',
   'settings.editor.serif.body':
     'Pro sloupec pro čtení použijte Georgii. Bezpatkové písmo zůstane v postranním panelu a panelech nástrojů.',
+  'settings.editor.serif.label': 'Text těla se serifovým písmem',
   'settings.editor.title': 'Typografie a povrch pro psaní',
   'settings.eyebrow': 'Nastavení Verso',
+  'settings.passwordModal.current': 'Aktuální heslo',
   'settings.passwordModal.error':
     'Heslo se nepodařilo změnit – zkontrolujte prosím své aktuální heslo.',
   'settings.passwordModal.next': 'Nové heslo',
@@ -93,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Protlačte každý stisk klávesy kanálem reálného času. Pro pomalejší připojení tuto možnost vypněte.',
   'settings.sync.auto.label': 'Synchronizace v reálném čase',
+  'settings.sync.title': 'Jak vaše poznámky cestují',
   'settings.theme.body': 'Světlo udržuje redakční sloupek jasný. Sépie zahřívá stránku večer.',
   'settings.theme.dark': 'Tmavé',
   'settings.theme.light': 'Světlé',
@@ -111,8 +153,12 @@ export const ui: UiTranslations = {
     'Přidejte k názvu poznámky #hashtagy (např. „Seznam ke čtení #knihy“) a zobrazí se zde automaticky.',
   'tags.emptyTitle': 'Zatím žádné štítky',
   'tags.eyebrow': 'Index',
+  'tags.goToNotes': 'Přejít na poznámky →',
+  'tags.loadError': 'Štítky se nepodařilo načíst: {{message}}',
   'tags.subtitle':
     '{{tags}} značky napříč {{notes}} poznámky. Přidejte #hashtagy do názvu poznámky a zobrazí se zde.',
+  'versoAuthShell.sample.body':
+    'Druhé čtení zítra vždy zní lépe než první dnes večer. Hrubou verzi odložte do složky pro hlubokou práci…',
   'versoAuthShell.sample.label': 'Denní poznámka',
   'versoAuthShell.sample.timestamp': 'Dnes · 9:14',
   'versoAuthShell.sample.title': 'O tom, jak nechat průvan dýchat',
@@ -124,8 +170,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Pokračovat v psaní',
   'versoTodayHero.createCta': 'Začněte dnešní poznámku',
   'versoTodayHero.dailyLabel': 'Denní poznámka',
+  'versoTodayHero.emptyHeadline': 'Dnešek je prázdná stránka.',
   'versoTodayHero.emptySubline':
     'Zaznamenejte si myšlenku, poznamenejte si schůzku nebo načrtněte zítřek. Verso udržuje strukturu tichou, takže text zůstává hlasitý.',
+  'versoTodayHero.outlineLabel': 'Dnešní osnova',
   'versoTodayHero.streak': 'Série {{count}} dní',
+  'versoTodayHero.unwritten': 'Zatím žádná slova — otevřete poznámku a začněte.',
   'versoTodayHero.wordCount': '{{count}} slova dnes',
 }

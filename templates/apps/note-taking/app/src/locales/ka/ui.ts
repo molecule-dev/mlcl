@@ -1,20 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ გამოხმაურება, იპოვეთ ხარვეზი ან გსურთ ფუნქციის შემოთავაზება? მოგვწერეთ ანგარიშის პარამეტრებიდან — ყველა შეტყობინება გუნდის რეალურ ადამიანამდე აღწევს.',
+  'about.contactTitle': 'დაგვიკავშირდით',
+  'about.featureDatabases':
+    'მსუბუქი მონაცემთა ბაზები და მრავალჯერადი შაბლონები, რომ უსტრუქტურო ჩანაწერები სტრუქტურირებულ, განმეორებად სამუშაო პროცესებად აქციოთ.',
+  'about.featureEditor':
+    'მშვიდი ბლოკური რედაქტორი — სათაურები, სიები, კოდი, გამოძახილები და შესასრულებლები — slash-ბრძანებებით, როცა გსურთ და თვალიდან მოშორებით, როცა არა.',
+  'about.featureGraph':
+    'უკუბმულები და ცოდნის გრაფი: აკრიფეთ [[ ჩანაწერის დასაკავშირებლად და დააკვირდით, როგორ უკავშირდება თქვენი იდეები დროთა განმავლობაში.',
+  'about.featureNotebooks':
+    'ჩადგმული რვეულები და გვერდები, რომ პროექტები, თემები და ყოველდღიური ჩანაწერები ზუსტად ისე იყოს ორგანიზებული, როგორც ფიქრობთ.',
+  'about.featureSearch':
+    '50ms-ზე ნაკლები სრულტექსტური ძებნა ყველა რვეულში, პლუს ტეგები, რომლებიც რვეულებთან ერწყმიან და არ ებრძვიან.',
+  'about.missionTitle': 'ჩვენი მისია',
   'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'forgot.eyebrow': 'უკან დაბრუნების გზა დაკარგე?',
   'forgot.formSubtitle': 'გვითხარით ფაილში არსებული ელ. ფოსტის მისამართი.',
+  'forgot.formTitle': 'პაროლის აღდგენა',
   'forgot.headline': 'პაროლის აღდგენა.',
   'forgot.subline': 'თქვენს შემოსულებში ერთჯერად ბმულს გამოგიგზავნით, რათა ახლის არჩევა შეძლოთ.',
+  'forgot.successDetail':
+    'გამოგზავნეთ პაროლის აღდგენის ბმული თქვენს ელფოსტაზე. ის 30 წუთში ამოიწურება.',
   'graph.eyebrow': 'გრაფიკი',
+  'graph.goToNotes': 'ჩანაწერების დათვალიერება →',
+  'graph.loadError': 'გრაფის ჩატვირთვა ვერ მოხერხდა: {{message}}',
   'graph.placeholderBody':
     'როდესაც ჩანაწერები ერთმანეთთან დაკავშირებას დაიწყებენ ([[wiki]] სინტაქსით), აქ ინტერაქტიული იძულებით მიმართული გრაფიკი გამოჩნდება.',
+  'graph.placeholderTitle': 'უკუბმულების გრაფი მალე დაემატება',
   'graph.subtitle':
     '{{count}} ჩანაწერები ამ სამუშაო სივრცეში. უკუკავშირის გრაფიკის რენდერინგი აქ გამოჩნდება, როგორც კი ჩანაწერები ერთმანეთთან დაუკავშირდება.',
   'graph.title': 'ცოდნის გრაფიკი',
   'home.empty': 'შენიშვნები ჯერ არ არის — დაიწყეთ თქვენი პირველი.',
   'home.favoritesHeading': 'მიმაგრებულია',
   'home.guest': 'მეგობარი',
+  'home.loadError': 'თქვენი ჩანაწერების ჩატვირთვა ვერ მოხერხდა: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'ჩაამაგრეთ შენიშვნა რედაქტორში, რომ აქ შეინახოთ.',
   'home.recentHeading': 'ცოტა ხნის წინ განახლდა',
@@ -22,18 +43,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'ბლოკნოტი',
   'home.stats.pinned.label': 'მიმაგრებულია',
   'home.stats.updatedToday.label': 'განახლდა დღეს',
+  'home.subtitle': 'განაგრძეთ იქიდან, სადაც შეჩერდით, ან დაიწყეთ ახალი ჩანაწერი.',
   'home.viewAll': 'ყველა ჩანაწერის ნახვა',
   'landing.cta.body':
     'უფასოა პირადი გამოყენებისთვის. პროფესიონალურია გუნდებისთვის. მოიტანეთ თქვენი არსებული ფასდაკლება ან დაიწყეთ თავიდან — Verso შეგხვდებათ სადაც არ უნდა იყოს თქვენი ჩანაწერები.',
+  'landing.cta.button': 'ჩემი სამუშაო სივრცის შექმნა',
   'landing.cta.heading': 'გახსენით დღევანდელი გვერდი.',
   'landing.features.eyebrow': 'ყველა პრიმიტიული, რაც თქვენს მეორე ტვინს სჭირდება',
+  'landing.features.heading': 'შექმნილია სამუშაოსთვის და არა მეტა-ნამუშევრისთვის.',
   'landing.hero.eyebrow': 'მშვიდი საწერი ზედაპირი',
   'landing.hero.headlineAccent': 'ფორმა მიიღოს.',
   'landing.hero.headlineLeading': 'სადაც ფიქრები',
   'landing.hero.primaryCta': 'დაიწყეთ თქვენი ცოდნის ბაზა',
   'landing.hero.secondaryCta': 'მე უკვე მაქვს ანგარიში',
+  'landing.hero.socialProof': '12,800+ მწერალი, სტუდენტი და დოქტორანტი ფიქრობს {{appName}}-ით',
   'landing.hero.subline':
     'Verso არის სტრუქტურირებული ჩანაწერების ზედაპირი ცოდნის მუშაკებისა და სტუდენტებისთვის. ბლოკ-რედაქტირება, ჩადგმული რვეულები, ბექლინკები და ცოდნის გრაფიკი — ყველაფერი ტიპოგრაფიის პირველ რიგში წაკითხვის გამოცდილების მიღმა.',
+  'landing.preview.notebook': 'ცოდნა · წერის პროცესი',
+  'landing.preview.title': 'ნაკადებისთვის სუნთქვის მიცემის შესახებ',
   'login.eyebrow': 'კეთილი იყოს თქვენი დაბრუნება Verso-ში',
   'login.formSubtitle': 'გამოიყენეთ თქვენი ელ. ფოსტა ან ნებისმიერი დაკავშირებული პროვაიდერი.',
   'login.headline': 'გააგრძელეთ გვერდის პაუზის ადგილი.',
@@ -43,6 +70,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'ნავიგაციის მენიუს დახურვა',
   'mobileNav.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'noteEditor.backToNotes': 'ჩანაწერებზე დაბრუნება',
+  'noteEditor.bodyLabel': 'ჩანაწერის ტექსტი',
   'noteEditor.bodyPlaceholder': 'დაიწყეთ წერა — თქვენი ჩანაწერი ავტომატურად ინახება აკრეფისას.',
   'noteEditor.confirmTrash': 'გადავიტანო ეს შენიშვნა წაშლილებში?',
   'noteEditor.pinToggle': 'რჩეულებში გადართვა',
@@ -50,17 +78,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'გადატანა ნაგავში',
   'noteEditor.updated': 'განახლებულია',
   'notes.defaultWorkspaceName': 'ჩემი რვეული',
+  'notes.empty': 'აქ ჯერ ჩანაწერები არ არის — დაიწყეთ ერთი რვეულის შესავსებად.',
   'notes.eyebrow': 'ბლოკნოტი',
   'notes.filterAll': 'ყველა შენიშვნა',
   'notes.filterPinned': 'მიმაგრებულია',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'ახალი რვეული',
   'notes.newNotebookPrompt': 'ახალი ბლოკნოტის სახელი',
+  'notes.newNotebookRequired': 'შეიყვანეთ რვეულის სახელი.',
   'notes.notebooksHeading': 'ბლოკნოტები',
   'notes.subtitle':
     'მარცხნივ აირჩიეთ რვეული, შემდეგ დააჭირეთ ღილაკს „ახალი ჩანაწერი“ ახალი ჩანაწერის დასაწყებად.',
+  'planUpdated.body': 'თქვენი გამოწერა ახლა აქტიურია.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'გაფართოებული ფუნქციები',
   'pricing.heading': 'აირჩიეთ თქვენი ჩანაწერების გეგმა',
+  'reset.changedMind': 'გადაიფიქრეთ?',
   'reset.eyebrow': 'თითქმის ისევ',
   'reset.formSubtitle': 'შენახვის შემდეგ თქვენ შეხვალთ სისტემაში.',
   'reset.headline': 'აირჩიეთ ახალი პაროლი.',
@@ -70,7 +103,9 @@ export const ui: UiTranslations = {
     'შეიყვანეთ კოდი, რომელიც ახლახან გამოგიგზავნეთ ელექტრონული ფოსტით და აირჩიეთ რაიმე დასამახსოვრებელი.',
   'reset.submit': 'შენახვა და შესვლა',
   'reset.tokenHint': 'ჩასმულია თქვენი შემოსულებიდან.',
+  'search.empty': 'ამ მოთხოვნას ჯერ არცერთი ჩანაწერი არ ემთხვევა.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'ძიება რეფრაქცია',
   'search.loading': 'ძიება…',
   'search.noRecent': 'თქვენს ჩანაწერებში ძიების დასაწყებად აკრიფეთ ზემოთ მოთხოვნა.',
   'search.recentLabel': 'ბოლოდროინდელი ძიებები',
@@ -78,12 +113,19 @@ export const ui: UiTranslations = {
     'სრული ტექსტი ყველა რვეულში. აკრიფეთ ძიებისთვის; შედეგები განახლდება აკრეფისას.',
   'search.title': 'მეორე ტვინი მოძებნეთ.',
   'settings.account.logout': 'გასვლა',
+  'settings.account.title': 'ანგარიშის დეტალები',
+  'settings.editor.graphHover.body':
+    'რედაქტორში [[ვიკიბმულზე]] კურსორის მიტანისას აჩვენე პატარა გადახედვის ბარათი.',
+  'settings.editor.graphHover.label': 'უკუბმულების გრაფის გადახედვა კურსორის მიტანისას',
   'settings.editor.lineHeight.body':
     'სხეულის ხაზებს შორის ჰაერის რაოდენობა. 170% არის ნაგულისხმევი კითხვის რიტმი.',
+  'settings.editor.lineHeight.label': 'ხაზის სიმაღლე',
   'settings.editor.serif.body':
     'კითხვის სვეტისთვის გამოიყენეთ Georgia. Sans-serif ინარჩუნებს გვერდითა ზოლსა და ხელსაწყოთა ზოლებში.',
+  'settings.editor.serif.label': 'სერიფული ძირითადი ტექსტი',
   'settings.editor.title': 'ტიპოგრაფია და წერის ზედაპირი',
   'settings.eyebrow': 'Verso · პარამეტრები',
+  'settings.passwordModal.current': 'მიმდინარე პაროლი',
   'settings.passwordModal.error':
     'პაროლის შეცვლა ვერ მოხერხდა — გთხოვთ, შეამოწმოთ თქვენი მიმდინარე პაროლი.',
   'settings.passwordModal.next': 'ახალი პაროლი',
@@ -93,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'კლავიშის ყოველი დაჭერისას რეალურ დროში გადაიტანეთ. ნელი კავშირებისთვის გამორთეთ.',
   'settings.sync.auto.label': 'რეალურ დროში სინქრონიზაცია',
+  'settings.sync.title': 'როგორ მოგზაურობენ თქვენი ჩანაწერები',
   'settings.theme.body':
     'სინათლე რედაქციის სვეტს სიკაშკაშეს უნარჩუნებს. სეფია საღამოობით გვერდს ათბობს.',
   'settings.theme.dark': 'მუქი',
@@ -112,8 +155,12 @@ export const ui: UiTranslations = {
     'დაამატეთ #ჰეშთეგები შენიშვნის სათაურს (მაგ. „საკითხავი სია #წიგნები“) და ისინი აქ ავტომატურად გამოჩნდება.',
   'tags.emptyTitle': 'თეგები ჯერ არ არის',
   'tags.eyebrow': 'ინდექსი',
+  'tags.goToNotes': 'ჩანაწერებზე გადასვლა →',
+  'tags.loadError': 'ტეგების ჩატვირთვა ვერ მოხერხდა: {{message}}',
   'tags.subtitle':
     '{{tags}} ტეგები გასწვრივ {{notes}} შენიშვნები. დაამატეთ #ჰეშთეგები შენიშვნის სათაურს და ისინი აქ გამოჩნდება.',
+  'versoAuthShell.sample.body':
+    'მეორე გადაკითხვა ხვალ ყოველთვის უკეთესად იკითხება, ვიდრე პირველი დღეს საღამოს. მონახაზი ღრმა მუშაობის საქაღალდეში გადადეთ…',
   'versoAuthShell.sample.label': 'ყოველდღიური ჩანაწერი',
   'versoAuthShell.sample.timestamp': 'დღეს · 9:14 სთ',
   'versoAuthShell.sample.title': 'ნაკადებისთვის სუნთქვის მიცემის შესახებ',
@@ -125,8 +172,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'განაგრძეთ წერა',
   'versoTodayHero.createCta': 'დაიწყეთ დღევანდელი ჩანაწერი',
   'versoTodayHero.dailyLabel': 'ყოველდღიური ჩანაწერი',
+  'versoTodayHero.emptyHeadline': 'დღეს ცარიელი გვერდია.',
   'versoTodayHero.emptySubline':
     'დააფიქსირეთ აზრი, ჩაიწერეთ შეხვედრა ან დახატეთ ესკიზი ხვალ. Verso სტრუქტურას ჩუმად ინარჩუნებს, რათა წერა ხმამაღლა დარჩეს.',
+  'versoTodayHero.outlineLabel': 'დღევანდელი მონახაზი',
   'versoTodayHero.streak': '{{count}} -დღიანი სერია',
+  'versoTodayHero.unwritten': 'ჯერ სიტყვები არ არის — გახსენით ჩანაწერი დასაწყებად.',
   'versoTodayHero.wordCount': '{{count}} სიტყვები დღეს',
 }

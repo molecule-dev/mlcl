@@ -99,6 +99,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'మీ ప్లాన్ అప్‌డేట్ చేయబడింది.',
   'planUpdated.returnHome': 'హోమ్‌కు తిరిగి వెళ్ళండి',
   'planUpdated.thankYou': 'ధన్యవాదాలు!',
+  'post.markdown': 'ఈ పోస్ట్ను markdownగా వీక్షించండి',
+  'post.readingTime': '{{minutes}} కనీస పఠనం',
   'post.tags': 'ట్యాగ్‌లు',
   'project.error.nameAndTypeRequired': 'name మరియు projectType అవసరం',
   'project.error.notFound': 'కనుగొనబడలేదు',

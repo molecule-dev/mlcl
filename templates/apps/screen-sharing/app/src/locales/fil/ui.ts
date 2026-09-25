@@ -1,9 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, nakatagpo ka ng bug, o gusto mong i-roll out ang {{appName}} sa buong team mo? Makipag-ugnayan sa amin mula sa settings ng account mo — bawat mensahe ay nakakarating sa isang tunay na tao sa team.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.intro':
+    'Ang {{appName}} ay isang screen recording platform na ginawa para sa mga team na mas gusto pang magpadala ng clip kaysa umupo sa isa na namang meeting. I-capture ang screen mo kasama ang audio, comments, at camera, magbahagi ng link, at panoorin nang eksakto kung paano nakikisalamuha ang mga tao — para ang design reviews, bug reports, at walkthroughs ay mas malayo ang nararating kaysa sa anumang live na tawag.',
+  'about.missionBody':
+    'Ang remote work ay umaasa sa shared context, at karamihan nito ay nawawala sa mga calendar at call notes. Ang {{appName}} ay naroroon para gawing madaling i-capture at madaling balikan ang context na iyon — isang async-first na paraan para ipakita ang trabaho mo, mangalap ng feedback, at panatilihing aligned ang lahat nang hindi sila pinipilit sa parehong time zone.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.pageTitle': 'Tungkol sa {{appName}}',
+  'about.tagline': 'Async na screen recordings para sa mga remote team.',
   'analytics.empty': 'I-record ang iyong unang clip para mapanood ang engagement dito.',
   'analytics.error.load': 'Hindi ma-load ang analytics.',
   'analytics.error.shape': 'Hindi inaasahan ang payload ng analytics.',
@@ -16,6 +24,7 @@ export const ui: UiTranslations = {
   'analytics.kpi.viewsToday': 'Mga panonood ngayon',
   'analytics.loading': 'Nilo-load ang analytics…',
   'analytics.recent.empty': 'Wala pang manonood.',
+  'analytics.recent.title': 'Mga recent viewer',
   'analytics.recent.watching': 'Napanood {{title}} · {{percent}} %',
   'analytics.title': 'Paano naglalakbay ang iyong mga screencast',
   'analytics.top.empty': 'Wala pang mga recording.',
@@ -30,7 +39,10 @@ export const ui: UiTranslations = {
   'billing.priceMissing': 'Hindi na-configure ang stripe priceId para sa panahong ito.',
   'billing.pricing.title': 'Mga magagamit na plano',
   'billing.tier.basic': 'Mga pangunahing tampok',
+  'billing.tier.exports': 'Naka-enable ang exports',
+  'billing.tier.maxRecordings': '{{count}} na recording',
   'billing.tier.noExports': 'Walang pag-export',
+  'billing.tier.retentionDays': '{{days}} araw na retention',
   'billing.tier.unlimitedRecordings': 'Walang limitasyong mga recording',
   'billing.tier.unlimitedRetention': 'Walang limitasyong pagpapanatili',
   'billing.title': 'Ang iyong plano sa Glint',
@@ -41,10 +53,19 @@ export const ui: UiTranslations = {
   'billing.usage.views': 'Mga Pananaw',
   'billing.usage.views.unit': 'mga tanawin',
   'common.goToDashboard': 'Pumunta sa Dashboard',
+  'landing.cta.body':
+    'Libre para sa walang limitasyong 5-minutong clip. Mag-upgrade kapag nahumaling na ang team mo.',
+  'landing.cta.button': 'Simulan ang pag-record nang libre',
   'landing.cta.title': 'Magpadala ng mas mahusay na feedback. Magsimula sa Glint.',
+  'landing.feature.analytics.body':
+    'Tingnan kung sino ang nanood, kung kailan sila tumigil, at kung saan nila muling pinanood.',
+  'landing.feature.analytics.title': 'Pagsusuri ng pakikipag-ugnayan',
   'landing.feature.capture.body':
     'Pagre-record gamit ang browser, desktop, at mobile gamit ang mikropono, cam, at pagguhit.',
   'landing.feature.capture.title': 'Isang tap capture',
+  'landing.feature.comments.body':
+    'Ang mga reviewer ay nag-iiwan ng threaded comments na naka-pin sa eksaktong mga frame.',
+  'landing.feature.comments.title': 'Mga time-coded na comment',
   'landing.footer.copy': '© {{year}} {{appName}} . Async, ginawang maliwanag.',
   'landing.hero.cardCaption':
     'Halimbawang pangkalahatang-ideya ng workspace — subukan ito nang libre.',
@@ -52,9 +73,14 @@ export const ui: UiTranslations = {
   'landing.hero.proof.free': 'Libreng tier na walang hanggan',
   'landing.hero.proof.privacy': 'Handa na ang SOC 2',
   'landing.hero.secondaryCta': 'Manood ng demo noong dekada 60',
+  'landing.hero.subtitle':
+    'Ang {{appName}} ay nag-ca-capture ng async na screencast na may audio, comments, at viewer analytics — para ang design reviews, bug reports, at walkthroughs ay mas malayo ang nararating kaysa sa anumang meeting.',
   'landing.hero.title': 'Mag-record nang isang beses. Ibahagi kahit saan. Panoorin ang epekto.',
   'landing.nav.preview': 'Preview',
   'landing.preview.title': 'Manood ng mga totoong Glint clip na gumagana',
+  'library.empty.body':
+    'I-capture ang una mong walkthrough — magugustuhan ng team mo na walang calendar invite.',
+  'library.empty.cta': 'I-record ang una mong clip',
   'library.empty.filtered': 'Walang recording na tumutugma sa filter na ito',
   'library.empty.title': 'Wala pang mga recording',
   'library.error.load': 'Nabigong i-load ang mga recording.',
@@ -62,6 +88,8 @@ export const ui: UiTranslations = {
   'library.heroStat.avgWatch': 'Karaniwang relo',
   'library.heroStat.recordings': 'Mga Pag-record',
   'library.heroStat.views': 'Kabuuang mga view',
+  'library.heroSubtitle':
+    'I-capture, ibahagi, at sukatin ang async na screencast sa buong team mo.',
   'library.heroTitle': '{{count}} mga recording, handa nang ibahagi',
   'library.search.aria': 'Maghanap ng mga recording',
   'library.searchPlaceholder': 'Maghanap ng mga recording…',
@@ -76,6 +104,7 @@ export const ui: UiTranslations = {
     'Ang mga bagong komento, pananaw, at imbitasyon ay darating dito habang nangyayari ang mga ito.',
   'notifications.empty.title': 'Wala kang napalampas',
   'notifications.open': 'Buksan',
+  'pricing.limits.advanced': 'Mga advanced na feature',
   'profile.bio.empty': 'Magdagdag ng bio para ipakilala ang iyong sarili sa iyong workspace.',
   'profile.featured.empty':
     'Wala pang recording — kunan ang una mong recording na makakakita nito rito.',
@@ -87,8 +116,13 @@ export const ui: UiTranslations = {
   'profile.stat.public': 'Mga pampublikong klip',
   'profile.stat.recordings': 'Mga Pag-record',
   'profile.stat.views': 'Kabuuang mga view',
+  'publicShare.captionsLabel': 'Mga Caption',
+  'publicShare.cta.body':
+    'Libre para sa walang limitasyong 5-minutong clip sa {{appName}}. Walang kailangang card.',
+  'publicShare.cta.button': 'Simulan ang pag-record nang libre',
   'publicShare.cta.title': 'Mag-record ng mga clip na tulad nito sa loob ng 30 segundo',
   'publicShare.error': 'Hindi magagamit ang link ng pagbabahagi na ito.',
+  'publicShare.footer.copy': '© {{year}} {{appName}} . Async, ginawang maliwanag.',
   'publicShare.joinFree': 'Subukan ang Glint nang libre',
   'publicShare.loading': 'Naglo-load ng recording…',
   'publicShare.notFound': 'Hindi natagpuan ang pagre-record.',
@@ -100,6 +134,8 @@ export const ui: UiTranslations = {
   'record.camBubbleInitial': 'YO',
   'record.eyebrow': 'Studio ng pagkuha ng litrato',
   'record.field.titlePlaceholder': 'Demo ng Sprint: timeline ng mga komento',
+  'record.field.visibility': 'Kakayahang Makita',
+  'record.input.cam': 'Kamera',
   'record.input.camDevice': 'Default na kamera ng sistema',
   'record.input.mic': 'Mikropono',
   'record.input.micDevice': 'Mikroponong default ng sistema',
@@ -108,9 +144,11 @@ export const ui: UiTranslations = {
   'record.save.error': 'Nabigong i-save ang recording.',
   'record.source.camera': 'Kamera lamang',
   'record.source.cameraBody': 'Video na nagsasalita nang walang screen',
+  'record.source.screen': 'Screen lang',
   'record.source.screenBody': 'Kunin ang buong display',
   'record.source.screenCamera': 'Screen + kamera',
   'record.source.screenCameraBody': 'Buong screen na may lumulutang na bula ng camera',
+  'record.source.window': 'Partikular na window',
   'record.source.windowBody': 'Pumili ng window na kukunan',
   'record.sources.title': 'Pinagkukunan',
   'record.subtitle':
@@ -128,6 +166,7 @@ export const ui: UiTranslations = {
   'recordingDetail.error': 'Nabigong i-load ang recording.',
   'recordingDetail.loading': 'Naglo-load ng recording…',
   'recordingDetail.noComments': 'Wala pang komento — simulan ang usapan sa ibaba.',
+  'recordingDetail.noDescription': 'Walang ibinigay na paglalarawan.',
   'recordingDetail.notFound': 'Hindi natagpuan ang pagre-record.',
   'recordingDetail.noVideo': 'Ina-upload pa rin ang recording.',
   'recordingDetail.play': 'I-play ang recording',
@@ -151,6 +190,7 @@ export const ui: UiTranslations = {
   'shared.title': 'Mga clip na ipinadala sa iyo ng iyong koponan',
   'shareLink.copy': 'Kopyahin ang link',
   'shareLink.expiresAt': 'Magtatapos {{date}}',
+  'shareLink.noExpiry': 'Hindi kailanman nag-e-expire',
   'shareLink.option.private': 'Pribado',
   'shareLink.option.public': 'Pampubliko',
   'shareLink.passwordOff': 'Walang password',
@@ -159,10 +199,12 @@ export const ui: UiTranslations = {
     'Wala pang miyembro — imbitahan ang mga kasamahan sa koponan sa itaas para magsimula.',
   'team.error.load': 'Nabigo ang pag-load ng koponan.',
   'team.eyebrow': 'Mga miyembro ng workspace',
+  'team.invite.error': 'Nabigong ipadala ang imbitasyon.',
   'team.invite.placeholder': 'teammate@yourcompany.com',
   'team.invite.success': 'Ipinadala ang imbitasyon kay {{email}} .',
   'team.invite.title': 'Mag-imbita ng miyembro ng koponan',
   'team.list.count': '{{count}} kabuuan',
+  'team.role.admin': 'Admin',
   'team.stat.pending': 'Mga nakabinbing imbitasyon',
   'team.title': 'Ang iyong Glint workspace',
 }

@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пікіріңіз бар ма, қате таптыңыз ба, әлде {{app}}-ді мектебіңізге немесе командаңызға әкелгіңіз келе ме? Біз әрбір хабарламаны оқимыз — тіркелгі параметрлеріңізден хабарласыңыз, нақты адам жауап береді.',
   'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
+  'about.intro':
+    '{{app}} — сыныптар, ойын кештері және командалық іс-шараларға арналған тікелей викторина платформасы. Ойын-сауық сұрақтар жинағын жасаңыз, қосылу кодымен нақты уақыттағы ойындар өткізіңіз және уақытқа байланысты сұрақтар, ұпай санау және көшбасшылар тақтасымен залдың жанданатынын көріңіз.',
+  'about.missionBody':
+    'Ойын арқылы білім берік қалады. Біз кез келген адамға тақырыпты жылдам, бәсекеге қабілетті ойынға айналдыруды жеңілдетеміз — осылайша жүргізушілер іс жүзінде үйрете алады, ал ойыншылар серпінін сақтайды.',
+  'about.missionTitle': 'Біздің миссиямыз',
   'about.title': '{{app}} туралы',
   'auth.login.noAccount': 'Sparq-қа жаңадан келдіңіз бе?',
   'auth.login.or': 'немесе жалғастырыңыз',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Әзірге викториналар сәйкес келмейді.',
   'discover.headline': 'Келесі сүйікті викторинаңызды табыңыз.',
   'discover.loading': 'Жүктелуде…',
+  'discover.searchPlaceholder': 'Викториналарды атауы бойынша іздеу…',
   'discover.subhead':
     'Толық кітапхананы шолыңыз, санат бойынша сүзгіден өткізіңіз немесе тақырыбы бойынша іздеңіз. Жеке ойнау немесе тікелей эфирде жүргізу үшін картаны басыңыз.',
   'forgotPassword.subhead':
     'Электрондық поштаңызды енгізіңіз, біз сізге қалпына келтіру сілтемесін жібереміз.',
   'forgotPassword.success.body':
     'Егер тіркелгі бар болса {{email}} , сіз бірнеше минуттан кейін қалпына келтіру сілтемесін аласыз.',
+  'forgotPassword.success.title': 'Кіріс жәшігіңізді тексеріңіз.',
   'hostLobby.back': 'Викторинаға оралу',
   'hostLobby.copied': 'Қосылу коды буферге көшірілді.',
   'hostLobby.creating': 'Вестибюльді безендіру…',
@@ -30,19 +39,25 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Лоббиден бас тарту',
   'hostLobby.players.count': '{{count}} тірі',
   'hostLobby.players.title': 'Фойедегі ойыншылар',
+  'hostLobby.players.waiting': 'Ойыншылар күтілуде. Қосылу үшін {{code}} кодын бөлісіңіз.',
   'hostLobby.rules.title': 'Үй ережелері',
   'hostLobby.startError': 'Ойынды бастау мүмкін болмады.',
   'hostLobby.starting': 'От шашуды бастау...',
   'joinCodeHero.headline': 'Ойыншыларыңызға секіруді айтыңыз.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Немесе барыңыз',
   'joinCodeHero.liveLabel': 'Лоббиде тікелей эфир',
+  'joinCodeHero.playerJoined': '{{name}} қосылды',
   'joinCodeHero.playersLabel': 'Ойыншылар',
   'joinCodeHero.qrLabel': 'Қосылу үшін сканерлеңіз',
   'joinCodeHero.startGame': 'Ұшқынды бастаңыз',
   'joinCodeHero.subhead':
     'Қосылу кодын бөлісіңіз немесе QR кодын сканерлеңіз. Ойын сіз ұшқын атқан сәттен басталады.',
+  'landing.cta.button': 'Алғашқы викторинаңызды жасаңыз',
   'landing.cta.eyebrow': 'Тәрбиешілер үшін тегін',
   'landing.cta.heading': 'Әр сабаққа шабыт әкеліңіз.',
+  'landing.cta.subhead':
+    '30 секундта тіркеліңіз. Шексіз тікелей ойындар өткізіңіз, AI көмегімен викториналар жасаңыз және әр ойыншының серпінін сақтаңыз.',
   'landing.eyebrow': 'Әрбір жауапты оятыңыз',
   'landing.features.heading':
     'Сіздің оқыту және ойнау тәсіліңізге сәйкес келетін викторина студиясы.',
@@ -58,6 +73,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Танымал викториналар',
   'landing.popular.eyebrow': 'Осы аптада танымал',
   'landing.popular.heading': 'Викторинаға қатысыңыз, жүргізушілер бүгін жұмыс істеп жатыр.',
+  'landing.popular.viewAll': 'Барлық санаттарды шолу →',
+  'leaderboard.empty.body': 'Ғаламдық көшбасшылар тақтасына ұпайыңызды қою үшін викторина ойнаңыз.',
   'leaderboard.empty.title': 'Тақтада әлі ойын жоқ — бірінші болыңыз.',
   'leaderboard.eyebrow': 'Лидерлер тақтасы',
   'leaderboard.fullRanking': 'Толық рейтинг',
@@ -65,6 +82,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Ойнаған әрбір викторина сессиясы бойынша жалпы ұпай жинаңыз. Көбірек ойнау арқылы жоғарылаңыз.',
   'leaderboard.title': 'Ең үздік викторина шеберлері',
+  'leaderboard.totalPlayers': '{{count}} дәрежелі ойыншылар',
   'leaderboardRow.points': 'ұпай',
   'leaderboardRow.streak': '{{days}} d',
   'login.headline': 'Қош келдіңіз, викторина жүргізушісі.',
@@ -76,9 +94,11 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Алғашқы викторинаңызды құрастырыңыз →',
   'myQuizzes.empty.created': 'Сіз әлі викторина құрастырған жоқсыз.',
   'myQuizzes.empty.played': 'Әлі жарияланған викториналар жоқ.',
+  'myQuizzes.loading': 'Жүктелуде…',
   'myQuizzes.subhead': 'Сіз жасаған жобалар, сондай-ақ ойнай алатын жарияланған викториналар.',
   'myQuizzes.title': 'Менің викториналарым',
   'nav.legal': 'Заңды',
+  'nav.primaryNavLabel': 'Негізгі навигация',
   'notFound.backHome': 'Үйге оралу',
   'notFound.backToDiscover': 'Викториналарды шолу',
   'notFound.body': 'Басқа кодты қолданып көріңіз немесе вестибюльге қайта барыңыз.',
@@ -87,17 +107,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Жүктелуде…',
   'notifications.subhead':
     '{{count}} оқылмаған ұшқындар. Шақырулар, көшбасшылар тақтасындағы қозғалыстар және жетістіктердің барлығы бір ағында.',
+  'planUpdated.retry': 'Қайталап көріңіз',
+  'planUpdated.verifyFailed': 'Төлеміңізді әзірге растай алмадық.',
+  'planUpdated.verifyFailedBody':
+    'Төлеміңіз әлі өңделуде болуы мүмкін. Біраздан кейін қайталап көріңіз.',
   'planUpdated.verifying': 'Төлеміңіз расталуда…',
+  'pricing.advancedFeatures': 'Кеңейтілген мүмкіндіктер: {{yes}}',
+  'pricing.canExport': 'Деректерді экспорттау: {{yes}}',
   'pricing.checkoutError': 'Төлемді бастау мүмкін болмады. Қайталап көріңіз.',
   'pricing.heading': '{{app}} жоспарын таңдаңыз',
   'pricing.included': 'Қосылған',
   'pricing.loadError': 'Жоспарлар жүктелмеді.',
+  'pricing.maxQuestions': '{{count}} сұрақтар',
   'pricing.maxQuizzes': '{{count}} викториналар',
+  'pricing.maxSessions': '{{count}} сессия',
   'pricing.subhead':
     'Хосттар мен ойыншылар үшін тегін. Жоғары лимиттер мен кеңейтілген мүмкіндіктер үшін жаңартыңыз.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Тіркелгі: электрондық пошта, хэштелген құпия сөз, көрсетілетін аты, соңғы кіру.',
+  'privacy.intro':
+    '{{app}} құпиялылығыңызды құрметтейді. Бұл бетте біз сақтайтын деректер, оларды не үшін сақтайтынымыз және оларды қалай жою керектігі қорытындыланған.',
   'privacy.rights.body':
     'Барлық деректеріңізді 30 күн ішінде біржола жою үшін тіркелгіңізді Параметрлерден жойыңыз.',
   'privacy.share.body':
@@ -121,6 +151,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Викторина идентификаторы: {{id}}',
   'quizBuilder.loadError': 'Викторина жүктелмеді.',
   'quizBuilder.loading': 'Редактор жүктелуде…',
+  'quizBuilder.markCorrect': '{{letter}} дұрыс деп белгілеу',
   'quizBuilder.noQuestions': 'Әзірге сұрақтар жоқ — бастау үшін біреуін қосыңыз.',
   'quizBuilder.notFound': 'Викторина табылмады.',
   'quizBuilder.preview': 'Көру',
@@ -137,7 +168,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} таймер',
   'quizBuilder.title': 'Викторина құрастырыңыз',
   'quizBuilder.titleLabel': 'Викторина тақырыбы',
+  'quizBuilder.untitled': 'Атауы жоқ сұрақ',
   'quizCard.plays': '{{count}} пьесалар',
+  'quizCard.questionCount': '{{count}} сұрақ',
   'quizDetail.duration': '~ {{minutes}} мин',
   'quizDetail.hostMultiplayer': 'Көп ойыншылы хостинг ойыншысы',
   'quizDetail.leaderboardEmpty': 'Әлі ойын жоқ — бірінші болып есеп ашыңыз.',
@@ -152,26 +185,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Викторинаға оралу',
   'quizPlay.empty': 'Бұл викторинада әлі сұрақтар жоқ.',
   'quizPlay.error': 'Бұл викторина жүктелмеді. Қайталап көріңіз.',
+  'quizPlay.exit': 'Шығу',
   'quizPlay.feedback.correct': '🔥 Spark келесі кезеңге өтті!',
+  'quizPlay.feedback.incorrect': 'Жауап {{correct}} болды. Жалғастырыңыз.',
   'quizPlay.loading': 'Викторина жүктелуде…',
   'quizPlay.next': 'Келесі сұрақ',
   'quizPlay.questionCounter': 'Сұрақ {{current}} -ның {{total}}',
   'quizPlay.score': '{{score}} ұпай',
+  'quizPlay.seeResults': 'Нәтижелерді көру',
   'quizPlay.sessionFailed': 'Сеансты бастау мүмкін болмады.',
   'quizPlay.streak': '{{count}} серия',
+  'resetPassword.subhead': 'Серияңызға оралу үшін жаңа құпиясөз таңдаңыз.',
   'results.backToDiscover': 'Discover-ге оралу',
   'results.error': 'Нәтижелер жүктелмеді.',
   'results.exit': 'Discover-ге оралу',
   'results.loading': 'Ұпайыңызды есептеу…',
   'results.missingSession': 'Қорытындылайтын сессия жоқ.',
+  'results.recap.correctAnswer': 'Дұрыс: {{answer}}',
   'results.recap.questionLabel': 'Сұрақ {{number}}',
   'results.recap.title': 'Сұрақтарды қайталау',
+  'results.recap.yourAnswer': 'Сіз: {{answer}}',
   'results.unknownQuiz': 'Викторина',
   'scoreBreakdownCard.accuracyLabel': 'Дәлдік',
+  'scoreBreakdownCard.correctLabel': 'Дұрыс',
   'scoreBreakdownCard.eyebrow': 'Викторина аяқталды',
   'scoreBreakdownCard.headline': 'Жақсы жұмыс " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Ұпайлар',
   'scoreBreakdownCard.rankLabel': 'Дәреже',
+  'scoreBreakdownCard.streakBonus': 'Серпін бонусы +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Қызығуыңыз байқалуда. Көшбасшылар тақтасында жоғары көтерілу үшін төмендегі талдауды қарап шығыңыз.',
   'settings.danger.body':
     'Sparq тіркелгіңізді және барлық жасалған викториналарды біржола жойыңыз.',
   'settings.danger.confirm': 'Иә, мәңгілікке жою',
@@ -190,5 +233,7 @@ export const ui: UiTranslations = {
     'Сіз жариялаған мазмұнға, авторлық сұрақтарға және өткізетін кез келген ойындарға жауаптысыз. Басқа адамдардың атын жамылмаңыз.',
   'terms.billing.body':
     'Ақылы жоспарлар Параметрлерден бас тартылғанға дейін автоматты түрде жаңартылады. Сіз кез келген уақытта бас тарта аласыз; кіру мүмкіндігі ағымдағы төлем кезеңінің соңына дейін жалғасады.',
+  'terms.intro':
+    '{{app}} пайдалану арқылы сіз төмендегі ережелермен келісесіз. Егер оларды қабылдай алмасаңыз, қызметті пайдаланбаңыз.',
   'terms.title': 'Қызмет көрсету шарттары',
 }

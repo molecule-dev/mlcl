@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Keni komente, keni hasur në një gabim ose dëshironi një veçori? Ne lexojmë çdo mesazh — kontaktoni ekipin e {{appName}} nga cilësimet e llogarisë tuaj dhe një person i vërtetë do t'ju përgjigjet.",
   'about.contactTitle': 'Kontaktoni me ne',
+  'about.intro':
+    '{{appName}} është një kanavacë e pafundme bashkëpunuese për ekipe dizajni, drejtues punëtorish dhe edukatorë. Vendosni shënime ngjitëse, skiconi forma, vizatoni me dorë të lirë dhe shikoni shokët e ekipit duke menduar bashkë me ju në kohë reale — të gjitha në një vend ku idetë kaotike e gjeneruese më në fund mund të konvergojnë.',
+  'about.missionBody':
+    "Mendimi i mirë rrallë është i rregullt. {{appName}} ekziston për t'u dhënë ekipeve një sipërfaqe të shpejtë e pa pengesa, ku idetë kapen në momentin që lindin dhe formësohen së bashku derisa të kenë kuptim — pa vonesa, pa punë të humbur dhe pa mjetet e ngurta që vrasin vrullin.",
+  'about.missionTitle': 'Misioni ynë',
+  'authShell.brandFooter':
+    '“Zëvendësuam katër mjete me {{appName}} javën që lançuam ribrandimin tonë. Retrospektiva u ruajt vetë.” — Atlas Studio',
+  'authShell.brandFooterMeta': 'Të besuar nga mbi 12,400 ekipe dizajni',
   'authShell.brandHeading':
     'Kanavacë shumëlojtarësh për ekipet e dizajnit që mendojnë me zë të lartë.',
   'billing.canceled': 'Abonimi u anulua.',
@@ -11,6 +21,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': 'Nivel fillestar pa përjetë.',
   'billing.freePlanName': 'Falas',
   'billing.paidPlanBody': 'Abonim aktiv.',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'Plani dhe faturat',
   'billing.updated': 'Plani u përditësua.',
   'billing.upgradeTitle': 'Planet e disponueshme',
@@ -19,8 +30,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': 'e {{max}} përfshirë',
   'boardCanvas.backToBoards': 'Të gjitha bordet',
   'boardCanvas.changeColor': 'Ndrysho ngjyrën {{color}}',
+  'boardCanvas.collaboratorsTitle': 'Bashkëpunëtorët',
   'boardCanvas.deleteElement': 'Fshij elementin',
   'boardCanvas.deselect': 'Çzgjidh',
+  'boardCanvas.elementLabel': 'Elementi {{type}}',
   'boardCanvas.elementsCount': '{{count}} elementë',
   'boardCanvas.elementText': 'Tekst',
   'boardCanvas.empty.body':
@@ -30,10 +43,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': 'Mbush',
   'boardCanvas.invited': 'I ftuar {{email}}',
   'boardCanvas.metaTitle': 'Pozicioni',
+  'boardCanvas.metaWH': 'G: {{w}}  L: {{h}}',
   'boardCanvas.metaXY': 'X: {{x}} Y: {{y}}',
   'boardCanvas.noCollaborators':
     'Nuk ka ende bashkëpunëtorë. Përdorni "Ndaj" për të ftuar shokët e ekipit.',
   'boardCanvas.present': 'Prezanto',
+  'boardCanvas.private': 'Privat — vetëm me ftesë',
   'boardCanvas.properties': 'Prona',
   'boardCanvas.public': 'Publik — kushdo që ka lidhjen mund ta shikojë',
   'boardCanvas.roleCommenter': 'Mund të komentojë',
@@ -49,6 +64,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'Zgjidhni ngjyrën ngjitëse',
   'boardCanvas.summaryCount': '{{count}} elementë në kanavacë',
   'boardCanvas.summaryTitle': 'Bordi',
+  'boardCanvas.surface.clear': 'Kanavaca e tabelës — pastro përzgjedhjen',
+  'boardCanvas.surface.draw': 'Kanavaca e tabelës — tërhiq për të vizatuar',
+  'boardCanvas.surface.place': 'Kanavaca e tabelës — vendos elementin',
   'boardCanvas.untitled': 'Tabela pa titull',
   'boardCanvas.visibilityTitle': 'Dukshmëria',
   'boardCanvas.zoomIn': 'Zmadho',
@@ -71,6 +89,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'Bordet e kërkimit',
   'boards.searchPlaceholder': 'Bordet e kërkimit',
   'boards.sharedTitle': 'Ndarë me mua',
+  'boards.sortedBy': 'Të renditura sipas përditësimit të fundit',
   'boards.startFromTemplate': 'Filloni nga shablloni',
   'boards.title': 'Bordet tuaja',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -84,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.cta.signupButton': 'Krijo tabelën tënde falas',
   'landing.cta.title': 'I ndërtuar për të menduarit e çrregullt, gjenerues dhe ballë për ballë.',
   'landing.demoBoard.title': 'Punëtoria e Q1 · Zëri i Markës',
+  'landing.demoBoard.updated': 'Përditësuar 12 min më parë',
   'landing.featuresEyebrow': 'Çfarë e bën Slate-n mozaik?',
   'landing.featuresTitle': 'Reagime të shpejta. Kanavaca të bukura. Zero fërkime.',
   'landing.hero.body':
@@ -96,18 +116,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '•••••••••••••',
   'login.signIn': 'Hyr në Slate',
   'login.signupCta': 'Krijoni një hapësirë pune të lirë',
+  'login.signupPrompt': 'I ri në Tessera?',
   'login.subheading':
     'Vazhdoni nga vendi ku e la seminari — tabelat, shënimet ngjitëse dhe kursorët sinkronizohen të gjitha në kohë reale.',
   'mobileNav.closeMenu': 'Mbyll menynë e navigimit',
   'mobileNav.new': 'E re',
   'mobileNav.openMenu': 'Hap menynë e navigimit',
+  'notifications.editBody': 'Përmbajtja e tabelës u përditësua.',
   'notifications.editTitle': 'Ndryshime në " {{board}} "',
   'notifications.empty.body':
     'Ftesat, ruajtja e pamjeve të çastit dhe ndryshimet e fundit në tabelë do të shfaqen këtu ndërsa ndodhin.',
   'notifications.empty.title': 'Asgjë e re në kutinë tuaj postare',
   'notifications.eyebrow': '{{name}} · kutia postare',
+  'notifications.inviteBody': 'si {{role}} në "{{board}}"',
   'notifications.inviteTitle': 'I ftuar {{email}}',
   'notifications.snapshotTitle': 'Pamje e re në " {{board}} "',
+  'present.addFirst': 'Shto kornizën e parë',
   'present.addFrame': '+ Shto kornizë',
   'present.boardEyebrow': '{{title}} · prezantim',
   'present.empty.body':
@@ -115,6 +139,7 @@ export const ui: UiTranslations = {
   'present.empty.title': 'Ende nuk ka korniza',
   'present.exit': 'Dil nga prezantimi',
   'present.exitToBoard': 'Kthehu te kanavaca',
+  'present.eyebrow': 'Modaliteti i prezantimit',
   'present.frameBody': 'Pikat e diskutimit',
   'present.frameName': 'Emri i kornizës',
   'present.frameOf': 'Kornizë {{current}} e {{total}}',
@@ -124,20 +149,30 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'Prezantim i drejtpërdrejtë',
   'present.save': 'Ruaj kornizën',
   'present.title': 'Trego historinë tënde',
+  'present.unnamed': 'Kornizë pa titull',
+  'pricing.limits.advanced': 'Karakteristika të përparuara',
   'profile.cursorBody':
     'Ruajtur në këtë pajisje — shokët e ekipit e shohin këtë ngjyrë pranë kursorit tuaj të drejtpërdrejtë.',
   'profile.cursorEyebrow': 'Ngjyra e kursorit tuaj',
   'profile.eyebrow': 'Kartë bashkëpunëtori publik',
+  'profile.noBoards': 'Nuk ka tabela ende — krijo një për të filluar.',
+  'profile.recentBoards': 'Tabelat e prekura së fundmi {{name}}',
   'profile.stat.${s.label}': 'Bordet {{emri}} prekur së fundmi',
+  'profile.statsEyebrow': 'Aktiviteti juaj',
   'profile.title': 'Profili juaj',
+  'reset.backPrompt': 'Ke nevojë për një email tjetër?',
   'reset.cta': 'Rivendos fjalëkalimin dhe identifikohu',
+  'reset.password': 'Fjalëkalim i ri',
   'reset.subheading': 'Zgjidhni një fjalëkalim të fortë — të paktën 8 karaktere me një numër.',
   'settings.appearance.title': 'Temë dhe kanavacë',
   'settings.eyebrow': 'Preferencat e llogarisë',
   'settings.notifications.title': 'Preferencat e njoftimeve',
   'settings.profile.title': 'Kartë bashkëpunëtori publik',
+  'settings.security.body':
+    'Menaxho vërtetimin me dy faktorë, sesionet aktive dhe fjalëkalimin nga paneli i llogarisë tënde.',
   'settings.security.title': 'Siguria',
   'shared.collaboratorCount': '{{count}} bashkëpunëtor(ë)',
+  'shared.count': '{{count}} tabelë(a)',
   'shared.empty.body':
     'Kur një shok skuadre të fton në një tabelë, ajo do të shfaqet automatikisht këtu.',
   'shared.empty.title': 'Asgjë nuk është ndarë ende me ty. Nuk është ndarë asgjë me ty.',
@@ -153,6 +188,9 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Falas për deri në 3 bashkëpunëtorë. Nuk nevojitet kartë krediti për 14 ditët e para.',
   'templateCard.usageCount': '{{count}} përdor',
+  'templateDetail.allTemplates': 'Të gjitha shabllonet',
+  'templateDetail.body':
+    'Kliko "Përdor shabllonin" për të kopjuar {{count}} elemente fillestare në një tabelë krejt të re me titull "{{name}}". Redakto, shpërndaj dhe drejto punëtorinë tënde prej andej.',
   'templateDetail.delete': 'Fshi shabllonin',
   'templateDetail.elementsCount': '{{count}} elementët fillestarë',
   'templateDetail.eyebrow': '{{kind}} shabllon',
@@ -165,16 +203,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'Ruaj një shabllon të personalizuar',
   'templates.empty.body':
     'Krijo një shabllon të personalizuar nga çdo tabelë që zotëron — hap tabelën, ruaj një pamje të çastit dhe pastaj ruaje këtu si një shabllon të ripërdorshëm.',
+  'templates.empty.title': 'Nuk ka ende shabllone',
   'templates.eyebrow': 'Komplete seminari dhe shabllone të ruajtura',
   'templates.filter.${c}': 'Nuk ka ende shabllone',
   'templates.nameLabel': 'Emri i shabllonit',
   'templates.systemBadge': 'I integruar',
   'templates.userBadge': 'I juaji',
   'versionHistory.backToBoard': 'Kthehu te kanavaca',
+  'versionHistory.elementsTotal': '{{count}} elemente të kapur',
   'versionHistory.empty.body':
     'Pamjet e çastit krijohen nga kanavaca e tabelës me "Ruaj pamjen e çastit" — ato shfaqen këtu në mënyrë që të mund të rivendosni çdo gjendje të kaluar.',
+  'versionHistory.empty.cta': 'Hap kanavacën për të marrë një',
   'versionHistory.empty.title': 'Nuk ka ende pamje të çastit',
   'versionHistory.eyebrow': '{{title}} · histori',
+  'versionHistory.eyebrowFallback': 'Historiku i tabelës',
   'versionHistory.latest': 'Më të fundit',
   'versionHistory.restore': 'Rivendos këtë version',
   'versionHistory.restored': 'Pamja e çastit u restaurua.',
@@ -185,6 +227,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'Bord i ri',
   'whiteboardLayout.primaryNav': 'Navigimi kryesor',
   'workspace.boardLabel': 'Bordi',
+  'workspace.empty': 'Nuk ka bashkëpunëtorë ende — fto dikë në tabelat e tua.',
   'workspace.eyebrow': '{{name}} · hapësirë pune',
   'workspace.invite': 'Fto bashkëpunëtorë',
   'workspace.inviteSent': 'Ftesa u dërgua.',
@@ -193,4 +236,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'Komentues',
   'workspace.role.editor': 'Redaktor',
   'workspace.role.viewer': 'Shikues',
+  'workspace.title': 'Anëtarët dhe rolet',
 }

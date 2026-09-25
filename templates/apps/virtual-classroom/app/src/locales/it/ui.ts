@@ -1,10 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'about.eyebrow': 'Chi siamo',
+  'about.featureAssignments':
+    'Compiti, consegne di file, rubriche, feedback in linea e un registro tranquillo che tiene informati studenti e genitori.',
+  'about.featureBreakouts':
+    'Stanze di gruppo con un tocco — mescola automaticamente gli studenti, invia annunci e riunisci tutti quando il tempo è scaduto.',
+  'about.featureChat':
+    'Chat di classe a thread con riepiloghi fissati e canali laterali solo per il docente per un coaching discreto durante una sessione.',
+  'about.featureVideo':
+    "Video live cinematografico con focus sull'oratore attivo, layout a galleria e spotlight, e picture-in-picture trascinabile per i docenti.",
+  'about.featureWhiteboard':
+    'Una lavagna infinita con puntatore laser e una palette completa di colori, con ogni sessione salvata per corso così il lavoro prosegue tra le lezioni.',
+  'about.missionBody':
+    "Crediamo che l'apprendimento a distanza e ibrido debba essere presente e umano come un tavolo di seminario. Perciò mettiamo al primo posto la presenza dal vivo — volti reali, una tela condivisa e stanze di gruppo — e teniamo la valutazione e la logistica discretamente fuori dai piedi finché non ti servono.",
+  'about.missionTitle': 'La nostra missione',
   'assignmentDetail.attachmentsTitle': 'Allegati',
   'assignmentDetail.back': 'Tutti i compiti',
   'assignmentDetail.code': 'BIO 211',
+  'assignmentDetail.context':
+    'Biologia cellulare I · Pubblicato da {{instructor}} · Scadenza {{due}}',
   'assignmentDetail.continueDraft': 'Continua la bozza',
   'assignmentDetail.draftBody':
     'Ultima modifica 14 minuti fa · salvataggio automatico a ogni modifica.',
@@ -23,6 +39,7 @@ export const ui: UiTranslations = {
   'assignmentRow.statusInProgress': 'Redazione',
   'assignmentRow.statusSubmitted': 'Inviato',
   'assignmentRow.title': 'Referto di laboratorio - DNA mitocondriale',
+  'assignmentRow.weight': 'Vale {{percent}}% del voto',
   'assignments.body':
     'Tieni traccia di ogni elaborato, esercizio e progetto relativo ai tuoi corsi.',
   'assignments.empty': "Al momento non c'è niente in questa corsia: godetevi la tranquillità.",
@@ -33,6 +50,8 @@ export const ui: UiTranslations = {
   'assignments.statTotal': 'Incarichi attivi',
   'assignments.title': 'Compiti',
   'aulaAuthShell.backHome': '← Torna alla home',
+  'aulaAuthShell.brandBody':
+    "{{appName}} riunisce video, lavagna, stanze di gruppo, chat e valutazione in un'unica scheda concentrata — pensata per i docenti che vogliono insegnare, non gestire schede.",
   'aulaAuthShell.brandEyebrow': "Dove l'apprendimento prende vita",
   'aulaAuthShell.brandTitle':
     'Lezioni virtuali interattive con il calore di essere presenti in aula.',
@@ -43,6 +62,9 @@ export const ui: UiTranslations = {
   'aulaSideNav.closeMenu': 'Chiudi il menu di navigazione',
   'aulaSideNav.label': 'Navigazione principale',
   'aulaSideNav.weeklyClasses': 'Questa settimana',
+  'aulaSideNav.weeklyClassesCount': '{{done}} / {{total}}',
+  'aulaSideNav.weeklyHelp':
+    'Sei sulla buona strada per completare le lezioni di questa settimana. Continua così!',
   'aulaTopBar.openMenu': 'Apri il menu di navigazione',
   'aulaTopBar.searchPlaceholder': 'Cerca corsi, lezioni, compiti…',
   'aulaTopBar.title': 'Aula',
@@ -55,6 +77,8 @@ export const ui: UiTranslations = {
   'calendar.statTotal': 'Totale degli eventi in programma',
   'classroom.chatCount': '{{count}} messaggi',
   'classroom.chatEmpty': 'Ancora nessun messaggio: saluta per rompere il silenzio.',
+  'classroom.chatInputLabel': 'Messaggio della chat di classe',
+  'classroom.chatLoading': 'Caricamento conversazione…',
   'classroom.chatPlaceholder': 'Invia alla classe…',
   'classroom.chatTitle': 'Chat di classe',
   'classroom.detailJoin': 'Join code',
@@ -81,23 +105,30 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'Vai alla Dashboard',
   'courseDetail.assignmentsTitle': 'Compiti del corso',
   'courseDetail.back': 'Tutti i corsi',
+  'courseDetail.body':
+    'Un corso del secondo semestre che parte dagli integrali di linea e arriva a divergenza e rotore. In diretta ogni martedì/giovedì, con laboratorio il venerdì e ricevimento settimanale.',
+  'courseDetail.ca1Course': 'Calcolo II',
   'courseDetail.ca1Due': 'Scadenza giovedì · 17:00',
   'courseDetail.ca1Title': 'Serie di problemi sul flusso del campo vettoriale',
   'courseDetail.ca2Course': 'Calcolo II',
   'courseDetail.ca2Due': 'Inviato lunedì',
   'courseDetail.ca2Score': 'In attesa di riscontro',
   'courseDetail.ca2Title': 'dimostrazioni del teorema di Stokes',
+  'courseDetail.ca3Course': 'Calcolo II',
   'courseDetail.ca3Due': 'Restituito · 9 giorni fa',
   'courseDetail.ca3Score': 'A · 94%',
   'courseDetail.ca3Title': 'Quiz di ripasso sugli integrali di linea',
   'courseDetail.cls1Course': 'Calcolo II · MTH 202',
   'courseDetail.cls1Instructor': 'Prof.ssa Maya Okafor',
+  'courseDetail.cls1Room': 'Aula Aula · Lavanda',
   'courseDetail.cls1Title': 'Campi vettoriali e flusso',
   'courseDetail.cls2Course': 'Calcolo II · MTH 202',
   'courseDetail.cls2Instructor': 'Prof.ssa Maya Okafor',
+  'courseDetail.cls2Room': 'Aula Aula · Lavanda',
   'courseDetail.cls2Title': 'Revisione degli integrali di linea',
   'courseDetail.cls3Course': 'Calcolo II · MTH 202',
   'courseDetail.cls3Instructor': 'TA Felix Bauer',
+  'courseDetail.cls3Room': 'Stanza {{appName}} · Petal',
   'courseDetail.cls3Title': 'Laboratorio: Esercizi di Stokes',
   'courseDetail.code': 'MTH 202',
   'courseDetail.materialsTitle': 'Materiali',
@@ -136,15 +167,18 @@ export const ui: UiTranslations = {
   'courses.loading': 'Caricamento corsi…',
   'courses.noBrowse':
     "Non c'è bisogno di sfogliare i corsi: sei iscritto a tutti quelli pubblicati.",
+  'courses.noCourses': 'Nessun corso ancora — creane uno con il pulsante qui sopra.',
   'courses.title': 'La tua biblioteca di apprendimento',
   'courseTileCard.code': 'ECN 312',
   'courseTileCard.continue': 'Continua il corso',
   'courseTileCard.enroll': 'Visualizza il corso',
   'courseTileCard.imageAlt': 'Miniatura del corso',
   'courseTileCard.instructor': 'Dottor Idris Halloway',
+  'courseTileCard.lessonsRemaining': '{{count}} lezioni rimanenti',
   'courseTileCard.levelAdvanced': 'Avanzato',
   'courseTileCard.levelBeginner': 'Principiante',
   'courseTileCard.levelIntermediate': 'Intermedio',
+  'courseTileCard.preview': "Anteprima del programma, sfoglia le lezioni e richiedi l'iscrizione.",
   'courseTileCard.progressComplete': '{{percent}}% completato',
   'courseTileCard.title': 'Macroeconomia moderna',
   'dashboard.assignmentsAll': 'Vedi tutti →',
@@ -164,12 +198,16 @@ export const ui: UiTranslations = {
   'dashboard.noAssignments': 'Nessun compito da consegnare: godetevi la tranquillità.',
   'dashboard.noCourses': 'Nessun corso ancora disponibile: il tuo primo corso apparirà qui.',
   'dashboard.noDueDate': 'Nessuna scadenza',
+  'dashboard.scheduleAula': 'Aula Aula',
   'dashboard.scheduleEmpty': 'Non sono previste lezioni in diretta nei prossimi giorni.',
   'dashboard.scheduleHostedYou': 'Ospitato da te',
+  'dashboard.scheduleJoinCode': 'Codice di adesione · {{code}}',
+  'dashboard.statAssignmentsLabel': 'Compiti in scadenza',
   'dashboard.statClassesDelta': '{{n}} corsi attivi',
   'dashboard.statClassesLabel': 'Sale live',
   'dashboard.statCoursesDelta': '{{n}} iscritto',
   'dashboard.statCoursesLabel': 'Corsi',
+  'dashboard.statNotificationsLabel': 'Avvisi non letti',
   'dashboard.tipBody':
     'Apri la stanza live dalla scheda principale qui sopra per disegnare un tratto sulla lavagna o inviare un messaggio in chat: ogni azione viene salvata.',
   'dashboard.tipCta': 'Prova la lavagna bianca',
@@ -183,6 +221,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success':
     "Se esiste un account associato a quell'indirizzo email, riceverai a breve un link per reimpostarlo.",
   'forgotPassword.toLogin': 'Torna alla pagina di accesso',
+  'grades.assignmentsCount': '{{n}} voti',
   'grades.body':
     'Una visione chiara e completa di ogni percorso: andamento, feedback recenti e indicazioni su dove concentrarsi la prossima settimana.',
   'grades.empty':
@@ -195,43 +234,59 @@ export const ui: UiTranslations = {
   'grades.statTrendUnit': 'corsi',
   'grades.statWatchLabel': 'Necessita di attenzione',
   'grades.title': 'Voti e feedback',
+  'landing.ctaBody':
+    'Creeremo un corso di esempio, inviteremo un co-docente e ti mostreremo come trasformare una classe in stanze di gruppo prima che suoni la campanella.',
   'landing.ctaButton': 'Crea la tua scuola',
   'landing.ctaPrimary': 'Inizia un periodo di prova gratuito',
   'landing.ctaSecondary': 'Guarda un tour della classe',
   'landing.ctaTitle': 'Apri la tua prima aula virtuale in meno di tre minuti.',
+  'landing.demoCourse': 'Letteratura mondiale · LIT 240',
+  'landing.demoInstructor': 'Prof. Imani Davies',
+  'landing.demoTitle': 'Realismo magico — Borges e Murakami',
   'landing.eyebrow': 'Team distribuiti, end-to-end',
   'landing.feat1Body':
     'Visualizzazione automatica in primo piano + galleria, accenti per gli oratori attivi e una funzione picture-in-picture trascinabile per i docenti.',
   'landing.feat1Title': 'Griglia video cinematografica',
   'landing.feat2Body':
     'Tela infinita, puntatore laser, tavolozza di otto colori e sessioni permanenti per ogni corso.',
+  'landing.feat2Title': 'Lavagna che pensa ad alta voce',
   'landing.feat3Body':
     'Distribuisci automaticamente gli studenti nelle aule, diffondi annunci e riporta tutti nelle aule con un semplice tocco.',
+  'landing.feat3Title': 'Stanze di gruppo in due clic',
   'landing.feat4Body':
     'Rubriche di valutazione, invio di file, feedback in tempo reale e un registro elettronico intuitivo che tiene i genitori informati.',
+  'landing.feat4Title': 'Compiti + registro',
   'landing.feat5Body':
     'Chat suddivise per ogni corso, riepiloghi in evidenza e canali laterali riservati al docente per il coaching privato.',
+  'landing.feat5Title': 'Chat con il contesto della classe',
   'landing.feat6Body':
     "Accesso SSO con elenchi distrettuali, moderazione adeguata all'età e registri di controllo per ogni classe.",
+  'landing.feat6Title': 'Sicuro per impostazione predefinita',
   'landing.featuresEyebrow': 'Costruito per vivere',
   'landing.featuresTitle': "Tutto ciò che serve a una classe, in un'unica scheda dedicata.",
   'landing.footerCopy': '© {{year}} Aula. Realizzata con cura per gli educatori.',
   'landing.footerStart': 'Avvia una scuola',
   'landing.heroBody':
     'Aula riunisce video in diretta, lavagna virtuale, sessioni di gruppo, chat e compiti in un unico ambiente accogliente e stimolante per lo studio. Pensato per i docenti che desiderano meno schede aperte e più attenzione per gli studenti.',
+  'landing.heroLine1': 'Dove ogni aula',
   'landing.heroLine2': "si percepisce nell'aria.",
   'landing.navSchools': 'Per le scuole',
   'landing.navStart': "Apri un'aula",
   'landing.previewCourse1': 'Macroeconomia moderna',
   'landing.previewCourse2': 'Pittura in studio II',
   'landing.previewCourse3': "Introduzione all'etica dei dati",
+  'landing.previewEyebrow': 'Esplora il catalogo',
   'landing.previewInstructor1': 'Dottor Idris Halloway',
   'landing.previewInstructor2': 'Prof.ssa Lila Marin',
   'landing.previewInstructor3': 'Dott.ssa Naomi Wren',
   'landing.previewTitle': 'Corsi che i tuoi studenti potranno effettivamente frequentare.',
+  'landing.socialProofBody':
+    'Usato da 380 scuole, bootcamp e formatori aziendali in tutto il mondo.',
   'landing.socialProofTitle': 'Oltre 14.200 corsi tenuti in questo semestre',
   'liveClassHeroCard.bodyLive':
     "{{instructor}} ha appena aperto la stanza. {{count}} I compagni di classe sono già dentro: entrate prima dell'appello.",
+  'liveClassHeroCard.bodyUpcoming':
+    '{{instructor}} inizia tra {{minutes}} minuti. Il controllo di fotocamera e microfono è ora aperto.',
   'liveClassHeroCard.course': 'Calcolo II — MTH 202',
   'liveClassHeroCard.elapsed': 'Trascorso',
   'liveClassHeroCard.elapsedValue': '12:08',
@@ -244,6 +299,7 @@ export const ui: UiTranslations = {
   'liveClassHeroCard.title': 'Lezione 14 — Campi vettoriali',
   'liveClassHeroCard.viewSchedule': 'Vedi calendario completo',
   'login.emailPlaceholder': 'tu@scuola.edu',
+  'login.footerPrompt': 'Nuovo su Tessera?',
   'login.hidePassword': 'Nascondi password',
   'login.rememberMe': "Mantieni l'accesso",
   'login.showPassword': 'Mostra password',
@@ -254,6 +310,7 @@ export const ui: UiTranslations = {
   'notifications.body': 'Hai {{count}} Aggiornamenti non letti dai tuoi corsi.',
   'notifications.bodyNone': 'È al passo con tutto.',
   'notifications.loading': 'Caricamento…',
+  'pricing.advancedFeatures': 'Funzionalità avanzate',
   'profile.bio':
     'Calcolo vettoriale e topologia · 14 anni di insegnamento · Moderatore della comunità Aula. Orario di ricevimento lunedì/mercoledì 11-12 nella stanza Lavender.',
   'profile.course1Instructor': 'Prof.ssa Maya Okafor',
@@ -274,8 +331,11 @@ export const ui: UiTranslations = {
   'profile.statStudentsLabel': 'Studenti di questo semestre',
   'resetPassword.confirmPasswordPlaceholder': 'Reinserisci la nuova password',
   'resetPassword.emailPlaceholder': 'tu@scuola.edu',
+  'resetPassword.mismatch': 'Le password non corrispondono ancora.',
+  'resetPassword.newPassword': 'Nuova password',
   'resetPassword.subtitle':
     'Deve essere abbastanza lungo da rendere difficile indovinarlo, ma abbastanza corto da poter essere digitato rapidamente.',
+  'resetPassword.title': 'Scegli una nuova password',
   'scheduleItem.course': 'Scrittura creativa · ENG 220',
   'scheduleItem.endTime': '15:30',
   'scheduleItem.instructor': 'Dott. Yusuf Adelana',
@@ -299,10 +359,20 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Lingua',
   'settings.photoHint': 'JPG o PNG · il formato quadrato funziona meglio',
   'settings.profileTitle': 'Profilo',
+  'settings.securityTitle': 'Accesso e sicurezza',
   'settings.twoFactorCode': 'Codice di autenticazione',
   'settings.twoFactorDisable': 'Disattiva',
+  'settings.twoFactorDisableTitle': "Disattiva l'autenticazione a due fattori",
   'settings.twoFactorEnable': 'Attiva',
+  'settings.twoFactorEnableTitle': "Attiva l'autenticazione a due fattori",
   'settings.twoFactorInvalidCode': 'Codice non valido',
+  'settings.twoFactorOffBody': 'Non abilitato',
+  'settings.twoFactorOnBody': 'Attivato · app di autenticazione',
+  'settings.twoFactorQrAlt': 'Codice QR autenticazione a due fattori',
+  'settings.twoFactorScan':
+    'Scansiona questo codice QR con la tua app di autenticazione, poi inserisci il codice a 6 cifre.',
+  'settings.twoFactorUnavailable':
+    "L'autenticazione a due fattori non è disponibile per questa app.",
   'settings.twoFactorVerify': 'Verifica e abilita',
   'signup.email': 'Email della scuola',
   'signup.emailPlaceholder': 'tu@scuola.edu',
@@ -310,6 +380,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Aiyana',
   'signup.lastNamePlaceholder': 'Vega',
   'signup.roleInstructor': 'Docente',
+  'signup.roleLabel': 'Sono un…',
   'signup.roleStudent': 'Studente',
   'signup.subtitle':
     'Aula è gratuito per i primi 30 giorni, senza bisogno di carta di credito. Puoi invitare i tuoi colleghi in qualsiasi momento.',
@@ -322,6 +393,8 @@ export const ui: UiTranslations = {
   'whiteboard.colorLabel': 'Colore {{color}}',
   'whiteboard.export': 'Esportazione SVG',
   'whiteboard.loading': 'Caricamento in corso…',
+  'whiteboard.persistenceNote':
+    'I tratti restano sulla lavagna della stanza. Ricarica la pagina — lo stato della lavagna dovrebbe essere ancora lì.',
   'whiteboard.roomNotFound': 'Lavagna non trovata per questo link.',
   'whiteboard.savedAt': '{{count}} colpi · ultimo salvataggio {{when}}',
   'whiteboard.title': 'Lavagna interattiva',

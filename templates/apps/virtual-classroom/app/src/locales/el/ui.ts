@@ -1,10 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
+  'about.featureAssignments':
+    'Εργασίες, υποβολές αρχείων, κριτήρια αξιολόγησης, ενσωματωμένα σχόλια και ένα ήρεμο βαθμολόγιο που κρατά ενημερωμένους μαθητές και γονείς.',
+  'about.featureBreakouts':
+    'Αίθουσες συζήτησης με ένα πάτημα — αυτόματη αναδιάταξη μαθητών, ανακοινώσεις σε όλους και επιστροφή όλων μαζί όταν τελειώσει ο χρόνος.',
+  'about.featureChat':
+    'Ομαδική συνομιλία τάξης με καρφιτσωμένες συνόψεις και κανάλια αποκλειστικά για τον εκπαιδευτικό, για διακριτική καθοδήγηση κατά τη διάρκεια της συνεδρίας.',
+  'about.featureVideo':
+    'Κινηματογραφικό ζωντανό βίντεο με εστίαση στον ενεργό ομιλητή, διατάξεις gallery και spotlight, και μετακινούμενη εικόνα-σε-εικόνα για τους εκπαιδευτικούς.',
+  'about.featureWhiteboard':
+    'Ένας άπειρος πίνακας με δείκτη λέιζερ και πλήρη παλέτα χρωμάτων, με κάθε συνεδρία να αποθηκεύεται ανά μάθημα, ώστε η δουλειά να συνεχίζεται μεταξύ των μαθημάτων.',
+  'about.missionBody':
+    "Πιστεύουμε ότι η εξ αποστάσεως και υβριδική μάθηση πρέπει να έχει την παρουσία και την ανθρωπιά ενός τραπεζιού σεμιναρίου. Γι' αυτό βάζουμε πρώτα τη ζωντανή παρουσία — πραγματικά πρόσωπα, κοινό καμβά και ομαδικές συζητήσεις σε μικρές ομάδες — και κρατάμε τη βαθμολόγηση και τη διαχείριση διακριτικά στην άκρη μέχρι να τα χρειαστείτε.",
+  'about.missionTitle': 'Η αποστολή μας',
   'assignmentDetail.attachmentsTitle': 'Συνημμένα',
   'assignmentDetail.back': 'Όλες οι αναθέσεις',
   'assignmentDetail.code': 'ΒΙΟ 211',
+  'assignmentDetail.context':
+    'Κυτταρική Βιολογία I · Αναρτήθηκε από {{instructor}} · Προθεσμία {{due}}',
   'assignmentDetail.continueDraft': 'Συνέχεια προσχεδίου',
   'assignmentDetail.draftBody':
     'Τελευταία επεξεργασία πριν από 14 λεπτά · αυτόματη αποθήκευση σε κάθε αλλαγή.',
@@ -23,6 +39,7 @@ export const ui: UiTranslations = {
   'assignmentRow.statusInProgress': 'Σύνταξη',
   'assignmentRow.statusSubmitted': 'Υποβλήθηκε',
   'assignmentRow.title': 'Εργαστηριακή αναφορά — Μιτοχονδριακό DNA',
+  'assignmentRow.weight': 'Αξίζει {{percent}}% του βαθμού',
   'assignments.body':
     'Παρακολουθήστε κάθε εργασία, σύνολο προβλημάτων και έργο σε όλα τα μαθήματά σας.',
   'assignments.empty':
@@ -34,6 +51,8 @@ export const ui: UiTranslations = {
   'assignments.statTotal': 'Ενεργές αναθέσεις',
   'assignments.title': 'Εργασίες',
   'aulaAuthShell.backHome': '← Πίσω στο σπίτι',
+  'aulaAuthShell.brandBody':
+    'Το {{appName}} συγκεντρώνει βίντεο, πίνακα, ομαδικές συζητήσεις, chat και βαθμολόγηση σε μία καρτέλα — φτιαγμένο για εκπαιδευτικούς που θέλουν να διδάσκουν, όχι να κυνηγούν καρτέλες.',
   'aulaAuthShell.brandEyebrow': 'Όπου η μάθηση ζωντανεύει',
   'aulaAuthShell.brandTitle': 'Ζήστε τις τάξεις με τη ζεστασιά του να βρίσκεσαι στην αίθουσα.',
   'aulaAuthShell.sampleAttending': '+24 ακόμη συμμετέχοντες',
@@ -43,6 +62,9 @@ export const ui: UiTranslations = {
   'aulaSideNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
   'aulaSideNav.label': 'Κύρια πλοήγηση',
   'aulaSideNav.weeklyClasses': 'Αυτή την εβδομάδα',
+  'aulaSideNav.weeklyClassesCount': '{{done}} / {{total}}',
+  'aulaSideNav.weeklyHelp':
+    'Είσαι σε καλό δρόμο για να ολοκληρώσεις τα μαθήματα αυτής της εβδομάδας. Συνέχισε!',
   'aulaTopBar.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'aulaTopBar.searchPlaceholder': 'Αναζήτηση μαθημάτων, μαθημάτων, εργασιών…',
   'aulaTopBar.title': 'Άουλα',
@@ -55,6 +77,8 @@ export const ui: UiTranslations = {
   'calendar.statTotal': 'Σύνολο επερχόμενων εκδηλώσεων',
   'classroom.chatCount': '{{count}} μηνύματα',
   'classroom.chatEmpty': 'Δεν υπάρχουν ακόμη μηνύματα — πείτε ένα γεια για να σπάσετε τη σιωπή.',
+  'classroom.chatInputLabel': 'Μήνυμα ομαδικής συνομιλίας τάξης',
+  'classroom.chatLoading': 'Φόρτωση συνομιλίας…',
   'classroom.chatPlaceholder': 'Αποστολή στην τάξη…',
   'classroom.chatTitle': 'Συζήτηση στην τάξη',
   'classroom.detailJoin': 'Join code',
@@ -81,23 +105,30 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'courseDetail.assignmentsTitle': 'Εργασίες μαθημάτων',
   'courseDetail.back': 'Όλα τα μαθήματα',
+  'courseDetail.body':
+    'Μάθημα δεύτερου εξαμήνου που ξεκινά από τα επικαμπύλια ολοκληρώματα και φτάνει στην απόκλιση και τον στροβιλισμό. Ζωντανά κάθε Τρ/Πε, με εργαστήριο την Παρασκευή και εβδομαδιαίες ώρες γραφείου.',
+  'courseDetail.ca1Course': 'Λογισμός II',
   'courseDetail.ca1Due': 'Παράδοση Πέμπτη · 5:00 μ.μ.',
   'courseDetail.ca1Title': 'Σύνολο προβλημάτων ροής διανυσματικού πεδίου',
   'courseDetail.ca2Course': 'Λογισμός II',
   'courseDetail.ca2Due': 'Υποβλήθηκε Δευτέρα',
   'courseDetail.ca2Score': 'Αναμονή σχολίων',
   'courseDetail.ca2Title': 'Αποδείξεις θεωρήματος Stokes',
+  'courseDetail.ca3Course': 'Λογισμός II',
   'courseDetail.ca3Due': 'Επιστράφηκε · πριν από 9 ημέρες',
   'courseDetail.ca3Score': 'Α · 94%',
   'courseDetail.ca3Title': 'Κουίζ ανασκόπησης γραμμικού ολοκληρώματος',
   'courseDetail.cls1Course': 'Λογισμός II · MTH 202',
   'courseDetail.cls1Instructor': 'Καθηγήτρια Μάγια Οκάφορ',
+  'courseDetail.cls1Room': 'Δωμάτιο Aula · Λεβάντα',
   'courseDetail.cls1Title': 'Διανυσματικά πεδία και ροή',
   'courseDetail.cls2Course': 'Λογισμός II · MTH 202',
   'courseDetail.cls2Instructor': 'Καθηγήτρια Μάγια Οκάφορ',
+  'courseDetail.cls2Room': 'Δωμάτιο Aula · Λεβάντα',
   'courseDetail.cls2Title': 'Ανασκόπηση γραμμικών ολοκληρωμάτων',
   'courseDetail.cls3Course': 'Λογισμός II · MTH 202',
   'courseDetail.cls3Instructor': 'TA Φέλιξ Μπάουερ',
+  'courseDetail.cls3Room': 'Αίθουσα {{appName}} · Petal',
   'courseDetail.cls3Title': 'Εργαστήριο: Σύνολο προβλημάτων Stokes',
   'courseDetail.code': 'ΜΘ 202',
   'courseDetail.materialsTitle': 'Υλικά',
@@ -136,15 +167,19 @@ export const ui: UiTranslations = {
   'courses.loading': 'Φόρτωση μαθημάτων…',
   'courses.noBrowse':
     'Δεν υπάρχουν μαθήματα για περιήγηση — είστε εγγεγραμμένοι σε όλα τα δημοσιευμένα.',
+  'courses.noCourses': 'Δεν υπάρχουν μαθήματα ακόμη — δημιούργησε ένα με το κουμπί παραπάνω.',
   'courses.title': 'Η βιβλιοθήκη εκμάθησής σας',
   'courseTileCard.code': 'ECN 312',
   'courseTileCard.continue': 'Συνέχεια μαθήματος',
   'courseTileCard.enroll': 'Δείτε το μάθημα',
   'courseTileCard.imageAlt': 'Μικρογραφία μαθήματος',
   'courseTileCard.instructor': 'Δρ. Ίντρις Χάλογουεϊ',
+  'courseTileCard.lessonsRemaining': '{{count}} μαθήματα που έμειναν',
   'courseTileCard.levelAdvanced': 'Προχωρημένος',
   'courseTileCard.levelBeginner': 'Αρχάριος',
   'courseTileCard.levelIntermediate': 'Ενδιάμεσος',
+  'courseTileCard.preview':
+    'Περιηγήσου στο πρόγραμμα σπουδών, δες τις διαλέξεις και ζήτησε εγγραφή.',
   'courseTileCard.progressComplete': '{{percent}} % ολοκλήρωσης',
   'courseTileCard.title': 'Σύγχρονη Μακροοικονομία',
   'dashboard.assignmentsAll': 'Δείτε όλα →',
@@ -164,12 +199,16 @@ export const ui: UiTranslations = {
   'dashboard.noAssignments': 'Δεν υπάρχουν εκκρεμείς εργασίες — απολαύστε την ηρεμία.',
   'dashboard.noCourses': 'Δεν υπάρχουν ακόμη μαθήματα — το πρώτο σας μάθημα θα εμφανιστεί εδώ.',
   'dashboard.noDueDate': 'Δεν υπάρχει ημερομηνία λήξης',
+  'dashboard.scheduleAula': 'Αίθουσα Aula',
   'dashboard.scheduleEmpty': 'Δεν έχουν προγραμματιστεί επερχόμενα ζωντανά μαθήματα.',
   'dashboard.scheduleHostedYou': 'Φιλοξενείται από εσάς',
+  'dashboard.scheduleJoinCode': 'Κωδικός συμμετοχής · {{code}}',
+  'dashboard.statAssignmentsLabel': 'Εργασίες με προθεσμία',
   'dashboard.statClassesDelta': '{{n}} ενεργά μαθήματα',
   'dashboard.statClassesLabel': 'Ζωντανά δωμάτια',
   'dashboard.statCoursesDelta': '{{n}} εγγεγραμμένος',
   'dashboard.statCoursesLabel': 'Μαθήματα',
+  'dashboard.statNotificationsLabel': 'Μη αναγνωσμένες ειδοποιήσεις',
   'dashboard.tipBody':
     'Άνοιξε το live room από την κάρτα ήρωα παραπάνω για να σχεδιάσεις ένα περίγραμμα στον πίνακα ή να δημοσιεύσεις ένα μήνυμα συνομιλίας — κάθε ενέργεια συνεχίζεται.',
   'dashboard.tipCta': 'Δοκιμάστε τον λευκό πίνακα',
@@ -183,6 +222,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success':
     'Εάν υπάρχει λογαριασμός για αυτό το email, θα σας σταλεί ένας σύνδεσμος επαναφοράς.',
   'forgotPassword.toLogin': 'Επιστροφή για σύνδεση',
+  'grades.assignmentsCount': '{{n}} βαθμοί',
   'grades.body':
     'Μια ψύχραιμη εικόνα για κάθε μάθημα — τρέχουσα βαθμολογία, πρόσφατα σχόλια και πού να εστιάσετε την επόμενη εβδομάδα.',
   'grades.empty':
@@ -195,43 +235,59 @@ export const ui: UiTranslations = {
   'grades.statTrendUnit': 'μαθήματα',
   'grades.statWatchLabel': 'Χρειάζεται προσοχή',
   'grades.title': 'Βαθμοί και σχόλια',
+  'landing.ctaBody':
+    'Θα στήσουμε ένα δείγμα μαθήματος, θα προσκαλέσουμε συνδιδάσκοντα και θα σου δείξουμε πώς να μετατρέψεις ένα μάθημα σε ομαδικές συζητήσεις πριν χτυπήσει το κουδούνι.',
   'landing.ctaButton': 'Δημιουργήστε το σχολείο σας',
   'landing.ctaPrimary': 'Ξεκινήστε μια δωρεάν περίοδο',
   'landing.ctaSecondary': 'Παρακολουθήστε μια ξενάγηση στην τάξη',
   'landing.ctaTitle': 'Άνοιξε την πρώτη σου τάξη σε λιγότερο από τρία λεπτά.',
+  'landing.demoCourse': 'Παγκόσμια Λογοτεχνία · LIT 240',
+  'landing.demoInstructor': 'Καθ. Imani Davies',
+  'landing.demoTitle': 'Μαγικός ρεαλισμός — Borges & Murakami',
   'landing.eyebrow': 'Ζωντανά · πίνακας · διαλείμματα · βαθμολόγηση',
   'landing.feat1Body':
     'Αυτόματη τοποθέτηση προβολέα + συλλογή, τόνοι ενεργού ομιλητή και δυνατότητα σύρσιμου picture-in-picture για εκπαιδευτές.',
   'landing.feat1Title': 'Κινηματογραφικό πλέγμα βίντεο',
   'landing.feat2Body':
     'Άπειρος καμβάς, δείκτης λέιζερ, παλέτα οκτώ δειγμάτων και συνεχείς συνεδρίες ανά μάθημα.',
+  'landing.feat2Title': 'Πίνακας που σκέφτεται δυνατά',
   'landing.feat3Body':
     'Ανακατέψτε αυτόματα τους μαθητές σε αίθουσες, μεταδώστε ανακοινώσεις και τραβήξτε τους όλους πίσω με ένα άγγιγμα.',
+  'landing.feat3Title': 'Ομαδικές συζητήσεις σε δύο κλικ',
   'landing.feat4Body':
     'Βαθμολογίες, υποβολές αρχείων, ενσωματωμένα σχόλια και ένα ήρεμο βαθμολογικό σημείωμα που κρατά τους γονείς ενήμερους.',
+  'landing.feat4Title': 'Εργασίες + βαθμολόγιο',
   'landing.feat5Body':
     'Νηματοποιημένη συνομιλία ανά μάθημα, καρφιτσωμένες περιλήψεις και πλευρικά κανάλια μόνο για εκπαιδευτές για ψιθυριστή καθοδήγηση.',
+  'landing.feat5Title': 'Συνομιλία με το πλαίσιο της τάξης',
   'landing.feat6Body':
     'SSO με καταλόγους περιφέρειας, διαχείριση κατάλληλη για την ηλικία και αρχεία καταγραφής ελέγχου για κάθε τάξη.',
+  'landing.feat6Title': 'Ασφαλές εξ ορισμού',
   'landing.featuresEyebrow': 'Φτιαγμένο για ζωντανά',
   'landing.featuresTitle': 'Όλα όσα χρειάζεται ένα μάθημα, σε μία εστιασμένη καρτέλα.',
   'landing.footerCopy': '© {{year}} Αούλα. Φτιαγμένο με φροντίδα για εκπαιδευτικούς.',
   'landing.footerStart': 'Ξεκινήστε ένα σχολείο',
   'landing.heroBody':
     'Το Aula φέρνει ζωντανό βίντεο, πίνακα, διαλείμματα, συνομιλία και εργασίες σε ένα ζεστό, ακαδημαϊκό σπίτι. Σχεδιασμένο για εκπαιδευτές που θέλουν λιγότερες καρτέλες και περισσότερη προσοχή.',
+  'landing.heroLine1': 'Εκεί όπου κάθε τάξη',
   'landing.heroLine2': 'αισθάνεται στο δωμάτιο.',
   'landing.navSchools': 'Για σχολεία',
   'landing.navStart': 'Άνοιγμα τάξης',
   'landing.previewCourse1': 'Σύγχρονη Μακροοικονομία',
   'landing.previewCourse2': 'Ζωγραφική σε στούντιο II',
   'landing.previewCourse3': 'Εισαγωγή στην Ηθική Δεδομένων',
+  'landing.previewEyebrow': 'Περιήγηση στον κατάλογο',
   'landing.previewInstructor1': 'Δρ. Ίντρις Χάλογουεϊ',
   'landing.previewInstructor2': 'Καθηγήτρια Λίλα Μαρίν',
   'landing.previewInstructor3': 'Δρ. Ναόμι Ρεν',
   'landing.previewTitle': 'Μαθήματα που θα ανοίξουν στην πραγματικότητα οι μαθητές σας.',
+  'landing.socialProofBody':
+    'Το χρησιμοποιούν 380 σχολεία, bootcamps και εταιρικοί εκπαιδευτές παγκοσμίως.',
   'landing.socialProofTitle': '14.200+ μαθήματα φιλοξένησαν αυτό το τρίμηνο',
   'liveClassHeroCard.bodyLive':
     '{{instructor}} μόλις άνοιξε το δωμάτιο. {{count}} Οι συμμαθητές είναι ήδη μέσα — μπείτε μέσα πριν από την ονομαστική κλήση.',
+  'liveClassHeroCard.bodyUpcoming':
+    'Το {{instructor}} φιλοξενεί σε {{minutes}} λεπτά. Ο έλεγχος κάμερας και μικροφώνου είναι ανοιχτός τώρα.',
   'liveClassHeroCard.course': 'Λογισμός II — MTH 202',
   'liveClassHeroCard.elapsed': 'Παρέλθει',
   'liveClassHeroCard.elapsedValue': '12:08',
@@ -244,6 +300,7 @@ export const ui: UiTranslations = {
   'liveClassHeroCard.title': 'Διάλεξη 14 — Διανυσματικά πεδία',
   'liveClassHeroCard.viewSchedule': 'Δείτε το πλήρες πρόγραμμα',
   'login.emailPlaceholder': 'εσύ@school.edu',
+  'login.footerPrompt': 'Νέος στο Tessera;',
   'login.hidePassword': 'Απόκρυψη κωδικού',
   'login.rememberMe': 'Να παραμένω συνδεδεμένος',
   'login.showPassword': 'Εμφάνιση κωδικού',
@@ -254,6 +311,7 @@ export const ui: UiTranslations = {
   'notifications.body': 'Έχετε {{count}} μη αναγνωσμένες ενημερώσεις από τα μαθήματά σας.',
   'notifications.bodyNone': 'Είστε ενημερωμένος με όλα.',
   'notifications.loading': 'Φόρτωση…',
+  'pricing.advancedFeatures': 'Προηγμένες λειτουργίες',
   'profile.bio':
     'Διανυσματικός λογισμός και τοπολογία · 14 χρόνια διδασκαλίας · Συντονιστής κοινότητας Aula. Ώρες γραφείου Δευτέρα/Τετάρτη 11–12 στην αίθουσα Lavender.',
   'profile.course1Instructor': 'Καθηγήτρια Μάγια Οκάφορ',
@@ -274,8 +332,11 @@ export const ui: UiTranslations = {
   'profile.statStudentsLabel': 'Φοιτητές αυτό το τρίμηνο',
   'resetPassword.confirmPasswordPlaceholder': 'Εισαγάγετε ξανά τον νέο κωδικό πρόσβασης',
   'resetPassword.emailPlaceholder': 'εσύ@school.edu',
+  'resetPassword.mismatch': 'Οι κωδικοί δεν ταιριάζουν ακόμη.',
+  'resetPassword.newPassword': 'Νέος κωδικός πρόσβασης',
   'resetPassword.subtitle':
     'Φροντίστε να είναι αρκετά μακρύ ώστε να είναι δύσκολο να το μαντέψει κανείς και αρκετά σύντομο ώστε να πληκτρολογείται γρήγορα.',
+  'resetPassword.title': 'Διάλεξε νέο κωδικό',
   'scheduleItem.course': 'Δημιουργική Γραφή · ΑΓΓ 220',
   'scheduleItem.endTime': '3:30 μ.μ.',
   'scheduleItem.instructor': 'Δρ. Γιουσούφ Αντελάνα',
@@ -299,10 +360,20 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Γλώσσα',
   'settings.photoHint': 'JPG ή PNG · το τετράγωνο λειτουργεί καλύτερα',
   'settings.profileTitle': 'Προφίλ',
+  'settings.securityTitle': 'Σύνδεση & ασφάλεια',
   'settings.twoFactorCode': 'Κωδικός ελέγχου ταυτότητας',
   'settings.twoFactorDisable': 'Απενεργοποίηση',
+  'settings.twoFactorDisableTitle': 'Απενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.twoFactorEnableTitle': 'Ενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.twoFactorInvalidCode': 'Μη έγκυρος κώδικας',
+  'settings.twoFactorOffBody': 'Δεν είναι ενεργοποιημένο',
+  'settings.twoFactorOnBody': 'Ενεργό · εφαρμογή authenticator',
+  'settings.twoFactorQrAlt': 'Κωδικός QR ταυτοποίησης δύο παραγόντων',
+  'settings.twoFactorScan':
+    'Σαρώστε αυτόν τον κωδικό QR με την εφαρμογή ελέγχου ταυτότητας και, στη συνέχεια, εισαγάγετε τον 6ψήφιο κωδικό.',
+  'settings.twoFactorUnavailable':
+    'Ο έλεγχος ταυτότητας δύο παραγόντων δεν είναι διαθέσιμος για αυτήν την εφαρμογή.',
   'settings.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
   'signup.email': 'Ηλεκτρονικό ταχυδρομείο σχολείου',
   'signup.emailPlaceholder': 'εσύ@school.edu',
@@ -310,6 +381,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Αϊάνα',
   'signup.lastNamePlaceholder': 'Βέγκα',
   'signup.roleInstructor': 'Εκπαιδευτής',
+  'signup.roleLabel': 'Είμαι…',
   'signup.roleStudent': 'Φοιτητής',
   'signup.subtitle':
     'Η Aula είναι δωρεάν για τις πρώτες 30 ημέρες — δεν απαιτείται πιστωτική κάρτα. Προσκαλέστε τους συναδέλφους σας οποιαδήποτε στιγμή.',
@@ -322,6 +394,8 @@ export const ui: UiTranslations = {
   'whiteboard.colorLabel': 'Χρώμα {{color}}',
   'whiteboard.export': 'Εξαγωγή SVG',
   'whiteboard.loading': 'Φόρτωση πίνακα…',
+  'whiteboard.persistenceNote':
+    'Οι γραμμές παραμένουν στον πίνακα της αίθουσας. Ανανέωσε τη σελίδα — η κατάσταση του πίνακα θα πρέπει να είναι ακόμη εκεί.',
   'whiteboard.roomNotFound': 'Δεν βρέθηκε πίνακας για αυτόν τον σύνδεσμο.',
   'whiteboard.savedAt': '{{count}} πινελιές · τελευταία αποθήκευση {{when}}',
   'whiteboard.title': 'Ζωντανός λευκός πίνακας',

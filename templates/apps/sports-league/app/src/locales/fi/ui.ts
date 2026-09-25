@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Onko sinulla palautetta, löysitkö virheen tai haluatko {{app}} liigallesi? Ota yhteyttä tilisi asetuksista — jokainen viesti menee tiimin oikealle henkilölle.',
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.featureAlerts':
+    'Push-ilmoitukset tulospäivityksistä, vaihtouutisista, loukkaantumisraporteista ja liigan tiedotteista.',
+  'about.featureRosters':
+    'Joukkuesivut, joilla on täydelliset kokoonpanot, kausitilastot, kuumat/kylmät putket ja jokaisen pelaajan keskinäiset tilastot.',
+  'about.featureSchedule':
+    'Kausikalenteri ja aikataulunäkymä, jotta voit suunnitella jokaisen ottelun ja tuloksen ympärille.',
+  'about.featureScoreboard':
+    'Lähetystasoinen tulosnauha kiinnitettynä jokaisen sivun yläreunaan, jotta et koskaan missaa maalia.',
+  'about.featureStandings':
+    'Live-sarjataulukko — reaaliaikaiset voitto-tappio-tasapeli-tulokset, pisteet, voittoprosentti ja pudotuspeliraja, päivitettynä joka vihellyksellä.',
+  'about.intro':
+    '{{app}} on lähetystasoinen koti liigallesi. Joukkueet, aikataulut, live-tulokset ja sarjataulukot yhdistyvät yhdeksi nopeaksi, selkeäksi kojelaudaksi — niin fanit, valmentajat kuin liigan järjestäjät tietävät aina, missä kauden tilanne menee.',
+  'about.missionBody':
+    'Liigan seuraaminen ei saisi tarkoittaa viiden eri kolmannen osapuolen tulosnäkymän päivittämistä. Rakensimme sen antamaan jokaiselle liigalle yhden totuuden lähteen sarjataulukoille, aikataululle ja tilastoille, joilla on oikeasti väliä — päivitettynä joka vihellyksellä, ilmaiseksi koko kauden.',
+  'about.missionTitle': 'Missiomme',
+  'about.whatYouGet': 'Mitä saat',
   'appShell.closeNav': 'Sulje navigointi',
   'appShell.openNav': 'Avaa navigointi',
   'common.dashboard': 'Kojelauta',
@@ -16,12 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Näytä kaikki ottelut \\u2192',
   'dashboard.viewAllStandings': 'Täydelliset sijoitukset \\u2192',
   'dashboard.viewAllStats': 'Näytä kaikki tilastojohtajat \\u2192',
+  'forgot.submitting': 'Lähetetään palautuslinkkiä…',
   'forgot.subtitle': 'Anna sähköpostiosoitteesi saadaksesi palautuslinkin.',
+  'forgot.success': 'Nollauslinkki lähetetty osoitteeseen {{email}}. Tarkista sähköpostisi.',
+  'landing.copyright': '© {{year}} {{app}}. Tavoittele sarjasijaa.',
+  'landing.ctaBody':
+    'Oma liigasi. Omat sarjataulukkosi. Oma suosikkijoukkueesi — kiinnitettynä yläreunaan. Kahdessa minuutissa käyttöön, ilmaiseksi koko kauden.',
   'landing.ctaHeading': 'Lopeta kolmannen osapuolen tulostaulujen päivittäminen',
   'landing.eyebrow': 'Rakennettu faneille, valmentajille ja liigan järjestäjille',
   'landing.featuresHeading': 'Eturivin paikka jokaiselle seisovalle',
   'landing.getStarted': 'Liity liigaan',
   'landing.heroCta': 'Liity liigaan',
+  'landing.heroSubtitle':
+    '{{app}} kokoaa sarjataulukot, aikataulut ja tilastokärjet yhdeksi lähetystasoiseksi kojelaudaksi. Live-tulokset. Oikeat tulokset. Ei turhaa.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Tänä iltana liigan eri osissa',
   'landing.statFans': 'Fanit seuraavat',
   'landing.statGames': 'Pelit tällä kaudella',
@@ -33,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Takaisin otteluihin',
   'matchDetail.eventsHeading': 'Peli kerrallaan',
+  'matchDetail.final': 'LOPULLINEN',
   'matchDetail.finalScore': 'Lopullinen',
   'matchDetail.live': 'ELÄÄ',
   'matchDetail.liveNow': 'Live nyt',
   'matchDetail.noEvents': 'Ei vielä tallennettuja tapahtumia.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Ei otteluita tässä näkymässä — kokeile toista suodatinta.',
   'matches.eyebrow': 'Ottelupäivä',
   'matches.loading': 'Liuskekiven vetäminen…',
   'matches.subtitle':
@@ -51,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Ilmoitusten lataus epäonnistui',
   'notifications.loading': 'Ilmoituksia ladataan\\u2026',
   'pennantHeroCard.eyebrow': 'Pöydän kärki',
+  'pennantHeroCard.formLabel': 'Viimeiset 10',
   'pennantHeroCard.gamesAhead': '{{value}} pelejä ennen takaa-ajoa',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Päänavigaatio',
@@ -78,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Valitse istumapaikkasi',
   'pricing.heading': 'Päivitä saadaksesi rikkaamman aikataulun, tulokset ja sijoitukset.',
   'pricing.limits.schedule': '{{count}} aikataulumerkinnät',
+  'pricing.limits.scores': '{{count}} tulokset',
+  'pricing.limits.standings': '{{count}} sarjataulukot',
+  'pricing.limits.teams': '{{count}} joukkueet',
+  'pricing.subtitle': 'Päivitä saadaksesi kattavamman aikataulun, tulokset ja sarjataulukot.',
   'pricing.upgradeCta': 'Päivitä: {{tierName}}',
   'profile.eyebrow': 'Faniprofiili',
   'profile.favoritesCount': 'Seuratut joukkueet',
   'profile.favoritesHeading': 'Suosikkijoukkueet',
   'profile.noFavorites': 'Ei vielä suosikkeja — valitse joukkueet Joukkueet-sivulta.',
   'profile.rankRecord': 'Sijoitus # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Tulos {{record}}',
   'reset.confirmPlaceholder': 'Kirjoita salasana uudelleen',
+  'reset.mismatch': 'Salasanat eivät täsmää.',
   'reset.newLabel': 'Uusi salasana',
   'reset.subtitle': 'Valitse vahva, vähintään 12 merkkiä pitkä salasana.',
   'reset.tokenPlaceholder': 'Liitä sähköpostista',
   'schedule.eyebrow': 'Liuskekivi',
+  'schedule.moreGames': '+ {{count}} lisää',
   'schedule.subtitle':
     'Kalenterinäkymä otteluista koko kauden ajalta – napauta mitä tahansa päivää nähdäksesi ottelutilastot.',
   'scoreboardTicker.empty': 'Ei live-otteluita juuri nyt — tarkista kiekon pudotuspaikalta.',
@@ -96,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Personoi',
   'settings.favoritesBody':
     'Nämä joukkueet kiinnitetään kojelautaasi ja ne käynnistävät tuloshälytyksiä.',
+  'settings.favoritesHeading': 'Suosikkijoukkueet',
   'settings.loading': 'Asetuksiasi ladataan\\u2026',
   'settings.noFavorites': 'Ei vielä suosikkeja \\u2014 valitse joukkueet Joukkueet-sivulta.',
   'settings.notificationsHeading': 'Ilmoitukset ja näyttö',
@@ -113,6 +151,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Kokonaisuus',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Neljä parasta selviytyy pudotuspeleihin – tasapistetilanne ratkaistaan pistein, sitten voittoprosenttiosuus.',
   'standings.title': 'Liigan sijoitukset',
@@ -131,6 +170,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Pelaaja',
   'teamDetail.colPos': 'Pos',
+  'teamDetail.pointsLabel': 'Pisteet',
   'teamDetail.rankLabel': 'Sijoitus # {{rank}}',
   'teamDetail.rosterHeading': 'Luettelo',
   'teamDetail.statGD': 'Maaliero',

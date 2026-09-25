@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tambayoyi, ra'ayi, ko fasalin da kuke son muna da shi? Tuntuɓi ƙungiyar daga saitunan asusunku — mutum na gaske yana karanta kowane saƙo.",
   'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
+  'about.missionTitle': 'Manufarmu',
+  'about.whatYouGetTitle': 'Abin da za ku samu',
   'analytics.empty': 'Ƙirƙiri fakiti don ganin nazarin a nan.',
   'analytics.stats.acrossDecks': 'A duk faɗin baranda',
   'analytics.stats.allTime': 'A cikin ɗakin studio ɗinka',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Taken bene',
   'landing.features.eyebrow': 'Me yasa Overture',
   'landing.features.heading': 'Duk abin da kuke buƙata don tafiya a kan dandamali a shirye.',
+  'landing.finalCta.body':
+    'Fara ɗakin aikinku cikin ƙasa da minti ɗaya. Babu katin kuɗi. Soke duk lokacin da kuke so.',
   'landing.finalCta.cta': 'Ƙirƙiri ɗakin studio ɗinku kyauta',
   'landing.finalCta.eyebrow': 'Kyauta don farawa',
   'landing.finalCta.heading': 'Ku hau kan dandamali tare da mafi kyawun dandamali a cikin aikinku.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'An gyara mintuna 12 da suka wuce',
   'notifications.created': 'an ƙirƙira',
   'notifications.edited': 'an gyara',
+  'notifications.empty.body':
+    'Ayyuka a kan faifan ku — sharhi, ambato, fitarwa — za su bayyana a nan.',
   'notifications.empty.title': 'Babu sanarwa tukuna',
   'notifications.eyebrow': 'Ayyukan mataki',
   'notifications.loading': 'Ana lodawa…',
   'notifications.shared': 'an raba shi a bainar jama’a',
+  'planUpdated.retry': 'Gwada kuma',
+  'planUpdated.verifyFailed': 'Ba mu iya tabbatar da biyan kuɗin ku ba tukuna.',
+  'planUpdated.verifyFailedBody':
+    'Ana iya ci gaba da aiwatar da biyan kuɗin ku. Gwada kuma nan ba da jimawa ba.',
   'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'present.addSlides': 'Ƙara nunin faifai',
   'present.backToDecks': 'Komawa zuwa bene',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Mai yin wasan kwaikwayo',
   'settings.security.notSet': 'Ba a saita ba',
   'settings.security.passwordBody': 'An ɓoye kalmar sirrinka a lokacin hutu.',
+  'settings.security.reset': 'Sake saitawa',
   'settings.security.title': 'Asusu + zaman',
   'shared.empty.body':
     'Falo da kuka raba a bainar jama’a za su bayyana a nan. Buɗe falo kuma ku canza jama’a don rabawa.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Ana lodawa…',
   'shared.title': 'Falo da aka raba',
   'templateCard.slideCount': '{{count}} zamiyali',
+  'templateCard.usageCount': '{{count}} amfani',
+  'templates.empty.body': 'Gwada wani tacewa daban — muna fitar da sabbin samfura kowane wata.',
+  'templates.empty.title': 'Babu samfura a wannan rukunin tukuna',
+  'templates.hero.body':
+    'Tsarin faifai masu jigo da tubalan zane, firam ɗin gwaji, bayanan mai gabatarwa, da saitin lokaci — kowane samfuri yana shirye don yin rikodi.',
   'templates.hero.eyebrow': 'Matakan da aka tsara',
   'templates.hero.heading': 'An gina matakai don lokacin da kake buƙatar sauka.',
 }

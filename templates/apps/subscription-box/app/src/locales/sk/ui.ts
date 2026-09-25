@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte otázky k edícii, zásielke alebo predplatnému? Napíšte skutočnému človeku z tímu na hello@crate.example — čítame každú správu.',
+  'about.contactTitle': 'Porozprávajte sa s kurátorom',
+  'about.feature1':
+    'Každý mesiac kurátorsky vyberané edície od nezávislých tvorcov, s príbehom za každým predmetom.',
+  'about.feature2':
+    'Plná kontrola nad každou krabicou — prispôsobte si obsah, vymeňte alebo vylúčte predmety, preskočte mesiac alebo zmeňte frekvenciu.',
+  'about.feature3':
+    'Sledovanie zásielky od vyzdvihnutia až po dvere, s ekologickým balením bez plastov a aktuálnymi informáciami od prepravcu.',
+  'about.feature4':
+    'Flexibilné plány a transparentné fakturovanie — kedykoľvek z panela upgradujte, degradujte, pozastavte alebo zrušte predplatné.',
+  'about.intro':
+    '{{app}} je služba kurátorsky zostavovaných predplatiteľských krabíc, ktorá vám každý mesiac doručí ručne vyberanú malosériovú krabicu radosti až k dverám. Každú edíciu zostavujú pracujúci tvorcovia — nezávislí umelci, kuchári a malé značky — nie algoritmus.',
+  'about.missionBody':
+    'Veríme, že predplatné má pôsobiť ako darček, nie ako pasca. {{app}} je navrhnuté tak, aby ste zostali, pretože milujete to, čo vám chodí — kedykoľvek pozastavte, vymeňte, čo chcete, a zrušte jedným kliknutím. Žiadne retenčné skripty, nikdy.',
+  'about.missionTitle': 'Naše poslanie',
   'about.pageTitle': 'O aplikácii {{app}}',
   'appNav.mobileLabel': 'Hlavná navigácia',
   'appNav.primaryLabel': 'Hlavná navigácia',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Upraviť fakturačný kontakt',
   'billing.contact.eyebrow': 'Fakturačný kontakt',
   'billing.eyebrow': 'Plán a platby',
+  'billing.loading': 'Načítavanie faktúry…',
   'billing.payment.body':
     'Platbu spracováva služba Stripe Checkout – celé číslo vašej karty sa nikdy nedostane do kontaktu s našimi servermi. Kliknite na ľubovoľnú úroveň nižšie a pridajte alebo aktualizujte svoju kartu.',
   'billing.payment.linked': 'Karta uložená cez Stripe',
@@ -19,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Obnoviť odber',
   'billing.plan.eyebrow': 'Aktívny plán',
   'billing.plan.next': 'Automaticky sa obnovuje dňa {{date}} .',
+  'billing.plan.status': 'Stav: {{status}}',
   'billing.subtitle': 'Spravujte svoju úroveň, spôsob platby a kontrolujte si minulú aktivitu.',
   'billing.tiers.body': 'Vyberte si úroveň a my vás presmerujeme do služby Stripe Checkout.',
   'billing.tiers.choose': 'Vyberte si',
+  'billing.tiers.empty': 'Zatiaľ nie sú nastavené žiadne úrovne.',
   'billing.tiers.heading': 'Dostupné úrovne',
   'boxDetail.backToBoxes': 'Späť na všetky vydania',
   'boxDetail.crumb.boxes': 'Vydania',
@@ -34,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Vybraný kus',
   'boxDetail.items.heading': '{{count}} vybrané kúsky',
   'boxDetail.itemsBadge': '{{count}} vybrané položky v každej krabici',
+  'boxDetail.loading': 'Načítava sa edícia…',
   'boxDetail.notFound': 'Toto vydanie už nie je dostupné.',
   'boxDetail.subscribe.success': 'Predplatené – vaše prvé vydanie je zaradené do poradia.',
   'boxDetail.swapBadge': 'Vymeniť za {{count}} položka(y) v krabici',
@@ -42,14 +62,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Nezodpovedajú žiadne vydania.',
   'boxes.eyebrow': 'Archív Crate',
   'boxes.heading': 'Prezrite si každé vydanie',
+  'boxes.loadError': 'Edície sa nepodarilo načítať. Skontrolujte pripojenie a skúste to znova.',
   'boxes.loading': 'Načítavajú sa vydania…',
+  'boxes.search.label': 'Hľadať edície',
   'boxes.search.placeholder': 'Hľadať vydania…',
   'boxes.subtitle':
     'Každá úroveň je malá várka príbehov. Pridajte si jeden do frontu alebo ho preložte do ďalšieho mesiaca.',
+  'boxThemeCard.itemCount': '{{count}} položky',
   'boxThemeCard.perMonth': '/ mesiac',
+  'boxThemeCard.retailValue': 'Maloobchodná hodnota {{value}}',
   'common.goToDashboard': 'Prejsť na prehľad',
+  'common.retry': 'Skúsiť znova',
   'customize.eyebrow': 'Prispôsobte si to',
   'customize.heading': 'Prispôsobte si svoj ďalší poklad',
+  'customize.items.empty': 'Pre túto úroveň zatiaľ nie sú nastavené žiadne predmety.',
   'customize.items.exclude': 'Preskočiť toto',
   'customize.items.eyebrow': 'Prispôsobte si túto krabicu',
   'customize.items.heading': 'Položky v {{box}}',
@@ -58,8 +84,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Pridať späť',
   'customize.items.save': 'Uložiť prispôsobenie',
   'customize.items.swapsLeft': '{{used}} z {{max}} použité swapy',
+  'customize.loading': 'Načítava sa prispôsobenie…',
   'customize.noSub.body':
     'Najprv sa prihláste na odber úrovne a potom sa vráťte a vymeňte si položky vo svojej krabici.',
+  'customize.noSub.cta': 'Prezerať edície',
   'customize.noSub.heading': 'Žiadne aktívne predplatné',
   'customize.saved': 'Prispôsobenie bolo uložené.',
   'customize.subtitle':
@@ -73,11 +101,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Sledovanie zásielky',
   'dashboard.eyebrow': 'Váš poklad',
   'dashboard.greeting': 'Vitaj späť, {{name}} .',
+  'dashboard.loadError':
+    'Váš panel sa nepodarilo načítať. Skontrolujte pripojenie a skúste to znova.',
   'dashboard.loading': 'Načítava sa ovládací panel…',
   'dashboard.next.eyebrow': 'Vaše ďalšie vydanie',
   'dashboard.onboarding.body':
     'Zatiaľ nemáte aktívne predplatné. Vyberte si úroveň a začnite každý mesiac posielať poklad.',
   'dashboard.onboarding.cta': 'Prezrieť všetky vydania',
+  'dashboard.onboarding.empty': 'Momentálne nie sú dostupné žiadne plány. Skontrolujte to čoskoro.',
   'dashboard.onboarding.heading': 'Vyberte si svoje prvé vydanie',
   'dashboard.renewal.amount': 'Nabité',
   'dashboard.renewal.cadence': 'Kadencia',
@@ -85,18 +116,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Obnova',
   'dashboard.renewal.heading': 'Automatické obnovenie dňa {{date}}',
   'dashboard.renewal.plan': 'Kľúč plánu',
+  'dashboard.renewal.tbd': 'Plánovanie obnovy čoskoro',
   'dashboard.renewal.tier': 'Úroveň',
   'dashboard.stats.days': 'dni',
   'dashboard.stats.daysToNext': 'Lode v',
   'dashboard.stats.items': 'Vybrané položky',
   'dashboard.stats.shipDate': 'Dátum odoslania',
   'dashboard.stats.tbd': 'Bude oznámené',
+  'dashboard.subtitle.active': 'Vaša ďalšia edícia je na ceste. Tu je, čo očakávať.',
+  'dashboard.subtitle.idle': 'Vyberte úroveň a začnite dostávať {{appName}} každý mesiac.',
   'forgotPassword.subtitle': 'Napíšte nám svoj e-mail a my vám pošleme odkaz na obnovenie.',
   'forgotPassword.success.body':
     'Ak {{email}} je zaregistrovaný, do niekoľkých minút dostanete odkaz na obnovenie.',
   'forgotPassword.success.title': 'Skontrolujte si doručenú poštu.',
   'landing.editions.eyebrow': 'Túto sezónu',
   'landing.editions.heading': 'Edície, ktoré naši kurátori milujú',
+  'landing.editions.viewAll': 'Prezerať všetky edície →',
   'landing.footer.contact': 'Porozprávajte sa s kurátorom',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Začnite svoju krabicu →',
@@ -106,6 +141,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Pohľad na ovládací panel člena – odpočítavanie, obsah a sledovanie.',
   'landing.hero.social.count': 'Milované {{count}} + odberatelia',
+  'landing.hero.social.rating': 'Priemerné hodnotenie rozbalenia {{rating}}',
+  'landing.hero.subhead':
+    '{{appName}} vám posiela ručne vyberanú malosériovú krabicu radosti od nezávislých tvorcov. Kedykoľvek pozastavte. Vymeňte, čo chcete. Ponechajte si, čo milujete.',
   'landing.nav.start': 'Začnite svoju krabicu',
   'landing.tiers.eyebrow': 'Vyberte si kadenciu',
   'landing.tiers.heading':
@@ -116,6 +154,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Prihláste sa a pozrite si škatuľku na budúci mesiac.',
   'login.welcomeBack': 'Vitaj späť, kurátor.',
   'nextBoxHeroCard.eyebrow': 'TVOJ ĎALŠÍ POKLAD',
+  'nextBoxHeroCard.itemCount': '{{count}} kusov vnútri',
   'nextBoxHeroCard.itemsLabel': 'Vybrané položky',
   'nextBoxHeroCard.shipsOnLabel': 'Odosiela sa',
   'notFound.body':
@@ -139,8 +178,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Pozastaviť predplatné',
   'settings.danger.paused': 'Predplatné pozastavené.',
   'settings.danger.pausing': 'Pozastavuje sa…',
+  'settings.danger.status': 'Stav predplatného: {{status}}',
   'settings.danger.subtitle':
     'Pozastavenie zachová vašu úroveň a históriu nedotknuté. Zrušenie zastaví budúce zásielky a na konci cyklu odstráni vaše uložené spôsoby platby.',
+  'settings.notifications.saving': '· ukladá sa…',
   'settings.notifications.subtitle':
     'Vyberte si, ktoré signály chcete od Crate. Predvolené nastavenia sú rozumné.',
   'settings.subtitle':
@@ -157,10 +198,16 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Zatiaľ žiadna aktívna zásielka',
   'shipments.live.eyebrow': 'Aktívna zásielka',
   'shipments.live.unnamed': 'Vaša ďalšia krabica',
+  'shipments.loadError':
+    'Vaše zásielky sa nepodarilo načítať. Skontrolujte pripojenie a skúste to znova.',
+  'shipments.loading': 'Načítavajú sa zásielky…',
+  'shipments.step.delivered': 'Doručené',
   'shipments.step.deliveredBody': 'Označte #crateunbox a podeľte sa o svoj objav.',
   'shipments.step.ordered': 'Objednávka zadaná',
   'shipments.step.orderedBody': 'Vaše predplatné zaradilo túto edíciu do ďalšieho cyklu odoslania.',
+  'shipments.step.packed': 'Ručne zabalené',
   'shipments.step.packedBody': 'Každý kus zabalený a vložený do krabice s ručne napísaným odkazom.',
+  'shipments.step.transit': 'Na ceste',
   'shipments.step.transitNot': 'Sledovanie sa tu zobrazí po dokončení prepravy vašej krabice.',
   'shipments.subtitle':
     'Sledujte cestu k vám a potom si znova pozrite každé vydanie, ktoré ste predtým rozbalili.',

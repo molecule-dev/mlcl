@@ -1,12 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ir atsauksmes, atradi kļūdu vai vēlies redzēt {{app}} savā dokā? Sazinies ar mums no lietotnes palīdzības — katrs ziņojums nonāk pie īsta komandas cilvēka.',
   'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.intro':
+    '{{app}} ir operatora līmeņa noliktavas izpildes programmatūra — pasūtījumi, komplektēšana, iepakošana un sūtījumi vienuviet. Tā ir veidota izpildes komandām, kas apstrādā reālu apjomu un kurām katrai darbībai noliktavā jābūt ātrai, pārskatāmai un nefalsificējamai.',
+  'about.missionBody':
+    'Operācijas balstās uz garlaicīgajām lietām — komplektēšanu, iepakošanu un nosūtīšanas etiķetēm. Mēs padarām garlaicīgās lietas ātras, pārskatāmas un uzticamas, lai noliktavas varētu nosūtīt steidzamus, ekspress un standarta pasūtījumus, nekad nesajaucot joslas.',
+  'about.missionTitle': 'Mūsu misija',
   'about.pageTitle': 'Par {{app}}',
   'auth.signup.passwordHint': 'Vismaz 12 rakstzīmes',
   'authShell.brandSubtitle': 'Izpildes konsole',
   'authShell.eyebrow': 'Laipni lūgti Sorthausā',
+  'authShell.footer': '{{appName}} · Operāciju konsole',
   'authShell.pitch':
     'Skenera tipa konsole darbam noliktavā. Komplektēšana, iepakošana un nosūtīšana no vienas konsoles — radīta operāciju vadītājiem, kuri novērtē to, kas ir svarīgs, un atsakās no pasūtījuma nepamanīšanas.',
   'authShell.sampleCaption': 'pasūtījumi nosūtīti · 8 doka durvis · 3 zonas',
@@ -17,6 +25,7 @@ export const ui: UiTranslations = {
   'dashboard.empty.action': 'Sēklu paraugu dati',
   'dashboard.empty.body':
     'Iesūtiet parauga datu kopu (pasūtījumi, krājumi, piegādes), lai jūs varētu vadīt grīdas segumu no sākuma līdz beigām.',
+  'dashboard.empty.seeding': 'Sākotnējā ielāde…',
   'dashboard.empty.title': 'Jūsu noliktava ir tukša',
   'dashboard.errorFallback': 'Tiešraides dati īslaicīgi nav pieejami.',
   'dashboard.eyebrow': 'Grīdas komanda',
@@ -37,23 +46,31 @@ export const ui: UiTranslations = {
   'dashboard.queue.viewAll': 'Atvērta rinda',
   'dashboard.subtitle': '{{active}} pasūtījumi kustībā · tiešraides virsgrāmata',
   'dashboard.title': 'Šodienas maiņas',
+  'dashboard.zones.bins': '{{count}} atkritumu tvertnes',
   'dashboard.zones.empty': 'Konfigurējiet zonas, lai redzētu grīdas aktivitāti.',
+  'dashboard.zones.eyebrow': 'Zonu siltumkarte',
   'dashboard.zones.title': 'Grīdas aktivitātes',
   'forgot.subheading':
     'Ievadiet savu darba e-pastu, un mēs nosūtīsim atiestatīšanas saiti uz jūsu iesūtni.',
   'forgot.successBody':
     'Ja {{email}} ir komandā, atiestatīšanas saite ir ceļā. Saite beigsies pēc 30 minūtēm.',
   'fulfillmentHeroCard.eyebrow': 'Kustības maiņas',
+  'fulfillmentHeroCard.onTime': '{{rate}}% laikā',
+  'fulfillmentHeroCard.ordersShipped': 'šodien nosūtītie pasūtījumi',
+  'fulfillmentHeroCard.ordersShippedWithPeriod': 'nosūtītie pasūtījumi · {{period}}',
   'fulfillmentHeroCard.subtitle': '{{units}} vienības sapakotas un ārpus doka',
   'inventory.cols.bin': 'Tvertne',
   'inventory.cols.onHand': 'Uz rokas',
   'inventory.cols.reorder': 'Pārkārtot punktu',
+  'inventory.cols.sku': 'SKU',
   'inventory.empty': 'Neviens SKU neatbilst jūsu meklēšanai.',
+  'inventory.errorFallback': 'Tiešraides dati īslaicīgi nav pieejami.',
   'inventory.eyebrow': 'Rīcībā esošās preces',
   'inventory.kpis.low': 'Zems krājumu apjoms',
   'inventory.kpis.lowHint': 'Zem atkārtotas pasūtīšanas punkta',
   'inventory.kpis.out': 'Nav noliktavā',
   'inventory.kpis.outHint': 'Nepieciešams atkārtots pasūtījums šodien',
+  'inventory.kpis.skus': 'Aktīvie SKU',
   'inventory.kpis.skusHint': 'Izsekojama pa atkritumu tvertnēm',
   'inventory.kpis.units': 'Pieejamās vienības',
   'inventory.kpis.unitsHint': 'Visās atkritumu tvertnēs',
@@ -108,6 +125,7 @@ export const ui: UiTranslations = {
   'locations.title': 'Zonas, ejas un konteineri',
   'locations.utilization': 'Izmantošana',
   'login.heading': 'Pierakstīties Sorthaus',
+  'login.noAccount': 'Jauns lietotājs Tessera?',
   'login.subheading': 'Stāva komanda katram rīkojumam, katram vilnim, katram piestātnei.',
   'notFound.body':
     'Neviena no šīm tvertnēm neatbilst šim maršrutam. Iespējams, lapa ir nosūtīta, atcelta vai novietota nepareizajā ejā.',
@@ -119,6 +137,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle': '{{count}} brīdinājumi · {{unread}} nelasīts',
   'orderDetail.back': 'Atpakaļ pie pasūtījumiem',
   'orderDetail.cancel': 'Atcelt pasūtījumu',
+  'orderDetail.items.empty': 'Nav priekšmetu.',
   'orderDetail.items.eyebrow': 'Izvēles saraksts',
   'orderDetail.items.line': 'Līnija',
   'orderDetail.items.qty': 'Daudzums',
@@ -140,7 +159,17 @@ export const ui: UiTranslations = {
   'pickList.empty': 'Šajā pasūtījumā nav preču.',
   'pickList.notFound': 'Pasūtījums nav atrasts.',
   'pickList.progress.eyebrow': 'Izvēles progress',
+  'pickListItem.progress': 'Nokomplektēts {{picked}} no {{total}}',
+  'pickListItem.qty': 'Daudzums',
   'pickListItem.toggleAria': 'Pārslēgt izvēli {{sku}}',
+  'pricing.advancedFeatures': 'Papildu funkcijas: {{yes}}',
+  'pricing.canExport': 'Datu eksports: {{yes}}',
+  'pricing.heading': 'Izvēlieties savu {{app}} plānu',
+  'pricing.maxOrders': '{{count}} pasūtījumi',
+  'pricing.maxPacking': '{{count}} iepakošana',
+  'pricing.maxPicks': '{{count}} komplektēšanas',
+  'pricing.maxShipments': '{{count}} sūtījumi',
+  'pricing.maxZones': '{{count}} zonas',
   'profile.editTitle': 'Operatora informācija',
   'profile.eyebrow': 'Operatora profils',
   'profile.field.shift': 'Pārslēgšanas logs',
@@ -175,9 +204,11 @@ export const ui: UiTranslations = {
   'reports.kpis.healthHint': '100% nozīmē, ka nav OOS',
   'reports.kpis.units': 'Pieejamās vienības',
   'reports.kpis.unitsHint': 'Visās aktīvajās SKU',
+  'reports.loadError': 'Nevarēja ielādēt atskaites datus.',
   'reports.subtitle':
     'Tiešsaistes momentuzņēmums par pasūtījumiem, to dzīves ciklu un krājumu stāvokli',
   'reports.title': 'Caurlaidspējas pārskati',
+  'reset.changedMind': 'Pārdomājāt?',
   'reset.password': 'Jauna parole',
   'reset.subheading':
     'Izvēlieties kaut ko tādu, ko jūsu komanda atcerēsies uz spēles laukuma — vismaz 12 tēlus.',
@@ -190,6 +221,7 @@ export const ui: UiTranslations = {
   'returns.loading': 'Notiek atgriešanas ielāde…',
   'returns.new': 'Jauns RMA',
   'returns.reason': 'Reason',
+  'returns.reasonPlaceholder': 'Kāpēc tas tiek atgriezts?',
   'returns.subtitle': '{{count}} RMA gaida izsniegšanu',
   'returns.title': 'Atgriešanas triāža',
   'scanner.back': 'Iziet no skenera',
@@ -200,6 +232,7 @@ export const ui: UiTranslations = {
   'scanner.placeholder': 'Ievadiet pasūtījuma numuru, SKU vai zonas kodu…',
   'scanner.recent.empty': 'Vēl nav skenējumu — izmēģiniet kādu no iepriekš minētajām.',
   'scanner.recent.eyebrow': 'Jaunākās skenēšanas',
+  'scanner.submit': 'Meklēt',
   'scanner.title': 'Turi. Mērķē. Pavelc.',
   'settings.autoAllocate':
     'Automātiski piešķirt steidzamos pasūtījumus nākamajam pieejamajam komplektētājam',
@@ -248,4 +281,5 @@ export const ui: UiTranslations = {
   'warehouseFulfillmentLayout.scanAria': 'Atvērt skeneri',
   'warehouseFulfillmentLayout.scanCta': 'Skenēt',
   'warehouseFulfillmentLayout.searchAria': 'Meklēt pasūtījumus, SKU, nodalījumus',
+  'warehouseFulfillmentLayout.searchPlaceholder': 'Meklēt pasūtījumus, SKU, novietnes…',
 }

@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite atsiliepimų, radote klaidą ar norite {{app}} savo lygai? Susisiekite su mumis per savo paskyros nustatymus — kiekviena žinutė pasiekia tikrą komandos narį.',
+  'about.contactTitle': 'Susisiekite',
   'about.eyebrow': 'Apie',
+  'about.featureAlerts':
+    'Push pranešimai apie rezultatų atnaujinimus, mainų įspėjimus, traumų ataskaitas ir lygos skelbimus.',
+  'about.featureRosters':
+    'Komandų puslapiai su pilnais sudėties sąrašais, sezono sumomis, karštomis/šaltomis serijomis ir kiekvieno žaidėjo tarpusavio susitikimų statistika.',
+  'about.featureSchedule':
+    'Sezono kalendorius ir tvarkaraščio rodinys, kad galėtumėte planuoti pagal kiekvienas rungtynes ir rezultatą.',
+  'about.featureScoreboard':
+    'Transliacijos kokybės rezultatų juosta, prisegta kiekvieno puslapio viršuje, kad niekada nepraleistumėte įvarčio.',
+  'about.featureStandings':
+    'Gyvoji turnyrinė lentelė — realaus laiko pergalių-pralaimėjimų-lygiųjų įrašai, taškai, pergalių procentas ir atkrintamųjų linija, atnaujinama po kiekvieno švilpuko.',
+  'about.intro':
+    '{{app}} yra transliacijos kokybės namai jūsų lygai. Komandos, tvarkaraščiai, gyvi rezultatai ir turnyrinė lentelė susijungia vienoje greitoje, be chaoso prietaisų skydelyje — kad sirgaliai, treneriai ir lygos organizatoriai visada žinotų, kaip sezonas klostosi.',
+  'about.missionBody':
+    'Sekti lygą neturėtų reikšti penkių skirtingų trečiųjų šalių rezultatų lentelių atnaujinimo. Sukūrėme tai, kad kiekviena lyga turėtų vieną tiesos šaltinį turnyrinei lentelei, tvarkaraščiui ir statistikai, kuri iš tikrųjų svarbi — atnaujinama po kiekvieno švilpuko, nemokama visą sezoną.',
+  'about.missionTitle': 'Mūsų misija',
+  'about.whatYouGet': 'Ką gausite',
   'appShell.closeNav': 'Uždaryti navigaciją',
   'appShell.openNav': 'Atidaryti navigaciją',
   'common.dashboard': 'Prietaisų skydelis',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Peržiūrėti visas rungtynes \\u2192',
   'dashboard.viewAllStandings': 'Pilna turnyrinė lentelė \\u2192',
   'dashboard.viewAllStats': 'Peržiūrėti visus statistikos lyderius \\u2192',
+  'forgot.submitting': 'Siunčiama nustatymo nuoroda…',
   'forgot.subtitle': 'Įveskite savo el. pašto adresą, kad gautumėte atstatymo nuorodą.',
   'forgot.success': 'Atkurti nuorodą, išsiųstą gavėjui {{email}} Patikrinkite savo pašto dėžutę.',
+  'landing.copyright': '© {{year}} {{app}}. Siek turnyrinės lentelės viršūnės.',
+  'landing.ctaBody':
+    'Jūsų lyga. Jūsų turnyrinė lentelė. Jūsų mėgstamiausia komanda — prisegta viršuje. Dvi minutės nustatymui, nemokama visą sezoną.',
   'landing.ctaHeading': 'Nustokite atnaujinti trečiųjų šalių rezultatų suvestines',
   'landing.eyebrow': 'Sukurta gerbėjams, treneriams ir lygos organizatoriams',
   'landing.featuresHeading': 'Kiekvienam stovinčiam – vieta pirmoje eilėje',
   'landing.getStarted': 'Prisijunkite prie lygos',
   'landing.heroCta': 'Prisijunkite prie lygos',
+  'landing.heroSubtitle':
+    '{{app}} sujungia turnyrinę lentelę, tvarkaraščius ir statistinius lyderius į vieną transliacijos kokybės prietaisų skydelį. Gyvi rezultatai. Tikri įrašai. Jokio chaoso.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Šįvakar lygoje',
   'landing.statFans': 'Gerbėjai seka',
   'landing.statGames': 'Šio sezono rungtynės',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Atgal į rungtynes',
   'matchDetail.eventsHeading': 'Žaidimas po žaidimo',
+  'matchDetail.final': 'FINALAS',
   'matchDetail.finalScore': 'Galutinis',
   'matchDetail.live': 'GYVAI',
   'matchDetail.liveNow': 'Tiesiogiai dabar',
   'matchDetail.noEvents': 'Kol kas neužfiksuota jokių įvykių.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Šiame rodinyje nėra rungtynių — pabandykite kitą filtrą.',
   'matches.eyebrow': 'Rungtynių diena',
   'matches.loading': 'Traukiant skalūną…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Nepavyko įkelti pranešimų',
   'notifications.loading': 'Įkeliami pranešimai\\u2026',
   'pennantHeroCard.eyebrow': 'Lentelės viršuje',
+  'pennantHeroCard.formLabel': 'Paskutinės 10',
   'pennantHeroCard.gamesAhead': '{{value}} žaidimai prieš persekiojimą',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Pagrindinė navigacija',
@@ -80,17 +109,25 @@ export const ui: UiTranslations = {
   'pricing.heading':
     'Atnaujinkite, kad gautumėte platesnį tvarkaraštį, rezultatus ir turnyrines lenteles.',
   'pricing.limits.schedule': '{{count}} tvarkaraščio įrašai',
+  'pricing.limits.scores': '{{count}} rezultatai',
+  'pricing.limits.standings': '{{count}} turnyrinė lentelė',
+  'pricing.limits.teams': '{{count}} komandos',
+  'pricing.subtitle':
+    'Atsinaujinkite, kad gautumėte turtingesnį tvarkaraštį, rezultatus ir turnyrinę lentelę.',
   'pricing.upgradeCta': 'Atnaujinti į {{tierName}}',
   'profile.eyebrow': 'Gerbėjo profilis',
   'profile.favoritesCount': 'Komandos sekė',
   'profile.favoritesHeading': 'Mėgstamiausios komandos',
   'profile.noFavorites': 'Kol kas nėra mėgstamiausių – rinkitės komandas iš „Komandų“ puslapio.',
   'profile.rankRecord': 'Reitingas # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Įrašas {{record}}',
   'reset.confirmPlaceholder': 'Įveskite slaptažodį dar kartą',
+  'reset.mismatch': 'Slaptažodžiai nesutampa.',
   'reset.newLabel': 'Naujas slaptažodis',
   'reset.subtitle': 'Pasirinkite stiprų slaptažodį, bent 12 simbolių.',
   'reset.tokenPlaceholder': 'Įklijuoti iš el. laiško',
   'schedule.eyebrow': 'Šiferis',
+  'schedule.moreGames': '+ {{count}} daugiau',
   'schedule.subtitle':
     'Viso sezono rungtynių kalendoriaus rodinys – palieskite bet kurią dieną, kad pamatytumėte rungtynių rezultatus.',
   'scoreboardTicker.empty':
@@ -99,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Suasmeninti',
   'settings.favoritesBody':
     'Šios komandos prisegamos prie jūsų prietaisų skydelio ir suaktyvina balų įspėjimus.',
+  'settings.favoritesHeading': 'Mėgstamiausios komandos',
   'settings.loading': 'Įkeliamos jūsų nuostatos\\u2026',
   'settings.noFavorites':
     'Dar nėra mėgstamiausių \\u2014 pasirinkite komandas iš „Komandų“ puslapio.',
@@ -118,6 +156,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Apskritai',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Į atkrintamąsias varžybas patenka keturios geriausios – lygiosios pagal taškus, tada pergalių procentas.',
   'standings.title': 'Lygos turnyrinė lentelė',
@@ -136,6 +175,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Žaidėjas',
   'teamDetail.colPos': 'Poz.',
+  'teamDetail.pointsLabel': 'Taškai',
   'teamDetail.rankLabel': 'Reitingas # {{rank}}',
   'teamDetail.rosterHeading': 'Sąrašas',
   'teamDetail.statGD': 'Įvarčių skirtumas',

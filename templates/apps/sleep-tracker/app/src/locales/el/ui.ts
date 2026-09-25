@@ -1,9 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε σχόλια, πρόταση για λειτουργία ή βρήκατε κάποιο σφάλμα; Διαβάζουμε κάθε μήνυμα — επικοινωνήστε μαζί μας οποιαδήποτε στιγμή και ένα πραγματικό μέλος της ομάδας θα σας απαντήσει.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.intro':
+    'Το {{app}} είναι ένας καταγραφέας ύπνου αποκατάστασης που μετατρέπει κάθε νύχτα σε σαφή, αξιοποιήσιμη πληροφορία. Συνδέεται με τη φορητή συσκευή σας για να καταγράφει κάθε στάδιο του ύπνου σας, να βαθμολογεί την ανάκαμψή σας και να σας ξυπνά την κατάλληλη στιγμή του κύκλου σας — ώστε να χτίσετε νύχτες που σας αφήνουν πραγματικά ξεκούραστους.',
+  'about.missionBody':
+    'Οι περισσότερες εφαρμογές ύπνου σταματούν σε έναν αριθμό σε έναν πίνακα. Πιστεύουμε ότι ο καλύτερος ύπνος προέρχεται από την κατανόηση του γιατί πίσω από τη βαθμολογία και έπειτα από την αλλαγή ενός μικρού πράγματος τη φορά. Το {{app}} είναι σχεδιασμένο να είναι ήρεμο, ποτέ θορυβώδες — αναδεικνύει ό,τι έχει σημασία από τα δεδομένα σας και δεν σας ενοχλεί την υπόλοιπη νύχτα.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.pageTitle': 'Σχετικά με το {{app}}',
+  'about.whatYouGetTitle': 'Τι αποκτάτε',
+  'authShell.privacyBadge':
+    'Οι νύχτες σας παραμένουν ιδιωτικές — κρυπτογραφημένες σε κατάσταση ηρεμίας.',
+  'authShell.tagline': '{{app}} — {{tagline}}',
   'coaching.activeBanner.continue': 'Διαβάστε το άρθρο',
+  'coaching.activeBanner.eyebrow': 'Προτεινόμενο άρθρο',
   'coaching.empty.body': 'Τα νέα προγράμματα θα εμφανίζονται εδώ καθώς προστίθενται.',
   'coaching.empty.title': 'Δεν υπάρχουν ακόμη άρθρα για την καθοδήγηση.',
   'coaching.eyebrow': 'Προπόνηση',
@@ -16,6 +28,7 @@ export const ui: UiTranslations = {
   'coachingDetail.eyebrow': 'Αρθρο',
   'coachingDetail.locked.body':
     'Αναβαθμίστε το πρόγραμμά σας για να διαβάσετε αυτό και άλλα άρθρα υψηλής ποιότητας.',
+  'coachingDetail.locked.cta': 'Αναβάθμιση προγράμματος',
   'coachingDetail.locked.title': 'Αυτό το άρθρο είναι premium',
   'coachingDetail.notFound': 'Δεν μπορέσαμε να βρούμε αυτό το άρθρο.',
   'coachingDetail.unavailable': 'Το άρθρο δεν είναι διαθέσιμο',
@@ -23,6 +36,7 @@ export const ui: UiTranslations = {
   'dashboard.empty.body':
     'Καταγράψτε μια νύχτα ή συνδέστε μια φορητή συσκευή για να αρχίσετε να βλέπετε τα μοτίβα ύπνου σας.',
   'dashboard.empty.cta': 'Συνδέστε μια φορετή συσκευή',
+  'dashboard.empty.title': 'Δεν έχουν καταγραφεί νύχτες ακόμη',
   'dashboard.eyebrow': 'Απόψε',
   'dashboard.heroInsight': 'Παρακολουθήστε μια άλλη νύχτα για να εντοπίσετε τάσεις βαθύ ύπνου.',
   'dashboard.loading': 'Φόρτωση πρόσφατων νυχτών…',
@@ -42,13 +56,19 @@ export const ui: UiTranslations = {
   'devices.loading': 'Φόρτωση συσκευών…',
   'devices.pauseAria': 'Παύση {{brand}}',
   'devices.providerField': 'Πάροχος',
+  'devices.resumeAria': 'Συνέχιση {{brand}}',
   'devices.synced': 'Συγχρονισμένο {{value}}',
+  'devices.unlink': 'Αποσύνδεση',
   'devices.unlinkAria': 'Αποσύνδεση {{brand}}',
+  'forgotPassword.continueButton': 'Εισαγωγή κωδικού επαναφοράς',
   'forgotPassword.eyebrow': 'Μην ανησυχείτε',
   'forgotPassword.subheading':
     'Εισαγάγετε το email σας και θα σας στείλουμε έναν σύνδεσμο επαναφοράς.',
   'forgotPassword.successBody':
     "Εάν υπάρχει λογαριασμός για {{email}} , ένας σύνδεσμος επαναφοράς είναι καθ' οδόν.",
+  'landing.ctaBody':
+    'Δωρεάν για νυχτερινή καταγραφή. Το Pro ξεκλειδώνει προγράμματα καθοδήγησης, εξαγωγές και οικογενειακή κοινή χρήση.',
+  'landing.ctaButton': 'Παρακολουθήστε την πρώτη σας νύχτα',
   'landing.ctaTitle': 'Απόψε είναι δεδομένα. Αύριο είναι ανάκαμψη.',
   'landing.eyebrow': 'Ύπνος, αποκωδικοποιημένος',
   'landing.featuresBody':
@@ -66,16 +86,26 @@ export const ui: UiTranslations = {
   'login.heading': 'Σύνδεση στο Somnia',
   'login.rememberMe': 'Να παραμένω συνδεδεμένος',
   'login.signupLink': 'Ξεκινήστε την παρακολούθηση απόψε',
+  'login.signupPrompt': 'Νέος στο Tessera;',
   'login.subheading': 'Συνεχίστε τις βραδιές σας από εκεί που τις αφήσατε.',
   'logNight.bedtimeField': 'Ωρα ύπνου',
   'logNight.dateField': 'Νύχτα του',
+  'logNight.errors.missingFields':
+    'Η ημερομηνία, η ώρα ύπνου και η ώρα αφύπνισης είναι όλα υποχρεωτικά.',
+  'logNight.errors.noRecord':
+    'Η νύχτα αποθηκεύτηκε αλλά ο διακομιστής δεν επέστρεψε καμία εγγραφή.',
+  'logNight.errors.saveFailed': 'Η αποθήκευση της νύχτας απέτυχε — δοκιμάστε ξανά.',
+  'logNight.errors.zeroLength': 'Η ώρα αφύπνισης πρέπει να είναι διαφορετική από την ώρα ύπνου.',
+  'logNight.factorsField': 'Παράγοντες',
   'logNight.interruptionsField': 'Ξυπνήματα κατά τη διάρκεια της νύχτας',
   'logNight.notesField': 'Σημειώσεις (προαιρετικό)',
+  'logNight.qualityField': 'Πόσο ξεκούραστο ήταν; ({{score}}/100)',
   'logNight.save': 'Αποθήκευση νύχτας',
   'logNight.title': 'Καταγράψτε μια νύχτα',
   'logNight.wakeField': 'Ώρα αφύπνισης',
   'night.backLink': 'Επιστροφή στο ιστορικό',
   'night.eyebrow': 'Μονή νύχτα',
+  'night.factorsTitle': 'Οι παράγοντες καταγράφηκαν',
   'night.heroInsight': 'Πατήστε ένα στάδιο στη χρονογραμμή για να βουτήξετε.',
   'night.loading': 'Φόρτωση λεπτομερειών νύχτας…',
   'night.notFound.body': 'Δεν έχουμε καταγραφή ύπνου για αυτήν την ημερομηνία.',
@@ -86,6 +116,7 @@ export const ui: UiTranslations = {
   'nightHistory.count': 'Επίδειξη {{count}} νύχτες',
   'nightHistory.empty.body':
     'Καταγράψτε μια συνεδρία ύπνου ή συνδέστε μια φορητή συσκευή για να συμπληρώσετε το ιστορικό σας.',
+  'nightHistory.empty.title': 'Δεν έχουν καταγραφεί νύχτες ακόμη',
   'nightHistory.heading': 'Κάθε βράδυ που έχεις παρακολουθήσει',
   'nightHistory.loading': 'Φόρτωση διανυκτερεύσεων…',
   'nightHistory.logNight': 'Καταγράψτε μια νύχτα',
@@ -94,6 +125,7 @@ export const ui: UiTranslations = {
   'nightHistoryRow.hourSuffix': 'ώρα',
   'nightHistoryRow.minSuffix': 'λεπτά',
   'nightHistoryRow.rem': '{{pct}} % REM',
+  'nightHistoryRow.scoreAria': 'Βαθμολογία {{score}}',
   'notifications.emptyBody':
     'Νέα δραστηριότητα, υπενθυμίσεις συναγερμού και υπενθυμίσεις καθοδήγησης θα εμφανίζονται εδώ.',
   'notifications.emptyHeading': 'Είστε ενήμεροι',
@@ -105,9 +137,16 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Η ταυτότητά σας στον ύπνο',
   'profile.locked': 'Κλειδωμένο',
   'recoveryRingsTriad.deepCaption': 'Στόχος {{goal}} % της νύχτας',
+  'recoveryRingsTriad.deepLabel': 'Βαθύς ύπνος',
+  'recoveryRingsTriad.deepValue': '{{pct}} %',
   'recoveryRingsTriad.durationCaption': 'Γκολ {{goal}} ω / νύχτα',
+  'recoveryRingsTriad.durationValue': '{{hours}} ώ.',
+  'recoveryRingsTriad.heartCaption': 'Βάση {{baseline}} bpm',
+  'recoveryRingsTriad.heartLabel': 'Καρδιακή συχνότητα ηρεμίας',
+  'recoveryRingsTriad.heartValue': '{{bpm}} bpm',
   'resetPassword.eyebrow': 'Ένα φρέσκο ξεκίνημα',
   'resetPassword.mismatchError': 'Οι κωδικοί πρόσβασης δεν ταιριάζουν.',
+  'resetPassword.passwordLabel': 'Νέος κωδικός πρόσβασης',
   'resetPassword.subheading': 'Επιλέξτε κάτι χαλαρωτικό — τουλάχιστον 12 χαρακτήρες.',
   'resetPassword.tokenPlaceholder': 'Επαναφορά κωδικού από email',
   'settings.bedtimeGoal': 'Ωρα ύπνου',
@@ -115,15 +154,21 @@ export const ui: UiTranslations = {
     'Κάντε απαλό σκούντημα 30 λεπτά πριν από την ώρα που θέλετε να κοιμηθείτε.',
   'settings.bedtimeReminder.label': 'Υπενθύμιση ώρας ύπνου',
   'settings.durationGoal': 'Στόχος διάρκειας (ώρες)',
+  'settings.exportDelete.description':
+    'Λάβετε ένα CSV για κάθε νύχτα ή διαγράψτε οριστικά τον λογαριασμό σας.',
   'settings.exportDelete.label': 'Εξαγωγή ή διαγραφή των δεδομένων σας',
   'settings.goalsCaption': 'Πες στη Σόμνια τι σημαίνει καλό για εσένα',
   'settings.goalsTitle': 'Στόχοι ύπνου',
+  'settings.shareDevices.description':
+    'Ανωνυμοποιημένα, με συγκατάθεση. Μπορείτε να σταματήσετε την κοινή χρήση οποιαδήποτε στιγμή.',
   'settings.shareDevices.label': 'Κοινή χρήση δεδομένων συσκευής με ερευνητές',
   'settings.smartAlarm.description':
     'Ξυπνήστε μέσα σε ένα παράθυρο ελαφρού ύπνου πριν από την ώρα του ξυπνητηριού.',
+  'settings.smartAlarm.label': 'Έξυπνο ξυπνητήρι',
   'settings.wakeGoal': 'Ώρα αφύπνισης',
   'settings.weeklyReport.description':
     'Σύνοψη της Κυριακής το πρωί με διάρκεια, βαθμολογία και βραδιές που ξεχώρισαν.',
+  'settings.weeklyReport.label': 'Εβδομαδιαίο email σύνοψης',
   'signup.eyebrow': 'Ξεκινήστε απόψε',
   'signup.firstNamePlaceholder': 'Σαμ',
   'signup.lastNamePlaceholder': 'Βαγόνι ύπνου',
@@ -132,6 +177,7 @@ export const ui: UiTranslations = {
   'sleepScoreHeroCard.duration': '{{hours}} ω {{mins}} μ',
   'sleepScoreHeroCard.outOf': '/ 100',
   'sleepScoreHeroCard.title': 'Χτές βράδυ',
+  'sleepStagesTimeline.ariaLabel': 'Χρονολόγιο σταδίων ύπνου',
   'sleepStagesTimeline.title': 'Υπνογράφημα',
   'sleepTrackerLayout.closeMenu': 'Κλείσιμο μενού πλοήγησης',
   'sleepTrackerLayout.openMenu': 'Άνοιγμα μενού πλοήγησης',
@@ -144,6 +190,7 @@ export const ui: UiTranslations = {
   'sleepTrendChart.title': 'Τάση διάρκειας',
   'smartAlarm.addAlarm': 'Νέο ξυπνητήρι',
   'smartAlarm.daysField': 'Ημέρες',
+  'smartAlarm.deleteAria': 'Διαγραφή ξυπνητηριού {{label}}',
   'smartAlarm.emptyBody':
     'Προσθέστε μια ώρα αφύπνισης για να ξεκινήσετε τον συγχρονισμό με τους κύκλους ύπνου σας.',
   'smartAlarm.emptyHeading': 'Δεν υπάρχουν ακόμη ξυπνητήρια',
@@ -151,7 +198,10 @@ export const ui: UiTranslations = {
   'smartAlarm.eyebrow': 'Έξυπνη αφύπνιση',
   'smartAlarm.heading': 'Ξύπνα την κατάλληλη στιγμή',
   'smartAlarm.labelField': 'Επιγραφή',
+  'smartAlarm.loading': 'Φόρτωση ξυπνητηριών…',
   'smartAlarm.newDialog': 'Νέο ξυπνητήρι',
+  'smartAlarm.noAlarmsSubtitle':
+    'Προσθέστε ένα ξυπνητήρι για να λάβετε ένα έξυπνο παράθυρο αφύπνισης.',
   'smartAlarm.save': 'Αποθήκευση ξυπνητηριού',
   'smartAlarm.soundField': 'Ήχος',
   'smartAlarm.soundsCaption': 'Επιλογή ήχου αφύπνισης για νέα ξυπνητήρια',
@@ -170,6 +220,7 @@ export const ui: UiTranslations = {
   'trends.eyebrow': 'Μοτίβα',
   'trends.heading': 'Πώς εξελίσσεται ο ύπνος σας',
   'trends.stageBreakdown.caption': 'Μέση κατανομή σε {{hours}} ω',
+  'trends.stageBreakdown.minutes': '{{minutes}}λ',
   'trends.stageBreakdown.title': 'Ανάλυση σταδίου',
   'trends.summary.avgDuration': 'Μέση διάρκεια',
   'trends.summary.avgScore': 'Μέση βαθμολογία',

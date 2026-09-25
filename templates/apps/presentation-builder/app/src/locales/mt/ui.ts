@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Mistoqsijiet, feedback, jew karatteristika li tixtieq li kellna? Ikkuntattja lit-tim mill-issettjar tal-kont tiegħek — persuna reali taqra kull messaġġ.',
   'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
+  'about.missionTitle': 'Il-missjoni tagħna',
+  'about.whatYouGetTitle': 'Dak li tikseb',
   'analytics.empty': 'Oħloq decks biex tara l-analitiċi hawn.',
   'analytics.stats.acrossDecks': 'Madwar il-gverti kollha',
   'analytics.stats.allTime': 'Fl-istudjo tiegħek',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Titlu tal-gverta',
   'landing.features.eyebrow': 'Għaliex Overture',
   'landing.features.heading': 'Dak kollu li għandek bżonn biex titla’ fuq il-palk lest.',
+  'landing.finalCta.body':
+    "Ibda l-istudjo tiegħek f'inqas minn minuta. L-ebda karta tal-kreditu. Ikkanċella meta trid.",
   'landing.finalCta.cta': 'Oħloq l-istudjo b’xejn tiegħek',
   'landing.finalCta.eyebrow': 'Ħieles biex tibda',
   'landing.finalCta.heading': 'Itla’ fuq il-palk bl-aqwa gverta tal-karriera tiegħek.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Editjat 12-il minuta ilu',
   'notifications.created': 'maħluqa',
   'notifications.edited': 'editjat',
+  'notifications.empty.body':
+    'L-attività fuq il-decks tiegħek — kummenti, referenzi, esportazzjonijiet — tidher hawn.',
   'notifications.empty.title': 'Għad m’hemm l-ebda notifikazzjonijiet',
   'notifications.eyebrow': 'Attività tal-palk',
   'notifications.loading': 'Qed jitgħabba…',
   'notifications.shared': 'kondiviż pubblikament',
+  'planUpdated.retry': 'Erġa’ pprova',
+  'planUpdated.verifyFailed': 'Għadna ma stajniex nikkonfermaw il-ħlas tiegħek.',
+  'planUpdated.verifyFailedBody':
+    "Jista' jkun li l-ħlas tiegħek għadu qed jiġi pproċessat. Erġa' pprova fi ftit ħin.",
   'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'present.addSlides': 'Żid slajds',
   'present.backToDecks': 'Lura għall-gverti',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Artist tal-palk',
   'settings.security.notSet': 'Mhux issettjat',
   'settings.security.passwordBody': 'Il-password tiegħek hija kriptata meta tkun wieqfa.',
+  'settings.security.reset': 'Irrisettja',
   'settings.security.title': 'Kont + sessjonijiet',
   'shared.empty.body':
     'Id-decks li taqsam pubblikament se jidhru hawn. Iftaħ deck u aqleb għall-pubbliku biex taqsam.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Qed jitgħabba…',
   'shared.title': 'Gverti kondiviżi',
   'templateCard.slideCount': '{{count}} slajds',
+  'templateCard.usageCount': '{{count}} użi',
+  'templates.empty.body': 'Ipprova filtru differenti — noħorġu templates ġodda kull xahar.',
+  'templates.empty.title': "Għad m'hemmx templates f'din il-kategorija",
+  'templates.hero.body':
+    "Layouts tas-slides b'tema minn qabel b'blokki tal-graffiċi, frejms tad-demo, noti tal-preżentatur, u presets tat-timer — kull template jiġi lest biex tirrekordja.",
   'templates.hero.eyebrow': 'Stadji kkurati',
   'templates.hero.heading': 'Stadji mibnija għall-mument li għandek bżonn tniżżlu.',
 }

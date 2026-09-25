@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imibuzo, impendulo, noma isici obungathanda ukuba naso? Xhumana neqembu kusukela kuzilungiselelo ze-akhawunti yakho — umuntu wangempela ufunda yonke imiyalezo.',
   'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.missionTitle': 'Umsebenzi wethu',
+  'about.whatYouGetTitle': 'Lokho okutholayo',
   'analytics.empty': 'Dala amadekhi ukuze ubone izibalo lapha.',
   'analytics.stats.acrossDecks': 'Kuwo wonke amadekhi',
   'analytics.stats.allTime': 'Esitudiyo sakho',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Isihloko sedekhi',
   'landing.features.eyebrow': 'Kungani i-Overture',
   'landing.features.heading': 'Konke okudingayo ukuze uhambe esiteji ukulungele.',
+  'landing.finalCta.body':
+    'Qala isitudiyo sakho ngaphansi komzuzu. Ayikho ikhadi lesikweletu. Khansela noma nini.',
   'landing.finalCta.cta': 'Dala isitudiyo sakho samahhala',
   'landing.finalCta.eyebrow': 'Kumahhala ukuqala',
   'landing.finalCta.heading': 'Geza esiteji ngedekhi engcono kakhulu yomsebenzi wakho.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Kuhlelwe emaminithini angu-12 edlule',
   'notifications.created': 'kudalwe',
   'notifications.edited': 'kuhleliwe',
+  'notifications.empty.body':
+    'Umsebenzi kumadekhi akho — ukuphawula, ukukhulunywa ngaye, ukuthunyelwa ngaphandle — kuzovela lapha.',
   'notifications.empty.title': 'Azikho izaziso okwamanje',
   'notifications.eyebrow': 'Umsebenzi wesiteji',
   'notifications.loading': 'Iyalayisha…',
   'notifications.shared': 'kwabelwane esidlangalaleni',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'present.addSlides': 'Engeza amaslayidi',
   'present.backToDecks': 'Buyela emadekini',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Umdlali wesiteji',
   'settings.security.notSet': 'Akusethiwe',
   'settings.security.passwordBody': 'Iphasiwedi yakho ibethelwe ngesikhathi sokuphumula.',
+  'settings.security.reset': 'Setha kabusha',
   'settings.security.title': 'I-akhawunti + izikhathi',
   'shared.empty.body':
     'Amadekhi owabelana ngawo esidlangalaleni azovela lapha. Vula idekhi bese uguqula umphakathi ukuze wabelane ngawo.',
@@ -131,6 +144,12 @@ export const ui: UiTranslations = {
   'shared.loading': 'Iyalayisha…',
   'shared.title': 'Amadekhi ahlanganyelwe',
   'templateCard.slideCount': '{{count}} amaslayidi',
+  'templateCard.usageCount': '{{count}} ukusetshenziswa',
+  'templates.empty.body':
+    'Zama isihlungi esihlukile — sithumela amathempulethi amasha njalo ngenyanga.',
+  'templates.empty.title': 'Awekho amathempulethi kulesi sigaba okwamanje',
+  'templates.hero.body':
+    'Izakhiwo zamaslayidi ezinezingqikithi ezinamabhulokhi eshadi, ozimele bokubonisa, amanothi omethuli, nezilungiselelo zesikhathi — wonke amathempulethi afika elungele ukuqoshwa.',
   'templates.hero.eyebrow': 'Izigaba ezikhethiwe',
   'templates.hero.heading': 'Izigaba ezakhelwe isikhathi lapho udinga ukufika khona.',
 }

@@ -1,9 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து, அம்சக் கோரிக்கை உள்ளதா, அல்லது பிழை கண்டீர்களா? ஒவ்வொரு செய்தியையும் நாங்கள் படிக்கிறோம் — எப்போது வேண்டுமானாலும் தொடர்பு கொள்ளுங்கள், குழுவில் உள்ள ஒரு உண்மையான மனிதர் உங்களுக்கு பதிலளிப்பார்.',
   'about.contactTitle': 'தொடர்பு கொள்ளுங்கள்',
+  'about.intro':
+    '{{app}} என்பது ஒவ்வொரு இரவையும் தெளிவான, செயல்படுத்தக்கூடிய நுண்ணறிவாக மாற்றும் ஒரு மீட்டெடுக்கும் தூக்க கண்காணிப்பான். இது உங்கள் அணியக்கூடிய சாதனத்துடன் இணைந்து உங்கள் தூக்கத்தின் ஒவ்வொரு கட்டத்தையும் வரைபடமாக்கி, உங்கள் மீட்பை மதிப்பிட்டு, உங்கள் சுழற்சியின் சரியான தருணத்தில் உங்களை எழுப்புகிறது — எனவே உண்மையிலேயே ஓய்வளிக்கும் இரவுகளை உருவாக்க முடியும்.',
+  'about.missionBody':
+    'பெரும்பாலான தூக்க செயலிகள் டாஷ்போர்டில் ஒரு எண்ணுடன் நிற்கின்றன. மதிப்பெண்ணுக்குப் பின்னால் உள்ள காரணத்தைப் புரிந்துகொள்வதிலிருந்தும், ஒரு நேரத்தில் ஒரு சிறிய மாற்றத்தைச் செய்வதிலிருந்தும் சிறந்த தூக்கம் வருகிறது என்று நாங்கள் நம்புகிறோம். {{app}} அமைதியாக இருக்க வடிவமைக்கப்பட்டது, ஒருபோதும் சத்தமாக இருக்காது — உங்கள் தரவிலிருந்து முக்கியமானதை மட்டும் காட்டி, இரவின் மீதமுள்ள நேரம் உங்கள் வழியிலிருந்து விலகி இருக்கும்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': '{{app}} பற்றி',
+  'about.whatYouGetTitle': 'நீங்கள் பெறுவது',
+  'authShell.privacyBadge':
+    'உங்கள் இரவுகள் தனியுரிமையாகவே இருக்கும் — சேமிப்பில் மறையாக்கப்பட்டவை.',
+  'authShell.tagline': '{{app}} — {{tagline}}',
   'coaching.activeBanner.continue': 'கட்டுரையைப் படிக்கவும்',
+  'coaching.activeBanner.eyebrow': 'சிறப்புக் கட்டுரை',
   'coaching.empty.body': 'புதிய நிரல்கள் சேர்க்கப்படும்போது இங்கே தோன்றும்.',
   'coaching.empty.title': 'இன்னும் பயிற்சி கட்டுரைகள் எதுவும் இல்லை',
   'coaching.eyebrow': 'பயிற்சி',
@@ -16,6 +28,7 @@ export const ui: UiTranslations = {
   'coachingDetail.eyebrow': 'கட்டுரை',
   'coachingDetail.locked.body':
     'இந்தக் கட்டுரையையும் மற்ற பிரீமியம் கட்டுரைகளையும் படிக்க உங்கள் திட்டத்தை மேம்படுத்தவும்.',
+  'coachingDetail.locked.cta': 'மேம்படுத்தல் திட்டம்',
   'coachingDetail.locked.title': 'இந்தக் கட்டுரை பிரீமியம்',
   'coachingDetail.notFound': 'எங்களால் இந்தக் கட்டுரையை கண்டுபிடிக்க முடியவில்லை.',
   'coachingDetail.unavailable': 'கட்டுரை கிடைக்கவில்லை',
@@ -23,6 +36,7 @@ export const ui: UiTranslations = {
   'dashboard.empty.body':
     'உங்கள் தூக்க முறைகளைக் காணத் தொடங்க, ஒரு இரவைப் பதிவு செய்யுங்கள் அல்லது அணியக்கூடிய சாதனத்தை இணைக்கவும்.',
   'dashboard.empty.cta': 'அணியக்கூடிய சாதனத்தை இணைக்கவும்',
+  'dashboard.empty.title': 'இன்னும் இரவுகள் கண்காணிக்கப்படவில்லை',
   'dashboard.eyebrow': 'இன்றிரவு',
   'dashboard.heroInsight': 'ஆழ்ந்த உறக்கப் போக்குகளைக் கண்டறிய, மற்றொரு இரவைக் கண்காணிக்கவும்.',
   'dashboard.loading': 'சமீபத்திய இரவுகள் ஏற்றப்படுகின்றன…',
@@ -42,13 +56,19 @@ export const ui: UiTranslations = {
   'devices.loading': 'சாதனங்களை ஏற்றுகிறது…',
   'devices.pauseAria': 'இடைநிறுத்தம் {{brand}}',
   'devices.providerField': 'வழங்குநர்',
+  'devices.resumeAria': '{{brand}} தொடரவும்',
   'devices.synced': 'ஒத்திசைக்கப்பட்டது {{value}}',
+  'devices.unlink': 'இணைப்பை நீக்கு',
   'devices.unlinkAria': 'இணைப்பை நீக்கு {{brand}}',
+  'forgotPassword.continueButton': 'மீட்டமைப்புக் குறியீட்டை உள்ளிடு',
   'forgotPassword.eyebrow': 'கவலை இல்லை',
   'forgotPassword.subheading':
     'உங்கள் மின்னஞ்சலை உள்ளிடவும், நாங்கள் மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.successBody':
     'ஒரு கணக்கு இருந்தால் {{email}} மீட்டமைப்பு இணைப்பு ஒன்று விரைவில் அனுப்பப்படும்.',
+  'landing.ctaBody':
+    'இரவு கண்காணிப்புக்கு இலவசம். Pro பயிற்சித் திட்டங்கள், ஏற்றுமதிகள் மற்றும் குடும்பப் பகிர்வைத் திறக்கிறது.',
+  'landing.ctaButton': 'உங்கள் முதல் இரவைக் கண்காணிக்கவும்',
   'landing.ctaTitle': 'இன்று இரவு தரவுகளுக்கானது. நாளை மீட்புக்கானது.',
   'landing.eyebrow': 'உறக்கம், குறியீடு நீக்கப்பட்டது',
   'landing.featuresBody':
@@ -66,16 +86,25 @@ export const ui: UiTranslations = {
   'login.heading': 'சோம்னியாவில் உள்நுழைக',
   'login.rememberMe': 'என்னை உள்நுழைந்த நிலையிலேயே வைத்திருக்கவும்',
   'login.signupLink': 'இன்றிரவு கண்காணிப்பைத் தொடங்குங்கள்',
+  'login.signupPrompt': 'டெஸ்ஸெராவுக்குப் புதியவரா?',
   'login.subheading': 'உங்கள் இரவுகளை விட்ட இடத்திலிருந்தே தொடருங்கள்.',
   'logNight.bedtimeField': 'படுக்கை நேரம்',
   'logNight.dateField': 'இரவு',
+  'logNight.errors.missingFields': 'தேதி, தூங்கும் நேரம் மற்றும் எழும் நேரம் அனைத்தும் தேவை.',
+  'logNight.errors.noRecord':
+    'இரவு சேமிக்கப்பட்டது, ஆனால் சேவையகம் எந்தப் பதிவையும் திருப்பித் தரவில்லை.',
+  'logNight.errors.saveFailed': 'இரவைச் சேமிக்க முடியவில்லை — மீண்டும் முயற்சிக்கவும்.',
+  'logNight.errors.zeroLength': 'எழும் நேரம் தூங்கும் நேரத்திலிருந்து வேறுபட்டதாக இருக்க வேண்டும்.',
+  'logNight.factorsField': 'காரணிகள்',
   'logNight.interruptionsField': 'இரவில் விழித்தல்',
   'logNight.notesField': 'குறிப்புகள் (விருப்பத்திற்குரியது)',
+  'logNight.qualityField': 'எவ்வளவு ஓய்வாக உணர்ந்தீர்கள்? ({{score}}/100)',
   'logNight.save': 'இரவைக் காப்பாற்றுங்கள்',
   'logNight.title': 'ஒரு இரவு பதிவு செய்க',
   'logNight.wakeField': 'விழிக்கும் நேரம்',
   'night.backLink': 'வரலாற்றுக்குத் திரும்பு',
   'night.eyebrow': 'ஒற்றை இரவு',
+  'night.factorsTitle': 'காரணிகள் பதிவு செய்யப்பட்டன',
   'night.heroInsight': 'உள்ளே நுழைவதற்கு, காலவரிசையில் ஒரு கட்டத்தைத் தட்டவும்.',
   'night.loading': 'இரவு நேர விவரங்கள் ஏற்றப்படுகின்றன…',
   'night.notFound.body': 'இந்தத் தேதிக்கான உறக்கப் பதிவு எங்களிடம் இல்லை.',
@@ -86,6 +115,7 @@ export const ui: UiTranslations = {
   'nightHistory.count': 'காண்பிக்கப்படுகிறது {{count}} இரவுகள்',
   'nightHistory.empty.body':
     'உங்கள் உறக்க வரலாற்றைப் பதிவுசெய்ய, ஒரு உறக்க அமர்வைப் பதிவுசெய்யுங்கள் அல்லது அணியக்கூடிய சாதனத்தை இணைக்கவும்.',
+  'nightHistory.empty.title': 'இன்னும் இரவுகள் கண்காணிக்கப்படவில்லை',
   'nightHistory.heading': 'ஒவ்வொரு இரவும் நீங்கள் கண்காணித்திருக்கிறீர்கள்',
   'nightHistory.loading': 'இரவுகள் ஏற்றப்படுகின்றன…',
   'nightHistory.logNight': 'ஒரு இரவு பதிவு செய்க',
@@ -94,6 +124,7 @@ export const ui: UiTranslations = {
   'nightHistoryRow.hourSuffix': 'மணிநேரம்',
   'nightHistoryRow.minSuffix': 'நிமிடம்',
   'nightHistoryRow.rem': '{{pct}} % ரெம்',
+  'nightHistoryRow.scoreAria': 'மதிப்பெண் {{score}}',
   'notifications.emptyBody':
     'புதிய செயல்பாடுகள், எச்சரிக்கை நினைவூட்டல்கள் மற்றும் வழிகாட்டுதல் தூண்டுதல்கள் இங்கே இடம்பெறும்.',
   'notifications.emptyHeading': 'நீங்கள் அனைத்தையும் தெரிந்துகொண்டீர்கள்',
@@ -105,9 +136,16 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'உங்கள் தூக்க அடையாளம்',
   'profile.locked': 'பூட்டப்பட்டது',
   'recoveryRingsTriad.deepCaption': 'இலக்கு {{goal}} இரவின் %',
+  'recoveryRingsTriad.deepLabel': 'ஆழ்ந்த தூக்கம்',
+  'recoveryRingsTriad.deepValue': '{{pct}} %',
   'recoveryRingsTriad.durationCaption': 'இலக்கு {{goal}} இரவு',
+  'recoveryRingsTriad.durationValue': '{{hours}} ம',
+  'recoveryRingsTriad.heartCaption': 'அடிப்படை {{baseline}} bpm',
+  'recoveryRingsTriad.heartLabel': 'ஓய்வு HR',
+  'recoveryRingsTriad.heartValue': '{{bpm}} bpm',
   'resetPassword.eyebrow': 'ஒரு புதிய தொடக்கம்',
   'resetPassword.mismatchError': 'கடவுச்சொற்கள் பொருந்தவில்லை.',
+  'resetPassword.passwordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.subheading':
     'மனதை அமைதிப்படுத்தும் ஒன்றைத் தேர்ந்தெடுங்கள் — குறைந்தபட்சம் 12 எழுத்துக்கள்.',
   'resetPassword.tokenPlaceholder': 'மின்னஞ்சலில் இருந்து மீட்டமைப்பு குறியீடு',
@@ -116,15 +154,21 @@ export const ui: UiTranslations = {
     'நீங்கள் உறங்கச் செல்லும் நேரத்திற்கு 30 நிமிடங்களுக்கு முன்பு மென்மையாக நினைவூட்டுங்கள்.',
   'settings.bedtimeReminder.label': 'படுக்கை நேர நினைவூட்டல்',
   'settings.durationGoal': 'கால அளவு இலக்கு (மணிநேரம்)',
+  'settings.exportDelete.description':
+    'ஒவ்வொரு இரவின் CSV-ஐப் பெறுங்கள், அல்லது உங்கள் கணக்கை நிரந்தரமாக நீக்குங்கள்.',
   'settings.exportDelete.label': 'உங்கள் தரவை ஏற்றுமதி செய்யுங்கள் அல்லது நீக்குங்கள்',
   'settings.goalsCaption': 'உங்களுக்கு எது நல்லது என்பதை சோம்னியாவிடம் சொல்லுங்கள்.',
   'settings.goalsTitle': 'டவுன் கோல்கள்',
+  'settings.shareDevices.description':
+    'அநாமதேயமாக்கப்பட்டது, விருப்பத்தேர்வு. எப்போது வேண்டுமானாலும் பகிர்வதை நிறுத்தலாம்.',
   'settings.shareDevices.label': 'ஆராய்ச்சியாளர்களுடன் சாதனத் தரவைப் பகிரவும்',
   'settings.smartAlarm.description':
     'அலாரம் அடிக்கும் நேரத்திற்கு முன், லேசான தூக்க நிலையில் விழித்துக் கொள்ளுங்கள்.',
+  'settings.smartAlarm.label': 'ஸ்மார்ட் அலாரம்',
   'settings.wakeGoal': 'விழிக்கும் நேரம்',
   'settings.weeklyReport.description':
     'ஞாயிற்றுக்கிழமை காலை: ஆட்ட நேரம், மதிப்பெண் மற்றும் சிறப்பான இரவுகள் குறித்த தொகுப்பு.',
+  'settings.weeklyReport.label': 'வாராந்திர சுருக்க மின்னஞ்சல்',
   'signup.eyebrow': 'இன்றிரவு ஆரம்பம்',
   'signup.firstNamePlaceholder': 'சாம்',
   'signup.lastNamePlaceholder': 'ஸ்லீப்பர்',
@@ -133,6 +177,7 @@ export const ui: UiTranslations = {
   'sleepScoreHeroCard.duration': '{{hours}} h {{mins}} எம்',
   'sleepScoreHeroCard.outOf': '/ 100',
   'sleepScoreHeroCard.title': 'நேற்று இரவு',
+  'sleepStagesTimeline.ariaLabel': 'தூக்க நிலைகளின் காலவரிசை',
   'sleepStagesTimeline.title': 'ஹிப்னோகிராம்',
   'sleepTrackerLayout.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'sleepTrackerLayout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
@@ -145,6 +190,7 @@ export const ui: UiTranslations = {
   'sleepTrendChart.title': 'கால அளவுப் போக்கு',
   'smartAlarm.addAlarm': 'புதிய எச்சரிக்கை',
   'smartAlarm.daysField': 'நாட்கள்',
+  'smartAlarm.deleteAria': 'அலாரம் {{label}} நீக்கு',
   'smartAlarm.emptyBody': 'உங்கள் தூக்கச் சுழற்சிகளுடன் ஒத்திசைக்க, விழிக்கும் நேரத்தை அமைக்கவும்.',
   'smartAlarm.emptyHeading': 'இன்னும் எச்சரிக்கைகள் எதுவும் இல்லை.',
   'smartAlarm.errors.saveFailed':
@@ -152,7 +198,9 @@ export const ui: UiTranslations = {
   'smartAlarm.eyebrow': 'ஸ்மார்ட் வேக்',
   'smartAlarm.heading': 'சரியான நேரத்தில் விழித்தெழுங்கள்',
   'smartAlarm.labelField': 'லேபிள்',
+  'smartAlarm.loading': 'அலாரங்கள் ஏற்றப்படுகின்றன…',
   'smartAlarm.newDialog': 'புதிய எச்சரிக்கை',
+  'smartAlarm.noAlarmsSubtitle': 'ஸ்மார்ட் விழிப்பு சாளரத்தைப் பெற ஒரு அலாரத்தைச் சேர்க்கவும்.',
   'smartAlarm.save': 'அலாரத்தைச் சேமிக்கவும்',
   'smartAlarm.soundField': 'ஒலி',
   'smartAlarm.soundsCaption': 'புதிய அலாரங்களுக்கான விழிப்பு ஒலியைத் தேர்ந்தெடுக்கவும்',
@@ -170,6 +218,7 @@ export const ui: UiTranslations = {
   'trends.eyebrow': 'வடிவங்கள்',
   'trends.heading': 'உங்கள் தூக்கத்தின் போக்கு',
   'trends.stageBreakdown.caption': 'சராசரி பிளவு முழுவதும் {{hours}} h',
+  'trends.stageBreakdown.minutes': '{{minutes}}நி',
   'trends.stageBreakdown.title': 'நிலை முறிவு',
   'trends.summary.avgDuration': 'சராசரி கால அளவு',
   'trends.summary.avgScore': 'சராசரி மதிப்பெண்',

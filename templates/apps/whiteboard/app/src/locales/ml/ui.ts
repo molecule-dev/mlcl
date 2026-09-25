@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടോ, അല്ലെങ്കിൽ ഒരു ഫീച്ചർ വേണോ? ഞങ്ങൾ എല്ലാ സന്ദേശവും വായിക്കുന്നു — നിങ്ങളുടെ അക്കൗണ്ട് ക്രമീകരണങ്ങളിൽ നിന്ന് {{appName}} ടീമിനെ സമീപിക്കുക, ഒരു യഥാർത്ഥ വ്യക്തി നിങ്ങളെ തിരികെ ബന്ധപ്പെടും.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.intro':
+    '{{appName}} ഡിസൈൻ ടീമുകൾക്കും വർക്ക്ഷോപ്പ് ഫെസിലിറ്റേറ്റർമാർക്കും അധ്യാപകർക്കുമുള്ള ഒരു സഹകരണ അനന്ത കാൻവാസാണ്. സ്റ്റിക്കി നോട്ടുകൾ ഇടുക, ആകൃതികൾ സ്കെച്ച് ചെയ്യുക, ഫ്രീഹാൻഡ് വരയ്ക്കുക, സഹപ്രവർത്തകർ നിങ്ങളോടൊപ്പം തത്സമയം ചിന്തിക്കുന്നത് കാണുക — എല്ലാം ഒരിടത്ത്, ക്രമരഹിതവും സൃഷ്ടിപരവുമായ ആശയങ്ങൾക്ക് ഒടുവിൽ ഒരുമിക്കാൻ കഴിയുന്നിടത്ത്.',
+  'about.missionBody':
+    'മികച്ച ചിന്ത അപൂർവ്വമായേ ക്രമീകരിച്ചിരിക്കൂ. ആശയങ്ങൾ വന്നയുടനെ പിടിച്ചെടുക്കാനും അവ അർത്ഥവത്താകുന്നതുവരെ ഒരുമിച്ച് രൂപപ്പെടുത്താനും ടീമുകൾക്ക് വേഗതയേറിയതും കുറഞ്ഞ പ്രതിരോധമുള്ളതുമായ ഒരു ഉപരിതലം നൽകാനാണ് {{appName}} നിലകൊള്ളുന്നത് — കാലതാമസമില്ലാതെ, നഷ്ടപ്പെട്ട ജോലിയില്ലാതെ, ആക്കം കൊല്ലുന്ന കർക്കശമായ ഉപകരണങ്ങളില്ലാതെ.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'authShell.brandFooter':
+    '“ഞങ്ങളുടെ റീബ്രാൻഡ് ഷിപ്പ് ചെയ്ത ആഴ്ച {{appName}} ഉപയോഗിച്ച് ഞങ്ങൾ നാല് ഉപകരണങ്ങൾ മാറ്റിസ്ഥാപിച്ചു. റെട്രോ സ്വയം സേവ് ചെയ്തു.” — Atlas Studio',
+  'authShell.brandFooterMeta': '12,400+ ഡിസൈൻ ടീമുകൾ വിശ്വസിക്കുന്നു',
   'authShell.brandHeading': 'ഉറക്കെ ചിന്തിക്കുന്ന ഡിസൈൻ ടീമുകൾക്കുള്ള മൾട്ടിപ്ലെയർ ക്യാൻവാസുകൾ.',
   'billing.canceled': 'സബ്‌സ്‌ക്രിപ്‌ഷൻ റദ്ദാക്കി.',
   'billing.cancelPlan': 'പ്ലാൻ റദ്ദാക്കുക',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': 'എന്നേക്കും സൗജന്യമായ സ്റ്റാർട്ടർ ടയർ.',
   'billing.freePlanName': 'സൗ ജന്യം',
   'billing.paidPlanBody': 'സജീവ സബ്‌സ്‌ക്രിപ്‌ഷൻ.',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'പ്ലാനും ഇൻവോയ്‌സുകളും',
   'billing.updated': 'പ്ലാൻ അപ്ഡേറ്റ് ചെയ്തു.',
   'billing.upgradeTitle': 'ലഭ്യമായ പ്ലാനുകൾ',
@@ -18,8 +29,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': 'യുടെ {{max}} ഉൾപ്പെടുത്തിയിട്ടുണ്ട്',
   'boardCanvas.backToBoards': 'എല്ലാ ബോർഡുകളും',
   'boardCanvas.changeColor': 'നിറം മാറ്റുക {{color}}',
+  'boardCanvas.collaboratorsTitle': 'സഹകാരികൾ',
   'boardCanvas.deleteElement': 'ഘടകം ഇല്ലാതാക്കുക',
   'boardCanvas.deselect': 'തിരഞ്ഞെടുത്തത് മാറ്റുക',
+  'boardCanvas.elementLabel': '{{type}} ഘടകം',
   'boardCanvas.elementsCount': '{{count}} ഘടകങ്ങൾ',
   'boardCanvas.elementText': 'വാചകം',
   'boardCanvas.empty.body':
@@ -29,10 +42,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': 'പൂരിപ്പിക്കുക',
   'boardCanvas.invited': 'ക്ഷണിച്ചു {{email}}',
   'boardCanvas.metaTitle': 'സ്ഥാനം',
+  'boardCanvas.metaWH': 'W: {{w}}  H: {{h}}',
   'boardCanvas.metaXY': 'എക്സ്: {{x}} വൈ: {{y}}',
   'boardCanvas.noCollaborators':
     'ഇതുവരെ സഹകാരികളൊന്നുമില്ല. സഹപ്രവർത്തകരെ ക്ഷണിക്കാൻ പങ്കിടൽ ഉപയോഗിക്കുക.',
   'boardCanvas.present': 'വർത്തമാനം',
+  'boardCanvas.private': 'സ്വകാര്യം — ക്ഷണം മാത്രം',
   'boardCanvas.properties': 'പ്രോപ്പർട്ടികൾ',
   'boardCanvas.public': 'പൊതുവായത് — ലിങ്കുള്ള ആർക്കും കാണാൻ കഴിയും',
   'boardCanvas.roleCommenter': 'കമന്റ് ചെയ്യാം',
@@ -48,6 +63,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'ഒട്ടിപ്പിടിക്കുന്ന നിറം തിരഞ്ഞെടുക്കുക',
   'boardCanvas.summaryCount': '{{count}} ക്യാൻവാസിലെ ഘടകങ്ങൾ',
   'boardCanvas.summaryTitle': 'ബോർഡ്',
+  'boardCanvas.surface.clear': 'ബോർഡ് കാൻവാസ് — തിരഞ്ഞെടുപ്പ് മായ്ക്കുക',
+  'boardCanvas.surface.draw': 'ബോർഡ് കാൻവാസ് — വരയ്ക്കാൻ വലിച്ചിടുക',
+  'boardCanvas.surface.place': 'ബോർഡ് കാൻവാസ് — ഘടകം സ്ഥാപിക്കുക',
   'boardCanvas.untitled': 'പേരില്ലാത്ത ബോർഡ്',
   'boardCanvas.visibilityTitle': 'ദൃശ്യപരത',
   'boardCanvas.zoomIn': 'സൂം ഇൻ ചെയ്യുക',
@@ -71,6 +89,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'തിരയൽ ബോർഡുകൾ',
   'boards.searchPlaceholder': 'തിരയൽ ബോർഡുകൾ',
   'boards.sharedTitle': 'എന്നോട് പങ്കിട്ടത്',
+  'boards.sortedBy': 'സമീപകാലത്ത് അപ്ഡേറ്റ് ചെയ്തവ അനുസരിച്ച് അടുക്കിയത്',
   'boards.startFromTemplate': 'ടെംപ്ലേറ്റിൽ നിന്ന് ആരംഭിക്കുക',
   'boards.title': 'നിങ്ങളുടെ ബോർഡുകൾ',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -85,6 +104,8 @@ export const ui: UiTranslations = {
   'landing.cta.title':
     'കുഴപ്പം നിറഞ്ഞതും, ജനറേറ്റീവ് ആയതും, നേരിട്ട് ചിന്തിക്കുന്നതുമായ കാര്യങ്ങൾക്കായി നിർമ്മിച്ചത്.',
   'landing.demoBoard.title': 'Q1 വർക്ക്‌ഷോപ്പ് · ബ്രാൻഡ് വോയ്‌സ്',
+  'landing.demoBoard.updated': '12 മിനിറ്റ് മുമ്പ് അപ്ഡേറ്റ് ചെയ്തു',
+  'landing.featuresEyebrow': '{{appName}} എന്തുകൊണ്ട് ടെസലേറ്റ് ചെയ്യുന്നു',
   'landing.featuresTitle': 'വേഗത്തിലുള്ള ഫീഡ്‌ബാക്ക്. മനോഹരമായ ക്യാൻവാസുകൾ. ഘർഷണരഹിതം.',
   'landing.hero.body':
     '{{appName}} എന്നത് ഡിസൈൻ ടീമുകൾക്കും, വർക്ക്ഷോപ്പ് ഫെസിലിറ്റേറ്റർമാർക്കും, തത്സമയ ബ്രെയിൻസ്റ്റോമുകൾ നടത്തുന്നവർക്കും ആശയങ്ങൾ ഒരിടത്ത് ഒത്തുചേരേണ്ട അധ്യാപകർക്കും വേണ്ടിയുള്ള ഒരു മൾട്ടിപ്ലെയർ വൈറ്റ്‌ബോർഡാണ്.',
@@ -96,18 +117,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '•••••••••••',
   'login.signIn': 'നിംബസിൽ സൈൻ ഇൻ ചെയ്യുക',
   'login.signupCta': 'ഒരു സൗജന്യ വർക്ക്‌സ്‌പെയ്‌സ് സൃഷ്ടിക്കുക',
+  'login.signupPrompt': 'ടെസേറയിൽ പുതിയ ആളാണോ?',
   'login.subheading':
     'വർക്ക്ഷോപ്പ് നിർത്തിയ ഇടത്ത് നിന്ന് ആരംഭിക്കുക - ബോർഡുകൾ, സ്റ്റിക്കി നോട്ടുകൾ, കഴ്‌സറുകൾ എന്നിവയെല്ലാം തത്സമയം സമന്വയിപ്പിക്കുന്നു.',
   'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
   'mobileNav.new': 'പുതിയത്',
   'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
+  'notifications.editBody': 'ബോർഡ് ഉള്ളടക്കം അപ്ഡേറ്റ് ചെയ്തു.',
   'notifications.editTitle': '"" എന്നതിലേക്കുള്ള എഡിറ്റുകൾ {{board}} "',
   'notifications.empty.body':
     'ക്ഷണങ്ങൾ, സ്നാപ്പ്ഷോട്ട് സേവുകൾ, സമീപകാല ബോർഡ് എഡിറ്റുകൾ എന്നിവ സംഭവിക്കുമ്പോൾ തന്നെ ഇവിടെ ദൃശ്യമാകും.',
   'notifications.empty.title': 'നിങ്ങളുടെ ഇൻബോക്സിൽ പുതിയതായി ഒന്നുമില്ല.',
   'notifications.eyebrow': '{{name}} · ഇൻബോക്സ്',
+  'notifications.inviteBody': '"{{board}}"-ൽ {{role}} ആയി',
   'notifications.inviteTitle': 'ക്ഷണിച്ചു {{email}}',
   'notifications.snapshotTitle': '" എന്നതിലെ പുതിയ സ്നാപ്പ്ഷോട്ട് {{board}} "',
+  'present.addFirst': 'ആദ്യ ഫ്രെയിം ചേർക്കുക',
   'present.addFrame': '+ ഫ്രെയിം ചേർക്കുക',
   'present.boardEyebrow': '{{title}} · അവതരണം',
   'present.empty.body':
@@ -115,6 +140,7 @@ export const ui: UiTranslations = {
   'present.empty.title': 'ഇതുവരെ ഫ്രെയിമുകളൊന്നുമില്ല.',
   'present.exit': 'അവതരണത്തിൽ നിന്ന് പുറത്തുകടക്കുക',
   'present.exitToBoard': 'ക്യാൻവാസിലേക്ക് മടങ്ങുക',
+  'present.eyebrow': 'അവതരണ മോഡ്',
   'present.frameBody': 'സംസാരിക്കേണ്ട കാര്യങ്ങൾ',
   'present.frameName': 'ഫ്രെയിമിന്റെ പേര്',
   'present.frameOf': 'ഫ്രെയിം {{current}} യുടെ {{total}}',
@@ -124,20 +150,30 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'തത്സമയ അവതരണം',
   'present.save': 'ഫ്രെയിം സംരക്ഷിക്കുക',
   'present.title': 'നിങ്ങളുടെ കഥ പറയൂ',
+  'present.unnamed': 'ശീർഷകമില്ലാത്ത ഫ്രെയിം',
+  'pricing.limits.advanced': 'വിപുലമായ സവിശേഷതകൾ',
   'profile.cursorBody':
     'ഈ ഉപകരണത്തിൽ സംരക്ഷിച്ചു — നിങ്ങളുടെ ലൈവ് കഴ്‌സറിന് അടുത്തായി സഹതാരങ്ങൾ ഈ നിറം കാണുന്നു.',
   'profile.cursorEyebrow': 'നിങ്ങളുടെ കഴ്‌സറിന്റെ നിറം',
   'profile.eyebrow': 'പബ്ലിക് സഹകാരി കാർഡ്',
+  'profile.noBoards': 'ഇതുവരെ ബോർഡുകളില്ല — ആരംഭിക്കാൻ ഒന്ന് സൃഷ്ടിക്കുക.',
+  'profile.recentBoards': 'ബോർഡുകൾ {{name}} അടുത്തിടെ സ്പർശിച്ചു',
   'profile.stat.${s.label}': 'ബോർഡുകൾ {{പേര്}} അടുത്തിടെ സ്പർശിച്ചു',
+  'profile.statsEyebrow': 'നിങ്ങളുടെ പ്രവർത്തനം',
   'profile.title': 'നിങ്ങളുടെ പ്രൊഫൈൽ',
+  'reset.backPrompt': 'മറ്റൊരു ഇമെയിൽ വേണോ?',
   'reset.cta': 'പാസ്‌വേഡ് പുനഃസജ്ജീകരിച്ച് സൈൻ ഇൻ ചെയ്യുക',
+  'reset.password': 'പുതിയ പാസ്വേഡ്',
   'reset.subheading': 'ശക്തമായ ഒരു പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക - കുറഞ്ഞത് 8 പ്രതീകങ്ങൾ, ഒരു നമ്പർ.',
   'settings.appearance.title': 'തീമും ക്യാൻവാസും',
   'settings.eyebrow': 'അക്കൗണ്ട് മുൻഗണനകൾ',
   'settings.notifications.title': 'അറിയിപ്പ് മുൻഗണനകൾ',
   'settings.profile.title': 'പബ്ലിക് സഹകാരി കാർഡ്',
+  'settings.security.body':
+    'നിങ്ങളുടെ അക്കൗണ്ട് ഡാഷ്ബോർഡിൽ നിന്ന് ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ, സജീവ സെഷനുകൾ, പാസ്വേഡ് എന്നിവ നിയന്ത്രിക്കുക.',
   'settings.security.title': 'സുരക്ഷ',
   'shared.collaboratorCount': '{{count}} സഹകാരി(കൾ)',
+  'shared.count': '{{count}} ബോർഡ്(കൾ)',
   'shared.empty.body':
     'ഒരു സഹതാരം നിങ്ങളെ ഒരു ബോർഡിലേക്ക് ക്ഷണിക്കുമ്പോൾ, അത് ഇവിടെ സ്വയമേവ ദൃശ്യമാകും.',
   'shared.empty.title': 'നിങ്ങളുമായി ഇതുവരെ ഒന്നും പങ്കിട്ടിട്ടില്ല.',
@@ -153,6 +189,9 @@ export const ui: UiTranslations = {
   'signup.subheading':
     '3 സഹകാരികൾക്ക് വരെ സൗജന്യം. ആദ്യത്തെ 14 ദിവസത്തേക്ക് ക്രെഡിറ്റ് കാർഡ് ആവശ്യമില്ല.',
   'templateCard.usageCount': '{{count}} ഉപയോഗങ്ങൾ',
+  'templateDetail.allTemplates': 'എല്ലാ ടെംപ്ലേറ്റുകളും',
+  'templateDetail.body':
+    '"{{name}}" എന്ന പേരിൽ പുതിയൊരു ബോർഡിലേക്ക് {{count}} സ്റ്റാർട്ടർ ഘടകങ്ങൾ പകർത്താൻ "Use template" ക്ലിക്ക് ചെയ്യുക. അവിടെ നിന്ന് എഡിറ്റ് ചെയ്യുക, പങ്കിടുക, നിങ്ങളുടെ വർക്ക്ഷോപ്പ് നടത്തുക.',
   'templateDetail.delete': 'ടെംപ്ലേറ്റ് ഇല്ലാതാക്കുക',
   'templateDetail.elementsCount': '{{count}} സ്റ്റാർട്ടർ ഘടകങ്ങൾ',
   'templateDetail.eyebrow': '{{kind}} ടെംപ്ലേറ്റ്',
@@ -165,16 +204,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'ഒരു ഇഷ്ടാനുസൃത ടെംപ്ലേറ്റ് സംരക്ഷിക്കുക',
   'templates.empty.body':
     'നിങ്ങളുടെ ഉടമസ്ഥതയിലുള്ള ഏത് ബോർഡിൽ നിന്നും ഒരു ഇഷ്ടാനുസൃത ടെംപ്ലേറ്റ് സൃഷ്ടിക്കുക — ബോർഡ് തുറക്കുക, ഒരു സ്നാപ്പ്ഷോട്ട് സംരക്ഷിക്കുക, തുടർന്ന് അത് വീണ്ടും ഉപയോഗിക്കാവുന്ന ഒരു ടെംപ്ലേറ്റായി ഇവിടെ സംരക്ഷിക്കുക.',
+  'templates.empty.title': 'ഇതുവരെ ടെംപ്ലേറ്റുകളൊന്നുമില്ല.',
   'templates.eyebrow': 'വർക്ക്ഷോപ്പ് കിറ്റുകളും സംരക്ഷിച്ച ടെംപ്ലേറ്റുകളും',
   'templates.filter.${c}': 'ഇതുവരെ ടെംപ്ലേറ്റുകളൊന്നുമില്ല.',
   'templates.nameLabel': 'ടെംപ്ലേറ്റ് പേര്',
   'templates.systemBadge': 'അന്തർനിർമ്മിതമായത്',
   'templates.userBadge': 'നിങ്ങളുടേത്',
   'versionHistory.backToBoard': 'ക്യാൻവാസിലേക്ക് മടങ്ങുക',
+  'versionHistory.elementsTotal': '{{count}} പിടിച്ചെടുത്ത ഘടകങ്ങൾ',
   'versionHistory.empty.body':
     '"സ്നാപ്പ്ഷോട്ട് സംരക്ഷിക്കുക" ഉപയോഗിച്ച് ബോർഡ് ക്യാൻവാസിൽ നിന്നാണ് സ്നാപ്പ്ഷോട്ടുകൾ സൃഷ്ടിക്കുന്നത് — അവ ഇവിടെ ദൃശ്യമാകുന്നതിനാൽ നിങ്ങൾക്ക് പഴയ ഏതൊരു അവസ്ഥയും പുനഃസ്ഥാപിക്കാൻ കഴിയും.',
+  'versionHistory.empty.cta': 'ഒന്ന് എടുക്കാൻ കാൻവാസ് തുറക്കുക',
   'versionHistory.empty.title': 'ഇതുവരെ സ്നാപ്പ്ഷോട്ടുകളൊന്നുമില്ല.',
   'versionHistory.eyebrow': '{{title}} · ചരിത്രം',
+  'versionHistory.eyebrowFallback': 'ബോർഡ് ചരിത്രം',
   'versionHistory.latest': 'ഏറ്റവും പുതിയ',
   'versionHistory.restore': 'ഈ പതിപ്പ് പുനഃസ്ഥാപിക്കുക',
   'versionHistory.restored': 'സ്നാപ്പ്ഷോട്ട് പുനഃസ്ഥാപിച്ചു.',
@@ -185,6 +228,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'പുതിയ ബോർഡ്',
   'whiteboardLayout.primaryNav': 'പ്രാഥമിക നാവിഗേഷൻ',
   'workspace.boardLabel': 'ബോർഡ്',
+  'workspace.empty': 'ഇതുവരെ സഹകാരികളില്ല — നിങ്ങളുടെ ബോർഡുകളിലേക്ക് ആരെയെങ്കിലും ക്ഷണിക്കുക.',
   'workspace.eyebrow': '{{name}} · ജോലിസ്ഥലം',
   'workspace.invite': 'സഹകാരികളെ ക്ഷണിക്കുക',
   'workspace.inviteSent': 'ക്ഷണം അയച്ചു.',
@@ -194,4 +238,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'കമന്റിടുന്നയാൾ',
   'workspace.role.editor': 'എഡിറ്റർ',
   'workspace.role.viewer': 'കാഴ്‌ചക്കാരൻ',
+  'workspace.title': 'അംഗങ്ങളും റോളുകളും',
 }

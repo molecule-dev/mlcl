@@ -1,7 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Iritzia duzu, akats bat aurkitu duzu edo funtzio bat nahi duzu? Mezu guztiak irakurtzen ditugu — jarri harremanetan {{appName}} taldearekin zure kontuaren ezarpenetatik eta benetako pertsona batek erantzungo dizu.',
   'about.contactTitle': 'Hitz egin gurekin',
+  'about.intro':
+    '{{appName}} mihise infinitu kolaboratiboa da diseinu-taldeentzat, tailerren dinamizatzaileentzat eta hezitzaileentzat. Itsatsi oharrak, marraztu formak, egin marrazki libreak eta ikusi taldekideak zurekin batera pentsatzen denbora errealean — dena leku bakarrean, ideia kaotiko eta sortzaileak azkenean bat egin dezaten.',
+  'about.missionBody':
+    'Pentsamendu ona gutxitan da txukuna. {{appName}} existitzen da taldeei azalera azkar eta oztopo gutxikoa emateko, ideiak iristen diren unean bertan harrapatu eta elkarrekin landu ditzaten, zentzua izan arte — atzerapenik, galdutako lanik eta bidea hiltzen duten tresna zurrunik gabe.',
+  'about.missionTitle': 'Gure misioa',
+  'authShell.brandFooter':
+    '“Gure marka berritzea kaleratu genuen astean, lau tresna {{appName}}-rekin ordezkatu genituen. Erretrospektibak bere burua gorde zuen.” — Atlas Studio',
+  'authShell.brandFooterMeta': '12.400 diseinu-talde baino gehiagok fidatzen dute',
   'authShell.brandHeading':
     'Ozen pentsatzen duten diseinu-taldeentzako jokalari anitzeko mihiseak.',
   'billing.canceled': 'Harpidetza bertan behera utzi da.',
@@ -11,6 +21,7 @@ export const ui: UiTranslations = {
   'billing.freePlanBody': 'Betiko doako hasierako maila.',
   'billing.freePlanName': 'Doan',
   'billing.paidPlanBody': 'Harpidetza aktiboa.',
+  'billing.priceLabel': '{{price}} / {{period}}',
   'billing.title': 'Plana eta fakturak',
   'billing.updated': 'Plana eguneratuta.',
   'billing.upgradeTitle': 'Eskuragarri dauden planak',
@@ -19,8 +30,10 @@ export const ui: UiTranslations = {
   'billing.usageOf': '-ren {{max}} barne',
   'boardCanvas.backToBoards': 'Taula guztiak',
   'boardCanvas.changeColor': 'Aldatu kolorea {{color}}',
+  'boardCanvas.collaboratorsTitle': 'Lankideak',
   'boardCanvas.deleteElement': 'Ezabatu elementua',
   'boardCanvas.deselect': 'Deshautatu',
+  'boardCanvas.elementLabel': '{{type}} elementua',
   'boardCanvas.elementsCount': '{{count}} elementuak',
   'boardCanvas.elementText': 'Testua',
   'boardCanvas.empty.body':
@@ -30,10 +43,12 @@ export const ui: UiTranslations = {
   'boardCanvas.fillColor': 'Bete',
   'boardCanvas.invited': 'Gonbidatuta {{email}}',
   'boardCanvas.metaTitle': 'Posizioa',
+  'boardCanvas.metaWH': 'Z: {{w}}  A: {{h}}',
   'boardCanvas.metaXY': 'X: {{x}} Bai: {{y}}',
   'boardCanvas.noCollaborators':
     'Ez dago kolaboratzailerik oraindik. Erabili Partekatu taldekideak gonbidatzeko.',
   'boardCanvas.present': 'Oraina',
+  'boardCanvas.private': 'Pribatua — gonbidapen bidez soilik',
   'boardCanvas.properties': 'Ezaugarriak',
   'boardCanvas.public': 'Publikoa — esteka duen edonork ikus dezake',
   'boardCanvas.roleCommenter': 'Iruzkin egin dezaket',
@@ -49,6 +64,9 @@ export const ui: UiTranslations = {
   'boardCanvas.stickyColor': 'Aukeratu kolore itsaskorra',
   'boardCanvas.summaryCount': '{{count}} mihise gaineko elementuak',
   'boardCanvas.summaryTitle': 'Batzordea',
+  'boardCanvas.surface.clear': 'Taularen mihisea — garbitu hautapena',
+  'boardCanvas.surface.draw': 'Taularen mihisea — arrastatu marrazteko',
+  'boardCanvas.surface.place': 'Taularen mihisea — jarri elementua',
   'boardCanvas.untitled': 'Izenik gabeko taula',
   'boardCanvas.visibilityTitle': 'Ikusgarritasuna',
   'boardCanvas.zoomIn': 'Handiagotu',
@@ -71,6 +89,7 @@ export const ui: UiTranslations = {
   'boards.searchAria': 'Bilaketa-oholak',
   'boards.searchPlaceholder': 'Bilaketa-oholak',
   'boards.sharedTitle': 'Nirekin partekatua',
+  'boards.sortedBy': 'Azken aldaketaren arabera ordenatuta',
   'boards.startFromTemplate': 'Txantiloitik hasi',
   'boards.title': 'Zure oholak',
   'collaboratorStack.overflow': '+ {{count}}',
@@ -84,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.cta.signupButton': 'Sortu zure doako taula',
   'landing.cta.title': 'Aurrez aurreko pentsamendu nahasi, sortzaile eta dinamikorako eraikia.',
   'landing.demoBoard.title': '1. hiruhilekoko tailerra · Markaren ahotsa',
+  'landing.demoBoard.updated': 'Duela 12 min eguneratua',
   'landing.featuresEyebrow': 'Zerk egiten du Slate teselatua?',
   'landing.featuresTitle': 'Iritzi azkarra. Mihise ederrak. Marruskadurarik gabe.',
   'landing.hero.body':
@@ -96,18 +116,22 @@ export const ui: UiTranslations = {
   'login.passwordPlaceholder': '•••••••••••',
   'login.signIn': 'Hasi saioa Slaten',
   'login.signupCta': 'Sortu lan-eremu libre bat',
+  'login.signupPrompt': 'Tesseran berria zara?',
   'login.subheading':
     'Jarraitu tailerra utzi zen tokitik — arbelak, ohar itsaskorrak eta kurtsoreak denbora errealean sinkronizatzen dira.',
   'mobileNav.closeMenu': 'Itxi nabigazio menua',
   'mobileNav.new': 'Berria',
   'mobileNav.openMenu': 'Ireki nabigazio menua',
+  'notifications.editBody': 'Taularen edukia eguneratu da.',
   'notifications.editTitle': 'Aldaketak " {{board}} "',
   'notifications.empty.body':
     'Gonbidapenak, gordetako argazkiak eta azken taularen aldaketak hemen agertuko dira gertatzen diren heinean.',
   'notifications.empty.title': 'Ez dago ezer berririk zure sarrera-ontzian',
   'notifications.eyebrow': '{{name}} · sarrera-ontzia',
+  'notifications.inviteBody': '{{role}} gisa "{{board}}"-(e)an',
   'notifications.inviteTitle': 'Gonbidatuta {{email}}',
   'notifications.snapshotTitle': 'Argazki berria " {{board}} "',
+  'present.addFirst': 'Gehitu lehen markoa',
   'present.addFrame': '+ Gehitu markoa',
   'present.boardEyebrow': '{{title}} · aurkezpena',
   'present.empty.body':
@@ -115,6 +139,7 @@ export const ui: UiTranslations = {
   'present.empty.title': 'Oraindik ez dago markorik',
   'present.exit': 'Irten aurkezpenetik',
   'present.exitToBoard': 'Itzuli mihisera',
+  'present.eyebrow': 'Aurkezpen modua',
   'present.frameBody': 'Hizpideak',
   'present.frameName': 'Markoaren izena',
   'present.frameOf': 'Markoa {{current}} -ren {{total}}',
@@ -124,21 +149,31 @@ export const ui: UiTranslations = {
   'present.recordingFallback': 'Zuzeneko aurkezpena',
   'present.save': 'Gorde markoa',
   'present.title': 'Zure istorioa zuzentzen',
+  'present.unnamed': 'Izenik gabeko markoa',
+  'pricing.limits.advanced': 'Ezaugarri aurreratuak',
   'profile.cursorBody':
     'Gailu honetan gordeta — taldekideek kolore hau ikusten dute zure zuzeneko kurtsorearen ondoan.',
   'profile.cursorEyebrow': 'Zure kurtsorearen kolorea',
   'profile.eyebrow': 'Lankide publikoaren txartela',
+  'profile.noBoards': 'Oraindik ez dago taularik — sortu bat hasteko.',
+  'profile.recentBoards': 'Taulak {{name}} ukitu berriak',
   'profile.stat.${s.label}': 'Oholak {{izena}} duela gutxi ukitu',
+  'profile.statsEyebrow': 'Zure jarduera',
   'profile.title': 'Zure profila',
+  'reset.backPrompt': 'Beste helbide elektroniko bat behar duzu?',
   'reset.cta': 'Pasahitza berrezarri eta saioa hasi',
+  'reset.password': 'Pasahitz berria',
   'reset.subheading':
     'Aukeratu pasahitz sendo bat — gutxienez 8 karaktere dituena, zenbaki batekin.',
   'settings.appearance.title': 'Gaia eta mihisea',
   'settings.eyebrow': 'Kontuaren hobespenak',
   'settings.notifications.title': 'Jakinarazpenen hobespenak',
   'settings.profile.title': 'Lankide publikoaren txartela',
+  'settings.security.body':
+    'Kudeatu bi faktoreko autentifikazioa, saio aktiboak eta pasahitza zure kontuaren paneletik.',
   'settings.security.title': 'Segurtasuna',
   'shared.collaboratorCount': '{{count}} kolaboratzailea(k)',
+  'shared.count': '{{count}} taula',
   'shared.empty.body':
     'Taldekide batek taula batera gonbidatzen zaituenean, automatikoki agertuko da hemen.',
   'shared.empty.title': 'Ez da ezer partekatu zurekin oraindik',
@@ -154,6 +189,9 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'Doan gehienez 3 kolaboratzailerentzat. Ez da kreditu txartelik behar lehenengo 14 egunetan.',
   'templateCard.usageCount': '{{count}} erabilerak',
+  'templateDetail.allTemplates': 'Txantiloi guztiak',
+  'templateDetail.body':
+    'Egin klik "Erabili txantiloia" {{count}} hasierako elementuak "{{name}}" izeneko taula berri batera kopiatzeko. Editatu, partekatu eta egin zure tailerra hortik.',
   'templateDetail.delete': 'Ezabatu txantiloia',
   'templateDetail.elementsCount': '{{count}} hasierako elementuak',
   'templateDetail.eyebrow': '{{kind}} txantiloi',
@@ -166,16 +204,20 @@ export const ui: UiTranslations = {
   'templates.createTitle': 'Txantiloi pertsonalizatu bat gorde',
   'templates.empty.body':
     'Sortu txantiloi pertsonalizatu bat zure jabetzako edozein taulatik — ireki taula, gorde argazki bat eta gorde hemen berrerabilgarri den txantiloi gisa.',
+  'templates.empty.title': 'Oraindik ez dago txantiloirik',
   'templates.eyebrow': 'Tailerreko kitak eta gordetako txantiloiak',
   'templates.filter.${c}': 'Oraindik ez dago txantiloirik',
   'templates.nameLabel': 'Txantiloiaren izena',
   'templates.systemBadge': 'Barneratua',
   'templates.userBadge': 'Zurea',
   'versionHistory.backToBoard': 'Itzuli mihisera',
+  'versionHistory.elementsTotal': '{{count}} elementu harrapatu',
   'versionHistory.empty.body':
     'Argazkiak taularen mihisetik sortzen dira "Gorde argazkia" aukerarekin — hemen agertzen dira, aurreko edozein egoera leheneratu ahal izateko.',
+  'versionHistory.empty.cta': 'Ireki mihisea bat hartzeko',
   'versionHistory.empty.title': 'Oraindik ez dago argazkirik',
   'versionHistory.eyebrow': '{{title}} · historia',
+  'versionHistory.eyebrowFallback': 'Taularen historia',
   'versionHistory.latest': 'Azkena',
   'versionHistory.restore': 'Berrezarri bertsio hau',
   'versionHistory.restored': 'Argazkia leheneratu da.',
@@ -186,6 +228,7 @@ export const ui: UiTranslations = {
   'whiteboardLayout.newBoard': 'Taula berria',
   'whiteboardLayout.primaryNav': 'Nabigazio nagusia',
   'workspace.boardLabel': 'Batzordea',
+  'workspace.empty': 'Oraindik ez dago kolaboratzailerik — gonbidatu norbait zure tauletara.',
   'workspace.eyebrow': '{{name}} · lan-eremua',
   'workspace.invite': 'Gonbidatu kolaboratzaileak',
   'workspace.inviteSent': 'Gonbidapena bidali da.',
@@ -195,4 +238,5 @@ export const ui: UiTranslations = {
   'workspace.role.commenter': 'Iruzkingilea',
   'workspace.role.editor': 'Editorea',
   'workspace.role.viewer': 'Ikuslea',
+  'workspace.title': 'Kideak eta rolak',
 }

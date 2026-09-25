@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Spørgsmål om en udgave, en forsendelse eller dit abonnement? Få fat i et rigtigt menneske fra teamet på hello@crate.example — vi læser hver en besked.',
+  'about.contactTitle': 'Tal med en kurator',
+  'about.feature1':
+    'Kuraterede månedlige udgaver håndplukket af uafhængige skabere, med historien bag hver enkelt vare.',
+  'about.feature2':
+    'Fuld kontrol over hver æske — tilpas indholdet, byt eller udelad varer, spring en måned over, eller skift din frekvens.',
+  'about.feature3':
+    'Forsendelsessporing fra afhentning til dørtrin, med plastfri emballage og live-opdateringer fra fragtfirmaet.',
+  'about.feature4':
+    'Fleksible planer og gennemsigtig fakturering — opgrader, nedgrader, sæt på pause eller opsig fra dit dashboard når som helst.',
+  'about.intro':
+    '{{app}} er en kurateret abonnementsboks-tjeneste, der hver måned leverer en håndplukket, småbatch-æske af glæde til din dør. Hver udgave sammensættes af aktive skabere — uafhængige kunstnere, kokke og små brands — ikke en algoritme.',
+  'about.missionBody':
+    'Vi mener, at et abonnement skal føles som en gave, ikke en fælde. {{app}} er bygget, så du bliver, fordi du elsker det, der ankommer — sæt på pause når som helst, byt det du vil, og opsig med ét klik. Aldrig nogen fastholdelsesscripts.',
+  'about.missionTitle': 'Vores mission',
   'about.pageTitle': 'Om {{app}}',
   'appNav.mobileLabel': 'Primær navigation',
   'appNav.primaryLabel': 'Primær navigation',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Rediger faktureringskontakt',
   'billing.contact.eyebrow': 'Faktureringskontakt',
   'billing.eyebrow': 'Plan og betalinger',
+  'billing.loading': 'Indlæser fakturering…',
   'billing.payment.body':
     'Betaling håndteres af Stripe Checkout — dit fulde kortnummer kommer aldrig i kontakt med vores servere. Klik på et hvilket som helst niveau nedenfor for at tilføje eller opdatere dit kort.',
   'billing.payment.linked': 'Kort registreret via Stripe',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Genoptag abonnementet',
   'billing.plan.eyebrow': 'Aktiv plan',
   'billing.plan.next': 'Fornyes automatisk den {{date}} .',
+  'billing.plan.status': 'Status: {{status}}',
   'billing.subtitle':
     'Administrer dit niveau, din betalingsmetode og gennemgå tidligere aktivitet.',
   'billing.tiers.body': 'Vælg et niveau, så sender vi dig videre til Stripe Checkout.',
   'billing.tiers.choose': 'Vælg',
+  'billing.tiers.empty': 'Ingen niveauer konfigureret endnu.',
   'billing.tiers.heading': 'Tilgængelige niveauer',
   'boxDetail.backToBoxes': 'Tilbage til alle udgaver',
   'boxDetail.crumb.boxes': 'Udgaver',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Kurateret stykke',
   'boxDetail.items.heading': '{{count}} kuraterede stykker',
   'boxDetail.itemsBadge': '{{count}} udvalgte varer pr. æske',
+  'boxDetail.loading': 'Indlæser udgave…',
   'boxDetail.notFound': 'Den udgave er ikke længere tilgængelig.',
   'boxDetail.subscribe.success': 'Abonneret — din første udgave er i kø.',
   'boxDetail.swapBadge': 'Skift op til {{count}} vare(r) pr. kasse',
@@ -44,14 +64,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Ingen matchende udgaver.',
   'boxes.eyebrow': 'Crate-arkivet',
   'boxes.heading': 'Gennemse alle udgaver',
+  'boxes.loadError': 'Vi kunne ikke indlæse udgaverne. Tjek din forbindelse, og prøv igen.',
   'boxes.loading': 'Indlæser udgaver…',
+  'boxes.search.label': 'Søg i udgaver',
   'boxes.search.placeholder': 'Søg i udgaver…',
   'boxes.subtitle':
     'Hvert niveau er en lille historie. Tilføj en til din kø, eller byt den til din næste måned.',
+  'boxThemeCard.itemCount': '{{count}} elementer',
   'boxThemeCard.perMonth': '/ måned',
+  'boxThemeCard.retailValue': 'Detailværdi {{value}}',
   'common.goToDashboard': 'Gå til Dashboard',
+  'common.retry': 'Prøv igen',
   'customize.eyebrow': 'Gør det til dit eget',
   'customize.heading': 'Tilpas din næste Crate',
+  'customize.items.empty': 'Ingen varer konfigureret til dette niveau endnu.',
   'customize.items.exclude': 'Spring dette over',
   'customize.items.eyebrow': 'Personliggør denne boks',
   'customize.items.heading': 'Varer i {{box}}',
@@ -59,8 +85,11 @@ export const ui: UiTranslations = {
     '{{count}} af {{total}} Inkluderede varer. Vi bytter udeladte varer med kuratorvalg.',
   'customize.items.include': 'Tilføj tilbage',
   'customize.items.save': 'Gem tilpasning',
+  'customize.items.swapsLeft': '{{used}} af {{max}} byt brugt',
+  'customize.loading': 'Indlæser tilpasning…',
   'customize.noSub.body':
     'Abonner først på et niveau, og kom derefter tilbage for at bytte varer i din boks.',
+  'customize.noSub.cta': 'Gennemse udgaver',
   'customize.noSub.heading': 'Intet aktivt abonnement',
   'customize.saved': 'Tilpasning gemt.',
   'customize.subtitle':
@@ -74,11 +103,13 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Spor forsendelse',
   'dashboard.eyebrow': 'Din skatkammer',
   'dashboard.greeting': 'Velkommen tilbage, {{name}}.',
+  'dashboard.loadError': 'Vi kunne ikke indlæse dit dashboard. Tjek din forbindelse, og prøv igen.',
   'dashboard.loading': 'Indlæser dashboard…',
   'dashboard.next.eyebrow': 'Din næste udgave',
   'dashboard.onboarding.body':
     'Du har endnu ikke et aktivt abonnement. Vælg et niveau for at begynde at sende en Crate hver måned.',
   'dashboard.onboarding.cta': 'Gennemse alle udgaver',
+  'dashboard.onboarding.empty': 'Ingen planer tilgængelige lige nu. Kom tilbage snart.',
   'dashboard.onboarding.heading': 'Vælg din første udgave',
   'dashboard.renewal.amount': 'Opkrævet',
   'dashboard.renewal.cadence': 'Kadence',
@@ -86,18 +117,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Fornyelse',
   'dashboard.renewal.heading': 'Automatisk fornyelse aktiveret {{date}}',
   'dashboard.renewal.plan': 'Plannøgle',
+  'dashboard.renewal.tbd': 'Fornyelsesplanlægning snart',
   'dashboard.renewal.tier': 'Niveau',
   'dashboard.stats.days': 'dage',
   'dashboard.stats.daysToNext': 'Sendes ind',
   'dashboard.stats.items': 'Udvalgte varer',
   'dashboard.stats.shipDate': 'Forsendelsesdato',
   'dashboard.stats.tbd': 'TBD',
+  'dashboard.subtitle.active': 'Din næste udgave er på vej. Her er, hvad du kan forvente.',
+  'dashboard.subtitle.idle': 'Vælg et niveau for at begynde at sende en {{appName}} hver måned.',
   'forgotPassword.subtitle': 'Giv os din e-mail, så sender vi dig et nulstillingslink.',
   'forgotPassword.success.body':
     'Hvis {{email}} er registreret, modtager du et nulstillingslink inden for et par minutter.',
   'forgotPassword.success.title': 'Tjek din indbakke.',
   'landing.editions.eyebrow': 'Denne sæson',
   'landing.editions.heading': 'Udgaver vores kuratorer elsker',
+  'landing.editions.viewAll': 'Gennemse alle udgaver →',
   'landing.footer.contact': 'Tal med en kurator',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Start din boks →',
@@ -106,6 +141,9 @@ export const ui: UiTranslations = {
   'landing.hero.headline': 'Pak det uventede ud, hver måned.',
   'landing.hero.previewCaption': 'Et kig på medlemsdashboardet — nedtælling, indhold og sporing.',
   'landing.hero.social.count': 'Elsket af {{count}} + abonnenter',
+  'landing.hero.social.rating': '{{rating}} gns. unboxing-bedømmelse',
+  'landing.hero.subhead':
+    '{{appName}} sender dig en håndplukket, småbatch-æske af glæde fra uafhængige skabere. Sæt på pause når som helst. Byt det du vil. Behold det du elsker.',
   'landing.nav.start': 'Start din boks',
   'landing.tiers.eyebrow': 'Vælg din kadence',
   'landing.tiers.heading': 'Start småt, opgrader når som helst, og opsig lige så nemt.',
@@ -115,6 +153,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Log ind for at se næste måneds boks.',
   'login.welcomeBack': 'Velkommen tilbage, kurator.',
   'nextBoxHeroCard.eyebrow': 'DIN NÆSTE FILM',
+  'nextBoxHeroCard.itemCount': '{{count}} dele indeni',
   'nextBoxHeroCard.itemsLabel': 'Udvalgte varer',
   'nextBoxHeroCard.shipsOnLabel': 'Sendes på',
   'notFound.body':
@@ -138,8 +177,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Sæt abonnementet på pause',
   'settings.danger.paused': 'Abonnementet er sat på pause.',
   'settings.danger.pausing': 'Pauserer…',
+  'settings.danger.status': 'Abonnementsstatus: {{status}}',
   'settings.danger.subtitle':
     'Hvis du sætter på pause, bevares dit niveau og din historik. Hvis du annullerer, stoppes fremtidige forsendelser, og dine gemte betalingsmetoder fjernes ved slutningen af cyklussen.',
+  'settings.notifications.saving': '· gemmer…',
   'settings.notifications.subtitle':
     'Vælg hvilke signaler du ønsker fra Crate. Standardindstillinger er fornuftige.',
   'settings.subtitle': 'Opdater din profil, leveringsadresse og hvordan Crate kontakter dig.',
@@ -154,12 +195,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Ingen aktiv forsendelse endnu',
   'shipments.live.eyebrow': 'Aktiv forsendelse',
   'shipments.live.unnamed': 'Din næste boks',
+  'shipments.loadError':
+    'Vi kunne ikke indlæse dine forsendelser. Tjek din forbindelse, og prøv igen.',
+  'shipments.loading': 'Indlæser forsendelser…',
+  'shipments.step.delivered': 'Leveret',
   'shipments.step.deliveredBody': 'Tag #crateunbox for at dele, hvad du opdager.',
   'shipments.step.ordered': 'Ordre afgivet',
   'shipments.step.orderedBody':
     'Dit abonnement har sat denne udgave i kø til den næste leveringscyklus.',
+  'shipments.step.packed': 'Håndpakket',
   'shipments.step.packedBody':
     'Hvert stykke blev pakket ind og lagt i en æske med en håndskrevet seddel.',
+  'shipments.step.transit': 'På vej',
   'shipments.step.transitNot': 'Sporingen vises her, når din kasse er under forsendelse.',
   'shipments.subtitle':
     'Spor æsken på vej til dig, og gense derefter alle de udgaver, du har pakket ud før.',

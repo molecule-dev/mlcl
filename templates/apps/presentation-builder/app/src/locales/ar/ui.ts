@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'هل لديك أسئلة أو ملاحظات أو ميزة تتمنى لو كانت لدينا؟ تواصل مع الفريق من إعدادات حسابك — يقرأ شخص حقيقي كل رسالة.',
   'about.contactTitle': 'تواصل معنا',
   'about.eyebrow': 'حول',
+  'about.missionTitle': 'مهمتنا',
+  'about.whatYouGetTitle': 'ما تحصل عليه',
   'analytics.empty': 'أنشئ عروضًا لرؤية التحليلات هنا.',
   'analytics.stats.acrossDecks': 'عبر جميع العروض',
   'analytics.stats.allTime': 'في الاستوديو الخاص بك',
@@ -65,6 +69,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'عنوان العرض',
   'landing.features.eyebrow': 'لماذا Overture',
   'landing.features.heading': 'كل ما تحتاجه لتعتلي المنصة وأنت مستعد.',
+  'landing.finalCta.body':
+    'أنشئ الاستوديو الخاص بك في أقل من دقيقة. بدون بطاقة ائتمان. يمكنك الإلغاء في أي وقت.',
   'landing.finalCta.cta': 'أنشئ استوديوك المجاني',
   'landing.finalCta.eyebrow': 'بداية مجانية',
   'landing.finalCta.heading': 'اعتلِ المنصة بأفضل عرض في مسيرتك المهنية.',
@@ -80,10 +86,14 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'تم التعديل قبل 12 دقيقة',
   'notifications.created': 'أنشأ',
   'notifications.edited': 'حرّر',
+  'notifications.empty.body': 'سيظهر هنا النشاط على عروضك — التعليقات والإشارات والتصديرات.',
   'notifications.empty.title': 'لا توجد إشعارات بعد',
   'notifications.eyebrow': 'نشاط المنصة',
   'notifications.loading': 'جارٍ التحميل…',
   'notifications.shared': 'شارك علنًا',
+  'planUpdated.retry': 'حاول مرة أخرى',
+  'planUpdated.verifyFailed': 'لم نتمكن من تأكيد دفعتك بعد.',
+  'planUpdated.verifyFailedBody': 'قد لا تزال عملية الدفع قيد المعالجة. حاول مرة أخرى بعد قليل.',
   'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'present.addSlides': 'إضافة شرائح',
   'present.backToDecks': 'العودة إلى العروض',
@@ -121,6 +131,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'فنان المنصة',
   'settings.security.notSet': 'غير محدد',
   'settings.security.passwordBody': 'كلمة المرور الخاصة بك مشفّرة عند التخزين.',
+  'settings.security.reset': 'إعادة تعيين',
   'settings.security.title': 'الحساب والجلسات',
   'shared.empty.body':
     'العروض التي تشاركها علنًا ستظهر هنا. افتح عرضًا وفعّل خيار العرض العام للمشاركة.',
@@ -129,6 +140,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'جارٍ التحميل…',
   'shared.title': 'العروض المشتركة',
   'templateCard.slideCount': '{{count}} شريحة',
+  'templateCard.usageCount': '{{count}} استخدامًا',
+  'templates.empty.body': 'جرّب عامل تصفية مختلفًا — نطلق قوالب جديدة كل شهر.',
+  'templates.empty.title': 'لا توجد قوالب في هذه الفئة بعد',
+  'templates.hero.body':
+    'تخطيطات شرائح بسمات جاهزة مع كتل المخططات وإطارات العرض التوضيحي وملاحظات المتحدث وإعدادات المؤقت المسبقة — كل قالب يأتي جاهزًا للتسجيل.',
   'templates.hero.eyebrow': 'منصات منتقاة',
   'templates.hero.heading': 'منصات بُنيت من أجل اللحظة التي يجب أن تنجح فيها.',
 }

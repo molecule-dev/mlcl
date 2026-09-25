@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Iritzia emateko, akats bat aurkitu duzu, edo zure ligarako {{app}} nahi duzu? Jarri gurekin harremanetan zure kontuaren ezarpenetatik — mezu bakoitza taldeko benetako pertsona batengana iristen da.',
+  'about.contactTitle': 'Jarri gurekin harremanetan',
   'about.eyebrow': 'Buruz',
+  'about.featureAlerts':
+    'Puntuazioen eguneratzeetarako, truke-abisuetarako, lesio-txostenetarako eta ligako iragarkietarako push jakinarazpenak.',
+  'about.featureRosters':
+    'Taldeen orriak, plantilla osoekin, denboraldiko totalekin, hot/cold boladekin eta jokalari bakoitzaren head-to-head banaketekin.',
+  'about.featureSchedule':
+    'Denboraldiko egutegia eta ordutegi-ikusi bat, partida eta emaitza bakoitzaren inguruan planifikatu ahal izateko.',
+  'about.featureScoreboard':
+    'Emitraldi-mailako markagailu-tickerra, orri bakoitzaren goialdean finkatuta, gol bat ere ez galtzeko.',
+  'about.featureStandings':
+    'Zuzenean sailkapena — garaipen-galera-berdinketa errekorrak, puntuak, garaipen-ehunekoa eta playoff-marra, txistu bakoitzean eguneratuta.',
+  'about.intro':
+    '{{app}} zure ligarako emitraldi-kalitateko etxea da. Taldeak, ordutegiak, zuzeneko puntuazioak eta sailkapenak aginte-panel azkar eta garbi batean biltzen dira — zaleek, entrenatzaileek eta liga-antolatzaileek beti dakite denboraldia non dagoen.',
+  'about.missionBody':
+    'Liga bat jarraitzeak ez luke esan behar hirugarrenen bost markagailu desberdin freskatzea. Liga bakoitzari sailkapenerako, ordutegirako eta benetan garrantzitsuak diren estatistiketarako iturri bakarra emateko eraiki genuen — txistu bakoitzean eguneratuta, denboraldirako doan.',
+  'about.missionTitle': 'Gure misioa',
+  'about.whatYouGet': 'Zer lortzen duzun',
   'appShell.closeNav': 'Itxi nabigazioa',
   'appShell.openNav': 'Ireki nabigazioa',
   'common.dashboard': 'Aginte-panela',
@@ -16,14 +35,21 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Ikusi partida guztiak \\u2192',
   'dashboard.viewAllStandings': 'Sailkapen osoa \\u2192',
   'dashboard.viewAllStats': 'Ikusi estatistika-buru guztiak \\u2192',
+  'forgot.submitting': 'Berrezartze-esteka bidaltzen…',
   'forgot.subtitle': 'Idatzi zure helbide elektronikoa berrezartzeko esteka jasotzeko.',
   'forgot.success':
     'Berrezarri esteka bidali da helbide honetara {{email}} Begiratu zure sarrera-ontzia.',
+  'landing.copyright': '© {{year}} {{app}}. Chase the standing.',
+  'landing.ctaBody':
+    'Zure liga. Zure sailkapena. Zure talde gogokoena — goialdean finkatuta. Bi minutu konfiguratzeko, denboraldirako doan.',
   'landing.ctaHeading': 'Utzi hirugarrenen markagailuak freskatzeari',
   'landing.eyebrow': 'Zale, entrenatzaile eta liga antolatzaileentzat eraikia',
   'landing.featuresHeading': 'Zutik dauden guztientzat lehen ilarako eserlekua',
   'landing.getStarted': 'Batu zaitez ligari',
   'landing.heroCta': 'Batu zaitez ligari',
+  'landing.heroSubtitle':
+    '{{app}}-k sailkapenak, ordutegiak eta estatistika-buruak emitraldi-kalitateko aginte-panel bakarrean lotzen ditu. Zuzeneko puntuazioak. Benetako errekorrak. Zaborrik gabe.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Gaur gauean liga osoan',
   'landing.statFans': 'Jarraitzaileen atzetik',
   'landing.statGames': 'Denboraldi honetako partidak',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Partidetara itzuli',
   'matchDetail.eventsHeading': 'Jokaldiz jokaldi',
+  'matchDetail.final': 'FINALA',
   'matchDetail.finalScore': 'Finala',
   'matchDetail.live': 'ZUZENEAN',
   'matchDetail.liveNow': 'Zuzeneko unea',
   'matchDetail.noEvents': 'Ez da gertaerarik erregistratu oraindik.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Ez dago partidarik ikuspegi honetan — probatu beste iragazki bat.',
   'matches.eyebrow': 'Partidu-eguna',
   'matches.loading': 'Arbela tiraka…',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Ezin izan dira jakinarazpenak kargatu',
   'notifications.loading': 'Jakinarazpenak kargatzen\\u2026',
   'pennantHeroCard.eyebrow': 'Taularen goialdean',
+  'pennantHeroCard.formLabel': 'Azken 10',
   'pennantHeroCard.gamesAhead': '{{value}} lasterketaren aurretik dauden partidak',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Nabigazio nagusia',
@@ -80,17 +109,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Aukeratu zure eserlekua',
   'pricing.heading': 'Eguneratu egutegi, puntuazio eta sailkapen aberatsagoak lortzeko.',
   'pricing.limits.schedule': '{{count}} ordutegi sarrerak',
+  'pricing.limits.scores': '{{count}} puntuazioak',
+  'pricing.limits.standings': '{{count}} sailkapena',
+  'pricing.limits.teams': '{{count}} talde',
+  'pricing.subtitle': 'Eguneratu ordutegi, puntuazio eta sailkapen aberatsagoetarako.',
   'pricing.upgradeCta': 'Berritu honetara {{tierName}}',
   'profile.eyebrow': 'Zaleen profila',
   'profile.favoritesCount': 'Jarraitutako taldeak',
   'profile.favoritesHeading': 'Gogoko taldeak',
   'profile.noFavorites': 'Oraindik ez duzu gogokorik — aukeratu taldeak Taldeen orrialdetik.',
   'profile.rankRecord': 'Sailkapena # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Errekorra {{record}}',
   'reset.confirmPlaceholder': 'Errepikatu pasahitza.',
+  'reset.mismatch': 'Pasahitzak ez datoz bat.',
   'reset.newLabel': 'Pasahitz berria',
   'reset.subtitle': 'Aukeratu gutxienez 12 karaktereko pasahitz sendo bat.',
   'reset.tokenPlaceholder': 'Itsatsi mezu elektronikotik',
   'schedule.eyebrow': 'Arbela',
+  'schedule.moreGames': '+ {{count}} gehiago',
   'schedule.subtitle':
     'Denboraldiko partiden egutegiaren ikuspegia — sakatu edozein egun puntuazio ikusteko.',
   'scoreboardTicker.empty':
@@ -99,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Pertsonalizatu',
   'settings.favoritesBody':
     'Talde hauek zure kontrol-panelean finkatzen dira eta puntuazio-alertak aktibatuko dituzte.',
+  'settings.favoritesHeading': 'Gogoko taldeak',
   'settings.loading': 'Zure hobespenak kargatzen\\u2026',
   'settings.noFavorites': 'Gogokorik ez oraindik \\u2014 aukeratu taldeak Taldeen orrialdetik.',
   'settings.notificationsHeading': 'Jakinarazpenak eta pantaila',
@@ -116,6 +153,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Oro har',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Lehenengo lauak sailkatzen dira kanporaketa-denboraldirako — puntuen arabera berdinketa hausten da, eta gero irabazi-ehunekoa.',
   'standings.title': 'Ligako sailkapena',
@@ -134,6 +172,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Jokalaria',
   'teamDetail.colPos': 'Postua',
+  'teamDetail.pointsLabel': 'Puntuak',
   'teamDetail.rankLabel': 'Sailkapena # {{rank}}',
   'teamDetail.rosterHeading': 'Zerrenda',
   'teamDetail.statGD': 'Helburuen aldea',

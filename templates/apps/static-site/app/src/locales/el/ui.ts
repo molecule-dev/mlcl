@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Το πλάνο σας ενημερώθηκε.',
   'planUpdated.returnHome': 'Επιστροφή στην αρχική',
   'planUpdated.thankYou': 'Ευχαριστούμε!',
+  'post.markdown': 'Προβολή αυτής της ανάρτησης ως markdown',
+  'post.readingTime': '{{minutes}} λεπτά ανάγνωσης',
   'post.tags': 'Ετικέτες',
   'project.error.nameAndTypeRequired': 'Απαιτούνται όνομα και projectType',
   'project.error.notFound': 'Δεν βρέθηκε',

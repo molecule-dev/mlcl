@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Nashr, jo‘natma yoki obunangiz haqida savollaringiz bormi? Jamoadagi haqiqiy insonga hello@crate.example manzili orqali murojaat qiling — biz har bir xabarni o‘qiymiz.',
+  'about.contactTitle': 'Kurator bilan gaplashing',
+  'about.feature1':
+    'Mustaqil hunarmandlar tanlagan har oylik saralangan nashrlar, har bir buyum ortidagi hikoya bilan.',
+  'about.feature2':
+    'Har bir qutini to‘liq nazorat qilish — tarkibni sozlang, buyumlarni almashtiring yoki chiqarib tashlang, bir oyni o‘tkazib yuboring yoki davriylikni o‘zgartiring.',
+  'about.feature3':
+    'Olib ketishdan eshik oldigacha to‘liq kuzatuv, plastiksiz qadoqlash va tashuvchining jonli yangilanishlari bilan.',
+  'about.feature4':
+    'Moslashuvchan tariflar va shaffof to‘lov — istalgan vaqtda boshqaruv panelidan tarifni oshiring, pasaytiring, to‘xtatib turing yoki bekor qiling.',
+  'about.intro':
+    '{{app}} — har oy eshigingizga saralangan, kichik partiyadagi quvonch qutisini yetkazib beruvchi obuna xizmati. Har bir nashr algoritm emas, balki mehnat qilayotgan hunarmandlar — mustaqil rassomlar, oshpazlar va kichik brendlar tomonidan yig‘iladi.',
+  'about.missionBody':
+    'Bizningcha, obuna tuzoq emas, sovg‘a kabi bo‘lishi kerak. {{app}} shunday yaratilganki, siz kelgan narsani yaxshi ko‘rganingiz uchun qolasiz — istalgan vaqtda to‘xtatib turing, xohlaganingizni almashtiring va bir bosishda bekor qiling. Hech qachon ushlab qolish hiylalari yo‘q.',
+  'about.missionTitle': 'Bizning vazifamiz',
   'about.pageTitle': '{{app}} haqida',
   'appNav.mobileLabel': 'Asosiy navigatsiya',
   'appNav.primaryLabel': 'Asosiy navigatsiya',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': "To'lov kontaktini tahrirlash",
   'billing.contact.eyebrow': "Hisob-kitob bo'yicha kontakt",
   'billing.eyebrow': "Reja va to'lovlar",
+  'billing.loading': 'Hisob-kitob yuklanmoqda…',
   'billing.payment.body':
     "To'lov Stripe Checkout tomonidan amalga oshiriladi — kartangizning to'liq raqami hech qachon bizning serverlarimizga tegmaydi. Kartangizni qo'shish yoki yangilash uchun quyidagi istalgan darajani bosing.",
   'billing.payment.linked': 'Karta Stripe orqali faylda',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Obunani davom ettirish',
   'billing.plan.eyebrow': 'Faol reja',
   'billing.plan.next': 'Avtomatik ravishda yangilanadi {{date}} .',
+  'billing.plan.status': 'Holat: {{status}}',
   'billing.subtitle':
     "Darajangizni, to'lov usulingizni boshqaring va o'tmishdagi faoliyatingizni ko'rib chiqing.",
   'billing.tiers.body': "Darajani tanlang, shunda biz sizni Stripe Checkoutga yo'naltiramiz.",
   'billing.tiers.choose': 'Tanlang',
+  'billing.tiers.empty': 'Hali darajalar sozlanmagan.',
   'billing.tiers.heading': 'Mavjud darajalar',
   'boxDetail.backToBoxes': 'Barcha nashrlarga qaytish',
   'boxDetail.crumb.boxes': 'Nashrlar',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Tanlangan asar',
   'boxDetail.items.heading': '{{count}} tanlangan qismlar',
   'boxDetail.itemsBadge': '{{count}} har bir qutiga tanlangan elementlar',
+  'boxDetail.loading': 'Nashr yuklanmoqda…',
   'boxDetail.notFound': 'Bu nashr endi mavjud emas.',
   'boxDetail.subscribe.success': "Obuna bo'lgan — birinchi nashringiz navbatga qo'yilgan.",
   'boxDetail.swapBadge': 'Almashtirish {{count}} har bir qutidagi element(lar)',
@@ -44,14 +64,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Hech qanday nashr mos kelmadi.',
   'boxes.eyebrow': 'Crate arxivi',
   'boxes.heading': "Har bir nashrni ko'rib chiqing",
+  'boxes.loadError': 'Nashrlarni yuklab bo‘lmadi. Ulanishni tekshirib, qayta urinib ko‘ring.',
   'boxes.loading': 'Nashrlar yuklanmoqda…',
+  'boxes.search.label': 'Nashrlarni qidirish',
   'boxes.search.placeholder': 'Nashrlarni qidirish…',
   'boxes.subtitle':
     "Har bir bosqich kichik partiyali hikoya. Navbatingizga bittasini qo'shing yoki keyingi oyingizga o'tkazing.",
+  'boxThemeCard.itemCount': '{{count}} buyumlar',
   'boxThemeCard.perMonth': '/ oy',
+  'boxThemeCard.retailValue': 'Chakana narxi {{value}}',
   'common.goToDashboard': "Boshqaruv paneliga o'tish",
+  'common.retry': 'Qayta urinish',
   'customize.eyebrow': "Uni o'zingizniki qiling",
   'customize.heading': "Keyingi to'plamingizni sozlang",
+  'customize.items.empty': 'Bu daraja uchun hali buyumlar sozlanmagan.',
   'customize.items.exclude': "Buni o'tkazib yuboring",
   'customize.items.eyebrow': 'Ushbu katakchani shaxsiylashtiring',
   'customize.items.heading': 'Ichidagi narsalar {{box}}',
@@ -60,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': "Qayta qo'shish",
   'customize.items.save': 'Moslashtirishni saqlash',
   'customize.items.swapsLeft': '{{used}} ning {{max}} ishlatilgan svoplar',
+  'customize.loading': 'Sozlash yuklanmoqda…',
   'customize.noSub.body':
     "Avval darajaga obuna bo'ling, keyin qutingizdagi narsalarni almashtirish uchun qaytib keling.",
+  'customize.noSub.cta': 'Nashrlarni ko‘rish',
   'customize.noSub.heading': "Faol obuna yo'q",
   'customize.saved': 'Moslashtirish saqlandi.',
   'customize.subtitle':
@@ -75,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Yuklarni kuzatib boring',
   'dashboard.eyebrow': 'Sizning xazinam',
   'dashboard.greeting': 'Qaytib kelganingizdan xursandmiz, {{name}} .',
+  'dashboard.loadError':
+    'Boshqaruv panelingizni yuklab bo‘lmadi. Ulanishni tekshirib, qayta urinib ko‘ring.',
   'dashboard.loading': 'Boshqaruv paneli yuklanmoqda…',
   'dashboard.next.eyebrow': 'Keyingi nashringiz',
   'dashboard.onboarding.body':
     "Sizda hali faol obuna yo'q. Har oy Crate jo'natishni boshlash uchun darajani tanlang.",
   'dashboard.onboarding.cta': "Barcha nashrlarni ko'rib chiqish",
+  'dashboard.onboarding.empty': 'Hozircha tariflar mavjud emas. Tez orada yana tekshiring.',
   'dashboard.onboarding.heading': 'Birinchi nashringizni tanlang',
   'dashboard.renewal.amount': 'Zaryadlangan',
   'dashboard.renewal.cadence': 'Kadens',
@@ -87,12 +118,15 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Yangilash',
   'dashboard.renewal.heading': 'Avtomatik yangilash yoqilgan {{date}}',
   'dashboard.renewal.plan': 'Reja kaliti',
+  'dashboard.renewal.tbd': 'Yangilash tez orada rejalashtiriladi',
   'dashboard.renewal.tier': 'Daraja',
   'dashboard.stats.days': 'kunlar',
   'dashboard.stats.daysToNext': 'Yetkazib beriladi',
   'dashboard.stats.items': 'Tanlangan elementlar',
   'dashboard.stats.shipDate': 'Yetkazib berish sanasi',
   'dashboard.stats.tbd': "O'zgartirilgan",
+  'dashboard.subtitle.active': 'Keyingi nashringiz yo‘lda. Mana nimalarni kutish mumkin.',
+  'dashboard.subtitle.idle': 'Har oy {{appName}} yuborishni boshlash uchun darajani tanlang.',
   'forgotPassword.subtitle':
     'Elektron pochtangizni ayting, biz qayta tiklash havolasini yuboramiz.',
   'forgotPassword.success.body':
@@ -100,6 +134,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Pochta qutingizni tekshiring.',
   'landing.editions.eyebrow': 'Bu mavsumda',
   'landing.editions.heading': 'Kuratorlarimiz sevadigan nashrlar',
+  'landing.editions.viewAll': 'Barcha nashrlarni ko‘rish →',
   'landing.footer.contact': 'Kurator bilan gaplashing',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Qutini ishga tushiring →',
@@ -109,6 +144,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     "A'zolar boshqaruv paneliga bir nazar — ortga hisoblash, kontent va kuzatuv.",
   'landing.hero.social.count': 'Sevimli {{count}} + obunachilar',
+  'landing.hero.social.rating': '{{rating}} o‘rtacha ochish bahosi',
+  'landing.hero.subhead':
+    '{{appName}} sizga mustaqil hunarmandlardan saralangan, kichik partiyadagi quvonch qutisini yuboradi. Istalgan vaqtda to‘xtatib turing. Xohlaganingizni almashtiring. Yoqtirganingizni saqlab qoling.',
   'landing.nav.start': 'Qutini ishga tushiring',
   'landing.tiers.eyebrow': 'Ovoz tezligini tanlang',
   'landing.tiers.heading':
@@ -119,6 +157,7 @@ export const ui: UiTranslations = {
   'login.subtitle': "Keyingi oy uchun katakchani ko'rish uchun tizimga kiring.",
   'login.welcomeBack': 'Xush kelibsiz, kurator.',
   'nextBoxHeroCard.eyebrow': "KEYINGI TO'PLAMI",
+  'nextBoxHeroCard.itemCount': 'Ichida {{count}} dona',
   'nextBoxHeroCard.itemsLabel': 'Tanlangan elementlar',
   'nextBoxHeroCard.shipsOnLabel': 'Yetkazib beriladi',
   'notFound.body':
@@ -143,8 +182,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': "Obunani to'xtatib turish",
   'settings.danger.paused': "Obuna to'xtatildi.",
   'settings.danger.pausing': 'Pauza qilinmoqda…',
+  'settings.danger.status': 'Obuna holati: {{status}}',
   'settings.danger.subtitle':
     "To'xtatib turish sizning darajangiz va tarixingizni saqlab qoladi. Bekor qilish kelajakdagi jo'natmalarni to'xtatadi va tsikl oxirida saqlangan to'lov usullaringizni olib tashlaydi.",
+  'settings.notifications.saving': '· saqlanmoqda…',
   'settings.notifications.subtitle':
     'Crate’dan qaysi signallarni xohlayotganingizni tanlang. Standart sozlamalar oqilona.',
   'settings.subtitle':
@@ -161,13 +202,19 @@ export const ui: UiTranslations = {
   'shipments.live.empty': "Hali faol jo'natma yo'q",
   'shipments.live.eyebrow': "Faol jo'natish",
   'shipments.live.unnamed': 'Keyingi qutingiz',
+  'shipments.loadError':
+    'Jo‘natmalaringizni yuklab bo‘lmadi. Ulanishni tekshirib, qayta urinib ko‘ring.',
+  'shipments.loading': 'Yuklamalar yuklanmoqda…',
+  'shipments.step.delivered': 'Yetkazib berildi',
   'shipments.step.deliveredBody':
     "Kashf qilgan narsalaringizni ulashish uchun #crateunbox tegini qo'ying.",
   'shipments.step.ordered': 'Buyurtma berildi',
   'shipments.step.orderedBody':
     "Obunangiz ushbu nashrni keyingi jo'natish davri uchun navbatga qo'ydi.",
+  'shipments.step.packed': 'Qo‘lda qadoqlangan',
   'shipments.step.packedBody':
     "Har bir buyum o'ralgan va qo'lda yozilgan yozuv bilan qutiga solingan.",
+  'shipments.step.transit': 'Yo‘lda',
   'shipments.step.transitNot':
     "Kuzatuv qutingiz tranzitga qo'yilgandan so'ng bu yerda ko'rsatiladi.",
   'shipments.subtitle':

@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Għandek feedback, sibt bug, jew trid iddaħħal l-iskola tiegħek? Ikkuntattjana mis-settings tal-kont tiegħek jew ibgħat messaġġ lill-amministratur tal-iskola tiegħek — kull nota tasal għand persuna reali fit-tim.',
   'about.contactTitle': 'Kellem magħna',
+  'about.missionTitle': 'Il-missjoni tagħna',
   'announcementsFeed.empty': "Għad m'hemm l-ebda avviż.",
   'announcementsFeed.eyebrow': '{{count}} aġġornamenti',
   'announcementsFeed.title': 'L-aħħar avviżi',
   'assignmentDetail.alreadySubmitted': 'Diġà bgħatt dan l-inkarigu.',
   'assignmentDetail.backLink': 'Lura għall-assenjazzjonijiet',
+  'assignmentDetail.dropBody':
+    'Uża Agħżel fajls biex tattaxxa x-xogħol tiegħek — se nirreġistraw il-ħin tas-sottomissjoni ladarba tikkonferma.',
   'assignmentDetail.dropButton': 'Agħżel fajls',
+  'assignmentDetail.dropPrompt': 'Ħott il-PDF jew il-pakkett tar-ritratti tiegħek hawn',
   'assignmentDetail.due': 'Dovut {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Istruzzjonijiet',
@@ -19,8 +25,12 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Gradjat',
   'assignmentDetail.statusSubmitted': 'Sottomess',
   'assignmentDetail.statusTitle': 'Status tas-sottomissjoni',
+  'assignmentDetail.submitError':
+    "Ma stajniex nirreġistraw dik is-sottomissjoni. Erġa' pprova fi ftit mumenti.",
   'assignmentDetail.submitted':
     'Sottomissjoni rreġistrata — l-għalliem/a tiegħek ġie/ġiet notifikat/a.',
+  'assignmentDetail.submittedAt': 'Sottomess {{when}}',
+  'assignmentDetail.submitTitle': 'Issottometti x-xogħol tiegħek',
   'assignmentRow.courseDue': '{{course}} · Dovut {{due}}',
   'assignments.empty': 'Xejn hawn',
   'assignments.emptyBody':
@@ -40,9 +50,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     "Reġistru ta' kuljum tal-preżenza, l-assenzi, u d-dewmien — b'noti meta applikabbli.",
+  'attendance.summary.absences': 'Assenzi',
   'attendance.summary.absencesCaption': "Taħt il-limitu ta' intervent ta' 5 ijiem",
   'attendance.summary.attendance': 'Attendenza',
   'attendance.summary.attendanceCaption': '{{count}} illum il-ġurnata dan it-terminu',
+  'attendance.summary.tardies': 'Dewmiet',
   'attendance.summary.tardiesCaption':
     'Inklużi noti għal dewmien tal-karozzi tal-linja / appuntamenti',
   'attendance.title': 'Storja tal-attendenza',
@@ -57,6 +69,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Gradi',
   'courseDetail.currentGrade': 'Grad attwali',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Ħarsa ġenerali tal-kors',
   'courseDetail.gradesTitle': 'Gradi riċenti',
   'courseDetail.messageTeacher': 'Messaġġ għalliem',
   'courseDetail.noGrades': "Għad m'hemm l-ebda gradi ppubblikati.",
@@ -69,13 +82,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Ara kollox',
   'dashboard.assignmentsTitle': 'Li jmiss din il-ġimgħa',
   'dashboard.greeting': 'Ċaw {{name}} , lest għall-lezzjoni?',
+  'dashboard.subtitle':
+    "Il-ġimgħa tiegħek b'ħarsa waħda — skeda, gradi, u xogħlijiet f'veduta waħda kwieta.",
+  'dashboard.viewReportCard': 'Ara l-karta tar-rapport',
+  'dashboard.weekFocusBody':
+    "Issottometti s-sett ta' prattika 7 tal-Kwadratiċi u l-kwiż tal-kapitlu. Il-laboratorju tat-tutoring huwa miftuħ it-Tlieta u l-Ħamis wara s-7 perjodu.",
+  'dashboard.weekFocusCta': 'Ara l-pjan sħiħ',
   'dashboard.weekFocusEyebrow': 'Fokus tal-ġimgħa',
   'dashboard.weekFocusTitle': "Żid l-Alġebra II b'4 punti",
   'forgotPassword.subheading':
     "Daħħal l-email tal-iskola tiegħek u aħna nibagħtulek link ta' reset.",
   'forgotPassword.successBody':
     "Jekk {{email}} jaqbel ma' kont Chalk, link għal reset tal-password wasal. Il-links jiskadu fi 30 minuta.",
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} GPA tat-terminu',
+  'gpaHeroCard.summary': '{{count}} klassijiet illum',
   'grades.col.grade': 'Grad',
   'grades.col.teacher': 'Għalliem/a',
   'grades.col.trend': 'Xejra',
@@ -87,10 +108,17 @@ export const ui: UiTranslations = {
     'Gradi diretti bl-ittri u bil-perċentwali. Il-vleġeġ tax-xejriet juru jekk intix qed titla’ ’l fuq, titla’ fil-livell, jew tiżloq.',
   'grades.title': "Il-gradi tiegħek, kors b'kors",
   'grades.trendStable': 'Stabbli',
+  'grades.viewReportCard': 'Ara l-karta tar-rapport formali',
   'landing.copyright': '© {{year}} {{app}} . Magħmul għall-istudenti, magħmul għall-familji.',
+  'landing.ctaBody':
+    "B'xejn għall-ewwel 30 jum, l-ebda karta tal-kreditu meħtieġa. Id-distretti jistgħu jniedu livell għall-iskola kollha f'nofsinhar wieħed.",
+  'landing.ctaButton': 'Oħloq il-portal tiegħek',
   'landing.ctaHeading': 'Ġurnata tal-iskola aktar kalma tibda fi ftit minuti',
   'landing.eyebrow': 'Għal studenti tal-iskola medja u sekondarja',
   'landing.featuresHeading': 'Ġurnata tal-iskola organizzata madwar l-istudent',
+  'landing.heroSubtitle':
+    "{{appName}} jiġbor kull klassi, grad, xogħol, u messaġġ f'dashboard waħda kalma biex tqatta' inqas ħin tfittex u aktar ħin titgħallem.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Konformi mal-FERPA awtomatikament',
   'landing.proof.rating': '4.8 fost 12k familji',
   'landing.sampleTerm': 'Rebbiegħa',
@@ -99,6 +127,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Aħbi l-password',
   'login.noAccount': "Ġdid f'Chalk?",
   'login.showPassword': 'Uri l-password',
+  'messages.compose': 'Messaġġ ġdid',
   'messages.composer.email': 'Indirizz elettroniku tar-riċevitur (mhux obbligatorju)',
   'messages.composer.errorEmpty': 'Il-messaġġ ma jistax ikun vojt.',
   'messages.composer.errorRecipient': 'L-isem tar-riċevitur huwa meħtieġ.',
@@ -129,9 +158,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Reġistru tal-Unur · Terminu tar-Rebbiegħa',
   'nav.unreadMessages': 'Messaġġi mhux moqrija',
   'notifications.eyebrow': '{{count}} aġġornamenti',
+  'notifications.feedTitle': 'L-attività kollha reċenti',
   'notifications.subtitle':
     'Gradi, tfakkiriet, messaġġi, u avviżi tal-iskola. Aġġusta liema kanali tuża kull notifika fis-Settings.',
+  'planUpdated.body':
+    "Il-bidla fil-billing tiegħek issa hija attiva. Tista' timmaniġġja l-pjan tiegħek fi kwalunkwe ħin mill-paġna tal-billing.",
+  'planUpdated.retry': 'Erġa’ pprova',
+  'planUpdated.verifyFailed': 'Għadna ma stajniex nikkonfermaw il-ħlas tiegħek.',
+  'planUpdated.verifyFailedBody':
+    "Jista' jkun li l-ħlas tiegħek għadu qed jiġi pproċessat. Erġa' pprova fi ftit ħin.",
   'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
+  'pricing.announcementsLabel': 'avviżi',
   'pricing.attendanceLabel': 'attendenza',
   'pricing.gradesLabel': 'gradi',
   'pricing.heading': 'avviżi',
@@ -146,6 +183,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'It-Tieni Kwart',
   'reportCard.crumb': 'Karta tar-rapport',
   'reportCard.cumulativeGpa': 'GPA Kumulattiva',
+  'reportCard.download': 'Niżżel il-PDF',
   'reportCard.downloaded': "Il-karta tar-rapport infetħet f'tab ġdida.",
   'reportCard.downloading': 'Qed tiġġenera PDF…',
   'reportCard.empty': "Għad m'hemm l-ebda gradi rreġistrati.",
@@ -153,6 +191,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'GPA Finali · {{term}}',
   'reportCard.subtitle':
     "Traskrizzjoni formali ta' tmiem is-semestru bil-gradi tal-kors ponderati, l-attendenza, u download PDF stampabbli.",
+  'reportCard.title': 'Karta tar-rapport',
+  'resetPassword.newPassword': 'Password ġdida',
   'resetPassword.subheading': 'Agħżel xi ħaġa memorabbli imma diffiċli biex taħseb.',
   'resetPassword.tokenPlaceholder': 'Ippejstja l-kodiċi mill-email tiegħek',
   'schedule.empty': 'L-ebda klassijiet skedati.',
@@ -176,12 +216,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsCaption': '{{due48}} dovut fi żmien 48 siegħa, {{overdue}} skadut',
   'subjectStatsTriad.assignmentsLabel': 'Assenjazzjonijiet Pendenti',
   'subjectStatsTriad.attendanceCaption': "{{absent}} assenzi f'dan it-terminu · {{tardy}} tard",
+  'subjectStatsTriad.attendanceCaptionLoading': 'Qed nikkalkulaw in-numri tal-attendenza…',
+  'subjectStatsTriad.attendanceLabel': 'Attendenza',
   'subjectStatsTriad.gradesCaption': 'Madwar {{percent}} Medja ponderata %',
+  'subjectStatsTriad.gradesCaptionLoading': 'Qed jitgħabbew il-gradi…',
+  'subjectStatsTriad.gradesLabel': 'Medja tal-Klassi',
   'todayScheduleStrip.empty': 'L-ebda klassi llum.',
   'todayScheduleStrip.eyebrow': '{{count}} klassijiet',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'L-iskeda tal-lum',
   'topbar.guestName': 'Student',
   'topbar.searchPlaceholder': 'Fittex klassijiet, assenjamenti…',
+  'topbar.studentRole': 'Student',
   'topbar.studentTag': 'Student · # {{id}}',
 }

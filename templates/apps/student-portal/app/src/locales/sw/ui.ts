@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Una maoni, umepata hitilafu, au unataka kuleta shule yako? Wasiliana nasi kupitia mipangilio ya akaunti yako au tuma ujumbe kwa msimamizi wa shule yako — kila ujumbe humfikia mtu halisi wa timu.',
   'about.contactTitle': 'Wasiliana nasi',
+  'about.missionTitle': 'Dhamira yetu',
   'announcementsFeed.empty': 'Hakuna matangazo bado.',
   'announcementsFeed.eyebrow': '{{count}} masasisho',
   'announcementsFeed.title': 'Matangazo ya hivi karibuni',
   'assignmentDetail.alreadySubmitted': 'Tayari umewasilisha kazi hii.',
   'assignmentDetail.backLink': 'Rudi kwenye kazi',
+  'assignmentDetail.dropBody':
+    'Tumia Chagua faili ili kuambatisha kazi yako — tutarekodi muda wa kuwasilisha mara utakapothibitisha.',
   'assignmentDetail.dropButton': 'Chagua faili',
+  'assignmentDetail.dropPrompt': 'Dondosha PDF au picha zako hapa',
   'assignmentDetail.due': 'Inastahili {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Maelekezo',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Imepewa alama',
   'assignmentDetail.statusSubmitted': 'Imewasilishwa',
   'assignmentDetail.statusTitle': 'Hali ya uwasilishaji',
+  'assignmentDetail.submitError':
+    'Hatukuweza kurekodi uwasilishaji huo. Jaribu tena baada ya muda mfupi.',
   'assignmentDetail.submitted': 'Uwasilishaji umerekodiwa — mwalimu wako amearifiwa.',
+  'assignmentDetail.submittedAt': 'Iliwasilishwa {{when}}',
+  'assignmentDetail.submitTitle': 'Wasilisha kazi yako',
   'assignmentRow.courseDue': '{{course}} · Inastahili {{due}}',
   'assignments.empty': 'Hakuna kitu hapa',
   'assignments.emptyBody': 'Badilisha vichujio hapo juu ili kuona kazi katika hali tofauti.',
@@ -38,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Kumbukumbu ya kila siku ya uwepo, kutokuwepo, na kuchelewa — pamoja na maelezo inapohitajika.',
+  'attendance.summary.absences': 'Ukosefu wa mahudhurio',
   'attendance.summary.absencesCaption': 'Chini ya kizingiti cha uingiliaji kati cha siku 5',
   'attendance.summary.attendance': 'Mahudhurio',
   'attendance.summary.attendanceCaption': '{{count}} siku hizi muhula huu',
+  'attendance.summary.tardies': 'Ucheleweshaji',
   'attendance.summary.tardiesCaption': 'Ikiwa ni pamoja na maelezo ya kuchelewa kwa basi / miadi',
   'attendance.title': 'Historia ya mahudhurio',
   'calendar.eyebrow': 'Mwaka wa shule · {{year}}',
@@ -54,6 +66,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Daraja',
   'courseDetail.currentGrade': 'Daraja la sasa',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Muhtasari wa kozi',
   'courseDetail.gradesTitle': 'Daraja za hivi karibuni',
   'courseDetail.messageTeacher': 'Mwalimu wa ujumbe',
   'courseDetail.noGrades': 'Hakuna alama zilizochapishwa bado.',
@@ -66,13 +79,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Tazama zote',
   'dashboard.assignmentsTitle': 'Ijayo wiki hii',
   'dashboard.greeting': 'Habari {{name}} , uko tayari kwa darasa?',
+  'dashboard.subtitle':
+    'Wiki yako kwa muhtasari — ratiba, alama, na kazi zote katika mwonekano mmoja tulivu.',
+  'dashboard.viewReportCard': 'Tazama ripoti ya matokeo',
+  'dashboard.weekFocusBody':
+    'Wasilisha seti ya 7 ya mazoezi ya Quadratics na jaribio la sura. Maabara ya ufundishaji wa ziada iko wazi Jumanne na Alhamisi baada ya kipindi cha 7.',
+  'dashboard.weekFocusCta': 'Tazama mpango kamili',
   'dashboard.weekFocusEyebrow': 'Mkazo wa wiki',
   'dashboard.weekFocusTitle': 'Boresha Aljebra II kwa pointi 4',
   'forgotPassword.subheading':
     'Ingiza barua pepe yako ya shuleni nasi tutakutumia kiungo cha kuweka upya.',
   'forgotPassword.successBody':
     'Kama {{email}} Inalingana na akaunti ya Chalk, kiungo cha kuweka upya nenosiri kiko njiani. Viungo vitaisha muda wake baada ya dakika 30.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} GPA ya muhula',
+  'gpaHeroCard.summary': '{{count}} madarasa leo',
   'grades.col.grade': 'Daraja',
   'grades.col.teacher': 'Mwalimu',
   'grades.col.trend': 'Mwenendo',
@@ -84,11 +105,18 @@ export const ui: UiTranslations = {
     'Herufi moja kwa moja na alama za asilimia. Mishale ya mitindo inaonyesha kama unapanda juu, unapanda ngazi, au unateleza.',
   'grades.title': 'Daraja zako, kozi kwa kozi',
   'grades.trendStable': 'Imara',
+  'grades.viewReportCard': 'Tazama ripoti rasmi ya matokeo',
   'landing.copyright':
     '© {{year}} {{app}} . Imeundwa kwa ajili ya wanafunzi, iliyoundwa kwa ajili ya familia.',
+  'landing.ctaBody':
+    'Bila malipo kwa siku 30 za kwanza, hakuna kadi ya mkopo inayohitajika. Wilaya zinaweza kuanzisha mpango wa shule nzima kwa mchana mmoja.',
+  'landing.ctaButton': 'Unda lango lako',
   'landing.ctaHeading': 'Siku tulivu ya shule huanza kwa dakika chache',
   'landing.eyebrow': 'Kwa wanafunzi wa shule ya kati na ya upili',
   'landing.featuresHeading': 'Siku ya shule iliyopangwa kumzunguka mwanafunzi',
+  'landing.heroSubtitle':
+    '{{appName}} hukusanya kila darasa, alama, kazi, na ujumbe katika dashibodi moja tulivu ili utumie muda mchache kutafuta na muda mwingi kujifunza.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Inatii FERPA kwa chaguo-msingi',
   'landing.proof.rating': '4.8 katika familia 12,000',
   'landing.sampleTerm': 'Masika',
@@ -97,6 +125,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Ficha nenosiri',
   'login.noAccount': 'Mgeni kwenye Chaki?',
   'login.showPassword': 'Onyesha nenosiri',
+  'messages.compose': 'Ujumbe mpya',
   'messages.composer.email': 'Barua pepe ya mpokeaji (si lazima)',
   'messages.composer.errorEmpty': 'Ujumbe hauwezi kuwa tupu.',
   'messages.composer.errorRecipient': 'Jina la mpokeaji linahitajika.',
@@ -127,9 +156,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Orodha ya heshima · Muhula wa majira ya kuchipua',
   'nav.unreadMessages': 'Ujumbe ambao haujasomwa',
   'notifications.eyebrow': '{{count}} masasisho',
+  'notifications.feedTitle': 'Shughuli zote za hivi karibuni',
   'notifications.subtitle':
     'Daraja, vikumbusho, ujumbe, na matangazo ya shule. Rekebisha ni njia zipi kila arifa hutumia katika Mipangilio.',
+  'planUpdated.body':
+    'Mabadiliko yako ya malipo sasa yanafanya kazi. Unaweza kusimamia mpango wako wakati wowote kutoka ukurasa wa malipo.',
+  'planUpdated.retry': 'Jaribu tena',
+  'planUpdated.verifyFailed': 'Hatukuweza kuthibitisha malipo yako bado.',
+  'planUpdated.verifyFailedBody':
+    'Huenda malipo yako bado yanashughulikiwa. Jaribu tena baada ya muda mfupi.',
   'planUpdated.verifying': 'Inathibitisha malipo yako…',
+  'pricing.announcementsLabel': 'matangazo',
   'pricing.attendanceLabel': 'mahudhurio',
   'pricing.gradesLabel': 'alama',
   'pricing.heading': 'matangazo',
@@ -144,6 +181,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'Q2',
   'reportCard.crumb': 'Kadi ya ripoti',
   'reportCard.cumulativeGpa': 'GPA ya Jumla',
+  'reportCard.download': 'Pakua PDF',
   'reportCard.downloaded': 'Kadi ya ripoti imefunguliwa kwenye kichupo kipya.',
   'reportCard.downloading': 'Inazalisha PDF…',
   'reportCard.empty': 'Hakuna alama kwenye faili bado.',
@@ -151,6 +189,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'GPA ya Mwisho · {{term}}',
   'reportCard.subtitle':
     'Nakala rasmi ya mwisho wa muhula yenye alama za kozi zenye uzito, mahudhurio, na upakuaji wa PDF unaoweza kuchapishwa.',
+  'reportCard.title': 'Kadi ya ripoti',
+  'resetPassword.newPassword': 'Nenosiri jipya',
   'resetPassword.subheading': 'Chagua kitu cha kukumbukwa lakini kigumu kukisia.',
   'resetPassword.tokenPlaceholder': 'Bandika msimbo kutoka kwa barua pepe yako',
   'schedule.empty': 'Hakuna madarasa yaliyopangwa.',
@@ -176,12 +216,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Kazi Zinazosubiri Kufanywa',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} kutokuwepo kwa neno hili · {{tardy}} kuchelewa',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Inakokotoa takwimu za mahudhurio…',
+  'subjectStatsTriad.attendanceLabel': 'Mahudhurio',
   'subjectStatsTriad.gradesCaption': 'Kuvuka {{percent}} wastani wa uzani wa %',
+  'subjectStatsTriad.gradesCaptionLoading': 'Inapakia alama…',
+  'subjectStatsTriad.gradesLabel': 'Wastani wa Darasa',
   'todayScheduleStrip.empty': 'Hakuna madarasa leo.',
   'todayScheduleStrip.eyebrow': '{{count}} madarasa',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Ratiba ya leo',
   'topbar.guestName': 'Mwanafunzi',
   'topbar.searchPlaceholder': 'Tafuta madarasa, kazi…',
+  'topbar.studentRole': 'Mwanafunzi',
   'topbar.studentTag': 'Mwanafunzi · # {{id}}',
 }

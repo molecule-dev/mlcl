@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Санал хүсэлт байна уу, алдаа олсон уу, эсвэл сургуулиа нэгтгэхийг хүсэж байна уу? Бүртгэлийн тохиргооноос холбогдох эсвэл сургуулийн админд мессеж илгээгээрэй — таны мессеж бүр багийн бодит хүнд хүрдэг.',
   'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'announcementsFeed.empty': 'Одоогоор ямар ч мэдэгдэл алга.',
   'announcementsFeed.eyebrow': '{{count}} шинэчлэлтүүд',
   'announcementsFeed.title': 'Хамгийн сүүлийн үеийн зарлалууд',
   'assignmentDetail.alreadySubmitted': 'Та энэ даалгаврыг аль хэдийн илгээсэн байна.',
   'assignmentDetail.backLink': 'Даалгавар руу буцах',
+  'assignmentDetail.dropBody':
+    'Ажлаа хавсаргахын тулд Файл сонгох-г ашиглана уу — та баталгаажуулмагц илгээсэн цагийг бүртгэнэ.',
   'assignmentDetail.dropButton': 'Файлуудыг сонгоно уу',
+  'assignmentDetail.dropPrompt': 'PDF эсвэл зургийн багцаа энд чирж тавина уу',
   'assignmentDetail.due': 'Төлөх хугацаа {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Зааварчилгаа',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Үнэлгээтэй',
   'assignmentDetail.statusSubmitted': 'Илгээсэн',
   'assignmentDetail.statusTitle': 'Илгээлтийн төлөв',
+  'assignmentDetail.submitError':
+    'Бид тэр илгээлтийг бүртгэж чадсангүй. Хэсэг хугацааны дараа дахин оролдоно уу.',
   'assignmentDetail.submitted': 'Илгээсэн материалыг бүртгэсэн — таны багшид мэдэгдсэн.',
+  'assignmentDetail.submittedAt': 'Илгээсэн {{when}}',
+  'assignmentDetail.submitTitle': 'Ажлаа илгээх',
   'assignmentRow.courseDue': '{{course}} · Төлөх хугацаа {{due}}',
   'assignments.empty': 'Энд юу ч алга',
   'assignments.emptyBody': 'Даалгавруудыг өөр төлөвт харахын тулд дээрх шүүлтүүрийг сольно уу.',
@@ -38,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Өдөр тутмын ирц, таслалт болон хоцролтын бүртгэл, шаардлагатай бол тэмдэглэл хөтлөх.',
+  'attendance.summary.absences': 'Тасалдлууд',
   'attendance.summary.absencesCaption': '5 хоногийн интервенцийн босго хэмжээнээс доогуур',
   'attendance.summary.attendance': 'Ирц',
   'attendance.summary.attendanceCaption': '{{count}} өнөө үед энэ нэр томъёо',
+  'attendance.summary.tardies': 'Хоцролтууд',
   'attendance.summary.tardiesCaption':
     'Автобус / цаг товлох хугацааны саатлын тэмдэглэлийг багтаасан',
   'attendance.title': 'Ирцийн түүх',
@@ -55,6 +67,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Дүн',
   'courseDetail.currentGrade': 'Одоогийн дүн',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Хичээлийн тойм',
   'courseDetail.gradesTitle': 'Сүүлийн үеийн дүн',
   'courseDetail.messageTeacher': 'Багшид мессеж бичих',
   'courseDetail.noGrades': 'Одоогоор дүн байршуулагдаагүй байна.',
@@ -67,13 +80,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Бүгдийг харах',
   'dashboard.assignmentsTitle': 'Энэ долоо хоногт дараагийнх нь',
   'dashboard.greeting': 'Сайн уу {{name}} , хичээлдээ бэлэн үү?',
+  'dashboard.subtitle':
+    'Таны долоо хоног нэг харцаар — хуваарь, дүн, даалгаврууд нэг тайван харагдацад.',
+  'dashboard.viewReportCard': 'Дүнгийн хуудас харах',
+  'dashboard.weekFocusBody':
+    'Квадрат тэгшитгэлийн дасгал 7 болон бүлгийн шалгалтыг илгээнэ үү. Хичээлийн тусламжийн танхим Мягмар & Пүрэв гарагт 7-р цагийн дараа нээлттэй.',
+  'dashboard.weekFocusCta': 'Бүрэн төлөвлөгөө харах',
   'dashboard.weekFocusEyebrow': 'Долоо хоногийн анхаарлын төвд',
   'dashboard.weekFocusTitle': 'Алгебр II-г 4 оноогоор гаргаж ирээрэй',
   'forgotPassword.subheading':
     'Сургуулийнхаа имэйл хаягийг оруулна уу, бид дахин тохируулах холбоос илгээх болно.',
   'forgotPassword.successBody':
     'Хэрэв {{email}} Chalk бүртгэлтэй таарч байвал нууц үг шинэчлэх холбоос бэлэн боллоо. Холбоосууд 30 минутын дараа хүчингүй болно.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} улирлын голч дүн',
+  'gpaHeroCard.summary': 'Өнөөдөр {{count}} хичээл',
   'grades.col.grade': 'Зэрэг',
   'grades.col.teacher': 'Багш',
   'grades.col.trend': 'Чиг хандлага',
@@ -85,11 +106,18 @@ export const ui: UiTranslations = {
     'Шууд захидал болон хувийн дүн. Чиг хандлагын сумнууд нь таны дээшээ, түвшиндээ шилжиж эсвэл доошоо бууж байгааг харуулна.',
   'grades.title': 'Таны дүн, хичээл бүрээр',
   'grades.trendStable': 'Жүчээ',
+  'grades.viewReportCard': 'Албан ёсны дүнгийн хуудас харах',
   'landing.copyright':
     '© {{year}} {{app}} . Оюутнуудад зориулан бүтээгдсэн, гэр бүлд зориулагдсан.',
+  'landing.ctaBody':
+    'Эхний 30 хоног үнэгүй, кредит карт шаардлагагүй. Дүүргүүд сургуулийн хэмжээний багцыг нэг үдээс хойш нэвтрүүлэх боломжтой.',
+  'landing.ctaButton': 'Өөрийн порталыг үүсгээрэй',
   'landing.ctaHeading': 'Хичээлийн илүү тайван өдөр хэдхэн минутын дотор эхэлнэ',
   'landing.eyebrow': 'Дунд болон ахлах сургуулийн сурагчдад зориулсан',
   'landing.featuresHeading': 'Сурагчийг тойрон зохион байгуулагдсан сургуулийн өдөр',
+  'landing.heroSubtitle':
+    '{{appName}} нь бүх хичээл, дүн, даалгавар, мессежийг нэг тайван хяналтын самбарт нэгтгэдэг тул та хайхад бага цаг зарцуулж, суралцахад илүү цаг гаргана.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Анхдагчаар FERPA-тай нийцдэг',
   'landing.proof.rating': '12 мянган гэр бүлд 4.8',
   'landing.sampleTerm': 'Хавар',
@@ -98,6 +126,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Нууц үгийг нуух',
   'login.noAccount': 'Chalk-д шинээр орж байна уу?',
   'login.showPassword': 'Нууц үгийг харуулах',
+  'messages.compose': 'Шинэ мессеж',
   'messages.composer.email': 'Хүлээн авагчийн имэйл (заавал биш)',
   'messages.composer.errorEmpty': 'Зурвас хоосон байж болохгүй.',
   'messages.composer.errorRecipient': 'Хүлээн авагчийн нэр шаардлагатай.',
@@ -129,9 +158,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Хүндэтгэлийн жагсаалт · Хаврын улирал',
   'nav.unreadMessages': 'Уншаагүй мессежүүд',
   'notifications.eyebrow': '{{count}} шинэчлэлтүүд',
+  'notifications.feedTitle': 'Бүх сүүлийн үйл ажиллагаа',
   'notifications.subtitle':
     'Дүн, сануулга, мессеж болон сургуулийн зарлалууд. Тохиргоо хэсэгт мэдэгдэл бүр ямар сувгуудыг ашиглахыг тохируулна уу.',
+  'planUpdated.body':
+    'Таны төлбөрийн өөрчлөлт идэвхжлээ. Та төлбөрийн хуудаснаас төлөвлөгөөгөө хүссэн үедээ удирдах боломжтой.',
+  'planUpdated.retry': 'Дахин оролдоно уу',
+  'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
+  'planUpdated.verifyFailedBody':
+    'Таны төлбөрийг боловсруулж байж магадгүй. Хэсэг хугацааны дараа дахин оролдоно уу.',
   'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
+  'pricing.announcementsLabel': 'зарлалууд',
   'pricing.attendanceLabel': 'ирц',
   'pricing.gradesLabel': 'дүн',
   'pricing.heading': 'зарлалууд',
@@ -146,6 +183,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': '2-р улирал',
   'reportCard.crumb': 'Тайлангийн хуудас',
   'reportCard.cumulativeGpa': 'Хуримтлагдсан голч дүн',
+  'reportCard.download': 'PDF татаж авах',
   'reportCard.downloaded': 'Тайлангийн картыг шинэ таб дээр нээсэн.',
   'reportCard.downloading': 'PDF үүсгэж байна…',
   'reportCard.empty': 'Одоогоор дүн файл дээр алга байна.',
@@ -153,6 +191,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Эцсийн голч дүн · {{term}}',
   'reportCard.subtitle':
     'Жинлэсэн хичээлийн дүн, ирц, хэвлэх боломжтой PDF файлыг татаж авсан семестрийн албан ёсны төгсгөлийн хуулбар.',
+  'reportCard.title': 'Тайлангийн хуудас',
+  'resetPassword.newPassword': 'Шинэ нууц үг',
   'resetPassword.subheading': 'Мартагдашгүй ч таахад хэцүү зүйлийг сонгоорой.',
   'resetPassword.tokenPlaceholder': 'Имэйлээсээ кодыг хуулж оруулна уу',
   'schedule.empty': 'Хичээл төлөвлөөгүй байна.',
@@ -178,12 +218,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Хүлээгдэж буй даалгаварууд',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} энэ улиралд завсарлага авах · {{tardy}} хоцорсон',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Ирцийн тоог бодож байна…',
+  'subjectStatsTriad.attendanceLabel': 'Ирц',
   'subjectStatsTriad.gradesCaption': 'Хөндлөн {{percent}} Жинлэсэн дундаж %',
+  'subjectStatsTriad.gradesCaptionLoading': 'Дүнг ачаалж байна…',
+  'subjectStatsTriad.gradesLabel': 'Ангийн дундаж',
   'todayScheduleStrip.empty': 'Өнөөдөр хичээл байхгүй.',
   'todayScheduleStrip.eyebrow': '{{count}} ангиуд',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Өнөөдрийн хуваарь',
   'topbar.guestName': 'Оюутан',
   'topbar.searchPlaceholder': 'Хичээл, даалгавар хайх...',
+  'topbar.studentRole': 'Оюутан',
   'topbar.studentTag': 'Оюутан · # {{id}}',
 }

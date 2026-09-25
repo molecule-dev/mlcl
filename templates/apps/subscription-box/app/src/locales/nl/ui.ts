@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vragen over een editie, een zending of je abonnement? Bereik een echt persoon van het team via hello@crate.example — we lezen elk bericht.',
+  'about.contactTitle': 'Spreek met een curator',
+  'about.feature1':
+    'Maandelijks samengestelde edities, met de hand uitgekozen door onafhankelijke makers, met het verhaal achter elk item.',
+  'about.feature2':
+    'Volledige controle over elke box — pas de inhoud aan, wissel of sluit items uit, sla een maand over of wijzig je frequentie.',
+  'about.feature3':
+    'Zendingtracking van begin tot eind, van ophalen tot voordeur, met plasticvrije verpakking en live updates van de vervoerder.',
+  'about.feature4':
+    'Flexibele abonnementen en transparante facturering — upgrade, downgrade, pauzeer of zeg op wanneer je maar wilt vanuit je dashboard.',
+  'about.intro':
+    '{{app}} is een samengestelde abonnementsboxdienst die elke maand een met de hand uitgekozen box vol vreugde in kleine oplage bij je bezorgt. Elke editie wordt samengesteld door werkende makers — onafhankelijke artiesten, chefs en kleine merken — niet door een algoritme.',
+  'about.missionBody':
+    'Wij vinden dat een abonnement als een cadeau moet voelen, niet als een valstrik. {{app}} is zo gebouwd dat je blijft omdat je van houdt wat er aankomt — pauzeer wanneer je wilt, wissel wat je wilt en zeg op met één klik. Nooit retentiescripts.',
+  'about.missionTitle': 'Onze missie',
   'about.pageTitle': 'Over {{app}}',
   'appNav.mobileLabel': 'Hoofdnavigatie',
   'appNav.primaryLabel': 'Hoofdnavigatie',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Factuurcontact bewerken',
   'billing.contact.eyebrow': 'Factuurcontact',
   'billing.eyebrow': 'Abonnement en betalingen',
+  'billing.loading': 'Facturering laden…',
   'billing.payment.body':
     'De betaling wordt afgehandeld door Stripe Checkout — uw volledige kaartnummer raakt onze servers nooit aan. Klik op een laag hieronder om uw kaart toe te voegen of bij te werken.',
   'billing.payment.linked': 'Kaart geregistreerd via Stripe',
@@ -20,9 +37,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Abonnement hervatten',
   'billing.plan.eyebrow': 'Actief abonnement',
   'billing.plan.next': 'Wordt automatisch verlengd op {{date}}.',
+  'billing.plan.status': 'Status: {{status}}',
   'billing.subtitle': 'Beheer uw laag, betaalmethode en bekijk eerdere activiteit.',
   'billing.tiers.body': 'Kies een laag en wij verwijzen u door naar Stripe Checkout.',
   'billing.tiers.choose': 'Kiezen',
+  'billing.tiers.empty': 'Nog geen niveaus ingesteld.',
   'billing.tiers.heading': 'Beschikbare lagen',
   'boxDetail.backToBoxes': 'Terug naar alle edities',
   'boxDetail.crumb.boxes': 'Edities',
@@ -35,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Geselecteerd stuk',
   'boxDetail.items.heading': '{{count}} geselecteerde stukken',
   'boxDetail.itemsBadge': '{{count}} geselecteerde items per box',
+  'boxDetail.loading': 'Editie laden…',
   'boxDetail.notFound': 'Die editie is niet meer beschikbaar.',
   'boxDetail.subscribe.success': 'Geabonneerd — uw eerste editie staat in de wachtrij.',
   'boxDetail.swapBadge': 'Wissel tot {{count}} item(s) per box',
@@ -43,14 +63,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Er komt nog niets overeen.',
   'boxes.eyebrow': 'Het Crate-archief',
   'boxes.heading': 'Bekijk elke editie',
+  'boxes.loadError':
+    'We konden de edities niet laden. Controleer je verbinding en probeer het opnieuw.',
   'boxes.loading': 'Edities laden…',
+  'boxes.search.label': 'Edities zoeken',
   'boxes.search.placeholder': 'Zoek edities…',
   'boxes.subtitle':
     'Elke laag is een kleine oplage. Voeg er een toe aan uw wachtrij of wissel het in voor uw volgende maand.',
+  'boxThemeCard.itemCount': '{{count}} items',
   'boxThemeCard.perMonth': '/ maand',
+  'boxThemeCard.retailValue': 'Winkelwaarde {{value}}',
   'common.goToDashboard': 'Ga naar Dashboard',
+  'common.retry': 'Opnieuw proberen',
   'customize.eyebrow': 'Maak hem van u',
   'customize.heading': 'Pas uw volgende Crate aan',
+  'customize.items.empty': 'Nog geen items ingesteld voor dit niveau.',
   'customize.items.exclude': 'Sla over',
   'customize.items.eyebrow': 'Personaliseer deze box',
   'customize.items.heading': 'Items in {{box}}',
@@ -59,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Weer toevoegen',
   'customize.items.save': 'Aanpassingen opslaan',
   'customize.items.swapsLeft': '{{used}} van {{max}} wissels gebruikt',
+  'customize.loading': 'Aanpassing laden…',
   'customize.noSub.body':
     'Abonneer u eerst op een laag en kom dan terug om items in uw box te wisselen.',
+  'customize.noSub.cta': 'Edities bekijken',
   'customize.noSub.heading': 'Geen actief abonnement',
   'customize.saved': 'Aanpassing opgeslagen.',
   'customize.subtitle':
@@ -74,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Zending volgen',
   'dashboard.eyebrow': 'Uw Crate',
   'dashboard.greeting': 'Welkom terug, {{name}}.',
+  'dashboard.loadError':
+    'We konden je dashboard niet laden. Controleer je verbinding en probeer het opnieuw.',
   'dashboard.loading': 'Dashboard laden…',
   'dashboard.next.eyebrow': 'Uw volgende editie',
   'dashboard.onboarding.body':
     'U heeft nog geen actief abonnement. Kies een laag om elke maand een Crate te ontvangen.',
   'dashboard.onboarding.cta': 'Alle edities bekijken',
+  'dashboard.onboarding.empty': 'Momenteel geen abonnementen beschikbaar. Kom snel terug.',
   'dashboard.onboarding.heading': 'Kies uw eerste editie',
   'dashboard.renewal.amount': 'Gefactureerd',
   'dashboard.renewal.cadence': 'Frequentie',
@@ -86,18 +118,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Verlenging',
   'dashboard.renewal.heading': 'Wordt automatisch verlengd op {{date}}',
   'dashboard.renewal.plan': 'Abonnementssleutel',
+  'dashboard.renewal.tbd': 'Verlenging wordt binnenkort gepland',
   'dashboard.renewal.tier': 'Laag',
   'dashboard.stats.days': 'dagen',
   'dashboard.stats.daysToNext': 'Verzending over',
   'dashboard.stats.items': 'Geselecteerde items',
   'dashboard.stats.shipDate': 'Verzenddatum',
   'dashboard.stats.tbd': 'Nader te bepalen',
+  'dashboard.subtitle.active': 'Je volgende editie is onderweg. Dit kun je verwachten.',
+  'dashboard.subtitle.idle': 'Kies een niveau om elke maand een {{appName}} te laten verzenden.',
   'forgotPassword.subtitle': 'Geef uw e-mailadres door en wij sturen u een resetlink.',
   'forgotPassword.success.body':
     'Als {{email}} Als je je account hebt geregistreerd, ontvang je binnen enkele minuten een link om je account te resetten.',
   'forgotPassword.success.title': 'Controleer uw inbox.',
   'landing.editions.eyebrow': 'Dit seizoen',
   'landing.editions.heading': 'Edities waar onze curatoren van houden',
+  'landing.editions.viewAll': 'Alle edities bekijken →',
   'landing.footer.contact': 'Spreek met een curator',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Start uw box →',
@@ -106,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.headline': 'Pak elke maand het onverwachte uit.',
   'landing.hero.previewCaption': 'Een blik op het ledendashboard — aftellen, inhoud en tracking.',
   'landing.hero.social.count': 'Geliefd bij meer dan {{count}} abonnees',
+  'landing.hero.social.rating': 'Gem. unboxing-beoordeling {{rating}}',
+  'landing.hero.subhead':
+    '{{appName}} stuurt je een met de hand uitgekozen box vol vreugde in kleine oplage van onafhankelijke makers. Pauzeer wanneer je wilt. Wissel wat je wilt. Houd wat je leuk vindt.',
   'landing.nav.start': 'Start uw box',
   'landing.tiers.eyebrow': 'Kies uw frequentie',
   'landing.tiers.heading': 'Begin klein, upgrade wanneer u wilt, zeg net zo eenvoudig op.',
@@ -115,6 +154,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Log in om een kijkje te nemen in de box van volgende maand.',
   'login.welcomeBack': 'Welkom terug, curator.',
   'nextBoxHeroCard.eyebrow': 'UW VOLGENDE CRATE',
+  'nextBoxHeroCard.itemCount': '{{count}} stuks erin',
   'nextBoxHeroCard.itemsLabel': 'Geselecteerde items',
   'nextBoxHeroCard.shipsOnLabel': 'Verzonden op',
   'notFound.body':
@@ -139,8 +179,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Abonnement pauzeren',
   'settings.danger.paused': 'Abonnement gepauzeerd.',
   'settings.danger.pausing': 'Pauzeren…',
+  'settings.danger.status': 'Abonnementsstatus: {{status}}',
   'settings.danger.subtitle':
     'Pauzeren laat uw laag en geschiedenis intact. Opzeggen stopt toekomstige zendingen en verwijdert uw opgeslagen betaalmethoden aan het einde van de cyclus.',
+  'settings.notifications.saving': '· opslaan…',
   'settings.notifications.subtitle':
     'Kies welke signalen u van Crate wilt ontvangen. De standaardinstellingen zijn verstandig.',
   'settings.subtitle':
@@ -156,12 +198,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Nog geen actieve zending',
   'shipments.live.eyebrow': 'Actieve zending',
   'shipments.live.unnamed': 'Uw volgende box',
+  'shipments.loadError':
+    'We konden je zendingen niet laden. Controleer je verbinding en probeer het opnieuw.',
+  'shipments.loading': 'Zendingen laden…',
+  'shipments.step.delivered': 'Geleverd',
   'shipments.step.deliveredBody': 'Tag #crateunbox om te delen wat u ontdekt.',
   'shipments.step.ordered': 'Bestelling geplaatst',
   'shipments.step.orderedBody':
     'Uw abonnement heeft deze editie in de wachtrij gezet voor de volgende verzendcyclus.',
+  'shipments.step.packed': 'Met de hand ingepakt',
   'shipments.step.packedBody':
     'Elk stuk verpakt en in de box geplaatst met een handgeschreven notitie.',
+  'shipments.step.transit': 'Onderweg',
   'shipments.step.transitNot': 'Tracking verschijnt hier zodra uw box onderweg is.',
   'shipments.subtitle':
     'Volg de box op zijn weg naar u toe en bekijk elke editie die u eerder hebt uitgepakt opnieuw.',

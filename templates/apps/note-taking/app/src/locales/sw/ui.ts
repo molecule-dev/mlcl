@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Una maoni, umepata hitilafu, au unataka kupendekeza kipengele? Wasiliana nasi kutoka kwenye mipangilio ya akaunti yako — kila ujumbe unafika kwa mtu halisi wa timu.',
+  'about.contactTitle': 'Wasiliana nasi',
+  'about.featureDatabases':
+    'Hifadhidata nyepesi na violezo vinavyoweza kutumika tena ili kubadilisha maelezo yaliyotawanyika kuwa mitiririko ya kazi iliyopangwa na inayorudiwa.',
+  'about.featureEditor':
+    'Kihariri cha blokisi tulivu — vichwa, orodha, msimbo, vidokezo, na kazi — chenye amri za mkwaju unapozihitaji na kisichoingilia unapozihitaji.',
+  'about.featureGraph':
+    'Viungo vya nyuma na grafu ya maarifa: andika [[ ili kuunganisha noti na uone jinsi mawazo yako yanaunganishwa kadiri muda unavyopita.',
+  'about.featureNotebooks':
+    'Daftari na kurasa zilizowekwa ndani ili miradi, mada, na noti za kila siku zibaki zimepangwa sawasawa na jinsi unavyofikiri.',
+  'about.featureSearch':
+    'Utafutaji wa maandishi kamili chini ya 50ms katika kila daftari, pamoja na lebo zinazoshirikiana na daftari badala ya kuzipinga.',
+  'about.missionTitle': 'Dhamira yetu',
   'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'forgot.eyebrow': 'Umepoteza njia ya kurudi ndani?',
   'forgot.formSubtitle': 'Tuambie barua pepe iliyo kwenye faili.',
+  'forgot.formTitle': 'Umesahau nenosiri',
   'forgot.headline': 'Weka upya nenosiri lako.',
   'forgot.subline':
     'Tutakutumia kiungo cha mara moja kwenye kikasha chako ili uweze kuchagua kipya.',
+  'forgot.successDetail':
+    'Tumetuma kiungo cha kuweka upya kwenye barua pepe yako. Kinaisha baada ya dakika 30.',
   'graph.eyebrow': 'Grafu',
+  'graph.goToNotes': 'Vinjari noti →',
+  'graph.loadError': 'Imeshindwa kupakia grafu: {{message}}',
   'graph.placeholderBody':
     'Wakati noti zinapoanza kuunganishwa (kwa kutumia sintaksia ya [[wiki]], grafu shirikishi inayoelekezwa kwa nguvu itaonekana hapa.',
+  'graph.placeholderTitle': 'Grafu ya viungo vya nyuma inakuja hivi karibuni',
   'graph.subtitle':
     '{{count}} madokezo katika nafasi hii ya kazi. Uchoraji wa grafu ya viungo vya nyuma utaonekana hapa mara tu madokezo yatakapounganishwa.',
   'graph.title': 'Grafu ya maarifa',
   'home.empty': 'Hakuna madokezo bado — anza la kwanza.',
   'home.favoritesHeading': 'Imebandikwa',
   'home.guest': 'rafiki',
+  'home.loadError': 'Imeshindwa kupakia noti zako: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Bandika dokezo kwenye kihariri ili kuliweka hapa.',
   'home.recentHeading': 'Imesasishwa hivi karibuni',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Daftari',
   'home.stats.pinned.label': 'Imebandikwa',
   'home.stats.updatedToday.label': 'Imesasishwa leo',
+  'home.subtitle': 'Endelea kutoka ulipoishia, au anza noti mpya.',
   'home.viewAll': 'Tazama madokezo yote',
   'landing.cta.body':
     'Bure kwa matumizi ya kibinafsi. Wataalamu kwa timu. Lete alama yako iliyopo au anza upya — Verso inakufikia popote pale madokezo yako yalipo.',
+  'landing.cta.button': 'Unda nafasi yangu ya kazi',
   'landing.cta.heading': 'Fungua ukurasa wa leo.',
   'landing.features.eyebrow': 'Kila kitu cha msingi ambacho ubongo wako wa pili unahitaji',
+  'landing.features.heading': 'Imejengwa kwa ajili ya kazi, si meta-work.',
   'landing.hero.eyebrow': 'Sehemu tulivu ya kuandikia',
   'landing.hero.headlineAccent': 'chukua umbo.',
   'landing.hero.headlineLeading': 'Mawazo wapi',
   'landing.hero.primaryCta': 'Anza msingi wako wa maarifa',
   'landing.hero.secondaryCta': 'Tayari nina akaunti',
+  'landing.hero.socialProof': 'Waandishi, wanafunzi, na PhD 12,800+ wanafikiri na {{appName}}',
   'landing.hero.subline':
     'Verso ni sehemu iliyopangwa ya kuandika madokezo kwa wafanyakazi wa maarifa na wanafunzi. Kihariri cha vizuizi, madaftari yaliyowekwa kwenye viota, viungo vya nyuma, na grafu ya maarifa — yote nyuma ya uzoefu wa usomaji wa uchapaji-kwanza.',
+  'landing.preview.notebook': 'Maarifa · Mchakato wa uandishi',
+  'landing.preview.title': 'Kuhusu kuruhusu rasimu kupumua',
   'login.eyebrow': 'Karibu tena Verso',
   'login.formSubtitle': 'Tumia barua pepe yako au mtoa huduma yeyote aliyeunganishwa.',
   'login.headline': 'Endelea mahali ukurasa ulipositishwa.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Funga menyu ya kusogeza',
   'mobileNav.openMenu': 'Fungua menyu ya kusogeza',
   'noteEditor.backToNotes': 'Rudi kwenye madokezo',
+  'noteEditor.bodyLabel': 'Mwili wa noti',
   'noteEditor.bodyPlaceholder': 'Anza kuandika — daftari lako huhifadhiwa kiotomatiki unapoandika.',
   'noteEditor.confirmTrash': 'Ungependa kuhamisha dokezo hili hadi kwenye tupio?',
   'noteEditor.pinToggle': 'Badilisha kipendwa',
@@ -51,17 +79,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Hamisha hadi kwenye takataka',
   'noteEditor.updated': 'Imesasishwa',
   'notes.defaultWorkspaceName': 'Daftari langu',
+  'notes.empty': 'Hakuna madokezo hapa bado — anza moja ili kujaza daftari.',
   'notes.eyebrow': 'Daftari',
   'notes.filterAll': 'Madokezo yote',
   'notes.filterPinned': 'Imebandikwa',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Daftari jipya',
   'notes.newNotebookPrompt': 'Jina jipya la daftari',
+  'notes.newNotebookRequired': 'Weka jina la daftari.',
   'notes.notebooksHeading': 'Madaftari',
   'notes.subtitle':
     'Chagua daftari upande wa kushoto, kisha bonyeza kitufe cha Dokezo Jipya ili kuanza kuingiza mpya.',
+  'planUpdated.body': 'Usajili wako sasa umewashwa.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Vipengele vya hali ya juu',
   'pricing.heading': 'Chagua mpango wako wa Kuandika Madokezo',
+  'reset.changedMind': 'Umebadilisha mawazo?',
   'reset.eyebrow': 'Karibu kurudi ndani',
   'reset.formSubtitle': 'Utaingia mara tu itakapohifadhiwa.',
   'reset.headline': 'Chagua nenosiri jipya.',
@@ -70,7 +103,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'Ingiza msimbo ambao tumekutumia barua pepe na uchague kitu cha kukumbukwa.',
   'reset.submit': 'Hifadhi na uingie',
   'reset.tokenHint': 'Imebandikwa kutoka kwenye kikasha chako.',
+  'search.empty': 'Hakuna madokezo yanayolingana na hoja hii bado.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Kirejeleo cha Utafutaji',
   'search.loading': 'Inatafuta…',
   'search.noRecent': 'Andika hoja hapo juu ili kuanza kutafuta kwenye madokezo yako.',
   'search.recentLabel': 'Utafutaji wa hivi karibuni',
@@ -78,12 +113,19 @@ export const ui: UiTranslations = {
     'Maandishi kamili katika kila daftari. Andika ili utafute; matokeo yanaonyeshwa upya unapoandika.',
   'search.title': 'Tafuta ubongo wa pili.',
   'settings.account.logout': 'Toka',
+  'settings.account.title': 'Maelezo ya akaunti',
+  'settings.editor.graphHover.body':
+    'Onyesha kadi ndogo ya kukagua unapoelea [[wikilink]] kwenye kihariri.',
+  'settings.editor.graphHover.label': 'Onyesho la kukagua la grafu ya viungo vya nyuma',
   'settings.editor.lineHeight.body':
     'Kiasi gani cha hewa kati ya mistari ya mwili. 170% ni mdundo chaguo-msingi wa usomaji.',
+  'settings.editor.lineHeight.label': 'Urefu wa mstari',
   'settings.editor.serif.body':
     'Tumia Georgia kwa safu wima ya usomaji. Sans-serif huweka kwenye upau wa pembeni na upau wa vidhibiti.',
+  'settings.editor.serif.label': 'Maandishi ya mwili ya Serif',
   'settings.editor.title': 'Uchapaji na sehemu ya uandishi',
   'settings.eyebrow': 'Verso · Mipangilio',
+  'settings.passwordModal.current': 'Nenosiri la sasa',
   'settings.passwordModal.error':
     'Haikuweza kubadilisha nenosiri — tafadhali angalia nenosiri lako la sasa.',
   'settings.passwordModal.next': 'Nenosiri jipya',
@@ -93,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Sukuma kila kitufe kupitia chaneli ya muda halisi. Zima kwa miunganisho ya polepole.',
   'settings.sync.auto.label': 'Usawazishaji wa wakati halisi',
+  'settings.sync.title': 'Jinsi madokezo yako yanavyosafiri',
   'settings.theme.body':
     'Mwanga huweka safu ya uhariri ikiwa angavu. Sepia hupasha joto ukurasa kwa ajili ya jioni.',
   'settings.theme.dark': 'Nyeusi',
@@ -112,8 +155,12 @@ export const ui: UiTranslations = {
     'Ongeza #hashtag kwenye kichwa cha madokezo (km "Orodha ya kusoma #vitabu") na vitaonekana hapa kiotomatiki.',
   'tags.emptyTitle': 'Hakuna lebo bado',
   'tags.eyebrow': 'Kielezo',
+  'tags.goToNotes': 'Nenda kwenye madokezo →',
+  'tags.loadError': 'Imeshindwa kupakia lebo: {{message}}',
   'tags.subtitle':
     '{{tags}} lebo kote {{notes}} madokezo. Ongeza #hashtags kwenye kichwa cha madokezo na yataonekana hapa.',
+  'versoAuthShell.sample.body':
+    'Mzunguko wa pili kesho husoma vizuri zaidi kuliko mzunguko wa kwanza usiku wa leo. Weka toleo mbovu kwenye folda ya kazi ya kina…',
   'versoAuthShell.sample.label': 'Dokezo la kila siku',
   'versoAuthShell.sample.timestamp': 'Leo · 9:14am',
   'versoAuthShell.sample.title': 'Kuhusu kuruhusu rasimu kupumua',
@@ -125,8 +172,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Endelea kuandika',
   'versoTodayHero.createCta': 'Anza kuandika barua ya leo',
   'versoTodayHero.dailyLabel': 'Dokezo la kila siku',
+  'versoTodayHero.emptyHeadline': 'Leo ni ukurasa mtupu.',
   'versoTodayHero.emptySubline':
     'Nakili wazo, andika mkutano, au mchoro kesho. Verso huweka muundo kimya ili maandishi yaendelee kuwa na sauti kubwa.',
+  'versoTodayHero.outlineLabel': 'Muhtasari wa leo',
   'versoTodayHero.streak': '{{count}} -mfululizo wa siku',
+  'versoTodayHero.unwritten': 'Hakuna maneno bado — fungua dokezo ili kuanza.',
   'versoTodayHero.wordCount': '{{count}} maneno ya leo',
 }

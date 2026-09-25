@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Въпроси, обратна връзка или функция, която искате да имаме? Свържете се с екипа от настройките на акаунта си — истински човек чете всяко съобщение.',
   'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
+  'about.missionTitle': 'Нашата мисия',
+  'about.whatYouGetTitle': 'Какво получавате',
   'analytics.empty': 'Създайте тестета, за да видите анализи тук.',
   'analytics.stats.acrossDecks': 'На всички палуби',
   'analytics.stats.allTime': 'В твоето студио',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Заглавие на колодата',
   'landing.features.eyebrow': 'Защо увертюра',
   'landing.features.heading': 'Всичко необходимо, за да излезете на сцената, е готово.',
+  'landing.finalCta.body':
+    'Създайте своето студио за под минута. Без кредитна карта. Отказ по всяко време.',
   'landing.finalCta.cta': 'Създайте своето безплатно студио',
   'landing.finalCta.eyebrow': 'Безплатно за начало',
   'landing.finalCta.heading': 'Излез на сцената с най-добрата колода в кариерата си.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Редактирано преди 12 минути',
   'notifications.created': 'създаден',
   'notifications.edited': 'редактиран',
+  'notifications.empty.body':
+    'Активността по вашите презентации — коментари, споменавания, експорти — ще се показва тук.',
   'notifications.empty.title': 'Все още няма известия',
   'notifications.eyebrow': 'Сценична дейност',
   'notifications.loading': 'Зареждане…',
   'notifications.shared': 'споделено публично',
+  'planUpdated.retry': 'Опитайте отново',
+  'planUpdated.verifyFailed': 'Все още не успяхме да потвърдим плащането ви.',
+  'planUpdated.verifyFailedBody':
+    'Възможно е плащането ви все още да се обработва. Опитайте отново след малко.',
   'planUpdated.verifying': 'Потвърждаване на плащането…',
   'present.addSlides': 'Добавяне на слайдове',
   'present.backToDecks': 'Обратно към палубите',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Сценичен изпълнител',
   'settings.security.notSet': 'Не е зададено',
   'settings.security.passwordBody': 'Вашата парола е криптирана в покой.',
+  'settings.security.reset': 'Нулиране',
   'settings.security.title': 'Профил + сесии',
   'shared.empty.body':
     'Колодите, които споделяте публично, ще се показват тук. Отворете колода и я превключете на „публично“, за да я споделите.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Зареждане…',
   'shared.title': 'Споделени палуби',
   'templateCard.slideCount': '{{count}} слайдове',
+  'templateCard.usageCount': '{{count}} употреби',
+  'templates.empty.body': 'Опитайте с друг филтър — всеки месец пускаме нови шаблони.',
+  'templates.empty.title': 'Още няма шаблони в тази категория',
+  'templates.hero.body':
+    'Готови оформления на слайдове с теми, блокове за диаграми, демо рамки, бележки за presenter и предварително зададени таймери — всеки шаблон е готов за запис.',
   'templates.hero.eyebrow': 'Курирани етапи',
   'templates.hero.heading': 'Етапи, построени за момента, в който ви е необходимо да го кацнете.',
 }

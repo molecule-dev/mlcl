@@ -1,12 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது உங்கள் dock-இல் {{app}}-ஐப் பார்க்க விரும்புகிறீர்களா? ஆப் உள்ளேயுள்ள உதவியிலிருந்து எங்களை அணுகவும் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள உண்மையான மனிதரையே சென்றடையும்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.intro':
+    '{{app}} என்பது operator-தரமான கிடங்கு நிறைவேற்று மென்பொருள் — ஆர்டர்கள், picks, packs மற்றும் shipments அனைத்தும் ஒரே இடத்தில். உண்மையான அளவில் இயங்கும் நிறைவேற்றுக் குழுக்களுக்காக இது உருவாக்கப்பட்டது; தளத்தில் ஒவ்வொரு செயலும் வேகமாகவும், கண்காணிக்கக்கூடியதாகவும், ஏமாற்ற முடியாததாகவும் இருக்க வேண்டும்.',
+  'about.missionBody':
+    'இயக்கங்கள் சாதாரண விஷயங்களிலேயே இயங்குகின்றன — picks, packs மற்றும் shipped labels. அந்தச் சாதாரண விஷயங்களை வேகமாகவும், கண்காணிக்கக்கூடியதாகவும், நம்பகமானதாகவும் ஆக்குகிறோம்; அதனால் கிடங்குகள் rush, express மற்றும் standard ஆர்டர்களை எந்த வழித்தடத்தையும் மீறாமல் அனுப்ப முடியும்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': '{{app}} பற்றி',
   'auth.signup.passwordHint': 'குறைந்தது 12 எழுத்துக்கள்',
   'authShell.brandSubtitle': 'நிறைவேற்றல் கன்சோல்',
   'authShell.eyebrow': 'சோர்தாஸுக்கு நல்வரவு',
+  'authShell.footer': '{{appName}} · செயல்பாட்டு பலகை',
   'authShell.pitch':
     'தளத்திற்கான, ஸ்கேனரை முதன்மைப்படுத்தும் ஒரு கன்சோல். பொருட்களை எடுத்து, பொதி செய்து, ஒரே கன்சோலில் இருந்து அனுப்புங்கள் — முக்கியமானவற்றைக் கணக்கிடும் மற்றும் எந்தவொரு ஆர்டரையும் தவறவிட விரும்பாத செயல்பாட்டுத் தலைவர்களுக்காக இது உருவாக்கப்பட்டது.',
   'authShell.sampleCaption': 'அனுப்பப்பட்ட ஆர்டர்கள் · 8 கப்பல்துறை கதவுகள் · 3 மண்டலங்கள்',
@@ -17,6 +25,7 @@ export const ui: UiTranslations = {
   'dashboard.empty.action': 'விதை மாதிரி தரவு',
   'dashboard.empty.body':
     'ஒரு மாதிரி தரவுத்தொகுப்பை (ஆர்டர்கள், சரக்கு இருப்பு, ஏற்றுமதிகள்) உருவாக்குங்கள், அதன் மூலம் நீங்கள் விற்பனைத் தளத்தை முழுமையாக இயக்க முடியும்.',
+  'dashboard.empty.seeding': 'விதைக்கிறது…',
   'dashboard.empty.title': 'உங்கள் கிடங்கு காலியாக உள்ளது',
   'dashboard.errorFallback': 'நேரலைத் தரவுகள் தற்காலிகமாகக் கிடைக்கவில்லை.',
   'dashboard.eyebrow': 'தளக் கட்டளை',
@@ -37,24 +46,32 @@ export const ui: UiTranslations = {
   'dashboard.queue.viewAll': 'திறந்த வரிசை',
   'dashboard.subtitle': '{{active}} உள்ள ஆர்டர்கள் · நேரலைப் பேரேடு',
   'dashboard.title': 'இன்றைய ஷிப்டுகள்',
+  'dashboard.zones.bins': '{{count}} தொட்டிகள்',
   'dashboard.zones.empty': 'தளச் செயல்பாடுகளைக் காண மண்டலங்களை அமைக்கவும்.',
+  'dashboard.zones.eyebrow': 'மண்டல வெப்ப வரைபடம்',
   'dashboard.zones.title': 'தரை செயல்பாடு',
   'forgot.subheading':
     'உங்கள் அலுவலக மின்னஞ்சலை உள்ளிடவும், மீட்டமைப்பு இணைப்பை உங்கள் இன்பாக்ஸிற்கு அனுப்புவோம்.',
   'forgot.successBody':
     'If {{email}} அவர் குழுவில் உள்ளார், மீட்டமைப்பு இணைப்பு ஒன்று விரைவில் அனுப்பப்படும். அந்த இணைப்பு 30 நிமிடங்களில் காலாவதியாகிவிடும்.',
   'fulfillmentHeroCard.eyebrow': 'இயக்கத்தில் ஏற்படும் மாற்றங்கள்',
+  'fulfillmentHeroCard.onTime': '{{rate}}% சரியான நேரத்தில்',
+  'fulfillmentHeroCard.ordersShipped': 'இன்று அனுப்பப்பட்ட ஆர்டர்கள்',
+  'fulfillmentHeroCard.ordersShippedWithPeriod': 'அனுப்பப்பட்ட ஆர்டர்கள் · {{period}}',
   'fulfillmentHeroCard.subtitle':
     '{{units}} பொருட்கள் கட்டப்பட்டு கப்பல்துறையிலிருந்து வெளியே எடுக்கப்பட்டன.',
   'inventory.cols.bin': 'தொட்டி',
   'inventory.cols.onHand': 'கையில்',
   'inventory.cols.reorder': 'மறுவரிசைப்படுத்து புள்ளி',
+  'inventory.cols.sku': 'SKU',
   'inventory.empty': 'உங்கள் தேடலுடன் எந்த SKU-களும் பொருந்தவில்லை.',
+  'inventory.errorFallback': 'நேரலைத் தரவுகள் தற்காலிகமாகக் கிடைக்கவில்லை.',
   'inventory.eyebrow': 'கையிருப்பு',
   'inventory.kpis.low': 'குறைந்த கையிருப்பு',
   'inventory.kpis.lowHint': 'மறுவரிசைப்படுத்தும் புள்ளிக்குக் கீழே',
   'inventory.kpis.out': 'கையிருப்பு இல்லை',
   'inventory.kpis.outHint': 'இன்று மீண்டும் ஆர்டர் செய்ய வேண்டும்',
+  'inventory.kpis.skus': 'செயலில் உள்ள SKUகள்',
   'inventory.kpis.skusHint': 'தொட்டிகள் முழுவதும் கண்காணிக்கப்பட்டது',
   'inventory.kpis.units': 'கையிருப்பில் உள்ள அலகுகள்',
   'inventory.kpis.unitsHint': 'அனைத்து தொட்டிகளிலும்',
@@ -110,6 +127,7 @@ export const ui: UiTranslations = {
   'locations.title': 'மண்டலங்கள், இடைவழிகள் மற்றும் தொட்டிகள்',
   'locations.utilization': 'பயன்பாடு',
   'login.heading': 'சோர்தாஸில் உள்நுழைக',
+  'login.noAccount': 'டெஸ்ஸெராவுக்குப் புதியவரா?',
   'login.subheading':
     'ஒவ்வொரு ஆர்டருக்கும், ஒவ்வொரு அலைக்கும், ஒவ்வொரு கப்பல்துறைக்கும் தளக் கட்டுப்பாடு.',
   'notFound.body':
@@ -119,8 +137,10 @@ export const ui: UiTranslations = {
   'notFound.home': '{{app}} முகப்பு',
   'notifications.dismiss': 'நிராகரி',
   'notifications.eyebrow': 'தரை எச்சரிக்கைகள்',
+  'notifications.subtitle': '{{count}} எச்சரிக்கைகள் · {{unread}} படிக்காதவை',
   'orderDetail.back': 'ஆர்டர்களுக்குத் திரும்பு',
   'orderDetail.cancel': 'ஆர்டரை ரத்து செய்',
+  'orderDetail.items.empty': 'பொருட்கள் இல்லை.',
   'orderDetail.items.eyebrow': 'தேர்வுப் பட்டியல்',
   'orderDetail.items.line': 'வரி',
   'orderDetail.items.qty': 'அளவு',
@@ -143,7 +163,16 @@ export const ui: UiTranslations = {
   'pickList.notFound': 'ஆர்டர் காணப்படவில்லை.',
   'pickList.progress.eyebrow': 'முன்னேற்றத்தைத் தேர்ந்தெடுக்கவும்',
   'pickListItem.progress': 'தேர்ந்தெடுக்கப்பட்டது {{picked}} இன் {{total}}',
+  'pickListItem.qty': 'அளவு',
   'pickListItem.toggleAria': 'இதற்கான தேர்வை மாற்று {{sku}}',
+  'pricing.advancedFeatures': 'மேம்பட்ட அம்சங்கள்: {{yes}}',
+  'pricing.canExport': 'தரவு ஏற்றுமதி: {{yes}}',
+  'pricing.heading': 'உங்கள் {{app}} திட்டத்தைத் தேர்ந்தெடுக்கவும்',
+  'pricing.maxOrders': '{{count}} ஆர்டர்கள்',
+  'pricing.maxPacking': '{{count}} packing',
+  'pricing.maxPicks': '{{count}} picks',
+  'pricing.maxShipments': '{{count}} shipments',
+  'pricing.maxZones': '{{count}} மண்டலங்கள்',
   'profile.editTitle': 'ஆபரேட்டர் விவரங்கள்',
   'profile.eyebrow': 'ஆபரேட்டர் சுயவிவரம்',
   'profile.field.shift': 'நகரும் சாளரம்',
@@ -178,9 +207,11 @@ export const ui: UiTranslations = {
   'reports.kpis.healthHint': '100% என்றால் OOS இல்லை என்று பொருள்.',
   'reports.kpis.units': 'கையிருப்பில் உள்ள அலகுகள்',
   'reports.kpis.unitsHint': 'செயலில் உள்ள SKU-கள் முழுவதும்',
+  'reports.loadError': 'அறிக்கைத் தரவை ஏற்ற முடியவில்லை.',
   'reports.subtitle':
     'ஆர்டர்கள், அவற்றின் சுழற்சி மற்றும் இருப்பு நிலவரம் ஆகியவற்றின் நிகழ்நேரப் பார்வை',
   'reports.title': 'செயல்திறன் அறிக்கைகள்',
+  'reset.changedMind': 'மனம் மாறிவிட்டதா?',
   'reset.password': 'புதிய கடவுச்சொல்',
   'reset.subheading':
     'களத்தில் உங்கள் அணி நினைவில் கொள்ளக்கூடிய ஒன்றை, குறைந்தபட்சம் 12 எழுத்துக்களில் தேர்ந்தெடுங்கள்.',
@@ -193,6 +224,7 @@ export const ui: UiTranslations = {
   'returns.loading': 'ஏற்றுதல் திரும்புகிறது…',
   'returns.new': 'புதிய ஆர்எம்ஏ',
   'returns.reason': 'Reason',
+  'returns.reasonPlaceholder': 'இது ஏன் திருப்பி அனுப்பப்படுகிறது?',
   'returns.subtitle': '{{count}} தீர்வுக்காகக் காத்திருக்கும் ஆர்எம்ஏக்கள்',
   'returns.title': 'முன்னுரிமையைத் திருப்பி அளிக்கிறது',
   'scanner.back': 'வெளியேறும் ஸ்கேனர்',
@@ -204,6 +236,7 @@ export const ui: UiTranslations = {
   'scanner.recent.empty':
     'இன்னும் ஸ்கேன்கள் எடுக்கப்படவில்லை — மேலே உள்ளவற்றில் ஒன்றை முயற்சிக்கவும்.',
   'scanner.recent.eyebrow': 'சமீபத்திய ஸ்கேன்கள்',
+  'scanner.submit': 'தேடல்',
   'scanner.title': 'பிடி. குறிவை. இழு.',
   'settings.autoAllocate': 'அவசர ஆர்டர்களை அடுத்ததாகக் கிடைக்கும் நபருக்குத் தானாக ஒதுக்குங்கள்',
   'settings.defaultCarrier': 'இயல்புநிலை கேரியர்',
@@ -253,4 +286,5 @@ export const ui: UiTranslations = {
   'warehouseFulfillmentLayout.scanAria': 'ஸ்கேனரைத் திறக்கவும்',
   'warehouseFulfillmentLayout.scanCta': 'ஸ்கேன்',
   'warehouseFulfillmentLayout.searchAria': 'ஆர்டர்கள், SKU-கள், பின்களைத் தேடு',
+  'warehouseFulfillmentLayout.searchPlaceholder': 'ஆர்டர்கள், SKUs, bins… தேடுக',
 }

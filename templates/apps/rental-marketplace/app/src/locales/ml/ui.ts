@@ -1,13 +1,30 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ബന്ധപ്പെടുക',
   'about.eyebrow': 'ഞങ്ങളേക്കുറിച്ച്',
+  'about.featureBooking':
+    'സുരക്ഷിതമായ Stripe പേയ്‌മെന്റുകളോടെ തൽക്ഷണം അല്ലെങ്കിൽ അഭ്യർത്ഥന-വഴി ബുക്കിംഗ് റിസർവേഷനുകൾ, ചെക്ക്-ഇന്നിന് 48 മണിക്കൂർ മുൻപുവരെ സൗജന്യ റദ്ദാക്കലും.',
+  'about.featureHosting':
+    'ലിസ്റ്റിംഗുകൾ പ്രസിദ്ധീകരിക്കാനും ലഭ്യത കൈകാര്യം ചെയ്യാനും റിസർവേഷനുകൾ ട്രാക്ക് ചെയ്യാനും പേയ്‌മെന്റ് ലഭിക്കാനുമുള്ള പൂർണ്ണ ഹോസ്റ്റ് ഡാഷ്ബോർഡ്.',
+  'about.featureMessaging':
+    'താമസത്തിന് മുൻപും സമയത്തും ഹോസ്റ്റുകളുമായി നേരിട്ടുള്ള സന്ദേശങ്ങൾ, ഇഷ്ടപ്പെട്ട സ്ഥലങ്ങൾ സേവ് ചെയ്യാനുള്ള വിഷ്‌ലിസ്റ്റുകളും.',
+  'about.featureReviews':
+    'സത്യസന്ധമായ ഇരുവശ റിവ്യൂകൾ — യാത്രക്കാരും ഹോസ്റ്റുകളും വിശ്വസനീയമായ പ്രശസ്തി കെട്ടിപ്പടുക്കാൻ.',
+  'about.featureSearch':
+    'പരിശോധിച്ച ലിസ്റ്റിംഗുകളിലുടനീളം മാപ്പ് അധിഷ്ഠിത തിരയൽ, വില, സൗകര്യങ്ങൾ, തീയതികൾ എന്നിവയ്ക്കുള്ള ഫിൽട്ടറുകളോടെ.',
+  'about.missionBody':
+    'യാത്ര നിങ്ങളെ ഒരു സ്ഥലവുമായി ബന്ധിപ്പിക്കണം, ഒരു ചെയിനുമായി അല്ല. സ്വതന്ത്ര ഹോസ്റ്റുകൾക്ക് അദ്വിതീയ വീടുകൾ ലിസ്റ്റ് ചെയ്യാനും യാത്രക്കാർക്ക് അവ കണ്ടെത്താനും ഞങ്ങൾ സഹായിക്കുന്നു — സുതാര്യമായ വിലനിർണ്ണയം, മറഞ്ഞ ഫീസുകളില്ല, കൂടാതെ പേയ്‌ഔട്ടുകൾ, നികുതികൾ, യാത്രക്കാരുടെ പരിശോധന എന്നിവ ഹോസ്റ്റിനുവേണ്ടി ഞങ്ങൾ കൈകാര്യം ചെയ്യുന്നു, അതുവഴി അവർക്ക് ആതിഥ്യമര്യാദയിൽ ശ്രദ്ധ കേന്ദ്രീകരിക്കാം.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'about.subtitle':
+    'യഥാർത്ഥ വീടുകളെയും യഥാർത്ഥ ഹോസ്റ്റുകളെയും ചുറ്റിപ്പറ്റി നിർമ്മിച്ച ഒരു വാടക മാർക്കറ്റ്‌പ്ലേസ്.',
   'bookingDetail.afterTime': 'ഉച്ചകഴിഞ്ഞ് 3:00 മണിക്ക് ശേഷം',
   'bookingDetail.backCta': 'ബുക്കിംഗുകളിലേക്ക് മടങ്ങുക',
   'bookingDetail.beforeTime': 'രാവിലെ 11:00 മണിക്ക് മുമ്പ്',
   'bookingDetail.cancel': 'റിസർവേഷൻ റദ്ദാക്കുക',
   'bookingDetail.cancelFailed': 'റദ്ദാക്കാൻ കഴിഞ്ഞില്ല — വീണ്ടും ശ്രമിക്കുക.',
   'bookingDetail.checkIn': 'ചെക്ക് - ഇൻ ചെയ്യുക',
+  'bookingDetail.cleaningFee': 'ക്ലീനിംഗ് ഫീസ്',
   'bookingDetail.confirmCancel': 'ഈ റിസർവേഷൻ റദ്ദാക്കണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.',
   'bookingDetail.eyebrow': 'സ്ഥിരീകരണം · {{code}}',
   'bookingDetail.messageHost': 'സന്ദേശ ഹോസ്റ്റ്',
@@ -21,14 +38,17 @@ export const ui: UiTranslations = {
   'bookingDetail.viewListing': 'ലിസ്റ്റിംഗ് കാണുക',
   'bookingDetail.yourHost': 'നിങ്ങളുടെ ഹോസ്റ്റ്',
   'bookingItineraryRow.nights': '{{count}} രാത്രികൾ',
+  'bookings.empty.past': 'നിങ്ങൾ താമസിച്ചുകഴിഞ്ഞാൽ കഴിഞ്ഞ ബുക്കിംഗുകൾ ഇവിടെ ദൃശ്യമാകും.',
   'bookings.empty.upcoming': 'പുസ്തകങ്ങളിൽ യാത്രകളൊന്നുമില്ല — നമുക്ക് അത് ശരിയാക്കാം.',
   'bookings.eyebrow': 'നിങ്ങളുടെ യാത്രകൾ',
   'bookings.heading': 'ബുക്കിംഗുകൾ',
   'bookings.loadError': 'ബുക്കിംഗുകൾ ലോഡ് ചെയ്യാനായില്ല.',
+  'bookings.searchCta': 'മറ്റൊരു യാത്ര പ്ലാൻ ചെയ്യുക',
   'bookings.subheading': '{{upcoming}} വരാനിരിക്കുന്ന · {{past}} കഴിഞ്ഞ',
   'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'createListing.back': 'ലിസ്റ്റിംഗുകളിലേക്ക് മടങ്ങുക',
+  'createListing.bedrooms': 'കിടപ്പുമുറികൾ',
   'createListing.cityLabel': 'ഇത് എവിടെയാണ്?',
   'createListing.cityPlaceholder': 'നഗരം, മേഖല അല്ലെങ്കിൽ അയൽപക്കം',
   'createListing.descPlaceholder':
@@ -38,17 +58,23 @@ export const ui: UiTranslations = {
   'createListing.error.price': 'പ്രസിദ്ധീകരിക്കുന്നതിന് മുമ്പ് ഒരു രാത്രികാല വില ചേർക്കുക.',
   'createListing.error.title': 'പ്രസിദ്ധീകരിക്കുന്നതിന് മുമ്പ് ഒരു തലക്കെട്ട് ചേർക്കുക.',
   'createListing.heading': 'വാതിൽ തുറക്കൂ',
+  'createListing.listingImageAlt': 'ലിസ്റ്റിംഗ് {{number}}',
   'createListing.maxGuests': 'പരമാവധി അതിഥികൾ',
   'createListing.photos.heading':
     'യാത്രക്കാരെ സ്ക്രോൾ ചെയ്യുന്നത് നിർത്താൻ പ്രേരിപ്പിക്കുന്ന ഫോട്ടോകൾ ചേർക്കുക.',
+  'createListing.photos.subheading':
+    'കുറഞ്ഞത് 3 ഫോട്ടോകൾ അപ്‌ലോഡ് ചെയ്യുന്ന ഹോസ്റ്റുകൾ ശരാശരി 2.3× കൂടുതൽ സമ്പാദിക്കുന്നു.',
   'createListing.place.heading': 'ഇത് എങ്ങനെയുള്ള സ്ഥലമാണ്?',
+  'createListing.price': 'ഒരു രാത്രിയിലെ വില',
   'createListing.publish': 'ലിസ്റ്റിംഗ് പ്രസിദ്ധീകരിക്കുക',
   'createListing.removePhoto': 'ഫോട്ടോ നീക്കം ചെയ്യുക',
   'createListing.step.${s.key}.eyebrow': 'ഘട്ടം {{n}}',
   'createListing.subheading':
     'നിങ്ങളുടെ ലിസ്റ്റിംഗ് തത്സമയമാക്കാൻ കുറച്ച് ചോദ്യങ്ങൾ. ഓരോ ഘട്ടത്തിലും നിങ്ങളുടെ പുരോഗതി ഞങ്ങൾ സംരക്ഷിക്കും.',
+  'createListing.title': 'ലിസ്റ്റിംഗ് ശീർഷകം',
   'createListing.titlePlaceholder': 'സൂര്യപ്രകാശം ലഭിക്കുന്ന ക്ലിഫ്‌സൈഡ് ക്യാബിൻ',
   'createListing.uploadCta': 'ഫോട്ടോ ചേർക്കുക {{n}}',
+  'createListing.useSample': 'ഒരു സാമ്പിൾ ഫോട്ടോ ഉപയോഗിക്കുക',
   'destinationDiscoveryCard.exploreCta': 'താമസ സ്ഥലങ്ങൾ അടുത്തറിയുക',
   'forgotPassword.eyebrow': 'റീസെറ്റ്',
   'forgotPassword.subheading':
@@ -64,6 +90,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelYtd': 'വർഷാരംഭം മുതൽ ഇന്ന് വരെ',
   'hostDashboard.loadError':
     'നിങ്ങളുടെ ഹോസ്റ്റിംഗ് ഡാറ്റ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കുക.',
+  'hostDashboard.queueArrivals': 'അടുത്ത ആഴ്ച {{count}} ആഗമനങ്ങൾ',
+  'hostDashboard.queueListings': '{{count}} സജീവ ലിസ്റ്റിംഗുകൾ',
   'hostDashboard.queueRequests': '{{count}} റിസർവേഷൻ അഭ്യർത്ഥനകൾ',
   'hostDashboard.queueReview': 'അവലോകന ക്യൂ',
   'hostDashboard.queueTitle': 'നിങ്ങളുടെ ക്യൂ',
@@ -85,11 +113,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': 'ലിസ്റ്റിംഗ് കണ്ടെത്തിയില്ല.',
   'hostListingDetail.photos.empty': 'ഇതുവരെ ഫോട്ടോകളൊന്നും അപ്‌ലോഡ് ചെയ്തിട്ടില്ല.',
   'hostListingDetail.photos.heading': 'ചിത്രങ്ങൾ',
+  'hostListingDetail.pricing.cleaning': 'ക്ലീനിംഗ് ഫീസ്',
   'hostListingDetail.pricing.save': 'വില ലാഭിക്കുക',
   'hostListingDetail.pricing.weekday': 'ആഴ്ചയിലെ ദിവസത്തെ നിരക്ക്',
   'hostListingDetail.pricing.weekend': 'വാരാന്ത്യ നിരക്ക് (പ്രദർശിപ്പിക്കാൻ മാത്രം)',
   'hostListingDetail.rules.copy':
     'അതിഥി പ്രതീക്ഷകൾ സജ്ജമാക്കുക, നിങ്ങളുടെ വീട് സംരക്ഷിക്കുക - ബുക്കിംഗ് സ്ഥിരീകരണത്തിന് മുമ്പ് ഇവ പുറത്തുവരും.',
+  'hostListingDetail.rules.heading': 'വീട്ടു നിയമങ്ങൾ',
   'hostListings.create': 'പുതിയ ലിസ്റ്റിംഗ് സൃഷ്ടിക്കുക',
   'hostListings.eyebrow': 'നിങ്ങളുടെ പോർട്ട്ഫോളിയോ',
   'hostListings.heading': 'ലിസ്റ്റിംഗുകൾ',
@@ -99,8 +129,11 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'ഹോസ്റ്റുകൾക്ക്',
   'landing.cta.heading': 'വാതിൽ തുറക്കൂ. നിങ്ങളുടെ വീടിന് വിലയുള്ളത് സമ്പാദിക്കൂ.',
   'landing.cta.host': 'ഹോസ്റ്റിംഗ് ആരംഭിക്കുക',
+  'landing.cta.subheading':
+    'പേയ്‌ഔട്ടുകൾ, നികുതികൾ, യാത്രക്കാരുടെ പരിശോധന എന്നിവ {{appName}} കൈകാര്യം ചെയ്യുന്നു, അതുവഴി നിങ്ങൾക്ക് ഹോസ്റ്റിംഗിൽ ശ്രദ്ധ കേന്ദ്രീകരിക്കാം. മിക്ക പുതിയ ഹോസ്റ്റുകളും 30 ദിവസത്തിനുള്ളിൽ അവരുടെ ആദ്യ $1,000 സമ്പാദിക്കുന്നു.',
   'landing.destinations.eyebrow': 'അടുത്തതായി എവിടേക്ക് പോകണം',
   'landing.destinations.heading': 'ഞങ്ങളുടെ ആതിഥേയർ ഇഷ്ടപ്പെടുന്ന ലക്ഷ്യസ്ഥാനങ്ങൾ',
+  'landing.destinations.seeAll': 'എല്ലാ ലക്ഷ്യസ്ഥാനങ്ങളും കാണുക',
   'landing.footer.host': 'ഒരു ഹോസ്റ്റ് ആകുക',
   'landing.footer.search': 'താമസം കണ്ടെത്തുക',
   'landing.footer.tagline': 'നിങ്ങളുടേത് പോലെ തന്നെ തുടരുക.',
@@ -109,8 +142,11 @@ export const ui: UiTranslations = {
   'landing.nav.host': 'ഒരു ഹോസ്റ്റ് ആകുക',
   'landing.nav.join': 'റൂസ്റ്റിൽ ചേരുക',
   'landing.nav.search': 'താമസം കണ്ടെത്തുക',
+  'landing.preview.browseAll': 'മുഴുവൻ ശേഖരവും ബ്രൗസ് ചെയ്യുക',
   'landing.preview.eyebrow': 'ഉള്ളിലേക്ക് ഒരു എത്തിനോട്ടം',
   'landing.preview.heading': 'ഈ മാസം തിരഞ്ഞെടുത്ത താമസസ്ഥലങ്ങൾ',
+  'landing.preview.subheading':
+    'ഓരോ {{appName}} ലിസ്റ്റിംഗും ഒരു യഥാർത്ഥ വ്യക്തിയാണ് ഹോസ്റ്റ് ചെയ്യുന്നത് — പരിശോധിച്ചത്, റിവ്യൂ ചെയ്തത്, ചെക്ക്-ഇന്നിന് 48 മണിക്കൂർ മുൻപുവരെ റദ്ദാക്കാൻ സൗജന്യം.',
   'listingDetail.about': 'ഈ സ്ഥലത്തെക്കുറിച്ച്',
   'listingDetail.amenities': 'ഈ സ്ഥലം എന്താണ് വാഗ്ദാനം ചെയ്യുന്നത്',
   'listingDetail.bathrooms': 'കുളികൾ',
@@ -118,7 +154,10 @@ export const ui: UiTranslations = {
   'listingDetail.beds': 'കിടക്കകൾ',
   'listingDetail.bookFailed':
     'റിസർവ് ചെയ്യാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക അല്ലെങ്കിൽ ആദ്യം സൈൻ ഇൻ ചെയ്യുക.',
+  'listingDetail.cleaningFee': 'ക്ലീനിംഗ് ഫീസ്',
+  'listingDetail.guests': 'അതിഥികൾ',
   'listingDetail.hostedBy': 'ആതിഥേയത്വം വഹിക്കുന്നത് {{host}}',
+  'listingDetail.hostMeta': '{{years}} വർഷം ഹോസ്റ്റിംഗ് · {{response}}% പ്രതികരണ നിരക്ക്',
   'listingDetail.houseRules': 'വീട്ടു നിയമങ്ങൾ',
   'listingDetail.instantBook': 'ഇപ്പോൾ റിസർവ് ചെയ്യൂ · തൽക്ഷണ ബുക്ക് ചെയ്യൂ',
   'listingDetail.loadError': 'ലിസ്റ്റിംഗ് ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
@@ -129,6 +168,7 @@ export const ui: UiTranslations = {
   'listingDetail.perNight': 'ഒരു രാത്രിക്ക്',
   'listingDetail.pickDates': 'ആദ്യം ചെക്ക്-ഇൻ, ചെക്ക്-ഔട്ട് തീയതികൾ തിരഞ്ഞെടുക്കുക.',
   'listingDetail.priceRow': '{{price}} × {{nights}} രാത്രികൾ',
+  'listingDetail.requestBook': 'ബുക്ക് ചെയ്യാനുള്ള അഭ്യർത്ഥന',
   'listingDetail.reserving': 'റിസർവ് ചെയ്യുന്നു…',
   'listingDetail.reviews': 'അവലോകനങ്ങൾ',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}} അവലോകനങ്ങൾ',
@@ -136,6 +176,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'സൂപ്പർഹോസ്റ്റ്',
   'login.eyebrow': 'വീട്ടിലേക്ക് സ്വാഗതം',
   'login.heading': 'റൂസ്റ്റിലേക്ക് സൈൻ ഇൻ ചെയ്യുക',
+  'login.noAccount': 'ടെസേറയിൽ പുതിയ ആളാണോ?',
   'login.signupLink': 'ഒരു സൗജന്യ അക്കൗണ്ട് സൃഷ്ടിക്കുക',
   'login.subheading':
     'നിർത്തിയിടത്ത് നിന്ന് തുടങ്ങുക — നിങ്ങൾ ദിവാസ്വപ്നം കണ്ടിരുന്ന യാത്രകൾ, സന്ദേശ ഹോസ്റ്റുകൾ, പുസ്തക താമസങ്ങൾ എന്നിവ കൈകാര്യം ചെയ്യുക.',
@@ -160,6 +201,7 @@ export const ui: UiTranslations = {
   'notFound.heading': 'ഞങ്ങൾക്ക് ആ താമസം കണ്ടെത്താൻ കഴിയില്ല.',
   'notifications.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'notifications.subheading': '{{count}} വായിക്കാത്തവ · എല്ലാം ഒരു ശാന്തമായ ഇൻബോക്സിൽ',
+  'pricing.ctaContact': 'വിൽപ്പന വിഭാഗവുമായി ബന്ധപ്പെടുക',
   'pricing.ctaUpgrade': 'വിൽപ്പന വിഭാഗവുമായി ബന്ധപ്പെടുക',
   'pricing.eyebrow': 'ലളിതം, സുതാര്യമായത്',
   'pricing.heading': 'നിങ്ങളുടെ യാത്രാ താളത്തിന് അനുയോജ്യമായ ഒരു പ്ലാൻ',
@@ -196,8 +238,12 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'ഓർമ്മയിൽ സൂക്ഷിക്കാൻ കഴിയുന്ന എന്തെങ്കിലും തിരഞ്ഞെടുക്കുക. നിങ്ങൾ സംരക്ഷിച്ചുകഴിഞ്ഞാൽ ഞങ്ങൾ നിങ്ങളെ സൈൻ ഇൻ ചെയ്യും.',
   'roostAuthShell.brand.eyebrow': 'നിങ്ങളുടേത് പോലെ തന്നെ തുടരുക',
+  'roostAuthShell.brand.heading':
+    'കാബിനുകൾ, കോട്ടേജുകൾ, റിയാദുകൾ — അവിടെ താമസിക്കുന്ന ഹോസ്റ്റുകൾ നിങ്ങളിലേക്ക് എത്തിക്കുന്നു.',
   'roostHeroSearchCard.checkInAria': 'ചെക്ക്-ഇൻ തീയതി',
   'roostHeroSearchCard.checkOutAria': 'ചെക്ക്-ഔട്ട് തീയതി',
+  'roostHeroSearchCard.destAria': 'ലക്ഷ്യസ്ഥാനം',
+  'roostHeroSearchCard.destLabel': 'എവിടെ',
   'roostHeroSearchCard.destPlaceholder': 'നഗരം, മേഖല അല്ലെങ്കിൽ സ്വത്ത്',
   'roostHeroSearchCard.eyebrow': 'തിരഞ്ഞെടുത്ത താമസ സൗകര്യങ്ങൾ · പരിശോധിച്ചുറപ്പിച്ച ഹോസ്റ്റുകൾ',
   'roostHeroSearchCard.guestsOption': '{{n}} അതിഥികൾ',
@@ -209,6 +255,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'roostListingCard.bookmarkAria': 'ലിസ്റ്റിംഗ് സംരക്ഷിക്കുക',
   'roostListingCard.night': 'രാത്രി',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'നിങ്ങളുടെ തിരയലുമായി പൊരുത്തപ്പെടുന്ന ലിസ്റ്റിംഗുകളൊന്നുമില്ല.',
   'search.emptyHint':
     'നിങ്ങളുടെ ഫിൽട്ടറുകൾ വിശാലമാക്കുകയോ വില പരിധി നീക്കം ചെയ്യുകയോ ചെയ്യാൻ ശ്രമിക്കുക - റൂസ്റ്റിന് 26 രാജ്യങ്ങളിൽ സ്റ്റേകളുണ്ട്.',
@@ -216,9 +263,14 @@ export const ui: UiTranslations = {
   'search.heading': 'വീട് പോലെ തോന്നിക്കുന്ന ഒരു സ്ഥലം',
   'search.headingForQuery': '"" താമസിക്കും. {{q}} "',
   'search.loadError': 'ലിസ്റ്റിംഗുകൾ ലോഡ് ചെയ്യാനായില്ല.',
+  'search.mapHint':
+    'മാപ്പിൽ ഹൈലൈറ്റ് ചെയ്യാൻ ഒരു കാർഡിന് മേൽ ഹോവർ ചെയ്യുക. പ്രൊഡക്ഷനിൽ ലൈവ് Mapbox ടൈലുകൾ.',
+  'search.mapPinAria': '{{name}} — ഒരു രാത്രിക്ക് {{price}}',
   'search.sortLabel': 'ഇങ്ങനെ അടുക്കുക',
   'search.subheading': '{{count}} ലിസ്റ്റിംഗുകൾ · {{guests}} അതിഥികൾ',
+  'settings.appearance.description': 'ലൈറ്റ്, ഡാർക്ക് മോഡുകൾക്കിടയിൽ ടോഗിൾ ചെയ്യുക.',
   'settings.appearance.title': 'രൂപഭാവം',
+  'settings.openBilling': 'ബില്ലിംഗ് തുറക്കുക',
   'settings.payments.heading': 'പേയ്‌മെന്റ് രീതികൾ',
   'settings.paymentsHelp':
     'ഒരു ഹോസ്റ്റ് നിങ്ങളുടെ ബുക്കിംഗ് സ്ഥിരീകരിക്കുന്ന നിമിഷം റൂസ്റ്റ് നിങ്ങളുടെ കാർഡിൽ നിന്ന് ചാർജ് ഈടാക്കും. പ്രൈസിംഗ് പേജിൽ സേവ് ചെയ്ത കാർഡുകൾ കൈകാര്യം ചെയ്യുക.',

@@ -1,13 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸੰਪਰਕ ਕਰੋ',
   'about.eyebrow': 'ਸਾਡੇ ਬਾਰੇ',
+  'about.featureBooking':
+    'ਤੁਰੰਤ ਜਾਂ ਬੁਕਿੰਗ ਦੀ ਬੇਨਤੀ ਵਾਲੀਆਂ ਰਿਜ਼ਰਵੇਸ਼ਨਾਂ, ਸੁਰੱਖਿਅਤ Stripe ਭੁਗਤਾਨਾਂ ਅਤੇ ਚੈੱਕ-ਇਨ ਤੋਂ 48 ਘੰਟੇ ਪਹਿਲਾਂ ਤੱਕ ਮੁਫ਼ਤ ਰੱਦ ਕਰਨ ਸਮੇਤ।',
+  'about.featureHosting':
+    'ਇੱਕ ਪੂਰਾ ਹੋਸਟ ਡੈਸ਼ਬੋਰਡ — ਲਿਸਟਿੰਗਾਂ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ, ਉਪਲਬਧਤਾ ਸੰਭਾਲੋ, ਰਿਜ਼ਰਵੇਸ਼ਨਾਂ ਟਰੈਕ ਕਰੋ ਅਤੇ ਭੁਗਤਾਨ ਪ੍ਰਾਪਤ ਕਰੋ।',
+  'about.featureMessaging':
+    'ਰਹਿਣ ਦੌਰਾਨ ਅਤੇ ਪਹਿਲਾਂ ਹੋਸਟਾਂ ਨਾਲ ਸਿੱਧੀ ਮੈਸੇਜਿੰਗ, ਨਾਲ ਹੀ ਪਸੰਦੀਦਾ ਥਾਵਾਂ ਸੰਭਾਲਣ ਲਈ ਵਿਸ਼ਲਿਸਟ।',
+  'about.featureReviews':
+    'ਪ੍ਰਮਾਣਿਤ ਦੋ-ਪਾਸੜ ਸਮੀਖਿਆਵਾਂ ਤਾਂ ਜੋ ਯਾਤਰੀ ਅਤੇ ਹੋਸਟ ਦੋਵੇਂ ਭਰੋਸੇਯੋਗ ਸਾਖ ਬਣਾਉਣ।',
+  'about.featureSearch':
+    'ਤਸਦੀਕਸ਼ੁਦਾ ਲਿਸਟਿੰਗਾਂ ਵਿੱਚ ਨਕਸ਼ੇ-ਅਧਾਰਿਤ ਖੋਜ, ਕੀਮਤ, ਸੁਵਿਧਾਵਾਂ ਅਤੇ ਤਾਰੀਖਾਂ ਲਈ ਫਿਲਟਰਾਂ ਨਾਲ।',
+  'about.missionBody':
+    "ਸਫ਼ਰ ਤੁਹਾਨੂੰ ਕਿਸੇ ਥਾਂ ਨਾਲ ਜੋੜਨਾ ਚਾਹੀਦਾ ਹੈ, ਕਿਸੇ ਚੇਨ ਨਾਲ ਨਹੀਂ। ਅਸੀਂ ਸੁਤੰਤਰ ਹੋਸਟਾਂ ਨੂੰ ਵਿਲੱਖਣ ਘਰ ਲਿਸਟ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰਦੇ ਹਾਂ ਅਤੇ ਯਾਤਰੀਆਂ ਨੂੰ ਉਹ ਲੱਭਣ ਵਿੱਚ — ਪਾਰਦਰਸ਼ੀ ਕੀਮਤਾਂ, ਕੋਈ ਲੁਕਵੀਂ ਫ਼ੀਸ ਨਹੀਂ, ਅਤੇ ਭੁਗਤਾਨ, ਟੈਕਸ ਤੇ ਯਾਤਰੀ ਪੜਤਾਲ ਹੋਸਟ ਲਈ ਸੰਭਾਲੀ ਜਾਂਦੀ ਹੈ ਤਾਂ ਜੋ ਉਹ ਮਹਿਮਾਨਨਵਾਜ਼ੀ 'ਤੇ ਧਿਆਨ ਦੇ ਸਕਣ।",
+  'about.missionTitle': 'ਸਾਡਾ ਮਿਸ਼ਨ',
+  'about.subtitle': 'ਅਸਲੀ ਘਰਾਂ ਅਤੇ ਅਸਲੀ ਹੋਸਟਾਂ ਦੁਆਲੇ ਬਣਿਆ ਕਿਰਾਏ ਦਾ ਮਾਰਕਿਟਪਲੇਸ।',
   'bookingDetail.afterTime': 'ਦੁਪਹਿਰ 3:00 ਵਜੇ ਤੋਂ ਬਾਅਦ',
   'bookingDetail.backCta': "ਬੁਕਿੰਗਾਂ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'bookingDetail.beforeTime': 'ਸਵੇਰੇ 11:00 ਵਜੇ ਤੋਂ ਪਹਿਲਾਂ',
   'bookingDetail.cancel': 'ਰਿਜ਼ਰਵੇਸ਼ਨ ਰੱਦ ਕਰੋ',
   'bookingDetail.cancelFailed': 'ਰੱਦ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ — ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'bookingDetail.checkIn': 'ਚੈੱਕ ਇਨ',
+  'bookingDetail.cleaningFee': 'ਸਫਾਈ ਫੀਸ',
   'bookingDetail.confirmCancel':
     'ਕੀ ਇਸ ਰਿਜ਼ਰਵੇਸ਼ਨ ਨੂੰ ਰੱਦ ਕਰਨਾ ਹੈ? ਇਸਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।',
   'bookingDetail.eyebrow': 'ਪੁਸ਼ਟੀ · {{code}}',
@@ -22,14 +38,17 @@ export const ui: UiTranslations = {
   'bookingDetail.viewListing': 'ਸੂਚੀ ਵੇਖੋ',
   'bookingDetail.yourHost': 'ਤੁਹਾਡਾ ਹੋਸਟ',
   'bookingItineraryRow.nights': '{{count}} ਰਾਤਾਂ',
+  'bookings.empty.past': 'ਤੁਹਾਡੇ ਰਹਿਣ ਤੋਂ ਬਾਅਦ ਪਿਛਲੀਆਂ ਬੁਕਿੰਗਾਂ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੀਆਂ।',
   'bookings.empty.upcoming': "ਕਿਤਾਬਾਂ 'ਤੇ ਕੋਈ ਟ੍ਰਿਪ ਨਹੀਂ - ਆਓ ਇਸਨੂੰ ਠੀਕ ਕਰੀਏ।",
   'bookings.eyebrow': 'ਤੁਹਾਡੀਆਂ ਯਾਤਰਾਵਾਂ',
   'bookings.heading': 'ਬੁਕਿੰਗਾਂ',
   'bookings.loadError': 'ਬੁਕਿੰਗਾਂ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'bookings.searchCta': 'ਇੱਕ ਹੋਰ ਯਾਤਰਾ ਦੀ ਯੋਜਨਾ ਬਣਾਓ',
   'bookings.subheading': '{{upcoming}} ਆਉਣ ਵਾਲਾ · {{past}} ਭੂਤਕਾਲ',
   'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'common.retry': 'ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
   'createListing.back': "ਸੂਚੀਆਂ 'ਤੇ ਵਾਪਸ ਜਾਓ",
+  'createListing.bedrooms': 'ਸੌਣ ਵਾਲੇ ਕਮਰੇ',
   'createListing.cityLabel': 'ਉਹ ਕਿਥੇ ਹੈ?',
   'createListing.cityPlaceholder': 'ਸ਼ਹਿਰ, ਖੇਤਰ, ਜਾਂ ਆਂਢ-ਗੁਆਂਢ',
   'createListing.descPlaceholder':
@@ -39,17 +58,23 @@ export const ui: UiTranslations = {
   'createListing.error.price': 'ਪ੍ਰਕਾਸ਼ਿਤ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਇੱਕ ਰਾਤ ਦੀ ਕੀਮਤ ਸ਼ਾਮਲ ਕਰੋ।',
   'createListing.error.title': 'ਪ੍ਰਕਾਸ਼ਿਤ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਇੱਕ ਸਿਰਲੇਖ ਸ਼ਾਮਲ ਕਰੋ।',
   'createListing.heading': 'ਆਪਣਾ ਦਰਵਾਜ਼ਾ ਖੋਲ੍ਹੋ',
+  'createListing.listingImageAlt': 'ਲਿਸਟਿੰਗ {{number}}',
   'createListing.maxGuests': 'ਵੱਧ ਤੋਂ ਵੱਧ ਮਹਿਮਾਨ',
   'createListing.photos.heading':
     'ਅਜਿਹੀਆਂ ਫੋਟੋਆਂ ਸ਼ਾਮਲ ਕਰੋ ਜੋ ਯਾਤਰੀਆਂ ਨੂੰ ਸਕ੍ਰੌਲ ਕਰਨਾ ਬੰਦ ਕਰਵਾ ਦੇਣ',
+  'createListing.photos.subheading':
+    'ਜੋ ਹੋਸਟ ਘੱਟੋ-ਘੱਟ 3 ਫ਼ੋਟੋਆਂ ਅੱਪਲੋਡ ਕਰਦੇ ਹਨ, ਉਹ ਔਸਤਨ 2.3× ਵੱਧ ਕਮਾਉਂਦੇ ਹਨ।',
   'createListing.place.heading': 'ਇਹ ਕਿਸ ਤਰ੍ਹਾਂ ਦੀ ਜਗ੍ਹਾ ਹੈ?',
+  'createListing.price': 'ਪ੍ਰਤੀ ਰਾਤ ਕੀਮਤ',
   'createListing.publish': 'ਸੂਚੀ ਪ੍ਰਕਾਸ਼ਿਤ ਕਰੋ',
   'createListing.removePhoto': 'ਫੋਟੋ ਹਟਾਓ',
   'createListing.step.${s.key}.eyebrow': 'ਕਦਮ {{n}}',
   'createListing.subheading':
     "ਤੁਹਾਡੀ ਸੂਚੀ ਨੂੰ ਲਾਈਵ ਕਰਨ ਲਈ ਕੁਝ ਸਵਾਲ। ਅਸੀਂ ਹਰ ਕਦਮ 'ਤੇ ਤੁਹਾਡੀ ਪ੍ਰਗਤੀ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰਾਂਗੇ।",
+  'createListing.title': 'ਲਿਸਟਿੰਗ ਦਾ ਸਿਰਲੇਖ',
   'createListing.titlePlaceholder': 'ਧੁੱਪ ਵਾਲਾ ਕਲਿਫਸਾਈਡ ਕੈਬਿਨ',
   'createListing.uploadCta': 'ਫੋਟੋ ਸ਼ਾਮਲ ਕਰੋ {{n}}',
+  'createListing.useSample': 'ਨਮੂਨਾ ਫ਼ੋਟੋ ਵਰਤੋ',
   'destinationDiscoveryCard.exploreCta': 'ਠਹਿਰਾਅ ਦੀ ਪੜਚੋਲ ਕਰੋ',
   'forgotPassword.eyebrow': 'ਰੀਸੈੱਟ',
   'forgotPassword.subheading':
@@ -65,6 +90,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelYtd': 'ਸਾਲ ਤੋਂ ਅੱਜ ਤੱਕ',
   'hostDashboard.loadError':
     'ਤੁਹਾਡਾ ਹੋਸਟਿੰਗ ਡਾਟਾ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
+  'hostDashboard.queueArrivals': 'ਅਗਲੇ ਹਫ਼ਤੇ {{count}} ਆਮਦਾਂ',
+  'hostDashboard.queueListings': '{{count}} ਕਿਰਿਆਸ਼ੀਲ ਸੂਚੀਆਂ',
   'hostDashboard.queueRequests': '{{count}} ਰਿਜ਼ਰਵੇਸ਼ਨ ਬੇਨਤੀਆਂ',
   'hostDashboard.queueReview': 'ਸਮੀਖਿਆ ਕਤਾਰ',
   'hostDashboard.queueTitle': 'ਤੁਹਾਡੀ ਕਤਾਰ',
@@ -85,11 +112,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': 'ਸੂਚੀ ਨਹੀਂ ਮਿਲੀ।',
   'hostListingDetail.photos.empty': 'ਹਾਲੇ ਕੋਈ ਫੋਟੋ ਅੱਪਲੋਡ ਨਹੀਂ ਕੀਤੀ ਗਈ।',
   'hostListingDetail.photos.heading': 'ਫੋਟੋਆਂ',
+  'hostListingDetail.pricing.cleaning': 'ਸਫਾਈ ਫੀਸ',
   'hostListingDetail.pricing.save': 'ਕੀਮਤ ਬਚਾਓ',
   'hostListingDetail.pricing.weekday': 'ਹਫ਼ਤੇ ਦੇ ਦਿਨ ਦੀ ਦਰ',
   'hostListingDetail.pricing.weekend': 'ਵੀਕਐਂਡ ਰੇਟ (ਸਿਰਫ਼ ਡਿਸਪਲੇ)',
   'hostListingDetail.rules.copy':
     'ਮਹਿਮਾਨਾਂ ਦੀਆਂ ਉਮੀਦਾਂ ਸੈੱਟ ਕਰੋ ਅਤੇ ਆਪਣੇ ਘਰ ਦੀ ਰੱਖਿਆ ਕਰੋ - ਇਹ ਬੁਕਿੰਗ ਪੁਸ਼ਟੀ ਤੋਂ ਪਹਿਲਾਂ ਸਾਹਮਣੇ ਆਉਂਦੇ ਹਨ।',
+  'hostListingDetail.rules.heading': 'ਘਰ ਦੇ ਨਿਯਮ',
   'hostListings.create': 'ਨਵੀਂ ਸੂਚੀ ਬਣਾਓ',
   'hostListings.eyebrow': 'ਤੁਹਾਡਾ ਪੋਰਟਫੋਲੀਓ',
   'hostListings.heading': 'ਸੂਚੀਆਂ',
@@ -99,8 +128,11 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'ਮੇਜ਼ਬਾਨਾਂ ਲਈ',
   'landing.cta.heading': 'ਆਪਣਾ ਦਰਵਾਜ਼ਾ ਖੋਲ੍ਹੋ। ਆਪਣੇ ਘਰ ਦੀ ਕੀਮਤ ਕਮਾਓ।',
   'landing.cta.host': 'ਹੋਸਟਿੰਗ ਸ਼ੁਰੂ ਕਰੋ',
+  'landing.cta.subheading':
+    "{{appName}} ਭੁਗਤਾਨ, ਟੈਕਸ ਅਤੇ ਯਾਤਰੀ ਪੜਤਾਲ ਸੰਭਾਲਦਾ ਹੈ ਤਾਂ ਜੋ ਤੁਸੀਂ ਹੋਸਟਿੰਗ 'ਤੇ ਧਿਆਨ ਦੇ ਸਕੋ। ਜ਼ਿਆਦਾਤਰ ਨਵੇਂ ਹੋਸਟ 30 ਦਿਨਾਂ ਵਿੱਚ ਆਪਣੇ ਪਹਿਲੇ $1,000 ਕਮਾ ਲੈਂਦੇ ਹਨ।",
   'landing.destinations.eyebrow': 'ਅੱਗੇ ਕਿੱਥੇ ਜਾਣਾ ਹੈ',
   'landing.destinations.heading': 'ਸਾਡੇ ਮੇਜ਼ਬਾਨਾਂ ਨੂੰ ਪਸੰਦ ਆਉਣ ਵਾਲੀਆਂ ਥਾਵਾਂ',
+  'landing.destinations.seeAll': 'ਸਾਰੀਆਂ ਮੰਜ਼ਿਲਾਂ ਵੇਖੋ',
   'landing.footer.host': 'ਮੇਜ਼ਬਾਨ ਬਣੋ',
   'landing.footer.search': 'ਠਹਿਰਨ ਦਾ ਟਿਕਾਣਾ ਲੱਭੋ',
   'landing.footer.tagline': 'ਇਸ ਤਰ੍ਹਾਂ ਰਹੋ ਜਿਵੇਂ ਤੁਸੀਂ ਹੋ।',
@@ -109,8 +141,11 @@ export const ui: UiTranslations = {
   'landing.nav.host': 'ਮੇਜ਼ਬਾਨ ਬਣੋ',
   'landing.nav.join': 'ਰੂਸਟ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ',
   'landing.nav.search': 'ਠਹਿਰਨ ਦਾ ਟਿਕਾਣਾ ਲੱਭੋ',
+  'landing.preview.browseAll': 'ਪੂਰਾ ਸੰਗ੍ਰਹਿ ਵੇਖੋ',
   'landing.preview.eyebrow': 'ਅੰਦਰ ਇੱਕ ਝਾਤ',
   'landing.preview.heading': 'ਇਸ ਮਹੀਨੇ ਹੱਥੀਂ ਚੁਣੇ ਗਏ ਠਹਿਰਾਅ',
+  'landing.preview.subheading':
+    'ਹਰ {{appName}} ਲਿਸਟਿੰਗ ਦੀ ਮੇਜ਼ਬਾਨੀ ਇੱਕ ਅਸਲੀ ਵਿਅਕਤੀ ਕਰਦਾ ਹੈ — ਤਸਦੀਕਸ਼ੁਦਾ, ਸਮੀਖਿਆ ਕੀਤਾ ਹੋਇਆ, ਅਤੇ ਚੈੱਕ-ਇਨ ਤੋਂ 48 ਘੰਟੇ ਪਹਿਲਾਂ ਤੱਕ ਮੁਫ਼ਤ ਰੱਦ ਕਰਨ ਯੋਗ।',
   'listingDetail.about': 'ਇਸ ਸਥਾਨ ਬਾਰੇ',
   'listingDetail.amenities': 'ਇਹ ਸਥਾਨ ਕੀ ਪੇਸ਼ਕਸ਼ ਕਰਦਾ ਹੈ',
   'listingDetail.bathrooms': 'ਇਸ਼ਨਾਨ',
@@ -118,7 +153,10 @@ export const ui: UiTranslations = {
   'listingDetail.beds': 'ਬਿਸਤਰੇ',
   'listingDetail.bookFailed':
     'ਰਿਜ਼ਰਵ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਜਾਂ ਪਹਿਲਾਂ ਸਾਈਨ ਇਨ ਕਰੋ।',
+  'listingDetail.cleaningFee': 'ਸਫਾਈ ਫੀਸ',
+  'listingDetail.guests': 'ਮਹਿਮਾਨ',
   'listingDetail.hostedBy': 'ਦੁਆਰਾ ਮੇਜ਼ਬਾਨੀ ਕੀਤੀ ਗਈ {{host}}',
+  'listingDetail.hostMeta': '{{years}} ਸਾਲਾਂ ਦੀ ਹੋਸਟਿੰਗ · {{response}}% ਜਵਾਬ ਦਰ',
   'listingDetail.houseRules': 'ਘਰ ਦੇ ਨਿਯਮ',
   'listingDetail.instantBook': 'ਹੁਣੇ ਰਿਜ਼ਰਵ ਕਰੋ · ਤੁਰੰਤ ਬੁੱਕ ਕਰੋ',
   'listingDetail.loadError': 'ਸੂਚੀ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
@@ -129,6 +167,7 @@ export const ui: UiTranslations = {
   'listingDetail.perNight': 'ਪ੍ਰਤੀ ਰਾਤ',
   'listingDetail.pickDates': 'ਪਹਿਲਾਂ ਚੈੱਕ-ਇਨ ਅਤੇ ਚੈੱਕ-ਆਊਟ ਦੀਆਂ ਤਾਰੀਖਾਂ ਚੁਣੋ।',
   'listingDetail.priceRow': '{{price}} × {{nights}} ਰਾਤਾਂ',
+  'listingDetail.requestBook': 'ਬੁੱਕ ਕਰਨ ਲਈ ਬੇਨਤੀ',
   'listingDetail.reserving': 'ਰਾਖਵਾਂ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
   'listingDetail.reviews': 'ਸਮੀਖਿਆਵਾਂ',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}} ਸਮੀਖਿਆਵਾਂ',
@@ -136,6 +175,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'ਸੁਪਰਹੋਸਟ',
   'login.eyebrow': 'ਘਰ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ',
   'login.heading': 'ਰੂਸਟ ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ',
+  'login.noAccount': 'ਟੇਸੇਰਾ ਲਈ ਨਵੇਂ ਹੋ?',
   'login.signupLink': 'ਇੱਕ ਮੁਫ਼ਤ ਖਾਤਾ ਬਣਾਓ',
   'login.subheading':
     'ਉੱਥੋਂ ਸ਼ੁਰੂ ਕਰੋ ਜਿੱਥੇ ਤੁਸੀਂ ਛੱਡਿਆ ਸੀ — ਯਾਤਰਾਵਾਂ, ਸੁਨੇਹਾ ਹੋਸਟਾਂ, ਅਤੇ ਬੁੱਕ ਸਟੇਅ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ ਜਿਨ੍ਹਾਂ ਬਾਰੇ ਤੁਸੀਂ ਦਿਨ ਵਿੱਚ ਸੁਪਨੇ ਦੇਖ ਰਹੇ ਸੀ।',
@@ -160,6 +200,7 @@ export const ui: UiTranslations = {
   'notFound.heading': 'ਸਾਨੂੰ ਉਹ ਠਹਿਰਨ ਦੀ ਜਗ੍ਹਾ ਨਹੀਂ ਮਿਲ ਰਹੀ।',
   'notifications.loading': 'ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...',
   'notifications.subheading': '{{count}} ਨਾ ਪੜ੍ਹਿਆ · ਇੱਕ ਸ਼ਾਂਤ ਇਨਬਾਕਸ ਵਿੱਚ ਸਭ ਕੁਝ',
+  'pricing.ctaContact': 'ਵਿਕਰੀ ਨਾਲ ਸੰਪਰਕ ਕਰੋ',
   'pricing.ctaUpgrade': 'ਵਿਕਰੀ ਨਾਲ ਸੰਪਰਕ ਕਰੋ',
   'pricing.eyebrow': 'ਸਰਲ, ਪਾਰਦਰਸ਼ੀ',
   'pricing.heading': 'ਇੱਕ ਯੋਜਨਾ ਜੋ ਤੁਹਾਡੀ ਯਾਤਰਾ ਦੀ ਲੈਅ ਦੇ ਅਨੁਕੂਲ ਹੋਵੇ',
@@ -196,8 +237,12 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'ਕੁਝ ਯਾਦਗਾਰ ਚੁਣੋ। ਤੁਹਾਡੇ ਸੇਵ ਕਰਨ ਤੋਂ ਬਾਅਦ ਅਸੀਂ ਤੁਹਾਨੂੰ ਸਾਈਨ ਇਨ ਕਰਾਂਗੇ।',
   'roostAuthShell.brand.eyebrow': 'ਇਸ ਤਰ੍ਹਾਂ ਰਹੋ ਜਿਵੇਂ ਤੁਸੀਂ ਹੋ।',
+  'roostAuthShell.brand.heading':
+    'ਕੈਬਿਨ, ਕਾਟੇਜ, ਰਿਆਦ — ਤੁਹਾਨੂੰ ਉੱਥੇ ਰਹਿਣ ਵਾਲੇ ਹੋਸਟਾਂ ਵੱਲੋਂ ਸੌਂਪੇ ਗਏ।',
   'roostHeroSearchCard.checkInAria': 'ਚੈੱਕ-ਇਨ ਮਿਤੀ',
   'roostHeroSearchCard.checkOutAria': 'ਚੈੱਕ-ਆਊਟ ਮਿਤੀ',
+  'roostHeroSearchCard.destAria': 'ਮੰਜ਼ਿਲ',
+  'roostHeroSearchCard.destLabel': 'ਕਿੱਥੇ',
   'roostHeroSearchCard.destPlaceholder': 'ਸ਼ਹਿਰ, ਖੇਤਰ, ਜਾਂ ਜਾਇਦਾਦ',
   'roostHeroSearchCard.eyebrow': 'ਹੱਥੀਂ ਚੁਣੇ ਗਏ ਠਹਿਰਾਅ · ਪ੍ਰਮਾਣਿਤ ਹੋਸਟ',
   'roostHeroSearchCard.guestsOption': '{{n}} ਮਹਿਮਾਨ',
@@ -209,6 +254,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'roostListingCard.bookmarkAria': 'ਸੂਚੀ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰੋ',
   'roostListingCard.night': 'ਰਾਤ',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'ਤੁਹਾਡੀ ਖੋਜ ਨਾਲ ਕੋਈ ਸੂਚੀ ਮੇਲ ਨਹੀਂ ਖਾਂਦੀ।',
   'search.emptyHint':
     'ਆਪਣੇ ਫਿਲਟਰਾਂ ਨੂੰ ਵਧਾਉਣ ਜਾਂ ਕੀਮਤ ਦੀ ਸੀਮਾ ਨੂੰ ਹਟਾਉਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ — ਰੂਸਟ 26 ਦੇਸ਼ਾਂ ਵਿੱਚ ਮੌਜੂਦ ਹੈ।',
@@ -216,9 +262,14 @@ export const ui: UiTranslations = {
   'search.heading': 'ਇੱਕ ਅਜਿਹੀ ਜਗ੍ਹਾ ਜੋ ਘਰ ਵਰਗੀ ਮਹਿਸੂਸ ਹੋਵੇ',
   'search.headingForQuery': '" ਲਈ ਰਹਿੰਦਾ ਹੈ {{q}} "',
   'search.loadError': 'ਸੂਚੀਆਂ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'search.mapHint':
+    "ਨਕਸ਼ੇ 'ਤੇ ਹਾਈਲਾਈਟ ਕਰਨ ਲਈ ਕਾਰਡ 'ਤੇ ਹੋਵਰ ਕਰੋ। ਪ੍ਰੋਡਕਸ਼ਨ ਵਿੱਚ ਲਾਈਵ Mapbox ਟਾਈਲਾਂ।",
+  'search.mapPinAria': '{{name}} — {{price}} ਪ੍ਰਤੀ ਰਾਤ',
   'search.sortLabel': 'ਦੇ ਨਾਲ ਕ੍ਰਮਬੱਧ',
   'search.subheading': '{{count}} ਸੂਚੀਆਂ · {{guests}} ਮਹਿਮਾਨ',
+  'settings.appearance.description': 'ਲਾਈਟ ਅਤੇ ਡਾਰਕ ਮੋਡ ਵਿਚਕਾਰ ਟੌਗਲ ਕਰੋ।',
   'settings.appearance.title': 'ਦਿੱਖ',
+  'settings.openBilling': 'ਬਿਲਿੰਗ ਖੋਲ੍ਹੋ',
   'settings.payments.heading': 'ਭੁਗਤਾਨ ਵਿਧੀਆਂ',
   'settings.paymentsHelp':
     "ਜਦੋਂ ਕੋਈ ਹੋਸਟ ਤੁਹਾਡੀ ਬੁਕਿੰਗ ਦੀ ਪੁਸ਼ਟੀ ਕਰਦਾ ਹੈ ਤਾਂ ਰੂਸਟ ਤੁਹਾਡੇ ਕਾਰਡ ਤੋਂ ਚਾਰਜ ਲੈਂਦਾ ਹੈ। ਕੀਮਤ ਪੰਨੇ 'ਤੇ ਸੁਰੱਖਿਅਤ ਕੀਤੇ ਕਾਰਡਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ।",

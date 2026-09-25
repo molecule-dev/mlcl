@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ നിങ്ങളുടെ സ്കൂളിനെ ഇതിൽ ഉൾപ്പെടുത്താൻ ആഗ്രഹിക്കുന്നുണ്ടോ? നിങ്ങളുടെ അക്കൗണ്ട് ക്രമീകരണങ്ങളിൽ നിന്ന് ഞങ്ങളെ സമീപിക്കുകയോ നിങ്ങളുടെ സ്കൂൾ അഡ്മിനിസ്ട്രേറ്ററെ സന്ദേശിക്കുകയോ ചെയ്യുക — ഓരോ കുറിപ്പും ടീമിലെ ഒരു യഥാർത്ഥ വ്യക്തിയിലേക്ക് എത്തുന്നു.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'announcementsFeed.empty': 'ഇതുവരെ പ്രഖ്യാപനങ്ങളൊന്നുമില്ല.',
   'announcementsFeed.eyebrow': '{{count}} അപ്‌ഡേറ്റുകൾ',
   'announcementsFeed.title': 'ഏറ്റവും പുതിയ പ്രഖ്യാപനങ്ങൾ',
   'assignmentDetail.alreadySubmitted': 'നിങ്ങൾ ഈ അസൈൻമെന്റ് ഇതിനകം സമർപ്പിച്ചു.',
   'assignmentDetail.backLink': 'അസൈൻമെന്റുകളിലേക്ക് മടങ്ങുക',
+  'assignmentDetail.dropBody':
+    'നിങ്ങളുടെ ജോലി അറ്റാച്ച് ചെയ്യാൻ Choose files ഉപയോഗിക്കുക — നിങ്ങൾ സ്ഥിരീകരിച്ചാൽ ഞങ്ങൾ സമർപ്പണ സമയമുദ്ര രേഖപ്പെടുത്തും.',
   'assignmentDetail.dropButton': 'ഫയലുകൾ തിരഞ്ഞെടുക്കുക',
+  'assignmentDetail.dropPrompt': 'നിങ്ങളുടെ PDF അല്ലെങ്കിൽ ഫോട്ടോ പാക്കറ്റ് ഇവിടെ ഇടുക',
   'assignmentDetail.due': 'കാരണം {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'നിർദ്ദേശങ്ങൾ',
@@ -19,8 +25,12 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'ഗ്രേഡുചെയ്‌തു',
   'assignmentDetail.statusSubmitted': 'സമർപ്പിച്ചു',
   'assignmentDetail.statusTitle': 'സമർപ്പണ നില',
+  'assignmentDetail.submitError':
+    'ആ സമർപ്പണം ഞങ്ങൾക്ക് രേഖപ്പെടുത്താൻ കഴിഞ്ഞില്ല. കുറച്ചു കഴിഞ്ഞ് വീണ്ടും ശ്രമിക്കുക.',
   'assignmentDetail.submitted':
     'സമർപ്പണം രേഖപ്പെടുത്തിയിട്ടുണ്ട് — നിങ്ങളുടെ അധ്യാപകനെ അറിയിച്ചിട്ടുണ്ട്.',
+  'assignmentDetail.submittedAt': '{{when}}-ൽ സമർപ്പിച്ചു',
+  'assignmentDetail.submitTitle': 'നിങ്ങളുടെ ജോലി സമർപ്പിക്കുക',
   'assignmentRow.courseDue': '{{course}} · കാലാവധി {{due}}',
   'assignments.empty': 'ഇവിടെ ഒന്നുമില്ല',
   'assignments.emptyBody':
@@ -40,9 +50,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'സാന്നിധ്യം, അസാന്നിധ്യം, കാലതാമസം എന്നിവയുടെ ദൈനംദിന രേഖ - ബാധകമാകുമ്പോൾ കുറിപ്പുകൾക്കൊപ്പം.',
+  'attendance.summary.absences': 'ഹാജരില്ലായ്മകൾ',
   'attendance.summary.absencesCaption': '5 ദിവസത്തെ ഇടപെടൽ പരിധിക്ക് താഴെ',
   'attendance.summary.attendance': 'ഹാജർ',
   'attendance.summary.attendanceCaption': '{{count}} ഇന്നത്തെ കാലത്ത് ഈ പദം',
+  'attendance.summary.tardies': 'വൈകലുകൾ',
   'attendance.summary.tardiesCaption':
     'ബസ് / അപ്പോയിന്റ്മെന്റ് കാലതാമസത്തിനുള്ള കുറിപ്പുകൾ ഉൾപ്പെടെ',
   'attendance.title': 'ഹാജർ ചരിത്രം',
@@ -57,6 +69,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'ഗ്രേഡുകളും',
   'courseDetail.currentGrade': 'നിലവിലെ ഗ്രേഡ്',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'കോഴ്സ് അവലോകനം',
   'courseDetail.gradesTitle': 'സമീപകാല ഗ്രേഡുകൾ',
   'courseDetail.messageTeacher': 'അധ്യാപകന് സന്ദേശം അയയ്ക്കുക',
   'courseDetail.noGrades': 'ഇതുവരെ ഗ്രേഡുകളൊന്നും പോസ്റ്റ് ചെയ്തിട്ടില്ല.',
@@ -69,12 +82,20 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'എല്ലാം കാണുക',
   'dashboard.assignmentsTitle': 'ഈ ആഴ്ച അടുത്തത്',
   'dashboard.greeting': 'ഹായ് {{name}} , ക്ലാസ്സിന് തയ്യാറാണോ?',
+  'dashboard.subtitle':
+    'നിങ്ങളുടെ ആഴ്ച ഒറ്റനോട്ടത്തിൽ — ഷെഡ്യൂൾ, ഗ്രേഡുകൾ, അസൈൻമെന്റുകൾ എന്നിവയെല്ലാം ഒരു ശാന്തമായ കാഴ്ചയിൽ.',
+  'dashboard.viewReportCard': 'റിപ്പോർട്ട് കാർഡ് കാണുക',
+  'dashboard.weekFocusBody':
+    'Quadratics പ്രാക്ടീസ് സെറ്റ് 7-ഉം ചാപ്റ്റർ ക്വിസും സമർപ്പിക്കുക. ട്യൂട്ടറിംഗ് ലാബ് ചൊവ്വ, വ്യാഴം ദിവസങ്ങളിൽ പീരിയഡ് 7-ന് ശേഷം തുറന്നിരിക്കും.',
+  'dashboard.weekFocusCta': 'പൂർണ്ണ പ്ലാൻ കാണുക',
   'dashboard.weekFocusEyebrow': 'ആഴ്ചയിലെ ശ്രദ്ധാകേന്ദ്രം',
   'dashboard.weekFocusTitle': 'ആൾജിബ്ര II 4 പോയിന്റുകൾ കൊണ്ട് ഉയർത്തുക',
   'forgotPassword.subheading': 'നിങ്ങളുടെ സ്കൂൾ ഇമെയിൽ നൽകുക, ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
   'forgotPassword.successBody':
     'എങ്കിൽ {{email}} ഒരു Chalk അക്കൗണ്ടുമായി പൊരുത്തപ്പെടുന്നെങ്കിൽ, ഒരു പാസ്‌വേഡ് പുനഃസജ്ജീകരണ ലിങ്ക് വന്നുകൊണ്ടിരിക്കുകയാണ്. ലിങ്കുകൾ 30 മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} ടേം ജിപിഎ',
+  'gpaHeroCard.summary': 'ഇന്ന് {{count}} ക്ലാസുകൾ',
   'grades.col.grade': 'ഗ്രേഡ്',
   'grades.col.teacher': 'ടീച്ചർ',
   'grades.col.trend': 'ട്രെൻഡ്',
@@ -86,11 +107,18 @@ export const ui: UiTranslations = {
     'ലൈവ് ലെറ്ററും ശതമാന ഗ്രേഡുകളും. നിങ്ങൾ മുകളിലേക്ക് നീങ്ങുകയാണോ, ലെവലിലേക്ക് നീങ്ങുകയാണോ അതോ വഴുതി വീഴുകയാണോ എന്ന് ട്രെൻഡ് അമ്പടയാളങ്ങൾ കാണിക്കുന്നു.',
   'grades.title': 'നിങ്ങളുടെ ഗ്രേഡുകൾ, ഓരോ കോഴ്സും',
   'grades.trendStable': 'സ്ഥിരതയുള്ളത്',
+  'grades.viewReportCard': 'ഔദ്യോഗിക റിപ്പോർട്ട് കാർഡ് കാണുക',
   'landing.copyright':
     '© {{year}} {{app}} . വിദ്യാർത്ഥികൾക്കായി നിർമ്മിച്ചത്, കുടുംബങ്ങൾക്കായി നിർമ്മിച്ചത്.',
+  'landing.ctaBody':
+    'ആദ്യ 30 ദിവസം സൗജന്യം, ക്രെഡിറ്റ് കാർഡ് ആവശ്യമില്ല. ഡിസ്ട്രിക്റ്റുകൾക്ക് ഒരു ഉച്ചകഴിഞ്ഞ് കൊണ്ട് സ്കൂൾതലത്തിലുള്ള ടയർ വിന്യസിക്കാം.',
+  'landing.ctaButton': 'നിങ്ങളുടെ പോർട്ടൽ സൃഷ്ടിക്കുക',
   'landing.ctaHeading': 'ശാന്തമായ ഒരു സ്കൂൾ ദിനം മിനിറ്റുകൾക്കുള്ളിൽ ആരംഭിക്കുന്നു',
   'landing.eyebrow': 'മിഡിൽ & ഹൈസ്കൂൾ വിദ്യാർത്ഥികൾക്ക്',
   'landing.featuresHeading': 'വിദ്യാർത്ഥിയെ ചുറ്റിപ്പറ്റി സംഘടിപ്പിച്ച ഒരു സ്കൂൾ ദിനം',
+  'landing.heroSubtitle':
+    '{{appName}} എല്ലാ ക്ലാസും, ഗ്രേഡും, അസൈൻമെന്റും, സന്ദേശവും ഒരു ശാന്തമായ ഡാഷ്ബോർഡിലേക്ക് കൊണ്ടുവരുന്നു, അതുവഴി തിരയുന്നതിൽ കുറച്ച് സമയവും പഠനത്തിൽ കൂടുതൽ സമയവും ചെലവഴിക്കാം.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'ഡിഫോൾട്ടായി FERPA-അനുയോജ്യമാണ്',
   'landing.proof.rating': '12,000 കുടുംബങ്ങളിലായി 4.8',
   'landing.sampleTerm': 'സ്പ്രിംഗ്',
@@ -99,6 +127,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
   'login.noAccount': 'ചോക്കിൽ പുതിയ ആളാണോ?',
   'login.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
+  'messages.compose': 'പുതിയ സന്ദേശം',
   'messages.composer.email': 'സ്വീകർത്താവിന്റെ ഇമെയിൽ വിലാസം (ഓപ്ഷണൽ)',
   'messages.composer.errorEmpty': 'സന്ദേശം ശൂന്യമായിടാൻ കഴിയില്ല.',
   'messages.composer.errorRecipient': 'സ്വീകർത്താവിന്റെ പേര് നിർബന്ധമാണ്.',
@@ -130,9 +159,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'ഓണർ റോൾ · വസന്തകാല അവാർഡ്',
   'nav.unreadMessages': 'വായിക്കാത്ത സന്ദേശങ്ങൾ',
   'notifications.eyebrow': '{{count}} അപ്‌ഡേറ്റുകൾ',
+  'notifications.feedTitle': 'എല്ലാ സമീപകാല പ്രവർത്തനങ്ങളും',
   'notifications.subtitle':
     'ഗ്രേഡുകൾ, ഓർമ്മപ്പെടുത്തലുകൾ, സന്ദേശങ്ങൾ, സ്കൂൾ അറിയിപ്പുകൾ. ഓരോ അറിയിപ്പും ഏതൊക്കെ ചാനലുകളാണ് ഉപയോഗിക്കുന്നതെന്ന് ക്രമീകരണത്തിൽ ക്രമീകരിക്കുക.',
+  'planUpdated.body':
+    'നിങ്ങളുടെ ബില്ലിംഗ് മാറ്റം ഇപ്പോൾ സജീവമാണ്. ബില്ലിംഗ് പേജിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും നിങ്ങളുടെ പ്ലാൻ മാനേജ് ചെയ്യാം.',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
+  'pricing.announcementsLabel': 'പ്രഖ്യാപനങ്ങൾ',
   'pricing.attendanceLabel': 'ഹാജർ',
   'pricing.gradesLabel': 'ഗ്രേഡുകൾ',
   'pricing.heading': 'പ്രഖ്യാപനങ്ങൾ',
@@ -147,6 +184,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'ചോദ്യം 2',
   'reportCard.crumb': 'റിപ്പോർട്ട് കാർഡ്',
   'reportCard.cumulativeGpa': 'സഞ്ചിത ജിപിഎ',
+  'reportCard.download': 'PDF ഡൗൺലോഡ് ചെയ്യുക',
   'reportCard.downloaded': 'റിപ്പോർട്ട് കാർഡ് പുതിയൊരു ടാബിൽ തുറന്നു.',
   'reportCard.downloading': 'PDF സൃഷ്ടിക്കുന്നു…',
   'reportCard.empty': 'ഫയലിൽ ഇതുവരെ ഗ്രേഡുകളൊന്നുമില്ല.',
@@ -154,6 +192,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'ഫൈനൽ GPA · {{term}}',
   'reportCard.subtitle':
     'വെയ്റ്റഡ് കോഴ്‌സ് ഗ്രേഡുകൾ, ഹാജർ, പ്രിന്റ് ചെയ്യാവുന്ന PDF ഡൗൺലോഡ് എന്നിവയുള്ള ഒരു ഔപചാരിക സെമസ്റ്റർ അവസാന ട്രാൻസ്ക്രിപ്റ്റ്.',
+  'reportCard.title': 'റിപ്പോർട്ട് കാർഡ്',
+  'resetPassword.newPassword': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.subheading':
     'ഓർമ്മിക്കാൻ പ്രയാസമുള്ളതും എന്നാൽ ഓർമ്മിക്കാൻ പ്രയാസമുള്ളതുമായ എന്തെങ്കിലും തിരഞ്ഞെടുക്കുക.',
   'resetPassword.tokenPlaceholder': 'നിങ്ങളുടെ ഇമെയിലിൽ നിന്നുള്ള കോഡ് ഒട്ടിക്കുക',
@@ -179,12 +219,17 @@ export const ui: UiTranslations = {
     '{{due48}} 48 മണിക്കൂറിനുള്ളിൽ അവസാനിക്കും, {{overdue}} കാലാവധി കഴിഞ്ഞത്',
   'subjectStatsTriad.assignmentsLabel': 'തീർച്ചപ്പെടുത്താത്ത അസൈൻമെന്റുകൾ',
   'subjectStatsTriad.attendanceCaption': '{{absent}} ഈ പദത്തിന്റെ അഭാവങ്ങൾ · {{tardy}} വൈകിയവ',
+  'subjectStatsTriad.attendanceCaptionLoading': 'ഹാജർ സംഖ്യകൾ കണക്കാക്കുന്നു…',
+  'subjectStatsTriad.attendanceLabel': 'ഹാജർ',
   'subjectStatsTriad.gradesCaption': 'കുറുകെ {{percent}} % വെയ്റ്റഡ് ആവറേജ്',
+  'subjectStatsTriad.gradesCaptionLoading': 'ഗ്രേഡുകൾ ലോഡ് ചെയ്യുന്നു…',
+  'subjectStatsTriad.gradesLabel': 'ക്ലാസ് ശരാശരി',
   'todayScheduleStrip.empty': 'ഇന്ന് ക്ലാസ്സുകളില്ല.',
   'todayScheduleStrip.eyebrow': '{{count}} ക്ലാസുകൾ',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'ഇന്നത്തെ ഷെഡ്യൂൾ',
   'topbar.guestName': 'വിദ്യാർത്ഥി',
   'topbar.searchPlaceholder': 'ക്ലാസുകൾ, അസൈൻമെന്റുകൾ എന്നിവ തിരയുക...',
+  'topbar.studentRole': 'വിദ്യാർത്ഥി',
   'topbar.studentTag': 'വിദ്യാർത്ഥി · # {{id}}',
 }

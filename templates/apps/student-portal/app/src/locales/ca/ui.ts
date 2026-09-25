@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens comentaris, has trobat un error o vols incorporar la teva escola? Escriu-nos des de la configuració del teu compte o envia un missatge a l'administrador de la teva escola — cada nota arriba a una persona real de l'equip.",
   'about.contactTitle': 'Parla amb nosaltres',
+  'about.missionTitle': 'La nostra missió',
   'announcementsFeed.empty': 'Encara no hi ha anuncis.',
   'announcementsFeed.eyebrow': '{{count}} actualitzacions',
   'announcementsFeed.title': 'Últims anuncis',
   'assignmentDetail.alreadySubmitted': 'Ja has enviat aquesta tasca.',
   'assignmentDetail.backLink': 'Torna a les tasques',
+  'assignmentDetail.dropBody':
+    'Fes servir Tria fitxers per adjuntar la teva feina — registrarem la marca de temps del lliurament quan ho confirmis.',
   'assignmentDetail.dropButton': 'Tria fitxers',
+  'assignmentDetail.dropPrompt': 'Deixa aquí el teu PDF o el paquet de fotos',
   'assignmentDetail.due': 'Venciment {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Instruccions',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Classificat',
   'assignmentDetail.statusSubmitted': 'Enviat',
   'assignmentDetail.statusTitle': 'Estat de la presentació',
+  'assignmentDetail.submitError':
+    "No hem pogut registrar aquest lliurament. Torna-ho a provar d'aquí un moment.",
   'assignmentDetail.submitted': 'Entrega enregistrada: el professor ha estat notificat.',
+  'assignmentDetail.submittedAt': 'Enviat {{when}}',
+  'assignmentDetail.submitTitle': 'Lliura la teva feina',
   'assignmentRow.courseDue': '{{course}} · Venciment {{due}}',
   'assignments.empty': 'Res aquí',
   'assignments.emptyBody':
@@ -39,9 +49,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Un registre diari de presència, absències i retards, amb notes quan sigui necessari.',
+  'attendance.summary.absences': 'Absències',
   'attendance.summary.absencesCaption': "Per sota del llindar d'intervenció de 5 dies",
   'attendance.summary.attendance': 'Assistència',
   'attendance.summary.attendanceCaption': '{{count}} avui dia aquest terme',
+  'attendance.summary.tardies': 'Retards',
   'attendance.summary.tardiesCaption': "Inclou notes per retards d'autobús/cita",
   'attendance.title': "Historial d'assistència",
   'calendar.eyebrow': 'Curs escolar · {{year}}',
@@ -55,6 +67,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Qualificacions',
   'courseDetail.currentGrade': 'Grau actual',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Resum del curs',
   'courseDetail.gradesTitle': 'Notes recents',
   'courseDetail.messageTeacher': 'Missatge professor/a',
   'courseDetail.noGrades': "Encara no s'han publicat qualificacions.",
@@ -67,13 +80,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Veure-ho tot',
   'dashboard.assignmentsTitle': 'Aquesta setmana vinent',
   'dashboard.greeting': 'Hola {{name}} , a punt per a classe?',
+  'dashboard.subtitle':
+    "La teva setmana d'un cop d'ull — horari, notes i tasques en una sola vista tranquil·la.",
+  'dashboard.viewReportCard': 'Veure el butlletí de notes',
+  'dashboard.weekFocusBody':
+    'Lliura el conjunt de pràctiques 7 de Quadratiques i el qüestionari del capítol. El laboratori de tutoria és obert dimarts i dijous després de la 7a hora.',
+  'dashboard.weekFocusCta': 'Veure el pla complet',
   'dashboard.weekFocusEyebrow': 'Enfocament de la setmana',
   'dashboard.weekFocusTitle': "Puja l'Àlgebra II en 4 punts",
   'forgotPassword.subheading':
     "Introdueix el correu electrònic de la teva escola i t'enviarem un enllaç de restabliment.",
   'forgotPassword.successBody':
     'Si {{email}} coincideix amb un compte de Chalk, un enllaç de restabliment de contrasenya està en camí. Els enllaços caduquen en 30 minuts.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} mitjana mitjana del trimestre',
+  'gpaHeroCard.summary': '{{count}} classes avui',
   'grades.col.grade': 'Grau',
   'grades.col.teacher': 'Professor/a',
   'grades.col.trend': 'Tendència',
@@ -85,10 +106,17 @@ export const ui: UiTranslations = {
     'Qualificacions en temps real amb lletres i percentatges. Les fletxes de tendència mostren si estàs pujant, anivellant o baixant.',
   'grades.title': 'Les teves notes, curs a curs',
   'grades.trendStable': 'Estable',
+  'grades.viewReportCard': 'Veure el butlletí de notes formal',
   'landing.copyright': '© {{year}} {{app}} . Creat per a estudiants, fet per a famílies.',
+  'landing.ctaBody':
+    "Gratuït els primers 30 dies, sense targeta de crèdit. Els districtes poden desplegar un pla per a tota l'escola en una sola tarda.",
+  'landing.ctaButton': 'Crea el teu portal',
   'landing.ctaHeading': 'Un dia escolar més tranquil comença en minuts',
   'landing.eyebrow': 'Per a estudiants de secundària i batxillerat',
   'landing.featuresHeading': "Una jornada escolar organitzada al voltant de l'alumne/a",
+  'landing.heroSubtitle':
+    '{{appName}} reuneix totes les classes, notes, tasques i missatges en un sol tauler tranquil perquè passis menys temps buscant i més temps aprenent.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Compatible amb FERPA per defecte',
   'landing.proof.rating': '4,8 en 12.000 famílies',
   'landing.sampleTerm': 'Primavera',
@@ -97,6 +125,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Amaga la contrasenya',
   'login.noAccount': 'Ets nou a Chalk?',
   'login.showPassword': 'Mostra la contrasenya',
+  'messages.compose': 'Nou missatge',
   'messages.composer.email': 'Correu electrònic del destinatari (opcional)',
   'messages.composer.errorEmpty': 'El missatge no pot estar buit.',
   'messages.composer.errorRecipient': 'Cal introduir el nom del destinatari.',
@@ -127,9 +156,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': "Quadre d'honor · Trimestre de primavera",
   'nav.unreadMessages': 'Missatges no llegits',
   'notifications.eyebrow': '{{count}} actualitzacions',
+  'notifications.feedTitle': "Tota l'activitat recent",
   'notifications.subtitle':
     "Notes, recordatoris, missatges i anuncis de l'escola. Ajusta els canals que utilitza cada notificació a Configuració.",
+  'planUpdated.body':
+    'El canvi de facturació ja és actiu. Pots gestionar el teu pla en qualsevol moment des de la pàgina de facturació.',
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
+  'pricing.announcementsLabel': 'anuncis',
   'pricing.attendanceLabel': 'assistència',
   'pricing.gradesLabel': 'qualificacions',
   'pricing.heading': 'anuncis',
@@ -144,6 +181,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'segon trimestre',
   'reportCard.crumb': 'butlletí de notes',
   'reportCard.cumulativeGpa': 'GPA acumulat',
+  'reportCard.download': 'Descarrega el PDF',
   'reportCard.downloaded': "L'informe s'ha obert en una pestanya nova.",
   'reportCard.downloading': 'Generant PDF…',
   'reportCard.empty': 'Encara no hi ha cap nota registrada.',
@@ -151,6 +189,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Nota mitjana final · {{term}}',
   'reportCard.subtitle':
     "Un expedient acadèmic formal de final de semestre amb les notes ponderades del curs, l'assistència i una descàrrega imprimible en PDF.",
+  'reportCard.title': 'butlletí de notes',
+  'resetPassword.newPassword': 'Nova contrasenya',
   'resetPassword.subheading': "Trieu alguna cosa memorable però difícil d'endevinar.",
   'resetPassword.tokenPlaceholder': 'Enganxa el codi del teu correu electrònic',
   'schedule.empty': 'No hi ha classes programades.',
@@ -176,12 +216,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Assignacions pendents',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} absències aquest trimestre · {{tardy}} retards',
+  'subjectStatsTriad.attendanceCaptionLoading': "Calculant les dades d'assistència…",
+  'subjectStatsTriad.attendanceLabel': 'Assistència',
   'subjectStatsTriad.gradesCaption': 'A través {{percent}} % mitjana ponderada',
+  'subjectStatsTriad.gradesCaptionLoading': "S'estan carregant les notes…",
+  'subjectStatsTriad.gradesLabel': 'Mitjana de la classe',
   'todayScheduleStrip.empty': 'Avui no hi ha classe.',
   'todayScheduleStrip.eyebrow': '{{count}} classes',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': "Horari d'avui",
   'topbar.guestName': 'Estudiant',
   'topbar.searchPlaceholder': 'Cerca classes, tasques…',
+  'topbar.studentRole': 'Estudiant',
   'topbar.studentTag': 'Estudiant · # {{id}}',
 }

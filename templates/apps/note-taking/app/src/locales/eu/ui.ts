@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Iritzia duzu, akats bat aurkitu duzu edo funtzio bat proposatu nahi duzu? Jarri harremanetan zure kontuaren ezarpenetatik — mezu bakoitza taldeko benetako pertsona batengana iristen da.',
+  'about.contactTitle': 'Hitz egin gurekin',
+  'about.featureDatabases':
+    'Datu-base arinak eta txantiloi berrerabilgarriak, ohar solteak lan-fluxu egituratu eta errepikagarri bihurtzeko.',
+  'about.featureEditor':
+    'Bloke-editore lasaia — izenburuak, zerrendak, kodea, oharrak eta egitekoak — barra-komandoekin, nahi dituzunean eskura eta nahi ez dituzunean bidean oztoporik gabe.',
+  'about.featureGraph':
+    'Atzera-estekak eta ezagutza-grafoa: idatzi [[ ohar bat estekatzeko eta ikusi zure ideiak nola lotzen diren denboran zehar.',
+  'about.featureNotebooks':
+    'Koaderno eta orri habiaratuak, proiektuak, gaiak eta eguneroko oharrak zuk pentsatzen duzun bezalaxe antolatuta egon daitezen.',
+  'about.featureSearch':
+    '50 ms baino azkarragoko testu-bilaketa osoa koaderno guztietan, eta etiketak koadernoekin batera konpontzen dira, haien aurka egin beharrean.',
+  'about.missionTitle': 'Gure misioa',
   'common.goToDashboard': 'Joan aginte-panelera',
   'forgot.eyebrow': 'Sartzeko bidea galdu duzu?',
   'forgot.formSubtitle': 'Esan iezaguzu artxibatutako helbide elektronikoa.',
+  'forgot.formTitle': 'Pasahitza ahaztu dut',
   'forgot.headline': 'Berrezarri zure pasahitza.',
   'forgot.subline':
     'Behin bakarrik erabil daitekeen esteka bat bidaliko dizugu zure sarrera-ontzira, berri bat aukeratu ahal izateko.',
+  'forgot.successDetail':
+    'Berrezartzeko esteka bat bidali dugu zure posta elektronikora. 30 minuturen buruan iraungiko da.',
   'graph.eyebrow': 'Grafikoa',
+  'graph.goToNotes': 'Arakatu oharrak →',
+  'graph.loadError': 'Ezin izan da grafoa kargatu: {{message}}',
   'graph.placeholderBody':
     'Oharrak elkarri lotzen hasten direnean ([[wiki]] sintaxiarekin), indarrez zuzendutako grafo interaktibo bat errendatuko da hemen.',
+  'graph.placeholderTitle': 'Atzera-esteken grafoa laster dator',
   'graph.subtitle':
     '{{count}} oharrak lan-eremu honetan. Atzerako estekaren grafikoaren errendatzea hemen agertuko da oharrak elkarri lotzen zaizkionean.',
   'graph.title': 'Ezagutza grafikoa',
   'home.empty': 'Oraindik ez dago oharrik — hasi lehenengoa.',
   'home.favoritesHeading': 'Pinkatuta',
   'home.guest': 'lagun',
+  'home.loadError': 'Ezin izan dira zure oharrak kargatu: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Itxi ohar bat editorean hemen gordetzeko.',
   'home.recentHeading': 'Duela gutxi eguneratua',
@@ -23,18 +44,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Koadernoa',
   'home.stats.pinned.label': 'Pinkatuta',
   'home.stats.updatedToday.label': 'Gaur eguneratua',
+  'home.subtitle': 'Jarraitu utzi zenuen tokian, edo hasi ohar berri bat.',
   'home.viewAll': 'Ikusi ohar guztiak',
   'landing.cta.body':
     'Doakoa erabilera pertsonalerako. Profesionala taldeentzat. Ekarri zure egungo beherapena edo hasi berriro — Verso zurekin dator zure oharrak dauden lekuan.',
+  'landing.cta.button': 'Sortu nire lan-eremua',
   'landing.cta.heading': 'Ireki gaurko orria.',
   'landing.features.eyebrow': 'Zure bigarren garunak behar dituen primitibo guztiak',
+  'landing.features.heading': 'Lanerako eraikia, ez meta-lanerako.',
   'landing.hero.eyebrow': 'Idazteko gainazal lasaia',
   'landing.hero.headlineAccent': 'forma hartu.',
   'landing.hero.headlineLeading': 'Non pentsamenduak',
   'landing.hero.primaryCta': 'Hasi zure ezagutza-basea',
   'landing.hero.secondaryCta': 'Badaukat kontu bat',
+  'landing.hero.socialProof':
+    '12.800+ idazle, ikasle eta doktoreek {{appName}}-rekin pentsatzen dute',
   'landing.hero.subline':
     'Verso ezagutza-langile eta ikasleentzako oharrak hartzeko gainazal egituratua da. Bloke-editorea, koadernoak txertatuta, atzera-estekak eta ezagutza-grafo bat — guztiak tipografian oinarritutako irakurketa-esperientzia baten atzean.',
+  'landing.preview.notebook': 'Ezagutza · Idazketa-prozesua',
+  'landing.preview.title': 'Zirriborroei arnasa hartzeari uztean',
   'login.eyebrow': 'Ongi etorri berriro Versora',
   'login.formSubtitle': 'Erabili zure posta elektronikoa edo konektatutako edozein hornitzaile.',
   'login.headline': 'Jarraitu orrialdea gelditu zen tokitik.',
@@ -44,6 +72,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Itxi nabigazio menua',
   'mobileNav.openMenu': 'Ireki nabigazio menua',
   'noteEditor.backToNotes': 'Itzuli oharretara',
+  'noteEditor.bodyLabel': 'Ohararen gorputza',
   'noteEditor.bodyPlaceholder':
     'Hasi idazten — oharra automatikoki gordetzen da idazten duzun bitartean.',
   'noteEditor.confirmTrash': 'Ohar hau zaborrontzira eraman?',
@@ -52,17 +81,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Zaborrontzira eraman',
   'noteEditor.updated': 'Eguneratua',
   'notes.defaultWorkspaceName': 'Nire koadernoa',
+  'notes.empty': 'Oraindik ez dago oharrik hemen — hasi bat koadernoa betetzeko.',
   'notes.eyebrow': 'Koadernoa',
   'notes.filterAll': 'Ohar guztiak',
   'notes.filterPinned': 'Pinkatuta',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Koaderno berria',
   'notes.newNotebookPrompt': 'Koaderno berriaren izenburua',
+  'notes.newNotebookRequired': 'Sartu koadernoaren izen bat.',
   'notes.notebooksHeading': 'Koadernoak',
   'notes.subtitle':
     'Aukeratu ezkerreko koaderno bat eta sakatu Ohar berria botoia sarrera berri bat hasteko.',
+  'planUpdated.body': 'Zure harpidetza aktibo dago orain.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Ezaugarri aurreratuak',
   'pricing.heading': 'Aukeratu zure oharrak hartzeko plana',
+  'reset.changedMind': 'Iritzia aldatu duzu?',
   'reset.eyebrow': 'Ia berriro sartuta',
   'reset.formSubtitle': 'Gordetakoan saioa hasiko duzu.',
   'reset.headline': 'Aukeratu pasahitz berri bat.',
@@ -72,7 +106,9 @@ export const ui: UiTranslations = {
     'Sartu posta elektronikoz bidali dizugun kodea eta aukeratu zerbait gogoangarria.',
   'reset.submit': 'Gorde eta hasi saioa',
   'reset.tokenHint': 'Zure sarrera-ontzitik itsatsita.',
+  'search.empty': 'Oraindik ez dago kontsulta honekin bat datorren oharrik.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Bilatu Errefrakzioa',
   'search.loading': 'Bilatzen…',
   'search.noRecent': 'Idatzi kontsulta bat goian zure oharretan bilatzen hasteko.',
   'search.recentLabel': 'Azken bilaketak',
@@ -80,12 +116,19 @@ export const ui: UiTranslations = {
     'Testu osoa koaderno guztietan. Idatzi bilatzeko; emaitzak idazten duzun heinean freskatzen dira.',
   'search.title': 'Bilatu bigarren garuna.',
   'settings.account.logout': 'Saioa itxi',
+  'settings.account.title': 'Kontuaren xehetasunak',
+  'settings.editor.graphHover.body':
+    'Erakutsi aurrebista-txartel txiki bat editorean [[wikilink]] baten gainean jartzen duzunean.',
+  'settings.editor.graphHover.label': 'Atzera-esteken grafoaren gaineko aurrebista',
   'settings.editor.lineHeight.body':
     'Gorputz-lerroen arteko aire-kopurua. % 170 da irakurketa-erritmo lehenetsia.',
+  'settings.editor.lineHeight.label': 'Lerroaren altuera',
   'settings.editor.serif.body':
     'Erabili Georgia irakurketa zutabearentzat. Sans-serif-ek alboko barran eta tresna-barretan mantentzen du.',
+  'settings.editor.serif.label': 'Gorputz-testua serif letrarekin',
   'settings.editor.title': 'Tipografia eta idazteko gainazala',
   'settings.eyebrow': 'Verso · Ezarpenak',
+  'settings.passwordModal.current': 'Uneko pasahitza',
   'settings.passwordModal.error':
     'Ezin izan da pasahitza aldatu — mesedez egiaztatu zure uneko pasahitza.',
   'settings.passwordModal.next': 'Pasahitz berria',
@@ -95,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Sakatu tekla bakoitza denbora errealeko kanalean. Desgaitu konexio motelagoetarako.',
   'settings.sync.auto.label': 'Denbora errealeko sinkronizazioa',
+  'settings.sync.title': 'Nola bidaiatzen duten zure oharek',
   'settings.theme.body':
     'Argiak editorialaren zutabea distiratsu mantentzen du. Sepiak orrialdea berotzen du arratsaldeetarako.',
   'settings.theme.dark': 'Iluna',
@@ -114,8 +158,12 @@ export const ui: UiTranslations = {
     'Gehitu #traolak ohar baten izenburuari (adibidez, "Irakurketa zerrenda #liburuak") eta automatikoki agertuko dira hemen.',
   'tags.emptyTitle': 'Oraindik ez dago etiketarik',
   'tags.eyebrow': 'Indizea',
+  'tags.goToNotes': 'Joan oharretara →',
+  'tags.loadError': 'Ezin izan dira etiketak kargatu: {{message}}',
   'tags.subtitle':
     '{{tags}} etiketak zehar {{notes}} oharrak. Gehitu #traolak ohar baten izenburuari eta hemen agertuko dira.',
+  'versoAuthShell.sample.body':
+    'Biharko bigarren irakurketa batek beti hobeto irakurtzen du gaur gaueko lehenengoak baino. Utzi zirriborroa lan sakoneko karpetan…',
   'versoAuthShell.sample.label': 'Eguneroko oharra',
   'versoAuthShell.sample.timestamp': 'Gaur · 9:14etan',
   'versoAuthShell.sample.title': 'Zirriborroei arnasa hartzeari uztean',
@@ -127,8 +175,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Jarraitu idazten',
   'versoTodayHero.createCta': 'Hasi gaurko oharra',
   'versoTodayHero.dailyLabel': 'Eguneroko oharra',
+  'versoTodayHero.emptyHeadline': 'Gaur orrialde zuri bat da.',
   'versoTodayHero.emptySubline':
     'Hartu ideia bat, idatzi bilera bat edo egin zirriborro bat bihar. Versoak egitura isila mantentzen du idazkera ozen mantentzeko.',
+  'versoTodayHero.outlineLabel': 'Gaurko eskema',
   'versoTodayHero.streak': '{{count}} eguneko segida',
+  'versoTodayHero.unwritten': 'Oraindik ez dago hitzik — ireki oharra hasteko.',
   'versoTodayHero.wordCount': '{{count}} gaurko hitzak',
 }

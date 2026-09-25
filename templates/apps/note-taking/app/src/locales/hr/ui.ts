@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate povratne informacije, pronašli ste grešku ili želite predložiti značajku? Javite nam se iz postavki računa — svaka poruka stiže stvarnoj osobi u timu.',
+  'about.contactTitle': 'Razgovarajte s nama',
+  'about.featureDatabases':
+    'Lagane baze podataka i predlošci koji se mogu ponovno koristiti pretvaraju slobodne bilješke u strukturirane, ponovljive tijekove rada.',
+  'about.featureEditor':
+    'Tihi uređivač blokova — naslovi, popisi, kod, istaknuti blokovi i obveze — s kosim naredbama kad ih želite i sklonjenima kad ih ne želite.',
+  'about.featureGraph':
+    'Povratne veze i graf znanja: upišite [[ za povezivanje bilješke i promatrajte kako se vaše ideje s vremenom povezuju.',
+  'about.featureNotebooks':
+    'Ugniježđene bilježnice i stranice kako bi projekti, teme i dnevne bilješke ostali organizirani točno onako kako razmišljate.',
+  'about.featureSearch':
+    'Pretraga cijelog teksta ispod 50 ms po svim bilježnicama, plus oznake koje se slažu s bilježnicama umjesto da se s njima bore.',
+  'about.missionTitle': 'Naša misija',
   'common.goToDashboard': 'Idi na kontrolnu ploču',
   'forgot.eyebrow': 'Izgubili ste put natrag?',
   'forgot.formSubtitle': 'Recite nam adresu e-pošte koju imamo u dosjeu.',
+  'forgot.formTitle': 'Zaboravljena lozinka',
   'forgot.headline': 'Resetirajte lozinku.',
   'forgot.subline':
     'Poslat ćemo vam jednokratnu poveznicu u pristiglu poštu kako biste mogli odabrati novu.',
+  'forgot.successDetail':
+    'Poslali smo poveznicu za ponovno postavljanje lozinke na vašu e-poštu. Istječe za 30 minuta.',
   'graph.eyebrow': 'Grafikon',
+  'graph.goToNotes': 'Pregledaj bilješke →',
+  'graph.loadError': 'Nije moguće učitati graf: {{message}}',
   'graph.placeholderBody':
     'Kada se bilješke počnu povezivati jedna s drugom (s [[wiki]] sintaksom), ovdje će se prikazati interaktivni graf usmjeren silom.',
+  'graph.placeholderTitle': 'Graf povratnih veza uskoro stiže',
   'graph.subtitle':
     '{{count}} bilješke u ovom radnom prostoru. Grafikon povratnih veza pojavit će se ovdje nakon što se bilješke povežu jedna s drugom.',
   'graph.title': 'Grafikon znanja',
   'home.empty': 'Još nema bilješki – započnite svoju prvu.',
   'home.favoritesHeading': 'Prikvačeno',
   'home.guest': 'prijatelj',
+  'home.loadError': 'Nije moguće učitati vaše bilješke: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Prikvačite bilješku u uređivaču da biste je ovdje zadržali.',
   'home.recentHeading': 'Nedavno ažurirano',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Bilježnica',
   'home.stats.pinned.label': 'Prikvačeno',
   'home.stats.updatedToday.label': 'Ažurirano danas',
+  'home.subtitle': 'Nastavite gdje ste stali ili započnite novu bilješku.',
   'home.viewAll': 'Prikaži sve bilješke',
   'landing.cta.body':
     'Besplatno za osobnu upotrebu. Profesionalno za timove. Iskoristite postojeće uštede ili počnite ispočetka — Verso vas prati gdje god su vaše bilješke.',
+  'landing.cta.button': 'Izradi moj radni prostor',
   'landing.cta.heading': 'Otvorite današnju stranicu.',
   'landing.features.eyebrow': 'Svaki primitiv koji je vašem drugom mozgu potreban',
+  'landing.features.heading': 'Izgrađeno za rad, a ne za meta-rad.',
   'landing.hero.eyebrow': 'Tiha površina za pisanje',
   'landing.hero.headlineAccent': 'poprimiti oblik.',
   'landing.hero.headlineLeading': 'Gdje misli',
   'landing.hero.primaryCta': 'Započnite svoju bazu znanja',
   'landing.hero.secondaryCta': 'Već imam račun',
+  'landing.hero.socialProof': '12.800+ pisaca, studenata i doktoranada razmišlja uz {{appName}}',
   'landing.hero.subline':
     'Verso je strukturirana površina za bilješke za znanstvene radnike i studente. Uređivač blokova, ugniježđene bilježnice, povratne poveznice i graf znanja — sve iza iskustva čitanja koje je prvenstveno usmjereno na tipografiju.',
+  'landing.preview.notebook': 'Znanje · Proces pisanja',
+  'landing.preview.title': 'O tome kako pustiti propuh da diše',
   'login.eyebrow': 'Dobrodošli natrag u Verso',
   'login.formSubtitle': 'Koristite svoju e-poštu ili bilo kojeg povezanog davatelja usluga.',
   'login.headline': 'Nastavite tamo gdje je stranica pauzirana.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Zatvori navigacijski izbornik',
   'mobileNav.openMenu': 'Otvori navigacijski izbornik',
   'noteEditor.backToNotes': 'Natrag na bilješke',
+  'noteEditor.bodyLabel': 'Tijelo bilješke',
   'noteEditor.bodyPlaceholder': 'Počnite pisati — vaša se bilješka automatski sprema dok tipkate.',
   'noteEditor.confirmTrash': 'Premjestiti ovu bilješku u smeće?',
   'noteEditor.pinToggle': 'Prikaži/uključi u favorite',
@@ -51,17 +79,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Premjesti u smeće',
   'noteEditor.updated': 'Ažurirano',
   'notes.defaultWorkspaceName': 'Moja bilježnica',
+  'notes.empty': 'Ovdje još nema bilješki — započnite jednu da ispunite bilježnicu.',
   'notes.eyebrow': 'Bilježnica',
   'notes.filterAll': 'Sve bilješke',
   'notes.filterPinned': 'Prikvačeno',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Nova bilježnica',
   'notes.newNotebookPrompt': 'Naziv novog bilježnice',
+  'notes.newNotebookRequired': 'Unesite naziv bilježnice.',
   'notes.notebooksHeading': 'Bilježnice',
   'notes.subtitle':
     'Odaberite bilježnicu s lijeve strane, a zatim pritisnite gumb Nova bilješka da biste započeli novi unos.',
+  'planUpdated.body': 'Vaša je pretplata sada aktivna.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Napredne značajke',
   'pricing.heading': 'Odaberite svoj plan za bilježenje',
+  'reset.changedMind': 'Predomislili ste se?',
   'reset.eyebrow': 'Skoro opet unutra',
   'reset.formSubtitle': 'Bit ćete prijavljeni nakon što bude spremljeno.',
   'reset.headline': 'Odaberite novu lozinku.',
@@ -71,7 +104,9 @@ export const ui: UiTranslations = {
     'Unesite kod koji smo vam upravo poslali e-poštom i odaberite nešto nezaboravno.',
   'reset.submit': 'Spremi i prijavi se',
   'reset.tokenHint': 'Zalijepljeno iz pristigle pošte.',
+  'search.empty': 'Nijedna bilješka još ne odgovara ovom upitu.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Pretraživanje Refracta',
   'search.loading': 'Pretraživanje…',
   'search.noRecent': 'Upišite upit iznad da biste započeli pretraživanje svojih bilješki.',
   'search.recentLabel': 'Nedavne pretrage',
@@ -79,12 +114,19 @@ export const ui: UiTranslations = {
     'Cijeli tekst u svakoj bilježnici. Upišite za pretraživanje; rezultati se osvježavaju dok tipkate.',
   'search.title': 'Pretraži drugi mozak.',
   'settings.account.logout': 'Odjava',
+  'settings.account.title': 'Podaci o računu',
+  'settings.editor.graphHover.body':
+    'Prikaži malu karticu pretpregleda kad pređete pokazivačem preko [[wikilink]] u uređivaču.',
+  'settings.editor.graphHover.label': 'Pretpregled grafa povratnih veza pri prelasku pokazivačem',
   'settings.editor.lineHeight.body':
     'Koliko zraka između linija tijela. 170% je zadani ritam čitanja.',
+  'settings.editor.lineHeight.label': 'Visina retka',
   'settings.editor.serif.body':
     'Koristite Georgia za stupac za čitanje. Sans-serif ostaje u bočnoj traci i alatnim trakama.',
+  'settings.editor.serif.label': 'Serifni tekst tijela',
   'settings.editor.title': 'Tipografija i površina za pisanje',
   'settings.eyebrow': 'Verso · Postavke',
+  'settings.passwordModal.current': 'Trenutna lozinka',
   'settings.passwordModal.error':
     'Nije moguće promijeniti lozinku - provjerite svoju trenutnu lozinku.',
   'settings.passwordModal.next': 'Nova lozinka',
@@ -94,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Progurajte svaki pritisak tipke kroz kanal stvarnog vremena. Onemogućite za sporije veze.',
   'settings.sync.auto.label': 'Sinkronizacija u stvarnom vremenu',
+  'settings.sync.title': 'Kako vaše bilješke putuju',
   'settings.theme.body':
     'Svjetlost održava uredničku kolumnu svijetlom. Sepija grije stranicu navečer.',
   'settings.theme.dark': 'Tamno',
@@ -113,8 +156,12 @@ export const ui: UiTranslations = {
     'Dodajte #hashtagove naslovu bilješke (npr. "Popis za čitanje #knjige") i oni će se ovdje automatski pojaviti.',
   'tags.emptyTitle': 'Još nema oznaka',
   'tags.eyebrow': 'Indeks',
+  'tags.goToNotes': 'Idi na bilješke →',
+  'tags.loadError': 'Nije moguće učitati oznake: {{message}}',
   'tags.subtitle':
     '{{tags}} oznake preko {{notes}} bilješke. Dodajte #hashtagove naslovu bilješke i oni će se pojaviti ovdje.',
+  'versoAuthShell.sample.body':
+    'Drugi prolaz sutra uvijek se čita bolje od prvog prolaza večeras. Ostavite grubu verziju u mapi za dubinski rad…',
   'versoAuthShell.sample.label': 'Dnevna bilješka',
   'versoAuthShell.sample.timestamp': 'Danas · 9:14',
   'versoAuthShell.sample.title': 'O tome kako pustiti propuh da diše',
@@ -126,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Nastavi pisati',
   'versoTodayHero.createCta': 'Započnite današnju bilješku',
   'versoTodayHero.dailyLabel': 'Dnevna bilješka',
+  'versoTodayHero.emptyHeadline': 'Danas je prazna stranica.',
   'versoTodayHero.emptySubline':
     'Zabilježite misao, zapišite sastanak ili skicirajte sutra. Verso održava strukturu tihom kako bi pisanje ostalo glasno.',
+  'versoTodayHero.outlineLabel': 'Današnji pregled',
   'versoTodayHero.streak': '{{count}} -dnevni niz',
+  'versoTodayHero.unwritten': 'Još nema riječi — otvorite bilješku da započnete.',
   'versoTodayHero.wordCount': '{{count}} riječi danas',
 }

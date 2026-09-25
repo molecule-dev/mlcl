@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite klausimų apie leidimą, siuntą ar prenumeratą? Susisiekite su tikru komandos nariu adresu hello@crate.example — perskaitome kiekvieną žinutę.',
+  'about.contactTitle': 'Pasikalbėkite su kuratoriumi',
+  'about.feature1':
+    'Kuruojami mėnesiniai leidimai, kuriuos rankomis atrenka nepriklausomi kūrėjai, su kiekvieno daikto istorija.',
+  'about.feature2':
+    'Visa kontrolė kiekvienai dėžei — tinkinkite turinį, keiskite ar pašalinkite daiktus, praleiskite mėnesį arba keiskite dažnumą.',
+  'about.feature3':
+    'Siuntos sekimas nuo paėmimo iki durų, su plastiko neturinčia pakuote ir tiesioginiais vežėjo pranešimais.',
+  'about.feature4':
+    'Lankstūs planai ir skaidrus atsiskaitymas — bet kada atnaujinkite, sumažinkite, pristabdykite ar atšaukite savo valdymo skydelyje.',
+  'about.intro':
+    '{{app}} yra kuruojamų prenumeratos dėžių paslauga, kas mėnesį į jūsų duris pristatanti rankomis atrinktą, nedidelės partijos džiaugsmo dėžę. Kiekvieną leidimą surinko dirbantys kūrėjai — nepriklausomi menininkai, šefai ir maži prekės ženklai — o ne algoritmas.',
+  'about.missionBody':
+    'Tikime, kad prenumerata turi jaustis kaip dovana, o ne spąstai. {{app}} sukurta taip, kad liktumėte, nes mylite tai, kas atvyksta — pristabdykite bet kada, keiskite, ko norite, ir atšaukite vienu paspaudimu. Jokių sulaikymo scenarijų, niekada.',
+  'about.missionTitle': 'Mūsų misija',
   'about.pageTitle': 'Apie {{app}}',
   'appNav.mobileLabel': 'Pagrindinė navigacija',
   'appNav.primaryLabel': 'Pagrindinė navigacija',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Redaguoti atsiskaitymo kontaktinį asmenį',
   'billing.contact.eyebrow': 'Atsiskaitymo kontaktinis asmuo',
   'billing.eyebrow': 'Planas ir mokėjimai',
+  'billing.loading': 'Įkeliama sąskaita…',
   'billing.payment.body':
     'Mokėjimą tvarko „Stripe Checkout“ – visas jūsų kortelės numeris niekada nepasiekia mūsų serverių. Spustelėkite bet kurį žemiau esantį lygį, kad pridėtumėte arba atnaujintumėte savo kortelę.',
   'billing.payment.linked': 'Kortelė byloje per „Stripe“',
@@ -19,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Tęsti prenumeratą',
   'billing.plan.eyebrow': 'Aktyvus planas',
   'billing.plan.next': 'Automatiškai atnaujinama {{date}} .',
+  'billing.plan.status': 'Būsena: {{status}}',
   'billing.subtitle': 'Tvarkykite savo lygį, mokėjimo būdą ir peržiūrėkite ankstesnę veiklą.',
   'billing.tiers.body': 'Pasirinkite lygį ir mes jus nukreipsime į „Stripe“ kasą.',
   'billing.tiers.choose': 'Pasirinkite',
+  'billing.tiers.empty': 'Kol kas nesukonfigūruota jokių lygių.',
   'billing.tiers.heading': 'Galimi lygiai',
   'boxDetail.backToBoxes': 'Atgal į visus leidimus',
   'boxDetail.crumb.boxes': 'Leidimai',
@@ -34,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Kuruojamas kūrinys',
   'boxDetail.items.heading': '{{count}} kuruoti kūriniai',
   'boxDetail.itemsBadge': '{{count}} kuruotų elementų dėžutėje',
+  'boxDetail.loading': 'Įkeliamas leidimas…',
   'boxDetail.notFound': 'To leidimo nebėra.',
   'boxDetail.subscribe.success': 'Prenumeruojama – jūsų pirmasis leidimas yra eilėje.',
   'boxDetail.swapBadge': 'Pakeiskite į {{count}} vienetų dėžutėje',
@@ -42,14 +62,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Nėra atitikmenų leidimų.',
   'boxes.eyebrow': '„Crate“ archyvas',
   'boxes.heading': 'Naršykite kiekvieną leidimą',
+  'boxes.loadError': 'Nepavyko įkelti leidimų. Patikrinkite ryšį ir bandykite dar kartą.',
   'boxes.loading': 'Įkeliami leidimai…',
+  'boxes.search.label': 'Ieškoti leidimų',
   'boxes.search.placeholder': 'Ieškoti leidimų…',
   'boxes.subtitle':
     'Kiekvienas lygis yra nedidelės apimties istorija. Įtraukite vieną į savo eilę arba perkelkite ją į kitą mėnesį.',
+  'boxThemeCard.itemCount': '{{count}} daiktai',
   'boxThemeCard.perMonth': '/ mėnesį',
+  'boxThemeCard.retailValue': 'Mažmeninė vertė {{value}}',
   'common.goToDashboard': 'Eiti į suvestinę',
+  'common.retry': 'Bandyti dar kartą',
   'customize.eyebrow': 'Padarykite tai savo',
   'customize.heading': 'Tinkinkite savo kitą lobį',
+  'customize.items.empty': 'Šiam lygiui kol kas nesukonfigūruota jokių daiktų.',
   'customize.items.exclude': 'Praleisti tai',
   'customize.items.eyebrow': 'Suasmeninkite šią dėžutę',
   'customize.items.heading': 'Elementai {{box}}',
@@ -58,8 +84,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Pridėti atgal',
   'customize.items.save': 'Išsaugoti pritaikymą',
   'customize.items.swapsLeft': '{{used}} iš {{max}} naudojami mainai',
+  'customize.loading': 'Įkeliamas tinkinimas…',
   'customize.noSub.body':
     'Pirmiausia užsiprenumeruokite lygį, tada grįžkite ir pakeiskite elementus savo dėžutėje.',
+  'customize.noSub.cta': 'Naršyti leidimus',
   'customize.noSub.heading': 'Nėra aktyvios prenumeratos',
   'customize.saved': 'Tinkinimas išsaugotas.',
   'customize.subtitle':
@@ -73,11 +101,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Siuntos sekimas',
   'dashboard.eyebrow': 'Jūsų lobis',
   'dashboard.greeting': 'Sveika sugrįžusi, {{name}} .',
+  'dashboard.loadError':
+    'Nepavyko įkelti jūsų valdymo skydelio. Patikrinkite ryšį ir bandykite dar kartą.',
   'dashboard.loading': 'Kraunama prietaisų skydelis…',
   'dashboard.next.eyebrow': 'Jūsų kitas leidimas',
   'dashboard.onboarding.body':
     'Dar neturite aktyvios prenumeratos. Pasirinkite lygį, kad pradėtumėte siųsti „Crate“ kiekvieną mėnesį.',
   'dashboard.onboarding.cta': 'Naršyti visus leidimus',
+  'dashboard.onboarding.empty': 'Šiuo metu nėra galimų planų. Užsukite netrukus.',
   'dashboard.onboarding.heading': 'Pasirinkite savo pirmąjį leidimą',
   'dashboard.renewal.amount': 'Apmokestinta',
   'dashboard.renewal.cadence': 'Kadencija',
@@ -85,12 +116,15 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Atnaujinimas',
   'dashboard.renewal.heading': 'Automatinis atnaujinimas įjungtas {{date}}',
   'dashboard.renewal.plan': 'Plano raktas',
+  'dashboard.renewal.tbd': 'Atnaujinimo planavimas netrukus',
   'dashboard.renewal.tier': 'Pakopa',
   'dashboard.stats.days': 'dienos',
   'dashboard.stats.daysToNext': 'Išsiunčiama per',
   'dashboard.stats.items': 'Kuruoti elementai',
   'dashboard.stats.shipDate': 'Siuntimo data',
   'dashboard.stats.tbd': 'Bus paskelbta vėliau',
+  'dashboard.subtitle.active': 'Jūsų kitas leidimas jau pakeliui. Štai ko tikėtis.',
+  'dashboard.subtitle.idle': 'Pasirinkite lygį, kad kas mėnesį pradėtumėte siųsti {{appName}}.',
   'forgotPassword.subtitle':
     'Parašykite mums savo el. pašto adresą ir mes atsiųsime jums atstatymo nuorodą.',
   'forgotPassword.success.body':
@@ -98,6 +132,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Patikrinkite savo pašto dėžutę.',
   'landing.editions.eyebrow': 'Šį sezoną',
   'landing.editions.heading': 'Leidimai, kuriuos mėgsta mūsų kuratoriai',
+  'landing.editions.viewAll': 'Naršyti visus leidimus →',
   'landing.footer.contact': 'Pasikalbėkite su kuratoriumi',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Pradėkite savo dėžutę →',
@@ -107,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Žvilgsnis į narių ataskaitų suvestinę – atgalinis skaičiavimas, turinys ir stebėjimas.',
   'landing.hero.social.count': 'Mylėjo {{count}} + prenumeratoriai',
+  'landing.hero.social.rating': '{{rating}} vid. išpakavimo įvertinimas',
+  'landing.hero.subhead':
+    '{{appName}} siunčia jums rankomis atrinktą, nedidelės partijos džiaugsmo dėžę iš nepriklausomų kūrėjų. Pristabdykite bet kada. Keiskite, ko norite. Pasilikite, ką mylite.',
   'landing.nav.start': 'Pradėkite savo dėžutę',
   'landing.tiers.eyebrow': 'Pasirinkite savo kadenciją',
   'landing.tiers.heading':
@@ -117,6 +155,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Prisijunkite, kad galėtumėte peržiūrėti kito mėnesio dėžutę.',
   'login.welcomeBack': 'Sveika sugrįžusi, kuratore.',
   'nextBoxHeroCard.eyebrow': 'JŪSŲ KITAS IEŠKOJIMAS',
+  'nextBoxHeroCard.itemCount': '{{count}} daiktai viduje',
   'nextBoxHeroCard.itemsLabel': 'Kuruoti elementai',
   'nextBoxHeroCard.shipsOnLabel': 'Išsiunčiama',
   'notFound.body':
@@ -141,8 +180,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Pristabdyti prenumeratą',
   'settings.danger.paused': 'Prenumerata pristabdyta.',
   'settings.danger.pausing': 'Pristabdoma…',
+  'settings.danger.status': 'Prenumeratos būsena: {{status}}',
   'settings.danger.subtitle':
     'Pristabdžius išsaugomas jūsų lygis ir istorija. Atšaukus sustabdomi būsimi siuntimai ir ciklo pabaigoje pašalinami išsaugoti mokėjimo būdai.',
+  'settings.notifications.saving': '· išsaugoma…',
   'settings.notifications.subtitle':
     'Pasirinkite, kuriuos „Crate“ signalus norite. Numatytieji nustatymai yra protingi.',
   'settings.subtitle':
@@ -159,11 +200,16 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Kol kas nėra aktyvių siuntų',
   'shipments.live.eyebrow': 'Aktyvus siuntimas',
   'shipments.live.unnamed': 'Jūsų kita dėžutė',
+  'shipments.loadError': 'Nepavyko įkelti jūsų siuntų. Patikrinkite ryšį ir bandykite dar kartą.',
+  'shipments.loading': 'Kraunamos siuntos…',
+  'shipments.step.delivered': 'Pristatyta',
   'shipments.step.deliveredBody': 'Pažymėkite #crateunbox, kad pasidalintumėte savo atradimais.',
   'shipments.step.ordered': 'Užsakymas pateiktas',
   'shipments.step.orderedBody': 'Jūsų prenumerata įtraukė šį leidimą į eilę kitam siuntimo ciklui.',
+  'shipments.step.packed': 'Supakuota rankomis',
   'shipments.step.packedBody':
     'Kiekvienas daiktas suvyniotas ir įdėtas į dėžutę su ranka rašytu rašteliu.',
+  'shipments.step.transit': 'Pakeliui',
   'shipments.step.transitNot': 'Sekimo informacija bus rodoma čia, kai jūsų dėžė bus išsiųsta.',
   'shipments.subtitle':
     'Sekite dėžutės kelią iki jūsų ir dar kartą peržiūrėkite kiekvieną anksčiau išpakuotą leidimą.',

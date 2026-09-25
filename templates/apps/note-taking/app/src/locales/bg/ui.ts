@@ -1,21 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате обратна връзка, открихте бъг или искате да предложите функция? Пишете ни от настройките на акаунта си — всяко съобщение стига до реален човек от екипа.',
+  'about.contactTitle': 'Свържете се с нас',
+  'about.featureDatabases':
+    'Леки бази данни и шаблони за многократна употреба, които превръщат разхвърляните бележки в структурирани, повтарящи се работни процеси.',
+  'about.featureEditor':
+    'Тих редактор на блокове — заглавия, списъци, код, акценти и задачи — с slash-команди, когато ги искате, и без тях, когато не искате.',
+  'about.featureGraph':
+    'Обратни връзки и граф на знанието: напишете [[, за да свържете бележка, и вижте как идеите ви се свързват с времето.',
+  'about.featureNotebooks':
+    'Вложени тетрадки и страници, за да останат проектите, темите и дневните бележки подредени точно както мислите.',
+  'about.featureSearch':
+    'Пълнотекстово търсене под 50 ms във всяка тетрадка, плюс етикети, които се съчетават с тетрадките, вместо да им пречат.',
+  'about.missionTitle': 'Нашата мисия',
   'common.goToDashboard': 'Към таблото',
   'forgot.eyebrow': 'Загубихте ли пътя обратно?',
   'forgot.formSubtitle': 'Кажете ни имейл адреса, който имаме във файла.',
+  'forgot.formTitle': 'Забравена парола',
   'forgot.headline': 'Възстановете паролата си.',
   'forgot.subline':
     'Ще ви изпратим еднократна връзка във входящата ви поща, за да можете да изберете нова.',
+  'forgot.successDetail': 'Изпратихме връзка за нулиране на имейла ви. Тя изтича след 30 минути.',
   'graph.eyebrow': 'Графика',
+  'graph.goToNotes': 'Преглед на бележките →',
+  'graph.loadError': 'Графът не можа да се зареди: {{message}}',
   'graph.placeholderBody':
     'Когато бележките започнат да се свързват помежду си (със синтаксис на [[wiki]]), тук ще се изобрази интерактивна графика, насочена към сила.',
+  'graph.placeholderTitle': 'Графът на обратните връзки идва скоро',
   'graph.subtitle':
     '{{count}} бележки в това работно пространство. Графиката на обратните връзки ще се появи тук, след като бележките се свържат една с друга.',
   'graph.title': 'Графика на знанието',
   'home.empty': 'Все още няма бележки — започнете първата си.',
   'home.favoritesHeading': 'Закачено',
   'home.guest': 'приятел',
+  'home.loadError': 'Бележките ви не можаха да се заредят: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Закачете бележка в редактора, за да я запазите тук.',
   'home.recentHeading': 'Наскоро актуализирано',
@@ -23,18 +43,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Бележник',
   'home.stats.pinned.label': 'Закачено',
   'home.stats.updatedToday.label': 'Актуализирано днес',
+  'home.subtitle': 'Продължете оттам, докъдето стигнахте, или започнете нова бележка.',
   'home.viewAll': 'Вижте всички бележки',
   'landing.cta.body':
     'Безплатно за лична употреба. Професионално за екипи. Внесете съществуващите си отстъпки или започнете на чисто — Verso ви посреща, където и да са вашите бележки.',
+  'landing.cta.button': 'Създаване на работно пространство',
   'landing.cta.heading': 'Отворете днешната страница.',
   'landing.features.eyebrow': 'Всеки примитив, от който вторият ви мозък се нуждае',
+  'landing.features.heading': 'Създаден за работата, а не за мета-работата.',
   'landing.hero.eyebrow': 'Тиха повърхност за писане',
   'landing.hero.headlineAccent': 'оформят се.',
   'landing.hero.headlineLeading': 'Където мислите',
   'landing.hero.primaryCta': 'Стартирайте вашата база знания',
   'landing.hero.secondaryCta': 'Вече имам акаунт',
+  'landing.hero.socialProof': '12 800+ писатели, студенти и докторанти мислят с {{appName}}',
   'landing.hero.subline':
     'Verso е структурирана повърхност за водене на бележки за работещи със знания и студенти. Блоков редактор, вложени тетрадки, обратни връзки и графика на знанията — всичко това зад четене, ориентирано към типографията.',
+  'landing.preview.notebook': 'Знание · Процес на писане',
+  'landing.preview.title': 'Да оставим черновите да дишат',
   'login.eyebrow': 'Добре дошли отново във Версо',
   'login.formSubtitle': 'Използвайте имейла си или който и да е свързан доставчик.',
   'login.headline': 'Продължете от мястото, където страницата е спряла.',
@@ -44,6 +70,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Затвори менюто за навигация',
   'mobileNav.openMenu': 'Отвори менюто за навигация',
   'noteEditor.backToNotes': 'Обратно към бележките',
+  'noteEditor.bodyLabel': 'Текст на бележката',
   'noteEditor.bodyPlaceholder':
     'Започнете да пишете — бележката ви се запазва автоматично, докато пишете.',
   'noteEditor.confirmTrash': 'Да се премести ли тази бележка в кошчето?',
@@ -52,17 +79,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Премести в кошчето',
   'noteEditor.updated': 'Актуализирано',
   'notes.defaultWorkspaceName': 'Моят бележник',
+  'notes.empty': 'Тук още няма бележки — започнете една, за да напълните тетрадката.',
   'notes.eyebrow': 'Бележник',
   'notes.filterAll': 'Всички бележки',
   'notes.filterPinned': 'Закачено',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Нов бележник',
   'notes.newNotebookPrompt': 'Ново име на бележника',
+  'notes.newNotebookRequired': 'Въведете име на тетрадка.',
   'notes.notebooksHeading': 'Бележници',
   'notes.subtitle':
     'Изберете бележник отляво, след което натиснете бутона Нова бележка, за да започнете нов запис.',
+  'planUpdated.body': 'Абонаментът ви вече е активен.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Разширени функции',
   'pricing.heading': 'Изберете вашия план за водене на бележки',
+  'reset.changedMind': 'Променихте решението си?',
   'reset.eyebrow': 'Почти обратно',
   'reset.formSubtitle': 'Ще бъдете влезли в профила си, след като бъде запазено.',
   'reset.headline': 'Изберете нова парола.',
@@ -72,7 +104,9 @@ export const ui: UiTranslations = {
     'Въведете кода, който току-що ви изпратихме по имейл, и изберете нещо запомнящо се.',
   'reset.submit': 'Запазване и влизане',
   'reset.tokenHint': 'Поставено от входящата ви поща.',
+  'search.empty': 'Още няма бележки, отговарящи на тази заявка.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Търсене в Refract',
   'search.loading': 'Търсене…',
   'search.noRecent': 'Въведете заявка по-горе, за да започнете търсене в бележките си.',
   'search.recentLabel': 'Последни търсения',
@@ -80,12 +114,19 @@ export const ui: UiTranslations = {
     'Пълен текст във всеки бележник. Въведете текст, за да търсите; резултатите се обновяват, докато пишете.',
   'search.title': 'Претърсете втория мозък.',
   'settings.account.logout': 'Изход',
+  'settings.account.title': 'Данни на акаунта',
+  'settings.editor.graphHover.body':
+    'Показване на малка карта за преглед при задържане върху [[уикивръзка]] в редактора.',
+  'settings.editor.graphHover.label': 'Преглед при задържане в графа на обратните връзки',
   'settings.editor.lineHeight.body':
     'Колко въздух има между линиите на тялото. 170% е ритъмът на четене по подразбиране.',
+  'settings.editor.lineHeight.label': 'Височина на реда',
   'settings.editor.serif.body':
     'Използвайте Georgia за колоната за четене. Sans-serif се запазва в страничната лента и лентите с инструменти.',
+  'settings.editor.serif.label': 'Текст със серифен шрифт',
   'settings.editor.title': 'Типография и повърхност за писане',
   'settings.eyebrow': 'Verso · Настройки',
+  'settings.passwordModal.current': 'Текуща парола',
   'settings.passwordModal.error':
     'Паролата не можа да се промени — моля, проверете текущата си парола.',
   'settings.passwordModal.next': 'Нова парола',
@@ -95,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Прехвърляйте всяко натискане на клавиш през канала в реално време. Деактивирайте за по-бавни връзки.',
   'settings.sync.auto.label': 'Синхронизиране в реално време',
+  'settings.sync.title': 'Как пътуват бележките ви',
   'settings.theme.body':
     'Светлината поддържа редакционната колонка ярка. Сепия затопля страницата вечер.',
   'settings.theme.dark': 'Тъмно',
@@ -114,8 +156,12 @@ export const ui: UiTranslations = {
     'Добавете #хаштагове към заглавие на бележка (напр. „Списък за четене #книги“) и те ще се появят тук автоматично.',
   'tags.emptyTitle': 'Все още няма етикети',
   'tags.eyebrow': 'Индекс',
+  'tags.goToNotes': 'Към бележките →',
+  'tags.loadError': 'Етикетите не можаха да се заредят: {{message}}',
   'tags.subtitle':
     '{{tags}} тагове през {{notes}} бележки. Добавете #хаштагове към заглавието на бележката и те ще се появят тук.',
+  'versoAuthShell.sample.body':
+    'Вторият прочит утре винаги се чете по-добре от първия довечера. Оставете черновата в папката за задълбочена работа…',
   'versoAuthShell.sample.label': 'Дневна бележка',
   'versoAuthShell.sample.timestamp': 'Днес · 9:14 ч.',
   'versoAuthShell.sample.title': 'Да оставим черновите да дишат',
@@ -127,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Продължи да пишеш',
   'versoTodayHero.createCta': 'Започнете днешната бележка',
   'versoTodayHero.dailyLabel': 'Дневна бележка',
+  'versoTodayHero.emptyHeadline': 'Днес е празна страница.',
   'versoTodayHero.emptySubline':
     'Запишете си мисъл, нахвърлете среща или скицирайте утре. Verso поддържа структурата тиха, така че написаното да остане силно.',
+  'versoTodayHero.outlineLabel': 'Днешен план',
   'versoTodayHero.streak': '{{count}} поредни дни',
+  'versoTodayHero.unwritten': 'Още няма думи — отворете бележката, за да започнете.',
   'versoTodayHero.wordCount': '{{count}} думи днес',
 }

@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರತಿಕ್ರಿಯೆ ಇದೆಯೇ, ದೋಷ ಕಂಡುಬಂದಿದೆಯೇ, ಅಥವಾ ನಿಮ್ಮ ಶಾಲೆಯನ್ನು ಸೇರಿಸಲು ಬಯಸುವಿರಾ? ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ಸಂಪರ್ಕಿಸಿ ಅಥವಾ ನಿಮ್ಮ ಶಾಲಾ ನಿರ್ವಾಹಕರಿಗೆ ಸಂದೇಶ ಕಳುಹಿಸಿ — ಪ್ರತಿ ಟಿಪ್ಪಣಿಯೂ ತಂಡದ ನಿಜವಾದ ವ್ಯಕ್ತಿಯನ್ನು ತಲುಪುತ್ತದೆ.',
   'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'announcementsFeed.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಪ್ರಕಟಣೆಗಳಿಲ್ಲ.',
   'announcementsFeed.eyebrow': '{{count}} ನವೀಕರಣಗಳು',
   'announcementsFeed.title': 'ಇತ್ತೀಚಿನ ಪ್ರಕಟಣೆಗಳು',
   'assignmentDetail.alreadySubmitted': 'ನೀವು ಈಗಾಗಲೇ ಈ ನಿಯೋಜನೆಯನ್ನು ಸಲ್ಲಿಸಿದ್ದೀರಿ.',
   'assignmentDetail.backLink': 'ಕಾರ್ಯಯೋಜನೆಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
+  'assignmentDetail.dropBody':
+    'ನಿಮ್ಮ ಕೆಲಸವನ್ನು ಲಗತ್ತಿಸಲು Choose files ಬಳಸಿ — ನೀವು ದೃಢಪಡಿಸಿದ ನಂತರ ನಾವು ಸಲ್ಲಿಕೆಯ ಸಮಯಮುದ್ರೆಯನ್ನು ದಾಖಲಿಸುತ್ತೇವೆ.',
   'assignmentDetail.dropButton': 'ಫೈಲ್‌ಗಳನ್ನು ಆರಿಸಿ',
+  'assignmentDetail.dropPrompt': 'ನಿಮ್ಮ PDF ಅಥವಾ ಫೋಟೋ ಪ್ಯಾಕೆಟ್ ಅನ್ನು ಇಲ್ಲಿ ಬಿಡಿ',
   'assignmentDetail.due': 'ಬಾಕಿ {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'ಸೂಚನೆಗಳು',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'ಶ್ರೇಣೀಕರಿಸಲಾಗಿದೆ',
   'assignmentDetail.statusSubmitted': 'ಸಲ್ಲಿಸಲಾಗಿದೆ',
   'assignmentDetail.statusTitle': 'ಸಲ್ಲಿಕೆ ಸ್ಥಿತಿ',
+  'assignmentDetail.submitError':
+    'ಆ ಸಲ್ಲಿಕೆಯನ್ನು ನಾವು ದಾಖಲಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'assignmentDetail.submitted': 'ಸಲ್ಲಿಕೆಯನ್ನು ದಾಖಲಿಸಲಾಗಿದೆ — ನಿಮ್ಮ ಶಿಕ್ಷಕರಿಗೆ ಸೂಚಿಸಲಾಗಿದೆ.',
+  'assignmentDetail.submittedAt': '{{when}} ಸಲ್ಲಿಸಲಾಗಿದೆ',
+  'assignmentDetail.submitTitle': 'ನಿಮ್ಮ ಕೆಲಸವನ್ನು ಸಲ್ಲಿಸಿ',
   'assignmentRow.courseDue': '{{course}} · ಬಾಕಿ {{due}}',
   'assignments.empty': 'ಇಲ್ಲಿ ಏನೂ ಇಲ್ಲ',
   'assignments.emptyBody': 'ಬೇರೆ ಸ್ಥಿತಿಯಲ್ಲಿ ಕಾರ್ಯಯೋಜನೆಗಳನ್ನು ನೋಡಲು ಮೇಲಿನ ಫಿಲ್ಟರ್‌ಗಳನ್ನು ಬದಲಾಯಿಸಿ.',
@@ -38,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'ಉಪಸ್ಥಿತಿ, ಗೈರುಹಾಜರಿ ಮತ್ತು ವಿಳಂಬಗಳ ದೈನಂದಿನ ದಾಖಲೆ - ಅನ್ವಯಿಸಿದಾಗ ಟಿಪ್ಪಣಿಗಳೊಂದಿಗೆ.',
+  'attendance.summary.absences': 'ಗೈರುಹಾಜರಿಗಳು',
   'attendance.summary.absencesCaption': '5-ದಿನಗಳ ಹಸ್ತಕ್ಷೇಪ ಮಿತಿಗಿಂತ ಕೆಳಗೆ',
   'attendance.summary.attendance': 'ಹಾಜರಾತಿ',
   'attendance.summary.attendanceCaption': '{{count}} ಇಂದಿನ ದಿನಗಳು ಈ ಪದ',
+  'attendance.summary.tardies': 'ತಡವಾಗಿ ಬಂದವರು',
   'attendance.summary.tardiesCaption': 'ಬಸ್ / ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ವಿಳಂಬದ ಟಿಪ್ಪಣಿಗಳನ್ನು ಒಳಗೊಂಡಂತೆ',
   'attendance.title': 'ಹಾಜರಾತಿ ಇತಿಹಾಸ',
   'calendar.eyebrow': 'ಶಾಲಾ ವರ್ಷ · {{year}}',
@@ -54,6 +66,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'ಶ್ರೇಣಿಗಳು',
   'courseDetail.currentGrade': 'ಪ್ರಸ್ತುತ ದರ್ಜೆ',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'ಕೋರ್ಸ್ ಅವಲೋಕನ',
   'courseDetail.gradesTitle': 'ಇತ್ತೀಚಿನ ಶ್ರೇಣಿಗಳು',
   'courseDetail.messageTeacher': 'ಶಿಕ್ಷಕರಿಗೆ ಸಂದೇಶ ಕಳುಹಿಸಿ',
   'courseDetail.noGrades': 'ಇನ್ನೂ ಯಾವುದೇ ಗ್ರೇಡ್‌ಗಳನ್ನು ಪೋಸ್ಟ್ ಮಾಡಿಲ್ಲ.',
@@ -66,13 +79,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'ಎಲ್ಲವನ್ನೂ ನೋಡಿ',
   'dashboard.assignmentsTitle': 'ಈ ವಾರ ಮುಂದೆ',
   'dashboard.greeting': 'ನಮಸ್ತೆ {{name}} , ತರಗತಿಗೆ ಸಿದ್ಧರಿದ್ದೀರಾ?',
+  'dashboard.subtitle':
+    'ನಿಮ್ಮ ವಾರ ಒಂದು ನೋಟದಲ್ಲಿ — ವೇಳಾಪಟ್ಟಿ, ಅಂಕಗಳು ಮತ್ತು ಕಾರ್ಯಯೋಜನೆಗಳು ಒಂದೇ ಶಾಂತ ನೋಟದಲ್ಲಿ.',
+  'dashboard.viewReportCard': 'ವರದಿ ಕಾರ್ಡ್ ವೀಕ್ಷಿಸಿ',
+  'dashboard.weekFocusBody':
+    'ಕ್ವಾಡ್ರಾಟಿಕ್ಸ್ ಅಭ್ಯಾಸ ಸೆಟ್ 7 ಮತ್ತು ಅಧ್ಯಾಯ ರಸಪ್ರಶ್ನೆಯನ್ನು ಸಲ್ಲಿಸಿ. ಬೋಧನಾ ಪ್ರಯೋಗಾಲಯವು ಮಂಗಳವಾರ ಮತ್ತು ಗುರುವಾರ 7ನೇ ಪೀರಿಯಡ್ ನಂತರ ತೆರೆದಿರುತ್ತದೆ.',
+  'dashboard.weekFocusCta': 'ಪೂರ್ಣ ಯೋಜನೆ ನೋಡಿ',
   'dashboard.weekFocusEyebrow': 'ವಾರದ ಗಮನ',
   'dashboard.weekFocusTitle': 'ಬೀಜಗಣಿತ II ಅನ್ನು 4 ಅಂಕಗಳಿಂದ ಹೆಚ್ಚಿಸಿ.',
   'forgotPassword.subheading':
     'ನಿಮ್ಮ ಶಾಲೆಯ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ, ನಾವು ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
   'forgotPassword.successBody':
     'ಒಂದು ವೇಳೆ {{email}} ಚಾಕ್ ಖಾತೆಗೆ ಹೊಂದಿಕೆಯಾಗುತ್ತದೆ, ಪಾಸ್‌ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಬರುತ್ತಿದೆ. ಲಿಂಕ್‌ಗಳು 30 ನಿಮಿಷಗಳಲ್ಲಿ ಮುಕ್ತಾಯಗೊಳ್ಳುತ್ತವೆ.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} ಅವಧಿ GPA',
+  'gpaHeroCard.summary': 'ಇಂದು {{count}} ತರಗತಿಗಳು',
   'grades.col.grade': 'ಗ್ರೇಡ್',
   'grades.col.teacher': 'ಶಿಕ್ಷಕ',
   'grades.col.trend': 'ಪ್ರವೃತ್ತಿ',
@@ -84,11 +105,18 @@ export const ui: UiTranslations = {
     'ಲೈವ್ ಲೆಟರ್ ಮತ್ತು ಶೇಕಡಾವಾರು ಗ್ರೇಡ್‌ಗಳು. ಟ್ರೆಂಡ್ ಬಾಣಗಳು ನೀವು ಮೇಲಕ್ಕೆ ಚಲಿಸುತ್ತಿದ್ದೀರಾ, ಮಟ್ಟಕ್ಕೆ ಚಲಿಸುತ್ತಿದ್ದೀರಾ ಅಥವಾ ಜಾರಿಬೀಳುತ್ತಿದ್ದೀರಾ ಎಂಬುದನ್ನು ತೋರಿಸುತ್ತವೆ.',
   'grades.title': 'ನಿಮ್ಮ ಅಂಕಗಳು, ಕೋರ್ಸ್‌ನಿಂದ ಕೋರ್ಸ್',
   'grades.trendStable': 'ಸ್ಥಿರ',
+  'grades.viewReportCard': 'ಅಧಿಕೃತ ವರದಿ ಕಾರ್ಡ್ ವೀಕ್ಷಿಸಿ',
   'landing.copyright':
     '© {{year}} {{app}} . ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ, ಕುಟುಂಬಗಳಿಗಾಗಿ ರಚಿಸಲಾಗಿದೆ.',
+  'landing.ctaBody':
+    'ಮೊದಲ 30 ದಿನಗಳವರೆಗೆ ಉಚಿತ, ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಅಗತ್ಯವಿಲ್ಲ. ಜಿಲ್ಲೆಗಳು ಒಂದೇ ಮಧ್ಯಾಹ್ನದಲ್ಲಿ ಶಾಲೆಯಾದ್ಯಂತ ಶ್ರೇಣಿಯನ್ನು ಜಾರಿಗೆ ತರಬಹುದು.',
+  'landing.ctaButton': 'ನಿಮ್ಮ ಪೋರ್ಟಲ್ ರಚಿಸಿ',
   'landing.ctaHeading': 'ಶಾಂತವಾದ ಶಾಲಾ ದಿನವು ನಿಮಿಷಗಳಲ್ಲಿ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ',
   'landing.eyebrow': 'ಮಧ್ಯಮ ಮತ್ತು ಪ್ರೌಢಶಾಲಾ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ',
   'landing.featuresHeading': 'ವಿದ್ಯಾರ್ಥಿಯ ಸುತ್ತ ಆಯೋಜಿಸಲಾದ ಶಾಲಾ ದಿನ.',
+  'landing.heroSubtitle':
+    '{{appName}} ಪ್ರತಿ ತರಗತಿ, ಅಂಕ, ಕಾರ್ಯಯೋಜನೆ ಮತ್ತು ಸಂದೇಶವನ್ನು ಒಂದೇ ಶಾಂತ ಡ್ಯಾಶ್ಬೋರ್ಡ್ಗೆ ತರುತ್ತದೆ, ಇದರಿಂದ ಹುಡುಕಾಟಕ್ಕೆ ಕಡಿಮೆ ಸಮಯ ಮತ್ತು ಕಲಿಕೆಗೆ ಹೆಚ್ಚು ಸಮಯ ವ್ಯಯಿಸಬಹುದು.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'ಪೂರ್ವನಿಯೋಜಿತವಾಗಿ FERPA- ಕಂಪ್ಲೈಂಟ್',
   'landing.proof.rating': '12 ಸಾವಿರ ಕುಟುಂಬಗಳಲ್ಲಿ 4.8',
   'landing.sampleTerm': 'ವಸಂತ',
@@ -97,6 +125,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆಮಾಡಿ',
   'login.noAccount': 'ಚಾಕ್‌ಗೆ ಹೊಸಬರೇ?',
   'login.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
+  'messages.compose': 'ಹೊಸ ಸಂದೇಶ',
   'messages.composer.email': 'ಸ್ವೀಕರಿಸುವವರ ಇಮೇಲ್ (ಐಚ್ಛಿಕ)',
   'messages.composer.errorEmpty': 'ಸಂದೇಶ ಖಾಲಿಯಾಗಿರಬಾರದು.',
   'messages.composer.errorRecipient': 'ಸ್ವೀಕರಿಸುವವರ ಹೆಸರು ಕಡ್ಡಾಯವಾಗಿದೆ.',
@@ -128,9 +157,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'ಗೌರವ ಪ್ರಶಸ್ತಿ · ವಸಂತ ಋತು',
   'nav.unreadMessages': 'ಓದದಿರುವ ಸಂದೇಶಗಳು',
   'notifications.eyebrow': '{{count}} ನವೀಕರಣಗಳು',
+  'notifications.feedTitle': 'ಎಲ್ಲಾ ಇತ್ತೀಚಿನ ಚಟುವಟಿಕೆ',
   'notifications.subtitle':
     'ಗ್ರೇಡ್‌ಗಳು, ಜ್ಞಾಪನೆಗಳು, ಸಂದೇಶಗಳು ಮತ್ತು ಶಾಲಾ ಪ್ರಕಟಣೆಗಳು. ಪ್ರತಿ ಅಧಿಸೂಚನೆಯು ಯಾವ ಚಾನಲ್‌ಗಳನ್ನು ಬಳಸುತ್ತದೆ ಎಂಬುದನ್ನು ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಹೊಂದಿಸಿ.',
+  'planUpdated.body':
+    'ನಿಮ್ಮ ಬಿಲ್ಲಿಂಗ್ ಬದಲಾವಣೆ ಈಗ ಸಕ್ರಿಯವಾಗಿದೆ. ಬಿಲ್ಲಿಂಗ್ ಪುಟದಿಂದ ಯಾವಾಗ ಬೇಕಾದರೂ ನಿಮ್ಮ ಯೋಜನೆಯನ್ನು ನಿರ್ವಹಿಸಬಹುದು.',
+  'planUpdated.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
+  'planUpdated.verifyFailed': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ನಮಗೆ ಇನ್ನೂ ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'planUpdated.verifyFailedBody':
+    'ನಿಮ್ಮ ಪಾವತಿ ಇನ್ನೂ ಪ್ರಕ್ರಿಯೆಗೊಳ್ಳುತ್ತಿರಬಹುದು. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
+  'pricing.announcementsLabel': 'ಪ್ರಕಟಣೆಗಳು',
   'pricing.attendanceLabel': 'ಹಾಜರಾತಿ',
   'pricing.gradesLabel': 'ಶ್ರೇಣಿಗಳು',
   'pricing.heading': 'ಪ್ರಕಟಣೆಗಳು',
@@ -145,6 +182,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'ಪ್ರಶ್ನೆಗಳು',
   'reportCard.crumb': 'ವರದಿ ಕಾರ್ಡ್',
   'reportCard.cumulativeGpa': 'ಸಂಚಿತ GPA',
+  'reportCard.download': 'PDF ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ',
   'reportCard.downloaded': 'ವರದಿ ಕಾರ್ಡ್ ಹೊಸ ಟ್ಯಾಬ್‌ನಲ್ಲಿ ತೆರೆಯಲಾಗಿದೆ.',
   'reportCard.downloading': 'PDF ರಚಿಸಲಾಗುತ್ತಿದೆ...',
   'reportCard.empty': 'ಫೈಲ್‌ನಲ್ಲಿ ಇನ್ನೂ ಯಾವುದೇ ಗ್ರೇಡ್‌ಗಳಿಲ್ಲ.',
@@ -152,6 +190,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'ಅಂತಿಮ GPA · {{term}}',
   'reportCard.subtitle':
     'ತೂಕದ ಕೋರ್ಸ್ ಶ್ರೇಣಿಗಳು, ಹಾಜರಾತಿ ಮತ್ತು ಮುದ್ರಿಸಬಹುದಾದ ಪಿಡಿಎಫ್ ಡೌನ್‌ಲೋಡ್‌ನೊಂದಿಗೆ ಔಪಚಾರಿಕ ಅಂತ್ಯದ ಸೆಮಿಸ್ಟರ್ ಪ್ರತಿಲೇಖನ.',
+  'reportCard.title': 'ವರದಿ ಕಾರ್ಡ್',
+  'resetPassword.newPassword': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.subheading': 'ಸ್ಮರಣೀಯ ಆದರೆ ಊಹಿಸಲು ಕಷ್ಟಕರವಾದದ್ದನ್ನು ಆರಿಸಿ.',
   'resetPassword.tokenPlaceholder': 'ನಿಮ್ಮ ಇಮೇಲ್‌ನಿಂದ ಕೋಡ್ ಅನ್ನು ಅಂಟಿಸಿ',
   'schedule.empty': 'ಯಾವುದೇ ತರಗತಿಗಳು ನಿಗದಿಯಾಗಿಲ್ಲ.',
@@ -176,12 +216,17 @@ export const ui: UiTranslations = {
     '{{due48}} 48 ಗಂಟೆಗಳಲ್ಲಿ ಮುಕ್ತಾಯಗೊಳ್ಳಲಿದೆ, {{overdue}} ಬಾಕಿ ಉಳಿದಿರುವ',
   'subjectStatsTriad.assignmentsLabel': 'ಬಾಕಿ ಇರುವ ಕಾರ್ಯಯೋಜನೆಗಳು',
   'subjectStatsTriad.attendanceCaption': '{{absent}} ಈ ಪದದ ಅನುಪಸ್ಥಿತಿಗಳು · {{tardy}} ತಡವಾಗಿ',
+  'subjectStatsTriad.attendanceCaptionLoading': 'ಹಾಜರಿ ಸಂಖ್ಯೆಗಳನ್ನು ಲೆಕ್ಕಹಾಕಲಾಗುತ್ತಿದೆ…',
+  'subjectStatsTriad.attendanceLabel': 'ಹಾಜರಾತಿ',
   'subjectStatsTriad.gradesCaption': 'ಅಡ್ಡಲಾಗಿ {{percent}} % ಸರಾಸರಿ ತೂಕ',
+  'subjectStatsTriad.gradesCaptionLoading': 'ಗ್ರೇಡ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…',
+  'subjectStatsTriad.gradesLabel': 'ತರಗತಿ ಸರಾಸರಿ',
   'todayScheduleStrip.empty': 'ಇವತ್ತು ತರಗತಿಗಳಿಲ್ಲ.',
   'todayScheduleStrip.eyebrow': '{{count}} ತರಗತಿಗಳು',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'ಇಂದಿನ ವೇಳಾಪಟ್ಟಿ',
   'topbar.guestName': 'ವಿದ್ಯಾರ್ಥಿ',
   'topbar.searchPlaceholder': 'ತರಗತಿಗಳು, ಕಾರ್ಯಯೋಜನೆಗಳನ್ನು ಹುಡುಕಿ...',
+  'topbar.studentRole': 'ವಿದ್ಯಾರ್ಥಿ',
   'topbar.studentTag': 'ವಿದ್ಯಾರ್ಥಿ · # {{id}}',
 }

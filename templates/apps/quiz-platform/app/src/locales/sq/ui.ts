@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Keni komente, keni gjetur një gabim ose dëshironi të sillni {{app}} në shkollën ose ekipin tuaj? Ne lexojmë çdo mesazh — na shkruani nga cilësimet e llogarisë tuaj dhe një njeri i vërtetë do t'ju përgjigjet.",
   'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.intro':
+    '{{app}} është një platformë kuizesh në kohë reale për klasa, mbrëmje lojërash dhe evente ekipore. Ndërto paketa pyetjesh argëtuese, organizo lojëra në kohë reale me një kod bashkimi dhe shiko sallën duke u ndriçuar me pyetje me kohë, pikë dhe tabela renditjeje.',
+  'about.missionBody':
+    'Mësimi ngulitet kur duket si lojë. Ne e bëjmë të lehtë për këdo që ta kthejë një temë në një lojë të shpejtë e konkurruese — kështu organizatorët mësojnë duke vepruar dhe lojtarët mbajnë serinë.',
+  'about.missionTitle': 'Misioni ynë',
   'about.title': 'Rreth {{app}}',
   'auth.login.noAccount': 'I ri në Sparq?',
   'auth.login.or': 'ose vazhdo me',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Nuk ka ende kuize që përputhen.',
   'discover.headline': 'Gjej kuizin tënd të preferuar të radhës.',
   'discover.loading': 'Duke u ngarkuar…',
+  'discover.searchPlaceholder': 'Kërko kuize sipas titullit…',
   'discover.subhead':
     'Shfletoni bibliotekën e plotë, filtroni sipas kategorisë ose kërkoni sipas titullit. Goditni një kartë për të luajtur solo ose për të drejtuar drejtpërdrejt.',
   'forgotPassword.subhead':
     "Shkruani email-in tuaj dhe ne do t'ju dërgojmë një lidhje për të rivendosur.",
   'forgotPassword.success.body':
     'Nëse ekziston një llogari për {{email}} , do të merrni një lidhje rivendosjeje brenda pak minutash.',
+  'forgotPassword.success.title': 'Kontrolloni kutinë tuaj postare.',
   'hostLobby.back': 'Kthehu te kuizi',
   'hostLobby.copied': 'Kodi i bashkimit u kopjua në kujtesën e përkohshme.',
   'hostLobby.creating': 'Duke e përmirësuar hollin tënd…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Anulo hollin',
   'hostLobby.players.count': '{{count}} jetoj',
   'hostLobby.players.title': 'Lojtarët në holl',
+  'hostLobby.players.waiting':
+    'Në pritje të lojtarëve. Shpërndaj kodin {{code}} që ata të bashkohen.',
   'hostLobby.rules.title': 'Rregullat e shtëpisë',
   'hostLobby.startError': 'Nuk mundi të niste lojën.',
   'hostLobby.starting': 'Duke ndezur shkëndijën…',
   'joinCodeHero.headline': 'U thoni lojtarëve tuaj të hidhen në lojë.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Ose vizitoni',
   'joinCodeHero.liveLabel': 'Lobi drejtpërdrejt',
+  'joinCodeHero.playerJoined': '{{name}} u bashkua',
   'joinCodeHero.playersLabel': 'Lojtarët',
   'joinCodeHero.qrLabel': "Skano për t'u bashkuar",
   'joinCodeHero.startGame': 'Ndiz shkëndijën',
   'joinCodeHero.subhead':
     'Ndani kodin e anëtarësimit ose skanoni kodin QR. Loja fillon në momentin që ndizni shkëndijën.',
+  'landing.cta.button': 'Krijo kuizin tënd të parë',
   'landing.cta.eyebrow': 'Falas për edukatorët',
   'landing.cta.heading': 'Sillni shkëndijën në çdo mësim.',
+  'landing.cta.subhead':
+    'Regjistrohu në 30 sekonda. Organizo lojëra të pakufizuara në kohë reale, harto kuize me AI dhe mbaj çdo lojtar në një seri.',
   'landing.eyebrow': 'Ndiz çdo përgjigje',
   'landing.features.heading':
     'Një studio kuizesh që i përshtatet mënyrës se si jepni mësim dhe luani.',
@@ -58,6 +74,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Kuize të njohura',
   'landing.popular.eyebrow': 'Popullore këtë javë',
   'landing.popular.heading': 'Organizatorët e kuizit "Hop into a quiz" po zhvillohen sot.',
+  'landing.popular.viewAll': 'Shfleto të gjitha kategoritë →',
+  'leaderboard.empty.body':
+    'Luaj një kuiz për ta vendosur pikët e tua në tabelën globale të renditjes.',
   'leaderboard.empty.title': 'Ende nuk ka lojëra në tabelë — ji i pari.',
   'leaderboard.eyebrow': 'Tabela e renditjes',
   'leaderboard.fullRanking': 'Renditja e plotë',
@@ -65,6 +84,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Rezultati i përgjithshëm në çdo seancë kuizi që keni luajtur. Ngjituni duke luajtur më shumë.',
   'leaderboard.title': 'Kryesuesit e kuizeve',
+  'leaderboard.totalPlayers': '{{count}} lojtarë të renditur',
   'leaderboardRow.points': 'pikë',
   'leaderboardRow.streak': '{{days}} d',
   'login.headline': 'Mirë se erdhe përsëri, drejtues kuizi.',
@@ -76,9 +96,11 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Ndërtoni kuizin tuaj të parë →',
   'myQuizzes.empty.created': 'Nuk ke ndërtuar ende një kuiz.',
   'myQuizzes.empty.played': 'Ende nuk ka kuize të publikuara.',
+  'myQuizzes.loading': 'Duke u ngarkuar…',
   'myQuizzes.subhead': 'Draftet që keni ndërtuar, plus kuizet e publikuara që mund të luani.',
   'myQuizzes.title': 'Kuizet e mia',
   'nav.legal': 'Ligjore',
+  'nav.primaryNavLabel': 'Navigimi kryesor',
   'notFound.backHome': 'Kthehem në shtëpi',
   'notFound.backToDiscover': 'Shfleto kuizet',
   'notFound.body': 'Provo një kod tjetër ose kthehu në holl.',
@@ -87,17 +109,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Duke u ngarkuar…',
   'notifications.subhead':
     '{{count}} shkëndija të palexuara. Ftesa, lëvizje në tabelën e renditjes dhe arritje, të gjitha në një transmetim të vetëm.',
+  'planUpdated.retry': 'Provo përsëri',
+  'planUpdated.verifyFailed': 'Nuk mundëm ta konfirmonim ende pagesën tuaj.',
+  'planUpdated.verifyFailedBody':
+    'Pagesa juaj mund të jetë ende duke u përpunuar. Provoni përsëri pas pak.',
   'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
+  'pricing.advancedFeatures': 'Veçori të avancuara: {{yes}}',
+  'pricing.canExport': 'Eksportimi i të dhënave: {{yes}}',
   'pricing.checkoutError': 'Nuk mund të fillohej pagesa. Ju lutemi provoni përsëri.',
   'pricing.heading': 'Zgjidhni planin tuaj {{app}}',
   'pricing.included': 'Përfshirë',
   'pricing.loadError': 'Planet nuk mund të ngarkoheshin.',
+  'pricing.maxQuestions': '{{count}} pyetje',
   'pricing.maxQuizzes': '{{count}} kuize',
+  'pricing.maxSessions': '{{count}} sesione',
   'pricing.subhead':
     'Falas për organizatorët dhe lojtarët. Përmirësojeni për limite më të larta dhe veçori të përparuara.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Llogaria: email-i, fjalëkalimi i hashuar, emri i shfaqur, hyrja e fundit.',
+  'privacy.intro':
+    "{{app}} respekton privatësinë tuaj. Kjo faqe përmbledh të dhënat që ruajmë, pse i ruajmë dhe si t'i fshini ato.",
   'privacy.rights.body':
     'Fshi llogarinë tënde nga Cilësimet për të hequr përgjithmonë të gjitha të dhënat e tua brenda 30 ditëve.',
   'privacy.share.body':
@@ -121,6 +153,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'ID-ja e kuizit: {{id}}',
   'quizBuilder.loadError': 'Nuk mundi të ngarkonte kuizin.',
   'quizBuilder.loading': 'Duke ngarkuar redaktuesin…',
+  'quizBuilder.markCorrect': 'Shëno {{letter}} si të saktë',
   'quizBuilder.noQuestions': 'Nuk ka ende pyetje — shtoni një për të filluar.',
   'quizBuilder.notFound': 'Kuizi nuk u gjet.',
   'quizBuilder.preview': 'Pamje',
@@ -137,7 +170,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} kohëmatës s',
   'quizBuilder.title': 'Ndërto kuizin tënd',
   'quizBuilder.titleLabel': 'Titulli i kuizit',
+  'quizBuilder.untitled': 'Pyetje pa titull',
   'quizCard.plays': '{{count}} luan',
+  'quizCard.questionCount': '{{count}} pyetje',
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': 'Lojëra shumëlojtarëshe pritëse',
   'quizDetail.leaderboardEmpty': 'Ende pa shfaqje — ji i pari që vendos një rezultat.',
@@ -152,26 +187,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Kthehu te kuizi',
   'quizPlay.empty': 'Ky kuiz nuk ka ende pyetje.',
   'quizPlay.error': 'Nuk mundi ta ngarkonte këtë kuiz. Ju lutemi provoni përsëri.',
+  'quizPlay.exit': 'Dil',
   'quizPlay.feedback.correct': '🔥 Shkëndijë e fituar — drejt rradhës!',
+  'quizPlay.feedback.incorrect': 'Përgjigja ishte {{correct}}. Vazhdo.',
   'quizPlay.loading': 'Duke ngarkuar kuizin…',
   'quizPlay.next': 'Pyetja tjetër',
   'quizPlay.questionCounter': 'Pyetje {{current}} e {{total}}',
   'quizPlay.score': '{{score}} pikë',
+  'quizPlay.seeResults': 'Shiko rezultatet',
   'quizPlay.sessionFailed': 'Nuk mundi të niste një seancë.',
   'quizPlay.streak': '{{count}} vijë',
+  'resetPassword.subhead': "Zgjidhni një fjalëkalim të ri për t'u kthyer te seria juaj.",
   'results.backToDiscover': 'Kthehu te Discover',
   'results.error': 'Nuk mund të ngarkoheshin rezultatet.',
   'results.exit': 'Kthehu te Discover',
   'results.loading': 'Duke numëruar rezultatin tuaj…',
   'results.missingSession': 'Asnjë seancë për të përmbledhur.',
+  'results.recap.correctAnswer': 'Saktë: {{answer}}',
   'results.recap.questionLabel': 'Pyetje {{number}}',
   'results.recap.title': 'Përmbledhje e pyetjeve',
+  'results.recap.yourAnswer': 'Ti: {{answer}}',
   'results.unknownQuiz': 'Kuiz',
   'scoreBreakdownCard.accuracyLabel': 'Saktësia',
+  'scoreBreakdownCard.correctLabel': 'Saktë',
   'scoreBreakdownCard.eyebrow': 'Kuizi i përfunduar',
   'scoreBreakdownCard.headline': 'Punë e mirë për " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Pikë',
   'scoreBreakdownCard.rankLabel': 'Renditja',
+  'scoreBreakdownCard.streakBonus': 'Bonus serie +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Shkëlqimi yt po duket. Shqyrto ndarjen më poshtë për të vazhduar ngjitjen në tabelën e renditjes.',
   'settings.danger.body': 'Hiq përgjithmonë llogarinë tënde Sparq dhe të gjitha kuizet e krijuara.',
   'settings.danger.confirm': 'Po, fshije përgjithmonë',
   'settings.guest': 'Mysafir',
@@ -189,5 +234,7 @@ export const ui: UiTranslations = {
     'Ju jeni përgjegjës për përmbajtjen që publikoni, pyetjet që shkruani dhe çdo lojë që ofroni. Mos u imitoni si persona të tjerë.',
   'terms.billing.body':
     "Planet me pagesë rinovohen automatikisht derisa të anulohen nga Cilësimet. Mund t'i anuloni në çdo kohë; qasja vazhdon deri në fund të periudhës aktuale të faturimit.",
+  'terms.intro':
+    "Duke përdorur {{app}} ju pranoni rregullat më poshtë. Nëse nuk mund t'i pranoni ato, ju lutemi mos e përdorni shërbimin.",
   'terms.title': 'Kushtet e shërbimit',
 }

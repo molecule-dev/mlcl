@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մեր մասին',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'account.notifications.save': 'Պահպանել նախընտրությունները',
   'account.notifications.saved': 'Նախընտրությունները պահպանված են։',
   'account.notifications.saveFailed': 'Հնարավոր չէ պահպանել նախընտրությունները։',
@@ -12,7 +13,10 @@ export const ui: UiTranslations = {
     'Վճարում մեկ սեանսի համար • Թարմացրեք՝ ամրագրման զեղչեր ստանալու համար',
   'account.payments.helper':
     'Ձեր վճարման եղանակը կվերցվի վճարման ժամանակ։ Մենք երբեք չենք պահպանում քարտի ամբողջական համարները՝ Stripe-ը մշակում է քարտի բոլոր տվյալները։',
+  'account.payments.paidDescription': 'Բաժանորդագրությունն ակտիվ է — կառավարեք Stripe-ում։',
   'account.payments.planFree': 'Անվճար պլան',
+  'account.payments.title': 'Պլան և վճարում',
+  'account.payments.viewPlans': 'Դիտել {{appName}} պլանները →',
   'account.profile.title': 'Պրոֆիլ',
   'account.role.body':
     'Ցանկացած պահի կարող եք անցնել սովորողի և դասատուի ռեժիմների միջև։ Ձեր ակտիվ նիստերը կմնան անփոփոխ երկու ռեժիմներից էլ։',
@@ -25,6 +29,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Սովորեցրեք կավիճի վրա',
   'becomeTutor.form.error': 'Չհաջողվեց ներկայացնել դիմումը։',
+  'becomeTutor.form.pitch': 'Ձեր ներկայացումը (ըստ ցանկության)',
   'becomeTutor.form.pitchPlaceholder':
     'Մի քանի նախադասություն, որոնք ուսանողները կտեսնեն ձեր էջում։ Պահպանեք այն կոնկրետ և ջերմ։',
   'becomeTutor.form.rate': 'Ժամային վարձատրություն ($/ժամ): {{rate}}',
@@ -34,6 +39,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.title': 'Պատմեք մեզ ձեր մասին',
   'becomeTutor.headline':
     'Վաստակեք՝ անելով այն, ինչ սիրում եք։ Սովորեցրեք ձեր ժամանակացույցին համապատասխան։',
+  'becomeTutor.subhead':
+    'Դիմեք 5 րոպեում։ Հաստատվելուց հետո դուք կհայտնվեք որոնման արդյունքներում և կսկսեք դասեր ընդունել։',
+  'booking.duration.title': '3. Որքա՞ն ժամանակ',
   'booking.error.createFailed': 'Հնարավոր չէ ստեղծել ամրագրում։',
   'booking.error.loadFailed': 'Ուսուցիչը չհաջողվեց բեռնել՝ կրկին փորձեք։',
   'booking.error.noSlot': 'Նախ ընտրեք օր և ժամ։',
@@ -48,6 +56,7 @@ export const ui: UiTranslations = {
     'Սեանսները կարող են վերանշանակվել մինչև 12 ժամ առաջ։ Ձեր քարտից գումարը կգանձվի միայն սեանսի ավարտից հետո։',
   'booking.summary.assurance':
     'Մինչև սեանսի ավարտը վճար չկա • Մինչև 12 ժամ առաջ չեղարկումը անվճար է',
+  'booking.summary.back': '← Վերադառնալ դասախոսի պրոֆիլ',
   'booking.summary.cta': 'Հաստատեք ամրագրումը',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'Ընտրեք խաղային տարածք',
@@ -74,18 +83,27 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'Դաստիարակ',
   'bookingConfirm.subject': 'Թեմա',
   'bookingConfirm.title': 'Դուք պատվիրված եք։ Մնացածը մենք կհոգանք։',
+  'bookingConfirm.viewSessions': 'Դիտել բոլոր դասերը →',
   'bookingConfirm.with': 'Դաստիարակի հետ',
   'common.goToDashboard': 'Անցնել վահանակ',
+  'earningsHero.change': '{{sign}}{{percent}}% նախորդ ամսվա համեմատ',
   'earningsHero.eyebrow': 'Եկամուտներ • {{month}}',
+  'earningsHero.greeting': 'Բարի վերադարձ, {{name}} — պահպանեք թափը։',
   'forgotPassword.heading': 'Մոռացե՞լ եք գաղտնաբառը։',
   'forgotPassword.subheading':
     'Մուտքագրեք ձեր հաշվին կցված էլ․ հասցեն, և մենք կուղարկենք վերականգնման հղում։',
   'forgotPassword.success.body':
     'Մենք վերակայման հղում ուղարկեցինք հետևյալ հասցեին՝ {{email}} — այն լրանում է 30 րոպեից։',
   'heroSearchSection.eyebrow': '12,000+ ստուգված դասատուներ • 2018 թվականից ի վեր',
+  'heroSearchSection.headline': 'Այնտեղ, որտեղ հետաքրքրասեր մտքերը հանդիպում են ճիշտ դասախոսներին։',
+  'heroSearchSection.searchCta': 'Գտնել դասախոս',
+  'heroSearchSection.searchPlaceholder': 'Որոնեք առարկաներ, դասախոսներ կամ թեմաներ…',
   'heroSearchSection.stat.rating': 'Միջին սեսիայի գնահատական',
+  'heroSearchSection.stat.sessions': 'Անցկացված դասեր',
   'heroSearchSection.stat.subjects': 'Քննարկված թեմաներ',
   'heroSearchSection.stat.tutors': 'Հաստատված դասատուներ',
+  'heroSearchSection.subhead':
+    'Հաստատված դասախոսներ։ Հստակ գներ։ Դասեր, որոնք տեղավորվում են ձեր շաբաթվա մեջ։',
   'landing.featured.eyebrow': 'Ներկայացված դասատուներ',
   'landing.featured.headline':
     'Ձեռքով ընտրված, բարձր գնահատական ունենալով և պատրաստ այս շաբաթվա համար։',
@@ -93,8 +111,11 @@ export const ui: UiTranslations = {
   'landing.nav.becomeTutor': 'Սովորեցրեք կավիճի վրա',
   'landing.nav.findTutors': 'Գտեք դասատուներ',
   'landing.pillars.eyebrow': 'Ինչո՞ւ կավիճ',
+  'landing.pillars.headline': '{{tagline}} — առանց դժվարությունների։',
   'landing.testimonials.eyebrow': 'Վերջերս սովորողներից',
   'landing.testimonials.headline': 'Իրական արդյունքներ՝ իրենց խոսքերով։',
+  'landing.tutorCta.body':
+    'Սահմանեք ձեր սեփական գները, կառուցեք համբավ հաստատված ակնարկներով, իսկ մենք զբաղվում ենք ժամանակացույցով, վճարումներով և հիշեցումներով։',
   'landing.tutorCta.button': 'Դիմել դասավանդելու համար',
   'landing.tutorCta.eyebrow': 'Դարձեք դասատու',
   'landing.tutorCta.headline':
@@ -106,6 +127,7 @@ export const ui: UiTranslations = {
   'login.signup': 'Ստեղծել հաշիվ →',
   'login.subheading':
     'Շարունակեք այնտեղից, որտեղ կանգ առաք. ձեր դասընթացները, հաղորդագրությունները և դասախոսները սպասում են ձեզ։',
+  'login.support': 'Օգնություն պե՞տք է։',
   'messages.draftPlaceholder': 'Մուտքագրեք հաղորդագրություն…',
   'messages.empty.body':
     'Թեմաները կհայտնվեն այստեղ, երբ դուք հաղորդագրություն ուղարկեք դասախոսի կամ մեկ ուրիշի կողմից ձեզ։',
@@ -117,9 +139,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': 'Հաղորդագրություններ դեռ չկան։',
   'messages.selectThread': 'Ընտրեք ձախ կողմում գտնվող թեման։',
   'messages.send': 'Ուղարկել հաղորդագրություն',
+  'messages.startThreadHint':
+    'Այցելեք դասախոսի պրոֆիլ և սեղմեք «Հաղորդագրություն ուղարկել դասախոսին»՝ զրույց սկսելու համար։',
   'messages.thread.empty': 'Ասա բարև՝ սկսիր զրույցը։',
   'messages.title': 'Թեմաներ ձեր դասատուների հետ։',
   'nav.primary': 'Հիմնական',
+  'planUpdated.body':
+    'Ձեր վճարման փոփոխությունն այժմ ակտիվ է։ Դուք կարող եք ցանկացած պահի կառավարել ձեր պլանը վճարման էջից։',
+  'pricing.advancedFeatures': 'Ընդլայնված հնարավորություններ՝',
   'pricing.dataExport': 'Տվյալների արտահանում:',
   'pricing.headingDefault': 'Ընդլայնված հնարավորություններ՝',
   'resetPassword.heading': 'Ընտրեք նոր ուժեղ գաղտնաբառ։',
@@ -130,6 +157,7 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Վերագործարկումը հաջողությամբ ավարտվելուց հետո մենք ձեզ ավտոմատ կերպով կմուտքագրենք։',
   'resetPassword.submit': 'Վերագործարկեք և մուտք գործեք',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body': 'Փորձեք ընդլայնել թեմատիկ ֆիլտրը կամ թուլացնել վարկանիշի շեմը։',
   'search.empty.title': 'Դեռևս համապատասխան դասատուներ չկան։',
@@ -140,7 +168,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'Գնահատական',
   'search.filter.subject': 'Թեմա',
   'search.results.count': '{{count}} Դասախոսները համապատասխանում են ձեր ֆիլտրերին',
+  'search.results.fallback': 'Ցուցադրվում են ընտրված դեմո դասախոսներ',
   'search.results.loading': 'Դասախոսների բեռնում…',
+  'search.searchPlaceholder': 'Առարկա, անուն կամ թեմա…',
   'search.subtitle':
     'Զտել ըստ առարկայի, վարկանիշի և առկայության: Միայն հաստատված դասախոսների համար:',
   'search.title': 'Գտեք մի դասատու, որը սեղմում է',
@@ -173,18 +203,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'Դասընթացը սկսված է — հաճելի ուսուցում։',
   'sessionDetail.startError': 'Հնարավոր չէ սկսել նիստը։',
   'sessionDetail.subtitle': 'հետ {{name}} • {{when}} • {{mins}} րոպե',
+  'sessionDetail.timeline': 'Կարգավիճակի ժամանակացույց',
   'sessionDetail.timeline.afterEnd': 'Նիստի ավարտից հետո',
   'sessionDetail.timeline.auto': 'Ավտոմատ',
   'sessionDetail.timeline.booked': 'Ամրագրված է',
   'sessionDetail.timeline.confirmed': 'Հաստատված է',
   'sessionDetail.timeline.inSession': 'Նստաշրջանում',
   'sessionDetail.timeline.now': 'Հիմա',
+  'sessionDetail.timeline.receipt': 'Անդորրագիրը տրված է',
   'sessionDetail.timeline.review': 'Վերանայման հարց',
   'sessions.empty.body':
     'Զննեք Mentor-ը՝ դասատու գտնելու և տեղ ամրագրելու համար: Հաստատված դասընթացները ցուցադրվում են այստեղ:',
   'sessions.empty.title': 'Այստեղ դեռ ոչինչ նախատեսված չէ։',
   'sessions.error': 'Հնարավոր չէ բեռնել ձեր սեսիաները։ Խնդրում ենք կրկին փորձել։',
   'sessions.eyebrow': 'Ձեր սեսիաները',
+  'sessions.loading': 'Սեսիաները բեռնվում են…',
   'sessions.subtitle':
     'Հետևեք առաջիկա ամրագրումներին, մտեք ակտիվ նիստերի սենյակ և վերանայեք ավարտված դասերը։',
   'sessions.title': 'Յուրաքանչյուր դաս՝ մեկ տեղում։',
@@ -199,22 +232,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'Ստեղծել իմ {{role}} հաշիվ',
   'signup.subheading':
     'Ստեղծեք հաշիվ՝ դասընթացներ ամրագրելու, դասախոսներին հաղորդագրություններ ուղարկելու և ձեր առաջընթացը հետևելու համար։',
+  'signup.terms': 'Գրանցվելով՝ դուք համաձայնում եք մեր Պայմաններին։',
   'tutorCard.avatarAlt': 'Դիմանկար {{name}}',
   'tutorCard.perHour': '/ ժամ',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'Ամենաբարձր գնահատականով',
   'tutorCard.verified': 'Հաստատված դասատու',
+  'tutorDashboard.empty.body':
+    'Սահմանեք ձեր առարկաները, ժամային դրույքաչափը և հասանելիությունը — ապա սկսեք վաստակել։',
+  'tutorDashboard.empty.cta': 'Դառնալ դասախոս →',
   'tutorDashboard.empty.title': 'Դարձեք դասատու՝ ձեր վահանակը բացելու համար։',
   'tutorDashboard.fallbackName': 'Դաստիարակ',
   'tutorDashboard.loading': 'Բեռնվում է վահանակը…',
   'tutorDashboard.recentReviews': 'Վերջին ակնարկները',
   'tutorDashboard.reviewsEmpty':
     'Դուք դեռ որևէ կարծիք չունեք. դրանք կհայտնվեն այստեղ, երբ ուսանողները գնահատեն ձեզ։',
+  'tutorDashboard.stats.rating': 'Միջին գնահատական',
   'tutorDashboard.stats.sessions': 'Այս ամսվա նիստերը',
+  'tutorDashboard.stats.totalSessions': 'Ընդհանուր դասեր',
+  'tutorDashboard.studentFallback': 'Ուսանող',
   'tutorDashboard.tutoringFallback': 'Դասավանդման դասընթաց',
   'tutorDashboard.upcoming': 'Առաջիկա նիստերը',
   'tutorDashboard.upcomingEmpty':
     'Դեռևս առաջիկա դասընթացներ չկան. այստեղ կհայտնվեն ձեր տեղերը ամրագրած ուսանողները։',
+  'tutorProfile.availability': 'Հասանելիությունը այս շաբաթ',
   'tutorProfile.availabilityHeadline': 'Ընտրեք մեկնարկային տեղ',
   'tutorProfile.bookCta': 'Պատվիրեք հանդիպում',
   'tutorProfile.bookFull': 'Դիտել ամբողջական ժամանակացույցը',
@@ -227,6 +268,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / ժամ',
   'tutorProfile.reviews': 'Վերջին ակնարկները',
   'tutorProfile.reviews.empty': 'Դեռևս կարծիքներ չկան՝ եղեք առաջինը։',
+  'tutorProfile.stat.repeats': 'Կրկնվող ուսանողներ',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'Միջին պատասխան',
   'tutorProfile.stat.responseValue': '{{mins}} րոպե',

@@ -1,9 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടോ, അല്ലെങ്കിൽ {{appName}} നിങ്ങളുടെ മുഴുവൻ ടീമിനും വ്യാപിപ്പിക്കാൻ ആഗ്രഹിക്കുന്നുണ്ടോ? നിങ്ങളുടെ അക്കൗണ്ട് സെറ്റിംഗ്സിൽ നിന്ന് ഞങ്ങളെ ബന്ധപ്പെടുക — ഓരോ സന്ദേശവും ടീമിലെ ഒരു യഥാർത്ഥ വ്യക്തിയിലേക്ക് എത്തുന്നു.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.intro':
+    '{{appName}} ടീമുകൾക്കായി നിർമ്മിച്ച ഒരു സ്ക്രീൻ റെക്കോർഡിംഗ് പ്ലാറ്റ്ഫോമാണ് — മറ്റൊരു മീറ്റിംഗിൽ ഇരിക്കുന്നതിനേക്കാൾ ഒരു ക്ലിപ്പ് അയയ്ക്കാൻ ഇഷ്ടപ്പെടുന്നവർക്ക്. ഓഡിയോ, കമന്റുകൾ, ക്യാമറ എന്നിവയോടെ നിങ്ങളുടെ സ്ക്രീൻ ക്യാപ്ചർ ചെയ്യുക, ഒരു ലിങ്ക് പങ്കിടുക, ആളുകൾ എങ്ങനെ ഇടപെടുന്നുവെന്ന് കൃത്യമായി കാണുക — അങ്ങനെ ഡിസൈൻ റിവ്യൂകളും ബഗ് റിപ്പോർട്ടുകളും വാക്ക്ത്രൂകളും ഏതൊരു ലൈവ് കോളിനെക്കാളും ദൂരം സഞ്ചരിക്കും.',
+  'about.missionBody':
+    'റിമോട്ട് വർക്ക് പങ്കിട്ട സന്ദർഭത്തിൽ പ്രവർത്തിക്കുന്നു, അതിൽ ഭൂരിഭാഗവും കലണ്ടറുകളിലും കോൾ കുറിപ്പുകളിലും നഷ്ടപ്പെടുന്നു. ആ സന്ദർഭം എളുപ്പത്തിൽ ക്യാപ്ചർ ചെയ്യാനും വീണ്ടും കാണാനും എളുപ്പമാക്കാൻ {{appName}} നിലകൊള്ളുന്നു — നിങ്ങളുടെ ജോലി കാണിക്കാനും ഫീഡ്ബാക്ക് ശേഖരിക്കാനും എല്ലാവരെയും ഒരേ സമയ മേഖലയിൽ നിർബന്ധിക്കാതെ ഒരുമിച്ച് നിർത്താനുമുള്ള ഒരു അസിങ്ക്-ഫസ്റ്റ് മാർഗം.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.pageTitle': 'കുറിച്ച് {{appName}}',
+  'about.tagline': 'റിമോട്ട് ടീമുകൾക്കായുള്ള അസിങ്ക് സ്ക്രീൻ റെക്കോർഡിംഗുകൾ.',
   'analytics.empty': 'നിങ്ങളുടെ ആദ്യ ക്ലിപ്പ് റെക്കോർഡ് ചെയ്ത് വിവാഹനിശ്ചയം ഇവിടെ കാണുക.',
   'analytics.error.load': 'അനലിറ്റിക്സ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'analytics.error.shape': 'അനലിറ്റിക്സ് പേലോഡ് അപ്രതീക്ഷിതമായിരുന്നു.',
@@ -16,6 +24,7 @@ export const ui: UiTranslations = {
   'analytics.kpi.viewsToday': 'ഇന്നത്തെ കാഴ്‌ചകൾ',
   'analytics.loading': 'അനലിറ്റിക്സ് ലോഡ് ചെയ്യുന്നു…',
   'analytics.recent.empty': 'ഇതുവരെ കാഴ്ചക്കാരില്ല.',
+  'analytics.recent.title': 'സമീപകാല കാഴ്ചക്കാർ',
   'analytics.recent.watching': 'കണ്ടു {{title}} · {{percent}} %',
   'analytics.title': 'നിങ്ങളുടെ സ്ക്രീൻകാസ്റ്റുകൾ എങ്ങനെ സഞ്ചരിക്കുന്നു',
   'analytics.top.empty': 'ഇതുവരെ റെക്കോർഡിംഗുകളൊന്നുമില്ല.',
@@ -30,7 +39,10 @@ export const ui: UiTranslations = {
   'billing.priceMissing': 'ഈ കാലയളവിലേക്ക് സ്ട്രൈപ്പ് പ്രൈസ് ഐഡി കോൺഫിഗർ ചെയ്തിട്ടില്ല.',
   'billing.pricing.title': 'ലഭ്യമായ പ്ലാനുകൾ',
   'billing.tier.basic': 'അടിസ്ഥാന സവിശേഷതകൾ',
+  'billing.tier.exports': 'എക്സ്പോർട്ടുകൾ പ്രവർത്തനക്ഷമമാക്കി',
+  'billing.tier.maxRecordings': '{{count}} റെക്കോർഡിംഗുകൾ',
   'billing.tier.noExports': 'കയറ്റുമതികളൊന്നുമില്ല',
+  'billing.tier.retentionDays': '{{days}} ദിവസത്തെ റിട്ടൻഷൻ',
   'billing.tier.unlimitedRecordings': 'പരിധിയില്ലാത്ത റെക്കോർഡിംഗുകൾ',
   'billing.tier.unlimitedRetention': 'പരിധിയില്ലാത്ത നിലനിർത്തൽ',
   'billing.title': 'നിങ്ങളുടെ ഗ്ലിന്റ് പ്ലാൻ',
@@ -41,19 +53,33 @@ export const ui: UiTranslations = {
   'billing.usage.views': 'കാഴ്ചകൾ',
   'billing.usage.views.unit': 'കാഴ്ചകൾ',
   'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
+  'landing.cta.body':
+    'പരിധിയില്ലാത്ത 5 മിനിറ്റ് ക്ലിപ്പുകൾക്ക് സൗജന്യം. നിങ്ങളുടെ ടീം ഇഷ്ടപ്പെട്ടുകഴിഞ്ഞാൽ അപ്ഗ്രേഡ് ചെയ്യുക.',
+  'landing.cta.button': 'സൗജന്യമായി റെക്കോർഡിംഗ് ആരംഭിക്കൂ',
   'landing.cta.title': 'മികച്ച ഫീഡ്‌ബാക്ക് അയയ്ക്കൂ. ഗ്ലിന്റ് ഉപയോഗിച്ച് ആരംഭിക്കൂ.',
+  'landing.feature.analytics.body':
+    'ആരാണ് കണ്ടത്, എപ്പോൾ നിർത്തിയത്, എവിടെ വീണ്ടും കണ്ടത് എന്നിവ കാണുക.',
+  'landing.feature.analytics.title': 'ഇടപഴകൽ അനലിറ്റിക്സ്',
   'landing.feature.capture.body':
     'മൈക്ക്, ക്യാം, ഡ്രോയിംഗ് എന്നിവ ഉപയോഗിച്ച് ബ്രൗസർ, ഡെസ്ക്ടോപ്പ്, മൊബൈൽ റെക്കോർഡിംഗ്.',
   'landing.feature.capture.title': 'ഒറ്റ-ടാപ്പ് ക്യാപ്‌ചർ',
+  'landing.feature.comments.body':
+    'റിവ്യൂവർമാർ കൃത്യമായ ഫ്രെയിമുകളിൽ പിൻ ചെയ്ത ത്രെഡഡ് കമന്റുകൾ ഇടുന്നു.',
+  'landing.feature.comments.title': 'സമയ-കോഡ് ചെയ്ത കമന്റുകൾ',
   'landing.footer.copy': '© {{year}} {{appName}} . അസിൻക്, തിളക്കമുള്ളതാക്കി.',
   'landing.hero.cardCaption': 'സാമ്പിൾ വർക്ക്‌സ്‌പെയ്‌സ് അവലോകനം — സൗജന്യമായി പരീക്ഷിച്ചുനോക്കൂ.',
   'landing.hero.primaryCta': 'സൗജന്യമായി റെക്കോർഡിംഗ് ആരംഭിക്കൂ',
   'landing.hero.proof.free': 'സൗജന്യ ഫോറെവർ ടയർ',
   'landing.hero.proof.privacy': 'SOC 2 തയ്യാറാണ്',
   'landing.hero.secondaryCta': '60-കളിലെ ഒരു ഡെമോ കാണുക',
+  'landing.hero.subtitle':
+    '{{appName}} ഓഡിയോ, കമന്റുകൾ, കാഴ്ചക്കാർ വിശകലനം എന്നിവയോടെ അസിങ്ക് സ്ക്രീൻകാസ്റ്റുകൾ ക്യാപ്ചർ ചെയ്യുന്നു — അങ്ങനെ ഡിസൈൻ റിവ്യൂകളും ബഗ് റിപ്പോർട്ടുകളും വാക്ക്ത്രൂകളും ഏതൊരു മീറ്റിംഗിനെക്കാളും ദൂരം സഞ്ചരിക്കും.',
   'landing.hero.title': 'ഒരിക്കൽ റെക്കോർഡ് ചെയ്യൂ. എല്ലായിടത്തും പങ്കിടൂ. ആഘാതം കാണുക.',
   'landing.nav.preview': 'പ്രിവ്യൂ',
   'landing.preview.title': 'യഥാർത്ഥ ഗ്ലിന്റ് ക്ലിപ്പുകൾ പ്രവർത്തനത്തിൽ കാണുക',
+  'library.empty.body':
+    'നിങ്ങളുടെ ആദ്യ വാക്ക്ത്രൂ ക്യാപ്ചർ ചെയ്യുക — കലണ്ടർ ക്ഷണമില്ല എന്നത് നിങ്ങളുടെ ടീമിന് ഇഷ്ടമാകും.',
+  'library.empty.cta': 'നിങ്ങളുടെ ആദ്യ ക്ലിപ്പ് റെക്കോർഡ് ചെയ്യുക',
   'library.empty.filtered': 'ഈ ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്ന റെക്കോർഡിംഗുകളൊന്നുമില്ല.',
   'library.empty.title': 'ഇതുവരെ റെക്കോർഡിംഗുകളൊന്നുമില്ല',
   'library.error.load': 'റെക്കോർഡിംഗുകൾ ലോഡ് ചെയ്യാനായില്ല.',
@@ -61,6 +87,8 @@ export const ui: UiTranslations = {
   'library.heroStat.avgWatch': 'ശരാശരി വാച്ച്',
   'library.heroStat.recordings': 'റെക്കോർഡിംഗുകൾ',
   'library.heroStat.views': 'ആകെ കാഴ്‌ചകൾ',
+  'library.heroSubtitle':
+    'നിങ്ങളുടെ ടീമിലുടനീളം അസിങ്ക് സ്ക്രീൻകാസ്റ്റുകൾ ക്യാപ്ചർ ചെയ്യുക, പങ്കിടുക, അളക്കുക.',
   'library.heroTitle': '{{count}} റെക്കോർഡിംഗുകൾ, പങ്കിടാൻ തയ്യാറാണ്',
   'library.search.aria': 'റെക്കോർഡിംഗുകൾ തിരയുക',
   'library.searchPlaceholder': 'റെക്കോർഡിംഗുകൾ തിരയുക...',
@@ -75,6 +103,7 @@ export const ui: UiTranslations = {
     'പുതിയ അഭിപ്രായങ്ങൾ, കാഴ്ചകൾ, ക്ഷണങ്ങൾ എന്നിവ ഉണ്ടാകുമ്പോൾ ഇവിടെ എത്തിച്ചേരും.',
   'notifications.empty.title': 'നിങ്ങൾ എല്ലാം വായിച്ചു കഴിഞ്ഞു.',
   'notifications.open': 'തുറക്കുക',
+  'pricing.limits.advanced': 'വിപുലമായ സവിശേഷതകൾ',
   'profile.bio.empty':
     'നിങ്ങളുടെ വർക്ക്‌സ്‌പെയ്‌സിലേക്ക് നിങ്ങളെ പരിചയപ്പെടുത്താൻ ഒരു ബയോ ചേർക്കുക.',
   'profile.featured.empty':
@@ -87,8 +116,13 @@ export const ui: UiTranslations = {
   'profile.stat.public': 'പൊതു ക്ലിപ്പുകൾ',
   'profile.stat.recordings': 'റെക്കോർഡിംഗുകൾ',
   'profile.stat.views': 'ആകെ കാഴ്‌ചകൾ',
+  'publicShare.captionsLabel': 'അടിക്കുറിപ്പുകൾ',
+  'publicShare.cta.body':
+    '{{appName}}-ൽ പരിധിയില്ലാത്ത 5 മിനിറ്റ് ക്ലിപ്പുകൾക്ക് സൗജന്യം. കാർഡ് ആവശ്യമില്ല.',
+  'publicShare.cta.button': 'സൗജന്യമായി റെക്കോർഡിംഗ് ആരംഭിക്കൂ',
   'publicShare.cta.title': 'ഇതുപോലുള്ള ക്ലിപ്പുകൾ 30 സെക്കൻഡിനുള്ളിൽ റെക്കോർഡ് ചെയ്യുക',
   'publicShare.error': 'ഈ പങ്കിടൽ ലിങ്ക് ലഭ്യമല്ല.',
+  'publicShare.footer.copy': '© {{year}} {{appName}} . അസിൻക്, തിളക്കമുള്ളതാക്കി.',
   'publicShare.joinFree': 'ഗ്ലിന്റ് ഫ്രീ പരീക്ഷിച്ചു നോക്കൂ',
   'publicShare.loading': 'റെക്കോർഡിംഗ് ലോഡ് ചെയ്യുന്നു...',
   'publicShare.notFound': 'റെക്കോർഡിംഗ് കണ്ടെത്തിയില്ല.',
@@ -100,6 +134,8 @@ export const ui: UiTranslations = {
   'record.camBubbleInitial': 'യോ',
   'record.eyebrow': 'സ്റ്റുഡിയോ ക്യാപ്ചർ ചെയ്യുക',
   'record.field.titlePlaceholder': 'സ്പ്രിന്റ് ഡെമോ: കമന്റ് ടൈംലൈൻ',
+  'record.field.visibility': 'ദൃശ്യപരത',
+  'record.input.cam': 'ക്യാമറ',
   'record.input.camDevice': 'സിസ്റ്റം ഡിഫോൾട്ട് ക്യാമറ',
   'record.input.mic': 'മൈക്രോഫോൺ',
   'record.input.micDevice': 'സിസ്റ്റം ഡിഫോൾട്ട് മൈക്രോഫോൺ',
@@ -108,9 +144,11 @@ export const ui: UiTranslations = {
   'record.save.error': 'റെക്കോർഡിംഗ് സംരക്ഷിക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
   'record.source.camera': 'ക്യാമറ മാത്രം',
   'record.source.cameraBody': 'സ്‌ക്രീൻ ഇല്ലാതെ സംസാരിക്കുന്ന വീഡിയോ',
+  'record.source.screen': 'സ്ക്രീൻ മാത്രം',
   'record.source.screenBody': 'മുഴുവൻ ഡിസ്പ്ലേയും പകർത്തുക',
   'record.source.screenCamera': 'സ്ക്രീൻ + ക്യാമറ',
   'record.source.screenCameraBody': 'ഫ്ലോട്ടിംഗ് ക്യാമറ ബബിളുള്ള പൂർണ്ണ സ്‌ക്രീൻ',
+  'record.source.window': 'നിർദ്ദിഷ്ട വിൻഡോ',
   'record.source.windowBody': 'ക്യാപ്‌ചർ ചെയ്യാൻ ഒരു വിൻഡോ തിരഞ്ഞെടുക്കുക',
   'record.sources.title': 'ഉറവിടം',
   'record.subtitle':
@@ -128,6 +166,7 @@ export const ui: UiTranslations = {
   'recordingDetail.error': 'റെക്കോർഡിംഗ് ലോഡ് ചെയ്യാനായില്ല.',
   'recordingDetail.loading': 'റെക്കോർഡിംഗ് ലോഡ് ചെയ്യുന്നു...',
   'recordingDetail.noComments': 'ഇതുവരെ കമന്റുകളൊന്നുമില്ല — താഴെ സംഭാഷണം ആരംഭിക്കുക.',
+  'recordingDetail.noDescription': 'വിവരണം നൽകിയിട്ടില്ല.',
   'recordingDetail.notFound': 'റെക്കോർഡിംഗ് കണ്ടെത്തിയില്ല.',
   'recordingDetail.noVideo': 'റെക്കോർഡിംഗ് ഇപ്പോഴും അപ്‌ലോഡ് ചെയ്തുകൊണ്ടിരിക്കുന്നു.',
   'recordingDetail.play': 'റെക്കോർഡിംഗ് പ്ലേ ചെയ്യുക',
@@ -150,6 +189,7 @@ export const ui: UiTranslations = {
   'shared.title': 'നിങ്ങളുടെ ടീം നിങ്ങൾക്ക് അയച്ച ക്ലിപ്പുകൾ',
   'shareLink.copy': 'ലിങ്ക് പകർത്തുക',
   'shareLink.expiresAt': 'കാലഹരണപ്പെടുന്നു {{date}}',
+  'shareLink.noExpiry': 'ഒരിക്കലും കാലഹരണപ്പെടുന്നില്ല',
   'shareLink.option.private': 'സ്വകാര്യം',
   'shareLink.option.public': 'പൊതു',
   'shareLink.passwordOff': 'പാസ്‌വേഡ് ഇല്ല',
@@ -157,10 +197,12 @@ export const ui: UiTranslations = {
   'team.empty': 'ഇതുവരെ അംഗങ്ങളില്ല — ആരംഭിക്കാൻ മുകളിലുള്ള സഹതാരങ്ങളെ ക്ഷണിക്കുക.',
   'team.error.load': 'ടീം ലോഡ് ചെയ്യാനായില്ല.',
   'team.eyebrow': 'വർക്ക്‌സ്‌പെയ്‌സ് അംഗങ്ങൾ',
+  'team.invite.error': 'ക്ഷണം അയയ്ക്കാൻ പരാജയപ്പെട്ടു.',
   'team.invite.placeholder': 'teammate@yourcompany.com',
   'team.invite.success': 'ക്ഷണം അയച്ചു {{email}} .',
   'team.invite.title': 'ഒരു സഹതാരത്തെ ക്ഷണിക്കുക',
   'team.list.count': '{{count}} ആകെ',
+  'team.role.admin': 'അഡ്മിൻ',
   'team.stat.pending': 'തീർച്ചപ്പെടുത്താത്ത ക്ഷണങ്ങൾ',
   'team.title': 'നിങ്ങളുടെ ഗ്ലിന്റ് വർക്ക്‌സ്‌പെയ്‌സ്',
 }

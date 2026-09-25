@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uthole iphutha, noma ufuna ukuletha i-{{app}} esikoleni sakho noma eqenjini lakho? Sifunda yonke imilayezo — xhumana nathi kusuka kuzilungiselelo ze-akhawunti yakho futhi umuntu wangempela uzophendula.',
   'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.intro':
+    'I-{{app}} iyipulatifomu yemibuzo ebukhoma yamakilasi, ubusuku bemidlalo, kanye nemicimbi yamaqembu. Yakha amaphakethe emibuzo adlalekayo, usingathe imidlalo yesikhathi sangempela ngekhodi yokujoyina, futhi ubuke igumbi likhanya ngemibuzo enesikhathi, ukuklomelisa, kanye namabhodi abaholi.',
+  'about.missionBody':
+    'Ukufunda kuyagxila uma kuzwakala njengomdlalo. Senza kube lula kunoma ubani ukuguqula isihloko sibe umdlalo osheshayo, wokuncintisana — ukuze abasingathi bafundise ngokwenza futhi abadlali bahlale besemgqeni wokuphumelela.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'about.title': 'Mayelana ne-{{app}}',
   'auth.login.noAccount': 'Usanda kufika eSparq?',
   'auth.login.or': 'noma qhubeka no',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Akukho mibuzo efanayo okwamanje.',
   'discover.headline': 'Thola umbuzo wakho olandelayo owuthandayo.',
   'discover.loading': 'Iyalayisha…',
+  'discover.searchPlaceholder': 'Sesha imibuzo ngesihloko…',
   'discover.subhead':
     'Dlulisa amehlo kulabhulali ephelele, hlunga ngesigaba, noma sesha ngesihloko. Cindezela ikhadi ukuze udlale wedwa noma ubambe bukhoma.',
   'forgotPassword.subhead':
     'Faka i-imeyili yakho bese sizokuthumelela isixhumanisi sokusetha kabusha.',
   'forgotPassword.success.body':
     'Uma kukhona i-akhawunti ye- {{email}} , uzothola isixhumanisi sokusetha kabusha ngemizuzu embalwa.',
+  'forgotPassword.success.title': 'Hlola ibhokisi lakho lokungenayo.',
   'hostLobby.back': 'Buyela kumbuzo',
   'hostLobby.copied': 'Ikhodi yokujoyina ikopishwe ebhodini lokunamathisela.',
   'hostLobby.creating': 'Ukuthuthukisa indawo yakho yokwamukela izivakashi…',
@@ -30,19 +39,25 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Khansela indawo yokwamukela izivakashi',
   'hostLobby.players.count': '{{count}} bukhoma',
   'hostLobby.players.title': 'Abadlali endaweni yokwamukela izivakashi',
+  'hostLobby.players.waiting': 'Ilinde abadlali. Yabelana ngekhodi {{code}} ukuze bajoyine.',
   'hostLobby.rules.title': 'Imithetho yendlu',
   'hostLobby.startError': 'Ayikwazanga ukuqala umdlalo.',
   'hostLobby.starting': 'Ukuqala inhlansi…',
   'joinCodeHero.headline': 'Tshela abadlali bakho ukuthi bangene.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Noma vakashela',
   'joinCodeHero.liveLabel': 'I-Lobby bukhoma',
+  'joinCodeHero.playerJoined': 'U-{{name}} ujoyinile',
   'joinCodeHero.playersLabel': 'Abadlali',
   'joinCodeHero.qrLabel': 'Skena ukuze ujoyine',
   'joinCodeHero.startGame': 'Qala inhlansi',
   'joinCodeHero.subhead':
     'Yabelana ngekhodi yokujoyina noma uskene i-QR. Umdlalo uqala ngesikhathi uvula inhlansi.',
+  'landing.cta.button': 'Dala umbuzo wakho wokuqala',
   'landing.cta.eyebrow': 'Mahhala kothisha',
   'landing.cta.heading': 'Letha inhlansi kuzo zonke izifundo.',
+  'landing.cta.subhead':
+    'Bhalisa ngemizuzwana engu-30. Singatha imidlalo ebukhoma engenamkhawulo, bhala imibuzo nge-AI, futhi ugcine wonke umdlali esemgqeni wokuphumelela.',
   'landing.eyebrow': 'Vusa yonke impendulo',
   'landing.features.heading':
     'Isitudiyo semibuzo esifanelana nendlela ofundisa futhi udlala ngayo.',
@@ -58,6 +73,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Imibuzo ethandwayo',
   'landing.popular.eyebrow': 'Okudumile kuleli sonto',
   'landing.popular.heading': 'Ababungazi bemibuzo bayaqhubeka namuhla.',
+  'landing.popular.viewAll': 'Phequlula zonke izigaba →',
+  'leaderboard.empty.body':
+    'Dlala umbuzo ukuze ubeke amaphuzu akho ebhodini labaholi lomhlaba wonke.',
   'leaderboard.empty.title': 'Akukho midlalo ebhodini okwamanje — yiba ngowokuqala.',
   'leaderboard.eyebrow': 'Ibhodi yabaphambili',
   'leaderboard.fullRanking': 'Izinga eligcwele',
@@ -65,6 +83,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Hlanganisa amaphuzu kuyo yonke iseshini yemibuzo oyidlalile. Khuphuka ngokudlala okwengeziwe.',
   'leaderboard.title': 'Abaphathi bemibuzo abaphezulu',
+  'leaderboard.totalPlayers': 'Abadlali abakleliswe {{count}}',
   'leaderboardRow.points': 'amaphuzu',
   'leaderboardRow.streak': '{{days}} d',
   'login.headline': 'Siyakwamukela futhi, quizmaster.',
@@ -76,9 +95,11 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Yakha umbuzo wakho wokuqala →',
   'myQuizzes.empty.created': 'Awukakhi umbuzo okwamanje.',
   'myQuizzes.empty.played': 'Azikho izivivinyo ezishicilelwe okwamanje.',
+  'myQuizzes.loading': 'Iyalayisha…',
   'myQuizzes.subhead': 'Ama-draft owakhile, kanye nemibuzo eshicilelwe ongayidlala.',
   'myQuizzes.title': 'Imibuzo yami',
   'nav.legal': 'Ezomthetho',
+  'nav.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'notFound.backHome': 'Ekhaya',
   'notFound.backToDiscover': 'Phequlula imibuzo',
   'notFound.body': 'Zama ikhodi ehlukile noma ubuyele endaweni yokwamukela izivakashi.',
@@ -87,17 +108,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Iyalayisha…',
   'notifications.subhead':
     '{{count}} izinhlansi ezingakafundwa. Izimemo, ukunyakaza kwebhodi yabaphambili, kanye nempumelelo konke kumfudlana owodwa.',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
+  'pricing.advancedFeatures': 'Izici ezithuthukile: {{yes}}',
+  'pricing.canExport': 'Ukuthunyelwa kwedatha ngaphandle: {{yes}}',
   'pricing.checkoutError': 'Ayikwazanga ukuqala ukukhokha. Sicela uzame futhi.',
   'pricing.heading': 'Khetha uhlelo lwakho lwe-{{app}}',
   'pricing.included': 'Kufakiwe',
   'pricing.loadError': 'Ayikwazanga ukulayisha izinhlelo.',
+  'pricing.maxQuestions': '{{count}} imibuzo',
   'pricing.maxQuizzes': '{{count}} imibuzo',
+  'pricing.maxSessions': '{{count}} izikhathi',
   'pricing.subhead':
     'Kumahhala kubabungazi nabadlali. Thuthukisa ukuze uthole imikhawulo ephezulu nezici ezithuthukisiwe.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'I-akhawunti: i-imeyili, iphasiwedi esheshisiwe, igama lokubonisa, ukungena ngemvume kokugcina.',
+  'privacy.intro':
+    'I-{{app}} ihlonipha ubumfihlo bakho. Leli khasi lifingqa idatha esiyigcinayo, ukuthi kungani siyigcina, nokuthi siyisusa kanjani.',
   'privacy.rights.body':
     'Susa i-akhawunti yakho kuzilungiselelo ukuze ususe yonke idatha yakho unomphela zingakapheli izinsuku ezingu-30.',
   'privacy.share.body':
@@ -121,6 +152,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'I-id yombuzo: {{id}}',
   'quizBuilder.loadError': 'Ayikwazanga ukulayisha imibuzo.',
   'quizBuilder.loading': 'Ilayisha umhleli…',
+  'quizBuilder.markCorrect': 'Maka u-{{letter}} njengokulungile',
   'quizBuilder.noQuestions': 'Akunamibuzo okwamanje — engeza eyodwa ekuqaleni.',
   'quizBuilder.notFound': 'Umbuzo awutholakalanga.',
   'quizBuilder.preview': 'Buka',
@@ -137,7 +169,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} isibali sikhathi',
   'quizBuilder.title': 'Yakha umbuzo wakho',
   'quizBuilder.titleLabel': 'Isihloko sombuzo',
+  'quizBuilder.untitled': 'Umbuzo ongenasihloko',
   'quizCard.plays': '{{count}} imidlalo',
+  'quizCard.questionCount': 'Imibuzo engu-{{count}}',
   'quizDetail.duration': '~ {{minutes}} umzuzu',
   'quizDetail.hostMultiplayer': 'Bamba abadlali abaningi',
   'quizDetail.leaderboardEmpty': 'Akukho midlalo okwamanje — yiba ngowokuqala ukusetha amaphuzu.',
@@ -152,26 +186,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Buyela kumbuzo',
   'quizPlay.empty': 'Lo mbuzo awunayo imibuzo okwamanje.',
   'quizPlay.error': 'Ayikwazanga ukulayisha lo mbuzo. Sicela uzame futhi.',
+  'quizPlay.exit': 'Phuma',
   'quizPlay.feedback.correct': '🔥 I-Spark ithole — iya kokulandelayo!',
+  'quizPlay.feedback.incorrect': 'Impendulo ibingu-{{correct}}. Qhubeka.',
   'quizPlay.loading': 'Ilayisha umbuzo…',
   'quizPlay.next': 'Umbuzo olandelayo',
   'quizPlay.questionCounter': 'Umbuzo {{current}} kwe {{total}}',
   'quizPlay.score': '{{score}} amaphuzu',
+  'quizPlay.seeResults': 'Bona imiphumela',
   'quizPlay.sessionFailed': 'Ayikwazanga ukuqala iseshini.',
   'quizPlay.streak': '{{count}} umugqa',
+  'resetPassword.subhead': 'Khetha iphasiwedi entsha ukuze ubuyele ekulandelaneni kwakho.',
   'results.backToDiscover': 'Buyela ku-Discover',
   'results.error': 'Ayikwazanga ukulayisha imiphumela.',
   'results.exit': 'Buyela ku-Discover',
   'results.loading': 'Ukubala amaphuzu akho…',
   'results.missingSession': 'Akukho seshini yokufingqa.',
+  'results.recap.correctAnswer': 'Okulungile: {{answer}}',
   'results.recap.questionLabel': 'Umbuzo {{number}}',
   'results.recap.title': 'Isifinyezo sombuzo',
+  'results.recap.yourAnswer': 'Wena: {{answer}}',
   'results.unknownQuiz': 'Imibuzo',
   'scoreBreakdownCard.accuracyLabel': 'Ukunemba',
+  'scoreBreakdownCard.correctLabel': 'Kulungile',
   'scoreBreakdownCard.eyebrow': 'Imibuzo Iqediwe',
   'scoreBreakdownCard.headline': 'Umsebenzi omuhle " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Amaphuzu',
   'scoreBreakdownCard.rankLabel': 'Izinga',
+  'scoreBreakdownCard.streakBonus': 'Ibhonasi yomgqa +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Inhlansi yakho iyabonakala. Buyekeza ukuhlukaniswa ngezansi ukuze uqhubeke ukhuphuka ebhodini labaholi.',
   'settings.danger.body':
     'Susa unomphela i-akhawunti yakho ye-Sparq kanye nayo yonke imibuzo edalwe.',
   'settings.danger.confirm': 'Yebo, susa unomphela',
@@ -190,5 +234,7 @@ export const ui: UiTranslations = {
     'Unesibopho ngokuqukethwe okushicilelayo, imibuzo oyibhalayo, nanoma yimiphi imidlalo oyisingathayo. Ungazenzi abanye abantu.',
   'terms.billing.body':
     'Izinhlelo ezikhokhelwayo zivuselelwa ngokuzenzakalelayo kuze kube yilapho zikhanselwa kuzilungiselelo. Ungakhansela nganoma yisiphi isikhathi; ukufinyelela kuyaqhubeka kuze kube sekupheleni kwesikhathi samanje sokukhokha.',
+  'terms.intro':
+    'Ngokusebenzisa i-{{app}} uyavuma imithetho engezansi. Uma ungakwazi ukuyamukela, sicela ungasebenzisi le sevisi.',
   'terms.title': 'Imigomo yesevisi',
 }

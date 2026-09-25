@@ -3,8 +3,12 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.missionBody':
+    'வாடகை சொத்தை நிர்வகிப்பது குழப்பமாக அல்ல, ஒழுங்காக இருக்க வேண்டும் என்று நாங்கள் நம்புகிறோம். பெரும்பாலான மேலாளர்கள் விரிதாள்கள், மின்னஞ்சல் தொடர்கள், சில தனித்தனி கருவிகளை ஒன்றிணைத்து வேலை செய்கிறார்கள். ஒவ்வொரு யூனிட், குத்தகை, பணம் செலுத்துதல் ஆகியவை நீங்கள் எதிர்பார்க்கும் இடத்தில் சரியாக இருக்கும் ஒரே நம்பகமான அமைப்பால் அதை மாற்றுவதே எங்கள் நோக்கம்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.tagline': 'அனைத்துப் பிரிவுகளும் ஒரே கூரையின் கீழ்.',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
+  'common.loadFailed': 'உங்கள் தரவை ஏற்றுவதில் சிக்கல் ஏற்பட்டது. மீண்டும் முயற்சிக்கவும்.',
   'dashboard.addProperty': 'சொத்தை சேர்க்கவும்',
   'dashboard.empty.body':
     'உங்களிடம் சொத்துக்கள், குடியிருப்புகள் மற்றும் வாடகைக் கட்டணங்கள் கிடைத்தவுடன், இந்த டாஷ்போர்டு உங்கள் முதலீட்டுத் தொகுப்பு குறித்த நுண்ணறிவுகளால் நிரம்பிவிடும்.',
@@ -16,19 +20,28 @@ export const ui: UiTranslations = {
   'finances.empty':
     'தற்போது செயலில் உள்ள குத்தகைகள் எதுவும் இல்லை — உங்களிடம் குத்தகைகளும் வாடகைக் கொடுப்பனவுகளும் வந்தவுடன் வாடகைப் பட்டியல் இங்கே தோன்றும்.',
   'finances.exportLocked': 'CSV ஏற்றுமதிக்கு புரோ திட்டம் தேவைப்படுகிறது.',
+  'finances.heading': 'நிதிகள்',
+  'finances.outstandingSublabel': 'நிலுவையில் + தாமதமானவை முழுவதும்',
   'finances.overdueSublabel': '{{count}} தாமதமாக நிலுவைகள்',
   'finances.rentRollHeading': 'வாடகை பட்டியல்',
   'finances.subheading':
     'முழு நிறுவனத் தொகுப்புக்குமான வாடகைப் பட்டியல், நிலுவைகள் மற்றும் சரிபார்ப்பு.',
   'finances.unitLabel': 'அலகு {{unit}}',
+  'forgotPassword.backToLogin': '➡ உள்நுழைவிற்குத் திரும்பு',
   'forgotPassword.emailLabel': 'மின்னஞ்சல் முகவரி',
+  'forgotPassword.sent': 'மீட்டமைப்பு இணைப்புக்கு {{email}} ஐப் பார்க்கவும்.',
   'forgotPassword.subheading':
     'உங்கள் மின்னஞ்சலை உள்ளிடவும், நாங்கள் உங்களுக்கு மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
+  'forgotPassword.submitting': 'அனுப்புகிறது…',
+  'landing.copyright': '© {{year}} {{app}}. ஒவ்வொரு யூனிட்டும், ஒரே கூரையின் கீழ்.',
   'landing.ctaBody':
     '30 நாட்களுக்கு இலவசம், கிரெடிட் கார்டு தேவையில்லை. உங்களுடைய தற்போதைய வாடகைப் பாக்கியை நிமிடங்களில் மாற்றிக்கொள்ளுங்கள்.',
   'landing.ctaHeading': 'உங்கள் போர்ட்ஃபோலியோவை ஒரே இடத்தில் கொண்டு வாருங்கள்',
   'landing.eyebrow': 'வீட்டு உரிமையாளர்கள் மற்றும் சொத்து மேலாளர்களுக்கு',
   'landing.featuresHeading': 'உங்கள் நேரத்தை மதிக்கும் சொத்து மேலாண்மை',
+  'landing.heroSubtitle':
+    '{{appName}} உங்கள் போர்ட்ஃபோலியோவை ஒழுங்காக வைத்திருக்கிறது — யூனிட்கள், குத்தகைகள், வாடகை வசூல், பராமரிப்பு அனைத்தும் ஒரே அமைதியான இடத்தில்.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleKpi.eyebrow': 'நேரடி போர்ட்ஃபோலியோ கண்ணோட்டம்',
   'leases.addLease': 'புதிய குத்தகை',
   'leases.daysRemaining': '{{days}} மீதமுள்ள நாட்கள்',
@@ -51,11 +64,13 @@ export const ui: UiTranslations = {
   'leases.subheading':
     'செயலில் உள்ள குத்தகைகளின் {{count}} · விரைவில் {{expiring}} · {{monthly}} மொத்தம்',
   'login.emailLabel': 'மின்னஞ்சல் முகவரி',
+  'login.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'login.noAccount': 'ஹார்த்ஸ்டோனுக்குப் புதியவரா?',
   'login.passwordPlaceholder':
     '• • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •',
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'login.submitting': 'உள்நுழைதல்',
+  'maintenance.columnEmpty': 'இன்னும் இங்கே எதுவும் இல்லை.',
   'maintenance.empty.body':
     'குத்தகைதாரரின் பழுதுபார்ப்பு கோரிக்கைகளையும் சேவை வழங்குநர் ஒதுக்கீடுகளையும் இங்கே கண்காணிக்கவும்.',
   'maintenance.empty.cta': 'பணி ஆணையை உருவாக்கு',
@@ -85,13 +100,15 @@ export const ui: UiTranslations = {
   'maintenanceDetail.commentsHeading': 'புதுப்பிப்பைச் சேர்க்கவும்',
   'maintenanceDetail.markComplete': 'மார்க் நிறைவு',
   'maintenanceDetail.notFound': 'பணி ஆணை காணப்படவில்லை',
+  'maintenanceDetail.notFoundBody':
+    'அது நீக்கப்பட்டிருக்கலாம், அல்லது இணைப்பு தவறாக இருக்கலாம். உங்கள் பணி ஆணைகளுக்குத் திரும்பவும்.',
   'maintenanceDetail.noUpdates':
     'இன்னும் புதுப்பிப்புகள் இல்லை — முதல் புதுப்பிப்பை கீழே பதிவிடவும்.',
   'maintenanceDetail.postUpdate': 'பதிவு புதுப்பிப்பு',
   'maintenanceDetail.timelineHeading': 'புதுப்பிப்புகள்',
   'maintenanceDetail.unit': 'அலகு {{unit}}',
   'maintenanceQueueList.empty': 'நிலுவையில் உள்ள பராமரிப்புக் கோரிக்கைகள் எதுவும் இல்லை.',
-  'maintenanceQueueList.meta': '{{property}} · அலகு {{அலகு}} · {{தேதி}}',
+  'maintenanceQueueList.meta': '{{property}} · யூனிட் {{unit}} · {{date}}',
   'maintenanceQueueList.subtitle':
     '{{count}} முன்னுரிமை வரிசைப்படி, நிலுவையில் உள்ள பணிக் கட்டளைகள்',
   'maintenanceQueueList.title': 'பராமரிப்பு வரிசை',
@@ -105,6 +122,9 @@ export const ui: UiTranslations = {
   'notifications.empty.title': 'நீங்கள் அனைத்தையும் தெரிந்துகொண்டீர்கள்',
   'notifications.subheading':
     '{{count}} படிக்கப்படாதவை · உங்கள் போர்ட்ஃபோலியோ முழுவதும் உள்ள செயல்பாடு',
+  'portfolioHeroCard.change': 'கடந்த மாதத்துடன் ஒப்பிடும்போது {{sign}}{{amount}}',
+  'portfolioHeroCard.subtitle':
+    'ஒவ்வொரு கட்டிடம், ஒவ்வொரு யூனிட் முழுவதும் வாடகைப் பட்டியல். தொடர்ந்து புதுப்பிக்கப்படுகிறது.',
   'portfolioHeroCard.title': 'இந்த மாதம் வசூலிக்கப்பட்ட மொத்த வாடகை',
   'pricing.leases': 'குத்தகைகள்',
   'pricing.maintenance': 'பராமரிப்பு',
@@ -113,24 +133,33 @@ export const ui: UiTranslations = {
   'pricing.tenants': 'குத்தகைதாரர்கள்',
   'pricing.units': 'அலகுகள்',
   'properties.addProperty': 'சொத்தை சேர்க்கவும்',
+  'properties.empty.body':
+    'தேடலை அழிக்க முயற்சிக்கவும் அல்லது வேறு வடிகட்டியைத் தேர்ந்தெடுக்கவும்.',
+  'properties.empty.first.body':
+    'யூனிட்கள், குத்தகைகள், வாடகை ஆகியவற்றைக் கண்காணிக்க உங்கள் முதல் கட்டிடத்தைச் சேர்க்கவும்.',
   'properties.empty.first.cta': 'சொத்தை சேர்க்கவும்',
   'properties.empty.first.title': 'இன்னும் சொத்துக்கள் இல்லை',
   'properties.empty.title': 'அந்த வடிகட்டிகளுடன் எந்தப் பண்புகளும் பொருந்தவில்லை.',
   'properties.heading': 'பொருட்கள்',
+  'properties.new.address': 'தெரு முகவரி',
   'properties.new.addressPlaceholder': '142 லிண்டன் அவென்யூ, புரூக்ளின் NY',
   'properties.new.back': 'சொத்துக்களுக்குத் திரும்பு',
   'properties.new.error.name': 'சொத்தின் பெயர் தேவை',
   'properties.new.heading': 'ஒரு சொத்தை சேர்க்கவும்',
+  'properties.new.name': 'சொத்தின் பெயர்',
   'properties.new.namePlaceholder': 'எ.கா. ஹார்த்ஸ்டோன் கோர்ட்',
   'properties.new.subheading':
     'இப்போது அடிப்படைகளைச் சேர்க்கவும் — சொத்துப் பக்கத்திலிருந்து நீங்கள் குடியிருப்புகள், குத்தகைகள் மற்றும் வாடகைதாரர்களைச் சேர்க்கலாம்.',
   'properties.new.submit': 'சொத்தை உருவாக்கு',
+  'properties.new.unitCount': 'மொத்த அலகுகள்',
   'properties.searchPlaceholder': 'பெயர் அல்லது முகவரி மூலம் தேடவும்',
   'properties.subheading': '{{count}} கட்டிடங்கள் · {{units}} அலகுகள் · {{pct}} % ஆக்கிரமிப்பு',
   'propertyDetail.backToList': 'சொத்துக்களுக்குத் திரும்பு',
   'propertyDetail.breadcrumbProperties': 'பொருட்கள்',
   'propertyDetail.noAddress': 'பதிவில் தெரு முகவரி இல்லை',
   'propertyDetail.notFound': 'சொத்து காணப்படவில்லை',
+  'propertyDetail.notFoundBody':
+    'அது நீக்கப்பட்டிருக்கலாம், அல்லது இணைப்பு தவறாக இருக்கலாம். உங்கள் போர்ட்ஃபோலியோவுக்குத் திரும்பவும்.',
   'propertyDetail.unitsEmpty': 'இந்தச் சொத்தில் இன்னும் குடியிருப்புகள் எதுவும் இல்லை.',
   'propertyDetail.unitsHeading': 'அலகுகள்',
   'propertyListCard.monthlyRevenue': 'மாதாந்திர வருவாய்',
@@ -145,10 +174,14 @@ export const ui: UiTranslations = {
   'reports.subheading': 'கடந்த 12 மாதங்கள் · அனைத்து சொத்துக்கள் · அமெரிக்க டாலர்',
   'reports.unitsLabel': '{{count}} அலகுகள்',
   'resetPassword.backToLogin': '➡ உள்நுழைவிற்குத் திரும்பு',
+  'resetPassword.confirmPasswordPlaceholder': 'கடவுச்சொல்லை மீண்டும் செய்யவும்',
+  'resetPassword.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
+  'resetPassword.mismatch': 'கடவுச்சொற்கள் பொருந்தவில்லை.',
   'resetPassword.passwordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'resetPassword.subheading':
     'வேறு எங்கும் நீங்கள் பயன்படுத்தாத, வலிமையான கடவுச்சொல்லைத் தேர்ந்தெடுங்கள்.',
+  'resetPassword.submitting': 'மீட்டமைத்தல்',
   'settings.language.title': 'மொழி',
   'settings.subheading':
     'உங்கள் போர்ட்ஃபோலியோ, உங்கள் குழு மற்றும் உங்கள் டெனன்ட்களுக்காக ஹார்த்ஸ்டோனை உள்ளமைக்கவும்.',
@@ -156,23 +189,30 @@ export const ui: UiTranslations = {
   'signup.confirmPasswordPlaceholder': 'கடவுச்சொல்லை மீண்டும் செய்யவும்',
   'signup.emailLabel': 'மின்னஞ்சல் முகவரி',
   'signup.firstNamePlaceholder': 'ஏவரி',
+  'signup.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'signup.lastNamePlaceholder': 'சாண்டர்ஸ்',
+  'signup.mismatch': 'கடவுச்சொற்கள் பொருந்தவில்லை.',
   'signup.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'signup.submitting': 'கணக்கை உருவாக்குதல்',
   'tenantDetail.backToList': 'குத்தகைதாரர்களிடம் திரும்பு',
   'tenantDetail.breadcrumb': 'குத்தகைதாரர்கள்',
   'tenantDetail.contactHeading': 'தொடர்பு',
   'tenantDetail.notFound': 'வாடகைதாரர் காணப்படவில்லை',
+  'tenantDetail.notFoundBody':
+    'அவை நீக்கப்பட்டிருக்கலாம், அல்லது இணைப்பு தவறாக இருக்கலாம். உங்கள் வாடகைதாரர்களுக்குத் திரும்பவும்.',
   'tenantDetail.paymentsEmpty': 'இன்னும் பணம் செலுத்தப்படவில்லை.',
   'tenantDetail.paymentsHeading': 'பணம் செலுத்திய வரலாறு',
   'tenants.addTenant': 'குத்தகைதாரரைச் சேர்க்கவும்',
+  'tenants.balanceDue': '{{amount}} நிலுவைத் தொகை',
   'tenants.cardLocation': '{{property}} · அலகு {{unit}}',
   'tenants.empty.body':
     'குத்தகை மற்றும் வாடகையைக் கண்காணிக்கத் தொடங்க, உங்கள் முதல் குத்தகைதாரரைச் சேர்க்கவும்.',
   'tenants.empty.cta': 'குத்தகைதாரரைச் சேர்க்கவும்',
   'tenants.empty.search': 'அந்தத் தேடலுக்குப் பொருந்தக்கூடிய வாடகைதாரர்கள் யாரும் இல்லை.',
+  'tenants.empty.searchBody': 'வேறு தேடல் சொல்லைப் பயன்படுத்திப் பாருங்கள்.',
   'tenants.empty.title': 'இன்னும் வாடகைதாரர்கள் இல்லை',
   'tenants.heading': 'குத்தகைதாரர்கள்',
+  'tenants.leaseEnds': 'குத்தகை {{date}} அன்று முடிகிறது',
   'tenants.new.back': 'குத்தகைதாரர்களிடம் திரும்பு',
   'tenants.new.error.required': 'பெயர் மற்றும் மின்னஞ்சல் முகவரி தேவை.',
   'tenants.new.heading': 'ஒரு குத்தகைதாரரைச் சேர்க்கவும்',
@@ -182,6 +222,7 @@ export const ui: UiTranslations = {
   'tenants.new.property': 'சொத்து (விருப்பத்திற்குரியது)',
   'tenants.new.submit': 'டெனன்ட்டை உருவாக்கு',
   'tenants.new.unit': 'அலகு (விருப்பத்திற்குரியது)',
+  'tenants.noLease': 'செயலில் உள்ள குத்தகை இல்லை',
   'tenants.searchPlaceholder': 'குத்தகைதாரர்களைத் தேடுங்கள்…',
   'tenants.subheading': '{{count}} உங்கள் போர்ட்ஃபோலியோ முழுவதும் செயலில் உள்ள டெனன்ட்கள்',
 }

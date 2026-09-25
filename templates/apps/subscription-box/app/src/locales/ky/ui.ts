@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Басылма, жеткирүү же жазылууңуз боюнча суроолоруңуз барбы? Командадагы чыныгы адамга hello@crate.example дареги аркылуу кайрылыңыз — биз ар бир билдирүүнү окуйбуз.',
+  'about.contactTitle': 'Куратор менен сүйлөшүңүз',
+  'about.feature1':
+    'Көз карандысыз чеберлер тандап алган ай сайынкы курама басылмалар, ар бир буюмдун артындагы окуя менен.',
+  'about.feature2':
+    'Ар бир кутуга толук көзөмөл — мазмунун ыңгайлаштырыңыз, буюмдарды алмаштырыңыз же алып салыңыз, бир айды өткөрүп жибериңиз же жыштыгыңызды өзгөртүңүз.',
+  'about.feature3':
+    'Алып кетүүдөн босогоңузга чейинки толук көзөмөл, пластиксиз таңгак жана ташуучунун жаңы маалыматы менен.',
+  'about.feature4':
+    'Ийкемдүү пландар жана ачык эсептешүү — каалаган убакта жаңыртыңыз, төмөндөтүңүз, тыныгууга коюңуз же жокко чыгарыңыз.',
+  'about.intro':
+    '{{app}} — бул ай сайын эшигиңизге кол менен тандалган, чакан партиядагы кубаныч кутусун жеткирүүчү курама жазылуу кызматы. Ар бир басылма иштеп жаткан чеберлер — көз карандысыз сүрөтчүлөр, ашпозчулар жана чакан бренддер — тарабынан чогултулат, алгоритм тарабынан эмес.',
+  'about.missionBody':
+    'Биздин оюбузча, жазылуу тузак эмес, белек сыяктуу сезилиши керек. {{app}} келген нерсеңизди жактырганыңыз үчүн калууңуз үчүн курулган — каалаган убакта тыныгууга коюңуз, каалаганыңызды алмаштырыңыз жана бир басуу менен жокко чыгарыңыз. Эч качан кармоо сценарийлери жок.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'about.pageTitle': '{{app}} жөнүндө',
   'appNav.mobileLabel': 'Негизги навигация',
   'appNav.primaryLabel': 'Негизги навигация',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Эсеп-кысап байланышын түзөтүү',
   'billing.contact.eyebrow': 'Эсеп-кысап байланышы',
   'billing.eyebrow': 'План жана төлөмдөр',
+  'billing.loading': 'Эсеп-фактура жүктөлүүдө…',
   'billing.payment.body':
     'Төлөм Stripe Checkout тарабынан жүргүзүлөт — картаңыздын толук номери биздин серверлерге эч качан тийбейт. Картаңызды кошуу же жаңыртуу үчүн төмөндөгү каалаган деңгээлди басыңыз.',
   'billing.payment.linked': 'Карта Stripe аркылуу файлда',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Жазылууну улантуу',
   'billing.plan.eyebrow': 'Активдүү план',
   'billing.plan.next': 'Автоматтык түрдө жаңыртылат {{date}} .',
+  'billing.plan.status': 'Абалы: {{status}}',
   'billing.subtitle':
     'Деңгээлиңизди, төлөм ыкмаңызды башкарыңыз жана мурунку иш-аракеттериңизди карап чыгыңыз.',
   'billing.tiers.body': 'Деңгээлди тандаңыз, биз сизди Stripe Checkout сайтына багыттайбыз.',
   'billing.tiers.choose': 'Тандоо',
+  'billing.tiers.empty': 'Азырынча деңгээлдер жөндөлгөн эмес.',
   'billing.tiers.heading': 'Жеткиликтүү деңгээлдер',
   'boxDetail.backToBoxes': 'Бардык басылмаларга кайтуу',
   'boxDetail.crumb.boxes': 'Басылмалар',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Тандалган чыгарма',
   'boxDetail.items.heading': '{{count}} тандалган бөлүктөрү',
   'boxDetail.itemsBadge': '{{count}} ар бир кутуга тандалган буюмдар',
+  'boxDetail.loading': 'Басылма жүктөлүүдө…',
   'boxDetail.notFound': 'Ал басылышы мындан ары жеткиликтүү эмес.',
   'boxDetail.subscribe.success': 'Жазылдыңыз — биринчи басылышыңыз кезекке коюлду.',
   'boxDetail.swapBadge': 'Алмаштыруу {{count}} ар бир кутудагы буюм(тар)',
@@ -44,14 +64,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Бир дагы басылма дал келген жок.',
   'boxes.eyebrow': 'Crate архиви',
   'boxes.heading': 'Ар бир чыгарылышты карап чыгыңыз',
+  'boxes.loadError': 'Басылмаларды жүктөй албадык. Байланышыңызды текшерип, кайра аракет кылыңыз.',
   'boxes.loading': 'Басылмалар жүктөлүүдө…',
+  'boxes.search.label': 'Басылмаларды издөө',
   'boxes.search.placeholder': 'Басылмаларды издөө…',
   'boxes.subtitle':
     'Ар бир деңгээл чакан сериядагы аңгемеден турат. Кезегиңизге бирөөнү кошуңуз же кийинки айга которуңуз.',
+  'boxThemeCard.itemCount': '{{count}} буюмдар',
   'boxThemeCard.perMonth': '/ ай',
+  'boxThemeCard.retailValue': 'Чекене баасы {{value}}',
   'common.goToDashboard': 'Башкы бетке өтүү',
+  'common.retry': 'Кайра аракет',
   'customize.eyebrow': 'Аны өзүңүзгө ылайыкташтырыңыз',
   'customize.heading': 'Кийинки казынаңызды ыңгайлаштырыңыз',
+  'customize.items.empty': 'Бул деңгээл үчүн азырынча буюмдар жөндөлгөн эмес.',
   'customize.items.exclude': 'Муну өткөрүп жиберүү',
   'customize.items.eyebrow': 'Бул кутучаны жекелештирүү',
   'customize.items.heading': 'Төмөнкү буюмдар {{box}}',
@@ -60,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Кайра кошуу',
   'customize.items.save': 'Ыңгайлаштырууну сактоо',
   'customize.items.swapsLeft': '{{used}} ...нын {{max}} колдонулган алмаштыруулар',
+  'customize.loading': 'Ыңгайлаштыруу жүктөлүүдө…',
   'customize.noSub.body':
     'Алгач деңгээлге жазылыңыз, андан кийин кутучаңыздагы нерселерди алмаштыруу үчүн кайтып келиңиз.',
+  'customize.noSub.cta': 'Басылмаларды кароо',
   'customize.noSub.heading': 'Активдүү жазылуу жок',
   'customize.saved': 'Ыңгайлаштыруу сакталды.',
   'customize.subtitle':
@@ -75,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Жөнөтүүнү көзөмөлдөө',
   'dashboard.eyebrow': 'Сиздин казынаңыз',
   'dashboard.greeting': 'Кайра кош келиңиз, {{name}} .',
+  'dashboard.loadError':
+    'Башкаруу панелиңизди жүктөй албадык. Байланышыңызды текшерип, кайра аракет кылыңыз.',
   'dashboard.loading': 'Башкаруу панели жүктөлүүдө…',
   'dashboard.next.eyebrow': 'Кийинки чыгарылышыңыз',
   'dashboard.onboarding.body':
     'Сизде азырынча активдүү жазылуу жок. Ай сайын Crate жөнөтө баштоо үчүн деңгээлди тандаңыз.',
   'dashboard.onboarding.cta': 'Бардык басылмаларды карап чыгуу',
+  'dashboard.onboarding.empty': 'Азыркы учурда пландар жок. Жакында кайра текшериңиз.',
   'dashboard.onboarding.heading': 'Биринчи басылышыңызды тандаңыз',
   'dashboard.renewal.amount': 'Заряддалган',
   'dashboard.renewal.cadence': 'Каденс',
@@ -87,12 +118,15 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Жаңыртуу',
   'dashboard.renewal.heading': 'Автоматтык түрдө жаңыртуу күйүк {{date}}',
   'dashboard.renewal.plan': 'Пландын ачкычы',
+  'dashboard.renewal.tbd': 'Жаңылоо графиги жакында',
   'dashboard.renewal.tier': 'Деңгээл',
   'dashboard.stats.days': 'күндөр',
   'dashboard.stats.daysToNext': 'Жеткирүү мөөнөтү',
   'dashboard.stats.items': 'Тандалган нерселер',
   'dashboard.stats.shipDate': 'Жөнөтүү күнү',
   'dashboard.stats.tbd': 'Маалыматтар такталды',
+  'dashboard.subtitle.active': 'Кийинки басылмаңыз жолдо. Эмнени күтүү керектиги мында.',
+  'dashboard.subtitle.idle': 'Ай сайын {{appName}} жөнөтүүнү баштоо үчүн деңгээлди тандаңыз.',
   'forgotPassword.subtitle':
     'Электрондук почтаңызды айтыңыз, биз баштапкы абалга келтирүү шилтемесин жөнөтөбүз.',
   'forgotPassword.success.body':
@@ -100,6 +134,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Келген каттар кутучаңызды текшериңиз.',
   'landing.editions.eyebrow': 'Бул сезондо',
   'landing.editions.heading': 'Биздин кураторлорубуз жакшы көргөн басылмалар',
+  'landing.editions.viewAll': 'Бардык басылмаларды кароо →',
   'landing.footer.contact': 'Куратор менен сүйлөшүңүз',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Кутучаңызды баштаңыз →',
@@ -109,6 +144,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Мүчөлөрдүн башкаруу панелине көз чаптыруу — артка саноо, мазмун жана көзөмөлдөө.',
   'landing.hero.social.count': 'Сүйүктүү {{count}} + жазылуучулар',
+  'landing.hero.social.rating': '{{rating}} орточо ачуу рейтинги',
+  'landing.hero.subhead':
+    '{{appName}} сизге көз карандысыз чеберлерден кол менен тандалган, чакан партиядагы кубаныч кутусун жөнөтөт. Каалаган убакта тыныгууга коюңуз. Каалаганыңызды алмаштырыңыз. Жактырганыңызды сактап калыңыз.',
   'landing.nav.start': 'Кутучаңызды баштаңыз',
   'landing.tiers.eyebrow': 'Каденцияңызды тандаңыз',
   'landing.tiers.heading':
@@ -119,6 +157,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Кийинки айдын кутучасын көрүү үчүн кириңиз.',
   'login.welcomeBack': 'Кайрадан кош келиңиз, куратор.',
   'nextBoxHeroCard.eyebrow': 'КИЙИНКИ ТОПТОМУҢУЗ',
+  'nextBoxHeroCard.itemCount': 'Ичинде {{count}} буюм',
   'nextBoxHeroCard.itemsLabel': 'Тандалган нерселер',
   'nextBoxHeroCard.shipsOnLabel': 'Жөнөтүлөт',
   'notFound.body':
@@ -143,8 +182,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Жазылууну тындыруу',
   'settings.danger.paused': 'Жазылуу тындырылды.',
   'settings.danger.pausing': 'Тындырылууда…',
+  'settings.danger.status': 'Жазылуу абалы: {{status}}',
   'settings.danger.subtitle':
     'Тындыруу деңгээлиңизди жана тарыхыңызды сактап калат. Жокко чыгаруу келечектеги жөнөтүүлөрдү токтотот жана циклдин аягында сакталган төлөм ыкмаларыңызды алып салат.',
+  'settings.notifications.saving': '· сакталууда…',
   'settings.notifications.subtitle':
     "Crate'дон кайсы сигналдарды каалаарыңызды тандаңыз. Демейки жөндөөлөр акылга сыярлык.",
   'settings.subtitle':
@@ -161,11 +202,17 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Азырынча активдүү жеткирүү жок',
   'shipments.live.eyebrow': 'Активдүү жеткирүү',
   'shipments.live.unnamed': 'Кийинки кутучаңыз',
+  'shipments.loadError':
+    'Жөнөтүүлөрүңүздү жүктөй албадык. Байланышыңызды текшерип, кайра аракет кылыңыз.',
+  'shipments.loading': 'Жүктөөлөр жүктөлүүдө…',
+  'shipments.step.delivered': 'Жеткирилди',
   'shipments.step.deliveredBody': 'Ачылыштарыңыз менен бөлүшүү үчүн #crateunbox белгисин коюңуз.',
   'shipments.step.ordered': 'Буйрутма берилди',
   'shipments.step.orderedBody': 'Жазылууңуз бул басылманы кийинки жеткирүү циклине кезекке койду.',
+  'shipments.step.packed': 'Кол менен таңгакталган',
   'shipments.step.packedBody':
     'Ар бир бөлүк оролуп, кол менен жазылган жазуу менен кутуга салынат.',
+  'shipments.step.transit': 'Жолдо',
   'shipments.step.transitNot': 'Кутуңуз жөнөтүлгөндөн кийин, көзөмөлдөө бул жерде пайда болот.',
   'shipments.subtitle':
     'Кутуча сизге бара жатканын байкап туруңуз, андан кийин мурда кутучадан чыгарган ар бир басылышыңызды кайра карап чыгыңыз.',

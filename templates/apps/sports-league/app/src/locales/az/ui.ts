@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Rəy bildirmək, xəta tapmaq və ya liqanız üçün {{app}} istəyirsiniz? Hesab parametrlərinizdən bizə çatın — hər mesaj komandada real bir şəxsə gedir.',
+  'about.contactTitle': 'Əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'about.featureAlerts':
+    'Hesab yeniləmələri, transfer xəbərdarlıqları, zədə hesabatları və liqa elanları üçün push bildirişləri.',
+  'about.featureRosters':
+    'Hər oyunçu üçün tam heyət, mövsüm yekunları, isti/soyuq seriyalar və baş-başa bölgülərlə komanda səhifələri.',
+  'about.featureSchedule':
+    'Hər oyun və nəticəni nəzərə alaraq planlaya bilməniz üçün mövsüm təqvimi və cədvəl görünüşü.',
+  'about.featureScoreboard':
+    'Heç bir qolu qaçırmamaq üçün hər səhifənin yuxarısına bərkidilmiş yayım səviyyəli hesab lövhəsi lenti.',
+  'about.featureStandings':
+    'Canlı turnir cədvəli — real vaxtda qələbə-məğlubiyyət-heçə nəticələri, xallar, qələbə faizi və pleyoff xətti, hər fit səsləndikcə yenilənir.',
+  'about.intro':
+    '{{app}} liqanız üçün yayım keyfiyyətli bir evdir. Komandalar, cədvəllər, canlı hesablar və turnir cədvəli bir sürətli, qarışıqlıqdan uzaq idarə panelində birləşir — beləliklə azarkeşlər, məşqçilər və liqa təşkilatçıları mövsümün hansı vəziyyətdə olduğunu həmişə bilir.',
+  'about.missionBody':
+    'Bir liqanı izləmək beş fərqli üçüncü tərəf hesab lövhəsini yeniləmək demək olmamalıdır. Biz onu elə qurduq ki, hər liqa turnir cədvəli, cədvəl və həqiqətən vacib olan statistikalar üçün vahid mənbəyə sahib olsun — hər fit səsləndikcə yenilənir, mövsüm boyu pulsuz.',
+  'about.missionTitle': 'Missiyamız',
+  'about.whatYouGet': 'Nə əldə edirsən',
   'appShell.closeNav': 'Naviqasiyanı bağlayın',
   'appShell.openNav': 'Naviqasiyanı açın',
   'common.dashboard': 'İdarəetmə paneli',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Bütün uyğunluqlara baxın \\u2192',
   'dashboard.viewAllStandings': 'Tam turnir cədvəli \\u2192',
   'dashboard.viewAllStats': 'Bütün statistika liderlərinə baxın \\u2192',
+  'forgot.submitting': 'Sıfırlama linki göndərilir…',
   'forgot.subtitle': 'Yeniləmə linki almaq üçün e-poçt ünvanınızı daxil edin.',
   'forgot.success': 'Sıfırlama linki göndərildi {{email}} Gələnlər qutunuzu yoxlayın.',
+  'landing.copyright': '© {{year}} {{app}}. Turnir cədvəlini qov.',
+  'landing.ctaBody':
+    'Sizin liqanız. Sizin turnir cədvəliniz. Sevimli komandanız — yuxarıya bərkidilmiş. Quraşdırma iki dəqiqə, mövsüm boyu pulsuz.',
   'landing.ctaHeading': 'Üçüncü tərəf hesab lövhələrini yeniləməyi dayandırın',
   'landing.eyebrow': 'Azarkeşlər, məşqçilər və liqa təşkilatçıları üçün hazırlanmışdır',
   'landing.featuresHeading': 'Hər ayaq üstə durana ön sıra oturacağı',
   'landing.getStarted': 'Liqaya qoşulun',
   'landing.heroCta': 'Liqaya qoşulun',
+  'landing.heroSubtitle':
+    '{{app}} turnir cədvəlini, cədvəlləri və statistik liderləri bir yayım keyfiyyətli idarə panelində birləşdirir. Canlı hesablar. Real nəticələr. Qarışıqlıq yoxdur.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Bu gecə liqa ətrafında',
   'landing.statFans': 'Fanatlar izləyir',
   'landing.statGames': 'Bu mövsüm oyunlar',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Uyğunluqlara qayıt',
   'matchDetail.eventsHeading': 'Oyun-oyun',
+  'matchDetail.final': 'FİNAL',
   'matchDetail.finalScore': 'Final',
   'matchDetail.live': 'CANLI',
   'matchDetail.liveNow': 'İndi canlı yayımda',
   'matchDetail.noEvents': 'Hələlik heç bir hadisə qeydə alınmayıb.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Bu görünüşdə heç bir oyun yoxdur — fərqli filtr yoxlayın.',
   'matches.eyebrow': 'Matç günü',
   'matches.loading': 'Şiferi çəkmək…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Bildirişləri yükləmək alınmadı',
   'notifications.loading': 'Bildirişlər yüklənir\\u2026',
   'pennantHeroCard.eyebrow': 'Masanın üstü',
+  'pennantHeroCard.formLabel': 'Son 10',
   'pennantHeroCard.gamesAhead': '{{value}} təqibdən əvvəlki oyunlar',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Əsas naviqasiya',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Yerinizi seçin',
   'pricing.heading': 'Daha zəngin cədvəl, xallar və sıralama üçün təkmilləşdirin.',
   'pricing.limits.schedule': '{{count}} cədvəl girişləri',
+  'pricing.limits.scores': '{{count}} hesabları',
+  'pricing.limits.standings': '{{count}} turnir cədvəli',
+  'pricing.limits.teams': '{{count}} komanda',
+  'pricing.subtitle': 'Daha zəngin cədvəl, hesablar və turnir cədvəli üçün yüksəlt.',
   'pricing.upgradeCta': 'Təkmilləşdirin {{tierName}}',
   'profile.eyebrow': 'Fan profili',
   'profile.favoritesCount': 'İzlədiyi komandalar',
   'profile.favoritesHeading': 'Sevimli komandalar',
   'profile.noFavorites': 'Hələlik favorit yoxdur — Komandalar səhifəsindən komandalar seçin.',
   'profile.rankRecord': 'Reytinq # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Nəticə {{record}}',
   'reset.confirmPlaceholder': 'Şifrəni təkrarlayın',
+  'reset.mismatch': 'Parollar uyğun gəlmir.',
   'reset.newLabel': 'Yeni parol',
   'reset.subtitle': 'Ən azı 12 simvoldan ibarət güclü bir parol seçin.',
   'reset.tokenPlaceholder': 'E-poçtdan yapışdırın',
   'schedule.eyebrow': 'Şifer',
+  'schedule.moreGames': '+ {{count}} daha çox',
   'schedule.subtitle':
     'Mövsüm ərzində oyunların təqvim görünüşü — qutu xalları üçün istənilən günə toxunun.',
   'scoreboardTicker.empty': 'Hazırda canlı oyun yoxdur — şaybanın buraxılışına baxın.',
@@ -97,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Fərdiləşdirin',
   'settings.favoritesBody':
     'Bu komandalar idarəetmə panelinizə sancılır və xal bildirişlərini işə salır.',
+  'settings.favoritesHeading': 'Sevimli komandalar',
   'settings.loading': 'Tərcihləriniz yüklənir\\u2026',
   'settings.noFavorites':
     'Hələlik favorit yoxdur \\u2014 Komandalar səhifəsindən komandalar seçin.',
@@ -115,6 +152,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Ümumi',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'İlk dördlük mövsümdən sonrakı mərhələyə vəsiqə qazanır — xallara görə bərabərlik qıranlar, sonra isə qələbə faizi.',
   'standings.title': 'Liqa turnir cədvəli',
@@ -133,6 +171,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Oyunçu',
   'teamDetail.colPos': 'Pos',
+  'teamDetail.pointsLabel': 'Xallar',
   'teamDetail.rankLabel': 'Reytinq # {{rank}}',
   'teamDetail.rosterHeading': 'Heyət',
   'teamDetail.statGD': 'Qol Fərqi',

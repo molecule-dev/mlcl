@@ -1,20 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Van visszajelzésed, hibát találtál, vagy funkciót javasolnál? Írj nekünk a fiókbeállításaidból — minden üzenet egy igazi csapattaghoz kerül.',
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.featureDatabases':
+    'Könnyűsúlyú adatbázisok és újrahasznosítható sablonok, amelyek a laza jegyzeteket strukturált, ismételhető munkafolyamatokká alakítják.',
+  'about.featureEditor':
+    'Egy csendes blokkszerkesztő — címsorok, listák, kód, kiemelések és teendők — perjeleparancsokkal, amikor kéred, és útból, amikor nem.',
+  'about.featureGraph':
+    'Visszahivatkozások és tudástérkép: írd be, hogy [[, hogy összekapcsolj egy jegyzetet, és figyeld, hogyan kapcsolódnak össze a gondolataid idővel.',
+  'about.featureNotebooks':
+    'Beágyazott jegyzetfüzetek és oldalak, hogy a projektek, témák és napi jegyzetek pontosan úgy maradjanak rendben, ahogy gondolkodsz.',
+  'about.featureSearch':
+    '50 ms alatti teljes szöveges keresés minden jegyzetfüzetben, valamint címkék, amelyek kiegészítik a jegyzetfüzeteket ahelyett, hogy versenyeznének velük.',
+  'about.missionTitle': 'Küldetésünk',
   'common.goToDashboard': 'Ugrás a műszerfalra',
   'forgot.eyebrow': 'Elvesztetted a visszautat?',
   'forgot.formSubtitle': 'Add meg a nyilvántartásunkban szereplő e-mail címet.',
+  'forgot.formTitle': 'Elfelejtett jelszó',
   'forgot.headline': 'Állítsa vissza a jelszavát.',
   'forgot.subline': 'Egyszer használatos linket küldünk a postaládádba, hogy újat választhass.',
+  'forgot.successDetail':
+    'Elküldtük a visszaállítási linket az e-mail-címedre. 30 perc múlva lejár.',
   'graph.eyebrow': 'Grafikon',
+  'graph.goToNotes': 'Jegyzetek böngészése →',
+  'graph.loadError': 'Nem sikerült betölteni a gráfot: {{message}}',
   'graph.placeholderBody':
     'Amikor a jegyzetek elkezdenek egymáshoz kapcsolódni ([[wiki]] szintaxissal), egy interaktív, erővezérelt gráf jelenik meg itt.',
+  'graph.placeholderTitle': 'A visszahivatkozás-gráf hamarosan érkezik',
   'graph.subtitle':
     '{{count}} jegyzetek ebben a munkaterületen. A backlink gráf megjelenítése itt fog megjelenni, amint a jegyzetek összekapcsolódnak egymással.',
   'graph.title': 'Tudásgráf',
   'home.empty': 'Még nincsenek jegyzetek — kezdd el az elsőt.',
   'home.favoritesHeading': 'Rögzítve',
   'home.guest': 'barát',
+  'home.loadError': 'Nem sikerült betölteni a jegyzeteidet: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Rögzíts egy jegyzetet a szerkesztőben, hogy itt maradjon.',
   'home.recentHeading': 'Nemrég frissítve',
@@ -22,18 +43,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Jegyzetfüzet',
   'home.stats.pinned.label': 'Rögzítve',
   'home.stats.updatedToday.label': 'Ma frissítve',
+  'home.subtitle': 'Folytasd ott, ahol abbahagytad, vagy kezdj egy új jegyzetet.',
   'home.viewAll': 'Az összes jegyzet megtekintése',
   'landing.cta.body':
     'Ingyenes személyes használatra. Professzionális csapatoknak. Használja meglévő jegyzeteit, vagy kezdje teljesen újjal – a Verso mindig veled van, bárhol is legyenek a jegyzetei.',
+  'landing.cta.button': 'Munkaterület létrehozása',
   'landing.cta.heading': 'Nyisd meg a mai oldalt.',
   'landing.features.eyebrow': 'Minden primitív, amire a második agyadnak szüksége van',
+  'landing.features.heading': 'A munkára készült, nem a meta-munkára.',
   'landing.hero.eyebrow': 'Csendes írófelület',
   'landing.hero.headlineAccent': 'alakul.',
   'landing.hero.headlineLeading': 'Hol gondolatok',
   'landing.hero.primaryCta': 'Indítsd el a tudásbázisodat',
   'landing.hero.secondaryCta': 'Már van fiókom',
+  'landing.hero.socialProof':
+    '12 800+ író, diák és PhD-hallgató gondolkodik a {{appName}} segítségével',
   'landing.hero.subline':
     'A Verso egy strukturált jegyzetelő felület tudásmunkások és diákok számára. Blokkszerkesztő, beágyazott jegyzetfüzetek, backlinkek és tudásgráf – mindezt tipográfia-alapú olvasási élmény mögött.',
+  'landing.preview.notebook': 'Tudás · Írási folyamat',
+  'landing.preview.title': 'A huzatok lélegzéséről',
   'login.eyebrow': 'Üdvözlünk ismét a Versóban',
   'login.formSubtitle': 'Használd az e-mail címedet vagy bármilyen kapcsolódó szolgáltatót.',
   'login.headline': 'Folytasd ott, ahol az oldal megállt.',
@@ -43,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'A navigációs menü bezárása',
   'mobileNav.openMenu': 'Navigációs menü megnyitása',
   'noteEditor.backToNotes': 'Vissza a jegyzetekhez',
+  'noteEditor.bodyLabel': 'Jegyzet törzse',
   'noteEditor.bodyPlaceholder':
     'Kezdj el írni – a jegyzeted automatikusan mentésre kerül gépelés közben.',
   'noteEditor.confirmTrash': 'Áthelyezi ezt a jegyzetet a kukába?',
@@ -51,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Áthelyezés kukába',
   'noteEditor.updated': 'Frissítve',
   'notes.defaultWorkspaceName': 'A jegyzetfüzetem',
+  'notes.empty': 'Itt még nincsenek jegyzetek — kezdj egyet a jegyzetfüzet megtöltéséhez.',
   'notes.eyebrow': 'Jegyzetfüzet',
   'notes.filterAll': 'Minden jegyzet',
   'notes.filterPinned': 'Rögzítve',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Új jegyzetfüzet',
   'notes.newNotebookPrompt': 'Új jegyzetfüzet neve',
+  'notes.newNotebookRequired': 'Adj meg egy jegyzetfüzetnevet.',
   'notes.notebooksHeading': 'Jegyzetfüzetek',
   'notes.subtitle':
     'Válasszon egy jegyzetfüzetet a bal oldalon, majd nyomja meg az Új jegyzet gombot egy új bejegyzés megkezdéséhez.',
+  'planUpdated.body': 'Az előfizetésed mostantól aktív.',
   'planUpdated.confirmation': 'A csomagod frissült',
+  'pricing.advancedFeatures': 'Speciális funkciók',
   'pricing.heading': 'Válassza ki a jegyzetelési tervét',
+  'reset.changedMind': 'Meggondoltad magad?',
   'reset.eyebrow': 'Majdnem vissza',
   'reset.formSubtitle': 'A mentés után bejelentkezve leszel.',
   'reset.headline': 'Válasszon egy új jelszót.',
@@ -70,7 +104,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'Add meg az e-mailben küldött kódot, és válassz valami emlékezeteset.',
   'reset.submit': 'Mentés és bejelentkezés',
   'reset.tokenHint': 'Beillesztve a postaládádból.',
+  'search.empty': 'Még egy jegyzet sem felel meg ennek a keresésnek.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Keresés a Refractban',
   'search.loading': 'Keresés…',
   'search.noRecent': 'Írjon be egy lekérdezést fent, hogy elkezdhessen keresni a jegyzeteiben.',
   'search.recentLabel': 'Legutóbbi keresések',
@@ -78,12 +114,19 @@ export const ui: UiTranslations = {
     'Teljes szöveg minden jegyzetfüzetben. Gépeléssel kereshet; az eredmények gépelés közben frissülnek.',
   'search.title': 'Keresd a második agyat.',
   'settings.account.logout': 'Kijelentkezés',
+  'settings.account.title': 'Fiókadatok',
+  'settings.editor.graphHover.body':
+    'Mutass egy apró előnézeti kártyát, amikor a szerkesztőben egy [[wikilink]] fölé viszed az egeret.',
+  'settings.editor.graphHover.label': 'Visszahivatkozás-gráf előnézete',
   'settings.editor.lineHeight.body':
     'Mennyi levegő van a testvonalak között? 170% az alapértelmezett olvasási ritmus.',
+  'settings.editor.lineHeight.label': 'Sormagasság',
   'settings.editor.serif.body':
     'Használj Georgia betűtípust az olvasási oszlophoz. A Sans-serif betűtípus megmarad az oldalsávban és az eszköztárakban.',
+  'settings.editor.serif.label': 'Talpas törzsszöveg',
   'settings.editor.title': 'Tipográfia és írófelület',
   'settings.eyebrow': 'Verso · Beállítások',
+  'settings.passwordModal.current': 'Jelenlegi jelszó',
   'settings.passwordModal.error':
     'Nem sikerült megváltoztatni a jelszót – kérjük, ellenőrizze a jelenlegi jelszavát.',
   'settings.passwordModal.next': 'Új jelszó',
@@ -93,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Minden billentyűleütést a valós idejű csatornán keresztül kell lenyomni. Lassabb kapcsolat esetén tiltsa le.',
   'settings.sync.auto.label': 'Valós idejű szinkronizálás',
+  'settings.sync.title': 'Hogyan utaznak a jegyzeteid',
   'settings.theme.body':
     'A fény fényesen tartja a szerkesztőségi rovatot. A szépia melegíti az oldalt az estékre.',
   'settings.theme.dark': 'Sötét',
@@ -112,8 +156,12 @@ export const ui: UiTranslations = {
     'Adj #hashtageket egy jegyzet címéhez (pl. "Olvasási lista #könyvek"), és azok automatikusan megjelennek itt.',
   'tags.emptyTitle': 'Még nincsenek címkék',
   'tags.eyebrow': 'Index',
+  'tags.goToNotes': 'Ugrás a jegyzetekhez →',
+  'tags.loadError': 'Nem sikerült betölteni a címkéket: {{message}}',
   'tags.subtitle':
     '{{tags}} címkék között {{notes}} jegyzetek. Adj #hashtageket egy jegyzet címéhez, és azok itt fognak megjelenni.',
+  'versoAuthShell.sample.body':
+    'Egy második átolvasás holnap mindig jobban hangzik, mint az első ma este. Tedd félre a nyers változatot a mélymunka mappába…',
   'versoAuthShell.sample.label': 'Napi jegyzet',
   'versoAuthShell.sample.timestamp': 'Ma · 9:14',
   'versoAuthShell.sample.title': 'A huzatok lélegzéséről',
@@ -125,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Írás folytatása',
   'versoTodayHero.createCta': 'Kezdje a mai jegyzetet',
   'versoTodayHero.dailyLabel': 'Napi jegyzet',
+  'versoTodayHero.emptyHeadline': 'A mai nap egy üres lap.',
   'versoTodayHero.emptySubline':
     'Örökítsd meg a gondolataidat, jegyezd fel a megbeszéléseidet, vagy készíts vázlatot a holnapra. A Verso csendes szerkezetet biztosít, így az írás hangos marad.',
+  'versoTodayHero.outlineLabel': 'A mai vázlat',
   'versoTodayHero.streak': '{{count}} napos sorozat',
+  'versoTodayHero.unwritten': 'Még nincsenek szavak — nyisd meg a jegyzetet az elkezdéshez.',
   'versoTodayHero.wordCount': '{{count}} szavak ma',
 }

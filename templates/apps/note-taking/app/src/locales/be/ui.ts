@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ёсць водгук, знайшлі памылку ці хочаце прапанаваць функцыю? Напішыце нам з налад акаўнта — кожнае паведамленне трапляе да рэальнага чалавека з каманды.',
+  'about.contactTitle': 'Звяжыцеся з намі',
+  'about.featureDatabases':
+    'Лёгкія базы даных і шматразовыя шаблоны, каб ператварыць разрозненыя нататкі ў структураваныя працэсы, якія можна паўтараць.',
+  'about.featureEditor':
+    'Ціхі блокавы рэдактар — загалоўкі, спісы, код, вынаскі і справы — з камандамі праз слеш, калі яны патрэбныя, і збоку, калі не.',
+  'about.featureGraph':
+    'Зваротныя спасылкі і граф ведаў: увядзіце [[, каб звязаць нататку, і назірайце, як вашыя ідэі злучаюцца з часам.',
+  'about.featureNotebooks':
+    'Укладзеныя сшыткі і старонкі, каб праекты, тэмы і штодзённыя нататкі заставаліся арганізаванымі менавіта так, як вы думаеце.',
+  'about.featureSearch':
+    'Поўнатэкставы пошук па ўсіх сшытках менш чым за 50 мс, а таксама тэгі, якія спалучаюцца са сшыткамі, а не супярэчаць ім.',
+  'about.missionTitle': 'Наша місія',
   'common.goToDashboard': 'Перайсці да панэлі',
   'forgot.eyebrow': 'Згубілі дарогу назад?',
   'forgot.formSubtitle': 'Паведаміце нам адрас электроннай пошты, які ёсць у файле.',
+  'forgot.formTitle': 'Забылі пароль',
   'forgot.headline': 'Скіньце пароль.',
   'forgot.subline':
     'Мы дашлем аднаразовую спасылку на вашу паштовую скрыню, каб вы маглі выбраць новую.',
+  'forgot.successDetail':
+    'Мы адправілі спасылку для скіду пароля на вашу пошту. Яна дзейнічае 30 хвілін.',
   'graph.eyebrow': 'Графік',
+  'graph.goToNotes': 'Праглядзець нататкі →',
+  'graph.loadError': 'Не ўдалося загрузіць граф: {{message}}',
   'graph.placeholderBody':
     'Калі нататкі пачнуць звязвацца адна з адной (з дапамогай сінтаксісу [[wiki]]), тут будзе адлюстроўвацца інтэрактыўны графік, арыентаваны на сілу.',
+  'graph.placeholderTitle': "Граф зваротных спасылак хутка з'явіцца",
   'graph.subtitle':
     "{{count}} нататкі ў гэтай працоўнай прасторы. Графіка зваротных спасылак з'явіцца тут пасля таго, як нататкі будуць звязаны адна з адной.",
   'graph.title': 'Граф ведаў',
   'home.empty': 'Пакуль няма нататак — пачніце сваю першую.',
   'home.favoritesHeading': 'Замацавана',
   'home.guest': 'сябар',
+  'home.loadError': 'Не ўдалося загрузіць вашыя нататкі: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Замацуйце нататку ў рэдактары, каб яна захавалася тут.',
   'home.recentHeading': 'Нядаўна абноўлена',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Нататнік',
   'home.stats.pinned.label': 'Замацавана',
   'home.stats.updatedToday.label': 'Абноўлена сёння',
+  'home.subtitle': 'Працягніце з таго месца, дзе спыніліся, або пачніце новую нататку.',
   'home.viewAll': 'Паглядзець усе нататкі',
   'landing.cta.body':
     'Бясплатна для асабістага карыстання. Прафесійны варыянт для каманд. Зрабіце свае існуючыя зніжкі або пачніце спачатку — Verso сустракае вас, дзе б ні былі вашы нататкі.',
+  'landing.cta.button': 'Стварыць маю працоўную прастору',
   'landing.cta.heading': 'Адкрыйце сённяшнюю старонку.',
   'landing.features.eyebrow': 'Кожны прымітыўны элемент, які патрэбны вашаму другому мозгу',
+  'landing.features.heading': 'Створана для працы, а не для метапрацы.',
   'landing.hero.eyebrow': 'Ціхая паверхня для пісьма',
   'landing.hero.headlineAccent': 'набываць форму.',
   'landing.hero.headlineLeading': 'Дзе думкі',
   'landing.hero.primaryCta': 'Пачніце сваю базу ведаў',
   'landing.hero.secondaryCta': 'У мяне ўжо ёсць уліковы запіс',
+  'landing.hero.socialProof': '12 800+ пісьменнікаў, студэнтаў і дактарантаў думаюць з {{appName}}',
   'landing.hero.subline':
     'Verso — гэта структураваная паверхня для стварэння нататак для работнікаў інтэлектуальнай працы і студэнтаў. Блокавы рэдактар, укладзеныя нататнікі, зваротныя спасылкі і граф ведаў — усё гэта забяспечвае чытанне, арыентаванае на тыпаграфіку.',
+  'landing.preview.notebook': 'Веды · Працэс пісьма',
+  'landing.preview.title': 'Даць скразняку дыхаць',
   'login.eyebrow': 'Сардэчна запрашаем назад у Verso',
   'login.formSubtitle': 'Выкарыстоўвайце сваю электронную пошту або любога падлучанага правайдэра.',
   'login.headline': 'Працягвайце з таго месца, дзе старонка прыпынілася.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Закрыць меню навігацыі',
   'mobileNav.openMenu': 'Адкрыць меню навігацыі',
   'noteEditor.backToNotes': 'Назад да нататак',
+  'noteEditor.bodyLabel': 'Тэкст нататкі',
   'noteEditor.bodyPlaceholder':
     'Пачніце пісаць — ваша нататка будзе захоўвацца аўтаматычна па меры ўводу.',
   'noteEditor.confirmTrash': 'Перамясціць гэтую нататку ў кошык?',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Перамясціць у кошык',
   'noteEditor.updated': 'Абноўлена',
   'notes.defaultWorkspaceName': 'Мой нататнік',
+  'notes.empty': 'Тут пакуль няма нататак — стварыце адну, каб запоўніць сшытак.',
   'notes.eyebrow': 'Нататнік',
   'notes.filterAll': 'Усе нататкі',
   'notes.filterPinned': 'Замацавана',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Новы нататнік',
   'notes.newNotebookPrompt': 'Новая назва нататніка',
+  'notes.newNotebookRequired': 'Увядзіце назву сшытка.',
   'notes.notebooksHeading': 'Нататнікі',
   'notes.subtitle':
     'Выберыце нататнік злева, а затым націсніце кнопку «Новая нататка», каб пачаць новы запіс.',
+  'planUpdated.body': 'Ваша падпіска цяпер актыўная.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Пашыраныя функцыі',
   'pricing.heading': 'Выберыце свой план нататак',
+  'reset.changedMind': 'Перадумалі?',
   'reset.eyebrow': 'Амаль вярнуўся',
   'reset.formSubtitle': 'Вы ўвойдзеце ў сістэму пасля захавання.',
   'reset.headline': 'Выберыце новы пароль.',
@@ -72,7 +105,9 @@ export const ui: UiTranslations = {
     'Увядзіце код, які мы толькі што даслалі вам па электроннай пошце, і абярыце нешта запамінальнае.',
   'reset.submit': 'Захаваць і ўвайсці',
   'reset.tokenHint': 'Устаўлена з вашай паштовай скрыні.',
+  'search.empty': 'Пакуль ніводная нататка не адпавядае гэтаму запыту.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Пошук Refract',
   'search.loading': 'Пошук…',
   'search.noRecent': 'Увядзіце запыт вышэй, каб пачаць пошук па сваіх нататках.',
   'search.recentLabel': 'Нядаўнія пошукі',
@@ -80,12 +115,19 @@ export const ui: UiTranslations = {
     'Поўны тэкст у кожным нататніку. Уводзьце тэкст для пошуку; вынікі абнаўляюцца па меры ўводу.',
   'search.title': 'Шукайце другі мозг.',
   'settings.account.logout': 'Выйсці',
+  'settings.account.title': 'Звесткі пра акаўнт',
+  'settings.editor.graphHover.body':
+    "Паказваць маленькую картку-прэв'ю пры навядзенні на [[вікіспасылку]] у рэдактары.",
+  'settings.editor.graphHover.label': "Прэв'ю графа зваротных спасылак пры навядзенні",
   'settings.editor.lineHeight.body':
     'Колькі паветра паміж лініямі цела. 170% — гэта рытм чытання па змаўчанні.',
+  'settings.editor.lineHeight.label': 'Вышыня радка',
   'settings.editor.serif.body':
     'Выкарыстоўвайце Georgia для калонкі чытання. Шрыфт без засечак захоўваецца на бакавой панэлі і панэлях інструментаў.',
+  'settings.editor.serif.label': 'Серыфавы асноўны тэкст',
   'settings.editor.title': 'Тыпаграфіка і паверхня для пісьма',
   'settings.eyebrow': 'Verso · Налады',
+  'settings.passwordModal.current': 'Бягучы пароль',
   'settings.passwordModal.error': 'Не атрымалася змяніць пароль — праверце свой бягучы пароль.',
   'settings.passwordModal.next': 'Новы пароль',
   'settings.passwordModal.submit': 'Захаваць пароль',
@@ -94,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Прапускайце кожнае націсканне клавішы праз канал рэальнага часу. Адключыце для больш павольных злучэнняў.',
   'settings.sync.auto.label': 'Сінхранізацыя ў рэжыме рэальнага часу',
+  'settings.sync.title': 'Як падарожнічаюць вашыя нататкі',
   'settings.theme.body':
     'Святло робіць рэдакцыйную калонку яркай. Сепія сагравае старонку вечарамі.',
   'settings.theme.dark': 'Цёмны',
@@ -113,8 +156,12 @@ export const ui: UiTranslations = {
     "Дадайце #хэштэгі да назвы нататкі (напрыклад, «Спіс чытання #кнігі»), і яны будуць з'яўляцца тут аўтаматычна.",
   'tags.emptyTitle': 'Пакуль няма тэгаў',
   'tags.eyebrow': 'Індэкс',
+  'tags.goToNotes': 'Перайсці да нататак →',
+  'tags.loadError': 'Не ўдалося загрузіць тэгі: {{message}}',
   'tags.subtitle':
     "{{tags}} тэгі па ўсім {{notes}} нататкі. Дадайце #хэштэгі да загалоўка нататкі, і яны з'явяцца тут.",
+  'versoAuthShell.sample.body':
+    'Другі праход заўтра заўсёды чытаецца лепш за першы сёння ўвечары. Пакіньце чарнавік у тэчцы для глыбокай працы…',
   'versoAuthShell.sample.label': 'Штодзённая нататка',
   'versoAuthShell.sample.timestamp': 'Сёння · 9:14 раніцы',
   'versoAuthShell.sample.title': 'Даць скразняку дыхаць',
@@ -126,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Працягвайце пісаць',
   'versoTodayHero.createCta': 'Пачніце сённяшнюю нататку',
   'versoTodayHero.dailyLabel': 'Штодзённая нататка',
+  'versoTodayHero.emptyHeadline': 'Сёння — чыстая старонка.',
   'versoTodayHero.emptySubline':
     'Запішыце думку, напішыце сустрэчу або намалюйце заўтрашні эскіз. Verso захоўвае структуру ціхай, каб тэкст заставаўся гучным.',
+  'versoTodayHero.outlineLabel': 'Сённяшні план',
   'versoTodayHero.streak': '{{count}} -дзённая паласа',
+  'versoTodayHero.unwritten': 'Слоў пакуль няма — адкрыйце нататку, каб пачаць.',
   'versoTodayHero.wordCount': '{{count}} словы сёння',
 }

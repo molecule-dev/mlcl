@@ -1,21 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai feedback, ai găsit un bug sau vrei să sugerezi o funcție? Scrie-ne din setările contului — fiecare mesaj ajunge la o persoană reală din echipă.',
+  'about.contactTitle': 'Contactează-ne',
+  'about.featureDatabases':
+    'Baze de date ușoare și șabloane reutilizabile pentru a transforma notițele răzlețe în fluxuri de lucru structurate și repetabile.',
+  'about.featureEditor':
+    'Un editor de blocuri discret — titluri, liste, cod, casete de evidențiere și sarcini — cu comenzi slash atunci când le vrei și fără să te încurce când nu le vrei.',
+  'about.featureGraph':
+    'Legături inverse și un graf de cunoștințe: tastează [[ pentru a lega o notiță și urmărește cum ideile tale se conectează în timp.',
+  'about.featureNotebooks':
+    'Caiete și pagini imbricate, astfel încât proiectele, subiectele și notițele zilnice să rămână organizate exact așa cum gândești.',
+  'about.featureSearch':
+    'Căutare full-text sub 50 ms în fiecare caiet, plus etichete care se combină cu caietele în loc să se bată cu ele.',
+  'about.missionTitle': 'Misiunea noastră',
   'common.goToDashboard': 'Mergi la Tabloul de bord',
   'forgot.eyebrow': 'Ai pierdut drumul înapoi?',
   'forgot.formSubtitle': 'Spuneți-ne adresa de e-mail înregistrată.',
+  'forgot.formTitle': 'Parolă uitată',
   'forgot.headline': 'Resetează-ți parola.',
   'forgot.subline':
     'Îți vom trimite un link unic în căsuța ta poștală, astfel încât să poți alege unul nou.',
+  'forgot.successDetail': 'Am trimis un link de resetare pe e-mailul tău. Expiră în 30 de minute.',
   'graph.eyebrow': 'Grafic',
+  'graph.goToNotes': 'Răsfoiește notițele →',
+  'graph.loadError': 'Graful nu a putut fi încărcat: {{message}}',
   'graph.placeholderBody':
     'Când notele încep să se lege între ele (cu sintaxa [[wiki]]), aici se va afișa un graf interactiv orientat prin forță.',
+  'graph.placeholderTitle': 'Graful de legături inverse vine în curând',
   'graph.subtitle':
     '{{count}} Note în acest spațiu de lucru. Redarea graficului backlink va apărea aici odată ce notele se leagă între ele.',
   'graph.title': 'Graficul cunoștințelor',
   'home.empty': 'Încă nu ai note — începe-ți prima.',
   'home.favoritesHeading': 'Fixate',
   'home.guest': 'prieten',
+  'home.loadError': 'Notițele nu au putut fi încărcate: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Fixează o notă în editor pentru a o păstra aici.',
   'home.recentHeading': 'Actualizat recent',
@@ -23,18 +43,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Caiet',
   'home.stats.pinned.label': 'Fixate',
   'home.stats.updatedToday.label': 'Actualizat astăzi',
+  'home.subtitle': 'Continuă de unde ai rămas sau începe o notiță nouă.',
   'home.viewAll': 'Vedeți toate notele',
   'landing.cta.body':
     'Gratuit pentru uz personal. Pro pentru echipe. Adu-ți reducerile existente sau ia-le de la capăt — Verso te întâmpină oriunde ți-ar fi notițele.',
+  'landing.cta.button': 'Creează-mi spațiul de lucru',
   'landing.cta.heading': 'Deschide pagina de astăzi.',
   'landing.features.eyebrow': 'Fiecare element primitiv de care are nevoie al doilea creier al tău',
+  'landing.features.heading': 'Construit pentru lucrare, nu pentru meta-lucrare.',
   'landing.hero.eyebrow': 'O suprafață de scris liniștită',
   'landing.hero.headlineAccent': 'prinde contur.',
   'landing.hero.headlineLeading': 'Unde gândurile',
   'landing.hero.primaryCta': 'Pornește-ți baza de cunoștințe',
   'landing.hero.secondaryCta': 'Am deja un cont',
+  'landing.hero.socialProof':
+    'Peste 12.800 de scriitori, studenți și doctoranzi gândesc cu {{appName}}',
   'landing.hero.subline':
     'Verso este o suprafață structurată de luare de notițe pentru lucrătorii cu cunoștințe și studenți. Editor de blocuri, caiete imbricate, backlink-uri și un grafic de cunoștințe — toate în spatele unei experiențe de citire axate pe tipografie în primul rând.',
+  'landing.preview.notebook': 'Cunoaștere · Proces de scriere',
+  'landing.preview.title': 'Despre lăsarea curenților de aer să respire',
   'login.eyebrow': 'Bine ați revenit la Verso',
   'login.formSubtitle': 'Folosește-ți adresa de e-mail sau orice furnizor conectat.',
   'login.headline': 'Reluați de unde pagina a fost întreruptă.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Închide meniul de navigare',
   'mobileNav.openMenu': 'Deschide meniul de navigare',
   'noteEditor.backToNotes': 'Înapoi la note',
+  'noteEditor.bodyLabel': 'Conținutul notiței',
   'noteEditor.bodyPlaceholder':
     'Începeți să scrieți — nota se salvează automat pe măsură ce tastați.',
   'noteEditor.confirmTrash': 'Muți această notă în coșul de gunoi?',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Mută la coș',
   'noteEditor.updated': 'Actualizat',
   'notes.defaultWorkspaceName': 'Caietul meu',
+  'notes.empty': 'Încă nicio notiță aici — începe una pentru a umple caietul.',
   'notes.eyebrow': 'Caiet',
   'notes.filterAll': 'Toate notele',
   'notes.filterPinned': 'Fixate',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Caiet nou',
   'notes.newNotebookPrompt': 'Nume nou pentru caiet',
+  'notes.newNotebookRequired': 'Introdu un nume de caiet.',
   'notes.notebooksHeading': 'Caiete',
   'notes.subtitle':
     'Alegeți un caiet din stânga, apoi apăsați butonul Notă nouă pentru a începe o intrare nouă.',
+  'planUpdated.body': 'Abonamentul dvs. este acum activ.',
   'planUpdated.confirmation': 'Planul dumneavoastră a fost actualizat',
+  'pricing.advancedFeatures': 'Funcții avansate',
   'pricing.heading': 'Alege-ți planul de luare a notițelor',
+  'reset.changedMind': 'Te-ai răzgândit?',
   'reset.eyebrow': 'Aproape din nou înăuntru',
   'reset.formSubtitle': 'Vei fi conectat după ce este salvat.',
   'reset.headline': 'Alegeți o parolă nouă.',
@@ -72,7 +105,9 @@ export const ui: UiTranslations = {
     'Introdu codul pe care tocmai ți l-am trimis prin e-mail și alege ceva memorabil.',
   'reset.submit': 'Salvați și conectați-vă',
   'reset.tokenHint': 'Lipit din căsuța ta poștală.',
+  'search.empty': 'Încă nicio notiță nu corespunde acestei căutări.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Căutați în Refract',
   'search.loading': 'Se caută…',
   'search.noRecent': 'Introduceți o interogare mai sus pentru a începe căutarea în notele dvs.',
   'search.recentLabel': 'Căutări recente',
@@ -80,12 +115,19 @@ export const ui: UiTranslations = {
     'Text integral în fiecare blocnotes. Tastați pentru a căuta; rezultatele se actualizează pe măsură ce tastați.',
   'search.title': 'Caută al doilea creier.',
   'settings.account.logout': 'Deconectare',
+  'settings.account.title': 'Detalii cont',
+  'settings.editor.graphHover.body':
+    'Afișează un mic card de previzualizare când treci cu mouse-ul peste o [[wikilink]] în editor.',
+  'settings.editor.graphHover.label': 'Previzualizare la hover în graful de legături inverse',
   'settings.editor.lineHeight.body':
     'Cât aer este între liniile corpului. 170% este ritmul implicit de citire.',
+  'settings.editor.lineHeight.label': 'Înălțimea rândului',
   'settings.editor.serif.body':
     'Folosește Georgia pentru coloana de lectură. Sans-serif păstrează caracterele în bara laterală și barele de instrumente.',
+  'settings.editor.serif.label': 'Text cu serife',
   'settings.editor.title': 'Tipografie și suprafață de scris',
   'settings.eyebrow': 'Verso · Setări',
+  'settings.passwordModal.current': 'Parola actuală',
   'settings.passwordModal.error':
     'Nu s-a putut schimba parola — vă rugăm să verificați parola curentă.',
   'settings.passwordModal.next': 'Parolă nouă',
@@ -95,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Apăsați fiecare tastă prin canalul în timp real. Dezactivați pentru conexiuni mai lente.',
   'settings.sync.auto.label': 'Sincronizare în timp real',
+  'settings.sync.title': 'Cum călătoresc notițele tale',
   'settings.theme.body': 'Lumina menține editorialul strălucitor. Sepia încălzește pagina seara.',
   'settings.theme.dark': 'Întunecat',
   'settings.theme.light': 'Luminos',
@@ -113,8 +156,12 @@ export const ui: UiTranslations = {
     'Adaugă #hashtag-uri la titlul unei note (de exemplu, „Listă de lectură #cărți”) și acestea vor apărea automat aici.',
   'tags.emptyTitle': 'Încă nu există etichete',
   'tags.eyebrow': 'Index',
+  'tags.goToNotes': 'Mergi la notițe →',
+  'tags.loadError': 'Etichetele nu au putut fi încărcate: {{message}}',
   'tags.subtitle':
     '{{tags}} etichete peste {{notes}} note. Adăugați #hashtag-uri la titlul unei note și acestea vor apărea aici.',
+  'versoAuthShell.sample.body':
+    'O a doua trecere mâine se citește mereu mai bine decât o primă trecere în seara asta. Lasă varianta brută în folderul de lucru profund…',
   'versoAuthShell.sample.label': 'Notă zilnică',
   'versoAuthShell.sample.timestamp': 'Astăzi · 9:14',
   'versoAuthShell.sample.title': 'Despre lăsarea curenților de aer să respire',
@@ -126,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Continuă să scrii',
   'versoTodayHero.createCta': 'Începeți nota de astăzi',
   'versoTodayHero.dailyLabel': 'Notă zilnică',
+  'versoTodayHero.emptyHeadline': 'Astăzi este o pagină albă.',
   'versoTodayHero.emptySubline':
     'Captează o idee, notează o întâlnire sau schițează ziua de mâine. Verso menține structura silențioasă, astfel încât scrisul să rămână sonor.',
+  'versoTodayHero.outlineLabel': 'Schita de astăzi',
   'versoTodayHero.streak': 'Serie de {{count}} zile',
+  'versoTodayHero.unwritten': 'Încă niciun cuvânt — deschide notița pentru a începe.',
   'versoTodayHero.wordCount': '{{count}} cuvinte astăzi',
 }

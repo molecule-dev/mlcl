@@ -1,13 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An bhfuil aiseolas agat, aimsíodh fabht, nó ar mhaith leat comhpháirtíocht a dhéanamh le {{app}}? Déan teagmháil linn ó shocruithe do chuntais — téann gach teachtaireacht chuig duine fíor ar an bhfoireann.',
   'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.intro':
+    'Is fotha sóisialta bríomhar é {{app}} atá dírithe ar chruthaitheoirí — postálacha, scéalta agus próifílí saibhre i ndathanna iomlána. Thógamar é do dhaoine a chruthaíonn agus a roinneann rudaí i ndáiríre, ní do aibhneacha fógraí agus baoite scrollaithe gan deireadh.',
+  'about.missionBody':
+    'Ba cheart go mbraithfeadh na meáin shóisialta mar chanbhás ciúin, ildaite — áit a dtugtar creidiúint do chruthaitheoirí agus a bhfanann comhráite daonna. Gan oiliúint mhúnla ar do phostálacha, gan fógraí sa fhotha, gan phatrúin dhorcha.',
+  'about.missionTitle': 'Ár misean',
   'about.pageTitle': 'Faoi {{app}}',
   'common.goToDashboard': 'Téigh chuig an Deais',
   'common.retry': 'Déan iarracht eile',
   'compose.cancel': 'Cealaigh',
+  'compose.caption': 'Fotheideal',
   'compose.captionPlaceholder': 'Cad atá ar d’intinn?',
+  'compose.hashtags': 'Haischlibeanna',
   'compose.heading': 'Roinn nóiméad',
   'compose.subheading':
     'Fotheideal ar dtús; cuirfimid uaslódálacha íomhánna ar aghaidh ina dhiaidh sin.',
@@ -15,10 +24,12 @@ export const ui: UiTranslations = {
   'explore.emptyBody':
     'Bí i do chéad duine a phostálann — líonann an eangach taiscéala de réir mar a roinneann an pobal.',
   'explore.emptyTitle': 'Níl aon rud treochtúil fós.',
+  'explore.error': 'Níorbh fhéidir an fotha iniúchta a lódáil.',
   'explore.eyebrow': 'Ag treochtáil inniu',
   'explore.heading': 'Taiscéal',
   'explore.subheading':
     'Coimeádta ag na heagarthóirí agus an algartam — ach den chuid is mó ag na heagarthóirí.',
+  'explore.suggestionsEyebrow': 'Duit féin',
   'explore.suggestionsHeading': 'Cruthaitheoirí ar fiú leanúint leo',
   'feed.compose': 'Post nua',
   'feed.emptyBody':
@@ -35,12 +46,19 @@ export const ui: UiTranslations = {
     'Cuir isteach do sheoladh ríomhphoist agus seolfaimid nasc athshocraithe chugat.',
   'forgotPassword.success':
     'Má {{email}} má mheaitseálann sé cuntas, gheobhaidh tú nasc athshocraithe go luath.',
+  'landing.ctaBody':
+    'Saor in aisce go deo don bhunrudaí. Osclaíonn pleananna Pro físeán fadfhoirmeach agus uirlisí comhoibritheora — tosaigh nuair a bheidh tú réidh.',
   'landing.ctaHeading': 'Tabhair an leagan beoga díot féin ar líne',
   'landing.exploreCta': 'Oscail Iniúchadh',
   'landing.eyebrow': 'Scéalta · Poist · Fotha fíor-ama',
   'landing.featuresHeading': 'Tógtha do dhaoine a dhéanann postáil i ndáiríre',
+  'landing.featuresSubheading':
+    'Fotha atá dírithe ar chruthaitheoirí le snas iriseáin agus luas comhrá. Cruthaigh rudaí, roinn iad, labhair le daoine — sin é.',
   'landing.getStarted': 'Bígí Linn i Vivid',
   'landing.heroCta': 'Tosaigh ag roinnt',
+  'landing.heroSubtitle':
+    'Is fotha sóisialta é {{app}} atá dírithe ar chruthaitheoirí — scéalta bríomhara, postálacha ar chaighdeán gailearaí, agus comhráite a mhothaíonn daonna. Gan aibhneacha fógraí scrollaithe gan deireadh, gan torann algartamach.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.noAds': 'Gan aon fhógraí sa bheatha',
   'landing.noTraining': 'Gan aon oiliúint mhúnla ar do phoist',
   'landing.online': '2.4M cruthaitheoirí ar líne inniu',
@@ -56,6 +74,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Sínigh Isteach',
   'messages.composePlaceholder': 'Seol teachtaireacht…',
   'messages.empty': 'Roghnaigh comhrá chun comhrá a thosú.',
+  'messages.error': 'Níorbh fhéidir comhráite a lódáil.',
   'messages.noConversations':
     'Gan aon chomhráite fós — tabhair cuairt ar phróifíl agus seol teachtaireacht chucu.',
   'messages.noMessages': 'Gan aon teachtaireachtaí fós — abair haigh!',
@@ -79,10 +98,15 @@ export const ui: UiTranslations = {
   'notifications.kind.tag': 'clibeáilte thú i bpost',
   'notifications.subheading': '{{count}} gan léamh.',
   'postCard.commentAria': 'Féach ar na tuairimí',
+  'postCard.copyFailed':
+    'Theip ar chóipeáil uathoibríoch — roghnaigh an nasc agus cóipeáil de láimh é.',
+  'postCard.copyLinkDescription': 'Cóipeáil an nasc thíos chun an post seo a roinnt.',
+  'postCard.copyLinkTitle': 'Cóipeáil an nasc seo',
   'postCard.likeAria': 'Is maith liom',
   'postCard.live': 'BEÓ',
   'postCard.moreAria': 'Tuilleadh roghanna',
   'postCard.openAria': 'Oscail post le @ {{handle}}',
+  'postCard.viewAllComments': 'Féach ar gach {{count}} trácht',
   'postDetail.backCta': 'Ar ais chuig an mbeatha',
   'postDetail.commentPlaceholder': 'Cuir trácht leis…',
   'postDetail.commentsEmpty': 'Gan aon trácht fós — bí ar an gcéad duine.',
@@ -91,12 +115,24 @@ export const ui: UiTranslations = {
   'postDetail.loading': 'Ag lódáil an phoist…',
   'postDetail.notFoundTitle': 'Níor aimsíodh an post',
   'postDetail.post': 'Post',
+  'pricing.advancedFeatures': 'Gnéithe casta: {{yes}}',
+  'pricing.canExport': 'Easpórtáil sonraí: {{yes}}',
+  'pricing.heading': 'Roghnaigh do phlean {{app}}',
+  'pricing.maxFollows': '{{count}} leanúint',
+  'pricing.maxPosts': '{{count}} post',
+  'pricing.maxStories': '{{count}} scéalta',
+  'profile.composeCta': 'Post nua',
+  'profile.empty': 'Níl aon phostálacha fós — nuair a bheidh cuid ann, taispeánfar anseo iad.',
   'profile.emptySelf':
     'Níl postáil déanta agat fós — téigh chuig Post Nua chun rud éigin a roinnt.',
   'profile.exploreCta': 'Brabhsáil Iniúchadh',
   'profile.loadingPosts': 'Ag lódáil postálacha…',
   'profile.notFoundTitle': 'Níor aimsíodh an phróifíl',
   'profile.youEyebrow': 'Seo tusa',
+  'profileHeaderCard.copyFailed':
+    'Theip ar chóipeáil uathoibríoch — roghnaigh an nasc agus cóipeáil de láimh é.',
+  'profileHeaderCard.copyLinkDescription': 'Cóipeáil an nasc thíos chun an phróifíl seo a roinnt.',
+  'profileHeaderCard.copyLinkTitle': 'Cóipeáil nasc na próifíle seo',
   'profileHeaderCard.followers': 'Leantóirí',
   'profileHeaderCard.message': 'Message',
   'profileHeaderCard.posts': 'Poist',
@@ -114,21 +150,28 @@ export const ui: UiTranslations = {
     'Clóscríobh ainm, láimhseáil nó seoladh ríomhphoist chun cruthaitheoirí a aimsiú.',
   'search.postsHeading': 'Poist',
   'search.subheading': 'Daoine, haischlibeanna, fotheidil — rud ar bith ar fud Vivid.',
+  'search.tagsHeading': 'Haischlibeanna',
   'settings.account.passwordNote':
     'Oscail roghchlár an avatáir sa cheanntásc chun do phasfhocal a athrú nó do chuntas a scriosadh.',
   'settings.billing.body':
     'Tabhair cuairt ar an leathanach Praghsála chun do phlean a uasghrádú agus do shíntiús a bhainistiú.',
+  'settings.billing.cta': 'Féach ar phraghsanna & pleananna',
   'settings.loading': 'Ag lódáil socruithe…',
+  'settings.notif.comments': 'Tráchtanna & freagraí',
   'settings.notif.commentsDesc': 'Brúigh le haghaidh freagraí díreacha agus tráchtanna snáithithe.',
+  'settings.notif.follows': 'Leantóirí nua',
   'settings.notif.followsDesc': 'Achoimre laethúil, ní de réir imeachta riamh.',
   'settings.notif.likes': 'Is maith liom & imoibrithe',
   'settings.notif.likesDesc': 'Brúigh nuair a imoibríonn duine le do phoist.',
+  'settings.notif.live': 'Foláirimh bheo',
   'settings.notif.liveDesc': 'Brúigh nuair a théann cuntais a leanann tú beo.',
   'settings.previewEyebrow': 'Eagarthóireacht',
+  'settings.priv.activity': 'Stádas gníomhaíochta',
   'settings.priv.activityDesc':
     'Taispeáin do phointe ar líne ar scéalta agus i dteachtaireachtaí díreacha.',
   'settings.priv.private': 'Cuntas príobháideach',
   'settings.priv.privateDesc': 'Ní fheiceann ach leantóirí ceadaithe do phoist.',
+  'settings.priv.tagging': 'Cead clibeála',
   'settings.priv.taggingDesc': 'Ní féidir ach le daoine a leanann tú clibeanna a chur ort.',
   'settings.profile.displayName': 'Ainm taispeána',
   'settings.profile.handle': 'Láimhseáil',
@@ -139,12 +182,14 @@ export const ui: UiTranslations = {
   'socialMediaLayout.closeMenu': 'Dún an roghchlár nascleanúna',
   'socialMediaLayout.openMenu': 'Oscail an roghchlár nascleanúna',
   'socialMediaLayout.primaryNavLabel': 'Príomh-loingseoireacht',
+  'storyRail.addAria': 'Cuir le do scéal',
   'storyRail.heading': 'Scéalta',
   'storyRail.label': 'Scéalta',
   'storyRail.openAria': 'Oscail {{handle}} scéal',
   'storyRail.you': 'Do scéal',
   'suggestionsRail.eyebrow': 'Duit féin',
   'suggestionsRail.heading': 'Cruthaitheoirí le leanúint',
+  'suggestionsRail.postCount': '{{count}} post',
   'suggestionsRail.seeAll': 'Féach ar gach rud',
   'suggestionsRail.trendingEyebrow': 'Ag treochtáil',
   'suggestionsRail.trendingHeading': 'Hashtags ag borradh anois',

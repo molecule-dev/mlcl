@@ -3,6 +3,7 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'Ikkuntattjana',
   'about.eyebrow': 'Dwarna',
+  'about.missionTitle': 'Il-missjoni tagħna',
   'account.notifications.save': 'Issejvja l-preferenzi',
   'account.notifications.saved': 'Il-preferenzi ġew salvati.',
   'account.notifications.saveFailed': 'Ma setgħux jiġu salvati l-preferenzi.',
@@ -12,7 +13,10 @@ export const ui: UiTranslations = {
     'Ħlas għal kull sessjoni • Aġġorna għal skontijiet fuq il-bookings',
   'account.payments.helper':
     "Il-metodu ta' ħlas tiegħek jinġabar fil-checkout. Aħna qatt ma naħżnu n-numri sħaħ tal-kards — Stripe tieħu ħsieb id-dejta kollha tal-kards.",
+  'account.payments.paidDescription': 'Abbonament attiv — immaniġġja fuq Stripe.',
   'account.payments.planFree': "Pjan b'xejn",
+  'account.payments.title': 'Pjan u ħlas',
+  'account.payments.viewPlans': 'Ara l-pjanijiet {{appName}} →',
   'account.profile.title': 'Profil',
   'account.role.body':
     "Ibdel bejn il-modalità ta' student u l-modalità ta' tutur f'kull ħin. Is-sessjonijiet attivi tiegħek jibqgħu intatti fiż-żewġ modi.",
@@ -25,6 +29,7 @@ export const ui: UiTranslations = {
   'auth.shell.tagline': '{{tagline}}',
   'becomeTutor.eyebrow': 'Għallem fuq il-Ġibs',
   'becomeTutor.form.error': 'Ma stajtx nissottometti l-applikazzjoni.',
+  'becomeTutor.form.pitch': 'Il-pitch tiegħek (mhux obbligatorju)',
   'becomeTutor.form.pitchPlaceholder':
     'Ftit sentenzi li l-istudenti jaraw fuq il-profil tiegħek. Żommhom speċifiċi u kordjali.',
   'becomeTutor.form.rate': 'Rata fis-siegħa ($/siegħa): {{rate}}',
@@ -33,6 +38,9 @@ export const ui: UiTranslations = {
   'becomeTutor.form.submitted': 'Applikazzjoni sottomessa. Qed nidderieġi lejn il-profil tiegħek…',
   'becomeTutor.form.title': 'Għidilna dwarek',
   'becomeTutor.headline': 'Aqla’ billi tagħmel dak li tħobb. Għallem skont l-iskeda tiegħek.',
+  'becomeTutor.subhead':
+    'Applika fi 5 minuti. Ladarba tiġi vverifikat, tidher fit-tfittxija u tibda tibbukkja sessjonijiet.',
+  'booking.duration.title': '3. Kemm iddum?',
   'booking.error.createFailed': 'Ma setgħetx tinħoloq prenotazzjoni.',
   'booking.error.loadFailed': "Ma setax jitgħabba t-tutor — erġa' pprova.",
   'booking.error.noSlot': 'Agħżel jum u ħin l-ewwel.',
@@ -47,6 +55,7 @@ export const ui: UiTranslations = {
     'Is-sessjonijiet jistgħu jiġu skedati mill-ġdid sa 12-il siegħa qabel. Il-karta tiegħek tiġi ċċarġjata biss meta s-sessjoni tintemm.',
   'booking.summary.assurance':
     'L-ebda ħlas sakemm tispiċċa s-sessjoni • Kanċellazzjoni bla ħlas sa 12-il siegħa qabel',
+  'booking.summary.back': '← Lura għall-profil tal-għalliem',
   'booking.summary.cta': 'Ikkonferma l-prenotazzjoni',
   'booking.summary.noSubject': '—',
   'booking.summary.pickSlot': 'Agħżel slot',
@@ -73,18 +82,27 @@ export const ui: UiTranslations = {
   'bookingConfirm.receipt.tutor': 'Tutur',
   'bookingConfirm.subject': 'Suġġett',
   'bookingConfirm.title': 'Int ibbukkjat. Aħna nieħdu ħsieb il-bqija.',
+  'bookingConfirm.viewSessions': 'Ara s-sessjonijiet kollha →',
   'bookingConfirm.with': 'Mat-tutur',
   'common.goToDashboard': 'Mur għad-Dashboard',
+  'earningsHero.change': '{{sign}}{{percent}}% meta mqabbel max-xahar li għadda',
   'earningsHero.eyebrow': 'Qligħ • {{month}}',
+  'earningsHero.greeting': 'Merħba lura, {{name}} — kompli bil-momentum.',
   'forgotPassword.heading': 'Insejt il-password tiegħek?',
   'forgotPassword.subheading':
     "Daħħal l-email marbuta mal-kont tiegħek u aħna nibagħtulek link ta' reset.",
   'forgotPassword.success.body':
     "Bagħtejna link ta' reset lil {{email}} — jiskadi fi żmien 30 minuta.",
   'heroSearchSection.eyebrow': '12,000+ tutur verifikat • mill-2018',
+  'heroSearchSection.headline': 'Fejn moħħijiet kurjużi jiltaqgħu mal-għalliema t-tajbin.',
+  'heroSearchSection.searchCta': 'Sib għalliem',
+  'heroSearchSection.searchPlaceholder': 'Fittex suġġetti, għalliema, jew temi…',
   'heroSearchSection.stat.rating': 'Klassifikazzjoni medja tas-sessjoni',
+  'heroSearchSection.stat.sessions': 'Sessjonijiet mogħtija',
   'heroSearchSection.stat.subjects': 'Suġġetti koperti',
   'heroSearchSection.stat.tutors': 'Tuturi verifikati',
+  'heroSearchSection.subhead':
+    'Għalliema vverifikati. Prezzijiet ċari. Sessjonijiet li jaqblu mal-ġimgħa tiegħek.',
   'landing.featured.eyebrow': 'Tuturi Dehru',
   'landing.featured.headline':
     'Magħżula bir-reqqa, bl-ogħla klassifikazzjoni, u lesta din il-ġimgħa.',
@@ -92,8 +110,11 @@ export const ui: UiTranslations = {
   'landing.nav.becomeTutor': 'Għallem fuq il-Ġibs',
   'landing.nav.findTutors': 'Sib għalliema',
   'landing.pillars.eyebrow': 'Għaliex il-Ġibs',
+  'landing.pillars.headline': '{{tagline}} — mingħajr l-inkwiet.',
   'landing.testimonials.eyebrow': 'Minn studenti riċenti',
   'landing.testimonials.headline': 'Riżultati reali, fi kliemhom stess.',
+  'landing.tutorCta.body':
+    "Stabbilixxi r-rati tiegħek, ibni reputazzjoni b'reviżjonijiet vverifikati, u aħna nħarsu l-iskedar, il-ħlasijiet, u l-avviżi.",
   'landing.tutorCta.button': 'Applika biex tgħallem',
   'landing.tutorCta.eyebrow': 'Issir tutur',
   'landing.tutorCta.headline': 'Aqla’ billi tagħmel dak li tħobb. Għallem skont l-iskeda tiegħek.',
@@ -104,6 +125,7 @@ export const ui: UiTranslations = {
   'login.signup': 'Oħloq kont →',
   'login.subheading':
     'Kompli minn fejn ħallejt — is-sessjonijiet, il-messaġġi u t-tuturi tiegħek qed jistennewk.',
+  'login.support': 'Teħtieġ għajnuna?',
   'messages.draftPlaceholder': 'Ittajpja messaġġ…',
   'messages.empty.body':
     "It-threads jidhru hawn meta tikkomunika ma' tutur jew meta wieħed jibgħatlek messaġġ.",
@@ -115,9 +137,14 @@ export const ui: UiTranslations = {
   'messages.noMessages': "Għad m'hemm l-ebda messaġġi.",
   'messages.selectThread': 'Agħżel ħajta fuq ix-xellug.',
   'messages.send': 'Ibgħat messaġġ',
+  'messages.startThreadHint':
+    'Żur il-profil ta\' għalliem u agħfas "Ibgħat messaġġ lill-għalliem" biex tibda konversazzjoni.',
   'messages.thread.empty': 'Għid bonjour — ibda l-konverżazzjoni.',
   'messages.title': 'Suġġetti mat-tuturi tiegħek.',
   'nav.primary': 'Primarja',
+  'planUpdated.body':
+    "Il-bidla fil-billing tiegħek issa hija attiva. Tista' timmaniġġja l-pjan tiegħek fi kwalunkwe ħin mill-paġna tal-billing.",
+  'pricing.advancedFeatures': 'Karatteristiċi avvanzati:',
   'pricing.dataExport': 'Esportazzjoni tad-dejta:',
   'pricing.headingDefault': 'Karatteristiċi avvanzati:',
   'resetPassword.heading': "Agħżel password ġdida b'saħħitha.",
@@ -127,6 +154,7 @@ export const ui: UiTranslations = {
   'resetPassword.showPassword': 'Uri l-password',
   'resetPassword.subheading': 'Aħna nidħluk awtomatikament wara li r-reset jirnexxi.',
   'resetPassword.submit': 'Irrisettja u idħol',
+  'reviewCard.headline': '{{ago}}',
   'reviewCard.headlineWithSubject': '{{subject}} • {{ago}}',
   'search.empty.body':
     "Ipprova wessa' l-filtru tas-suġġett jew irrilaxxa l-limitu tal-klassifikazzjoni.",
@@ -138,7 +166,9 @@ export const ui: UiTranslations = {
   'search.filter.rating': 'Klassifikazzjoni',
   'search.filter.subject': 'Suġġett',
   'search.results.count': '{{count}} tuturi jaqblu mal-filtri tiegħek',
+  'search.results.fallback': 'Qed jintwerew għalliema demo magħżula',
   'search.results.loading': 'Qed jitgħabbew it-tuturi…',
+  'search.searchPlaceholder': 'Suġġett, isem, jew tema…',
   'search.subtitle':
     'Iffiltra skont is-suġġett, il-klassifikazzjoni, u d-disponibbiltà. Għalliema verifikati biss.',
   'search.title': 'Sib tutur li jikklikkja',
@@ -171,18 +201,21 @@ export const ui: UiTranslations = {
   'sessionDetail.startedFeedback': 'Is-sessjoni bdiet — tagħlim kuntent.',
   'sessionDetail.startError': 'Ma setgħetx tibda s-sessjoni.',
   'sessionDetail.subtitle': "ma' {{name}} • {{when}} • {{mins}} minuta",
+  'sessionDetail.timeline': 'Linja tal-ħin tal-istatus',
   'sessionDetail.timeline.afterEnd': 'Wara li tintemm is-sessjoni',
   'sessionDetail.timeline.auto': 'Karozza',
   'sessionDetail.timeline.booked': 'Ibbukkjat',
   'sessionDetail.timeline.confirmed': 'Ikkonfermat',
   'sessionDetail.timeline.inSession': 'Fis-sessjoni',
   'sessionDetail.timeline.now': 'Issa',
+  'sessionDetail.timeline.receipt': 'Irċevuta maħruġa',
   'sessionDetail.timeline.review': "Prompt ta' reviżjoni",
   'sessions.empty.body':
     "Fittex f'Mentor biex issib tutur u tibbukkja slot. Is-sessjonijiet ikkonfermati jidhru hawn.",
   'sessions.empty.title': "Għad m'hemm xejn skedat hawn.",
   'sessions.error': "Ma stajtx nitgħabba s-sessjonijiet tiegħek — jekk jogħġbok erġa' pprova.",
   'sessions.eyebrow': 'Is-sessjonijiet tiegħek',
+  'sessions.loading': 'Qed jitgħabbew is-sessjonijiet…',
   'sessions.subtitle':
     "Segwi l-bookings li ġejjin, mur fil-kamra tas-sessjonijiet attiva, u erġa' żur il-lezzjonijiet li tlestew.",
   'sessions.title': "Kull lezzjoni, f'post wieħed.",
@@ -197,22 +230,30 @@ export const ui: UiTranslations = {
   'signup.signUp': 'Oħloq tiegħi {{role}} kont',
   'signup.subheading':
     'Oħloq kont biex tibbukkja sessjonijiet, tibgħat messaġġi lit-tuturi, u ssegwi l-progress tiegħek.',
+  'signup.terms': 'Billi tirreġistra taqbel mat-Termini tagħna.',
   'tutorCard.avatarAlt': "Ritratt ta' {{name}}",
   'tutorCard.perHour': '/ siegħa',
   'tutorCard.subjectOverflow': '+ {{count}}',
   'tutorCard.topRated': 'L-aqwa kklassifikati',
   'tutorCard.verified': 'Tutur verifikat',
+  'tutorDashboard.empty.body':
+    "Stabbilixxi s-suġġetti tiegħek, ir-rata fis-siegħa, u d-disponibbiltà — imbagħad ibda taqla'.",
+  'tutorDashboard.empty.cta': 'Sir għalliem →',
   'tutorDashboard.empty.title': 'Issir tutur biex tiftaħ id-dashboard tiegħek.',
   'tutorDashboard.fallbackName': 'Tutur',
   'tutorDashboard.loading': 'Qed jitgħabba d-dashboard…',
   'tutorDashboard.recentReviews': 'Reviżjonijiet riċenti',
   'tutorDashboard.reviewsEmpty':
     "Għad m'għandekx reviżjonijiet — dawn se jidhru hawn ladarba l-istudenti jikklassifikawk.",
+  'tutorDashboard.stats.rating': 'Klassifikazzjoni medja',
   'tutorDashboard.stats.sessions': 'Sessjonijiet ta’ dan ix-xahar',
+  'tutorDashboard.stats.totalSessions': 'Sessjonijiet tal-ħin kollu',
+  'tutorDashboard.studentFallback': 'Student',
   'tutorDashboard.tutoringFallback': "Sessjoni ta' tagħlim privat",
   'tutorDashboard.upcoming': 'Sessjonijiet li ġejjin',
   'tutorDashboard.upcomingEmpty':
     "Għad m'hemm l-ebda sessjonijiet li ġejjin — l-istudenti li qed jibbukkjaw il-postijiet tiegħek se jidhru hawn.",
+  'tutorProfile.availability': 'Disponibbiltà din il-ġimgħa',
   'tutorProfile.availabilityHeadline': 'Agħżel slot biex tibda',
   'tutorProfile.bookCta': 'Ibbukkja sessjoni',
   'tutorProfile.bookFull': 'Ara l-iskeda sħiħa',
@@ -225,6 +266,7 @@ export const ui: UiTranslations = {
   'tutorProfile.perHour': ' / siegħa',
   'tutorProfile.reviews': 'Reviżjonijiet riċenti',
   'tutorProfile.reviews.empty': "Għad m'hemm l-ebda reviżjoni — kun l-ewwel.",
+  'tutorProfile.stat.repeats': 'Studenti li jerġgħu jiġu',
   'tutorProfile.stat.repeatsValue': '{{pct}} %',
   'tutorProfile.stat.response': 'Rispons medju',
   'tutorProfile.stat.responseValue': '{{mins}} minuta',

@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пытанні пра выданне, дастаўку або падпіску? Звяжыцеся з жывым чалавекам з каманды па адрасе hello@crate.example — мы чытаем кожнае паведамленне.',
+  'about.contactTitle': 'Пагаварыце з куратарам',
+  'about.feature1':
+    'Штомесячныя куратарскія выданні, адабраныя незалежнымі майстрамі, з гісторыяй кожнага прадмета.',
+  'about.feature2':
+    'Поўны кантроль над кожнай скрынкай — наладжвайце змесціва, замяняйце або выключайце прадметы, прапускайце месяц або змяняйце частоту.',
+  'about.feature3':
+    'Адсочванне дастаўкі ад пачатку да канца — ад пункта адпраўкі да вашай брамы, з упакоўкай без пластыку і абнаўленнямі перавозчыка ў рэжыме рэальнага часу.',
+  'about.feature4':
+    'Гнуткія планы і празрыстая аплата — павышайце, паніжайце, прыпыняйце або адмяняйце ў любы час з вашай панэлі кіравання.',
+  'about.intro':
+    '{{app}} — гэта куратарскі сэрвіс падпісных скрынак, які штомесяц дастаўляе да вашай дзвярэй адабраную невялікую партыю радасці. Кожнае выданне збіраюць працоўныя майстры — незалежныя мастакі, шэф-кухары і малыя брэнды — а не алгарытм.',
+  'about.missionBody':
+    'Мы верым, што падпіска павінна адчувацца як падарунак, а не як пастка. {{app}} створаны так, каб вы заставаліся, бо любіце тое, што прыходзіць — прыпыняйце ў любы час, замяняйце што хочаце і адмяняйце ў адзін клік. Ніякіх сцэнарыяў утрымання, ніколі.',
+  'about.missionTitle': 'Наша місія',
   'about.pageTitle': 'Пра {{app}}',
   'appNav.mobileLabel': 'Асноўная навігацыя',
   'appNav.primaryLabel': 'Асноўная навігацыя',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Рэдагаваць кантактную асобу для выстаўлення рахункаў',
   'billing.contact.eyebrow': 'Кантактная асоба па пытаннях рахункаў',
   'billing.eyebrow': 'План і плацяжы',
+  'billing.loading': 'Загрузка рахункаў…',
   'billing.payment.body':
     'Аплата ажыццяўляецца праз Stripe Checkout — поўны нумар вашай карты ніколі не даходзіць да нашых сервераў. Націсніце на любы ўзровень ніжэй, каб дадаць або абнавіць сваю карту.',
   'billing.payment.linked': 'Карта ў файле праз Stripe',
@@ -19,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Аднавіць падпіску',
   'billing.plan.eyebrow': 'Актыўны план',
   'billing.plan.next': 'Аўтаматычна падаўжаецца {{date}} .',
+  'billing.plan.status': 'Статус: {{status}}',
   'billing.subtitle': 'Кіруйце сваім узроўнем, спосабам аплаты і праглядайце мінулую актыўнасць.',
   'billing.tiers.body': 'Выберыце ўзровень, і мы перанакіруем вас на Stripe Checkout.',
   'billing.tiers.choose': 'Выберыце',
+  'billing.tiers.empty': 'Яшчэ не наладжана ніводнага ўзроўню.',
   'billing.tiers.heading': 'Даступныя ўзроўні',
   'boxDetail.backToBoxes': 'Назад да ўсіх выданняў',
   'boxDetail.crumb.boxes': 'Выданні',
@@ -34,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Куратарскі твор',
   'boxDetail.items.heading': '{{count}} курыраваныя творы',
   'boxDetail.itemsBadge': '{{count}} падабраныя тавары ў скрынцы',
+  'boxDetail.loading': 'Загрузка выдання…',
   'boxDetail.notFound': 'Гэтага выдання больш няма ў наяўнасці.',
   'boxDetail.subscribe.success': 'Падпісаныя — ваша першае выданне пастаўлена ў чаргу.',
   'boxDetail.swapBadge': 'Памяняць на {{count}} тавар(ы) ў скрынцы',
@@ -42,14 +62,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Няма адпаведных выданняў.',
   'boxes.eyebrow': 'Архіў «Скарб»',
   'boxes.heading': 'Праглядзіце ўсе выпускі',
+  'boxes.loadError': 'Не ўдалося загрузіць выданні. Праверце злучэнне і паспрабуйце зноў.',
   'boxes.loading': 'Загрузка выданняў…',
+  'boxes.search.label': 'Пошук выданняў',
   'boxes.search.placeholder': 'Пошук выданняў…',
   'boxes.subtitle':
     'Кожны ўзровень — гэта невялікая порцыя гісторый. Дадайце адну ў чаргу або перанясіце яе ў наступны месяц.',
+  'boxThemeCard.itemCount': '{{count}} прадметы',
   'boxThemeCard.perMonth': '/ месяц',
+  'boxThemeCard.retailValue': 'Рознічны кошт {{value}}',
   'common.goToDashboard': 'Перайсці да панэлі',
+  'common.retry': 'Паўтарыць',
   'customize.eyebrow': 'Зрабіце гэта сваім',
   'customize.heading': 'Наладзьце свой наступны Crate',
+  'customize.items.empty': 'Для гэтага ўзроўню яшчэ не наладжана ніводнага прадмета.',
   'customize.items.exclude': 'Прапусціць гэта',
   'customize.items.eyebrow': 'Персаналізуйце гэтую скрынку',
   'customize.items.heading': 'Элементы ў {{box}}',
@@ -58,8 +84,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Дадаць назад',
   'customize.items.save': 'Захаваць налады',
   'customize.items.swapsLeft': '{{used}} з {{max}} выкарыстаныя свопы',
+  'customize.loading': 'Загрузка налады…',
   'customize.noSub.body':
     'Спачатку падпішыцеся на ўзровень, а потым вярніцеся, каб абмяняць прадметы ў сваёй скрынцы.',
+  'customize.noSub.cta': 'Прагляд выданняў',
   'customize.noSub.heading': 'Няма актыўнай падпіскі',
   'customize.saved': 'Налады захаваны.',
   'customize.subtitle':
@@ -73,11 +101,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Адсочванне адпраўкі',
   'dashboard.eyebrow': 'Ваш скарб',
   'dashboard.greeting': 'Сардэчна запрашаем назад, {{name}} .',
+  'dashboard.loadError':
+    'Не ўдалося загрузіць вашу панэль кіравання. Праверце злучэнне і паспрабуйце зноў.',
   'dashboard.loading': 'Загрузка панэлі кіравання…',
   'dashboard.next.eyebrow': 'Ваша наступнае выданне',
   'dashboard.onboarding.body':
     'У вас пакуль няма актыўнай падпіскі. Выберыце ўзровень, каб пачаць штомесячную дастаўку «Скарбу».',
   'dashboard.onboarding.cta': 'Праглядзець усе выданні',
+  'dashboard.onboarding.empty': 'Зараз няма даступных планаў. Загляньце пазней.',
   'dashboard.onboarding.heading': 'Выберыце сваё першае выданне',
   'dashboard.renewal.amount': 'Зараджана',
   'dashboard.renewal.cadence': 'Кадэнцыя',
@@ -85,12 +116,15 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Падаўжэнне',
   'dashboard.renewal.heading': 'Аўтаматычнае падаўжэнне {{date}}',
   'dashboard.renewal.plan': 'Ключ плана',
+  'dashboard.renewal.tbd': 'Планаванне падаўжэння хутка',
   'dashboard.renewal.tier': 'Узровень',
   'dashboard.stats.days': 'дні',
   'dashboard.stats.daysToNext': 'Дастаўка',
   'dashboard.stats.items': 'Курыраваныя тавары',
   'dashboard.stats.shipDate': 'Дата адпраўкі',
   'dashboard.stats.tbd': 'Пакуль невядома',
+  'dashboard.subtitle.active': 'Ваша наступнае выданне ўжо ў шляху. Вось чаго чакаць.',
+  'dashboard.subtitle.idle': 'Выберыце ўзровень, каб пачаць атрымліваць {{appName}} штомесяц.',
   'forgotPassword.subtitle':
     'Паведаміце нам свой адрас электроннай пошты, і мы дашлем спасылку для скіду налад.',
   'forgotPassword.success.body':
@@ -98,6 +132,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Праверце сваю паштовую скрыню.',
   'landing.editions.eyebrow': 'У гэтым сезоне',
   'landing.editions.heading': 'Выданні, якія падабаюцца нашым куратарам',
+  'landing.editions.viewAll': 'Прагляд усіх выданняў →',
   'landing.footer.contact': 'Пагаварыце з куратарам',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Пачніце сваю скрынку →',
@@ -107,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Погляд на панэль кіравання ўдзельнікаў — адлік часу, змест і адсочванне.',
   'landing.hero.social.count': 'Любімчык {{count}} + падпісчыкі',
+  'landing.hero.social.rating': '{{rating}} сярэдні рэйтынг распакоўкі',
+  'landing.hero.subhead':
+    '{{appName}} дасылае вам адабраную невялікую партыю радасці ад незалежных майстроў. Прыпыняйце ў любы час. Замяняйце што хочаце. Пакідайце тое, што любіце.',
   'landing.nav.start': 'Пачніце сваю скрынку',
   'landing.tiers.eyebrow': 'Выберыце свой рытм',
   'landing.tiers.heading': 'Пачніце з малога, абнавіце ў любы час, адмяніце гэтак жа лёгка.',
@@ -116,6 +154,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Увайдзіце, каб зірнуць на скрынку наступнага месяца.',
   'login.welcomeBack': 'З вяртаннем, куратар.',
   'nextBoxHeroCard.eyebrow': 'ВАША НАСТУПНАЯ ЗБОРКА',
+  'nextBoxHeroCard.itemCount': '{{count}} прадметаў унутры',
   'nextBoxHeroCard.itemsLabel': 'Курыраваныя тавары',
   'nextBoxHeroCard.shipsOnLabel': 'Адпраўка',
   'notFound.body':
@@ -139,8 +178,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Прыпыніць падпіску',
   'settings.danger.paused': 'Падпіска прыпынена.',
   'settings.danger.pausing': 'Прыпыненне…',
+  'settings.danger.status': 'Статус падпіскі: {{status}}',
   'settings.danger.subtitle':
     'Прыпыненне захоўвае ваш узровень і гісторыю. Адмена спыняе будучыя адпраўкі і выдаляе захаваныя спосабы аплаты ў канцы цыклу.',
+  'settings.notifications.saving': '· захаванне…',
   'settings.notifications.subtitle':
     'Выберыце, якія сігналы вы хочаце атрымліваць ад Crate. Значэнні па змаўчанні маюць сэнс.',
   'settings.subtitle': 'Абнавіце свой профіль, адрас дастаўкі і спосаб сувязі з Crate.',
@@ -156,12 +197,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Актыўнай адпраўкі пакуль няма',
   'shipments.live.eyebrow': 'Актыўная адгрузка',
   'shipments.live.unnamed': 'Ваша наступная скрынка',
+  'shipments.loadError':
+    'Не ўдалося загрузіць вашыя дастаўкі. Праверце злучэнне і паспрабуйце зноў.',
+  'shipments.loading': 'Загрузка адпраўленняў…',
+  'shipments.step.delivered': 'Дастаўлена',
   'shipments.step.deliveredBody': 'Пазначце #crateunbox, каб падзяліцца сваімі адкрыццямі.',
   'shipments.step.ordered': 'Заказ размешчаны',
   'shipments.step.orderedBody':
     'Ваша падпіска паставіла гэтае выданне ў чаргу на наступны цыкл адпраўкі.',
+  'shipments.step.packed': 'Упакавана ўручную',
   'shipments.step.packedBody':
     'Кожны кавалак быў загорнуты і пакладзены ў скрынку з рукапіснай запіскай.',
+  'shipments.step.transit': 'У шляху',
   'shipments.step.transitNot': "Адсочванне з'явіцца тут, як толькі ваша скрынка будзе ў дарозе.",
   'shipments.subtitle':
     'Адсачыце скрынку на яе шляху да вас, а затым пераглядайце ўсе выданні, якія вы распакоўвалі раней.',

@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uthole iphutha, noma ufuna ukuphakamisa isici? Xhumana nathi kusukela kuzilungiselelo ze-akhawunti yakho — yonke imiyalezo ifinyelela kumuntu wangempela eqenjini.',
+  'about.contactTitle': 'Xoxa nathi',
+  'about.featureDatabases':
+    'Amabhuku okugcina amabhuku amancane kanye namathempulethi asebenzisekayo ukuguqula amanothi angahlelekile abe yizinqubo ezihlelekile neziphindaphindekayo.',
+  'about.featureEditor':
+    'Umhleli webhulokhi othule — izihloko, izinhlu, ikhodi, izikhombo, nezinto okufanele zenziwe — nemiyalo ye-slash uma uyifuna futhi ingaphazamisi uma ungayifuni.',
+  'about.featureGraph':
+    'Izixhumanisi ezibuyayo kanye negrafu yolwazi: thayipha [[ ukuxhumanisa inothi bese ubona indlela imibono yakho exhumana ngayo ngokuhamba kwesikhathi.',
+  'about.featureNotebooks':
+    'Amabhuku amanothi kanye namakhasi ahleliwe ukuze amaphrojekthi, izihloko, namanothi ansuku zonke ahlale ehlelekile ngendlela ocabanga ngayo.',
+  'about.featureSearch':
+    'Ukusesha okugcwele kombhalo okungaphansi kuka-50ms kuwo wonke amabhuku amanothi, kanye namathegi ahlangana namabhuku amanothi esikhundleni sokuwaqeda.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'common.goToDashboard': 'Yiya ku-Dashboard',
   'forgot.eyebrow': 'Ulahlekelwe indlela yokubuyela emuva?',
   'forgot.formSubtitle': 'Sitshele i-imeyili efayeleni.',
+  'forgot.formTitle': 'Ukhohlwe iphasiwedi',
   'forgot.headline': 'Setha kabusha iphasiwedi yakho.',
   'forgot.subline':
     'Sizothumela isixhumanisi esizothunyelwa kanye ebhokisini lakho lokungenayo ukuze ukwazi ukukhetha esisha.',
+  'forgot.successDetail':
+    'Sithumele isixhumanisi sokusetha kabusha ku-imeyili yakho. Siphelelwa yisikhathi ngemva kwemizuzu engama-30.',
   'graph.eyebrow': 'Igrafu',
+  'graph.goToNotes': 'Phequlula amanothi →',
+  'graph.loadError': 'Ayikwazanga ukulayisha igrafu: {{message}}',
   'graph.placeholderBody':
     'Uma amanothi eqala ukuxhumana (nge-syntax ye-[[wiki]], igrafu esebenzisana ngamandla izovela lapha.',
+  'graph.placeholderTitle': 'Igrafu yezixhumanisi ezibuyayo iyeza maduze',
   'graph.subtitle':
     '{{count}} amanothi kule ndawo yokusebenza. Ukuboniswa kwegrafu ye-Backlink kuzovela lapha uma amanothi exhumene.',
   'graph.title': 'Igrafu yolwazi',
   'home.empty': 'Azikho amanothi okwamanje — qala elakho lokuqala.',
   'home.favoritesHeading': 'Kuphiniwe',
   'home.guest': 'umngane',
+  'home.loadError': 'Ayikwazanga ukulayisha amanothi akho: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Faka inothi kusihleli ukuze uligcine lapha.',
   'home.recentHeading': 'Kubuyekezwe muva nje',
@@ -23,18 +44,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Incwadi yamanothi',
   'home.stats.pinned.label': 'Kuphiniwe',
   'home.stats.updatedToday.label': 'Kubuyekezwe namuhla',
+  'home.subtitle': 'Qhubeka lapho ugcine khona, noma qala inothi elisha.',
   'home.viewAll': 'Buka wonke amanothi',
   'landing.cta.body':
     'Kumahhala ukusetshenziswa komuntu siqu. Ochwepheshe bamaqembu. Letha i-markdown yakho ekhona noma uqale kabusha — I-Verso ihlangana nawe noma ngabe amanothi akho akuphi.',
+  'landing.cta.button': 'Dala indawo yami yokusebenza',
   'landing.cta.heading': 'Vula ikhasi lanamuhla.',
   'landing.features.eyebrow': 'Yonke into yokuqala edingwa ubuchopho bakho besibili',
+  'landing.features.heading': 'Yakhelwe umsebenzi, hhayi umsebenzi we-meta.',
   'landing.hero.eyebrow': 'Indawo yokubhala ethule',
   'landing.hero.headlineAccent': 'thatha isimo.',
   'landing.hero.headlineLeading': 'Kuphi imicabango',
   'landing.hero.primaryCta': 'Qala isisekelo sakho solwazi',
   'landing.hero.secondaryCta': 'Sengivele nginayo i-akhawunti',
+  'landing.hero.socialProof':
+    'Ababhali, abafundi, kanye nezazi ze-PhD abangaphezu kuka-12,800 bacabanga nge-{{appName}}',
   'landing.hero.subline':
     'I-Verso iyindawo ehlelekile yokubhala amanothi yabasebenzi bolwazi nabafundi. Umhleli wamabhulokhi, amabhuku okubhala ahlanganisiwe, ama-backlink, kanye negrafu yolwazi — konke lokhu kungemuva kolwazi lokufunda ngokuthayipha - okokuqala.',
+  'landing.preview.notebook': 'Ulwazi · Inqubo yokubhala',
+  'landing.preview.title': 'Ngokuvumela ama-draft aphefumule',
   'login.eyebrow': 'Siyakwamukela futhi ku-Verso',
   'login.formSubtitle': 'Sebenzisa i-imeyili yakho noma yimuphi umhlinzeki oxhumene naye.',
   'login.headline': 'Qhubeka lapho ikhasi limiswe khona.',
@@ -43,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
   'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
   'noteEditor.backToNotes': 'Buyela kumanothi',
+  'noteEditor.bodyLabel': 'Umzimba wenothi',
   'noteEditor.bodyPlaceholder':
     'Qala ukubhala — inothi lakho ligcina ngokuzenzakalelayo njengoba uthayipha.',
   'noteEditor.confirmTrash': 'Hambisa leli nothi kudoti?',
@@ -51,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Hambisa kudoti',
   'noteEditor.updated': 'Kubuyekeziwe',
   'notes.defaultWorkspaceName': 'Incwadi yami yamanothi',
+  'notes.empty': 'Awekho amanothi lapha okwamanje — qala elinye ukugcwalisa incwadi yamanothi.',
   'notes.eyebrow': 'Incwadi yamanothi',
   'notes.filterAll': 'Wonke amanothi',
   'notes.filterPinned': 'Kuphiniwe',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Incwadi yamanothi entsha',
   'notes.newNotebookPrompt': 'Igama lenothibhuku elisha',
+  'notes.newNotebookRequired': 'Faka igama lencwadi yamanothi.',
   'notes.notebooksHeading': 'Amabhuku okubhala',
   'notes.subtitle':
     'Khetha incwadi yamanothi ngakwesobunxele, bese ucindezela inkinobho ethi Inothi Elisha ukuze uqale ukufaka okusha.',
+  'planUpdated.body': 'Ukubhalisa kwakho sekusebenza.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Izici ezithuthukisiwe',
   'pricing.heading': 'Khetha uhlelo lwakho lokuThatha Amanothi',
+  'reset.changedMind': 'Ushintshile umqondo?',
   'reset.eyebrow': 'Cishe sengibuyile',
   'reset.formSubtitle': 'Uzongena ngemvume uma isilondoloziwe.',
   'reset.headline': 'Khetha iphasiwedi entsha.',
@@ -71,7 +105,9 @@ export const ui: UiTranslations = {
     'Faka ikhodi esisanda kukuthumelela yona nge-imeyili bese ukhetha into ongayikhohlwa.',
   'reset.submit': 'Londoloza bese ungena ngemvume',
   'reset.tokenHint': 'Kunamathiselwe ebhokisini lakho lokungenayo.',
+  'search.empty': 'Awekho amanothi ahambisana nalo mbuzo okwamanje.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Ukuphinda Usesho',
   'search.loading': 'Iyasesha…',
   'search.noRecent': 'Thayipha umbuzo ongenhla ukuze uqale ukusesha kuwo wonke amanothi akho.',
   'search.recentLabel': 'Usesho lwakamuva',
@@ -79,12 +115,19 @@ export const ui: UiTranslations = {
     'Umbhalo ogcwele kuyo yonke incwadi yamanothi. Thayipha ukuze useshe; imiphumela iyavuselelwa njengoba uthayipha.',
   'search.title': 'Sesha ubuchopho besibili.',
   'settings.account.logout': 'Phuma',
+  'settings.account.title': 'Imininingwane ye-akhawunti',
+  'settings.editor.graphHover.body':
+    'Bonisa ikhadi elincane lokubuka kuqala uma ugcwelela i-[[wikilink]] kumhleli.',
+  'settings.editor.graphHover.label': 'Ukubuka kuqala kwegrafu yezixhumanisi ezibuyayo',
   'settings.editor.lineHeight.body':
     'Ungakanani umoya phakathi kwemigqa yomzimba. 170% uyisigqi sokufunda esizenzakalelayo.',
+  'settings.editor.lineHeight.label': 'Ubude bomugqa',
   'settings.editor.serif.body':
     'Sebenzisa iGeorgia kukholomu yokufunda. I-Sans-serif igcina kubha eseceleni kanye nakuma-toolbar.',
+  'settings.editor.serif.label': 'Umbhalo womzimba we-serif',
   'settings.editor.title': 'Ukubhala ngefonti kanye nendawo yokubhala',
   'settings.eyebrow': 'Verso · Izilungiselelo',
+  'settings.passwordModal.current': 'I-password Yamanje',
   'settings.passwordModal.error':
     'Ayikwazanga ukushintsha iphasiwedi — sicela uhlole iphasiwedi yakho yamanje.',
   'settings.passwordModal.next': 'Iphasiwedi Entsha',
@@ -94,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Cindezela yonke inkinobho ngesiteshi sesikhathi sangempela. Khubaza ukuxhumana okuhamba kancane.',
   'settings.sync.auto.label': 'Ukuvumelanisa kwesikhathi sangempela',
+  'settings.sync.title': 'Indlela amanothi akho ahamba ngayo',
   'settings.theme.body':
     'Ukukhanya kugcina ikholomu yokuhlela ikhanya. I-Sepia ifudumeza ikhasi kusihlwa.',
   'settings.theme.dark': 'Okumnyama',
@@ -113,8 +157,12 @@ export const ui: UiTranslations = {
     'Engeza ama-#hashtag esihlokweni samanothi (isb. "Uhlu lokufunda #izincwadi") futhi azovela lapha ngokuzenzakalelayo.',
   'tags.emptyTitle': 'Azikho amathegi okwamanje',
   'tags.eyebrow': 'Inkomba',
+  'tags.goToNotes': 'Iya kumanothi →',
+  'tags.loadError': 'Ayikwazanga ukulayisha amathegi: {{message}}',
   'tags.subtitle':
     '{{tags}} amathegi aphesheya {{notes}} amanothi. Engeza ama-#hashtag esihlokweni senothi futhi azovela lapha.',
+  'versoAuthShell.sample.body':
+    'Ukubuyekeza kusasa kuvame ukufundeka kangcono kunokokuqala namuhla kusihlwa. Beka inguqulo engaqediwe kufolda yomsebenzi ojulile…',
   'versoAuthShell.sample.label': 'Inothi lansuku zonke',
   'versoAuthShell.sample.timestamp': 'Namuhla · 9:14am',
   'versoAuthShell.sample.title': 'Ngokuvumela ama-draft aphefumule',
@@ -126,8 +174,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Qhubeka ubhala',
   'versoTodayHero.createCta': 'Qala inothi lanamuhla',
   'versoTodayHero.dailyLabel': 'Inothi lansuku zonke',
+  'versoTodayHero.emptyHeadline': 'Namuhla ikhasi elingenalutho.',
   'versoTodayHero.emptySubline':
     'Thwebula umcabango, bhala phansi umhlangano, noma udwebe kusasa. I-Verso igcina isakhiwo sithule ukuze umbhalo uhlale uphezulu.',
+  'versoTodayHero.outlineLabel': 'Uhlu lwanamuhla',
   'versoTodayHero.streak': '{{count}} -uchungechunge lwezinsuku',
+  'versoTodayHero.unwritten': 'Awekho amagama okwamanje — vula inothi ukuqala.',
   'versoTodayHero.wordCount': '{{count}} amazwi namuhla',
 }

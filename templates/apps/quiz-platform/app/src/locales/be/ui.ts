@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ёсць водгук, знайшлі памылку або хочаце прынесці {{app}} у сваю школу ці каманду? Мы чытаем кожнае паведамленне — звярніцеся з налад свайго акаўнта, і адкажа рэальны чалавек.',
   'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.intro':
+    '{{app}} — гэта платформа для жывых віктарын для класаў, гульнявых вечароў і камандных мерапрыемстваў. Стварайце гуллівыя наборы пытанняў, праводзьце гульні ў рэальным часе з кодам далучэння і назірайце, як зала ажывае ад пытанняў на час, падліку балаў і табліц лідараў.',
+  'about.missionBody':
+    'Навучанне засвойваецца, калі яно выглядае як гульня. Мы робім так, каб любы мог без намаганняў ператварыць тэму ў хуткую спаборніцкую гульню — каб вядучыя маглі вучыць праз дзеянне, а гульцы захоўвалі серыю.',
+  'about.missionTitle': 'Наша місія',
   'about.title': 'Пра {{app}}',
   'auth.login.noAccount': 'Упершыню карыстаецеся Sparq?',
   'auth.login.or': 'або працягвайце з',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Пакуль няма супадзенняў з віктарынамі.',
   'discover.headline': 'Знайдзіце сваю наступную любімую віктарыну.',
   'discover.loading': 'Загрузка…',
+  'discover.searchPlaceholder': 'Пошук віктарын па назве…',
   'discover.subhead':
     'Праглядзіце ўсю бібліятэку, фільтруйце па катэгорыях або шукайце па назве. Націсніце на картку, каб гуляць самастойна або весці жывы выступ.',
   'forgotPassword.subhead':
     'Увядзіце свой адрас электроннай пошты, і мы дашлем вам спасылку для скіду налад.',
   'forgotPassword.success.body':
     'Калі ўліковы запіс існуе для {{email}} , вы атрымаеце спасылку для скіду налад праз некалькі хвілін.',
+  'forgotPassword.success.title': 'Праверце сваю паштовую скрыню.',
   'hostLobby.back': 'Назад да віктарыны',
   'hostLobby.copied': "Код аб'яднання скапіраваны ў буфер абмену.",
   'hostLobby.creating': 'Раскручванне вашага вестыбюля…',
@@ -30,19 +39,25 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Адмена лобі',
   'hostLobby.players.count': '{{count}} жыць',
   'hostLobby.players.title': 'Гульцы ў вестыбюлі',
+  'hostLobby.players.waiting': 'Чакаем гульцоў. Падзяліцеся кодам {{code}}, каб яны далучыліся.',
   'hostLobby.rules.title': 'Правілы дома',
   'hostLobby.startError': 'Не атрымалася пачаць гульню.',
   'hostLobby.starting': 'Пачынаючы іскру…',
   'joinCodeHero.headline': 'Скажыце сваім гульцам, каб яны падключыліся.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Або наведайце',
   'joinCodeHero.liveLabel': 'Прамая трансляцыя вестыбюля',
+  'joinCodeHero.playerJoined': '{{name}} далучыўся',
   'joinCodeHero.playersLabel': 'Гульцы',
   'joinCodeHero.qrLabel': 'Сканіруйце, каб далучыцца',
   'joinCodeHero.startGame': 'Запалі іскру',
   'joinCodeHero.subhead':
     'Падзяліцеся кодам далучэння або адсканіруйце QR-код. Гульня пачынаецца ў момант, калі вы запаліце іскру.',
+  'landing.cta.button': 'Стварыце сваю першую віктарыну',
   'landing.cta.eyebrow': 'Бясплатна для педагогаў',
   'landing.cta.heading': 'Дадайце іскрынку ў кожны ўрок.',
+  'landing.cta.subhead':
+    'Зарэгіструйцеся за 30 секунд. Праводзьце неабмежаваную колькасць жывых гульняў, стварайце віктарыны з дапамогай ШІ і падтрымлівайце серыю ў кожнага гульца.',
   'landing.eyebrow': 'Запаліце кожны адказ',
   'landing.features.heading':
     'Студыя віктарын, якая падыходзіць для вашага спосабу навучання і гульні.',
@@ -58,6 +73,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Папулярныя віктарыны',
   'landing.popular.eyebrow': 'Папулярнае на гэтым тыдні',
   'landing.popular.heading': 'Сёння вядучыя праводзяць віктарыну "Заскок у кагосьці".',
+  'landing.popular.viewAll': 'Праглядзець усе катэгорыі →',
+  'leaderboard.empty.body': 'Згуляйце ў віктарыну, каб патрапіць у глабальную табліцу лідараў.',
   'leaderboard.empty.title': 'Пакуль няма гульняў на дошцы — будзьце першымі.',
   'leaderboard.eyebrow': 'Табліца лідэраў',
   'leaderboard.fullRanking': 'Поўны рэйтынг',
@@ -65,6 +82,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Агульны бал за кожную віктарыну, у якую вы згулялі. Падымайцеся, гуляючы больш.',
   'leaderboard.title': 'Найлепшыя майстры віктарын',
+  'leaderboard.totalPlayers': '{{count}} гульцоў у рэйтынгу',
   'leaderboardRow.points': 'балы',
   'leaderboardRow.streak': '{{days}} д',
   'login.headline': 'Сардэчна запрашаем назад, вядучы віктарыны.',
@@ -76,10 +94,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Стварыце сваю першую віктарыну →',
   'myQuizzes.empty.created': 'Вы яшчэ не стварылі віктарыну.',
   'myQuizzes.empty.played': 'Пакуль няма апублікаваных віктарын.',
+  'myQuizzes.loading': 'Загрузка…',
   'myQuizzes.subhead':
     'Чарнавікі, якія вы стварылі, а таксама апублікаваныя віктарыны, у якія вы можаце гуляць.',
   'myQuizzes.title': 'Мае віктарыны',
   'nav.legal': 'Юрыдычная інфармацыя',
+  'nav.primaryNavLabel': 'Асноўная навігацыя',
   'notFound.backHome': 'Вяртанне дадому',
   'notFound.backToDiscover': 'Праглядзець віктарыны',
   'notFound.body': 'Паспрабуйце іншы код або вярніцеся ў вестыбюль.',
@@ -88,17 +108,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Загрузка…',
   'notifications.subhead':
     '{{count}} непрачытаныя іскры. Запрашэнні, перамяшчэнні ў табліцы лідэраў і дасягненні — усё ў адным патоку.',
+  'planUpdated.retry': 'Паспрабуйце яшчэ раз',
+  'planUpdated.verifyFailed': 'Нам пакуль не ўдалося пацвердзіць ваш плацёж.',
+  'planUpdated.verifyFailedBody':
+    'Магчыма, ваш плацёж усё яшчэ апрацоўваецца. Паўтарыце спробу праз хвіліну.',
   'planUpdated.verifying': 'Пацвярджэнне аплаты…',
+  'pricing.advancedFeatures': 'Пашыраныя функцыі: {{yes}}',
+  'pricing.canExport': 'Экспарт даных: {{yes}}',
   'pricing.checkoutError': 'Не атрымалася пачаць афармленне замовы. Паўтарыце спробу.',
   'pricing.heading': 'Выберыце свой план {{app}}',
   'pricing.included': 'Уключана',
   'pricing.loadError': 'Не атрымалася загрузіць планы.',
+  'pricing.maxQuestions': '{{count}} пытанні',
   'pricing.maxQuizzes': '{{count}} віктарыны',
+  'pricing.maxSessions': 'Сесіі: {{count}}',
   'pricing.subhead':
     'Бясплатна для вядучых і гульцоў. Абнавіце падпіску, каб атрымаць больш высокія ліміты і пашыраныя функцыі.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Уліковы запіс: электронная пошта, хэшаваны пароль, імя карыстальніка, апошні ўваход.',
+  'privacy.intro':
+    '{{app}} паважае вашу прыватнасць. На гэтай старонцы апісаны даныя, якія мы захоўваем, навошта мы іх захоўваем і як іх выдаліць.',
   'privacy.rights.body':
     'Выдаліце свой уліковы запіс з налад, каб назаўсёды выдаліць усе свае даныя на працягу 30 дзён.',
   'privacy.share.body':
@@ -122,6 +152,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Ідэнтыфікатар віктарыны: {{id}}',
   'quizBuilder.loadError': 'Не атрымалася загрузіць тэст.',
   'quizBuilder.loading': 'Загрузка рэдактара…',
+  'quizBuilder.markCorrect': 'Пазначыць {{letter}} як правільны',
   'quizBuilder.noQuestions': 'Пакуль няма пытанняў — дадайце адно, каб пачаць.',
   'quizBuilder.notFound': 'Віктарына не знойдзена.',
   'quizBuilder.preview': 'Прагляд',
@@ -138,7 +169,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} таймер',
   'quizBuilder.title': 'Стварыце сваю віктарыну',
   'quizBuilder.titleLabel': 'Назва віктарыны',
+  'quizBuilder.untitled': 'Пытанне без назвы',
   'quizCard.plays': "{{count}} п'есы",
+  'quizCard.questionCount': '{{count}} пыт.',
   'quizDetail.duration': '~ {{minutes}} мін',
   'quizDetail.hostMultiplayer': 'Прыём мультыплэера',
   'quizDetail.leaderboardEmpty': 'Пакуль няма плэйсаў — будзьце першымі, хто паставіць лік.',
@@ -153,26 +186,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Назад да віктарыны',
   'quizPlay.empty': 'У гэтай віктарыне пакуль няма пытанняў.',
   'quizPlay.error': 'Не атрымалася загрузіць гэты тэст. Паўтарыце спробу.',
+  'quizPlay.exit': 'Выйсці',
   'quizPlay.feedback.correct': '🔥 Іскра зароблена — наперад!',
+  'quizPlay.feedback.incorrect': 'Правільны адказ быў {{correct}}. Працягвайце.',
   'quizPlay.loading': 'Загрузка тэсту…',
   'quizPlay.next': 'Наступнае пытанне',
   'quizPlay.questionCounter': 'Пытанне {{current}} з {{total}}',
   'quizPlay.score': '{{score}} балы',
+  'quizPlay.seeResults': 'Паглядзець вынікі',
   'quizPlay.sessionFailed': 'Не атрымалася пачаць сеанс.',
   'quizPlay.streak': '{{count}} паласа',
+  'resetPassword.subhead': 'Выберыце новы пароль, каб вярнуцца да сваёй серыі.',
   'results.backToDiscover': 'Назад да Адкрыццяў',
   'results.error': 'Не атрымалася загрузіць вынікі.',
   'results.exit': 'Назад да Адкрыццяў',
   'results.loading': 'Падлік вашых балаў…',
   'results.missingSession': 'Няма падсумаванняў для сесіі.',
+  'results.recap.correctAnswer': 'Правільна: {{answer}}',
   'results.recap.questionLabel': 'Пытанне {{number}}',
   'results.recap.title': 'Кароткі змест пытання',
+  'results.recap.yourAnswer': 'Вы: {{answer}}',
   'results.unknownQuiz': 'Віктарына',
   'scoreBreakdownCard.accuracyLabel': 'Дакладнасць',
+  'scoreBreakdownCard.correctLabel': 'Правільна',
   'scoreBreakdownCard.eyebrow': 'Віктарына завершана',
   'scoreBreakdownCard.headline': 'Выдатная праца над " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Ачкі',
   'scoreBreakdownCard.rankLabel': 'Ранг',
+  'scoreBreakdownCard.streakBonus': 'Бонус за серыю +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Ваша іскра відаць. Прагледзьце разбор ніжэй, каб працягваць уздымацца ў табліцы лідараў.',
   'settings.danger.body': 'Назаўсёды выдаліце свой уліковы запіс Sparq і ўсе створаныя віктарыны.',
   'settings.danger.confirm': 'Так, выдаліць назаўсёды',
   'settings.guest': 'Госць',
@@ -189,5 +232,7 @@ export const ui: UiTranslations = {
     'Вы нясеце адказнасць за кантэнт, які публікуеце, пытанні, якія ствараеце, і любыя гульні, якія праводзіце. Не выдавайце сябе за іншых людзей.',
   'terms.billing.body':
     'Платныя планы аўтаматычна падаўжаюцца, пакуль іх не адменяць у наладах. Вы можаце адмяніць падпіску ў любы час; доступ захоўваецца да канца бягучага разліковага перыяду.',
+  'terms.intro':
+    'Карыстаючыся {{app}}, вы згаджаецеся з правіламі ніжэй. Калі вы не можаце іх прыняць, калі ласка, не карыстайцеся сэрвісам.',
   'terms.title': 'Умовы абслугоўвання',
 }

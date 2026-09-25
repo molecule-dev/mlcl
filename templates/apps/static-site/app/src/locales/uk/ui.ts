@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Ваш тариф оновлено.',
   'planUpdated.returnHome': 'Повернутися на головну',
   'planUpdated.thankYou': 'Дякуємо!',
+  'post.markdown': 'Переглянути цей допис як markdown',
+  'post.readingTime': '{{minutes}} хвилина читання',
   'post.tags': 'Теги',
   'project.error.nameAndTypeRequired': "name та projectType є обов'язковими",
   'project.error.notFound': 'Не знайдено',

@@ -1,12 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'มีข้อเสนอแนะ พบบั๊ก หรืออยากเห็น {{app}} บน dock ของคุณ? ติดต่อเราผ่านความช่วยเหลือในแอป — ทุกข้อความส่งถึงคนจริงในทีม',
   'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
+  'about.intro':
+    '{{app}} คือซอฟต์แวร์จัดการคลังสินค้าระดับมืออาชีพ — คำสั่งซื้อ การหยิบ การแพ็ก และการจัดส่ง ครบจบในที่เดียว สร้างมาเพื่อทีม fulfillment ที่ทำงานกับปริมาณจริงและต้องการให้ทุกการดำเนินการหน้างานรวดเร็ว ตรวจสอบได้ และปลอมแปลงไม่ได้',
+  'about.missionBody':
+    'งานปฏิบัติการขับเคลื่อนด้วยเรื่องน่าเบื่อ — การหยิบ การแพ็ก และป้ายจัดส่ง เราทำให้เรื่องน่าเบื่อรวดเร็ว ตรวจสอบได้ และเชื่อถือได้ เพื่อให้คลังสินค้าจัดส่งออร์เดอร์แบบเร่งด่วน ด่วนพิเศษ และมาตรฐานได้โดยไม่ข้ามเลน',
+  'about.missionTitle': 'พันธกิจของเรา',
   'about.pageTitle': 'เกี่ยวกับ {{app}}',
   'auth.signup.passwordHint': 'อย่างน้อย 12 ตัวอักษร',
   'authShell.brandSubtitle': 'คอนโซลการดำเนินการ',
   'authShell.eyebrow': 'ยินดีต้อนรับสู่ซอร์ทเฮาส์',
+  'authShell.footer': '{{appName}} · คอนโซลปฏิบัติการ',
   'authShell.pitch':
     'คอนโซลควบคุมการทำงานแบบสแกนเนอร์เป็นหลัก สำหรับใช้งานในพื้นที่การผลิต หยิบสินค้า บรรจุ และจัดส่งได้จากคอนโซลเดียว — สร้างขึ้นสำหรับหัวหน้างานฝ่ายปฏิบัติการที่ให้ความสำคัญกับทุกรายละเอียดและไม่ยอมให้คำสั่งซื้อใดๆ หลุดรอดไปได้',
   'authShell.sampleCaption': 'คำสั่งซื้อที่จัดส่งแล้ว · ประตูขนถ่ายสินค้า 8 แห่ง · 3 โซน',
@@ -17,6 +25,7 @@ export const ui: UiTranslations = {
   'dashboard.empty.action': 'ข้อมูลตัวอย่างเมล็ดพันธุ์',
   'dashboard.empty.body':
     'สร้างชุดข้อมูลตัวอย่าง (คำสั่งซื้อ สินค้าคงคลัง การจัดส่ง) เพื่อให้คุณสามารถควบคุมการทำงานตั้งแต่ต้นจนจบได้',
+  'dashboard.empty.seeding': 'กำลังเตรียมข้อมูล…',
   'dashboard.empty.title': 'คลังสินค้าของคุณว่างเปล่า',
   'dashboard.errorFallback': 'ข้อมูลแบบเรียลไทม์ไม่พร้อมใช้งานชั่วคราว',
   'dashboard.eyebrow': 'คำสั่งพื้น',
@@ -37,23 +46,31 @@ export const ui: UiTranslations = {
   'dashboard.queue.viewAll': 'คิวเปิด',
   'dashboard.subtitle': '{{active}} คำสั่งซื้อที่กำลังดำเนินการ · บัญชีแยกประเภทแบบเรียลไทม์',
   'dashboard.title': 'ตารางกะทำงานวันนี้',
+  'dashboard.zones.bins': '{{count}} ถังขยะ',
   'dashboard.zones.empty': 'ตั้งค่าโซนเพื่อดูความเคลื่อนไหวภายในพื้นที่',
+  'dashboard.zones.eyebrow': 'ฮีตแมปโซน',
   'dashboard.zones.title': 'กิจกรรมบนพื้น',
   'forgot.subheading':
     'กรุณาป้อนอีเมลที่ทำงานของคุณ แล้วเราจะส่งลิงก์สำหรับรีเซ็ตไปที่กล่องจดหมายของคุณ',
   'forgot.successBody':
     'ถ้า {{email}} ทีมงานกำลังดำเนินการส่งลิงก์รีเซ็ตให้ ลิงก์นี้จะหมดอายุใน 30 นาที',
   'fulfillmentHeroCard.eyebrow': 'การเปลี่ยนแปลงในการเคลื่อนไหว',
+  'fulfillmentHeroCard.onTime': 'ตรงเวลา {{rate}}%',
+  'fulfillmentHeroCard.ordersShipped': 'ออร์เดอร์ที่จัดส่งวันนี้',
+  'fulfillmentHeroCard.ordersShippedWithPeriod': 'ออร์เดอร์ที่จัดส่ง · {{period}}',
   'fulfillmentHeroCard.subtitle': '{{units}} สินค้าถูกบรรจุและออกจากท่าเรือเรียบร้อยแล้ว',
   'inventory.cols.bin': 'บิน',
   'inventory.cols.onHand': 'พร้อมใช้งาน',
   'inventory.cols.reorder': 'สั่งซื้อใหม่ pt',
+  'inventory.cols.sku': 'รหัสสินค้า',
   'inventory.empty': 'ไม่พบรหัสสินค้า (SKU) ที่ตรงกับการค้นหาของคุณ',
+  'inventory.errorFallback': 'ข้อมูลแบบเรียลไทม์ไม่พร้อมใช้งานชั่วคราว',
   'inventory.eyebrow': 'สินค้าคงเหลือ',
   'inventory.kpis.low': 'สินค้าเหลือน้อย',
   'inventory.kpis.lowHint': 'ต่ำกว่าจุดสั่งซื้อซ้ำ',
   'inventory.kpis.out': 'สินค้าหมด',
   'inventory.kpis.outHint': 'ต้องสั่งซื้อใหม่วันนี้',
+  'inventory.kpis.skus': 'รหัสสินค้าที่ใช้งานอยู่',
   'inventory.kpis.skusHint': 'ติดตามข้ามถังขยะ',
   'inventory.kpis.units': 'สินค้าคงเหลือ',
   'inventory.kpis.unitsHint': 'ในทุกถังขยะ',
@@ -109,6 +126,7 @@ export const ui: UiTranslations = {
   'locations.title': 'โซน ทางเดิน และช่องเก็บสินค้า',
   'locations.utilization': 'การใช้ประโยชน์',
   'login.heading': 'เข้าสู่ระบบ Sorthaus',
+  'login.noAccount': 'เพิ่งใช้บริการ Tessera เป็นครั้งแรกใช่ไหม?',
   'login.subheading': 'ควบคุมดูแลทุกคำสั่ง ทุกการโบกมือ ทุกท่าเทียบเรือ',
   'notFound.body':
     'ไม่มีช่องเก็บสินค้าใดตรงกับเส้นทางนั้น สินค้าอาจถูกจัดส่งไปแล้ว ถูกยกเลิก หรือถูกเก็บไว้ในช่องเก็บสินค้าผิดที่',
@@ -120,6 +138,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle': '{{count}} การแจ้งเตือน · {{unread}} ยังไม่ได้อ่าน',
   'orderDetail.back': 'กลับไปที่หน้าสั่งซื้อ',
   'orderDetail.cancel': 'ยกเลิกคำสั่งซื้อ',
+  'orderDetail.items.empty': 'ไม่มีสินค้า',
   'orderDetail.items.eyebrow': 'รายการเลือก',
   'orderDetail.items.line': 'เส้น',
   'orderDetail.items.qty': 'จำนวน',
@@ -142,7 +161,16 @@ export const ui: UiTranslations = {
   'pickList.notFound': 'ไม่พบคำสั่งซื้อ',
   'pickList.progress.eyebrow': 'เลือกความคืบหน้า',
   'pickListItem.progress': 'เลือก {{picked}} ของ {{total}}',
+  'pickListItem.qty': 'จำนวน',
   'pickListItem.toggleAria': 'สลับตัวเลือกสำหรับ {{sku}}',
+  'pricing.advancedFeatures': 'คุณสมบัติขั้นสูง: {{yes}}',
+  'pricing.canExport': 'การส่งออกข้อมูล: {{yes}}',
+  'pricing.heading': 'เลือกแผน {{app}} ของคุณ',
+  'pricing.maxOrders': '{{count}} ออร์เดอร์',
+  'pricing.maxPacking': 'การแพ็กของ {{count}}',
+  'pricing.maxPicks': 'การหยิบของ {{count}}',
+  'pricing.maxShipments': 'การจัดส่งของ {{count}}',
+  'pricing.maxZones': '{{count}} โซน',
   'profile.editTitle': 'รายละเอียดผู้ให้บริการ',
   'profile.eyebrow': 'โปรไฟล์ผู้ปฏิบัติงาน',
   'profile.field.shift': 'หน้าต่างเลื่อน',
@@ -177,9 +205,11 @@ export const ui: UiTranslations = {
   'reports.kpis.healthHint': '100% หมายถึงไม่มีสินค้าหมดสต็อก',
   'reports.kpis.units': 'สินค้าคงเหลือ',
   'reports.kpis.unitsHint': 'ในกลุ่ม SKU ที่ใช้งานอยู่',
+  'reports.loadError': 'ไม่สามารถโหลดข้อมูลรายงานได้',
   'reports.subtitle':
     'ภาพรวมแบบเรียลไทม์ของคำสั่งซื้อ วงจรชีวิตของผลิตภัณฑ์ และสถานะของสินค้าคงคลัง',
   'reports.title': 'รายงานปริมาณงาน',
+  'reset.changedMind': 'เปลี่ยนใจแล้วหรือ?',
   'reset.password': 'รหัสผ่านใหม่',
   'reset.subheading':
     'เลือกข้อความที่ทีมของคุณจะจดจำได้ในระหว่างการแข่งขัน — อย่างน้อย 12 ตัวอักษร',
@@ -192,6 +222,7 @@ export const ui: UiTranslations = {
   'returns.loading': 'กำลังโหลดผลลัพธ์…',
   'returns.new': 'RMA ใหม่',
   'returns.reason': 'Reason',
+  'returns.reasonPlaceholder': 'ทำไมจึงถูกส่งคืน?',
   'returns.subtitle': '{{count}} RMA ที่รอการดำเนินการ',
   'returns.title': 'การคัดแยกสินค้าคืน',
   'scanner.back': 'เครื่องสแกนทางออก',
@@ -202,6 +233,7 @@ export const ui: UiTranslations = {
   'scanner.placeholder': 'ป้อนหมายเลข SO-#, SKU หรือรหัสโซน…',
   'scanner.recent.empty': 'ยังไม่มีไฟล์สแกน — ลองดูไฟล์ด้านบนได้เลย',
   'scanner.recent.eyebrow': 'ผลการสแกนล่าสุด',
+  'scanner.submit': 'ค้นหา',
   'scanner.title': 'จับ. เล็ง. ดึง.',
   'settings.autoAllocate':
     'กำหนดคำสั่งซื้อเร่งด่วนให้กับผู้หยิบสินค้าที่ว่างอยู่คนถัดไปโดยอัตโนมัติ',
@@ -250,4 +282,5 @@ export const ui: UiTranslations = {
   'warehouseFulfillmentLayout.scanAria': 'เปิดเครื่องสแกน',
   'warehouseFulfillmentLayout.scanCta': 'สแกน',
   'warehouseFulfillmentLayout.searchAria': 'ค้นหาคำสั่งซื้อ, SKU, ช่องเก็บสินค้า',
+  'warehouseFulfillmentLayout.searchPlaceholder': 'ค้นหาคำสั่งซื้อ, SKU, ช่องเก็บ…',
 }

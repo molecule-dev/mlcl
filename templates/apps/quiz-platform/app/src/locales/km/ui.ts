@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានមតិកែលម្អ រកឃើញកំហុស ឬចង់នាំយក {{app}} ទៅសាលារៀន ឬក្រុមរបស់អ្នក? យើងអានសារទាំងអស់ — ទាក់ទងមកពីការកំណត់គណនីរបស់អ្នក ហើយមនុស្សពិតប្រាកដនឹងឆ្លើយតប។',
   'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
+  'about.intro':
+    '{{app}} គឺជាវេទិកាសំណួរប្រកួតប្រជែងផ្ទាល់សម្រាប់ថ្នាក់រៀន យប់លេងហ្គេម និងកម្មវិធីក្រុម។ បង្កើតកញ្ចប់សំណួរដ៏រីករាយ រៀបចំហ្គេមពេលវេលាពិតជាមួយកូដចូលរួម ហើយមើលបន្ទប់ភ្លឺឡើងជាមួយសំណួរកំណត់ពេល ការគិតពិន្ទុ និងតារាងពិន្ទុ។',
+  'about.missionBody':
+    'ការរៀនជាប់ចិត្តនៅពេលវាដូចជាការលេង។ យើងធ្វើឱ្យវាងាយស្រួលសម្រាប់អ្នកណាក៏ដោយក្នុងការបំប្លែងប្រធានបទទៅជាហ្គេមប្រកួតប្រជែងរហ័ស — ដូច្នេះអ្នករៀបចំអាចបង្រៀនដោយការអនុវត្ត ហើយអ្នកលេងរក្សាភាពស្មោះត្រង់។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
   'about.title': 'អំពី {{app}}',
   'auth.login.noAccount': 'ទើបតែស្គាល់ Sparq?',
   'auth.login.or': 'ឬបន្តជាមួយ',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'មិនទាន់មានសំណួរដែលត្រូវគ្នានៅឡើយទេ។',
   'discover.headline': 'ស្វែងរកសំណួរដែលអ្នកចូលចិត្តបន្ទាប់។',
   'discover.loading': 'កំពុងផ្ទុក…',
+  'discover.searchPlaceholder': 'ស្វែងរកសំណួរតាមចំណងជើង…',
   'discover.subhead':
     'រកមើលបណ្ណាល័យពេញលេញ ត្រងតាមប្រភេទ ឬស្វែងរកតាមចំណងជើង។ ចុចកាតមួយដើម្បីលេងទោល ឬធ្វើជាម្ចាស់ផ្ទះផ្ទាល់។',
   'forgotPassword.subhead':
     'សូមបញ្ចូលអ៊ីមែលរបស់អ្នក ហើយយើងនឹងផ្ញើតំណភ្ជាប់ទៅអ្នកដើម្បីកំណត់ឡើងវិញ។',
   'forgotPassword.success.body':
     'ប្រសិនបើមានគណនីសម្រាប់ {{email}} អ្នកនឹងទទួលបានតំណភ្ជាប់កំណត់ឡើងវិញក្នុងរយៈពេលពីរបីនាទីទៀត។',
+  'forgotPassword.success.title': 'សូមពិនិត្យមើលប្រអប់សំបុត្ររបស់អ្នក។',
   'hostLobby.back': 'ត្រឡប់ទៅសំណួរសាកល្បងវិញ',
   'hostLobby.copied': 'បានចម្លងកូដចូលរួមទៅក្ដារតម្បៀតខ្ទាស់។',
   'hostLobby.creating': 'កំពុង​ពង្រីក​ឡប់ប៊ី​របស់​អ្នក…',
@@ -30,19 +39,25 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'លុបចោលឡប់ប៊ី',
   'hostLobby.players.count': '{{count}} រស់នៅ',
   'hostLobby.players.title': 'អ្នកលេងនៅក្នុងឡប់ប៊ី',
+  'hostLobby.players.waiting': 'កំពុងរង់ចាំអ្នកលេង។ ចែករំលែកកូដ {{code}} ដើម្បីឱ្យពួកគេចូលរួម។',
   'hostLobby.rules.title': 'ច្បាប់​ផ្ទះ',
   'hostLobby.startError': 'មិនអាចចាប់ផ្តើមហ្គេមបានទេ។',
   'hostLobby.starting': 'ការចាប់ផ្តើមបញ្ឆេះ…',
   'joinCodeHero.headline': 'ប្រាប់អ្នកលេងរបស់អ្នកឱ្យលោតចូល។',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'ឬចូលមើល',
   'joinCodeHero.liveLabel': 'ឡប់ប៊ីផ្សាយផ្ទាល់',
+  'joinCodeHero.playerJoined': '{{name}} បានចូលរួម',
   'joinCodeHero.playersLabel': 'កីឡាករ',
   'joinCodeHero.qrLabel': 'ស្កេនដើម្បីចូលរួម',
   'joinCodeHero.startGame': 'ចាប់ផ្តើមអណ្តាតភ្លើង',
   'joinCodeHero.subhead':
     'ចែករំលែកលេខកូដចូលរួម ឬស្កេន QR។ ហ្គេមចាប់ផ្តើមនៅពេលដែលអ្នកបញ្ឆេះផ្កាភ្លើង។',
+  'landing.cta.button': 'បង្កើតសំណួរដំបូងរបស់អ្នក',
   'landing.cta.eyebrow': 'ឥតគិតថ្លៃសម្រាប់អ្នកអប់រំ',
   'landing.cta.heading': 'នាំមកនូវភាពរីករាយដល់មេរៀននីមួយៗ។',
+  'landing.cta.subhead':
+    'ចុះឈ្មោះក្នុងរយៈពេល 30 វិនាទី។ រៀបចំហ្គេមផ្ទាល់គ្មានដែនកំណត់ ព្រាងសំណួរជាមួយ AI និងរក្សាអ្នកលេងគ្រប់រូបឱ្យស្ថិតក្នុងស្ថានភាពល្អ។',
   'landing.eyebrow': 'បញ្ឆេះចម្លើយនីមួយៗ',
   'landing.features.heading': 'ស្ទូឌីយោសំណួរដែលសមនឹងរបៀបដែលអ្នកបង្រៀន និងលេង។',
   'landing.hero.ctaPrimary': 'ចាប់ផ្តើមបង្ហោះដោយឥតគិតថ្លៃ',
@@ -57,6 +72,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'សំណួរ​ពេញនិយម',
   'landing.popular.eyebrow': 'ពេញនិយមនៅសប្តាហ៍នេះ',
   'landing.popular.heading': 'ចូលទៅក្នុងកម្មវិធីសំណួរដែលម្ចាស់ផ្ទះកំពុងដំណើរការនៅថ្ងៃនេះ។',
+  'landing.popular.viewAll': 'រកមើលប្រភេទទាំងអស់ →',
+  'leaderboard.empty.body': 'លេងសំណួរដើម្បីដាក់ពិន្ទុរបស់អ្នកលើតារាងពិន្ទុសកល។',
   'leaderboard.empty.title': 'មិនទាន់មានការលេងនៅលើក្តារនៅឡើយទេ — ចូរក្លាយជាអ្នកដំបូង។',
   'leaderboard.eyebrow': 'តារាង​ពិន្ទុ',
   'leaderboard.fullRanking': 'ចំណាត់ថ្នាក់ពេញលេញ',
@@ -64,6 +81,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'បូកសរុបពិន្ទុនៅទូទាំងវគ្គសំណួរចម្លើយនីមួយៗដែលអ្នកបានលេង។ បង្កើនពិន្ទុដោយលេងបន្ថែមទៀត។',
   'leaderboard.title': 'អ្នកធ្វើសំណួរកំពូលៗ',
+  'leaderboard.totalPlayers': 'អ្នកលេងចំណាត់ថ្នាក់ {{count}}',
   'leaderboardRow.points': 'ពិន្ទុ',
   'leaderboardRow.streak': '{{days}} ឃ',
   'login.headline': 'សូមស្វាគមន៍មកវិញ អ្នក​ធ្វើ​សំណួរ។',
@@ -75,10 +93,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'បង្កើតសំណួរសាកល្បងដំបូងរបស់អ្នក →',
   'myQuizzes.empty.created': 'អ្នកមិនទាន់បានបង្កើតសំណួរនៅឡើយទេ។',
   'myQuizzes.empty.played': 'មិនទាន់មានកម្រងសំណួរដែលបានបោះពុម្ពផ្សាយនៅឡើយទេ។',
+  'myQuizzes.loading': 'កំពុងផ្ទុក…',
   'myQuizzes.subhead':
     'សេចក្តីព្រាងដែលអ្នកបានបង្កើត បូករួមទាំងកម្រងសំណួរដែលបានបោះពុម្ពផ្សាយដែលអ្នកអាចលេងបាន។',
   'myQuizzes.title': 'សំណួរ​របស់ខ្ញុំ',
   'nav.legal': 'ផ្នែកច្បាប់',
+  'nav.primaryNavLabel': 'ការរុករកចម្បង',
   'notFound.backHome': 'ត្រឡប់​ទៅ​ផ្ទះ​វិញ',
   'notFound.backToDiscover': 'រកមើលសំណួរសាកល្បង',
   'notFound.body': 'សាកល្បងលេខកូដផ្សេង ឬត្រឡប់ទៅឡប់ប៊ីវិញ។',
@@ -87,16 +107,26 @@ export const ui: UiTranslations = {
   'notifications.loading': 'កំពុងផ្ទុក…',
   'notifications.subhead':
     '{{count}} ផ្កាភ្លើងដែលមិនទាន់អាន។ ការអញ្ជើញ ចលនាតារាងពិន្ទុ និងសមិទ្ធផលទាំងអស់នៅក្នុងស្ទ្រីមតែមួយ។',
+  'planUpdated.retry': 'ព្យាយាមម្តងទៀត',
+  'planUpdated.verifyFailed': 'យើងមិនទាន់អាចបញ្ជាក់ការទូទាត់របស់អ្នកបាននៅឡើយទេ។',
+  'planUpdated.verifyFailedBody':
+    'ការទូទាត់របស់អ្នកប្រហែលជានៅតែកំពុងដំណើរការ។ សូមព្យាយាមម្តងទៀតនៅពេលបន្តិចទៀត។',
   'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
+  'pricing.advancedFeatures': 'មុខងារកម្រិតខ្ពស់៖ {{yes}}',
+  'pricing.canExport': 'នាំចេញទិន្នន័យ៖ {{yes}}',
   'pricing.checkoutError': 'មិនអាចចាប់ផ្តើមទូទាត់ប្រាក់បានទេ។ សូមព្យាយាមម្តងទៀត។',
   'pricing.heading': 'ជ្រើសរើសគម្រោង {{app}} របស់អ្នក',
   'pricing.included': 'រួមបញ្ចូល',
   'pricing.loadError': 'មិនអាចផ្ទុកផែនការបានទេ។',
+  'pricing.maxQuestions': '{{count}} សំណួរ',
   'pricing.maxQuizzes': '{{count}} សំណួរ​សាកល្បង',
+  'pricing.maxSessions': 'វគ្គ {{count}}',
   'pricing.subhead':
     'ឥតគិតថ្លៃសម្រាប់ម្ចាស់ផ្ទះ និងអ្នកលេង។ ធ្វើឱ្យប្រសើរឡើងសម្រាប់ដែនកំណត់ខ្ពស់ជាងមុន និងមុខងារកម្រិតខ្ពស់។',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account': 'គណនី៖ អ៊ីមែល ពាក្យសម្ងាត់ដែលបានអ៊ិនគ្រីប ឈ្មោះបង្ហាញ ការចូលចុងក្រោយ។',
+  'privacy.intro':
+    '{{app}} គោរពភាពឯកជនរបស់អ្នក។ ទំព័រនេះសង្ខេបទិន្នន័យដែលយើងរក្សាទុក ហេតុអ្វីយើងរក្សាទុក និងរបៀបលុបវាចេញ។',
   'privacy.rights.body':
     'លុបគណនីរបស់អ្នកចេញពីការកំណត់ ដើម្បីលុបទិន្នន័យរបស់អ្នកទាំងអស់ជាអចិន្ត្រៃយ៍ក្នុងរយៈពេល 30 ថ្ងៃ។',
   'privacy.share.body':
@@ -120,6 +150,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'លេខសម្គាល់សំណួរ៖ {{id}}',
   'quizBuilder.loadError': 'មិនអាចផ្ទុកសំណួរបានទេ។',
   'quizBuilder.loading': 'កំពុងផ្ទុកកម្មវិធីនិពន្ធ…',
+  'quizBuilder.markCorrect': 'សម្គាល់ {{letter}} ថាត្រឹមត្រូវ',
   'quizBuilder.noQuestions': 'មិនទាន់មានសំណួរនៅឡើយទេ — បន្ថែមមួយដើម្បីចាប់ផ្តើម។',
   'quizBuilder.notFound': 'រកមិនឃើញសំណួរទេ។',
   'quizBuilder.preview': 'មើល',
@@ -136,7 +167,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} កម្មវិធីកំណត់ម៉ោង',
   'quizBuilder.title': 'បង្កើតសំណួររបស់អ្នក',
   'quizBuilder.titleLabel': 'ចំណងជើងសំណួរ',
+  'quizBuilder.untitled': 'សំណួរគ្មានចំណងជើង',
   'quizCard.plays': '{{count}} លេង',
+  'quizCard.questionCount': 'សំណួរ {{count}}',
   'quizDetail.duration': '~ {{minutes}} នាទី',
   'quizDetail.hostMultiplayer': 'អ្នកលេងច្រើននាក់ជាម្ចាស់ផ្ទះ',
   'quizDetail.leaderboardEmpty':
@@ -152,26 +185,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'ត្រឡប់ទៅសំណួរសាកល្បងវិញ',
   'quizPlay.empty': 'កម្រងសំណួរនេះមិនទាន់មានសំណួរនៅឡើយទេ។',
   'quizPlay.error': 'មិនអាចផ្ទុកសំណួរនេះបានទេ។ សូមព្យាយាមម្តងទៀត។',
+  'quizPlay.exit': 'ចាកចេញ',
   'quizPlay.feedback.correct': '🔥 ទទួលបាន Spark — បន្តទៅវគ្គបន្ទាប់!',
+  'quizPlay.feedback.incorrect': 'ចម្លើយគឺ {{correct}}។ បន្តទៀត។',
   'quizPlay.loading': 'កំពុងផ្ទុកសំណួរ…',
   'quizPlay.next': 'សំណួរបន្ទាប់',
   'quizPlay.questionCounter': 'សំណួរ {{current}} នៃ {{total}}',
   'quizPlay.score': '{{score}} ពិន្ទុ',
+  'quizPlay.seeResults': 'មើលលទ្ធផល',
   'quizPlay.sessionFailed': 'មិនអាចចាប់ផ្តើមវគ្គបានទេ។',
   'quizPlay.streak': '{{count}} ស្នាម​ជ្រួញ',
+  'resetPassword.subhead': 'ជ្រើសរើសពាក្យសម្ងាត់ថ្មីដើម្បីត្រលប់ទៅជ័យជម្នះជាប់ៗគ្នារបស់អ្នកវិញ។',
   'results.backToDiscover': 'ត្រឡប់ទៅ Discover វិញ',
   'results.error': 'មិនអាចផ្ទុកលទ្ធផលបានទេ។',
   'results.exit': 'ត្រឡប់ទៅ Discover វិញ',
   'results.loading': 'កំពុង​រាប់​ពិន្ទុ​របស់​អ្នក…',
   'results.missingSession': 'គ្មានវគ្គណាមួយដើម្បីសង្ខេបទេ។',
+  'results.recap.correctAnswer': 'ត្រឹមត្រូវ៖ {{answer}}',
   'results.recap.questionLabel': 'សំណួរ {{number}}',
   'results.recap.title': 'សង្ខេបសំណួរ',
+  'results.recap.yourAnswer': 'អ្នក៖ {{answer}}',
   'results.unknownQuiz': 'សំណួរ',
   'scoreBreakdownCard.accuracyLabel': 'ភាពត្រឹមត្រូវ',
+  'scoreBreakdownCard.correctLabel': 'ត្រឹមត្រូវ',
   'scoreBreakdownCard.eyebrow': 'សំណួរ​បញ្ចប់',
   'scoreBreakdownCard.headline': 'ការងារល្អលើ " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'ពិន្ទុ',
   'scoreBreakdownCard.rankLabel': 'ចំណាត់ថ្នាក់',
+  'scoreBreakdownCard.streakBonus': 'ប្រាក់រង្វាន់ជាប់គ្នា +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'ភាពអស្ចារ្យរបស់អ្នកកំពុងបង្ហាញ។ ពិនិត្យការវិភាគខាងក្រោមដើម្បីបន្តឡើងលើតារាងពិន្ទុ។',
   'settings.danger.body': 'លុបគណនី Sparq របស់អ្នក និងកម្រងសំណួរដែលបានបង្កើតទាំងអស់ជាអចិន្ត្រៃយ៍។',
   'settings.danger.confirm': 'បាទ/ចាស៎ លុបជារៀងរហូត',
   'settings.guest': 'ភ្ញៀវ',
@@ -188,5 +231,7 @@ export const ui: UiTranslations = {
     'អ្នកទទួលខុសត្រូវចំពោះខ្លឹមសារដែលអ្នកបោះពុម្ពផ្សាយ សំណួរដែលអ្នកសរសេរ និងហ្គេមណាមួយដែលអ្នកបង្ហោះ។ កុំធ្វើត្រាប់តាមអ្នកដទៃ។',
   'terms.billing.body':
     'ផែនការបង់ប្រាក់នឹងបន្តដោយស្វ័យប្រវត្តិរហូតដល់ត្រូវបានលុបចោលពីការកំណត់។ អ្នកអាចលុបចោលនៅពេលណាក៏បាន។ ការចូលប្រើនឹងបន្តរហូតដល់ចុងបញ្ចប់នៃរយៈពេលគិតប្រាក់បច្ចុប្បន្ន។',
+  'terms.intro':
+    'ដោយប្រើ {{app}} អ្នកយល់ព្រមតាមច្បាប់ខាងក្រោម។ ប្រសិនបើអ្នកមិនអាចទទួលយកបានទេ សូមកុំប្រើសេវាកម្មនេះ។',
   'terms.title': 'លក្ខខណ្ឌនៃសេវាកម្ម',
 }

@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate povratnu informaciju, pronašli ste grešku ili želite uključiti svoju školu? Javite se iz postavki računa ili pošaljite poruku svom školskom administratoru — svaka poruka stiže do stvarne osobe u timu.',
   'about.contactTitle': 'Razgovarajte s nama',
+  'about.missionTitle': 'Naša misija',
   'announcementsFeed.empty': 'Još nema najava.',
   'announcementsFeed.eyebrow': '{{count}} ažuriranja',
   'announcementsFeed.title': 'Najnovije najave',
   'assignmentDetail.alreadySubmitted': 'Već ste predali ovaj zadatak.',
   'assignmentDetail.backLink': 'Natrag na zadatke',
+  'assignmentDetail.dropBody':
+    'Upotrijebite Odaberi datoteke za prilaganje svog rada — zabilježit ćemo vrijeme predaje nakon što potvrdite.',
   'assignmentDetail.dropButton': 'Odaberite datoteke',
+  'assignmentDetail.dropPrompt': 'Ovdje ispustite svoj PDF ili paket fotografija',
   'assignmentDetail.due': 'Dospjelo {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Upute',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Ocijenjeno',
   'assignmentDetail.statusSubmitted': 'Poslano',
   'assignmentDetail.statusTitle': 'Status podnošenja',
+  'assignmentDetail.submitError':
+    'Nismo mogli zabilježiti tu predaju. Pokušajte ponovno za trenutak.',
   'assignmentDetail.submitted': 'Predani rad zabilježen — vaš je učitelj obaviješten.',
+  'assignmentDetail.submittedAt': 'Predano {{when}}',
+  'assignmentDetail.submitTitle': 'Predaj svoj rad',
   'assignmentRow.courseDue': '{{course}} · Dospjelo {{due}}',
   'assignments.empty': 'Ništa ovdje',
   'assignments.emptyBody': 'Promijenite filtere iznad da biste vidjeli zadatke u drugom stanju.',
@@ -38,9 +48,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Dnevnik prisutnosti, odsutnosti i kašnjenja - s bilješkama gdje je to primjenjivo.',
+  'attendance.summary.absences': 'Izostanci',
   'attendance.summary.absencesCaption': 'Ispod 5-dnevnog interventnog praga',
   'attendance.summary.attendance': 'Prisutnost',
   'attendance.summary.attendanceCaption': '{{count}} danas ovaj mandat',
+  'attendance.summary.tardies': 'Kašnjenja',
   'attendance.summary.tardiesCaption': 'Uključujući napomene za kašnjenja autobusa/sastanaka',
   'attendance.title': 'Povijest posjećenosti',
   'calendar.eyebrow': 'Školska godina · {{year}}',
@@ -54,6 +66,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Ocjene',
   'courseDetail.currentGrade': 'Trenutna ocjena',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Pregled kolegija',
   'courseDetail.gradesTitle': 'Nedavne ocjene',
   'courseDetail.messageTeacher': 'Poruka učitelju',
   'courseDetail.noGrades': 'Još nije objavljena nijedna ocjena.',
@@ -66,13 +79,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Prikaži sve',
   'dashboard.assignmentsTitle': 'Sljedeće ovog tjedna',
   'dashboard.greeting': 'Bok {{name}} , spremni za nastavu?',
+  'dashboard.subtitle':
+    'Vaš tjedan na jednom mjestu — raspored, ocjene i zadaće u jednom mirnom pregledu.',
+  'dashboard.viewReportCard': 'Prikaži svjedodžbu',
+  'dashboard.weekFocusBody':
+    'Predaj 7. set za vježbu Kvadratnih jednadžbi i kviz iz poglavlja. Kabinet za poduku otvoren je utorkom i četvrtkom nakon 7. sata.',
+  'dashboard.weekFocusCta': 'Prikaži cijeli plan',
   'dashboard.weekFocusEyebrow': 'Tjedni fokus',
   'dashboard.weekFocusTitle': 'Povećajte algebru II za 4 boda',
   'forgotPassword.subheading':
     'Unesite e-mail adresu svoje škole i poslat ćemo vam link za resetiranje.',
   'forgotPassword.successBody':
     'Ako {{email}} odgovara Chalk računu, link za resetiranje lozinke je na putu. Linkovi istječu za 30 minuta.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} prosjek ocjena za semestar',
+  'gpaHeroCard.summary': 'Danas imate {{count}} nastave',
   'grades.col.grade': 'Razred',
   'grades.col.teacher': 'Učitelj',
   'grades.col.trend': 'Trend',
@@ -84,10 +105,17 @@ export const ui: UiTranslations = {
     'Ocjene uživo u obliku slova i postotka. Strelice trenda pokazuju krećete li se prema gore, na istoj razini ili padate.',
   'grades.title': 'Vaše ocjene, tečaj po tečaj',
   'grades.trendStable': 'Stabilan',
+  'grades.viewReportCard': 'Prikaži službenu svjedodžbu',
   'landing.copyright': '© {{year}} {{app}} . Izrađeno za studente, napravljeno za obitelji.',
+  'landing.ctaBody':
+    'Besplatno prvih 30 dana, bez potrebe za kreditnom karticom. Škole mogu uvesti paket za cijelu školu u jednom poslijepodnevu.',
+  'landing.ctaButton': 'Izradite svoj portal',
   'landing.ctaHeading': 'Mirniji školski dan počinje za nekoliko minuta',
   'landing.eyebrow': 'Za srednjoškolce i srednjoškolce',
   'landing.featuresHeading': 'Školski dan organiziran oko učenika',
+  'landing.heroSubtitle':
+    '{{appName}} objedinjuje svaki kolegij, ocjenu, zadaću i poruku na jednoj preglednoj nadzornoj ploči kako biste manje vremena trošili na traženje, a više na učenje.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'FERPA-usklađeno prema zadanim postavkama',
   'landing.proof.rating': '4,8 za 12 tisuća obitelji',
   'landing.sampleTerm': 'Proljeće',
@@ -96,6 +124,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Sakrij lozinku',
   'login.noAccount': 'Novi ste u Chalku?',
   'login.showPassword': 'Prikaži lozinku',
+  'messages.compose': 'Nova poruka',
   'messages.composer.email': 'E-pošta primatelja (nije obavezno)',
   'messages.composer.errorEmpty': 'Poruka ne može biti prazna.',
   'messages.composer.errorRecipient': 'Ime primatelja je obavezno.',
@@ -126,9 +155,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Popis počasnih osoba · Proljetni semestar',
   'nav.unreadMessages': 'Nepročitane poruke',
   'notifications.eyebrow': '{{count}} ažuriranja',
+  'notifications.feedTitle': 'Sve nedavne aktivnosti',
   'notifications.subtitle':
     'Ocjene, podsjetnici, poruke i školske obavijesti. U Postavkama prilagodite koje kanale svaka obavijest koristi.',
+  'planUpdated.body':
+    'Promjena naplate sada je aktivna. Svojim planom možete upravljati bilo kada na stranici za naplatu.',
+  'planUpdated.retry': 'Pokušajte ponovno',
+  'planUpdated.verifyFailed': 'Još nismo mogli potvrditi vašu uplatu.',
+  'planUpdated.verifyFailedBody':
+    'Vaše plaćanje se možda još uvijek obrađuje. Pokušajte ponovno za trenutak.',
   'planUpdated.verifying': 'Potvrda vaše uplate…',
+  'pricing.announcementsLabel': 'najave',
   'pricing.attendanceLabel': 'posjećenost',
   'pricing.gradesLabel': 'ocjene',
   'pricing.heading': 'najave',
@@ -143,6 +180,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'Drugo tromjesečje',
   'reportCard.crumb': 'Izvješće',
   'reportCard.cumulativeGpa': 'Kumulativni prosjek ocjena',
+  'reportCard.download': 'Preuzmi PDF',
   'reportCard.downloaded': 'Izvješće otvoreno u novoj kartici.',
   'reportCard.downloading': 'Generiranje PDF-a…',
   'reportCard.empty': 'Još nema ocjena u evidenciji.',
@@ -150,6 +188,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Konačni prosjek ocjena · {{term}}',
   'reportCard.subtitle':
     'Formalni prijepis ocjena na kraju semestra s ponderiranim ocjenama predmeta, pohađanjem nastave i PDF dokumentom za preuzimanje u ispis.',
+  'reportCard.title': 'Izvješće',
+  'resetPassword.newPassword': 'Nova lozinka',
   'resetPassword.subheading': 'Odaberite nešto nezaboravno, ali teško pogodno.',
   'resetPassword.tokenPlaceholder': 'Zalijepite kod iz svoje e-pošte',
   'schedule.empty': 'Nema zakazane nastave.',
@@ -174,12 +214,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Zadaci na čekanju',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} izostanci u ovom semestru · {{tardy}} kašnjenja',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Izračunavam podatke o pohađanju…',
+  'subjectStatsTriad.attendanceLabel': 'Prisutnost',
   'subjectStatsTriad.gradesCaption': 'Preko {{percent}} % ponderirani prosjek',
+  'subjectStatsTriad.gradesCaptionLoading': 'Učitavanje ocjena…',
+  'subjectStatsTriad.gradesLabel': 'Prosjek razreda',
   'todayScheduleStrip.empty': 'Danas nema nastave.',
   'todayScheduleStrip.eyebrow': '{{count}} razredi',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Današnji raspored',
   'topbar.guestName': 'Student',
   'topbar.searchPlaceholder': 'Pretražite predavanja, zadatke…',
+  'topbar.studentRole': 'Student',
   'topbar.studentTag': 'Student · # {{id}}',
 }

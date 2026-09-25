@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ունե՞ք արձագանք, գտե՞լ եք սխալ կամ ուզում եք առաջարկել նոր հնարավորություն։ Գրեք ձեր հաշվի կարգավորումներից․ ամեն հաղորդագրություն հասնում է թիմի իրական մարդու։',
+  'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.featureDatabases':
+    'Թեթև տվյալների բազաներ և վերօգտագործվող ձևանմուշներ՝ ցրված գրառումները կառուցվածքային, կրկնվող աշխատահոսքերի վերածելու համար։',
+  'about.featureEditor':
+    'Հանգիստ բլոկային խմբագրիչ՝ վերնագրեր, ցանկեր, կոդ, նշումներ և առաջադրանքներ․ slash-հրամաններով, երբ ուզում եք, և անտեսանելի, երբ չեք ուզում։',
+  'about.featureGraph':
+    'Հետադարձ հղումներ և գիտելիքի գրաֆ․ մուտքագրեք [[՝ գրառում կապելու համար, և տեսեք, թե ինչպես են ձեր մտքերը կապվում ժամանակի ընթացքում։',
+  'about.featureNotebooks':
+    'Ներդրված նոթատետրեր և էջեր, որպեսզի նախագծերը, թեմաները և օրական գրառումները կազմակերպվեն հենց այնպես, ինչպես դուք եք մտածում։',
+  'about.featureSearch':
+    '50ms-ից արագ ամբողջական տեքստի որոնում բոլոր նոթատետրերում, գումարած պիտակներ, որոնք համադրվում են նոթատետրերի հետ, այլ ոչ թե կռվում նրանց դեմ։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'common.goToDashboard': 'Անցնել վահանակ',
   'forgot.eyebrow': 'Կորցրե՞լ եք վերադարձի ճանապարհը։',
   'forgot.formSubtitle': 'Մեզ հայտնեք ֆայլում առկա էլ. փոստի հասցեն։',
+  'forgot.formTitle': 'Մոռացել եմ գաղտնաբառը',
   'forgot.headline': 'Վերագործարկեք ձեր գաղտնաբառը։',
   'forgot.subline':
     'Մենք ձեր էլ. փոստին կուղարկենք միանգամյա հղում, որպեսզի կարողանաք ընտրել նորը։',
+  'forgot.successDetail':
+    'Վերականգնման հղումն ուղարկել ենք ձեր էլ. փոստին։ Այն սպառվում է 30 րոպեից։',
   'graph.eyebrow': 'Գրաֆիկ',
+  'graph.goToNotes': 'Դիտել գրառումները →',
+  'graph.loadError': 'Չհաջողվեց բեռնել գրաֆը․ {{message}}',
   'graph.placeholderBody':
     'Երբ նշումները սկսեն կապվել միմյանց հետ ([[wiki]] շարահյուսությամբ), այստեղ կարտացոլվի ինտերակտիվ force-directed գրաֆիկ։',
+  'graph.placeholderTitle': 'Հետադարձ հղումների գրաֆը շուտով',
   'graph.subtitle':
     '{{count}} նշումներ այս աշխատանքային տարածքում: Հետադարձ կապի գրաֆիկի ցուցադրումը կհայտնվի այստեղ, երբ նշումները կապվեն միմյանց հետ:',
   'graph.title': 'Գիտելիքների գրաֆիկ',
   'home.empty': 'Դեռևս նշումներ չկան՝ սկսեք ձեր առաջինը։',
   'home.favoritesHeading': 'Ամրացված է',
   'home.guest': 'ընկեր',
+  'home.loadError': 'Չհաջողվեց բեռնել ձեր գրառումները․ {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Ամրացրեք նշումը խմբագրիչում՝ այն այստեղ պահելու համար։',
   'home.recentHeading': 'Վերջերս թարմացված',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Նոթատետր',
   'home.stats.pinned.label': 'Ամրացված է',
   'home.stats.updatedToday.label': 'Թարմացվել է այսօր',
+  'home.subtitle': 'Շարունակեք այնտեղից, որտեղ կանգ եք առել, կամ սկսեք նոր գրառում։',
   'home.viewAll': 'Դիտել բոլոր նշումները',
   'landing.cta.body':
     'Անվճար անձնական օգտագործման համար: Պրոֆեսիոնալ թիմերի համար: Ավելացրեք ձեր առկա զեղչը կամ սկսեք նորից՝ Verso-ն ձեզ հետ է, որտեղ էլ որ լինեն ձեր նշումները:',
+  'landing.cta.button': 'Ստեղծել իմ աշխատանքային տարածքը',
   'landing.cta.heading': 'Բացեք այսօրվա էջը։',
   'landing.features.eyebrow': 'Ձեր երկրորդ ուղեղի համար անհրաժեշտ յուրաքանչյուր պարզունակ',
+  'landing.features.heading': 'Ստեղծված է աշխատանքի համար, այլ ոչ թե մետագործության։',
   'landing.hero.eyebrow': 'Հանգիստ գրելու մակերես',
   'landing.hero.headlineAccent': 'ձև ստանալ։',
   'landing.hero.headlineLeading': 'Որտեղ մտքեր',
   'landing.hero.primaryCta': 'Սկսեք ձեր գիտելիքների բազան',
   'landing.hero.secondaryCta': 'Ես արդեն ունեմ հաշիվ',
+  'landing.hero.socialProof': '12,800+ գրողներ, ուսանողներ և PhD-ներ մտածում են {{appName}}-ով',
   'landing.hero.subline':
     'Verso-ն կառուցվածքային նշումներ կատարելու հարթակ է գիտելիքահենք աշխատողների և ուսանողների համար: Բլոկային խմբագրիչ, ներդրված տետրեր, հետադարձ հղումներ և գիտելիքների գրաֆիկ՝ այս ամենը տպագրության առաջին ընթերցման փորձի հետևում:',
+  'landing.preview.notebook': 'Գիտելիք · Գրելու գործընթաց',
+  'landing.preview.title': 'Քաշերին շնչելու հնարավորություն տալու մասին',
   'login.eyebrow': 'Բարի վերադարձ Verso',
   'login.formSubtitle': 'Օգտագործեք ձեր էլ. փոստը կամ ցանկացած կապակցված մատակարար։',
   'login.headline': 'Վերցրեք այն տեղը, որտեղ էջը կանգ է առել։',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Փակել նավիգացիոն ցանկը',
   'mobileNav.openMenu': 'Բացել նավիգացիոն ցանկը',
   'noteEditor.backToNotes': 'Վերադառնալ նշումներին',
+  'noteEditor.bodyLabel': 'Գրառման բովանդակություն',
   'noteEditor.bodyPlaceholder':
     'Սկսեք գրել՝ ձեր նշումը ավտոմատ կերպով պահպանվում է մուտքագրելուն զուգընթաց։',
   'noteEditor.confirmTrash': 'Տեղափոխե՞լ այս նշումը աղբարկղ:',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Տեղափոխել աղբարկղ',
   'noteEditor.updated': 'Թարմացված է',
   'notes.defaultWorkspaceName': 'Իմ տետրը',
+  'notes.empty': 'Այստեղ դեռ գրառումներ չկան․ սկսեք մեկը՝ նոթատետրը լցնելու համար։',
   'notes.eyebrow': 'Նոթատետր',
   'notes.filterAll': 'Բոլոր նշումները',
   'notes.filterPinned': 'Ամրացված է',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Նոր տետր',
   'notes.newNotebookPrompt': 'Նոր տետրակի անուն',
+  'notes.newNotebookRequired': 'Մուտքագրեք նոթատետրի անուն։',
   'notes.notebooksHeading': 'Նոթատետրեր',
   'notes.subtitle':
     'Ընտրեք ձախ կողմում գտնվող տետրը, այնուհետև սեղմեք «Նոր նշում» կոճակը՝ նոր գրառում սկսելու համար։',
+  'planUpdated.body': 'Ձեր բաժանորդագրությունն այժմ ակտիվ է։',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Ընդլայնված գործառույթներ',
   'pricing.heading': 'Ընտրեք ձեր նշումներ կատարելու պլանը',
+  'reset.changedMind': 'Փոխե՞լ եք միտքը։',
   'reset.eyebrow': 'Գրեթե վերադարձել է',
   'reset.formSubtitle': 'Դուք մուտք կգործեք, երբ այն պահպանվի։',
   'reset.headline': 'Ընտրեք նոր գաղտնաբառ։',
@@ -71,7 +104,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'Մուտքագրեք ձեզ ուղարկված կոդը և ընտրեք ինչ-որ հիշարժան բան։',
   'reset.submit': 'Պահպանել և մուտք գործել',
   'reset.tokenHint': 'Տեղադրված է ձեր էլ. փոստից։',
+  'search.empty': 'Այս հարցմանը դեռ ոչ մի գրառում չի համապատասխանում։',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Որոնել Refraction',
   'search.loading': 'Որոնում…',
   'search.noRecent': 'Մուտքագրեք հարցումը վերևում՝ ձեր նշումներում որոնումը սկսելու համար։',
   'search.recentLabel': 'Վերջին որոնումները',
@@ -79,12 +114,19 @@ export const ui: UiTranslations = {
     'Լրիվ տեքստը յուրաքանչյուր տետրում: Մուտքագրեք որոնման համար. արդյունքները թարմացվում են մուտքագրմանը զուգընթաց:',
   'search.title': 'Փնտրեք երկրորդ ուղեղը։',
   'settings.account.logout': 'Ելք',
+  'settings.account.title': 'Հաշվի տվյալներ',
+  'settings.editor.graphHover.body':
+    'Խմբագրիչում [[վիքի-հղման]] վրա սավառնելիս ցուցադրել փոքրիկ նախադիտման քարտ։',
+  'settings.editor.graphHover.label': 'Հետադարձ հղումների գրաֆի սավառնման նախադիտում',
   'settings.editor.lineHeight.body':
     'Մարմնի գծերի միջև օդի քանակը։ 170%-ը ընթերցման լռելյայն ռիթմն է։',
+  'settings.editor.lineHeight.label': 'Տողի բարձրություն',
   'settings.editor.serif.body':
     'Օգտագործեք Georgia-ն ընթերցման սյունակի համար: Sans-serif-ը պահվում է կողային վահանակում և գործիքագոտիներում:',
+  'settings.editor.serif.label': 'Serif հիմնական տեքստ',
   'settings.editor.title': 'Տիպագրություն և գրելու մակերես',
   'settings.eyebrow': 'Verso · Կարգավորումներ',
+  'settings.passwordModal.current': 'Ընթացիկ գաղտնաբառ',
   'settings.passwordModal.error':
     'Հնարավոր չէ փոխել գաղտնաբառը։ Խնդրում ենք ստուգել ձեր ներկայիս գաղտնաբառը։',
   'settings.passwordModal.next': 'Նոր գաղտնաբառ',
@@ -94,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Յուրաքանչյուր ստեղնաշարի սեղմում իրական ժամանակի ալիքով անցկացնել: Անջատեք դանդաղ կապերի համար:',
   'settings.sync.auto.label': 'Իրական ժամանակի համաժամեցում',
+  'settings.sync.title': 'Ինչպես են ձեր գրառումները ճամփորդում',
   'settings.theme.body':
     'Լույսը խմբագրական սյունակը պայծառ է պահում։ Սեպիան երեկոյան էջը տաքացնում է։',
   'settings.theme.dark': 'Մութ',
@@ -113,8 +156,12 @@ export const ui: UiTranslations = {
     'Ավելացրեք #հեշթեգեր նշման վերնագրին (օրինակ՝ «Ընթերցանության ցանկ #գրքեր»), և դրանք այստեղ ավտոմատ կերպով կհայտնվեն։',
   'tags.emptyTitle': 'Դեռևս պիտակներ չկան',
   'tags.eyebrow': 'Ինդեքս',
+  'tags.goToNotes': 'Անցնել գրառումներին →',
+  'tags.loadError': 'Չհաջողվեց բեռնել պիտակները․ {{message}}',
   'tags.subtitle':
     '{{tags}} պիտակներ {{notes}} նշումներ։ Ավելացրեք #հեշթեգեր նշումի վերնագրին, և դրանք կհայտնվեն այստեղ։',
+  'versoAuthShell.sample.body':
+    'Երկրորդ ընթերցումը վաղը միշտ ավելի լավ է ընթանում, քան առաջինը՝ այսօր երեկոյան։ Թողեք կոպիտ տարբերակը խորը աշխատանքի պանակում…',
   'versoAuthShell.sample.label': 'Օրական նշում',
   'versoAuthShell.sample.timestamp': 'Այսօր · 9:14am',
   'versoAuthShell.sample.title': 'Քաշերին շնչելու հնարավորություն տալու մասին',
@@ -126,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Շարունակեք գրել',
   'versoTodayHero.createCta': 'Սկսեք այսօրվա նշումը',
   'versoTodayHero.dailyLabel': 'Օրական նշում',
+  'versoTodayHero.emptyHeadline': 'Այսօրը դատարկ էջ է։',
   'versoTodayHero.emptySubline':
     'Գրանցեք միտք, գրանցեք հանդիպում կամ ուրվագծեք վաղը։ Verso-ն կառուցվածքը պահում է լուռ, որպեսզի գրվածքը մնա բարձր։',
+  'versoTodayHero.outlineLabel': 'Այսօրվա ուրվագիծը',
   'versoTodayHero.streak': '{{count}} -օրյա շարք',
+  'versoTodayHero.unwritten': 'Դեռ բառեր չկան․ բացեք գրառումը՝ սկսելու համար։',
   'versoTodayHero.wordCount': '{{count}} բառեր այսօր',
 }

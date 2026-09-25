@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Հարցեր, կարծիքներ կամ ֆունկցիա, որը կուզենայիք ունենալ։ Կապվեք թիմի հետ ձեր հաշվի կարգավորումներից․ իրական մարդ է կարդում ամեն հաղորդագրություն։',
   'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.missionTitle': 'Մեր առաքելությունը',
+  'about.whatYouGetTitle': 'Ինչ եք ստանում',
   'analytics.empty': 'Ստեղծեք խաղաքարտերի հավաքածուներ՝ այստեղ վերլուծությունները տեսնելու համար։',
   'analytics.stats.acrossDecks': 'Բոլոր տախտակամածների վրա',
   'analytics.stats.allTime': 'Ձեր ստուդիայում',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Խաղաքարտերի վերնագիր',
   'landing.features.eyebrow': 'Ինչո՞ւ նախերգանք',
   'landing.features.heading': 'Բեմ բարձրանալու համար անհրաժեշտ ամեն ինչ պատրաստ է։',
+  'landing.finalCta.body':
+    'Ստեղծեք ձեր ստուդիան մեկ րոպեից էլ քիչ ժամանակում։ Առանց բանկային քարտի։ Չեղարկեք ցանկացած պահի։',
   'landing.finalCta.cta': 'Ստեղծեք ձեր անվճար ստուդիան',
   'landing.finalCta.eyebrow': 'Սկսելն անվճար է',
   'landing.finalCta.heading': 'Բեմ բարձրացիր քո կարիերայի լավագույն նվագախմբով։',
@@ -81,10 +87,15 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Խմբագրվել է 12 րոպե առաջ',
   'notifications.created': 'ստեղծված',
   'notifications.edited': 'խմբագրված',
+  'notifications.empty.body':
+    'Ձեր դեկերի ակտիվությունը՝ մեկնաբանությունները, հիշատակումները, արտահանումները, կհայտնվեն այստեղ։',
   'notifications.empty.title': 'Ծանուցումներ դեռ չկան',
   'notifications.eyebrow': 'Բեմական գործունեություն',
   'notifications.loading': 'Բեռնվում է…',
   'notifications.shared': 'հրապարակայնորեն կիսվել',
+  'planUpdated.retry': 'Փորձեք կրկին',
+  'planUpdated.verifyFailed': 'Մենք դեռ չենք կարող հաստատել ձեր վճարումը։',
+  'planUpdated.verifyFailedBody': 'Ձեր վճարումը կարող է դեռ մշակվել։ Փորձեք կրկին մի փոքր ուշ։',
   'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'present.addSlides': 'Ավելացնել սլայդներ',
   'present.backToDecks': 'Վերադառնալ խաղաքարտերին',
@@ -122,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Բեմական կատարող',
   'settings.security.notSet': 'Սահմանված չէ',
   'settings.security.passwordBody': 'Ձեր գաղտնաբառը կոդավորված է հանգստի վիճակում։',
+  'settings.security.reset': 'Վերագործարկում',
   'settings.security.title': 'Հաշիվ + սեսիաներ',
   'shared.empty.body':
     'Հրապարակայնորեն կիսվող խաղաքարտերի հավաքածուները կհայտնվեն այստեղ։ Բացեք խաղաքարտերի հավաքածուն և անջատեք «հանրային» ռեժիմը՝ կիսվելու համար։',
@@ -130,6 +142,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Բեռնվում է…',
   'shared.title': 'Համատեղ տախտակամածներ',
   'templateCard.slideCount': '{{count}} սլայդներ',
+  'templateCard.usageCount': '{{count}} օգտագործումներ',
+  'templates.empty.body': 'Փորձեք այլ զտիչ․ մենք նոր ձևանմուշներ ենք թողարկում ամեն ամիս։',
+  'templates.empty.title': 'Այս կատեգորիայում դեռ ձևանմուշներ չկան',
+  'templates.hero.body':
+    'Թեմատիկ ձևավորված սլայդների դասավորություններ՝ գծապատկերների բլոկներով, դեմո շրջանակներով, զեկուցողի նշումներով և ժամաչափի նախադրվածքներով․ ամեն ձևանմուշ պատրաստ է ձայնագրման։',
   'templates.hero.eyebrow': 'Ընտրված փուլեր',
   'templates.hero.heading':
     'Փուլեր, որոնք կառուցված են այն պահի համար, երբ դուք պետք է այն վայրէջք կատարեք։',

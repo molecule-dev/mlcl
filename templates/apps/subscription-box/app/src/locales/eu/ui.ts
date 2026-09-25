@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Zalantzarik edizio, bidalketa edo harpidetzarekin? Taldeko benetako pertsona batekin hitz egin hello@crate.example helbidean — mezu guztiak irakurtzen ditugu.',
+  'about.contactTitle': 'Kuratzaile batekin hitz egin',
+  'about.feature1':
+    'Sortzaile independenteek eskuz aukeratutako hileroko edizioak, elementu bakoitzaren atzeko istorioarekin.',
+  'about.feature2':
+    'Kutxa bakoitzaren kontrol osoa — customize the contents, swap or exclude items, skip a month, or change your cadence.',
+  'about.feature3':
+    'Bidalketaren jarraipena hasieratik atariraino, plastikorik gabeko ontziak eta garraiolariaren eguneraketak zuzenean.',
+  'about.feature4':
+    'Plan malguak eta fakturazioa gardena — upgrade, downgrade, pause, or cancel from your dashboard at any time.',
+  'about.intro':
+    '{{app}} harpidetza-kutxen zerbitzu kuratua da, hilean behin zure atarira poz-kutxa bat eskuz aukeratua eta sorta txikian bidaltzen duena. Edizio bakoitza lanean ari diren sortzaileek muntatzen dute — artista independenteak, sukaldariak eta marka txikiak — ez algoritmo batek.',
+  'about.missionBody':
+    'Gure ustez harpidetza opari bat izan behar da, ez tranpa bat. {{app}} horrela eraikita dago: geratzen zara iristen dena maite duzulako — pause anytime, swap what you want, and cancel in a click. No retention scripts, ever.',
+  'about.missionTitle': 'Gure misioa',
   'about.pageTitle': '{{app}}(r)i buruz',
   'appNav.mobileLabel': 'Nabigazio nagusia',
   'appNav.primaryLabel': 'Nabigazio nagusia',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Editatu fakturazio-kontaktua',
   'billing.contact.eyebrow': 'Fakturazio-kontaktua',
   'billing.eyebrow': 'Plana eta ordainketak',
+  'billing.loading': 'Fakturazioa kargatzen…',
   'billing.payment.body':
     'Ordainketa Stripe Checkout-ek kudeatzen du — zure txartelaren zenbaki osoak ez du inoiz gure zerbitzarietan jartzen. Egin klik beheko edozein mailatan zure txartela gehitzeko edo eguneratzeko.',
   'billing.payment.linked': 'Txartela Stripe bidez artxibatuta',
@@ -20,9 +37,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Berrekin harpidetza',
   'billing.plan.eyebrow': 'Plan aktiboa',
   'billing.plan.next': 'Automatikoki berritzen da {{date}} .',
+  'billing.plan.status': 'Egoera: {{status}}',
   'billing.subtitle': 'Kudeatu zure maila, ordainketa-metodoa eta berrikusi iraganeko jarduera.',
   'billing.tiers.body': 'Aukeratu maila bat eta Stripe Checkout-era bideratuko zaitugu.',
   'billing.tiers.choose': 'Aukeratu',
+  'billing.tiers.empty': 'Oraindik ez dago mailarik konfiguratuta.',
   'billing.tiers.heading': 'Eskuragarri dauden mailak',
   'boxDetail.backToBoxes': 'Edizio guztietara itzuli',
   'boxDetail.crumb.boxes': 'Edizioak',
@@ -35,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Pieza zaindua',
   'boxDetail.items.heading': '{{count}} pieza zainduak',
   'boxDetail.itemsBadge': '{{count}} kutxa bakoitzeko elementu hautatuak',
+  'boxDetail.loading': 'Edizioa kargatzen…',
   'boxDetail.notFound': 'Edizio hori ez dago jada eskuragarri.',
   'boxDetail.subscribe.success': 'Harpidetuta — zure lehen edizioa ilaran dago.',
   'boxDetail.swapBadge': 'Aldatu gehienez {{count}} elementuak kutxa bakoitzeko',
@@ -43,14 +63,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Ez dago bat datorren ediziorik.',
   'boxes.eyebrow': 'Crate artxiboa',
   'boxes.heading': 'Arakatu edizio guztiak',
+  'boxes.loadError':
+    'Ezin izan ditugu edizioak kargatu. Egiaztatu zure konexioa eta saiatu berriro.',
   'boxes.loading': 'Edizioak kargatzen…',
+  'boxes.search.label': 'Bilatu edizioak',
   'boxes.search.placeholder': 'Bilatu edizioak…',
   'boxes.subtitle':
     'Maila bakoitza istorio multzo txiki bat da. Gehitu bat zure ilaran edo aldatu hurrengo hilabetean.',
+  'boxThemeCard.itemCount': '{{count}} elementuak',
   'boxThemeCard.perMonth': '/ hilabete',
+  'boxThemeCard.retailValue': 'Txikizkako balioa {{value}}',
   'common.goToDashboard': 'Joan aginte-panelera',
+  'common.retry': 'Saiatu berriro',
   'customize.eyebrow': 'Egin ezazu zurea',
   'customize.heading': 'Pertsonalizatu zure hurrengo Crate-a',
+  'customize.items.empty': 'Oraindik ez dago elementurik maila honetarako konfiguratuta.',
   'customize.items.exclude': 'Saltatu hau',
   'customize.items.eyebrow': 'Pertsonalizatu kutxa hau',
   'customize.items.heading': 'Elementuak hemen {{box}}',
@@ -59,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Gehitu berriro',
   'customize.items.save': 'Gorde pertsonalizazioa',
   'customize.items.swapsLeft': '{{used}} -ren {{max}} erabilitako trukeak',
+  'customize.loading': 'Pertsonalizazioa kargatzen…',
   'customize.noSub.body':
     'Harpidetu lehenik maila batera, eta gero itzuli zure kutxako elementuak trukatzera.',
+  'customize.noSub.cta': 'Arakatu edizioak',
   'customize.noSub.heading': 'Ez dago harpidetza aktiborik',
   'customize.saved': 'Pertsonalizazioa gorde da.',
   'customize.subtitle':
@@ -74,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Jarraitu bidalketa',
   'dashboard.eyebrow': 'Zure altxorra',
   'dashboard.greeting': 'Ongi etorri berriro, {{name}} .',
+  'dashboard.loadError':
+    'Ezin izan dugu zure panela kargatu. Egiaztatu zure konexioa eta saiatu berriro.',
   'dashboard.loading': 'Kontrol-panela kargatzen…',
   'dashboard.next.eyebrow': 'Zure hurrengo edizioa',
   'dashboard.onboarding.body':
     'Ez duzu harpidetza aktiborik oraindik. Aukeratu maila bat hilero Crate bat bidaltzen hasteko.',
   'dashboard.onboarding.cta': 'Arakatu edizio guztiak',
+  'dashboard.onboarding.empty': 'Une honetan ez dago planik eskuragarri. Begiratu berriro laster.',
   'dashboard.onboarding.heading': 'Aukeratu zure lehen edizioa',
   'dashboard.renewal.amount': 'Kobratuta',
   'dashboard.renewal.cadence': 'Kadentzia',
@@ -86,12 +118,15 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Berritzea',
   'dashboard.renewal.heading': 'Automatikoki berritzea aktibatuta {{date}}',
   'dashboard.renewal.plan': 'Planaren gakoa',
+  'dashboard.renewal.tbd': 'Berritzea laster programatuko da',
   'dashboard.renewal.tier': 'Maila',
   'dashboard.stats.days': 'egunak',
   'dashboard.stats.daysToNext': 'Itsasontziak',
   'dashboard.stats.items': 'Elementu hautatuak',
   'dashboard.stats.shipDate': 'Bidalketa data',
   'dashboard.stats.tbd': 'Zehazteke',
+  'dashboard.subtitle.active': 'Zure hurrengo edizioa bidean da. Hona hemen zer espero dezakezun.',
+  'dashboard.subtitle.idle': 'Aukeratu maila bat hilean behin {{appName}} bidaltzen hasteko.',
   'forgotPassword.subtitle':
     'Eman iezaguzu zure helbide elektronikoa eta berrezartzeko esteka bat bidaliko dizugu.',
   'forgotPassword.success.body':
@@ -99,6 +134,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Begiratu zure sarrera-ontzia.',
   'landing.editions.eyebrow': 'Denboraldi honetan',
   'landing.editions.heading': 'Gure komisarioek maite dituzten edizioak',
+  'landing.editions.viewAll': 'Arakatu edizio guztiak →',
   'landing.footer.contact': 'Kuratzaile batekin hitz egin',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Hasi zure kutxa →',
@@ -108,6 +144,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Kideen kontrol-panelean begirada bat — atzerako kontaketa, edukia eta jarraipena.',
   'landing.hero.social.count': 'Maitatua {{count}} + harpidedunak',
+  'landing.hero.social.rating': '{{rating}} batez besteko irekitze-balorazioa',
+  'landing.hero.subhead':
+    '{{appName}}-k sortzaile independenteen eskuz aukeratutako poz-kutxa bat bidaltzen dizu, sorta txikian. Pause anytime. Swap what you want. Keep what you love.',
   'landing.nav.start': 'Hasi zure kutxa',
   'landing.tiers.eyebrow': 'Aukeratu zure kadentzia',
   'landing.tiers.heading': 'Hasi txiki, berritu edonoiz, bertan behera utzi erraz.',
@@ -117,6 +156,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Hasi saioa hurrengo hilabeteko kutxa ikusteko.',
   'login.welcomeBack': 'Ongi etorri berriro, komisario.',
   'nextBoxHeroCard.eyebrow': 'ZURE HURRENGO ALTXORRA',
+  'nextBoxHeroCard.itemCount': '{{count}} pieza barruan',
   'nextBoxHeroCard.itemsLabel': 'Elementu hautatuak',
   'nextBoxHeroCard.shipsOnLabel': 'Bidalketak martxan',
   'notFound.body':
@@ -141,8 +181,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Pausatu harpidetza',
   'settings.danger.paused': 'Harpidetza pausatu da.',
   'settings.danger.pausing': 'Pausatzen…',
+  'settings.danger.status': 'Harpidetzaren egoera: {{status}}',
   'settings.danger.subtitle':
     'Pausak zure maila eta historia bere horretan mantentzen ditu. Ezeztapenak etorkizuneko bidalketak gelditzen ditu eta gordetako ordainketa-metodoak ezabatzen ditu zikloaren amaieran.',
+  'settings.notifications.saving': '· gordetzen…',
   'settings.notifications.subtitle':
     'Aukeratu Crate-tik nahi dituzun seinaleak. Lehenetsitako balioak zentzuzkoak dira.',
   'settings.subtitle':
@@ -159,12 +201,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Ez dago bidalketa aktiborik oraindik',
   'shipments.live.eyebrow': 'Bidalketa aktiboa',
   'shipments.live.unnamed': 'Zure hurrengo kutxa',
+  'shipments.loadError':
+    'Ezin izan ditugu zure bidalketak kargatu. Egiaztatu zure konexioa eta saiatu berriro.',
+  'shipments.loading': 'Bidalketak kargatzen…',
+  'shipments.step.delivered': 'Entregatua',
   'shipments.step.deliveredBody': 'Etiketa #crateunbox aurkitutakoa partekatzeko.',
   'shipments.step.ordered': 'Eskaera egin da',
   'shipments.step.orderedBody':
     'Zure harpidetzak edizio hau hurrengo bidalketa-ziklorako ilaran jarri du.',
+  'shipments.step.packed': 'Eskuz ontziratua',
   'shipments.step.packedBody':
     'Pieza bakoitza bilduta eta kutxan sartuta, eskuz idatzitako ohar batekin.',
+  'shipments.step.transit': 'Bidean',
   'shipments.step.transitNot': 'Jarraipena hemen agertuko da zure kutxa bidean dagoenean.',
   'shipments.subtitle':
     'Jarrai ezazu kutxa zuregana bidean, eta gero berrikusi lehenago deskutxatu dituzun edizio guztiak.',

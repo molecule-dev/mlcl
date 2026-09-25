@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Masz pytania o edycję, przesyłkę lub subskrypcję? Napisz do prawdziwego człowieka z zespołu na hello@crate.example — czytamy każdą wiadomość.',
+  'about.contactTitle': 'Porozmawiaj z kuratorem',
+  'about.feature1':
+    'Starannie wyselekcjonowane comiesięczne edycje wybierane przez niezależnych twórców, z historią stojącą za każdym przedmiotem.',
+  'about.feature2':
+    'Pełna kontrola nad każdym pudełkiem — dostosuj zawartość, wymień lub wyklucz przedmioty, pomiń miesiąc albo zmień częstotliwość.',
+  'about.feature3':
+    'Śledzenie przesyłki od odbioru do drzwi, z opakowaniem bez plastiku i aktualizacjami przewoźnika na żywo.',
+  'about.feature4':
+    'Elastyczne plany i przejrzyste rozliczenia — ulepsz, obniż, wstrzymaj lub anuluj w dowolnym momencie ze swojego panelu.',
+  'about.intro':
+    '{{app}} to starannie wyselekcjonowana usługa pudełek subskrypcyjnych, która co miesiąc dostarcza pod Twoje drzwi ręcznie wybrane, niewielkie pudełko radości. Każda edycja jest składana przez pracujących twórców — niezależnych artystów, szefów kuchni i małe marki — a nie przez algorytm.',
+  'about.missionBody':
+    'Wierzymy, że subskrypcja powinna być jak prezent, a nie pułapka. {{app}} powstało tak, abyś zostawał, bo kochasz to, co przychodzi — wstrzymaj w dowolnym momencie, wymień to, co chcesz, i anuluj jednym kliknięciem. Nigdy żadnych skryptów zatrzymujących.',
+  'about.missionTitle': 'Nasza misja',
   'about.pageTitle': 'O {{app}}',
   'appNav.mobileLabel': 'Nawigacja główna',
   'appNav.primaryLabel': 'Nawigacja główna',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Edytuj dane do faktury',
   'billing.contact.eyebrow': 'Dane do faktury',
   'billing.eyebrow': 'Plan i płatności',
+  'billing.loading': 'Ładowanie rozliczeń…',
   'billing.payment.body':
     'Płatność jest obsługiwana przez Stripe Checkout — pełen numer Pana/Pani karty nigdy nie trafia na nasze serwery. Proszę kliknąć poniższy poziom, aby dodać lub zaktualizować kartę.',
   'billing.payment.linked': 'Karta zarejestrowana przez Stripe',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Wznów subskrypcję',
   'billing.plan.eyebrow': 'Aktywny plan',
   'billing.plan.next': 'Odnawia się automatycznie {{date}}.',
+  'billing.plan.status': 'Status: {{status}}',
   'billing.subtitle':
     'Proszę zarządzać swoim poziomem, metodą płatności i przeglądać poprzednią aktywność.',
   'billing.tiers.body': 'Proszę wybrać poziom, a my przekierujemy Pana/Panią do Stripe Checkout.',
   'billing.tiers.choose': 'Wybierz',
+  'billing.tiers.empty': 'Nie skonfigurowano jeszcze żadnych poziomów.',
   'billing.tiers.heading': 'Dostępne poziomy',
   'boxDetail.backToBoxes': 'Wróć do wszystkich edycji',
   'boxDetail.crumb.boxes': 'Edycje',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Wyselekcjonowany element',
   'boxDetail.items.heading': '{{count}} wyselekcjonowanych elementów',
   'boxDetail.itemsBadge': '{{count}} wyselekcjonowanych elementów na pudełko',
+  'boxDetail.loading': 'Ładowanie edycji…',
   'boxDetail.notFound': 'Ta edycja nie jest już dostępna.',
   'boxDetail.subscribe.success': 'Subskrypcja aktywna — Pana/Pani pierwsza edycja jest w kolejce.',
   'boxDetail.swapBadge': 'Wymień do {{count}} element(ów) na pudełko',
@@ -44,14 +64,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Nic jeszcze nie pasuje.',
   'boxes.eyebrow': 'Archiwum Crate',
   'boxes.heading': 'Przeglądaj każdą edycję',
+  'boxes.loadError': 'Nie udało się załadować edycji. Sprawdź połączenie i spróbuj ponownie.',
   'boxes.loading': 'Wczytywanie edycji…',
+  'boxes.search.label': 'Szukaj edycji',
   'boxes.search.placeholder': 'Szukaj edycji…',
   'boxes.subtitle':
     'Każdy poziom to historia w małym nakładzie. Proszę dodać jedną do kolejki lub wymienić ją w nadchodzącym miesiącu.',
+  'boxThemeCard.itemCount': '{{count}} elementów',
   'boxThemeCard.perMonth': '/ miesiąc',
+  'boxThemeCard.retailValue': 'Wartość detaliczna {{value}}',
   'common.goToDashboard': 'Przejdź do panelu',
+  'common.retry': 'Spróbuj ponownie',
   'customize.eyebrow': 'Niech będzie Pana/Pani',
   'customize.heading': 'Dostosuj swój następny Crate',
+  'customize.items.empty': 'Nie skonfigurowano jeszcze żadnych przedmiotów dla tego poziomu.',
   'customize.items.exclude': 'Pomiń to',
   'customize.items.eyebrow': 'Spersonalizuj to pudełko',
   'customize.items.heading': 'Elementy w {{box}}',
@@ -60,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Dodaj ponownie',
   'customize.items.save': 'Zapisz dostosowanie',
   'customize.items.swapsLeft': 'Wykorzystano {{used}} z {{max}} wymian',
+  'customize.loading': 'Ładowanie personalizacji…',
   'customize.noSub.body':
     'Proszę najpierw zasubskrybować poziom, a następnie wrócić, aby wymienić elementy w pudełku.',
+  'customize.noSub.cta': 'Przeglądaj edycje',
   'customize.noSub.heading': 'Brak aktywnej subskrypcji',
   'customize.saved': 'Dostosowanie zapisane.',
   'customize.subtitle':
@@ -75,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Śledź przesyłkę',
   'dashboard.eyebrow': 'Pana/Pani Crate',
   'dashboard.greeting': 'Witamy ponownie, {{name}}.',
+  'dashboard.loadError':
+    'Nie udało się załadować Twojego panelu. Sprawdź połączenie i spróbuj ponownie.',
   'dashboard.loading': 'Wczytywanie panelu…',
   'dashboard.next.eyebrow': 'Pana/Pani następna edycja',
   'dashboard.onboarding.body':
     'Nie ma Pan/Pani jeszcze aktywnej subskrypcji. Proszę wybrać poziom, aby zacząć otrzymywać Crate co miesiąc.',
   'dashboard.onboarding.cta': 'Przeglądaj wszystkie edycje',
+  'dashboard.onboarding.empty': 'Obecnie brak dostępnych planów. Zajrzyj wkrótce.',
   'dashboard.onboarding.heading': 'Wybierz swoją pierwszą edycję',
   'dashboard.renewal.amount': 'Obciążono',
   'dashboard.renewal.cadence': 'Częstotliwość',
@@ -87,18 +118,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Odnowienie',
   'dashboard.renewal.heading': 'Odnawia się automatycznie {{date}}',
   'dashboard.renewal.plan': 'Klucz planu',
+  'dashboard.renewal.tbd': 'Harmonogram odnowienia wkrótce',
   'dashboard.renewal.tier': 'Poziom',
   'dashboard.stats.days': 'dni',
   'dashboard.stats.daysToNext': 'Wysyłka za',
   'dashboard.stats.items': 'Wyselekcjonowane elementy',
   'dashboard.stats.shipDate': 'Data wysyłki',
   'dashboard.stats.tbd': 'Do ustalenia',
+  'dashboard.subtitle.active': 'Twoja następna edycja jest w drodze. Oto czego się spodziewać.',
+  'dashboard.subtitle.idle': 'Wybierz poziom, aby zacząć otrzymywać {{appName}} co miesiąc.',
   'forgotPassword.subtitle': 'Proszę podać adres e-mail, a wyślemy link do zresetowania hasła.',
   'forgotPassword.success.body':
     'Jeśli {{email}} Jeśli jesteś zarejestrowany, w ciągu kilku minut otrzymasz link resetujący.',
   'forgotPassword.success.title': 'Proszę sprawdzić skrzynkę odbiorczą.',
   'landing.editions.eyebrow': 'W tym sezonie',
   'landing.editions.heading': 'Edycje, które uwielbiają nasi kuratorzy',
+  'landing.editions.viewAll': 'Przeglądaj wszystkie edycje →',
   'landing.footer.contact': 'Porozmawiaj z kuratorem',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Rozpocznij swoje pudełko →',
@@ -108,6 +143,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Spojrzenie na panel członkowski — odliczanie, zawartość i śledzenie.',
   'landing.hero.social.count': 'Pokochało nas ponad {{count}} subskrybentów',
+  'landing.hero.social.rating': '{{rating}} średnia ocena rozpakowania',
+  'landing.hero.subhead':
+    '{{appName}} wysyła Ci ręcznie wybrane, niewielkie pudełko radości od niezależnych twórców. Wstrzymaj w dowolnym momencie. Wymień to, co chcesz. Zatrzymaj to, co kochasz.',
   'landing.nav.start': 'Rozpocznij swoje pudełko',
   'landing.tiers.eyebrow': 'Wybierz częstotliwość',
   'landing.tiers.heading':
@@ -118,6 +156,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Proszę się zalogować, aby zajrzeć do pudełka na przyszły miesiąc.',
   'login.welcomeBack': 'Witamy ponownie, kuratorze.',
   'nextBoxHeroCard.eyebrow': 'PANA/PANI NASTĘPNY CRATE',
+  'nextBoxHeroCard.itemCount': '{{count}} elementów w środku',
   'nextBoxHeroCard.itemsLabel': 'Wyselekcjonowane elementy',
   'nextBoxHeroCard.shipsOnLabel': 'Wysyłka',
   'notFound.body':
@@ -142,8 +181,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Wstrzymaj subskrypcję',
   'settings.danger.paused': 'Subskrypcja wstrzymana.',
   'settings.danger.pausing': 'Wstrzymywanie…',
+  'settings.danger.status': 'Status subskrypcji: {{status}}',
   'settings.danger.subtitle':
     'Wstrzymanie zachowuje poziom i historię w nienaruszonym stanie. Anulowanie wstrzymuje przyszłe wysyłki i usuwa zapisane metody płatności pod koniec cyklu.',
+  'settings.notifications.saving': '· zapisywanie…',
   'settings.notifications.subtitle':
     'Proszę wybrać, jakie sygnały chce Pan/Pani otrzymywać od Crate. Domyślne ustawienia są rozsądne.',
   'settings.subtitle':
@@ -160,13 +201,19 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Brak aktywnej wysyłki',
   'shipments.live.eyebrow': 'Aktywna wysyłka',
   'shipments.live.unnamed': 'Pana/Pani następne pudełko',
+  'shipments.loadError':
+    'Nie udało się załadować Twoich przesyłek. Sprawdź połączenie i spróbuj ponownie.',
+  'shipments.loading': 'Ładowanie wysyłek…',
+  'shipments.step.delivered': 'Dostarczono',
   'shipments.step.deliveredBody':
     'Proszę otagować #crateunbox, aby podzielić się tym, co Pan/Pani odkryje.',
   'shipments.step.ordered': 'Złożono zamówienie',
   'shipments.step.orderedBody':
     'Pana/Pani subskrypcja umieściła tę edycję w kolejce do następnego cyklu wysyłki.',
+  'shipments.step.packed': 'Pakowane ręcznie',
   'shipments.step.packedBody':
     'Każdy element zapakowany i włożony do pudełka z odręcznym liścikiem.',
+  'shipments.step.transit': 'W drodze',
   'shipments.step.transitNot': 'Śledzenie pojawi się tutaj, gdy Pana/Pani pudełko będzie w drodze.',
   'shipments.subtitle':
     'Proszę śledzić pudełko w drodze do Pana/Pani, a następnie wrócić do każdej rozpakowanej wcześniej edycji.',

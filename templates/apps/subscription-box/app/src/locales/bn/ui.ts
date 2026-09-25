@@ -1,6 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'একটি এডিশন, একটি শিপমেন্ট বা আপনার সাবস্ক্রিপশন নিয়ে প্রশ্ন আছে? hello@crate.example-এ টিমের একজন সত্যিকারের মানুষের সাথে যোগাযোগ করুন — আমরা প্রতিটি বার্তা পড়ি।',
+  'about.contactTitle': 'একজন কিউরেটরের সাথে কথা বলুন',
+  'about.feature1': 'স্বাধীন নির্মাতাদের বাছাই করা মাসিক এডিশন, প্রতিটি আইটেমের পেছনের গল্পসহ।',
+  'about.feature2':
+    'প্রতিটি বক্সের উপর সম্পূর্ণ নিয়ন্ত্রণ — কনটেন্ট কাস্টমাইজ করুন, আইটেম বদলান বা বাদ দিন, এক মাস স্কিপ করুন, বা আপনার ক্যাডেন্স পরিবর্তন করুন।',
+  'about.feature3':
+    'পিকআপ থেকে দরজা পর্যন্ত এন্ড-টু-এন্ড শিপমেন্ট ট্র্যাকিং, প্লাস্টিক-মুক্ত প্যাকেজিং এবং লাইভ ক্যারিয়ার আপডেটসহ।',
+  'about.feature4':
+    'নমনীয় প্ল্যান এবং স্বচ্ছ বিলিং — যেকোনো সময় আপনার ড্যাশবোর্ড থেকে আপগ্রেড, ডাউনগ্রেড, পজ বা বাতিল করুন।',
+  'about.intro':
+    '{{app}} একটি কিউরেটেড সাবস্ক্রিপশন-বক্স পরিষেবা যা প্রতি মাসে আপনার দরজায় বাছাই করা, ছোট-ব্যাচের আনন্দের বক্স পৌঁছে দেয়। প্রতিটি এডিশন তৈরি করেন কর্মরত নির্মাতারা — স্বাধীন শিল্পী, শেফ এবং ছোট ব্র্যান্ড — কোনো অ্যালগরিদম নয়।',
+  'about.missionBody':
+    'আমরা বিশ্বাস করি একটি সাবস্ক্রিপশন উপহারের মতো অনুভব হওয়া উচিত, ফাঁদের মতো নয়। {{app}} এমনভাবে তৈরি যাতে আপনি যা আসে তা ভালোবেসে থাকেন — যেকোনো সময় পজ করুন, যা চান বদলান, এবং এক ক্লিকে বাতিল করুন। কোনো রিটেনশন স্ক্রিপ্ট, কখনোই নয়।',
+  'about.missionTitle': 'আমাদের লক্ষ্য',
   'about.pageTitle': '{{app}} সম্পর্কে',
   'appNav.mobileLabel': 'প্রাথমিক নেভিগেশন',
   'appNav.primaryLabel': 'প্রাথমিক নেভিগেশন',
@@ -11,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'বিলিং যোগাযোগ সম্পাদনা করুন',
   'billing.contact.eyebrow': 'বিলিং যোগাযোগ',
   'billing.eyebrow': 'পরিকল্পনা ও পেমেন্ট',
+  'billing.loading': 'বিলিং লোড হচ্ছে…',
   'billing.payment.body':
     'পেমেন্টের কাজটি স্ট্রাইপ চেকআউটের মাধ্যমে সম্পন্ন করা হয় — আপনার সম্পূর্ণ কার্ড নম্বর কখনোই আমাদের সার্ভারে আসে না। আপনার কার্ড যোগ করতে বা আপডেট করতে নিচের যেকোনো টিয়ারে ক্লিক করুন।',
   'billing.payment.linked': 'স্ট্রাইপের মাধ্যমে সংরক্ষিত কার্ড',
@@ -20,10 +36,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'সাবস্ক্রিপশন পুনরায় শুরু করুন',
   'billing.plan.eyebrow': 'সক্রিয় পরিকল্পনা',
   'billing.plan.next': 'স্বয়ংক্রিয়ভাবে নবায়ন হয় {{date}} .',
+  'billing.plan.status': 'স্ট্যাটাস: {{status}}',
   'billing.subtitle':
     'আপনার টিয়ার ও পেমেন্ট পদ্ধতি পরিচালনা করুন এবং পূর্ববর্তী কার্যকলাপ পর্যালোচনা করুন।',
   'billing.tiers.body': 'একটি স্তর বেছে নিন এবং আমরা আপনাকে স্ট্রাইপ চেকআউটে নিয়ে যাব।',
   'billing.tiers.choose': 'বেছে নিন',
+  'billing.tiers.empty': 'এখনো কোনো টিয়ার কনফিগার করা হয়নি।',
   'billing.tiers.heading': 'উপলব্ধ স্তরগুলি',
   'boxDetail.backToBoxes': 'সকল সংস্করণে ফিরে যান',
   'boxDetail.crumb.boxes': 'সংস্করণ',
@@ -36,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'নির্বাচিত অংশ',
   'boxDetail.items.heading': '{{count}} নির্বাচিত টুকরা',
   'boxDetail.itemsBadge': '{{count}} প্রতি বাক্সে বাছাই করা আইটেম',
+  'boxDetail.loading': 'এডিশন লোড হচ্ছে…',
   'boxDetail.notFound': 'সেই সংস্করণটি আর পাওয়া যায় না।',
   'boxDetail.subscribe.success': 'সাবস্ক্রাইব করেছেন — আপনার প্রথম সংস্করণটি সারিতে রাখা হয়েছে।',
   'boxDetail.swapBadge': 'অদলবদল করুন {{count}} প্রতি বাক্সে আইটেম(গুলি)',
@@ -44,14 +63,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'কোনো সংস্করণই মেলে না।',
   'boxes.eyebrow': 'ট্রোভ আর্কাইভ',
   'boxes.heading': 'প্রতিটি সংস্করণ ব্রাউজ করুন',
+  'boxes.loadError': 'আমরা এডিশনগুলো লোড করতে পারিনি। আপনার সংযোগ পরীক্ষা করে আবার চেষ্টা করুন।',
   'boxes.loading': 'সংস্করণগুলি লোড হচ্ছে…',
+  'boxes.search.label': 'এডিশন খুঁজুন',
   'boxes.search.placeholder': 'সংস্করণগুলি অনুসন্ধান করুন…',
   'boxes.subtitle':
     'প্রতিটি স্তর হলো অল্প সংখ্যক গল্পের একটি সংকলন। আপনার তালিকায় একটি যোগ করুন অথবা পরের মাসের জন্য এটি অদলবদল করুন।',
+  'boxThemeCard.itemCount': '{{count}} আইটেম',
   'boxThemeCard.perMonth': '/ মাস',
+  'boxThemeCard.retailValue': 'খুচরা মূল্য {{value}}',
   'common.goToDashboard': 'ড্যাশবোর্ডে যান',
+  'common.retry': 'পুনরায় চেষ্টা করুন',
   'customize.eyebrow': 'এটাকে নিজের করে নিন',
   'customize.heading': 'আপনার পরবর্তী Crate কাস্টমাইজ করুন',
+  'customize.items.empty': 'এই টিয়ারের জন্য এখনো কোনো আইটেম কনফিগার করা হয়নি।',
   'customize.items.exclude': 'এটা এড়িয়ে যান',
   'customize.items.eyebrow': 'এই বাক্সটি নিজের মতো করে সাজান',
   'customize.items.heading': 'আইটেমগুলি {{box}}',
@@ -59,8 +84,11 @@ export const ui: UiTranslations = {
     '{{count}} এর {{total}} অন্তর্ভুক্ত আইটেমসমূহ। আমরা বাদ দেওয়া আইটেমগুলোর পরিবর্তে কিউরেটরের পছন্দের আইটেম দিয়ে থাকি।',
   'customize.items.include': 'আবার যোগ করুন',
   'customize.items.save': 'কাস্টমাইজেশন সংরক্ষণ করুন',
+  'customize.items.swapsLeft': '{{max}}টির মধ্যে {{used}}টি স্ব্যাপ ব্যবহৃত',
+  'customize.loading': 'কাস্টমাইজেশন লোড হচ্ছে…',
   'customize.noSub.body':
     'প্রথমে একটি টিয়ারে সাবস্ক্রাইব করুন, তারপর আপনার বক্সের আইটেমগুলো অদলবদল করতে ফিরে আসুন।',
+  'customize.noSub.cta': 'এডিশন ব্রাউজ করুন',
   'customize.noSub.heading': 'কোনো সক্রিয় সাবস্ক্রিপশন নেই',
   'customize.saved': 'কাস্টমাইজেশন সংরক্ষিত হয়েছে।',
   'customize.subtitle':
@@ -74,11 +102,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'চালান ট্র্যাক করুন',
   'dashboard.eyebrow': 'আপনার ভান্ডার',
   'dashboard.greeting': 'আবার স্বাগতম, {{name}} .',
+  'dashboard.loadError':
+    'আমরা আপনার ড্যাশবোর্ড লোড করতে পারিনি। আপনার সংযোগ পরীক্ষা করে আবার চেষ্টা করুন।',
   'dashboard.loading': 'ড্যাশবোর্ড লোড হচ্ছে…',
   'dashboard.next.eyebrow': 'আপনার পরবর্তী সংস্করণ',
   'dashboard.onboarding.body':
     'আপনার এখনও কোনো সক্রিয় সাবস্ক্রিপশন নেই। প্রতি মাসে একটি করে Crate পাওয়া শুরু করতে একটি টিয়ার বেছে নিন।',
   'dashboard.onboarding.cta': 'সমস্ত সংস্করণ ব্রাউজ করুন',
+  'dashboard.onboarding.empty': 'এই মুহূর্তে কোনো প্ল্যান উপলব্ধ নেই। শীঘ্রই আবার দেখুন।',
   'dashboard.onboarding.heading': 'আপনার প্রথম সংস্করণটি বেছে নিন',
   'dashboard.renewal.amount': 'অভিযুক্ত',
   'dashboard.renewal.cadence': 'ক্যাডেন্স',
@@ -86,18 +117,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'নবায়ন',
   'dashboard.renewal.heading': 'স্বয়ংক্রিয়ভাবে নবায়ন হয় {{date}}',
   'dashboard.renewal.plan': 'পরিকল্পনার মূল চাবিকাঠি',
+  'dashboard.renewal.tbd': 'নবায়ন শীঘ্রই নির্ধারিত হবে',
   'dashboard.renewal.tier': 'স্তর',
   'dashboard.stats.days': 'দিন',
   'dashboard.stats.daysToNext': 'জাহাজ',
   'dashboard.stats.items': 'নির্বাচিত আইটেম',
   'dashboard.stats.shipDate': 'চালানের তারিখ',
   'dashboard.stats.tbd': 'টিবিডি',
+  'dashboard.subtitle.active': 'আপনার পরবর্তী এডিশন পথে আছে। যা আশা করতে পারেন তা এখানে।',
+  'dashboard.subtitle.idle': 'প্রতি মাসে একটি {{appName}} পাঠানো শুরু করতে একটি টিয়ার বেছে নিন।',
   'forgotPassword.subtitle': 'আপনার ইমেল আমাদের জানান এবং আমরা একটি রিসেট লিঙ্ক পাঠিয়ে দেব।',
   'forgotPassword.success.body':
     'যদি {{email}} নিবন্ধিত হলে, আপনি কয়েক মিনিটের মধ্যে একটি রিসেট লিঙ্ক পাবেন।',
   'forgotPassword.success.title': 'আপনার ইনবক্স দেখুন।',
   'landing.editions.eyebrow': 'এই মরসুমে',
   'landing.editions.heading': 'আমাদের কিউরেটররা যে সংস্করণগুলো পছন্দ করছেন',
+  'landing.editions.viewAll': 'সব এডিশন ব্রাউজ করুন →',
   'landing.footer.contact': 'একজন কিউরেটরের সাথে কথা বলুন',
   'landing.footer.tagline': '{{tagline}}।',
   'landing.hero.ctaPrimary': 'আপনার বক্সটি শুরু করুন →',
@@ -107,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'সদস্য ড্যাশবোর্ডের এক ঝলক — কাউন্টডাউন, বিষয়বস্তু এবং ট্র্যাকিং।',
   'landing.hero.social.count': 'ভালোবাসার পাত্র {{count}} + গ্রাহক',
+  'landing.hero.social.rating': '{{rating}} গড় আনবক্সিং রেটিং',
+  'landing.hero.subhead':
+    '{{appName}} স্বাধীন নির্মাতাদের কাছ থেকে বাছাই করা, ছোট-ব্যাচের আনন্দের বক্স আপনার কাছে পাঠায়। যেকোনো সময় পজ করুন। যা চান বদলান। যা ভালোবাসেন তা রাখুন।',
   'landing.nav.start': 'আপনার বাক্স শুরু করুন',
   'landing.tiers.eyebrow': 'আপনার ছন্দ বেছে নিন',
   'landing.tiers.heading':
@@ -117,6 +155,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'আগামী মাসের বক্সটি দেখতে সাইন ইন করুন।',
   'login.welcomeBack': 'কিউরেটর, আপনাকে আবার স্বাগত।',
   'nextBoxHeroCard.eyebrow': 'আপনার পরবর্তী গুপ্তধন',
+  'nextBoxHeroCard.itemCount': 'ভিতরে {{count}}টি পিস',
   'nextBoxHeroCard.itemsLabel': 'নির্বাচিত আইটেম',
   'nextBoxHeroCard.shipsOnLabel': 'জাহাজ',
   'notFound.body':
@@ -142,8 +181,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'সাবস্ক্রিপশন স্থগিত করুন',
   'settings.danger.paused': 'সাবস্ক্রিপশন স্থগিত করা হয়েছে।',
   'settings.danger.pausing': 'একটু থেমে…',
+  'settings.danger.status': 'সাবস্ক্রিপশন স্ট্যাটাস: {{status}}',
   'settings.danger.subtitle':
     'পজ করলে আপনার টিয়ার এবং হিস্ট্রি অক্ষত থাকে। ক্যানসেল করলে ভবিষ্যতের শিপমেন্ট বন্ধ হয়ে যায় এবং সাইকেল শেষে আপনার সংরক্ষিত পেমেন্ট পদ্ধতিগুলো মুছে যায়।',
+  'settings.notifications.saving': '· সংরক্ষণ হচ্ছে…',
   'settings.notifications.subtitle':
     'Crate থেকে আপনি কোন সংকেতগুলো চান তা বেছে নিন। ডিফল্টগুলো যুক্তিসঙ্গত।',
   'settings.subtitle':
@@ -160,13 +201,19 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'এখনো কোনো সক্রিয় চালান নেই',
   'shipments.live.eyebrow': 'সক্রিয় চালান',
   'shipments.live.unnamed': 'আপনার পরবর্তী বাক্স',
+  'shipments.loadError':
+    'আমরা আপনার শিপমেন্টগুলো লোড করতে পারিনি। আপনার সংযোগ পরীক্ষা করে আবার চেষ্টা করুন।',
+  'shipments.loading': 'চালান লোড করা হচ্ছে…',
+  'shipments.step.delivered': 'বিতরণ করা হয়েছে',
   'shipments.step.deliveredBody':
     'আপনি যা আবিষ্কার করেন তা শেয়ার করতে #crateunbox ট্যাগ ব্যবহার করুন।',
   'shipments.step.ordered': 'অর্ডার দেওয়া হয়েছে',
   'shipments.step.orderedBody':
     'আপনার সাবস্ক্রিপশনের ফলে এই সংস্করণটি পরবর্তী শিপিং চক্রের জন্য তালিকাভুক্ত হয়েছে।',
+  'shipments.step.packed': 'হাতে প্যাক করা',
   'shipments.step.packedBody':
     'প্রতিটি জিনিস হাতে লেখা একটি নোটসহ মোড়ানো অবস্থায় বাক্সে রাখা ছিল।',
+  'shipments.step.transit': 'পথে আছে',
   'shipments.step.transitNot':
     'আপনার বাক্সটি প্রেরণের জন্য পাঠানো হলে ট্র্যাকিং তথ্য এখানে দেখা যাবে।',
   'shipments.subtitle':

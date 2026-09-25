@@ -1,6 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε ερωτήσεις, σχόλια ή θέλετε μια επίδειξη για την ομάδα σας; Επικοινωνήστε μαζί μας από τις ρυθμίσεις του χώρου εργασίας σας — ένα πραγματικό άτομο από την ομάδα του {{app}} διαβάζει κάθε μήνυμα.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.featureChannels':
+    'Δημόσια και ιδιωτικά κανάλια που κρατούν κάθε έργο, ομάδα και θέμα οργανωμένα.',
+  'about.featureFiles':
+    'Κοινή χρήση αρχείων με μεταφορά και απόθεση και πλούσιες προεπισκοπήσεις, ακριβώς εκεί που γίνεται η συζήτηση.',
+  'about.featurePlans':
+    'Δωρεάν για να ξεκινήσετε, με τα προγράμματα Pro και Team που ξεκλειδώνουν περισσότερα κανάλια, μέλη, διατήρηση δεδομένων και εξωτερικές ενσωματώσεις καθώς μεγαλώνετε.',
+  'about.featureRealtime':
+    'Μηνύματα σε πραγματικό χρόνο με άμεσες ειδοποιήσεις, καθώς και αναζήτηση πλήρους κειμένου σε όλα όσα έχει πει η ομάδα σας.',
+  'about.featureThreads':
+    'Απαντήσεις σε νήματα και αντιδράσεις με emoji, ώστε οι παράλληλες συζητήσεις να μένουν τακτοποιημένες και τα σχόλια να είναι γρήγορα.',
+  'about.intro':
+    'Το {{app}} είναι εκεί όπου η ομάδα σας ολοκληρώνει τη δουλειά της μαζί — οργανωμένα κανάλια, εστιασμένα νήματα, αντιδράσεις, κοινή χρήση αρχείων και αναζήτηση, όλα σε έναν γρήγορο χώρο εργασίας πραγματικού χρόνου.',
+  'about.missionBody':
+    'Το email θάβει τις αποφάσεις και τα διάσπαρτα εργαλεία συνομιλίας διασπούν το πλαίσιο. Το {{app}} κρατά κάθε συζήτηση ανοιχτή, με δυνατότητα αναζήτησης και συνδεδεμένη με το κανάλι στο οποίο ανήκει — ώστε η ομάδα σας να μένει συντονισμένη χωρίς τον θόρυβο.',
+  'about.missionTitle': 'Η αποστολή μας',
   'activityCard.mentions': 'Αναφορές',
   'activityCard.mentionsCount': '{{count}}',
   'activityCard.reactions': 'Αντιδράσεις',
@@ -11,7 +29,9 @@ export const ui: UiTranslations = {
   'app.workspace': 'Molecule Studios',
   'channel.attachFile': 'Επισύναψη αρχείου',
   'channel.backToDashboard': 'Επιστροφή στον πίνακα ελέγχου',
+  'channel.darkMode': 'Εναλλαγή σκοτεινής λειτουργίας',
   'channel.document': 'Έγγραφο',
+  'channel.downloadFile': 'Λήψη {{name}}',
   'channel.edited': '(επεξεργασμένο)',
   'channel.formatBold': 'Τολμηρός',
   'channel.formatCode': 'Κώδικας',
@@ -19,27 +39,39 @@ export const ui: UiTranslations = {
   'channel.forNewLine': 'για νέα γραμμή',
   'channel.insertEmoji': 'Emoji',
   'channel.insertLink': 'Σύνδεσμος',
+  'channel.lastReply': 'Τελευταία απάντηση {{time}}',
   'channel.linkPrompt': 'URL συνδέσμου',
   'channel.memberCount': '{{count}} μέλη',
   'channel.mention': 'Αναφέρω',
+  'channel.messageInputLabel': 'Πληκτρολογήστε ένα μήνυμα',
   'channel.messagePlaceholder': 'Μήνυμα #{{name}}',
   'channel.noMembers': 'Δεν υπάρχουν μέλη',
+  'channel.noMessages':
+    'Αυτή είναι η αρχή της συζήτησης. Στείλτε το πρώτο μήνυμα για να ξεκινήσετε.',
   'channel.noSearchResults': 'Δεν υπάρχουν μηνύματα που να αντιστοιχούν στην αναζήτησή σας',
   'channel.notFound': 'Δεν βρέθηκε κανάλι',
   'channel.notFoundHint':
     'Αυτό το κανάλι ενδέχεται να έχει διαγραφεί ή να μην έχετε άδεια πρόσβασης σε αυτό.',
   'channel.pinnedLabel': '{{count}} καρφιτσωμένα μηνύματα',
+  'channel.replies': '{{count}} απαντήσεις',
   'channel.returnKey': 'Απόδοση',
+  'channel.searchLabel': 'Αναζήτηση μηνυμάτων σε αυτό το κανάλι',
   'channel.searchPlaceholder': 'Αναζήτηση ιστορικού μηνυμάτων',
   'channel.sendError': 'Η αποστολή του μηνύματος απέτυχε — δοκιμάστε ξανά.',
   'channel.sendLabel': 'Αποστολή μηνύματος',
   'channel.shiftReturn': 'Shift + Return',
+  'channel.toggleMembers': 'Εναλλαγή πίνακα μελών',
   'channel.toSend': 'να στείλω',
+  'channel.tryDifferentSearch':
+    'Δοκιμάστε διαφορετικό όρο αναζήτησης ή καθαρίστε το φίλτρο αναζήτησης',
+  'channel.welcomeChannel': 'Καλώς ήρθατε στο #{{name}}',
   'channelIntro.authorName': '{{name}}',
   'channelIntro.avatarAlt':
     '{{author}} Φωτογραφία πορτρέτου, χαμογελαστό άνδρα στέλεχος, επαγγελματικό γραφείο, φόντο',
   'channelIntro.leadIn': 'Ακούγεται καλό! Πρόσθεσα τα σχόλιά μου στην ενότητα μηχανικής. ',
   'channelIntro.reviewPrompt': ' Μπορείτε να ελέγξετε τον προϋπολογισμό για υποδομές;',
+  'channelIntro.timestamp': '{{time}}',
+  'channelIntro.userMention': '@{{username}}',
   'channelMessageFeed.unknownAuthor': 'Χρήστης',
   'channelsList.addChannel': 'Νέο κανάλι',
   'channelsList.design': 'σχέδιο',
@@ -64,6 +96,7 @@ export const ui: UiTranslations = {
   'common.unknown': 'Άγνωστος χρήστης',
   'common.user': 'Χρήστης',
   'common.yes': '✓',
+  'dashboard.browseChannels': 'Περιήγηση στα κανάλια',
   'dashboard.browseChannelsDesc': 'Εξερευνήστε τις υπάρχουσες δημόσιες συζητήσεις',
   'dashboard.channelNamePlaceholder': 'π.χ. κριτικές σχεδιασμού',
   'dashboard.createChannel': 'Δημιουργία καναλιού',
@@ -74,9 +107,11 @@ export const ui: UiTranslations = {
   'dashboard.newMessage': 'Νέο μήνυμα',
   'dashboard.noUnreadMessages': 'Δεν υπάρχουν μη αναγνωσμένα μηνύματα',
   'dashboard.quickActions': 'Γρήγορες ενέργειες',
+  'dashboard.startDm': 'Έναρξη άμεσου μηνύματος',
   'dashboard.startDmDesc':
     'Στείλτε μήνυμα απευθείας σε ένα μέλος της ομάδας σας, στείλτε μήνυμα απευθείας σε ένα μέλος της ομάδας.',
   'dashboard.unreadMessages': 'Μη αναγνωσμένα μηνύματα',
+  'dateSeparator.date': '{{weekday}}, {{month}} {{day}}',
   'directMessageButton.contactName': '{{name}}',
   'directMessagesSection.addDm': 'Νέο άμεσο μήνυμα',
   'directMessagesSection.empty': 'Δεν υπάρχουν ακόμη άμεσα μηνύματα.',
@@ -103,10 +138,14 @@ export const ui: UiTranslations = {
   'messageComposer.italic': 'Πλάγια γραφή',
   'messageComposer.link': 'Σύνδεσμος',
   'messageComposer.mention': 'Αναφέρω',
+  'messageComposer.placeholder': 'Μήνυμα σε {{channel}}',
   'messageComposer.urlPlaceholder': 'διεύθυνση URL',
   'messageItem.authorName': '{{name}}',
+  'messageItem.body':
+    "Γεια σας ομάδα! Το έγγραφο σχεδιασμού του Β' τριμήνου είναι έτοιμο για έλεγχο. Ρίξτε μια ματιά πριν από τη σύσκεψη της Πέμπτης.",
   'messageItem.timestamp': '{{time}}',
   'messagePreviewCard.authorSeparator': ':',
+  'messagePreviewCard.unknownChannel': '#channel',
   'nav.appTitle': 'Σφυγμός',
   'nav.channelName': '#{{name}}',
   'nav.channels': 'Κανάλια',
@@ -126,7 +165,14 @@ export const ui: UiTranslations = {
   'parentMessage.sampleTimestamp': '10:23 π.μ.',
   'pinnedItemsEmpty.description': 'Καρφιτσώστε σημαντικά μηνύματα εδώ.',
   'pinnedItemsEmpty.title': 'Δεν έχουν καρφιτσωθεί ακόμη στοιχεία.',
+  'planUpdated.body':
+    'Η αλλαγή χρέωσής σας είναι πλέον ενεργή. Μπορείτε να διαχειρίζεστε το πλάνο σας οποιαδήποτε στιγμή από τη σελίδα χρέωσης.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
+  'pricing.channelsLabel': 'κανάλια',
   'pricing.externalIntegrationsLabel': 'Εξωτερικές ενσωματώσεις',
   'pricing.fileUploadMbLabel': 'MB / μεταφόρτωση αρχείου',
   'pricing.heading': 'κανάλια',
@@ -134,6 +180,8 @@ export const ui: UiTranslations = {
   'pricing.messagesPerDayLabel': 'μηνύματα / ημέρα',
   'pricing.threadsEnabledLabel': 'Απαντήσεις σε νήματα',
   'pricing.voiceVideoLabel': 'Φωνητικές / βιντεοκλήσεις',
+  'privacy.intro':
+    'Σεβόμαστε το απόρρητό σας. Το {{app}} αποθηκεύει μόνο τα δεδομένα που παρέχετε ρητά και δεν τα πουλά ούτε τα μοιράζεται ποτέ χωρίς τη συγκατάθεσή σας.',
   'recommendedChannels.channel': '{{name}}',
   'recommendedChannels.empty':
     'Δεν υπάρχουν ακόμη προτάσεις — δημιουργήστε ένα κανάλι για να ξεκινήσετε.',
@@ -146,6 +194,8 @@ export const ui: UiTranslations = {
   'resetPassword.error': 'Δεν είναι δυνατή η επαναφορά του κωδικού πρόσβασης',
   'resetPassword.newPassword': 'Νέος κωδικός πρόσβασης',
   'resetPassword.reset': 'Επαναφορά κωδικού',
+  'resetPassword.resetting': 'Επαναφορά...',
+  'resetPassword.subtitle': 'Εισαγάγετε τον νέο σας κωδικό πρόσβασης παρακάτω',
   'resetPassword.successSubtitle': 'Μπορείς τώρα να συνδεθείς με τον νέο σου κωδικό.',
   'resetPassword.successTitle': 'Η επαναφορά του κωδικού πρόσβασης ήταν επιτυχής.',
   'settings.appearance.themeSelector': 'Επιλογέας θέματος',
@@ -160,10 +210,14 @@ export const ui: UiTranslations = {
   'settings.title': 'Ρυθμίσεις',
   'sideNavFooter.inviteMembers': 'Πρόσκληση μελών',
   'signup.backgroundAlt': 'Σχεδιασμός αισθητικού φόντου',
+  'signup.creating': 'Δημιουργία λογαριασμού...',
   'signup.failed': 'Αποτυχία εγγραφής',
   'signup.subtitle': 'Ξεκινήστε με το Pulse',
   'sso.continue': 'Συνέχεια με SSO',
+  'terms.intro':
+    'Χρησιμοποιώντας το {{app}}, συμφωνείτε να συνεργάζεστε καλά με την ομάδα σας, να σέβεστε τις οδηγίες των καναλιών και να αποδέχεστε ότι οι λειτουργίες επί πληρωμή απαιτούν ενεργή συνδρομή.',
   'thread.backToChannel': 'Επιστροφή στο κανάλι',
+  'thread.noReplies': 'Δεν υπάρχουν απαντήσεις ακόμη — ξεκινήστε το νήμα παρακάτω.',
   'thread.notFound': 'Δεν βρέθηκε το νήμα.',
   'thread.replyError': 'Η αποστολή της απάντησης απέτυχε — δοκιμάστε ξανά.',
   'threadHeader.additionalParticipants': '+{{count}}',
@@ -174,7 +228,9 @@ export const ui: UiTranslations = {
   'threadIndicator.lastReplyTime': 'Τελευταία απάντηση {{minutes}} πριν από λεπτά',
   'threadIndicator.moreParticipants': '+{{count}}',
   'threadIndicator.participantAvatarAlt': 'μικρό avatar συμμετέχοντα',
+  'threadIndicator.replies': '{{count}} απαντήσεις',
   'topAppBar.defaultChannelName': 'γενικός',
+  'topAppBar.defaultTopic': 'Ανακοινώσεις και ενημερώσεις για όλη την εταιρεία',
   'topAppBar.favoriteChannel': 'Αγαπημένο κανάλι',
   'topAppBar.memberCount': '{{count}} μέλη',
   'topAppBar.searchPlaceholder': 'Αναζήτηση ιστορικού μηνυμάτων',
@@ -182,6 +238,9 @@ export const ui: UiTranslations = {
   'topNavBar.search': 'Αναζήτηση μηνυμάτων',
   'topNavBar.threads': 'Θέματα',
   'welcomeHero.badge': 'Επισκόπηση χώρου εργασίας',
+  'welcomeHero.description':
+    'Ο κόμβος επικοινωνίας της ομάδας σας. Όλα όσα χρειάζεστε για να μένετε συντονισμένοι σε ένα μέρος.',
   'workspaceHeader.defaultName': 'Ο χώρος εργασίας σας',
+  'workspaceHeader.subtitle': 'Χώρος εργασίας {{type}}',
   'workspaceHeader.title': '{{name}}',
 }

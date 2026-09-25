@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Des questions, des retours ou une fonctionnalité que vous aimeriez voir ? Contactez l'équipe depuis les paramètres de votre compte — une vraie personne lit chaque message.",
   'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
+  'about.missionTitle': 'Notre mission',
+  'about.whatYouGetTitle': 'Ce que vous obtenez',
   'analytics.empty': 'Créez des présentations pour voir les analyses ici.',
   'analytics.stats.acrossDecks': 'Sur toutes les présentations',
   'analytics.stats.allTime': 'Dans votre studio',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Titre de la présentation',
   'landing.features.eyebrow': 'Pourquoi Overture',
   'landing.features.heading': 'Tout ce qu’il vous faut pour entrer en scène prêt.',
+  'landing.finalCta.body':
+    "Lancez votre studio en moins d'une minute. Sans carte bancaire. Annulable à tout moment.",
   'landing.finalCta.cta': 'Créez votre studio gratuit',
   'landing.finalCta.eyebrow': 'Gratuit pour commencer',
   'landing.finalCta.heading': 'Montez sur scène avec la meilleure présentation de votre carrière.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Modifié il y a 12 min',
   'notifications.created': 'a créé',
   'notifications.edited': 'a modifié',
+  'notifications.empty.body':
+    "L'activité sur vos decks — commentaires, mentions, exports — apparaîtra ici.",
   'notifications.empty.title': 'Aucune notification pour le moment',
   'notifications.eyebrow': 'Activité de scène',
   'notifications.loading': 'Chargement…',
   'notifications.shared': 'a partagé publiquement',
+  'planUpdated.retry': 'Réessayer',
+  'planUpdated.verifyFailed': "Nous n'avons pas encore pu confirmer votre paiement.",
+  'planUpdated.verifyFailedBody':
+    'Votre paiement est peut-être encore en cours de traitement. Veuillez réessayer dans quelques instants.',
   'planUpdated.verifying': 'Confirmation de votre paiement…',
   'present.addSlides': 'Ajouter des diapositives',
   'present.backToDecks': 'Retour aux présentations',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Interprète',
   'settings.security.notSet': 'Non défini',
   'settings.security.passwordBody': 'Votre mot de passe est chiffré au repos.',
+  'settings.security.reset': 'Réinitialisation',
   'settings.security.title': 'Compte et sessions',
   'shared.empty.body':
     'Les présentations partagées publiquement apparaîtront ici. Ouvrez une présentation et activez le partage public.',
@@ -130,6 +143,12 @@ export const ui: UiTranslations = {
   'shared.loading': 'Chargement…',
   'shared.title': 'Présentations partagées',
   'templateCard.slideCount': '{{count}} diapositives',
+  'templateCard.usageCount': '{{count}} utilisations',
+  'templates.empty.body':
+    'Essayez un autre filtre — nous ajoutons de nouveaux modèles chaque mois.',
+  'templates.empty.title': 'Aucun modèle dans cette catégorie pour le moment',
+  'templates.hero.body':
+    'Des mises en page de diapositives thématisées avec blocs de graphiques, cadres de démo, notes du présentateur et minuteries prédéfinies — chaque modèle est prêt à enregistrer.',
   'templates.hero.eyebrow': 'Scènes sélectionnées',
   'templates.hero.heading': 'Des scènes pensées pour le moment où vous devez convaincre.',
 }

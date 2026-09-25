@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть отзыв, нашли баг или хотите принести {{app}} в свою школу или команду? Мы читаем каждое сообщение — напишите нам из настроек аккаунта, и ответит живой человек.',
   'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'about.intro':
+    '{{app}} — это платформа для живых викторин для классов, игровых вечеров и командных мероприятий. Создавайте увлекательные наборы вопросов, проводите игры в реальном времени по коду присоединения и наблюдайте, как аудитория оживает благодаря вопросам на время, подсчёту очков и таблицам лидеров.',
+  'about.missionBody':
+    'Обучение даётся легко, когда оно похоже на игру. Мы делаем так, чтобы любой мог без усилий превратить тему в быструю соревновательную игру — ведущие учат на практике, а игроки не теряют серию.',
+  'about.missionTitle': 'Наша миссия',
   'about.title': 'О {{app}}',
   'auth.login.noAccount': 'Впервые используете Sparq?',
   'auth.login.or': 'или продолжить',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Пока не найдено ни одного подходящего теста.',
   'discover.headline': 'Найдите свою следующую любимую викторину.',
   'discover.loading': 'Загрузка…',
+  'discover.searchPlaceholder': 'Поиск викторин по названию…',
   'discover.subhead':
     'Просмотрите всю библиотеку, отфильтруйте по категориям или выполните поиск по названию. Нажмите на карточку, чтобы играть в одиночку или организовать прямую трансляцию.',
   'forgotPassword.subhead':
     'Введите свой адрес электронной почты, и мы вышлем вам ссылку для сброса настроек.',
   'forgotPassword.success.body':
     'Если существует учетная запись для {{email}} Через несколько минут вы получите ссылку для сброса пароля.',
+  'forgotPassword.success.title': 'Проверьте свой почтовый ящик.',
   'hostLobby.back': 'Вернуться к викторине',
   'hostLobby.copied': 'Код присоединения скопирован в буфер обмена.',
   'hostLobby.creating': 'Запуск вашего лобби…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Отменить лобби',
   'hostLobby.players.count': '{{count}} жить',
   'hostLobby.players.title': 'Игроки в лобби',
+  'hostLobby.players.waiting':
+    'Ожидание игроков. Поделитесь кодом {{code}}, чтобы они присоединились.',
   'hostLobby.rules.title': 'Правила дома',
   'hostLobby.startError': 'Не удалось запустить игру.',
   'hostLobby.starting': 'Зажечь искру…',
   'joinCodeHero.headline': 'Скажите своим игрокам, чтобы они включились в игру.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Или посетите',
   'joinCodeHero.liveLabel': 'Прямая трансляция из лобби',
+  'joinCodeHero.playerJoined': '{{name}} присоединился',
   'joinCodeHero.playersLabel': 'Игроки',
   'joinCodeHero.qrLabel': 'Отсканируйте, чтобы присоединиться',
   'joinCodeHero.startGame': 'Зажги искру',
   'joinCodeHero.subhead':
     'Поделитесь кодом для присоединения или отсканируйте QR-код. Игра начинается в тот момент, когда вы зажжете искру.',
+  'landing.cta.button': 'Создайте свою первую викторину',
   'landing.cta.eyebrow': 'Бесплатно для преподавателей',
   'landing.cta.heading': 'Внесите искру в каждый урок.',
+  'landing.cta.subhead':
+    'Регистрация за 30 секунд. Проводите неограниченное число живых игр, создавайте викторины с помощью ИИ и поддерживайте серию у каждого игрока.',
   'landing.eyebrow': 'Зажгите каждый ответ',
   'landing.features.heading':
     'Студия викторин, которая подходит для вашего стиля преподавания и игры.',
@@ -58,6 +74,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Популярные викторины',
   'landing.popular.eyebrow': 'Популярные товары этой недели',
   'landing.popular.heading': 'Примите участие в викторине, которую сегодня проводят ведущие.',
+  'landing.popular.viewAll': 'Смотреть все категории →',
+  'leaderboard.empty.body':
+    'Сыграйте в викторину, чтобы попасть со своим результатом в глобальную таблицу лидеров.',
   'leaderboard.empty.title': 'Пока нет ходов на доске — будьте первыми.',
   'leaderboard.eyebrow': 'Таблица лидеров',
   'leaderboard.fullRanking': 'Полный рейтинг',
@@ -65,6 +84,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Учитывайте суммарный балл по всем сыгранным вами сессиям викторины. Поднимайтесь по рейтингу, играя больше.',
   'leaderboard.title': 'Лучшие ведущие викторин',
+  'leaderboard.totalPlayers': 'Игроков в рейтинге: {{count}}',
   'leaderboardRow.points': 'баллы',
   'leaderboardRow.streak': '{{days}} д',
   'login.headline': 'С возвращением, ведущий викторины!',
@@ -76,10 +96,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Создайте свой первый тест →',
   'myQuizzes.empty.created': 'Вы ещё не создали викторину.',
   'myQuizzes.empty.played': 'Пока нет опубликованных викторин.',
+  'myQuizzes.loading': 'Загрузка…',
   'myQuizzes.subhead':
     'Созданные вами черновики, а также опубликованные викторины, в которые вы можете сыграть.',
   'myQuizzes.title': 'Мои викторины',
   'nav.legal': 'Юридические',
+  'nav.primaryNavLabel': 'Основная навигация',
   'notFound.backHome': 'Обратно домой',
   'notFound.backToDiscover': 'Просмотрите викторины',
   'notFound.body': 'Попробуйте другой код или вернитесь в лобби.',
@@ -88,17 +110,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Загрузка…',
   'notifications.subhead':
     '{{count}} Непрочитанные сообщения. Приглашения, изменения в таблице лидеров и достижения — всё в одном потоке.',
+  'planUpdated.retry': 'Попробуйте ещё раз',
+  'planUpdated.verifyFailed': 'Мы пока не можем подтвердить ваш платеж.',
+  'planUpdated.verifyFailedBody':
+    'Ваш платеж, возможно, еще обрабатывается. Попробуйте еще раз через минуту.',
   'planUpdated.verifying': 'Подтверждение платежа…',
+  'pricing.advancedFeatures': 'Расширенные функции: {{yes}}',
+  'pricing.canExport': 'Экспорт данных: {{yes}}',
   'pricing.checkoutError': 'Не удалось начать оформление заказа. Пожалуйста, попробуйте еще раз.',
   'pricing.heading': 'Выберите ваш план {{app}}',
   'pricing.included': 'Включено',
   'pricing.loadError': 'Не удалось загрузить планы.',
+  'pricing.maxQuestions': '{{count}} вопросы',
   'pricing.maxQuizzes': '{{count}} викторины',
+  'pricing.maxSessions': 'Сессии: {{count}}',
   'pricing.subhead':
     'Бесплатно для организаторов и игроков. Для увеличения лимитов и доступа к расширенным функциям требуется платный тариф.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Учетная запись: адрес электронной почты, хешированный пароль, отображаемое имя, дата последнего входа.',
+  'privacy.intro':
+    '{{app}} уважает вашу конфиденциальность. На этой странице описано, какие данные мы храним, зачем мы их храним и как их удалить.',
   'privacy.rights.body':
     'Чтобы навсегда удалить все ваши данные в течение 30 дней, удалите свою учетную запись в настройках.',
   'privacy.share.body':
@@ -122,6 +154,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Идентификатор викторины: {{id}}',
   'quizBuilder.loadError': 'Не удалось загрузить викторину.',
   'quizBuilder.loading': 'Загрузка редактора…',
+  'quizBuilder.markCorrect': 'Отметить {{letter}} как правильный',
   'quizBuilder.noQuestions': 'Вопросов пока нет — добавьте один, чтобы начать.',
   'quizBuilder.notFound': 'Тест не найден.',
   'quizBuilder.preview': 'Просмотр',
@@ -138,7 +171,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} таймер',
   'quizBuilder.title': 'Создайте свою викторину',
   'quizBuilder.titleLabel': 'Название викторины',
+  'quizBuilder.untitled': 'Вопрос без названия',
   'quizCard.plays': '{{count}} играет',
+  'quizCard.questionCount': 'Вопросов: {{count}}',
   'quizDetail.duration': '~ {{minutes}} мин',
   'quizDetail.hostMultiplayer': 'Создать многопользовательскую игру',
   'quizDetail.leaderboardEmpty': 'Пока нет ни одной игры — станьте первым, кто установит счет.',
@@ -153,26 +188,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Вернуться к викторине',
   'quizPlay.empty': 'В этом тесте пока нет вопросов.',
   'quizPlay.error': 'Не удалось загрузить этот тест. Пожалуйста, попробуйте еще раз.',
+  'quizPlay.exit': 'Выйти',
   'quizPlay.feedback.correct': '🔥 Заслуженная искра — вперед, к следующему этапу!',
+  'quizPlay.feedback.incorrect': 'Правильный ответ — {{correct}}. Продолжайте.',
   'quizPlay.loading': 'Загрузка викторины…',
   'quizPlay.next': 'Следующий вопрос',
   'quizPlay.questionCounter': 'Вопрос {{current}} из {{total}}',
   'quizPlay.score': '{{score}} баллы',
+  'quizPlay.seeResults': 'Посмотреть результаты',
   'quizPlay.sessionFailed': 'Не удалось начать сессию.',
   'quizPlay.streak': '{{count}} полоса',
+  'resetPassword.subhead': 'Выберите новый пароль, чтобы вернуться к своей серии.',
   'results.backToDiscover': 'Вернуться к разделу «Открыть для себя»',
   'results.error': 'Не удалось загрузить результаты.',
   'results.exit': 'Вернуться к разделу «Открыть для себя»',
   'results.loading': 'Подведение итогов…',
   'results.missingSession': 'Подводить итоги сессии не нужно.',
+  'results.recap.correctAnswer': 'Правильно: {{answer}}',
   'results.recap.questionLabel': 'Вопрос {{number}}',
   'results.recap.title': 'Краткий обзор вопросов',
+  'results.recap.yourAnswer': 'Вы: {{answer}}',
   'results.unknownQuiz': 'Контрольный опрос',
   'scoreBreakdownCard.accuracyLabel': 'Точность',
+  'scoreBreakdownCard.correctLabel': 'Верно',
   'scoreBreakdownCard.eyebrow': 'Викторина завершена',
   'scoreBreakdownCard.headline': 'Отличная работа над " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Баллы',
   'scoreBreakdownCard.rankLabel': 'Классифицировать',
+  'scoreBreakdownCard.streakBonus': 'Бонус за серию +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Ваша искра видна. Изучите разбор ниже, чтобы подняться выше в таблице лидеров.',
   'settings.danger.body':
     'Удалите свою учетную запись Sparq и все созданные вами викторины навсегда.',
   'settings.danger.confirm': 'Да, удалить навсегда.',
@@ -191,5 +236,7 @@ export const ui: UiTranslations = {
     'Вы несёте ответственность за публикуемый вами контент, за задаваемые вами вопросы и за любые проводимые вами игры. Не выдавайте себя за других людей.',
   'terms.billing.body':
     'Платные тарифные планы автоматически продлеваются до отмены в настройках. Вы можете отменить подписку в любое время; доступ сохраняется до конца текущего расчетного периода.',
+  'terms.intro':
+    'Используя {{app}}, вы соглашаетесь с правилами ниже. Если вы не можете их принять, пожалуйста, не пользуйтесь сервисом.',
   'terms.title': 'Условия предоставления услуг',
 }

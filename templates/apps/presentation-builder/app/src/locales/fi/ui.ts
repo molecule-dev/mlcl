@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kysymyksiä, palautetta tai toive jostakin ominaisuudesta? Ota yhteyttä tiimiin tilisi asetuksista — oikea ihminen lukee jokaisen viestin.',
   'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.missionTitle': 'Missiomme',
+  'about.whatYouGetTitle': 'Mitä saat',
   'analytics.empty': 'Luo pakkauksia nähdäksesi analytiikkaa täällä.',
   'analytics.stats.acrossDecks': 'Kaikissa kansissa',
   'analytics.stats.allTime': 'Studiossasi',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Pakan nimi',
   'landing.features.eyebrow': 'Miksi alkusoitto',
   'landing.features.heading': 'Kaikki mitä tarvitset lavalle nousemiseen valmiina.',
+  'landing.finalCta.body':
+    'Käynnistä studioso alle minuutissa. Ei luottokorttia. Peru milloin tahansa.',
   'landing.finalCta.cta': 'Luo ilmainen studiosi',
   'landing.finalCta.eyebrow': 'Aloittaminen on ilmaista',
   'landing.finalCta.heading': 'Astu lavalle urasi parhaan dekin kanssa.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Muokattu 12 minuuttia sitten',
   'notifications.created': 'luotu',
   'notifications.edited': 'muokattu',
+  'notifications.empty.body':
+    'Kansioidesi toiminta — kommentit, maininnat, viennit — ilmestyy tänne.',
   'notifications.empty.title': 'Ei vielä ilmoituksia',
   'notifications.eyebrow': 'Lavatoiminta',
   'notifications.loading': 'Ladataan…',
   'notifications.shared': 'jaettu julkisesti',
+  'planUpdated.retry': 'Yritä uudelleen',
+  'planUpdated.verifyFailed': 'Emme voineet vielä vahvistaa maksuasi.',
+  'planUpdated.verifyFailedBody':
+    'Maksusi käsittely saattaa olla vielä kesken. Yritä uudelleen hetken kuluttua.',
   'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'present.addSlides': 'Lisää dioja',
   'present.backToDecks': 'Takaisin kansiin',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Näyttämöesiintyjä',
   'settings.security.notSet': 'Ei määritetty',
   'settings.security.passwordBody': 'Salasanasi on salattu lepotilassa.',
+  'settings.security.reset': 'Nollaa',
   'settings.security.title': 'Tili + istunnot',
   'shared.empty.body':
     'Julkisesti jakamasi pakat näkyvät täällä. Avaa pakka ja vaihda julkiseksi jakaaksesi ne.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Ladataan…',
   'shared.title': 'Jaetut terassit',
   'templateCard.slideCount': '{{count}} diat',
+  'templateCard.usageCount': '{{count}} käyttötarkoitukset',
+  'templates.empty.body': 'Kokeile eri suodatinta — julkaisemme uusia malleja joka kuukausi.',
+  'templates.empty.title': 'Ei vielä malleja tässä kategoriassa',
+  'templates.hero.body':
+    'Valmiiksi teemalla varustetut dia-asettelut, joissa on kaavioblokit, demokehykset, esittäjän muistiinpanot ja ajastimen esiasetukset — jokainen malli on valmis tallennettavaksi.',
   'templates.hero.eyebrow': 'Kuratoidut vaiheet',
   'templates.hero.heading':
     'Lavat, jotka on rakennettu juuri sitä hetkeä varten, kun sinun täytyy laskeutua.',

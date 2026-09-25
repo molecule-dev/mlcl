@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'कोई फ़ीडबैक है, कोई बग मिला है, या अपनी लीग के लिए {{app}} चाहते हैं? अपनी अकाउंट सेटिंग्स से हमसे संपर्क करें — हर संदेश टीम के किसी असली व्यक्ति तक पहुँचता है।',
+  'about.contactTitle': 'संपर्क करें',
   'about.eyebrow': 'परिचय',
+  'about.featureAlerts':
+    'स्कोर अपडेट, ट्रेड अलर्ट, इंजरी रिपोर्ट और लीग घोषणाओं के लिए पुश नोटिफ़िकेशन।',
+  'about.featureRosters':
+    'हर खिलाड़ी के लिए पूरी रोस्टर, सीज़न टोटल, हॉट/कोल्ड स्ट्रीक और हेड-टू-हेड स्प्लिट वाले टीम पेज।',
+  'about.featureSchedule':
+    'एक सीज़न कैलेंडर और शेड्यूल व्यू, ताकि आप हर फ़िक्स्चर और नतीजे के हिसाब से योजना बना सकें।',
+  'about.featureScoreboard':
+    'हर पेज के ऊपर पिन किया गया ब्रॉडकास्ट-ग्रेड स्कोरबोर्ड टिकर, ताकि आप कोई गोल न चूकें।',
+  'about.featureStandings':
+    'लाइव स्टैंडिंग्स — रियल-टाइम जीत-हार-ड्रॉ रिकॉर्ड, अंक, जीत-प्रतिशत और प्लेऑफ़ लाइन, हर सीटी पर रीफ़्रेश।',
+  'about.intro':
+    '{{app}} आपकी लीग के लिए ब्रॉडकास्ट-क्वालिटी का घर है। टीमें, शेड्यूल, लाइव स्कोर और स्टैंडिंग्स एक तेज़, बिना-भीड़भाड़ वाले डैशबोर्ड में एक साथ आते हैं — ताकि फ़ैन, कोच और लीग आयोजक हमेशा जानें कि सीज़न कहाँ खड़ा है।',
+  'about.missionBody':
+    'किसी लीग को फ़ॉलो करने का मतलब पाँच अलग-अलग थर्ड-पार्टी स्कोरबोर्ड रीफ़्रेश करना नहीं होना चाहिए। हमने इसे बनाया है ताकि हर लीग को स्टैंडिंग्स, शेड्यूल और उन आँकड़ों का एक ही भरोसेमंद स्रोत मिले जो सचमुच मायने रखते हैं — हर सीटी पर अपडेट, पूरे सीज़न मुफ़्त।',
+  'about.missionTitle': 'हमारा विशेष कार्य',
+  'about.whatYouGet': 'आपको क्या मिलता है',
   'appShell.closeNav': 'नेविगेशन बंद करें',
   'appShell.openNav': 'नेविगेशन खोलें',
   'common.dashboard': 'डैशबोर्ड',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'सभी मैच देखें →',
   'dashboard.viewAllStandings': 'पूरी स्टैंडिंग्स →',
   'dashboard.viewAllStats': 'सभी आँकड़ा लीडर्स देखें →',
+  'forgot.submitting': 'रीसेट लिंक भेजा जा रहा है…',
   'forgot.subtitle': 'रीसेट लिंक प्राप्त करने के लिए अपना ईमेल दर्ज करें।',
   'forgot.success': 'रीसेट लिंक {{email}} पर भेजा गया। कृपया अपना इनबॉक्स देखें।',
+  'landing.copyright': '© {{year}} {{app}}. Chase the standing.',
+  'landing.ctaBody':
+    'आपकी लीग। आपकी स्टैंडिंग्स। आपकी पसंदीदा टीम — ऊपर पिन की हुई। सेटअप में दो मिनट, पूरे सीज़न मुफ़्त।',
   'landing.ctaHeading': 'तीसरे पक्ष के स्कोरबोर्ड रीफ़्रेश करना बंद करें',
   'landing.eyebrow': 'प्रशंसकों, कोचों और लीग आयोजकों के लिए बनाया गया',
   'landing.featuresHeading': 'हर स्टैंडिंग के लिए सबसे आगे की सीट',
   'landing.getStarted': 'लीग में शामिल हों',
   'landing.heroCta': 'लीग में शामिल हों',
+  'landing.heroSubtitle':
+    '{{app}} स्टैंडिंग्स, शेड्यूल और सांख्यिकीय लीडर्स को एक ब्रॉडकास्ट-क्वालिटी डैशबोर्ड में जोड़ता है। लाइव स्कोर। असली रिकॉर्ड। बिना भीड़भाड़।',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'आज रात लीग में',
   'landing.statFans': 'प्रशंसक अनुसरण कर रहे हैं',
   'landing.statGames': 'इस सीज़न के मैच',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q{{period}}',
   'matchDetail.back': 'मैचों पर वापस जाएँ',
   'matchDetail.eventsHeading': 'प्ले-बाय-प्ले',
+  'matchDetail.final': 'FINAL',
   'matchDetail.finalScore': 'अंतिम',
   'matchDetail.live': 'लाइव',
   'matchDetail.liveNow': 'अभी लाइव',
   'matchDetail.noEvents': 'अभी तक कोई इवेंट दर्ज नहीं हुआ।',
   'matchDetail.periodClock': 'Q{{period}} · {{clock}}',
+  'matches.empty': 'इस व्यू में कोई मैच नहीं — कोई दूसरा फ़िल्टर आज़माएँ।',
   'matches.eyebrow': 'मैचडे',
   'matches.loading': 'स्लेट लाई जा रही है…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'सूचनाएं लोड करने में विफल',
   'notifications.loading': 'सूचनाएँ लोड हो रही हैं…',
   'pennantHeroCard.eyebrow': 'तालिका में शीर्ष पर',
+  'pennantHeroCard.formLabel': 'पिछले 10',
   'pennantHeroCard.gamesAhead': 'पीछा करने वालों से {{value}} मैच आगे',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'अपनी सीट चुनें',
   'pricing.heading': 'बेहतर शेड्यूल, स्कोर और स्टैंडिंग्स के लिए अपग्रेड करें।',
   'pricing.limits.schedule': '{{count}} शेड्यूल प्रविष्टियाँ',
+  'pricing.limits.scores': '{{count}} स्कोर',
+  'pricing.limits.standings': '{{count}} स्टैंडिंग्स',
+  'pricing.limits.teams': '{{count}} टीमें',
+  'pricing.subtitle': 'बेहतर शेड्यूल, स्कोर और स्टैंडिंग्स के लिए अपग्रेड करें।',
   'pricing.upgradeCta': '{{tierName}} पर अपग्रेड करें',
   'profile.eyebrow': 'प्रशंसक प्रोफ़ाइल',
   'profile.favoritesCount': 'अनुसरण की गई टीमें',
   'profile.favoritesHeading': 'पसंदीदा टीमें',
   'profile.noFavorites': 'अभी तक कोई पसंदीदा नहीं — टीम्स पृष्ठ से टीमें चुनें।',
   'profile.rankRecord': 'रैंक #{{rank}} · {{record}}',
+  'profile.recordOnly': 'रिकॉर्ड {{record}}',
   'reset.confirmPlaceholder': 'पासवर्ड दोहराएँ',
+  'reset.mismatch': 'पासवर्ड मेल नहीं खाते।',
   'reset.newLabel': 'नया पासवर्ड',
   'reset.subtitle': 'कम से कम 12 अक्षरों का एक मज़बूत पासवर्ड चुनें।',
   'reset.tokenPlaceholder': 'ईमेल से चिपकाएँ',
   'schedule.eyebrow': 'स्लेट',
+  'schedule.moreGames': '+{{count}} और',
   'schedule.subtitle':
     'सीज़न भर के मैचों का कैलेंडर दृश्य — बॉक्स स्कोर के लिए किसी भी दिन पर टैप करें।',
   'scoreboardTicker.empty': 'अभी कोई लाइव मैच नहीं — पक ड्रॉप पर वापस देखें।',
@@ -97,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'व्यक्तिगत बनाएँ',
   'settings.favoritesBody':
     'ये टीमें आपके डैशबोर्ड पर पिन की जाती हैं और स्कोर अलर्ट ट्रिगर करती हैं।',
+  'settings.favoritesHeading': 'पसंदीदा टीमें',
   'settings.loading': 'आपकी प्राथमिकताएँ लोड हो रही हैं…',
   'settings.noFavorites': 'अभी तक कोई पसंदीदा नहीं — टीम्स पृष्ठ से टीमें चुनें।',
   'settings.notificationsHeading': 'सूचनाएँ और प्रदर्शन',
@@ -114,6 +151,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'कुल मिलाकर',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'शीर्ष चार पोस्टसीज़न के लिए क्वालीफ़ाई करते हैं — टाईब्रेकर अंक से, फिर जीत-प्रतिशत से।',
   'standings.title': 'लीग स्टैंडिंग्स',
@@ -132,6 +170,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'खिलाड़ी',
   'teamDetail.colPos': 'पद',
+  'teamDetail.pointsLabel': 'अंक',
   'teamDetail.rankLabel': 'रैंक #{{rank}}',
   'teamDetail.rosterHeading': 'रोस्टर',
   'teamDetail.statGD': 'गोल अंतर',

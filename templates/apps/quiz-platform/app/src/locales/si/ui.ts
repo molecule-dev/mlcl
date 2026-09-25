@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ප්‍රතිචාර තිබේද, දෝෂයක් හමු වුණාද, නැතහොත් ඔබේ පාසලට හෝ කණ්ඩායමට {{app}} ගෙන ඒමට අවශ්‍යද? අපි සෑම පණිවිඩයක්ම කියවනවා — ඔබේ ගිණුම් සැකසුම්වලින් අප හා සම්බන්ධ වන්න, සැබෑ මිනිසෙක් පිළිතුරු දෙනවා.',
   'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'about.intro':
+    '{{app}} යනු පන්ති කාමර, ක්‍රීඩා රාත්‍රී සහ කණ්ඩායම් උත්සව සඳහා වන සජීවී ප්‍රශ්නාවලී වේදිකාවකි. සෙල්ලක්කාර ප්‍රශ්න පැකේජ සාදන්න, සම්බන්ධ වීමේ කේතයක් සමඟ තත්‍ය කාලීන ක්‍රීඩා සත්කාරකත්වය දෙන්න, සහ කාල නියමිත ප්‍රශ්න, ලකුණු සහ ශ්‍රේණිගත ලැයිස්තු සමඟ ශාලාව ආලෝකමත් වන ආකාරය බලන්න.',
+  'about.missionBody':
+    'සෙල්ලමක් ලෙස දැනෙන විට ඉගෙනීම හොඳින් සිතේ රැඳේ. ඕනෑම කෙනෙකුට මාතෘකාවක් ඉක්මන්, තරඟකාරී ක්‍රීඩාවක් බවට පත් කිරීම අපි පහසු කරමු — එවිට සත්කාරකයන්ට ක්‍රියාවෙන් ඉගැන්විය හැකි අතර ක්‍රීඩකයන් අඛණ්ඩ ජයග්‍රහණ මාලාවක රැඳී සිටී.',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
   'about.title': '{{app}} පිළිබඳව',
   'auth.login.noAccount': 'Sparq වලට අලුත්ද?',
   'auth.login.or': 'නැතහොත් ඉදිරියට යන්න',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'තවමත් ප්‍රශ්නාවලියක් ගැලපෙන්නේ නැත.',
   'discover.headline': 'ඔබේ ඊළඟ ප්‍රියතම ප්‍රශ්නාවලිය සොයා ගන්න.',
   'discover.loading': 'පූරණය වෙමින්...',
+  'discover.searchPlaceholder': 'මාතෘකාව අනුව ප්‍රශ්නාවලී සොයන්න…',
   'discover.subhead':
     'සම්පූර්ණ පුස්තකාලය බ්‍රවුස් කරන්න, කාණ්ඩය අනුව පෙරහන් කරන්න, නැතහොත් මාතෘකාව අනුව සොයන්න. ඒකල වාදනය කිරීමට හෝ සජීවීව සත්කාරකත්වය දැක්වීමට කාඩ්පතක් ඔබන්න.',
   'forgotPassword.subhead':
     'ඔබගේ විද්‍යුත් තැපෑල ඇතුළත් කරන්න, නැවත සැකසීමට අපි ඔබට සබැඳියක් එවන්නෙමු.',
   'forgotPassword.success.body':
     'ගිණුමක් තිබේ නම් {{email}} , ඔබට මිනිත්තු කිහිපයකින් යළි පිහිටුවීමේ සබැඳියක් ලැබෙනු ඇත.',
+  'forgotPassword.success.title': 'ඔබගේ එන ලිපි පරීක්ෂා කරන්න.',
   'hostLobby.back': 'ප්‍රශ්නාවලිය වෙත ආපසු යන්න',
   'hostLobby.copied': 'සම්බන්ධ වීමේ කේතය පසුරු පුවරුවට පිටපත් කරන ලදී.',
   'hostLobby.creating': 'ඔබේ ලොබිය කරකවමින්...',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'ලොබිය අවලංගු කරන්න',
   'hostLobby.players.count': '{{count}} සජීවී',
   'hostLobby.players.title': 'ලොබියේ සිටින ක්‍රීඩකයින්',
+  'hostLobby.players.waiting':
+    'ක්‍රීඩකයන් එනතුරු බලා සිටී. ඔවුන්ට සම්බන්ධ වීමට {{code}} කේතය බෙදාගන්න.',
   'hostLobby.rules.title': 'නිවාස නීති',
   'hostLobby.startError': 'ක්‍රීඩාව ආරම්භ කිරීමට නොහැකි විය.',
   'hostLobby.starting': 'ගිනි පුපුර ආරම්භ කරමින්...',
   'joinCodeHero.headline': 'ඔයාගේ ක්‍රීඩකයන්ට පනින්න කියන්න.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'නැතහොත් පිවිසෙන්න',
   'joinCodeHero.liveLabel': 'ලොබි සජීවීව',
+  'joinCodeHero.playerJoined': '{{name}} සම්බන්ධ විය',
   'joinCodeHero.playersLabel': 'ක්‍රීඩකයින්',
   'joinCodeHero.qrLabel': 'එකතු වීමට ස්කෑන් කරන්න',
   'joinCodeHero.startGame': 'ගිනි පුපුර ආරම්භ කරන්න',
   'joinCodeHero.subhead':
     'සම්බන්ධ වීමේ කේතය බෙදා ගන්න හෝ QR කේතය ස්කෑන් කරන්න. ඔබ ගිනි පුපුර පත්තු කළ මොහොතේ සිට ක්‍රීඩාව ආරම්භ වේ.',
+  'landing.cta.button': 'ඔබේ පළමු ප්‍රශ්නාවලිය සාදන්න',
   'landing.cta.eyebrow': 'අධ්‍යාපනඥයින් සඳහා නොමිලේ',
   'landing.cta.heading': 'සෑම පාඩමකටම දීප්තියක් ගෙනෙන්න.',
+  'landing.cta.subhead':
+    'තත්පර 30කින් ලියාපදිංචි වන්න. අසීමිත සජීවී ක්‍රීඩා සත්කාරකත්වය දෙන්න, AI සමඟ ප්‍රශ්නාවලී කෙටුම්පත් කරන්න, සහ සෑම ක්‍රීඩකයෙකුම අඛණ්ඩ ජයග්‍රහණ මාලාවක තබා ගන්න.',
   'landing.eyebrow': 'සෑම පිළිතුරක්ම පත්තු කරන්න',
   'landing.features.heading':
     'ඔබ උගන්වන සහ ක්‍රීඩා කරන ආකාරයට ගැලපෙන ප්‍රශ්න විචාරාත්මක මැදිරියක්.',
@@ -58,6 +74,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'ජනප්‍රිය ප්‍රශ්නාවලිය',
   'landing.popular.eyebrow': 'මේ සතියේ ජනප්‍රිය',
   'landing.popular.heading': 'අද සත්කාරකයින් පවත්වන ප්‍රශ්නාවලියකට සහභාගී වන්න.',
+  'landing.popular.viewAll': 'සියලුම ප්‍රවර්ග බලන්න →',
+  'leaderboard.empty.body':
+    'ගෝලීය ශ්‍රේණිගත ලැයිස්තුවේ ඔබේ ලකුණු තැබීමට ප්‍රශ්නාවලියක් ක්‍රීඩා කරන්න.',
   'leaderboard.empty.title': 'පුවරුවේ තවම නාට්‍ය නැත — පළමුවැන්නා වන්න.',
   'leaderboard.eyebrow': 'ප්‍රමුඛ පුවරුව',
   'leaderboard.fullRanking': 'සම්පූර්ණ ශ්‍රේණිගත කිරීම',
@@ -65,6 +84,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'ඔබ ක්‍රීඩා කර ඇති සෑම ප්‍රශ්න විචාරාත්මක සැසියකම ලකුණු එකතු කරන්න. වැඩිපුර ක්‍රීඩා කිරීමෙන් ඉහළට යන්න.',
   'leaderboard.title': 'ඉහළම ප්‍රශ්න විචාරකයින්',
+  'leaderboard.totalPlayers': '{{count}} ශ්‍රේණිගත ක්‍රීඩකයන්',
   'leaderboardRow.points': 'ලකුණු',
   'leaderboardRow.streak': '{{days}} ඈ',
   'login.headline': 'නැවත සාදරයෙන් පිළිගනිමු, ප්‍රශ්න විචාරක.',
@@ -76,10 +96,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'ඔබේ පළමු ප්‍රශ්නාවලිය ගොඩනඟන්න →',
   'myQuizzes.empty.created': 'ඔබ තවමත් ප්‍රශ්නාවලියක් සාදා නැත.',
   'myQuizzes.empty.played': 'තවමත් ප්‍රකාශිත ප්‍රශ්නාවලියක් නොමැත.',
+  'myQuizzes.loading': 'පූරණය වෙමින්...',
   'myQuizzes.subhead':
     'ඔබ ගොඩනගා ඇති කෙටුම්පත්, ඊට අමතරව ඔබට ක්‍රීඩා කළ හැකි ප්‍රකාශිත ප්‍රශ්නාවලිය.',
   'myQuizzes.title': 'මගේ ප්‍රශ්නාවලිය',
   'nav.legal': 'නීතිමය',
+  'nav.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'notFound.backHome': 'ආපසු ගෙදර',
   'notFound.backToDiscover': 'ප්‍රශ්නාවලිය බ්‍රවුස් කරන්න',
   'notFound.body': 'වෙනස් කේතයක් උත්සාහ කරන්න, නැතිනම් ලොබියට ආපසු යන්න.',
@@ -88,16 +110,26 @@ export const ui: UiTranslations = {
   'notifications.loading': 'පූරණය වෙමින්...',
   'notifications.subhead':
     '{{count}} නොකියවූ ගිනි පුපුරු. ආරාධනා, ප්‍රමුඛ පුවරු චලනයන් සහ ජයග්‍රහණ සියල්ල එකම ප්‍රවාහයකින්.',
+  'planUpdated.retry': 'නැවත උත්සාහ කරන්න',
+  'planUpdated.verifyFailed': 'අපට තවමත් ඔබගේ ගෙවීම තහවුරු කිරීමට නොහැකි විය.',
+  'planUpdated.verifyFailedBody':
+    'ඔබේ ගෙවීම තවමත් සැකසෙමින් තිබිය හැක. මොහොතකින් නැවත උත්සාහ කරන්න.',
   'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
+  'pricing.advancedFeatures': 'උසස් විශේෂාංග: {{yes}}',
+  'pricing.canExport': 'දත්ත නිර්යාත කිරීම: {{yes}}',
   'pricing.checkoutError': 'පිටවීම ආරම්භ කළ නොහැකි විය. කරුණාකර නැවත උත්සාහ කරන්න.',
   'pricing.heading': 'ඔබේ {{app}} සැලැස්ම තෝරන්න',
   'pricing.included': 'ඇතුළත්',
   'pricing.loadError': 'සැලසුම් පූරණය කළ නොහැකි විය.',
+  'pricing.maxQuestions': '{{count}} ප්‍රශ්න',
   'pricing.maxQuizzes': '{{count}} ප්‍රශ්නාවලිය',
+  'pricing.maxSessions': 'සැසි {{count}}',
   'pricing.subhead':
     'සත්කාරකයින් සහ ක්‍රීඩකයින් සඳහා නොමිලේ. ඉහළ සීමාවන් සහ උසස් විශේෂාංග සඳහා උත්ශ්‍රේණි කරන්න.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account': 'ගිණුම: විද්‍යුත් තැපෑල, හැෂ් මුරපදය, දර්ශන නාමය, අවසන් පිවිසුම.',
+  'privacy.intro':
+    '{{app}} ඔබේ පෞද්ගලිකත්වයට ගරු කරයි. මෙම පිටුවේ අපි ගබඩා කරන දත්ත, ඒවා ගබඩා කරන්නේ ඇයි, සහ ඒවා ඉවත් කරන්නේ කෙසේද යන්න සාරාංශ කර ඇත.',
   'privacy.rights.body':
     'දින 30ක් ඇතුළත ඔබගේ සියලු දත්ත ස්ථිරවම ඉවත් කිරීමට සැකසීම් වලින් ඔබගේ ගිණුම මකන්න.',
   'privacy.share.body':
@@ -121,6 +153,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'ප්‍රශ්නාවලිය හැඳුනුම්පත: {{id}}',
   'quizBuilder.loadError': 'ප්‍රශ්නාවලිය පූරණය කිරීමට නොහැකි විය.',
   'quizBuilder.loading': 'සංස්කාරකය පූරණය වෙමින්…',
+  'quizBuilder.markCorrect': '{{letter}} නිවැරදි ලෙස සලකුණු කරන්න',
   'quizBuilder.noQuestions': 'තවම ප්‍රශ්න නැත — ආරම්භ කිරීමට එකක් එකතු කරන්න.',
   'quizBuilder.notFound': 'ප්‍රශ්නාවලිය හමු නොවීය.',
   'quizBuilder.preview': 'දැක්ම',
@@ -137,7 +170,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} s ටයිමරය',
   'quizBuilder.title': 'ඔබේ ප්‍රශ්නාවලිය ගොඩනඟන්න',
   'quizBuilder.titleLabel': 'ප්‍රශ්නාවලියේ මාතෘකාව',
+  'quizBuilder.untitled': 'නමක් නැති ප්‍රශ්නය',
   'quizCard.plays': '{{count}} සෙල්ලම් කරනවා',
+  'quizCard.questionCount': 'ප්‍රශ්න {{count}}',
   'quizDetail.duration': '~ {{minutes}} මිනි',
   'quizDetail.hostMultiplayer': 'සත්කාරක බහු ක්‍රීඩකයා',
   'quizDetail.leaderboardEmpty': 'තවම ක්‍රීඩා නැත — ලකුණු නියම කළ පළමු පුද්ගලයා වන්න.',
@@ -152,26 +187,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'ප්‍රශ්නාවලිය වෙත ආපසු යන්න',
   'quizPlay.empty': 'මෙම ප්‍රශ්නාවලියට තවම ප්‍රශ්න නොමැත.',
   'quizPlay.error': 'මෙම පැන විසඳුම පූරණය කළ නොහැකි විය. කරුණාකර නැවත උත්සාහ කරන්න.',
+  'quizPlay.exit': 'පිටවන්න',
   'quizPlay.feedback.correct': '🔥 Spark උපයා ගත්තා — ඊළඟට!',
+  'quizPlay.feedback.incorrect': 'පිළිතුර {{correct}} විය. දිගටම කරගෙන යන්න.',
   'quizPlay.loading': 'ප්‍රශ්නාවලිය පූරණය වෙමින්…',
   'quizPlay.next': 'ඊළඟ ප්‍රශ්නය',
   'quizPlay.questionCounter': 'ප්‍රශ්නය {{current}} වල {{total}}',
   'quizPlay.score': '{{score}} ලකුණු',
+  'quizPlay.seeResults': 'ප්‍රතිඵල බලන්න',
   'quizPlay.sessionFailed': 'සැසියක් ආරම්භ කිරීමට නොහැකි විය.',
   'quizPlay.streak': '{{count}} ස්ට්රීක්',
+  'resetPassword.subhead': 'ඔබේ අඛණ්ඩතාව වෙත නැවත යාමට නව මුරපදයක් තෝරන්න.',
   'results.backToDiscover': 'සොයා ගැනීම වෙත ආපසු',
   'results.error': 'ප්‍රතිඵල පූරණය කළ නොහැකි විය.',
   'results.exit': 'සොයා ගැනීම වෙත ආපසු',
   'results.loading': 'ඔබේ ලකුණු ගණනය කරමින්...',
   'results.missingSession': 'සාරාංශ කිරීමට සැසියක් නොමැත.',
+  'results.recap.correctAnswer': 'නිවැරදි: {{answer}}',
   'results.recap.questionLabel': 'ප්‍රශ්නය {{number}}',
   'results.recap.title': 'ප්‍රශ්න සාරාංශය',
+  'results.recap.yourAnswer': 'ඔබ: {{answer}}',
   'results.unknownQuiz': 'ප්‍රශ්නාවලිය',
   'scoreBreakdownCard.accuracyLabel': 'නිරවද්‍යතාවය',
+  'scoreBreakdownCard.correctLabel': 'නිවැරදි',
   'scoreBreakdownCard.eyebrow': 'ප්‍රශ්නාවලිය සම්පූර්ණයි',
   'scoreBreakdownCard.headline': '"" ගැන හොඳ වැඩක්. {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'ලකුණු',
   'scoreBreakdownCard.rankLabel': 'ශ්‍රේණිගත කිරීම',
+  'scoreBreakdownCard.streakBonus': 'අඛණ්ඩ ජයග්‍රහණ මාලා ප්‍රසාදය +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'ඔබේ දීප්තිය පෙනෙන්නට තිබේ. ශ්‍රේණිගත ලැයිස්තුවේ ඉහළට නැගීමට පහත විස්තරය සමාලෝචනය කරන්න.',
   'settings.danger.body': 'ඔබගේ Sparq ගිණුම සහ සාදන ලද සියලුම ප්‍රශ්නාවලිය ස්ථිරවම ඉවත් කරන්න.',
   'settings.danger.confirm': 'ඔව්, සදහටම මකන්න',
   'settings.guest': 'අමුත්තා',
@@ -188,5 +233,7 @@ export const ui: UiTranslations = {
     'ඔබ ප්‍රකාශයට පත් කරන අන්තර්ගතය, ඔබ ලියන ප්‍රශ්න සහ ඔබ සත්කාරකත්වය දරන ඕනෑම ක්‍රීඩාවක් සඳහා ඔබ වගකිව යුතුය. වෙනත් පුද්ගලයින් ලෙස පෙනී නොසිටින්න.',
   'terms.billing.body':
     'ගෙවූ සැලසුම් සැකසීම් වෙතින් අවලංගු වන තෙක් ස්වයංක්‍රීයව අලුත් වේ. ඔබට ඕනෑම වේලාවක අවලංගු කළ හැකිය; වත්මන් බිල්පත් කාල සීමාව අවසන් වන තෙක් ප්‍රවේශය පවතී.',
+  'terms.intro':
+    '{{app}} භාවිතා කිරීමෙන් ඔබ පහත නීතිවලට එකඟ වේ. ඔබට ඒවා පිළිගත නොහැකි නම්, කරුණාකර සේවාව භාවිතා නොකරන්න.',
   'terms.title': 'සේවා කොන්දේසි',
 }

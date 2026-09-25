@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Het jy terugvoer, het jy 'n fout raakgesien, of wil jy {{app}} na jou skool of span bring? Ons lees elke boodskap — kontak ons vanuit jou rekeninginstellings en 'n regte mens sal antwoord.",
   'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
+  'about.intro':
+    "{{app}} is 'n lewendige vasvra-platform vir klaskamers, speletjiesaande en spanbyeenkomste. Bou speelse vraestelle, bied intydse speletjies aan met 'n aansluitkode, en sien hoe die kamer opvlam met geteikende vrae, puntetelling en ranglyste.",
+  'about.missionBody':
+    "Leer bly by wanneer dit soos speel voel. Ons maak dit moeiteloos vir enigiemand om 'n onderwerp in 'n vinnige, mededingende speletjie te omskep — sodat aanbieders deur te doen kan leer en spelers op 'n streep bly.",
+  'about.missionTitle': 'Ons missie',
   'about.title': 'Oor {{app}}',
   'auth.login.noAccount': 'Nuut by Sparq?',
   'auth.login.or': 'of gaan voort met',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Geen vasvrae-wedstryde nog nie.',
   'discover.headline': 'Vind jou volgende gunsteling vasvra.',
   'discover.loading': 'Laai tans…',
+  'discover.searchPlaceholder': 'Soek vasvrae volgens titel…',
   'discover.subhead':
     "Blaai deur die volledige biblioteek, filter volgens kategorie of soek volgens titel. Druk 'n kaart om solo te speel of regstreeks aan te bied.",
   'forgotPassword.subhead':
     "Voer jou e-posadres in en ons sal vir jou 'n skakel stuur om te herstel.",
   'forgotPassword.success.body':
     "Indien 'n rekening bestaan vir {{email}} , jy sal binne 'n paar minute 'n terugstelskakel kry.",
+  'forgotPassword.success.title': 'Gaan jou inboks na.',
   'hostLobby.back': 'Terug na vasvra',
   'hostLobby.copied': 'Aansluitkode na knipbord gekopieer.',
   'hostLobby.creating': 'Draai jou voorportaal op…',
@@ -30,19 +39,25 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Kanselleer voorportaal',
   'hostLobby.players.count': '{{count}} leef',
   'hostLobby.players.title': 'Spelers in die voorportaal',
+  'hostLobby.players.waiting': 'Wag vir spelers. Deel kode {{code}} sodat hulle kan aansluit.',
   'hostLobby.rules.title': 'Huisreëls',
   'hostLobby.startError': 'Kon nie die spel begin nie.',
   'hostLobby.starting': 'Die vonk begin…',
   'joinCodeHero.headline': 'Sê vir jou spelers om in te spring.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Of besoek',
   'joinCodeHero.liveLabel': 'Lobby regstreeks',
+  'joinCodeHero.playerJoined': '{{name}} het aangesluit',
   'joinCodeHero.playersLabel': 'Spelers',
   'joinCodeHero.qrLabel': 'Skandeer om aan te sluit',
   'joinCodeHero.startGame': 'Begin die vonk',
   'joinCodeHero.subhead':
     'Deel die aansluitkode of skandeer die QR. Die spel begin die oomblik as jy die vonk afvuur.',
+  'landing.cta.button': 'Skep jou eerste vasvra',
   'landing.cta.eyebrow': 'Gratis vir opvoeders',
   'landing.cta.heading': 'Bring die vonk na elke les.',
+  'landing.cta.subhead':
+    "Registreer in 30 sekondes. Bied onbeperkte lewendige speletjies aan, skryf vasvrae met KI, en hou elke speler op 'n streep.",
   'landing.eyebrow': 'Ontsteek elke antwoord',
   'landing.features.heading':
     "'n Vasvra-ateljee wat pas by die manier waarop jy onderrig en speel.",
@@ -58,6 +73,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Gewilde vasvrae',
   'landing.popular.eyebrow': 'Gewild hierdie week',
   'landing.popular.heading': "Loer in by 'n vasvra wat aanbieders vandag aanbied.",
+  'landing.popular.viewAll': 'Blaai deur alle kategorieë →',
+  'leaderboard.empty.body': "Speel 'n vasvra om jou telling op die globale ranglys te plaas.",
   'leaderboard.empty.title': 'Geen spele op die bord nog nie — wees die eerste.',
   'leaderboard.eyebrow': 'Leierbord',
   'leaderboard.fullRanking': 'Volledige ranglys',
@@ -65,6 +82,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Versamel die totale telling oor elke vasvrasessie wat jy gespeel het. Klim deur meer te speel.',
   'leaderboard.title': 'Top vasvrameesters',
+  'leaderboard.totalPlayers': '{{count}} gerangskikte spelers',
   'leaderboardRow.points': 'punte',
   'leaderboardRow.streak': '{{days}} d',
   'login.headline': 'Welkom terug, vasvrameester.',
@@ -76,9 +94,11 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Bou jou eerste vasvra →',
   'myQuizzes.empty.created': "Jy het nog nie 'n vasvra gebou nie.",
   'myQuizzes.empty.played': 'Geen gepubliseerde vasvrae nog nie.',
+  'myQuizzes.loading': 'Laai tans…',
   'myQuizzes.subhead': 'Konsepte wat jy gebou het, plus gepubliseerde vasvrae wat jy kan speel.',
   'myQuizzes.title': 'My vasvrae',
   'nav.legal': 'Regs',
+  'nav.primaryNavLabel': 'Primêre navigasie',
   'notFound.backHome': 'Terug by die huis',
   'notFound.backToDiscover': 'Blaai deur vasvrae',
   'notFound.body': "Probeer 'n ander kode of gaan terug na die voorportaal.",
@@ -87,16 +107,26 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Laai tans…',
   'notifications.subhead':
     '{{count}} ongeleesde vonke. Uitnodigings, puntelysbewegings en prestasies alles in een stroom.',
+  'planUpdated.retry': 'Probeer weer',
+  'planUpdated.verifyFailed': 'Ons kon nog nie jou betaling bevestig nie.',
+  'planUpdated.verifyFailedBody':
+    "Jou betaling word dalk steeds verwerk. Probeer weer oor 'n oomblik.",
   'planUpdated.verifying': 'Bevestig jou betaling…',
+  'pricing.advancedFeatures': 'Gevorderde kenmerke: {{yes}}',
+  'pricing.canExport': 'Data-uitvoer: {{yes}}',
   'pricing.checkoutError': 'Kon nie met afhandeling begin nie. Probeer asseblief weer.',
   'pricing.heading': 'Kies jou {{app}} plan',
   'pricing.included': 'Ingesluit',
   'pricing.loadError': 'Kon nie planne laai nie.',
+  'pricing.maxQuestions': '{{count}} vrae',
   'pricing.maxQuizzes': '{{count}} vasvrae',
+  'pricing.maxSessions': '{{count}} sessies',
   'pricing.subhead':
     'Gratis vir gashere en spelers. Gradeer op vir hoër limiete en gevorderde funksies.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account': 'Rekening: e-pos, gehashte wagwoord, vertoonnaam, laaste aanmelding.',
+  'privacy.intro':
+    "{{app}} respekteer jou privaatheid. Hierdie bladsy gee 'n opsomming van die data wat ons stoor, hoekom ons dit stoor, en hoe om dit te verwyder.",
   'privacy.rights.body':
     'Vee jou rekening uit Instellings uit om al jou data permanent binne 30 dae te verwyder.',
   'privacy.share.body':
@@ -120,6 +150,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'Vasvra-ID: {{id}}',
   'quizBuilder.loadError': 'Kon nie vasvra laai nie.',
   'quizBuilder.loading': 'Laai redigeerder…',
+  'quizBuilder.markCorrect': 'Merk {{letter}} as korrek',
   'quizBuilder.noQuestions': 'Geen vrae nog nie — voeg een by om te begin.',
   'quizBuilder.notFound': 'Vasvra nie gevind nie.',
   'quizBuilder.preview': 'Bekyk',
@@ -136,7 +167,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} s-tydteller',
   'quizBuilder.title': 'Bou jou vasvra',
   'quizBuilder.titleLabel': 'Vasvratitel',
+  'quizBuilder.untitled': 'Naamlose vraag',
   'quizCard.plays': '{{count}} toneelstukke',
+  'quizCard.questionCount': '{{count}} vrae',
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': 'Gasheer multispeler',
   'quizDetail.leaderboardEmpty':
@@ -152,26 +185,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Terug na vasvra',
   'quizPlay.empty': 'Hierdie vasvra het nog geen vrae nie.',
   'quizPlay.error': 'Kon nie hierdie vasvra laai nie. Probeer asseblief weer.',
+  'quizPlay.exit': 'Verlaat',
   'quizPlay.feedback.correct': '🔥 Vonk verdien — aan die volgende!',
+  'quizPlay.feedback.incorrect': 'Die antwoord was {{correct}}. Hou aan.',
   'quizPlay.loading': 'Laai vasvra…',
   'quizPlay.next': 'Volgende vraag',
   'quizPlay.questionCounter': 'Vraag {{current}} van {{total}}',
   'quizPlay.score': '{{score}} punte',
+  'quizPlay.seeResults': 'Sien resultate',
   'quizPlay.sessionFailed': "Kon nie 'n sessie begin nie.",
   'quizPlay.streak': '{{count}} streep',
+  'resetPassword.subhead': "Kies 'n nuwe wagwoord om terug te keer na jou streep.",
   'results.backToDiscover': 'Terug na Ontdek',
   'results.error': 'Kon nie resultate laai nie.',
   'results.exit': 'Terug na Ontdek',
   'results.loading': 'Tel jou telling op…',
   'results.missingSession': 'Geen sessie om op te som nie.',
+  'results.recap.correctAnswer': 'Korrek: {{answer}}',
   'results.recap.questionLabel': 'Vraag {{number}}',
   'results.recap.title': 'Vraagopsomming',
+  'results.recap.yourAnswer': 'Jy: {{answer}}',
   'results.unknownQuiz': 'Vasvra',
   'scoreBreakdownCard.accuracyLabel': 'Akkuraatheid',
+  'scoreBreakdownCard.correctLabel': 'Korrek',
   'scoreBreakdownCard.eyebrow': 'Vasvra Voltooi',
   'scoreBreakdownCard.headline': 'Mooi werk aan " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Punte',
   'scoreBreakdownCard.rankLabel': 'Rang',
+  'scoreBreakdownCard.streakBonus': 'Streepbonus +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Jou vonk wys. Hersien die uiteensetting hieronder om aan te hou klim op die ranglys.',
   'settings.danger.body': 'Verwyder jou Sparq-rekening en alle geskepte vasvrae permanent.',
   'settings.danger.confirm': 'Ja, verwyder vir altyd',
   'settings.guest': 'Gas',
@@ -188,5 +231,7 @@ export const ui: UiTranslations = {
     'Jy is verantwoordelik vir die inhoud wat jy publiseer, die vrae wat jy skryf, en enige speletjies wat jy aanbied. Moenie ander mense naboots nie.',
   'terms.billing.body':
     'Betaalde planne hernu outomaties totdat dit gekanselleer word vanaf Instellings. Jy kan te eniger tyd kanselleer; toegang duur voort tot die einde van die huidige faktuurperiode.',
+  'terms.intro':
+    'Deur {{app}} te gebruik, stem jy in tot die reëls hieronder. As jy dit nie kan aanvaar nie, moet asseblief nie die diens gebruik nie.',
   'terms.title': 'Diensbepalings',
 }

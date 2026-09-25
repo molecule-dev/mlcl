@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Küsimusi trükise, saatmise või tellimuse kohta? Võta ühendust tiimi päris inimesega aadressil hello@crate.example — loeme iga sõnumit.',
+  'about.contactTitle': 'Räägi kuraatoriga',
+  'about.feature1':
+    'Iga kuu kureeritud trükised, mille on käsitsi valinud sõltumatud tegijad, iga eseme looga.',
+  'about.feature2':
+    'Täielik kontroll iga karbi üle — kohanda sisu, vaheta või jäta esemeid välja, jäta kuu vahele või muuda sagedust.',
+  'about.feature3':
+    'Saadetise jälgimine algusest lõpuni, plastivabast pakendist kuni ukse taha, koos reaalajas vedaja uuendustega.',
+  'about.feature4':
+    'Paindlikud plaanid ja läbipaistev arveldus — uuenda, alanda, peata või tühista oma töölaualt igal ajal.',
+  'about.intro':
+    '{{app}} on kureeritud tellimuskarbi teenus, mis toob igal kuul sinu ukse taha käsitsi valitud väikese partii rõõmu. Iga trükise panevad kokku töötavad tegijad — sõltumatud kunstnikud, kokad ja väikebrändid —, mitte algoritm.',
+  'about.missionBody':
+    'Usume, et tellimus peaks tunduma nagu kingitus, mitte lõks. {{app}} on loodud nii, et jääd, sest armastad seda, mis saabub — peata igal ajal, vaheta, mida soovid, ja tühista ühe klikiga. Mingit hoidmisstrateegiat ei ole kunagi.',
+  'about.missionTitle': 'Meie missioon',
   'about.pageTitle': 'Teave rakenduse {{app}} kohta',
   'appNav.mobileLabel': 'Peamine navigeerimine',
   'appNav.primaryLabel': 'Peamine navigeerimine',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Arvelduskontakti muutmine',
   'billing.contact.eyebrow': 'Arvelduskontakt',
   'billing.eyebrow': 'Pakett ja maksed',
+  'billing.loading': 'Arve laadimine…',
   'billing.payment.body':
     'Makse teostab Stripe Checkout – teie täielik kaardinumber ei jõua kunagi meie serveritesse. Kaardi lisamiseks või värskendamiseks klõpsake alloleval tasemel.',
   'billing.payment.linked': "Kaart on Stripe'i kaudu failis",
@@ -19,9 +36,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.pause': 'Peata tellimus',
   'billing.plan.cta.resume': 'Jätka tellimust',
   'billing.plan.eyebrow': 'Aktiivne plaan',
+  'billing.plan.next': 'Uueneb automaatselt {{date}}.',
+  'billing.plan.status': 'Olek: {{status}}',
   'billing.subtitle': 'Halda oma taset, makseviisi ja vaata üle varasemad tegevused.',
   'billing.tiers.body': "Vali tase ja me suuname sind Stripe'i kassasse.",
   'billing.tiers.choose': 'Vali',
+  'billing.tiers.empty': 'Ühtegi taset pole veel seadistatud.',
   'billing.tiers.heading': 'Saadaval olevad tasemed',
   'boxDetail.backToBoxes': 'Tagasi kõigi väljaannete juurde',
   'boxDetail.crumb.boxes': 'Väljaanded',
@@ -34,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Kureeritud teos',
   'boxDetail.items.heading': '{{count}} kureeritud teosed',
   'boxDetail.itemsBadge': '{{count}} kureeritud esemeid kasti kohta',
+  'boxDetail.loading': 'Trükise laadimine…',
   'boxDetail.notFound': 'See väljaanne pole enam saadaval.',
   'boxDetail.subscribe.success': 'Tellitud – teie esimene väljaanne on järjekorras.',
   'boxDetail.swapBadge': 'Vaheta kuni {{count}} eset(e) karbis',
@@ -42,21 +63,32 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Ükski väljaanne ei vasta otsingule.',
   'boxes.eyebrow': "Crate'i arhiiv",
   'boxes.heading': 'Sirvi kõiki väljaandeid',
+  'boxes.loadError': 'Trükiseid ei õnnestunud laadida. Kontrolli ühendust ja proovi uuesti.',
   'boxes.loading': 'Väljaannete laadimine…',
+  'boxes.search.label': 'Otsi trükiseid',
   'boxes.search.placeholder': 'Otsi väljaandeid…',
   'boxes.subtitle':
     'Iga tasand on väikeseeria lugu. Lisa üks oma järjekorda või kanna see järgmisse kuusse.',
+  'boxThemeCard.itemCount': '{{count}} esemed',
   'boxThemeCard.perMonth': '/ kuus',
+  'boxThemeCard.retailValue': 'Jaemüügiväärtus {{value}}',
   'common.goToDashboard': 'Mine töölauani',
+  'common.retry': 'Proovi uuesti',
   'customize.eyebrow': 'Tee see enda omaks',
   'customize.heading': 'Kohanda oma järgmist aardet',
+  'customize.items.empty': 'Selle taseme jaoks pole veel ühtegi eset seadistatud.',
   'customize.items.exclude': 'Jäta see vahele',
   'customize.items.eyebrow': 'Isikupärasta see kast',
   'customize.items.heading': 'Esemed sees {{box}}',
+  'customize.items.helper':
+    '{{count}} / {{total}} eset on kaasas. Väljajäetud esemed asendame kuraatori valikutega.',
   'customize.items.include': 'Lisa tagasi',
   'customize.items.save': 'Salvesta kohandamine',
+  'customize.items.swapsLeft': '{{used}} / {{max}} vahetust kasutatud',
+  'customize.loading': 'Kohandamise laadimine…',
   'customize.noSub.body':
     'Telli esmalt üks tase ja seejärel tule tagasi, et oma karbis esemeid vahetada.',
+  'customize.noSub.cta': 'Sirvi trükiseid',
   'customize.noSub.heading': 'Aktiivset tellimust pole',
   'customize.saved': 'Kohandamine salvestatud.',
   'customize.subtitle':
@@ -70,23 +102,30 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Saadetise jälgimine',
   'dashboard.eyebrow': 'Sinu aare',
   'dashboard.greeting': 'Tere tulemast tagasi, {{name}} .',
+  'dashboard.loadError':
+    'Sinu töölauda ei õnnestunud laadida. Kontrolli ühendust ja proovi uuesti.',
   'dashboard.loading': 'Armatuurlaua laadimine…',
   'dashboard.next.eyebrow': 'Teie järgmine väljaanne',
   'dashboard.onboarding.body':
     "Teil pole veel aktiivset tellimust. Valige tellimustase, et hakata Crate'i iga kuu saatma.",
   'dashboard.onboarding.cta': 'Sirvi kõiki väljaandeid',
+  'dashboard.onboarding.empty': 'Praegu pole ühtegi plaani saadaval. Vaata hiljem uuesti.',
   'dashboard.onboarding.heading': 'Vali oma esimene väljaanne',
   'dashboard.renewal.amount': 'Laetud',
   'dashboard.renewal.cadence': 'Kadents',
   'dashboard.renewal.cta': 'Arvelduse haldamine',
   'dashboard.renewal.eyebrow': 'Uuendamine',
+  'dashboard.renewal.heading': 'Uueneb automaatselt {{date}}',
   'dashboard.renewal.plan': 'Plaani võti',
+  'dashboard.renewal.tbd': 'Uuenduse ajastamine peagi',
   'dashboard.renewal.tier': 'Tasand',
   'dashboard.stats.days': 'päevad',
   'dashboard.stats.daysToNext': 'Saadetakse',
   'dashboard.stats.items': 'Kureeritud üksused',
   'dashboard.stats.shipDate': 'Saatmiskuupäev',
   'dashboard.stats.tbd': 'Määramata',
+  'dashboard.subtitle.active': 'Sinu järgmine trükis on teel. Siin on, mida oodata.',
+  'dashboard.subtitle.idle': 'Vali tase, et hakata iga kuu {{appName}} saatma.',
   'forgotPassword.subtitle':
     'Jätke meile oma e-posti aadress ja me saadame teile lähtestamislingi.',
   'forgotPassword.success.body':
@@ -94,6 +133,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Vaata oma postkasti.',
   'landing.editions.eyebrow': 'Sel hooajal',
   'landing.editions.heading': 'Meie kuraatoritele meeldivad väljaanded',
+  'landing.editions.viewAll': 'Sirvi kõiki trükiseid →',
   'landing.footer.contact': 'Räägi kuraatoriga',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Alusta oma kasti →',
@@ -102,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.headline': 'Ava ootamatu iga kuu.',
   'landing.hero.previewCaption': 'Pilguheit liikmete armatuurlauale – loendur, sisu ja jälgimine.',
   'landing.hero.social.count': 'Armastatud {{count}} + tellijad',
+  'landing.hero.social.rating': '{{rating}} keskmine avamishinnang',
+  'landing.hero.subhead':
+    '{{appName}} saadab sulle sõltumatutelt tegijatelt käsitsi valitud väikese partii rõõmu. Peata igal ajal. Vaheta, mida soovid. Jäta alles, mida armastad.',
   'landing.nav.start': 'Alusta oma kasti',
   'landing.tiers.eyebrow': 'Vali oma kadents',
   'landing.tiers.heading': 'Alusta väikeselt, uuenda igal ajal, tühista sama lihtsalt.',
@@ -111,6 +154,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Logi sisse, et järgmise kuu kasti piiluda.',
   'login.welcomeBack': 'Tere tulemast tagasi, kuraator.',
   'nextBoxHeroCard.eyebrow': 'SINU JÄRGMINE LEID',
+  'nextBoxHeroCard.itemCount': '{{count}} eset sees',
   'nextBoxHeroCard.itemsLabel': 'Kureeritud üksused',
   'nextBoxHeroCard.shipsOnLabel': 'Saadetakse',
   'notFound.body':
@@ -134,8 +178,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Peata tellimus',
   'settings.danger.paused': 'Tellimus on peatatud.',
   'settings.danger.pausing': 'Pausil…',
+  'settings.danger.status': 'Tellimuse olek: {{status}}',
   'settings.danger.subtitle':
     'Peatamine säilitab teie taseme ja ajaloo. Tühistamine peatab tulevased saadetised ja eemaldab tsükli lõpus teie salvestatud makseviisid.',
+  'settings.notifications.saving': '· salvestamine…',
   'settings.notifications.subtitle':
     "Vali Crate'ist soovitud signaalid. Vaikimisi seaded on mõistlikud.",
   'settings.subtitle':
@@ -152,11 +198,17 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Aktiivseid saadetisi veel pole',
   'shipments.live.eyebrow': 'Aktiivne saadetis',
   'shipments.live.unnamed': 'Sinu järgmine kast',
+  'shipments.loadError':
+    'Sinu saadetisi ei õnnestunud laadida. Kontrolli ühendust ja proovi uuesti.',
+  'shipments.loading': 'Saadetiste laadimine…',
+  'shipments.step.delivered': 'Kohale toimetatud',
   'shipments.step.deliveredBody': 'Jaga oma avastusi siltiga #crateunbox.',
   'shipments.step.ordered': 'Tellimus esitatud',
   'shipments.step.orderedBody':
     'Teie tellimus pani selle väljaande järgmise tarnetsükli järjekorda.',
+  'shipments.step.packed': 'Käsitsi pakitud',
   'shipments.step.packedBody': 'Iga tükk pakitud ja karpi pandud koos käsitsi kirjutatud kirjaga.',
+  'shipments.step.transit': 'Teel',
   'shipments.step.transitNot': 'Jälgimisinfo kuvatakse siin, kui teie kast on teel.',
   'shipments.subtitle':
     'Jälgi karbi teed sinuni ja seejärel vaata uuesti läbi kõik väljaanded, mille oled varem lahti pakkimas käinud.',

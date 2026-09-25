@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Votre forfait a été mis à jour.',
   'planUpdated.returnHome': "Retour à l'accueil",
   'planUpdated.thankYou': 'Merci !',
+  'post.markdown': 'Afficher cette publication en markdown',
+  'post.readingTime': '{{minutes}} min de lecture',
   'post.tags': 'Étiquettes',
   'project.error.nameAndTypeRequired': 'Le nom et le type de projet sont requis',
   'project.error.notFound': 'Non trouvé',

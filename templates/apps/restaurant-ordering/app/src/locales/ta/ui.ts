@@ -1,6 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்விகள், கருத்துகள், அல்லது கடந்த வார ஆர்டர்களை இறக்குமதி செய்ய உதவி வேண்டுமா — உண்மையான எண்களுடன் தொடங்குங்கள்? உங்கள் டாஷ்போர்டிலிருந்து தொடர்பு கொள்ளுங்கள் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள உண்மையான மனிதரையே சென்றடையும்.',
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.featureAnalytics':
+    'மணிநேர வருவாய், அதிகம் விற்பனையாகும் பொருட்கள், சர்வர் லீடர்போர்டுகளுடன் சேவை பகுப்பாய்வு, மேலும் ஆர்டர் முதல் பணம் வரை நேரடி ஆர்டர் கண்காணிப்பு.',
+  'about.featureFloor':
+    'ஒரு புத்திசாலி தள வரைபடம்: ஒரு குழுவை அமர வைக்கவும், டிக்கெட் நேரங்கள் நகர்வதைப் பாருங்கள், ஒவ்வொரு மேசையையும் கிடைக்கும், ஆக்கிரமிக்கப்பட்ட, முன்பதிவு செய்யப்பட்ட அல்லது அழுக்கு எனக் கண்காணிக்கவும்.',
+  'about.featureKitchen':
+    'டிக்கெட் குழப்பத்தை ஒரு சுத்தமான கான்பான் போர்டாக மாற்றும் சமையலறை காட்சி — புதியது, தயாராகிறது, தயார், பரிமாறப்பட்டது — ஒவ்வொரு பொருளுக்கும் நேரடி டைமர்களுடன்.',
+  'about.featureManagement':
+    'மெனு, முன்பதிவு மற்றும் வாடிக்கையாளர் நிர்வாகம் — உணவுக் குறிச்சொற்கள், பொருள் புகைப்படங்கள், குழு முன்பதிவுகள் மற்றும் வருகை வரலாறு அனைத்தும் ஒரே இடத்தில்.',
+  'about.featureQr':
+    'மேசை அருகே QR மெனுக்கள், விருந்தினர்கள் தங்கள் சொந்த மொபைல்களிலிருந்து ஆர்டர் செய்யலாம், சமையலறை உடனே பார்க்கும், பணம் தானாகப் பிரிந்துவிடும்.',
+  'about.intro':
+    '{{app}} என்பது உணவகங்கள், கஃபேக்கள் மற்றும் விரைவு உணவு சமையலறைகளுக்கான ஒரு அன்பான, அனைத்தும் ஒன்றில் விற்பனை முனை. இது மூன்று பாதி உடைந்த அமைப்புகளை ஒரு வேகமான தளத்தால் மாற்றுகிறது — ஒரு சமையலறை காட்சி, நேரடி தள வரைபடம், மேசை அருகே QR ஆர்டர் மற்றும் சேவை பகுப்பாய்வு — உங்கள் குழுவிடம் ஏற்கனவே உள்ள எந்த டேப்லெட் அல்லது மொபைலிலும் இயங்குகிறது.',
+  'about.missionBody':
+    'சிறந்த சேவை கனமான கியோஸ்க்குகள், உரிமைப் பிடிப்பு அல்லது வாரந்தோறும் மறுதொடக்கங்களால் தடுக்கப்படக்கூடாது. {{app}} முன் பகுதியையும் வரிசையையும் நேரடியாக ஒத்திசைவில் வைத்திருக்கிறது, எனவே சர்வர்கள், சமையல்காரர்கள் மற்றும் உரிமையாளர்கள் அனைவரும் ஒரே உண்மையைப் பார்க்கிறார்கள் — ஒவ்வொரு விருந்தினரும் தடையின்றி அமரவைக்கப்பட்டு, உணவளிக்கப்பட்டு, பணம் செலுத்தப்படுகிறார்கள்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': '{{app}} பற்றி',
   'analytics.avgCheckLabel': 'சராசரி சரிபார்ப்பு',
   'analytics.busiestHour': 'மிகவும் பரபரப்பான நேரம்',
@@ -10,6 +28,7 @@ export const ui: UiTranslations = {
   'analytics.hourlyHeading': 'மணிநேர வருவாய்',
   'analytics.itemSold': '{{count}} விற்கப்பட்டது',
   'analytics.loadError': 'பகுப்பாய்வுகளை ஏற்ற முடியவில்லை.',
+  'analytics.loading': 'பகுப்பாய்வுகள் ஏற்றப்படுகின்றன…',
   'analytics.noHourly': 'இன்றுவரை வருவாய் எதுவும் பதிவு செய்யப்படவில்லை.',
   'analytics.noTopItems': 'இன்றுவரை எந்தப் பொருளும் விற்கப்படவில்லை.',
   'analytics.shiftsHeading': 'சேவை தாளம்',
@@ -19,6 +38,7 @@ export const ui: UiTranslations = {
   'analytics.topItems': 'இன்றைய முக்கிய அம்சங்கள்',
   'authShell.eyebrow': 'சேவைக்கு மீண்டும் வருக',
   'authShell.heading': '{{tagline}}.',
+  'authShell.sampleLabel': 'திறக்கப்பட்டதிலிருந்து நேரடி',
   'authShell.subheading':
     'விருந்தோம்பல் குழுக்களுக்கான ஒரு வசதியான, வேகமான விற்பனைத் தளம். உங்கள் சமையலறையில் உள்நுழைந்து, நீங்கள் விட்ட இடத்திலிருந்து தொடருங்கள்.',
   'authShell.tip':
@@ -34,7 +54,9 @@ export const ui: UiTranslations = {
   'billing.notConfigured': 'ஸ்ட்ரைப் விலை உள்ளமைக்கப்படவில்லை',
   'billing.orYearly': 'அல்லது {{price}}',
   'billing.priceUnavailable': 'இந்தத் திட்டத்திற்கு விலை நிர்ணயிக்கப்படவில்லை.',
+  'billing.subheading': 'இன்றிரவுக்குப் பொருந்தும் திட்டத்தைத் தேர்ந்தெடுக்கவும்.',
   'billing.updated': 'திட்டம் புதுப்பிக்கப்பட்டது.',
+  'common.confirm': 'உறுதிப்படுத்து',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'customerDetail.book': 'முன்பதிவைச் சேர்க்கவும்',
   'customerDetail.col.table': 'அட்டவணை',
@@ -46,22 +68,26 @@ export const ui: UiTranslations = {
   'customerDetail.noOrders': 'இந்த விருந்தினருக்கு இன்னும் ஆர்டர்கள் எதுவும் வரவில்லை.',
   'customerDetail.notFound': 'வாடிக்கையாளர் காணப்படவில்லை.',
   'customerDetail.partyPrompt': 'விருந்து அளவு',
+  'customerDetail.partySizeInvalid': '1 அல்லது அதற்கு மேற்பட்ட குழு அளவை உள்ளிடவும்.',
   'customerDetail.recentOrders': 'சமீபத்திய ஆர்டர்கள்',
   'customerDetail.regular': 'வழக்கமான',
   'customerDetail.reservationCreated': 'முன்பதிவு உருவாக்கப்பட்டது.',
   'customerDetail.reservationError': 'முன்பதிவை உருவாக்க முடியவில்லை.',
   'customerDetail.vip': 'வி.ஐ.பி விருந்தினர்',
   'customerDetail.visitsLabel': 'வருகைகள்',
+  'customerDetail.whenInvalid': 'சரியான தேதி மற்றும் நேரத்தை உள்ளிடவும்.',
   'customerDetail.whenPrompt':
     'எப்போது? (உதாரணமாக, நாளை மாலை 7 மணி — தற்போதைக்கு இந்தக் காலியிடத்தை இடவும்)',
   'customers.addError': 'விருந்தினரைச் சேர்க்க முடியவில்லை.',
   'customers.addGuest': 'விருந்தினரைச் சேர்க்கவும்',
   'customers.empty': 'உங்கள் கோப்பகத்தில் இன்னும் விருந்தினர்கள் யாரும் இல்லை.',
   'customers.eyebrow': 'விருந்தினர் அடைவு',
+  'customers.lastVisit': 'கடைசி வருகை {{date}}',
   'customers.lifetimeLabel': 'வாழ்நாள்',
   'customers.loadError': 'விருந்தினர்களை ஏற்ற முடியவில்லை.',
   'customers.loading': 'விருந்தினர்கள் ஏற்றப்படுகிறார்கள்…',
   'customers.namePrompt': 'விருந்தினர் பெயர்',
+  'customers.nameRequired': 'விருந்தினர் பெயர் தேவை.',
   'customers.searchPlaceholder': 'விருந்தினர்களைத் தேடுங்கள்',
   'customers.subheading':
     'வாழ்நாள் வருகைகள், விருப்பமான இருக்கை வசதி, மற்றும் பணிநேரங்களுக்கு இடையில் பரிமாறப்படும் குறிப்புகள்.',
@@ -94,6 +120,7 @@ export const ui: UiTranslations = {
   'guestMenu.addToCart': 'சேர் {{name}} கூடையில்',
   'guestMenu.categoryNavLabel': 'மெனு வகைகள்',
   'guestMenu.empty': 'இந்த உணவகம் இன்னும் உணவுப் பட்டியலை வெளியிடவில்லை.',
+  'guestMenu.eyebrow': 'விருந்தினர் மெனு',
   'guestMenu.eyebrowTable': 'அட்டவணை {{table}}',
   'guestMenu.heading': 'நல்வரவு — உங்கள் மேசையிலிருந்தே ஆர்டர் செய்யுங்கள்.',
   'guestMenu.loadError': 'மெனுவை ஏற்ற முடியவில்லை.',
@@ -101,14 +128,20 @@ export const ui: UiTranslations = {
   'guestMenu.subheading':
     'சேர்க்க விரும்பும் உணவைத் தட்டவும். இறுதியில் ஒன்றாகப் பணம் செலுத்தவும்.',
   'guestMenu.viewCart': 'கூடையைப் பார்க்கவும் · {{count}} பொருட்கள்',
+  'landing.copyright': '© {{year}} {{app}}. ஒவ்வொரு மேசையும், பரிமாறப்பட்டது.',
   'landing.ctaBody':
     'ஏதேனும் ஒரு டேப்லெட்டை இணைத்து, பிரிண்டரை ஸ்கேன் செய்து, உங்கள் மெனுவை உள்ளிடவும். கடந்த வார ஆர்டர்களை நாங்கள் நேரடியாக இறக்குமதி செய்வோம், எனவே நீங்கள் சரியான எண்ணிக்கையுடன் தொடங்கலாம்.',
   'landing.ctaHeading': 'ஒரு மணி நேரத்திற்குள் உங்கள் சமையலறையைத் திறக்கவும்',
   'landing.eyebrow': 'உணவகங்கள் · சிற்றுண்டிச்சாலைகள் · விரைவான சேவை',
   'landing.featuresHeading': 'ஒரே இதமான அமைப்பு. ஒவ்வொரு ஷிப்டிலும், ஒவ்வொரு மேசையிலும்.',
+  'landing.featuresSubheading':
+    'சேவை மனப்பான்மையுள்ள குழுக்களுக்காக உருவாக்கப்பட்டது. உரிமைப் பிடிப்பு இல்லை, கனமான கியோஸ்க்குகள் இல்லை, வாரந்தோறும் மறுதொடக்கங்கள் இல்லை.',
   'landing.getStarted': 'உங்கள் சமையலறையைத் திறக்கவும்',
   'landing.guestDemoCta': 'விருந்தினர் பார்வையைப் பார்க்கவும்',
   'landing.heroCta': 'இலவச 14-நாள் சமையலறையைத் தொடங்குங்கள்',
+  'landing.heroSubtitle':
+    '{{app}} மூன்று பாதி உடைந்த அமைப்புகளை ஒரு அன்பான, வேகமான விற்பனை முனையால் மாற்றுகிறது — சமையலறை காட்சி, மேசை வரைபடம், QR ஆர்டர் மற்றும் ஒவ்வொரு சாதனத்திலும் பகுப்பாய்வு.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'இன்றைய வருவாய்',
   'landing.socialProof': 'சேவைக் குழுக்களால் விரும்பப்படுகிறது',
   'landing.tryGuestMenu': 'விருந்தினர் மெனு டெமோ',
@@ -165,6 +198,7 @@ export const ui: UiTranslations = {
   'orderDashboard.coversLabel': 'இன்றைய அட்டைகள்',
   'orderDashboard.eyebrow': 'சேவை நடைபெற்று வருகிறது',
   'orderDashboard.heading': 'இன்றிரவு தரையில்',
+  'orderDashboard.history': 'வரலாற்றைப் பார்க்க →',
   'orderDashboard.liveHint': '{{count}} டிக்கெட்டுகள் · நேரலை',
   'orderDashboard.loadError': 'ஆர்டர்களை ஏற்ற முடியவில்லை.',
   'orderDashboard.loadingHint': 'டிக்கெட்டுகளைப் புதுப்பித்தல்…',
@@ -182,10 +216,13 @@ export const ui: UiTranslations = {
   'orderDetail.noItems': 'இந்த ஆர்டருக்கு எந்தப் பொருட்களும் பதிவு செய்யப்படவில்லை.',
   'orderDetail.notFound': 'ஆர்டர் காணப்படவில்லை.',
   'orderDetail.statusError': 'நிலையைப் புதுப்பிக்க முடியவில்லை.',
+  'orderDetail.statusLine': 'மேசை {{table}} · நிலை {{status}}',
   'orderDetail.statusUpdated': 'நிலை புதுப்பிக்கப்பட்டது.',
   'orderDetail.summary': 'மசோதா சுருக்கம்',
   'orderHistory.col.items': 'பொருட்கள்',
   'orderHistory.col.table': 'அட்டவணை',
+  'orderHistory.col.ticket': 'டிக்கெட்',
+  'orderHistory.empty': 'உங்கள் வடிகட்டிகளுடன் இன்னும் எந்த ஆர்டர்களும் பொருந்தவில்லை.',
   'orderHistory.eyebrow': 'கணக்கியல்',
   'orderHistory.heading': 'ஆர்டர் வரலாறு',
   'orderHistory.loadError': 'ஆர்டர்களை ஏற்ற முடியவில்லை.',
@@ -193,6 +230,7 @@ export const ui: UiTranslations = {
   'orderHistory.searchPlaceholder': 'டிக்கெட் எண் அல்லது அட்டவணை மூலம் தேடவும்',
   'orderHistory.subheading':
     'முடிக்கப்பட்ட மற்றும் ரத்து செய்யப்பட்ட டிக்கெட்டுகளின் தேடக்கூடிய காப்பகம்.',
+  'orderHistory.totalLabel': 'காட்சியில் மொத்தம்',
   'orderTicketCard.moreItems': '+ {{count}} மேலும்',
   'orderTicketCard.number': '# {{number}}',
   'orderTicketCard.rush': 'அவசரம்',
@@ -200,6 +238,7 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'தனிப்பட்ட கணக்கு',
   'profile.personal': 'தனிப்பட்ட தகவல்',
   'profile.untitled': 'பெயர் அமைக்கப்படவில்லை',
+  'reservations.addBooking': 'புதிய முன்பதிவு',
   'reservations.addError': 'முன்பதிவை உருவாக்க முடியவில்லை.',
   'reservations.confirmedLabel': 'உறுதிப்படுத்தப்பட்டது',
   'reservations.empty': 'இந்த வடிகட்டியுடன் எந்த முன்பதிவுகளும் பொருந்தவில்லை.',
@@ -208,14 +247,18 @@ export const ui: UiTranslations = {
   'reservations.loadError': 'முன்பதிவுகளை ஏற்ற முடியவில்லை.',
   'reservations.loading': 'முன்பதிவுகள் ஏற்றப்படுகின்றன…',
   'reservations.namePrompt': 'கட்சியின் பெயர்',
+  'reservations.nameRequired': 'குழு பெயர் தேவை.',
   'reservations.partyPrompt': 'விருந்து அளவு',
+  'reservations.partySizeInvalid': '1 அல்லது அதற்கு மேற்பட்ட குழு அளவை உள்ளிடவும்.',
   'reservations.seatedLabel': 'அமர்ந்த நிலையில்',
   'reservations.statusError': 'நிலையைப் புதுப்பிக்க முடியவில்லை.',
   'reservations.subheading':
     'உறுதிசெய்யப்பட்ட மற்றும் காத்திருப்போர் பட்டியலில் உள்ள முன்பதிவுகளைக் கண்காணிக்கவும் — விருந்தினர்கள் வரும்போது நிலையை மாற்றவும்.',
   'reservations.waitlistLabel': 'காத்திருப்புப் பட்டியல்',
+  'reservations.whenInvalid': 'சரியான தேதி மற்றும் நேரத்தை உள்ளிடவும்.',
   'reservations.whenPrompt': 'எப்போது? (எ.கா: 2026-05-10 19:00)',
   'resetPassword.emailLabel': 'மின்னஞ்சல் முகவரி',
+  'resetPassword.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'resetPassword.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'resetPassword.subtitle': 'சமையலறையை மீண்டும் அணுக, உங்கள் புதிய கடவுச்சொல்லை உள்ளிடவும்.',
   'resetPassword.tokenLabel': 'மீட்டமைப்பு டோக்கன்',
@@ -223,11 +266,16 @@ export const ui: UiTranslations = {
   'revenueHeroCard.activeOrders': '{{count}} செயலில்',
   'revenueHeroCard.change': '{{sign}} {{amount}} நேற்றைய போட்டிக்கு எதிராக',
   'revenueHeroCard.title': 'இன்றைய வருவாய்',
+  'settings.appearance.description': 'ஒளி மற்றும் இருண்ட பயன்முறைகளுக்கு இடையே மாறவும்.',
+  'settings.appearance.title': 'தோற்றம்',
   'settings.eyebrow': 'உணவக அமைப்புகள்',
   'settings.hours.heading': 'சேவை நேரம்',
   'settings.preferences.autoRush':
     '10 நிமிடங்களுக்குப் பிறகு தானாகக் கொடியிட்டு விரைந்து செல்லவும்',
+  'settings.preferences.bellSound': 'தயார் எனும்போது ஒலி மணி',
+  'settings.preferences.emailReceipts': 'விருந்தினர்களுக்கு மின்னஞ்சல் ரசீதுகள்',
   'settings.preferences.heading': 'சேவை விருப்பங்கள்',
+  'settings.preferences.qrOrdering': 'மேசை அருகே QR ஆர்டரை இயக்கு',
   'settings.profile.cuisine': 'உணவு வகைகள்',
   'settings.profile.heading': 'உணவக விவரக்குறிப்பு',
   'settings.profile.name': 'உணவகத்தின் பெயர்',
@@ -237,6 +285,7 @@ export const ui: UiTranslations = {
   'signup.haveAccount': 'ஏற்கனவே இணைப்பில் உள்ளீர்களா?',
   'signup.heading': 'உங்கள் சமையலறையைத் திறக்கவும்',
   'signup.restaurant': 'உணவகத்தின் பெயர்',
+  'signup.submitting': 'அமைக்கிறது…',
   'tableDetail.activeOrders': 'செயலில் உள்ள ஆர்டர்கள்',
   'tableDetail.backToFloor': 'தள வரைபடம்',
   'tableDetail.confirmDelete': 'இந்த அட்டவணையை நீக்கவா?',
@@ -251,6 +300,7 @@ export const ui: UiTranslations = {
   'tableDetail.runningTotal': 'மொத்த ஓட்டம்',
   'tableDetail.section': 'பிரிவு',
   'tableDetail.statusError': 'நிலையைப் புதுப்பிக்க முடியவில்லை.',
+  'tableDetail.statusLine': 'நிலை: {{status}} · இருக்கைகள் {{seats}}',
   'tables.addError':
     'அட்டவணையைச் சேர்க்க முடியவில்லை. நீங்கள் உங்கள் அடுக்கு வரம்பை அடைந்திருக்கலாம்.',
   'tables.adding': 'மேலும்…',
@@ -264,4 +314,5 @@ export const ui: UiTranslations = {
   'tables.subheading':
     'ஒரு மேசையைச் சுத்தம் செய்வதாகக் குறிக்க, பயன்பாட்டிற்கு உள்ளதாகக் குறிக்க அல்லது அதன் நிலையை மாற்ற, அதனைத் தட்டவும்.',
   'tableTile.seats': '{{guests}} / {{seats}}',
+  'tableTile.ticketTime': '{{minutes}}நி',
 }

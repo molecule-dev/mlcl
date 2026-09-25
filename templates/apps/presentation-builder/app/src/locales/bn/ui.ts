@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'প্রশ্ন, মতামত, বা এমন কোনো ফিচার যা আপনি চান? আপনার অ্যাকাউন্ট সেটিংস থেকে টিমের সাথে যোগাযোগ করুন — প্রতিটি বার্তা একজন সত্যিকারের মানুষ পড়েন।',
   'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'about.missionTitle': 'আমাদের লক্ষ্য',
+  'about.whatYouGetTitle': 'আপনি যা পাবেন',
   'analytics.empty': 'এখানে অ্যানালিটিক্স দেখতে ডেক তৈরি করুন।',
   'analytics.stats.acrossDecks': 'সমস্ত ডেক জুড়ে',
   'analytics.stats.allTime': 'আপনার স্টুডিওতে',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'ডেক শিরোনাম',
   'landing.features.eyebrow': 'কেন ওভারচার',
   'landing.features.heading': 'মঞ্চে প্রস্তুত হয়ে ওঠার জন্য আপনার যা যা প্রয়োজন, তার সবকিছু।',
+  'landing.finalCta.body':
+    'এক মিনিটেরও কম সময়ে আপনার স্টুডিও চালু করুন। কোনো ক্রেডিট কার্ড লাগবে না। যেকোনো সময় বাতিল করুন।',
   'landing.finalCta.cta': 'আপনার বিনামূল্যের স্টুডিও তৈরি করুন',
   'landing.finalCta.eyebrow': 'বিনামূল্যে শুরু করুন',
   'landing.finalCta.heading': 'আপনার ক্যারিয়ারের সেরা ডেকটি নিয়ে মঞ্চে পা রাখুন।',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '১২ মিনিট আগে সম্পাদিত',
   'notifications.created': 'তৈরি করা হয়েছে',
   'notifications.edited': 'সম্পাদিত',
+  'notifications.empty.body':
+    'আপনার ডেকের কার্যক্রম — মন্তব্য, মেনশন, এক্সপোর্ট — এখানে দেখা যাবে।',
   'notifications.empty.title': 'এখনো কোনো বিজ্ঞপ্তি আসেনি',
   'notifications.eyebrow': 'মঞ্চ কার্যকলাপ',
   'notifications.loading': 'লোড হচ্ছে…',
   'notifications.shared': 'সর্বজনীনভাবে শেয়ার করা হয়েছে',
+  'planUpdated.retry': 'আবার চেষ্টা করুন',
+  'planUpdated.verifyFailed': 'আমরা এখনও আপনার পেমেন্ট নিশ্চিত করতে পারিনি।',
+  'planUpdated.verifyFailedBody':
+    'আপনার পেমেন্টটি এখনও প্রক্রিয়াধীন থাকতে পারে। কিছুক্ষণ পর আবার চেষ্টা করুন।',
   'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'present.addSlides': 'স্লাইড যোগ করুন',
   'present.backToDecks': 'ডেকগুলিতে ফিরে যান',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'মঞ্চ শিল্পী',
   'settings.security.notSet': 'সেট করা হয়নি',
   'settings.security.passwordBody': 'আপনার পাসওয়ার্ডটি এনক্রিপ্ট করা অবস্থায় সংরক্ষিত আছে।',
+  'settings.security.reset': 'রিসেট',
   'settings.security.title': 'অ্যাকাউন্ট + সেশন',
   'shared.empty.body':
     'আপনি সর্বজনীনভাবে শেয়ার করা ডেকগুলো এখানে দেখা যাবে। শেয়ার করার জন্য একটি ডেক খুলুন এবং পাবলিক টগলটি চালু করুন।',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'লোড হচ্ছে…',
   'shared.title': 'শেয়ার করা ডেক',
   'templateCard.slideCount': '{{count}} স্লাইড',
+  'templateCard.usageCount': '{{count}} ব্যবহার',
+  'templates.empty.body': 'অন্য ফিল্টার চেষ্টা করুন — আমরা প্রতি মাসে নতুন টেমপ্লেট প্রকাশ করি।',
+  'templates.empty.title': 'এই ক্যাটাগরিতে এখনো কোনো টেমপ্লেট নেই',
+  'templates.hero.body':
+    'চার্ট ব্লক, ডেমো ফ্রেম, প্রেজেন্টার নোট এবং টাইমার প্রিসেটসহ আগে থেকেই থিম করা স্লাইড লেআউট — প্রতিটি টেমপ্লেট রেকর্ড করার জন্য প্রস্তুত।',
   'templates.hero.eyebrow': 'কিউরেটেড স্টেজ',
   'templates.hero.heading':
     'ঠিক সেই মুহূর্তটির জন্যই স্টেজগুলো তৈরি করা হয়েছে, যখন আপনাকে এটি সফলভাবে সম্পন্ন করতে হবে।',

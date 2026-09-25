@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது {{app}}-ஐ உங்கள் பள்ளி அல்லது குழுவுக்கு கொண்டு வர விரும்புகிறீர்களா? ஒவ்வொரு செய்தியையும் நாங்கள் படிக்கிறோம் — உங்கள் கணக்கு அமைப்புகளில் இருந்து எங்களை அணுகுங்கள், ஒரு உண்மையான மனிதர் பதிலளிப்பார்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.intro':
+    '{{app}} என்பது வகுப்பறைகள், விளையாட்டு இரவுகள் மற்றும் குழு நிகழ்வுகளுக்கான நேரடி வினாடி வினா தளமாகும். விளையாட்டுத்தனமான வினா தொகுப்புகளை உருவாக்கி, சேரும்குறியீட்டுடன் நிகழ்நேர விளையாட்டுகளை நடத்தி, நேரமிட்ட வினாக்கள், மதிப்பெண்கள் மற்றும் தரவரிசைப் பட்டியல்களுடன் அரங்கம் பிரகாசிப்பதைக் கவனியுங்கள்.',
+  'about.missionBody':
+    'விளையாட்டாகத் தோன்றும்போது கற்றல் நிலைத்திருக்கும். எவரும் ஒரு தலைப்பை விரைவான, போட்டித்தன்மையுள்ள விளையாட்டாக மாற்றுவதை நாங்கள் எளிதாக்குகிறோம் — நடத்துபவர்கள் செய்து கற்பிக்கலாம், வீரர்கள் தொடர்ச்சியைத் தக்கவைக்கலாம்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.title': '{{app}} பற்றி',
   'auth.login.noAccount': 'ஸ்பார்க்-க்கு புதியவரா?',
   'auth.login.or': 'அல்லது தொடரவும்',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'இன்னும் எந்த வினாவிடைப் போட்டியும் பொருந்தவில்லை.',
   'discover.headline': 'உங்களுக்குப் பிடித்த அடுத்த வினாவிடைத் தேர்வைக் கண்டறியுங்கள்.',
   'discover.loading': 'ஏற்றப்படுகிறது…',
+  'discover.searchPlaceholder': 'தலைப்பின் மூலம் வினாடி வினாக்களைத் தேடுங்கள்…',
   'discover.subhead':
     'முழு நூலகத்தையும் உலாவவும், வகை வாரியாக வடிகட்டவும் அல்லது தலைப்பு மூலம் தேடவும். தனியாக விளையாட அல்லது நேரலையை நடத்த ஒரு அட்டையைத் தட்டவும்.',
   'forgotPassword.subhead':
     'உங்கள் மின்னஞ்சலை உள்ளிடவும், மீட்டமைப்பதற்கான இணைப்பை நாங்கள் உங்களுக்கு அனுப்புவோம்.',
   'forgotPassword.success.body':
     'ஒரு கணக்கு இருந்தால் {{email}} சில நிமிடங்களில் உங்களுக்கு மீட்டமைப்பு இணைப்பு கிடைக்கும்.',
+  'forgotPassword.success.title': 'உங்கள் இன்பாக்ஸைச் சரிபார்க்கவும்.',
   'hostLobby.back': 'வினாடி வினாவிற்குத் திரும்பு',
   'hostLobby.copied': 'இணைப்புக் குறியீடு கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது.',
   'hostLobby.creating': 'உங்கள் லாபியைத் தயார் செய்தல்…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'ரத்துசெய் லாபி',
   'hostLobby.players.count': '{{count}} நேரலை',
   'hostLobby.players.title': 'லாபியில் உள்ள வீரர்கள்',
+  'hostLobby.players.waiting':
+    'வீரர்களுக்காகக் காத்திருக்கிறது. சேர {{code}} குறியீட்டைப் பகிருங்கள்.',
   'hostLobby.rules.title': 'வீட்டு விதிகள்',
   'hostLobby.startError': 'விளையாட்டைத் தொடங்க முடியவில்லை.',
   'hostLobby.starting': 'தீப்பொறியை மூட்டுதல்...',
   'joinCodeHero.headline': 'உங்கள் வீரர்களை உள்ளே குதிக்கச் சொல்லுங்கள்.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'அல்லது வருகை தரவும்',
   'joinCodeHero.liveLabel': 'லாபி நேரலை',
+  'joinCodeHero.playerJoined': '{{name}} சேர்ந்தார்',
   'joinCodeHero.playersLabel': 'வீரர்கள்',
   'joinCodeHero.qrLabel': 'சேர ஸ்கேன் செய்யவும்',
   'joinCodeHero.startGame': 'தீப்பொறியை மூட்டுங்கள்',
   'joinCodeHero.subhead':
     'சேரும் குறியீட்டைப் பகிரவும் அல்லது QR குறியீட்டை ஸ்கேன் செய்யவும். நீங்கள் தீப்பொறியைப் பற்றவைக்கும் கணமே விளையாட்டு தொடங்குகிறது.',
+  'landing.cta.button': 'உங்கள் முதல் வினாடி வினாவை உருவாக்குங்கள்',
   'landing.cta.eyebrow': 'கல்வியாளர்களுக்கு இலவசம்',
   'landing.cta.heading': 'ஒவ்வொரு பாடத்திலும் உற்சாகத்தைக் கொண்டு வாருங்கள்.',
+  'landing.cta.subhead':
+    '30 வினாடிகளில் பதிவு செய்யுங்கள். வரம்பற்ற நேரடி விளையாட்டுகளை நடத்துங்கள், AI மூலம் வினாடி வினாக்களை வரைவு செய்யுங்கள், ஒவ்வொரு வீரரையும் தொடர்ச்சியில் வைத்திருங்கள்.',
   'landing.eyebrow': 'ஒவ்வொரு பதிலையும் பற்றவைக்கவும்',
   'landing.features.heading':
     'உங்கள் கற்பிக்கும் மற்றும் விளையாடும் முறைக்குப் பொருந்தக்கூடிய ஒரு வினாடி வினா ஸ்டுடியோ.',
@@ -58,6 +74,9 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'பிரபலமான வினாடி வினாக்கள்',
   'landing.popular.eyebrow': 'இந்த வாரம் பிரபலமானது',
   'landing.popular.heading': 'தொகுப்பாளர்கள் இன்று நடத்தும் வினாடி வினாவில் கலந்துகொள்ளுங்கள்.',
+  'landing.popular.viewAll': 'அனைத்து வகைகளையும் உலாவுங்கள் →',
+  'leaderboard.empty.body':
+    'உலகளாவிய தரவரிசைப் பட்டியலில் உங்கள் மதிப்பெண்ணைப் பதிவிட ஒரு வினாடி வினாவை விளையாடுங்கள்.',
   'leaderboard.empty.title':
     'இன்னும் ஆட்டக்களத்தில் நகர்வுகள் எதுவும் இல்லை — நீங்களே முதல் ஆளாக இருங்கள்.',
   'leaderboard.eyebrow': 'லீடர்போர்டு',
@@ -66,6 +85,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'நீங்கள் விளையாடிய ஒவ்வொரு வினாடி வினா அமர்விலும் பெற்ற மொத்த மதிப்பெண்ணைக் கணக்கிடுங்கள். மேலும் விளையாடுவதன் மூலம் உங்கள் மதிப்பெண்ணை உயர்த்துங்கள்.',
   'leaderboard.title': 'சிறந்த வினாடி வினா நடத்துபவர்கள்',
+  'leaderboard.totalPlayers': '{{count}} தரவரிசை வீரர்கள்',
   'leaderboardRow.points': 'புள்ளிகள்',
   'leaderboardRow.streak': '{{days}} டி',
   'login.headline': 'மீண்டும் வருக, வினாடி வினா நடத்துனரே.',
@@ -77,10 +97,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'உங்கள் முதல் வினாவிடைத் தொகுப்பை உருவாக்குங்கள் →',
   'myQuizzes.empty.created': 'நீங்கள் இன்னும் ஒரு வினாவிடைத் தொகுப்பை உருவாக்கவில்லை.',
   'myQuizzes.empty.played': 'இன்னும் வினாவிடைத் தொகுப்புகள் வெளியிடப்படவில்லை.',
+  'myQuizzes.loading': 'ஏற்றப்படுகிறது…',
   'myQuizzes.subhead':
     'நீங்கள் உருவாக்கிய வரைவுகள், அத்துடன் வெளியிடப்பட்ட வினாவிடைத் தொகுப்புகள் ஆகியவற்றில் நீங்கள் பங்கேற்கலாம்.',
   'myQuizzes.title': 'எனது வினாடி வினாக்கள்',
   'nav.legal': 'சட்டப்பூர்வமான',
+  'nav.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'notFound.backHome': 'வீட்டிற்குத் திரும்பு',
   'notFound.backToDiscover': 'வினாடி வினாக்களை உலாவுக',
   'notFound.body': 'வேறு குறியீட்டை முயற்சிக்கவும் அல்லது லாபிக்குத் திரும்பிச் செல்லவும்.',
@@ -89,18 +111,28 @@ export const ui: UiTranslations = {
   'notifications.loading': 'ஏற்றப்படுகிறது…',
   'notifications.subhead':
     '{{count}} படிக்கப்படாத பதிவுகள். அழைப்புகள், தரவரிசை நகர்வுகள் மற்றும் சாதனைகள் அனைத்தும் ஒரே தளத்தில்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
+  'pricing.advancedFeatures': 'மேம்பட்ட அம்சங்கள்: {{yes}}',
+  'pricing.canExport': 'தரவு ஏற்றுமதி: {{yes}}',
   'pricing.checkoutError':
     'பணம் செலுத்தும் செயல்முறையைத் தொடங்க முடியவில்லை. தயவுசெய்து மீண்டும் முயற்சிக்கவும்.',
   'pricing.heading': 'உங்கள் {{app}} திட்டத்தைத் தேர்ந்தெடுக்கவும்',
   'pricing.included': 'சேர்க்கப்பட்டுள்ளது',
   'pricing.loadError': 'திட்டங்களை ஏற்ற முடியவில்லை.',
+  'pricing.maxQuestions': '{{count}} கேள்விகள்',
   'pricing.maxQuizzes': '{{count}} வினாடி வினாக்கள்',
+  'pricing.maxSessions': '{{count}} அமர்வுகள்',
   'pricing.subhead':
     'ஹோஸ்ட்கள் மற்றும் பிளேயர்களுக்கு இலவசம். உயர் வரம்புகள் மற்றும் மேம்பட்ட அம்சங்களுக்கு மேம்படுத்திக்கொள்ளுங்கள்.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'கணக்கு: மின்னஞ்சல், ஹேஷ் செய்யப்பட்ட கடவுச்சொல், காட்சிப் பெயர், கடைசியாக உள்நுழைந்தது.',
+  'privacy.intro':
+    '{{app}} உங்கள் தனியுரிமையை மதிக்கிறது. இந்தப் பக்கம் நாங்கள் சேமிக்கும் தரவு, அதை ஏன் சேமிக்கிறோம், அதை எவ்வாறு அகற்றுவது என்பதை சுருக்கமாக விளக்குகிறது.',
   'privacy.rights.body':
     '30 நாட்களுக்குள் உங்கள் எல்லாத் தரவுகளையும் நிரந்தரமாக அகற்ற, அமைப்புகளிலிருந்து உங்கள் கணக்கை நீக்கவும்.',
   'privacy.share.body':
@@ -124,6 +156,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'வினாவிடை அடையாள எண்: {{id}}',
   'quizBuilder.loadError': 'வினாவிடையை ஏற்ற முடியவில்லை.',
   'quizBuilder.loading': 'எடிட்டர் ஏற்றப்படுகிறது…',
+  'quizBuilder.markCorrect': '{{letter}} சரியானது எனக் குறியிடுங்கள்',
   'quizBuilder.noQuestions': 'இன்னும் கேள்விகள் எதுவும் இல்லை — தொடங்குவதற்கு ஒன்றைச் சேர்க்கவும்.',
   'quizBuilder.notFound': 'வினாவிடை காணப்படவில்லை.',
   'quizBuilder.preview': 'பார்வை',
@@ -140,7 +173,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} s டைமர்',
   'quizBuilder.title': 'உங்கள் வினாவிடையை உருவாக்குங்கள்',
   'quizBuilder.titleLabel': 'வினாடி வினா தலைப்பு',
+  'quizBuilder.untitled': 'தலைப்பிடப்படாத வினா',
   'quizCard.plays': '{{count}} நாடகங்கள்',
+  'quizCard.questionCount': '{{count}} வினாக்கள்',
   'quizDetail.duration': '~ {{minutes}} நிமிடம்',
   'quizDetail.hostMultiplayer': 'மல்டிபிளேயரை ஹோஸ்ட் செய்யவும்',
   'quizDetail.leaderboardEmpty': 'இன்னும் ஆட்டங்கள் இல்லை — முதல் ஆளாக மதிப்பெண் பெறுங்கள்.',
@@ -155,26 +190,37 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'வினாடி வினாவிற்குத் திரும்பு',
   'quizPlay.empty': 'இந்த வினாவிடைத் தொகுப்பில் இன்னும் கேள்விகள் எதுவும் இல்லை.',
   'quizPlay.error': 'இந்த வினாவிடையை ஏற்ற முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
+  'quizPlay.exit': 'வெளியேறு',
   'quizPlay.feedback.correct': '🔥 தீப்பொறி கிடைத்தது — அடுத்ததற்குச் செல்வோம்!',
+  'quizPlay.feedback.incorrect': 'விடை {{correct}} ஆகும். தொடருங்கள்.',
   'quizPlay.loading': 'வினாவிடை ஏற்றப்படுகிறது…',
   'quizPlay.next': 'அடுத்த கேள்வி',
   'quizPlay.questionCounter': 'கேள்வி {{current}} இன் {{total}}',
   'quizPlay.score': '{{score}} புள்ளிகள்',
+  'quizPlay.seeResults': 'முடிவுகளைப் பார்க்க',
   'quizPlay.sessionFailed': 'அமர்வைத் தொடங்க முடியவில்லை.',
   'quizPlay.streak': '{{count}} கோடு',
+  'resetPassword.subhead':
+    'உங்கள் தொடர் வெற்றிக்குத் திரும்ப ஒரு புதிய கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும்.',
   'results.backToDiscover': 'மீண்டும் கண்டறிய',
   'results.error': 'முடிவுகளை ஏற்ற முடியவில்லை.',
   'results.exit': 'மீண்டும் கண்டறிய',
   'results.loading': 'உங்கள் மதிப்பெண்ணைக் கணக்கிடுதல்…',
   'results.missingSession': 'சுருக்கமாகக் கூற அமர்வு எதுவும் இல்லை.',
+  'results.recap.correctAnswer': 'சரி: {{answer}}',
   'results.recap.questionLabel': 'கேள்வி {{number}}',
   'results.recap.title': 'கேள்வி சுருக்கம்',
+  'results.recap.yourAnswer': 'நீங்கள்: {{answer}}',
   'results.unknownQuiz': 'வினாடி வினா',
   'scoreBreakdownCard.accuracyLabel': 'துல்லியம்',
+  'scoreBreakdownCard.correctLabel': 'சரி',
   'scoreBreakdownCard.eyebrow': 'வினாடி வினா நிறைவு',
   'scoreBreakdownCard.headline': '"இல் நல்ல வேலை" {{quizTitle}} !',
   'scoreBreakdownCard.pointsLabel': 'புள்ளிகள்',
   'scoreBreakdownCard.rankLabel': 'தரவரிசை',
+  'scoreBreakdownCard.streakBonus': 'தொடர்ச்சி போனஸ் +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'உங்கள் தீப்பொறி தெரிகிறது. தரவரிசைப் பட்டியலில் தொடர்ந்து ஏற கீழே உள்ள பிரிவைப் பாருங்கள்.',
   'settings.danger.body':
     'உங்கள் ஸ்பார்க் கணக்கையும், உருவாக்கப்பட்ட அனைத்து வினாவிடைத் தொகுப்புகளையும் நிரந்தரமாக நீக்கவும்.',
   'settings.danger.confirm': 'ஆம், நிரந்தரமாக நீக்கிவிடுங்கள்',
@@ -193,5 +239,7 @@ export const ui: UiTranslations = {
     'நீங்கள் வெளியிடும் உள்ளடக்கம், நீங்கள் உருவாக்கும் கேள்விகள் மற்றும் நீங்கள் நடத்தும் விளையாட்டுகளுக்கு நீங்களே பொறுப்பு. மற்றவர்களைப் போல் நடிக்காதீர்கள்.',
   'terms.billing.body':
     'அமைப்புகளில் இருந்து ரத்து செய்யப்படும் வரை, கட்டணத் திட்டங்கள் தானாகவே புதுப்பிக்கப்படும். நீங்கள் எப்போது வேண்டுமானாலும் ரத்து செய்யலாம்; தற்போதைய கட்டணக் காலம் முடியும் வரை அணுகல் தொடரும்.',
+  'terms.intro':
+    '{{app}}-ஐப் பயன்படுத்துவதன் மூலம் கீழே உள்ள விதிகளை ஏற்கிறீர்கள். அவற்றை ஏற்க முடியாவிட்டால், தயவுசெய்து சேவையைப் பயன்படுத்த வேண்டாம்.',
   'terms.title': 'சேவை விதிமுறைகள்',
 }

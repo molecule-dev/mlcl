@@ -1,20 +1,40 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Onko sinulla palautetta, löysitkö virheen tai haluatko ehdottaa ominaisuutta? Ota yhteyttä tilisi asetuksista — jokainen viesti päätyy tiimin oikealle ihmiselle.',
+  'about.contactTitle': 'Ota yhteyttä',
+  'about.featureDatabases':
+    'Kevyet tietokannat ja uudelleenkäytettävät mallipohjat, joilla muutat irralliset muistiinpanot jäsennellyiksi ja toistettaviksi työnkuluiksi.',
+  'about.featureEditor':
+    'Rauhallinen lohkoeditori — otsikot, listat, koodi, huomiot ja tehtävät — sekä vinoviivakomennot, jotka ovat saatavilla kun haluat ja poissa tieltä kun et.',
+  'about.featureGraph':
+    'Paluulinkit ja tietograafi: kirjoita [[ linkittääksesi muistiinpanon ja seuraa, miten ideasi kytkeytyvät toisiinsa ajan myötä.',
+  'about.featureNotebooks':
+    'Sisäkkäiset muistikirjat ja sivut, jotta projektit, aiheet ja päivittäiset muistiinpanot pysyvät järjestyksessä juuri niin kuin ajattelet.',
+  'about.featureSearch':
+    'Alle 50 ms:n kokotekstihaku kaikista muistikirjoista sekä tunnisteet, jotka täydentävät muistikirjoja sen sijaan että taistelisivat niitä vastaan.',
+  'about.missionTitle': 'Missiomme',
   'common.goToDashboard': 'Siirry etusivulle',
   'forgot.eyebrow': 'Eksyitkö tieltä takaisin sisään?',
   'forgot.formSubtitle': 'Kerro meille tiedostossa oleva sähköpostiosoite.',
+  'forgot.formTitle': 'Unohtunut salasana',
   'forgot.headline': 'Nollaa salasanasi.',
   'forgot.subline': 'Lähetämme kertakäyttöisen linkin sähköpostiisi, jotta voit valita uuden.',
+  'forgot.successDetail': 'Lähetimme palautuslinkin sähköpostiisi. Se vanhenee 30 minuutissa.',
   'graph.eyebrow': 'Kaavio',
+  'graph.goToNotes': 'Selaa muistiinpanoja →',
+  'graph.loadError': 'Graafia ei voitu ladata: {{message}}',
   'graph.placeholderBody':
     'Kun nuotit alkavat linkittää toisiinsa ([[wiki]]-syntaksin avulla), tähän renderöidään interaktiivinen pakko-ohjattu graafi.',
+  'graph.placeholderTitle': 'Paluulinkkien graafi tulossa pian',
   'graph.subtitle':
     '{{count}} muistiinpanoja tässä työtilassa. Takaisinlinkkien graafin renderöinti näkyy tässä, kun muistiinpanot linkittyvät toisiinsa.',
   'graph.title': 'Tietograafi',
   'home.empty': 'Ei vielä muistiinpanoja — aloita ensimmäinen.',
   'home.favoritesHeading': 'Kiinnitetyt',
   'home.guest': 'ystävä',
+  'home.loadError': 'Muistiinpanojasi ei voitu ladata: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Kiinnitä muistiinpano editoriin pitääksesi sen täällä.',
   'home.recentHeading': 'Äskettäin päivitetty',
@@ -22,18 +42,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Muistikirja',
   'home.stats.pinned.label': 'Kiinnitetyt',
   'home.stats.updatedToday.label': 'Päivitetty tänään',
+  'home.subtitle': 'Jatka siitä, mihin jäit, tai aloita uusi muistiinpano.',
   'home.viewAll': 'Näytä kaikki muistiinpanot',
   'landing.cta.body':
     'Ilmainen henkilökohtaiseen käyttöön. Ammattimainen tiimeille. Tuo nykyinen merkintöjesi tallennusohjelma tai aloita puhtaalta pöydältä — Verso on mukanasi missä tahansa muistiinpanosi ovatkin.',
+  'landing.cta.button': 'Luo työtilani',
   'landing.cta.heading': 'Avaa tämän päivän sivu.',
   'landing.features.eyebrow': 'Jokainen alkukantainen, jota toiset aivosi tarvitsevat',
+  'landing.features.heading': 'Rakennettu työtä varten, ei meta-työtä varten.',
   'landing.hero.eyebrow': 'Hiljainen kirjoituspinta',
   'landing.hero.headlineAccent': 'muotoutua.',
   'landing.hero.headlineLeading': 'Missä ajatukset',
   'landing.hero.primaryCta': 'Aloita tietokanta',
   'landing.hero.secondaryCta': 'Minulla on jo tili',
+  'landing.hero.socialProof':
+    'Yli 12 800 kirjoittajaa, opiskelijaa ja tohtoria ajattelee {{appName}}-sovelluksella',
   'landing.hero.subline':
     'Verso on strukturoitu muistiinpanoalusta tietotyöntekijöille ja opiskelijoille. Lohkoeditori, sisäkkäiset muistikirjat, takalinkit ja tietograafi – kaikki typografiaa korostavan lukukokemuksen takana.',
+  'landing.preview.notebook': 'Tieto · Kirjoitusprosessi',
+  'landing.preview.title': 'Vedon hengittämisestä',
   'login.eyebrow': 'Tervetuloa takaisin Versoon',
   'login.formSubtitle': 'Käytä sähköpostiasi tai mitä tahansa yhdistettyä palveluntarjoajaa.',
   'login.headline': 'Jatka sivun pysähtymiskohdasta.',
@@ -43,6 +70,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Sulje navigointivalikko',
   'mobileNav.openMenu': 'Avaa navigointivalikko',
   'noteEditor.backToNotes': 'Takaisin muistiinpanoihin',
+  'noteEditor.bodyLabel': 'Muistiinpanon runko',
   'noteEditor.bodyPlaceholder':
     'Aloita kirjoittaminen – muistiinpanosi tallentuu automaattisesti kirjoittaessasi.',
   'noteEditor.confirmTrash': 'Siirretäänkö tämä muistiinpano roskakoriin?',
@@ -51,17 +79,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Siirrä roskakoriin',
   'noteEditor.updated': 'Päivitetty',
   'notes.defaultWorkspaceName': 'Muistikirjani',
+  'notes.empty': 'Täällä ei ole vielä muistiinpanoja — aloita yksi täyttääksesi muistikirjan.',
   'notes.eyebrow': 'Muistikirja',
   'notes.filterAll': 'Kaikki muistiinpanot',
   'notes.filterPinned': 'Kiinnitetyt',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Uusi muistikirja',
   'notes.newNotebookPrompt': 'Muistikirjan uusi nimi',
+  'notes.newNotebookRequired': 'Anna muistikirjan nimi.',
   'notes.notebooksHeading': 'Muistikirjat',
   'notes.subtitle':
     'Valitse muistikirja vasemmalta ja paina sitten Uusi muistiinpano -painiketta aloittaaksesi uuden merkinnän.',
+  'planUpdated.body': 'Tilauksesi on nyt aktiivinen.',
   'planUpdated.confirmation': 'Suunnitelmasi on päivitetty',
+  'pricing.advancedFeatures': 'Lisäominaisuudet',
   'pricing.heading': 'Valitse muistiinpanosuunnitelmasi',
+  'reset.changedMind': 'Muutitko mielesi?',
   'reset.eyebrow': 'Melkein takaisin',
   'reset.formSubtitle': 'Sinut kirjataan sisään, kun se on tallennettu.',
   'reset.headline': 'Valitse uusi salasana.',
@@ -71,7 +104,9 @@ export const ui: UiTranslations = {
     'Syötä juuri sähköpostitse lähettämämme koodi ja valitse jotain mieleenpainuvaa.',
   'reset.submit': 'Tallenna ja kirjaudu sisään',
   'reset.tokenHint': 'Liitetty postilaatikostasi.',
+  'search.empty': 'Yksikään muistiinpano ei vielä vastaa tätä hakua.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Hae Refractista',
   'search.loading': 'Haetaan…',
   'search.noRecent': 'Kirjoita yllä oleva kysely aloittaaksesi haun muistiinpanoistasi.',
   'search.recentLabel': 'Viimeaikaiset haut',
@@ -79,12 +114,19 @@ export const ui: UiTranslations = {
     'Koko teksti jokaisessa muistikirjassa. Kirjoita hakeaksesi; tulokset päivittyvät kirjoittaessasi.',
   'search.title': 'Etsi toisista aivoista.',
   'settings.account.logout': 'Kirjaudu ulos',
+  'settings.account.title': 'Tilin tiedot',
+  'settings.editor.graphHover.body':
+    'Näytä pieni esikatselukortti, kun viet hiiren [[wikilinkin]] päälle editorissa.',
+  'settings.editor.graphHover.label': 'Paluulinkkigraafin esikatselu',
   'settings.editor.lineHeight.body':
     'Kuinka paljon ilmaa on vartalon linjojen välillä. 170 % on oletusarvoinen lukurytmi.',
+  'settings.editor.lineHeight.label': 'Rivikorkeus',
   'settings.editor.serif.body':
     'Käytä Georgiaa lukupalstalla. Sans-serif pysyy sivupalkissa ja työkalupalkeissa.',
+  'settings.editor.serif.label': 'Antiikva leipätekstinä',
   'settings.editor.title': 'Typografia ja kirjoituspinta',
   'settings.eyebrow': 'Verso · Asetukset',
+  'settings.passwordModal.current': 'Nykyinen salasana',
   'settings.passwordModal.error':
     'Salasanan vaihtaminen epäonnistui — tarkista nykyinen salasanasi.',
   'settings.passwordModal.next': 'Uusi salasana',
@@ -94,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Paina jokaista näppäinpainallusta reaaliaikakanavan kautta. Poista käytöstä hitaammilla yhteyksillä.',
   'settings.sync.auto.label': 'Reaaliaikainen synkronointi',
+  'settings.sync.title': 'Miten muistiinpanosi liikkuvat',
   'settings.theme.body':
     'Valo pitää pääkirjoituksen palstan kirkkaana. Seepianpunainen lämmittää sivua iltoja varten.',
   'settings.theme.dark': 'Tumma',
@@ -113,8 +156,12 @@ export const ui: UiTranslations = {
     'Lisää #aihetunnisteet muistiinpanon otsikkoon (esim. "Lukulista #kirjat"), niin ne näkyvät tässä automaattisesti.',
   'tags.emptyTitle': 'Ei vielä tunnisteita',
   'tags.eyebrow': 'Indeksi',
+  'tags.goToNotes': 'Siirry muistiinpanoihin →',
+  'tags.loadError': 'Tunnisteita ei voitu ladata: {{message}}',
   'tags.subtitle':
     '{{tags}} tunnisteet kaikkialla {{notes}} muistiinpanoja. Lisää #aihetunnisteet muistiinpanon otsikkoon, niin ne näkyvät täällä.',
+  'versoAuthShell.sample.body':
+    'Toinen kierros huomenna luetaan aina mieluummin kuin ensimmäinen tänä iltana. Jätä raakaversio syvän työn kansioon…',
   'versoAuthShell.sample.label': 'Päivittäinen muistiinpano',
   'versoAuthShell.sample.timestamp': 'Tänään · klo 9.14',
   'versoAuthShell.sample.title': 'Vedon hengittämisestä',
@@ -126,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Jatka kirjoittamista',
   'versoTodayHero.createCta': 'Aloita tämän päivän muistiinpano',
   'versoTodayHero.dailyLabel': 'Päivittäinen muistiinpano',
+  'versoTodayHero.emptyHeadline': 'Tämä päivä on tyhjä sivu.',
   'versoTodayHero.emptySubline':
     'Tallenna ajatus, kirjoita muistiin kokous tai luonnostele huomista varten. Verso pitää rakenteen hiljaisena, jotta kirjoitus pysyy äänekkäänä.',
+  'versoTodayHero.outlineLabel': 'Tämän päivän jäsennys',
   'versoTodayHero.streak': '{{count}} päivän putki',
+  'versoTodayHero.unwritten': 'Ei vielä sanoja — avaa muistiinpano aloittaaksesi.',
   'versoTodayHero.wordCount': '{{count}} sanat tänään',
 }

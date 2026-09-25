@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഒരു എഡിഷൻ, ഷിപ്പ്മെന്റ്, അല്ലെങ്കിൽ നിങ്ങളുടെ സബ്സ്ക്രിപ്ഷൻ എന്നിവയെക്കുറിച്ച് ചോദ്യങ്ങളുണ്ടോ? hello@crate.example എന്ന വിലാസത്തിൽ ടീമിലെ ഒരു യഥാർത്ഥ മനുഷ്യനെ സമീപിക്കൂ — ഞങ്ങൾ എല്ലാ സന്ദേശവും വായിക്കുന്നു.',
+  'about.contactTitle': 'ഒരു ക്യൂറേറ്ററുമായി സംസാരിക്കുക',
+  'about.feature1':
+    'സ്വതന്ത്ര നിർമ്മാതാക്കൾ തിരഞ്ഞെടുത്ത പ്രതിമാസ എഡിഷനുകൾ, ഓരോ ഇനത്തിന്റെയും പിന്നിലെ കഥയോടെ.',
+  'about.feature2':
+    'ഓരോ ബോക്സിനും പൂർണ്ണ നിയന്ത്രണം — ഉള്ളടക്കം ഇഷ്ടാനുസൃതമാക്കുക, ഇനങ്ങൾ മാറ്റുകയോ ഒഴിവാക്കുകയോ ചെയ്യുക, ഒരു മാസം ഒഴിവാക്കുക, അല്ലെങ്കിൽ നിങ്ങളുടെ ഇടവേള മാറ്റുക.',
+  'about.feature3':
+    'പിക്കപ്പ് മുതൽ വാതിൽക്കൽ എത്തുന്നതുവരെ പൂർണ്ണ ഷിപ്പ്മെന്റ് ട്രാക്കിംഗ്, പ്ലാസ്റ്റിക് രഹിത പാക്കേജിംഗും തത്സമയ കാരിയർ അപ്ഡേറ്റുകളും സഹിതം.',
+  'about.feature4':
+    'വഴക്കമുള്ള പ്ലാനുകളും സുതാര്യമായ ബില്ലിംഗും — എപ്പോൾ വേണമെങ്കിലും നിങ്ങളുടെ ഡാഷ്ബോർഡിൽ നിന്ന് അപ്ഗ്രേഡ് ചെയ്യുക, ഡൗൺഗ്രേഡ് ചെയ്യുക, താൽക്കാലികമായി നിർത്തുക, അല്ലെങ്കിൽ റദ്ദാക്കുക.',
+  'about.intro':
+    '{{app}} ഒരു ക്യൂറേറ്റഡ് സബ്സ്ക്രിപ്ഷൻ-ബോക്സ് സേവനമാണ്, ഇത് ഓരോ മാസവും തിരഞ്ഞെടുത്ത, ചെറിയ ബാച്ചിലുള്ള സന്തോഷത്തിന്റെ ബോക്സ് നിങ്ങളുടെ വാതിൽക്കൽ എത്തിക്കുന്നു. ഓരോ എഡിഷനും ജോലി ചെയ്യുന്ന നിർമ്മാതാക്കളാണ് — സ്വതന്ത്ര കലാകാരന്മാർ, ഷെഫുകൾ, ചെറിയ ബ്രാൻഡുകൾ — ഒരു അൽഗോരിതം അല്ല — ഒരുക്കുന്നത്.',
+  'about.missionBody':
+    'ഒരു സബ്സ്ക്രിപ്ഷൻ ഒരു കെണിയല്ല, ഒരു സമ്മാനം പോലെ തോന്നണം എന്നാണ് ഞങ്ങൾ വിശ്വസിക്കുന്നത്. {{app}} നിർമ്മിച്ചിരിക്കുന്നത് നിങ്ങൾ എത്തുന്നത് ഇഷ്ടപ്പെടുന്നതുകൊണ്ട് തുടരാൻ വേണ്ടിയാണ് — എപ്പോൾ വേണമെങ്കിലും താൽക്കാലികമായി നിർത്തുക, നിങ്ങൾക്ക് വേണ്ടത് മാറ്റുക, ഒരു ക്ലിക്കിൽ റദ്ദാക്കുക. ഒരിക്കലും റിട്ടൻഷൻ സ്ക്രിപ്റ്റുകൾ ഇല്ല.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
   'appNav.mobileLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'appNav.primaryLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'ബില്ലിംഗ് കോൺടാക്റ്റ് എഡിറ്റ് ചെയ്യുക',
   'billing.contact.eyebrow': 'ബില്ലിംഗ് കോൺടാക്റ്റ്',
   'billing.eyebrow': 'പ്ലാനും പേയ്‌മെന്റുകളും',
+  'billing.loading': 'ബില്ലിംഗ് ലോഡ് ചെയ്യുന്നു...',
   'billing.payment.body':
     'പേയ്‌മെന്റ് കൈകാര്യം ചെയ്യുന്നത് സ്ട്രൈപ്പ് ചെക്ക്ഔട്ട് ആണ് — നിങ്ങളുടെ പൂർണ്ണ കാർഡ് നമ്പർ ഒരിക്കലും ഞങ്ങളുടെ സെർവറുകളിൽ സ്പർശിക്കില്ല. നിങ്ങളുടെ കാർഡ് ചേർക്കുന്നതിനോ അപ്‌ഡേറ്റ് ചെയ്യുന്നതിനോ താഴെയുള്ള ഏതെങ്കിലും ടയറിൽ ക്ലിക്കുചെയ്യുക.',
   'billing.payment.linked': 'സ്ട്രൈപ്പ് വഴി ഫയലിലുള്ള കാർഡ്',
@@ -20,11 +37,13 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'സബ്‌സ്‌ക്രിപ്‌ഷൻ പുനരാരംഭിക്കുക',
   'billing.plan.eyebrow': 'സജീവ പ്ലാൻ',
   'billing.plan.next': 'സ്വയമേവ പുതുക്കുന്ന തീയതി {{date}} .',
+  'billing.plan.status': 'നില: {{status}}',
   'billing.subtitle':
     'നിങ്ങളുടെ ശ്രേണി, പേയ്‌മെന്റ് രീതി എന്നിവ കൈകാര്യം ചെയ്യുക, മുൻകാല പ്രവർത്തനങ്ങൾ അവലോകനം ചെയ്യുക.',
   'billing.tiers.body':
     'ഒരു ടയർ തിരഞ്ഞെടുക്കുക, ഞങ്ങൾ നിങ്ങളെ സ്ട്രൈപ്പ് ചെക്ക്ഔട്ടിലേക്ക് റൂട്ട് ചെയ്യും.',
   'billing.tiers.choose': 'തിരഞ്ഞെടുക്കുക',
+  'billing.tiers.empty': 'ഇതുവരെ ടയറുകൾ കോൺഫിഗർ ചെയ്തിട്ടില്ല.',
   'billing.tiers.heading': 'ലഭ്യമായ ടയറുകൾ',
   'boxDetail.backToBoxes': 'എല്ലാ പതിപ്പുകളിലേക്കും തിരികെ പോകുക',
   'boxDetail.crumb.boxes': 'പതിപ്പുകൾ',
@@ -37,6 +56,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'ക്യുറേറ്റ് ചെയ്ത പീസ്',
   'boxDetail.items.heading': '{{count}} ക്യുറേറ്റഡ് പീസുകൾ',
   'boxDetail.itemsBadge': '{{count}} ഓരോ ബോക്സിലും ക്യുറേറ്റ് ചെയ്ത ഇനങ്ങൾ',
+  'boxDetail.loading': 'എഡിഷൻ ലോഡ് ചെയ്യുന്നു…',
   'boxDetail.notFound': 'ആ പതിപ്പ് ഇനി ലഭ്യമല്ല.',
   'boxDetail.subscribe.success': 'സബ്‌സ്‌ക്രൈബ് ചെയ്‌തു — നിങ്ങളുടെ ആദ്യ പതിപ്പ് ക്യൂവിലാണ്.',
   'boxDetail.swapBadge': 'വരെ സ്വാപ്പ് ചെയ്യുക {{count}} ഓരോ ബോക്സിലും ഇനം(ങ്ങൾ)',
@@ -45,14 +65,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'പൊരുത്തപ്പെടുന്ന പതിപ്പുകളൊന്നുമില്ല.',
   'boxes.eyebrow': 'ദി ട്രോവ് ആർക്കൈവ്',
   'boxes.heading': 'എല്ലാ പതിപ്പും ബ്രൗസ് ചെയ്യുക',
+  'boxes.loadError':
+    'ഞങ്ങൾക്ക് എഡിഷനുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. നിങ്ങളുടെ കണക്ഷൻ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.',
   'boxes.loading': 'പതിപ്പുകൾ ലോഡ് ചെയ്യുന്നു...',
+  'boxes.search.label': 'എഡിഷനുകൾ തിരയുക',
   'boxes.search.placeholder': 'പതിപ്പുകൾ തിരയുക...',
   'boxes.subtitle':
     'ഓരോ ടയറും ഒരു ചെറിയ ബാച്ച് സ്റ്റോറിയാണ്. നിങ്ങളുടെ ക്യൂവിലേക്ക് ഒന്ന് ചേർക്കുക അല്ലെങ്കിൽ അടുത്ത മാസത്തേക്ക് മാറ്റുക.',
+  'boxThemeCard.itemCount': '{{count}} ഇനങ്ങൾ',
   'boxThemeCard.perMonth': '/ മാസം',
+  'boxThemeCard.retailValue': 'ചില്ലറ വില {{value}}',
   'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
+  'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'customize.eyebrow': 'നിങ്ങളുടേതാക്കൂ',
   'customize.heading': 'നിങ്ങളുടെ അടുത്ത ട്രോവ് ഇഷ്ടാനുസൃതമാക്കുക',
+  'customize.items.empty': 'ഈ ടയറിനായി ഇതുവരെ ഇനങ്ങൾ കോൺഫിഗർ ചെയ്തിട്ടില്ല.',
   'customize.items.exclude': 'ഇത് ഒഴിവാക്കുക',
   'customize.items.eyebrow': 'ഈ ബോക്സ് വ്യക്തിഗതമാക്കുക',
   'customize.items.heading': 'ഇനങ്ങൾ {{box}}',
@@ -61,8 +88,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'തിരികെ ചേർക്കുക',
   'customize.items.save': 'ഇഷ്ടാനുസൃതമാക്കൽ സംരക്ഷിക്കുക',
   'customize.items.swapsLeft': '{{used}} യുടെ {{max}} ഉപയോഗിച്ച സ്വാപ്പുകൾ',
+  'customize.loading': 'ഇഷ്ടാനുസൃതമാക്കൽ ലോഡ് ചെയ്യുന്നു…',
   'customize.noSub.body':
     'ആദ്യം ഒരു ടയറിലേക്ക് സബ്‌സ്‌ക്രൈബ് ചെയ്യുക, തുടർന്ന് നിങ്ങളുടെ ബോക്‌സിലെ ഇനങ്ങൾ സ്വാപ്പ് ചെയ്യാൻ തിരികെ വരിക.',
+  'customize.noSub.cta': 'എഡിഷനുകൾ ബ്രൗസ് ചെയ്യുക',
   'customize.noSub.heading': 'സജീവ സബ്‌സ്‌ക്രിപ്‌ഷൻ ഇല്ല.',
   'customize.saved': 'ഇഷ്ടാനുസൃതമാക്കൽ സംരക്ഷിച്ചു.',
   'customize.subtitle':
@@ -76,11 +105,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'ഷിപ്പ്‌മെന്റ് ട്രാക്ക് ചെയ്യുക',
   'dashboard.eyebrow': 'യുവർ ട്രോവ്',
   'dashboard.greeting': 'തിരികെ സ്വാഗതം, {{name}} .',
+  'dashboard.loadError':
+    'ഞങ്ങൾക്ക് നിങ്ങളുടെ ഡാഷ്ബോർഡ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. നിങ്ങളുടെ കണക്ഷൻ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.',
   'dashboard.loading': 'ഡാഷ്‌ബോർഡ് ലോഡ് ചെയ്യുന്നു...',
   'dashboard.next.eyebrow': 'നിങ്ങളുടെ അടുത്ത പതിപ്പ്',
   'dashboard.onboarding.body':
     'നിങ്ങൾക്ക് ഇതുവരെ ഒരു സജീവ സബ്‌സ്‌ക്രിപ്‌ഷൻ ഇല്ല. എല്ലാ മാസവും ഒരു ട്രോവ് ഷിപ്പിംഗ് ആരംഭിക്കാൻ ഒരു ടയർ തിരഞ്ഞെടുക്കുക.',
   'dashboard.onboarding.cta': 'എല്ലാ പതിപ്പുകളും ബ്രൗസ് ചെയ്യുക',
+  'dashboard.onboarding.empty': 'ഇപ്പോൾ പ്ലാനുകളൊന്നും ലഭ്യമല്ല. ഉടൻ വീണ്ടും പരിശോധിക്കുക.',
   'dashboard.onboarding.heading': 'നിങ്ങളുടെ ആദ്യ പതിപ്പ് തിരഞ്ഞെടുക്കുക',
   'dashboard.renewal.amount': 'ചാർജ് ചെയ്തു',
   'dashboard.renewal.cadence': 'ആവൃത്തി',
@@ -88,12 +120,17 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'പുതുക്കൽ',
   'dashboard.renewal.heading': 'സ്വയമേവ പുതുക്കുന്ന തീയതി {{date}}',
   'dashboard.renewal.plan': 'പ്ലാൻ കീ',
+  'dashboard.renewal.tbd': 'പുതുക്കൽ ഷെഡ്യൂളിംഗ് ഉടൻ',
   'dashboard.renewal.tier': 'ടയർ',
   'dashboard.stats.days': 'ദിവസങ്ങൾ',
   'dashboard.stats.daysToNext': 'ഷിപ്പ് ചെയ്യുന്നു',
   'dashboard.stats.items': 'ക്യുറേറ്റ് ചെയ്‌ത ഇനങ്ങൾ',
   'dashboard.stats.shipDate': 'ഷിപ്പ് ചെയ്ത തീയതി',
   'dashboard.stats.tbd': 'ടിബിഡി',
+  'dashboard.subtitle.active':
+    'നിങ്ങളുടെ അടുത്ത എഡിഷൻ വഴിയിലാണ്. എന്താണ് പ്രതീക്ഷിക്കേണ്ടതെന്ന് ഇതാ.',
+  'dashboard.subtitle.idle':
+    'ഓരോ മാസവും ഒരു {{appName}} അയയ്ക്കാൻ ആരംഭിക്കാൻ ഒരു ടയർ തിരഞ്ഞെടുക്കുക.',
   'forgotPassword.subtitle':
     'നിങ്ങളുടെ ഇമെയിൽ വിലാസം ഞങ്ങളോട് പറയൂ, ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
   'forgotPassword.success.body':
@@ -101,6 +138,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'നിങ്ങളുടെ ഇൻബോക്സ് പരിശോധിക്കുക.',
   'landing.editions.eyebrow': 'ഈ സീസൺ',
   'landing.editions.heading': 'ഞങ്ങളുടെ ക്യൂറേറ്റർമാർ ഇഷ്ടപ്പെടുന്ന പതിപ്പുകൾ',
+  'landing.editions.viewAll': 'എല്ലാ എഡിഷനുകളും ബ്രൗസ് ചെയ്യുക →',
   'landing.footer.contact': 'ഒരു ക്യൂറേറ്ററുമായി സംസാരിക്കുക',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'നിങ്ങളുടെ പെട്ടി ആരംഭിക്കുക →',
@@ -110,6 +148,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'അംഗങ്ങളുടെ ഡാഷ്‌ബോർഡിലേക്ക് ഒരു എത്തിനോട്ടം - കൗണ്ട്‌ഡൗൺ, ഉള്ളടക്കങ്ങൾ, ട്രാക്കിംഗ്.',
   'landing.hero.social.count': 'ഇഷ്ടപ്പെട്ടത് {{count}} + സബ്‌സ്‌ക്രൈബർമാർ',
+  'landing.hero.social.rating': '{{rating}} ശരാശരി അൺബോക്സിംഗ് റേറ്റിംഗ്',
+  'landing.hero.subhead':
+    '{{appName}} സ്വതന്ത്ര നിർമ്മാതാക്കളിൽ നിന്ന് തിരഞ്ഞെടുത്ത, ചെറിയ ബാച്ചിലുള്ള സന്തോഷത്തിന്റെ ബോക്സ് നിങ്ങൾക്ക് അയയ്ക്കുന്നു. എപ്പോൾ വേണമെങ്കിലും താൽക്കാലികമായി നിർത്തുക. നിങ്ങൾക്ക് വേണ്ടത് മാറ്റുക. നിങ്ങൾ ഇഷ്ടപ്പെടുന്നത് സൂക്ഷിക്കുക.',
   'landing.nav.start': 'നിങ്ങളുടെ പെട്ടി ആരംഭിക്കുക',
   'landing.tiers.eyebrow': 'നിങ്ങളുടെ കാഡൻസ് തിരഞ്ഞെടുക്കുക',
   'landing.tiers.heading':
@@ -120,6 +161,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'അടുത്ത മാസത്തെ ബോക്സ് കാണാൻ സൈൻ ഇൻ ചെയ്യുക.',
   'login.welcomeBack': 'ക്യൂറേറ്റർ, വീണ്ടും സ്വാഗതം.',
   'nextBoxHeroCard.eyebrow': 'നിങ്ങളുടെ അടുത്ത യാത്ര',
+  'nextBoxHeroCard.itemCount': '{{count}} കഷണങ്ങൾ ഉള്ളിൽ',
   'nextBoxHeroCard.itemsLabel': 'ക്യുറേറ്റ് ചെയ്‌ത ഇനങ്ങൾ',
   'nextBoxHeroCard.shipsOnLabel': 'ഷിപ്പ് ചെയ്യുന്നത്',
   'notFound.body':
@@ -146,8 +188,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'സബ്‌സ്‌ക്രിപ്‌ഷൻ താൽക്കാലികമായി നിർത്തുക',
   'settings.danger.paused': 'സബ്‌സ്‌ക്രിപ്‌ഷൻ താൽക്കാലികമായി നിർത്തി.',
   'settings.danger.pausing': 'താൽക്കാലികമായി നിർത്തുന്നു...',
+  'settings.danger.status': 'സബ്സ്ക്രിപ്ഷൻ നില: {{status}}',
   'settings.danger.subtitle':
     'താൽക്കാലികമായി നിർത്തുന്നത് നിങ്ങളുടെ ടയറും ചരിത്രവും കേടുകൂടാതെ സൂക്ഷിക്കുന്നു. റദ്ദാക്കുന്നത് ഭാവിയിലെ ഷിപ്പ്‌മെന്റുകൾ നിർത്തുകയും സൈക്കിളിന്റെ അവസാനം നിങ്ങളുടെ സംഭരിച്ച പേയ്‌മെന്റ് രീതികൾ നീക്കം ചെയ്യുകയും ചെയ്യുന്നു.',
+  'settings.notifications.saving': '· സേവ് ചെയ്യുന്നു…',
   'settings.notifications.subtitle':
     'ട്രോവിൽ നിന്ന് നിങ്ങൾക്ക് വേണ്ട സിഗ്നലുകൾ തിരഞ്ഞെടുക്കുക. സ്ഥിരസ്ഥിതികൾ യുക്തിസഹമാണ്.',
   'settings.subtitle':
@@ -164,12 +208,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'ഇതുവരെ സജീവമായ ഷിപ്പ്‌മെന്റുകളൊന്നുമില്ല.',
   'shipments.live.eyebrow': 'സജീവമായ ഷിപ്പ്മെന്റ്',
   'shipments.live.unnamed': 'നിങ്ങളുടെ അടുത്ത പെട്ടി',
+  'shipments.loadError':
+    'ഞങ്ങൾക്ക് നിങ്ങളുടെ ഷിപ്പ്മെന്റുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. നിങ്ങളുടെ കണക്ഷൻ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.',
+  'shipments.loading': 'ഷിപ്പ്മെന്റുകൾ ലോഡ് ചെയ്യുന്നു…',
+  'shipments.step.delivered': 'എത്തിച്ചു',
   'shipments.step.deliveredBody': 'നിങ്ങൾ കണ്ടെത്തുന്നത് പങ്കിടാൻ #crateunbox ടാഗ് ചെയ്യുക.',
   'shipments.step.ordered': 'ഓർഡർ നൽകി',
   'shipments.step.orderedBody':
     'നിങ്ങളുടെ സബ്‌സ്‌ക്രിപ്‌ഷൻ അടുത്ത ഷിപ്പ് സൈക്കിളിനായി ഈ പതിപ്പിനെ ക്യൂവിലാക്കി.',
+  'shipments.step.packed': 'കൈകൊണ്ട് പാക്ക് ചെയ്തത്',
   'shipments.step.packedBody':
     'ഓരോ കഷണവും പൊതിഞ്ഞ് ഒരു കൈപ്പടയിൽ എഴുതിയ കുറിപ്പോടെ പെട്ടിയിൽ ഒതുക്കി.',
+  'shipments.step.transit': 'വഴിയിൽ',
   'shipments.step.transitNot':
     'നിങ്ങളുടെ പെട്ടി യാത്രയിലായിക്കഴിഞ്ഞാൽ ട്രാക്കിംഗ് ഇവിടെ ദൃശ്യമാകും.',
   'shipments.subtitle':

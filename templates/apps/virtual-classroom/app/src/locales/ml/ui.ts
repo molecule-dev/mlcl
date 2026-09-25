@@ -1,10 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'ഞങ്ങളേക്കുറിച്ച്',
+  'about.featureAssignments':
+    'അസൈൻമെന്റുകൾ, ഫയൽ സമർപ്പണങ്ങൾ, റൂബ്രിക്കുകൾ, ഇൻലൈൻ ഫീഡ്ബാക്ക്, വിദ്യാർത്ഥികളെയും രക്ഷിതാക്കളെയും വിവരമറിയിക്കുന്ന ശാന്തമായ ഗ്രേഡ്ബുക്ക്.',
+  'about.featureBreakouts':
+    'ഒറ്റ ടാപ്പ് ബ്രേക്ക്ഔട്ട് റൂമുകൾ — വിദ്യാർത്ഥികളെ സ്വയം ഷഫിൾ ചെയ്യുക, അറിയിപ്പുകൾ പ്രക്ഷേപണം ചെയ്യുക, സമയം കഴിയുമ്പോൾ എല്ലാവരെയും ഒരുമിച്ച് കൊണ്ടുവരിക.',
+  'about.featureChat':
+    'പിൻ ചെയ്ത സംഗ്രഹങ്ങളും സെഷനിടയിൽ ശാന്തമായ പരിശീലനത്തിനായി അധ്യാപകർക്ക് മാത്രമുള്ള സൈഡ് ചാനലുകളുമുള്ള ത്രെഡഡ് ക്ലാസ് ചാറ്റ്.',
+  'about.featureVideo':
+    'ആക്ടീവ്-സ്പീക്കർ ഫോക്കസ്, ഗാലറി, സ്പോട്ട്ലൈറ്റ് ലേഔട്ടുകൾ, അധ്യാപകർക്കായി വലിച്ചിടാവുന്ന പിക്ചർ-ഇൻ-പിക്ചർ എന്നിവയുള്ള സിനിമാറ്റിക് ലൈവ് വീഡിയോ.',
+  'about.featureWhiteboard':
+    'ലേസർ പോയിന്ററും പൂർണ്ണ കളർ പാലറ്റും ഉള്ള അനന്തമായ വൈറ്റ്ബോർഡ്, ഓരോ സെഷനും ഓരോ കോഴ്സിനും വേണ്ടി സേവ് ചെയ്യുന്നതിനാൽ ക്ലാസുകൾക്കിടയിൽ ജോലി തുടരും.',
+  'about.missionBody':
+    'ദൂരവിദ്യാഭ്യാസവും ഹൈബ്രിഡ് പഠനവും ഒരു സെമിനാർ മേശ പോലെ സാന്നിധ്യവും മനുഷ്യത്വവും ഉള്ളതായി അനുഭവപ്പെടണം എന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു. അതിനാൽ ഞങ്ങൾ ലൈവ് സാന്നിധ്യത്തിന് ഒന്നാം സ്ഥാനം നൽകുന്നു — യഥാർത്ഥ മുഖങ്ങൾ, പങ്കിട്ട കാൻവാസ്, ചെറുകൂട്ടം ബ്രേക്ക്ഔട്ടുകൾ — കൂടാതെ ഗ്രേഡിംഗും ലോജിസ്റ്റിക്സും നിങ്ങൾക്ക് ആവശ്യമുള്ളതുവരെ ശാന്തമായി മാറ്റിനിർത്തുന്നു.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'assignmentDetail.attachmentsTitle': 'അറ്റാച്ചുമെന്റുകൾ',
   'assignmentDetail.back': 'എല്ലാ അസൈൻമെന്റുകളും',
   'assignmentDetail.code': 'ബയോ 211',
+  'assignmentDetail.context':
+    'സെൽ ബയോളജി I · {{instructor}} പോസ്റ്റ് ചെയ്തത് · {{due}} അവസാന തീയതി',
   'assignmentDetail.continueDraft': 'ഡ്രാഫ്റ്റ് തുടരുക',
   'assignmentDetail.draftBody':
     'അവസാനം എഡിറ്റ് ചെയ്തത് 14 മിനിറ്റ് മുമ്പ് · ഓരോ മാറ്റത്തിലും യാന്ത്രികമായി സംരക്ഷിക്കൽ.',
@@ -23,6 +39,7 @@ export const ui: UiTranslations = {
   'assignmentRow.statusInProgress': 'ഡ്രാഫ്റ്റിംഗ്',
   'assignmentRow.statusSubmitted': 'സമർപ്പിച്ചു',
   'assignmentRow.title': 'ലാബ് റിപ്പോർട്ട് — മൈറ്റോകോൺഡ്രിയൽ ഡിഎൻഎ',
+  'assignmentRow.weight': 'ഗ്രേഡിന്റെ {{percent}}% മൂല്യം',
   'assignments.body':
     'നിങ്ങളുടെ കോഴ്സുകളിലുടനീളമുള്ള ഓരോ പേപ്പറും, പ്രശ്ന സെറ്റും, പ്രോജക്ടും ട്രാക്ക് ചെയ്യുക.',
   'assignments.empty': 'ഈ ലെയ്നിൽ ഇപ്പോൾ ഒന്നുമില്ല — ശാന്തത ആസ്വദിക്കൂ.',
@@ -33,6 +50,8 @@ export const ui: UiTranslations = {
   'assignments.statTotal': 'സജീവമായ അസൈൻമെന്റുകൾ',
   'assignments.title': 'അസൈൻമെന്റുകൾ',
   'aulaAuthShell.backHome': '← വീട്ടിലേക്ക് മടങ്ങുക',
+  'aulaAuthShell.brandBody':
+    '{{appName}} വീഡിയോ, വൈറ്റ്ബോർഡ്, ബ്രേക്ക്ഔട്ടുകൾ, ചാറ്റ്, ഗ്രേഡിംഗ് എന്നിവ ഒരു കേന്ദ്രീകൃത ടാബിൽ കൊണ്ടുവരുന്നു — ടാബുകൾ കൈകാര്യം ചെയ്യാതെ പഠിപ്പിക്കാൻ ആഗ്രഹിക്കുന്ന അധ്യാപകർക്കായി നിർമ്മിച്ചത്.',
   'aulaAuthShell.brandEyebrow': 'പഠനം സജീവമാകുന്നിടത്ത്',
   'aulaAuthShell.brandTitle': 'മുറിയിൽ ആയിരിക്കുന്നതിന്റെ ഊഷ്മളതയോടെ തത്സമയ ക്ലാസ് മുറികൾ.',
   'aulaAuthShell.sampleAttending': '+24 പേർ കൂടി പങ്കെടുക്കുന്നു',
@@ -42,6 +61,8 @@ export const ui: UiTranslations = {
   'aulaSideNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
   'aulaSideNav.label': 'പ്രാഥമിക നാവിഗേഷൻ',
   'aulaSideNav.weeklyClasses': 'ഈ ആഴ്ച',
+  'aulaSideNav.weeklyClassesCount': '{{done}} / {{total}}',
+  'aulaSideNav.weeklyHelp': 'ഈ ആഴ്ചയിലെ പാഠങ്ങൾ പൂർത്തിയാക്കാൻ നിങ്ങൾ ട്രാക്കിലാണ്. തുടരുക!',
   'aulaTopBar.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'aulaTopBar.searchPlaceholder': 'കോഴ്‌സുകൾ, ക്ലാസുകൾ, അസൈൻമെന്റുകൾ എന്നിവ തിരയുക...',
   'aulaTopBar.title': 'ഔല',
@@ -54,6 +75,8 @@ export const ui: UiTranslations = {
   'calendar.statTotal': 'വരാനിരിക്കുന്ന ആകെ ഇവന്റുകൾ',
   'classroom.chatCount': '{{count}} സന്ദേശങ്ങൾ',
   'classroom.chatEmpty': 'ഇതുവരെ സന്ദേശങ്ങളൊന്നുമില്ല — നിശബ്ദത ഭഞ്ജിക്കാൻ ഹലോ പറയൂ.',
+  'classroom.chatInputLabel': 'ക്ലാസ് ചാറ്റ് സന്ദേശം',
+  'classroom.chatLoading': 'സംഭാഷണം ലോഡ് ചെയ്യുന്നു...',
   'classroom.chatPlaceholder': 'ക്ലാസ്സിലേക്ക് അയയ്ക്കുക...',
   'classroom.chatTitle': 'ക്ലാസ് ചാറ്റ്',
   'classroom.detailJoin': 'Join code',
@@ -80,23 +103,30 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'courseDetail.assignmentsTitle': 'കോഴ്‌സ് അസൈൻമെന്റുകൾ',
   'courseDetail.back': 'എല്ലാ കോഴ്‌സുകളും',
+  'courseDetail.body':
+    'ലൈൻ ഇന്റഗ്രലുകൾ മുതൽ ഡൈവർജൻസും കർളും വരെ കെട്ടിപ്പടുക്കുന്ന രണ്ടാം സെമസ്റ്റർ കോഴ്സ്. എല്ലാ ചൊവ്വ/വ്യാഴം ലൈവ്, വെള്ളിയാഴ്ച ലാബും പ്രതിവാര ഓഫീസ് അവേഴ്സും.',
+  'courseDetail.ca1Course': 'കാൽക്കുലസ് II',
   'courseDetail.ca1Due': 'വ്യാഴാഴ്ച · വൈകുന്നേരം 5:00 മണിക്ക്',
   'courseDetail.ca1Title': 'വെക്റ്റർ ഫീൽഡ് ഫ്ലക്സ് പ്രശ്ന സെറ്റ്',
   'courseDetail.ca2Course': 'കാൽക്കുലസ് II',
   'courseDetail.ca2Due': 'തിങ്കളാഴ്ച സമർപ്പിച്ചു',
   'courseDetail.ca2Score': 'ഫീഡ്‌ബാക്കിനായി കാത്തിരിക്കുന്നു',
   'courseDetail.ca2Title': 'സ്റ്റോക്സ് സിദ്ധാന്ത തെളിവുകൾ',
+  'courseDetail.ca3Course': 'കാൽക്കുലസ് II',
   'courseDetail.ca3Due': 'തിരികെ നൽകി · 9 ദിവസം മുമ്പ്',
   'courseDetail.ca3Score': 'എ · 94%',
   'courseDetail.ca3Title': 'ലൈൻ ഇന്റഗ്രൽ റിവ്യൂ ക്വിസ്',
   'courseDetail.cls1Course': 'കാൽക്കുലസ് II · MTH 202',
   'courseDetail.cls1Instructor': 'പ്രൊഫ. മായ ഒകാഫോർ',
+  'courseDetail.cls1Room': 'ഔല റൂം · ലാവെൻഡർ',
   'courseDetail.cls1Title': 'വെക്റ്റർ ഫീൽഡുകളും ഫ്ലക്സും',
   'courseDetail.cls2Course': 'കാൽക്കുലസ് II · MTH 202',
   'courseDetail.cls2Instructor': 'പ്രൊഫ. മായ ഒകാഫോർ',
+  'courseDetail.cls2Room': 'ഔല റൂം · ലാവെൻഡർ',
   'courseDetail.cls2Title': 'ലൈൻ ഇന്റഗ്രലുകൾ അവലോകനം',
   'courseDetail.cls3Course': 'കാൽക്കുലസ് II · MTH 202',
   'courseDetail.cls3Instructor': 'ടി.എ. ഫെലിക്സ് ബൗർ',
+  'courseDetail.cls3Room': '{{appName}} റൂം · പെറ്റൽ',
   'courseDetail.cls3Title': 'ലാബ്: സ്റ്റോക്‌സിന്റെ പ്രശ്‌ന സെറ്റ്',
   'courseDetail.code': 'മാർച്ച് 202',
   'courseDetail.materialsTitle': 'മെറ്റീരിയലുകൾ',
@@ -135,15 +165,19 @@ export const ui: UiTranslations = {
   'courses.loading': 'കോഴ്‌സുകൾ ലോഡ് ചെയ്യുന്നു...',
   'courses.noBrowse':
     'ബ്രൗസ് ചെയ്യാൻ കോഴ്‌സുകളൊന്നുമില്ല — പ്രസിദ്ധീകരിച്ച എല്ലാത്തിലും നിങ്ങൾ എൻറോൾ ചെയ്തിട്ടുണ്ട്.',
+  'courses.noCourses': 'ഇതുവരെ കോഴ്സുകളില്ല — മുകളിലെ ബട്ടൺ ഉപയോഗിച്ച് ഒന്ന് സൃഷ്ടിക്കുക.',
   'courses.title': 'നിങ്ങളുടെ പഠന ലൈബ്രറി',
   'courseTileCard.code': 'ഇസിഎൻ 312',
   'courseTileCard.continue': 'കോഴ്‌സ് തുടരുക',
   'courseTileCard.enroll': 'കോഴ്‌സ് കാണുക',
   'courseTileCard.imageAlt': 'കോഴ്‌സ് ലഘുചിത്രം',
   'courseTileCard.instructor': 'ഡോ. ഇദ്രിസ് ഹാലോവേ',
+  'courseTileCard.lessonsRemaining': '{{count}} ബാക്കി പാഠങ്ങൾ',
   'courseTileCard.levelAdvanced': 'വിപുലമായത്',
   'courseTileCard.levelBeginner': 'തുടക്കക്കാരൻ',
   'courseTileCard.levelIntermediate': 'ഇന്റർമീഡിയറ്റ്',
+  'courseTileCard.preview':
+    'സിലബസ് പ്രിവ്യൂ ചെയ്യുക, ലെക്ചറുകൾ ബ്രൗസ് ചെയ്യുക, എൻറോൾമെന്റ് അഭ്യർത്ഥിക്കുക.',
   'courseTileCard.progressComplete': '{{percent}} % പൂർത്തിയായി',
   'courseTileCard.title': 'ആധുനിക മാക്രോ ഇക്കണോമിക്സ്',
   'dashboard.assignmentsAll': 'എല്ലാം കാണുക →',
@@ -163,12 +197,16 @@ export const ui: UiTranslations = {
   'dashboard.noAssignments': 'ഒരു ജോലിയും ചെയ്യേണ്ടതില്ല - ശാന്തത ആസ്വദിക്കൂ.',
   'dashboard.noCourses': 'ഇതുവരെ കോഴ്‌സുകളൊന്നുമില്ല — നിങ്ങളുടെ ആദ്യ കോഴ്‌സ് ഇവിടെ ദൃശ്യമാകും.',
   'dashboard.noDueDate': 'അവസാന തീയതി ഇല്ല',
+  'dashboard.scheduleAula': 'ഔല മുറി',
   'dashboard.scheduleEmpty': 'വരാനിരിക്കുന്ന തത്സമയ ക്ലാസുകളൊന്നും ഷെഡ്യൂൾ ചെയ്തിട്ടില്ല.',
   'dashboard.scheduleHostedYou': 'നിങ്ങൾ ഹോസ്റ്റ് ചെയ്തത്',
+  'dashboard.scheduleJoinCode': 'ചേരാനുള്ള കോഡ് · {{code}}',
+  'dashboard.statAssignmentsLabel': 'അസൈൻമെന്റുകളുടെ അവസാന തീയതി',
   'dashboard.statClassesDelta': '{{n}} സജീവ കോഴ്‌സുകൾ',
   'dashboard.statClassesLabel': 'ലൈവ് റൂമുകൾ',
   'dashboard.statCoursesDelta': '{{n}} എൻറോൾ ചെയ്തു',
   'dashboard.statCoursesLabel': 'കോഴ്സുകൾ',
+  'dashboard.statNotificationsLabel': 'വായിക്കാത്ത അലേർട്ടുകൾ',
   'dashboard.tipBody':
     'വൈറ്റ്ബോർഡിൽ ഒരു സ്ട്രോക്ക് വരയ്ക്കുന്നതിനോ ഒരു ചാറ്റ് സന്ദേശം പോസ്റ്റ് ചെയ്യുന്നതിനോ മുകളിലുള്ള ഹീറോ കാർഡിൽ നിന്ന് ലൈവ് റൂം തുറക്കുക - എല്ലാ പ്രവർത്തനങ്ങളും നിലനിൽക്കും.',
   'dashboard.tipCta': 'വൈറ്റ്‌ബോർഡ് പരീക്ഷിച്ചു നോക്കൂ',
@@ -182,6 +220,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success':
     'ആ ഇമെയിലിന് ഒരു അക്കൗണ്ട് നിലവിലുണ്ടെങ്കിൽ, ഒരു റീസെറ്റ് ലിങ്ക് ലഭിക്കുന്നതാണ്.',
   'forgotPassword.toLogin': 'സൈൻ ഇൻ ചെയ്യലിലേക്ക് മടങ്ങുക',
+  'grades.assignmentsCount': '{{n}} ഗ്രേഡുകൾ',
   'grades.body':
     'ഓരോ കോഴ്‌സിന്റെയും ശാന്തമായ കാഴ്ച - റണ്ണിംഗ് ഗ്രേഡ്, സമീപകാല ഫീഡ്‌ബാക്ക്, അടുത്ത ആഴ്ച എവിടെ ശ്രദ്ധ കേന്ദ്രീകരിക്കണം.',
   'grades.empty':
@@ -194,43 +233,59 @@ export const ui: UiTranslations = {
   'grades.statTrendUnit': 'കോഴ്സുകൾ',
   'grades.statWatchLabel': 'ശ്രദ്ധ ആവശ്യമാണ്',
   'grades.title': 'ഗ്രേഡുകളും ഫീഡ്‌ബാക്കും',
+  'landing.ctaBody':
+    'ഞങ്ങൾ ഒരു സാമ്പിൾ കോഴ്സ് തുടങ്ങി, ഒരു സഹ-അധ്യാപകനെ ക്ഷണിച്ച്, ബെൽ അടിക്കുന്നതിന് മുമ്പ് ഒരു ക്ലാസ് ബ്രേക്ക്ഔട്ടുകളാക്കി മാറ്റുന്നത് എങ്ങനെയെന്ന് കാണിച്ചുതരും.',
   'landing.ctaButton': 'നിങ്ങളുടെ സ്കൂൾ സൃഷ്ടിക്കുക',
   'landing.ctaPrimary': 'ഒരു സൗജന്യ ടേം ആരംഭിക്കുക',
   'landing.ctaSecondary': 'ഒരു ക്ലാസ് ടൂർ കാണുക',
   'landing.ctaTitle': 'മൂന്ന് മിനിറ്റിനുള്ളിൽ നിങ്ങളുടെ ആദ്യത്തെ ക്ലാസ് മുറി തുറക്കൂ.',
+  'landing.demoCourse': 'വേൾഡ് ലിറ്ററേച്ചർ · LIT 240',
+  'landing.demoInstructor': 'പ്രൊഫ. ഇമാനി ഡേവീസ്',
+  'landing.demoTitle': 'മാജിക്കൽ റിയലിസം — ബോർജസും മുറകാമിയും',
   'landing.eyebrow': 'ലൈവ് · വൈറ്റ്‌ബോർഡ് · ബ്രേക്ക്ഔട്ടുകൾ · ഗ്രേഡിംഗ്',
   'landing.feat1Body':
     'ഇൻസ്ട്രക്ടർമാർക്കായി ഓട്ടോ-ഇൻ-പിക്ചർ ചെയ്ത സ്പോട്ട്ലൈറ്റ് + ഗാലറി, ആക്റ്റീവ്-സ്പീക്കർ ആക്സന്റുകൾ, വലിച്ചിടാവുന്ന ചിത്രം-ഇൻ-പിക്ചർ.',
   'landing.feat1Title': 'സിനിമാറ്റിക് വീഡിയോ ഗ്രിഡ്',
   'landing.feat2Body':
     'അനന്തമായ ക്യാൻവാസ്, ലേസർ പോയിന്റർ, എട്ട്-സ്വച്ച് പാലറ്റ്, ഓരോ കോഴ്‌സിനും സ്ഥിരമായ സെഷനുകൾ.',
+  'landing.feat2Title': 'ഉറക്കെ ചിന്തിക്കുന്ന വൈറ്റ്ബോർഡ്',
   'landing.feat3Body':
     'വിദ്യാർത്ഥികളെ മുറികളിലേക്ക് സ്വയമേവ മാറ്റുക, അറിയിപ്പുകൾ പ്രക്ഷേപണം ചെയ്യുക, ഒരു ടാപ്പ് ഉപയോഗിച്ച് എല്ലാവരെയും തിരികെ കൊണ്ടുവരിക.',
+  'landing.feat3Title': 'രണ്ട് ക്ലിക്കിൽ ബ്രേക്ക്ഔട്ടുകൾ',
   'landing.feat4Body':
     'റൂബ്രിക്സ്, ഫയൽ സമർപ്പണങ്ങൾ, ഇൻലൈൻ ഫീഡ്‌ബാക്ക്, മാതാപിതാക്കളെ വിവരങ്ങൾ അറിയിക്കുന്ന ശാന്തമായ ഒരു ഗ്രേഡ്‌ബുക്ക്.',
+  'landing.feat4Title': 'അസൈൻമെന്റുകൾ + ഗ്രേഡ്ബുക്ക്',
   'landing.feat5Body':
     'വിസ്‌പർ കോച്ചിംഗിനായി ഓരോ ക്ലാസിലും ത്രെഡ് ചെയ്‌ത ചാറ്റ്, പിൻ ചെയ്‌ത സംഗ്രഹങ്ങൾ, ഇൻസ്ട്രക്ടർമാർക്ക് മാത്രമുള്ള സൈഡ് ചാനലുകൾ.',
+  'landing.feat5Title': 'ക്ലാസ് സന്ദർഭത്തോടെ ചാറ്റ്',
   'landing.feat6Body':
     'ഓരോ ക്ലാസ് മുറിയിലേക്കും ജില്ലാ ഡയറക്ടറികൾ, പ്രായത്തിനനുസരിച്ചുള്ള മോഡറേഷൻ, ഓഡിറ്റ് ലോഗുകൾ എന്നിവയുള്ള എസ്.എസ്.ഒ.',
+  'landing.feat6Title': 'സ്വതവേ സുരക്ഷിതം',
   'landing.featuresEyebrow': 'തത്സമയം കാണാൻ വേണ്ടി നിർമ്മിച്ചത്',
   'landing.featuresTitle': 'ഒരു ക്ലാസിന് ആവശ്യമായതെല്ലാം, ഒരു ഫോക്കസ് ചെയ്ത ടാബിൽ.',
   'landing.footerCopy': '© {{year}} ഔല. അധ്യാപകരുടെ ശ്രദ്ധയോടെ നിർമ്മിച്ചത്.',
   'landing.footerStart': 'ഒരു സ്കൂൾ ആരംഭിക്കുക',
   'landing.heroBody':
     'ഔല തത്സമയ വീഡിയോ, വൈറ്റ്‌ബോർഡ്, ബ്രേക്ക്‌ഔട്ടുകൾ, ചാറ്റ്, അസൈൻമെന്റുകൾ എന്നിവ ഊഷ്മളവും പണ്ഡിതോചിതവുമായ ഒരു വീട്ടിലേക്ക് കൊണ്ടുവരുന്നു. കുറച്ച് ടാബുകളും കൂടുതൽ ശ്രദ്ധയും ആഗ്രഹിക്കുന്ന ഇൻസ്ട്രക്ടർമാർക്കായി നിർമ്മിച്ചതാണ് ഇത്.',
+  'landing.heroLine1': 'എവിടെയാണ് ഓരോ ക്ലാസ്മുറിയും',
   'landing.heroLine2': 'മുറിയിൽ അനുഭവപ്പെടുന്നു.',
   'landing.navSchools': 'സ്കൂളുകൾക്ക്',
   'landing.navStart': 'ഒരു ക്ലാസ് മുറി തുറക്കുക',
   'landing.previewCourse1': 'ആധുനിക മാക്രോ ഇക്കണോമിക്സ്',
   'landing.previewCourse2': 'സ്റ്റുഡിയോ പെയിന്റിംഗ് II',
   'landing.previewCourse3': 'ഡാറ്റ എത്തിക്‌സിന്റെ ആമുഖം',
+  'landing.previewEyebrow': 'കാറ്റലോഗ് കാണുക',
   'landing.previewInstructor1': 'ഡോ. ഇദ്രിസ് ഹാലോവേ',
   'landing.previewInstructor2': 'പ്രൊഫ. ലീല മാരിൻ',
   'landing.previewInstructor3': 'ഡോ. നവോമി വ്രെൻ',
   'landing.previewTitle': 'നിങ്ങളുടെ വിദ്യാർത്ഥികൾ യഥാർത്ഥത്തിൽ തുറക്കുന്ന കോഴ്‌സുകൾ.',
+  'landing.socialProofBody':
+    'ലോകമെമ്പാടുമുള്ള 380 സ്കൂളുകൾ, ബൂട്ട്ക്യാമ്പുകൾ, കോർപ്പറേറ്റ് പരിശീലകർ എന്നിവർ ഉപയോഗിക്കുന്നു.',
   'landing.socialProofTitle': 'ഈ ടേമിൽ 14,200+ ക്ലാസുകൾ സംഘടിപ്പിച്ചു',
   'liveClassHeroCard.bodyLive':
     '{{instructor}} മുറി തുറന്നു. {{count}} സഹപാഠികൾ അകത്തുണ്ട് - റോൾ-കോളിനു മുമ്പ് അകത്തു കയറുക.',
+  'liveClassHeroCard.bodyUpcoming':
+    '{{instructor}} {{minutes}} മിനിറ്റിനുള്ളിൽ ഹോസ്റ്റ് ചെയ്യുന്നു. ക്യാമറയും മൈക്കും പരിശോധിക്കാൻ ഇപ്പോൾ തുറന്നിരിക്കുന്നു.',
   'liveClassHeroCard.course': 'കാൽക്കുലസ് II — MTH 202',
   'liveClassHeroCard.elapsed': 'കഴിഞ്ഞു',
   'liveClassHeroCard.elapsedValue': '12:08',
@@ -243,6 +298,7 @@ export const ui: UiTranslations = {
   'liveClassHeroCard.title': 'പ്രഭാഷണം 14 — വെക്റ്റർ ഫീൽഡുകൾ',
   'liveClassHeroCard.viewSchedule': 'പൂർണ്ണ ഷെഡ്യൂൾ കാണുക',
   'login.emailPlaceholder': 'you@school.edu',
+  'login.footerPrompt': 'ടെസേറയിൽ പുതിയ ആളാണോ?',
   'login.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
   'login.rememberMe': 'എന്നെ സൈൻ ഇൻ ചെയ്‌ത നിലയിൽ നിലനിർത്തുക',
   'login.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
@@ -254,6 +310,7 @@ export const ui: UiTranslations = {
     'നിങ്ങൾക്കുണ്ട് {{count}} നിങ്ങളുടെ ക്ലാസുകളിൽ നിന്നുള്ള വായിക്കാത്ത അപ്‌ഡേറ്റുകൾ.',
   'notifications.bodyNone': 'നിങ്ങൾക്ക് എല്ലാം മനസ്സിലായി.',
   'notifications.loading': 'ലോഡ് ചെയ്യുന്നു...',
+  'pricing.advancedFeatures': 'വിപുലമായ സവിശേഷതകൾ',
   'profile.bio':
     'വെക്റ്റർ കാൽക്കുലസ് & ടോപ്പോളജി · 14 വർഷത്തെ അദ്ധ്യാപനം · ഔല കമ്മ്യൂണിറ്റി മോഡറേറ്റർ. ഓഫീസ് സമയം തിങ്കൾ/ബുധൻ 11–12 ലാവെൻഡർ മുറിയിൽ.',
   'profile.course1Instructor': 'പ്രൊഫ. മായ ഒകാഫോർ',
@@ -274,8 +331,11 @@ export const ui: UiTranslations = {
   'profile.statStudentsLabel': 'ഈ കാലയളവിലെ വിദ്യാർത്ഥികൾ',
   'resetPassword.confirmPasswordPlaceholder': 'പുതിയ പാസ്‌വേഡ് വീണ്ടും നൽകുക',
   'resetPassword.emailPlaceholder': 'you@school.edu',
+  'resetPassword.mismatch': 'പാസ്വേഡുകൾ ഇതുവരെ പൊരുത്തപ്പെടുന്നില്ല.',
+  'resetPassword.newPassword': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.subtitle':
     'ഊഹിക്കാൻ പ്രയാസമുള്ള രീതിയിൽ നീളവും വേഗത്തിൽ ടൈപ്പ് ചെയ്യാൻ കഴിയുന്ന രീതിയിൽ ചെറുതാക്കുക.',
+  'resetPassword.title': 'ഒരു പുതിയ പാസ്വേഡ് തിരഞ്ഞെടുക്കുക',
   'scheduleItem.course': 'ക്രിയേറ്റീവ് റൈറ്റിംഗ് · ഇംഗ്ലണ്ട് 220',
   'scheduleItem.endTime': 'ഉച്ചയ്ക്ക് 3:30',
   'scheduleItem.instructor': 'ഡോ. യൂസഫ് അഡെലാന',
@@ -299,10 +359,19 @@ export const ui: UiTranslations = {
   'settings.language.title': 'ഭാഷ',
   'settings.photoHint': 'JPG അല്ലെങ്കിൽ PNG · ചതുരം ഏറ്റവും നന്നായി പ്രവർത്തിക്കുന്നു',
   'settings.profileTitle': 'പ്രൊഫൈൽ',
+  'settings.securityTitle': 'സൈൻ-ഇൻ & സുരക്ഷ',
   'settings.twoFactorCode': 'പ്രാമാണീകരണ കോഡ്',
   'settings.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
+  'settings.twoFactorDisableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനരഹിതമാക്കുക',
   'settings.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
+  'settings.twoFactorEnableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനക്ഷമമാക്കുക',
   'settings.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്',
+  'settings.twoFactorOffBody': 'പ്രവർത്തനക്ഷമമാക്കിയിട്ടില്ല',
+  'settings.twoFactorOnBody': 'പ്രവർത്തനക്ഷമം · ഓതന്റിക്കേറ്റർ ആപ്പ്',
+  'settings.twoFactorQrAlt': 'രണ്ട്-ഘടക QR കോഡ്',
+  'settings.twoFactorScan':
+    'നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പ് ഉപയോഗിച്ച് ഈ QR കോഡ് സ്കാൻ ചെയ്യുക, തുടർന്ന് 6 അക്ക കോഡ് നൽകുക.',
+  'settings.twoFactorUnavailable': 'ഈ ആപ്പിന് ടു-ഫാക്ടർ പ്രാമാണീകരണം ലഭ്യമല്ല.',
   'settings.twoFactorVerify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
   'signup.email': 'സ്കൂൾ ഇമെയിൽ',
   'signup.emailPlaceholder': 'you@school.edu',
@@ -310,6 +379,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'അയാന',
   'signup.lastNamePlaceholder': 'വേഗ',
   'signup.roleInstructor': 'ഇൻസ്ട്രക്ടർ',
+  'signup.roleLabel': 'ഞാൻ ഒരു…',
   'signup.roleStudent': 'വിദ്യാർത്ഥി',
   'signup.subtitle':
     'ആദ്യത്തെ 30 ദിവസത്തേക്ക് ഔല സൗജന്യമാണ് — ക്രെഡിറ്റ് കാർഡ് ആവശ്യമില്ല. നിങ്ങളുടെ സഹ-അധ്യാപകരെ എപ്പോൾ വേണമെങ്കിലും ക്ഷണിക്കൂ.',
@@ -322,6 +392,8 @@ export const ui: UiTranslations = {
   'whiteboard.colorLabel': 'നിറം {{color}}',
   'whiteboard.export': 'എസ്‌വി‌ജി എക്‌സ്‌പോർട്ട് ചെയ്യുക',
   'whiteboard.loading': 'ബോർഡ് ലോഡ് ചെയ്യുന്നു…',
+  'whiteboard.persistenceNote':
+    'സ്ട്രോക്കുകൾ റൂം വൈറ്റ്ബോർഡിൽ നിലനിൽക്കും. പേജ് റീലോഡ് ചെയ്യുക — ബോർഡ് അവസ്ഥ ഇപ്പോഴും അവിടെയുണ്ടാകും.',
   'whiteboard.roomNotFound': 'ഈ ലിങ്കിനുള്ള വൈറ്റ്‌ബോർഡ് കണ്ടെത്തിയില്ല.',
   'whiteboard.savedAt': '{{count}} സ്ട്രോക്കുകൾ · അവസാനം സംരക്ഷിച്ചത് {{when}}',
   'whiteboard.title': 'ലൈവ് വൈറ്റ്‌ബോർഡ്',

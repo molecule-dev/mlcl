@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tes suxestións, atopaches un erro ou queres levar {{app}} á túa escola ou equipo? Lemos todas as mensaxes — escríbenos desde a configuración da túa conta e responderache unha persoa real.',
   'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Acerca de',
+  'about.intro':
+    '{{app}} é unha plataforma de cuestionarios en directo para aulas, noites de xogos e eventos de equipo. Crea paquetes de preguntas divertidos, organiza partidas en tempo real cun código de acceso e mira como a sala se acende con preguntas cronometradas, puntuacións e clasificacións.',
+  'about.missionBody':
+    'A aprendizaxe queda cando se sente como un xogo. Facemos que calquera poida converter un tema nun xogo rápido e competitivo sen esforzo — así os anfitrións poden ensinar facendo e os xogadores manteñen a súa racha.',
+  'about.missionTitle': 'A nosa misión',
   'about.title': 'Acerca de {{app}}',
   'auth.login.noAccount': 'Novo en Sparq?',
   'auth.login.or': 'ou continuar con',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Aínda non hai coincidencias de cuestionarios.',
   'discover.headline': 'Atopa o teu próximo cuestionario favorito.',
   'discover.loading': 'Cargando…',
+  'discover.searchPlaceholder': 'Buscar cuestionarios por título…',
   'discover.subhead':
     'Explora a biblioteca completa, filtra por categoría ou busca por título. Selecciona unha carta para tocar só ou ser presentador en directo.',
   'forgotPassword.subhead':
     'Introduce o teu correo electrónico e enviarémosche unha ligazón para restablecer.',
   'forgotPassword.success.body':
     'Se existe unha conta para {{email}} , recibirás unha ligazón de restablecemento en poucos minutos.',
+  'forgotPassword.success.title': 'Consulta a túa caixa de entrada.',
   'hostLobby.back': 'Volver ao cuestionario',
   'hostLobby.copied': 'Código de unión copiado no portapapeis.',
   'hostLobby.creating': 'Dandolle vida ao teu vestíbulo…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Cancelar a sala de espera',
   'hostLobby.players.count': '{{count}} en directo',
   'hostLobby.players.title': 'Xogadores no vestíbulo',
+  'hostLobby.players.waiting':
+    'Agardando polos xogadores. Comparte o código {{code}} para que poidan unirse.',
   'hostLobby.rules.title': 'Normas da casa',
   'hostLobby.startError': 'Non se puido iniciar o xogo.',
   'hostLobby.starting': 'Comezando a faísca…',
   'joinCodeHero.headline': 'Dille aos teus xogadores que se unan.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Ou visita',
   'joinCodeHero.liveLabel': 'Vestíbulo en directo',
+  'joinCodeHero.playerJoined': '{{name}} uniuse',
   'joinCodeHero.playersLabel': 'Xogadores',
   'joinCodeHero.qrLabel': 'Escanear para unirse',
   'joinCodeHero.startGame': 'Comeza a faísca',
   'joinCodeHero.subhead':
     'Comparte o código de unión ou escanea o código QR. O xogo comeza no momento en que acenda a faísca.',
+  'landing.cta.button': 'Crea o teu primeiro cuestionario',
   'landing.cta.eyebrow': 'Gratis para educadores',
   'landing.cta.heading': 'Trae a faísca a cada lección.',
+  'landing.cta.subhead':
+    'Rexístrate en 30 segundos. Organiza partidas en directo ilimitadas, crea cuestionarios con IA e mantén a racha de cada xogador.',
   'landing.eyebrow': 'Acende cada resposta',
   'landing.features.heading':
     'Un estudo de preguntas que se adapta á túa forma de ensinar e xogar.',
@@ -59,6 +75,9 @@ export const ui: UiTranslations = {
   'landing.popular.eyebrow': 'Popular esta semana',
   'landing.popular.heading':
     'Os anfitrións de Dáte de baixa nun cuestionario están a traballar hoxe.',
+  'landing.popular.viewAll': 'Explorar todas as categorías →',
+  'leaderboard.empty.body':
+    'Xoga un cuestionario para poñer a túa puntuación na clasificación global.',
   'leaderboard.empty.title': 'Aínda non hai xogadas no taboleiro. Sé o primeiro.',
   'leaderboard.eyebrow': 'Táboa de clasificación',
   'leaderboard.fullRanking': 'Clasificación completa',
@@ -66,6 +85,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Puntuación total de cada sesión de cuestionarios ás que xogaches. Xogando máis, sube de nivel.',
   'leaderboard.title': 'Mellores mestres de concursos',
+  'leaderboard.totalPlayers': '{{count}} xogadores clasificados',
   'leaderboardRow.points': 'puntos',
   'leaderboardRow.streak': '{{days}} d',
   'login.headline': 'Benvido de volta, mestre/a de concursos.',
@@ -77,10 +97,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Crea o teu primeiro cuestionario →',
   'myQuizzes.empty.created': 'Aínda non creaches un cuestionario.',
   'myQuizzes.empty.played': 'Aínda non hai cuestionarios publicados.',
+  'myQuizzes.loading': 'Cargando…',
   'myQuizzes.subhead':
     'Borradores que creaches, ademais de cuestionarios publicados aos que podes xogar.',
   'myQuizzes.title': 'Os meus cuestionarios',
   'nav.legal': 'Legal',
+  'nav.primaryNavLabel': 'Navegación principal',
   'notFound.backHome': 'De volta á casa',
   'notFound.backToDiscover': 'Explorar cuestionarios',
   'notFound.body': 'Proba cun código diferente ou volve ao vestíbulo.',
@@ -89,17 +111,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Cargando…',
   'notifications.subhead':
     '{{count}} faíscas sen ler. Invitacións, movementos na táboa de clasificación e logros, todo nun só fluxo.',
+  'planUpdated.retry': 'Téntao de novo',
+  'planUpdated.verifyFailed': 'Aínda non puidemos confirmar o teu pagamento.',
+  'planUpdated.verifyFailedBody':
+    'É posible que o teu pago aínda estea procesándose. Téntao de novo nun momento.',
   'planUpdated.verifying': 'Confirmando o teu pago…',
+  'pricing.advancedFeatures': 'Funcións avanzadas: {{yes}}',
+  'pricing.canExport': 'Exportación de datos: {{yes}}',
   'pricing.checkoutError': 'Non se puido iniciar o proceso de compra. Téntao de novo.',
   'pricing.heading': 'Elixe o teu plan de {{app}}',
   'pricing.included': 'Incluído',
   'pricing.loadError': 'Non se puideron cargar os planos.',
+  'pricing.maxQuestions': '{{count}} preguntas',
   'pricing.maxQuizzes': '{{count}} cuestionarios',
+  'pricing.maxSessions': '{{count}} sesións',
   'pricing.subhead':
     'Gratis para anfitrións e xogadores. Actualiza para obter límites máis altos e funcións avanzadas.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Conta: correo electrónico, contrasinal con hash, nome para mostrar, último inicio de sesión.',
+  'privacy.intro':
+    '{{app}} respecta a túa privacidade. Esta páxina resume os datos que gardamos, por que os gardamos e como eliminalos.',
   'privacy.rights.body':
     'Elimina a túa conta desde Configuración para eliminar permanentemente todos os teus datos nos próximos 30 días.',
   'privacy.share.body':
@@ -123,6 +155,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'ID do cuestionario: {{id}}',
   'quizBuilder.loadError': 'Non se puido cargar o cuestionario.',
   'quizBuilder.loading': 'Cargando o editor…',
+  'quizBuilder.markCorrect': 'Marcar {{letter}} como correcta',
   'quizBuilder.noQuestions': 'Aínda non hai preguntas. Engade unha para comezar.',
   'quizBuilder.notFound': 'Non se atopou o cuestionario.',
   'quizBuilder.preview': 'Vista',
@@ -139,7 +172,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} temporizador',
   'quizBuilder.title': 'Crea o teu cuestionario',
   'quizBuilder.titleLabel': 'Título do cuestionario',
+  'quizBuilder.untitled': 'Pregunta sen título',
   'quizCard.plays': '{{count}} obras de teatro',
+  'quizCard.questionCount': '{{count}} preguntas',
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': 'Multixogador de anfitrións',
   'quizDetail.leaderboardEmpty': 'Aínda non hai xogadas. Sé o primeiro en marcar unha puntuación.',
@@ -154,26 +189,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Volver ao cuestionario',
   'quizPlay.empty': 'Este cuestionario aínda non ten preguntas.',
   'quizPlay.error': 'Non se puido cargar este cuestionario. Téntao de novo.',
+  'quizPlay.exit': 'Saír',
   'quizPlay.feedback.correct': '🔥 Faísca gañada — a por a seguinte!',
+  'quizPlay.feedback.incorrect': 'A resposta era {{correct}}. Segue así.',
   'quizPlay.loading': 'Cargando cuestionario…',
   'quizPlay.next': 'Seguinte pregunta',
   'quizPlay.questionCounter': 'Pregunta {{current}} de {{total}}',
   'quizPlay.score': '{{score}} puntos',
+  'quizPlay.seeResults': 'Ver resultados',
   'quizPlay.sessionFailed': 'Non se puido iniciar unha sesión.',
   'quizPlay.streak': '{{count}} raia',
+  'resetPassword.subhead': 'Escolle un novo contrasinal para volver á túa racha.',
   'results.backToDiscover': 'Volver a Descubrir',
   'results.error': 'Non se puideron cargar os resultados.',
   'results.exit': 'Volver a Descubrir',
   'results.loading': 'Contando a túa puntuación…',
   'results.missingSession': 'Sen sesión para resumir.',
+  'results.recap.correctAnswer': 'Correctas: {{answer}}',
   'results.recap.questionLabel': 'Pregunta {{number}}',
   'results.recap.title': 'Resumo da pregunta',
+  'results.recap.yourAnswer': 'Ti: {{answer}}',
   'results.unknownQuiz': 'Cuestionario',
   'scoreBreakdownCard.accuracyLabel': 'Precisión',
+  'scoreBreakdownCard.correctLabel': 'Correcto',
   'scoreBreakdownCard.eyebrow': 'Cuestionario completo',
   'scoreBreakdownCard.headline': 'Bo traballo en " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Puntos',
   'scoreBreakdownCard.rankLabel': 'Rango',
+  'scoreBreakdownCard.streakBonus': 'Bonus de racha +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'A túa faísca está a brillar. Revisa o desglose de abaixo para seguir subindo na clasificación.',
   'settings.danger.body':
     'Elimina permanentemente a túa conta de Sparq e todos os cuestionarios creados.',
   'settings.danger.confirm': 'Si, eliminar para sempre',
@@ -191,5 +236,7 @@ export const ui: UiTranslations = {
     'Es responsable do contido que publicas, das preguntas que escribes e de calquera xogo que aloxes. Non te fagas pasar por outras persoas.',
   'terms.billing.body':
     'Os plans de pago renóvanse automaticamente ata que se cancelen desde Configuración. Podes cancelalos en calquera momento; o acceso continúa ata o final do período de facturación actual.',
+  'terms.intro':
+    'Ao usar {{app}} aceptas as regras de abaixo. Se non as podes aceptar, non uses o servizo.',
   'terms.title': 'Condicións de servizo',
 }

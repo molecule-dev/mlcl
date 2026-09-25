@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Suallarınız, rəyiniz və ya olmasını istədiyiniz funksiya var? Hesab parametrlərinizdən komanda ilə əlaqə saxlayın — hər mesajı real bir şəxs oxuyur.',
   'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'about.missionTitle': 'Missiyamız',
+  'about.whatYouGetTitle': 'Nə əldə edirsən',
   'analytics.empty': 'Burada analitikləri görmək üçün göyərtələr yaradın.',
   'analytics.stats.acrossDecks': 'Bütün göyərtələr boyunca',
   'analytics.stats.allTime': 'Studiyanızda',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Göyərtə başlığı',
   'landing.features.eyebrow': 'Niyə Uvertüra',
   'landing.features.heading': 'Səhnəyə çıxmaq üçün lazım olan hər şey hazırdır.',
+  'landing.finalCta.body':
+    'Studiyanızı bir dəqiqədən az müddətdə qurun. Kredit kartı tələb olunmur. İstənilən vaxt ləğv edin.',
   'landing.finalCta.cta': 'Pulsuz studiyanızı yaradın',
   'landing.finalCta.eyebrow': 'Başlamaq üçün pulsuzdur',
   'landing.finalCta.heading': 'Karyeranızın ən yaxşı heyəti ilə səhnəyə çıxın.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 dəqiqə əvvəl redaktə edilib',
   'notifications.created': 'yaradılıb',
   'notifications.edited': 'redaktə edilib',
+  'notifications.empty.body':
+    'Lövhələrinizdəki fəaliyyət — şərhlər, qeydlər, ixrac — burada görünəcək.',
   'notifications.empty.title': 'Hələ bildiriş yoxdur',
   'notifications.eyebrow': 'Səhnə fəaliyyəti',
   'notifications.loading': 'Yüklənir…',
   'notifications.shared': 'ictimaiyyətə açıq şəkildə paylaşıldı',
+  'planUpdated.retry': 'Yenidən cəhd edin',
+  'planUpdated.verifyFailed': 'Ödənişinizi hələ təsdiqləyə bilmədik.',
+  'planUpdated.verifyFailedBody':
+    'Ödənişiniz hələ də emal oluna bilər. Bir an sonra yenidən cəhd edin.',
   'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'present.addSlides': 'Slaydlar əlavə edin',
   'present.backToDecks': 'Göyərtələrə qayıt',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Səhnə ifaçısı',
   'settings.security.notSet': 'Təyin edilməyib',
   'settings.security.passwordBody': 'Şifrəniz işlək vəziyyətdə şifrələnir.',
+  'settings.security.reset': 'Sıfırla',
   'settings.security.title': 'Hesab + sessiyalar',
   'shared.empty.body':
     'İctimai paylaşdığınız lövhələr burada görünəcək. Bir lövhə açın və paylaşmaq üçün ictimai seçimi aktivləşdirin.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Yüklənir…',
   'shared.title': 'Paylaşılan göyərtələr',
   'templateCard.slideCount': '{{count}} slaydlar',
+  'templateCard.usageCount': '{{count}} istifadə',
+  'templates.empty.body': 'Fərqli filtr yoxlayın — hər ay yeni şablonlar təqdim edirik.',
+  'templates.empty.title': 'Bu kateqoriyada hələ şablon yoxdur',
+  'templates.hero.body':
+    'Qrafik blokları, demo çərçivələri, təqdimatçı qeydləri və taymer hazır ayarları olan mövzuya uyğun slayd düzənləri — hər şablon yazmağa hazır təqdim olunur.',
   'templates.hero.eyebrow': 'Seçilmiş mərhələlər',
   'templates.hero.heading': 'Mərhələlər, onu yerə endirmək istədiyiniz an üçün qurulub.',
 }

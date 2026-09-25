@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vprašanja, povratne informacije ali funkcija, ki si jo želite? Ekipo dosežete v nastavitvah računa — vsako sporočilo prebere resnična oseba.',
   'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
+  'about.missionTitle': 'Naše poslanstvo',
+  'about.whatYouGetTitle': 'Kaj dobite',
   'analytics.empty': 'Ustvarite komplete, da si ogledate analitiko tukaj.',
   'analytics.stats.acrossDecks': 'Na vseh palubah',
   'analytics.stats.allTime': 'V vašem studiu',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Naslov krova',
   'landing.features.eyebrow': 'Zakaj uvertura',
   'landing.features.heading': 'Vse, kar potrebujete za odhod na oder, je pripravljeno.',
+  'landing.finalCta.body':
+    'Ustvarite svoj studio v manj kot minuti. Brez kreditne kartice. Prekličete lahko kadar koli.',
   'landing.finalCta.cta': 'Ustvarite svoj brezplačni studio',
   'landing.finalCta.eyebrow': 'Za začetek prost',
   'landing.finalCta.heading': 'Stopite na oder z najboljšim kompletom kart v svoji karieri.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Urejeno pred 12 minutami',
   'notifications.created': 'ustvarjeno',
   'notifications.edited': 'urejeno',
+  'notifications.empty.body':
+    'Dejavnosti na vaših kompletih — komentarji, omembe, izvozi — se bodo prikazale tukaj.',
   'notifications.empty.title': 'Še ni obvestil',
   'notifications.eyebrow': 'Odrska dejavnost',
   'notifications.loading': 'Nalaganje …',
   'notifications.shared': 'javno deljeno',
+  'planUpdated.retry': 'Poskusi še enkrat',
+  'planUpdated.verifyFailed': 'Vašega plačila še nismo mogli potrditi.',
+  'planUpdated.verifyFailedBody':
+    'Vaše plačilo se morda še vedno obdeluje. Poskusite znova čez trenutek.',
   'planUpdated.verifying': 'Potrjevanje vašega plačila…',
   'present.addSlides': 'Dodaj diapozitive',
   'present.backToDecks': 'Nazaj na palube',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Odrski izvajalec',
   'settings.security.notSet': 'Ni nastavljeno',
   'settings.security.passwordBody': 'Vaše geslo je v mirovanju šifrirano.',
+  'settings.security.reset': 'Ponastavi',
   'settings.security.title': 'Račun + seje',
   'shared.empty.body':
     'Kompleti, ki jih javno delite, bodo prikazani tukaj. Odprite komplet in preklopite na javno deljenje.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Nalaganje …',
   'shared.title': 'Skupne terase',
   'templateCard.slideCount': '{{count}} diapozitivi',
+  'templateCard.usageCount': '{{count}} uporabe',
+  'templates.empty.body': 'Poskusite z drugim filtrom — vsak mesec dodamo nove predloge.',
+  'templates.empty.title': 'V tej kategoriji še ni predlog',
+  'templates.hero.body':
+    'Vnaprej oblikovane postavitve diapozitivov z bloki grafikonov, demo okviri, opombami predavatelja in vnaprej nastavljenimi časovniki — vsaka predloga je pripravljena za snemanje.',
   'templates.hero.eyebrow': 'Izbrane faze',
   'templates.hero.heading': 'Odre, zgrajene za trenutek, ko jih potrebujete za pristanek.',
 }

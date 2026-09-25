@@ -1,13 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Bog'laning",
   'about.eyebrow': 'Biz haqimizda',
+  'about.featureBooking':
+    'Stripe orqali xavfsiz to‘lovlar va check-in’dan 48 soat oldin bekor qilish bepul bo‘lgan darhol yoki so‘rov asosida bron qilish.',
+  'about.featureHosting':
+    'E’lonlarni joylash, mavjudlikni boshqarish, bronlarni kuzatish va to‘lov olish uchun to‘liq mezbon paneli.',
+  'about.featureMessaging':
+    'Safar davomida va undan oldin mezbonlar bilan to‘g‘ridan-to‘g‘ri yozishish, shuningdek sevimli joylarni saqlash uchun istaklar ro‘yxati.',
+  'about.featureReviews':
+    'Sayohatchilar va mezbonlar ishonchli obro‘ orttirishi uchun halol ikki tomonlama sharhlar.',
+  'about.featureSearch':
+    'Tasdiqlangan e’lonlar bo‘ylab xarita asosidagi qidiruv, narx, qulayliklar va sanalar bo‘yicha filtrlar bilan.',
+  'about.missionBody':
+    'Sayohat sizni zanjirga emas, balki bir joyga bog‘lashi kerak. Biz mustaqil mezbonlarga o‘ziga xos uylarini e’lon qilishda, sayohatchilarga esa ularni topishda yordam beramiz — shaffof narxlar, yashirin to‘lovlarsiz, to‘lovlar, soliqlar va sayohatchilarni tekshirish mezbon uchun hal qilinadi, shunda u mehmondo‘stlikka e’tibor qaratadi.',
+  'about.missionTitle': 'Bizning vazifamiz',
+  'about.subtitle': 'Haqiqiy uylar va haqiqiy mezbonlar atrofida qurilgan ijara bozori.',
   'bookingDetail.afterTime': 'Soat 15:00 dan keyin',
   'bookingDetail.backCta': 'Bronlashlarga qaytish',
   'bookingDetail.beforeTime': 'Soat 11:00 dan oldin',
   'bookingDetail.cancel': 'Buyurtmani bekor qilish',
   'bookingDetail.cancelFailed': "Bekor qilib bo'lmadi — iltimos, qayta urinib ko'ring.",
   'bookingDetail.checkIn': 'Belgilanish',
+  'bookingDetail.cleaningFee': 'Tozalash narxi',
   'bookingDetail.confirmCancel': "Bu buyurtma bekor qilinsinmi? Buni bekor qilib bo'lmaydi.",
   'bookingDetail.eyebrow': 'Tasdiqlash · {{code}}',
   'bookingDetail.messageHost': 'Xabar xosti',
@@ -21,14 +37,17 @@ export const ui: UiTranslations = {
   'bookingDetail.viewListing': "Ro'yxatni ko'rish",
   'bookingDetail.yourHost': 'Sizning xostingiz',
   'bookingItineraryRow.nights': '{{count}} kechalar',
+  'bookings.empty.past': 'Siz sayohat qilganingizdan so‘ng o‘tgan bronlar shu yerda ko‘rinadi.',
   'bookings.empty.upcoming': "Hech qanday muammo yo'q — keling, buni tuzatamiz.",
   'bookings.eyebrow': 'Sayohatlaringiz',
   'bookings.heading': 'Bronlashlar',
   'bookings.loadError': 'Bronlashlar yuklanmadi.',
+  'bookings.searchCta': 'Yana bir sayohatni rejalashtiring',
   'bookings.subheading': "{{upcoming}} yaqinlashib kelayotgan · {{past}} o'tmish",
   'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.retry': 'Qayta urinish',
   'createListing.back': "E'lonlarga qaytish",
+  'createListing.bedrooms': 'Yotoq xonalari',
   'createListing.cityLabel': 'U qayerda joylashgan?',
   'createListing.cityPlaceholder': 'Shahar, viloyat yoki mahalla',
   'createListing.descPlaceholder':
@@ -38,16 +57,22 @@ export const ui: UiTranslations = {
   'createListing.error.price': "Nashr qilishdan oldin bir kecha uchun narx qo'shing.",
   'createListing.error.title': "Nashr qilishdan oldin sarlavha qo'shing.",
   'createListing.heading': 'Eshikni oching',
+  'createListing.listingImageAlt': 'E’lon {{number}}',
   'createListing.maxGuests': 'Maksimal mehmonlar',
   'createListing.photos.heading': "Sayohatchilarni aylantirishni to'xtatadigan rasmlar qo'shing",
+  'createListing.photos.subheading':
+    'Kamida 3 ta foto yuklagan mezbonlar o‘rtacha 2,3× ko‘proq daromad qiladi.',
   'createListing.place.heading': 'Bu qanday joy?',
+  'createListing.price': 'Bir kecha narxi',
   'createListing.publish': "Ro'yxatni nashr qilish",
   'createListing.removePhoto': 'Suratni olib tashlash',
   'createListing.step.${s.key}.eyebrow': 'Qadam {{n}}',
   'createListing.subheading':
     "E'loningizni jonli efirga uzatish uchun bir nechta savollar. Biz har bir qadamda sizning yutuqlaringizni saqlab qolamiz.",
+  'createListing.title': 'E’lon sarlavhasi',
   'createListing.titlePlaceholder': 'Quyoshli Cliffside Cabin',
   'createListing.uploadCta': "Surat qo'shish {{n}}",
+  'createListing.useSample': 'Namunaviy fotodan foydalanish',
   'destinationDiscoveryCard.exploreCta': "Turar joylarni o'rganing",
   'forgotPassword.eyebrow': 'Qayta tiklash',
   'forgotPassword.subheading':
@@ -62,6 +87,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelOccupancy': 'Bandlik',
   'hostDashboard.hero.labelYtd': 'Yil boshida',
   'hostDashboard.loadError': "Xosting ma'lumotlaringizni yuklab bo'lmadi. Qaytadan urinib ko'ring.",
+  'hostDashboard.queueArrivals': '{{count}} keyingi hafta kelishlar',
+  'hostDashboard.queueListings': "{{count}} faol ro'yxatlar",
   'hostDashboard.queueRequests': "{{count}} bron qilish so'rovlari",
   'hostDashboard.queueReview': "Ko'rib chiqish navbati",
   'hostDashboard.queueTitle': 'Sizning navbatingiz',
@@ -83,11 +110,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': "Ro'yxat topilmadi.",
   'hostListingDetail.photos.empty': 'Hali hech qanday rasm yuklanmagan.',
   'hostListingDetail.photos.heading': 'Rasmlar',
+  'hostListingDetail.pricing.cleaning': 'Tozalash narxi',
   'hostListingDetail.pricing.save': 'Narxlarni tejash',
   'hostListingDetail.pricing.weekday': 'Hafta kunlari narxi',
   'hostListingDetail.pricing.weekend': "Dam olish kunlari narxi (faqat ko'rsatiladi)",
   'hostListingDetail.rules.copy':
     "Mehmonlar kutganlarini belgilang va uyingizni himoya qiling — bular buyurtmani tasdiqlashdan oldin ko'rib chiqiladi.",
+  'hostListingDetail.rules.heading': 'Uy qoidalari',
   'hostListings.create': "Yangi ro'yxat yaratish",
   'hostListings.eyebrow': 'Sizning portfelingiz',
   'hostListings.heading': "E'lonlar",
@@ -97,8 +126,11 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Xostlar uchun',
   'landing.cta.heading': 'Eshikingizni oching. Uyingizning qiymatiga qarab ishlang.',
   'landing.cta.host': 'Xostingni boshlang',
+  'landing.cta.subheading':
+    '{{appName}} to‘lovlar, soliqlar va sayohatchilarni tekshirish bilan shug‘ullanadi, shunda siz mezbonlikka e’tibor qaratasiz. Aksariyat yangi mezbonlar birinchi $1,000 daromadini 30 kun ichida topadi.',
   'landing.destinations.eyebrow': 'Keyingi qayerga',
   'landing.destinations.heading': 'Bizning mezbonlarimiz yoqtiradigan joylar',
+  'landing.destinations.seeAll': "Barcha manzillarni ko'rish",
   'landing.footer.host': "Xost bo'ling",
   'landing.footer.search': 'Turar joy toping',
   'landing.footer.tagline': "O'zingizga tegishli bo'lgandek qoling.",
@@ -107,8 +139,11 @@ export const ui: UiTranslations = {
   'landing.nav.host': "Xost bo'ling",
   'landing.nav.join': "Roostga qo'shiling",
   'landing.nav.search': 'Turar joy toping',
+  'landing.preview.browseAll': "To'liq to'plamni ko'rib chiqing",
   'landing.preview.eyebrow': 'Ichkariga bir nazar',
   'landing.preview.heading': "Bu oyda qo'lda tanlangan turar joylar",
+  'landing.preview.subheading':
+    'Har bir {{appName}} e’loni haqiqiy inson tomonidan joylashtirilgan — tasdiqlangan, sharhlangan va check-in’dan 48 soat oldin bekor qilish bepul.',
   'listingDetail.about': 'Bu joy haqida',
   'listingDetail.amenities': 'Bu joy nimani taklif qiladi',
   'listingDetail.bathrooms': 'vannalar',
@@ -116,7 +151,10 @@ export const ui: UiTranslations = {
   'listingDetail.beds': 'yotoqlar',
   'listingDetail.bookFailed':
     "Band qilib bo'lmadi. Qaytadan urinib ko'ring yoki avval tizimga kiring.",
+  'listingDetail.cleaningFee': 'Tozalash narxi',
+  'listingDetail.guests': 'mehmonlar',
   'listingDetail.hostedBy': 'Mezbon {{host}}',
+  'listingDetail.hostMeta': '{{years}} yillik mezbonlik · {{response}}% javob berish darajasi',
   'listingDetail.houseRules': 'Uy qoidalari',
   'listingDetail.instantBook': 'Hoziroq bron qiling · Tezkor buyurtma',
   'listingDetail.loadError': 'Roʻyxatni yuklab boʻlmadi.',
@@ -126,6 +164,7 @@ export const ui: UiTranslations = {
   'listingDetail.perNight': 'bir kechaga',
   'listingDetail.pickDates': "Avval ro'yxatdan o'tish va chiqish sanalarini tanlang.",
   'listingDetail.priceRow': '{{price}} × {{nights}} kechalar',
+  'listingDetail.requestBook': "Bron qilish uchun so'rov",
   'listingDetail.reserving': 'Bron qilinmoqda…',
   'listingDetail.reviews': 'sharhlar',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}} sharhlar',
@@ -133,6 +172,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'Superxost',
   'login.eyebrow': 'Uyga xush kelibsiz',
   'login.heading': 'Roost’ga kiring',
+  'login.noAccount': 'Tesserada yangimisiz?',
   'login.signupLink': 'Bepul hisob yarating',
   'login.subheading':
     "To'xtagan joyingizdan davom eting — orzu qilgan sayohatlaringizni, xabar almashish xizmatlaringizni va bron qilish turar joylarini boshqaring.",
@@ -157,6 +197,7 @@ export const ui: UiTranslations = {
   'notFound.heading': "Biz o'sha turar joyni topa olmayapmiz",
   'notifications.loading': 'Yuklanmoqda…',
   'notifications.subheading': "{{count}} o'qilmagan · hamma narsa bitta xotirjam pochta qutisida",
+  'pricing.ctaContact': "Savdo bilan bog'laning",
   'pricing.ctaUpgrade': "Savdo bilan bog'laning",
   'pricing.eyebrow': 'Oddiy, shaffof',
   'pricing.heading': 'Sayohat ritmingizga mos keladigan reja',
@@ -193,8 +234,12 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     "Esda qolarli narsani tanlang. Saqlaganingizdan so'ng, biz sizni tizimga kiritamiz.",
   'roostAuthShell.brand.eyebrow': "O'zingizga tegishli bo'lganidek qoling",
+  'roostAuthShell.brand.heading':
+    'Kabinlar, kottejlar, riadlar — o‘sha yerda yashovchi mezbonlar tomonidan taqdim etiladi.',
   'roostHeroSearchCard.checkInAria': "Ro'yxatdan o'tish sanasi",
   'roostHeroSearchCard.checkOutAria': 'Chiqish sanasi',
+  'roostHeroSearchCard.destAria': 'Manzil',
+  'roostHeroSearchCard.destLabel': 'Qayerda',
   'roostHeroSearchCard.destPlaceholder': 'Shahar, viloyat yoki mulk',
   'roostHeroSearchCard.eyebrow': "Qo'lda tanlangan turar joylar · Tasdiqlangan mezbonlar",
   'roostHeroSearchCard.guestsOption': '{{n}} mehmonlar',
@@ -206,6 +251,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'roostListingCard.bookmarkAria': "Ro'yxatni saqlash",
   'roostListingCard.night': 'kecha',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': "Qidiruvingizga hech qanday e'lon mos kelmadi.",
   'search.emptyHint':
     'Filtrlaringizni kengaytirishga yoki narx chegarasini olib tashlashga harakat qiling — Roost 26 mamlakatda mehmonxonalarga ega.',
@@ -213,9 +259,14 @@ export const ui: UiTranslations = {
   'search.heading': 'Uydagidek his qiladigan joy',
   'search.headingForQuery': '"Uchun qoladi" {{q}} "',
   'search.loadError': 'Roʻyxatlarni yuklab boʻlmadi.',
+  'search.mapHint':
+    "Xaritada ajratib ko'rsatish uchun kartaga kursorni olib keling. Ishlab chiqarishda jonli Mapbox plitkalari.",
+  'search.mapPinAria': '{{name}} — {{price}} bir kecha uchun',
   'search.sortLabel': 'Saralash turi',
   'search.subheading': "{{count}} ro'yxatlar · {{guests}} mehmonlar",
+  'settings.appearance.description': "Yorug'lik va qorong'u rejimlar o'rtasida almashinish.",
   'settings.appearance.title': "Tashqi ko'rinish",
+  'settings.openBilling': 'Ochiq hisob-kitob',
   'settings.payments.heading': "To'lov usullari",
   'settings.paymentsHelp':
     'Xost buyurtmangizni tasdiqlagan zahoti Roost kartangizdan pul yechib oladi. Saqlangan kartalarni Narxlar sahifasida boshqaring.',

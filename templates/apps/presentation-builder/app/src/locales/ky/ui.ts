@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Суроолор, пикирлер же бизде болушун каалаган функциябы? Аккаунт жөндөөлөрүңүздөн командага кайрылыңыз — ар бир билдирүүнү чыныгы адам окуйт.',
   'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
+  'about.missionTitle': 'Биздин миссиябыз',
+  'about.whatYouGetTitle': 'Эмне аласыз',
   'analytics.empty': 'Бул жерден аналитиканы көрүү үчүн колодаларды түзүңүз.',
   'analytics.stats.acrossDecks': 'Бардык палубалар боюнча',
   'analytics.stats.allTime': 'Сиздин студияңызда',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Палубанын аталышы',
   'landing.features.eyebrow': 'Эмне үчүн увертюра',
   'landing.features.heading': 'Сахнага чыгуу үчүн керектүү нерселердин баары даяр.',
+  'landing.finalCta.body':
+    'Студияңызды бир мүнөттөн аз убакытта түзүңүз. Кредиттик карта керек эмес. Каалаган убакта токтотуңуз.',
   'landing.finalCta.cta': 'Акысыз студияңызды түзүңүз',
   'landing.finalCta.eyebrow': 'Баштоо акысыз',
   'landing.finalCta.heading': 'Карьераңыздагы эң мыкты колода менен сахнага чыгыңыз.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 мүнөт мурун түзөтүлдү',
   'notifications.created': 'түзүлгөн',
   'notifications.edited': 'түзөтүлдү',
+  'notifications.empty.body':
+    'Декиңиздеги активдүүлүк — комментарийлер, эскертүүлөр, экспорттор — ушул жерде көрүнөт.',
   'notifications.empty.title': 'Азырынча эч кандай эскертмелер жок',
   'notifications.eyebrow': 'Сахнадагы иш-аракеттер',
   'notifications.loading': 'Жүктөлүүдө…',
   'notifications.shared': 'жалпыга ачык бөлүшүлдү',
+  'planUpdated.retry': 'Кайра аракет кыл',
+  'planUpdated.verifyFailed': 'Төлөмүңүздү азырынча ырастай алган жокпуз.',
+  'planUpdated.verifyFailedBody':
+    'Төлөмүңүз дагы эле иштетилип жатышы мүмкүн. Бир аздан кийин кайра аракет кылыңыз.',
   'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'present.addSlides': 'Слайддарды кошуу',
   'present.backToDecks': 'Колодаларга кайтуу',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Сахна артисти',
   'settings.security.notSet': 'Орнотулган эмес',
   'settings.security.passwordBody': 'Сырсөзүңүз эс алуу учурунда шифрленген.',
+  'settings.security.reset': 'Баштапкы абалга келтирүү',
   'settings.security.title': 'Аккаунт + сессиялар',
   'shared.empty.body':
     'Сиз жалпыга ачык бөлүшкөн колодалар бул жерде көрүнөт. Колоданы ачып, бөлүшүү үчүн жалпыга ачык режимди күйгүзүңүз.',
@@ -130,6 +143,12 @@ export const ui: UiTranslations = {
   'shared.loading': 'Жүктөлүүдө…',
   'shared.title': 'Жалпы палубалар',
   'templateCard.slideCount': '{{count}} слайддар',
+  'templateCard.usageCount': '{{count}} колдонуу',
+  'templates.empty.body':
+    'Башка фильтрди колдонуп көрүңүз — биз ай сайын жаңы шаблондорду чыгарабыз.',
+  'templates.empty.title': 'Бул категорияда азырынча шаблондор жок',
+  'templates.hero.body':
+    'Диаграмма блоктору, демо-фреймдер, спикер эскертүүлөрү жана таймер пресеттери менен алдын ала темаланган слайддардын жайгашуусу — ар бир шаблон жазууга даяр.',
   'templates.hero.eyebrow': 'Тандалган этаптар',
   'templates.hero.heading': 'Конуу үчүн керектүү учурга ылайыкташтырылган этаптар.',
 }

@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'प्रश्न, अभिप्राय किंवा तुम्हाला हवे असलेले वैशिष्ट्य? तुमच्या खाते सेटिंग्जमधून टीमशी संपर्क साधा — प्रत्येक संदेश खरा माणूस वाचतो.',
   'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'बद्दल',
+  'about.missionTitle': 'आमचे ध्येय',
+  'about.whatYouGetTitle': 'तुम्हाला काय मिळते',
   'analytics.empty': 'येथे विश्लेषण पाहण्यासाठी डेक तयार करा.',
   'analytics.stats.acrossDecks': 'सर्व डेकमध्ये',
   'analytics.stats.allTime': 'तुमच्या स्टुडिओमध्ये',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'डेक शीर्षक',
   'landing.features.eyebrow': 'प्रस्तावना का?',
   'landing.features.heading': 'मंचावर जाण्यासाठी आवश्यक असलेले सर्व काही तयार होऊन.',
+  'landing.finalCta.body':
+    'एका मिनिटापेक्षा कमी वेळात तुमचा स्टुडिओ सुरू करा. क्रेडिट कार्ड नाही. कधीही रद्द करा.',
   'landing.finalCta.cta': 'तुमचा मोफत स्टुडिओ तयार करा',
   'landing.finalCta.eyebrow': 'सुरुवात करण्यास मोफत',
   'landing.finalCta.heading': 'आपल्या कारकिर्दीतील सर्वोत्तम सादरीकरणासह मंचावर पाऊल ठेवा.',
@@ -81,10 +87,15 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '१२ मिनिटांपूर्वी संपादित केले',
   'notifications.created': 'तयार केले',
   'notifications.edited': 'संपादित',
+  'notifications.empty.body': 'तुमच्या डेकवरील हालचाल — टिप्पण्या, उल्लेख, निर्यात — येथे दिसतील.',
   'notifications.empty.title': 'अद्याप कोणतीही सूचना नाही',
   'notifications.eyebrow': 'स्टेजवरील कृती',
   'notifications.loading': 'लोडिंग…',
   'notifications.shared': 'सार्वजनिकरित्या शेअर केले',
+  'planUpdated.retry': 'पुन्हा प्रयत्न करा',
+  'planUpdated.verifyFailed': 'आम्ही अद्याप तुमच्या पेमेंटची पुष्टी करू शकलो नाही.',
+  'planUpdated.verifyFailedBody':
+    'तुमच्या पेमेंटवर अजूनही प्रक्रिया सुरू असू शकते. थोड्या वेळाने पुन्हा प्रयत्न करा.',
   'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'present.addSlides': 'स्लाइड्स जोडा',
   'present.backToDecks': 'डेकवर परत',
@@ -122,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'रंगमंचावरील कलाकार',
   'settings.security.notSet': 'सेट केलेले नाही',
   'settings.security.passwordBody': 'तुमचा पासवर्ड सध्या एनक्रिप्ट केलेला आहे.',
+  'settings.security.reset': 'रीसेट करा',
   'settings.security.title': 'खाते + सत्रे',
   'shared.empty.body':
     'तुम्ही सार्वजनिकरित्या शेअर केलेले डेक येथे दिसतील. डेक उघडून शेअर करण्यासाठी ‘पब्लिक’ पर्याय निवडा.',
@@ -130,6 +142,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'लोडिंग…',
   'shared.title': 'सामायिक डेक',
   'templateCard.slideCount': '{{count}} स्लाइड्स',
+  'templateCard.usageCount': '{{count}} वापर',
+  'templates.empty.body': 'वेगळा फिल्टर वापरून पहा — आम्ही दर महिन्याला नवीन टेम्पलेट्स देतो.',
+  'templates.empty.title': 'या श्रेणीत अद्याप टेम्पलेट्स नाहीत',
+  'templates.hero.body':
+    'चार्ट ब्लॉक्स, डेमो फ्रेम्स, सादरकर्त्याच्या नोट्स आणि टाइमर प्रीसेटसह आधीच थीम केलेले स्लाइड लेआउट — प्रत्येक टेम्पलेट रेकॉर्ड करण्यासाठी तयार असते.',
   'templates.hero.eyebrow': 'निवडक मंच',
   'templates.hero.heading':
     'जेव्हा तुम्हाला ते यशस्वीपणे पार पाडायचे असते, त्या क्षणासाठीच तयार केलेले मंच.',

@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'エディション、発送、サブスクリプションについてのご質問は？チームの担当者に hello@crate.example までご連絡ください — すべてのメッセージに目を通しています。',
+  'about.contactTitle': 'キュレーターと話す',
+  'about.feature1':
+    '独立した作り手が厳選した月替わりのキュレーションエディション。すべてのアイテムに込められたストーリー付き。',
+  'about.feature2':
+    'すべてのボックスを自由にコントロール — 中身のカスタマイズ、アイテムの交換や除外、1か月のスキップ、配送頻度の変更が可能です。',
+  'about.feature3':
+    '集荷から玄関先まで一貫した配送追跡。プラスチックフリーの梱包と配送業者のリアルタイム更新付き。',
+  'about.feature4':
+    '柔軟なプランと透明な請求 — アップグレード、ダウングレード、一時停止、キャンセルはいつでもダッシュボードから。',
+  'about.intro':
+    '{{app}}は、厳選された少量生産の喜びのボックスを毎月玄関先にお届けするキュレーション型サブスクリプションボックスサービスです。すべてのエディションは、アルゴリズムではなく、現役の作り手 — 独立したアーティスト、シェフ、小規模ブランド — によって組み立てられています。',
+  'about.missionBody':
+    'サブスクリプションは罠ではなく贈り物のように感じられるべきだと考えています。{{app}}は、届くものが好きだから続けられるように作られています — いつでも一時停止、好きなものに交換、ワンクリックでキャンセル。引き止めのトークは一切ありません。',
+  'about.missionTitle': '私たちの使命',
   'about.pageTitle': '{{app}}について',
   'appNav.mobileLabel': 'メインナビゲーション',
   'appNav.primaryLabel': 'メインナビゲーション',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': '請求先連絡先を編集',
   'billing.contact.eyebrow': '請求先連絡先',
   'billing.eyebrow': 'プランと支払い',
+  'billing.loading': '請求情報を読み込んでいます…',
   'billing.payment.body':
     '支払いはStripe Checkoutで処理されます — お客様の完全なカード番号が当社のサーバーに触れることはありません。下のティアをクリックしてカードを追加または更新してください。',
   'billing.payment.linked': 'Stripe経由でカードを登録済み',
@@ -20,9 +37,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'サブスクリプションを再開',
   'billing.plan.eyebrow': 'アクティブなプラン',
   'billing.plan.next': '{{date}}に自動更新されます。',
+  'billing.plan.status': 'ステータス: {{status}}',
   'billing.subtitle': 'ティア、支払い方法を管理し、過去のアクティビティを確認できます。',
   'billing.tiers.body': 'ティアを選択すると、Stripe Checkoutにご案内します。',
   'billing.tiers.choose': '選択',
+  'billing.tiers.empty': 'まだティアが設定されていません。',
   'billing.tiers.heading': '利用可能なティア',
   'boxDetail.backToBoxes': 'すべてのエディションに戻る',
   'boxDetail.crumb.boxes': 'エディション',
@@ -35,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': '厳選されたアイテム',
   'boxDetail.items.heading': '{{count}}個の厳選アイテム',
   'boxDetail.itemsBadge': 'ボックスあたり{{count}}個の厳選アイテム',
+  'boxDetail.loading': 'エディションを読み込み中…',
   'boxDetail.notFound': 'そのエディションはもう利用できません。',
   'boxDetail.subscribe.success': '登録しました — 最初のエディションがキューに入りました。',
   'boxDetail.swapBadge': 'ボックスあたり最大{{count}}個のアイテムを交換可能',
@@ -43,14 +63,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'まだ該当するものはありません。',
   'boxes.eyebrow': 'Crateアーカイブ',
   'boxes.heading': 'すべてのエディションを見る',
+  'boxes.loadError': 'エディションを読み込めませんでした。接続を確認して再試行してください。',
   'boxes.loading': 'エディションを読み込み中…',
+  'boxes.search.label': 'エディションを検索',
   'boxes.search.placeholder': 'エディションを検索…',
   'boxes.subtitle':
     '各ティアは小さなストーリーです。キューに追加するか、来月のものと交換できます。',
+  'boxThemeCard.itemCount': '{{count}}件',
   'boxThemeCard.perMonth': '/ 月',
+  'boxThemeCard.retailValue': '小売価格 {{value}}',
   'common.goToDashboard': 'ダッシュボードへ',
+  'common.retry': '再試行',
   'customize.eyebrow': '自分仕様に',
   'customize.heading': '次のCrateをカスタマイズ',
+  'customize.items.empty': 'このティアにはまだアイテムが設定されていません。',
   'customize.items.exclude': 'スキップ',
   'customize.items.eyebrow': 'このボックスをパーソナライズ',
   'customize.items.heading': '{{box}}のアイテム',
@@ -59,7 +85,9 @@ export const ui: UiTranslations = {
   'customize.items.include': '再追加',
   'customize.items.save': 'カスタマイズを保存',
   'customize.items.swapsLeft': '{{used}}回中{{max}}回の交換を使用',
+  'customize.loading': 'カスタマイズを読み込み中…',
   'customize.noSub.body': 'まずティアに登録してから、戻ってボックスのアイテムを交換してください。',
+  'customize.noSub.cta': 'エディションを見る',
   'customize.noSub.heading': 'アクティブなサブスクリプションがありません',
   'customize.saved': 'カスタマイズを保存しました。',
   'customize.subtitle':
@@ -73,11 +101,13 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': '配送を追跡',
   'dashboard.eyebrow': 'あなたのCrate',
   'dashboard.greeting': 'おかえりなさい、{{name}}さん。',
+  'dashboard.loadError': 'ダッシュボードを読み込めませんでした。接続を確認して再試行してください。',
   'dashboard.loading': 'ダッシュボードを読み込み中…',
   'dashboard.next.eyebrow': '次のエディション',
   'dashboard.onboarding.body':
     'まだアクティブなサブスクリプションがありません。ティアを選んで毎月Crateの配送を始めましょう。',
   'dashboard.onboarding.cta': 'すべてのエディションを見る',
+  'dashboard.onboarding.empty': '現在利用可能なプランはありません。また後ほどご確認ください。',
   'dashboard.onboarding.heading': '最初のエディションを選ぶ',
   'dashboard.renewal.amount': '請求額',
   'dashboard.renewal.cadence': '頻度',
@@ -85,16 +115,21 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': '更新',
   'dashboard.renewal.heading': '{{date}}に自動更新',
   'dashboard.renewal.plan': 'プランキー',
+  'dashboard.renewal.tbd': 'まもなく更新のスケジュールを設定',
   'dashboard.renewal.tier': 'ティア',
   'dashboard.stats.days': '日',
   'dashboard.stats.daysToNext': '発送まで',
   'dashboard.stats.items': '厳選アイテム',
   'dashboard.stats.shipDate': '発送日',
   'dashboard.stats.tbd': '未定',
+  'dashboard.subtitle.active': '次のエディションは発送中です。お届け内容はこちら。',
+  'dashboard.subtitle.idle': '毎月{{appName}}を発送するにはティアを選択してください。',
   'forgotPassword.subtitle': 'メールアドレスを教えていただければ、リセットリンクをお送りします。',
+  'forgotPassword.success.body': '{{email}}が登録済みの場合、数分以内にリセットリンクが届きます。',
   'forgotPassword.success.title': '受信トレイをご確認ください。',
   'landing.editions.eyebrow': '今シーズン',
   'landing.editions.heading': 'キュレーターお気に入りのエディション',
+  'landing.editions.viewAll': 'すべてのエディションを見る →',
   'landing.footer.contact': 'キュレーターと話す',
   'landing.footer.tagline': '{{tagline}}。',
   'landing.hero.ctaPrimary': 'ボックスを始める →',
@@ -104,6 +139,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'メンバーダッシュボードのプレビュー — カウントダウン、内容、配送追跡。',
   'landing.hero.social.count': '{{count}}人以上の登録者に愛されています',
+  'landing.hero.social.rating': '{{rating}} 平均開封評価',
+  'landing.hero.subhead':
+    '{{appName}}は、独立した作り手から厳選された少量生産の喜びのボックスをお届けします。いつでも一時停止。好きなものに交換。気に入ったものは手元に。',
   'landing.nav.start': 'ボックスを始める',
   'landing.tiers.eyebrow': '頻度を選ぶ',
   'landing.tiers.heading': '小さく始めて、いつでもアップグレード、同じくらい簡単にキャンセル。',
@@ -113,6 +151,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'サインインして来月のボックスをのぞいてみましょう。',
   'login.welcomeBack': 'おかえりなさい、キュレーターさん。',
   'nextBoxHeroCard.eyebrow': 'あなたの次のCRATE',
+  'nextBoxHeroCard.itemCount': '中身は{{count}}点',
   'nextBoxHeroCard.itemsLabel': '厳選アイテム',
   'nextBoxHeroCard.shipsOnLabel': '発送日',
   'notFound.body':
@@ -136,8 +175,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'サブスクリプションを一時停止',
   'settings.danger.paused': 'サブスクリプションを一時停止しました。',
   'settings.danger.pausing': '一時停止中…',
+  'settings.danger.status': 'サブスクリプションのステータス: {{status}}',
   'settings.danger.subtitle':
     '一時停止すると、ティアと履歴はそのまま保持されます。キャンセルすると、今後の発送が停止し、サイクル終了時に保存された支払い方法が削除されます。',
+  'settings.notifications.saving': '· 保存中…',
   'settings.notifications.subtitle':
     'Crateから受け取りたい通知を選んでください。デフォルトは適切な設定になっています。',
   'settings.subtitle': 'プロフィール、配送先住所、Crateからの連絡方法を更新できます。',
@@ -152,12 +193,17 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'まだアクティブな発送はありません',
   'shipments.live.eyebrow': 'アクティブな発送',
   'shipments.live.unnamed': '次のボックス',
+  'shipments.loadError': '発送情報を読み込めませんでした。接続を確認して再試行してください。',
+  'shipments.loading': '出荷を読み込み中…',
+  'shipments.step.delivered': '配達済み',
   'shipments.step.deliveredBody': '#crateunboxをタグ付けして、発見したものをシェアしましょう。',
   'shipments.step.ordered': '注文確定',
   'shipments.step.orderedBody':
     'サブスクリプションがこのエディションを次の発送サイクルにキューイングしました。',
+  'shipments.step.packed': '手詰め',
   'shipments.step.packedBody':
     '各アイテムが包装され、手書きのメッセージとともにボックスに収められました。',
+  'shipments.step.transit': '配送中',
   'shipments.step.transitNot': 'ボックスが発送されると、追跡情報がここに表示されます。',
   'shipments.subtitle':
     'ボックスがお手元に届くまでを追跡し、これまでに開けたすべてのエディションを振り返ることができます。',

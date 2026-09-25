@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'שאלות, משוב או תכונה שהייתם רוצים שתהיה לנו? צרו קשר עם הצוות מהגדרות החשבון שלכם — אדם אמיתי קורא כל הודעה.',
   'about.contactTitle': 'דברו איתנו',
   'about.eyebrow': 'אוֹדוֹת',
+  'about.missionTitle': 'המשימה שלנו',
+  'about.whatYouGetTitle': 'מה שאתה מקבל',
   'analytics.empty': 'צור חפיסות כדי לראות כאן ניתוחים.',
   'analytics.stats.acrossDecks': 'על פני כל החפיסות',
   'analytics.stats.allTime': 'בסטודיו שלך',
@@ -66,6 +70,7 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'כותרת החפיסה',
   'landing.features.eyebrow': 'למה אוברטור',
   'landing.features.heading': 'כל מה שצריך כדי לעלות על הבמה מוכנים.',
+  'landing.finalCta.body': 'הקימו את הסטודיו שלכם בפחות מדקה. בלי כרטיס אשראי. ביטול בכל עת.',
   'landing.finalCta.cta': 'צור את הסטודיו החינמי שלך',
   'landing.finalCta.eyebrow': 'חינם להתחיל',
   'landing.finalCta.heading': 'עלו על הבמה עם החפיסה הטובה ביותר בקריירה שלכם.',
@@ -81,10 +86,14 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'נערך לפני 12 דקות',
   'notifications.created': 'נוצר',
   'notifications.edited': 'עָרוּך',
+  'notifications.empty.body': 'פעילות בחפיסות שלכם — תגובות, אזכורים, ייצוא — תופיע כאן.',
   'notifications.empty.title': 'אין עדיין התראות',
   'notifications.eyebrow': 'פעילות במה',
   'notifications.loading': 'טְעִינָה…',
   'notifications.shared': 'שותף באופן ציבורי',
+  'planUpdated.retry': 'נסה שוב',
+  'planUpdated.verifyFailed': 'עדיין לא הצלחנו לאשר את התשלום שלך.',
+  'planUpdated.verifyFailedBody': 'ייתכן שהתשלום שלך עדיין בתהליך עיבוד. נסה שוב בעוד רגע.',
   'planUpdated.verifying': 'מאשר את התשלום שלך...',
   'present.addSlides': 'הוסף שקופיות',
   'present.backToDecks': 'חזרה לחיפונים',
@@ -122,6 +131,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'אמן במה',
   'settings.security.notSet': 'לא מוגדר',
   'settings.security.passwordBody': 'הסיסמה שלך מוצפנת במצב מנוחה.',
+  'settings.security.reset': 'אִתחוּל',
   'settings.security.title': 'חשבון + פעילויות',
   'shared.empty.body':
     'חפיסות שתשתף באופן ציבורי יופיעו כאן. פתח חפיסה והפעל את האפשרות "ציבורי" כדי לשתף.',
@@ -130,6 +140,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'טְעִינָה…',
   'shared.title': 'מרפסות משותפות',
   'templateCard.slideCount': '{{count}} שקופיות',
+  'templateCard.usageCount': '{{count}} שימושים',
+  'templates.empty.body': 'נסו סינון אחר — אנחנו מוסיפים תבניות חדשות בכל חודש.',
+  'templates.empty.title': 'אין עדיין תבניות בקטגוריה הזו',
+  'templates.hero.body':
+    'פריסות שקופיות עם עיצוב מוכן הכוללות בלוקים של תרשימים, מסגרות דמו, הערות מציג וקיצובי טיימר מוגדרים מראש — כל תבנית מוכנה להקלטה.',
   'templates.hero.eyebrow': 'שלבים שנבחרו',
   'templates.hero.heading': 'שלבים שנבנו לרגע שאתה צריך לנחות אותם.',
 }

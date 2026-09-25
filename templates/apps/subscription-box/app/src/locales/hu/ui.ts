@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kérdésed van egy kiadással, egy szállítmánnyal vagy az előfizetéseddel kapcsolatban? Írj a csapat egy igazi tagjának a hello@crate.example címen — minden üzenetet elolvasunk.',
+  'about.contactTitle': 'Beszéljen egy kurátorral',
+  'about.feature1':
+    'Válogatott havi kiadások, amelyeket független alkotók állítanak össze, minden tárgy történetével együtt.',
+  'about.feature2':
+    'Teljes kontroll minden doboz felett — testre szabhatod a tartalmat, cserélhetsz vagy kizárhatsz tárgyakat, kihagyhatsz egy hónapot, vagy módosíthatod a gyakoriságot.',
+  'about.feature3':
+    'Szállítmánykövetés az átvételtől a küszöbig, műanyagmentes csomagolással és valós idejű futárszolgálati értesítésekkel.',
+  'about.feature4':
+    'Rugalmas csomagok és átlátható számlázás — bármikor válthatsz csomagot, szüneteltetheted vagy lemondhatod az előfizetést az irányítópultodról.',
+  'about.intro':
+    'A {{app}} egy válogatott előfizetéses dobozszolgáltatás, amely minden hónapban egy kézzel válogatott, kis szériás örömcsomagot szállít az ajtódhoz. Minden kiadást dolgozó alkotók — független művészek, séfek és kis márkák — állítanak össze, nem egy algoritmus.',
+  'about.missionBody':
+    'Hiszünk benne, hogy az előfizetésnek ajándéknak kell lennie, nem csapdának. A {{app}} úgy épült fel, hogy azért maradj, mert szereted, ami megérkezik — bármikor szüneteltetheted, kicserélheted, amit szeretnél, és egy kattintással lemondhatod. Megtartó szövegek nélkül, örökre.',
+  'about.missionTitle': 'Küldetésünk',
   'about.pageTitle': 'A {{app}} névjegye',
   'appNav.mobileLabel': 'Elsődleges navigáció',
   'appNav.primaryLabel': 'Elsődleges navigáció',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Számlázási kapcsolattartó szerkesztése',
   'billing.contact.eyebrow': 'Számlázási kapcsolattartó',
   'billing.eyebrow': 'Előfizetés és fizetések',
+  'billing.loading': 'Számlázás betöltése…',
   'billing.payment.body':
     'A fizetést a Stripe Checkout kezeli – a teljes kártyaszámod soha nem kerül kapcsolatba a szervereinkkel. Kattints bármelyik szintre az alábbi listán a kártya hozzáadásához vagy frissítéséhez.',
   'billing.payment.linked': 'A kártya a Stripe-en keresztül van tárolva.',
@@ -19,10 +36,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Előfizetés folytatása',
   'billing.plan.eyebrow': 'Aktív terv',
   'billing.plan.next': 'Automatikusan megújul ekkor: {{date}} .',
+  'billing.plan.status': 'Állapot: {{status}}',
   'billing.subtitle':
     'Kezeld a szintet, a fizetési módot, és tekintsd át a korábbi tevékenységeket.',
   'billing.tiers.body': 'Válassz egy szintet, és mi a Stripe pénztárhoz irányítunk.',
   'billing.tiers.choose': 'Válasszon',
+  'billing.tiers.empty': 'Még nincsenek szintek beállítva.',
   'billing.tiers.heading': 'Elérhető szintek',
   'boxDetail.backToBoxes': 'Vissza az összes kiadáshoz',
   'boxDetail.crumb.boxes': 'Kiadások',
@@ -35,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Kurátorált darab',
   'boxDetail.items.heading': '{{count}} kurátorált darabok',
   'boxDetail.itemsBadge': '{{count}} válogatott tételek dobozonként',
+  'boxDetail.loading': 'Kiadás betöltése…',
   'boxDetail.notFound': 'Az a kiadás már nem elérhető.',
   'boxDetail.subscribe.success': 'Előfizetésben – az első kiadásod várólistára került.',
   'boxDetail.swapBadge': 'Cserélje fel erre: {{count}} tétel dobozonként',
@@ -43,14 +63,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Nincs egyező kiadás.',
   'boxes.eyebrow': 'A Crate archívum',
   'boxes.heading': 'Böngésszen az összes kiadás között',
+  'boxes.loadError':
+    'Nem sikerült betölteni a kiadásokat. Ellenőrizd a kapcsolatot, és próbáld újra.',
   'boxes.loading': 'Kiadások betöltése…',
+  'boxes.search.label': 'Kiadások keresése',
   'boxes.search.placeholder': 'Kiadások keresése…',
   'boxes.subtitle':
     'Minden szint egy kis tételben megjelenő történet. Adj hozzá egyet a várólistádhoz, vagy vidd át a következő hónapba.',
+  'boxThemeCard.itemCount': '{{count}} elem',
   'boxThemeCard.perMonth': '/ hónap',
+  'boxThemeCard.retailValue': 'Kiskereskedelmi érték {{value}}',
   'common.goToDashboard': 'Ugrás a műszerfalra',
+  'common.retry': 'Újra',
   'customize.eyebrow': 'Tedd a magadévá',
   'customize.heading': 'Szabd testre a következő Crate-odat',
+  'customize.items.empty': 'Ehhez a szinthez még nincsenek tárgyak beállítva.',
   'customize.items.exclude': 'Kihagyás',
   'customize.items.eyebrow': 'Személyre szabhatod ezt a dobozt',
   'customize.items.heading': 'Tételek a következőben: {{box}}',
@@ -59,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Hozzáadás vissza',
   'customize.items.save': 'Testreszabás mentése',
   'customize.items.swapsLeft': '{{used}} a {{max}} használt swapok',
+  'customize.loading': 'Testreszabás betöltése…',
   'customize.noSub.body':
     'Először iratkozz fel egy csomagra, majd térj vissza, és cserélgesd ki a dobozban lévő elemeket.',
+  'customize.noSub.cta': 'Kiadások böngészése',
   'customize.noSub.heading': 'Nincs aktív előfizetés',
   'customize.saved': 'Testreszabás mentve.',
   'customize.subtitle':
@@ -74,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Szállítmánykövetés',
   'dashboard.eyebrow': 'A kincsed',
   'dashboard.greeting': 'Üdvözlünk vissza, {{name}}.',
+  'dashboard.loadError':
+    'Nem sikerült betölteni az irányítópultodat. Ellenőrizd a kapcsolatot, és próbáld újra.',
   'dashboard.loading': 'Irányítópult betöltése…',
   'dashboard.next.eyebrow': 'A következő kiadásod',
   'dashboard.onboarding.body':
     'Még nincs aktív előfizetésed. Válassz egy csomagot, hogy minden hónapban elkezdhesd a Crate csomagok szállítását.',
   'dashboard.onboarding.cta': 'Böngésszen az összes kiadás között',
+  'dashboard.onboarding.empty': 'Jelenleg nincsenek elérhető csomagok. Nézz vissza hamarosan.',
   'dashboard.onboarding.heading': 'Válaszd ki az első kiadásodat',
   'dashboard.renewal.amount': 'Töltött',
   'dashboard.renewal.cadence': 'Kadencia',
@@ -86,18 +118,23 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Megújítás',
   'dashboard.renewal.heading': 'Automatikus megújítás bekapcsolva {{date}}',
   'dashboard.renewal.plan': 'Terv kulcsa',
+  'dashboard.renewal.tbd': 'Megújítás ütemezése hamarosan',
   'dashboard.renewal.tier': 'Szint',
   'dashboard.stats.days': 'nap',
   'dashboard.stats.daysToNext': 'Szállítási idő:',
   'dashboard.stats.items': 'Válogatott elemek',
   'dashboard.stats.shipDate': 'Szállítási dátum',
   'dashboard.stats.tbd': 'Meghatározandó',
+  'dashboard.subtitle.active': 'A következő kiadásod úton van. Íme, mire számíthatsz.',
+  'dashboard.subtitle.idle':
+    'Válassz egy szintet, hogy elkezdjük minden hónapban küldeni a {{appName}}-t.',
   'forgotPassword.subtitle': 'Add meg az e-mail címed, és küldünk egy visszaállító linket.',
   'forgotPassword.success.body':
     'Ha {{email}} regisztrálva van, néhány percen belül kapni fog egy visszaállítási linket.',
   'forgotPassword.success.title': 'Ellenőrizze a postaládáját.',
   'landing.editions.eyebrow': 'Ebben a szezonban',
   'landing.editions.heading': 'Kiadások, amiket kurátoraink imádnak',
+  'landing.editions.viewAll': 'Összes kiadás böngészése →',
   'landing.footer.contact': 'Beszéljen egy kurátorral',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Indítsd el a dobozodat →',
@@ -107,6 +144,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Pillantás a tagok irányítópultjára – visszaszámlálás, tartalom és nyomon követés.',
   'landing.hero.social.count': 'Szerette {{count}} + feliratkozók',
+  'landing.hero.social.rating': '{{rating}} átlagos kibontási értékelés',
+  'landing.hero.subhead':
+    'A {{appName}} kézzel válogatott, kis szériás örömcsomagot küld neked független alkotóktól. Bármikor szüneteltetheted. Kicserélheted, amit szeretnél. Megtarthatod, amit imádsz.',
   'landing.nav.start': 'Indítsd el a dobozodat',
   'landing.tiers.eyebrow': 'Válaszd ki a ritmust',
   'landing.tiers.heading': 'Kezd kicsiben, válts bármikor, mondd le ugyanolyan egyszerűen.',
@@ -116,6 +156,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Jelentkezz be, hogy megnézhesd a következő hónap dobozát.',
   'login.welcomeBack': 'Isten hozott ismét, kurátor!',
   'nextBoxHeroCard.eyebrow': 'A KÖVETKEZŐ LELÉSED',
+  'nextBoxHeroCard.itemCount': '{{count}} darab a dobozban',
   'nextBoxHeroCard.itemsLabel': 'Válogatott elemek',
   'nextBoxHeroCard.shipsOnLabel': 'Szállítás dátuma',
   'notFound.body':
@@ -139,8 +180,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Előfizetés szüneteltetése',
   'settings.danger.paused': 'Előfizetés szünetel.',
   'settings.danger.pausing': 'Szünet…',
+  'settings.danger.status': 'Előfizetés állapota: {{status}}',
   'settings.danger.subtitle':
     'A szüneteltetéssel a tagságod és az előzményeid megmaradnak. A lemondással leállíthatod a jövőbeni szállítmányokat, és a ciklus végén eltávolíthatod a tárolt fizetési módokat.',
+  'settings.notifications.saving': '· mentés…',
   'settings.notifications.subtitle':
     'Válaszd ki, hogy melyik jelzéseket szeretnéd a Crate-tól. Az alapértelmezett értékek ésszerűek.',
   'settings.subtitle':
@@ -157,12 +200,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Még nincs aktív szállítmány',
   'shipments.live.eyebrow': 'Aktív szállítmány',
   'shipments.live.unnamed': 'A következő dobozod',
+  'shipments.loadError':
+    'Nem sikerült betölteni a szállítmányaidat. Ellenőrizd a kapcsolatot, és próbáld újra.',
+  'shipments.loading': 'Szállítmányok betöltése…',
+  'shipments.step.delivered': 'Kiszállítva',
   'shipments.step.deliveredBody': 'Oszd meg a felfedezéseidet a #crateunbox hashtaggel.',
   'shipments.step.ordered': 'Rendelés leadva',
   'shipments.step.orderedBody':
     'Az előfizetéseddel ezt a kiadást a következő szállítási ciklusra várod.',
+  'shipments.step.packed': 'Kézzel csomagolva',
   'shipments.step.packedBody':
     'Minden darab becsomagolva és kézzel írott üzenettel a dobozba helyezve.',
+  'shipments.step.transit': 'Úton',
   'shipments.step.transitNot':
     'Amint a csomagod úton van, itt fog megjelenni a követési információ.',
   'shipments.subtitle':

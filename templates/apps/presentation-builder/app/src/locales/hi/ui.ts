@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'कोई सवाल, फ़ीडबैक, या ऐसा फ़ीचर जो आप चाहते हैं? अपनी अकाउंट सेटिंग्स से टीम तक पहुँचें — हर संदेश एक असली इंसान पढ़ता है।',
   'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'परिचय',
+  'about.missionTitle': 'हमारा विशेष कार्य',
+  'about.whatYouGetTitle': 'आपको क्या मिलता है',
   'analytics.empty': 'यहाँ एनालिटिक्स देखने के लिए डेक बनाएँ।',
   'analytics.stats.acrossDecks': 'सभी डेक में',
   'analytics.stats.allTime': 'आपके स्टूडियो में',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'डेक शीर्षक',
   'landing.features.eyebrow': 'Overture क्यों',
   'landing.features.heading': 'मंच पर तैयार होकर जाने के लिए आपको जो कुछ भी चाहिए।',
+  'landing.finalCta.body':
+    'एक मिनट से भी कम में अपना स्टूडियो शुरू करें। कोई क्रेडिट कार्ड नहीं। कभी भी कैंसल करें।',
   'landing.finalCta.cta': 'अपना मुफ़्त स्टूडियो बनाएँ',
   'landing.finalCta.eyebrow': 'मुफ़्त में शुरू करें',
   'landing.finalCta.heading': 'अपने करियर के सर्वश्रेष्ठ डेक के साथ मंच पर कदम रखें।',
@@ -81,10 +87,15 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 मिनट पहले संपादित',
   'notifications.created': 'बनाया',
   'notifications.edited': 'संपादित किया',
+  'notifications.empty.body': 'आपके डेक्स पर गतिविधि — कमेंट, मेंशन, एक्सपोर्ट — यहाँ दिखेगी।',
   'notifications.empty.title': 'अभी तक कोई सूचना नहीं',
   'notifications.eyebrow': 'मंच गतिविधि',
   'notifications.loading': 'लोड हो रहा है…',
   'notifications.shared': 'सार्वजनिक रूप से साझा किया',
+  'planUpdated.retry': 'फिर से प्रयास करें',
+  'planUpdated.verifyFailed': 'हम अभी तक आपके भुगतान की पुष्टि नहीं कर पाए हैं।',
+  'planUpdated.verifyFailedBody':
+    'आपका भुगतान अभी भी प्रक्रियाधीन हो सकता है। कृपया कुछ देर बाद पुनः प्रयास करें।',
   'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'present.addSlides': 'स्लाइड जोड़ें',
   'present.backToDecks': 'डेक पर वापस जाएँ',
@@ -122,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'मंच कलाकार',
   'settings.security.notSet': 'सेट नहीं है',
   'settings.security.passwordBody': 'आपका पासवर्ड विश्राम पर एन्क्रिप्टेड है।',
+  'settings.security.reset': 'रीसेट',
   'settings.security.title': 'खाता + सत्र',
   'shared.empty.body':
     'आपके द्वारा सार्वजनिक रूप से साझा किए गए डेक यहाँ दिखाई देंगे। साझा करने के लिए एक डेक खोलें और सार्वजनिक टॉगल करें।',
@@ -130,6 +142,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'लोड हो रहा है…',
   'shared.title': 'साझा डेक',
   'templateCard.slideCount': '{{count}} स्लाइड',
+  'templateCard.usageCount': '{{count}} उपयोग',
+  'templates.empty.body': 'कोई दूसरा फ़िल्टर आज़माएँ — हम हर महीने नए टेम्पलेट जारी करते हैं।',
+  'templates.empty.title': 'इस श्रेणी में अभी कोई टेम्पलेट नहीं',
+  'templates.hero.body':
+    'चार्ट ब्लॉक, डेमो फ़्रेम, प्रेज़ेंटर नोट्स और टाइमर प्रीसेट के साथ पहले से थीम किए गए स्लाइड लेआउट — हर टेम्पलेट रिकॉर्ड करने के लिए तैयार आता है।',
   'templates.hero.eyebrow': 'क्यूरेट किए गए मंच',
   'templates.hero.heading': 'उस पल के लिए बनाए गए मंच जब आपको इसे जीतना हो।',
 }

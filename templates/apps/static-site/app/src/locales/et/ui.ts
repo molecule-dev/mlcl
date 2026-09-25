@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Sinu plaan on uuendatud.',
   'planUpdated.returnHome': 'Tagasi avalehele',
   'planUpdated.thankYou': 'Aitäh!',
+  'post.markdown': 'Vaata seda postitust markdown-vormingus',
+  'post.readingTime': '{{minutes}} minuti lugemine',
   'post.tags': 'Sildid',
   'project.error.nameAndTypeRequired': 'Nimi ja projectType on nõutavad',
   'project.error.notFound': 'Ei leitud',

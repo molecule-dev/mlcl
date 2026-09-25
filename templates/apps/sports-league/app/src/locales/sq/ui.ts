@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Keni komente, keni gjetur një gabim ose dëshironi {{app}} për ligën tuaj? Na kontaktoni nga cilësimet e llogarisë tuaj — çdo mesazh shkon te një person i vërtetë i ekipit.',
+  'about.contactTitle': 'Na kontaktoni',
   'about.eyebrow': 'Rreth',
+  'about.featureAlerts':
+    'Njoftime për përditësimet e rezultateve, alarmet e shkëmbimeve, raportet e lëndimeve dhe njoftimet e ligës.',
+  'about.featureRosters':
+    'Faqe ekipesh me listat e plota, totalet e sezonit, seritë e nxehta/të ftohta dhe ndarjet kokë më kokë për çdo lojtar.',
+  'about.featureSchedule':
+    'Një kalendar sezoni dhe pamje e orarit, që të planifikoni rreth çdo ndeshjeje dhe rezultati.',
+  'about.featureScoreboard':
+    'Një ticker rezultatesh në nivel transmetimi i fiksuar në krye të çdo faqeje, që të mos humbisni kurrë një gol.',
+  'about.featureStandings':
+    'Renditjet drejtpërdrejt — rekorde fitore-humbje-barazim në kohë reale, pikë, përqindje fitoreje dhe vija e play-off-it, të rifreskuara në çdo fishkëllimë.',
+  'about.intro':
+    '{{app}} është një shtëpi e cilësisë së transmetimit për ligën tuaj. Ekipet, oraret, rezultatet drejtpërdrejt dhe renditjet bashkohen në një panel të shpejtë e pa rrëmujë — që tifozët, trajnerët dhe organizatorët e ligës ta dinë gjithmonë ku qëndron sezoni.',
+  'about.missionBody':
+    "Ndjekja e një lige nuk duhet të nënkuptojë rifreskimin e pesë tabelave të ndryshme të palëve të treta. E ndërtuam për t'i dhënë çdo lige një burim të vetëm të vërtete për renditjet, orarin dhe statistikat që vërtet kanë rëndësi — të përditësuara në çdo fishkëllimë, falas për sezonin.",
+  'about.missionTitle': 'Misioni ynë',
+  'about.whatYouGet': 'Çfarë merr',
   'appShell.closeNav': 'Mbyll navigimin',
   'appShell.openNav': 'Hap navigimin',
   'common.dashboard': 'Paneli i kontrollit',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Shiko të gjitha ndeshjet \\u2192',
   'dashboard.viewAllStandings': 'Renditja e plotë \\u2192',
   'dashboard.viewAllStats': 'Shiko të gjithë udhëheqësit e statistikave \\u2192',
+  'forgot.submitting': 'Po dërgohet lidhja e rivendosjes…',
   'forgot.subtitle': 'Shkruani email-in tuaj për të marrë një lidhje rivendosjeje.',
   'forgot.success': 'Lidhja e rivendosjes u dërgua te {{email}} Kontrolloni kutinë tuaj postare.',
+  'landing.copyright': '© {{year}} {{app}}. Ndjek pozicionin.',
+  'landing.ctaBody':
+    "Liga juaj. Renditjet tuaja. Ekipi juaj i preferuar — i fiksuar në krye. Dy minuta për t'u konfiguruar, falas për sezonin.",
   'landing.ctaHeading': 'Ndalo rifreskimin e tabelave të rezultateve të palëve të treta',
   'landing.eyebrow': 'Ndërtuar për tifozët, trajnerët dhe organizatorët e ligës',
   'landing.featuresHeading': 'Një vend në rreshtin e parë për çdo person që qëndron në këmbë',
   'landing.getStarted': 'Bashkohuni me ligën',
   'landing.heroCta': 'Bashkohuni me ligën',
+  'landing.heroSubtitle':
+    '{{app}} bashkon renditjet, oraret dhe drejtuesit statistikorë në një panel të cilësisë së transmetimit. Rezultate drejtpërdrejt. Rekorde të vërteta. Pa rrëmujë.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Sonte rreth ligës',
   'landing.statFans': 'Tifozët që ndjekin',
   'landing.statGames': 'Lojërat e këtij sezoni',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Kthehu te ndeshjet',
   'matchDetail.eventsHeading': 'Lojë pas loje',
+  'matchDetail.final': 'FUNDI',
   'matchDetail.finalScore': 'Përfundimtar',
   'matchDetail.live': 'DREJTPËRDREJT',
   'matchDetail.liveNow': 'Drejtpërdrejt tani',
   'matchDetail.noEvents': 'Nuk ka ende ngjarje të regjistruara.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': 'Nuk ka ndeshje në këtë pamje — provoni një filtër tjetër.',
   'matches.eyebrow': 'Dita e ndeshjes',
   'matches.loading': 'Duke tërhequr pllakëzën…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Ngarkimi i njoftimeve dështoi',
   'notifications.loading': 'Duke ngarkuar njoftimet\\u2026',
   'pennantHeroCard.eyebrow': 'Në krye të tabelës',
+  'pennantHeroCard.formLabel': '10 të fundit',
   'pennantHeroCard.gamesAhead': '{{value}} lojëra përpara ndjekjes',
   'pennantHeroCard.pointsLabel': 'PIKË',
   'pennantLayout.primaryNavLabel': 'Navigimi kryesor',
@@ -79,17 +108,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Zgjidh vendin tënd',
   'pricing.heading': 'Përmirëso për një orar, rezultate dhe renditje më të pasur.',
   'pricing.limits.schedule': '{{count}} regjistrimet e orarit',
+  'pricing.limits.scores': 'Rezultatet e {{count}}',
+  'pricing.limits.standings': 'Renditjet e {{count}}',
+  'pricing.limits.teams': 'Ekipet e {{count}}',
+  'pricing.subtitle': 'Përmirësoni për orar, rezultate dhe renditje më të pasura.',
   'pricing.upgradeCta': 'Përmirëso në {{tierName}}',
   'profile.eyebrow': 'Profili i tifozit',
   'profile.favoritesCount': 'Ekipet e ndjekura',
   'profile.favoritesHeading': 'Ekipet e preferuara',
   'profile.noFavorites': 'Ende nuk ka të preferuara — zgjidhni ekipet nga faqja e Ekipet.',
   'profile.rankRecord': 'Renditja # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Rekordi {{record}}',
   'reset.confirmPlaceholder': 'Përsërit fjalëkalimin',
+  'reset.mismatch': 'Fjalëkalimet nuk përputhen.',
   'reset.newLabel': 'Fjalëkalim i ri',
   'reset.subtitle': 'Zgjidhni një fjalëkalim të fortë me të paktën 12 karaktere.',
   'reset.tokenPlaceholder': 'Ngjit nga emaili',
   'schedule.eyebrow': 'Propozoj',
+  'schedule.moreGames': '+ {{count}} më shumë',
   'schedule.subtitle':
     'Pamje kalendarike e ndeshjeve gjatë gjithë sezonit — prekni çdo ditë për rezultatet e ndeshjeve në zonën e lojës.',
   'scoreboardTicker.empty': 'Nuk ka ndeshje live tani — kontrolloni përsëri në puck drop.',
@@ -97,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Personalizo',
   'settings.favoritesBody':
     'Këto ekipe fiksohen në panelin tuaj dhe aktivizojnë alarme për rezultatin.',
+  'settings.favoritesHeading': 'Ekipet e preferuara',
   'settings.loading': 'Duke ngarkuar preferencat tuaja\\u2026',
   'settings.noFavorites': 'Ende nuk ka të preferuara \\u2014 zgjidhni ekipe nga faqja e Ekipit.',
   'settings.notificationsHeading': 'Njoftime dhe ekran',
@@ -115,6 +152,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Në përgjithësi',
   'standings.points': 'PIKË',
+  'standings.rank': '#',
   'standings.subtitle':
     'Katër të parët kualifikohen për në fazën eliminatore — barazime me pikë, pastaj fitore me përqindje.',
   'standings.title': 'Renditja e ligës',
@@ -133,6 +171,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Lojtar',
   'teamDetail.colPos': 'Pozicion',
+  'teamDetail.pointsLabel': 'Pikë',
   'teamDetail.rankLabel': 'Renditja # {{rank}}',
   'teamDetail.rosterHeading': 'Regjistri',
   'teamDetail.statGD': 'Diferenca e Golit',

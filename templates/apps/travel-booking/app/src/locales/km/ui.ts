@@ -1,13 +1,28 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានសំណួរអំពីការស្នាក់នៅ មតិកែលម្អ ឬគំនិតដៃគូរួមការងារ? ទាក់ទងក្រុមការងារពីគណនីរបស់អ្នក ឬអ្នកបម្រើក្នុងកម្មវិធី — រាល់សារត្រូវបានផ្ញើទៅមនុស្សពិតដែលធ្វើដំណើរដែរ។',
   'about.contactTitle': 'ទាក់ទងមកយើង',
+  'about.featureBooking.body':
+    'ប្រៀបធៀបបន្ទប់ តម្លៃ និងសេវាកម្មជាប់ៗគ្នា បន្ទាប់មកកក់ក្នុងប៉ុន្មានចុចជាមួយការបោះបង់ឥតគិតថ្លៃលើគ្រប់ផែនការធ្វើដំណើរ។',
+  'about.featureBooking.title': 'ស្វែងរក ប្រៀបធៀប និងកក់',
+  'about.featureDiscover.body':
+    'គោលដៅដែលជ្រើសរើសដោយអ្នកនិពន្ធ និងមគ្គុទ្ទេសក៍វាលបង្ហាញកន្លែងដែលគួររៀបចំខ្លួនទៅ — គ្មានសំឡេងរំខានពីអ្នកប្រមូលផ្តុំ គ្មានការផ្សាយពាណិជ្ជកម្ម។',
   'about.featureDiscover.title': 'ការបំផុសគំនិត ជ្រើសរើសដោយដៃ',
+  'about.featureItineraries.body':
+    'រក្សាជើងហោះហើរ ការស្នាក់នៅ និងផែនការនៅកន្លែងតែមួយ រក្សាទុកគោលដៅសម្រាប់ពេលក្រោយ ហើយបន្តដំណើររបស់អ្នកពីកន្លែងដែលអ្នកបានឈប់។',
+  'about.featureItineraries.title': 'ផែនការធ្វើដំណើរដែលរៀបចំបានល្អ',
+  'about.featureStays.title': 'ការស្នាក់នៅដែលអាចទុកចិត្តបាន',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
+  'about.subtitle':
+    'ការបំផុសគំនិត ការស្នាក់នៅដែលអាចទុកចិត្តបាន និងផ្លូវរលូនពីការស្រមើស្រមៃទៅការកក់។',
+  'about.whatYouGetTitle': 'អ្វីដែលអ្នកទទួលបាន',
   'account.addPaymentCta': 'បន្ថែមវិធីបង់ប្រាក់',
   'account.addPaymentError': 'មិនអាចបន្ថែមវិធីបង់ប្រាក់បានទេ។',
   'account.confirmRemove': 'បញ្ជាក់ការដកចេញ',
   'account.defaultBadge': 'លំនាំដើម',
-  'account.loyalty.pointsTowardNext': '{{ពិន្ទុ}} នៃ {{បន្ទាប់}} ម៉ាយល៍ទៅ {{nextTier}}',
+  'account.loyalty.pointsTowardNext': '{{points}} នៃ {{next}} ម៉ាយទៅ {{nextTier}}',
   'account.loyalty.tier': 'កម្រិតបច្ចុប្បន្ន',
   'account.navLabel': 'ផ្នែក​គណនី',
   'account.payments.empty': 'មិនទាន់មានវិធីបង់ប្រាក់ដែលបានរក្សាទុកនៅឡើយទេ។',
@@ -28,6 +43,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} យប់',
   'booking.lineTaxes': 'ពន្ធ និងថ្លៃសេវា',
   'booking.loadError': 'មិនអាចផ្ទុកលក្ខណសម្បត្តិបានទេ។',
+  'booking.noChargeYet': 'អ្នកនឹងមិនត្រូវបានគិតថ្លៃនៅឡើយទេ។',
   'booking.noPaymentMethods': 'គ្មានវិធីបង់ប្រាក់ដែលបានរក្សាទុកទេ។',
   'booking.noPaymentSelected': 'ជ្រើសរើសវិធីបង់ប្រាក់មុនពេលបញ្ជាក់។',
   'booking.noRoomError': 'ជ្រើសរើសបន្ទប់មុនពេលបញ្ជាក់។',
@@ -40,6 +56,7 @@ export const ui: UiTranslations = {
     'ថ្ងៃនេះមិនគិតថ្លៃទេ — កាតរបស់អ្នកត្រូវបានរក្សាទុកសម្រាប់តែការបញ្ជាក់ប៉ុណ្ណោះ។',
   'booking.policy3':
     'ការការពារការធ្វើដំណើរត្រូវបានគ្របដណ្តប់ដោយ Sojourn — ការគាំទ្រ concierge 24/7។',
+  'booking.policyHeading': 'ការបោះបង់ និងលក្ខខណ្ឌ',
   'booking.roomHeading': 'ជ្រើសរើសបន្ទប់របស់អ្នក',
   'booking.specialRequests': 'សំណើពិសេស',
   'booking.specialRequestsPlaceholder': 'តើម្ចាស់ផ្ទះគួរដឹងអ្វីខ្លះ?',
@@ -68,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'សមាជិកស្នាក់នៅ',
   'landing.cta.heading': 'ដើរលេងដោយគ្មានកង្វល់។ គ្រប់កម្មវិធីធ្វើដំណើរ រាល់ពេល។',
   'landing.cta.signup': 'បង្កើតគណនីដោយឥតគិតថ្លៃ',
+  'landing.cta.subheading':
+    'ការបោះបង់ឥតគិតថ្លៃ តម្លៃសម្រាប់សមាជិកតែប៉ុណ្ណោះ និងអ្នកបម្រើដំណើរ 24/7 — ទទួលបានម៉ាយលើរាល់ការកក់ និងបើកការចូលប្រើដំបូងចំពោះទីតាំងថ្មីៗ។',
   'landing.destinations.eyebrow': 'ទៅណាបន្ទាប់',
   'landing.destinations.heading': 'គោលដៅ​ពិសេសៗ',
   'landing.destinations.seeAll': 'មើលគោលដៅទាំងអស់',
@@ -76,9 +95,13 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'រឿងរ៉ាវដែលគួរវេចខ្ចប់សម្រាប់',
   'landing.nav.join': 'ចូលរួមការស្នាក់នៅ',
   'landing.nav.search': 'ការស្នាក់នៅស្វែងរក',
+  'landing.preview.browseAll': 'រុករកបណ្តុំទាំងមូល',
   'landing.preview.eyebrow': 'លួចមើលខាងក្នុងមួយភ្លែត',
   'landing.preview.heading': 'ការស្នាក់នៅដែលបានជ្រើសរើសយ៉ាងល្អក្នុងខែនេះ',
+  'landing.preview.subheading':
+    'រាល់ទីតាំងនៅលើ {{appName}} ត្រូវបានពិនិត្យដោយផ្ទាល់ដោយក្រុមអ្នកនិពន្ធរបស់យើង — គ្មានស្តុកពីអ្នកប្រមូលផ្តុំ គ្មានបញ្ជីបោកបញ្ឆោត និងការបោះបង់ឥតគិតថ្លៃលើគ្រប់ផែនការធ្វើដំណើរ។',
   'login.eyebrow': 'តំបន់សមាជិក',
+  'login.noAccount': 'ទើបតែស្គាល់ Tessera?',
   'login.signupLink': 'បង្កើតគណនីឥតគិតថ្លៃ',
   'login.subheading':
     'ចូលដើម្បីគ្រប់គ្រងការធ្វើដំណើររបស់អ្នក មើលការបញ្ជាក់ និងបន្តពីកន្លែងដែលអ្នកបានចាកចេញ។',
@@ -86,18 +109,32 @@ export const ui: UiTranslations = {
   'notifications.loading': 'កំពុងផ្ទុក…',
   'notifications.subheading':
     '{{count}} មិនទាន់អាន · អ្វីៗគ្រប់យ៉ាងនៅក្នុងប្រអប់សំបុត្រដ៏ស្ងប់ស្ងាត់មួយ',
+  'planUpdated.body':
+    'ការផ្លាស់ប្តូរវិក្កយបត្ររបស់អ្នកឥឡូវសកម្មហើយ។ អ្នកអាចគ្រប់គ្រងគម្រោងរបស់អ្នកបានគ្រប់ពេលពីទំព័រវិក្កយបត្រ។',
+  'planUpdated.retry': 'ព្យាយាមម្តងទៀត',
+  'planUpdated.verifyFailed': 'យើងមិនទាន់អាចបញ្ជាក់ការទូទាត់របស់អ្នកបាននៅឡើយទេ។',
+  'planUpdated.verifyFailedBody':
+    'ការទូទាត់របស់អ្នកប្រហែលជានៅតែកំពុងដំណើរការ។ សូមព្យាយាមម្តងទៀតនៅពេលបន្តិចទៀត។',
   'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'pricing.accommodationsLabel': 'កន្លែងស្នាក់នៅ',
   'pricing.bookingsLabel': 'ការកក់',
   'pricing.destinationsLabel': 'គោលដៅដែលបានរក្សាទុក',
   'pricing.exportLabel': 'នាំចេញទិន្នន័យដំណើរកម្សាន្ត',
   'pricing.itinerariesLabel': 'ដំណើរកម្សាន្ត',
+  'privacy.intro':
+    '{{appName}} ការពារទិន្នន័យធ្វើដំណើររបស់អ្នក។ ជំនួសគំរូនេះដោយគោលនយោបាយឯកជនភាពពិតរបស់អ្នក មុនពេលដាក់ឱ្យដំណើរការផលិតកម្ម។',
   'propertyDetail.allPhotos': 'ទាំងអស់ {{count}} រូបថត',
   'propertyDetail.amenitiesHeading': 'អ្វីដែលកន្លែងនេះផ្តល់ជូន',
   'propertyDetail.backLink': 'ត្រឡប់ទៅការស្វែងរកវិញ',
   'propertyDetail.bookCta': 'កក់ទុក',
   'propertyDetail.bookmarkAria': 'រក្សាទុកទ្រព្យសម្បត្តិ',
   'propertyDetail.freeCancellation': 'ការលុបចោលដោយឥតគិតថ្លៃ',
+  'propertyDetail.galleryAria': 'វិចិត្រសាលរូបថតទីតាំង',
+  'propertyDetail.galleryCloseAria': 'បិទវិចិត្រសាល',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': 'រូបថត {{name}} នៃ {{n}}',
+  'propertyDetail.galleryNextAria': 'រូបថតបន្ទាប់',
+  'propertyDetail.galleryPrevAria': 'រូបថតមុន',
   'propertyDetail.heroImageAlt': '{{name}} រូបថតវីរបុរស',
   'propertyDetail.lineCleaning': 'ថ្លៃសម្អាត',
   'propertyDetail.lineRate': '{{price}} × {{nights}} យប់',
@@ -106,6 +143,7 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'យប់',
   'propertyDetail.noChargeYet': 'អ្នកនឹងមិនទាន់ត្រូវបានគិតប្រាក់នៅឡើយទេ',
   'propertyDetail.notFound': 'រកមិនឃើញអចលនទ្រព្យទេ។',
+  'propertyDetail.pickDatesHint': 'ជ្រើសរើសកាលបរិច្ឆេទរបស់អ្នក ដើម្បីមើលការបំបែកតម្លៃពេញលេញ។',
   'propertyDetail.reviewCount': '( {{count}} ការវាយតម្លៃ)',
   'propertyDetail.reviewsHeading': 'ការវាយតម្លៃថ្មីៗ',
   'propertyDetail.verified': 'អចលនទ្រព្យដែលបានផ្ទៀងផ្ទាត់ការស្នាក់នៅ',
@@ -114,6 +152,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'ពាក្យសម្ងាត់ថ្មី',
   'resetPassword.subheading':
     'ជ្រើសរើសពាក្យសម្ងាត់ថ្មីសម្រាប់គណនី Sojourn របស់អ្នក។ ប្រើយ៉ាងហោចណាស់ 8 តួអក្សរ។ យើងសូមណែនាំឃ្លាសម្ងាត់។',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'គ្មានអចលនទ្រព្យណាមួយដែលត្រូវនឹងការស្វែងរករបស់អ្នកទេ។',
   'search.emptyHint':
     'សាកល្បងពង្រីកតម្រងរបស់អ្នក ឬដកកម្រិតតម្លៃចេញ — Sojourn បានស្នាក់នៅក្នុងប្រទេសចំនួន 14។',
@@ -121,6 +160,8 @@ export const ui: UiTranslations = {
   'search.heading': 'ការស្នាក់នៅដែលបានជ្រើសរើសសម្រាប់ការដើរលេងរបស់អ្នក',
   'search.headingForQuery': 'ស្នាក់នៅសម្រាប់ " {{q}} "',
   'search.loadError': 'មិនអាចផ្ទុកលក្ខណសម្បត្តិបានទេ។',
+  'search.mapHint': 'ដាក់កណ្ដុរលើកាតដើម្បីបង្ហាញទីតាំងរបស់វានៅលើផែនទី។',
+  'search.mapPinAria': '{{name}} — {{price}} ក្នុងមួយយប់',
   'search.sortLabel': 'តម្រៀបតាម',
   'search.subheading': '{{count}} លក្ខណៈសម្បត្តិ · {{guests}} ភ្ញៀវ',
   'settings.openAccount': 'បើកគណនីពេញលេញ',
@@ -129,15 +170,22 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'ការលុបចោលដោយឥតគិតថ្លៃ អត្រាសម្រាប់សមាជិកតែប៉ុណ្ណោះ និងសេវាកម្មបម្រើការធ្វើដំណើរ 24/7 — រកបានម៉ាយល៍លើរាល់ការកក់។',
   'sojournAuthShell.brand.eyebrow': 'ដើរលេងដោយគ្មានកង្វល់',
+  'sojournAuthShell.brand.heading': 'ផ្លូវរលូនពីការស្រមើស្រមៃទៅការកក់។',
   'sojournHeroSearchCard.checkInAria': 'កាលបរិច្ឆេទចូល',
   'sojournHeroSearchCard.checkOutAria': 'កាលបរិច្ឆេទចេញ',
+  'sojournHeroSearchCard.destAria': 'គោលដៅ',
+  'sojournHeroSearchCard.destLabel': 'កន្លែងណា',
   'sojournHeroSearchCard.destPlaceholder': 'ទីក្រុង តំបន់ ឬអចលនទ្រព្យ',
   'sojournHeroSearchCard.eyebrow': 'ការស្នាក់នៅដែលបានជ្រើសរើស · អត្រាសម្រាប់តែសមាជិក',
   'sojournHeroSearchCard.guestsOption': '{{n}} ភ្ញៀវ',
   'sojournHeroSearchCard.subtitle':
     'ការបំផុសគំនិត ការស្នាក់នៅដែលគួរឱ្យទុកចិត្ត និងផ្លូវដែលគ្មានការកកិតពីក្តីស្រមៃរហូតដល់ការកក់ទុក — នៅទូទាំង 14 ប្រទេស និងអចលនទ្រព្យជាង 200 ដែលបានត្រួតពិនិត្យដោយដៃ។',
+  'sojournHeroSearchCard.title': 'ដើរលេងដោយគ្មានកង្វល់',
+  'sojournHeroSearchCard.trustLoyalty': 'ទទួលបានម៉ាយលើគ្រប់ផែនការធ្វើដំណើរ',
   'sojournHeroSearchCard.trustProtected': 'ការលុបចោលដោយឥតគិតថ្លៃ ការការពារពេញលេញ',
   'sojournHeroSearchCard.trustVetted': 'អចលនទ្រព្យដែលបានត្រួតពិនិត្យដោយផ្ទាល់តែប៉ុណ្ណោះ',
+  'terms.intro':
+    'ជំនួសគំរូនេះដោយលក្ខខណ្ឌប្រើប្រាស់សេវាពិតរបស់អ្នក {{appName}} មុនពេលដាក់ឱ្យដំណើរការផលិតកម្ម។',
   'travelBookingLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'tripDetail.backLink': 'ត្រឡប់ទៅដំណើរកម្សាន្តវិញ',
   'tripDetail.cancelCta': 'លុបចោលការកក់',
@@ -147,6 +195,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'ជាជម្រើស — មូលហេតុនៃការលុបចោល',
   'tripDetail.checkInLabel': 'ចុះឈ្មោះចូល',
   'tripDetail.checkOutLabel': 'ចេញ',
+  'tripDetail.confCode': 'កូដ · {{code}}',
   'tripDetail.confirmCancelCta': 'លុបចោលការធ្វើដំណើរ',
   'tripDetail.hostInfo':
     'ធ្វើជាម្ចាស់ផ្ទះដោយ {{name}} ។ ការលុបចោលដោយឥតគិតថ្លៃរហូតដល់ 7 ថ្ងៃមុនពេលចូលស្នាក់នៅ។',
@@ -154,6 +203,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'បន្តការកក់',
   'tripDetail.lengthLabel': 'ប្រវែង',
   'tripDetail.loadError': 'មិនអាចផ្ទុកដំណើរកម្សាន្តបានទេ។',
+  'tripDetail.messageHostHeading': 'ផ្ញើសារទៅម្ចាស់ផ្ទះរបស់អ្នក',
   'tripDetail.messagePlaceholder':
     'សូមជម្រាបម្ចាស់ផ្ទះរបស់អ្នកអំពីពេលវេលាមកដល់ តម្រូវការរបបអាហារ ឬអ្វីផ្សេងទៀត។',
   'tripDetail.messageSend': 'ផ្ញើសារ',
@@ -164,9 +214,11 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'សេចក្តីសង្ខេបតម្លៃ',
   'tripDetail.taxes': 'ពន្ធ និងថ្លៃសេវា',
   'tripItineraryRow.nights': '{{count}} យប់',
+  'trips.empty.past': 'ការធ្វើដំណើរកន្លងមកនឹងបង្ហាញនៅទីនេះ នៅពេលអ្នកចាប់ផ្ដើមធ្វើដំណើរ។',
   'trips.empty.upcoming': 'មិនទាន់មានដំណើរកម្សាន្តនាពេលខាងមុខនៅឡើយទេ — ចូរយើងដោះស្រាយបញ្ហានោះ។',
   'trips.eyebrow': 'ការដើរលេងរបស់អ្នក',
   'trips.heading': 'ដំណើរកម្សាន្ត',
   'trips.loadError': 'បរាជ័យក្នុងការផ្ទុកដំណើរកម្សាន្ត។',
+  'trips.searchCta': 'រៀបចំផែនការធ្វើដំណើរមួយផ្សេងទៀត',
   'trips.subheading': '{{upcoming}} នាពេលខាងមុខ · {{past}} អតីតកាល',
 }

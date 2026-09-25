@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Het jy terugvoer, het jy 'n fout raakgesien, of wil jy {{app}} vir jou liga hê? Bereik ons vanuit jou rekeninginstellings — elke boodskap gaan na 'n werklike persoon op die span.",
+  'about.contactTitle': 'Kontak ons',
   'about.eyebrow': 'Oor',
+  'about.featureAlerts':
+    'Push-kennisgewings vir tellingopdaterings, ruilwaarskuwings, beseringsverslae en liga-aankondigings.',
+  'about.featureRosters':
+    'Spanblaaie met volledige roosters, seisoentotale, warm/koue reekse en kop-aan-kop-verdeling vir elke speler.',
+  'about.featureSchedule':
+    "'n Seisoenkalender en skedule-aansig sodat jy rondom elke wedstryd en uitslag kan beplan.",
+  'about.featureScoreboard':
+    "'n Uitsaaikwaliteit-tellingbordticker wat bo-aan elke bladsy vasgepen is, sodat jy nooit 'n doel misloop nie.",
+  'about.featureStandings':
+    'Lewendige punteleer — intydse wen-verloor-gelykop-rekords, punte, wen-persentasie en die uitspeellyn, by elke fluitjie opgedateer.',
+  'about.intro':
+    "{{app}} is 'n uitsaaikwaliteit-tuis vir jou liga. Spanne, skedules, lewendige tellings en punteleer kom bymekaar in een vinnige, gemaklike paneelbord — sodat aanhangers, afrigters en liga-organiseerders altyd weet waar die seisoen staan.",
+  'about.missionBody':
+    "Om 'n liga te volg behoort nie te beteken om vyf verskillende derdeparty-tellingborde te herlaai nie. Ons het dit gebou om elke liga een enkele bron van waarheid te gee vir die punteleer, die skedule en die statistieke wat werklik saak maak — by elke fluitjie opgedateer, gratis vir die seisoen.",
+  'about.missionTitle': 'Ons missie',
+  'about.whatYouGet': 'Wat jy kry',
   'appShell.closeNav': 'Maak navigasie toe',
   'appShell.openNav': 'Maak navigasie oop',
   'common.dashboard': 'Dashboard',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Bekyk alle wedstryde \\u2192',
   'dashboard.viewAllStandings': 'Volledige puntelys \\u2192',
   'dashboard.viewAllStats': 'Bekyk alle staatsleiers \\u2192',
+  'forgot.submitting': 'Stuur tans herstel-skakel…',
   'forgot.subtitle': "Voer jou e-posadres in om 'n terugstelskakel te ontvang.",
   'forgot.success': 'Herstel skakel gestuur na {{email}} Gaan jou inboks na.',
+  'landing.copyright': '© {{year}} {{app}}. Jaag die puntelys.',
+  'landing.ctaBody':
+    'Jou liga. Jou punteleer. Jou gunsteling span — bo-aan vasgepen. Twee minute om op te stel, gratis vir die seisoen.',
   'landing.ctaHeading': 'Hou op om derdeparty-tellingborde te verfris',
   'landing.eyebrow': 'Gebou vir ondersteuners, afrigters en liga-organiseerders',
   'landing.featuresHeading': "'n Voorste ry-sitplek vir elke staanplek",
   'landing.getStarted': 'Sluit aan by die liga',
   'landing.heroCta': 'Sluit aan by die liga',
+  'landing.heroSubtitle':
+    '{{app}} bind punteleer, skedules en statistiese leiers saam in een uitsaaikwaliteit-paneelbord. Lewendige tellings. Werklike rekords. Geen gemors nie.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Vanaand rondom die liga',
   'landing.statFans': 'Aanhangers volg',
   'landing.statGames': 'Wedstryde hierdie seisoen',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q {{period}}',
   'matchDetail.back': 'Terug na wedstryde',
   'matchDetail.eventsHeading': 'Spel-vir-spel',
+  'matchDetail.final': 'EINDSOM',
   'matchDetail.finalScore': 'Finale',
   'matchDetail.live': 'LEEF',
   'matchDetail.liveNow': 'Leef nou',
   'matchDetail.noEvents': 'Geen gebeurtenisse nog aangeteken nie.',
   'matchDetail.periodClock': 'Q {{period}} · {{clock}}',
+  'matches.empty': "Geen wedstryde in hierdie aansig nie — probeer 'n ander filter.",
   'matches.eyebrow': 'Wedstryddag',
   'matches.loading': 'Trek die lei ...',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Kon nie kennisgewings laai nie',
   'notifications.loading': 'Laai kennisgewings_u2026',
   'pennantHeroCard.eyebrow': 'Bo-aan die tafel',
+  'pennantHeroCard.formLabel': 'Laaste 10',
   'pennantHeroCard.gamesAhead': '{{value}} speletjies voor die jaagtog',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Primêre navigasie',
@@ -78,17 +107,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Kies jou sitplek',
   'pricing.heading': "Gradeer op vir 'n ryker skedule, tellings en puntelys.",
   'pricing.limits.schedule': '{{count}} skeduleer inskrywings',
+  'pricing.limits.scores': '{{count}} tellings',
+  'pricing.limits.standings': '{{count}} punteleer',
+  'pricing.limits.teams': '{{count}} spanne',
+  'pricing.subtitle': 'Gradeer op vir ryker skedule, tellings en punteleer.',
   'pricing.upgradeCta': 'Gradeer op na {{tierName}}',
   'profile.eyebrow': 'Aanhangerprofiel',
   'profile.favoritesCount': 'Spanne gevolg',
   'profile.favoritesHeading': 'Gunsteling spanne',
   'profile.noFavorites': 'Geen gunstelinge nog nie — kies spanne vanaf die Spanne-bladsy.',
   'profile.rankRecord': 'Rang # {{rank}} · {{record}}',
+  'profile.recordOnly': 'Rekord {{record}}',
   'reset.confirmPlaceholder': 'Herhaal die wagwoord',
+  'reset.mismatch': 'Wagwoorde stem nie ooreen nie.',
   'reset.newLabel': 'Nuwe wagwoord',
   'reset.subtitle': "Kies 'n sterk wagwoord van ten minste 12 karakters.",
   'reset.tokenPlaceholder': 'Plak vanaf e-pos',
   'schedule.eyebrow': 'Die leiklip',
+  'schedule.moreGames': '+ {{count}} meer',
   'schedule.subtitle':
     'Kalender-aansig van wedstryde oor die seisoen — tik enige dag vir tellings.',
   'scoreboardTicker.empty': 'Geen regstreekse wedstryde tans nie — kyk weer by die puck-drop.',
@@ -96,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Personaliseer',
   'settings.favoritesBody':
     'Hierdie spanne word aan jou dashboard vasgepen en aktiveer puntewaarskuwings.',
+  'settings.favoritesHeading': 'Gunsteling spanne',
   'settings.loading': 'Laai jou voorkeure_u2026',
   'settings.noFavorites': 'Geen gunstelinge nog nie \\u2014 kies spanne vanaf die Spanne-bladsy.',
   'settings.notificationsHeading': 'Kennisgewings en vertoon',
@@ -113,6 +150,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'Algeheel',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Top vier kwalifiseer vir die naseisoen — gelykopuitslae volgens punte, dan wen-persent.',
   'standings.title': 'Liga-puntelys',
@@ -131,6 +169,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Speler',
   'teamDetail.colPos': 'Pos',
+  'teamDetail.pointsLabel': 'Punte',
   'teamDetail.rankLabel': 'Rang # {{rank}}',
   'teamDetail.rosterHeading': 'Rooster',
   'teamDetail.statGD': 'Doelverskil',

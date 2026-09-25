@@ -1,9 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hai un feedback, una richiesta di funzionalità o hai trovato un bug? Leggiamo ogni messaggio — scrivici quando vuoi e una persona reale del team ti risponderà.',
   'about.contactTitle': 'Si metta in contatto',
+  'about.intro':
+    '{{app}} è un tracker del sonno ristoratore che trasforma ogni notte in informazioni chiare e concrete. Si abbina al tuo wearable per tracciare ogni fase del sonno, valutare il tuo recupero e svegliarti nel momento giusto del tuo ciclo — così puoi costruire notti che ti lasciano davvero riposato.',
+  'about.missionBody':
+    'La maggior parte delle app per il sonno si ferma a un numero su una dashboard. Crediamo che un sonno migliore nasca dal capire il perché dietro il punteggio, per poi cambiare una piccola cosa alla volta. {{app}} è progettata per essere calma, mai invadente — mette in evidenza ciò che conta dai tuoi dati e resta fuori dai piedi per il resto della notte.',
+  'about.missionTitle': 'La nostra missione',
   'about.pageTitle': 'Info su {{app}}',
+  'about.whatYouGetTitle': 'Cosa ottiene',
+  'authShell.privacyBadge': 'Le tue notti restano private — crittografate a riposo.',
+  'authShell.tagline': '{{app}} — {{tagline}}',
   'coaching.activeBanner.continue': 'Leggi articolo',
+  'coaching.activeBanner.eyebrow': 'Articolo in evidenza',
   'coaching.empty.body': 'I nuovi programmi appariranno qui quando saranno aggiunti.',
   'coaching.empty.title': 'Nessun articolo di coaching ancora',
   'coaching.eyebrow': 'Coaching',
@@ -16,6 +27,7 @@ export const ui: UiTranslations = {
   'coachingDetail.eyebrow': 'Articolo',
   'coachingDetail.locked.body':
     'Aggiorni il Suo piano per leggere questo e altri articoli premium.',
+  'coachingDetail.locked.cta': 'Aggiorna piano',
   'coachingDetail.locked.title': 'Questo articolo è premium',
   'coachingDetail.notFound': 'Non siamo riusciti a trovare questo articolo.',
   'coachingDetail.unavailable': 'Articolo non disponibile',
@@ -23,6 +35,7 @@ export const ui: UiTranslations = {
   'dashboard.empty.body':
     'Registri una notte o colleghi un dispositivo indossabile per iniziare a vedere i Suoi schemi di sonno.',
   'dashboard.empty.cta': 'Collegare un dispositivo indossabile',
+  'dashboard.empty.title': 'Nessuna notte ancora tracciata',
   'dashboard.eyebrow': 'Stanotte',
   'dashboard.heroInsight': "Tracci un'altra notte per individuare le tendenze del sonno profondo.",
   'dashboard.loading': 'Caricamento notti recenti…',
@@ -42,12 +55,18 @@ export const ui: UiTranslations = {
   'devices.loading': 'Caricamento dispositivi…',
   'devices.pauseAria': 'Metti in pausa {{brand}}',
   'devices.providerField': 'Fornitore',
+  'devices.resumeAria': 'Riprendi {{brand}}',
   'devices.synced': 'Sincronizzato {{value}}',
+  'devices.unlink': 'Scollega',
   'devices.unlinkAria': 'Scollega {{brand}}',
+  'forgotPassword.continueButton': 'Inserisci il codice di reset',
   'forgotPassword.eyebrow': 'Nessun problema',
   'forgotPassword.subheading': 'Inserisca la Sua email e Le invieremo un link di reimpostazione.',
   'forgotPassword.successBody':
     'Se esiste un account per {{email}}, un link di reimpostazione è in arrivo.',
+  'landing.ctaBody':
+    'Gratis per il tracciamento notturno. Pro sblocca programmi di coaching, esportazioni e condivisione in famiglia.',
+  'landing.ctaButton': 'Tracci la Sua prima notte',
   'landing.ctaTitle': 'Stanotte è dato. Domani è recupero.',
   'landing.eyebrow': 'Sonno, decodificato',
   'landing.featuresBody':
@@ -65,16 +84,26 @@ export const ui: UiTranslations = {
   'login.heading': 'Acceda a Somnia',
   'login.rememberMe': "Mantieni l'accesso",
   'login.signupLink': 'Inizi a tracciare stanotte',
+  'login.signupPrompt': 'Nuovo su Tessera?',
   'login.subheading': 'Riprenda le Sue notti da dove le aveva lasciate.',
   'logNight.bedtimeField': 'Ora di andare a letto',
   'logNight.dateField': 'Notte di',
+  'logNight.errors.missingFields':
+    'Data, ora di coricarsi e ora di sveglia sono tutte obbligatorie.',
+  'logNight.errors.noRecord':
+    'La notte è stata salvata ma il server non ha restituito alcun record.',
+  'logNight.errors.saveFailed': 'Salvataggio della notte non riuscito — riprova.',
+  'logNight.errors.zeroLength': "L'ora di sveglia deve essere diversa dall'ora di coricarsi.",
+  'logNight.factorsField': 'Fattori',
   'logNight.interruptionsField': 'Risvegli notturni',
   'logNight.notesField': 'Note (opzionale)',
+  'logNight.qualityField': 'Quanto è stato ristoratore? ({{score}}/100)',
   'logNight.save': 'Salva la notte',
   'logNight.title': 'Registra una notte',
   'logNight.wakeField': 'Ora del risveglio',
   'night.backLink': 'Torna alla cronologia',
   'night.eyebrow': 'Singola notte',
+  'night.factorsTitle': 'Fattori registrati',
   'night.heroInsight': 'Tocchi una fase sulla cronologia per approfondire.',
   'night.loading': 'Caricamento dettagli della notte…',
   'night.notFound.body': 'Non abbiamo un record del sonno per questa data.',
@@ -85,6 +114,7 @@ export const ui: UiTranslations = {
   'nightHistory.count': 'Mostrando {{count}} notti',
   'nightHistory.empty.body':
     'Registri una sessione di sonno o colleghi un indossabile per popolare la Sua cronologia.',
+  'nightHistory.empty.title': 'Nessuna notte ancora tracciata',
   'nightHistory.heading': 'Ogni notte che ha tracciato',
   'nightHistory.loading': 'Caricamento notti…',
   'nightHistory.logNight': 'Registra una notte',
@@ -93,6 +123,7 @@ export const ui: UiTranslations = {
   'nightHistoryRow.hourSuffix': 'h',
   'nightHistoryRow.minSuffix': 'min',
   'nightHistoryRow.rem': '{{pct}}% REM',
+  'nightHistoryRow.scoreAria': 'Punteggio {{score}}',
   'notifications.emptyBody':
     'Nuove attività, promemoria di sveglia e suggerimenti di coaching arriveranno qui.',
   'notifications.emptyHeading': 'È tutto in pari',
@@ -104,9 +135,16 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'La Sua identità del sonno',
   'profile.locked': 'Bloccato',
   'recoveryRingsTriad.deepCaption': 'Obiettivo {{goal}}% della notte',
+  'recoveryRingsTriad.deepLabel': 'Sonno profondo',
+  'recoveryRingsTriad.deepValue': '{{pct}}%',
   'recoveryRingsTriad.durationCaption': 'Obiettivo {{goal}}h / notte',
+  'recoveryRingsTriad.durationValue': '{{hours}}h',
+  'recoveryRingsTriad.heartCaption': 'Baseline {{baseline}} bpm',
+  'recoveryRingsTriad.heartLabel': 'FC a riposo',
+  'recoveryRingsTriad.heartValue': '{{bpm}} bpm',
   'resetPassword.eyebrow': 'Un nuovo inizio',
   'resetPassword.mismatchError': 'Le password non corrispondono.',
+  'resetPassword.passwordLabel': 'Nuova password',
   'resetPassword.subheading': 'Scelga qualcosa di rilassante — almeno 12 caratteri.',
   'resetPassword.tokenPlaceholder': "Codice di reimpostazione dall'email",
   'settings.bedtimeGoal': 'Ora di andare a letto',
@@ -114,15 +152,21 @@ export const ui: UiTranslations = {
     "Promemoria gentile 30 minuti prima dell'ora di andare a letto.",
   'settings.bedtimeReminder.label': 'Promemoria per andare a letto',
   'settings.durationGoal': 'Obiettivo durata (ore)',
+  'settings.exportDelete.description':
+    'Ottieni un CSV di ogni notte o elimina definitivamente il tuo account.',
   'settings.exportDelete.label': 'Esporti o elimini i Suoi dati',
   'settings.goalsCaption': 'Dica a Somnia cosa significa per Lei un buon sonno',
   'settings.goalsTitle': 'Obiettivi di sonno',
+  'settings.shareDevices.description':
+    'Anonimizzato, su consenso. Puoi smettere di condividere in qualsiasi momento.',
   'settings.shareDevices.label': 'Condividi i dati del dispositivo con i ricercatori',
   'settings.smartAlarm.description':
     "Si sveglia in una finestra di sonno leggero prima dell'ora della sveglia.",
+  'settings.smartAlarm.label': 'Sveglia intelligente',
   'settings.wakeGoal': 'Ora del risveglio',
   'settings.weeklyReport.description':
     'Riepilogo della domenica mattina di durata, punteggio e notti distintive.',
+  'settings.weeklyReport.label': 'Email di riepilogo settimanale',
   'signup.eyebrow': 'Inizi stanotte',
   'signup.firstNamePlaceholder': 'Sam',
   'signup.lastNamePlaceholder': 'Sleeper',
@@ -131,6 +175,7 @@ export const ui: UiTranslations = {
   'sleepScoreHeroCard.duration': '{{hours}}h {{mins}}m',
   'sleepScoreHeroCard.outOf': '/ 100',
   'sleepScoreHeroCard.title': 'La scorsa notte',
+  'sleepStagesTimeline.ariaLabel': 'Cronologia delle fasi del sonno',
   'sleepStagesTimeline.title': 'Ipnogramma',
   'sleepTrackerLayout.closeMenu': 'Chiudi il menu di navigazione',
   'sleepTrackerLayout.openMenu': 'Apri il menu di navigazione',
@@ -143,6 +188,7 @@ export const ui: UiTranslations = {
   'sleepTrendChart.title': 'Tendenza durata',
   'smartAlarm.addAlarm': 'Nuova sveglia',
   'smartAlarm.daysField': 'Giorni',
+  'smartAlarm.deleteAria': 'Elimina sveglia {{label}}',
   'smartAlarm.emptyBody':
     "Aggiunga un'ora di risveglio per iniziare a sincronizzarsi con i Suoi cicli di sonno.",
   'smartAlarm.emptyHeading': 'Nessuna sveglia ancora',
@@ -150,7 +196,10 @@ export const ui: UiTranslations = {
   'smartAlarm.eyebrow': 'Risveglio intelligente',
   'smartAlarm.heading': 'Si svegli al momento giusto',
   'smartAlarm.labelField': 'Etichetta',
+  'smartAlarm.loading': 'Caricamento sveglie…',
   'smartAlarm.newDialog': 'Nuova sveglia',
+  'smartAlarm.noAlarmsSubtitle':
+    'Aggiungi una sveglia per ottenere una finestra di risveglio intelligente.',
   'smartAlarm.save': 'Salva sveglia',
   'smartAlarm.soundField': 'Suono',
   'smartAlarm.soundsCaption': 'Scelga un tono di risveglio per le nuove sveglie',
@@ -168,6 +217,7 @@ export const ui: UiTranslations = {
   'trends.eyebrow': 'Schemi',
   'trends.heading': 'Come sta andando il Suo sonno',
   'trends.stageBreakdown.caption': 'Distribuzione media su {{hours}}h',
+  'trends.stageBreakdown.minutes': '{{minutes}} M',
   'trends.stageBreakdown.title': 'Suddivisione fasi',
   'trends.summary.avgDuration': 'Durata media',
   'trends.summary.avgScore': 'Punteggio medio',

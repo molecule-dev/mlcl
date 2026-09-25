@@ -1,20 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'فیڈبیک ہے، کوئی بگ ملا ہے، یا کوئی فیچر تجویز کرنا چاہتے ہیں؟ اپنی اکاؤنٹ سیٹنگز سے رابطہ کریں — ہر پیغام ٹیم کے کسی حقیقی فرد تک پہنچتا ہے۔',
+  'about.contactTitle': 'ہم سے بات کریں',
+  'about.featureDatabases':
+    'ہلکے پھلکے ڈیٹا بیسز اور دوبارہ استعمال کے قابل ٹیمپلیٹس جو بکھرے نوٹس کو منظم، دہرائے جانے والے ورک فلو میں بدل دیں۔',
+  'about.featureEditor':
+    'ایک پرسکون بلاک ایڈیٹر — سرخیاں، فہرستیں، کوڈ، کال آؤٹس، اور ٹو ڈوز — سلیش کمانڈز کے ساتھ جب آپ چاہیں اور راستے سے ہٹ کر جب آپ نہ چاہیں۔',
+  'about.featureGraph':
+    'بیک لنکس اور نالج گراف: نوٹ لنک کرنے کے لیے [[ ٹائپ کریں اور دیکھیں کہ وقت کے ساتھ آپ کے خیالات کیسے جڑتے ہیں۔',
+  'about.featureNotebooks':
+    'نیسٹڈ نوٹ بکس اور صفحات تاکہ پروجیکٹس، موضوعات، اور روزانہ کے نوٹس بالکل اسی طرح منظم رہیں جیسے آپ سوچتے ہیں۔',
+  'about.featureSearch':
+    'ہر نوٹ بک میں 50ms سے کم فل ٹیکسٹ سرچ، اور ٹیگز جو نوٹ بکس کے ساتھ مل کر چلتے ہیں، ان سے ٹکراتے نہیں۔',
+  'about.missionTitle': 'ہمارا مشن',
   'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'forgot.eyebrow': 'واپسی کا راستہ کھو دیا؟',
   'forgot.formSubtitle': 'ہمیں فائل پر ای میل بتائیں۔',
+  'forgot.formTitle': 'پاس ورڈ بھول گئے۔',
   'forgot.headline': 'اپنا پاس ورڈ دوبارہ ترتیب دیں۔',
   'forgot.subline': 'ہم آپ کے ان باکس میں ایک بار کا لنک بھیجیں گے تاکہ آپ ایک نیا منتخب کر سکیں۔',
+  'forgot.successDetail':
+    'ہم نے آپ کے ای میل پر ری سیٹ لنک بھیج دیا ہے۔ یہ 30 منٹ میں ختم ہو جائے گا۔',
   'graph.eyebrow': 'گراف',
+  'graph.goToNotes': 'نوٹس دیکھیں →',
+  'graph.loadError': 'گراف لوڈ نہیں ہو سکا: {{message}}',
   'graph.placeholderBody':
     'جب نوٹ ایک دوسرے سے منسلک ہونا شروع ہو جائیں ([[wiki]] نحو کے ساتھ)، ایک انٹرایکٹو فورس ڈائریکٹڈ گراف یہاں رینڈر ہوگا۔',
+  'graph.placeholderTitle': 'بیک لنک گراف جلد آ رہا ہے',
   'graph.subtitle':
     '{{count}} اس ورک اسپیس میں نوٹ۔ بیک لنک گراف رینڈرنگ یہاں ظاہر ہوگا جب نوٹ ایک دوسرے سے منسلک ہوجائیں گے۔',
   'graph.title': 'علم کا گراف',
   'home.empty': 'ابھی تک کوئی نوٹس نہیں — اپنا پہلا شروع کریں۔',
   'home.favoritesHeading': 'پن لگا ہوا',
   'home.guest': 'دوست',
+  'home.loadError': 'آپ کے نوٹس لوڈ نہیں ہو سکے: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'اسے یہاں رکھنے کے لیے ایڈیٹر میں ایک نوٹ پن کریں۔',
   'home.recentHeading': 'حال ہی میں اپ ڈیٹ کیا گیا۔',
@@ -22,18 +43,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'نوٹ بک',
   'home.stats.pinned.label': 'پن لگا ہوا',
   'home.stats.updatedToday.label': 'آج اپ ڈیٹ کیا گیا۔',
+  'home.subtitle': 'جہاں چھوڑا تھا وہیں سے شروع کریں، یا نیا نوٹ بنائیں۔',
   'home.viewAll': 'تمام نوٹس دیکھیں',
   'landing.cta.body':
     'ذاتی استعمال کے لیے مفت۔ ٹیموں کے لیے پرو۔ اپنا موجودہ مارک ڈاون لائیں یا نئے سرے سے شروع کریں — Verso آپ سے ملاقات کرتا ہے جہاں بھی آپ کے نوٹ ہوں۔',
+  'landing.cta.button': 'میری ورک اسپیس بنائیں',
   'landing.cta.heading': 'آج کا صفحہ کھولیں۔',
   'landing.features.eyebrow': 'ہر قدیم آپ کے دوسرے دماغ کی ضرورت ہے۔',
+  'landing.features.heading': 'کام کے لیے بنایا گیا، میٹا ورک کے لیے نہیں۔',
   'landing.hero.eyebrow': 'ایک خاموش تحریری سطح',
   'landing.hero.headlineAccent': 'شکل لے لو.',
   'landing.hero.headlineLeading': 'جہاں خیالات',
   'landing.hero.primaryCta': 'اپنے علم کی بنیاد شروع کریں۔',
   'landing.hero.secondaryCta': 'میرے پاس پہلے سے ہی ایک اکاؤنٹ ہے۔',
+  'landing.hero.socialProof': '12,800+ مصنفین، طلبہ، اور پی ایچ ڈیز {{appName}} کے ساتھ سوچتے ہیں',
   'landing.hero.subline':
     'Verso علمی کارکنوں اور طلباء کے لیے ایک منظم نوٹ لینے کی سطح ہے۔ بلاک ایڈیٹر، نیسٹڈ نوٹ بک، بیک لنکس، اور نالج گراف — سب کچھ ٹائپوگرافی کے پہلے پڑھنے کے تجربے کے پیچھے۔',
+  'landing.preview.notebook': 'علم · تحریر کا عمل',
+  'landing.preview.title': 'ڈرافٹس کو سانس لینے دینے پر',
   'login.eyebrow': 'Verso میں دوبارہ خوش آمدید',
   'login.formSubtitle': 'اپنا ای میل یا کوئی منسلک فراہم کنندہ استعمال کریں۔',
   'login.headline': 'وہیں اٹھائیں جہاں صفحہ موقوف ہوا تھا۔',
@@ -43,6 +70,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'نیویگیشن مینو بند کریں۔',
   'mobileNav.openMenu': 'نیویگیشن مینو کھولیں۔',
   'noteEditor.backToNotes': 'واپس نوٹس پر',
+  'noteEditor.bodyLabel': 'نوٹ کا متن',
   'noteEditor.bodyPlaceholder':
     'لکھنا شروع کریں - آپ کے لکھتے ہی آپ کا نوٹ خود بخود محفوظ ہو جاتا ہے۔',
   'noteEditor.confirmTrash': 'اس نوٹ کو کوڑے دان میں منتقل کریں؟',
@@ -51,17 +79,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'کوڑے دان میں منتقل کریں۔',
   'noteEditor.updated': 'تازہ کاری',
   'notes.defaultWorkspaceName': 'میری نوٹ بک',
+  'notes.empty': 'یہاں ابھی کوئی نوٹ نہیں — نوٹ بک بھرنے کے لیے ایک شروع کریں۔',
   'notes.eyebrow': 'نوٹ بک',
   'notes.filterAll': 'تمام نوٹ',
   'notes.filterPinned': 'پن لگا ہوا',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'نئی نوٹ بک',
   'notes.newNotebookPrompt': 'نئی نوٹ بک کا نام',
+  'notes.newNotebookRequired': 'نوٹ بک کا نام درج کریں۔',
   'notes.notebooksHeading': 'نوٹ بک',
   'notes.subtitle':
     'بائیں طرف ایک نوٹ بک چنیں، پھر نیا اندراج شروع کرنے کے لیے نیا نوٹ بٹن دبائیں۔',
+  'planUpdated.body': 'آپ کی سبسکرپشن اب فعال ہے۔',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'اعلی درجے کی خصوصیات',
   'pricing.heading': 'اپنا نوٹ لینے کا منصوبہ منتخب کریں۔',
+  'reset.changedMind': 'اپنا ارادہ بدل لیا؟',
   'reset.eyebrow': 'تقریباً واپس',
   'reset.formSubtitle': 'اس کے محفوظ ہونے کے بعد آپ سائن ان ہو جائیں گے۔',
   'reset.headline': 'ایک نیا پاس ورڈ منتخب کریں۔',
@@ -70,7 +103,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'وہ کوڈ درج کریں جو ہم نے ابھی آپ کو ای میل کیا ہے اور کوئی یادگار چیز چنیں۔',
   'reset.submit': 'محفوظ کریں اور سائن ان کریں۔',
   'reset.tokenHint': 'آپ کے ان باکس سے پیسٹ کیا گیا۔',
+  'search.empty': 'اس کوئری سے ابھی کوئی نوٹ مماثل نہیں۔',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'ریفریکٹ تلاش کریں۔',
   'search.loading': 'تلاش کر رہا ہے…',
   'search.noRecent': 'اپنے نوٹس میں تلاش شروع کرنے کے لیے اوپر ایک سوال ٹائپ کریں۔',
   'search.recentLabel': 'حالیہ تلاشیں۔',
@@ -78,12 +113,19 @@ export const ui: UiTranslations = {
     'ہر نوٹ بک پر مکمل متن۔ تلاش کرنے کے لیے ٹائپ کریں؛ آپ کے ٹائپ کرتے ہی نتائج ریفریش ہو جاتے ہیں۔',
   'search.title': 'دوسرا دماغ تلاش کریں۔',
   'settings.account.logout': 'لاگ آؤٹ کریں۔',
+  'settings.account.title': 'اکاؤنٹ کی تفصیلات',
+  'settings.editor.graphHover.body':
+    'ایڈیٹر میں [[wikilink]] پر ہوور کرنے پر ایک چھوٹا پیش نظارہ کارڈ دکھائیں۔',
+  'settings.editor.graphHover.label': 'بیک لنک گراف ہوور پیش نظارہ',
   'settings.editor.lineHeight.body':
     'جسم کی لکیروں کے درمیان کتنی ہوا ہے۔ 170% پہلے سے طے شدہ پڑھنے کی تال ہے۔',
+  'settings.editor.lineHeight.label': 'لائن کی اونچائی',
   'settings.editor.serif.body':
     'پڑھنے کے کالم کے لیے جارجیا کا استعمال کریں۔ Sans-serif سائڈبار اور ٹول بار میں رکھتا ہے۔',
+  'settings.editor.serif.label': 'سیرف باڈی ٹیکسٹ',
   'settings.editor.title': 'نوع ٹائپ اور تحریری سطح',
   'settings.eyebrow': 'Verso · ترتیبات',
+  'settings.passwordModal.current': 'موجودہ پاس ورڈ',
   'settings.passwordModal.error':
     'پاس ورڈ تبدیل نہیں کیا جا سکا — براہ کرم اپنا موجودہ پاس ورڈ چیک کریں۔',
   'settings.passwordModal.next': 'نیا پاس ورڈ',
@@ -93,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'ریئل ٹائم چینل کے ذریعے ہر کی اسٹروک کو پش کریں۔ سست روابط کے لیے غیر فعال کریں۔',
   'settings.sync.auto.label': 'ریئل ٹائم مطابقت پذیری۔',
+  'settings.sync.title': 'آپ کے نوٹس کیسے سفر کرتے ہیں',
   'settings.theme.body':
     'روشنی ادارتی کالم کو روشن رکھتی ہے۔ سیپیا شام کے لیے صفحہ کو گرم کرتا ہے۔',
   'settings.theme.dark': 'اندھیرا',
@@ -112,8 +155,12 @@ export const ui: UiTranslations = {
     'نوٹ کے عنوان میں #ہیش ٹیگز شامل کریں (مثلاً "ریڈنگ لسٹ #کتابیں") اور وہ خود بخود یہاں ظاہر ہوں گے۔',
   'tags.emptyTitle': 'ابھی تک کوئی ٹیگ نہیں ہیں۔',
   'tags.eyebrow': 'انڈیکس',
+  'tags.goToNotes': 'نوٹس پر جائیں →',
+  'tags.loadError': 'ٹیگز لوڈ نہیں ہو سکے: {{message}}',
   'tags.subtitle':
     '{{tags}} ٹیگز بھر میں {{notes}} نوٹ نوٹ کے عنوان میں #hashtags شامل کریں اور وہ یہاں ظاہر ہوں گے۔',
+  'versoAuthShell.sample.body':
+    'کل دوسرا دور ہمیشہ آج رات کے پہلے دور سے بہتر پڑھا جاتا ہے۔ کچا مسودہ ڈیپ ورک فولڈر میں رکھ دیں…',
   'versoAuthShell.sample.label': 'روزانہ نوٹ',
   'versoAuthShell.sample.timestamp': 'آج · صبح 9:14 بجے',
   'versoAuthShell.sample.title': 'ڈرافٹس کو سانس لینے دینے پر',
@@ -125,8 +172,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'لکھنا جاری رکھیں',
   'versoTodayHero.createCta': 'آج کا نوٹ شروع کریں۔',
   'versoTodayHero.dailyLabel': 'روزانہ نوٹ',
+  'versoTodayHero.emptyHeadline': 'آج ایک خالی صفحہ ہے۔',
   'versoTodayHero.emptySubline':
     'ایک سوچ کیپچر کریں، ایک میٹنگ لکھیں، یا کل خاکہ بنائیں۔ Verso ساخت کو خاموش رکھتا ہے تاکہ تحریر بلند رہے۔',
+  'versoTodayHero.outlineLabel': 'آج کا خاکہ',
   'versoTodayHero.streak': '{{count}} -دن کا سلسلہ',
+  'versoTodayHero.unwritten': 'ابھی کوئی الفاظ نہیں — شروع کرنے کے لیے نوٹ کھولیں۔',
   'versoTodayHero.wordCount': '{{count}} آج کے الفاظ',
 }

@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vai ir atsauksmes, atradāt kļūdu vai vēlaties ieteikt funkciju? Sazinieties no sava konta iestatījumiem — katra ziņa nonāk pie īsta komandas cilvēka.',
+  'about.contactTitle': 'Sazinieties ar mums',
+  'about.featureDatabases':
+    'Vieglas datubāzes un atkārtoti izmantojamas veidnes, lai neapstrādātas piezīmes pārvērstu strukturētās, atkārtojamās darbplūsmās.',
+  'about.featureEditor':
+    'Kluss bloka redaktors — virsraksti, saraksti, kods, izsaukumi un darāmo lietu saraksti — ar slīpsvītras komandām, kad tās vēlaties, un prom no ceļa, kad nevēlaties.',
+  'about.featureGraph':
+    'Atpakaļsaites un zināšanu grafs: ierakstiet [[, lai saistītu piezīmi, un vērojiet, kā jūsu idejas laika gaitā savienojas.',
+  'about.featureNotebooks':
+    'Iekļautas piezīmju grāmatiņas un lapas, lai projekti, tēmas un ikdienas piezīmes paliktu sakārtotas tieši tā, kā jūs domājat.',
+  'about.featureSearch':
+    'Pilnteksta meklēšana visās piezīmju grāmatiņās zem 50 ms, kā arī tagi, kas sadarbojas ar piezīmju grāmatiņām, nevis konfliktē ar tām.',
+  'about.missionTitle': 'Mūsu misija',
   'common.goToDashboard': 'Uz informācijas paneli',
   'forgot.eyebrow': 'Apmaldījies ceļu atpakaļ iekšā?',
   'forgot.formSubtitle': 'Pastāstiet mums failā esošo e-pasta adresi.',
+  'forgot.formTitle': 'Aizmirsu paroli',
   'forgot.headline': 'Atjaunojiet savu paroli.',
   'forgot.subline':
     'Mēs nosūtīsim vienreizēju saiti uz jūsu iesūtni, lai jūs varētu izvēlēties jaunu.',
+  'forgot.successDetail':
+    'Mēs nosūtījām atiestatīšanas saiti uz jūsu e-pastu. Tā beigsies pēc 30 minūtēm.',
   'graph.eyebrow': 'Grafiks',
+  'graph.goToNotes': 'Pārlūkot piezīmes →',
+  'graph.loadError': 'Nevarēja ielādēt grafiku: {{message}}',
   'graph.placeholderBody':
     'Kad piezīmes sāk savstarpēji saistīties (ar [[wiki]] sintaksi), šeit tiks atveidots interaktīvs ar spēku vadīts grafiks.',
+  'graph.placeholderTitle': 'Atpakaļsaišu grafiks drīzumā',
   'graph.subtitle':
     '{{count}} Piezīmes šajā darbvietā. Atpakaļsaišu grafika renderēšana parādīsies šeit, kad piezīmes būs saistītas viena ar otru.',
   'graph.title': 'Zināšanu grafiks',
   'home.empty': 'Vēl nav piezīmju — sāciet savu pirmo.',
   'home.favoritesHeading': 'Piesprausts',
   'home.guest': 'draugs',
+  'home.loadError': 'Nevarēja ielādēt jūsu piezīmes: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Piespraudiet piezīmi redaktorā, lai to paturētu šeit.',
   'home.recentHeading': 'Nesen atjaunināts',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Piezīmju grāmatiņa',
   'home.stats.pinned.label': 'Piesprausts',
   'home.stats.updatedToday.label': 'Atjaunināts šodien',
+  'home.subtitle': 'Turpiniet tur, kur pārtraucāt, vai sāciet jaunu piezīmi.',
   'home.viewAll': 'Skatīt visas piezīmes',
   'landing.cta.body':
     'Bezmaksas personīgai lietošanai. Profesionāls komandām. Izmantojiet esošos piezīmes vai sāciet no jauna — Verso ir jūsu rīcībā, lai kur arī atrastos jūsu piezīmes.',
+  'landing.cta.button': 'Izveidot manu darba telpu',
   'landing.cta.heading': 'Atvērt šodienas lapu.',
   'landing.features.eyebrow': 'Katrs primitīvs elements, kas nepieciešams jūsu otrajām smadzenēm',
+  'landing.features.heading': 'Radīts darbam, nevis metadarbam.',
   'landing.hero.eyebrow': 'Klusa rakstīšanas virsma',
   'landing.hero.headlineAccent': 'iegūt formu.',
   'landing.hero.headlineLeading': 'Kur domas',
   'landing.hero.primaryCta': 'Sāciet savu zināšanu bāzi',
   'landing.hero.secondaryCta': 'Man jau ir konts',
+  'landing.hero.socialProof': '12 800+ rakstītāju, studentu un doktorantu domā ar {{appName}}',
   'landing.hero.subline':
     'Verso ir strukturēta piezīmju veikšanas virsma zināšanu darbiniekiem un studentiem. Bloku redaktors, ligzdotas piezīmju grāmatiņas, atpakaļsaites un zināšanu grafiks — tas viss aiz tipogrāfijā balstītas lasīšanas pieredzes.',
+  'landing.preview.notebook': 'Zināšanas · Rakstīšanas process',
+  'landing.preview.title': 'Ļaujot caurvējš elpot',
   'login.eyebrow': 'Laipni lūgti atpakaļ Verso!',
   'login.formSubtitle':
     'Izmantojiet savu e-pastu vai jebkuru citu savienoto pakalpojumu sniedzēju.',
@@ -45,6 +72,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Aizvērt navigācijas izvēlni',
   'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
   'noteEditor.backToNotes': 'Atpakaļ pie piezīmēm',
+  'noteEditor.bodyLabel': 'Piezīmes pamatteksts',
   'noteEditor.bodyPlaceholder':
     'Sāciet rakstīt — jūsu piezīme automātiski saglabājas, kamēr rakstāt.',
   'noteEditor.confirmTrash': 'Vai pārvietot šo piezīmi uz miskasti?',
@@ -53,17 +81,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Pārvietot uz atkritumu grozu',
   'noteEditor.updated': 'Atjaunināts',
   'notes.defaultWorkspaceName': 'Mana piezīmju grāmatiņa',
+  'notes.empty': 'Šeit vēl nav piezīmju — sāciet vienu, lai piepildītu piezīmju grāmatiņu.',
   'notes.eyebrow': 'Piezīmju grāmatiņa',
   'notes.filterAll': 'Visas piezīmes',
   'notes.filterPinned': 'Piesprausts',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Jauna piezīmju grāmatiņa',
   'notes.newNotebookPrompt': 'Jauns piezīmju grāmatiņas nosaukums',
+  'notes.newNotebookRequired': 'Ievadiet piezīmju grāmatiņas nosaukumu.',
   'notes.notebooksHeading': 'Piezīmju grāmatiņas',
   'notes.subtitle':
     'Kreisajā pusē izvēlieties piezīmju grāmatiņu un pēc tam nospiediet pogu Jauna piezīme, lai sāktu jaunu ierakstu.',
+  'planUpdated.body': 'Jūsu abonements tagad ir aktīvs.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Papildu funkcijas',
   'pricing.heading': 'Izvēlieties savu piezīmju veikšanas plānu',
+  'reset.changedMind': 'Pārdomājāt?',
   'reset.eyebrow': 'Gandrīz atpakaļ iekšā',
   'reset.formSubtitle': 'Jūs tiksiet pierakstīts, tiklīdz tas būs saglabāts.',
   'reset.headline': 'Izvēlieties jaunu paroli.',
@@ -73,7 +106,9 @@ export const ui: UiTranslations = {
     'Ievadiet kodu, ko tikko nosūtījām jums pa e-pastu, un izvēlieties kaut ko neaizmirstamu.',
   'reset.submit': 'Saglabāt un pieteikties',
   'reset.tokenHint': 'Ielīmēts no jūsu iesūtnes.',
+  'search.empty': 'Šim vaicājumam vēl neatbilst neviena piezīme.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Meklēt Refract',
   'search.loading': 'Meklēšana…',
   'search.noRecent': 'Lai sāktu meklēšanu savās piezīmēs, ierakstiet vaicājumu iepriekš.',
   'search.recentLabel': 'Nesenie meklējumi',
@@ -81,12 +116,19 @@ export const ui: UiTranslations = {
     'Pilns teksts katrā piezīmju grāmatiņā. Rakstiet, lai meklētu; rezultāti tiek atjaunināti rakstīšanas laikā.',
   'search.title': 'Meklējiet otrās smadzenes.',
   'settings.account.logout': 'Izrakstīties',
+  'settings.account.title': 'Konta informācija',
+  'settings.editor.graphHover.body':
+    'Rādīt nelielu priekšskatījuma kartīti, kad redaktorā uzvelkat kursoru uz [[vikisaite]]',
+  'settings.editor.graphHover.label': 'Atpakaļsaišu grafika priekšskatījums ar kursoru',
   'settings.editor.lineHeight.body':
     'Cik daudz gaisa atrodas starp ķermeņa līnijām. Noklusējuma lasīšanas ritms ir 170%.',
+  'settings.editor.lineHeight.label': 'Rindas augstums',
   'settings.editor.serif.body':
     'Lasīšanas kolonnai izmantojiet Džordžijas fontu. Sānjoslā un rīkjoslās tiek saglabāts bezserifa fonts.',
+  'settings.editor.serif.label': 'Serifa pamatteksts',
   'settings.editor.title': 'Tipogrāfija un rakstīšanas virsma',
   'settings.eyebrow': 'Verso · Iestatījumi',
+  'settings.passwordModal.current': 'Pašreizējais paroles',
   'settings.passwordModal.error':
     'Nevarēja mainīt paroli — lūdzu, pārbaudiet savu pašreizējo paroli.',
   'settings.passwordModal.next': 'Jauna parole',
@@ -96,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Katru taustiņsitienu nospiediet reāllaika kanālā. Lēnākam savienojumam atspējojiet.',
   'settings.sync.auto.label': 'Reāllaika sinhronizācija',
+  'settings.sync.title': 'Kā ceļo jūsu piezīmes',
   'settings.theme.body': 'Gaisma uztur redakcijas sleju spilgtu. Sēpija sasilda lapu vakariem.',
   'settings.theme.dark': 'Tumšs',
   'settings.theme.light': 'Gaisma',
@@ -114,8 +157,12 @@ export const ui: UiTranslations = {
     'Pievienojiet piezīmes nosaukumam #mirkļbirkas (piemēram, "Lasāmo saraksts #grāmatas"), un tās šeit parādīsies automātiski.',
   'tags.emptyTitle': 'Vēl nav tagu',
   'tags.eyebrow': 'Indekss',
+  'tags.goToNotes': 'Doties uz piezīmēm →',
+  'tags.loadError': 'Nevarēja ielādēt tagus: {{message}}',
   'tags.subtitle':
     '{{tags}} tagi visā {{notes}} piezīmes. Pievienojiet piezīmes nosaukumam #mirkļbirkas, un tās tiks parādītas šeit.',
+  'versoAuthShell.sample.body':
+    'Otrs piegājiens rīt vienmēr lasās labāk nekā pirmais šovakar. Novietojiet melnrakstu dziļā darba mapē…',
   'versoAuthShell.sample.label': 'Dienas piezīme',
   'versoAuthShell.sample.timestamp': 'Šodien · plkst. 9:14',
   'versoAuthShell.sample.title': 'Ļaujot caurvējš elpot',
@@ -127,8 +174,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Turpināt rakstīt',
   'versoTodayHero.createCta': 'Sāciet šodienas piezīmi',
   'versoTodayHero.dailyLabel': 'Dienas piezīme',
+  'versoTodayHero.emptyHeadline': 'Šodiena ir tukša lapa.',
   'versoTodayHero.emptySubline':
     'Piefiksē domu, pieraksti tikšanās plānu vai ieskicē rītdienu. Verso saglabā klusu struktūru, lai rakstītais paliktu skaļš.',
+  'versoTodayHero.outlineLabel': 'Šodienas konspekts',
   'versoTodayHero.streak': '{{count}} -dienu sērija',
+  'versoTodayHero.unwritten': 'Vēl nav vārdu — atveriet piezīmi, lai sāktu.',
   'versoTodayHero.wordCount': '{{count}} vārdi šodien',
 }

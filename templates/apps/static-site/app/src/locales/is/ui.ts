@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Áskriftin þín hefur verið uppfærð.',
   'planUpdated.returnHome': 'Fara heim',
   'planUpdated.thankYou': 'Þakka þér!',
+  'post.markdown': 'Skoða þessa færslu sem markdown',
+  'post.readingTime': '{{minutes}} mín lestur',
   'post.tags': 'Merki',
   'project.error.nameAndTypeRequired': 'nafn og projectType eru nauðsynleg',
   'project.error.notFound': 'Fannst ekki',

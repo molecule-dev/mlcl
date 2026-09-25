@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пытанні, водгукі ці функцыя, якую вы хацелі б бачыць? Напішыце камандзе з налад вашага акаўнта — кожнае паведамленне чытае жывы чалавек.',
   'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.missionTitle': 'Наша місія',
+  'about.whatYouGetTitle': 'Што вы атрымліваеце',
   'analytics.empty': 'Стварыце калоды, каб бачыць аналітыку тут.',
   'analytics.stats.acrossDecks': 'На ўсіх палубах',
   'analytics.stats.allTime': 'У вашай студыі',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Назва калоды',
   'landing.features.eyebrow': 'Чаму ўверцюра',
   'landing.features.heading': 'Усё неабходнае для выхаду на сцэну гатова.',
+  'landing.finalCta.body':
+    'Запусціце сваю студыю менш чым за хвіліну. Без крэдытнай карты. Скасаваць можна ў любы час.',
   'landing.finalCta.cta': 'Стварыце сваю бясплатную студыю',
   'landing.finalCta.eyebrow': 'Пачатак вольны',
   'landing.finalCta.heading': 'Выйдзі на сцэну з лепшай калодай у сваёй кар’еры.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Рэдагавана 12 хвілін таму',
   'notifications.created': 'створаны',
   'notifications.edited': 'адрэдагавана',
+  'notifications.empty.body':
+    "Актыўнасць на вашых дэках — каментарыі, згадкі, экспарты — з'явіцца тут.",
   'notifications.empty.title': 'Пакуль няма апавяшчэнняў',
   'notifications.eyebrow': 'Сцэнічная дзейнасць',
   'notifications.loading': 'Загрузка…',
   'notifications.shared': 'агульнадаступна',
+  'planUpdated.retry': 'Паспрабуйце яшчэ раз',
+  'planUpdated.verifyFailed': 'Нам пакуль не ўдалося пацвердзіць ваш плацёж.',
+  'planUpdated.verifyFailedBody':
+    'Магчыма, ваш плацёж усё яшчэ апрацоўваецца. Паўтарыце спробу праз хвіліну.',
   'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'present.addSlides': 'Дадаць слайды',
   'present.backToDecks': 'Назад да калоды',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Сцэнічны выканаўца',
   'settings.security.notSet': 'Не зададзена',
   'settings.security.passwordBody': 'Ваш пароль зашыфраваны ў стане спакою.',
+  'settings.security.reset': 'Скінуць',
   'settings.security.title': 'Уліковы запіс + сесіі',
   'shared.empty.body':
     'Калодкі, якімі вы падзяліцеся публічна, будуць адлюстроўвацца тут. Адкрыйце калоду і ўключыце публічны доступ, каб падзяліцца.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Загрузка…',
   'shared.title': 'Агульныя тэрасы',
   'templateCard.slideCount': '{{count}} слайды',
+  'templateCard.usageCount': '{{count}} выкарыстоўвае',
+  'templates.empty.body': 'Паспрабуйце іншы фільтр — мы выпускаем новыя шаблоны штомесяц.',
+  'templates.empty.title': 'У гэтай катэгорыі пакуль няма шаблонаў',
+  'templates.hero.body':
+    'Тэматычныя макеты слайдаў з блокамі дыяграм, дэма-фрэймамі, нататкамі дакладчыка і прэсетаў таймера — кожны шаблон гатовы да запісу.',
   'templates.hero.eyebrow': 'Курыраваныя этапы',
   'templates.hero.heading':
     'Этапы, пабудаваныя да таго моманту, калі вам трэба будзе іх высадзіць.',

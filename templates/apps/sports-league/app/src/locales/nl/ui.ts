@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Heb je feedback, een bug gevonden of wil je {{app}} voor je league? Bereik ons via je accountinstellingen — elk bericht komt bij een echt persoon in het team terecht.',
+  'about.contactTitle': 'Neem contact op',
   'about.eyebrow': 'Over',
+  'about.featureAlerts':
+    'Pushmeldingen voor score-updates, trade-alerts, blessurerapporten en league-aankondigingen.',
+  'about.featureRosters':
+    "Teampagina's met volledige selecties, seizoenstotalen, hot/cold-reeksen en onderlinge resultaten voor elke speler.",
+  'about.featureSchedule':
+    'Een seizoenskalender en schemawerking, zodat je rond elke wedstrijd en uitslag kunt plannen.',
+  'about.featureScoreboard':
+    'Een scorebordticker van uitzendkwaliteit bovenaan elke pagina, zodat je nooit een doelpunt mist.',
+  'about.featureStandings':
+    'Live standen — realtime win-verlies-gelijk-records, punten, winstpercentage en de playofflijn, bijgewerkt bij elk fluitsignaal.',
+  'about.intro':
+    "{{app}} is een thuisbasis van uitzendkwaliteit voor je league. Teams, schema's, live scores en standen komen samen in één snel, overzichtelijk dashboard — zodat fans, coaches en league-organisatoren altijd weten waar het seizoen staat.",
+  'about.missionBody':
+    'Een league volgen zou niet betekenen dat je vijf verschillende scoreborden van derden moet verversen. We hebben het gebouwd om elke league één bron van waarheid te geven voor de standen, het schema en de statistieken die er echt toe doen — bijgewerkt bij elk fluitsignaal, gratis voor het seizoen.',
+  'about.missionTitle': 'Onze missie',
+  'about.whatYouGet': 'Wat u krijgt',
   'appShell.closeNav': 'Navigatie sluiten',
   'appShell.openNav': 'Navigatie openen',
   'common.dashboard': 'Dashboard',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'Alle wedstrijden bekijken →',
   'dashboard.viewAllStandings': 'Volledige stand →',
   'dashboard.viewAllStats': 'Alle statistische koplopers bekijken →',
+  'forgot.submitting': 'Resetlink verzenden…',
   'forgot.subtitle': 'Voer uw e-mail in om een resetlink te ontvangen.',
   'forgot.success': 'Resetlink verzonden naar {{email}}. Controleer uw inbox.',
+  'landing.copyright': '© {{year}} {{app}}. Jaag op de stand.',
+  'landing.ctaBody':
+    'Jouw league. Jouw standen. Jouw favoriete team — bovenaan vastgezet. Twee minuten om in te stellen, gratis voor het seizoen.',
   'landing.ctaHeading': 'Stop met het vernieuwen van externe scoreborden',
   'landing.eyebrow': 'Gebouwd voor fans, coaches en competitieorganisatoren',
   'landing.featuresHeading': 'Een stoel op de eerste rij bij elke stand',
   'landing.getStarted': 'Word lid van de competitie',
   'landing.heroCta': 'Word lid van de competitie',
+  'landing.heroSubtitle':
+    "{{app}} brengt standen, schema's en statistische leiders samen in één dashboard van uitzendkwaliteit. Live scores. Echte records. Geen rommel.",
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'Vanavond in de competitie',
   'landing.statFans': 'Fans die volgen',
   'landing.statGames': 'Wedstrijden dit seizoen',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q{{period}}',
   'matchDetail.back': 'Terug naar wedstrijden',
   'matchDetail.eventsHeading': 'Per-actieverslag',
+  'matchDetail.final': 'FINAL',
   'matchDetail.finalScore': 'Eindstand',
   'matchDetail.live': 'LIVE',
   'matchDetail.liveNow': 'Nu live',
   'matchDetail.noEvents': 'Nog geen gebeurtenissen geregistreerd.',
   'matchDetail.periodClock': 'Q{{period}} · {{clock}}',
+  'matches.empty': 'Geen wedstrijden in deze weergave — probeer een ander filter.',
   'matches.eyebrow': 'Speeldag',
   'matches.loading': 'Programma ophalen…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Kan meldingen niet laden',
   'notifications.loading': 'Meldingen laden…',
   'pennantHeroCard.eyebrow': 'Bovenaan de tabel',
+  'pennantHeroCard.formLabel': 'Laatste 10',
   'pennantHeroCard.gamesAhead': '{{value}} wedstrijden voorsprong op de achtervolger',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'Hoofdnavigatie',
@@ -78,17 +107,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'Kies uw plek',
   'pricing.heading': 'Upgrade voor een rijker schema, scores en standen.',
   'pricing.limits.schedule': '{{count}} schema-items',
+  'pricing.limits.scores': '{{count}} scores',
+  'pricing.limits.standings': '{{count}} standen',
+  'pricing.limits.teams': '{{count}} teams',
+  'pricing.subtitle': 'Upgrade voor een uitgebreider schema, scores en standen.',
   'pricing.upgradeCta': 'Upgraden naar {{tierName}}',
   'profile.eyebrow': 'Fanprofiel',
   'profile.favoritesCount': 'Gevolgde teams',
   'profile.favoritesHeading': 'Favoriete teams',
   'profile.noFavorites': 'Nog geen favorieten — kies teams op de pagina Teams.',
   'profile.rankRecord': 'Positie #{{rank}} · {{record}}',
+  'profile.recordOnly': 'Record {{record}}',
   'reset.confirmPlaceholder': 'Herhaal het wachtwoord',
+  'reset.mismatch': 'Wachtwoorden komen niet overeen.',
   'reset.newLabel': 'Nieuw wachtwoord',
   'reset.subtitle': 'Kies een sterk wachtwoord van minstens 12 tekens.',
   'reset.tokenPlaceholder': 'Plak vanuit de e-mail',
   'schedule.eyebrow': 'Het programma',
+  'schedule.moreGames': '+{{count}} meer',
   'schedule.subtitle':
     'Kalenderweergave van wedstrijden voor het hele seizoen — tik op een dag voor boxscores.',
   'scoreboardTicker.empty': 'Op dit moment geen live wedstrijden — kom terug bij het beginsignaal.',
@@ -96,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Personaliseren',
   'settings.favoritesBody':
     'Deze teams worden bovenaan uw dashboard vastgezet en activeren scoremeldingen.',
+  'settings.favoritesHeading': 'Favoriete teams',
   'settings.loading': 'Uw voorkeuren laden…',
   'settings.noFavorites': 'Nog geen favorieten — kies teams op de pagina Teams.',
   'settings.notificationsHeading': 'Meldingen en weergave',
@@ -113,6 +150,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'V',
   'standings.overall': 'Totaal',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     'Top vier kwalificeert zich voor de play-offs — gelijkspel beslist op punten, daarna op winstpercentage.',
   'standings.title': 'Competitiestand',
@@ -131,6 +169,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': 'Speler',
   'teamDetail.colPos': 'Pos',
+  'teamDetail.pointsLabel': 'Punten',
   'teamDetail.rankLabel': 'Positie #{{rank}}',
   'teamDetail.rosterHeading': 'Spelersgroep',
   'teamDetail.statGD': 'Doelsaldo',

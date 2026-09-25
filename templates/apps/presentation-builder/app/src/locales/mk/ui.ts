@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Прашања, повратни информации или функција што би сакале да ја имаме? Контактирајте го тимот од поставките на вашата сметка — секоја порака ја чита вистинска личност.',
   'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За',
+  'about.missionTitle': 'Нашата мисија',
+  'about.whatYouGetTitle': 'Што добивате',
   'analytics.empty': 'Креирајте шпилови за да ја видите аналитиката тука.',
   'analytics.stats.acrossDecks': 'Низ сите палуби',
   'analytics.stats.allTime': 'Во вашето студио',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Наслов на шпил',
   'landing.features.eyebrow': 'Зошто увертира',
   'landing.features.heading': 'Сè што ви е потребно за да излезете на сцената е подготвено.',
+  'landing.finalCta.body':
+    'Отворете го вашето студио за помалку од една минута. Без кредитна карта. Откажете во секое време.',
   'landing.finalCta.cta': 'Создадете го вашето бесплатно студио',
   'landing.finalCta.eyebrow': 'Слободно за почеток',
   'landing.finalCta.heading': 'Излезете на сцената со најдобриот шпил во вашата кариера.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Изменето пред 12 минути',
   'notifications.created': 'создадено',
   'notifications.edited': 'изменето',
+  'notifications.empty.body':
+    'Активноста на вашите презентации — коментари, спомнувања, извози — ќе се појавува тука.',
   'notifications.empty.title': 'Сè уште нема известувања',
   'notifications.eyebrow': 'Сценска активност',
   'notifications.loading': 'Се вчитува…',
   'notifications.shared': 'јавно споделено',
+  'planUpdated.retry': 'Обидете се повторно',
+  'planUpdated.verifyFailed': 'Сè уште не можевме да ја потврдиме вашата уплата.',
+  'planUpdated.verifyFailedBody':
+    'Вашето плаќање можеби сè уште се обработува. Обидете се повторно за момент.',
   'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'present.addSlides': 'Додај слајдови',
   'present.backToDecks': 'Назад кон палубите',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Сценски изведувач',
   'settings.security.notSet': 'Не е поставено',
   'settings.security.passwordBody': 'Вашата лозинка е криптирана во мирување.',
+  'settings.security.reset': 'Ресетирај',
   'settings.security.title': 'Сметка + сесии',
   'shared.empty.body':
     'Шпиловите што ги споделувате јавно ќе се појават тука. Отворете шпил и префрлете на јавно за да ги споделите.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Се вчитува…',
   'shared.title': 'Споделени палуби',
   'templateCard.slideCount': '{{count}} слајдови',
+  'templateCard.usageCount': '{{count}} користи',
+  'templates.empty.body': 'Пробајте друг филтер — секој месец објавуваме нови шаблони.',
+  'templates.empty.title': 'Сè уште нема шаблони во оваа категорија',
+  'templates.hero.body':
+    'Однапред тематски распореди на слајдови со блокови за графикони, демо рамки, белешки за презентерот и однапред поставени тајмери — секој шаблон е подготвен за снимање.',
   'templates.hero.eyebrow': 'Курирани фази',
   'templates.hero.heading': 'Фази изградени за моментот кога треба да го слетате.',
 }

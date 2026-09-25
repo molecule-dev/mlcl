@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்விகள், கருத்துகள் அல்லது நாங்கள் வழங்க வேண்டும் என நீங்கள் விரும்பும் அம்சம் ஏதேனும் உள்ளதா? உங்கள் கணக்கு அமைப்புகளில் இருந்து குழுவை அணுகவும் — ஒவ்வொரு செய்தியையும் ஒரு உண்மையான நபர் படிக்கிறார்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
+  'about.whatYouGetTitle': 'நீங்கள் பெறுவது',
   'analytics.empty': 'பகுப்பாய்வுகளைக் காண இங்கே விளக்கக்காட்சிகளை உருவாக்கவும்.',
   'analytics.stats.acrossDecks': 'அனைத்து தளங்களிலும்',
   'analytics.stats.allTime': 'உங்கள் ஸ்டுடியோவில்',
@@ -67,6 +71,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'டெக் தலைப்பு',
   'landing.features.eyebrow': 'ஏன் முன்னுரை',
   'landing.features.heading': 'மேடையேறத் தேவையான அனைத்தும் தயாராக உள்ளன.',
+  'landing.finalCta.body':
+    'ஒரு நிமிடத்திற்குள் உங்கள் ஸ்டுடியோவை உருவாக்குங்கள். கிரெடிட் கார்டு தேவையில்லை. எப்போது வேண்டுமானாலும் ரத்து செய்யலாம்.',
   'landing.finalCta.cta': 'உங்கள் இலவச ஸ்டுடியோவை உருவாக்குங்கள்',
   'landing.finalCta.eyebrow': 'தொடங்குவதற்கு இலவசம்',
   'landing.finalCta.heading': 'உங்கள் வாழ்நாளின் மிகச் சிறந்த விளக்கக்காட்சியுடன் மேடையேறுங்கள்.',
@@ -82,10 +88,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 நிமிடங்களுக்கு முன்பு திருத்தப்பட்டது',
   'notifications.created': 'உருவாக்கப்பட்டது',
   'notifications.edited': 'திருத்தப்பட்டது',
+  'notifications.empty.body':
+    'உங்கள் டெக்குகளில் உள்ள செயல்பாடுகள் — கருத்துகள், குறிப்பிடல்கள், ஏற்றுமதிகள் — இங்கே தோன்றும்.',
   'notifications.empty.title': 'இன்னும் அறிவிப்புகள் வரவில்லை',
   'notifications.eyebrow': 'மேடை செயல்பாடு',
   'notifications.loading': 'ஏற்றப்படுகிறது…',
   'notifications.shared': 'பொதுவில் பகிரப்பட்டது',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'present.addSlides': 'ஸ்லைடுகளைச் சேர்க்கவும்',
   'present.backToDecks': 'டெக்குகளுக்குத் திரும்பு',
@@ -124,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.security.notSet': 'அமைக்கப்படவில்லை',
   'settings.security.passwordBody':
     'உங்கள் கடவுச்சொல் சேமிப்பில் இருக்கும்போது மறைகுறியாக்கம் செய்யப்பட்டுள்ளது.',
+  'settings.security.reset': 'மீட்டமை',
   'settings.security.title': 'கணக்கு + அமர்வுகள்',
   'shared.empty.body':
     'நீங்கள் பொதுவில் பகிரும் டெக்குகள் இங்கே தோன்றும். பகிர, ஒரு டெக்கைத் திறந்து ‘பொது’ என்பதை இயக்கவும்.',
@@ -132,6 +145,12 @@ export const ui: UiTranslations = {
   'shared.loading': 'ஏற்றப்படுகிறது…',
   'shared.title': 'பகிரப்பட்ட தளங்கள்',
   'templateCard.slideCount': '{{count}} ஸ்லைடுகள்',
+  'templateCard.usageCount': '{{count}} பயன்கள்',
+  'templates.empty.body':
+    'வேறு ஒரு வடிகட்டியை முயற்சிக்கவும் — நாங்கள் ஒவ்வொரு மாதமும் புதிய டெம்ப்ளேட்டுகளை வெளியிடுகிறோம்.',
+  'templates.empty.title': 'இந்த வகையில் இன்னும் டெம்ப்ளேட்டுகள் இல்லை',
+  'templates.hero.body':
+    'சார்ட் பிளாக்குகள், டெமோ பிரேம்கள், வழங்குநர் குறிப்புகள் மற்றும் டைமர் முன்னமைவுகளுடன் முன்-தீம் செய்யப்பட்ட ஸ்லைடு தளவமைப்புகள் — ஒவ்வொரு டெம்ப்ளேட்டும் பதிவு செய்யத் தயாராக வழங்கப்படுகிறது.',
   'templates.hero.eyebrow': 'கவனமாகத் தேர்ந்தெடுக்கப்பட்ட மேடைகள்',
   'templates.hero.heading': 'நீங்கள் தரையிறங்க வேண்டிய தருணத்திற்கென உருவாக்கப்பட்ட அரங்குகள்.',
 }

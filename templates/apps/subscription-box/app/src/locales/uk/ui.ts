@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маєте питання щодо випуску, доставки чи підписки? Напишіть живій людині з команди на hello@crate.example — ми читаємо кожне повідомлення.',
+  'about.contactTitle': 'Поговоріть з куратором',
+  'about.feature1':
+    'Щомісячні добірки, ретельно відібрані незалежними майстрами, з історією кожної речі.',
+  'about.feature2':
+    'Повний контроль над кожною коробкою — змінюйте вміст, замінюйте чи виключайте речі, пропускайте місяць або змінюйте частоту.',
+  'about.feature3':
+    'Відстеження доставки від відправлення до порога, з пластик-вільною упаковкою та оновленнями від перевізника в реальному часі.',
+  'about.feature4':
+    'Гнучкі плани й прозора оплата — підвищуйте, знижуйте, призупиняйте чи скасовуйте план із власної панелі будь-коли.',
+  'about.intro':
+    '{{app}} — це сервіс кураторських підписок, який щомісяця приносить до ваших дверей ретельно відібрану коробку радості з малих партій. Кожну добірку збирають практикуючі майстри — незалежні митці, шефи та малі бренди — а не алгоритм.',
+  'about.missionBody':
+    'Ми віримо, що підписка має відчуватися як подарунок, а не як пастка. {{app}} створено так, щоб ви залишалися, бо любите те, що приходить — призупиняйте будь-коли, замінюйте що захочете й скасовуйте одним кліком. Жодних скриптів утримання, ніколи.',
+  'about.missionTitle': 'Наша місія',
   'about.pageTitle': 'Про {{app}}',
   'appNav.mobileLabel': 'Основна навігація',
   'appNav.primaryLabel': 'Основна навігація',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Редагувати контактну особу для виставлення рахунків',
   'billing.contact.eyebrow': 'Контактна особа з питань рахунків',
   'billing.eyebrow': 'План і платежі',
+  'billing.loading': 'Завантаження білінгу…',
   'billing.payment.body':
     'Оплата здійснюється через Stripe Checkout — повний номер вашої картки ніколи не торкається наших серверів. Натисніть будь-який рівень нижче, щоб додати або оновити свою картку.',
   'billing.payment.linked': 'Картка зареєстрована через Stripe',
@@ -19,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Відновити підписку',
   'billing.plan.eyebrow': 'Активний план',
   'billing.plan.next': 'Автоматично поновлюється {{date}} .',
+  'billing.plan.status': 'Статус: {{status}}',
   'billing.subtitle': 'Керуйте своїм рівнем, способом оплати та переглядайте попередню активність.',
   'billing.tiers.body': 'Оберіть рівень, і ми перенаправимо вас до Stripe Checkout.',
   'billing.tiers.choose': 'Виберіть',
+  'billing.tiers.empty': 'Рівнів ще не налаштовано.',
   'billing.tiers.heading': 'Доступні рівні',
   'boxDetail.backToBoxes': 'Назад до всіх видань',
   'boxDetail.crumb.boxes': 'Видання',
@@ -34,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Кураторська робота',
   'boxDetail.items.heading': '{{count}} кураторські роботи',
   'boxDetail.itemsBadge': '{{count}} кураторські товари в коробці',
+  'boxDetail.loading': 'Завантаження випуску…',
   'boxDetail.notFound': 'Того видання більше немає в наявності.',
   'boxDetail.subscribe.success': 'Підписано — ваше перше видання поставлено в чергу.',
   'boxDetail.swapBadge': 'Обміняти на {{count}} кількість товарів у коробці',
@@ -42,14 +62,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Жодних відповідних видань не знайдено.',
   'boxes.eyebrow': 'Архів «Скарб»',
   'boxes.heading': 'Перегляньте кожен випуск',
+  'boxes.loadError': 'Не вдалося завантажити випуски. Перевірте з’єднання та повторіть спробу.',
   'boxes.loading': 'Завантаження видань…',
+  'boxes.search.label': 'Пошук випусків',
   'boxes.search.placeholder': 'Пошук видань…',
   'boxes.subtitle':
     'Кожен рівень – це невелика порція історій. Додайте одну до своєї черги або перенесіть її на наступний місяць.',
+  'boxThemeCard.itemCount': '{{count}} елементів',
   'boxThemeCard.perMonth': '/ місяць',
+  'boxThemeCard.retailValue': 'Роздрібна вартість {{value}}',
   'common.goToDashboard': 'До панелі',
+  'common.retry': 'Спробувати ще раз',
   'customize.eyebrow': 'Зробіть це своїм',
   'customize.heading': 'Налаштуйте свій наступний скарб',
+  'customize.items.empty': 'Для цього рівня ще не налаштовано жодної позиції.',
   'customize.items.exclude': 'Пропустити це',
   'customize.items.eyebrow': 'Персоналізуйте цю коробку',
   'customize.items.heading': 'Елементи в {{box}}',
@@ -58,8 +84,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Додати назад',
   'customize.items.save': 'Зберегти налаштування',
   'customize.items.swapsLeft': '{{used}} з {{max}} використані свопи',
+  'customize.loading': 'Завантаження налаштувань…',
   'customize.noSub.body':
     'Спочатку підпишіться на рівень, а потім поверніться, щоб обмінятися предметами у своїй коробці.',
+  'customize.noSub.cta': 'Переглянути випуски',
   'customize.noSub.heading': 'Немає активної підписки',
   'customize.saved': 'Налаштування збережено.',
   'customize.subtitle':
@@ -73,11 +101,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Відстеження відправлення',
   'dashboard.eyebrow': 'Ваш скарб',
   'dashboard.greeting': 'З поверненням, {{name}}.',
+  'dashboard.loadError':
+    'Не вдалося завантажити вашу панель. Перевірте з’єднання та повторіть спробу.',
   'dashboard.loading': 'Завантаження панелі…',
   'dashboard.next.eyebrow': 'Ваше наступне видання',
   'dashboard.onboarding.body':
     'У вас ще немає активної підписки. Виберіть рівень, щоб щомісяця надсилати скарб.',
   'dashboard.onboarding.cta': 'Переглянути всі видання',
+  'dashboard.onboarding.empty': 'Зараз немає доступних планів. Загляньте пізніше.',
   'dashboard.onboarding.heading': 'Оберіть своє перше видання',
   'dashboard.renewal.amount': 'Заряджено',
   'dashboard.renewal.cadence': 'Каденція',
@@ -85,12 +116,15 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Поновлення',
   'dashboard.renewal.heading': 'Автоматичне поновлення {{date}}',
   'dashboard.renewal.plan': 'Ключ плану',
+  'dashboard.renewal.tbd': 'Планування поновлення незабаром',
   'dashboard.renewal.tier': 'Рівень',
   'dashboard.stats.days': 'днів',
   'dashboard.stats.daysToNext': 'Кораблі в',
   'dashboard.stats.items': 'Кураторські товари',
   'dashboard.stats.shipDate': 'Дата відправлення',
   'dashboard.stats.tbd': 'Незабаром',
+  'dashboard.subtitle.active': 'Ваш наступний випуск уже в дорозі. Ось чого очікувати.',
+  'dashboard.subtitle.idle': 'Виберіть рівень, щоб щомісяця отримувати {{appName}}.',
   'forgotPassword.subtitle':
     'Вкажіть свою електронну адресу, і ми надішлемо вам посилання для скидання налаштувань.',
   'forgotPassword.success.body':
@@ -98,6 +132,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Перевірте свою поштову скриньку.',
   'landing.editions.eyebrow': 'Цього сезону',
   'landing.editions.heading': 'Видання, які подобаються нашим кураторам',
+  'landing.editions.viewAll': 'Переглянути всі випуски →',
   'landing.footer.contact': 'Поговоріть з куратором',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Почніть свою коробку →',
@@ -107,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Погляд на панель керування учасниками — зворотний відлік, вміст та відстеження.',
   'landing.hero.social.count': 'Улюблений {{count}} + підписників',
+  'landing.hero.social.rating': '{{rating}} середня оцінка розпакування',
+  'landing.hero.subhead':
+    '{{appName}} надсилає вам ретельно відібрану коробку радості з малих партій від незалежних майстрів. Призупиняйте будь-коли. Замінюйте що захочете. Залишайте те, що любите.',
   'landing.nav.start': 'Почніть свою коробку',
   'landing.tiers.eyebrow': 'Оберіть свій каденс',
   'landing.tiers.heading': 'Почніть з малого, оновлюйте будь-коли, скасовуйте так само легко.',
@@ -116,6 +154,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Увійдіть, щоб переглянути скриньку наступного місяця.',
   'login.welcomeBack': 'Ласкаво просимо назад, кураторе.',
   'nextBoxHeroCard.eyebrow': 'ВАШ НАСТУПНИЙ СКАРБІТ',
+  'nextBoxHeroCard.itemCount': '{{count}} предметів усередині',
   'nextBoxHeroCard.itemsLabel': 'Кураторські товари',
   'nextBoxHeroCard.shipsOnLabel': 'Відправлення',
   'notFound.body':
@@ -139,8 +178,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Призупинити підписку',
   'settings.danger.paused': 'Підписку призупинено.',
   'settings.danger.pausing': 'Призупинення…',
+  'settings.danger.status': 'Статус підписки: {{status}}',
   'settings.danger.subtitle':
     'Призупинення зберігає ваш рівень та історію недоторканими. Скасування зупиняє майбутні відправлення та видаляє збережені способи оплати в кінці циклу.',
+  'settings.notifications.saving': '· збереження…',
   'settings.notifications.subtitle':
     'Оберіть, які сигнали ви хочете отримувати від Crate. Значення за замовчуванням є розумними.',
   'settings.subtitle': 'Оновіть свій профіль, адресу доставки та способи зв’язку з Crate.',
@@ -156,12 +197,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Активної відправки поки що немає',
   'shipments.live.eyebrow': 'Активна відправка',
   'shipments.live.unnamed': 'Ваша наступна коробка',
+  'shipments.loadError':
+    'Не вдалося завантажити ваші відправлення. Перевірте з’єднання та повторіть спробу.',
+  'shipments.loading': 'Завантаження відправлень…',
+  'shipments.step.delivered': 'Доставлено',
   'shipments.step.deliveredBody': 'Позначте #crateunbox, щоб поділитися своїми відкриттями.',
   'shipments.step.ordered': 'Замовлення розміщено',
   'shipments.step.orderedBody':
     'Ваша підписка поставила це видання в чергу на наступний цикл доставки.',
+  'shipments.step.packed': 'Запаковано вручну',
   'shipments.step.packedBody':
     'Кожен шматочок загорнутий та покладений у коробку з рукописною запискою.',
+  'shipments.step.transit': 'У дорозі',
   'shipments.step.transitNot': 'Відстеження з’явиться тут, щойно ваша коробка буде в дорозі.',
   'shipments.subtitle':
     'Відстежуйте коробку на шляху до вас, а потім перегляньте кожне видання, яке ви розпакували раніше.',

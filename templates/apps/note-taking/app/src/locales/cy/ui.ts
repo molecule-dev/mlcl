@@ -1,20 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Oes gennych adborth, wedi dod o hyd i fyg, neu eisiau awgrymu nodwedd? Cysylltwch o'ch gosodiadau cyfrif — mae pob neges yn mynd at berson go iawn ar y tîm.",
+  'about.contactTitle': 'Siaradwch â ni',
+  'about.featureDatabases':
+    'Cronfeydd data ysgafn a thempledi ailddefnyddiadwy i droi nodiadau rhydd yn llif gwaith strwythuredig, ailadroddadwy.',
+  'about.featureEditor':
+    "Golygydd bloc tawel — penawdau, rhestrau, cod, galwadau, a thasgau — gyda gorchmynion slaes pan fyddwch eu heisiau ac allan o'r ffordd pan nad ydych.",
+  'about.featureGraph':
+    "Cysylltiadau cefn a graff gwybodaeth: teipiwch [[ i gysylltu nodyn a gwyliwch sut mae eich syniadau'n cysylltu dros amser.",
+  'about.featureNotebooks':
+    'Nodiadlyfrau a thudalennau nythog fel bod prosiectau, pynciau, a nodiadau dyddiol yn aros yn drefnus yn union fel rydych yn meddwl.',
+  'about.featureSearch':
+    "Chwiliad testun llawn o dan 50ms ar draws pob nodiadlyfr, ynghyd â thagiau sy'n cyfuno â nodiadlyfrau yn hytrach na brwydro yn eu herbyn.",
+  'about.missionTitle': 'Ein cenhadaeth',
   'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'forgot.eyebrow': "Colli'r ffordd yn ôl i mewn?",
   'forgot.formSubtitle': 'Dywedwch wrthym yr e-bost sydd ar ffeil.',
+  'forgot.formTitle': 'Anghofiais gyfrinair',
   'forgot.headline': 'Ailosod eich cyfrinair.',
   'forgot.subline': "Byddwn yn anfon dolen untro i'ch mewnflwch fel y gallwch ddewis un newydd.",
+  'forgot.successDetail':
+    "Rydym wedi anfon dolen ailosod i'ch e-bost. Bydd yn dod i ben mewn 30 munud.",
   'graph.eyebrow': 'Graff',
+  'graph.goToNotes': 'Pori nodiadau →',
+  'graph.loadError': "Methu llwytho'r graff: {{message}}",
   'graph.placeholderBody':
     "Pan fydd nodiadau'n dechrau cysylltu â'i gilydd (gyda chystrawen [[wici]], bydd graff rhyngweithiol wedi'i gyfeirio gan rym yn cael ei rendro yma.",
+  'graph.placeholderTitle': 'Graff cysylltiadau cefn yn dod yn fuan',
   'graph.subtitle':
     "{{count}} nodiadau yn y gweithle hwn. Bydd rendro graff backlink yn ymddangos yma unwaith y bydd nodiadau'n cysylltu â'i gilydd.",
   'graph.title': 'Graff gwybodaeth',
   'home.empty': 'Dim nodiadau eto — dechreuwch eich un cyntaf.',
   'home.favoritesHeading': "Wedi'i binio",
   'home.guest': 'ffrind',
+  'home.loadError': 'Methu llwytho eich nodiadau: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': "Pinio nodyn yn y golygydd i'w gadw yma.",
   'home.recentHeading': "Wedi'i ddiweddaru'n ddiweddar",
@@ -22,18 +43,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Llyfr nodiadau',
   'home.stats.pinned.label': "Wedi'i binio",
   'home.stats.updatedToday.label': "Wedi'i ddiweddaru heddiw",
+  'home.subtitle': "Parhewch o'r lle y gwnaethoch stopio, neu ddechreuwch nodyn newydd.",
   'home.viewAll': 'Gweld yr holl nodiadau',
   'landing.cta.body':
     "Am ddim ar gyfer defnydd personol. Pro i dimau. Dewch â'ch gostyngiad presennol neu dechreuwch o'r newydd — mae Verso yn cwrdd â chi lle bynnag y mae eich nodiadau.",
+  'landing.cta.button': 'Creu fy ngweithle',
   'landing.cta.heading': 'Agorwch dudalen heddiw.',
   'landing.features.eyebrow': 'Pob cyntefig sydd ei angen ar eich ail ymennydd',
+  'landing.features.heading': 'Wedi’i adeiladu ar gyfer y gwaith, nid y meta-waith.',
   'landing.hero.eyebrow': 'Arwyneb ysgrifennu tawel',
   'landing.hero.headlineAccent': 'cymryd siâp.',
   'landing.hero.headlineLeading': 'Ble mae meddyliau',
   'landing.hero.primaryCta': 'Dechreuwch eich cronfa wybodaeth',
   'landing.hero.secondaryCta': 'Mae gen i gyfrif eisoes',
+  'landing.hero.socialProof':
+    'Mae 12,800+ o ysgrifenwyr, myfyrwyr, ac ymchwilwyr PhD yn meddwl gyda {{appName}}',
   'landing.hero.subline':
     "Mae Verso yn arwyneb strwythuredig ar gyfer cymryd nodiadau ar gyfer gweithwyr gwybodaeth a myfyrwyr. Golygydd bloc, llyfrau nodiadau wedi'u nythu, dolenni ôl, a graff gwybodaeth — i gyd y tu ôl i brofiad darllen teipograffeg-gyntaf.",
+  'landing.preview.notebook': 'Gwybodaeth · Proses ysgrifennu',
+  'landing.preview.title': 'Ar adael i ddrafftiau anadlu',
   'login.eyebrow': 'Croeso yn ôl i Verso',
   'login.formSubtitle': 'Defnyddiwch eich e-bost neu unrhyw ddarparwr cysylltiedig.',
   'login.headline': 'Parhewch lle gwnaeth y dudalen oedi.',
@@ -43,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': "Cau'r ddewislen lywio",
   'mobileNav.openMenu': 'Agor y ddewislen lywio',
   'noteEditor.backToNotes': 'Yn ôl at y nodiadau',
+  'noteEditor.bodyLabel': 'Corff y nodyn',
   'noteEditor.bodyPlaceholder':
     "Dechreuwch ysgrifennu — bydd eich nodyn yn cael ei gadw'n awtomatig wrth i chi deipio.",
   'noteEditor.confirmTrash': "Symud y nodyn hwn i'r bin sbwriel?",
@@ -51,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': "Symud i'r sbwriel",
   'noteEditor.updated': "Wedi'i ddiweddaru",
   'notes.defaultWorkspaceName': 'Fy llyfr nodiadau',
+  'notes.empty': "Dim nodiadau yma eto — dechreuwch un i lenwi'r nodiadlyfr.",
   'notes.eyebrow': 'Llyfr nodiadau',
   'notes.filterAll': 'Pob nodiadau',
   'notes.filterPinned': "Wedi'i binio",
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Llyfr nodiadau newydd',
   'notes.newNotebookPrompt': 'Enw llyfr nodiadau newydd',
+  'notes.newNotebookRequired': 'Rhowch enw nodiadlyfr.',
   'notes.notebooksHeading': 'Llyfrau nodiadau',
   'notes.subtitle':
     'Dewiswch lyfr nodiadau ar y chwith, yna pwyswch y botwm Nodyn Newydd i ddechrau cofnod newydd.',
+  'planUpdated.body': 'Mae eich tanysgrifiad bellach yn weithredol.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Nodweddion uwch',
   'pricing.heading': 'Dewiswch eich cynllun Cymryd Nodiadau',
+  'reset.changedMind': 'Wedi newid eich meddwl?',
   'reset.eyebrow': 'Bron yn ôl i mewn',
   'reset.formSubtitle': "Byddwch wedi mewngofnodi unwaith y bydd wedi'i gadw.",
   'reset.headline': 'Dewiswch gyfrinair newydd.',
@@ -71,7 +105,9 @@ export const ui: UiTranslations = {
     'Rhowch y cod rydyn ni newydd ei e-bostio atoch chi a dewiswch rywbeth cofiadwy.',
   'reset.submit': 'Cadw a mewngofnodi',
   'reset.tokenHint': "Wedi'i gludo o'ch mewnflwch.",
+  'search.empty': "Nid oes nodiadau'n cyfateb i'r ymholiad hwn eto.",
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Chwilio am Adferiad',
   'search.loading': 'Yn chwilio…',
   'search.noRecent': 'Teipiwch ymholiad uchod i ddechrau chwilio ar draws eich nodiadau.',
   'search.recentLabel': 'chwiliadau diweddar',
@@ -79,12 +115,19 @@ export const ui: UiTranslations = {
     "Testun llawn ar draws pob llyfr nodiadau. Teipiwch i chwilio; mae canlyniadau'n adnewyddu wrth i chi deipio.",
   'search.title': 'Chwiliwch yr ail ymennydd.',
   'settings.account.logout': 'Allgofnodi',
+  'settings.account.title': 'Manylion y cyfrif',
+  'settings.editor.graphHover.body':
+    'Dangoswch gard rhagolwg bach pan fyddwch yn hofran dros [[wikilink]] yn y golygydd.',
+  'settings.editor.graphHover.label': 'Rhagolwg hofran graff cysylltiadau cefn',
   'settings.editor.lineHeight.body':
     "Faint o aer sydd rhwng llinellau'r corff. 170% yw'r rhythm darllen diofyn.",
+  'settings.editor.lineHeight.label': 'Uchder llinell',
   'settings.editor.serif.body':
     "Defnyddiwch Georgia ar gyfer y golofn ddarllen. Mae sans-serif yn cael ei gadw yn y bar ochr a'r bariau offer.",
+  'settings.editor.serif.label': 'Testun corff serif',
   'settings.editor.title': 'Teipograffeg ac arwyneb ysgrifennu',
   'settings.eyebrow': 'Verso · Gosodiadau',
+  'settings.passwordModal.current': 'Cyfrinair cyfredol',
   'settings.passwordModal.error': 'Methu newid y cyfrinair — gwiriwch eich cyfrinair cyfredol.',
   'settings.passwordModal.next': 'Cyfrinair newydd',
   'settings.passwordModal.submit': 'Cadw cyfrinair',
@@ -93,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     "Gwthiwch bob ergyd allwedd drwy'r sianel amser real. Analluogwch ar gyfer cysylltiadau arafach.",
   'settings.sync.auto.label': 'Cydamseru amser real',
+  'settings.sync.title': "Sut mae eich nodiadau'n teithio",
   'settings.theme.body':
     "Mae golau yn cadw'r golofn olygyddol yn llachar. Mae sepia yn cynhesu'r dudalen ar gyfer y nosweithiau.",
   'settings.theme.dark': 'Tywyll',
@@ -112,8 +156,12 @@ export const ui: UiTranslations = {
     'Ychwanegwch #hashtags at deitl nodyn (e.e. "Rhestr ddarllen #llyfrau") a byddant yn ymddangos yma\'n awtomatig.',
   'tags.emptyTitle': 'Dim tagiau eto',
   'tags.eyebrow': 'Mynegai',
+  'tags.goToNotes': 'Ewch i nodiadau →',
+  'tags.loadError': 'Methu llwytho tagiau: {{message}}',
   'tags.subtitle':
     '{{tags}} tagiau ar draws {{notes}} nodiadau. Ychwanegwch #hashtags at deitl nodyn a byddant yn ymddangos yma.',
+  'versoAuthShell.sample.body':
+    "Mae ail ddrafft yfory bob amser yn darllen yn well na'r drafft cyntaf heno. Parciwch y tor bras yn y ffolder gwaith dwys…",
   'versoAuthShell.sample.label': 'Nodyn dyddiol',
   'versoAuthShell.sample.timestamp': 'Heddiw · 9:14am',
   'versoAuthShell.sample.title': 'Ar adael i ddrafftiau anadlu',
@@ -125,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Parhau i ysgrifennu',
   'versoTodayHero.createCta': 'Dechreuwch nodyn heddiw',
   'versoTodayHero.dailyLabel': 'Nodyn dyddiol',
+  'versoTodayHero.emptyHeadline': "Mae heddiw'n dudalen wag.",
   'versoTodayHero.emptySubline':
     "Cipiwch feddwl, nodwch gyfarfod, neu sgetsiwch yfory. Mae Verso yn cadw'r strwythur yn dawel fel bod yr ysgrifen yn aros yn uchel.",
+  'versoTodayHero.outlineLabel': 'Amlinelliad heddiw',
   'versoTodayHero.streak': '{{count}} cyfres -dydd',
+  'versoTodayHero.unwritten': 'Dim geiriau eto — agorwch y nodyn i ddechrau.',
   'versoTodayHero.wordCount': '{{count}} geiriau heddiw',
 }

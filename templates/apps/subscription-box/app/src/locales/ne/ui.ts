@@ -1,6 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'कुनै संस्करण, ढुवानी, वा तपाईंको सदस्यताबारे प्रश्न छ? टोलीका वास्तविक मानिससँग hello@crate.example मा सम्पर्क गर्नुहोस् — हामी हरेक सन्देश पढ्छौं।',
+  'about.contactTitle': 'क्युरेटरसँग कुरा गर्नुहोस्',
+  'about.feature1': 'स्वतन्त्र निर्माताहरूद्वारा छानिएका मासिक संस्करणहरू, हरेक वस्तुको कथा सहित।',
+  'about.feature2':
+    'हरेक बक्समाथि पूर्ण नियन्त्रण — सामग्री अनुकूलन गर्नुहोस्, वस्तुहरू फेर्नुहोस् वा हटाउनुहोस्, एक महिना छोड्नुहोस्, वा आफ्नो आवृत्ति परिवर्तन गर्नुहोस्।',
+  'about.feature3':
+    'पिकअपदेखि घरको ढोकासम्म पूर्ण ढुवानी ट्र्याकिङ, प्लास्टिक-रहित प्याकेजिङ र वाहकका प्रत्यक्ष अपडेटसहित।',
+  'about.feature4':
+    'लचिलो योजना र पारदर्शी बिलिङ — आफ्नो ड्यासबोर्डबाट कुनै पनि बेला अपग्रेड, डाउनग्रेड, रोक्न, वा रद्द गर्नुहोस्।',
+  'about.intro':
+    '{{app}} एउटा क्युरेटेड सदस्यता-बक्स सेवा हो जसले हरेक महिना तपाईंको ढोकामा छानिएको, सानो-ब्याचको आनन्दको बक्स पुर्‍याउँछ। हरेक संस्करण काम गर्ने निर्माताहरू — स्वतन्त्र कलाकार, शेफ, र साना ब्रान्डहरू — द्वारा तयार गरिन्छ, कुनै एल्गोरिदमद्वारा होइन।',
+  'about.missionBody':
+    'हामी विश्वास गर्छौं कि सदस्यता उपहार जस्तो लाग्नुपर्छ, जाल जस्तो होइन। {{app}} यसरी बनाइएको छ कि तपाईं आउने कुरा मन परेर बस्नुहुन्छ — कुनै पनि बेला रोक्नुहोस्, चाहेको फेर्नुहोस्, र एक क्लिकमा रद्द गर्नुहोस्। कहिल्यै पनि रिटेन्सन स्क्रिप्ट छैन।',
+  'about.missionTitle': 'हाम्रो मिशन',
   'about.pageTitle': '{{app}} बारे',
   'appNav.mobileLabel': 'प्राथमिक नेभिगेसन',
   'appNav.primaryLabel': 'प्राथमिक नेभिगेसन',
@@ -11,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'बिलिङ सम्पर्क सम्पादन गर्नुहोस्',
   'billing.contact.eyebrow': 'बिलिङ सम्पर्क',
   'billing.eyebrow': 'योजना र भुक्तानीहरू',
+  'billing.loading': 'बिलिङ लोड हुँदै...',
   'billing.payment.body':
     'भुक्तानी स्ट्राइप चेकआउटद्वारा ह्यान्डल गरिन्छ — तपाईंको पूरा कार्ड नम्बरले हाम्रो सर्भरहरूलाई कहिल्यै छुँदैन। आफ्नो कार्ड थप्न वा अद्यावधिक गर्न तलको कुनै पनि तहमा क्लिक गर्नुहोस्।',
   'billing.payment.linked': 'स्ट्राइप मार्फत फाइलमा कार्ड',
@@ -20,10 +36,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'सदस्यता पुनः सुरु गर्नुहोस्',
   'billing.plan.eyebrow': 'सक्रिय योजना',
   'billing.plan.next': 'स्वतः नवीकरण हुन्छ {{date}} ।',
+  'billing.plan.status': 'स्थिति: {{status}}',
   'billing.subtitle':
     'आफ्नो तह, भुक्तानी विधि व्यवस्थापन गर्नुहोस्, र विगतको गतिविधि समीक्षा गर्नुहोस्।',
   'billing.tiers.body': 'एउटा तह छान्नुहोस् र हामी तपाईंलाई स्ट्राइप चेकआउटमा लैजानेछौं।',
   'billing.tiers.choose': 'छान्नुहोस्',
+  'billing.tiers.empty': 'अझै कुनै तह कन्फिगर गरिएको छैन।',
   'billing.tiers.heading': 'उपलब्ध तहहरू',
   'boxDetail.backToBoxes': 'सबै संस्करणहरूमा फर्कनुहोस्',
   'boxDetail.crumb.boxes': 'संस्करणहरू',
@@ -36,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'छनौट गरिएको टुक्रा',
   'boxDetail.items.heading': '{{count}} क्युरेट गरिएका टुक्राहरू',
   'boxDetail.itemsBadge': '{{count}} प्रति बक्स क्युरेट गरिएका वस्तुहरू',
+  'boxDetail.loading': 'संस्करण लोड हुँदैछ…',
   'boxDetail.notFound': 'त्यो संस्करण अब उपलब्ध छैन।',
   'boxDetail.subscribe.success': 'सदस्यता लिइयो — तपाईंको पहिलो संस्करण लामबद्ध छ।',
   'boxDetail.swapBadge': 'सम्म साट्नुहोस् {{count}} प्रति बक्स वस्तु(हरू)',
@@ -44,14 +63,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'कुनै पनि संस्करण मिलेन।',
   'boxes.eyebrow': 'द ट्रोभ अभिलेख',
   'boxes.heading': 'प्रत्येक संस्करण ब्राउज गर्नुहोस्',
+  'boxes.loadError':
+    'हामी संस्करणहरू लोड गर्न सकेनौं। आफ्नो जडान जाँच्नुहोस् र पुनः प्रयास गर्नुहोस्।',
   'boxes.loading': 'संस्करणहरू लोड गर्दै...',
+  'boxes.search.label': 'संस्करणहरू खोज्नुहोस्',
   'boxes.search.placeholder': 'संस्करणहरू खोज्नुहोस्…',
   'boxes.subtitle':
     'प्रत्येक तह एउटा सानो-ब्याचको कथा हो। आफ्नो लाइनमा एउटा थप्नुहोस् वा अर्को महिनामा साट्नुहोस्।',
+  'boxThemeCard.itemCount': '{{count}} वस्तुहरू',
   'boxThemeCard.perMonth': '/ महिना',
+  'boxThemeCard.retailValue': 'खुद्रा मूल्य {{value}}',
   'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
+  'common.retry': 'पुन: प्रयास गर्नुहोस्',
   'customize.eyebrow': 'यसलाई आफ्नो बनाउनुहोस्',
   'customize.heading': 'आफ्नो अर्को ट्रोभलाई अनुकूलित गर्नुहोस्',
+  'customize.items.empty': 'यो तहका लागि अझै कुनै वस्तु कन्फिगर गरिएको छैन।',
   'customize.items.exclude': 'यसलाई छोड्नुहोस्',
   'customize.items.eyebrow': 'यो बाकसलाई निजीकृत गर्नुहोस्',
   'customize.items.heading': 'वस्तुहरू {{box}}',
@@ -60,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'फेरि थप्नुहोस्',
   'customize.items.save': 'अनुकूलन बचत गर्नुहोस्',
   'customize.items.swapsLeft': '{{used}} को {{max}} प्रयोग गरिएका स्वापहरू',
+  'customize.loading': 'अनुकूलन लोड हुँदैछ…',
   'customize.noSub.body':
     'पहिले एउटा तहको सदस्यता लिनुहोस्, त्यसपछि आफ्नो बक्समा वस्तुहरू साट्न फर्कनुहोस्।',
+  'customize.noSub.cta': 'संस्करणहरू ब्राउज गर्नुहोस्',
   'customize.noSub.heading': 'कुनै सक्रिय सदस्यता छैन',
   'customize.saved': 'अनुकूलन बचत गरियो।',
   'customize.subtitle':
@@ -75,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'ढुवानी ट्र्याक गर्नुहोस्',
   'dashboard.eyebrow': 'तपाईंको ट्रभ',
   'dashboard.greeting': 'स्वागत छ, {{name}} ।',
+  'dashboard.loadError':
+    'हामी तपाईंको ड्यासबोर्ड लोड गर्न सकेनौं। आफ्नो जडान जाँच्नुहोस् र पुनः प्रयास गर्नुहोस्।',
   'dashboard.loading': 'ड्यासबोर्ड लोड गर्दै...',
   'dashboard.next.eyebrow': 'तपाईंको अर्को संस्करण',
   'dashboard.onboarding.body':
     'तपाईंसँग अहिलेसम्म सक्रिय सदस्यता छैन। हरेक महिना ट्रोभ ढुवानी सुरु गर्न एउटा तह छान्नुहोस्।',
   'dashboard.onboarding.cta': 'सबै संस्करणहरू ब्राउज गर्नुहोस्',
+  'dashboard.onboarding.empty': 'अहिले कुनै योजना उपलब्ध छैन। चाँडै फेरि हेर्नुहोस्।',
   'dashboard.onboarding.heading': 'आफ्नो पहिलो संस्करण छान्नुहोस्',
   'dashboard.renewal.amount': 'चार्ज गरिएको',
   'dashboard.renewal.cadence': 'ताल',
@@ -87,18 +118,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'नवीकरण',
   'dashboard.renewal.heading': 'स्वतः नवीकरण हुने मिति {{date}}',
   'dashboard.renewal.plan': 'योजना कुञ्जी',
+  'dashboard.renewal.tbd': 'नवीकरण तालिका चाँडै',
   'dashboard.renewal.tier': 'तह',
   'dashboard.stats.days': 'दिनहरू',
   'dashboard.stats.daysToNext': 'जहाजहरू',
   'dashboard.stats.items': 'छनौट गरिएका वस्तुहरू',
   'dashboard.stats.shipDate': 'ढुवानी मिति',
   'dashboard.stats.tbd': 'कुनै फरक पर्दैन',
+  'dashboard.subtitle.active': 'तपाईंको अर्को संस्करण बाटोमा छ। यहाँ के अपेक्षा गर्ने हो।',
+  'dashboard.subtitle.idle': 'हरेक महिना {{appName}} पठाउन सुरु गर्न एउटा तह छान्नुहोस्।',
   'forgotPassword.subtitle': 'हामीलाई तपाईंको इमेल भन्नुहोस् र हामी रिसेट लिङ्क पठाउनेछौं।',
   'forgotPassword.success.body':
     'यदि {{email}} दर्ता भएको छ भने, तपाईंले केही मिनेट भित्रमा रिसेट लिङ्क प्राप्त गर्नुहुनेछ।',
   'forgotPassword.success.title': 'आफ्नो इनबक्स जाँच गर्नुहोस्।',
   'landing.editions.eyebrow': 'यो सिजन',
   'landing.editions.heading': 'हाम्रा क्युरेटरहरूले मन पराउने संस्करणहरू',
+  'landing.editions.viewAll': 'सबै संस्करणहरू हेर्नुहोस् →',
   'landing.footer.contact': 'क्युरेटरसँग कुरा गर्नुहोस्',
   'landing.footer.tagline': '{{tagline}}।',
   'landing.hero.ctaPrimary': 'आफ्नो बक्स सुरु गर्नुहोस् →',
@@ -107,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.headline': 'हरेक महिना अप्रत्याशित कुराहरू अनबक्स गर्नुहोस्।',
   'landing.hero.previewCaption': 'सदस्य ड्यासबोर्डमा एक झलक — काउन्टडाउन, सामग्री, र ट्र्याकिङ।',
   'landing.hero.social.count': 'मन पराउने {{count}} + सदस्यहरू',
+  'landing.hero.social.rating': '{{rating}} औसत अनबक्सिङ मूल्याङ्कन',
+  'landing.hero.subhead':
+    '{{appName}} ले तपाईंलाई स्वतन्त्र निर्माताहरूबाट छानिएको, सानो-ब्याचको आनन्दको बक्स पठाउँछ। कुनै पनि बेला रोक्नुहोस्। चाहेको फेर्नुहोस्। मन परेको राख्नुहोस्।',
   'landing.nav.start': 'आफ्नो बक्स सुरु गर्नुहोस्',
   'landing.tiers.eyebrow': 'आफ्नो ताल छान्नुहोस्',
   'landing.tiers.heading':
@@ -117,6 +155,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'अर्को महिनाको बाकस हेर्न साइन इन गर्नुहोस्।',
   'login.welcomeBack': 'स्वागत छ, क्युरेटर।',
   'nextBoxHeroCard.eyebrow': 'तपाईंको अर्को यात्रा',
+  'nextBoxHeroCard.itemCount': 'भित्र {{count}} वस्तुहरू',
   'nextBoxHeroCard.itemsLabel': 'छनौट गरिएका वस्तुहरू',
   'nextBoxHeroCard.shipsOnLabel': 'ढुवानी मिति:',
   'notFound.body':
@@ -141,8 +180,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'सदस्यता पज गर्नुहोस्',
   'settings.danger.paused': 'सदस्यता पज गरियो।',
   'settings.danger.pausing': 'पज गर्दै...',
+  'settings.danger.status': 'सदस्यता स्थिति: {{status}}',
   'settings.danger.subtitle':
     'पज गर्नाले तपाईंको टियर र इतिहास अक्षुण्ण रहन्छ। रद्द गर्नाले भविष्यका ढुवानीहरू रोकिन्छन् र चक्रको अन्त्यमा तपाईंको भण्डारण गरिएका भुक्तानी विधिहरू हटाउँछन्।',
+  'settings.notifications.saving': '· बचत हुँदैछ…',
   'settings.notifications.subtitle':
     'ट्रोभबाट कुन संकेतहरू चाहनुहुन्छ छान्नुहोस्। पूर्वनिर्धारितहरू समझदार छन्।',
   'settings.subtitle':
@@ -159,13 +200,19 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'अहिलेसम्म कुनै सक्रिय ढुवानी छैन',
   'shipments.live.eyebrow': 'सक्रिय ढुवानी',
   'shipments.live.unnamed': 'तपाईंको अर्को बक्स',
+  'shipments.loadError':
+    'हामी तपाईंको ढुवानीहरू लोड गर्न सकेनौं। आफ्नो जडान जाँच्नुहोस् र पुनः प्रयास गर्नुहोस्।',
+  'shipments.loading': 'ढुवानी लोड गर्दै...',
+  'shipments.step.delivered': 'डेलिभर गरियो',
   'shipments.step.deliveredBody':
     'तपाईंले पत्ता लगाउनुभएको कुरा साझा गर्न #crateunbox ट्याग गर्नुहोस्।',
   'shipments.step.ordered': 'अर्डर गरियो',
   'shipments.step.orderedBody':
     'तपाईंको सदस्यताले यो संस्करणलाई अर्को जहाज चक्रको लागि लामबद्ध गर्यो।',
+  'shipments.step.packed': 'हातले प्याक गरिएको',
   'shipments.step.packedBody':
     'प्रत्येक टुक्रालाई बेरिएको र हातले लेखिएको नोटको साथ बक्समा टाँसिएको।',
+  'shipments.step.transit': 'बाटोमा',
   'shipments.step.transitNot': 'तपाईंको बक्स ट्रान्जिटमा पुगेपछि ट्र्याकिङ यहाँ देखा पर्नेछ।',
   'shipments.subtitle':
     'तपाईंकहाँ आउँदै गरेको बक्सलाई ट्र्याक गर्नुहोस्, त्यसपछि तपाईंले पहिले अनबक्स गर्नुभएका प्रत्येक संस्करणलाई फेरि हेर्नुहोस्।',

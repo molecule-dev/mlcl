@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានសំណួរអំពីការបោះពុម្ព ការដឹកជញ្ជូន ឬការជាវរបស់អ្នក? ទាក់ទងមនុស្សពិតក្នុងក្រុមតាមរយៈ hello@crate.example — យើងអានរាល់សារ។',
+  'about.contactTitle': 'និយាយជាមួយអ្នកថែរក្សា',
+  'about.feature1':
+    'ការបោះពុម្ពប្រចាំខែដែលជ្រើសរើសដោយអ្នកបង្កើតឯករាជ្យ ព្រមទាំងរឿងពីក្រោយរាល់ផលិតផល។',
+  'about.feature2':
+    'គ្រប់គ្រងគ្រប់ប្រអប់យ៉ាងពេញលេញ — កែសម្រួលមាតិកា ប្តូរ ឬដកចេញផលិតផល រំលងមួយខែ ឬផ្លាស់ប្តូរកាលវិភាគរបស់អ្នក។',
+  'about.feature3':
+    'តាមដានការដឹកជញ្ជូនពីដើមដល់ចប់ ចាប់ពីការទទួលយករហូតដល់មុខផ្ទះ ជាមួយវេចខ្ចប់គ្មានប្លាស្ទិក និងបច្ចុប្បន្នភាពពីក្រុមហ៊ុនដឹកជញ្ជូនផ្ទាល់។',
+  'about.feature4':
+    'គម្រោងបត់បែន និងវិក្កយបត្រច្បាស់លាស់ — ដំឡើង បន្ថយ ផ្អាក ឬបោះបង់ពីផ្ទាំងគ្រប់គ្រងរបស់អ្នកបានគ្រប់ពេល។',
+  'about.intro':
+    '{{app}} គឺជាសេវាកម្មប្រអប់ជាវដែលជ្រើសរើសយ៉ាងយកចិត្តទុកដាក់ ដោយផ្ញើប្រអប់តូចដ៏រីករាយដែលជ្រើសរើសដោយដៃមកដល់មុខផ្ទះអ្នករាល់ខែ។ រាល់ការបោះពុម្ពត្រូវបានរៀបចំដោយអ្នកបង្កើតដែលកំពុងធ្វើការ — សិល្បករឯករាជ្យ ចុងភៅ និងម៉ាកតូចៗ — មិនមែនដោយក្បួនដោះស្រាយទេ។',
+  'about.missionBody':
+    'យើងជឿថាការជាវគួរតែឲ្យអ្នកមានអារម្មណ៍ដូចជាអំណោយ មិនមែនអន្ទាក់ទេ។ {{app}} ត្រូវបានបង្កើតឡើងដើម្បីឲ្យអ្នកនៅតែបន្តព្រោះអ្នកស្រលាញ់អ្វីដែលមកដល់ — ផ្អាកបានគ្រប់ពេល ប្តូរអ្វីដែលអ្នកចង់ និងបោះបង់ដោយចុចតែម្តង។ គ្មានល្បិចរក្សាអតិថិជនឡើយ។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
   'about.pageTitle': 'អំពី {{app}}',
   'appNav.mobileLabel': 'ការរុករកចម្បង',
   'appNav.primaryLabel': 'ការរុករកចម្បង',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'កែសម្រួលទំនាក់ទំនងវិក្កយបត្រ',
   'billing.contact.eyebrow': 'ទំនាក់ទំនង​សម្រាប់​ការ​គិត​ប្រាក់',
   'billing.eyebrow': 'ផែនការ និងការទូទាត់',
+  'billing.loading': 'កំពុងផ្ទុកវិក្កយបត្រ…',
   'billing.payment.body':
     'ការទូទាត់ត្រូវបានដោះស្រាយដោយ Stripe Checkout — លេខកាតពេញលេញរបស់អ្នកមិនដែលប៉ះពាល់ដល់ម៉ាស៊ីនមេរបស់យើងឡើយ។ ចុចលើកម្រិតណាមួយខាងក្រោមដើម្បីបន្ថែម ឬធ្វើបច្ចុប្បន្នភាពកាតរបស់អ្នក។',
   'billing.payment.linked': 'កាត​ត្រូវ​បាន​ដាក់​ក្នុង​ឯកសារ​តាមរយៈ Stripe',
@@ -19,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'បន្តការជាវ',
   'billing.plan.eyebrow': 'ផែនការសកម្ម',
   'billing.plan.next': 'បន្តដោយស្វ័យប្រវត្តិនៅថ្ងៃ {{date}} ។',
+  'billing.plan.status': 'ស្ថានភាព៖ {{status}}',
   'billing.subtitle': 'គ្រប់គ្រងកម្រិតរបស់អ្នក វិធីសាស្ត្រទូទាត់ និងពិនិត្យមើលសកម្មភាពពីមុន។',
   'billing.tiers.body': 'ជ្រើសរើសកម្រិតមួយ ហើយយើងនឹងនាំអ្នកទៅកាន់ Stripe Checkout។',
   'billing.tiers.choose': 'ជ្រើសរើស',
+  'billing.tiers.empty': 'មិនទាន់មានកម្រិតត្រូវបានកំណត់ទេ។',
   'billing.tiers.heading': 'កម្រិតដែលអាចប្រើបាន',
   'boxDetail.backToBoxes': 'ត្រឡប់ទៅការបោះពុម្ពទាំងអស់វិញ',
   'boxDetail.crumb.boxes': 'ការបោះពុម្ព',
@@ -34,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'ស្នាដៃដែលបានជ្រើសរើស',
   'boxDetail.items.heading': '{{count}} បំណែកដែលបានជ្រើសរើស',
   'boxDetail.itemsBadge': '{{count}} វត្ថុដែលបានជ្រើសរើសក្នុងមួយប្រអប់',
+  'boxDetail.loading': 'កំពុងផ្ទុកការបោះពុម្ព…',
   'boxDetail.notFound': 'ការបោះពុម្ពនោះលែងមានទៀតហើយ។',
   'boxDetail.subscribe.success': 'បានជាវ — ការបោះពុម្ពលើកដំបូងរបស់អ្នកត្រូវបានដាក់ក្នុងជួររង់ចាំ។',
   'boxDetail.swapBadge': 'ប្តូររហូតដល់ {{count}} វត្ថុក្នុងមួយប្រអប់',
@@ -42,14 +62,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'គ្មាន​ការបោះពុម្ព​ណាមួយ​ដែលត្រូវគ្នាទេ។',
   'boxes.eyebrow': 'បណ្ណសារ Crate',
   'boxes.heading': 'រកមើលរាល់ការបោះពុម្ព',
+  'boxes.loadError': 'យើងមិនអាចផ្ទុកការបោះពុម្ពបានទេ។ ពិនិត្យការតភ្ជាប់របស់អ្នក ហើយព្យាយាមម្តងទៀត។',
   'boxes.loading': 'កំពុងផ្ទុកការបោះពុម្ពផ្សាយ…',
+  'boxes.search.label': 'ស្វែងរកការបោះពុម្ព',
   'boxes.search.placeholder': 'ស្វែងរក​ការ​បោះពុម្ព​ផ្សាយ…',
   'boxes.subtitle':
     'កម្រិតនីមួយៗគឺជារឿងមួយក្រុមតូច។ បន្ថែមមួយទៅក្នុងជួររបស់អ្នក ឬប្តូរវាទៅក្នុងជួរបន្ទាប់របស់អ្នក។',
+  'boxThemeCard.itemCount': '{{count}} របស់របរ',
   'boxThemeCard.perMonth': '/ ខែ',
+  'boxThemeCard.retailValue': 'តម្លៃលក់រាយ {{value}}',
   'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
+  'common.retry': 'សាកល្បងម្តងទៀត',
   'customize.eyebrow': 'ធ្វើវាជារបស់អ្នក',
   'customize.heading': 'ប្ដូរតាមបំណង Crate បន្ទាប់របស់អ្នក',
+  'customize.items.empty': 'មិនទាន់មានផលិតផលត្រូវបានកំណត់សម្រាប់កម្រិតនេះទេ។',
   'customize.items.exclude': 'រំលង​វា',
   'customize.items.eyebrow': 'ធ្វើឱ្យប្រអប់នេះមានលក្ខណៈផ្ទាល់ខ្លួន',
   'customize.items.heading': 'ទំនិញនៅក្នុង {{box}}',
@@ -58,8 +84,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'បន្ថែម​ត្រឡប់​មក​វិញ',
   'customize.items.save': 'រក្សាទុកការប្ដូរតាមបំណង',
   'customize.items.swapsLeft': '{{used}} នៃ {{max}} ការផ្លាស់ប្តូរដែលបានប្រើ',
+  'customize.loading': 'កំពុងផ្ទុកការកែសម្រួល…',
   'customize.noSub.body':
     'ជាវ​កម្រិត​មួយ​ជាមុនសិន បន្ទាប់មក​ត្រឡប់​មក​ដោះដូរ​របស់របរ​ក្នុង​ប្រអប់​របស់​អ្នក។',
+  'customize.noSub.cta': 'រុករកការបោះពុម្ព',
   'customize.noSub.heading': 'គ្មានការជាវសកម្មទេ',
   'customize.saved': 'ការប្ដូរតាមបំណងត្រូវបានរក្សាទុក។',
   'customize.subtitle':
@@ -73,11 +101,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'តាមដានការដឹកជញ្ជូន',
   'dashboard.eyebrow': 'កំណប់ទ្រព្យរបស់អ្នក',
   'dashboard.greeting': 'សូមស្វាគមន៍មកវិញ, {{name}} ។',
+  'dashboard.loadError':
+    'យើងមិនអាចផ្ទុកផ្ទាំងគ្រប់គ្រងរបស់អ្នកបានទេ។ ពិនិត្យការតភ្ជាប់របស់អ្នក ហើយព្យាយាមម្តងទៀត។',
   'dashboard.loading': 'កំពុងផ្ទុកផ្ទាំងគ្រប់គ្រង…',
   'dashboard.next.eyebrow': 'ការបោះពុម្ពលើកបន្ទាប់របស់អ្នក',
   'dashboard.onboarding.body':
     'អ្នកមិនទាន់មានការជាវសកម្មនៅឡើយទេ។ ជ្រើសរើសកម្រិតមួយដើម្បីចាប់ផ្តើមដឹកជញ្ជូន Crate ជារៀងរាល់ខែ។',
   'dashboard.onboarding.cta': 'រកមើលការបោះពុម្ពទាំងអស់',
+  'dashboard.onboarding.empty': 'មិនមានគម្រោងអាចប្រើបាននៅពេលនេះទេ។ សូមត្រឡប់មកវិញឆាប់ៗ។',
   'dashboard.onboarding.heading': 'ជ្រើសរើសការបោះពុម្ពលើកដំបូងរបស់អ្នក',
   'dashboard.renewal.amount': 'បានសាក',
   'dashboard.renewal.cadence': 'កាដិនស៍',
@@ -85,18 +116,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'ការបន្ត',
   'dashboard.renewal.heading': 'ការបន្តឡើងវិញដោយស្វ័យប្រវត្តិបើក {{date}}',
   'dashboard.renewal.plan': 'គន្លឹះផែនការ',
+  'dashboard.renewal.tbd': 'ការកំណត់ពេលបន្តជាវឆាប់ៗ',
   'dashboard.renewal.tier': 'កម្រិត',
   'dashboard.stats.days': 'ថ្ងៃ',
   'dashboard.stats.daysToNext': 'កប៉ាល់ចូល',
   'dashboard.stats.items': 'ធាតុដែលបានជ្រើសរើស',
   'dashboard.stats.shipDate': 'កាលបរិច្ឆេទដឹកជញ្ជូន',
   'dashboard.stats.tbd': 'មិនទាន់ដឹងច្បាស់',
+  'dashboard.subtitle.active': 'ការបោះពុម្ពបន្ទាប់របស់អ្នកកំពុងមកដល់។ នេះជាអ្វីដែលត្រូវរំពឹង។',
+  'dashboard.subtitle.idle': 'ជ្រើសរើសកម្រិតមួយដើម្បីចាប់ផ្តើមផ្ញើ {{appName}} រាល់ខែ។',
   'forgotPassword.subtitle': 'សូមប្រាប់យើងពីអ៊ីមែលរបស់អ្នក ហើយយើងនឹងផ្ញើតំណភ្ជាប់កំណត់ឡើងវិញ។',
   'forgotPassword.success.body':
     'ប្រសិនបើ {{email}} បានចុះឈ្មោះរួចហើយ អ្នកនឹងទទួលបានតំណភ្ជាប់កំណត់ឡើងវិញក្នុងរយៈពេលពីរបីនាទី។',
   'forgotPassword.success.title': 'សូមពិនិត្យមើលប្រអប់សំបុត្ររបស់អ្នក។',
   'landing.editions.eyebrow': 'រដូវកាលនេះ',
   'landing.editions.heading': 'ការបោះពុម្ពផ្សាយដែលអ្នកថែរក្សារបស់យើងពេញចិត្ត',
+  'landing.editions.viewAll': 'រុករកការបោះពុម្ពទាំងអស់ →',
   'landing.footer.contact': 'និយាយជាមួយអ្នកថែរក្សា',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ចាប់ផ្តើមប្រអប់របស់អ្នក →',
@@ -106,6 +141,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'ក្រឡេកមើលផ្ទាំងគ្រប់គ្រងសមាជិក — ការរាប់ថយក្រោយ ខ្លឹមសារ និងការតាមដាន។',
   'landing.hero.social.count': 'ស្រឡាញ់ដោយ {{count}} + អ្នកជាវ',
+  'landing.hero.social.rating': 'ការវាយតម្លៃពេលបើកប្រអប់ជាមធ្យម {{rating}}',
+  'landing.hero.subhead':
+    '{{appName}} ផ្ញើប្រអប់តូចដ៏រីករាយដែលជ្រើសរើសដោយដៃពីអ្នកបង្កើតឯករាជ្យមកអ្នក។ ផ្អាកបានគ្រប់ពេល។ ប្តូរអ្វីដែលអ្នកចង់។ រក្សាអ្វីដែលអ្នកស្រលាញ់។',
   'landing.nav.start': 'ចាប់ផ្តើមប្រអប់របស់អ្នក',
   'landing.tiers.eyebrow': 'ជ្រើសរើសចង្វាក់របស់អ្នក',
   'landing.tiers.heading':
@@ -116,6 +154,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'ចូលគណនីដើម្បីមើលប្រអប់សម្រាប់ខែក្រោយ។',
   'login.welcomeBack': 'សូមស្វាគមន៍មកវិញ អ្នកថែរក្សា។',
   'nextBoxHeroCard.eyebrow': 'កំណប់ទ្រព្យបន្ទាប់របស់អ្នក',
+  'nextBoxHeroCard.itemCount': 'មាន {{count}} បំណែកនៅខាងក្នុង',
   'nextBoxHeroCard.itemsLabel': 'ធាតុដែលបានជ្រើសរើស',
   'nextBoxHeroCard.shipsOnLabel': 'ដឹកជញ្ជូននៅលើ',
   'notFound.body':
@@ -139,8 +178,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'ផ្អាកការជាវ',
   'settings.danger.paused': 'ការជាវត្រូវបានផ្អាក។',
   'settings.danger.pausing': 'កំពុងផ្អាក…',
+  'settings.danger.status': 'ស្ថានភាពការជាវ៖ {{status}}',
   'settings.danger.subtitle':
     'ការផ្អាកនឹងរក្សាកម្រិត និងប្រវត្តិរបស់អ្នកឱ្យនៅដដែល។ ការលុបចោលនឹងបញ្ឈប់ការដឹកជញ្ជូននាពេលអនាគត និងលុបវិធីបង់ប្រាក់ដែលអ្នកបានរក្សាទុកនៅចុងបញ្ចប់នៃវដ្ត។',
+  'settings.notifications.saving': '· កំពុងរក្សាទុក…',
   'settings.notifications.subtitle': 'ជ្រើសរើសសញ្ញាដែលអ្នកចង់បានពី Crate។ លំនាំដើមគឺសមហេតុផល។',
   'settings.subtitle':
     'ធ្វើបច្ចុប្បន្នភាពប្រវត្តិរូបរបស់អ្នក អាសយដ្ឋានដឹកជញ្ជូន និងរបៀបដែល Crate ទាក់ទង។',
@@ -156,12 +197,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'មិនទាន់មានការដឹកជញ្ជូនសកម្មនៅឡើយទេ',
   'shipments.live.eyebrow': 'ការដឹកជញ្ជូនសកម្ម',
   'shipments.live.unnamed': 'ប្រអប់បន្ទាប់របស់អ្នក',
+  'shipments.loadError':
+    'យើងមិនអាចផ្ទុកការដឹកជញ្ជូនរបស់អ្នកបានទេ។ ពិនិត្យការតភ្ជាប់របស់អ្នក ហើយព្យាយាមម្តងទៀត។',
+  'shipments.loading': 'កំពុងផ្ទុកទំនិញ…',
+  'shipments.step.delivered': 'បានដឹកជញ្ជូន',
   'shipments.step.deliveredBody': 'ស្លាក #crateunbox ដើម្បីចែករំលែកអ្វីដែលអ្នកបានរកឃើញ។',
   'shipments.step.ordered': 'ការបញ្ជាទិញត្រូវបានដាក់',
   'shipments.step.orderedBody':
     'ការជាវរបស់អ្នកបានដាក់ជាជួរសម្រាប់ការបោះពុម្ពនេះសម្រាប់វដ្តដឹកជញ្ជូនបន្ទាប់។',
+  'shipments.step.packed': 'វេចខ្ចប់ដោយដៃ',
   'shipments.step.packedBody':
     'បំណែកនីមួយៗត្រូវបានរុំ និងដាក់ចូលក្នុងប្រអប់ ជាមួយនឹងកំណត់ចំណាំដែលសរសេរដោយដៃ។',
+  'shipments.step.transit': 'កំពុងធ្វើដំណើរ',
   'shipments.step.transitNot': 'ការតាមដាននឹងបង្ហាញនៅទីនេះ នៅពេលដែលប្រអប់របស់អ្នកកំពុងដឹកជញ្ជូន។',
   'shipments.subtitle':
     'តាមដានប្រអប់នៅតាមផ្លូវទៅអ្នក បន្ទាប់មកពិនិត្យមើលរាល់ការបោះពុម្ពដែលអ្នកបានแกะប្រអប់ពីមុន។',

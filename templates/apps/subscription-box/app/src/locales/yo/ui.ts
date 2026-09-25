@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ṣé ìbéèrè nípa ẹ̀dà kan, ìfiránṣẹ́ kan, tàbí ìforúkọsílẹ̀ rẹ? Kàn sí ènìyàn gidi kan nínú ẹgbẹ́ ní hello@crate.example — a máa ka gbogbo ìṣẹ́.',
+  'about.contactTitle': 'Bá olùtọ́jú kan sọ̀rọ̀',
+  'about.feature1':
+    'Àwọn ẹ̀dà oṣooṣù tí a ṣàyàn tí àwọn aláṣẹ̀ṣe olómìnira yan, pẹ̀lú ìtàn tó wà lẹ́yìn ohun kọ̀ọ̀kan.',
+  'about.feature2':
+    'Ìṣàkóso kíkún lórí gbogbo àpótí — ṣe àyípadà àwọn ohun tó wà nínú rẹ̀, pààrọ̀ tàbí yọ àwọn nkan kúrò, fò ó kọjá oṣù kan, tàbí yí ìgbà rẹ padà.',
+  'about.feature3':
+    'Títọpin ìfiránṣẹ́ láti ìgbà tí a bá gbé e dé ibi ìgbéjáde, pẹ̀lú ìpòwe tí kò ní ṣiṣù àti àwọn ìmúdójúìwọ̀n olùgbé ní àsìkò gidi.',
+  'about.feature4':
+    'Àwọn ètò tí ó rọrùn àti ìṣirò owó tí ó ṣe kedere — gbéga, sọ̀ kalẹ̀, dá dúró, tàbí fagilé láti ojú ìwòye rẹ nígbàkigbà.',
+  'about.intro':
+    '{{app}} jẹ́ iṣẹ́ àpótí ìforúkọsílẹ̀ tí a ṣàyàn tí ó ń fi àpótí ayọ̀ tí a ṣàyàn, tí a ṣe ní ìwọ̀n kékeré dé ẹnu ọ̀nà rẹ lóṣooṣù. Àwọn aláṣẹ̀ṣe tí ń ṣiṣẹ́ — àwọn aláwòrán olómìnira, àwọn alásè, àti àwọn ilé-iṣẹ́ kékeré — ni wọ́n ń kó ẹ̀dà kọ̀ọ̀kan jọ, kì í ṣe ẹ̀rọ.',
+  'about.missionBody':
+    'A gbàgbọ́ pé ìforúkọsílẹ̀ yẹ kí ó dà bí ẹ̀bùn, kì í ṣe ìdẹkùn. A kọ́ {{app}} kí o lè wà nítorí pé o nífẹ̀ẹ́ sí ohun tí ó ń dé — dá dúró nígbàkigbà, pààrọ̀ ohun tí o fẹ́, kí o sì fagilé pẹ̀lú tẹ kan. Kò sí àwọn ìwé ìdánilójú ìdádúró, láé.',
+  'about.missionTitle': 'Iṣẹ́ àwa',
   'about.pageTitle': 'Nípa {{app}}',
   'appNav.mobileLabel': 'Lilọ kiri akọkọ',
   'appNav.primaryLabel': 'Lilọ kiri akọkọ',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Ṣe àtúnṣe olùbáṣepọ̀ ìsanwó',
   'billing.contact.eyebrow': 'Olùbáṣepọ̀ ìsanwó',
   'billing.eyebrow': 'Ètò àti ìsanwó',
+  'billing.loading': 'N n gbe owo isanwo soke…',
   'billing.payment.body':
     'Stripe Checkout ló ń ṣe ìsanwó — nọ́mbà káàdì rẹ gbogbo kò kan àwọn olùpèsè wa. Tẹ èyíkéyìí ìpele tó wà ní ìsàlẹ̀ láti fi káàdì rẹ kún tàbí láti ṣe àtúnṣe rẹ̀.',
   'billing.payment.linked': 'Káàdì lórí fáìlì nípasẹ̀ Stripe',
@@ -19,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Iforukosile bere iṣẹ',
   'billing.plan.eyebrow': 'Ètò tó ń ṣiṣẹ́',
   'billing.plan.next': 'Tunse laifọwọyi lori {{date}} .',
+  'billing.plan.status': 'Ipò: {{status}}',
   'billing.subtitle': 'Ṣàkóso ipele rẹ, ọ̀nà ìsanwó rẹ, àti àtúnyẹ̀wò ìgbòkègbodò rẹ àtijọ́.',
   'billing.tiers.body': 'Yan ipele kan a o si dari ọ lọ si Ibi isanwo Stripe.',
   'billing.tiers.choose': 'Yan',
+  'billing.tiers.empty': 'Kò sí àwọn ìpele tí a ti ṣètò síbẹ̀.',
   'billing.tiers.heading': 'Àwọn ìpele tó wà',
   'boxDetail.backToBoxes': 'Pada si gbogbo awọn àtúnse',
   'boxDetail.crumb.boxes': 'Àwọn àtẹ̀jáde',
@@ -34,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Ohun tí a tọ́jú',
   'boxDetail.items.heading': '{{count}} awọn ege ti a ti yan',
   'boxDetail.itemsBadge': '{{count}} àwọn ohun tí a ṣètò fún àpótí kọ̀ọ̀kan',
+  'boxDetail.loading': 'Ń gbé ẹ̀dà wọlé…',
   'boxDetail.notFound': 'Àtúnse yẹn kò sí mọ́.',
   'boxDetail.subscribe.success': 'Ṣe alabapin — àtúnse àkọ́kọ́ rẹ wà ní ìlà.',
   'boxDetail.swapBadge': 'Pàṣípààrọ̀ sí {{count}} ohun(àwọn) àpótí kọ̀ọ̀kan',
@@ -42,14 +62,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Kò sí àtúnṣe tó bá ara wọn mu.',
   'boxes.eyebrow': 'Àkójọ ìwé Crate',
   'boxes.heading': 'Ṣe àwárí gbogbo àtúnse',
+  'boxes.loadError': 'A kò lè gbé àwọn ẹ̀dà wọlé. Ṣàyẹ̀wò ìsopọ̀ rẹ kí o sì tún gbìyànjú.',
   'boxes.loading': 'N n gbe awọn àtúnse…',
+  'boxes.search.label': 'Wá àwọn ẹ̀dà',
   'boxes.search.placeholder': 'Ṣe àwárí àwọn àtúnse…',
   'boxes.subtitle':
     'Ipele kọọkan jẹ itan-akọọlẹ ẹgbẹ kekere kan. Fi ọkan kun si ila rẹ tabi yi pada si oṣu ti n bọ.',
+  'boxThemeCard.itemCount': '{{count}} awọn ohun kan',
   'boxThemeCard.perMonth': '/ oṣù',
+  'boxThemeCard.retailValue': 'Iye owó ní ọjà {{value}}',
   'common.goToDashboard': 'Lọ sí Dashiboodu',
+  'common.retry': 'Tun gb\\u00ECy\\u00E0nj\\u00FA',
   'customize.eyebrow': 'Jẹ́ kí ó jẹ́ tìrẹ',
   'customize.heading': 'Ṣe akanṣe Crate rẹ tókàn',
+  'customize.items.empty': 'Kò sí àwọn nkan tí a ti ṣètò fún ìpele yìí síbẹ̀.',
   'customize.items.exclude': 'Fo eyi',
   'customize.items.eyebrow': 'Ṣe àdáni àpótí yìí gẹ́gẹ́ bí ẹni-ìṣe',
   'customize.items.heading': 'Àwọn ohun kan nínú {{box}}',
@@ -58,8 +84,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Fi kún un padà',
   'customize.items.save': 'Fipamọ isọdi-ara-ẹni',
   'customize.items.swapsLeft': '{{used}} ti {{max}} àwọn ìyípadà tí a lò',
+  'customize.loading': 'Ń gbé ìṣàtúnṣe wọlé…',
   'customize.noSub.body':
     'Ṣe alabapin si ipele kan ni akọkọ, lẹhinna pada wa lati yi awọn nkan pada ninu apoti rẹ.',
+  'customize.noSub.cta': 'Ṣàwárí àwọn ẹ̀dà',
   'customize.noSub.heading': 'Ko si iforukọsilẹ ti nṣiṣe lọwọ',
   'customize.saved': 'A ti fi àtúnṣe pamọ́.',
   'customize.subtitle':
@@ -73,11 +101,13 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Tọpinpin gbigbe ọja',
   'dashboard.eyebrow': 'Ìrìnàjò rẹ',
   'dashboard.greeting': 'Ku aabọ pada, {{name}} .',
+  'dashboard.loadError': 'A kò lè gbé ojú ìwòye rẹ wọlé. Ṣàyẹ̀wò ìsopọ̀ rẹ kí o sì tún gbìyànjú.',
   'dashboard.loading': 'N n gbe dasibodu…',
   'dashboard.next.eyebrow': 'Àtúnse rẹ tó ń bọ̀',
   'dashboard.onboarding.body':
     'O ko ti ni iforukọsilẹ ti nṣiṣe lọwọ sibẹsibẹ. Yan ipele kan lati bẹrẹ fifiranṣẹ Crate ni gbogbo oṣu.',
   'dashboard.onboarding.cta': 'Ṣe àwárí gbogbo àwọn àtúnṣe',
+  'dashboard.onboarding.empty': 'Kò sí àwọn ètò tí ó wà ní báyìí. Padà wá láìpẹ́.',
   'dashboard.onboarding.heading': 'Yan àtúnṣe àkọ́kọ́ rẹ',
   'dashboard.renewal.amount': 'A gba owó rẹ̀',
   'dashboard.renewal.cadence': 'Kádénsì',
@@ -85,18 +115,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Ìsọdọ̀tun',
   'dashboard.renewal.heading': 'Àtúnṣe-àìfọwọ́sowọ́pọ̀ ń ṣiṣẹ́ {{date}}',
   'dashboard.renewal.plan': 'Kọ́kọ́rọ́ ètò',
+  'dashboard.renewal.tbd': 'Ìṣètò ìsọdọ̀tun láìpẹ́',
   'dashboard.renewal.tier': 'Ipele',
   'dashboard.stats.days': 'awọn ọjọ',
   'dashboard.stats.daysToNext': 'Àwọn ọkọ̀ ojú omi wọlé',
   'dashboard.stats.items': 'Àwọn ohun tí a ti ṣètò',
   'dashboard.stats.shipDate': 'Ọjọ́ tí a fi gbé e dé',
   'dashboard.stats.tbd': 'TBD',
+  'dashboard.subtitle.active': 'Ẹ̀dà rẹ tí ó kàn ń bọ̀. Èyí ni ohun tí o lè retí.',
+  'dashboard.subtitle.idle': 'Yan ìpele kan kí o bẹ̀rẹ̀ sí fi {{appName}} ránṣẹ́ lóṣooṣù.',
   'forgotPassword.subtitle': 'Sọ fún wa ní ìmeeli rẹ a ó sì fi ìjápọ̀ àtúntò ránṣẹ́.',
   'forgotPassword.success.body':
     'Tí ó bá jẹ́ {{email}} ti a ti forukọsilẹ, iwọ yoo gba ọna asopọ atunto laarin iṣẹju diẹ.',
   'forgotPassword.success.title': 'Ṣàyẹ̀wò àpótí ìforúkọsílẹ̀ rẹ.',
   'landing.editions.eyebrow': 'Àkókò yìí',
   'landing.editions.heading': 'Àwọn àtẹ̀jáde àwọn olùtọ́jú wa nífẹ̀ẹ́ wa',
+  'landing.editions.viewAll': 'Wo gbogbo àwọn ẹ̀dà →',
   'landing.footer.contact': 'Bá olùtọ́jú kan sọ̀rọ̀',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Bẹ̀rẹ̀ àpótí rẹ →',
@@ -106,6 +140,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Wo ojú àtẹ ìṣàfihàn àwọn ọmọ ẹgbẹ́ — kíkà ìsàlẹ̀, àkóónú, àti ìtẹ̀lé.',
   'landing.hero.social.count': 'Nífẹ́ nípasẹ̀ {{count}} + àwọn olùforúkọsílẹ̀',
+  'landing.hero.social.rating': '{{rating}} ìdíwọ̀n ìdíyelé ìṣílẹ̀',
+  'landing.hero.subhead':
+    '{{appName}} ń fi àpótí ayọ̀ tí a ṣàyàn, tí a ṣe ní ìwọ̀n kékeré láti ọ̀dọ̀ àwọn aláṣẹ̀ṣe olómìnira ránṣẹ́ sí ọ. Dá dúró nígbàkigbà. Pààrọ̀ ohun tí o fẹ́. Pa ohun tí o nífẹ̀ẹ́ mọ́.',
   'landing.nav.start': 'Bẹrẹ apoti rẹ',
   'landing.tiers.eyebrow': 'Yan àṣà rẹ',
   'landing.tiers.heading': 'Bẹ̀rẹ̀ kékeré, ṣe àtúnṣe nígbàkúgbà, fagilé bí ó ti rọrùn tó.',
@@ -115,6 +152,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Wọlé láti wo àpótí oṣù tó ń bọ̀.',
   'login.welcomeBack': 'Ẹ kú àbọ̀, olùtọ́jú.',
   'nextBoxHeroCard.eyebrow': 'Ìrìnàjò rẹ tó tẹ̀lé',
+  'nextBoxHeroCard.itemCount': '{{count}} àwọn nkan tó wà nínú rẹ̀',
   'nextBoxHeroCard.itemsLabel': 'Àwọn ohun tí a ti ṣètò',
   'nextBoxHeroCard.shipsOnLabel': 'A n gbe e lọ',
   'notFound.body':
@@ -138,8 +176,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Dá ìforúkọsílẹ̀ dúró',
   'settings.danger.paused': 'A ti daduro iforukọsilẹ.',
   'settings.danger.pausing': 'Dídúró…',
+  'settings.danger.status': 'Ipò ìforúkọsílẹ̀: {{status}}',
   'settings.danger.subtitle':
     'Dídádúró dúró jẹ́ kí ìpele àti ìtàn rẹ wà ní ipò tó yẹ. Dídádúró àwọn ìfiránṣẹ́ ọjọ́ iwájú dúró, ó sì mú àwọn ọ̀nà ìsanwó tí o ti tọ́jú kúrò ní ìparí ìpele náà.',
+  'settings.notifications.saving': '· ń fi pamọ́…',
   'settings.notifications.subtitle':
     'Yan àwọn àmì tí o fẹ́ láti ọ̀dọ̀ Crate. Àwọn àmì tí a kò fi sílẹ̀ jẹ́ èyí tí ó bójú mu.',
   'settings.subtitle': 'Ṣe imudojuiwọn profaili rẹ, adirẹsi gbigbe ọja, ati bi Crate ṣe kan si wa.',
@@ -154,11 +194,16 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Ko si gbigbe ti n ṣiṣẹ sibẹsibẹ',
   'shipments.live.eyebrow': 'Gbigbe ti nṣiṣe lọwọ',
   'shipments.live.unnamed': 'Apoti rẹ ti o tẹle',
+  'shipments.loadError': 'A kò lè gbé àwọn ìfiránṣẹ́ rẹ wọlé. Ṣàyẹ̀wò ìsopọ̀ rẹ kí o sì tún gbìyànjú.',
+  'shipments.loading': 'N n gbe awọn gbigbe lọ…',
+  'shipments.step.delivered': 'Ti fi jiṣẹ́',
   'shipments.step.deliveredBody': 'Fi àmì sí #crateunbox láti pín ohun tí o ṣàwárí.',
   'shipments.step.ordered': 'A ti paṣẹ aṣẹ naa',
   'shipments.step.orderedBody':
     'Iforukosile re ti fi eto yi sile fun eto gbigbe oko oju omi ti nbo.',
+  'shipments.step.packed': 'A fi ọwọ́ kó',
   'shipments.step.packedBody': 'A fi ìwé àkọsílẹ̀ ọwọ́ dì gbogbo ègé náà, a sì fi sínú àpótí náà.',
+  'shipments.step.transit': 'Ó ń bọ̀',
   'shipments.step.transitNot': 'Ìtẹ̀lé yóò farahàn níbí nígbà tí àpótí rẹ bá ń lọ.',
   'shipments.subtitle':
     'Tẹ̀lé àpótí náà bí ó ti ń lọ sí ọ̀dọ̀ rẹ, lẹ́yìn náà tún wo gbogbo àtúnṣe tí o ti yọ kúrò nínú àpótí tẹ́lẹ̀.',

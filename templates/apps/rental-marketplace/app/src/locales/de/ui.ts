@@ -1,13 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt aufnehmen',
   'about.eyebrow': 'Über uns',
+  'about.featureBooking':
+    'Sofortbuchung oder Buchungsanfragen mit sicheren Stripe-Zahlungen und kostenloser Stornierung bis 48 Stunden vor dem Check-in.',
+  'about.featureHosting':
+    'Ein vollständiges Host-Dashboard zum Veröffentlichen von Inseraten, Verwalten der Verfügbarkeit, Verfolgen von Reservierungen und Erhalten von Auszahlungen.',
+  'about.featureMessaging':
+    'Direkter Nachrichtenaustausch mit Gastgebern vor und während Ihres Aufenthalts, plus Wunschlisten, um Ihre Lieblingsorte zu speichern.',
+  'about.featureReviews':
+    'Ehrliche beidseitige Bewertungen, damit Reisende und Gastgeber gleichermaßen eine vertrauenswürdige Reputation aufbauen.',
+  'about.featureSearch':
+    'Kartenbasierte Suche über verifizierte Inserate, mit Filtern für Preis, Ausstattung und Daten.',
+  'about.missionBody':
+    'Reisen sollte Sie mit einem Ort verbinden, nicht mit einer Kette. Wir helfen unabhängigen Gastgebern, einzigartige Unterkünfte anzubieten, und Reisenden, sie zu finden — mit transparenten Preisen, ohne versteckte Gebühren, und Auszahlungen, Steuern und die Prüfung von Reisenden übernehmen wir für den Gastgeber, damit er sich auf die Gastfreundschaft konzentrieren kann.',
+  'about.missionTitle': 'Unsere Mission',
+  'about.subtitle': 'Ein Vermietungsmarktplatz rund um echte Unterkünfte und echte Gastgeber.',
   'bookingDetail.afterTime': 'Nach 15:00 Uhr',
   'bookingDetail.backCta': 'Zurück zu Buchungen',
   'bookingDetail.beforeTime': 'Vor 11:00 Uhr',
   'bookingDetail.cancel': 'Reservierung stornieren',
   'bookingDetail.cancelFailed': 'Stornierung fehlgeschlagen — bitte erneut versuchen.',
   'bookingDetail.checkIn': 'Check-in',
+  'bookingDetail.cleaningFee': 'Reinigungsgebühr',
   'bookingDetail.confirmCancel':
     'Diese Reservierung stornieren? Dies kann nicht rückgängig gemacht werden.',
   'bookingDetail.eyebrow': 'Bestätigung · {{code}}',
@@ -22,14 +38,17 @@ export const ui: UiTranslations = {
   'bookingDetail.viewListing': 'Inserat ansehen',
   'bookingDetail.yourHost': 'Ihr Gastgeber',
   'bookingItineraryRow.nights': '{{count}} Nächte',
+  'bookings.empty.past': 'Vergangene Buchungen erscheinen hier, sobald Sie übernachten.',
   'bookings.empty.upcoming': 'Keine Reisen geplant — lassen Sie uns das ändern.',
   'bookings.eyebrow': 'Ihre Reisen',
   'bookings.heading': 'Buchungen',
   'bookings.loadError': 'Buchungen konnten nicht geladen werden.',
+  'bookings.searchCta': 'Weitere Reise planen',
   'bookings.subheading': '{{upcoming}} bevorstehend · {{past}} vergangen',
   'common.goToDashboard': 'Zum Dashboard',
   'common.retry': 'Erneut versuchen',
   'createListing.back': 'Zurück zu Inseraten',
+  'createListing.bedrooms': 'Schlafzimmer',
   'createListing.cityLabel': 'Wo befindet es sich?',
   'createListing.cityPlaceholder': 'Stadt, Region oder Stadtteil',
   'createListing.descPlaceholder': 'Handgefertigte Redwood-Hütte 120 m über dem Pazifik…',
@@ -38,16 +57,22 @@ export const ui: UiTranslations = {
   'createListing.error.price': 'Bitte vor dem Veröffentlichen einen Preis pro Nacht angeben.',
   'createListing.error.title': 'Bitte vor dem Veröffentlichen einen Titel angeben.',
   'createListing.heading': 'Öffnen Sie Ihre Tür',
+  'createListing.listingImageAlt': 'Inserat {{number}}',
   'createListing.maxGuests': 'Max. Gäste',
   'createListing.photos.heading': 'Fotos hinzufügen, die Reisende zum Stoppen bringen',
+  'createListing.photos.subheading':
+    'Gastgeber, die mindestens 3 Fotos hochladen, verdienen im Durchschnitt 2,3× mehr.',
   'createListing.place.heading': 'Welche Art von Unterkunft ist es?',
+  'createListing.price': 'Preis pro Nacht',
   'createListing.publish': 'Inserat veröffentlichen',
   'createListing.removePhoto': 'Foto entfernen',
   'createListing.step.${s.key}.eyebrow': 'Schritt {{n}}',
   'createListing.subheading':
     'Ein paar Fragen, um Ihr Inserat live zu schalten. Wir speichern Ihren Fortschritt bei jedem Schritt.',
+  'createListing.title': 'Titel des Inserats',
   'createListing.titlePlaceholder': 'Sonnige Hütte am Klippenrand',
   'createListing.uploadCta': 'Foto {{n}} hinzufügen',
+  'createListing.useSample': 'Beispielfoto verwenden',
   'destinationDiscoveryCard.exploreCta': 'Unterkünfte erkunden',
   'forgotPassword.eyebrow': 'Zurücksetzen',
   'forgotPassword.subheading':
@@ -63,6 +88,8 @@ export const ui: UiTranslations = {
   'hostDashboard.hero.labelYtd': 'Jahresverlauf',
   'hostDashboard.loadError':
     'Die Hosting-Daten konnten nicht geladen werden. Bitte versuchen Sie es erneut.',
+  'hostDashboard.queueArrivals': '{{count}} Ankünfte nächste Woche',
+  'hostDashboard.queueListings': '{{count}} aktive Einträge',
   'hostDashboard.queueRequests': '{{count}} Reservierungsanfragen',
   'hostDashboard.queueReview': 'Warteschlange prüfen',
   'hostDashboard.queueTitle': 'Ihre Warteschlange',
@@ -84,11 +111,13 @@ export const ui: UiTranslations = {
   'hostListingDetail.notFound': 'Inserat nicht gefunden.',
   'hostListingDetail.photos.empty': 'Noch keine Fotos hochgeladen.',
   'hostListingDetail.photos.heading': 'Fotos',
+  'hostListingDetail.pricing.cleaning': 'Reinigungsgebühr',
   'hostListingDetail.pricing.save': 'Preise speichern',
   'hostListingDetail.pricing.weekday': 'Wochentagspreis',
   'hostListingDetail.pricing.weekend': 'Wochenendpreis (nur Anzeige)',
   'hostListingDetail.rules.copy':
     'Setzen Sie Erwartungen für Gäste und schützen Sie Ihr Zuhause — diese Regeln werden vor der Buchungsbestätigung angezeigt.',
+  'hostListingDetail.rules.heading': 'Hausregeln',
   'hostListings.create': 'Neues Inserat erstellen',
   'hostListings.eyebrow': 'Ihr Portfolio',
   'hostListings.heading': 'Inserate',
@@ -98,8 +127,11 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Für Gastgeber',
   'landing.cta.heading': 'Öffnen Sie Ihre Tür. Verdienen Sie, was Ihr Zuhause wert ist.',
   'landing.cta.host': 'Gastgeber werden',
+  'landing.cta.subheading':
+    '{{appName}} kümmert sich um Auszahlungen, Steuern und die Prüfung von Reisenden, damit Sie sich auf das Gastgeben konzentrieren können. Die meisten neuen Gastgeber verdienen ihre ersten $1.000 innerhalb von 30 Tagen.',
   'landing.destinations.eyebrow': 'Wohin als Nächstes',
   'landing.destinations.heading': 'Ziele, die unsere Gastgeber lieben',
+  'landing.destinations.seeAll': 'Alle Reiseziele ansehen',
   'landing.footer.host': 'Gastgeber werden',
   'landing.footer.search': 'Unterkunft finden',
   'landing.footer.tagline': 'Reisen Sie, als gehörten Sie dazu.',
@@ -108,8 +140,11 @@ export const ui: UiTranslations = {
   'landing.nav.host': 'Gastgeber werden',
   'landing.nav.join': 'Roost beitreten',
   'landing.nav.search': 'Unterkunft finden',
+  'landing.preview.browseAll': 'Die gesamte Kollektion durchsuchen',
   'landing.preview.eyebrow': 'Ein Blick hinter die Kulissen',
   'landing.preview.heading': 'Handverlesene Unterkünfte diesen Monat',
+  'landing.preview.subheading':
+    'Jedes Inserat von {{appName}} wird von einer echten Person angeboten — verifiziert, bewertet und kostenlos stornierbar bis 48 Stunden vor dem Check-in.',
   'listingDetail.about': 'Über diese Unterkunft',
   'listingDetail.amenities': 'Was diese Unterkunft bietet',
   'listingDetail.bathrooms': 'Bäder',
@@ -117,7 +152,10 @@ export const ui: UiTranslations = {
   'listingDetail.beds': 'Betten',
   'listingDetail.bookFailed':
     'Buchung nicht möglich. Versuchen Sie es erneut oder melden Sie sich zuerst an.',
+  'listingDetail.cleaningFee': 'Reinigungsgebühr',
+  'listingDetail.guests': 'Gäste',
   'listingDetail.hostedBy': 'Gastgeber: {{host}}',
+  'listingDetail.hostMeta': '{{years}} Jahre Gastgeber · {{response}}% Antwortrate',
   'listingDetail.houseRules': 'Hausregeln',
   'listingDetail.instantBook': 'Jetzt buchen · Sofortbuchung',
   'listingDetail.loadError': 'Inserat konnte nicht geladen werden.',
@@ -127,6 +165,7 @@ export const ui: UiTranslations = {
   'listingDetail.perNight': 'pro Nacht',
   'listingDetail.pickDates': 'Wählen Sie zuerst An- und Abreisedatum.',
   'listingDetail.priceRow': '{{price}} × {{nights}} Nächte',
+  'listingDetail.requestBook': 'Buchung anfragen',
   'listingDetail.reserving': 'Wird reserviert…',
   'listingDetail.reviews': 'Bewertungen',
   'listingDetail.reviewsHeading': '{{rating}} · {{count}} Bewertungen',
@@ -134,6 +173,7 @@ export const ui: UiTranslations = {
   'listingDetail.superhost': 'Superhost',
   'login.eyebrow': 'Willkommen zu Hause',
   'login.heading': 'Bei Roost anmelden',
+  'login.noAccount': 'Neu bei Tessera?',
   'login.signupLink': 'Kostenloses Konto erstellen',
   'login.subheading':
     'Machen Sie da weiter, wo Sie aufgehört haben — verwalten Sie Reisen, schreiben Sie Gastgebern und buchen Sie Unterkünfte, von denen Sie geträumt haben.',
@@ -158,6 +198,7 @@ export const ui: UiTranslations = {
   'notFound.heading': 'Diese Unterkunft finden wir nicht',
   'notifications.loading': 'Wird geladen…',
   'notifications.subheading': '{{count}} ungelesen · alles in einem ruhigen Posteingang',
+  'pricing.ctaContact': 'Vertrieb kontaktieren',
   'pricing.ctaUpgrade': 'Vertrieb kontaktieren',
   'pricing.eyebrow': 'Einfach und transparent',
   'pricing.heading': 'Ein Tarif, der zu Ihrem Reiserhythmus passt',
@@ -194,8 +235,12 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Wählen Sie etwas Einprägsames. Wir melden Sie nach dem Speichern an.',
   'roostAuthShell.brand.eyebrow': 'Reisen Sie, als gehörten Sie dazu',
+  'roostAuthShell.brand.heading':
+    'Hütten, Cottages, Riads — übergeben an Sie von Gastgebern, die dort leben.',
   'roostHeroSearchCard.checkInAria': 'Anreisedatum',
   'roostHeroSearchCard.checkOutAria': 'Abreisedatum',
+  'roostHeroSearchCard.destAria': 'Reiseziel',
+  'roostHeroSearchCard.destLabel': 'Wo',
   'roostHeroSearchCard.destPlaceholder': 'Stadt, Region oder Unterkunft',
   'roostHeroSearchCard.eyebrow': 'Handverlesene Unterkünfte · Verifizierte Gastgeber',
   'roostHeroSearchCard.guestsOption': '{{n}} Gäste',
@@ -207,6 +252,7 @@ export const ui: UiTranslations = {
   'roostLayout.primaryNavLabel': 'Hauptnavigation',
   'roostListingCard.bookmarkAria': 'Inserat speichern',
   'roostListingCard.night': 'Nacht',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'Keine Inserate passen zu Ihrer Suche.',
   'search.emptyHint':
     'Versuchen Sie, die Filter zu erweitern oder die Preisobergrenze zu entfernen — Roost hat Unterkünfte in 26 Ländern.',
@@ -214,9 +260,14 @@ export const ui: UiTranslations = {
   'search.heading': 'Ein Ort, der sich wie Zuhause anfühlt',
   'search.headingForQuery': 'Unterkünfte für „{{q}}"',
   'search.loadError': 'Inserate konnten nicht geladen werden.',
+  'search.mapHint':
+    'Fahre über eine Karte, um sie auf der Karte hervorzuheben. Live-Mapbox-Kacheln in der Produktion.',
+  'search.mapPinAria': '{{name}} — {{price}} pro Nacht',
   'search.sortLabel': 'Sortieren nach',
   'search.subheading': '{{count}} Inserate · {{guests}} Gäste',
+  'settings.appearance.description': 'Zwischen hellem und dunklem Modus umschalten.',
   'settings.appearance.title': 'Erscheinungsbild',
+  'settings.openBilling': 'Abrechnung öffnen',
   'settings.payments.heading': 'Zahlungsmethoden',
   'settings.paymentsHelp':
     'Roost belastet Ihre Karte, sobald ein Gastgeber Ihre Buchung bestätigt. Verwalten Sie gespeicherte Karten auf der Preisseite.',

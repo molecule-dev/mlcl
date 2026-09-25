@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'フィードバック、バグの報告、またはあなたのリーグ向けの{{app}}をご希望ですか？アカウント設定からご連絡ください — すべてのメッセージはチームの実在の担当者に届きます。',
+  'about.contactTitle': 'お問い合わせ',
   'about.eyebrow': '概要',
+  'about.featureAlerts':
+    'スコア更新、トレードアラート、負傷者情報、リーグのお知らせのプッシュ通知。',
+  'about.featureRosters':
+    '全選手の完全なロースター、シーズン通算成績、好調/不調の連続記録、対戦別成績を掲載したチームページ。',
+  'about.featureSchedule':
+    'すべての試合と結果を踏まえて計画を立てられる、シーズンカレンダーとスケジュール表示。',
+  'about.featureScoreboard':
+    '放送品質のスコアボードティッカーを全ページの上部に固定し、ゴールを見逃しません。',
+  'about.featureStandings':
+    'ライブ順位表 — リアルタイムの勝敗分け記録、ポイント、勝率、プレーオフラインを、ホイッスルのたびに更新。',
+  'about.intro':
+    '{{app}}は、あなたのリーグのための放送品質のホームです。チーム、スケジュール、ライブスコア、順位表が、高速で整理された1つのダッシュボードに集約 — ファン、コーチ、リーグ運営者がシーズンの状況をいつでも把握できます。',
+  'about.missionBody':
+    'リーグをフォローするのに、5つの異なるサードパーティのスコアボードを更新する必要はありません。順位表、スケジュール、そして本当に重要なスタッツについて、すべてのリーグに単一の信頼できる情報源を提供するために作りました — ホイッスルのたびに更新、シーズン中は無料。',
+  'about.missionTitle': '私たちの使命',
+  'about.whatYouGet': '得られるもの',
   'appShell.closeNav': 'ナビゲーションを閉じる',
   'appShell.openNav': 'ナビゲーションを開く',
   'common.dashboard': 'ダッシュボード',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'すべての試合を見る →',
   'dashboard.viewAllStandings': '順位表を全て見る →',
   'dashboard.viewAllStats': '全リーダーを見る →',
+  'forgot.submitting': 'リセットリンクを送信中…',
   'forgot.subtitle': 'メールアドレスを入力するとリセットリンクをお送りします。',
   'forgot.success': '{{email}} にリセットリンクを送信しました。受信トレイをご確認ください。',
+  'landing.copyright': '© {{year}} {{app}}. Chase the standing.',
+  'landing.ctaBody':
+    'あなたのリーグ。あなたの順位表。あなたの好きなチーム — 上部に固定。セットアップは2分、シーズン中は無料。',
   'landing.ctaHeading': '他社のスコアボードを更新するのはもう終わりにしませんか',
   'landing.eyebrow': 'ファン、コーチ、リーグ運営者のために',
   'landing.featuresHeading': 'すべての順位を最前列で',
   'landing.getStarted': 'リーグに参加する',
   'landing.heroCta': 'リーグに参加する',
+  'landing.heroSubtitle':
+    '{{app}}は、順位表、スケジュール、スタッツリーダーを1つの放送品質のダッシュボードにまとめます。ライブスコア。本物の記録。無駄のない表示。',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': '今夜のリーグ',
   'landing.statFans': 'フォロー中のファン',
   'landing.statGames': '今シーズンの試合数',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'Q{{period}}',
   'matchDetail.back': '試合一覧に戻る',
   'matchDetail.eventsHeading': 'プレーバイプレー',
+  'matchDetail.final': 'FINAL',
   'matchDetail.finalScore': '終了',
   'matchDetail.live': 'ライブ',
   'matchDetail.liveNow': 'ライブ配信中',
   'matchDetail.noEvents': 'まだイベントは記録されていません。',
   'matchDetail.periodClock': 'Q{{period}} · {{clock}}',
+  'matches.empty': 'この表示に試合はありません — 別のフィルターをお試しください。',
   'matches.eyebrow': 'マッチデー',
   'matches.loading': 'スケジュールを読み込んでいます…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': '通知の読み込みに失敗しました',
   'notifications.loading': '通知を読み込んでいます…',
   'pennantHeroCard.eyebrow': '首位',
+  'pennantHeroCard.formLabel': '直近10試合',
   'pennantHeroCard.gamesAhead': '2位に {{value}} ゲーム差',
   'pennantHeroCard.pointsLabel': 'PTS',
   'pennantLayout.primaryNavLabel': 'メインナビゲーション',
@@ -78,17 +107,24 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': '席を選んでください',
   'pricing.heading': 'より充実したスケジュール、スコア、順位表のためにアップグレード。',
   'pricing.limits.schedule': 'スケジュール {{count}} 件',
+  'pricing.limits.scores': '{{count}} スコア',
+  'pricing.limits.standings': '{{count}} 順位表',
+  'pricing.limits.teams': '{{count}} チーム',
+  'pricing.subtitle': 'より充実したスケジュール、スコア、順位表にアップグレード。',
   'pricing.upgradeCta': '{{tierName}} にアップグレード',
   'profile.eyebrow': 'ファンプロフィール',
   'profile.favoritesCount': 'フォロー中のチーム',
   'profile.favoritesHeading': 'お気に入りチーム',
   'profile.noFavorites': 'お気に入りはまだありません。チームページから選んでください。',
   'profile.rankRecord': '順位 #{{rank}} · {{record}}',
+  'profile.recordOnly': '成績 {{record}}',
   'reset.confirmPlaceholder': 'パスワードをもう一度入力',
+  'reset.mismatch': 'パスワードが一致しません。',
   'reset.newLabel': '新しいパスワード',
   'reset.subtitle': '12文字以上の強固なパスワードを設定してください。',
   'reset.tokenPlaceholder': 'メールから貼り付けてください',
   'schedule.eyebrow': 'スケジュール',
+  'schedule.moreGames': '他{{count}}件',
   'schedule.subtitle': 'シーズン全体の試合をカレンダー表示 — 日付をタップして詳細を表示します。',
   'scoreboardTicker.empty':
     '現在ライブ配信中の試合はありません — 試合開始時にもう一度ご確認ください。',
@@ -96,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'パーソナライズ',
   'settings.favoritesBody':
     'これらのチームはダッシュボードにピン留めされ、スコアアラートを受け取れます。',
+  'settings.favoritesHeading': 'お気に入りチーム',
   'settings.loading': '設定を読み込んでいます…',
   'settings.noFavorites': 'お気に入りはまだありません。チームページから選んでください。',
   'settings.notificationsHeading': '通知と表示',
@@ -113,6 +150,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': '総合',
   'standings.points': 'PTS',
+  'standings.rank': '#',
   'standings.subtitle':
     '上位4チームがポストシーズンへ進出 — 並んだ場合は勝点、次に勝率で決まります。',
   'standings.title': 'リーグ順位',
@@ -131,6 +169,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'G',
   'teamDetail.colName': '選手',
   'teamDetail.colPos': 'Pos',
+  'teamDetail.pointsLabel': 'ポイント',
   'teamDetail.rankLabel': '順位 #{{rank}}',
   'teamDetail.rosterHeading': 'ロスター',
   'teamDetail.statGD': '得失点差',

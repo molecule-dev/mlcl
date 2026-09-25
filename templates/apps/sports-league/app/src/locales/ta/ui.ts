@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது உங்கள் லீக்கிற்கு {{app}} வேண்டுமா? உங்கள் கணக்கு அமைப்புகளிலிருந்து எங்களை அணுகவும் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள உண்மையான நபரையே சென்றடையும்.',
+  'about.contactTitle': 'தொடர்பு கொள்ளுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.featureAlerts':
+    'ஸ்கோர் புதுப்பிப்புகள், டிரேட் எச்சரிக்கைகள், காயம் அறிக்கைகள் மற்றும் லீக் அறிவிப்புகளுக்கான புஷ் அறிவிப்புகள்.',
+  'about.featureRosters':
+    'ஒவ்வொரு வீரருக்கும் முழு அணிவரிசை, சீசன் மொத்தங்கள், ஹாட்/கோல்ட் ஸ்ட்ரீக்ஸ் மற்றும் நேருக்கு நேர் பிரிவுகளுடன் கூடிய அணி பக்கங்கள்.',
+  'about.featureSchedule':
+    'ஒவ்வொரு ஆட்டையும் முடிவையும் சுற்றி திட்டமிட உதவும் சீசன் நாட்காட்டி மற்றும் அட்டவணை காட்சி.',
+  'about.featureScoreboard':
+    'ஒரு கோலைக் கூட தவறவிடாதபடி ஒவ்வொரு பக்கத்தின் மேலும் பொருத்தப்பட்ட ஒளிபரப்பு-தர ஸ்கோர்போர்டு டிக்கர்.',
+  'about.featureStandings':
+    'நேரடி தரவரிசை — நிகழ்நேர வெற்றி-தோல்வி-சமநிலை பதிவுகள், புள்ளிகள், வெற்றி-சதவீதம் மற்றும் பிளேஆஃப் கோடு, ஒவ்வொரு விசிலிலும் புதுப்பிக்கப்படும்.',
+  'about.intro':
+    '{{app}} உங்கள் லீக்கிற்கான ஒளிபரப்பு-தரமான இல்லம். அணிகள், அட்டவணைகள், நேரடி ஸ்கோர்கள் மற்றும் தரவரிசை அனைத்தும் ஒரே வேகமான, குழப்பமற்ற டாஷ்போர்டில் இணைகின்றன — எனவே ரசிகர்கள், பயிற்சியாளர்கள் மற்றும் லீக் அமைப்பாளர்கள் சீசன் எங்கே நிற்கிறது என்பதை எப்போதும் அறிவார்கள்.',
+  'about.missionBody':
+    'ஒரு லீக்கைப் பின்தொடர்வது ஐந்து வெவ்வேறு மூன்றாம் தரப்பு ஸ்கோர்போர்டுகளை புதுப்பிப்பதாக இருக்கக்கூடாது. ஒவ்வொரு லீக்கிற்கும் தரவரிசை, அட்டவணை மற்றும் உண்மையில் முக்கியமான புள்ளிவிவரங்களுக்கான ஒரே நம்பகமான ஆதாரத்தை வழங்கவே இதை உருவாக்கினோம் — ஒவ்வொரு விசிலிலும் புதுப்பிக்கப்படும், சீசன் முழுவதும் இலவசம்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
+  'about.whatYouGet': 'நீங்கள் பெறுவது',
   'appShell.closeNav': 'நெருக்கமான வழிசெலுத்தல்',
   'appShell.openNav': 'வழிசெலுத்தலைத் திறக்கவும்',
   'common.dashboard': 'டாஷ்போர்டு',
@@ -17,13 +36,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'அனைத்து போட்டிகளையும் காண்க ➡',
   'dashboard.viewAllStandings': 'முழு நிலவரங்கள் •',
   'dashboard.viewAllStats': 'அனைத்து புள்ளிவிவரத் தலைவர்களையும் காண்க ➡',
+  'forgot.submitting': 'மீட்டமைப்பு இணைப்பு அனுப்பப்படுகிறது…',
   'forgot.subtitle': 'மீட்டமைப்பு இணைப்பைப் பெற உங்கள் மின்னஞ்சலை உள்ளிடவும்.',
   'forgot.success': 'மீட்டமை இணைப்பு அனுப்பப்பட்டது {{email}} உங்கள் இன்பாக்ஸைச் சரிபார்க்கவும்.',
+  'landing.copyright': '© {{year}} {{app}}. தரவரிசையைத் தொடருங்கள்.',
+  'landing.ctaBody':
+    'உங்கள் லீக். உங்கள் தரவரிசை. உங்கள் விருப்ப அணி — மேலே பொருத்தப்பட்டது. அமைக்க இரண்டு நிமிடங்கள், சீசன் முழுவதும் இலவசம்.',
   'landing.ctaHeading': 'மூன்றாம் தரப்பு மதிப்பெண் பலகைகளைப் புதுப்பிப்பதை நிறுத்துங்கள்',
   'landing.eyebrow': 'ரசிகர்கள், பயிற்சியாளர்கள் மற்றும் லீக் அமைப்பாளர்களுக்காக உருவாக்கப்பட்டது',
   'landing.featuresHeading': 'நிற்கும் ஒவ்வொருவருக்கும் முதல் வரிசை இருக்கை',
   'landing.getStarted': 'லீக்கில் சேருங்கள்',
   'landing.heroCta': 'லீக்கில் சேருங்கள்',
+  'landing.heroSubtitle':
+    '{{app}} தரவரிசை, அட்டவணைகள் மற்றும் புள்ளிவிவர முன்னணியாளர்களை ஒரே ஒளிபரப்பு-தரமான டாஷ்போர்டில் இணைக்கிறது. நேரடி ஸ்கோர்கள். உண்மையான பதிவுகள். குழப்பம் இல்லை.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.scoreboardLabel': 'இன்று இரவு லீக்கைச் சுற்றி',
   'landing.statFans': 'ரசிகர்கள் பின்தொடர்கிறார்கள்',
   'landing.statGames': 'இந்த சீசனின் விளையாட்டுகள்',
@@ -35,11 +61,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'கேள்வி {{period}}',
   'matchDetail.back': 'போட்டிகளுக்குத் திரும்பு',
   'matchDetail.eventsHeading': 'வர்ணனை',
+  'matchDetail.final': 'இறுதி',
   'matchDetail.finalScore': 'இறுதி',
   'matchDetail.live': 'நேரலை',
   'matchDetail.liveNow': 'இப்போது நேரலையில்',
   'matchDetail.noEvents': 'இதுவரை எந்த நிகழ்வுகளும் பதிவு செய்யப்படவில்லை.',
   'matchDetail.periodClock': 'கேள்வி {{period}} · {{clock}}',
+  'matches.empty': 'இந்தக் காட்சியில் போட்டிகள் இல்லை — வேறு வடிகட்டியை முயற்சிக்கவும்.',
   'matches.eyebrow': 'போட்டி நாள்',
   'matches.loading': 'பழைய நிலையை மாற்றுதல்…',
   'matches.subtitle':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'அறிவிப்புகளை ஏற்ற முடியவில்லை',
   'notifications.loading': 'அறிவிப்புகளை ஏற்றுகிறது—',
   'pennantHeroCard.eyebrow': 'மேசையின் மேல்',
+  'pennantHeroCard.formLabel': 'கடைசி 10',
   'pennantHeroCard.gamesAhead': '{{value}} துரத்தலுக்கு முன்னால் உள்ள ஆட்டங்கள்',
   'pennantHeroCard.pointsLabel': 'பி.டி.எஸ்.',
   'pennantLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
@@ -80,17 +109,25 @@ export const ui: UiTranslations = {
   'pricing.eyebrow': 'உங்கள் இருக்கையைத் தேர்ந்தெடுக்கவும்',
   'pricing.heading': 'மேம்பட்ட அட்டவணை, மதிப்பெண்கள் மற்றும் தரவரிசைகளுக்கு மேம்படுத்தவும்.',
   'pricing.limits.schedule': '{{count}} அட்டவணை உள்ளீடுகள்',
+  'pricing.limits.scores': '{{count}} ஸ்கோர்கள்',
+  'pricing.limits.standings': '{{count}} தரவரிசை',
+  'pricing.limits.teams': '{{count}} அணிகள்',
+  'pricing.subtitle': 'சிறந்த அட்டவணை, ஸ்கோர்கள் மற்றும் தரவரிசைக்கு மேம்படுத்தவும்.',
   'pricing.upgradeCta': 'மேம்படுத்த {{tierName}}',
   'profile.eyebrow': 'ரசிகர் சுயவிவரம்',
   'profile.favoritesCount': 'அணிகள் பின்தொடர்ந்தன',
   'profile.favoritesHeading': 'விருப்பமான அணிகள்',
   'profile.noFavorites':
     'இன்னும் விருப்பமான அணிகள் எதுவும் இல்லை — அணிகள் பக்கத்திலிருந்து அணிகளைத் தேர்ந்தெடுக்கவும்.',
+  'profile.rankRecord': 'தரவரிசை #{{rank}} · {{record}}',
+  'profile.recordOnly': 'பதிவு {{record}}',
   'reset.confirmPlaceholder': 'கடவுச்சொல்லை மீண்டும் உள்ளிடவும்',
+  'reset.mismatch': 'கடவுச்சொற்கள் பொருந்தவில்லை.',
   'reset.newLabel': 'புதிய கடவுச்சொல்',
   'reset.subtitle': 'குறைந்தது 12 எழுத்துக்கள் கொண்ட வலிமையான கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும்.',
   'reset.tokenPlaceholder': 'மின்னஞ்சலிலிருந்து ஒட்டவும்',
   'schedule.eyebrow': 'ஸ்லேட்',
+  'schedule.moreGames': '+ {{count}} மேலும்',
   'schedule.subtitle':
     'பருவம் முழுவதும் நடைபெறும் போட்டிகளின் நாட்காட்டிக் காட்சி — புள்ளிவிவர விவரங்களுக்கு எந்த நாளையும் தட்டவும்.',
   'scoreboardTicker.empty':
@@ -99,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'தனிப்பயனாக்கு',
   'settings.favoritesBody':
     'இந்த அணிகள் உங்கள் டாஷ்போர்டில் நிலைநிறுத்தப்பட்டு, மதிப்பெண் அறிவிப்புகளைத் தூண்டும்.',
+  'settings.favoritesHeading': 'விருப்பமான அணிகள்',
   'settings.loading': 'உங்கள் விருப்பத்தேர்வுகள் ஏற்றப்படுகின்றன...',
   'settings.noFavorites':
     'இன்னும் விருப்பமானவை எதுவும் இல்லை – அணிகள் பக்கத்திலிருந்து அணிகளைத் தேர்ந்தெடுக்கவும்.',
@@ -117,6 +155,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'எல்',
   'standings.overall': 'ஒட்டுமொத்தமாக',
   'standings.points': 'பி.டி.எஸ்.',
+  'standings.rank': '#',
   'standings.subtitle':
     'முதல் நான்கு இடங்கள் பிளேஆஃப் சுற்றுக்குத் தகுதி பெறும் — புள்ளிகள் அடிப்படையிலான டைபிரேக்கர், பின்னர் வெற்றி சதவீதம்.',
   'standings.title': 'லீக் தரவரிசை',
@@ -135,6 +174,8 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'ஜி',
   'teamDetail.colName': 'வீரர்',
   'teamDetail.colPos': 'நிலை',
+  'teamDetail.pointsLabel': 'புள்ளிகள்',
+  'teamDetail.rankLabel': 'தரவரிசை # {{rank}}',
   'teamDetail.rosterHeading': 'பட்டியல்',
   'teamDetail.statGD': 'கோல் வித்தியாசம்',
   'teamDetail.statGF': 'இதற்கான இலக்குகள்',

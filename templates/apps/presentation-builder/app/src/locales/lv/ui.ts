@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vai ir jautājumi, atsauksmes vai funkcija, ko vēlaties, lai mums būtu? Sazinieties ar komandu no sava konta iestatījumiem — katru ziņu lasa īsts cilvēks.',
   'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.missionTitle': 'Mūsu misija',
+  'about.whatYouGetTitle': 'Ko jūs iegūstat',
   'analytics.empty': 'Izveidojiet komplektus, lai šeit skatītu analītiku.',
   'analytics.stats.acrossDecks': 'Visos klājos',
   'analytics.stats.allTime': 'Tavā studijā',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Klāja nosaukums',
   'landing.features.eyebrow': 'Kāpēc uvertīra',
   'landing.features.heading': 'Viss nepieciešamais, lai kāptu uz skatuves, ir gatavs.',
+  'landing.finalCta.body':
+    'Izveidojiet savu studiju mazāk nekā minūtē. Bez kredītkartes. Atceliet jebkurā laikā.',
   'landing.finalCta.cta': 'Izveidojiet savu bezmaksas studiju',
   'landing.finalCta.eyebrow': 'Bezmaksas sākums',
   'landing.finalCta.heading': 'Kāp uz skatuves ar savas karjeras labāko klāju.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Rediģēts pirms 12 minūtēm',
   'notifications.created': 'izveidots',
   'notifications.edited': 'rediģēts',
+  'notifications.empty.body':
+    'Aktivitātes jūsu prezentācijās — komentāri, pieminējumi, eksporti — parādīsies šeit.',
   'notifications.empty.title': 'Vēl nav paziņojumu',
   'notifications.eyebrow': 'Skatuves aktivitāte',
   'notifications.loading': 'Notiek ielāde…',
   'notifications.shared': 'kopīgots publiski',
+  'planUpdated.retry': 'Mēģini vēlreiz',
+  'planUpdated.verifyFailed': 'Mēs vēl nevarējām apstiprināt jūsu maksājumu.',
+  'planUpdated.verifyFailedBody':
+    'Jūsu maksājums, iespējams, joprojām tiek apstrādāts. Pēc brīža mēģiniet vēlreiz.',
   'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'present.addSlides': 'Pievienot slaidus',
   'present.backToDecks': 'Atpakaļ pie klājiem',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Skatuves izpildītājs',
   'settings.security.notSet': 'Nav iestatīts',
   'settings.security.passwordBody': 'Jūsu parole miera stāvoklī ir šifrēta.',
+  'settings.security.reset': 'Atiestatīt',
   'settings.security.title': 'Konts + sesijas',
   'shared.empty.body':
     'Šeit tiks parādītas jūsu publiski kopīgotās kavas. Atveriet kavu un pārslēdziet to uz publisku, lai kopīgotu.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Notiek ielāde…',
   'shared.title': 'Koplietošanas terases',
   'templateCard.slideCount': '{{count}} slaidi',
+  'templateCard.usageCount': '{{count}} lietojumi',
+  'templates.empty.body': 'Izmēģiniet citu filtru — mēs katru mēnesi piedāvājam jaunas veidnes.',
+  'templates.empty.title': 'Šajā kategorijā vēl nav veidņu',
+  'templates.hero.body':
+    'Iepriekš noformēti slaidu izkārtojumi ar diagrammu blokiem, demonstrācijas rāmjiem, runātāja piezīmēm un taimera iestatījumiem — katra veidne ir gatava ierakstīšanai.',
   'templates.hero.eyebrow': 'Izvēlētie posmi',
   'templates.hero.heading': 'Posmi, kas uzbūvēti brīdim, kad jums tas ir jānolaižas.',
 }

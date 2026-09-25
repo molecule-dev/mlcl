@@ -1,12 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ သို့မဟုတ် သင့် dock တွင် {{app}} ကို မြင်ချင်ပါသလား။ အက်ပ်အတွင်း အကူအညီမှ ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့ထဲရှိ လူတစ်ဦးထံ ရောက်ပါသည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.intro':
+    '{{app}} သည် အော်ပရေတာအဆင့် ဂိုဒေါင် ဖြည့်ဆည်းမှု ဆော့ဖ်ဝဲဖြစ်သည် — အော်ဒါများ၊ ရွေးချယ်မှုများ၊ ထုပ်ပိုးမှုများနှင့် ပို့ဆောင်မှုများကို တစ်နေရာတည်းတွင် စီမံသည်။ ၎င်းသည် အမှန်တကယ် ပမာဏများကို ကိုင်တွယ်ပြီး ကြမ်းပြင်ပေါ်ရှိ လုပ်ဆောင်ချက်တိုင်း လျင်မြန်ရန်၊ ကြည့်ရှုနိုင်ရန်နှင့် အတုပြုလုပ်၍ မရနိုင်ရန် လိုအပ်သော ဖြည့်ဆည်းမှုအဖွဲ့များအတွက် တည်ဆောက်ထားသည်။',
+  'about.missionBody':
+    'လုပ်ငန်းလည်ပတ်မှုသည် ရိုးရှင်းသော အရာများပေါ်တွင် လည်ပတ်သည် — ရွေးချယ်မှုများ၊ ထုပ်ပိုးမှုများနှင့် ပို့ဆောင်ပြီးသား တံဆိပ်များ။ ကျွန်ုပ်တို့သည် ရိုးရှင်းသောအရာများကို လျင်မြန်၊ ကြည့်ရှုနိုင်ပြီး ယုံကြည်စိတ်ချရအောင် ပြုလုပ်ပေးသည်၊ ထို့ကြောင့် ဂိုဒေါင်များသည် အမြန်ပို့၊ အမြန်ဆုံးပို့နှင့် ပုံမှန်အော်ဒါများကို လမ်းကြောင်းများ ဖြတ်ကျော်ခြင်းမရှိဘဲ ပို့ဆောင်နိုင်သည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': '{{app}} အကြောင်း',
   'auth.signup.passwordHint': 'အနည်းဆုံး စာလုံး ၁၂ လုံး',
   'authShell.brandSubtitle': 'ဖြည့်ဆည်းမှု ကွန်ဆိုးလ်',
   'authShell.eyebrow': 'Sorthaus မှ ကြိုဆိုပါတယ်',
+  'authShell.footer': '{{appName}} · လုပ်ငန်းလည်ပတ်မှု ကွန်ဆိုးလ်',
   'authShell.pitch':
     'ကြမ်းပြင်အတွက် စကင်နာကိုဦးစားပေးသော ကွန်ဆိုးလ်။ ကွန်ဆိုးလ်တစ်ခုတည်းမှ ရွေးချယ်၊ ထုပ်ပိုး၊ ပို့ဆောင်ခြင်း — အရေးပါသောအရာများကို ရေတွက်ပြီး အော်ဒါကို လွတ်သွားခွင့်မပြုသော အော်ပရေးရှင်းခေါင်းဆောင်များအတွက် တည်ဆောက်ထားသည်။',
   'authShell.sampleCaption': 'မှာယူမှုများ ပို့ဆောင်ပြီး · ဆိပ်ကမ်းတံခါး ၈ ခု · ဇုန် ၃ ခု',
@@ -17,6 +25,7 @@ export const ui: UiTranslations = {
   'dashboard.empty.action': 'မျိုးစေ့နမူနာဒေတာ',
   'dashboard.empty.body':
     'ကြမ်းပြင်ကို အဆုံးထိ မောင်းနှင်နိုင်ရန် နမူနာဒေတာစု (အော်ဒါများ၊ ကုန်ပစ္စည်းစာရင်း၊ ပို့ဆောင်မှုများ) ကို ထည့်ပါ။',
+  'dashboard.empty.seeding': 'ပြင်ဆင်နေသည်…',
   'dashboard.empty.title': 'မင်းရဲ့ဂိုဒေါင်က ဗလာနေတယ်',
   'dashboard.errorFallback': 'တိုက်ရိုက်ဒေတာကို ခေတ္တမရရှိနိုင်ပါ။',
   'dashboard.eyebrow': 'ကြမ်းပြင်အမိန့်',
@@ -37,23 +46,31 @@ export const ui: UiTranslations = {
   'dashboard.queue.viewAll': 'တန်းစီဇယားဖွင့်ပါ',
   'dashboard.subtitle': '{{active}} အမိန့်များ ရွေ့လျားနေသည် · တိုက်ရိုက်စာရင်းဇယား',
   'dashboard.title': 'ယနေ့ အလှည့်အပြောင်းများ',
+  'dashboard.zones.bins': '{{count}} အမှိုက်ပုံးများ',
   'dashboard.zones.empty': 'ကြမ်းပြင်လှုပ်ရှားမှုများကိုကြည့်ရှုရန် ဇုန်များကို စီစဉ်သတ်မှတ်ပါ။',
+  'dashboard.zones.eyebrow': 'ဇုန် အပူမြေပုံ',
   'dashboard.zones.title': 'ကြမ်းပြင်လှုပ်ရှားမှု',
   'forgot.subheading':
     'သင့်အလုပ်အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့သည် ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို သင့်ဝင်စာပုံးသို့ ပို့ပေးပါမည်။',
   'forgot.successBody':
     'အကယ်၍ {{email}} အဖွဲ့ထဲမှာ ရှိပါတယ်၊ reset link တစ်ခု လာတော့မှာပါ။ link က မိနစ် ၃၀ အတွင်း သက်တမ်းကုန်ဆုံးပါမယ်။',
   'fulfillmentHeroCard.eyebrow': 'ရွေ့လျားမှုတွင် အပြောင်းအလဲများ',
+  'fulfillmentHeroCard.onTime': 'အချိန်မှန် {{rate}}%',
+  'fulfillmentHeroCard.ordersShipped': 'ယနေ့ ပို့ဆောင်ပြီးသော အော်ဒါများ',
+  'fulfillmentHeroCard.ordersShippedWithPeriod': 'ပို့ဆောင်ပြီးသော အော်ဒါများ · {{period}}',
   'fulfillmentHeroCard.subtitle': '{{units}} ယူနစ်များကို ထုပ်ပိုးပြီး ဆိပ်ကမ်းမှ ထွက်ခွာသည်',
   'inventory.cols.bin': 'အမှိုက်ပုံး',
   'inventory.cols.onHand': 'လက်ထဲတွင်ရှိသည်',
   'inventory.cols.reorder': 'ရမှတ်ကို ပြန်လည်စီပါ',
+  'inventory.cols.sku': 'SKU',
   'inventory.empty': 'သင့်ရှာဖွေမှုနှင့် ကိုက်ညီသော SKU မရှိပါ။',
+  'inventory.errorFallback': 'တိုက်ရိုက်ဒေတာကို ခေတ္တမရရှိနိုင်ပါ။',
   'inventory.eyebrow': 'လက်ကျန်စာရင်း',
   'inventory.kpis.low': 'စတော့ရှယ်ယာနည်းပါတယ်',
   'inventory.kpis.lowHint': 'ပြန်လည်မှာယူမှုအမှတ်အောက်တွင်',
   'inventory.kpis.out': 'ပစ္စည်းပြတ်တောက်နေသည်',
   'inventory.kpis.outHint': 'ဒီနေ့ထပ်အော်ဒါတင်ရမယ်',
+  'inventory.kpis.skus': 'အသက်ဝင်သော SKU များ',
   'inventory.kpis.skusHint': 'အမှိုက်ပုံးများတစ်လျှောက် ခြေရာခံထားသည်',
   'inventory.kpis.units': 'လက်ထဲတွင်ရှိသော ယူနစ်များ',
   'inventory.kpis.unitsHint': 'အမှိုက်ပုံးအားလုံးတွင်',
@@ -109,6 +126,7 @@ export const ui: UiTranslations = {
   'locations.title': 'ဇုန်များ၊ လမ်းကြားများနှင့် အမှိုက်ပုံးများ',
   'locations.utilization': 'အသုံးပြုမှု',
   'login.heading': 'Sorthaus သို့ ဝင်ရောက်ပါ',
+  'login.noAccount': 'Tessera ကို အသစ်လား။',
   'login.subheading': 'အမိန့်တိုင်း၊ လှိုင်းတိုင်း၊ ဆိပ်ကမ်းတိုင်းအတွက် ကြမ်းပြင်အမိန့်။',
   'notFound.body':
     'ထိုလမ်းကြောင်းနှင့် ကိုက်ညီသော အမှိုက်ပုံး မရှိပါ။ စာမျက်နှာကို ပို့ဆောင်ပြီးဖြစ်ခြင်း၊ ပယ်ဖျက်ခံရခြင်း သို့မဟုတ် မှားယွင်းသော လမ်းကြောင်းတွင် ထားရှိခြင်း ဖြစ်နိုင်သည်။',
@@ -120,6 +138,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle': '{{count}} သတိပေးချက်များ · {{unread}} မဖတ်ရသေးသော',
   'orderDetail.back': 'မှာယူမှုများသို့ ပြန်သွားရန်',
   'orderDetail.cancel': 'မှာယူမှုကို ပယ်ဖျက်ပါ',
+  'orderDetail.items.empty': 'ပစ္စည်းများ မရှိပါ။',
   'orderDetail.items.eyebrow': 'စာရင်းရွေးချယ်ပါ',
   'orderDetail.items.line': 'လိုင်း',
   'orderDetail.items.qty': 'အရေအတွက်',
@@ -142,7 +161,16 @@ export const ui: UiTranslations = {
   'pickList.notFound': 'မှာယူမှုကို ရှာမတွေ့ပါ။',
   'pickList.progress.eyebrow': 'တိုးတက်မှုကို ရွေးချယ်ပါ',
   'pickListItem.progress': 'ရွေးချယ်ပြီး {{picked}} ၏ {{total}}',
+  'pickListItem.qty': 'အရေအတွက်',
   'pickListItem.toggleAria': 'ရွေးချယ်ရန် ပြောင်းရန် {{sku}}',
+  'pricing.advancedFeatures': 'အဆင့်မြင့်အင်္ဂါရပ်များ — {{yes}}',
+  'pricing.canExport': 'ဒေတာထုတ်ယူခြင်း — {{yes}}',
+  'pricing.heading': 'သင့် {{app}} အစီအစဉ် ရွေးချယ်ပါ',
+  'pricing.maxOrders': 'အော်ဒါ {{count}} ခု',
+  'pricing.maxPacking': 'ထုပ်ပိုးမှု {{count}}',
+  'pricing.maxPicks': 'ရွေးချယ်မှု {{count}}',
+  'pricing.maxShipments': 'ပို့ဆောင်မှု {{count}}',
+  'pricing.maxZones': '{{count}} ဇုန်များ',
   'profile.editTitle': 'အော်ပရေတာ အသေးစိတ်အချက်အလက်များ',
   'profile.eyebrow': 'အော်ပရေတာပရိုဖိုင်',
   'profile.field.shift': 'Shift ဝင်းဒိုး',
@@ -177,9 +205,11 @@ export const ui: UiTranslations = {
   'reports.kpis.healthHint': '၁၀၀% ဆိုသည်မှာ OOS မရှိဟု ဆိုလိုသည်။',
   'reports.kpis.units': 'လက်ထဲတွင်ရှိသော ယူနစ်များ',
   'reports.kpis.unitsHint': 'လက်ရှိ SKU များတစ်လျှောက်',
+  'reports.loadError': 'အစီရင်ခံစာ ဒေတာကို မဖွင့်နိုင်ပါ။',
   'reports.subtitle':
     'အော်ဒါများ၊ သက်တမ်းစက်ဝန်းနှင့် ကုန်ပစ္စည်းစာရင်းကျန်းမာရေးတို့၏ တိုက်ရိုက်လျှပ်တစ်ပြက်ပုံရိပ်',
   'reports.title': 'စွမ်းဆောင်ရည် အစီရင်ခံစာများ',
+  'reset.changedMind': 'စိတ်ပြောင်းသွားပါသလား။',
   'reset.password': 'စကားဝှက်အသစ်',
   'reset.subheading':
     'သင့်အဖွဲ့က မြေပြင်ပေါ်မှာ မှတ်မိနေမယ့် အရာတစ်ခုကို ရွေးချယ်ပါ — အနည်းဆုံး စာလုံး ၁၂ လုံး။',
@@ -192,6 +222,7 @@ export const ui: UiTranslations = {
   'returns.loading': 'ပြန်အမ်းငွေများ တင်နေသည်…',
   'returns.new': 'RMA အသစ်',
   'returns.reason': 'Reason',
+  'returns.reasonPlaceholder': 'ဤအရာကို အဘယ်ကြောင့် ပြန်ပေးနေသနည်း။',
   'returns.subtitle': '{{count}} စီမံခန့်ခွဲရန် စောင့်ဆိုင်းနေသော RMA များ',
   'returns.title': 'ပြန်အမ်းငွေ ရွေးချယ်ခြင်း',
   'scanner.back': 'စကင်နာမှ ထွက်ရန်',
@@ -202,6 +233,7 @@ export const ui: UiTranslations = {
   'scanner.placeholder': 'SO-#၊ SKU သို့မဟုတ် ဇုန်ကုဒ်ကို ရိုက်ထည့်ပါ...',
   'scanner.recent.empty': 'စကင်ဖတ်ခြင်း မရှိသေးပါ — အထက်ပါတစ်ခုကို စမ်းကြည့်ပါ။',
   'scanner.recent.eyebrow': 'မကြာသေးမီက စကင်ဖတ်မှုများ',
+  'scanner.submit': 'ရှာဖွေရန်',
   'scanner.title': 'ကိုင်ထားပါ။ ချိန်ပါ။ ဆွဲပါ။',
   'settings.autoAllocate':
     'နောက်ထပ်ရရှိနိုင်သော ရွေးချယ်မှုသို့ အရေးပေါ်မှာယူမှုများကို အလိုအလျောက်သတ်မှတ်ပါ',
@@ -252,4 +284,5 @@ export const ui: UiTranslations = {
   'warehouseFulfillmentLayout.scanAria': 'စကင်နာဖွင့်ပါ',
   'warehouseFulfillmentLayout.scanCta': 'စကင်ဖတ်ပါ',
   'warehouseFulfillmentLayout.searchAria': 'အော်ဒါများ၊ SKU များ၊ အမှိုက်ပုံးများကို ရှာဖွေပါ',
+  'warehouseFulfillmentLayout.searchPlaceholder': 'အော်ဒါများ၊ SKU များ၊ bin များ ရှာပါ…',
 }

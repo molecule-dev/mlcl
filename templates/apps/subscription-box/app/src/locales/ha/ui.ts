@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tambayoyi game da bugu, jigilar kaya, ko biyan kuɗin ku? Sami ainihin mutum a cikin ƙungiyar a hello@crate.example — muna karanta kowane saƙo.',
+  'about.contactTitle': 'Yi magana da mai kula da kayan aiki',
+  'about.feature1':
+    "Bugawa na wata-wata da aka zaɓa ta hannun masu sana'a masu zaman kansu, tare da labarin da ke bayan kowane abu.",
+  'about.feature2':
+    'Cikakken iko kan kowane akwati — keɓance abubuwan da ke ciki, musanya ko cire abubuwa, tsallake wata, ko canza lokacin aikawa.',
+  'about.feature3':
+    'Bin diddigin jigilar kaya daga ɗauka har zuwa baranda, tare da marufi mara filastik da sabbin labarai daga mai ɗauka kai tsaye.',
+  'about.feature4':
+    'Tsare-tsare masu sassauci da lissafin kuɗi bayyananne — haɓaka, rage, dakatar, ko soke daga dashboard ɗinka a kowane lokaci.',
+  'about.intro':
+    "{{app}} sabis ne na akwatin biyan kuɗi da aka zaɓa wanda ke isar da akwatin farin ciki da aka zaɓa da hannu, na ƙaramin rukuni, zuwa ƙofarka kowane wata. Kowane bugu masu sana'a ne da ke aiki suka haɗa shi — masu fasaha masu zaman kansu, masu dafa abinci, da ƙananan kamfanoni — ba algorithm ba.",
+  'about.missionBody':
+    'Mun yi imani cewa biyan kuɗi ya kamata ya ji kamar kyauta, ba tarko ba. An gina {{app}} domin ka ci gaba da zama saboda kana son abin da ke zuwa — dakatar a kowane lokaci, musanya abin da kake so, kuma soke da danna ɗaya. Babu rubutun riƙe abokin ciniki, har abada.',
+  'about.missionTitle': 'Manufarmu',
   'about.pageTitle': 'Game da {{app}}',
   'appNav.mobileLabel': 'Babban kewayawa',
   'appNav.primaryLabel': 'Babban kewayawa',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Gyara lambar sadarwar biyan kuɗi',
   'billing.contact.eyebrow': 'Lambar da ake tuntuɓar kuɗi',
   'billing.eyebrow': 'Shiri & biyan kuɗi',
+  'billing.loading': 'Ana loda lissafin kuɗi…',
   'billing.payment.body':
     'Ana gudanar da biyan kuɗi ta hanyar Stripe Checkout - cikakken lambar katinku ba ta taɓa sabar mu ba. Danna kowane mataki da ke ƙasa don ƙara ko sabunta katinku.',
   'billing.payment.linked': 'Ana ajiye katin ta hanyar Stripe',
@@ -20,10 +37,12 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Biyan kuɗin ci gaba',
   'billing.plan.eyebrow': 'Tsarin aiki',
   'billing.plan.next': 'Ana sabunta ta atomatik {{date}} .',
+  'billing.plan.status': 'Matsayi: {{status}}',
   'billing.subtitle':
     'Sarrafa matakinka, hanyar biyan kuɗi, da kuma sake duba ayyukan da suka gabata.',
   'billing.tiers.body': 'Zaɓi matakin kuma za mu tura ku zuwa wurin biya na Stripe.',
   'billing.tiers.choose': 'Zaɓi',
+  'billing.tiers.empty': 'Babu matakan da aka saita tukuna.',
   'billing.tiers.heading': 'Matakan da ake da su',
   'boxDetail.backToBoxes': 'Komawa ga dukkan bugu',
   'boxDetail.crumb.boxes': 'Bugu-da-wane',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Kayan da aka tsara',
   'boxDetail.items.heading': '{{count}} kayan da aka shirya',
   'boxDetail.itemsBadge': '{{count}} abubuwan da aka tsara a kowane akwati',
+  'boxDetail.loading': 'Ana loda bugu…',
   'boxDetail.notFound': 'Wannan bugu ba ya samuwa yanzu.',
   'boxDetail.subscribe.success': 'An yi rijista — bugu na farko yana kan layi.',
   'boxDetail.swapBadge': 'Canja zuwa {{count}} abu(s) a kowane akwati',
@@ -44,14 +64,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Babu bugu da ya yi daidai.',
   'boxes.eyebrow': 'Taskar Tarihi ta Crate',
   'boxes.heading': 'Duba kowace bugu',
+  'boxes.loadError': 'Ba mu iya loda buguwan ba. Duba haɗin yanar gizonka sannan ka sake gwadawa.',
   'boxes.loading': 'Ana loda bugu…',
+  'boxes.search.label': 'Nemo buguwa',
   'boxes.search.placeholder': 'Bincike bugu…',
   'boxes.subtitle':
     'Kowane mataki ƙaramin labari ne na rukuni. Ƙara ɗaya a cikin jerin sunayenka ko kuma a mayar da shi zuwa watanka na gaba.',
+  'boxThemeCard.itemCount': '{{count}} abubuwa',
   'boxThemeCard.perMonth': '/ wata',
+  'boxThemeCard.retailValue': 'Darajar sayarwa {{value}}',
   'common.goToDashboard': 'Je zuwa Dashboard',
+  'common.retry': 'Sake gwadawa',
   'customize.eyebrow': 'Ka sanya shi naka',
   'customize.heading': 'Keɓance Crate na gaba',
+  'customize.items.empty': 'Babu abubuwan da aka saita don wannan matakin tukuna.',
   'customize.items.exclude': 'Tsallake wannan',
   'customize.items.eyebrow': 'Keɓance wannan akwati',
   'customize.items.heading': 'Abubuwa a cikin {{box}}',
@@ -60,8 +86,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Ƙara baya',
   'customize.items.save': 'Ajiye keɓancewa',
   'customize.items.swapsLeft': '{{used}} na {{max}} musanya da aka yi amfani da su',
+  'customize.loading': 'Ana loda keɓancewa…',
   'customize.noSub.body':
     'Yi rijista zuwa matakin farko, sannan ka dawo ka musanya abubuwa a cikin akwatinka.',
+  'customize.noSub.cta': 'Duba buguwa',
   'customize.noSub.heading': 'Babu biyan kuɗi mai aiki',
   'customize.saved': 'An adana gyare-gyare.',
   'customize.subtitle':
@@ -75,11 +103,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Bibiyar jigilar kaya',
   'dashboard.eyebrow': 'Tafiyarka',
   'dashboard.greeting': 'Barka da dawowa, {{name}} .',
+  'dashboard.loadError':
+    'Ba mu iya loda dashboard ɗinka ba. Duba haɗin yanar gizonka sannan ka sake gwadawa.',
   'dashboard.loading': 'Ana loda dashboard…',
   'dashboard.next.eyebrow': 'Bugun ku na gaba',
   'dashboard.onboarding.body':
     'Ba ka da rajista mai aiki tukuna. Zaɓi matakin da za ka fara jigilar Crate kowane wata.',
   'dashboard.onboarding.cta': 'Duba duk bugu',
+  'dashboard.onboarding.empty': 'Babu tsare-tsare da ake da su a yanzu. Duba nan gaba kaɗan.',
   'dashboard.onboarding.heading': 'Zaɓi bugu na farko',
   'dashboard.renewal.amount': 'An caji',
   'dashboard.renewal.cadence': 'Kadence',
@@ -87,12 +118,15 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Sabuntawa',
   'dashboard.renewal.heading': 'Sabuntawa ta atomatik yana kunne {{date}}',
   'dashboard.renewal.plan': 'Maɓallin tsari',
+  'dashboard.renewal.tbd': 'Za a tsara sabuntawa nan ba da jimawa ba',
   'dashboard.renewal.tier': 'Matsayi',
   'dashboard.stats.days': 'kwanaki',
   'dashboard.stats.daysToNext': 'Ana jigilar kaya a ciki',
   'dashboard.stats.items': 'Abubuwan da aka tsara',
   'dashboard.stats.shipDate': 'Ranar jigilar kaya',
   'dashboard.stats.tbd': 'TBD',
+  'dashboard.subtitle.active': 'Buguwar ka ta gaba tana kan hanya. Ga abin da za ka yi tsammani.',
+  'dashboard.subtitle.idle': 'Zaɓi mataki don fara aika {{appName}} kowane wata.',
   'forgotPassword.subtitle':
     'Faɗa mana imel ɗinka kuma za mu aiko maka da hanyar haɗin sake saitawa.',
   'forgotPassword.success.body':
@@ -100,6 +134,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Duba akwatin saƙonka.',
   'landing.editions.eyebrow': 'Wannan kakar',
   'landing.editions.heading': 'Buga-buga masu kula da mu suna da ƙauna',
+  'landing.editions.viewAll': 'Duba duk buguwa →',
   'landing.footer.contact': 'Yi magana da mai kula da kayan aiki',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Fara akwatinka →',
@@ -109,6 +144,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Duba a kan allon mamba - ƙidayar lokaci, abubuwan da ke ciki, da bin diddiginsu.',
   'landing.hero.social.count': 'Wanda aka ƙaunace shi {{count}} + masu biyan kuɗi',
+  'landing.hero.social.rating': '{{rating}} matsakaicin ƙimar buɗe akwati',
+  'landing.hero.subhead':
+    "{{appName}} na aika maka akwatin farin ciki da aka zaɓa da hannu, na ƙaramin rukuni daga masu sana'a masu zaman kansu. Dakatar a kowane lokaci. Musanya abin da kake so. Ka riƙe abin da kake so.",
   'landing.nav.start': 'Fara akwatinka',
   'landing.tiers.eyebrow': 'Zaɓi tsarinka',
   'landing.tiers.heading': 'Fara ƙarami, haɓaka kowane lokaci, sokewa cikin sauƙi.',
@@ -118,6 +156,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Shiga don duba akwatin watan gobe.',
   'login.welcomeBack': 'Barka da dawowa, mai kula da harkokin kuɗi.',
   'nextBoxHeroCard.eyebrow': 'CRATE NA GABA',
+  'nextBoxHeroCard.itemCount': 'Abubuwa {{count}} a ciki',
   'nextBoxHeroCard.itemsLabel': 'Abubuwan da aka tsara',
   'nextBoxHeroCard.shipsOnLabel': 'Ana jigilar kaya a kan',
   'notFound.body':
@@ -141,8 +180,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Dakatar da biyan kuɗi',
   'settings.danger.paused': 'An dakatar da biyan kuɗi.',
   'settings.danger.pausing': 'Dakatarwa…',
+  'settings.danger.status': 'Matsayin biyan kuɗi: {{status}}',
   'settings.danger.subtitle':
     'Dakatarwa yana kiyaye matakinka da tarihinka cikin aminci. Sokewa yana dakatar da jigilar kaya nan gaba kuma yana cire hanyoyin biyan kuɗin da aka adana a ƙarshen zagayen.',
+  'settings.notifications.saving': '· ana ajiyewa…',
   'settings.notifications.subtitle':
     "Zaɓi waɗanne sigina kake so daga Crate. Tsarin tsoho yana da ma'ana.",
   'settings.subtitle':
@@ -159,12 +200,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Babu jigilar kaya mai aiki tukuna',
   'shipments.live.eyebrow': 'Jigilar kaya mai aiki',
   'shipments.live.unnamed': 'Akwatinka na gaba',
+  'shipments.loadError':
+    'Ba mu iya loda jigilar kayanka ba. Duba haɗin yanar gizonka sannan ka sake gwadawa.',
+  'shipments.loading': 'Ana loda kayan jigilar kaya…',
+  'shipments.step.delivered': 'An kawo',
   'shipments.step.deliveredBody': 'Yi alama da #crateunbox don raba abin da ka gano.',
   'shipments.step.ordered': 'An yi oda',
   'shipments.step.orderedBody':
     'Biyan kuɗin ku ya yi rajista a wannan bugu don zagayowar jigilar kaya ta gaba.',
+  'shipments.step.packed': 'An shirya da hannu',
   'shipments.step.packedBody':
     'Kowanne yanki an naɗe shi aka saka shi a cikin akwatin tare da takardar rubutu da hannu.',
+  'shipments.step.transit': 'Yana kan hanya',
   'shipments.step.transitNot': 'Bin diddigin zai bayyana a nan da zarar akwatinka yana kan hanya.',
   'shipments.subtitle':
     'Bibiyi akwatin a kan hanyarsa ta zuwa gare ku, sannan ku sake duba kowace bugu da kuka buɗe a baya.',

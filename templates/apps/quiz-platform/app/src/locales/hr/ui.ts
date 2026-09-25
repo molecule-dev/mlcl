@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate povratne informacije, pronašli ste grešku ili želite donijeti {{app}} u svoju školu ili tim? Čitamo svaku poruku — javite se iz postavki računa i odgovorit će vam stvarna osoba.',
   'about.contactTitle': 'Razgovarajte s nama',
   'about.eyebrow': 'Oko',
+  'about.intro':
+    '{{app}} je platforma za kvizove uživo za učionice, društvene večeri i timske događaje. Sastavite zaigrane pakete pitanja, vodite igre u stvarnom vremenu pomoću koda za pridruživanje i gledajte kako se prostorija zapali uz pitanja na vrijeme, bodovanje i ljestvice.',
+  'about.missionBody':
+    'Učenje ostaje kad izgleda kao igra. Svakome omogućujemo da bez napora pretvori temu u brzu, natjecateljsku igru — tako domaćini podučavaju kroz igru, a igrači nastavljaju niz.',
+  'about.missionTitle': 'Naša misija',
   'about.title': 'O aplikaciji {{app}}',
   'auth.login.noAccount': 'Novi ste u Sparqu?',
   'auth.login.or': 'ili nastavite s',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'Još nema rezultata kviza.',
   'discover.headline': 'Pronađite svoj sljedeći omiljeni kviz.',
   'discover.loading': 'Učitavanje…',
+  'discover.searchPlaceholder': 'Pretraži kvizove po naslovu…',
   'discover.subhead':
     'Pregledajte cijelu biblioteku, filtrirajte po kategoriji ili pretražujte po naslovu. Kliknite na karticu za samostalno igranje ili vođenje uživo.',
   'forgotPassword.subhead':
     'Unesite svoju e-mail adresu i poslat ćemo vam poveznicu za resetiranje.',
   'forgotPassword.success.body':
     'Ako postoji račun za {{email}} , dobit ćete poveznicu za resetiranje za nekoliko minuta.',
+  'forgotPassword.success.title': 'Provjerite pristiglu poštu.',
   'hostLobby.back': 'Natrag na kviz',
   'hostLobby.copied': 'Kôd za spajanje kopiran u međuspremnik.',
   'hostLobby.creating': 'Okretanje vašeg predvorja…',
@@ -30,19 +39,26 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'Otkaži predvorje',
   'hostLobby.players.count': '{{count}} živjeti',
   'hostLobby.players.title': 'Igrači u predvorju',
+  'hostLobby.players.waiting':
+    'Čekamo igrače. Podijelite kod {{code}} kako bi se mogli pridružiti.',
   'hostLobby.rules.title': 'Kućni red',
   'hostLobby.startError': 'Nije moguće pokrenuti igru.',
   'hostLobby.starting': 'Pokretanje iskre…',
   'joinCodeHero.headline': 'Reci svojim igračima da se uključe.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'Ili posjetite',
   'joinCodeHero.liveLabel': 'Uživo iz predvorja',
+  'joinCodeHero.playerJoined': '{{name}} se pridružio',
   'joinCodeHero.playersLabel': 'Igrači',
   'joinCodeHero.qrLabel': 'Skeniraj za pridruživanje',
   'joinCodeHero.startGame': 'Zapali iskru',
   'joinCodeHero.subhead':
     'Podijelite kod za pridruživanje ili skenirajte QR. Igra počinje u trenutku kada upalite iskru.',
+  'landing.cta.button': 'Stvorite svoj prvi kviz',
   'landing.cta.eyebrow': 'Besplatno za edukatore',
   'landing.cta.heading': 'Unesite iskru u svaku lekciju.',
+  'landing.cta.subhead':
+    'Prijavite se u 30 sekundi. Vodite neograničen broj igara uživo, sastavljajte kvizove uz AI i održavajte svakog igrača u nizu.',
   'landing.eyebrow': 'Zapali svaki odgovor',
   'landing.features.heading': 'Kviz studio koji odgovara načinu na koji podučavate i igrate.',
   'landing.hero.ctaPrimary': 'Započnite besplatno hostiranje',
@@ -57,6 +73,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'Popularni kvizovi',
   'landing.popular.eyebrow': 'Popularno ovog tjedna',
   'landing.popular.heading': 'Domaćini kviza "Drop into" održavaju se danas.',
+  'landing.popular.viewAll': 'Pregledaj sve kategorije →',
+  'leaderboard.empty.body': 'Odigrajte kviz i stavite svoj rezultat na globalnu ljestvicu.',
   'leaderboard.empty.title': 'Još nema poteza na ploči — budite prvi.',
   'leaderboard.eyebrow': 'Ljestvica najboljih',
   'leaderboard.fullRanking': 'Puni poredak',
@@ -64,6 +82,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'Zbirni rezultat za svaku kviz sesiju koju ste odigrali. Penjite se igrajući više.',
   'leaderboard.title': 'Najbolji kvizmaši',
+  'leaderboard.totalPlayers': '{{count}} rangiranih igrača',
   'leaderboardRow.points': 'bodovi',
   'leaderboardRow.streak': '{{days}} dan',
   'login.headline': 'Dobrodošao natrag, voditelju kviza.',
@@ -75,9 +94,11 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'Napravite svoj prvi kviz →',
   'myQuizzes.empty.created': 'Još nisi izradio/la kviz.',
   'myQuizzes.empty.played': 'Još nema objavljenih kvizova.',
+  'myQuizzes.loading': 'Učitavanje…',
   'myQuizzes.subhead': 'Nacrti koje ste izradili, plus objavljeni kvizovi koje možete igrati.',
   'myQuizzes.title': 'Moji kvizovi',
   'nav.legal': 'Pravni',
+  'nav.primaryNavLabel': 'Primarna navigacija',
   'notFound.backHome': 'Natrag kući',
   'notFound.backToDiscover': 'Pregledaj kvizove',
   'notFound.body': 'Pokušajte s drugim kodom ili se vratite u predvorje.',
@@ -86,17 +107,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'Učitavanje…',
   'notifications.subhead':
     '{{count}} nepročitane iskre. Pozivnice, pomicanja na ljestvici i postignuća, sve u jednom streamu.',
+  'planUpdated.retry': 'Pokušajte ponovno',
+  'planUpdated.verifyFailed': 'Još nismo mogli potvrditi vašu uplatu.',
+  'planUpdated.verifyFailedBody':
+    'Vaše plaćanje se možda još uvijek obrađuje. Pokušajte ponovno za trenutak.',
   'planUpdated.verifying': 'Potvrda vaše uplate…',
+  'pricing.advancedFeatures': 'Napredne značajke: {{yes}}',
+  'pricing.canExport': 'Izvoz podataka: {{yes}}',
   'pricing.checkoutError': 'Nije moguće pokrenuti naplatu. Pokušajte ponovno.',
   'pricing.heading': 'Odaberite svoj {{app}} plan',
   'pricing.included': 'Uključeno',
   'pricing.loadError': 'Nije moguće učitati planove.',
+  'pricing.maxQuestions': '{{count}} pitanja',
   'pricing.maxQuizzes': '{{count}} kvizovi',
+  'pricing.maxSessions': '{{count}} sesija',
   'pricing.subhead':
     'Besplatno za domaćine i igrače. Nadogradite za veće limite i napredne značajke.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'Račun: e-pošta, hashirana lozinka, ime za prikaz, posljednja prijava.',
+  'privacy.intro':
+    '{{app}} poštuje vašu privatnost. Ova stranica sažima podatke koje pohranjujemo, zašto ih pohranjujemo i kako ih ukloniti.',
   'privacy.rights.body':
     'Izbrišite svoj račun iz Postavki kako biste trajno uklonili sve svoje podatke u roku od 30 dana.',
   'privacy.share.body':
@@ -120,6 +151,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'ID kviza: {{id}}',
   'quizBuilder.loadError': 'Nije moguće učitati kviz.',
   'quizBuilder.loading': 'Učitavanje uređivača…',
+  'quizBuilder.markCorrect': 'Označi {{letter}} kao točno',
   'quizBuilder.noQuestions': 'Još nema pitanja - dodajte jedno za početak.',
   'quizBuilder.notFound': 'Kviz nije pronađen.',
   'quizBuilder.preview': 'Pogled',
@@ -136,7 +168,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} tajmer',
   'quizBuilder.title': 'Izradi svoj kviz',
   'quizBuilder.titleLabel': 'Naslov kviza',
+  'quizBuilder.untitled': 'Pitanje bez naslova',
   'quizCard.plays': '{{count}} predstave',
+  'quizCard.questionCount': '{{count}} pit.',
   'quizDetail.duration': '~ {{minutes}} min',
   'quizDetail.hostMultiplayer': 'Host za više igrača',
   'quizDetail.leaderboardEmpty': 'Još nema predstava — budite prvi koji će postaviti rezultat.',
@@ -151,26 +185,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'Natrag na kviz',
   'quizPlay.empty': 'Ovaj kviz još nema pitanja.',
   'quizPlay.error': 'Nije moguće učitati ovaj kviz. Pokušajte ponovno.',
+  'quizPlay.exit': 'Izlaz',
   'quizPlay.feedback.correct': '🔥 Iskra zarađena — idemo dalje!',
+  'quizPlay.feedback.incorrect': 'Točan odgovor je bio {{correct}}. Nastavi dalje.',
   'quizPlay.loading': 'Učitavanje kviza…',
   'quizPlay.next': 'Sljedeće pitanje',
   'quizPlay.questionCounter': 'Pitanje {{current}} od {{total}}',
   'quizPlay.score': '{{score}} bodovi',
+  'quizPlay.seeResults': 'Pogledaj rezultate',
   'quizPlay.sessionFailed': 'Nije moguće pokrenuti sesiju.',
   'quizPlay.streak': '{{count}} pruga',
+  'resetPassword.subhead': 'Odaberite novu lozinku da se vratite svom nizu.',
   'results.backToDiscover': 'Natrag na Otkrijte',
   'results.error': 'Nije moguće učitati rezultate.',
   'results.exit': 'Natrag na Otkrijte',
   'results.loading': 'Zbrajanje rezultata…',
   'results.missingSession': 'Nema sesije za sažimanje.',
+  'results.recap.correctAnswer': 'Točno: {{answer}}',
   'results.recap.questionLabel': 'Pitanje {{number}}',
   'results.recap.title': 'Sažetak pitanja',
+  'results.recap.yourAnswer': 'Ti: {{answer}}',
   'results.unknownQuiz': 'Kviz',
   'scoreBreakdownCard.accuracyLabel': 'Točnost',
+  'scoreBreakdownCard.correctLabel': 'Točno',
   'scoreBreakdownCard.eyebrow': 'Kviz završen',
   'scoreBreakdownCard.headline': 'Dobar posao na " {{quizTitle}} "!',
   'scoreBreakdownCard.pointsLabel': 'Bodovi',
   'scoreBreakdownCard.rankLabel': 'Rang',
+  'scoreBreakdownCard.streakBonus': 'Bonus za niz +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'Tvoja iskra se vidi. Pogledaj raščlambu u nastavku i nastavi se penjati na ljestvici.',
   'settings.danger.body': 'Trajno uklonite svoj Sparq račun i sve kreirane kvizove.',
   'settings.danger.confirm': 'Da, izbriši zauvijek',
   'settings.guest': 'Gost',
@@ -188,5 +232,7 @@ export const ui: UiTranslations = {
     'Odgovorni ste za sadržaj koji objavljujete, pitanja koja postavljate i sve igre koje hostirate. Nemojte se lažno predstavljati kao druge osobe.',
   'terms.billing.body':
     'Plaćeni planovi se automatski obnavljaju dok se ne otkažu u Postavkama. Možete otkazati u bilo kojem trenutku; pristup se nastavlja do kraja tekućeg razdoblja naplate.',
+  'terms.intro':
+    'Korištenjem {{app}} prihvaćate pravila u nastavku. Ako ih ne možete prihvatiti, nemojte koristiti uslugu.',
   'terms.title': 'Uvjeti pružanja usluge',
 }

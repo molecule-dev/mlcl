@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'بازخوردی دارید، باگی پیدا کرده‌اید، یا می‌خواهید {{app}} را به مدرسه یا تیم خود بیاورید؟ ما هر پیامی را می‌خوانیم — از تنظیمات حساب خود با ما در تماس باشید و یک انسان واقعی پاسخ می‌دهد.',
   'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
+  'about.intro':
+    '{{app}} یک پلتفرم کوییز زنده برای کلاس‌های درس، شب‌های بازی و رویدادهای تیمی است. بسته‌های سؤال سرگرم‌کننده بسازید، بازی‌های زمان‌واقعی را با کد ورود میزبانی کنید و ببینید اتاق با سؤالات زمان‌دار، امتیازدهی و جدول‌های رتبه‌بندی روشن می‌شود.',
+  'about.missionBody':
+    'یادگیری وقتی مثل بازی باشد، ماندگار می‌شود. ما کاری می‌کنیم که هر کسی به‌راحتی بتواند یک موضوع را به یک بازی سریع و رقابتی تبدیل کند — تا میزبان‌ها با انجام دادن آموزش دهند و بازیکنان در اوج بمانند.',
+  'about.missionTitle': 'ماموریت ما',
   'about.title': 'درباره {{app}}',
   'auth.login.noAccount': 'تازه با اسپارک آشنا شده‌اید؟',
   'auth.login.or': 'یا ادامه دادن با',
@@ -17,12 +24,14 @@ export const ui: UiTranslations = {
   'discover.empty.title': 'هنوز هیچ آزمونی مطابقت ندارد.',
   'discover.headline': 'مسابقه مورد علاقه بعدی خود را پیدا کنید.',
   'discover.loading': 'در حال بارگذاری…',
+  'discover.searchPlaceholder': 'جستجوی کوییزها بر اساس عنوان…',
   'discover.subhead':
     'در کتابخانه کامل جستجو کنید، بر اساس دسته‌بندی فیلتر کنید یا بر اساس عنوان جستجو کنید. برای اجرای تک‌نفره یا اجرای زنده، روی یک کارت ضربه بزنید.',
   'forgotPassword.subhead':
     'ایمیل خود را وارد کنید و ما لینکی برای تنظیم مجدد برای شما ارسال خواهیم کرد.',
   'forgotPassword.success.body':
     'اگر حسابی برای {{email}} ، تا چند دقیقه دیگر لینک بازنشانی دریافت خواهید کرد.',
+  'forgotPassword.success.title': 'صندوق ورودی خود را بررسی کنید.',
   'hostLobby.back': 'بازگشت به مسابقه',
   'hostLobby.copied': 'کد کپی شده در کلیپ بورد را به هم وصل کنید.',
   'hostLobby.creating': 'لابی شما را به هم می‌ریزد…',
@@ -30,19 +39,25 @@ export const ui: UiTranslations = {
   'hostLobby.exit': 'لغو لابی',
   'hostLobby.players.count': '{{count}} زنده',
   'hostLobby.players.title': 'بازیکنان در لابی',
+  'hostLobby.players.waiting': 'در انتظار بازیکنان. کد {{code}} را به اشتراک بگذارید تا بپیوندند.',
   'hostLobby.rules.title': 'قوانین خانه',
   'hostLobby.startError': 'نتوانست بازی را شروع کند.',
   'hostLobby.starting': 'شروع جرقه…',
   'joinCodeHero.headline': 'به بازیکنانت بگو که بپرند وسط.',
+  'joinCodeHero.joinCodeLabel': 'Join code',
   'joinCodeHero.joinUrlLabel': 'یا بازدید کنید',
   'joinCodeHero.liveLabel': 'پخش زنده لابی',
+  'joinCodeHero.playerJoined': '{{name}} پیوست',
   'joinCodeHero.playersLabel': 'بازیکنان',
   'joinCodeHero.qrLabel': 'برای عضویت اسکن کنید',
   'joinCodeHero.startGame': 'جرقه را شروع کنید',
   'joinCodeHero.subhead':
     'کد عضویت را به اشتراک بگذارید یا QR را اسکن کنید. بازی از لحظه‌ای که جرقه را روشن می‌کنید شروع می‌شود.',
+  'landing.cta.button': 'اولین کوییز خود را بسازید',
   'landing.cta.eyebrow': 'رایگان برای فرهنگیان',
   'landing.cta.heading': 'به هر درس شور و شوق بدهید.',
+  'landing.cta.subhead':
+    'در ۳۰ ثانیه ثبت‌نام کنید. بازی‌های زنده نامحدود میزبانی کنید، کوییزها را با هوش مصنوعی بسازید و هر بازیکن را در اوج نگه دارید.',
   'landing.eyebrow': 'هر پاسخی را روشن کنید',
   'landing.features.heading': 'یک استودیوی مسابقه که با نحوه تدریس و بازی شما متناسب است.',
   'landing.hero.ctaPrimary': 'شروع میزبانی رایگان',
@@ -57,6 +72,8 @@ export const ui: UiTranslations = {
   'landing.nav.popular': 'آزمون‌های محبوب',
   'landing.popular.eyebrow': 'محبوب این هفته',
   'landing.popular.heading': 'امروز در مسابقه‌ای که میزبانان برگزار می‌کنند، شرکت کنید.',
+  'landing.popular.viewAll': 'مرور همه دسته‌ها →',
+  'leaderboard.empty.body': 'یک کوییز بازی کنید تا امتیازتان در جدول رتبه‌بندی جهانی ثبت شود.',
   'leaderboard.empty.title': 'هنوز هیچ نمایشنامه‌ای روی تخته نرد نیست - اولین نفر باشید.',
   'leaderboard.eyebrow': 'جدول امتیازات',
   'leaderboard.fullRanking': 'رتبه‌بندی کامل',
@@ -64,6 +81,7 @@ export const ui: UiTranslations = {
   'leaderboard.subhead':
     'امتیاز کلی شما در هر جلسه مسابقه که انجام داده‌اید. با بازی بیشتر، امتیاز خود را افزایش دهید.',
   'leaderboard.title': 'برترین اساتید آزمون',
+  'leaderboard.totalPlayers': '{{count}} بازیکن رتبه‌دار',
   'leaderboardRow.points': 'امتیاز',
   'leaderboardRow.streak': '{{days}} د',
   'login.headline': 'خوش برگشتی، استاد آزمون.',
@@ -75,10 +93,12 @@ export const ui: UiTranslations = {
   'myQuizzes.empty.createCta': 'اولین آزمون خود را بسازید →',
   'myQuizzes.empty.created': 'شما هنوز آزمونی نساخته‌اید.',
   'myQuizzes.empty.played': 'هنوز هیچ آزمونی منتشر نشده است.',
+  'myQuizzes.loading': 'در حال بارگذاری…',
   'myQuizzes.subhead':
     'پیش‌نویس‌هایی که ساخته‌اید، به‌علاوه‌ی آزمون‌های منتشرشده‌ای که می‌توانید در آن‌ها شرکت کنید.',
   'myQuizzes.title': 'آزمون‌های من',
   'nav.legal': 'قانونی',
+  'nav.primaryNavLabel': 'ناوبری اولیه',
   'notFound.backHome': 'برگشت به خانه',
   'notFound.backToDiscover': 'مرور آزمون‌ها',
   'notFound.body': 'کد دیگری را امتحان کنید یا به لابی برگردید.',
@@ -87,17 +107,27 @@ export const ui: UiTranslations = {
   'notifications.loading': 'در حال بارگذاری…',
   'notifications.subhead':
     '{{count}} جرقه‌های خوانده نشده. دعوت‌نامه‌ها، جابجایی در جدول امتیازات و دستاوردها، همه در یک جریان.',
+  'planUpdated.retry': 'دوباره امتحان کنید',
+  'planUpdated.verifyFailed': 'ما هنوز نتوانستیم پرداخت شما را تأیید کنیم.',
+  'planUpdated.verifyFailedBody':
+    'ممکن است پرداخت شما هنوز در حال پردازش باشد. چند لحظه دیگر دوباره امتحان کنید.',
   'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
+  'pricing.advancedFeatures': 'ویژگی‌های پیشرفته: {{yes}}',
+  'pricing.canExport': 'خروجی داده: {{yes}}',
   'pricing.checkoutError': 'پرداخت شروع نشد. لطفا دوباره امتحان کنید.',
   'pricing.heading': 'طرح {{app}} خود را انتخاب کنید',
   'pricing.included': 'شامل',
   'pricing.loadError': 'نتوانستم طرح‌ها را بارگذاری کنم.',
+  'pricing.maxQuestions': '{{count}} سوالات',
   'pricing.maxQuizzes': '{{count}} آزمون‌ها',
+  'pricing.maxSessions': '{{count}} جلسه',
   'pricing.subhead':
     'رایگان برای میزبان‌ها و بازیکنان. برای محدودیت‌های بالاتر و ویژگی‌های پیشرفته، ارتقا دهید.',
   'pricing.yearly': 'Yearly',
   'privacy.collect.account':
     'حساب کاربری: ایمیل، رمز عبور هش شده، نام نمایشی، آخرین ورود به سیستم.',
+  'privacy.intro':
+    '{{app}} به حریم خصوصی شما احترام می‌گذارد. این صفحه داده‌هایی را که ذخیره می‌کنیم، دلیل ذخیره آن‌ها و نحوه حذفشان را خلاصه می‌کند.',
   'privacy.rights.body':
     'برای حذف دائمی تمام داده‌هایتان ظرف 30 روز، حساب خود را از تنظیمات حذف کنید.',
   'privacy.share.body':
@@ -121,6 +151,7 @@ export const ui: UiTranslations = {
   'quizBuilder.idLabel': 'شناسه آزمون: {{id}}',
   'quizBuilder.loadError': 'نتوانستم آزمون را بارگذاری کنم.',
   'quizBuilder.loading': 'در حال بارگذاری ویرایشگر…',
+  'quizBuilder.markCorrect': 'علامت‌گذاری {{letter}} به‌عنوان درست',
   'quizBuilder.noQuestions': 'هنوز سوالی نیست - برای شروع یکی اضافه کنید.',
   'quizBuilder.notFound': 'آزمون پیدا نشد.',
   'quizBuilder.preview': 'مشاهده',
@@ -137,7 +168,9 @@ export const ui: UiTranslations = {
   'quizBuilder.timer': '{{seconds}} تایمر',
   'quizBuilder.title': 'مسابقه خود را بسازید',
   'quizBuilder.titleLabel': 'عنوان مسابقه',
+  'quizBuilder.untitled': 'سؤال بدون عنوان',
   'quizCard.plays': '{{count}} نمایشنامه‌ها',
+  'quizCard.questionCount': '{{count}} سؤال',
   'quizDetail.duration': '~ {{minutes}} دقیقه',
   'quizDetail.hostMultiplayer': 'میزبان چند نفره',
   'quizDetail.leaderboardEmpty':
@@ -153,26 +186,36 @@ export const ui: UiTranslations = {
   'quizPlay.back': 'بازگشت به مسابقه',
   'quizPlay.empty': 'این آزمون هنوز هیچ سوالی ندارد.',
   'quizPlay.error': 'این آزمون بارگذاری نشد. لطفا دوباره امتحان کنید.',
+  'quizPlay.exit': 'خروج',
   'quizPlay.feedback.correct': '🔥 جرقه به دست آمد - به سراغ بعدی بروید!',
+  'quizPlay.feedback.incorrect': 'پاسخ {{correct}} بود. ادامه دهید.',
   'quizPlay.loading': 'در حال بارگذاری آزمون…',
   'quizPlay.next': 'سوال بعدی',
   'quizPlay.questionCounter': 'سوال {{current}} از {{total}}',
   'quizPlay.score': '{{score}} امتیاز',
+  'quizPlay.seeResults': 'مشاهده نتایج',
   'quizPlay.sessionFailed': 'نتوانست جلسه را شروع کند.',
   'quizPlay.streak': '{{count}} رگه',
+  'resetPassword.subhead': 'برای بازگشت به رشته پیروزی‌تان یک رمز عبور جدید انتخاب کنید.',
   'results.backToDiscover': 'بازگشت به کشف',
   'results.error': 'نتایج بارگذاری نشد.',
   'results.exit': 'بازگشت به کشف',
   'results.loading': 'جمع کردن امتیاز شما…',
   'results.missingSession': 'جلسه‌ای برای جمع‌بندی وجود ندارد.',
+  'results.recap.correctAnswer': 'درست: {{answer}}',
   'results.recap.questionLabel': 'سوال {{number}}',
   'results.recap.title': 'خلاصه سوال',
+  'results.recap.yourAnswer': 'شما: {{answer}}',
   'results.unknownQuiz': 'آزمون',
   'scoreBreakdownCard.accuracyLabel': 'دقت',
+  'scoreBreakdownCard.correctLabel': 'درست',
   'scoreBreakdownCard.eyebrow': 'مسابقه کامل شد',
   'scoreBreakdownCard.headline': 'کار خوبی روی " {{quizTitle}} «!»',
   'scoreBreakdownCard.pointsLabel': 'امتیازها',
   'scoreBreakdownCard.rankLabel': 'رتبه',
+  'scoreBreakdownCard.streakBonus': 'پاداش اوج +{{pct}}%',
+  'scoreBreakdownCard.subhead':
+    'جرقه‌ات دارد خودنمایی می‌کند. برای بالا رفتن از جدول رتبه‌بندی، تفکیک زیر را مرور کن.',
   'settings.danger.body': 'حساب Sparq و تمام آزمون‌های ایجاد شده خود را برای همیشه حذف کنید.',
   'settings.danger.confirm': 'بله، برای همیشه حذف کنید',
   'settings.guest': 'مهمان',
@@ -189,5 +232,7 @@ export const ui: UiTranslations = {
     'شما مسئول محتوایی هستید که منتشر می‌کنید، سوالاتی که می‌نویسید و هر بازی که میزبانی می‌کنید. از جعل هویت افراد دیگر خودداری کنید.',
   'terms.billing.body':
     'طرح‌های پولی تا زمان لغو از طریق تنظیمات، به‌طور خودکار تمدید می‌شوند. می‌توانید در هر زمانی لغو کنید؛ دسترسی تا پایان دوره صورتحساب فعلی ادامه دارد.',
+  'terms.intro':
+    'با استفاده از {{app}}، قوانین زیر را می‌پذیرید. اگر نمی‌توانید آن‌ها را بپذیرید، لطفاً از این سرویس استفاده نکنید.',
   'terms.title': 'شرایط خدمات',
 }

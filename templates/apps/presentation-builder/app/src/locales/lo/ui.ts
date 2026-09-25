@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ມີຄຳຖາມ, ຄຳຕິຊົມ, ຫຼືຟີເຈີທີ່ທ່ານຢາກໃຫ້ພວກເຮົາມີບໍ? ຕິດຕໍ່ທີມງານຈາກການຕັ້ງຄ່າບັນຊີຂອງທ່ານ — ມີຄົນຈິງອ່ານທຸກຂໍ້ຄວາມ.',
   'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
+  'about.missionTitle': 'ພາລະກິດຂອງພວກເຮົາ',
+  'about.whatYouGetTitle': 'ສິ່ງທີ່ເຈົ້າໄດ້ຮັບ',
   'analytics.empty': 'ສ້າງຊຸດຂໍ້ມູນເພື່ອເບິ່ງການວິເຄາະຢູ່ທີ່ນີ້.',
   'analytics.stats.acrossDecks': 'ໃນທົ່ວທຸກດາດຟ້າ',
   'analytics.stats.allTime': 'ໃນສະຕູດິໂອຂອງເຈົ້າ',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'ຊື່ຊຸດ',
   'landing.features.eyebrow': 'ເປັນຫຍັງຕ້ອງ Overture',
   'landing.features.heading': 'ທຸກຢ່າງທີ່ເຈົ້າຕ້ອງການເພື່ອຍ່າງເທິງເວທີໃຫ້ພ້ອມ.',
+  'landing.finalCta.body':
+    'ສ້າງສະຕູດິໂອຂອງທ່ານໃນບໍ່ຮອດໜຶ່ງນາທີ. ບໍ່ຕ້ອງໃຊ້ບັດເຄຣດິດ. ຍົກເລິກໄດ້ທຸກເວລາ.',
   'landing.finalCta.cta': 'ສ້າງສະຕູດິໂອຟຣີຂອງເຈົ້າ',
   'landing.finalCta.eyebrow': 'ເລີ່ມຕົ້ນໄດ້ຟຣີ',
   'landing.finalCta.heading': 'ກ້າວຂຶ້ນເວທີດ້ວຍຊຸດທີ່ດີທີ່ສຸດຂອງອາຊີບຂອງເຈົ້າ.',
@@ -81,10 +87,15 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'ແກ້ໄຂ 12 ນາທີກ່ອນ',
   'notifications.created': 'ສ້າງຂຶ້ນ',
   'notifications.edited': 'ແກ້ໄຂແລ້ວ',
+  'notifications.empty.body':
+    'ການເຄື່ອນໄຫວໃນເດັກຂອງທ່ານ — ຄຳເຫັນ, ການກ່າວເຖິງ, ການສົ່ງອອກ — ຈະສະແດງຢູ່ນີ້.',
   'notifications.empty.title': 'ຍັງບໍ່ມີການແຈ້ງເຕືອນເທື່ອ',
   'notifications.eyebrow': 'ກິດຈະກຳເທິງເວທີ',
   'notifications.loading': 'ກຳລັງໂຫຼດ…',
   'notifications.shared': 'ແບ່ງປັນຕໍ່ສາທາລະນະ',
+  'planUpdated.retry': 'ລອງໃໝ່ອີກຄັ້ງ',
+  'planUpdated.verifyFailed': 'ພວກເຮົາບໍ່ສາມາດຢືນຢັນການຈ່າຍເງິນຂອງທ່ານໄດ້ເທື່ອ.',
+  'planUpdated.verifyFailedBody': 'ການຈ່າຍເງິນຂອງທ່ານອາດຈະຍັງກຳລັງດຳເນີນການຢູ່. ລອງໃໝ່ໃນອີກບໍ່ດົນ.',
   'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'present.addSlides': 'ເພີ່ມສະໄລ້',
   'present.backToDecks': 'ກັບໄປທີ່ຊຸດດາດຟ້າ',
@@ -122,6 +133,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'ນັກສະແດງເວທີ',
   'settings.security.notSet': 'ບໍ່ໄດ້ຕັ້ງຄ່າ',
   'settings.security.passwordBody': 'ລະຫັດຜ່ານຂອງທ່ານຖືກເຂົ້າລະຫັດໃນເວລາພັກຜ່ອນ.',
+  'settings.security.reset': 'ຕັ້ງຄ່າໃໝ່',
   'settings.security.title': 'ບັນຊີ + ເຊດຊັນ',
   'shared.empty.body':
     'ຊຸດບັດທີ່ທ່ານແບ່ງປັນຕໍ່ສາທາລະນະຈະປາກົດຢູ່ບ່ອນນີ້. ເປີດຊຸດບັດ ແລະ ເປີດ/ປິດເປັນສາທາລະນະເພື່ອແບ່ງປັນ.',
@@ -130,6 +142,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'ກຳລັງໂຫຼດ…',
   'shared.title': 'ຊັ້ນວາງທີ່ໃຊ້ຮ່ວມກັນ',
   'templateCard.slideCount': '{{count}} ສະໄລ້',
+  'templateCard.usageCount': '{{count}} ການໃຊ້',
+  'templates.empty.body': 'ລອງໃຊ້ຕົວກອງອື່ນ — ພວກເຮົາເຜີຍແຜ່ເທມເພລດໃໝ່ທຸກເດືອນ.',
+  'templates.empty.title': 'ຍັງບໍ່ມີເທມເພລດໃນໝວດນີ້',
+  'templates.hero.body':
+    'ເລົ່າສະໄລດ໌ທີ່ມີທີມສຳເລັດຮູບແບບພ້ອມແລ້ວ ພ້ອມບລັອກສ໌ສະຖິຕິ, ກອບຕົວຢ່າງ, ບັນທຶກຜູ້ນຳສະເໜີ, ແລະ ການຕັ້ງເວລາລ່ວງໜ້າ — ທຸກເທມເພລດພ້ອມບັນທຶກແລ້ວ.',
   'templates.hero.eyebrow': 'ຂັ້ນຕອນທີ່ຄັດສັນມາ',
   'templates.hero.heading': 'ຂັ້ນຕອນທີ່ສ້າງຂຶ້ນສຳລັບຊ່ວງເວລາທີ່ທ່ານຕ້ອງການລົງຈອດມັນ.',
 }

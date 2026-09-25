@@ -1,21 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Għandek feedback, sibt bug, jew trid tissuġġerixxi funzjoni? Ikkuntattjana mill-issettjar tal-kont tiegħek — kull messaġġ jasal għand persuna reali fit-tim.',
+  'about.contactTitle': 'Kellem magħna',
+  'about.featureDatabases':
+    'Bażijiet tad-dejta ħfief u mudelli riutilizzabbli biex in-noti mferrxa jsiru flussi tax-xogħol strutturati u ripetibbli.',
+  'about.featureEditor':
+    "Editur tal-blokki kwiet — intestaturi, listi, kodiċi, callouts, u to-dos — b'kmandi bil-slash meta tridhom u 'l bogħod meta ma tridx.",
+  'about.featureGraph':
+    'Backlinks u grafu tal-għarfien: ittajpja [[ biex torbot nota u ara kif l-ideat tiegħek jikkonnettjaw maż-żmien.',
+  'about.featureNotebooks':
+    "Notebooks u paġni nidjati biex il-proġetti, is-suġġetti, u n-noti ta' kuljum jibqgħu organizzati eżatt kif taħseb.",
+  'about.featureSearch':
+    "Tiftix full-text ta' inqas minn 50ms fil-notebooks kollha, flimkien ma' tags li jikkomponu man-notebooks minflok jiġġieldu magħhom.",
+  'about.missionTitle': 'Il-missjoni tagħna',
   'common.goToDashboard': 'Mur għad-Dashboard',
   'forgot.eyebrow': 'Tlift it-triq lura?',
   'forgot.formSubtitle': 'Għidilna l-email li għandna fil-fajl.',
+  'forgot.formTitle': 'Insejt il-password',
   'forgot.headline': 'Irrisettja l-password tiegħek.',
   'forgot.subline':
     "Se nibagħtulek link ta' darba fl-inbox tiegħek sabiex tkun tista' tagħżel wieħed ġdid.",
+  'forgot.successDetail': "Bgħatna link ta' reset fl-email tiegħek. Jiskadi fi 30 minuta.",
   'graph.eyebrow': 'Grafika',
+  'graph.goToNotes': 'Ibbrawżja n-noti →',
+  'graph.loadError': 'Ma setax jitgħabba l-grafu: {{message}}',
   'graph.placeholderBody':
     "Meta n-noti jibdew jillinkjaw ma' xulxin (bis-sintassi [[wiki]]), graff interattiv dirett bil-forza se jidher hawn.",
+  'graph.placeholderTitle': 'Grafu tal-backlinks ġej dalwaqt',
   'graph.subtitle':
     "{{count}} noti f'dan l-ispazju tax-xogħol. Ir-rendering tal-graff tal-backlink se jidher hawn ladarba n-noti jkunu marbuta ma' xulxin.",
   'graph.title': 'Grafika tal-għarfien',
   'home.empty': "Għad m'hemm l-ebda noti — ibda l-ewwel waħda tiegħek.",
   'home.favoritesHeading': 'Imwaħħal',
   'home.guest': 'ħabib',
+  'home.loadError': 'Ma setgħux jitgħabbew in-noti tiegħek: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Pin nota fl-editur biex iżżommha hawn.',
   'home.recentHeading': 'Aġġornat dan l-aħħar',
@@ -23,18 +43,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Notebook',
   'home.stats.pinned.label': 'Imwaħħal',
   'home.stats.updatedToday.label': 'Aġġornat illum',
+  'home.subtitle': 'Kompli minn fejn ħallejt, jew ibda nota ġdida.',
   'home.viewAll': 'Ara n-noti kollha',
   'landing.cta.body':
     "B'xejn għal użu personali. Professjonali għat-timijiet. Żid il-markdown eżistenti tiegħek jew ibda mill-ġdid — Verso jiltaqa' miegħek kull fejn ikunu n-noti tiegħek.",
+  'landing.cta.button': 'Oħloq l-ispazju tax-xogħol tiegħi',
   'landing.cta.heading': 'Iftaħ il-paġna tal-lum.',
   'landing.features.eyebrow': 'Kull primittiv li jeħtieġ it-tieni moħħ tiegħek',
+  'landing.features.heading': 'Mibni għax-xogħol, mhux għall-meta-xogħol.',
   'landing.hero.eyebrow': 'Wiċċ kwiet għall-kitba',
   'landing.hero.headlineAccent': 'jieħu l-forma.',
   'landing.hero.headlineLeading': 'Fejn il-ħsibijiet',
   'landing.hero.primaryCta': 'Ibda l-bażi tal-għarfien tiegħek',
   'landing.hero.secondaryCta': 'Diġà għandi kont',
+  'landing.hero.socialProof': "12,800+ kittieba, studenti, u PhDs jaħsbu b'{{appName}}",
   'landing.hero.subline':
     "Verso hija wiċċ strutturat għat-teħid tan-noti għal ħaddiema tal-għarfien u studenti. Editur tal-blokki, notebooks nested, backlinks, u graff tal-għarfien — kollha wara esperjenza ta' qari li tiffoka l-ewwel fuq it-tipografija.",
+  'landing.preview.notebook': 'Għarfien · Proċess tal-kitba',
+  'landing.preview.title': 'Dwar li nħallu l-kurrenti jieħdu n-nifs',
   'login.eyebrow': "Merħba lura f'Verso",
   'login.formSubtitle': 'Uża l-email tiegħek jew kwalunkwe fornitur konness.',
   'login.headline': 'Kompli minn fejn waqfet il-paġna.',
@@ -44,6 +70,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
   'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'noteEditor.backToNotes': 'Lura għan-noti',
+  'noteEditor.bodyLabel': 'Korp tan-nota',
   'noteEditor.bodyPlaceholder':
     'Ibda ikteb — in-nota tiegħek tiġi ssejvjata awtomatikament hekk kif tittajpja.',
   'noteEditor.confirmTrash': 'Mexxi din in-nota lejn iż-żibel?',
@@ -52,17 +79,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Mexxi lejn iż-żibel',
   'noteEditor.updated': 'Aġġornat',
   'notes.defaultWorkspaceName': 'In-notebook tiegħi',
+  'notes.empty': "Għadha m'hemmx noti hawn — ibda waħda biex timla n-notebook.",
   'notes.eyebrow': 'Notebook',
   'notes.filterAll': 'In-noti kollha',
   'notes.filterPinned': 'Imwaħħal',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Notebook ġdid',
   'notes.newNotebookPrompt': 'Isem ġdid tan-notebook',
+  'notes.newNotebookRequired': 'Daħħal isem tan-notebook.',
   'notes.notebooksHeading': 'Notebooks',
   'notes.subtitle':
     'Agħżel notebook fuq ix-xellug, imbagħad agħfas il-buttuna Nota ġdida biex tibda entrata ġdida.',
+  'planUpdated.body': 'L-abbonament tiegħek issa huwa attiv.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Karatteristiċi avvanzati',
   'pricing.heading': 'Agħżel il-pjan tiegħek għat-Teħid tan-Noti',
+  'reset.changedMind': 'Bdilt fehmtek?',
   'reset.eyebrow': 'Kważi lura ġewwa',
   'reset.formSubtitle': 'Tidħol fis-sistema ladarba jiġi ssejvjat.',
   'reset.headline': 'Agħżel password ġdida.',
@@ -72,7 +104,9 @@ export const ui: UiTranslations = {
     'Daħħal il-kodiċi li għadna kemm bgħatnielek bl-email u agħżel xi ħaġa memorabbli.',
   'reset.submit': 'Issejvja u idħol',
   'reset.tokenHint': 'Imwaħħal mill-inbox tiegħek.',
+  'search.empty': "Għadha m'hemmx noti li jaqblu ma' din il-mistoqsija.",
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Fittex Rifratt',
   'search.loading': 'Qed tfittex…',
   'search.noRecent': 'Ittajpja mistoqsija hawn fuq biex tibda tfittex fin-noti tiegħek.',
   'search.recentLabel': 'Tiftixijiet riċenti',
@@ -80,12 +114,19 @@ export const ui: UiTranslations = {
     "Test sħiħ f'kull notebook. Ittajpja biex tfittex; ir-riżultati jiġu aġġornati hekk kif tittajpja.",
   'search.title': 'Fittex it-tieni moħħ.',
   'settings.account.logout': 'Oħroġ',
+  'settings.account.title': 'Dettalji tal-kont',
+  'settings.editor.graphHover.body':
+    "Uri karta żgħira ta' preview meta tgħaddi l-mouse fuq [[wikilink]] fl-editur.",
+  'settings.editor.graphHover.label': 'Preview tal-hover tal-grafu tal-backlinks',
   'settings.editor.lineHeight.body':
     'Kemm hemm arja bejn il-linji tal-ġisem. 170% huwa r-ritmu tal-qari awtomatiku.',
+  'settings.editor.lineHeight.label': 'Għoli tal-linja',
   'settings.editor.serif.body':
     'Uża Georgia għall-kolonna tal-qari. Sans-serif iżżomm fil-sidebar u t-toolbars.',
+  'settings.editor.serif.label': "Test tal-korp b'serif",
   'settings.editor.title': 'Tipografija u wiċċ tal-kitba',
   'settings.eyebrow': 'Verso · Settings',
+  'settings.passwordModal.current': 'Password attwali',
   'settings.passwordModal.error':
     'Ma stajtx nibdel il-password — jekk jogħġbok iċċekkja l-password attwali tiegħek.',
   'settings.passwordModal.next': 'Password ġdida',
@@ -95,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     "Imbotta kull buttuna permezz tal-kanal f'ħin reali. Iddiżattiva għal konnessjonijiet aktar bil-mod.",
   'settings.sync.auto.label': "Sinkronizzazzjoni f'ħin reali",
+  'settings.sync.title': 'Kif jivvjaġġaw in-noti tiegħek',
   'settings.theme.body':
     'Id-dawl iżomm il-kolonna editorjali qawwija. Is-sepia ssaħħan il-paġna filgħaxija.',
   'settings.theme.dark': 'Dlam',
@@ -114,8 +156,12 @@ export const ui: UiTranslations = {
     'Żid #hashtags mat-titlu ta\' nota (eż. "Lista tal-qari #kotba") u dawn jidhru hawn awtomatikament.',
   'tags.emptyTitle': "Għad m'hemm l-ebda tikketti",
   'tags.eyebrow': 'Indiċi',
+  'tags.goToNotes': 'Mur għan-noti →',
+  'tags.loadError': 'Ma setgħux jitgħabbew it-tags: {{message}}',
   'tags.subtitle':
     "{{tags}} tikketti madwar {{notes}} noti. Żid #hashtags mat-titlu ta' nota u dawn se jidhru hawn.",
+  'versoAuthShell.sample.body':
+    'It-tieni pass għada dejjem jaqra aħjar mill-ewwel pass illejla. Poġġi l-verżjoni mhux raffinata fil-folder tax-xogħol profond…',
   'versoAuthShell.sample.label': "Nota ta' kuljum",
   'versoAuthShell.sample.timestamp': 'Illum · 9:14am',
   'versoAuthShell.sample.title': 'Dwar li nħallu l-kurrenti jieħdu n-nifs',
@@ -127,8 +173,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Kompli ikteb',
   'versoTodayHero.createCta': 'Ibda n-nota tal-lum',
   'versoTodayHero.dailyLabel': "Nota ta' kuljum",
+  'versoTodayHero.emptyHeadline': 'Illum hija paġna vojta.',
   'versoTodayHero.emptySubline':
     'Aqbad ħsieb, ikteb laqgħa, jew agħmel skeċċ għada. Il-Verso jżomm l-istruttura kwieta sabiex il-kitba tibqa’ qawwija.',
+  'versoTodayHero.outlineLabel': "Il-kontorn ta' llum",
   'versoTodayHero.streak': "{{count}} sensiela ta' jiem",
+  'versoTodayHero.unwritten': "Għadhom m'hemmx kliem — iftaħ in-nota biex tibda.",
   'versoTodayHero.wordCount': '{{count}} kliem illum',
 }

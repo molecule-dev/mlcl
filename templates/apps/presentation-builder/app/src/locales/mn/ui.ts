@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Асуулт, санал хүсэлт эсвэл бидэнд байгаасай гэж хүссэн функц байна уу? Бүртгэлийн тохиргооноосоо багтай холбогдоорой — илгээсэн мессеж бүрийг жинхэнэ хүн уншдаг.',
   'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
+  'about.whatYouGetTitle': 'Таны авах зүйлс',
   'analytics.empty': 'Энд аналитикийг харахын тулд тавцан үүсгэнэ үү.',
   'analytics.stats.acrossDecks': 'Бүх тавцан дээр',
   'analytics.stats.allTime': 'Танай студид',
@@ -67,6 +71,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Тавцангийн гарчиг',
   'landing.features.eyebrow': 'Яагаад Увертюра гэж?',
   'landing.features.heading': 'Тайзан дээр гарахад хэрэгтэй бүх зүйл бэлэн байна.',
+  'landing.finalCta.body':
+    'Студио үүсгэхэд нэг минутаас бага хугацаа хангалттай. Кредит карт шаардлагагүй. Хүссэн үедээ цуцалж болно.',
   'landing.finalCta.cta': 'Үнэгүй студи үүсгээрэй',
   'landing.finalCta.eyebrow': 'Үнэгүй эхлэх',
   'landing.finalCta.heading': 'Карьерынхаа хамгийн шилдэг тавцантай тайзан дээр гар.',
@@ -82,10 +88,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 минутын өмнө засварласан',
   'notifications.created': 'бүтээсэн',
   'notifications.edited': 'засварласан',
+  'notifications.empty.body':
+    'Таны deck-үүд дээрх үйл ажиллагаа — сэтгэгдэл, дурдалт, экспорт — энд харагдана.',
   'notifications.empty.title': 'Одоогоор мэдэгдэл алга',
   'notifications.eyebrow': 'Тайзны үйл ажиллагаа',
   'notifications.loading': 'Ачааллаж байна…',
   'notifications.shared': 'олон нийтэд хуваалцсан',
+  'planUpdated.retry': 'Дахин оролдоно уу',
+  'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
+  'planUpdated.verifyFailedBody':
+    'Таны төлбөрийг боловсруулж байж магадгүй. Хэсэг хугацааны дараа дахин оролдоно уу.',
   'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'present.addSlides': 'Слайд нэмэх',
   'present.backToDecks': 'Тавцан руу буцах',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Тайзны жүжигчин',
   'settings.security.notSet': 'Тохируулаагүй байна',
   'settings.security.passwordBody': 'Таны нууц үг хэвийн горимд шифрлэгдсэн байна.',
+  'settings.security.reset': 'Дахин тохируулах',
   'settings.security.title': 'Бүртгэл + сессүүд',
   'shared.empty.body':
     'Таны олон нийтэд хуваалцсан тавцан энд харагдах болно. Хуваалцахын тулд тавцан нээгээд олон нийтэд нээлттэй болгохыг идэвхжүүлнэ үү.',
@@ -131,6 +144,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Ачааллаж байна…',
   'shared.title': 'Хамтран ашигласан тавцангууд',
   'templateCard.slideCount': '{{count}} слайдууд',
+  'templateCard.usageCount': '{{count}} хэрэглээ',
+  'templates.empty.body': 'Өөр шүүлтүүр туршаад үзээрэй — бид сар бүр шинэ загвар гаргадаг.',
+  'templates.empty.title': 'Энэ ангилалд одоогоор загвар байхгүй',
+  'templates.hero.body':
+    'График блок, демо хүрээ, илтгэгчийн тэмдэглэл, таймерын урьдчилсан тохиргоо бүхий урьдчилан сэдэвлэсэн слайд зохион байгуулалт — загвар бүр бичлэг хийхэд бэлэн.',
   'templates.hero.eyebrow': 'Сонгосон үе шатууд',
   'templates.hero.heading': 'Та үүнийг газардах хэрэгтэй мөчид зориулж бүтээсэн үе шатууд.',
 }

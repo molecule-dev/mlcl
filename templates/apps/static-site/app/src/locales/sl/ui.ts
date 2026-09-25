@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Vaš paket je bil posodobljen.',
   'planUpdated.returnHome': 'Nazaj na domačo stran',
   'planUpdated.thankYou': 'Hvala!',
+  'post.markdown': 'Poglej to objavo kot markdown',
+  'post.readingTime': '{{minutes}} min branja',
   'post.tags': 'Oznake',
   'project.error.nameAndTypeRequired': 'name in projectType sta obvezna',
   'project.error.notFound': 'Ni najdeno',

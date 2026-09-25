@@ -1,9 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိသည်၊ ချို့ယွင်းချက် တွေ့သည်၊ သို့မဟုတ် {{appName}} ကို သင့်အဖွဲ့တစ်ခုလုံးထံ ဖြန့်ကျက်လိုပါသလား။ သင့်အကောင့်ဆက်တင်များမှ ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့ထဲရှိ လူတစ်ဦးထံ ရောက်ပါသည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.intro':
+    '{{appName}} သည် အစည်းအဝေးနောက်တစ်ခုကို ထိုင်စောင့်ခြင်းထက် ကလစ်တစ်ခု ပို့လိုသော အဖွဲ့များအတွက် ဖန်တီးထားသည့် မျက်နှာပြင်ရိုက်ကူးမှု ပလက်ဖောင်းတစ်ခု ဖြစ်သည်။ အသံ၊ မှတ်ချက်များနှင့် ကင်မရာဖြင့် သင့်မျက်နှာပြင်ကို ရိုက်ကူးပါ၊ လင့်ခ်တစ်ခု မျှဝေပါ၊ ပြီးနောက် လူများ မည်သို့ ပါဝင်ဆက်စပ်သည်ကို အတိအကျ ကြည့်ရှုပါ — ဒီဇိုင်းသုံးသပ်ချက်များ၊ ချို့ယွင်းချက်အစီရင်ခံစာများနှင့် လမ်းညွှန်ပြသမှုများသည် တိုက်ရိုက်ခေါ်ဆိုမှုထက် ပိုမိုဝေးကွာစွာ ရောက်ရှိစေရန်။',
+  'about.missionBody':
+    'အဝေးမှအလုပ်လုပ်ခြင်းသည် မျှဝေထားသော အခြေအနေအပေါ် မူတည်ပြီး အများစုမှာ ပြက္ခဒိန်များနှင့် ခေါ်ဆိုမှုမှတ်စုများထဲတွင် ပျောက်ဆုံးသွားသည်။ {{appName}} သည် ထိုအခြေအနေကို ဖမ်းယူရလွယ်ကူစေရန်နှင့် ပြန်လည်ကြည့်ရှုရလွယ်ကူစေရန် တည်ရှိသည် — သင့်အလုပ်ကို ပြသရန်၊ တုံ့ပြန်ချက်များ စုဆောင်းရန်နှင့် လူတိုင်းကို တူညီသောအချိန်ဇုန်ထဲ အတင်းမထည့်ဘဲ စည်းချက်ညီစေရန် async-first နည်းလမ်းတစ်ခု။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': 'အကြောင်း {{appName}}',
+  'about.tagline': 'အဝေးမှအဖွဲ့များအတွက် async မျက်နှာပြင်ရိုက်ကူးမှုများ။',
   'analytics.empty':
     'ပါဝင်ဆောင်ရွက်မှုကို ဤနေရာတွင်ကြည့်ရှုရန် သင်၏ပထမဆုံးဗီဒီယိုအပိုင်းကို မှတ်တမ်းတင်ပါ။',
   'analytics.error.load': 'ခွဲခြမ်းစိတ်ဖြာချက်များကို ဖွင့်၍မရပါ။',
@@ -17,6 +25,7 @@ export const ui: UiTranslations = {
   'analytics.kpi.viewsToday': 'ယနေ့ ကြည့်ရှုမှုများ',
   'analytics.loading': 'ခွဲခြမ်းစိတ်ဖြာမှုများကို တင်နေသည်…',
   'analytics.recent.empty': 'ကြည့်ရှုသူများ မရှိသေးပါ။',
+  'analytics.recent.title': 'မကြာသေးမီက ကြည့်ရှုသူများ',
   'analytics.recent.watching': 'ကြည့်ရှုပြီး {{title}} · {{percent}} %',
   'analytics.title': 'သင့်ရဲ့ screencast တွေ ဘယ်လိုသွားလာလှုပ်ရှားနေလဲ',
   'analytics.top.empty': 'အသံသွင်းချက်များ မရှိသေးပါ။',
@@ -31,7 +40,10 @@ export const ui: UiTranslations = {
   'billing.priceMissing': 'Stripe ဈေးနှုန်းId ကို ဤကာလအတွင်း ပြင်ဆင်သတ်မှတ်မထားပါ။',
   'billing.pricing.title': 'ရရှိနိုင်သော အစီအစဉ်များ',
   'billing.tier.basic': 'အခြေခံအင်္ဂါရပ်များ',
+  'billing.tier.exports': 'တင်ပို့မှုများ ဖွင့်ထားသည်',
+  'billing.tier.maxRecordings': '{{count}} ရိုက်ကူးမှုများ',
   'billing.tier.noExports': 'ပို့ကုန်များ မရှိပါ',
+  'billing.tier.retentionDays': '{{days}} ရက် သိမ်းဆည်းမှု',
   'billing.tier.unlimitedRecordings': 'အကန့်အသတ်မရှိ အသံသွင်းခြင်း',
   'billing.tier.unlimitedRetention': 'အကန့်အသတ်မရှိ ထိန်းသိမ်းခြင်း',
   'billing.title': 'သင့်ရဲ့ Glint အစီအစဉ်',
@@ -42,20 +54,34 @@ export const ui: UiTranslations = {
   'billing.usage.views': 'မြင်ကွင်းများ',
   'billing.usage.views.unit': 'မြင်ကွင်းများ',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
+  'landing.cta.body':
+    '၅ မိနစ်ကလစ်များ အကန့်အသတ်မရှိ အခမဲ့။ သင့်အဖွဲ့ စွဲလမ်းလာပြီဆိုမှ အဆင့်မြှင့်ပါ။',
+  'landing.cta.button': 'အခမဲ့ မှတ်တမ်းတင်ခြင်း စတင်ပါ',
   'landing.cta.title': 'ပိုကောင်းတဲ့ တုံ့ပြန်ချက်တွေ ပို့ပါ။ Glint နဲ့ စတင်ပါ။',
+  'landing.feature.analytics.body':
+    'မည်သူ ကြည့်ခဲ့သည်၊ ဘယ်အချိန်တွင် ရပ်သွားသည်၊ ဘယ်နေရာတွင် ပြန်ကြည့်ခဲ့သည်ကို ကြည့်ပါ။',
+  'landing.feature.analytics.title': 'ပါဝင်ဆောင်ရွက်မှု ခွဲခြမ်းစိတ်ဖြာမှု',
   'landing.feature.capture.body':
     'မိုက်ခရိုဖုန်း၊ ကင်မရာ နှင့် ပုံဆွဲခြင်းတို့ဖြင့် ဘရောက်ဆာ၊ ဒက်စ်တော့ နှင့် မိုဘိုင်းတွင် မှတ်တမ်းတင်ခြင်း။',
   'landing.feature.capture.title': 'တစ်ချက်နှိပ်ရုံဖြင့် ရိုက်ကူးခြင်း',
+  'landing.feature.comments.body':
+    'သုံးသပ်သူများသည် တိကျသော ဖရိမ်များတွင် ချိတ်ထားသော စာတွဲမှတ်ချက်များ ချန်ထားသည်။',
+  'landing.feature.comments.title': 'အချိန်ကုဒ်ပါ မှတ်ချက်များ',
   'landing.footer.copy': '© {{year}} {{appName}} . တစ်ပြိုင်တည်းချိန်ကိုက်ခြင်း၊ တောက်ပစေသည်။',
   'landing.hero.cardCaption': 'နမူနာ အလုပ်ခွင်ခြုံငုံသုံးသပ်ချက် — အခမဲ့ စမ်းသုံးကြည့်ပါ။',
   'landing.hero.primaryCta': 'အခမဲ့ မှတ်တမ်းတင်ခြင်း စတင်ပါ',
   'landing.hero.proof.free': 'အခမဲ့ ထာဝရအဆင့်',
   'landing.hero.proof.privacy': 'SOC 2 အသင့်ဖြစ်ပါပြီ',
   'landing.hero.secondaryCta': '၆၀ ခုနှစ် သရုပ်ပြမှုကို ကြည့်ရှုပါ',
+  'landing.hero.subtitle':
+    '{{appName}} သည် အသံ၊ မှတ်ချက်များနှင့် ကြည့်ရှုသူ ခွဲခြမ်းစိတ်ဖြာချက်များဖြင့် async မျက်နှာပြင်ရိုက်ကူးမှုများကို ဖမ်းယူသည် — ဒီဇိုင်းသုံးသပ်ချက်များ၊ ချို့ယွင်းချက်အစီရင်ခံစာများနှင့် လမ်းညွှန်ပြသမှုများသည် မည်သည့်အစည်းအဝေးထက်မဆို ပိုမိုဝေးကွာစွာ ရောက်ရှိစေရန်။',
   'landing.hero.title':
     'တစ်ကြိမ်သာ မှတ်တမ်းတင်ပါ။ နေရာတိုင်းတွင် မျှဝေပါ။ သက်ရောက်မှုကို ကြည့်ရှုပါ။',
   'landing.nav.preview': 'အစမ်းကြည့်ရှုခြင်း',
   'landing.preview.title': 'တကယ့် Glint ဗီဒီယိုကလစ်တွေကို လက်တွေ့မှာ ကြည့်ပါ',
+  'library.empty.body':
+    'သင့်ပထမဆုံး လမ်းညွှန်ပြသမှုကို ရိုက်ကူးပါ — ပြက္ခဒိန်ဖိတ်စာ မရှိသည့်အတွက် သင့်အဖွဲ့ နှစ်သက်ပါလိမ့်မည်။',
+  'library.empty.cta': 'သင့်ပထမဆုံးကလစ်ကို ရိုက်ကူးပါ',
   'library.empty.filtered': 'ဤစစ်ထုတ်မှုနှင့် ကိုက်ညီသော အသံသွင်းချက်များ မရှိပါ',
   'library.empty.title': 'အသံသွင်းချက်များ မရှိသေးပါ',
   'library.error.load': 'အသံသွင်းချက်များကို ဖွင့်၍မရပါ။',
@@ -63,6 +89,8 @@ export const ui: UiTranslations = {
   'library.heroStat.avgWatch': 'ပျမ်းမျှနာရီ',
   'library.heroStat.recordings': 'အသံသွင်းချက်များ',
   'library.heroStat.views': 'စုစုပေါင်းကြည့်ရှုမှု',
+  'library.heroSubtitle':
+    'သင့်အဖွဲ့တစ်လျှောက် async မျက်နှာပြင်ရိုက်ကူးမှုများကို ဖမ်းယူပါ၊ မျှဝေပါ၊ တိုင်းတာပါ။',
   'library.heroTitle': '{{count}} အသံသွင်းချက်များ၊ မျှဝေရန် အသင့်ဖြစ်နေပါပြီ',
   'library.search.aria': 'အသံသွင်းချက်များကို ရှာဖွေပါ',
   'library.searchPlaceholder': 'အသံသွင်းချက်များကို ရှာဖွေပါ…',
@@ -77,6 +105,7 @@ export const ui: UiTranslations = {
     'မှတ်ချက်အသစ်များ၊ အမြင်များနှင့် ဖိတ်ကြားချက်များသည် ဖြစ်ပျက်သည်နှင့်အမျှ ဤနေရာတွင် ရောက်ရှိလာပါမည်။',
   'notifications.empty.title': 'အားလုံးပြီးသွားပါပြီ',
   'notifications.open': 'ဖွင့်ပါ',
+  'pricing.limits.advanced': 'အဆင့်မြင့် အင်္ဂါရပ်များ',
   'profile.bio.empty': 'သင့်အလုပ်ခွင်နှင့် မိတ်ဆက်ရန် ကိုယ်ရေးအကျဉ်းတစ်ခု ထည့်ပါ။',
   'profile.featured.empty':
     'မှတ်တမ်းများ မရှိသေးပါ — ဤနေရာတွင်ကြည့်ရှုရန် သင်၏ပထမဆုံးတစ်ခုကို ရိုက်ကူးပါ။',
@@ -88,8 +117,12 @@ export const ui: UiTranslations = {
   'profile.stat.public': 'အများပြည်သူသုံး ဗီဒီယိုကလစ်များ',
   'profile.stat.recordings': 'အသံသွင်းချက်များ',
   'profile.stat.views': 'စုစုပေါင်းကြည့်ရှုမှု',
+  'publicShare.captionsLabel': 'စာတန်းထိုးများ',
+  'publicShare.cta.body': '{{appName}} တွင် ၅ မိနစ်ကလစ်များ အကန့်အသတ်မရှိ အခမဲ့။ ကတ် မလိုအပ်ပါ။',
+  'publicShare.cta.button': 'အခမဲ့ မှတ်တမ်းတင်ခြင်း စတင်ပါ',
   'publicShare.cta.title': 'ဤကဲ့သို့သော ဗီဒီယိုအပိုင်းများကို စက္ကန့် ၃၀ အတွင်း ရိုက်ကူးပါ',
   'publicShare.error': 'ဤမျှဝေရန်လင့်ခ်ကို အသုံးမပြုနိုင်ပါ။',
+  'publicShare.footer.copy': '© {{year}} {{appName}} . တစ်ပြိုင်တည်းချိန်ကိုက်ခြင်း၊ တောက်ပစေသည်။',
   'publicShare.joinFree': 'Glint ကို အခမဲ့စမ်းသုံးကြည့်ပါ',
   'publicShare.loading': 'မှတ်တမ်းတင်ခြင်းကို တင်နေသည်…',
   'publicShare.notFound': 'မှတ်တမ်းတင်ထားသည်ကို မတွေ့ပါ။',
@@ -101,6 +134,8 @@ export const ui: UiTranslations = {
   'record.camBubbleInitial': 'YO',
   'record.eyebrow': 'ဖမ်းယူစတူဒီယို',
   'record.field.titlePlaceholder': 'Sprint သရုပ်ပြမှု- မှတ်ချက်များ အချိန်ဇယား',
+  'record.field.visibility': 'မြင်နိုင်စွမ်း',
+  'record.input.cam': 'ကင်မရာ',
   'record.input.camDevice': 'စနစ်၏ မူရင်းကင်မရာ',
   'record.input.mic': 'မိုက်ခရိုဖုန်း',
   'record.input.micDevice': 'စနစ်၏ မူရင်းမိုက်ခရိုဖုန်း',
@@ -109,9 +144,11 @@ export const ui: UiTranslations = {
   'record.save.error': 'အသံသွင်းချက်ကို သိမ်းဆည်း၍မရပါ။',
   'record.source.camera': 'ကင်မရာသာ',
   'record.source.cameraBody': 'မျက်နှာပြင်မပါဘဲ စကားပြောတတ်သော ဗီဒီယို',
+  'record.source.screen': 'မျက်နှာပြင်သာ',
   'record.source.screenBody': 'မျက်နှာပြင်တစ်ခုလုံးကို ရိုက်ကူးပါ',
   'record.source.screenCamera': 'မျက်နှာပြင် + ကင်မရာ',
   'record.source.screenCameraBody': 'မျောနေသော ကင်မရာပူဖောင်းဖြင့် မျက်နှာပြင်အပြည့်',
+  'record.source.window': 'သတ်မှတ်ထားသော ဝင်းဒိုး',
   'record.source.windowBody': 'ရိုက်ကူးရန် ဝင်းဒိုးတစ်ခု ရွေးချယ်ပါ',
   'record.sources.title': 'အရင်းအမြစ်',
   'record.subtitle':
@@ -129,6 +166,7 @@ export const ui: UiTranslations = {
   'recordingDetail.error': 'အသံသွင်းချက်ကို ဖွင့်၍မရပါ။',
   'recordingDetail.loading': 'မှတ်တမ်းတင်ခြင်းကို တင်နေသည်…',
   'recordingDetail.noComments': 'မှတ်ချက်မရှိသေးပါ — အောက်တွင် ဆွေးနွေးမှုကို စတင်ပါ။',
+  'recordingDetail.noDescription': 'ဖော်ပြချက် မပေးထားပါ။',
   'recordingDetail.notFound': 'မှတ်တမ်းတင်ထားသည်ကို မတွေ့ပါ။',
   'recordingDetail.noVideo': 'မှတ်တမ်းတင်ခြင်းကို အပ်လုဒ်လုပ်နေဆဲဖြစ်သည်။',
   'recordingDetail.play': 'အသံသွင်းချက်ကို ဖွင့်ပါ',
@@ -152,6 +190,7 @@ export const ui: UiTranslations = {
   'shared.title': 'သင့်အဖွဲ့က သင့်ဆီ ပို့လိုက်တဲ့ ဗီဒီယိုကလစ်တွေ',
   'shareLink.copy': 'လင့်ခ်ကို ကူးယူပါ',
   'shareLink.expiresAt': 'သက်တမ်းကုန်ဆုံးမည် {{date}}',
+  'shareLink.noExpiry': 'သက်တမ်း မကုန်ဆုံးပါ',
   'shareLink.option.private': 'သီးသန့်',
   'shareLink.option.public': 'အများပြည်သူ',
   'shareLink.passwordOff': 'စကားဝှက်မရှိပါ',
@@ -159,10 +198,12 @@ export const ui: UiTranslations = {
   'team.empty': 'အဖွဲ့ဝင် မရှိသေးပါ — အထက်ပါ အသင်းဖော်များကို စတင်ရန် ဖိတ်ခေါ်ပါ။',
   'team.error.load': 'အသင်းကို တင်၍မရပါ။',
   'team.eyebrow': 'အလုပ်ခွင်အဖွဲ့ဝင်များ',
+  'team.invite.error': 'ဖိတ်ကြားချက် ပို့ရန် မအောင်မြင်ပါ။',
   'team.invite.placeholder': 'teammate@yourcompany.com',
   'team.invite.success': 'ဖိတ်ကြားချက်ပေးပို့ပြီးပါပြီ {{email}} ။',
   'team.invite.title': 'အသင်းဖော်တစ်ယောက်ကို ဖိတ်ခေါ်ပါ',
   'team.list.count': '{{count}} စုစုပေါင်း',
+  'team.role.admin': 'အက်ဒမင်',
   'team.stat.pending': 'ဆိုင်းငံ့ထားသော ဖိတ်ကြားချက်များ',
   'team.title': 'သင့်ရဲ့ Glint အလုပ်ခွင်',
 }

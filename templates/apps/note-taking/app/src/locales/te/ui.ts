@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ఫీడ్‌బ్యాక్ ఉందా, బగ్ కనుగొన్నారా, లేదా ఫీచర్ సూచించాలనుకుంటున్నారా? మీ ఖాతా సెట్టింగ్‌ల నుండి సంప్రదించండి — ప్రతి సందేశం టీమ్‌లోని నిజమైన వ్యక్తికే చేరుతుంది.',
+  'about.contactTitle': 'మాతో మాట్లాడండి',
+  'about.featureDatabases':
+    'అస్తవ్యస్త నోట్స్‌ను నిర్మితమైన, పునరావృత వర్క్‌ఫ్లోలుగా మార్చడానికి తేలికపాటి డేటాబేస్‌లు మరియు పునర్వినియోగ టెంప్లేట్‌లు.',
+  'about.featureEditor':
+    'ప్రశాంతమైన బ్లాక్ ఎడిటర్ — హెడ్డింగ్‌లు, జాబితాలు, కోడ్, కాలౌట్‌లు, టు-డూలు — కావాల్సినప్పుడు స్లాష్-కమాండ్‌లు, వద్దనుకున్నప్పుడు దారికి అడ్డుపడకుండా.',
+  'about.featureGraph':
+    'బ్యాక్‌లింక్‌లు మరియు నాలెడ్జ్ గ్రాఫ్: నోట్‌ను లింక్ చేయడానికి [[ టైప్ చేయండి, కాలక్రమేణా మీ ఆలోచనలు ఎలా అనుసంధానమవుతాయో చూడండి.',
+  'about.featureNotebooks':
+    'నెస్టెడ్ నోట్‌బుక్‌లు మరియు పేజీలు — ప్రాజెక్ట్‌లు, అంశాలు, రోజువారీ నోట్స్ మీరు ఆలోచించిన విధంగానే నిర్వహించబడతాయి.',
+  'about.featureSearch':
+    'ప్రతి నోట్‌బుక్‌లోనూ 50ms లోపు పూర్తి-వచన శోధన, అలాగే నోట్‌బుక్‌లతో పోటీపడకుండా వాటితో కలిసిపోయే ట్యాగ్‌లు.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'forgot.eyebrow': 'తిరిగి లోపలికి వెళ్లే దారి తప్పిపోయారా?',
   'forgot.formSubtitle': 'ఫైల్‌లో ఉన్న ఇమెయిల్‌ను మాకు తెలియజేయండి.',
+  'forgot.formTitle': 'పాస్‌వర్డ్ మర్చిపోయారా?',
   'forgot.headline': 'మీ పాస్‌వర్డ్‌ను రీసెట్ చేసుకోండి.',
   'forgot.subline':
     'మీరు కొత్తదాన్ని ఎంచుకోవడానికి వీలుగా మేము మీ ఇన్‌బాక్స్‌కు ఒకసారి మాత్రమే ఉపయోగపడే లింక్‌ను పంపుతాము.',
+  'forgot.successDetail':
+    'మేము మీ ఇమెయిల్‌కు రీసెట్ లింక్ పంపాము. ఇది 30 నిమిషాల్లో గడువు ముగుస్తుంది.',
   'graph.eyebrow': 'గ్రాఫ్',
+  'graph.goToNotes': 'నోట్స్ బ్రౌజ్ చేయండి →',
+  'graph.loadError': 'గ్రాఫ్ లోడ్ చేయలేకపోయాము: {{message}}',
   'graph.placeholderBody':
     'నోట్స్ ఒకదానికొకటి లింక్ అవ్వడం మొదలుపెట్టినప్పుడు ([[wiki]] సింటాక్స్‌తో), ఇక్కడ ఒక ఇంటరాక్టివ్ ఫోర్స్-డైరెక్టెడ్ గ్రాఫ్ రెండర్ అవుతుంది.',
+  'graph.placeholderTitle': 'బ్యాక్‌లింక్ గ్రాఫ్ త్వరలో వస్తుంది',
   'graph.subtitle':
     '{{count}} ఈ వర్క్‌స్పేస్‌లోని నోట్స్. నోట్స్ ఒకదానికొకటి లింక్ అయిన తర్వాత బ్యాక్‌లింక్ గ్రాఫ్ రెండరింగ్ ఇక్కడ కనిపిస్తుంది.',
   'graph.title': 'జ్ఞాన గ్రాఫ్',
   'home.empty': 'ఇంకా నోట్స్ ఏమీ లేవు — మీ మొదటి నోట్‌ను ప్రారంభించండి.',
   'home.favoritesHeading': 'పిన్ చేయబడింది',
   'home.guest': 'స్నేహితుడు',
+  'home.loadError': 'మీ నోట్స్ లోడ్ చేయలేకపోయాము: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'దీన్ని ఇక్కడే ఉంచడానికి ఎడిటర్‌లో ఒక నోట్‌ను పిన్ చేయండి.',
   'home.recentHeading': 'ఇటీవల నవీకరించబడింది',
@@ -23,18 +44,24 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'నోట్‌బుక్',
   'home.stats.pinned.label': 'పిన్ చేయబడింది',
   'home.stats.updatedToday.label': 'ఈరోజు నవీకరించబడింది',
+  'home.subtitle': 'మీరు ఆపిన చోటే కొనసాగించండి, లేదా కొత్త నోట్ ప్రారంభించండి.',
   'home.viewAll': 'అన్ని గమనికలను వీక్షించండి',
   'landing.cta.body':
     'వ్యక్తిగత ఉపయోగం కోసం ఉచితం. బృందాల కోసం ప్రో. మీ వద్ద ఉన్న మార్క్‌డౌన్‌ను తీసుకురండి లేదా కొత్తగా ప్రారంభించండి — మీ నోట్స్ ఎక్కడ ఉన్నా వెర్సో మిమ్మల్ని చేరుకుంటుంది.',
+  'landing.cta.button': 'నా కార్యస్థలాన్ని సృష్టించండి',
   'landing.cta.heading': 'ఈరోజు పేజీని తెరవండి.',
   'landing.features.eyebrow': 'మీ రెండవ మెదడుకు అవసరమైన ప్రతి ఆదిమ',
+  'landing.features.heading': 'పని కోసం నిర్మించబడింది, అతీతమైన పని కోసం కాదు.',
   'landing.hero.eyebrow': 'ప్రశాంతమైన రాత ఉపరితలం',
   'landing.hero.headlineAccent': 'ఆకారం సంతరించుకోవడం.',
   'landing.hero.headlineLeading': 'ఎక్కడ ఆలోచనలు',
   'landing.hero.primaryCta': 'మీ జ్ఞాన భాండాగారాన్ని ప్రారంభించండి',
   'landing.hero.secondaryCta': 'నాకు ఇప్పటికే ఒక ఖాతా ఉంది',
+  'landing.hero.socialProof': '12,800+ రచయితలు, విద్యార్థులు, PhDలు {{appName}}తో ఆలోచిస్తున్నారు',
   'landing.hero.subline':
     'వెర్సో అనేది నాలెడ్జ్ వర్కర్లు మరియు విద్యార్థుల కోసం రూపొందించిన ఒక క్రమబద్ధమైన నోట్-టేకింగ్ వేదిక. బ్లాక్ ఎడిటర్, నెస్టెడ్ నోట్‌బుక్‌లు, బ్యాక్‌లింక్‌లు మరియు నాలెడ్జ్ గ్రాఫ్ — ఇవన్నీ టైపోగ్రఫీకి ప్రాధాన్యతనిచ్చే పఠనానుభవం వెనుక ఉన్నాయి.',
+  'landing.preview.notebook': 'నాలెడ్జ్ · రచన ప్రక్రియ',
+  'landing.preview.title': 'డ్రాఫ్ట్‌లకు ఊపిరి పీల్చుకోనివ్వడంపై',
   'login.eyebrow': 'వెర్సోకు తిరిగి స్వాగతం',
   'login.formSubtitle': 'మీ ఇమెయిల్ లేదా ఏదైనా అనుసంధానించబడిన ప్రొవైడర్‌ను ఉపయోగించండి.',
   'login.headline': 'పేజీ ఎక్కడ ఆగిందో అక్కడి నుండి కొనసాగించండి.',
@@ -44,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
   'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'noteEditor.backToNotes': 'గమనికలకు తిరిగి వెళ్లండి',
+  'noteEditor.bodyLabel': 'నోట్ బాడీ',
   'noteEditor.bodyPlaceholder':
     'రాయడం ప్రారంభించండి — మీరు టైప్ చేస్తుండగానే మీ నోట్ ఆటోమేటిక్‌గా సేవ్ అవుతుంది.',
   'noteEditor.confirmTrash': 'ఈ నోట్‌ను ట్రాష్‌కు తరలించాలా?',
@@ -52,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'చెత్తబుట్టలోకి తరలించండి',
   'noteEditor.updated': 'నవీకరించబడింది',
   'notes.defaultWorkspaceName': 'నా నోట్‌బుక్',
+  'notes.empty': 'ఇక్కడ ఇంకా నోట్స్ లేవు — నోట్‌బుక్ నింపడానికి ఒకటి ప్రారంభించండి.',
   'notes.eyebrow': 'నోట్‌బుక్',
   'notes.filterAll': 'అన్ని గమనికలు',
   'notes.filterPinned': 'పిన్ చేయబడింది',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'కొత్త నోట్‌బుక్',
   'notes.newNotebookPrompt': 'కొత్త నోట్‌బుక్ పేరు',
+  'notes.newNotebookRequired': 'నోట్‌బుక్ పేరు నమోదు చేయండి.',
   'notes.notebooksHeading': 'నోట్‌బుక్‌లు',
   'notes.subtitle':
     'ఎడమవైపున ఉన్న నోట్‌బుక్‌ను ఎంచుకుని, కొత్త ఎంట్రీని ప్రారంభించడానికి ‘New note’ బటన్‌ను నొక్కండి.',
+  'planUpdated.body': 'మీ సబ్స్క్రిప్షన్ ఇప్పుడు యాక్టివ్గా ఉంది.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'అధునాతన ఫీచర్లు',
   'pricing.heading': 'మీ నోట్ టేకింగ్ ప్లాన్‌ను ఎంచుకోండి',
+  'reset.changedMind': 'మనసు మార్చుకున్నారా?',
   'reset.eyebrow': 'దాదాపు తిరిగి వచ్చేసాను',
   'reset.formSubtitle': 'అది సేవ్ అయిన తర్వాత మీరు సైన్ ఇన్ చేయబడతారు.',
   'reset.headline': 'కొత్త పాస్‌వర్డ్‌ను ఎంచుకోండి.',
@@ -72,7 +105,9 @@ export const ui: UiTranslations = {
     'మేము మీకు ఇప్పుడే ఇమెయిల్ చేసిన కోడ్‌ను నమోదు చేసి, గుర్తుండిపోయేదాన్ని ఎంచుకోండి.',
   'reset.submit': 'సేవ్ చేసి సైన్ ఇన్ చేయండి',
   'reset.tokenHint': 'మీ ఇన్‌బాక్స్ నుండి కాపీ చేయబడింది.',
+  'search.empty': 'ఈ క్వెరీకి ఇంకా ఏ నోట్స్ సరిపోలలేదు.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'శోధన వక్రీభవనం',
   'search.loading': 'వెతుకుతోంది…',
   'search.noRecent': 'మీ నోట్స్‌లో వెతకడం ప్రారంభించడానికి పైన ఒక ప్రశ్నను టైప్ చేయండి.',
   'search.recentLabel': 'ఇటీవలి శోధనలు',
@@ -80,12 +115,19 @@ export const ui: UiTranslations = {
     'ప్రతి నోట్‌బుక్‌లో పూర్తి టెక్స్ట్. వెతకడానికి టైప్ చేయండి; మీరు టైప్ చేస్తున్న కొద్దీ ఫలితాలు రిఫ్రెష్ అవుతాయి.',
   'search.title': 'రెండవ మెదడును శోధించండి.',
   'settings.account.logout': 'లాగ్ అవుట్',
+  'settings.account.title': 'ఖాతా వివరాలు',
+  'settings.editor.graphHover.body':
+    'ఎడిటర్‌లో [[వికీలింక్]]పై హోవర్ చేసినప్పుడు చిన్న ప్రివ్యూ కార్డ్ చూపించు.',
+  'settings.editor.graphHover.label': 'బ్యాక్‌లింక్ గ్రాఫ్ హోవర్ ప్రివ్యూ',
   'settings.editor.lineHeight.body':
     'శరీర రేఖల మధ్య ఎంత గాలి ఉండాలి. 170% అనేది డిఫాల్ట్ రీడింగ్ రిథమ్.',
+  'settings.editor.lineHeight.label': 'లైన్ ఎత్తు',
   'settings.editor.serif.body':
     'రీడింగ్ కాలమ్ కోసం జార్జియాను ఉపయోగించండి. సైడ్‌బార్ మరియు టూల్‌బార్‌లలో సాన్స్-సెరిఫ్‌ను ఉంచండి.',
+  'settings.editor.serif.label': 'సెరిఫ్ బాడీ టెక్స్ట్',
   'settings.editor.title': 'టైపోగ్రఫీ & రైటింగ్ సర్ఫేస్',
   'settings.eyebrow': 'Verso · సెట్టింగ్‌లు',
+  'settings.passwordModal.current': 'ప్రస్తుత పాస్‌వర్డ్',
   'settings.passwordModal.error':
     'పాస్‌వర్డ్‌ను మార్చలేకపోయాము — దయచేసి మీ ప్రస్తుత పాస్‌వర్డ్‌ను సరిచూసుకోండి.',
   'settings.passwordModal.next': 'కొత్త పాస్‌వర్డ్',
@@ -95,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'ప్రతి కీస్ట్రోక్‌ను రియల్‌టైమ్ ఛానల్ ద్వారా పంపండి. నెమ్మదైన కనెక్షన్‌ల కోసం దీనిని నిలిపివేయండి.',
   'settings.sync.auto.label': 'రియల్ టైమ్ సింక్',
+  'settings.sync.title': 'మీ నోట్స్ ఎలా ప్రయాణిస్తాయి',
   'settings.theme.body':
     'లేత రంగు సంపాదకీయ శీర్షికను ప్రకాశవంతంగా ఉంచుతుంది. సెపియా రంగు సాయంత్రాల కోసం పేజీకి వెచ్చదనాన్ని ఇస్తుంది.',
   'settings.theme.dark': 'చీకటి',
@@ -114,8 +157,12 @@ export const ui: UiTranslations = {
     'నోట్ శీర్షికకు #హ్యాష్‌ట్యాగ్‌లను (ఉదా: "చదవాల్సిన పుస్తకాల జాబితా") జోడిస్తే, అవి ఇక్కడ వాటంతట అవే కనిపిస్తాయి.',
   'tags.emptyTitle': 'ఇంకా ట్యాగ్‌లు లేవు',
   'tags.eyebrow': 'సూచిక',
+  'tags.goToNotes': 'నోట్స్‌కు వెళ్లండి →',
+  'tags.loadError': 'ట్యాగ్‌లు లోడ్ చేయలేకపోయాము: {{message}}',
   'tags.subtitle':
     '{{tags}} ట్యాగ్‌లు అంతటా {{notes}} గమనికలు. గమనిక శీర్షికకు #హ్యాష్‌ట్యాగ్‌లను జోడిస్తే, అవి ఇక్కడ కనిపిస్తాయి.',
+  'versoAuthShell.sample.body':
+    'రేపు రెండో పాస్ ఎప్పుడూ ఈ రాత్రి మొదటి పాస్ కంటే బాగా చదవబడుతుంది. ముడి కట్‌ను డీప్ వర్క్ ఫోల్డర్‌లో పార్క్ చేయండి…',
   'versoAuthShell.sample.label': 'రోజువారీ గమనిక',
   'versoAuthShell.sample.timestamp': 'ఈరోజు · ఉదయం 9:14',
   'versoAuthShell.sample.title': 'డ్రాఫ్ట్‌లకు ఊపిరి పీల్చుకోనివ్వడంపై',
@@ -127,8 +174,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'రాయడం కొనసాగించండి',
   'versoTodayHero.createCta': 'నేటి నోట్‌ను ప్రారంభించండి',
   'versoTodayHero.dailyLabel': 'రోజువారీ గమనిక',
+  'versoTodayHero.emptyHeadline': 'ఈ రోజు ఒక ఖాళీ పేజీ.',
   'versoTodayHero.emptySubline':
     'ఒక ఆలోచనను పట్టుకోండి, సమావేశాన్ని రాసుకోండి, లేదా రేపటిని స్కెచ్ చేయండి. వెర్సో నిర్మాణాన్ని నిశ్శబ్దంగా ఉంచుతుంది, తద్వారా రచన బిగ్గరగా ఉంటుంది.',
+  'versoTodayHero.outlineLabel': 'నేటి అవుట్‌లైన్',
   'versoTodayHero.streak': '{{count}} -రోజుల పరంపర',
+  'versoTodayHero.unwritten': 'ఇంకా పదాలు లేవు — ప్రారంభించడానికి నోట్ తెరవండి.',
   'versoTodayHero.wordCount': '{{count}} ఈ రోజు పదాలు',
 }

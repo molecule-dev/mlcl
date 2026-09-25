@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Dúvidas sobre uma edição, um envio ou a sua assinatura? Fale com uma pessoa real da equipe pelo hello@crate.example — lemos todas as mensagens.',
+  'about.contactTitle': 'Fale com um curador',
+  'about.feature1':
+    'Edições mensais selecionadas a dedo por criadores independentes, com a história por trás de cada item.',
+  'about.feature2':
+    'Controle total sobre cada caixa — personalize o conteúdo, troque ou exclua itens, pule um mês ou mude a frequência.',
+  'about.feature3':
+    'Rastreamento de envio de ponta a ponta, da coleta até a sua porta, com embalagem sem plástico e atualizações da transportadora em tempo real.',
+  'about.feature4':
+    'Planos flexíveis e cobrança transparente — faça upgrade, downgrade, pause ou cancele pelo seu painel a qualquer momento.',
+  'about.intro':
+    '{{app}} é um serviço de assinatura de caixas selecionadas que entrega todo mês na sua porta uma caixa de alegria escolhida a dedo e em pequenos lotes. Cada edição é montada por criadores em atividade — artistas independentes, chefs e pequenas marcas — não por um algoritmo.',
+  'about.missionBody':
+    'Acreditamos que uma assinatura deve parecer um presente, não uma armadilha. O {{app}} foi criado para que você fique porque ama o que chega — pause quando quiser, troque o que quiser e cancele com um clique. Nunca usamos scripts de retenção.',
+  'about.missionTitle': 'Nossa missão',
   'about.pageTitle': 'Sobre {{app}}',
   'appNav.mobileLabel': 'Navegação principal',
   'appNav.primaryLabel': 'Navegação principal',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Editar contato de cobrança',
   'billing.contact.eyebrow': 'Contato de cobrança',
   'billing.eyebrow': 'Plano e pagamentos',
+  'billing.loading': 'Carregando cobrança…',
   'billing.payment.body':
     'O pagamento é processado pelo Stripe Checkout — o número completo do seu cartão nunca toca nossos servidores. Clique em qualquer tier abaixo para adicionar ou atualizar seu cartão.',
   'billing.payment.linked': 'Cartão registrado via Stripe',
@@ -20,9 +37,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Retomar assinatura',
   'billing.plan.eyebrow': 'Plano ativo',
   'billing.plan.next': 'Renova automaticamente em {{date}}.',
+  'billing.plan.status': 'Status: {{status}}',
   'billing.subtitle': 'Gerencie seu tier, método de pagamento e revise atividades passadas.',
   'billing.tiers.body': 'Escolha um tier e te direcionaremos ao Stripe Checkout.',
   'billing.tiers.choose': 'Escolher',
+  'billing.tiers.empty': 'Nenhum nível configurado ainda.',
   'billing.tiers.heading': 'Tiers disponíveis',
   'boxDetail.backToBoxes': 'Voltar para todas as edições',
   'boxDetail.crumb.boxes': 'Edições',
@@ -35,6 +54,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Peça curada',
   'boxDetail.items.heading': '{{count}} peças curadas',
   'boxDetail.itemsBadge': '{{count}} itens curados por caixa',
+  'boxDetail.loading': 'Carregando edição…',
   'boxDetail.notFound': 'Essa edição não está mais disponível.',
   'boxDetail.subscribe.success': 'Assinatura concluída — sua primeira edição está na fila.',
   'boxDetail.swapBadge': 'Troque até {{count}} item(s) por caixa',
@@ -43,14 +63,21 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Nada corresponde ainda.',
   'boxes.eyebrow': 'O arquivo Crate',
   'boxes.heading': 'Explore todas as edições',
+  'boxes.loadError':
+    'Não foi possível carregar as edições. Verifique sua conexão e tente novamente.',
   'boxes.loading': 'Carregando edições…',
+  'boxes.search.label': 'Buscar edições',
   'boxes.search.placeholder': 'Buscar edições…',
   'boxes.subtitle':
     'Cada tier é uma pequena história. Adicione uma à sua fila ou troque pela do próximo mês.',
+  'boxThemeCard.itemCount': '{{count}} itens',
   'boxThemeCard.perMonth': '/ mês',
+  'boxThemeCard.retailValue': 'Valor de varejo {{value}}',
   'common.goToDashboard': 'Ir para o Painel',
+  'common.retry': 'Tentar novamente',
   'customize.eyebrow': 'Faça do seu jeito',
   'customize.heading': 'Personalize seu próximo Crate',
+  'customize.items.empty': 'Nenhum item configurado para este nível ainda.',
   'customize.items.exclude': 'Pular isto',
   'customize.items.eyebrow': 'Personalize esta caixa',
   'customize.items.heading': 'Itens em {{box}}',
@@ -59,7 +86,9 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Adicionar de volta',
   'customize.items.save': 'Salvar personalização',
   'customize.items.swapsLeft': '{{used}} de {{max}} trocas usadas',
+  'customize.loading': 'Carregando personalização…',
   'customize.noSub.body': 'Assine um tier primeiro e depois volte para trocar itens na sua caixa.',
+  'customize.noSub.cta': 'Explorar edições',
   'customize.noSub.heading': 'Sem assinatura ativa',
   'customize.saved': 'Personalização salva.',
   'customize.subtitle':
@@ -73,11 +102,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Rastrear envio',
   'dashboard.eyebrow': 'Seu Crate',
   'dashboard.greeting': 'Bem-vindo de volta, {{name}}.',
+  'dashboard.loadError':
+    'Não foi possível carregar seu painel. Verifique sua conexão e tente novamente.',
   'dashboard.loading': 'Carregando painel…',
   'dashboard.next.eyebrow': 'Sua próxima edição',
   'dashboard.onboarding.body':
     'Você ainda não tem uma assinatura ativa. Escolha um tier para começar a receber um Crate todo mês.',
   'dashboard.onboarding.cta': 'Explorar todas as edições',
+  'dashboard.onboarding.empty': 'Nenhum plano disponível no momento. Volte em breve.',
   'dashboard.onboarding.heading': 'Escolha sua primeira edição',
   'dashboard.renewal.amount': 'Cobrado',
   'dashboard.renewal.cadence': 'Cadência',
@@ -85,18 +117,22 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Renovação',
   'dashboard.renewal.heading': 'Renova automaticamente em {{date}}',
   'dashboard.renewal.plan': 'Chave do plano',
+  'dashboard.renewal.tbd': 'Agendamento da renovação em breve',
   'dashboard.renewal.tier': 'Tier',
   'dashboard.stats.days': 'dias',
   'dashboard.stats.daysToNext': 'Envia em',
   'dashboard.stats.items': 'Itens curados',
   'dashboard.stats.shipDate': 'Data de envio',
   'dashboard.stats.tbd': 'A definir',
+  'dashboard.subtitle.active': 'Sua próxima edição está a caminho. Veja o que esperar.',
+  'dashboard.subtitle.idle': 'Escolha um nível para começar a receber um {{appName}} todo mês.',
   'forgotPassword.subtitle': 'Informe seu e-mail e enviaremos um link de redefinição.',
   'forgotPassword.success.body':
     'Se {{email}} Se você estiver registrado, receberá um link para redefinir sua conta em alguns minutos.',
   'forgotPassword.success.title': 'Verifique sua caixa de entrada.',
   'landing.editions.eyebrow': 'Esta temporada',
   'landing.editions.heading': 'Edições que nossos curadores adoram',
+  'landing.editions.viewAll': 'Explorar todas as edições →',
   'landing.footer.contact': 'Fale com um curador',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Comece sua caixa →',
@@ -106,6 +142,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Uma prévia do painel do membro — contagem regressiva, conteúdo e rastreamento.',
   'landing.hero.social.count': 'Amado por mais de {{count}} assinantes',
+  'landing.hero.social.rating': 'Média de {{rating}} na avaliação de unboxing',
+  'landing.hero.subhead':
+    '{{appName}} envia-te uma caixa de alegria selecionada a dedo e em pequenas quantidades de criadores independentes. Pausa quando quiseres. Troca o que quiseres. Fica com o que adoras.',
   'landing.nav.start': 'Comece sua caixa',
   'landing.tiers.eyebrow': 'Escolha sua cadência',
   'landing.tiers.heading':
@@ -116,6 +155,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Entre para espiar a caixa do próximo mês.',
   'login.welcomeBack': 'Bem-vindo de volta, curador.',
   'nextBoxHeroCard.eyebrow': 'SEU PRÓXIMO CRATE',
+  'nextBoxHeroCard.itemCount': '{{count}} peças no interior',
   'nextBoxHeroCard.itemsLabel': 'Itens curados',
   'nextBoxHeroCard.shipsOnLabel': 'Envia em',
   'notFound.body':
@@ -139,8 +179,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Pausar assinatura',
   'settings.danger.paused': 'Assinatura pausada.',
   'settings.danger.pausing': 'Pausando…',
+  'settings.danger.status': 'Estado da subscrição: {{status}}',
   'settings.danger.subtitle':
     'Pausar mantém seu tier e histórico intactos. Cancelar interrompe envios futuros e remove seus métodos de pagamento salvos no fim do ciclo.',
+  'settings.notifications.saving': '· a guardar…',
   'settings.notifications.subtitle':
     'Escolha quais sinais você quer receber do Crate. Os padrões são sensatos.',
   'settings.subtitle':
@@ -156,12 +198,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Sem envio ativo ainda',
   'shipments.live.eyebrow': 'Envio ativo',
   'shipments.live.unnamed': 'Sua próxima caixa',
+  'shipments.loadError':
+    'Não foi possível carregar os teus envios. Verifica a tua ligação e tenta novamente.',
+  'shipments.loading': 'Carregando envios…',
+  'shipments.step.delivered': 'Entregue',
   'shipments.step.deliveredBody': 'Marque #crateunbox para compartilhar o que descobrir.',
   'shipments.step.ordered': 'Pedido feito',
   'shipments.step.orderedBody':
     'Sua assinatura colocou esta edição na fila para o próximo ciclo de envio.',
+  'shipments.step.packed': 'Embalado à mão',
   'shipments.step.packedBody':
     'Cada peça embrulhada e guardada na caixa com uma nota escrita à mão.',
+  'shipments.step.transit': 'A caminho',
   'shipments.step.transitNot':
     'O rastreamento aparecerá aqui assim que sua caixa estiver em trânsito.',
   'shipments.subtitle':

@@ -99,6 +99,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'แผนของคุณได้รับการอัปเดตแล้ว',
   'planUpdated.returnHome': 'กลับหน้าหลัก',
   'planUpdated.thankYou': 'ขอบคุณ!',
+  'post.markdown': 'ดูโพสต์นี้เป็น markdown',
+  'post.readingTime': '{{minutes}} นาทีในการอ่าน',
   'post.tags': 'แท็ก',
   'project.error.nameAndTypeRequired': 'ต้องระบุ name และ projectType',
   'project.error.notFound': 'ไม่พบ',

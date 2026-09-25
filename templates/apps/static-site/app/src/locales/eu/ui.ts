@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'Zure plana eguneratu da.',
   'planUpdated.returnHome': 'Itzuli hasierara',
   'planUpdated.thankYou': 'Eskerrik asko!',
+  'post.markdown': 'Ikusi argitalpen hau markdown gisa',
+  'post.readingTime': '{{minutes}} irakurketa minutukoa',
   'post.tags': 'Etiketak',
   'project.error.nameAndTypeRequired': 'Izena eta proiektu-mota beharrezkoak dira',
   'project.error.notFound': 'Ez da aurkitu',

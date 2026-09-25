@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Vrae, terugvoer of 'n funksie wat jy wens ons het? Bereik die span vanuit jou rekeninginstellings — 'n regte persoon lees elke boodskap.",
   'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
+  'about.missionTitle': 'Ons missie',
+  'about.whatYouGetTitle': 'Wat jy kry',
   'analytics.empty': 'Skep dekke om ontledings hier te sien.',
   'analytics.stats.acrossDecks': 'Oor alle dekke',
   'analytics.stats.allTime': 'In jou ateljee',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Dektitel',
   'landing.features.eyebrow': 'Waarom Overture',
   'landing.features.heading': 'Alles wat jy nodig het om gereed op die verhoog te stap.',
+  'landing.finalCta.body':
+    "Begin jou ateljee in minder as 'n minuut. Geen kredietkaart nie. Kanselleer enige tyd.",
   'landing.finalCta.cta': 'Skep jou gratis ateljee',
   'landing.finalCta.eyebrow': 'Gratis om te begin',
   'landing.finalCta.heading': 'Stap op die verhoog met die beste dek van jou loopbaan.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12 min gelede geredigeer',
   'notifications.created': 'geskep',
   'notifications.edited': 'geredigeer',
+  'notifications.empty.body':
+    'Aktiwiteit op jou dekke — kommentaar, vermeldings, uitvoere — sal hier verskyn.',
   'notifications.empty.title': 'Geen kennisgewings nog nie',
   'notifications.eyebrow': 'Verhoogaktiwiteit',
   'notifications.loading': 'Laai tans…',
   'notifications.shared': 'publiek gedeel',
+  'planUpdated.retry': 'Probeer weer',
+  'planUpdated.verifyFailed': 'Ons kon nog nie jou betaling bevestig nie.',
+  'planUpdated.verifyFailedBody':
+    "Jou betaling word dalk steeds verwerk. Probeer weer oor 'n oomblik.",
   'planUpdated.verifying': 'Bevestig jou betaling…',
   'present.addSlides': 'Voeg skyfies by',
   'present.backToDecks': 'Terug na dekke',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Verhoogkunstenaar',
   'settings.security.notSet': 'Nie gestel nie',
   'settings.security.passwordBody': 'Jou wagwoord is in rus geïnkripteer.',
+  'settings.security.reset': 'Herstel',
   'settings.security.title': 'Rekening + sessies',
   'shared.empty.body':
     'Dekke wat jy publiek deel, sal hier verskyn. Maak ’n dek oop en skakel publiek aan om te deel.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Laai tans…',
   'shared.title': 'Gedeelde dekke',
   'templateCard.slideCount': '{{count}} skyfies',
+  'templateCard.usageCount': '{{count}} gebruike',
+  'templates.empty.body': "Probeer 'n ander filter — ons stel elke maand nuwe templates vry.",
+  'templates.empty.title': 'Nog geen templates in hierdie kategorie nie',
+  'templates.hero.body':
+    'Vooraf-getemde skyfie-uitlegte met grafiekblokke, demo-rame, aanbiedernotas en timer-voorafinstellings — elke template is gereed om op te neem.',
   'templates.hero.eyebrow': 'Gekurateerde stadiums',
   'templates.hero.heading': 'Stadiums gebou vir die oomblik wat jy dit moet land.',
 }

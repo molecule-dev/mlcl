@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Вопросы о выпуске, доставке или подписке? Напишите живому человеку из команды на hello@crate.example — мы читаем каждое сообщение.',
+  'about.contactTitle': 'Поговорите с куратором',
+  'about.feature1':
+    'Ежемесячные кураторские выпуски, отобранные независимыми мастерами, с историей каждой вещи.',
+  'about.feature2':
+    'Полный контроль над каждой коробкой — настраивайте содержимое, меняйте или исключайте товары, пропускайте месяц или изменяйте периодичность.',
+  'about.feature3':
+    'Отслеживание доставки от отправки до порога, упаковка без пластика и обновления от перевозчика в реальном времени.',
+  'about.feature4':
+    'Гибкие тарифы и прозрачные платежи — повышайте, понижайте, приостанавливайте или отменяйте подписку в личном кабинете в любое время.',
+  'about.intro':
+    '{{app}} — это сервис кураторских подписочных коробок, который каждый месяц доставляет к вашей двери отобранную вручную коробку радости из малых партий. Каждый выпуск собирают работающие мастера — независимые художники, шеф-повара и небольшие бренды — а не алгоритм.',
+  'about.missionBody':
+    'Мы считаем, что подписка должна ощущаться как подарок, а не как ловушка. {{app}} создан так, чтобы вы оставались, потому что любите то, что приходит — приостанавливайте в любое время, меняйте что хотите и отменяйте в один клик. Никаких скриптов удержания, никогда.',
+  'about.missionTitle': 'Наша миссия',
   'about.pageTitle': 'О {{app}}',
   'appNav.mobileLabel': 'Основная навигация',
   'appNav.primaryLabel': 'Основная навигация',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Редактировать контактную информацию для выставления счетов',
   'billing.contact.eyebrow': 'Контактная информация для выставления счетов',
   'billing.eyebrow': 'Планирование и платежи',
+  'billing.loading': 'Загрузка счетов…',
   'billing.payment.body':
     'Оплата производится через Stripe Checkout — полный номер вашей карты никогда не попадает на наши серверы. Нажмите на любой из уровней ниже, чтобы добавить или обновить данные вашей карты.',
   'billing.payment.linked': 'Карта зарегистрирована через Stripe.',
@@ -20,11 +37,13 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Возобновить подписку',
   'billing.plan.eyebrow': 'Активный план',
   'billing.plan.next': 'Автоматическое продление на {{date}} .',
+  'billing.plan.status': 'Статус: {{status}}',
   'billing.subtitle':
     'Управляйте своим тарифным планом, способом оплаты и просматривайте историю транзакций.',
   'billing.tiers.body':
     'Выберите тарифный план, и мы перенаправим вас на страницу оформления заказа Stripe.',
   'billing.tiers.choose': 'Выберите',
+  'billing.tiers.empty': 'Уровни пока не настроены.',
   'billing.tiers.heading': 'Доступные уровни',
   'boxDetail.backToBoxes': 'Вернуться ко всем выпускам',
   'boxDetail.crumb.boxes': 'Издания',
@@ -37,6 +56,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Подборка лучших работ',
   'boxDetail.items.heading': '{{count}} отобранные произведения',
   'boxDetail.itemsBadge': '{{count}} подобранные товары в коробке',
+  'boxDetail.loading': 'Загрузка выпуска…',
   'boxDetail.notFound': 'Это издание больше не выпускается.',
   'boxDetail.subscribe.success': 'Подписано — ваш первый выпуск поставлен в очередь.',
   'boxDetail.swapBadge': 'Поменять местами {{count}} количество товаров в коробке',
@@ -45,14 +65,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Ни одно издание не совпадает.',
   'boxes.eyebrow': 'Архив Crate',
   'boxes.heading': 'Просмотрите все выпуски',
+  'boxes.loadError': 'Не удалось загрузить выпуски. Проверьте соединение и повторите попытку.',
   'boxes.loading': 'Загрузка изданий…',
+  'boxes.search.label': 'Поиск выпусков',
   'boxes.search.placeholder': 'Поиск изданий…',
   'boxes.subtitle':
     'Каждый уровень — это небольшая партия историй. Добавьте одну в свою очередь или перенесите её на следующий месяц.',
+  'boxThemeCard.itemCount': '{{count}} предметы',
   'boxThemeCard.perMonth': '/ месяц',
+  'boxThemeCard.retailValue': 'Розничная стоимость {{value}}',
   'common.goToDashboard': 'Перейти к панели',
+  'common.retry': 'Повторить попытку',
   'customize.eyebrow': 'Сделайте это своим',
   'customize.heading': 'Настройте свой следующий Crate',
+  'customize.items.empty': 'Для этого уровня пока не настроены товары.',
   'customize.items.exclude': 'Пропустите это',
   'customize.items.eyebrow': 'Персонализируйте эту коробку',
   'customize.items.heading': 'Предметы в {{box}}',
@@ -61,8 +87,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Добавить обратно',
   'customize.items.save': 'Сохраните настройки',
   'customize.items.swapsLeft': '{{used}} из {{max}} использованные свопы',
+  'customize.loading': 'Загрузка настройки…',
   'customize.noSub.body':
     'Сначала подпишитесь на один из уровней подписки, а затем вернитесь, чтобы обменять предметы в своей коробке.',
+  'customize.noSub.cta': 'Смотреть выпуски',
   'customize.noSub.heading': 'Нет активной подписки',
   'customize.saved': 'Настройки сохранены.',
   'customize.subtitle':
@@ -76,11 +104,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Отслеживание отправления',
   'dashboard.eyebrow': 'Ваше сокровище',
   'dashboard.greeting': 'Добро пожаловать, {{name}} .',
+  'dashboard.loadError':
+    'Не удалось загрузить ваш личный кабинет. Проверьте соединение и повторите попытку.',
   'dashboard.loading': 'Загрузка панели управления…',
   'dashboard.next.eyebrow': 'Ваше следующее издание',
   'dashboard.onboarding.body':
     'У вас пока нет активной подписки. Выберите тариф, чтобы начать получать Crate каждый месяц.',
   'dashboard.onboarding.cta': 'Просмотреть все издания',
+  'dashboard.onboarding.empty': 'Сейчас нет доступных тарифов. Загляните позже.',
   'dashboard.onboarding.heading': 'Выберите первое издание',
   'dashboard.renewal.amount': 'Обвинен',
   'dashboard.renewal.cadence': 'Каденция',
@@ -88,12 +119,15 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Обновление',
   'dashboard.renewal.heading': 'Автоматическое продление при {{date}}',
   'dashboard.renewal.plan': 'Ключ плана',
+  'dashboard.renewal.tbd': 'Планирование продления скоро',
   'dashboard.renewal.tier': 'Уровень',
   'dashboard.stats.days': 'дни',
   'dashboard.stats.daysToNext': 'Корабли в',
   'dashboard.stats.items': 'Подборка товаров',
   'dashboard.stats.shipDate': 'Дата отгрузки',
   'dashboard.stats.tbd': 'TBD',
+  'dashboard.subtitle.active': 'Ваш следующий выпуск уже в пути. Вот чего ожидать.',
+  'dashboard.subtitle.idle': 'Выберите уровень, чтобы начать получать {{appName}} каждый месяц.',
   'forgotPassword.subtitle':
     'Сообщите нам свой адрес электронной почты, и мы вышлем вам ссылку для сброса пароля.',
   'forgotPassword.success.body':
@@ -101,6 +135,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Проверьте свой почтовый ящик.',
   'landing.editions.eyebrow': 'В этом сезоне',
   'landing.editions.heading': 'Издания, которые так нравятся нашим кураторам.',
+  'landing.editions.viewAll': 'Смотреть все выпуски →',
   'landing.footer.contact': 'Поговорите с куратором',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Начните создавать свою коробку →',
@@ -110,6 +145,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Краткий обзор панели управления для участников — обратный отсчет, контент и отслеживание.',
   'landing.hero.social.count': 'Любимы {{count}} + подписчики',
+  'landing.hero.social.rating': '{{rating}} средняя оценка распаковки',
+  'landing.hero.subhead':
+    '{{appName}} присылает вам отобранную вручную коробку радости из малых партий от независимых мастеров. Приостанавливайте в любое время. Меняйте что хотите. Оставляйте то, что любите.',
   'landing.nav.start': 'Начните свою коробку',
   'landing.tiers.eyebrow': 'Выберите свой темп',
   'landing.tiers.heading':
@@ -120,6 +158,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Войдите в систему, чтобы посмотреть содержимое коробки в следующем месяце.',
   'login.welcomeBack': 'С возвращением, куратор.',
   'nextBoxHeroCard.eyebrow': 'ВАШ СЛЕДУЮЩИЙ ЗАХВАТЫВАЮЩИЙ КЛАД',
+  'nextBoxHeroCard.itemCount': '{{count}} предметов внутри',
   'nextBoxHeroCard.itemsLabel': 'Подборка товаров',
   'nextBoxHeroCard.shipsOnLabel': 'Корабли на',
   'notFound.body':
@@ -143,8 +182,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Приостановить подписку',
   'settings.danger.paused': 'Подписка приостановлена.',
   'settings.danger.pausing': 'Пауза…',
+  'settings.danger.status': 'Статус подписки: {{status}}',
   'settings.danger.subtitle':
     'Приостановка сохраняет ваш уровень подписки и историю покупок. Отмена приостанавливает будущие поставки и удаляет сохраненные способы оплаты по окончании цикла.',
+  'settings.notifications.saving': '· сохранение…',
   'settings.notifications.subtitle':
     'Выберите, какие сигналы вы хотите получать из Crate. Настройки по умолчанию вполне разумны.',
   'settings.subtitle': 'Обновите свой профиль, адрес доставки и способ связи с Crate.',
@@ -160,12 +201,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Активных поставок пока нет.',
   'shipments.live.eyebrow': 'Активная отгрузка',
   'shipments.live.unnamed': 'Ваша следующая коробка',
+  'shipments.loadError':
+    'Не удалось загрузить ваши отправления. Проверьте соединение и повторите попытку.',
+  'shipments.loading': 'Погрузка грузов…',
+  'shipments.step.delivered': 'Доставлено',
   'shipments.step.deliveredBody': 'Поделитесь своими находками, используя хэштег #crateunbox.',
   'shipments.step.ordered': 'Заказ размещен',
   'shipments.step.orderedBody':
     'Ваша подписка добавила этот выпуск в очередь на отправку в следующем цикле.',
+  'shipments.step.packed': 'Упаковано вручную',
   'shipments.step.packedBody':
     'Каждый предмет был упакован и помещен в коробку вместе с рукописной запиской.',
+  'shipments.step.transit': 'В пути',
   'shipments.step.transitNot':
     'После отправки вашей посылки информация об отслеживании появится здесь.',
   'shipments.subtitle':

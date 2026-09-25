@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ ဒါမှမဟုတ် သင့်လိဂ်အတွက် {{app}} လိုချင်ပါသလား။ သင့်အကောင့် ဆက်တင်များမှ ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့ထဲရှိ လူတစ်ဦးထံ ရောက်ပါသည်။',
+  'about.contactTitle': 'ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.featureAlerts':
+    'ဂိုးရလဒ် အပ်ဒိတ်များ၊ လဲလှယ်မှု သတိပေးချက်များ၊ ထိခိုက်ဒဏ်ရာ အစီရင်ခံစာများနှင့် လိဂ် ကြေညာချက်များအတွက် Push အသိပေးချက်များ။',
+  'about.featureRosters':
+    'ကစားသမားတိုင်းအတွက် အပြည့်အစုံ ကစားသမားစာရင်း၊ ရာသီ စုစုပေါင်းများ၊ အေးနွေး/ပူနွေး လမ်းကြောင်းများနှင့် ထိပ်တိုက်တွေ့ ကွဲပြားမှုများပါသော အသင်းစာမျက်နှာများ။',
+  'about.featureSchedule':
+    'ပွဲစဉ်နှင့် ရလဒ်တိုင်းကို စီစဉ်နိုင်ရန် ရာသီ ပြက္ခဒိန်နှင့် အချိန်ဇယား မြင်ကွင်း။',
+  'about.featureScoreboard':
+    'ဂိုးတစ်ဂိုးမှ လွတ်မသွားစေရန် စာမျက်နှာတိုင်း၏ ထိပ်တွင် ချိတ်ထားသော ထုတ်လွှင့်မှုအဆင့် ရမှတ်ဘုတ် တစ်ကာ။',
+  'about.featureStandings':
+    'တိုက်ရိုက် အဆင့်ဇယား — အချိန်နှင့်တပြေးညီ အောင်-ရှုံး-သရေ မှတ်တမ်းများ၊ ရမှတ်များ၊ အောင်နှုန်း၊ နှင့် playoff လိုင်း၊ ဝီစယ်တိုင်း ပြန်လည်ဆန်းသစ်သည်။',
+  'about.intro':
+    '{{app}} သည် သင့်လိဂ်အတွက် ထုတ်လွှင့်မှုအရည်အသွေး အိမ်တစ်ခု ဖြစ်သည်။ အသင်းများ၊ အချိန်ဇယားများ၊ တိုက်ရိုက် ရမှတ်များနှင့် အဆင့်ဇယားများကို မြန်ဆန်၍ ရှုပ်ထွေးမှုကင်းသော ဒက်ရှ်ဘုတ်တစ်ခုတွင် စုစည်းထားသည် — ပရိသတ်များ၊ နည်းပြများနှင့် လိဂ် စီစဉ်သူများ ရာသီအခြေအနေကို အမြဲသိနိုင်ရန်။',
+  'about.missionBody':
+    'လိဂ်တစ်ခုကို လိုက်ကြည့်ခြင်းသည် တတိယပိုင်း ရမှတ်ဘုတ် ငါးခုကို ပြန်လည်ဆန်းသစ်ရန် မဖြစ်သင့်ပါ။ အဆင့်ဇယားများ၊ အချိန်ဇယားနှင့် အမှန်တကယ် အရေးပါသော စာရင်းအင်းများအတွက် လိဂ်တိုင်းကို တစ်ခုတည်းသော အမှန်တရား အရင်းအမြစ် ပေးရန် ကျွန်ုပ်တို့ တည်ဆောက်ခဲ့သည် — ဝီစယ်တိုင်း အပ်ဒိတ်ဖြစ်ပြီး ရာသီအတွက် အခမဲ့။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'about.whatYouGet': 'သင်ရရှိသောအရာ',
   'appShell.closeNav': 'လမ်းညွှန်ချက်ကို ပိတ်ပါ',
   'appShell.openNav': 'လမ်းညွှန်ချက်ဖွင့်ပါ',
   'common.dashboard': 'ဒက်ရှ်ဘုတ်',
@@ -16,13 +35,20 @@ export const ui: UiTranslations = {
   'dashboard.viewAllMatches': 'ကိုက်ညီမှုအားလုံးကို ကြည့်ရန် \\u2192',
   'dashboard.viewAllStandings': 'အပြည့်အစုံ အဆင့်သတ်မှတ်ချက် \\u2192',
   'dashboard.viewAllStats': 'စာရင်းအင်းခေါင်းဆောင်အားလုံးကိုကြည့်ပါ \\u2192',
+  'forgot.submitting': 'ပြန်လည်သတ်မှတ်ရန် လင့်ခ် ပို့နေသည်…',
   'forgot.subtitle': 'ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ရယူရန် သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ။',
   'forgot.success': 'ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ပို့ထားသည် {{email}} ။ သင့်ဝင်စာပုံးကို စစ်ဆေးပါ။',
+  'landing.copyright': '© {{year}} {{app}}။ အဆင့်ကို လိုက်ပါ။',
+  'landing.ctaBody':
+    'သင့်လိဂ်။ သင့်အဆင့်ဇယား။ သင့်အသင်းအကြိုက် — ထိပ်တွင် ချိတ်ထားသည်။ စီစဉ်ရန် နှစ်မိနစ်၊ ရာသီအတွက် အခမဲ့။',
   'landing.ctaHeading': 'ပြင်ပအဖွဲ့အစည်း ရမှတ်ဘုတ်များကို ပြန်လည်ဆန်းသစ်ခြင်း ရပ်တန့်ပါ',
   'landing.eyebrow': 'ပရိသတ်များ၊ နည်းပြများနှင့် လိဂ်စီစဉ်သူများအတွက် တည်ဆောက်ထားသည်',
   'landing.featuresHeading': 'မတ်တပ်ရပ်တိုင်းအတွက် ရှေ့ဆုံးတန်းထိုင်ခုံ',
   'landing.getStarted': 'လိဂ်ကို ဝင်ရောက်ပါ',
   'landing.heroCta': 'လိဂ်ကို ဝင်ရောက်ပါ',
+  'landing.heroSubtitle':
+    '{{app}} သည် အဆင့်ဇယားများ၊ အချိန်ဇယားများနှင့် စာရင်းအင်း ခေါင်းဆောင်များကို ထုတ်လွှင့်မှုအရည်အသွေး ဒက်ရှ်ဘုတ်တစ်ခုအဖြစ် ချိတ်ဆက်ပေးသည်။ တိုက်ရိုက် ရမှတ်များ။ အမှန်တကယ် မှတ်တမ်းများ။ ရှုပ်ထွေးမှု မရှိ။',
+  'landing.heroTitle': '{{tagline}}။',
   'landing.scoreboardLabel': 'ဒီည လိဂ်ပွဲစဉ်တွေအကြောင်း',
   'landing.statFans': 'ပရိသတ်တွေ လိုက်ကြည့်နေတာ',
   'landing.statGames': 'ဒီရာသီပွဲစဉ်တွေ',
@@ -34,11 +60,13 @@ export const ui: UiTranslations = {
   'matchCard.period': 'မေး {{period}}',
   'matchDetail.back': 'ပွဲစဉ်များသို့ ပြန်သွားရန်',
   'matchDetail.eventsHeading': 'တစ်ပွဲချင်းစီ',
+  'matchDetail.final': 'အပြီး',
   'matchDetail.finalScore': 'ဗိုလ်လုပွဲ',
   'matchDetail.live': 'တိုက်ရိုက်',
   'matchDetail.liveNow': 'ယခုပဲ တိုက်ရိုက်ကြည့်ရှုလိုက်ပါ',
   'matchDetail.noEvents': 'ဖြစ်ရပ်များကို မှတ်တမ်းတင်ထားခြင်း မရှိသေးပါ။',
   'matchDetail.periodClock': 'မေး {{period}} · {{clock}}',
+  'matches.empty': 'ဤမြင်ကွင်းတွင် ပွဲစဉ် မရှိပါ — အခြား စစ်ထုတ်မှုတစ်ခု စမ်းကြည့်ပါ။',
   'matches.eyebrow': 'ပွဲစဉ်နေ့',
   'matches.loading': 'ကျောက်ပြားကို ဆွဲယူခြင်း…',
   'matches.subtitle':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'အကြောင်းကြားချက်များကို တင်၍မရပါ',
   'notifications.loading': 'အကြောင်းကြားချက်များကို တင်နေသည်\\u2026',
   'pennantHeroCard.eyebrow': 'စားပွဲထိပ်ဆုံး',
+  'pennantHeroCard.formLabel': 'နောက်ဆုံး ၁၀',
   'pennantHeroCard.gamesAhead': '{{value}} လိုက်လံဖမ်းဆီးမှုမတိုင်မီ ဂိမ်းများ',
   'pennantHeroCard.pointsLabel': 'ရမှတ်များ',
   'pennantLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
@@ -80,6 +109,11 @@ export const ui: UiTranslations = {
   'pricing.heading':
     'ပိုမိုကြွယ်ဝသော အချိန်ဇယား၊ ရမှတ်များနှင့် အဆင့်သတ်မှတ်ချက်များအတွက် အဆင့်မြှင့်တင်ပါ။',
   'pricing.limits.schedule': '{{count}} အချိန်ဇယားထည့်သွင်းမှုများ',
+  'pricing.limits.scores': '{{count}} ရမှတ်များ',
+  'pricing.limits.standings': '{{count}} အဆင့်ဇယား',
+  'pricing.limits.teams': '{{count}} အသင်းများ',
+  'pricing.subtitle':
+    'ပိုမိုကြွယ်ဝသော အချိန်ဇယား၊ ရမှတ်များနှင့် အဆင့်ဇယားများအတွက် အဆင့်မြှင့်ပါ။',
   'pricing.upgradeCta': 'အဆင့်မြှင့်တင်ရန် {{tierName}}',
   'profile.eyebrow': 'ပရိသတ်ပရိုဖိုင်',
   'profile.favoritesCount': 'အသင်းများကို လိုက်ကြည့်ထားသည်',
@@ -87,11 +121,14 @@ export const ui: UiTranslations = {
   'profile.noFavorites':
     'အကြိုက်ဆုံးအသင်းများ မရှိသေးပါ — Teams စာမျက်နှာမှ အသင်းများကို ရွေးချယ်ပါ။',
   'profile.rankRecord': 'အဆင့် # {{rank}} · {{record}}',
+  'profile.recordOnly': 'မှတ်တမ်း {{record}}',
   'reset.confirmPlaceholder': 'စကားဝှက်ကို ထပ်ခါတလဲလဲ ရိုက်ထည့်ပါ',
+  'reset.mismatch': 'စကားဝှက်များ မကိုက်ညီပါ။',
   'reset.newLabel': 'စကားဝှက်အသစ်',
   'reset.subtitle': 'အနည်းဆုံး စာလုံး ၁၂ လုံးပါသော ခိုင်မာသော စကားဝှက်ကို ရွေးချယ်ပါ။',
   'reset.tokenPlaceholder': 'အီးမေးလ်မှ ကူးထည့်ပါ',
   'schedule.eyebrow': 'ကျောက်ပြား',
+  'schedule.moreGames': '+ {{count}} နောက်ထပ်',
   'schedule.subtitle':
     'ရာသီတစ်လျှောက် ပွဲစဉ်များ၏ ပြက္ခဒိန်မြင်ကွင်း — ဘောက်စ်ရမှတ်များအတွက် မည်သည့်နေ့ကိုမဆို နှိပ်ပါ။',
   'scoreboardTicker.empty':
@@ -100,6 +137,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'စိတ်ကြိုက်ပြင်ဆင်ပါ',
   'settings.favoritesBody':
     'ဤအသင်းများသည် သင့်ဒက်ရှ်ဘုတ်တွင် pin လုပ်ထားပြီး ရမှတ်သတိပေးချက်များကို နှိုးဆွပေးပါသည်။',
+  'settings.favoritesHeading': 'အကြိုက်ဆုံးအသင်းများ',
   'settings.loading': 'သင့်ဦးစားပေးမှုများကို တင်နေသည်\\u2026',
   'settings.noFavorites': 'အကြိုက်ဆုံးအသင်း မရှိသေးပါ။ Teams စာမျက်နှာမှ အသင်းများကို ရွေးချယ်ပါ။',
   'settings.notificationsHeading': 'အသိပေးချက်များနှင့် ပြသမှု',
@@ -118,6 +156,7 @@ export const ui: UiTranslations = {
   'standings.losses': 'L',
   'standings.overall': 'အလုံးစုံ',
   'standings.points': 'ရမှတ်များ',
+  'standings.rank': '#',
   'standings.subtitle':
     'ထိပ်ဆုံးလေးသင်းသည် ရာသီပြီးဆုံးရန် အရည်အချင်းပြည့်မီသည် - ရမှတ်များဖြင့် သရေကျပြီးနောက် ရာခိုင်နှုန်းဖြင့် အနိုင်ရသည်။',
   'standings.title': 'လိဂ်ရပ်တည်မှုများ',
@@ -136,6 +175,7 @@ export const ui: UiTranslations = {
   'teamDetail.colGoals': 'ဂျီ',
   'teamDetail.colName': 'ကစားသမား',
   'teamDetail.colPos': 'ရာထူးများ',
+  'teamDetail.pointsLabel': 'အမှတ်များ',
   'teamDetail.rankLabel': 'အဆင့် # {{rank}}',
   'teamDetail.rosterHeading': 'စာရင်း',
   'teamDetail.statGD': 'ဂိုးကွာခြားချက်',

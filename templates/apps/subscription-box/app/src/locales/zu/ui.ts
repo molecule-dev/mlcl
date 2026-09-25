@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unemibuzo mayelana nohlelo, ukuthunyelwa, noma ukubhalisa kwakho? Xhumana nomuntu wangempela eqenjini ku-hello@crate.example — sifunda yonke imiyalezo.',
+  'about.contactTitle': 'Khuluma nomgcini wezincwadi',
+  'about.feature1':
+    'Izinhlelo zanyanga zonke ezikhethwe ngabakhi abazimele, kanye nendaba engemuva kwento ngayinye.',
+  'about.feature2':
+    'Ukulawula okuphelele kwebhokisi ngalinye — lungisa okuqukethwe, shintsha noma khipha izinto, yeqa inyanga, noma shintsha isikhathi sakho.',
+  'about.feature3':
+    'Ukulandelela ukuthunyelwa kusukela ekuqoqweni kuze kufike emnyango, ngokupakishwa okungenapulasitiki kanye nezibuyekezo zesithwali ezibukhoma.',
+  'about.feature4':
+    'Izinhlelo eziguquguqukayo nokukhokha okusobala — khulisa, yehlisa, misa, noma khansela kusuka kudashibhodi yakho noma nini.',
+  'about.intro':
+    'I-{{app}} iyisevisi yebhokisi lokubhalisa elikhethiwe eliletha ibhokisi lenjabulo elikhethwe ngesandla, elincane, emnyango wakho nyanga zonke. Uhlelo ngalunye luhlanganiswa ngabakhi abasebenzayo — abaculi abazimele, abapheki, kanye namabhrendi amancane — hhayi i-algorithm.',
+  'about.missionBody':
+    'Sikholelwa ukuthi ukubhalisa kufanele kuzwakale njengesipho, hhayi ugibe. I-{{app}} yakhelwe ukuthi uhlale ngenxa yokuthi uyakuthanda okufikayo — misa noma nini, shintsha lokho okufunayo, futhi khansela ngokuchofoza okukodwa. Azikho izikripthi zokugcina amakhasimende, neze.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'about.pageTitle': 'Mayelana ne-{{app}}',
   'appNav.mobileLabel': 'Ukuzulazula okuyinhloko',
   'appNav.primaryLabel': 'Ukuzulazula okuyinhloko',
@@ -10,6 +26,7 @@ export const ui: UiTranslations = {
   'billing.contact.cta.update': 'Hlela oxhumana naye okhokhisayo',
   'billing.contact.eyebrow': 'Oxhumana naye okhokhisayo',
   'billing.eyebrow': 'Uhlelo kanye nezinkokhelo',
+  'billing.loading': 'Ilayisha inkokhelo…',
   'billing.payment.body':
     'Inkokhelo iphathwa yi-Stripe Checkout — inombolo yakho yekhadi eligcwele ayilokothi ithinte amaseva ethu. Chofoza noma yiliphi izinga elingezansi ukuze wengeze noma ubuyekeze ikhadi lakho.',
   'billing.payment.linked': 'Ikhadi lifayilishwe nge-Stripe',
@@ -19,9 +36,11 @@ export const ui: UiTranslations = {
   'billing.plan.cta.resume': 'Ukubhalisela kabusha',
   'billing.plan.eyebrow': 'Uhlelo olusebenzayo',
   'billing.plan.next': 'Ivuselelwa ngokuzenzakalelayo ivuliwe {{date}} .',
+  'billing.plan.status': 'Isimo: {{status}}',
   'billing.subtitle': 'Phatha izinga lakho, indlela yokukhokha, futhi ubuyekeze umsebenzi odlule.',
   'billing.tiers.body': 'Khetha i-tier bese sizokuhambisa ku-Stripe Checkout.',
   'billing.tiers.choose': 'Khetha',
+  'billing.tiers.empty': 'Awekho amazinga ahleliwe okwamanje.',
   'billing.tiers.heading': 'Izinga ezitholakalayo',
   'boxDetail.backToBoxes': 'Buyela kuzo zonke izinhlelo',
   'boxDetail.crumb.boxes': 'Izinhlelo',
@@ -34,6 +53,7 @@ export const ui: UiTranslations = {
   'boxDetail.items.curated': 'Isiqephu esikhethiwe',
   'boxDetail.items.heading': '{{count}} izingcezu ezikhethiwe',
   'boxDetail.itemsBadge': '{{count}} izinto ezikhethiwe ngebhokisi ngalinye',
+  'boxDetail.loading': 'Ilayisha uhlelo…',
   'boxDetail.notFound': 'Leyo nguqulo ayisatholakali.',
   'boxDetail.subscribe.success': 'Ubhalisele — uhlelo lwakho lokuqala lubekwe emgqeni.',
   'boxDetail.swapBadge': 'Shintsha kuze kube {{count}} into(izinto) ngebhokisi ngalinye',
@@ -42,14 +62,20 @@ export const ui: UiTranslations = {
   'boxes.empty.title': 'Azikho izinhlelo ezifanayo.',
   'boxes.eyebrow': 'Ingobo yomlando yeCrate',
   'boxes.heading': 'Phequlula yonke inguqulo',
+  'boxes.loadError': 'Asikwazanga ukulayisha izinhlelo. Hlola ukuxhumana kwakho bese uzama futhi.',
   'boxes.loading': 'Ilayisha izinhlelo…',
+  'boxes.search.label': 'Sesha izinhlelo',
   'boxes.search.placeholder': 'Sesha izinhlelo…',
   'boxes.subtitle':
     'Isigaba ngasinye siyindaba encane. Faka esisodwa emgqeni wakho noma usishintshele enyangeni yakho ezayo.',
+  'boxThemeCard.itemCount': '{{count}} izinto',
   'boxThemeCard.perMonth': '/ inyanga',
+  'boxThemeCard.retailValue': 'Inani lentengo {{value}}',
   'common.goToDashboard': 'Yiya ku-Dashboard',
+  'common.retry': 'Zama futhi',
   'customize.eyebrow': 'Kwenze kube okwakho',
   'customize.heading': 'Yenza ngokwezifiso i-Crate yakho elandelayo',
+  'customize.items.empty': 'Azikho izinto ezihleliwe kuleli zinga okwamanje.',
   'customize.items.exclude': 'Yeqa lokhu',
   'customize.items.eyebrow': 'Yenza leli bhokisi libe ngelakho',
   'customize.items.heading': 'Izinto eziku- {{box}}',
@@ -58,8 +84,10 @@ export const ui: UiTranslations = {
   'customize.items.include': 'Engeza futhi',
   'customize.items.save': 'Londoloza ukwenza ngokwezifiso',
   'customize.items.swapsLeft': '{{used}} kwe {{max}} ukushintshana okusetshenzisiwe',
+  'customize.loading': 'Ilayisha ukwenza ngokwezifiso…',
   'customize.noSub.body':
     'Bhalisela isigaba kuqala, bese ubuya ukuzoshintshanisa izinto ebhokisini lakho.',
+  'customize.noSub.cta': 'Phequlula izinhlelo',
   'customize.noSub.heading': 'Akukho okubhaliselwe okusebenzayo',
   'customize.saved': 'Ukwenza ngokwezifiso kulondoloziwe.',
   'customize.subtitle':
@@ -73,11 +101,14 @@ export const ui: UiTranslations = {
   'dashboard.cta.track': 'Ukuthunyelwa kwethrekhi',
   'dashboard.eyebrow': 'I-Crate yakho',
   'dashboard.greeting': 'Siyakwamukela, {{name}} .',
+  'dashboard.loadError':
+    'Asikwazanga ukulayisha idashibhodi yakho. Hlola ukuxhumana kwakho bese uzama futhi.',
   'dashboard.loading': 'Ilayisha ideshibhodi…',
   'dashboard.next.eyebrow': 'Uhlelo lwakho olulandelayo',
   'dashboard.onboarding.body':
     'Awunawo ukubhalisa okusebenzayo okwamanje. Khetha izinga ukuze uqale ukuthumela i-Crate njalo ngenyanga.',
   'dashboard.onboarding.cta': 'Phequlula zonke izinhlelo',
+  'dashboard.onboarding.empty': 'Azikho izinhlelo ezitholakalayo okwamanje. Hlola futhi maduze.',
   'dashboard.onboarding.heading': 'Khetha uhlelo lwakho lokuqala',
   'dashboard.renewal.amount': 'Ikhokhisiwe',
   'dashboard.renewal.cadence': 'I-Cadence',
@@ -85,12 +116,16 @@ export const ui: UiTranslations = {
   'dashboard.renewal.eyebrow': 'Ukuvuselelwa',
   'dashboard.renewal.heading': 'Ukuvuselelwa ngokuzenzakalela kuvuliwe {{date}}',
   'dashboard.renewal.plan': 'Ukhiye wohlelo',
+  'dashboard.renewal.tbd': 'Ukuhlela ukuvuselelwa maduze',
   'dashboard.renewal.tier': 'Izinga',
   'dashboard.stats.days': 'izinsuku',
   'dashboard.stats.daysToNext': 'Ithunyelwa ngaphakathi',
   'dashboard.stats.items': 'Izinto ezikhethiwe',
   'dashboard.stats.shipDate': 'Usuku lokuthunyelwa',
   'dashboard.stats.tbd': 'I-TBD',
+  'dashboard.subtitle.active':
+    'Uhlelo lwakho olulandelayo lusendleleni. Nakhu okufanele ukulindele.',
+  'dashboard.subtitle.idle': 'Khetha izinga ukuze uqale ukuthumela i-{{appName}} nyanga zonke.',
   'forgotPassword.subtitle':
     'Sitshele i-imeyili yakho bese sizokuthumela isixhumanisi sokusetha kabusha.',
   'forgotPassword.success.body':
@@ -98,6 +133,7 @@ export const ui: UiTranslations = {
   'forgotPassword.success.title': 'Hlola ibhokisi lakho lokungenayo.',
   'landing.editions.eyebrow': 'Lesi sizini',
   'landing.editions.heading': 'Izinhlelo abagcini bethu abazithandayo',
+  'landing.editions.viewAll': 'Phequlula zonke izinhlelo →',
   'landing.footer.contact': 'Khuluma nomgcini wezincwadi',
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Qala ibhokisi lakho →',
@@ -107,6 +143,9 @@ export const ui: UiTranslations = {
   'landing.hero.previewCaption':
     'Ukubheka ideshibhodi yamalungu — ukubala phansi, okuqukethwe, kanye nokulandelela.',
   'landing.hero.social.count': 'Kuthandwe ngu {{count}} + ababhalisile',
+  'landing.hero.social.rating': 'Isilinganiso sokuvula se-{{rating}}',
+  'landing.hero.subhead':
+    'I-{{appName}} ikuthumelela ibhokisi lenjabulo elikhethwe ngesandla, elincane, elivela kubakhi abazimele. Misa noma nini. Shintsha lokho okufunayo. Gcina lokho okuthandayo.',
   'landing.nav.start': 'Qala ibhokisi lakho',
   'landing.tiers.eyebrow': 'Khetha i-cadence yakho',
   'landing.tiers.heading': 'Qala kancane, thuthukisa noma nini, khansela kalula.',
@@ -116,6 +155,7 @@ export const ui: UiTranslations = {
   'login.subtitle': 'Ngena ngemvume ukuze ubheke ibhokisi lenyanga ezayo.',
   'login.welcomeBack': 'Siyakwamukela futhi, mnakekeli.',
   'nextBoxHeroCard.eyebrow': 'ISIQINISEKISO SAKHO ESILANDELAYO',
+  'nextBoxHeroCard.itemCount': 'Izingcezu ezingaphakathi: {{count}}',
   'nextBoxHeroCard.itemsLabel': 'Izinto ezikhethiwe',
   'nextBoxHeroCard.shipsOnLabel': 'Kuthunyelwa ku',
   'notFound.body':
@@ -140,8 +180,10 @@ export const ui: UiTranslations = {
   'settings.danger.pause': 'Misa okwesikhashana okubhaliselwe',
   'settings.danger.paused': 'Ukubhalisa kumiswe okwesikhashana.',
   'settings.danger.pausing': 'Iyamisa isikhashana…',
+  'settings.danger.status': 'Isimo sokubhalisa: {{status}}',
   'settings.danger.subtitle':
     'Ukumisa isikhashana kugcina izinga lakho nomlando wakho kuhlanzekile. Ukukhansela kumisa ukuthunyelwa kwesikhathi esizayo futhi kususa izindlela zakho zokukhokha ezigciniwe ekupheleni komjikelezo.',
+  'settings.notifications.saving': '· iyalondoloza…',
   'settings.notifications.subtitle':
     'Khetha ukuthi yiziphi izimpawu ozifunayo ku-Crate. Okuzenzakalelayo kunengqondo.',
   'settings.subtitle':
@@ -158,12 +200,18 @@ export const ui: UiTranslations = {
   'shipments.live.empty': 'Akukho ukuthunyelwa okusebenzayo okwamanje',
   'shipments.live.eyebrow': 'Ukuthunyelwa okusebenzayo',
   'shipments.live.unnamed': 'Ibhokisi lakho elilandelayo',
+  'shipments.loadError':
+    'Asikwazanga ukulayisha ukuthunyelwa kwakho. Hlola ukuxhumana kwakho bese uzama futhi.',
+  'shipments.loading': 'Ilayisha ukuthunyelwa…',
+  'shipments.step.delivered': 'Kuthunyelwe',
   'shipments.step.deliveredBody': 'Maka i-#crateunbox ukuze wabelane ngalokho okutholile.',
   'shipments.step.ordered': 'I-oda lifakiwe',
   'shipments.step.orderedBody':
     'Okubhalisele kwakho kubekwe emgqeni kulolu hlobo lomjikelezo olandelayo womkhumbi.',
+  'shipments.step.packed': 'Kupakishwe ngesandla',
   'shipments.step.packedBody':
     'Ingcezu ngayinye yasongwa futhi yafakwa ebhokisini ngenothi elibhalwe ngesandla.',
+  'shipments.step.transit': 'Kusendleleni',
   'shipments.step.transitNot': 'Ukulandelela kuzovela lapha uma ibhokisi lakho selisendleleni.',
   'shipments.subtitle':
     'Landelela ibhokisi elisendleleni eya kuwe, bese uvakashela yonke inguqulo osuyisusile ebhokisini ngaphambili.',

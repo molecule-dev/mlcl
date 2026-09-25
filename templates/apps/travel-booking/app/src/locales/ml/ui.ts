@@ -1,13 +1,28 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഒരു താമസത്തെക്കുറിച്ചുള്ള ചോദ്യങ്ങളോ ഫീഡ്ബാക്കോ പങ്കാളിത്ത ആശയമോ? നിങ്ങളുടെ അക്കൗണ്ടിൽ നിന്നോ ഇൻ-ആപ്പ് കൺസിയേജിൽ നിന്നോ ടീമിനെ സമീപിക്കുക — ഓരോ സന്ദേശവും യാത്ര ചെയ്യുന്ന ഒരു യഥാർത്ഥ മനുഷ്യനിലേക്കാണ് എത്തുന്നത്.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.featureBooking.body':
+    'മുറികൾ, നിരക്കുകൾ, സൗകര്യങ്ങൾ എന്നിവ വശങ്ങളോടു വശം താരതമ്യം ചെയ്യുക, എന്നിട്ട് ഏതു യാത്രയിലും സൗജന്യ റദ്ദാക്കലോടെ കുറച്ച് ടാപ്പുകളിൽ ബുക്ക് ചെയ്യുക.',
+  'about.featureBooking.title': 'തിരയുക, താരതമ്യം ചെയ്യുക, ബുക്ക് ചെയ്യുക',
+  'about.featureDiscover.body':
+    'എഡിറ്റർ തിരഞ്ഞെടുത്ത ലക്ഷ്യസ്ഥാനങ്ങളും ഫീൽഡ് ഗൈഡുകളും പായ്ക്ക് ചെയ്യാൻ അർഹമായ സ്ഥലങ്ങൾ കാണിച്ചുതരുന്നു — അഗ്രിഗേറ്റർ ബഹളമില്ല, സ്പോൺസർ ചെയ്ത കുത്തിത്തിരുകലുകളുമില്ല.',
   'about.featureDiscover.title': 'പ്രചോദനം, സ്വയം തിരഞ്ഞെടുത്തത്',
+  'about.featureItineraries.body':
+    'ഫ്ലൈറ്റുകളും താമസങ്ങളും പ്ലാനുകളും ഒരിടത്ത് സൂക്ഷിക്കുക, ലക്ഷ്യസ്ഥാനങ്ങൾ പിന്നീടേക്ക് സേവ് ചെയ്യുക, നിങ്ങളുടെ യാത്ര നിർത്തിയിടത്തുനിന്ന് തുടരുക.',
+  'about.featureItineraries.title': 'ക്രമീകരിച്ചിരിക്കുന്ന യാത്രാപദ്ധതികൾ',
+  'about.featureStays.title': 'വിശ്വസനീയമായ താമസങ്ങൾ',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'about.subtitle':
+    'പ്രചോദനം, വിശ്വസനീയമായ താമസങ്ങൾ, സ്വപ്നം കാണുന്നതിൽ നിന്ന് ബുക്ക് ചെയ്യുന്നതിലേക്കുള്ള തടസ്സമില്ലാത്ത വഴി.',
+  'about.whatYouGetTitle': 'നിങ്ങൾക്ക് ലഭിക്കുന്നത്',
   'account.addPaymentCta': 'പേയ്‌മെന്റ് രീതി ചേർക്കുക',
   'account.addPaymentError': 'പേയ്‌മെന്റ് രീതി ചേർക്കാൻ കഴിഞ്ഞില്ല.',
   'account.confirmRemove': 'നീക്കം സ്ഥിരീകരിക്കുക',
   'account.defaultBadge': 'സ്ഥിരസ്ഥിതി',
-  'account.loyalty.pointsTowardNext': '{{പോയിന്റുകൾ}} യുടെ {{അടുത്തത്}} മൈലുകൾ വരെ {{അടുത്ത ടയർ}}',
+  'account.loyalty.pointsTowardNext': '{{nextTier}}-ലേക്ക് {{next}} മൈലിൽ {{points}}',
   'account.loyalty.tier': 'നിലവിലെ ടയർ',
   'account.navLabel': 'അക്കൗണ്ട് വിഭാഗങ്ങൾ',
   'account.payments.empty': 'ഇതുവരെ പേയ്‌മെന്റ് രീതികളൊന്നും സംരക്ഷിച്ചിട്ടില്ല.',
@@ -28,6 +43,7 @@ export const ui: UiTranslations = {
   'booking.lineRate': '{{rate}} × {{count}} രാത്രികൾ',
   'booking.lineTaxes': 'നികുതികളും ഫീസും',
   'booking.loadError': 'പ്രോപ്പർട്ടി ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'booking.noChargeYet': 'നിങ്ങളിൽ നിന്ന് ഇതുവരെ ചാർജ് ഈടാക്കിയിട്ടില്ല.',
   'booking.noPaymentMethods': 'സംരക്ഷിച്ച പേയ്‌മെന്റ് രീതികളൊന്നുമില്ല.',
   'booking.noPaymentSelected': 'സ്ഥിരീകരിക്കുന്നതിന് മുമ്പ് ഒരു പേയ്‌മെന്റ് രീതി തിരഞ്ഞെടുക്കുക.',
   'booking.noRoomError': 'സ്ഥിരീകരിക്കുന്നതിന് മുമ്പ് ഒരു മുറി തിരഞ്ഞെടുക്കുക.',
@@ -40,6 +56,7 @@ export const ui: UiTranslations = {
   'booking.policy2':
     'ഇന്ന് യാതൊരു നിരക്കും ഈടാക്കില്ല — സ്ഥിരീകരണത്തിനായി മാത്രമാണ് നിങ്ങളുടെ കാർഡ് കൈവശം വച്ചിരിക്കുന്നത്.',
   'booking.policy3': 'സോജേണിന്റെ പരിധിയിൽ വരുന്ന യാത്രാ സംരക്ഷണം — 24/7 കൺസേർജ് പിന്തുണ.',
+  'booking.policyHeading': 'റദ്ദാക്കലും നിബന്ധനകളും',
   'booking.roomHeading': 'നിങ്ങളുടെ മുറി തിരഞ്ഞെടുക്കുക',
   'booking.specialRequests': 'പ്രത്യേക അഭ്യർത്ഥനകൾ',
   'booking.specialRequestsPlaceholder': 'ഹോസ്റ്റ് അറിയേണ്ട എന്തെങ്കിലും ഉണ്ടോ?',
@@ -68,6 +85,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'താമസ അംഗങ്ങൾ',
   'landing.cta.heading': 'വിഷമിക്കാതെ അലഞ്ഞുനടക്കൂ. ഓരോ യാത്രാ പരിപാടിയും, ഓരോ തവണയും.',
   'landing.cta.signup': 'സൗജന്യ അക്കൗണ്ട് സൃഷ്ടിക്കുക',
+  'landing.cta.subheading':
+    'സൗജന്യ റദ്ദാക്കൽ, അംഗങ്ങൾക്ക് മാത്രമുള്ള നിരക്കുകൾ, 24/7 ട്രിപ്പ് കൺസിയേജ് — ഓരോ ബുക്കിംഗിലും മൈലുകൾ നേടുക, പുതിയ പ്രോപ്പർട്ടികളിലേക്ക് ആദ്യ ആക്സസ് അൺലോക്ക് ചെയ്യുക.',
   'landing.destinations.eyebrow': 'അടുത്തതായി എവിടേക്ക് പോകണം',
   'landing.destinations.heading': 'തിരഞ്ഞെടുത്ത ലക്ഷ്യസ്ഥാനങ്ങൾ',
   'landing.destinations.seeAll': 'എല്ലാ ലക്ഷ്യസ്ഥാനങ്ങളും കാണുക',
@@ -76,27 +95,45 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'പാക്ക് ചെയ്യാൻ പറ്റിയ കഥകൾ',
   'landing.nav.join': 'സോജേർണിൽ ചേരുക',
   'landing.nav.search': 'തിരയൽ സ്റ്റേകൾ',
+  'landing.preview.browseAll': 'മുഴുവൻ ശേഖരവും ബ്രൗസ് ചെയ്യുക',
   'landing.preview.eyebrow': 'ഉള്ളിലേക്ക് ഒരു എത്തിനോട്ടം',
   'landing.preview.heading': 'ഈ മാസം തിരഞ്ഞെടുത്ത താമസസ്ഥലങ്ങൾ',
+  'landing.preview.subheading':
+    '{{appName}}-ലെ ഓരോ പ്രോപ്പർട്ടിയും ഞങ്ങളുടെ എഡിറ്റോറിയൽ ടീം വ്യക്തിപരമായി പരിശോധിച്ചതാണ് — അഗ്രിഗേറ്റർ ഇൻവെന്ററിയില്ല, വഞ്ചനാപരമായ ലിസ്റ്റിംഗുകളില്ല, ഓരോ യാത്രയിലും സൗജന്യ റദ്ദാക്കൽ.',
   'login.eyebrow': 'അംഗങ്ങളുടെ ഏരിയ',
+  'login.noAccount': 'ടെസേറയിൽ പുതിയ ആളാണോ?',
   'login.signupLink': 'ഒരു സൗജന്യ അക്കൗണ്ട് സൃഷ്ടിക്കുക',
   'login.subheading':
     'നിങ്ങളുടെ യാത്രകൾ മാനേജ് ചെയ്യാനും, സ്ഥിരീകരണങ്ങൾ കാണാനും, നിർത്തിയിടത്ത് നിന്ന് തുടരാനും സൈൻ ഇൻ ചെയ്യുക.',
   'nav.legal': 'നിയമപരമായ',
   'notifications.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'notifications.subheading': '{{count}} വായിക്കാത്തവ · എല്ലാം ഒരു ശാന്തമായ ഇൻബോക്സിൽ',
+  'planUpdated.body':
+    'നിങ്ങളുടെ ബില്ലിംഗ് മാറ്റം ഇപ്പോൾ സജീവമാണ്. ബില്ലിംഗ് പേജിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും നിങ്ങളുടെ പ്ലാൻ മാനേജ് ചെയ്യാം.',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.accommodationsLabel': 'താമസ സൗകര്യങ്ങൾ',
   'pricing.bookingsLabel': 'ബുക്കിംഗുകൾ',
   'pricing.destinationsLabel': 'സംരക്ഷിച്ച ലക്ഷ്യസ്ഥാനങ്ങൾ',
   'pricing.exportLabel': 'യാത്രാ ഡാറ്റ എക്‌സ്‌പോർട്ടുചെയ്യുക',
   'pricing.itinerariesLabel': 'യാത്രാ പരിപാടികൾ',
+  'privacy.intro':
+    '{{appName}} നിങ്ങളുടെ യാത്രാ ഡാറ്റ സംരക്ഷിക്കുന്നു. പ്രൊഡക്ഷനിൽ ലോഞ്ച് ചെയ്യുന്നതിന് മുമ്പ് ഈ ടെംപ്ലേറ്റ് നിങ്ങളുടെ യഥാർത്ഥ സ്വകാര്യതാ നയം കൊണ്ട് മാറ്റുക.',
   'propertyDetail.allPhotos': 'എല്ലാം {{count}} ഫോട്ടോകൾ',
   'propertyDetail.amenitiesHeading': 'ഈ സ്ഥലം എന്താണ് വാഗ്ദാനം ചെയ്യുന്നത്',
   'propertyDetail.backLink': 'തിരയലിലേക്ക് മടങ്ങുക',
   'propertyDetail.bookCta': 'റിസർവ് ചെയ്യുക',
   'propertyDetail.bookmarkAria': 'പ്രോപ്പർട്ടി സംരക്ഷിക്കുക',
   'propertyDetail.freeCancellation': 'സൗജന്യ റദ്ദാക്കൽ',
+  'propertyDetail.galleryAria': 'പ്രോപ്പർട്ടി ഫോട്ടോ ഗാലറി',
+  'propertyDetail.galleryCloseAria': 'ഗാലറി അടയ്ക്കുക',
+  'propertyDetail.galleryCounter': '{{current}} / {{total}}',
+  'propertyDetail.galleryImageAlt': '{{name}} ഫോട്ടോ {{n}}',
+  'propertyDetail.galleryNextAria': 'അടുത്ത ഫോട്ടോ',
+  'propertyDetail.galleryPrevAria': 'മുൻ ഫോട്ടോ',
   'propertyDetail.heroImageAlt': '{{name}} ഹീറോ ഫോട്ടോ',
   'propertyDetail.lineCleaning': 'ക്ലീനിംഗ് ഫീസ്',
   'propertyDetail.lineRate': '{{price}} × {{nights}} രാത്രികൾ',
@@ -105,6 +142,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'രാത്രി',
   'propertyDetail.noChargeYet': 'നിങ്ങളിൽ നിന്ന് ഇതുവരെ നിരക്ക് ഈടാക്കില്ല.',
   'propertyDetail.notFound': 'പ്രോപ്പർട്ടി കണ്ടെത്തിയില്ല.',
+  'propertyDetail.pickDatesHint':
+    'മുഴുവൻ വില വിശദാംശങ്ങളും കാണാൻ നിങ്ങളുടെ തീയതികൾ തിരഞ്ഞെടുക്കുക.',
   'propertyDetail.reviewCount': '( {{count}} അവലോകനങ്ങൾ)',
   'propertyDetail.reviewsHeading': 'സമീപകാല അവലോകനങ്ങൾ',
   'propertyDetail.verified': 'താമസസ്ഥലം പരിശോധിച്ചുറപ്പിച്ച പ്രോപ്പർട്ടി',
@@ -113,6 +152,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.subheading':
     'നിങ്ങളുടെ Sojourn അക്കൗണ്ടിന് പുതിയൊരു പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക. കുറഞ്ഞത് 8 പ്രതീകങ്ങളെങ്കിലും ഉപയോഗിക്കുക; ഞങ്ങൾ ഒരു പാസ്‌ഫ്രെയ്‌സ് ശുപാർശ ചെയ്യുന്നു.',
+  'search.dates': '{{from}} → {{to}}',
   'search.empty': 'നിങ്ങളുടെ തിരയലുമായി പൊരുത്തപ്പെടുന്ന പ്രോപ്പർട്ടികളൊന്നുമില്ല.',
   'search.emptyHint':
     'നിങ്ങളുടെ ഫിൽട്ടറുകൾ വിശാലമാക്കുകയോ വില പരിധി നീക്കം ചെയ്യുകയോ ചെയ്യാൻ ശ്രമിക്കുക - സോജേണിന് 14 രാജ്യങ്ങളിൽ സ്റ്റേകളുണ്ട്.',
@@ -120,6 +160,8 @@ export const ui: UiTranslations = {
   'search.heading': 'നിങ്ങളുടെ യാത്രയ്ക്കായി ക്യുറേറ്റ് ചെയ്‌ത താമസ സൗകര്യങ്ങൾ',
   'search.headingForQuery': '"" താമസിക്കും. {{q}} "',
   'search.loadError': 'പ്രോപ്പർട്ടികൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'search.mapHint': 'ഒരു കാർഡിന് മേൽ ഹോവർ ചെയ്താൽ മാപ്പിൽ അതിന്റെ സ്ഥാനം ഹൈലൈറ്റ് ചെയ്യും.',
+  'search.mapPinAria': '{{name}} — ഒരു രാത്രിക്ക് {{price}}',
   'search.sortLabel': 'ഇങ്ങനെ അടുക്കുക',
   'search.subheading': '{{count}} പ്രോപ്പർട്ടികൾ · {{guests}} അതിഥികൾ',
   'settings.openAccount': 'പൂർണ്ണ അക്കൗണ്ട് തുറക്കുക',
@@ -128,15 +170,23 @@ export const ui: UiTranslations = {
   'signup.subheading':
     'സൗജന്യ റദ്ദാക്കൽ, അംഗങ്ങൾക്ക് മാത്രമുള്ള നിരക്കുകൾ, 24/7 ട്രിപ്പ് കൺസേർജ് — ഓരോ ബുക്കിംഗിലും മൈലുകൾ നേടൂ.',
   'sojournAuthShell.brand.eyebrow': 'വിഷമിക്കാതെ അലഞ്ഞുനടക്കുക',
+  'sojournAuthShell.brand.heading':
+    'സ്വപ്നം കാണുന്നതിൽ നിന്ന് ബുക്ക് ചെയ്യുന്നതിലേക്കുള്ള തടസ്സമില്ലാത്ത വഴി.',
   'sojournHeroSearchCard.checkInAria': 'ചെക്ക്-ഇൻ തീയതി',
   'sojournHeroSearchCard.checkOutAria': 'ചെക്ക്-ഔട്ട് തീയതി',
+  'sojournHeroSearchCard.destAria': 'ലക്ഷ്യസ്ഥാനം',
+  'sojournHeroSearchCard.destLabel': 'എവിടെ',
   'sojournHeroSearchCard.destPlaceholder': 'നഗരം, മേഖല അല്ലെങ്കിൽ സ്വത്ത്',
   'sojournHeroSearchCard.eyebrow': 'ക്യുറേറ്റഡ് സ്റ്റേകൾ · അംഗങ്ങൾക്ക് മാത്രമുള്ള നിരക്കുകൾ',
   'sojournHeroSearchCard.guestsOption': '{{n}} അതിഥികൾ',
   'sojournHeroSearchCard.subtitle':
     'പ്രചോദനം, വിശ്വസനീയമായ താമസം, പകൽക്കിനാവിൽ നിന്ന് ബുക്ക് ചെയ്ത സ്ഥലങ്ങളിലേക്കുള്ള സംഘർഷരഹിതമായ പാത - 14 രാജ്യങ്ങളിലും 200+ കൈകൊണ്ട് പരിശോധിച്ച പ്രോപ്പർട്ടികളിലുമായി.',
+  'sojournHeroSearchCard.title': 'വിഷമിക്കാതെ അലഞ്ഞുനടക്കുക',
+  'sojournHeroSearchCard.trustLoyalty': 'ഓരോ യാത്രയിലും മൈലുകൾ നേടുക',
   'sojournHeroSearchCard.trustProtected': 'സൗജന്യ റദ്ദാക്കൽ, പൂർണ്ണമായും പരിരക്ഷിതം',
   'sojournHeroSearchCard.trustVetted': 'കൈകൊണ്ട് പരിശോധിച്ച പ്രോപ്പർട്ടികൾ മാത്രം',
+  'terms.intro':
+    'പ്രൊഡക്ഷനിൽ ലോഞ്ച് ചെയ്യുന്നതിന് മുമ്പ് ഈ ടെംപ്ലേറ്റ് നിങ്ങളുടെ യഥാർത്ഥ {{appName}} സേവന നിബന്ധനകൾ കൊണ്ട് മാറ്റുക.',
   'travelBookingLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'tripDetail.backLink': 'യാത്രകളിലേക്ക് മടങ്ങുക',
   'tripDetail.cancelCta': 'ബുക്കിംഗ് റദ്ദാക്കുക',
@@ -146,6 +196,7 @@ export const ui: UiTranslations = {
   'tripDetail.cancelReasonPlaceholder': 'ഓപ്ഷണൽ — റദ്ദാക്കലിനുള്ള കാരണം',
   'tripDetail.checkInLabel': 'ചെക്ക് - ഇൻ ചെയ്യുക',
   'tripDetail.checkOutLabel': 'ചെക്ക് ഔട്ട്',
+  'tripDetail.confCode': 'കോഡ് · {{code}}',
   'tripDetail.confirmCancelCta': 'യാത്ര റദ്ദാക്കുക',
   'tripDetail.hostInfo':
     'ആതിഥേയത്വം വഹിക്കുന്നത് {{name}} . ചെക്ക്-ഇൻ ചെയ്യുന്നതിന് 7 ദിവസം മുമ്പ് വരെ സൗജന്യ റദ്ദാക്കൽ.',
@@ -153,6 +204,7 @@ export const ui: UiTranslations = {
   'tripDetail.keepBookingCta': 'ബുക്കിംഗ് തുടരുക',
   'tripDetail.lengthLabel': 'നീളം',
   'tripDetail.loadError': 'യാത്ര ലോഡ് ചെയ്യാനായില്ല.',
+  'tripDetail.messageHostHeading': 'നിങ്ങളുടെ ഹോസ്റ്റിന് സന്ദേശം അയയ്ക്കുക',
   'tripDetail.messagePlaceholder':
     'നിങ്ങളുടെ എത്തിച്ചേരൽ സമയം, ഭക്ഷണ ആവശ്യങ്ങൾ അല്ലെങ്കിൽ മറ്റെന്തെങ്കിലും നിങ്ങളുടെ ഹോസ്റ്റിനെ അറിയിക്കുക.',
   'tripDetail.messageSend': 'സന്ദേശം അയയ്ക്കുക',
@@ -163,9 +215,11 @@ export const ui: UiTranslations = {
   'tripDetail.priceHeading': 'വില സംഗ്രഹം',
   'tripDetail.taxes': 'നികുതികളും ഫീസും',
   'tripItineraryRow.nights': '{{count}} രാത്രികൾ',
+  'trips.empty.past': 'നിങ്ങൾ അലഞ്ഞുതിരിഞ്ഞു തുടങ്ങിയാൽ കഴിഞ്ഞ യാത്രകൾ ഇവിടെ കാണാം.',
   'trips.empty.upcoming': 'വരാനിരിക്കുന്ന യാത്രകളൊന്നുമില്ല — നമുക്ക് അത് പരിഹരിക്കാം.',
   'trips.eyebrow': 'നിങ്ങളുടെ അലഞ്ഞുതിരിയലുകൾ',
   'trips.heading': 'യാത്രകൾ',
   'trips.loadError': 'യാത്രകൾ ലോഡ് ചെയ്യാനായില്ല.',
+  'trips.searchCta': 'മറ്റൊരു യാത്ര പ്ലാൻ ചെയ്യുക',
   'trips.subheading': '{{upcoming}} വരാനിരിക്കുന്ന · {{past}} കഴിഞ്ഞ',
 }

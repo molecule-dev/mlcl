@@ -100,6 +100,8 @@ export const ui: UiTranslations = {
   'planUpdated.message': 'თქვენი გეგმა განახლდა.',
   'planUpdated.returnHome': 'მთავარ გვერდზე დაბრუნება',
   'planUpdated.thankYou': 'გმადლობთ!',
+  'post.markdown': 'ამ პოსტის ნახვა markdown-ის სახით',
+  'post.readingTime': '{{minutes}} წთ. წაკითხვა',
   'post.tags': 'თეგები',
   'project.error.nameAndTypeRequired': 'sakheli da projectType sachiroa',
   'project.error.notFound': 'Ver moidzebna',

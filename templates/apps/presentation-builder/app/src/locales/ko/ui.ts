@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '질문, 피드백 또는 저희가 있었으면 하는 기능이 있나요? 계정 설정에서 팀에 연락하세요 — 모든 메시지를 실제 사람이 읽습니다.',
   'about.contactTitle': '문의하기',
   'about.eyebrow': '소개',
+  'about.missionTitle': '우리의 사명',
+  'about.whatYouGetTitle': '제공되는 기능',
   'analytics.empty': '분석을 보려면 덱을 만들어 주세요.',
   'analytics.stats.acrossDecks': '모든 덱 전체',
   'analytics.stats.allTime': '내 스튜디오에서',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': '덱 제목',
   'landing.features.eyebrow': 'Overture를 선택하는 이유',
   'landing.features.heading': '무대에 오를 준비를 마치는 데 필요한 모든 것.',
+  'landing.finalCta.body':
+    '1분 이내에 스튜디오를 시작하세요. 신용 카드 필요 없음. 언제든지 취소 가능.',
   'landing.finalCta.cta': '무료 스튜디오 만들기',
   'landing.finalCta.eyebrow': '무료로 시작',
   'landing.finalCta.heading': '커리어 최고의 덱으로 무대에 오르세요.',
@@ -81,10 +87,14 @@ export const ui: UiTranslations = {
   'landing.sample.updated': '12분 전 편집됨',
   'notifications.created': '생성함',
   'notifications.edited': '편집함',
+  'notifications.empty.body': '덱의 활동 — 댓글, 멘션, 내보내기 — 이 여기에 표시됩니다.',
   'notifications.empty.title': '아직 알림이 없습니다',
   'notifications.eyebrow': '무대 활동',
   'notifications.loading': '불러오는 중…',
   'notifications.shared': '공개로 공유함',
+  'planUpdated.retry': '다시 시도',
+  'planUpdated.verifyFailed': '아직 결제 확인이 완료되지 않았습니다.',
+  'planUpdated.verifyFailedBody': '결제가 아직 처리 중일 수 있습니다. 잠시 후 다시 시도해 주세요.',
   'planUpdated.verifying': '결제 확인 중…',
   'present.addSlides': '슬라이드 추가',
   'present.backToDecks': '덱으로 돌아가기',
@@ -122,6 +132,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': '무대 출연자',
   'settings.security.notSet': '설정되지 않음',
   'settings.security.passwordBody': '비밀번호는 저장 시 암호화됩니다.',
+  'settings.security.reset': '재설정',
   'settings.security.title': '계정 + 세션',
   'shared.empty.body':
     '공개로 공유한 덱이 여기에 표시됩니다. 덱을 열고 공개로 전환해 공유해 주세요.',
@@ -130,6 +141,11 @@ export const ui: UiTranslations = {
   'shared.loading': '불러오는 중…',
   'shared.title': '공유한 덱',
   'templateCard.slideCount': '슬라이드 {{count}}개',
+  'templateCard.usageCount': '{{count}}회 사용',
+  'templates.empty.body': '다른 필터를 사용해 보세요 — 매달 새로운 템플릿을 출시합니다.',
+  'templates.empty.title': '이 카테고리에는 아직 템플릿이 없습니다',
+  'templates.hero.body':
+    '차트 블록, 데모 프레임, 발표자 노트, 타이머 프리셋이 포함된 테마가 적용된 슬라이드 레이아웃 — 모든 템플릿은 바로 녹화할 수 있도록 제공됩니다.',
   'templates.hero.eyebrow': '엄선된 무대',
   'templates.hero.heading': '꼭 성공해야 하는 순간을 위해 만들어진 무대.',
 }

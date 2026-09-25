@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Frågor, feedback eller en funktion du önskar att vi hade? Nå teamet från dina kontoinställningar — en riktig person läser varje meddelande.',
   'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
+  'about.missionTitle': 'Vårt uppdrag',
+  'about.whatYouGetTitle': 'Vad du får',
   'analytics.empty': 'Skapa deck för att se analyser här.',
   'analytics.stats.acrossDecks': 'Över alla deck',
   'analytics.stats.allTime': 'I din studio',
@@ -66,6 +70,8 @@ export const ui: UiTranslations = {
   'editor.titleAria': 'Deckens titel',
   'landing.features.eyebrow': 'Varför Overture',
   'landing.features.heading': 'Allt du behöver för att gå ut på scenen förberedd.',
+  'landing.finalCta.body':
+    'Starta din studio på under en minut. Inget kreditkort. Avbryt när som helst.',
   'landing.finalCta.cta': 'Skapa din kostnadsfria studio',
   'landing.finalCta.eyebrow': 'Gratis att börja',
   'landing.finalCta.heading': 'Kliv upp på scenen med karriärens bästa deck.',
@@ -81,10 +87,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Redigerad för 12 min sedan',
   'notifications.created': 'skapade',
   'notifications.edited': 'redigerade',
+  'notifications.empty.body':
+    'Aktivitet på dina decks — kommentarer, omnämnanden, exporter — visas här.',
   'notifications.empty.title': 'Inga aviseringar ännu',
   'notifications.eyebrow': 'Scenaktivitet',
   'notifications.loading': 'Läser in…',
   'notifications.shared': 'delade offentligt',
+  'planUpdated.retry': 'Försök igen',
+  'planUpdated.verifyFailed': 'Vi kunde inte bekräfta din betalning ännu.',
+  'planUpdated.verifyFailedBody':
+    'Din betalning kan fortfarande behandlas. Försök igen om en stund.',
   'planUpdated.verifying': 'Bekräftar din betalning…',
   'present.addSlides': 'Lägg till bilder',
   'present.backToDecks': 'Tillbaka till deck',
@@ -122,6 +134,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Scenartist',
   'settings.security.notSet': 'Inte angiven',
   'settings.security.passwordBody': 'Ditt lösenord är krypterat när det inte används.',
+  'settings.security.reset': 'Återställ',
   'settings.security.title': 'Konto + sessioner',
   'shared.empty.body':
     'Deck du delar offentligt visas här. Öppna ett deck och växla till offentligt för att dela.',
@@ -130,6 +143,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Läser in…',
   'shared.title': 'Delade deck',
   'templateCard.slideCount': '{{count}} bilder',
+  'templateCard.usageCount': '{{count}} användningar',
+  'templates.empty.body': 'Prova ett annat filter — vi släpper nya mallar varje månad.',
+  'templates.empty.title': 'Inga mallar i den här kategorin ännu',
+  'templates.hero.body':
+    'Färdigtemade bildlayouter med diagramblock, demoramar, presentatörsanteckningar och timerförval — varje mall är redo att spelas in.',
   'templates.hero.eyebrow': 'Utvalda scener',
   'templates.hero.heading': 'Scener byggda för stunden då du måste leverera.',
 }

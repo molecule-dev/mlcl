@@ -1,8 +1,12 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Masz pytania, uwagi lub brakuje Ci jakiejś funkcji? Skontaktuj się z zespołem w ustawieniach konta — każdą wiadomość czyta prawdziwa osoba.',
   'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
+  'about.missionTitle': 'Nasza misja',
+  'about.whatYouGetTitle': 'Co Pan/Pani otrzymuje',
   'analytics.empty': 'Proszę utworzyć talie, aby zobaczyć tutaj analitykę.',
   'analytics.stats.acrossDecks': 'We wszystkich taliach',
   'analytics.stats.allTime': 'W Pana/Pani studiu',
@@ -67,6 +71,8 @@ export const ui: UiTranslations = {
   'landing.features.eyebrow': 'Dlaczego Overture',
   'landing.features.heading':
     'Wszystko, czego Pan/Pani potrzebuje, aby wejść na scenę w pełni przygotowanym.',
+  'landing.finalCta.body':
+    'Uruchom swoje studio w mniej niż minutę. Bez karty kredytowej. Anuluj w dowolnym momencie.',
   'landing.finalCta.cta': 'Załóż darmowe studio',
   'landing.finalCta.eyebrow': 'Darmowy start',
   'landing.finalCta.heading': 'Proszę wejść na scenę z najlepszą talią w karierze.',
@@ -82,10 +88,16 @@ export const ui: UiTranslations = {
   'landing.sample.updated': 'Edytowano 12 min temu',
   'notifications.created': 'utworzył(a)',
   'notifications.edited': 'edytował(a)',
+  'notifications.empty.body':
+    'Aktywność na Twoich deckach — komentarze, wzmianki, eksporty — pojawi się tutaj.',
   'notifications.empty.title': 'Brak powiadomień',
   'notifications.eyebrow': 'Aktywność sceniczna',
   'notifications.loading': 'Ładowanie…',
   'notifications.shared': 'udostępnił(a) publicznie',
+  'planUpdated.retry': 'Spróbuj ponownie',
+  'planUpdated.verifyFailed': 'Nie mogliśmy jeszcze potwierdzić Twojej płatności.',
+  'planUpdated.verifyFailedBody':
+    'Twoja płatność może być nadal przetwarzana. Spróbuj ponownie za chwilę.',
   'planUpdated.verifying': 'Potwierdzanie płatności…',
   'present.addSlides': 'Dodaj slajdy',
   'present.backToDecks': 'Wróć do talii',
@@ -123,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.profile.unnamed': 'Artysta sceniczny',
   'settings.security.notSet': 'Nie ustawiono',
   'settings.security.passwordBody': 'Pana/Pani hasło jest zaszyfrowane w spoczynku.',
+  'settings.security.reset': 'Reset',
   'settings.security.title': 'Konto + sesje',
   'shared.empty.body':
     'Talie udostępnione publicznie pojawią się tutaj. Proszę otworzyć talię i przełączyć ją na publiczną, aby ją udostępnić.',
@@ -131,6 +144,11 @@ export const ui: UiTranslations = {
   'shared.loading': 'Ładowanie…',
   'shared.title': 'Udostępnione talie',
   'templateCard.slideCount': 'Slajdów: {{count}}',
+  'templateCard.usageCount': '{{count}} użyć',
+  'templates.empty.body': 'Wypróbuj inny filtr — co miesiąc dodajemy nowe szablony.',
+  'templates.empty.title': 'Brak szablonów w tej kategorii',
+  'templates.hero.body':
+    'Gotowe układy slajdów z motywem, blokami wykresów, ramkami demonstracyjnymi, notatkami prelegenta i ustawieniami timera — każdy szablon jest gotowy do nagrania.',
   'templates.hero.eyebrow': 'Wybrane sceny',
   'templates.hero.heading': 'Sceny stworzone na moment, w którym trzeba osiągnąć sukces.',
 }

@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Heb je feedback, heb je een bug gevonden of wil je je school laten aansluiten? Neem contact op via je accountinstellingen of stuur je schoolbeheerder een bericht — elke opmerking bereikt een echt persoon in het team.',
   'about.contactTitle': 'Neem contact met ons op',
+  'about.missionTitle': 'Onze missie',
   'announcementsFeed.empty': 'Nog geen mededelingen.',
   'announcementsFeed.eyebrow': '{{count}} updates',
   'announcementsFeed.title': 'Laatste mededelingen',
   'assignmentDetail.alreadySubmitted': 'U heeft deze opdracht al ingeleverd.',
   'assignmentDetail.backLink': 'Terug naar opdrachten',
+  'assignmentDetail.dropBody':
+    'Gebruik Bestanden kiezen om je werk toe te voegen — we registreren het tijdstip van inzending zodra je bevestigt.',
   'assignmentDetail.dropButton': 'Bestanden kiezen',
+  'assignmentDetail.dropPrompt': 'Sleep je PDF- of fotopakket hierheen',
   'assignmentDetail.due': 'Inleveren {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Instructies',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Beoordeeld',
   'assignmentDetail.statusSubmitted': 'Ingeleverd',
   'assignmentDetail.statusTitle': 'Inleverstatus',
+  'assignmentDetail.submitError':
+    'We konden die inzending niet registreren. Probeer het zo meteen opnieuw.',
   'assignmentDetail.submitted': 'Inlevering vastgelegd — uw docent is op de hoogte gebracht.',
+  'assignmentDetail.submittedAt': 'Ingediend {{when}}',
+  'assignmentDetail.submitTitle': 'Dien je werk in',
   'assignmentRow.courseDue': '{{course}} · Inleveren {{due}}',
   'assignments.empty': 'Niets om te tonen',
   'assignments.emptyBody':
@@ -39,9 +49,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Een dagelijks logboek van aanwezigheid, afwezigheden en te-laat-komen — met notities indien van toepassing.',
+  'attendance.summary.absences': 'Afwezigheden',
   'attendance.summary.absencesCaption': 'Onder de interventiedrempel van 5 dagen',
   'attendance.summary.attendance': 'Aanwezigheid',
   'attendance.summary.attendanceCaption': '{{count}} aanwezige dagen dit semester',
+  'attendance.summary.tardies': 'Te laat',
   'attendance.summary.tardiesCaption': 'Inclusief notities voor bus- / afspraakvertragingen',
   'attendance.title': 'Aanwezigheidsoverzicht',
   'calendar.eyebrow': 'Schooljaar · {{year}}',
@@ -55,6 +67,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Cijfers',
   'courseDetail.currentGrade': 'Huidig cijfer',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Cursusoverzicht',
   'courseDetail.gradesTitle': 'Recente cijfers',
   'courseDetail.messageTeacher': 'Stuur de docent een bericht',
   'courseDetail.noGrades': 'Nog geen cijfers geplaatst.',
@@ -67,12 +80,20 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Alles bekijken',
   'dashboard.assignmentsTitle': 'Deze week op de planning',
   'dashboard.greeting': 'Hallo {{name}}, klaar voor de les?',
+  'dashboard.subtitle':
+    'Je week in één oogopslag — rooster, cijfers en opdrachten in één rustig overzicht.',
+  'dashboard.viewReportCard': 'Rapport bekijken',
+  'dashboard.weekFocusBody':
+    'Lever Oefenset 7 van Kwadratische vergelijkingen en de hoofdstuktoets in. Het bijleslokaal is open op dinsdag en donderdag na periode 7.',
+  'dashboard.weekFocusCta': 'Volledig plan bekijken',
   'dashboard.weekFocusEyebrow': 'Focus van de week',
   'dashboard.weekFocusTitle': 'Algebra II met 4 punten omhoog',
   'forgotPassword.subheading': 'Voer uw schoolmail in en we sturen u een resetlink.',
   'forgotPassword.successBody':
     'Als {{email}} bij een Chalk-account hoort, is een wachtwoordreset onderweg. Links verlopen na 30 minuten.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': 'GPA {{term}} semester',
+  'gpaHeroCard.summary': '{{count}} lessen vandaag',
   'grades.col.grade': 'Cijfer',
   'grades.col.teacher': 'Docent',
   'grades.col.trend': 'Trend',
@@ -84,10 +105,17 @@ export const ui: UiTranslations = {
     'Live letter- en percentagecijfers. Trendpijlen tonen of u stijgt, gelijk blijft of zakt.',
   'grades.title': 'Uw cijfers, vak voor vak',
   'grades.trendStable': 'Stabiel',
+  'grades.viewReportCard': 'Formeel rapport bekijken',
   'landing.copyright': '© {{year}} {{app}} . Ontwikkeld voor studenten, gemaakt voor gezinnen.',
+  'landing.ctaBody':
+    'De eerste 30 dagen gratis, geen creditcard nodig. Schooldistricten kunnen in één middag een schoolbreed pakket uitrollen.',
+  'landing.ctaButton': 'Maak uw portaal aan',
   'landing.ctaHeading': 'Een rustigere schooldag begint binnen enkele minuten',
   'landing.eyebrow': 'Voor middelbare scholieren',
   'landing.featuresHeading': 'Een schooldag georganiseerd rond de leerling',
+  'landing.heroSubtitle':
+    '{{appName}} brengt elke klas, elk cijfer, elke opdracht en elk bericht samen in één rustig dashboard, zodat je minder tijd kwijt bent aan zoeken en meer tijd hebt om te leren.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Standaard FERPA-conform',
   'landing.proof.rating': '4,8 over 12k gezinnen',
   'landing.sampleTerm': 'Voorjaar',
@@ -96,6 +124,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Wachtwoord verbergen',
   'login.noAccount': 'Nieuw bij Chalk?',
   'login.showPassword': 'Wachtwoord weergeven',
+  'messages.compose': 'Nieuw bericht',
   'messages.composer.email': 'E-mail ontvanger (optioneel)',
   'messages.composer.errorEmpty': 'Het bericht mag niet leeg zijn.',
   'messages.composer.errorRecipient': 'De naam van de ontvanger is vereist.',
@@ -126,9 +155,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Eerlijke lijst · Voorjaarssemester',
   'nav.unreadMessages': 'Ongelezen berichten',
   'notifications.eyebrow': '{{count}} updates',
+  'notifications.feedTitle': 'Alle recente activiteit',
   'notifications.subtitle':
     'Cijfers, herinneringen, berichten en schoolmededelingen. Pas in Instellingen aan welke kanalen elke melding gebruikt.',
+  'planUpdated.body':
+    'Je factuurwijziging is nu actief. Je kunt je abonnement op elk moment beheren vanaf de factuurpagina.',
+  'planUpdated.retry': 'Opnieuw proberen',
+  'planUpdated.verifyFailed': 'We hebben uw betaling nog niet kunnen bevestigen.',
+  'planUpdated.verifyFailedBody':
+    'Uw betaling wordt mogelijk nog verwerkt. Probeer het over een moment opnieuw.',
   'planUpdated.verifying': 'Je betaling bevestigen…',
+  'pricing.announcementsLabel': 'aankondigingen',
   'pricing.attendanceLabel': 'aanwezigheid',
   'pricing.gradesLabel': 'cijfers',
   'pricing.heading': 'aankondigingen',
@@ -143,6 +180,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'K2',
   'reportCard.crumb': 'Rapport',
   'reportCard.cumulativeGpa': 'Cumulatieve GPA',
+  'reportCard.download': 'PDF downloaden',
   'reportCard.downloaded': 'Rapport geopend in een nieuw tabblad.',
   'reportCard.downloading': 'PDF genereren…',
   'reportCard.empty': 'Nog geen cijfers in het dossier.',
@@ -150,6 +188,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Eind-GPA · {{term}}',
   'reportCard.subtitle':
     'Een officieel eindrapport met gewogen vakcijfers, aanwezigheid en een afdrukbare PDF-download.',
+  'reportCard.title': 'Rapport',
+  'resetPassword.newPassword': 'Nieuw wachtwoord',
   'resetPassword.subheading': 'Kies iets dat u kunt onthouden, maar moeilijk te raden is.',
   'resetPassword.tokenPlaceholder': 'Plak de code uit uw e-mail',
   'schedule.empty': 'Geen lessen ingepland.',
@@ -173,12 +213,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Openstaande opdrachten',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} afwezigheden dit semester · {{tardy}} keer te laat',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Aanwezigheidscijfers berekenen…',
+  'subjectStatsTriad.attendanceLabel': 'Aanwezigheid',
   'subjectStatsTriad.gradesCaption': 'Bij een gewogen gemiddelde van {{percent}}%',
+  'subjectStatsTriad.gradesCaptionLoading': 'Cijfers laden…',
+  'subjectStatsTriad.gradesLabel': 'Klassengemiddelde',
   'todayScheduleStrip.empty': 'Geen lessen vandaag.',
   'todayScheduleStrip.eyebrow': '{{count}} lessen',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Rooster vandaag',
   'topbar.guestName': 'Leerling',
   'topbar.searchPlaceholder': 'Zoek vakken, opdrachten…',
+  'topbar.studentRole': 'Leerling',
   'topbar.studentTag': 'Leerling · #{{id}}',
 }

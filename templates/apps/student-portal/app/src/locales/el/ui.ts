@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, βρήκες κάποιο σφάλμα ή θέλεις να φέρεις το σχολείο σου στην πλατφόρμα; Επικοινώνησε από τις ρυθμίσεις του λογαριασμού σου ή στείλε μήνυμα στον διαχειριστή του σχολείου σου — κάθε σημείωση φτάνει σε ένα πραγματικό μέλος της ομάδας.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.missionTitle': 'Η αποστολή μας',
   'announcementsFeed.empty': 'Δεν υπάρχουν ακόμη ανακοινώσεις.',
   'announcementsFeed.eyebrow': '{{count}} ενημερώσεις',
   'announcementsFeed.title': 'Τελευταίες ανακοινώσεις',
   'assignmentDetail.alreadySubmitted': 'Έχετε ήδη υποβάλει αυτήν την εργασία.',
   'assignmentDetail.backLink': 'Επιστροφή στις εργασίες',
+  'assignmentDetail.dropBody':
+    'Χρησιμοποίησε το «Επιλογή αρχείων» για να επισυνάψεις την εργασία σου — θα καταγράψουμε την ώρα υποβολής μόλις επιβεβαιώσεις.',
   'assignmentDetail.dropButton': 'Επιλογή αρχείων',
+  'assignmentDetail.dropPrompt': 'Απόθεσε εδώ το PDF ή το φωτογραφικό σου αρχείο',
   'assignmentDetail.due': 'Οφειλόμενος {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Οδηγίες',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Βαθμολογημένο',
   'assignmentDetail.statusSubmitted': 'Υποβλήθηκε',
   'assignmentDetail.statusTitle': 'Κατάσταση υποβολής',
+  'assignmentDetail.submitError':
+    'Δεν μπορέσαμε να καταγράψουμε αυτή την υποβολή. Δοκίμασε ξανά σε λίγο.',
   'assignmentDetail.submitted': 'Η υποβολή καταγράφηκε — ο καθηγητής σας έχει ειδοποιηθεί.',
+  'assignmentDetail.submittedAt': 'Υποβλήθηκε {{when}}',
+  'assignmentDetail.submitTitle': 'Υπόβαλε την εργασία σου',
   'assignmentRow.courseDue': '{{course}} · Οφειλόμενο {{due}}',
   'assignments.empty': 'Τίποτα εδώ',
   'assignments.emptyBody':
@@ -39,9 +49,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Ένα καθημερινό αρχείο καταγραφής παρουσίας, απουσιών και καθυστερήσεων — με σημειώσεις όπου είναι απαραίτητο.',
+  'attendance.summary.absences': 'Απουσίες',
   'attendance.summary.absencesCaption': 'Κάτω από το όριο παρέμβασης των 5 ημερών',
   'attendance.summary.attendance': 'Παρουσία',
   'attendance.summary.attendanceCaption': '{{count}} σήμερα αυτή την περίοδο',
+  'attendance.summary.tardies': 'Καθυστερήσεις',
   'attendance.summary.tardiesCaption':
     'Συμπεριλαμβανομένων σημειώσεων για καθυστερήσεις λεωφορείων / ραντεβού',
   'attendance.title': 'Ιστορικό παρουσίας',
@@ -56,6 +68,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Βαθμοί',
   'courseDetail.currentGrade': 'Τρέχουσα τάξη',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Επισκόπηση μαθήματος',
   'courseDetail.gradesTitle': 'Πρόσφατοι βαθμοί',
   'courseDetail.messageTeacher': 'Δάσκαλος μηνυμάτων',
   'courseDetail.noGrades': 'Δεν έχουν δημοσιευτεί ακόμη βαθμοί.',
@@ -68,13 +81,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Δες όλα',
   'dashboard.assignmentsTitle': 'Στη συνέχεια αυτή την εβδομάδα',
   'dashboard.greeting': 'Γεια {{name}} , έτοιμοι για το μάθημα;',
+  'dashboard.subtitle':
+    'Η εβδομάδα σου με μια ματιά — πρόγραμμα, βαθμοί και εργασίες σε μια ήσυχη προβολή.',
+  'dashboard.viewReportCard': 'Προβολή αναλυτικής βαθμολογίας',
+  'dashboard.weekFocusBody':
+    'Υπόβαλε το σετ εξάσκησης 7 στα Τετραγωνικά και το κουίζ του κεφαλαίου. Το εργαστήριο ενισχυτικής διδασκαλίας είναι ανοιχτό Τρίτη & Πέμπτη μετά την 7η περίοδο.',
+  'dashboard.weekFocusCta': 'Δες το πλήρες πλάνο',
   'dashboard.weekFocusEyebrow': 'Εβδομαδιαία εστίαση',
   'dashboard.weekFocusTitle': 'Αναφέρετε την Άλγεβρα ΙΙ κατά 4 μονάδες',
   'forgotPassword.subheading':
     'Εισαγάγετε το email του σχολείου σας και θα σας στείλουμε έναν σύνδεσμο επαναφοράς.',
   'forgotPassword.successBody':
     "Αν {{email}} ταιριάζει με έναν λογαριασμό Chalk, ένας σύνδεσμος επαναφοράς κωδικού πρόσβασης είναι καθ' οδόν. Οι σύνδεσμοι λήγουν σε 30 λεπτά.",
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} μέσος όρος βαθμολογίας τριμήνου',
+  'gpaHeroCard.summary': '{{count}} μαθήματα σήμερα',
   'grades.col.grade': 'Βαθμός',
   'grades.col.teacher': 'Δάσκαλος',
   'grades.col.trend': 'Τάση',
@@ -86,10 +107,17 @@ export const ui: UiTranslations = {
     'Βαθμοί με ζωντανά γράμματα και ποσοστά. Τα βέλη τάσης δείχνουν εάν κινείστε προς τα πάνω, επίπεδο ή ολισθαίνετε.',
   'grades.title': 'Οι βαθμοί σας, μάθημα προς μάθημα',
   'grades.trendStable': 'Σταθερός',
+  'grades.viewReportCard': 'Προβολή επίσημης αναλυτικής βαθμολογίας',
   'landing.copyright': '© {{year}} {{app}} . Σχεδιασμένο για μαθητές, φτιαγμένο για οικογένειες.',
+  'landing.ctaBody':
+    'Δωρεάν για τις πρώτες 30 ημέρες, χωρίς πιστωτική κάρτα. Οι περιφέρειες μπορούν να εφαρμόσουν πακέτο για όλο το σχολείο μέσα σε ένα απόγευμα.',
+  'landing.ctaButton': 'Δημιουργήστε την πύλη σας',
   'landing.ctaHeading': 'Μια πιο ήρεμη σχολική μέρα ξεκινά σε λίγα λεπτά',
   'landing.eyebrow': 'Για μαθητές γυμνασίου και λυκείου',
   'landing.featuresHeading': 'Μια σχολική ημέρα οργανωμένη γύρω από τον μαθητή',
+  'landing.heroSubtitle':
+    'Το {{appName}} συγκεντρώνει κάθε μάθημα, βαθμό, εργασία και μήνυμα σε ένα ήρεμο ταμπλό, ώστε να ξοδεύεις λιγότερο χρόνο ψάχνοντας και περισσότερο μαθαίνοντας.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Συμβατό με FERPA από προεπιλογή',
   'landing.proof.rating': '4,8 σε 12.000 οικογένειες',
   'landing.sampleTerm': 'Ανοιξη',
@@ -98,6 +126,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Απόκρυψη κωδικού',
   'login.noAccount': 'Νέος χρήστης της Chalk;',
   'login.showPassword': 'Εμφάνιση κωδικού',
+  'messages.compose': 'Νέο μήνυμα',
   'messages.composer.email': 'Ηλεκτρονική διεύθυνση παραλήπτη (προαιρετικό)',
   'messages.composer.errorEmpty': 'Το μήνυμα δεν μπορεί να είναι κενό.',
   'messages.composer.errorRecipient': 'Απαιτείται το όνομα του παραλήπτη.',
@@ -128,9 +157,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'Τιμητικός κατάλογος · Εαρινό τρίμηνο',
   'nav.unreadMessages': 'Μη αναγνωσμένα μηνύματα',
   'notifications.eyebrow': '{{count}} ενημερώσεις',
+  'notifications.feedTitle': 'Όλη η πρόσφατη δραστηριότητα',
   'notifications.subtitle':
     'Βαθμοί, υπενθυμίσεις, μηνύματα και σχολικές ανακοινώσεις. Προσαρμόστε τα κανάλια που χρησιμοποιεί κάθε ειδοποίηση στις Ρυθμίσεις.',
+  'planUpdated.body':
+    'Η αλλαγή χρέωσής σας είναι πλέον ενεργή. Μπορείτε να διαχειρίζεστε το πλάνο σας οποιαδήποτε στιγμή από τη σελίδα χρέωσης.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
+  'pricing.announcementsLabel': 'ανακοινώσεις',
   'pricing.attendanceLabel': 'παρουσία',
   'pricing.gradesLabel': 'βαθμοί',
   'pricing.heading': 'ανακοινώσεις',
@@ -145,6 +182,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'Τρίμηνο 2',
   'reportCard.crumb': 'Κάρτα αναφοράς',
   'reportCard.cumulativeGpa': 'Συνολικός μέσος όρος βαθμολογίας',
+  'reportCard.download': 'Λήψη PDF',
   'reportCard.downloaded': 'Η κάρτα αναφοράς άνοιξε σε νέα καρτέλα.',
   'reportCard.downloading': 'Δημιουργία PDF…',
   'reportCard.empty': 'Δεν υπάρχουν ακόμη βαθμοί στο αρχείο.',
@@ -152,6 +190,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'Τελικός μέσος όρος βαθμολογίας · {{term}}',
   'reportCard.subtitle':
     'Επίσημη αναλυτική βαθμολογία τέλους εξαμήνου με σταθμισμένους βαθμούς μαθημάτων, παρακολούθηση μαθημάτων και εκτυπώσιμο PDF προς λήψη.',
+  'reportCard.title': 'Κάρτα αναφοράς',
+  'resetPassword.newPassword': 'Νέος κωδικός πρόσβασης',
   'resetPassword.subheading': 'Διάλεξε κάτι αξέχαστο αλλά δύσκολο να το μαντέψεις.',
   'resetPassword.tokenPlaceholder': 'Επικολλήστε τον κώδικα από το email σας',
   'schedule.empty': 'Δεν έχουν προγραμματιστεί μαθήματα.',
@@ -177,12 +217,17 @@ export const ui: UiTranslations = {
   'subjectStatsTriad.assignmentsLabel': 'Εκκρεμείς αναθέσεις',
   'subjectStatsTriad.attendanceCaption':
     '{{absent}} απουσίες αυτό το τρίμηνο · {{tardy}} καθυστερήσεις',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Επεξεργαζόμαστε τα στοιχεία παρουσιών…',
+  'subjectStatsTriad.attendanceLabel': 'Παρουσία',
   'subjectStatsTriad.gradesCaption': 'Απέναντι {{percent}} % σταθμισμένου μέσου όρου',
+  'subjectStatsTriad.gradesCaptionLoading': 'Φόρτωση βαθμών…',
+  'subjectStatsTriad.gradesLabel': 'Μέσος όρος τάξης',
   'todayScheduleStrip.empty': 'Δεν υπάρχουν μαθήματα σήμερα.',
   'todayScheduleStrip.eyebrow': '{{count}} τάξεις',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Το σημερινό πρόγραμμα',
   'topbar.guestName': 'Φοιτητής',
   'topbar.searchPlaceholder': 'Αναζήτηση μαθημάτων, εργασιών…',
+  'topbar.studentRole': 'Φοιτητής',
   'topbar.studentTag': 'Φοιτητής · # {{id}}',
 }

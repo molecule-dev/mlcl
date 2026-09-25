@@ -1,21 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Kuna da ra'ayi, kun sami matsala, ko kuna son ba da shawara kan wata fasali? Tuntuɓe mu daga saitunan asusunku — kowane saƙo yana zuwa ga wani mutum na gaske a ƙungiyar.",
+  'about.contactTitle': 'Yi magana da mu',
+  'about.featureDatabases':
+    'Ƙananan rumbun adana bayanai da samfura masu sake amfani don juya rubuce-rubuce marasa tsari zuwa ayyuka masu tsari da maimaitawa.',
+  'about.featureEditor':
+    'Editan rubutu mai natsuwa — kanun labarai, jeri, lamba, sanarwa, da ayyukan yi — tare da umarnin slash lokacin da kuke so kuma ba ya tsoma baki lokacin da ba kwa so.',
+  'about.featureGraph':
+    'Hanyoyin komawa da taswirar ilimi: rubuta [[ don haɗa bayanin kula sannan ka ga yadda tunaninka ke haɗuwa a kan lokaci.',
+  'about.featureNotebooks':
+    'Littattafan rubutu da shafuka masu ɗaki-ɗaki domin ayyuka, batutuwa, da bayanan yau da kullum su kasance cikin tsari daidai yadda kake tunani.',
+  'about.featureSearch':
+    'Bincike cikakke a cikin littattafan rubutu da ƙasa da 50ms, tare da alamun da suka dace da littattafan maimakon yin gaba da su.',
+  'about.missionTitle': 'Manufarmu',
   'common.goToDashboard': 'Je zuwa Dashboard',
   'forgot.eyebrow': 'Shin ka rasa hanyar komawa?',
   'forgot.formSubtitle': 'Faɗa mana imel ɗin da ke kan fayil ɗin.',
+  'forgot.formTitle': 'An manta kalmar sirri',
   'forgot.headline': 'Sake saita kalmar sirrinka.',
   'forgot.subline':
     'Za mu aika hanyar haɗi ta lokaci ɗaya zuwa akwatin saƙonku domin ku iya zaɓar sabuwa.',
+  'forgot.successDetail':
+    'Mun aika hanyar sake saita kalmar sirri zuwa imel ɗinka. Zai ƙare cikin minti 30.',
   'graph.eyebrow': 'Jadawalin zane',
+  'graph.goToNotes': 'Duba bayanan kula →',
+  'graph.loadError': 'Ba a iya loda taswirar: {{message}}',
   'graph.placeholderBody':
     'Lokacin da bayanan kula suka fara haɗawa da juna (tare da tsarin [[wiki]]), za a nuna jadawalin da ke da alaƙa da ƙarfin da ke aiki a nan.',
+  'graph.placeholderTitle': 'Taswirar hanyoyin komawa na zuwa nan ba da jimawa ba',
   'graph.subtitle':
     '{{count}} bayanin kula a cikin wannan wurin aiki. Tsarin zane na haɗin baya zai bayyana a nan da zarar bayanan sun haɗu da juna.',
   'graph.title': 'Jadawalin ilimi',
   'home.empty': 'Babu bayanin kula tukuna — fara na farko.',
   'home.favoritesHeading': 'An haɗa',
   'home.guest': 'aboki',
+  'home.loadError': 'Ba a iya loda bayanan kula: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Sanya rubutu a cikin editan don ajiye shi a nan.',
   'home.recentHeading': 'An sabunta kwanan nan',
@@ -23,18 +44,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Littafin Rubutu',
   'home.stats.pinned.label': 'An haɗa',
   'home.stats.updatedToday.label': 'An sabunta yau',
+  'home.subtitle': 'Ci gaba daga inda ka tsaya, ko fara sabon bayanin kula.',
   'home.viewAll': 'Duba duk bayanan kula',
   'landing.cta.body':
     'Kyauta don amfanin kai. Ƙwararru ga ƙungiyoyi. Kawo jerin sunayenka na yanzu ko fara sabo — Verso yana haɗuwa da kai duk inda bayananka suke.',
+  'landing.cta.button': 'Ƙirƙiri wurin aiki na',
   'landing.cta.heading': 'Bude shafin yau.',
   'landing.features.eyebrow': 'Kowace ƙwaƙwalwarka ta biyu tana buƙata',
+  'landing.features.heading': 'An gina shi don aikin, ba don aikin meta-work ba.',
   'landing.hero.eyebrow': 'Wurin rubutu mai shiru',
   'landing.hero.headlineAccent': 'ɗauki siffar.',
   'landing.hero.headlineLeading': 'Inda tunani',
   'landing.hero.primaryCta': 'Fara tushen ilimin ku',
   'landing.hero.secondaryCta': 'Ina da asusu',
+  'landing.hero.socialProof':
+    'Marubuta, ɗalibai, da masu digiri na PhD sama da 12,800 suna tunani da {{appName}}',
   'landing.hero.subline':
     "Verso wani tsari ne na ɗaukar bayanin kula ga ma'aikatan ilimi da ɗalibai. Editan toshe, littattafan rubutu da aka haɗa, hanyoyin haɗin yanar gizo, da jadawalin ilimi - duk a bayan ƙwarewar rubutu - karatu na farko.",
+  'landing.preview.notebook': 'Ilimi · Tsarin rubutu',
+  'landing.preview.title': 'Idan aka bar zane-zanen su yi numfashi',
   'login.eyebrow': 'Barka da dawowa Verso',
   'login.formSubtitle': 'Yi amfani da imel ɗinka ko duk wani mai samar da sabis da aka haɗa.',
   'login.headline': 'Ci gaba inda shafin ya tsaya.',
@@ -44,6 +72,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Rufe menu na kewayawa',
   'mobileNav.openMenu': 'Buɗe menu na kewayawa',
   'noteEditor.backToNotes': 'Komawa ga bayanin kula',
+  'noteEditor.bodyLabel': 'Jikin bayanin kula',
   'noteEditor.bodyPlaceholder':
     'Fara rubutu - bayanin kula yana adanawa ta atomatik yayin da kake rubutu.',
   'noteEditor.confirmTrash': 'Matsar da wannan bayanin zuwa shara?',
@@ -52,17 +81,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Matsar zuwa shara',
   'noteEditor.updated': 'An sabunta',
   'notes.defaultWorkspaceName': 'Littafin rubutu na',
+  'notes.empty': 'Babu bayanan kula a nan tukuna — fara ɗaya don cika littafin.',
   'notes.eyebrow': 'Littafin Rubutu',
   'notes.filterAll': 'Duk bayanin kula',
   'notes.filterPinned': 'An haɗa',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Sabon littafin rubutu',
   'notes.newNotebookPrompt': 'Sabon sunan littafin rubutu',
+  'notes.newNotebookRequired': 'Shigar da sunan littafin rubutu.',
   'notes.notebooksHeading': 'Littattafan Rubutu',
   'notes.subtitle':
     'Zaɓi littafin rubutu a gefen hagu, sannan danna maɓallin Sabon bayanin kula don fara sabon shigarwa.',
+  'planUpdated.body': 'Biyan kuɗin ka yana aiki yanzu.',
   'planUpdated.confirmation': 'Your plan has been updated',
+  'pricing.advancedFeatures': 'Ci-gaba fasali',
   'pricing.heading': 'Zaɓi tsarin ɗaukar bayanin kula',
+  'reset.changedMind': "Ka canza ra'ayinka?",
   'reset.eyebrow': 'Kusan dawowa ciki',
   'reset.formSubtitle': 'Za a shigar da kai da zarar an adana shi.',
   'reset.headline': 'Zaɓi sabuwar kalmar sirri.',
@@ -72,7 +106,9 @@ export const ui: UiTranslations = {
     'Shigar da lambar da muka aiko muku ta imel kuma ku zaɓi wani abu da ba za a manta da shi ba.',
   'reset.submit': 'Ajiye kuma shiga',
   'reset.tokenHint': 'An liƙa daga akwatin saƙonka.',
+  'search.empty': 'Babu bayanan kula da suka dace da wannan bincike tukuna.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Binciken Refract',
   'search.loading': 'Ana nema…',
   'search.noRecent': 'Rubuta tambaya a sama don fara bincike a cikin bayananka.',
   'search.recentLabel': 'Bincike na baya-bayan nan',
@@ -80,12 +116,19 @@ export const ui: UiTranslations = {
     'Cikakken rubutu a cikin kowace kwamfutar tafi-da-gidanka. Rubuta don bincike; sakamako yana wartsakewa yayin da kake rubutu.',
   'search.title': 'Bincika kwakwalwa ta biyu.',
   'settings.account.logout': 'Fita daga',
+  'settings.account.title': 'Bayanan asusu',
+  'settings.editor.graphHover.body':
+    'Nuna ƙaramin katin samfoti lokacin da ka tsaya kan [[wikilink]] a cikin edita.',
+  'settings.editor.graphHover.label': 'Samfotin tsayawa kan taswirar hanyoyin komawa',
   'settings.editor.lineHeight.body':
     'Nawa iskar da ke tsakanin layukan jiki. 170% shine tsarin karatu na asali.',
+  'settings.editor.lineHeight.label': 'Tsayin layi',
   'settings.editor.serif.body':
     'Yi amfani da Georgia don ginshiƙin karatu. Sans-serif yana ajiyewa a cikin gefen gefe da kayan aikin aiki.',
+  'settings.editor.serif.label': 'Rubutun jiki na Serif',
   'settings.editor.title': 'Rubutu da saman rubutu',
   'settings.eyebrow': 'Verso · Saiti',
+  'settings.passwordModal.current': 'Kalmar shiga na halin yanzu',
   'settings.passwordModal.error':
     'Ba za a iya canza kalmar sirri ba — don Allah a duba kalmar sirrinku ta yanzu.',
   'settings.passwordModal.next': 'Sabuwar kalmar sirri',
@@ -95,6 +138,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Tura kowace bugun maɓalli ta hanyar tashar ainihin lokaci. Kashe don haɗin da ke jinkirin.',
   'settings.sync.auto.label': 'Daidaita a ainihin lokaci',
+  'settings.sync.title': 'Yadda bayananka suke tafiya',
   'settings.theme.body':
     'Haske yana sa shafin edita ya yi haske. Sepia tana dumama shafin don maraice.',
   'settings.theme.dark': 'Duhu',
@@ -114,8 +158,12 @@ export const ui: UiTranslations = {
     'Ƙara #hashtags zuwa taken bayanin kula (misali "Jerin Karatu #littattafai") kuma za su bayyana a nan ta atomatik.',
   'tags.emptyTitle': 'Babu alamun har yanzu',
   'tags.eyebrow': 'Fihirisa',
+  'tags.goToNotes': 'Je zuwa bayanan kula →',
+  'tags.loadError': 'Ba a iya loda alamomi: {{message}}',
   'tags.subtitle':
     '{{tags}} tags a fadin {{notes}} bayanin kula. Ƙara #hashtags zuwa taken bayanin kula kuma za su bayyana a nan.',
+  'versoAuthShell.sample.body':
+    'Ziyartar gobe koyaushe tana fi karanta da daddare. Ajiye rubutun farko a cikin babban fayil ɗin aiki…',
   'versoAuthShell.sample.label': 'Bayanin yau da kullun',
   'versoAuthShell.sample.timestamp': 'Yau · 9:14 na safe',
   'versoAuthShell.sample.title': 'Idan aka bar zane-zanen su yi numfashi',
@@ -127,8 +175,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Ci gaba da rubutu',
   'versoTodayHero.createCta': 'Fara bayanin yau',
   'versoTodayHero.dailyLabel': 'Bayanin yau da kullun',
+  'versoTodayHero.emptyHeadline': 'Yau shafi ne mara komai.',
   'versoTodayHero.emptySubline':
     'Ka ɗauki tunani, rubuta taro, ko kuma zana zane gobe. Verso yana sa tsarin ya yi shiru don rubutun ya kasance da ƙarfi.',
+  'versoTodayHero.outlineLabel': 'Tsarin yau',
   'versoTodayHero.streak': '{{count}} - jerin rana',
+  'versoTodayHero.unwritten': 'Babu kalmomi tukuna — buɗe bayanin kula don farawa.',
   'versoTodayHero.wordCount': '{{count}} kalmomi a yau',
 }

@@ -1,13 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uthole iphutha, noma ufuna ukuletha isikole sakho? Xhumana nathi kusukela kuzilungiselelo ze-akhawunti yakho noma thumela umphathi wesikole sakho umyalezo — wonke umbhalo ufinyelela umuntu wangempela eqenjini.',
   'about.contactTitle': 'Xoxa nathi',
+  'about.missionTitle': 'Umsebenzi wethu',
   'announcementsFeed.empty': 'Azikho izimemezelo okwamanje.',
   'announcementsFeed.eyebrow': '{{count}} izibuyekezo',
   'announcementsFeed.title': 'Izimemezelo zakamuva',
   'assignmentDetail.alreadySubmitted': 'Usuvele uthumele lo msebenzi.',
   'assignmentDetail.backLink': 'Buyela emisebenzini',
+  'assignmentDetail.dropBody':
+    'Sebenzisa Khetha amafayela ukuze unamathisele umsebenzi wakho — sizoqopha isikhathi sokuthunyelwa uma usuqinisekisile.',
   'assignmentDetail.dropButton': 'Khetha amafayela',
+  'assignmentDetail.dropPrompt': 'Beka iphakedi lakho le-PDF noma lesithombe lapha',
   'assignmentDetail.due': 'Kufanele {{due}}',
   'assignmentDetail.eyebrow': '{{course}}',
   'assignmentDetail.instructions': 'Imiyalelo',
@@ -19,7 +25,11 @@ export const ui: UiTranslations = {
   'assignmentDetail.statusGraded': 'Kuhlelwe ngamamaki',
   'assignmentDetail.statusSubmitted': 'Kuthunyelwe',
   'assignmentDetail.statusTitle': 'Isimo sokuthumela',
+  'assignmentDetail.submitError':
+    'Asikwazanga ukuqopha lokho kuthunyelwa. Zama futhi ngemuva kwesikhashana.',
   'assignmentDetail.submitted': 'Ukuthunyelwa kuqoshwe — uthisha wakho usezisiwe.',
+  'assignmentDetail.submittedAt': 'Kuthunyelwe {{when}}',
+  'assignmentDetail.submitTitle': 'Thumela umsebenzi wakho',
   'assignmentRow.courseDue': '{{course}} · Kufanele {{due}}',
   'assignments.empty': 'Akukho lutho lapha',
   'assignments.emptyBody':
@@ -39,9 +49,11 @@ export const ui: UiTranslations = {
   'attendance.noNote': '—',
   'attendance.subtitle':
     'Irekhodi lansuku zonke lokuba khona, ukungabikho, kanye nokulibala — kanye namanothi uma kudingeka.',
+  'attendance.summary.absences': 'Ukungabikho',
   'attendance.summary.absencesCaption': 'Ngaphansi komkhawulo wokungenelela wezinsuku ezi-5',
   'attendance.summary.attendance': 'Ukuba khona',
   'attendance.summary.attendanceCaption': '{{count}} kulezi zinsuku zamanje',
+  'attendance.summary.tardies': 'Ukufika sekwephuzile',
   'attendance.summary.tardiesCaption': 'Kufaka amanothi okulibaziseka kwebhasi/ukuqokwa',
   'attendance.title': 'Umlando wokuba khona',
   'calendar.eyebrow': 'Unyaka wesikole · {{year}}',
@@ -55,6 +67,7 @@ export const ui: UiTranslations = {
   'courseDetail.backLink': 'Amabanga',
   'courseDetail.currentGrade': 'Ibanga lamanje',
   'courseDetail.eyebrow': '{{period}} · {{room}}',
+  'courseDetail.eyebrowFallback': 'Uhlolojikelele lwesifundo',
   'courseDetail.gradesTitle': 'Amamaki akamuva',
   'courseDetail.messageTeacher': 'Umfundisi womlayezo',
   'courseDetail.noGrades': 'Awekho amamaki athunyelwe okwamanje.',
@@ -67,13 +80,21 @@ export const ui: UiTranslations = {
   'dashboard.assignmentsLink': 'Bona konke',
   'dashboard.assignmentsTitle': 'Kuza kuleli sonto elizayo',
   'dashboard.greeting': 'Sawubona {{name}} , usukulungele ikilasi?',
+  'dashboard.subtitle':
+    'Iviki lakho ngokufingqiwe — uhlelo, amamaki, nemisebenzi kukho konke ngendlela elula.',
+  'dashboard.viewReportCard': 'Buka ikhadi lokubika',
+  'dashboard.weekFocusBody':
+    'Thumela isethi yokuzilolonga ye-Quadratics 7 kanye nomhloli wesahluko. Ilebhu yokufundisa ivuliwe ngoLwesibili nangoLwesine ngemuva kwesikhathi sesi-7.',
+  'dashboard.weekFocusCta': 'Buka uhlelo olugcwele',
   'dashboard.weekFocusEyebrow': 'Ukugxila kweviki',
   'dashboard.weekFocusTitle': 'Khuphula i-Algebra II ngamaphuzu angu-4',
   'forgotPassword.subheading':
     'Faka i-imeyili yakho yesikole bese sizokuthumela isixhumanisi sokusetha kabusha.',
   'forgotPassword.successBody':
     'Uma {{email}} ifana ne-akhawunti ye-Chalk, isixhumanisi sokusetha kabusha iphasiwedi sisendleleni. Izixhumanisi ziphelelwa yisikhathi ngemizuzu engama-30.',
+  'gpaHeroCard.change': '{{delta}}',
   'gpaHeroCard.eyebrow': '{{term}} i-GPA yesikhathi',
+  'gpaHeroCard.summary': 'Amakilasi angu-{{count}} namuhla',
   'grades.col.grade': 'Ibanga',
   'grades.col.teacher': 'Uthisha',
   'grades.col.trend': 'Ithrendi',
@@ -85,10 +106,17 @@ export const ui: UiTranslations = {
     'Amamaki ezinhlamvu ezibukhoma namaphesenti. Imicibisholo yethrendi ibonisa ukuthi uyakhuphuka, uyahamba, noma uyashelela.',
   'grades.title': 'Amamaki akho, inkambo ngenkambo',
   'grades.trendStable': 'Isitebele',
+  'grades.viewReportCard': 'Buka ikhadi lokubika elisemthethweni',
   'landing.copyright': '© {{year}} {{app}} . Yakhelwe abafundi, yenzelwe imindeni.',
+  'landing.ctaBody':
+    'Mahhala ezinsukwini zokuqala ezingama-30, akukho khadi lesikweletu elidingekayo. Izifunda zingakhipha uhlelo lwesikole sonke ngantambama eyodwa.',
+  'landing.ctaButton': 'Dala iphothali yakho',
   'landing.ctaHeading': 'Usuku lwesikole oluzolile luqala ngemizuzu embalwa',
   'landing.eyebrow': 'Kwabafundi besikole samabanga aphakathi naphezulu',
   'landing.featuresHeading': 'Usuku lwesikole luhlelwe ngokuzungeza umfundi',
+  'landing.heroSubtitle':
+    '{{appName}} idonsa wonke amakilasi, amamaki, imisebenzi, nemilayezo kudashibhodi eyodwa ezolile ukuze uchithe isikhathi esincane ufuna futhi isikhathi esiningi ufunda.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.proof.privacy': 'Ukuthobela i-FERPA ngokuzenzakalelayo',
   'landing.proof.rating': '4.8 emindenini eyi-12k',
   'landing.sampleTerm': 'Intwasahlobo',
@@ -97,6 +125,7 @@ export const ui: UiTranslations = {
   'login.hidePassword': 'Fihla iphasiwedi',
   'login.noAccount': 'Umusha ku-Chalk?',
   'login.showPassword': 'Bonisa iphasiwedi',
+  'messages.compose': 'Umlayezo omusha',
   'messages.composer.email': 'I-imeyili yomamukeli (ongakukhetha)',
   'messages.composer.errorEmpty': 'Umlayezo awukwazi ukungabi nalutho.',
   'messages.composer.errorRecipient': 'Igama lomamukeli liyadingeka.',
@@ -127,9 +156,17 @@ export const ui: UiTranslations = {
   'nav.statusSubtext': 'I-Honor roll · Isikhathi sasentwasahlobo',
   'nav.unreadMessages': 'Imiyalezo engakafundwa',
   'notifications.eyebrow': '{{count}} izibuyekezo',
+  'notifications.feedTitle': 'Wonke umsebenzi wakamuva',
   'notifications.subtitle':
     'Amamaki, izikhumbuzi, imiyalezo, kanye nezimemezelo zesikole. Lungisa ukuthi yiziphi iziteshi ezisetshenziswa yisaziso ngasinye kuzilungiselelo.',
+  'planUpdated.body':
+    'Ushintsho lwakho lokukhokha lusebenza manje. Ungaphatha uhlelo lwakho noma nini kusuka ekhasini lokukhokha.',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
+  'pricing.announcementsLabel': 'izimemezelo',
   'pricing.attendanceLabel': 'ukuba khona',
   'pricing.gradesLabel': 'amamaki',
   'pricing.heading': 'izimemezelo',
@@ -144,6 +181,7 @@ export const ui: UiTranslations = {
   'reportCard.col.q2': 'Q2',
   'reportCard.crumb': 'Ikhadi lombiko',
   'reportCard.cumulativeGpa': 'I-GPA Ehlanganisiwe',
+  'reportCard.download': 'Landa i-PDF',
   'reportCard.downloaded': 'Ikhadi lombiko livuliwe kuthebhu entsha.',
   'reportCard.downloading': 'Idala i-PDF…',
   'reportCard.empty': 'Azikho izimpawu ezigciniwe okwamanje.',
@@ -151,6 +189,8 @@ export const ui: UiTranslations = {
   'reportCard.gpaRow': 'I-GPA Yokugcina · {{term}}',
   'reportCard.subtitle':
     'Umbhalo osemthethweni wokuphela kwesemester onezingqinamba zezifundo ezilinganiselwe, ukuba khona, kanye nokulandwa kwe-PDF okuphrintiwe.',
+  'reportCard.title': 'Ikhadi lombiko',
+  'resetPassword.newPassword': 'Iphasiwedi Entsha',
   'resetPassword.subheading': 'Khetha into ekhumbulekayo kodwa okunzima ukuyiqagela.',
   'resetPassword.tokenPlaceholder': 'Namathisela ikhodi evela ku-imeyili yakho',
   'schedule.empty': 'Awekho amakilasi ahleliwe.',
@@ -175,12 +215,17 @@ export const ui: UiTranslations = {
     '{{due48}} kufanele iphele emahoreni angu-48, {{overdue}} sekwephuzile',
   'subjectStatsTriad.assignmentsLabel': 'Imisebenzi Esalindile',
   'subjectStatsTriad.attendanceCaption': '{{absent}} ukungabikho kuleli gama · {{tardy}} ukulinda',
+  'subjectStatsTriad.attendanceCaptionLoading': 'Kubalwa izibalo zokubakhona…',
+  'subjectStatsTriad.attendanceLabel': 'Ukuba khona',
   'subjectStatsTriad.gradesCaption': 'Ngaphesheya {{percent}} isilinganiso esilinganisiwe esingu-%',
+  'subjectStatsTriad.gradesCaptionLoading': 'Ilayisha amamaki…',
+  'subjectStatsTriad.gradesLabel': 'Isilinganiso Sekilasi',
   'todayScheduleStrip.empty': 'Azikho izifundo namuhla.',
   'todayScheduleStrip.eyebrow': '{{count}} amakilasi',
   'todayScheduleStrip.teacherRoom': '{{teacher}} · {{room}}',
   'todayScheduleStrip.title': 'Uhlelo lwanamuhla',
   'topbar.guestName': 'Umfundi',
   'topbar.searchPlaceholder': 'Sesha amakilasi, imisebenzi…',
+  'topbar.studentRole': 'Umfundi',
   'topbar.studentTag': 'Umfundi · # {{id}}',
 }

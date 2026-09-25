@@ -1,20 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du feedback, hittat en bugg eller vill föreslå en funktion? Hör av dig från dina kontoinställningar — varje meddelande går till en riktig människa i teamet.',
+  'about.contactTitle': 'Kontakta oss',
+  'about.featureDatabases':
+    'Lättviktiga databaser och återanvändbara mallar som förvandlar lösa anteckningar till strukturerade, repeterbara arbetsflöden.',
+  'about.featureEditor':
+    'En tyst blockredigerare — rubriker, listor, kod, callouts och att-göra — med snedstreckskommandon när du vill ha dem och ur vägen när du inte vill.',
+  'about.featureGraph':
+    'Backlinks och en kunskapsgraf: skriv [[ för att länka en anteckning och se hur dina idéer hänger samman över tid.',
+  'about.featureNotebooks':
+    'Kapslade anteckningsböcker och sidor så att projekt, ämnen och dagliga anteckningar hålls organiserade precis som du tänker.',
+  'about.featureSearch':
+    'Fulltextsökning under 50 ms i alla anteckningsböcker, plus taggar som samverkar med anteckningsböcker i stället för att motverka dem.',
+  'about.missionTitle': 'Vårt uppdrag',
   'common.goToDashboard': 'Gå till översikt',
   'forgot.eyebrow': 'Tappat vägen tillbaka in?',
   'forgot.formSubtitle': 'Ange den e-postadress som finns registrerad.',
+  'forgot.formTitle': 'Glömt lösenord',
   'forgot.headline': 'Återställ ditt lösenord.',
   'forgot.subline': 'Vi skickar en engångslänk till din inkorg så att du kan välja en ny.',
+  'forgot.successDetail':
+    'Vi har skickat en återställningslänk till din e-post. Den upphör att gälla om 30 minuter.',
   'graph.eyebrow': 'Graf',
+  'graph.goToNotes': 'Bläddra bland anteckningar →',
+  'graph.loadError': 'Kunde inte läsa in grafen: {{message}}',
   'graph.placeholderBody':
     'När anteckningar börjar länka till varandra (med [[wiki]]-syntax) kommer en interaktiv, tvångsstyrd graf att renderas här.',
+  'graph.placeholderTitle': 'Backlink-graf kommer snart',
   'graph.subtitle':
     '{{count}} anteckningar i den här arbetsytan. Återgivning av bakåtlänksgrafer visas här när anteckningar länkar till varandra.',
   'graph.title': 'Kunskapsgraf',
   'home.empty': 'Inga anteckningar än — börja din första.',
   'home.favoritesHeading': 'Fästa',
   'home.guest': 'vän',
+  'home.loadError': 'Kunde inte läsa in dina anteckningar: {{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'Fäst en anteckning i redigeraren för att spara den här.',
   'home.recentHeading': 'Senast uppdaterade',
@@ -22,18 +43,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'Anteckningsbok',
   'home.stats.pinned.label': 'Fästa',
   'home.stats.updatedToday.label': 'Uppdaterad idag',
+  'home.subtitle': 'Fortsätt där du slutade, eller börja på en ny anteckning.',
   'home.viewAll': 'Visa alla anteckningar',
   'landing.cta.body':
     'Gratis för personligt bruk. Proffs för team. Ta med din befintliga rabatt eller börja om på nytt – Verso möter dig var dina anteckningar än är.',
+  'landing.cta.button': 'Skapa min arbetsyta',
   'landing.cta.heading': 'Öppna dagens sida.',
   'landing.features.eyebrow': 'Varje primitivt ämne som din andra hjärna behöver',
+  'landing.features.heading': 'Byggd för arbetet, inte meta-arbetet.',
   'landing.hero.eyebrow': 'En tyst skrivyta',
   'landing.hero.headlineAccent': 'ta form.',
   'landing.hero.headlineLeading': 'Var tankar',
   'landing.hero.primaryCta': 'Starta din kunskapsbas',
   'landing.hero.secondaryCta': 'Jag har redan ett konto',
+  'landing.hero.socialProof':
+    '12 800+ skribenter, studenter och doktorander tänker med {{appName}}',
   'landing.hero.subline':
     'Verso är en strukturerad anteckningsyta för kunskapsarbetare och studenter. Blockredigerare, kapslade anteckningsböcker, bakåtlänkar och en kunskapsgraf – allt bakom en typografisk läsupplevelse.',
+  'landing.preview.notebook': 'Kunskap · Skrivprocess',
+  'landing.preview.title': 'Om att låta drag andas',
   'login.eyebrow': 'Välkommen tillbaka till Verso',
   'login.formSubtitle': 'Använd din e-post eller någon ansluten leverantör.',
   'login.headline': 'Fortsätt där sidan pausade.',
@@ -43,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'Stäng navigeringsmenyn',
   'mobileNav.openMenu': 'Öppna navigeringsmenyn',
   'noteEditor.backToNotes': 'Tillbaka till anteckningarna',
+  'noteEditor.bodyLabel': 'Anteckningens innehåll',
   'noteEditor.bodyPlaceholder':
     'Börja skriva – din anteckning sparas automatiskt medan du skriver.',
   'noteEditor.confirmTrash': 'Flytta den här anteckningen till papperskorgen?',
@@ -51,17 +80,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'Flytta till papperskorgen',
   'noteEditor.updated': 'Uppdaterad',
   'notes.defaultWorkspaceName': 'Min anteckningsbok',
+  'notes.empty': 'Inga anteckningar här än — börja på en för att fylla anteckningsboken.',
   'notes.eyebrow': 'Anteckningsbok',
   'notes.filterAll': 'Alla anteckningar',
   'notes.filterPinned': 'Fästa',
   'notes.newCta': 'New note',
   'notes.newNotebook': 'Ny anteckningsbok',
   'notes.newNotebookPrompt': 'Nytt namn på anteckningsboken',
+  'notes.newNotebookRequired': 'Ange ett namn på anteckningsboken.',
   'notes.notebooksHeading': 'Anteckningsböcker',
   'notes.subtitle':
     'Välj en anteckningsbok till vänster och tryck sedan på knappen Ny anteckning för att starta en ny post.',
+  'planUpdated.body': 'Din prenumeration är nu aktiv.',
   'planUpdated.confirmation': 'Din plan har uppdaterats',
+  'pricing.advancedFeatures': 'Avancerade funktioner',
   'pricing.heading': 'Välj din anteckningsplan',
+  'reset.changedMind': 'Ångrade du dig?',
   'reset.eyebrow': 'Nästan tillbaka i',
   'reset.formSubtitle': 'Du loggas in så snart det sparas.',
   'reset.headline': 'Välj ett nytt lösenord.',
@@ -70,7 +104,9 @@ export const ui: UiTranslations = {
   'reset.subline': 'Ange koden vi just skickade till dig via e-post och välj något minnesvärt.',
   'reset.submit': 'Spara och logga in',
   'reset.tokenHint': 'Inklistrad från din inkorg.',
+  'search.empty': 'Inga anteckningar matchar den här sökningen än.',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Sök Refract',
   'search.loading': 'Söker…',
   'search.noRecent': 'Skriv en sökfråga ovan för att börja söka i dina anteckningar.',
   'search.recentLabel': 'Senaste sökningar',
@@ -78,12 +114,19 @@ export const ui: UiTranslations = {
     'Fulltext i alla anteckningsböcker. Skriv för att söka; resultaten uppdateras medan du skriver.',
   'search.title': 'Sök i den andra hjärnan.',
   'settings.account.logout': 'Logga ut',
+  'settings.account.title': 'Kontouppgifter',
+  'settings.editor.graphHover.body':
+    'Visa ett litet förhandsgranskningskort när du håller muspekaren över en [[wikilänk]] i redigeraren.',
+  'settings.editor.graphHover.label': 'Förhandsgranskning av backlink-graf vid hover',
   'settings.editor.lineHeight.body':
     'Hur mycket luft mellan kroppslinjerna. 170 % är standardläsrytmen.',
+  'settings.editor.lineHeight.label': 'Radhöjd',
   'settings.editor.serif.body':
     'Använd Georgien för läskolumnen. Sans-serif sparas i sidofältet och verktygsfälten.',
+  'settings.editor.serif.label': 'Brödtext i serif',
   'settings.editor.title': 'Typografi och skrivyta',
   'settings.eyebrow': 'Verso · Inställningar',
+  'settings.passwordModal.current': 'Nuvarande lösenord',
   'settings.passwordModal.error':
     'Kunde inte ändra lösenordet — kontrollera ditt nuvarande lösenord.',
   'settings.passwordModal.next': 'Nytt lösenord',
@@ -93,6 +136,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'Tryck varje tangenttryckning genom realtidskanalen. Inaktivera för långsammare anslutningar.',
   'settings.sync.auto.label': 'Realtidssynkronisering',
+  'settings.sync.title': 'Hur dina anteckningar färdas',
   'settings.theme.body': 'Ljus håller ledarspalten ljus. Sepia värmer sidan för kvällarna.',
   'settings.theme.dark': 'Mörkt',
   'settings.theme.light': 'Ljust',
@@ -111,8 +155,12 @@ export const ui: UiTranslations = {
     'Lägg till #hashtaggar till en anteckningstitel (t.ex. "Läslista #böcker") så visas de här automatiskt.',
   'tags.emptyTitle': 'Inga taggar ännu',
   'tags.eyebrow': 'Index',
+  'tags.goToNotes': 'Gå till anteckningar →',
+  'tags.loadError': 'Kunde inte läsa in taggar: {{message}}',
   'tags.subtitle':
     '{{tags}} taggar över {{notes}} anteckningar. Lägg till #hashtaggar i en anteckningstitel så visas de här.',
+  'versoAuthShell.sample.body':
+    'En andra genomgång i morgon läses alltid bättre än en första i kväll. Parkera råutkastet i mappen för djupt arbete…',
   'versoAuthShell.sample.label': 'Daglig anteckning',
   'versoAuthShell.sample.timestamp': 'Idag · 09:14',
   'versoAuthShell.sample.title': 'Om att låta drag andas',
@@ -124,8 +172,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': 'Fortsätt skriva',
   'versoTodayHero.createCta': 'Börja dagens anteckning',
   'versoTodayHero.dailyLabel': 'Daglig anteckning',
+  'versoTodayHero.emptyHeadline': 'I dag är en tom sida.',
   'versoTodayHero.emptySubline':
     'Fånga en tanke, anteckna ett möte eller skissa imorgon. Verso håller strukturen tyst så att texten förblir hög.',
+  'versoTodayHero.outlineLabel': 'Dagens disposition',
   'versoTodayHero.streak': '{{count}}-dagars rad',
+  'versoTodayHero.unwritten': 'Inga ord än — öppna anteckningen för att börja.',
   'versoTodayHero.wordCount': '{{count}} ord idag',
 }

@@ -1,20 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'フィードバック、バグの報告、機能の提案はありますか？アカウント設定からご連絡ください — すべてのメッセージはチームの担当者が直接確認します。',
+  'about.contactTitle': 'お気軽にお問い合わせください',
+  'about.featureDatabases':
+    '軽量なデータベースと再利用可能なテンプレートで、まとまりのないメモを構造化された繰り返し可能なワークフローに変えます。',
+  'about.featureEditor':
+    '静かなブロックエディタ — 見出し、リスト、コード、コールアウト、ToDo — スラッシュコマンドは必要なときに使え、不要なときは邪魔になりません。',
+  'about.featureGraph':
+    'バックリンクとナレッジグラフ：[[ と入力してノートをリンクすると、アイデアが時間とともにどうつながるかが見えます。',
+  'about.featureNotebooks':
+    'ネストされたノートブックとページで、プロジェクト、トピック、デイリーノートをあなたの考え方のままに整理できます。',
+  'about.featureSearch':
+    'すべてのノートブックを対象にした50ms未満の全文検索、さらにノートブックと競合せず組み合わせられるタグ。',
+  'about.missionTitle': '私たちの使命',
   'common.goToDashboard': 'ダッシュボードへ',
   'forgot.eyebrow': '戻り道に迷いましたか?',
   'forgot.formSubtitle': '登録のメールアドレスを教えてください。',
+  'forgot.formTitle': 'パスワードを忘れた',
   'forgot.headline': 'パスワードをリセットします。',
   'forgot.subline': '新しいリンクを選択できるよう、一度限りのリンクをメールでお送りします。',
+  'forgot.successDetail':
+    'パスワードリセット用のリンクをメールで送信しました。有効期限は30分です。',
   'graph.eyebrow': 'グラフ',
+  'graph.goToNotes': 'ノートを見る →',
+  'graph.loadError': 'グラフを読み込めませんでした：{{message}}',
   'graph.placeholderBody':
     'ノート同士が（[[wiki]]構文を使って）リンクし始めると、ここにインタラクティブな力指向グラフが表示されます。',
+  'graph.placeholderTitle': 'バックリンクグラフは近日公開',
   'graph.subtitle':
     '{{count}}このワークスペース内のメモ。メモ同士がリンクされると、バックリンクグラフがここに表示されます。',
   'graph.title': 'ナレッジグラフ',
   'home.empty': 'まだメモがありません。最初のメモを始めましょう。',
   'home.favoritesHeading': 'ピン留め',
   'home.guest': '友人',
+  'home.loadError': 'ノートを読み込めませんでした：{{message}}',
   'home.newNoteCta': 'New note',
   'home.noFavorites': 'エディターにメモをピン留めして、ここに保存しておきましょう。',
   'home.recentHeading': '最近更新',
@@ -22,18 +43,25 @@ export const ui: UiTranslations = {
   'home.stats.notebook.label': 'ノート',
   'home.stats.pinned.label': 'ピン留め',
   'home.stats.updatedToday.label': '本日更新',
+  'home.subtitle': '前回の続きから再開するか、新しいノートを始めましょう。',
   'home.viewAll': 'すべてのメモを表示',
   'landing.cta.body':
     '個人利用は無料。チーム利用はプロ版。既存のマークダウンを引き継ぐことも、新規に作成することも可能です。Versoは、メモがどこにあっても対応します。',
+  'landing.cta.button': 'ワークスペースを作成',
   'landing.cta.heading': '今日のページを開いてください。',
   'landing.features.eyebrow': '第二の脳に必要なあらゆる原始的な機能',
+  'landing.features.heading': '本来の仕事のために作られた、雑務のためではなく。',
   'landing.hero.eyebrow': '静かな書き物面',
   'landing.hero.headlineAccent': '形を成す。',
   'landing.hero.headlineLeading': '思考が',
   'landing.hero.primaryCta': '知識ベースを始めましょう',
   'landing.hero.secondaryCta': 'すでにアカウントを持っています',
+  'landing.hero.socialProof':
+    '12,800人以上のライター、学生、博士号取得者が{{appName}}で考えています',
   'landing.hero.subline':
     'Versoは、知識労働者や学生向けの構造化されたノート作成プラットフォームです。ブロックエディタ、ネストされたノートブック、バックリンク、ナレッジグラフなど、すべてがタイポグラフィを重視した読みやすさを実現しています。',
+  'landing.preview.notebook': 'ナレッジ · 執筆プロセス',
+  'landing.preview.title': '隙間風を逃がすことについて',
   'login.eyebrow': 'Versoへようこそ',
   'login.formSubtitle': 'メールアドレスまたは連携済みのプロバイダーをご利用ください。',
   'login.headline': 'ページが一時停止した箇所から再開してください。',
@@ -43,6 +71,7 @@ export const ui: UiTranslations = {
   'mobileNav.closeMenu': 'ナビゲーションメニューを閉じる',
   'mobileNav.openMenu': 'ナビゲーションメニューを開く',
   'noteEditor.backToNotes': 'メモに戻る',
+  'noteEditor.bodyLabel': 'ノート本文',
   'noteEditor.bodyPlaceholder': '書き始めてください。入力すると自動的に保存されます。',
   'noteEditor.confirmTrash': 'このメモをゴミ箱に移動しますか？',
   'noteEditor.pinToggle': 'お気に入りを切り替える',
@@ -50,17 +79,22 @@ export const ui: UiTranslations = {
   'noteEditor.trash': 'ゴミ箱に移動',
   'noteEditor.updated': '更新日',
   'notes.defaultWorkspaceName': '私のノート',
+  'notes.empty': 'ここにはまだノートがありません — ノートを作成してノートブックを埋めましょう。',
   'notes.eyebrow': 'ノート',
   'notes.filterAll': 'すべてのノート',
   'notes.filterPinned': 'ピン留め',
   'notes.newCta': 'New note',
   'notes.newNotebook': '新しいノートパソコン',
   'notes.newNotebookPrompt': '新しいノートブック名',
+  'notes.newNotebookRequired': 'ノートブック名を入力してください。',
   'notes.notebooksHeading': 'ノート',
   'notes.subtitle':
     '左側のノートブックを選択し、「新規ノート」ボタンを押して新しいエントリを開始してください。',
+  'planUpdated.body': 'サブスクリプションが有効になりました。',
   'planUpdated.confirmation': 'プランが更新されました',
+  'pricing.advancedFeatures': '高度な機能',
   'pricing.heading': 'ノートの取り方プランを選択してください',
+  'reset.changedMind': '気が変わりましたか？',
   'reset.eyebrow': 'ほぼ戻ってきました',
   'reset.formSubtitle': '保存するとサインインします。',
   'reset.headline': '新しいパスワードを選択してください。',
@@ -69,7 +103,9 @@ export const ui: UiTranslations = {
   'reset.subline': '先ほどメールでお送りしたコードを入力して、思い出に残るものを選んでください。',
   'reset.submit': '保存してログイン',
   'reset.tokenHint': '受信トレイから貼り付けてください。',
+  'search.empty': 'このクエリに一致するノートはまだありません。',
   'search.eyebrow': 'Verso · ⌘K',
+  'search.inputAria': 'Refract を検索',
   'search.loading': '検索中…',
   'search.noRecent': 'ノート全体を検索するには、上記に検索語を入力してください。',
   'search.recentLabel': '最近の検索',
@@ -77,12 +113,19 @@ export const ui: UiTranslations = {
     'すべてのノートブックの全文を検索できます。入力して検索すると、入力内容に応じて検索結果が更新されます。',
   'search.title': '第二の脳を探索する。',
   'settings.account.logout': 'ログアウト',
+  'settings.account.title': 'アカウントの詳細',
+  'settings.editor.graphHover.body':
+    'エディタで[[wikilink]]にカーソルを合わせると小さなプレビューカードを表示します。',
+  'settings.editor.graphHover.label': 'バックリンクグラフのホバープレビュー',
   'settings.editor.lineHeight.body':
     '体の各行間の間隔はどのくらいか。170%がデフォルトの読書リズムです。',
+  'settings.editor.lineHeight.label': '行の高さ',
   'settings.editor.serif.body':
     '読書欄にはGeorgiaフォントを使用してください。サイドバーとツールバーにはSans-serifフォントを使用してください。',
+  'settings.editor.serif.label': 'セリフ体の本文',
   'settings.editor.title': 'タイポグラフィと筆記面',
   'settings.eyebrow': 'Verso · 設定',
+  'settings.passwordModal.current': '現在のパスワード',
   'settings.passwordModal.error':
     'パスワードを変更できませんでした。現在のパスワードをご確認ください。',
   'settings.passwordModal.next': '新しいパスワード',
@@ -92,6 +135,7 @@ export const ui: UiTranslations = {
   'settings.sync.auto.body':
     'すべてのキー入力をリアルタイムチャネル経由で送信します。接続速度が遅い場合は無効にしてください。',
   'settings.sync.auto.label': 'リアルタイム同期',
+  'settings.sync.title': 'ノートがどのように移動するか',
   'settings.theme.body':
     '明るい色調は社説欄を鮮やかに保ち、セピア色は夕暮れ時のページを温かく彩る。',
   'settings.theme.dark': 'ダーク',
@@ -111,8 +155,12 @@ export const ui: UiTranslations = {
     'ノートのタイトルにハッシュタグ（例：「読書リスト #本」）を追加すると、ここに自動的に表示されます。',
   'tags.emptyTitle': 'まだタグはありません',
   'tags.eyebrow': '索引',
+  'tags.goToNotes': 'ノートへ移動 →',
+  'tags.loadError': 'タグを読み込めませんでした: {{message}}',
   'tags.subtitle':
     '{{tags}}タグ{{notes}}メモ。メモのタイトルにハッシュタグ（#）を追加すると、ここに表示されます。',
+  'versoAuthShell.sample.body':
+    '今夜の初稿より、明日の推敲のほうがいつも読みやすくなる。ラフな下書きはディープワークフォルダに置いておこう…',
   'versoAuthShell.sample.label': '日々のメモ',
   'versoAuthShell.sample.timestamp': '今日 · 9:14',
   'versoAuthShell.sample.title': '隙間風を逃がすことについて',
@@ -124,8 +172,11 @@ export const ui: UiTranslations = {
   'versoTodayHero.continueCta': '執筆を続ける',
   'versoTodayHero.createCta': '今日のメモを始めましょう',
   'versoTodayHero.dailyLabel': '日々のメモ',
+  'versoTodayHero.emptyHeadline': '今日はまっさらなページ。',
   'versoTodayHero.emptySubline':
     '思いついたことを書き留めたり、会議の予定をメモしたり、明日のスケッチを描いたり。Versoはシンプルな構造なので、書く内容そのものが際立ちます。',
+  'versoTodayHero.outlineLabel': '今日のアウトライン',
   'versoTodayHero.streak': '{{count}}日連続',
+  'versoTodayHero.unwritten': 'まだ言葉がありません — ノートを開いて始めましょう。',
   'versoTodayHero.wordCount': '{{count}}今日の言葉',
 }

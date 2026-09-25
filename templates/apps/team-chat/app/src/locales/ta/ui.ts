@@ -1,6 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்விகள், கருத்துகள் அல்லது உங்கள் குழுவிற்கு ஒரு டெமோ வேண்டுமா? உங்கள் பணியிட அமைப்புகளிலிருந்து எங்களை அணுகவும் — {{app}} குழுவில் உள்ள ஒரு உண்மையான நபர் ஒவ்வொரு செய்தியையும் படிக்கிறார்.',
+  'about.contactTitle': 'தொடர்பு கொள்ளுங்கள்',
+  'about.featureChannels':
+    'ஒவ்வொரு திட்டம், குழு மற்றும் தலைப்பையும் ஒழுங்கமைத்து வைக்கும் பொது மற்றும் தனிப்பட்ட சேனல்கள்.',
+  'about.featureFiles':
+    'விவாதம் நடக்கும் இடத்திலேயே வளமான முன்னோட்டங்களுடன் இழுத்து விடும் கோப்பு பகிர்வு.',
+  'about.featurePlans':
+    'இலவசமாகத் தொடங்கலாம், நீங்கள் வளரும்போது அதிக சேனல்கள், உறுப்பினர்கள், தக்கவைப்பு மற்றும் வெளிப்புற ஒருங்கிணைப்புகளைத் திறக்கும் Pro மற்றும் Team திட்டங்களுடன்.',
+  'about.featureRealtime':
+    'உடனடி அறிவிப்புகளுடன் நிகழ்நேர செய்தியிடல், மேலும் உங்கள் குழு சொன்ன அனைத்தையும் தேடும் முழு-உரை தேடல்.',
+  'about.featureThreads':
+    'பக்க உரையாடல்கள் ஒழுங்காக இருக்கவும் கருத்துகள் விரைவாகக் கிடைக்கவும் நூல் பதில்கள் மற்றும் ஈமோஜி எதிர்வினைகள்.',
+  'about.intro':
+    'உங்கள் குழு ஒன்றாக வேலை செய்யும் இடம் {{app}} — ஒழுங்கமைந்த சேனல்கள், கவனம் செலுத்தும் நூல்கள், எதிர்வினைகள், கோப்பு பகிர்வு மற்றும் தேடல், அனைத்தும் ஒரே வேகமான, நிகழ்நேர பணியிடத்தில்.',
+  'about.missionBody':
+    'மின்னஞ்சல் முடிவுகளைப் புதைத்து, சிதறிய அரட்டைக் கருவிகள் சூழலைச் சிதைக்கின்றன. ஒவ்வொரு உரையாடலையும் வெளிப்படையாகவும், தேடக்கூடியதாகவும், அது சேர்ந்த சேனலுடன் இணைக்கப்பட்டதாகவும் {{app}} வைத்திருக்கிறது — எனவே உங்கள் குழு சத்தமின்றி ஒத்திசைவாக இருக்கும்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'activityCard.mentions': 'குறிப்புகள்',
   'activityCard.mentionsCount': '{{count}}',
   'activityCard.reactions': 'எதிர்வினைகள்',
@@ -11,7 +29,9 @@ export const ui: UiTranslations = {
   'app.workspace': 'மூலக்கூறு ஸ்டுடியோஸ்',
   'channel.attachFile': 'கோப்பை இணைக்கவும்',
   'channel.backToDashboard': 'டாஷ்போர்டுக்குத் திரும்பு',
+  'channel.darkMode': 'இருண்ட பயன்முறையை மாற்று',
   'channel.document': 'ஆவணம்',
+  'channel.downloadFile': '{{name}} பதிவிறக்கு',
   'channel.edited': '(திருத்தப்பட்டது)',
   'channel.formatBold': 'தைரியமான',
   'channel.formatCode': 'குறியீடு',
@@ -19,27 +39,38 @@ export const ui: UiTranslations = {
   'channel.forNewLine': 'புதிய வரிக்கு',
   'channel.insertEmoji': 'எமோஜி',
   'channel.insertLink': 'இணைப்பு',
+  'channel.lastReply': 'கடைசி பதில் {{time}}',
   'channel.linkPrompt': 'இணைப்பு URL',
   'channel.memberCount': '{{count}} உறுப்பினர்கள்',
   'channel.mention': 'குறிப்பிடு',
+  'channel.messageInputLabel': 'ஒரு செய்தியை உள்ளிடவும்',
   'channel.messagePlaceholder': 'செய்தி #{{name}}',
   'channel.noMembers': 'உறுப்பினர்கள் இல்லை',
+  'channel.noMessages': 'இதுவே உரையாடலின் தொடக்கம். விஷயங்களைத் தொடங்க முதல் செய்தியை அனுப்பவும்.',
   'channel.noSearchResults': 'உங்கள் தேடலுக்குப் பொருத்தமான செய்திகள் எதுவும் இல்லை.',
   'channel.notFound': 'சேனல் காணப்படவில்லை',
   'channel.notFoundHint':
     'இந்த சேனல் நீக்கப்பட்டிருக்கலாம் அல்லது அதை அணுக உங்களுக்கு அனுமதி இல்லை.',
   'channel.pinnedLabel': '{{count}} பின் செய்யப்பட்ட செய்திகள்',
+  'channel.replies': '{{count}} பதில்கள்',
   'channel.returnKey': 'திரும்பவும்',
+  'channel.searchLabel': 'இந்த சேனலில் செய்திகளைத் தேடு',
   'channel.searchPlaceholder': 'தேடல் செய்தி வரலாறு',
   'channel.sendError': 'செய்தி அனுப்ப இயலவில்லை — மீண்டும் முயற்சிக்கவும்.',
   'channel.sendLabel': 'செய்திகளை அனுப்பு',
   'channel.shiftReturn': 'ஷிஃப்ட் + ரிட்டர்ன்',
+  'channel.toggleMembers': 'உறுப்பினர் பலகத்தை மாற்று',
   'channel.toSend': 'அனுப்ப',
+  'channel.tryDifferentSearch':
+    'வேறு தேடல் சொல்லை முயற்சிக்கவும் அல்லது தேடல் வடிகட்டியை அழிக்கவும்',
+  'channel.welcomeChannel': '#{{name}}-க்கு வரவேற்கிறோம்',
   'channelIntro.authorName': '{{name}}',
   'channelIntro.avatarAlt':
     '{{author}} தலைப் புகைப்படம், புன்னகைக்கும் ஆண் நிர்வாகி, தொழில்முறை அலுவலகச் சூழல் பின்னணி',
   'channelIntro.leadIn': 'நல்லது! பொறியியல் பிரிவு குறித்த எனது கருத்துக்களைச் சேர்த்துள்ளேன். ',
   'channelIntro.reviewPrompt': ' உள்கட்டமைப்புக்கான நிதி ஒதுக்கீட்டை மதிப்பாய்வு செய்ய முடியுமா?',
+  'channelIntro.timestamp': '{{time}}',
+  'channelIntro.userMention': '@{{username}}',
   'channelMessageFeed.unknownAuthor': 'பயனர்',
   'channelsList.addChannel': 'புதிய சேனல்',
   'channelsList.design': 'வடிவமைப்பு',
@@ -64,6 +95,7 @@ export const ui: UiTranslations = {
   'common.unknown': 'அடையாளம் தெரியாத பயனர்',
   'common.user': 'பயனர்',
   'common.yes': '✓',
+  'dashboard.browseChannels': 'சேனல்களை உலாவு',
   'dashboard.browseChannelsDesc': 'தற்போதுள்ள பொது விவாதங்களை ஆராயுங்கள்',
   'dashboard.channelNamePlaceholder': 'எ.கா. வடிவமைப்பு-மதிப்பாய்வுகள்',
   'dashboard.createChannel': 'சேனலை உருவாக்கு',
@@ -74,8 +106,10 @@ export const ui: UiTranslations = {
   'dashboard.newMessage': 'புதிய செய்தி',
   'dashboard.noUnreadMessages': 'படிக்கப்படாத செய்திகள் இல்லை',
   'dashboard.quickActions': 'விரைவான நடவடிக்கைகள்',
+  'dashboard.startDm': 'DM தொடங்கு',
   'dashboard.startDmDesc': 'குழு உறுப்பினருக்கு நேரடியாக செய்தி அனுப்பவும்',
   'dashboard.unreadMessages': 'படிக்காத செய்திகள்',
+  'dateSeparator.date': '{{weekday}}, {{month}} {{day}}',
   'directMessageButton.contactName': '{{name}}',
   'directMessagesSection.addDm': 'புதிய நேரடிச் செய்தி',
   'directMessagesSection.empty': 'இன்னும் நேரடிச் செய்திகள் எதுவும் வரவில்லை.',
@@ -103,10 +137,14 @@ export const ui: UiTranslations = {
   'messageComposer.italic': 'சாய்வெழுத்து',
   'messageComposer.link': 'இணைப்பு',
   'messageComposer.mention': 'குறிப்பிடு',
+  'messageComposer.placeholder': '{{channel}}-க்கு செய்தி அனுப்பு',
   'messageComposer.urlPlaceholder': 'url',
   'messageItem.authorName': '{{name}}',
+  'messageItem.body':
+    'ஹே குழுவே! Q2 திட்ட ஆவணம் மதிப்பாய்வுக்குத் தயாராக உள்ளது. வியாழக்கிழமை ஸ்டாண்டப் முன் ஒரு பார்வை பாருங்கள்.',
   'messageItem.timestamp': '{{time}}',
   'messagePreviewCard.authorSeparator': ':',
+  'messagePreviewCard.unknownChannel': '#சேனல்',
   'nav.appTitle': 'நாடித் துடிப்பு',
   'nav.channelName': '#{{name}}',
   'nav.channels': 'சேனல்கள்',
@@ -126,7 +164,14 @@ export const ui: UiTranslations = {
   'parentMessage.sampleTimestamp': 'காலை 10:23 மணி',
   'pinnedItemsEmpty.description': 'முக்கியமான செய்திகளை இங்கே குறித்து வைக்கவும்.',
   'pinnedItemsEmpty.title': 'இன்னும் எந்தப் பொருளும் பின் செய்யப்படவில்லை.',
+  'planUpdated.body':
+    'உங்கள் பில்லிங் மாற்றம் இப்போது செயலில் உள்ளது. பில்லிங் பக்கத்திலிருந்து எப்போது வேண்டுமானாலும் உங்கள் திட்டத்தை நிர்வகிக்கலாம்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
+  'pricing.channelsLabel': 'சேனல்கள்',
   'pricing.externalIntegrationsLabel': 'வெளிப்புற ஒருங்கிணைப்புகள்',
   'pricing.fileUploadMbLabel': 'MB / கோப்பு பதிவேற்றம்',
   'pricing.heading': 'சேனல்கள்',
@@ -134,6 +179,8 @@ export const ui: UiTranslations = {
   'pricing.messagesPerDayLabel': 'செய்திகள் / நாள்',
   'pricing.threadsEnabledLabel': 'தொடர் பதில்கள்',
   'pricing.voiceVideoLabel': 'குரல் / காணொளி அழைப்புகள்',
+  'privacy.intro':
+    'உங்கள் தனியுரிமையை நாங்கள் மதிக்கிறோம். நீங்கள் வெளிப்படையாக வழங்கும் தரவை மட்டுமே {{app}} சேமிக்கிறது, உங்கள் ஒப்புதலின்றி அதை ஒருபோதும் விற்கவோ பகிரவோ மாட்டாது.',
   'recommendedChannels.channel': '{{name}}',
   'recommendedChannels.empty':
     'இன்னும் பரிந்துரைகள் எதுவும் இல்லை — தொடங்குவதற்கு ஒரு சேனலை உருவாக்குங்கள்.',
@@ -146,6 +193,8 @@ export const ui: UiTranslations = {
   'resetPassword.error': 'கடவுச்சொல்லை மீட்டமைக்க முடியவில்லை',
   'resetPassword.newPassword': 'புதிய கடவுச்சொல்',
   'resetPassword.reset': 'கடவுச்சொல்லை மீட்டமைக்கவும்',
+  'resetPassword.resetting': 'மீட்டமைக்கிறது...',
+  'resetPassword.subtitle': 'உங்கள் புதிய கடவுச்சொல்லைக் கீழே உள்ளிடவும்',
   'resetPassword.successSubtitle':
     'நீங்கள் இப்போது உங்கள் புதிய கடவுச்சொல்லைப் பயன்படுத்தி உள்நுழையலாம்.',
   'resetPassword.successTitle': 'கடவுச்சொல் வெற்றிகரமாக மீட்டமைக்கப்பட்டது',
@@ -161,10 +210,14 @@ export const ui: UiTranslations = {
   'settings.title': 'அமைப்புகள்',
   'sideNavFooter.inviteMembers': 'உறுப்பினர்களை அழைக்கவும்',
   'signup.backgroundAlt': 'வடிவமைப்பு அழகியல் பின்னணி',
+  'signup.creating': 'கணக்கை உருவாக்குகிறது...',
   'signup.failed': 'பதிவு தோல்வியடைந்தது',
   'signup.subtitle': 'பல்ஸுடன் தொடங்குங்கள்',
   'sso.continue': 'SSO உடன் தொடரவும்',
+  'terms.intro':
+    '{{app}}-ஐப் பயன்படுத்துவதன் மூலம், உங்கள் குழுவுடன் நன்றாக ஒத்துழைப்பதற்கும், சேனல் வழிகாட்டுதல்களை மதிப்பதற்கும், கட்டண அம்சங்களுக்கு செயலில் உள்ள சந்தா தேவை என்பதை ஏற்பதற்கும் நீங்கள் ஒப்புக்கொள்கிறீர்கள்.',
   'thread.backToChannel': 'சேனலுக்குத் திரும்பு',
+  'thread.noReplies': 'இன்னும் பதில்கள் இல்லை — கீழே நூலைத் தொடங்கவும்.',
   'thread.notFound': 'இழை காணப்படவில்லை.',
   'thread.replyError': 'பதில் அனுப்ப முடியவில்லை — மீண்டும் முயற்சிக்கவும்.',
   'threadHeader.additionalParticipants': '+{{count}}',
@@ -175,7 +228,9 @@ export const ui: UiTranslations = {
   'threadIndicator.lastReplyTime': 'கடைசி பதில் {{minutes}} சில நிமிடங்களுக்கு முன்பு',
   'threadIndicator.moreParticipants': '+{{count}}',
   'threadIndicator.participantAvatarAlt': 'சிறிய பங்கேற்பாளர் அவதார்',
+  'threadIndicator.replies': '{{count}} பதில்கள்',
   'topAppBar.defaultChannelName': 'பொதுவான',
+  'topAppBar.defaultTopic': 'நிறுவனம் முழுவதும் அறிவிப்புகள் மற்றும் புதுப்பிப்புகள்',
   'topAppBar.favoriteChannel': 'விருப்பமான சேனல்',
   'topAppBar.memberCount': '{{count}} உறுப்பினர்கள்',
   'topAppBar.searchPlaceholder': 'தேடல் செய்தி வரலாறு',
@@ -183,6 +238,9 @@ export const ui: UiTranslations = {
   'topNavBar.search': 'தேடல் செய்திகள்',
   'topNavBar.threads': 'இழைகள்',
   'welcomeHero.badge': 'பணியிட கண்ணோட்டம்',
+  'welcomeHero.description':
+    'உங்கள் குழு தொடர்பு மையம். ஒத்திசைவாக இருக்கத் தேவையான அனைத்தும் ஒரே இடத்தில்.',
   'workspaceHeader.defaultName': 'உங்கள் பணிச்சூழல்',
+  'workspaceHeader.subtitle': '{{type}} பணியிடம்',
   'workspaceHeader.title': '{{name}}',
 }
