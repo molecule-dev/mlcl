@@ -4,13 +4,13 @@ import { Link, useParams } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { AppShell } from '../components/AppShell.js'
 import CourseHeader from '../components/CourseHeader.js'
 import CourseResourcesPanel from '../components/CourseResourcesPanel.js'
 import KeyConceptsAccordion from '../components/KeyConceptsAccordion.js'
 import LessonDescription from '../components/LessonDescription.js'
 import LessonTitleBar from '../components/LessonTitleBar.js'
 import ModuleProgressCard from '../components/ModuleProgressCard.js'
-import SideNavBar from '../components/SideNavBar.js'
 import StudyTipCard from '../components/StudyTipCard.js'
 import TopNavBar from '../components/TopNavBar.js'
 import VideoPlayer from '../components/VideoPlayer.js'
@@ -213,21 +213,18 @@ function CourseDetail() {
 
   if (loading) {
     return (
-      <div
+      <AppShell
+        desktopTopBar={<TopNavBar contextCrumb={breadcrumb} />}
         className={cm.cn(cm.surface, 'font-body text-on-surface antialiased')}
-        data-mol-id="course-detail-loading"
+        contentClassName={cm.cn(
+          cm.flex({ align: 'center', justify: 'center' }),
+          cm.sp('px', 8),
+          cm.sp('pb', 12),
+          'pt-6 md:pt-24',
+        )}
+        contentStyle={{ minHeight: 'calc(100vh - 4rem)' }}
       >
-        <SideNavBar />
-        <TopNavBar contextCrumb={breadcrumb} />
-        <main
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'center' }),
-            cm.sp('px', 8),
-            cm.sp('pb', 12),
-            'md:ml-[260px] pt-6 md:pt-24',
-          )}
-          style={{ minHeight: 'calc(100vh - 4rem)' }}
-        >
+        <div data-mol-id="course-detail-loading">
           <div
             className={cm.cn(
               cm.w(10),
@@ -237,27 +234,24 @@ function CourseDetail() {
             )}
             aria-label={t('common.loading', {}, { defaultValue: 'Loading' })}
           />
-        </main>
-      </div>
+        </div>
+      </AppShell>
     )
   }
 
   if (!displayCourse) {
     return (
-      <div
+      <AppShell
+        desktopTopBar={<TopNavBar contextCrumb={breadcrumb} />}
         className={cm.cn(cm.surface, 'font-body text-on-surface antialiased')}
-        data-mol-id="course-detail-not-found"
+        contentClassName={cm.cn(
+          cm.flex({ direction: 'col', align: 'center', justify: 'center', gap: 4 }),
+          cm.sp('px', 8),
+          cm.sp('py', 24),
+          'pt-6 md:pt-24 text-center',
+        )}
       >
-        <SideNavBar />
-        <TopNavBar contextCrumb={breadcrumb} />
-        <main
-          className={cm.cn(
-            cm.flex({ direction: 'col', align: 'center', justify: 'center', gap: 4 }),
-            cm.sp('px', 8),
-            cm.sp('py', 24),
-            'md:ml-[260px] pt-6 md:pt-24 text-center',
-          )}
-        >
+        <div data-mol-id="course-detail-not-found">
           <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
             {t('courseDetail.notFoundTitle', {}, { defaultValue: 'Course not found' })}
           </h1>
@@ -283,114 +277,108 @@ function CourseDetail() {
           >
             {t('courseDetail.backToCourses', {}, { defaultValue: '← Back to courses' })}
           </Link>
-        </main>
-      </div>
+        </div>
+      </AppShell>
     )
   }
 
   return (
-    <div className={cm.cn(cm.surface, 'font-body text-on-surface antialiased')}>
-      <SideNavBar />
-      <TopNavBar contextCrumb={breadcrumb} />
-      <main
-        className={cm.cn(
-          cm.flex({ gap: 8 }),
-          cm.sp('px', 8),
-          cm.sp('pb', 12),
-          'md:ml-[260px] pt-6 md:pt-24 flex-col md:flex-row',
-        )}
-      >
-        <div className={cm.cn(cm.flex1, cm.maxW('5xl'))}>
-          <CourseHeader
-            course={displayCourse}
-            modules={modules}
-            activeModuleIdx={activeModuleIdx}
-            onModuleChange={(idx: number) => {
-              setActiveModuleIdx(idx)
-              setSelectedLessonId(null)
-            }}
-          />
-          <div className={cm.stack(10)}>
-            {activeModule && activeModule.lessons.length > 0 ? (
-              <>
-                <LessonTitleBar
-                  lesson={activeLesson}
-                  moduleOrder={activeModule?.order ?? activeModuleIdx + 1}
-                  lessonIdx={effectiveLessonIdx}
-                />
-                <VideoPlayer />
-                <VideoProgressBar progress={displayCourse.progress} />
-                <div
-                  className={cm.cn(
-                    cm.grid({ cols: 1, gap: 'xl' }),
-                    cm.sp('pt', 4),
-                    'md:grid-cols-3',
-                  )}
-                >
-                  <div className={cm.cn(cm.stack(8), 'md:col-span-2')}>
-                    <LessonDescription lesson={activeLesson} />
-                    <KeyConceptsAccordion
-                      expandedConcepts={expandedConcepts}
-                      onToggle={toggleConcept}
-                    />
-                  </div>
-                  <div className={cm.stack(8)}>
-                    <CourseResourcesPanel />
-                  </div>
-                </div>
-              </>
-            ) : (
-              <div
-                className={cm.cn(
-                  cm.sp('p', 10),
-                  'rounded-2xl border border-outline-variant/20 bg-surface-container-lowest text-center',
-                )}
-                data-mol-id="course-detail-empty"
-              >
-                <p className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), cm.sp('mb', 2))}>
-                  {modules.length === 0
-                    ? t('courseDetail.emptyModulesTitle', {}, { defaultValue: 'No modules yet' })
-                    : t(
-                        'courseDetail.emptyLessonsTitle',
-                        {},
-                        { defaultValue: 'No lessons in this module' },
-                      )}
-                </p>
-                <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
-                  {modules.length === 0
-                    ? t(
-                        'courseDetail.emptyModulesBody',
-                        {},
-                        {
-                          defaultValue:
-                            'The instructor has not added any modules to this course yet. Check back later.',
-                        },
-                      )
-                    : t(
-                        'courseDetail.emptyLessonsBody',
-                        {},
-                        { defaultValue: 'This module has no lessons yet. Check back later.' },
-                      )}
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-        <aside className={cm.cn(cm.w(80), cm.shrink0)}>
-          <div className={cm.cn(cm.stack(8), 'sticky top-24')}>
-            {activeModule && activeModule.lessons.length > 0 && (
-              <ModuleProgressCard
-                courseId={courseId ?? ''}
-                module={activeModule}
-                activeLessonIdx={effectiveLessonIdx}
-                onSelectLesson={setSelectedLessonId}
+    <AppShell
+      desktopTopBar={<TopNavBar contextCrumb={breadcrumb} />}
+      className={cm.cn(cm.surface, 'font-body text-on-surface antialiased')}
+      contentClassName={cm.cn(
+        cm.flex({ gap: 8 }),
+        cm.sp('px', 8),
+        cm.sp('pb', 12),
+        'pt-6 md:pt-24 flex-col md:flex-row',
+      )}
+    >
+      <div className={cm.cn(cm.flex1, cm.maxW('5xl'))}>
+        <CourseHeader
+          course={displayCourse}
+          modules={modules}
+          activeModuleIdx={activeModuleIdx}
+          onModuleChange={(idx: number) => {
+            setActiveModuleIdx(idx)
+            setSelectedLessonId(null)
+          }}
+        />
+        <div className={cm.stack(10)}>
+          {activeModule && activeModule.lessons.length > 0 ? (
+            <>
+              <LessonTitleBar
+                lesson={activeLesson}
+                moduleOrder={activeModule?.order ?? activeModuleIdx + 1}
+                lessonIdx={effectiveLessonIdx}
               />
-            )}
-            <StudyTipCard />
-          </div>
-        </aside>
-      </main>
-    </div>
+              <VideoPlayer />
+              <VideoProgressBar progress={displayCourse.progress} />
+              <div
+                className={cm.cn(cm.grid({ cols: 1, gap: 'xl' }), cm.sp('pt', 4), 'md:grid-cols-3')}
+              >
+                <div className={cm.cn(cm.stack(8), 'md:col-span-2')}>
+                  <LessonDescription lesson={activeLesson} />
+                  <KeyConceptsAccordion
+                    expandedConcepts={expandedConcepts}
+                    onToggle={toggleConcept}
+                  />
+                </div>
+                <div className={cm.stack(8)}>
+                  <CourseResourcesPanel />
+                </div>
+              </div>
+            </>
+          ) : (
+            <div
+              className={cm.cn(
+                cm.sp('p', 10),
+                'rounded-2xl border border-outline-variant/20 bg-surface-container-lowest text-center',
+              )}
+              data-mol-id="course-detail-empty"
+            >
+              <p className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'), cm.sp('mb', 2))}>
+                {modules.length === 0
+                  ? t('courseDetail.emptyModulesTitle', {}, { defaultValue: 'No modules yet' })
+                  : t(
+                      'courseDetail.emptyLessonsTitle',
+                      {},
+                      { defaultValue: 'No lessons in this module' },
+                    )}
+              </p>
+              <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
+                {modules.length === 0
+                  ? t(
+                      'courseDetail.emptyModulesBody',
+                      {},
+                      {
+                        defaultValue:
+                          'The instructor has not added any modules to this course yet. Check back later.',
+                      },
+                    )
+                  : t(
+                      'courseDetail.emptyLessonsBody',
+                      {},
+                      { defaultValue: 'This module has no lessons yet. Check back later.' },
+                    )}
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+      <aside className={cm.cn(cm.w(80), cm.shrink0)}>
+        <div className={cm.cn(cm.stack(8), 'sticky top-24')}>
+          {activeModule && activeModule.lessons.length > 0 && (
+            <ModuleProgressCard
+              courseId={courseId ?? ''}
+              module={activeModule}
+              activeLessonIdx={effectiveLessonIdx}
+              onSelectLesson={setSelectedLessonId}
+            />
+          )}
+          <StudyTipCard />
+        </div>
+      </aside>
+    </AppShell>
   )
 }
 

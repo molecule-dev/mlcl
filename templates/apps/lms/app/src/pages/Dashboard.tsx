@@ -4,12 +4,12 @@ import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import AiRecommendationCard from '../components/AiRecommendationCard.js'
+import { AppShell } from '../components/AppShell.js'
 import AverageScoreCard from '../components/AverageScoreCard.js'
 import CompletedLessonsCard from '../components/CompletedLessonsCard.js'
 import ContinueLearningSection from '../components/ContinueLearningSection.js'
 import KpiCard from '../components/KpiCard.js'
 import LeaderboardCard from '../components/LeaderboardCard.js'
-import SideNavBar from '../components/SideNavBar.js'
 import TopNavBar from '../components/TopNavBar.js'
 import UpcomingDeadlinesSection from '../components/UpcomingDeadlinesSection.js'
 import WelcomeBanner from '../components/WelcomeBanner.js'
@@ -17,21 +17,13 @@ function Dashboard() {
   const cm = getClassMap()
   const { t } = useTranslation()
   return (
-    <div className={cm.cn(cm.surface, 'font-body text-on-surface antialiased')}>
-      {/* SideNavBar */}
-      <SideNavBar />
-      {/* TopNavBar */}
-      <TopNavBar />
+    <AppShell
+      desktopTopBar={<TopNavBar />}
+      className={cm.cn(cm.surface, 'font-body text-on-surface antialiased')}
+      contentClassName={cm.cn(cm.sp('px', 8), cm.sp('pb', 12), cm.stack(10), 'pt-6 md:pt-24')}
+    >
       {/* Main Content */}
-      <main
-        className={cm.cn(
-          cm.sp('px', 8),
-          cm.sp('pb', 12),
-          cm.stack(10),
-          'md:ml-[260px] pt-6 md:pt-24',
-        )}
-        aria-label={t('nav.dashboard', {}, { defaultValue: 'Dashboard' })}
-      >
+      <div aria-label={t('nav.dashboard', {}, { defaultValue: 'Dashboard' })}>
         {/* Welcome Banner */}
         <WelcomeBanner />
         {/* Staggered Layout for Stats and Content */}
@@ -55,8 +47,8 @@ function Dashboard() {
             <AiRecommendationCard />
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </AppShell>
   )
 }
 

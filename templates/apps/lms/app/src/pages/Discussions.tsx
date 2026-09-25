@@ -7,9 +7,9 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Modal } from '@molecule/app-ui-react'
 
+import { DiscussionsAppShell } from '../components/AppShell.js'
 import DiscussionFilters from '../components/DiscussionFilters.js'
 import DiscussionsHeader from '../components/DiscussionsHeader.js'
-import DiscussionsSideNavBar from '../components/DiscussionsSideNavBar.js'
 import DiscussionThreadList from '../components/DiscussionThreadList.js'
 
 interface CourseRow {
@@ -149,31 +149,20 @@ function Discussions() {
   )
 
   return (
-    <div
-      className={cm.cn(
-        cm.flex(),
-        cm.minH('screen'),
-        'bg-background text-on-surface flex-col md:flex-row',
-      )}
+    <DiscussionsAppShell
+      onNewThread={openComposer}
+      className={'bg-background text-on-surface'}
+      contentClassName={cm.cn(cm.flex({ direction: 'col' }), cm.minH('screen'))}
     >
-      {/* SideNavBar Component */}
-      <DiscussionsSideNavBar onNewThread={openComposer} />
-      {/* Main Content Canvas */}
-      <main
-        className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, cm.minH('screen'), 'min-w-0')}
-      >
-        {/* TopNavBar Component */}
-        <DiscussionsHeader search={search} onSearchChange={setSearch} />
-        {/* Content Area */}
-        <div
-          className={cm.cn(cm.sp('p', 8), cm.maxW('6xl'), cm.mxAuto, cm.w('full'), cm.stack(10))}
-        >
-          {/* Filters */}
-          <DiscussionFilters activeFilter={activeFilter} onFilterChange={setActiveFilter} />
-          {/* Thread List (Bento-lite Layout) */}
-          <DiscussionThreadList discussions={filtered} loading={loading} error={error} />
-        </div>
-      </main>
+      {/* TopNavBar Component */}
+      <DiscussionsHeader search={search} onSearchChange={setSearch} />
+      {/* Content Area */}
+      <div className={cm.cn(cm.sp('p', 8), cm.maxW('6xl'), cm.mxAuto, cm.w('full'), cm.stack(10))}>
+        {/* Filters */}
+        <DiscussionFilters activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+        {/* Thread List (Bento-lite Layout) */}
+        <DiscussionThreadList discussions={filtered} loading={loading} error={error} />
+      </div>
       {/* New-thread composer (opened from the sidebar's New Thread button) */}
       <Modal
         open={composerOpen}
@@ -303,7 +292,7 @@ function Discussions() {
           )}
         </div>
       </Modal>
-    </div>
+    </DiscussionsAppShell>
   )
 }
 

@@ -9,13 +9,13 @@ import { useAuth, useHttpClient, useTheme, useTranslation } from '@molecule/app-
 import { getClassMap } from '@molecule/app-ui'
 
 import AppearanceSettingsCard from '../components/AppearanceSettingsCard.js'
+import { AppShell } from '../components/AppShell.js'
 import NotificationControlsCard from '../components/NotificationControlsCard.js'
 import ProfileSettingsCard from '../components/ProfileSettingsCard.js'
 import SecuritySettingsCard from '../components/SecuritySettingsCard.js'
 import SettingsActionsBar from '../components/SettingsActionsBar.js'
 import SettingsPageHeader from '../components/SettingsPageHeader.js'
 import SettingsTopNavBar from '../components/SettingsTopNavBar.js'
-import SideNavBar from '../components/SideNavBar.js'
 
 type ThemeChoice = 'light' | 'dark' | 'system'
 
@@ -250,79 +250,70 @@ function Settings() {
   }
 
   return (
-    <div className={cm.cn(cm.surface, 'text-on-surface antialiased')}>
-      {/* SideNavBar (Execution from JSON) */}
-      <SideNavBar />
-      {/* TopAppBar (Execution from JSON) */}
-      <SettingsTopNavBar />
-      {/* Main Content Canvas */}
-      <main className={cm.cn(cm.minH('screen'), 'md:ml-[260px] pt-6 md:pt-20 pb-32')}>
-        <div
-          className={cm.cn(
-            cm.maxW('5xl'),
-            cm.mxAuto,
-            cm.sp('px', 8),
-            cm.sp('py', 12),
-            cm.stack(10),
-          )}
-        >
-          {/* Page Header */}
-          <SettingsPageHeader />
-          {/* Profile Section */}
-          <ProfileSettingsCard
-            name={name}
-            setName={setName}
-            email={email}
-            setEmail={setEmail}
-            bio={bio}
-            setBio={setBio}
-            profileSuccess={profileSuccess}
-            profileError={profileError}
-            emailChanged={emailChanged}
-            emailPassword={emailPassword}
-            setEmailPassword={setEmailPassword}
+    <AppShell
+      desktopTopBar={<SettingsTopNavBar />}
+      className={cm.cn(cm.surface, 'text-on-surface antialiased')}
+      contentClassName={cm.cn(cm.minH('screen'), 'pt-6 md:pt-20 pb-32')}
+    >
+      <div
+        className={cm.cn(cm.maxW('5xl'), cm.mxAuto, cm.sp('px', 8), cm.sp('py', 12), cm.stack(10))}
+      >
+        {/* Page Header */}
+        <SettingsPageHeader />
+        {/* Profile Section */}
+        <ProfileSettingsCard
+          name={name}
+          setName={setName}
+          email={email}
+          setEmail={setEmail}
+          bio={bio}
+          setBio={setBio}
+          profileSuccess={profileSuccess}
+          profileError={profileError}
+          emailChanged={emailChanged}
+          emailPassword={emailPassword}
+          setEmailPassword={setEmailPassword}
+        />
+        <div className={cm.cn(cm.grid({ cols: 1, gap: 'xl' }), 'lg:grid-cols-2')}>
+          {/* Notifications Section */}
+          <NotificationControlsCard
+            notifyEmail={notifyEmail}
+            setNotifyEmail={setNotifyEmail}
+            notifyCourseUpdates={notifyCourseUpdates}
+            setNotifyCourseUpdates={setNotifyCourseUpdates}
+            notifyAssignments={notifyAssignments}
+            setNotifyAssignments={setNotifyAssignments}
+            notifyDiscussions={notifyDiscussions}
+            setNotifyDiscussions={setNotifyDiscussions}
           />
-          <div className={cm.cn(cm.grid({ cols: 1, gap: 'xl' }), 'lg:grid-cols-2')}>
-            {/* Notifications Section */}
-            <NotificationControlsCard
-              notifyEmail={notifyEmail}
-              setNotifyEmail={setNotifyEmail}
-              notifyCourseUpdates={notifyCourseUpdates}
-              setNotifyCourseUpdates={setNotifyCourseUpdates}
-              notifyAssignments={notifyAssignments}
-              setNotifyAssignments={setNotifyAssignments}
-              notifyDiscussions={notifyDiscussions}
-              setNotifyDiscussions={setNotifyDiscussions}
-            />
-            {/* Appearance Section */}
-            <AppearanceSettingsCard
-              theme={theme}
-              setTheme={setTheme}
-              language={language}
-              setLanguage={setLanguage}
-            />
-          </div>
-          <SecuritySettingsCard
-            currentPassword={currentPassword}
-            setCurrentPassword={setCurrentPassword}
-            newPassword={newPassword}
-            setNewPassword={setNewPassword}
-            confirmPassword={confirmPassword}
-            setConfirmPassword={setConfirmPassword}
-            passwordLoading={passwordLoading}
-            passwordError={passwordError}
-            passwordSuccess={passwordSuccess}
-            onSubmit={handlePasswordChange}
+          {/* Appearance Section */}
+          <AppearanceSettingsCard
+            theme={theme}
+            setTheme={setTheme}
+            language={language}
+            setLanguage={setLanguage}
           />
         </div>
-      </main>
+        <SecuritySettingsCard
+          currentPassword={currentPassword}
+          setCurrentPassword={setCurrentPassword}
+          newPassword={newPassword}
+          setNewPassword={setNewPassword}
+          confirmPassword={confirmPassword}
+          setConfirmPassword={setConfirmPassword}
+          passwordLoading={passwordLoading}
+          passwordError={passwordError}
+          passwordSuccess={passwordSuccess}
+          onSubmit={handlePasswordChange}
+        />
+      </div>
       <SettingsActionsBar
         onSave={handleProfileSave}
         onCancel={handleCancel}
         loading={profileLoading}
         savedAt={savedAt}
       />
-    </div>
+    </AppShell>
   )
 }
 

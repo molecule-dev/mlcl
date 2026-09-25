@@ -5,11 +5,11 @@ import { useEffect, useMemo, useState } from 'react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { AppShell } from '../components/AppShell.js'
 import GradebookPageHeader from '../components/GradebookPageHeader.js'
 import GradebookTopNavBar from '../components/GradebookTopNavBar.js'
 import GradeBreakdownTable from '../components/GradeBreakdownTable.js'
 import GradeSummaryGrid from '../components/GradeSummaryGrid.js'
-import SideNavBar from '../components/SideNavBar.js'
 
 type Grade = Record<string, unknown>
 type Course = { id: string; name: string; [key: string]: unknown }
@@ -79,57 +79,53 @@ function Gradebook() {
     )
 
   return (
-    <div className={cm.cn(cm.minH('screen'), 'bg-surface font-body text-on-surface')}>
-      <SideNavBar />
-      {/* Main Wrapper */}
-      <div className={cm.cn(cm.flex({ direction: 'col' }), cm.minH('screen'), 'md:ml-[260px]')}>
-        {/* TopNavBar */}
-        <GradebookTopNavBar search={search} onSearchChange={setSearch} />
-        {/* Main Content Area */}
-        <main className={cm.cn(cm.sp('p', 8), cm.stack(10))}>
-          <GradebookPageHeader
-            courses={courses}
-            selectedCourse={selectedCourse}
-            onCourseChange={setSelectedCourse}
-            grades={filteredGrades}
-          />
-          {loading && (
-            <div className={cm.cn(cm.flex({ justify: 'center' }), cm.sp('py', 12))}>
-              <div
-                className={cm.cn(
-                  cm.w(8),
-                  cm.h(8),
-                  cm.roundedFull,
-                  'border-4 border-primary border-t-transparent animate-spin',
-                )}
-                role="status"
-                aria-label={t('common.loading', {}, { defaultValue: 'Loading' })}
-              />
-            </div>
-          )}
-          {error && (
+    <AppShell className={'bg-surface font-body text-on-surface'}>
+      {/* TopNavBar */}
+      <GradebookTopNavBar search={search} onSearchChange={setSearch} />
+      {/* Main Content Area */}
+      <div className={cm.cn(cm.sp('p', 8), cm.stack(10))}>
+        <GradebookPageHeader
+          courses={courses}
+          selectedCourse={selectedCourse}
+          onCourseChange={setSelectedCourse}
+          grades={filteredGrades}
+        />
+        {loading && (
+          <div className={cm.cn(cm.flex({ justify: 'center' }), cm.sp('py', 12))}>
             <div
               className={cm.cn(
-                cm.sp('px', 6),
-                cm.sp('py', 4),
-                cm.textSize('sm'),
-                'bg-error-container text-on-error-container rounded-2xl',
+                cm.w(8),
+                cm.h(8),
+                cm.roundedFull,
+                'border-4 border-primary border-t-transparent animate-spin',
               )}
-              role="alert"
-            >
-              {error}
-            </div>
-          )}
-          {!loading && (
-            <>
-              {/* Top Section Cards (Bento Style) */}
-              <GradeSummaryGrid grades={filteredGrades} />
-              <GradeBreakdownTable grades={filteredGrades} />
-            </>
-          )}
-        </main>
+              role="status"
+              aria-label={t('common.loading', {}, { defaultValue: 'Loading' })}
+            />
+          </div>
+        )}
+        {error && (
+          <div
+            className={cm.cn(
+              cm.sp('px', 6),
+              cm.sp('py', 4),
+              cm.textSize('sm'),
+              'bg-error-container text-on-error-container rounded-2xl',
+            )}
+            role="alert"
+          >
+            {error}
+          </div>
+        )}
+        {!loading && (
+          <>
+            {/* Top Section Cards (Bento Style) */}
+            <GradeSummaryGrid grades={filteredGrades} />
+            <GradeBreakdownTable grades={filteredGrades} />
+          </>
+        )}
       </div>
-    </div>
+    </AppShell>
   )
 }
 

@@ -3,17 +3,17 @@ import { Link, useLocation } from 'react-router'
 import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
 import { planLabel } from '../lib/planLabel.js'
 import { useDashboardStats } from '../lib/useDashboardStats.js'
-import { MobileNav } from './MobileNav.js'
 
 /**
- * The nav links shared by the desktop sidebar and the mobile drawer
- * (`MobileNav`). `onNavigate` is called after a link is tapped so the
- * mobile drawer can close itself.
+ * The nav links shared by the desktop Sidebar and the mobile Drawer — both
+ * `ResponsiveAppShell` surfaces (see `AppShell.tsx`). Only the mounted
+ * breakpoint's copy ever instantiates, so the `data-mol-id`s are never
+ * duplicated in the DOM. Marking the CURRENT item is the consumer's job:
+ * `aria-current="page"` plus the active classes.
  */
-export function SideNavLinks({ onNavigate }: { onNavigate?: () => void }) {
+export function SideNavLinks() {
   const { t } = useTranslation()
   const cm = getClassMap()
   const { pathname } = useLocation()
@@ -41,13 +41,15 @@ export function SideNavLinks({ onNavigate }: { onNavigate?: () => void }) {
     'text-violet-700 dark:text-violet-400 bg-surface rounded-lg shadow-sm transition-all scale-[0.98]',
   )
 
+  // The shell's Sidebar/Drawer already wrap children in a `<nav>` landmark —
+  // this stays a plain container to avoid nesting landmarks.
   return (
-    <nav className={cm.cn(cm.flex1, cm.stack(1))}>
+    <div className={cm.cn(cm.flex1, cm.stack(1))}>
       <Link
         className={active.dashboard ? navActive : navInactive}
         data-mol-id="nav-dashboard"
         to="/dashboard"
-        onClick={onNavigate}
+        aria-current={active.dashboard ? 'page' : undefined}
       >
         <span
           className={cm.cn('material-symbols-outlined')}
@@ -69,7 +71,7 @@ export function SideNavLinks({ onNavigate }: { onNavigate?: () => void }) {
         className={active.myCourses ? navActive : navInactive}
         data-mol-id="nav-my-courses"
         to="/courses"
-        onClick={onNavigate}
+        aria-current={active.myCourses ? 'page' : undefined}
       >
         <span
           className={cm.cn('material-symbols-outlined')}
@@ -91,7 +93,7 @@ export function SideNavLinks({ onNavigate }: { onNavigate?: () => void }) {
         className={active.assignments ? navActive : navInactive}
         data-mol-id="nav-assignments"
         to="/assignments"
-        onClick={onNavigate}
+        aria-current={active.assignments ? 'page' : undefined}
       >
         <span
           className={cm.cn('material-symbols-outlined')}
@@ -113,7 +115,7 @@ export function SideNavLinks({ onNavigate }: { onNavigate?: () => void }) {
         className={active.discussions ? navActive : navInactive}
         data-mol-id="nav-discussions"
         to="/discussions"
-        onClick={onNavigate}
+        aria-current={active.discussions ? 'page' : undefined}
       >
         <span
           className={cm.cn('material-symbols-outlined')}
@@ -135,7 +137,7 @@ export function SideNavLinks({ onNavigate }: { onNavigate?: () => void }) {
         className={active.gradebook ? navActive : navInactive}
         data-mol-id="nav-gradebook"
         to="/gradebook"
-        onClick={onNavigate}
+        aria-current={active.gradebook ? 'page' : undefined}
       >
         <span
           className={cm.cn('material-symbols-outlined')}
@@ -181,7 +183,7 @@ export function SideNavLinks({ onNavigate }: { onNavigate?: () => void }) {
         className={active.settings ? navActive : navInactive}
         data-mol-id="nav-settings"
         to="/settings"
-        onClick={onNavigate}
+        aria-current={active.settings ? 'page' : undefined}
       >
         <span
           className={cm.cn('material-symbols-outlined')}
@@ -199,7 +201,7 @@ export function SideNavLinks({ onNavigate }: { onNavigate?: () => void }) {
           {t('nav.settings', {}, { defaultValue: 'Settings' })}
         </span>
       </Link>
-    </nav>
+    </div>
   )
 }
 
@@ -289,39 +291,3 @@ export function SideNavFooter() {
     </div>
   )
 }
-
-function SideNavBar() {
-  const { t } = useTranslation()
-  const cm = getClassMap()
-
-  return (
-    <>
-      {/* Mobile chrome: sticky top bar + drawer (below md). */}
-      <MobileNav />
-      {/* Desktop sidebar (md+). */}
-      <aside
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          cm.sp('p', 6),
-          'fixed inset-y-0 left-0 z-30 hidden w-[260px] overflow-y-auto bg-surface-secondary border-r border-border/70 md:flex',
-        )}
-      >
-        <div
-          className={cm.cn(
-            cm.textSize('2xl'),
-            cm.fontWeight('bold'),
-            cm.sp('mb', 10),
-            'text-primary dark:text-[#a78bfa]',
-          )}
-        >
-          {t('sideNavBar.brandName', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
-        </div>
-        <SideNavLinks />
-        <SideNavFooter />
-      </aside>
-    </>
-  )
-}
-
-export default SideNavBar
-export { SideNavBar }
