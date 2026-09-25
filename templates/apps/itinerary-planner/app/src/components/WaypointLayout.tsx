@@ -1,28 +1,32 @@
 /**
- * Waypoint sidebar shell — fixed-width left sidebar with brand wordmark,
- * vertical navigation, and a footer user-menu slot. Wraps every authed
- * route (Dashboard, Trips, Bookings, Calendar, Notifications, Settings).
+ * Waypoint sidebar shell — the shared `ResponsiveAppShell` family from
+ * `@molecule/app-ui-react` wraps every authed route (Dashboard, Trips,
+ * Bookings, Calendar, Notifications, Settings).
  *
- * Delegates layout chrome to the Sweep 1 `<SidebarLayout>` from
- * `@molecule/app-sidebar-layout-react` on md+ viewports; below `md` the
- * template-local `MobileTopBar` (sticky top bar + nav drawer) takes over —
- * the shared rail has no mobile collapse, so the chrome is swapped at the
- * route-layout level. The nav inventory below is the single source shared
- * by both shells (curated to Waypoint's travel-journal information
- * architecture: Dashboard → Trips → Calendar → Destinations → Bookings →
- * Expenses → Notifications → Settings).
+ * Fleet-canonical composition for a desktop-sidebar app: the brand wordmark
+ * lives in the `.Sidebar` (and the `.Drawer` header), and the `.TopBar` is
+ * `mobileOnly` — it renders only below 768px, carrying the menu trigger
+ * (the shell draws it), the wordmark and the user menu. `.Sidebar` (≥768px)
+ * and `.Drawer` (<768px, full APG dialog contract) receive the SAME nav
+ * element, so only the mounted breakpoint instantiates it and nav
+ * `data-mol-ids` never duplicate in the DOM. The shell owns the drawer open
+ * state, the hamburger trigger, Escape/backdrop handling, focus trapping and
+ * auto-close-on-navigation — the former template-local `MobileTopBar` /
+ * `useIsMobile` chrome was deleted in favor of it.
  *
- * Translated from travel-booking's TravelBookingLayout.tsx — same
- * delegation pattern, but a sidebar (per DESIGN.md "Sidebar Width: 320px")
- * rather than top-nav, because trip planning workflows benefit from a
- * persistent navigation column with longer labels.
+ * The nav inventory below is the single source shared by both surfaces
+ * (curated to Waypoint's travel-journal information architecture: Dashboard →
+ * Trips → Calendar → Destinations → Bookings → Expenses → Notifications →
+ * Settings).
  */
 
+import { Link, Outlet, useLocation } from 'react-router'
+
 import { useTranslation } from '@molecule/app-react'
-import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
+import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
-import { MobileTopBar, useIsMobile } from './MobileTopBar.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -41,30 +45,89 @@ const NAV_KEYS = [
   { to: '/settings', key: 'settings', defaultLabel: 'Settings', icon: 'settings' },
 ] as const
 
+const FOCUS_RING =
+  'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
+
 export function WaypointLayout() {
+  const cm = getClassMap()
   const { t } = useTranslation()
-  const isMobile = useIsMobile()
+  const { pathname } = useLocation()
   const navItems = NAV_KEYS.map((item) => ({
     to: item.to,
     key: item.key,
     icon: item.icon,
     label: t(`waypointLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
   }))
-  // Below md (768px) the fixed 264px rail would crush a phone's content
-  // column — swap the whole chrome for the template-local mobile shell
-  // (sticky top bar + drawer). Conditionally rendered, not CSS-hidden, so
-  // nav data-mol-ids never appear twice in the DOM.
-  if (isMobile) {
-    return <MobileTopBar navItems={navItems} />
-  }
+  const navAriaLabel = t(
+    'waypointLayout.primaryNavLabel',
+    {},
+    { defaultValue: 'Primary navigation' },
+  )
+
+  // The SAME nav element for both surfaces — only the mounted breakpoint
+  // instantiates it. Longest-prefix active match: /trips/new marks Trips.
+  const nav = (
+    <>
+      {navItems.map((item) => {
+        const isActive = pathname === item.to || pathname.startsWith(`${item.to}/`)
+        return (
+          <Link
+            key={item.key}
+            to={item.to}
+            data-mol-id={`nav-${item.key}`}
+            aria-current={isActive ? 'page' : undefined}
+            className={cm.cn(
+              cm.flex({ align: 'center' }),
+              'min-h-[44px] px-3 py-2.5 rounded-lg gap-3 text-sm font-medium',
+              isActive
+                ? 'border-l-4 border-primary bg-surface-container-lowest font-bold text-primary shadow-sm'
+                : 'border-l-4 border-transparent text-on-surface-variant hover:bg-surface-container',
+              FOCUS_RING,
+            )}
+          >
+            <span
+              className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}
+              aria-hidden="true"
+            >
+              {item.icon}
+            </span>
+            {item.label}
+          </Link>
+        )
+      })}
+    </>
+  )
+
+  // Wordmark → /dashboard, styled like the app's small uppercase brand lockup.
+  const brand = (
+    <Link
+      to="/dashboard"
+      className={cm.cn(
+        'rounded text-[0.65rem] font-bold uppercase tracking-[0.25em] text-primary truncate',
+        FOCUS_RING,
+      )}
+    >
+      {APP_NAME}
+    </Link>
+  )
+  // Drawer header wordmark — bigger lockup, as the old drawer header had.
+  const drawerBrand = (
+    <span className={cm.cn(cm.textSize('2xl'), 'font-extrabold tracking-tight')}>{APP_NAME}</span>
+  )
+
   return (
-    <SidebarLayout
-      appName={APP_NAME}
-      logoTo="/dashboard"
-      navItems={navItems}
-      userMenu={<UserMenu />}
-      sidebarWidthClass="w-64"
-      navAriaLabel={t('waypointLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })}
-    />
+    <ResponsiveAppShell sidebarWidth="lg">
+      <ResponsiveAppShell.TopBar mobileOnly brand={brand} actions={<UserMenu />} />
+      <ResponsiveAppShell.Sidebar navLabel={navAriaLabel} footer={<UserMenu />}>
+        <div className={cm.cn(cm.sp('px', 3), cm.sp('py', 2))}>{brand}</div>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+      <ResponsiveAppShell.Drawer navLabel={navAriaLabel} header={drawerBrand}>
+        {nav}
+      </ResponsiveAppShell.Drawer>
+      <ResponsiveAppShell.Content>
+        <Outlet />
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
