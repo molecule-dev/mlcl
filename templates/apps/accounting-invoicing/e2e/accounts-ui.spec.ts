@@ -57,16 +57,16 @@ test.describe('mobile shell (< md)', () => {
     await signup(page)
     await page.setViewportSize({ width: 390, height: 844 })
     await page.goto(APP_BASE + '/dashboard')
-    await expect(page.getByTestId('ledger-topbar')).toBeVisible()
-    // The desktop sidebar rail is hidden at this width.
+    await expect(page.locator('[data-mol-id="shell-topbar"]')).toBeVisible()
+    // The desktop sidebar rail is unmounted at this width.
     await expect(page.locator('aside')).toBeHidden()
 
-    await page.getByTestId('ledger-drawer-toggle').click()
+    await page.locator('[data-mol-id="shell-drawer-open"]').click()
     const drawer = page.getByRole('navigation', { name: /primary navigation/i })
     await expect(drawer).toBeVisible()
     await drawer.getByRole('link', { name: /^invoices$/i }).click()
     await page.waitForURL('**/invoices')
     // Drawer auto-closes on navigation.
-    await expect(page.getByTestId('ledger-drawer')).toHaveCount(0)
+    await expect(page.locator('[data-mol-id="shell-drawer"]')).toHaveCount(0)
   })
 })
