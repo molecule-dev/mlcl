@@ -22,34 +22,24 @@ export interface VaultFolder {
   defaultLabel: string
 }
 
-interface VaultSidebarProps {
-  categories: VaultCategory[]
-  folders: VaultFolder[]
-  /** Vault strength score 0-100 shown in the secured-status pill. */
+interface VaultSidebarFooterProps {
+  /** Vault strength score 0-100 shown in the secured-status ring. */
   vaultStrength: number
 }
 
 interface VaultSidebarContentProps {
   categories: VaultCategory[]
   folders: VaultFolder[]
-  /** Called after an in-content navigation — the mobile drawer closes on it. */
-  onNavigate?: () => void
-  /** The brand mark doubles as a /vault link; the drawer renders its own header. */
-  showBrand?: boolean
 }
 
 /**
- * The sidebar's scrollable body — vault search, primary nav, categories
- * with colored dots + counts, folders. Rendered inside the desktop
- * `<aside>` AND inside the mobile drawer's panel so the two shells can
- * never drift (fleet mobile-shell pattern: one inventory, two chrome).
+ * The sidebar's scrollable body — brand mark, vault search, primary nav,
+ * categories with colored dots + counts, folders. The shared shell renders
+ * it in BOTH breakpoint slots (`ResponsiveAppShell.Sidebar` ≥768px and
+ * `.Drawer` below) from the same element, so the two can never drift; the
+ * shell closes the drawer on navigation, so links need no close callback.
  */
-export function VaultSidebarContent({
-  categories,
-  folders,
-  onNavigate,
-  showBrand = true,
-}: VaultSidebarContentProps) {
+export function VaultSidebarContent({ categories, folders }: VaultSidebarContentProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const location = useLocation()
@@ -84,7 +74,6 @@ export function VaultSidebarContent({
   const submitSearch = (e: React.FormEvent) => {
     e.preventDefault()
     const next = query.trim()
-    onNavigate?.()
     navigate(next ? `/vault?search=${encodeURIComponent(next)}` : '/vault')
   }
 
@@ -94,7 +83,7 @@ export function VaultSidebarContent({
       <Link
         key={to}
         to={to}
-        onClick={onNavigate}
+        aria-current={active ? 'page' : undefined}
         className={cm.cn(
           cm.flex({ align: 'center', gap: 'sm' }),
           cm.sp('px', 3),
@@ -122,26 +111,23 @@ export function VaultSidebarContent({
         'flex-1 min-h-0 overflow-y-auto',
       )}
     >
-      {showBrand && (
-        <Link
-          to="/vault"
-          onClick={onNavigate}
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'sm' }),
-            cm.fontWeight('bold'),
-            'text-[22px] tracking-tight text-primary',
-          )}
+      <Link
+        to="/vault"
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'sm' }),
+          cm.fontWeight('bold'),
+          'text-[22px] tracking-tight text-primary',
+        )}
+      >
+        <span
+          className={cm.cn('material-symbols-outlined')}
+          style={{ fontVariationSettings: "'FILL' 1" }}
+          aria-hidden="true"
         >
-          <span
-            className={cm.cn('material-symbols-outlined')}
-            style={{ fontVariationSettings: "'FILL' 1" }}
-            aria-hidden="true"
-          >
-            diamond
-          </span>
-          <span className="font-extrabold tracking-tighter">{APP_NAME}</span>
-        </Link>
-      )}
+          diamond
+        </span>
+        <span className="font-extrabold tracking-tighter">{APP_NAME}</span>
+      </Link>
 
       <form
         onSubmit={submitSearch}
@@ -209,7 +195,6 @@ export function VaultSidebarContent({
           <Link
             key={cat.id}
             to={`/vault?category=${cat.id}`}
-            onClick={onNavigate}
             className={cm.cn(
               cm.flex({ align: 'center', justify: 'between' }),
               cm.sp('px', 3),
@@ -244,7 +229,6 @@ export function VaultSidebarContent({
           <Link
             key={f.id}
             to={`/vault?folder=${f.id}`}
-            onClick={onNavigate}
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),
               cm.sp('px', 3),
@@ -268,16 +252,11 @@ export function VaultSidebarContent({
 }
 
 /**
- * Sigil's signature left-rail navigation — diamond brand mark, vault
- * search, primary nav (All Items / Security / Shared / Generator /
- * Notifications / Trash), categories with colored dots and counts,
- * folders, and an emerald "Vault secured" status footer with ring.
- *
- * Desktop only (≥768px): below the `md` breakpoint the layout swaps to
- * `MobileVaultShell`, which renders the SAME inventory via
- * `VaultSidebarContent` inside a slide-in drawer.
+ * The sidebar footer — the emerald "Vault secured" status card: strength
+ * ring, label + percentage, and the user menu. Rendered by the shared
+ * shell's `Sidebar` footer slot (below the `<nav>` landmark).
  */
-export function VaultSidebar({ categories, folders, vaultStrength }: VaultSidebarProps) {
+export function VaultSidebarFooter({ vaultStrength }: VaultSidebarFooterProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
 
@@ -285,70 +264,51 @@ export function VaultSidebar({ categories, folders, vaultStrength }: VaultSideba
   const ringDash = `${ringPct}, 100`
 
   return (
-    <aside
-      className={cm.cn(
-        cm.flex({ direction: 'col' }),
-        cm.h('screen'),
-        'w-[260px] flex-shrink-0 bg-surface border-r border-primary-light/40 sticky top-0 z-20',
-      )}
-      aria-label={t('vaultSidebar.aria', {}, { defaultValue: 'Vault navigation' })}
-    >
-      <VaultSidebarContent categories={categories} folders={folders} />
-
-      <div className={cm.cn(cm.sp('p', 4), 'border-t border-primary-light/40')}>
-        <div
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'sm' }),
-            cm.sp('p', 3),
-            'bg-surface-container-low rounded-lg',
-          )}
-        >
-          <div className={cm.cn('relative w-8 h-8')}>
-            <svg className={cm.cn('w-8 h-8 -rotate-90')} viewBox="0 0 36 36" aria-hidden="true">
-              <path
-                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                className="text-primary-light"
-              />
-              <path
-                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeDasharray={ringDash}
-                className="text-success"
-              />
-            </svg>
-            <span
-              className={cm.cn(
-                'material-symbols-outlined absolute inset-0 flex items-center justify-center text-success text-[14px]',
-              )}
-              aria-hidden="true"
-            >
-              shield
-            </span>
-          </div>
-          <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
-            <span
-              className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'), 'text-on-surface')}
-            >
-              {t('vaultSidebar.secured', {}, { defaultValue: 'Vault secured' })}
-            </span>
-            <span className={cm.cn('text-[10px] text-on-surface-variant')}>
-              {t(
-                'vaultSidebar.strength',
-                { strength: vaultStrength },
-                { defaultValue: 'Overall strength {{strength}}%' },
-              )}
-            </span>
-          </div>
-          <UserMenu />
+    <div className={cm.cn(cm.sp('p', 3), 'bg-surface-container-low rounded-lg')}>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
+        <div className={cm.cn('relative w-8 h-8')}>
+          <svg className={cm.cn('w-8 h-8 -rotate-90')} viewBox="0 0 36 36" aria-hidden="true">
+            <path
+              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              className="text-primary-light"
+            />
+            <path
+              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeDasharray={ringDash}
+              className="text-success"
+            />
+          </svg>
+          <span
+            className={cm.cn(
+              'material-symbols-outlined absolute inset-0 flex items-center justify-center text-success text-[14px]',
+            )}
+            aria-hidden="true"
+          >
+            shield
+          </span>
         </div>
+        <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-w-0')}>
+          <span className={cm.cn(cm.textSize('xs'), cm.fontWeight('semibold'), 'text-on-surface')}>
+            {t('vaultSidebar.secured', {}, { defaultValue: 'Vault secured' })}
+          </span>
+          <span className={cm.cn('text-[10px] text-on-surface-variant')}>
+            {t(
+              'vaultSidebar.strength',
+              { strength: vaultStrength },
+              { defaultValue: 'Overall strength {{strength}}%' },
+            )}
+          </span>
+        </div>
+        <UserMenu />
       </div>
-    </aside>
+    </div>
   )
 }
 
-export default VaultSidebar
+export default VaultSidebarContent
