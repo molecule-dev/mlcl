@@ -4,7 +4,7 @@ import { track } from '@molecule/app-analytics'
 import { t } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-import { ConfirmButton } from '@molecule/app-ui-react'
+import { ConfirmButton, LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { CategoryPill, type ClipCategory } from '../components/CategoryPill.js'
 import { KbdBadge } from '../components/KbdBadge.js'
@@ -317,31 +317,13 @@ export function Clips() {
       )}
 
       {clipsState.error && clipsState.data.length === 0 && (
-        <div
-          role="alert"
-          className={cm.cn(
-            cm.sp('p', 3),
-            'rounded-md bg-error-container/30 border border-error/30 text-error',
-          )}
-        >
-          <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
-            {t('clips.loadError', {}, { defaultValue: 'Clips could not be loaded.' })}
-          </p>
-          <p className={cm.cn(cm.textSize('xs'), cm.sp('mb', 2), 'opacity-80 break-words')}>
-            {clipsState.error}
-          </p>
-          <button
-            type="button"
-            data-mol-id="clips-retry"
-            onClick={() => void clipsState.refetch()}
-            className={cm.cn(
-              cm.sp('px', 3),
-              'min-h-[36px] rounded-md border border-error/40 text-xs font-semibold hover:bg-error-container/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-error',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-        </div>
+        <LoadErrorBanner
+          message={t('clips.loadError', {}, { defaultValue: 'Clips could not be loaded.' })}
+          detail={clipsState.error}
+          onRetry={clipsState.refetch}
+          retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+          retryMolId="clips-retry"
+        />
       )}
 
       {pinned.length > 0 && (

@@ -4,6 +4,7 @@ import { track } from '@molecule/app-analytics'
 import { t } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { ACCENT_COLOR } from '../branding.js'
 import { PageHeader } from '../components/PageHeader.js'
@@ -179,31 +180,13 @@ export function Devices() {
       )}
 
       {devices.error && devices.data.length === 0 && (
-        <div
-          role="alert"
-          className={cm.cn(
-            cm.sp('p', 4),
-            'rounded-xl bg-error-container/30 border border-error/30 text-error',
-          )}
-        >
-          <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>
-            {t('devices.loadError', {}, { defaultValue: 'Devices could not be loaded.' })}
-          </p>
-          <p className={cm.cn(cm.textSize('xs'), cm.sp('mb', 2), 'opacity-80 break-words')}>
-            {devices.error}
-          </p>
-          <button
-            type="button"
-            data-mol-id="devices-retry"
-            onClick={() => void devices.refetch()}
-            className={cm.cn(
-              cm.sp('px', 3),
-              'min-h-[36px] rounded-md border border-error/40 text-xs font-semibold hover:bg-error-container/40',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-        </div>
+        <LoadErrorBanner
+          message={t('devices.loadError', {}, { defaultValue: 'Devices could not be loaded.' })}
+          detail={devices.error}
+          onRetry={devices.refetch}
+          retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+          retryMolId="devices-retry"
+        />
       )}
 
       {actionError && (
