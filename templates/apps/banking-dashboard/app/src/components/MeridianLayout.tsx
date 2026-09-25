@@ -93,14 +93,7 @@ export function MeridianLayout() {
   })
 
   return (
-    // Root direction: the shell's flex-row base is overridden to the fleet's
-    // `flex-col md:flex-row` stack via className (top bar above the content
-    // column on mobile, sidebar beside it on desktop).
-    <ResponsiveAppShell
-      sidebarWidth="md"
-      dataMolId="meridian-shell"
-      className={cm.cn('flex-col md:flex-row')}
-    >
+    <ResponsiveAppShell sidebarWidth="md" dataMolId="meridian-shell">
       {/*
         Mobile top bar (< md). The desktop sidebar is hidden below md, so the
         brand + theme toggle need a home that does not eat the viewport; the
