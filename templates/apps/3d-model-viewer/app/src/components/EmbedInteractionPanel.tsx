@@ -44,36 +44,34 @@ export default function EmbedInteractionPanel({
         {t('embedInteractionPanel.title', {}, { defaultValue: 'Interaction' })}
       </h3>
       <div className={cm.flex({ direction: 'col', gap: 3 })}>
-        <div
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between' }),
-            cm.w('full'),
-          )}
-        >
+        <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.w('full'))}>
           <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('embedInteractionPanel.autoRotate', {}, { defaultValue: 'Auto-rotate model' })}
           </span>
           <Switch
             checked={autoRotate}
             size="sm"
-            aria-label={t('embedInteractionPanel.autoRotate', {}, { defaultValue: 'Auto-rotate model' })}
+            aria-label={t(
+              'embedInteractionPanel.autoRotate',
+              {},
+              { defaultValue: 'Auto-rotate model' },
+            )}
             data-mol-id="embed-auto-rotate"
             onChange={(e) => setAutoRotate((e.target as HTMLInputElement).checked)}
           />
         </div>
-        <div
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between' }),
-            cm.w('full'),
-          )}
-        >
+        <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.w('full'))}>
           <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('embedInteractionPanel.showAnnotations', {}, { defaultValue: 'Show annotations' })}
           </span>
           <Switch
             checked={showAnnotations}
             size="sm"
-            aria-label={t('embedInteractionPanel.showAnnotations', {}, { defaultValue: 'Show annotations' })}
+            aria-label={t(
+              'embedInteractionPanel.showAnnotations',
+              {},
+              { defaultValue: 'Show annotations' },
+            )}
             data-mol-id="embed-show-annotations"
             onChange={(e) => setShowAnnotations((e.target as HTMLInputElement).checked)}
           />

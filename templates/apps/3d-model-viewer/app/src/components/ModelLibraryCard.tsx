@@ -146,7 +146,10 @@ function ModelLibraryCard({
                 )}
                 onConfirm={handleDelete}
                 {...(model?.id != null
-                  ? { testId: `library-delete-${model.id}`, 'data-mol-id': `library-delete-${model.id}` }
+                  ? {
+                      testId: `library-delete-${model.id}`,
+                      'data-mol-id': `library-delete-${model.id}`,
+                    }
                   : {})}
                 disabled={deleting}
                 size="sm"
