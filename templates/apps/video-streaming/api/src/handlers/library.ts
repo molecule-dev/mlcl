@@ -100,13 +100,33 @@ router.post('/history', validateBody(addHistorySchema), async (req: Request, res
       res.status(200).json(updated.data ?? updated)
       return
     }
-    const result = await create('watch_history', {
+    const row = {
       user_id: userId,
       video_id,
       position_sec: position_sec ?? 0,
       watched_at: new Date(),
-    })
-    res.status(201).json(result.data ?? result)
+    }
+    try {
+      const result = await create('watch_history', row)
+      res.status(201).json(result.data ?? result)
+    } catch (createError) {
+      // Lost the upsert race: a concurrent ping for the same (user, video)
+      // inserted first and the watch_history_user_video_uidx unique index
+      // rejected ours. Update the winner's row instead of 500-ing.
+      const raced = await findMany<{ id: string }>('watch_history', {
+        where: [
+          { field: 'user_id', operator: '=', value: userId },
+          { field: 'video_id', operator: '=', value: video_id },
+        ],
+        orderBy: [{ field: 'watched_at', direction: 'desc' }],
+        limit: 1,
+      })
+      if (!raced[0]) throw createError
+      const update: Record<string, unknown> = { watched_at: new Date() }
+      if (position_sec !== undefined) update.position_sec = position_sec
+      const updated = await updateById('watch_history', raced[0].id, update)
+      res.status(200).json(updated.data ?? updated)
+    }
   } catch (error) {
     console.error(error)
     res.status(500).json({

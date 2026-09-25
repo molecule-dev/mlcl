@@ -1,9 +1,11 @@
+import { Link, Outlet, useLocation } from 'react-router'
+
 import { useTranslation } from '@molecule/app-react'
-import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
+import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
-import { useIsMobile } from '../lib/use-is-mobile.js'
-import { SpoolMobileShell } from './SpoolMobileShell.js'
+import { ThemeToggle } from './ThemeToggle.js'
 import { UserMenu } from './UserMenu.js'
 
 const NAV_KEYS = [
@@ -29,43 +31,132 @@ const NAV_KEYS = [
 ] as const
 
 /**
- * Sidebar shell for all authenticated Spool screens.
+ * Signed-in shell for all Spool screens — the shared `ResponsiveAppShell`
+ * composed once for both breakpoints. The TopBar mounts only below md (768px)
+ * and renders the mobile menu trigger itself; the Sidebar mounts ≥768px
+ * (brand row + nav + user card, the shape the shared `SidebarLayout` used to
+ * render); the Drawer carries the SAME nav element below md under a full
+ * dialog contract (focus trap, Escape/backdrop close, scroll lock,
+ * auto-close on navigation). Only the mounted breakpoint instantiates the
+ * nav, so nav `data-mol-id`s stay unique in the DOM. The shell owns the
+ * breakpoint split, drawer open state, root direction, and trigger sizing —
+ * no app-side shims.
  *
- * Desktop (>= 768px): wraps `@molecule/app-sidebar-layout-react` with the
- * Spool nav (Home / Trending / Subscriptions / Library / Search / Upload /
- * Studio / Notifications / Settings).
- *
- * Mobile (< 768px): the shared sidebar has no collapse, so its fixed 240px
- * rail would crush a phone's content column to ~150px. A template-local
- * SpoolMobileShell (sticky top bar + slide-in drawer) takes over instead —
- * conditionally RENDERED via matchMedia, never CSS-hidden, so nav
- * `data-mol-id`s are never duplicated in the DOM.
- *
- * Translated from music-streaming's ReverbLayout.tsx, using
- * video-domain icons (`subscriptions`, `video_library`, etc.) and the
- * Spool nav vocabulary.
+ * Spool nav vocabulary: Home / Trending / Subscriptions / Library / Search /
+ * Upload / Studio / Notifications / Settings, with video-domain icons
+ * (`subscriptions`, `video_library`, …).
  */
 export function SpoolLayout() {
+  const cm = getClassMap()
   const { t } = useTranslation()
-  const isMobile = useIsMobile()
-  const navItems = NAV_KEYS.map((item) => ({
-    to: item.to,
-    key: item.key,
-    icon: item.icon,
-    label: t(`spoolLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
-  }))
+  const { pathname } = useLocation()
 
-  if (isMobile) {
-    return <SpoolMobileShell navItems={navItems} />
-  }
+  const navAriaLabel = t('spoolLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
+
+  // Longest prefix-match, so a video-detail route (/watch/<id>) keeps "Home"
+  // lit and /playlist/<id> keeps "Library" lit.
+  const activeKey = NAV_KEYS.reduce<string | null>((best, item) => {
+    const isMatch = pathname === item.to || pathname.startsWith(`${item.to}/`)
+    if (!isMatch) return best
+    if (best === null) return item.key
+    const bestItem = NAV_KEYS.find((i) => i.key === best)
+    return bestItem && item.to.length > bestItem.to.length ? item.key : best
+  }, null)
+
+  // ONE nav element for `Sidebar` (≥768px) and `Drawer` (<768px) — the shell
+  // closes the drawer on navigation, so links carry no onClick close.
+  const nav = (
+    <ul className={cm.cn(cm.flex({ direction: 'col' }), cm.stack(1))}>
+      {NAV_KEYS.map((item) => {
+        const isActive = item.key === activeKey
+        return (
+          <li key={item.key}>
+            <Link
+              to={item.to}
+              data-mol-id={`nav-${item.key}`}
+              aria-current={isActive ? 'page' : undefined}
+              className={cm.cn(
+                cm.flex({ align: 'center', gap: 'sm' }),
+                cm.sp('px', 4),
+                cm.sp('py', 3),
+                cm.textSize('sm'),
+                cm.fontWeight('medium'),
+                cm.roundedFull,
+                isActive
+                  ? cm.cn(cm.bgPrimaryContainer, cm.textOnPrimaryContainer)
+                  : cm.cn(cm.textMuted, cm.link),
+              )}
+            >
+              <span className="material-symbols-outlined" aria-hidden="true">
+                {item.icon}
+              </span>
+              <span>
+                {t(`spoolLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel })}
+              </span>
+            </Link>
+          </li>
+        )
+      })}
+    </ul>
+  )
 
   return (
-    <SidebarLayout
-      appName={APP_NAME}
-      logoTo="/home"
-      navItems={navItems}
-      userMenu={<UserMenu />}
-      navAriaLabel={t('spoolLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })}
-    />
+    <ResponsiveAppShell sidebarWidth="md">
+      {/* Mobile-only top bar (< md): trigger (shell-rendered) + brand + user
+          menu. The desktop keeps its sidebar brand row, so the bar mounts
+          nowhere else. */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={
+          <Link
+            to="/home"
+            className={cm.cn(
+              cm.fontWeight('bold'),
+              cm.textSize('base'),
+              'text-on-surface truncate',
+            )}
+          >
+            {APP_NAME}
+          </Link>
+        }
+        actions={<UserMenu />}
+      />
+
+      {/* Desktop sidebar (≥768px). The shared Sidebar has no header slot, so
+          the brand row rides inside children, above the nav list. */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navAriaLabel}
+        className={cm.sp('p', 4)}
+        footer={<UserMenu />}
+      >
+        <Link
+          to="/home"
+          className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 6))}
+        >
+          {APP_NAME}
+        </Link>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+
+      {/* Mobile drawer (< md): full-height dialog panel over the same nav,
+          brand in the header row, close button shell-rendered. The theme
+          toggle keeps its old drawer-footer home. */}
+      <ResponsiveAppShell.Drawer
+        navLabel={navAriaLabel}
+        className={cm.cn('h-full', cm.sp('p', 4))}
+        header={
+          <span className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), 'text-on-surface')}>
+            {APP_NAME}
+          </span>
+        }
+        footer={<ThemeToggle />}
+      >
+        {nav}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content className="overflow-y-auto bg-background">
+        <Outlet />
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }
