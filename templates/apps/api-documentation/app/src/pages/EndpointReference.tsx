@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -114,7 +115,25 @@ export function EndpointReference() {
         {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
       </div>
     )
-  if (error || notFound || !endpoint)
+  if (error)
+    return (
+      <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
+        <Link
+          to="/docs/endpoints"
+          className={cm.cn(cm.textSize('sm'), cm.textPrimary, 'hover:underline')}
+        >
+          ← {t('endpointReference.back', {}, { defaultValue: 'All endpoints' })}
+        </Link>
+        <LoadErrorBanner
+          message={error}
+          onRetry={() => {
+            setRetryTick((v) => v + 1)
+          }}
+          retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+        />
+      </div>
+    )
+  if (notFound || !endpoint)
     return (
       <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), 'space-y-6')}>
         <Link
@@ -134,35 +153,17 @@ export function EndpointReference() {
             )}
             aria-hidden="true"
           >
-            {notFound ? 'search_off' : 'cloud_off'}
+            search_off
           </span>
           <p
             className={cm.cn(
               cm.textSize('lg'),
               cm.fontWeight('semibold'),
-              notFound ? 'text-on-surface-variant' : 'text-error',
+              'text-on-surface-variant',
             )}
           >
-            {notFound
-              ? t('endpointReference.notFound', {}, { defaultValue: 'Endpoint not found.' })
-              : error}
+            {t('endpointReference.notFound', {}, { defaultValue: 'Endpoint not found.' })}
           </p>
-          {!notFound ? (
-            <button
-              type="button"
-              onClick={() => setRetryTick((v) => v + 1)}
-              className={cm.cn(
-                cm.sp('px', 5),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                cm.fontWeight('semibold'),
-                cm.roundedFull,
-                'bg-primary text-on-primary hover:opacity-90',
-              )}
-            >
-              {t('common.retry', {}, { defaultValue: 'Retry' })}
-            </button>
-          ) : null}
         </div>
       </div>
     )
