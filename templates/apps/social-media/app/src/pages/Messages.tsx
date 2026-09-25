@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { useConversations, useThreadMessages } from '../lib/api.js'
 import { fmtRelativeShort, vividGradient } from '../lib/sample-feed.js'
@@ -93,24 +94,13 @@ export function Messages() {
       </header>
 
       {convosError && (
-        <div
-          role="alert"
+        <LoadErrorBanner
           data-testid="messages-error"
-          className={cm.cn(
-            'rounded-2xl border border-red-300 bg-error-light text-error px-4 py-3 mb-4 text-sm flex items-center gap-3',
-          )}
-        >
-          <span>{t('messages.error', {}, { defaultValue: 'Could not load conversations.' })}</span>
-          <button
-            type="button"
-            onClick={() => void refetchConvos()}
-            className={cm.cn(
-              'shrink-0 rounded-full border border-current px-3 py-1 text-xs font-bold hover:bg-surface-container transition-colors',
-            )}
-          >
-            {t('common.retry', {}, { defaultValue: 'Retry' })}
-          </button>
-        </div>
+          className={cm.cn('mb-4')}
+          message={t('messages.error', {}, { defaultValue: 'Could not load conversations.' })}
+          onRetry={refetchConvos}
+          retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+        />
       )}
 
       <div
