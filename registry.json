@@ -1890,6 +1890,44 @@
         "translation.googleapis.com"
       ]
     },
+    "@molecule/api-ai-translation-llm": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-translation",
+      "label": "Ai Translation",
+      "description": "Language-model translation provider for molecule.dev — translates through any @molecule/api-ai model, hosted or self-hosted",
+      "stack": "api",
+      "implements": "@molecule/api-ai-translation",
+      "exports": [
+        "languageName",
+        "systemPrompt",
+        "parseTranslations",
+        "MaskedText",
+        "maskText",
+        "tokensIntact",
+        "unmaskText",
+        "createProvider",
+        "provider",
+        "LlmTranslationConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-ai",
+        "@molecule/api-ai-translation"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai",
+        "@molecule/api-ai-translation"
+      ],
+      "path": "packages/api/bonds/ai-translation/llm",
+      "intentHints": [
+        "llm translation",
+        "ai translation",
+        "translate with ai model",
+        "self-hosted translation"
+      ]
+    },
     "@molecule/api-ai-vector-store": {
       "language": "typescript",
       "runtime": "node",
