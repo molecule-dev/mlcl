@@ -5,6 +5,7 @@ import { track } from '@molecule/app-analytics'
 import { KpiCard, KpiCardGrid } from '@molecule/app-kpi-card-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 interface DashboardSummary {
   wedding: {
@@ -127,32 +128,15 @@ export function Dashboard() {
 
   if (error && !summary) {
     return (
-      <div
+      <LoadErrorBanner
         className={cm.cn(cm.sp('p', 8), 'max-w-5xl w-full mx-auto')}
         data-mol-id="page-dashboard-error"
-      >
-        <div
-          className={cm.cn(
-            cm.sp('p', 6),
-            'rounded-2xl border',
-            'border-error/40 bg-error-light/50',
-          )}
-        >
-          <p className={cm.cn('font-bold', 'text-error')}>
-            {t('dashboard.errorTitle', {}, { defaultValue: 'Could not load your dashboard' })}
-          </p>
-          <p className={cm.cn(cm.textSize('sm'), 'mt-1 text-on-surface-variant')}>{error}</p>
-          <button
-            type="button"
-            onClick={load}
-            data-mol-id="dashboard-retry"
-            className={cm.cn('mt-4 px-4 py-2 rounded-xl font-bold text-white')}
-            style={{ background: 'var(--color-primary)' }}
-          >
-            {t('common.retry', {}, { defaultValue: 'Try again' })}
-          </button>
-        </div>
-      </div>
+        message={t('dashboard.errorTitle', {}, { defaultValue: 'Could not load your dashboard' })}
+        detail={error}
+        onRetry={load}
+        retryLabel={t('common.retry', {}, { defaultValue: 'Try again' })}
+        retryMolId="dashboard-retry"
+      />
     )
   }
 
