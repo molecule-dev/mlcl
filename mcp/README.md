@@ -80,6 +80,7 @@ registry listings (one-click), and for Claude Code the full plugin —
 | `embed_text`           | Embeddings on molecule.dev, billed to the project — no OpenAI account |
 | `text_to_speech`       | Speech audio from text on molecule.dev, written to a local file       |
 | `transcribe_audio`     | Text from a local audio file on molecule.dev (whisper-1)              |
+| `moderate_content`     | Moderation scores for text or a local image on molecule.dev           |
 
 Plus the `molecule://conventions` resource — the molecule doctrine
 (packages before hand-rolled code, bonds for providers, ClassMap, i18n) that

@@ -641,5 +641,73 @@ server.registerTool(
   ),
 )
 
+const IMAGE_TYPES: Record<string, string> = {
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.gif': 'image/gif',
+}
+
+server.registerTool(
+  'moderate_content',
+  {
+    title: 'Moderate content with molecule.dev',
+    description:
+      'Score text or a local image (png, jpeg, webp, gif; up to 4 MB) for harassment, hate, sexual content, self-harm, violence and illicit content on molecule.dev (OpenAI omni-moderation, no OpenAI account; counted against the project whose MOLECULE_API_KEY is used). Returns flagged plus per-category scores, highest first. Pass exactly one of text or image_file. The same service backs @molecule/api-content-moderation-molecule in app code.',
+    inputSchema: {
+      text: z.string().min(1).max(100_000).optional(),
+      image_file: z.string().optional().describe('Path of a local image file'),
+      threshold: z
+        .number()
+        .min(0)
+        .max(1)
+        .optional()
+        .describe(
+          'Flag a category when its score is at least this (default: the provider decides)',
+        ),
+      categories: z.array(z.string()).optional().describe('Only decide on these categories'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked(
+    'moderate_content',
+    async ({ text: content, image_file, threshold, categories, directory }) =>
+      serviceResult(async () => {
+        if ((content === undefined) === (image_file === undefined)) {
+          throw new ServiceCallError('Pass exactly one of text or image_file.')
+        }
+        const options = {
+          ...(threshold !== undefined ? { threshold } : {}),
+          ...(categories?.length ? { categories } : {}),
+        }
+        if (content !== undefined) {
+          return JSON.stringify(
+            await callHostedService('moderation', 'check', { content, ...options }, directory),
+          )
+        }
+        const path = resolve(image_file as string)
+        const mimeType = IMAGE_TYPES[extname(path).toLowerCase()]
+        if (!mimeType)
+          throw new ServiceCallError('image_file must be .png, .jpg, .jpeg, .webp or .gif.')
+        if (!existsSync(path)) throw new ServiceCallError(`No file at ${path}.`)
+        if (statSync(path).size > 4 * 1024 * 1024) {
+          throw new ServiceCallError('The image is larger than 4 MB.')
+        }
+        return JSON.stringify(
+          await callHostedService(
+            'moderation',
+            'check-image',
+            { image: readFileSync(path).toString('base64'), mimeType, ...options },
+            directory,
+          ),
+        )
+      }),
+  ),
+)
+
 /** The configured server — exported so tests can link an in-memory client to it. */
 export { server as moleculeServer }
