@@ -5,11 +5,11 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
+import { useIsDesktop } from '@molecule/app-ui-react'
 
 import { CollaboratorStack } from '../components/CollaboratorStack.js'
 import { WhiteboardLayout } from '../components/WhiteboardLayout.js'
 import { getRealtimeConnection } from '../lib/realtime.js'
-import { useIsMobile } from '../lib/use-is-mobile.js'
 
 const TOOLS: Array<{ id: ToolId; icon: string; label: string }> = [
   { id: 'select', icon: 'arrow_selector_tool', label: 'Select' },
@@ -117,7 +117,9 @@ export function BoardCanvas() {
   const [shareRole, setShareRole] = useState<'viewer' | 'commenter' | 'editor'>('viewer')
   const [shareStatus, setShareStatus] = useState<string | null>(null)
   const [snapshotStatus, setSnapshotStatus] = useState<string | null>(null)
-  const isMobile = useIsMobile()
+  // Canvas-internal breakpoint (mobile panels/toggles) — the shared shell
+  // hook, inverted; the nav-drawer chrome itself is owned by the shell.
+  const isMobile = !useIsDesktop()
 
   // Freehand stroke drawing (pointer events — works for mouse, pen AND touch).
   // While a stroke is in flight its points render as a live polyline; on
