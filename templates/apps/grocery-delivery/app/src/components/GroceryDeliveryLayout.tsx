@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
-import { TopNavLayout } from '@molecule/app-top-nav-layout-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { UserMenu } from './UserMenu.js'
@@ -16,27 +15,6 @@ const NAV_KEYS = [
   { to: '/cart', key: 'cart', defaultLabel: 'Cart', icon: 'shopping_cart' },
 ] as const
 
-/** Below 768px the shared TopNavLayout collapses to icon-only links that
- * cram against the brand and the user menu at 390px, so narrower screens
- * get the template-local mobile shell instead: sticky top bar (brand +
- * user menu) with a horizontally scrollable chip nav row under it.
- * Rendered via matchMedia — only one shell is ever mounted, so the routed
- * page never mounts twice. */
-const DESKTOP_QUERY = '(min-width: 768px)'
-
-function useIsDesktop(): boolean {
-  const [isDesktop, setIsDesktop] = useState(
-    () => typeof window !== 'undefined' && window.matchMedia(DESKTOP_QUERY).matches,
-  )
-  useEffect(() => {
-    const mq = window.matchMedia(DESKTOP_QUERY)
-    const onChange = (e: MediaQueryListEvent): void => setIsDesktop(e.matches)
-    mq.addEventListener('change', onChange)
-    return () => mq.removeEventListener('change', onChange)
-  }, [])
-  return isDesktop
-}
-
 function useNavItems(): Array<{ to: string; key: string; icon: string; label: string }> {
   const { t } = useTranslation()
   return NAV_KEYS.map((item) => ({
@@ -48,94 +26,104 @@ function useNavItems(): Array<{ to: string; key: string; icon: string; label: st
 }
 
 /**
- * Mobile shell (< 768px): sticky brand bar + scrollable chip nav. The chip
- * row is width-constrained and scrolls within itself, so the page never
- * overflows horizontally the way the inline icon nav did at 390px.
+ * Bushel shell — the shared `ResponsiveAppShell` composed to this app's
+ * shape: a mobile-only top bar (brand + user menu; the shell renders the
+ * drawer menu trigger itself), a ≥md sidebar with the brand row, a <md
+ * dialog drawer over the same nav, and one `<Outlet />` so pages mount
+ * exactly once at any width. The shell owns the breakpoint, the root
+ * direction, the drawer open state, focus/Escape/backdrop handling, and the
+ * auto-close-on-navigation; this component only supplies nav + brand.
  */
-function MobileShell() {
+export function GroceryDeliveryLayout() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navItems = useNavItems()
+  const navLabel = t(
+    'groceryDeliveryLayout.primaryNavLabel',
+    {},
+    { defaultValue: 'Primary navigation' },
+  )
+
+  // ONE nav element for both breakpoints — the Sidebar and the Drawer receive
+  // the same element, and only the mounted breakpoint instantiates it.
+  // NavLink supplies aria-current="page" plus the active styles; the drawer
+  // closes itself on navigation (shell-owned), so links carry no onClick
+  // close.
+  const nav = navItems.map((item) => (
+    <NavLink
+      key={item.key}
+      to={item.to}
+      className={({ isActive }) =>
+        cm.cn(
+          cm.flex({ align: 'center', gap: 'xs' }),
+          cm.sp('px', 3),
+          cm.sp('py', 2),
+          cm.textSize('sm'),
+          cm.fontWeight('medium'),
+          'min-h-[44px] rounded-full transition-colors',
+          isActive
+            ? cm.cn('bg-primary-container text-on-primary-container')
+            : cm.cn(cm.textMuted, 'hover:bg-surface-container hover:text-on-surface'),
+        )
+      }
+    >
+      <span className="material-symbols-outlined text-base" aria-hidden="true">
+        {item.icon}
+      </span>
+      <span>{item.label}</span>
+    </NavLink>
+  ))
+
   return (
-    <div className={cm.cn(cm.minH('screen'), 'bg-background text-on-surface antialiased')}>
-      <header
-        className={cm.cn('sticky top-0 z-40 bg-surface shadow-sm')}
-        data-mol-id="grocery-delivery-mobile-header"
-      >
-        <div
-          className={cm.cn(
-            cm.flex({ align: 'center', justify: 'between', gap: 'sm' }),
-            cm.sp('px', 4),
-            cm.sp('py', 3),
-          )}
-        >
+    <ResponsiveAppShell sidebarWidth="md">
+      {/*
+        Mobile top bar (< md): brand + user menu, per the old mobile shell's
+        sticky header. The drawer menu trigger is the shell's.
+      */}
+      <ResponsiveAppShell.TopBar
+        mobileOnly
+        brand={
           <Link to="/shop" className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
             {APP_NAME}
           </Link>
-          <UserMenu />
-        </div>
-        <nav
-          aria-label={t(
-            'groceryDeliveryLayout.primaryNavLabel',
-            {},
-            { defaultValue: 'Primary navigation' },
-          )}
-          className={cm.cn(
-            cm.flex({ align: 'center', gap: 'xs' }),
-            cm.sp('px', 2),
-            'w-full overflow-x-auto pb-2',
-          )}
-          style={{ scrollbarWidth: 'none' }}
-        >
-          {navItems.map((item) => (
-            <NavLink
-              key={item.key}
-              to={item.to}
-              className={({ isActive }) =>
-                cm.cn(
-                  cm.flex({ align: 'center', gap: 'xs' }),
-                  cm.sp('px', 3),
-                  cm.sp('py', 2),
-                  cm.textSize('sm'),
-                  cm.fontWeight('medium'),
-                  'shrink-0 whitespace-nowrap rounded-full transition-colors',
-                  isActive
-                    ? cm.cn('bg-primary-container text-on-primary-container')
-                    : cm.cn(cm.textMuted, 'hover:bg-surface-container hover:text-on-surface'),
-                )
-              }
-            >
-              <span className="material-symbols-outlined text-base" aria-hidden="true">
-                {item.icon}
-              </span>
-              <span>{item.label}</span>
-            </NavLink>
-          ))}
-        </nav>
-      </header>
-      <main>
-        <Outlet />
-      </main>
-    </div>
-  )
-}
+        }
+        actions={<UserMenu />}
+      />
 
-export function GroceryDeliveryLayout() {
-  const { t } = useTranslation()
-  const navItems = useNavItems()
-  const isDesktop = useIsDesktop()
-  if (!isDesktop) return <MobileShell />
-  return (
-    <TopNavLayout
-      appName={APP_NAME}
-      logoTo="/shop"
-      navItems={navItems}
-      userMenu={<UserMenu />}
-      navAriaLabel={t(
-        'groceryDeliveryLayout.primaryNavLabel',
-        {},
-        { defaultValue: 'Primary navigation' },
-      )}
-    />
+      {/*
+        Desktop sidebar (>= md): the brand row leads the nav column — the
+        shared Sidebar has no header slot, so it rides inside children. The
+        user menu rides in the footer slot (the old top bar carried it; with
+        a mobileOnly TopBar the sidebar is its only desktop home).
+      */}
+      <ResponsiveAppShell.Sidebar
+        navLabel={navLabel}
+        className={cm.sp('p', 4)}
+        // inline-flex keeps the menu button hugging its content instead of
+        // stretching across the footer row (the footer is a flex-col).
+        footer={
+          <span className="inline-flex">
+            <UserMenu />
+          </span>
+        }
+      >
+        <Link to="/shop" className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), 'block')}>
+          {APP_NAME}
+        </Link>
+        {nav}
+      </ResponsiveAppShell.Sidebar>
+
+      {/*
+        Mobile drawer (< md): a full dialog panel (focus trap, Escape,
+        backdrop click, body-scroll lock) over the same nav.
+      */}
+      <ResponsiveAppShell.Drawer navLabel={navLabel} className="h-full">
+        {nav}
+      </ResponsiveAppShell.Drawer>
+
+      <ResponsiveAppShell.Content className="w-full overflow-y-auto">
+        <Outlet />
+      </ResponsiveAppShell.Content>
+    </ResponsiveAppShell>
   )
 }

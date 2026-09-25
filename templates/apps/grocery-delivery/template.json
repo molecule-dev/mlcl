@@ -27,7 +27,6 @@
     "@molecule/app-maps",
     "@molecule/app-realtime-socketio",
     "@molecule/app-status-timeline-react",
-    "@molecule/app-top-nav-layout-react",
     "@molecule/app-virtual-scroll"
   ],
   "env": {

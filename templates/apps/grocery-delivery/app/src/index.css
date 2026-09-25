@@ -5,11 +5,6 @@
 @source "../../../../../../node_modules/@molecule/app-ui-tailwind/dist";
 @source "../../../../../../node_modules/@molecule/app-styling-tailwind/dist";
 @source "../../../../../../node_modules/@molecule/app-ui-react/dist";
-/* TopNavLayout nav labels are hidden md:inline — force-generate md:inline (the
-   dist @source is unreliable through symlinked node_modules), otherwise the
-   labels are display:none at every width (axe link-name). */
-@source "../../../../../../node_modules/@molecule/app-top-nav-layout-react/dist";
-@source inline("md:inline");
 
 /*
  * Safelist for dynamically-generated UIClassMap utility classes.
