@@ -1,9 +1,8 @@
-import { useEffect } from 'react'
-import { Link, NavLink, useLocation } from 'react-router'
+import { Link, NavLink, Outlet, useLocation } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
-import { SidebarLayout } from '@molecule/app-sidebar-layout-react'
 import { getClassMap } from '@molecule/app-ui'
+import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
 import { APP_NAME } from '../branding.js'
 import { NowPlayingBar } from './NowPlayingBar.js'
@@ -24,12 +23,16 @@ const NAV_KEYS = [
 ] as const
 
 /**
- * App shell: the shared `SidebarLayout` at ≥768px, a template-local mobile
- * shell below that (sticky top bar + horizontally scrollable chip nav).
- * The shared sidebar has no mobile collapse of its own, so at <768px the
- * `.wvl-*` rules in index.css hide its `<aside>` and relax it to document
- * flow — the chip nav below replaces it. Active-chip state mirrors the
- * sidebar's longest-prefix match.
+ * Wavelength shell — the shared `ResponsiveAppShell` composed to this app's
+ * shape: a mobile-only top bar (brand + compact user menu; the shell renders
+ * the drawer menu trigger itself), a ≥768px sidebar with the brand row and
+ * the full user card in its footer, a <768px dialog drawer over the same
+ * nav, and one `<Outlet />` so pages mount exactly once at any width. The
+ * shell owns the breakpoint, the root direction, the drawer open state,
+ * focus/Escape/backdrop handling, and the auto-close-on-navigation; this
+ * component only supplies nav + brand. The NowPlayingBar is page chrome, not
+ * the nav shell, so it stays app-local below the shell — the wrapper's
+ * bottom padding keeps the last page content clear of the fixed bar.
  */
 export function WavelengthLayout() {
   const cm = getClassMap()
@@ -43,8 +46,9 @@ export function WavelengthLayout() {
     label: t(`wavelengthLayout.nav.${item.key}`, {}, { defaultValue: item.defaultLabel }),
   }))
 
-  // Single-active-item resolution: longest prefix-match wins (same rule the
-  // shared SidebarLayout applies to its vertical list).
+  // Single-active-item resolution: longest prefix-match wins (the fleet's
+  // active-nav rule — keeps a detail route like /shows/<id> lit under its
+  // parent section).
   const activeKey = navItems.reduce<string | null>((best, item) => {
     const isMatch = pathname === item.to || pathname.startsWith(`${item.to}/`)
     if (!isMatch) return best
@@ -53,80 +57,106 @@ export function WavelengthLayout() {
     return current && item.to.length > current.to.length ? item.key : best
   }, null)
 
-  // Keep the active chip visible when the nav row overflows horizontally.
-  useEffect(() => {
-    if (!activeKey) return
-    document
-      .querySelector(`[data-mol-id="mobile-nav-${activeKey}"]`)
-      ?.scrollIntoView({ block: 'nearest', inline: 'center' })
-  }, [activeKey])
+  const navLabel = t('wavelengthLayout.primaryNavLabel', {}, { defaultValue: 'Primary navigation' })
+
+  // ONE nav element for both breakpoints — the Sidebar and the Drawer receive
+  // the same element, and only the mounted breakpoint instantiates it. The
+  // drawer closes itself on navigation (shell-owned), so links carry no
+  // onClick close.
+  const nav = navItems.map((item) => {
+    const isActive = item.key === activeKey
+    return (
+      <NavLink
+        key={item.key}
+        to={item.to}
+        data-mol-id={`nav-${item.key}`}
+        aria-current={isActive ? 'page' : undefined}
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'sm' }),
+          cm.sp('px', 3),
+          cm.sp('py', 2),
+          cm.textSize('sm'),
+          cm.fontWeight('medium'),
+          'min-h-[44px] rounded-full transition-colors',
+          isActive
+            ? // The container pair, NOT bgPrimarySubtle + textPrimary — the
+              // brand colour on a 10% tint of itself fails AA.
+              cm.cn(cm.bgPrimaryContainer, cm.textOnPrimaryContainer)
+            : cm.cn(cm.textMuted, cm.link),
+        )}
+      >
+        <span className="material-symbols-outlined text-base" aria-hidden="true">
+          {item.icon}
+        </span>
+        <span>{item.label}</span>
+      </NavLink>
+    )
+  })
 
   return (
     <div style={{ paddingBottom: '88px' }}>
-      {/* Mobile chrome (hidden ≥768px where the sidebar takes over). */}
-      <div className="md:hidden sticky top-0 z-30">
-        <header
-          className={
-            'flex items-center justify-between gap-2 border-b border-outline-variant bg-surface px-3 py-2'
+      <ResponsiveAppShell sidebarWidth="md">
+        {/*
+          Mobile top bar (<768px): brand + compact user card, per the old
+          mobile shell's sticky header. The drawer menu trigger is the shell's.
+        */}
+        <ResponsiveAppShell.TopBar
+          mobileOnly
+          brand={
+            <Link
+              to="/discover"
+              className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'tracking-tight truncate')}
+            >
+              {APP_NAME}
+            </Link>
+          }
+          actions={<UserMenu dataMolId="mobile-user-card" compact />}
+        />
+
+        {/*
+          Desktop sidebar (>=768px): the brand row leads the nav column — the
+          shared Sidebar has no header slot, so it rides inside children. The
+          full user card rides in the footer slot (its only desktop home now
+          that the TopBar is mobile-only).
+        */}
+        <ResponsiveAppShell.Sidebar
+          navLabel={navLabel}
+          className={cm.sp('p', 4)}
+          // inline-flex keeps the menu button hugging its content instead of
+          // stretching across the footer row (the footer is a flex-col).
+          footer={
+            <span className="inline-flex">
+              <UserMenu />
+            </span>
           }
         >
           <Link
             to="/discover"
-            className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'), 'tracking-tight truncate')}
+            className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'), cm.sp('mb', 6), 'block')}
           >
             {APP_NAME}
           </Link>
-          <div className="shrink-0">
-            <UserMenu dataMolId="mobile-user-card" compact />
-          </div>
-        </header>
-        <nav
-          aria-label={t(
-            'wavelengthLayout.primaryNavLabel',
-            {},
-            { defaultValue: 'Primary navigation' },
-          )}
-          className={
-            'flex items-center gap-2 overflow-x-auto border-b border-outline-variant bg-surface px-3 py-2'
+          {nav}
+        </ResponsiveAppShell.Sidebar>
+
+        {/*
+          Mobile drawer (<768px): a full dialog panel (focus trap, Escape,
+          backdrop click, body-scroll lock) over the same nav.
+        */}
+        <ResponsiveAppShell.Drawer
+          navLabel={navLabel}
+          className="h-full"
+          header={
+            <span className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>{APP_NAME}</span>
           }
         >
-          {navItems.map((item) => {
-            const isActive = item.key === activeKey
-            return (
-              <NavLink
-                key={item.key}
-                to={item.to}
-                data-mol-id={`mobile-nav-${item.key}`}
-                aria-current={isActive ? 'page' : undefined}
-                className={
-                  'flex shrink-0 items-center gap-1 rounded-full border px-3 py-2 text-sm font-medium whitespace-nowrap' +
-                  (isActive
-                    ? ' border-transparent bg-primary text-on-primary'
-                    : ' border-outline-variant bg-surface text-on-surface-variant')
-                }
-              >
-                <span className="material-symbols-outlined text-base" aria-hidden="true">
-                  {item.icon}
-                </span>
-                {item.label}
-              </NavLink>
-            )
-          })}
-        </nav>
-      </div>
+          {nav}
+        </ResponsiveAppShell.Drawer>
 
-      <SidebarLayout
-        className="wvl-shell"
-        appName={APP_NAME}
-        logoTo="/discover"
-        navItems={navItems}
-        userMenu={<UserMenu />}
-        navAriaLabel={t(
-          'wavelengthLayout.primaryNavLabel',
-          {},
-          { defaultValue: 'Primary navigation' },
-        )}
-      />
+        <ResponsiveAppShell.Content className="w-full overflow-y-auto">
+          <Outlet />
+        </ResponsiveAppShell.Content>
+      </ResponsiveAppShell>
       <NowPlayingBar />
     </div>
   )

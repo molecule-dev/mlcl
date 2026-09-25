@@ -25,34 +25,3 @@
 /* cm.sp('p'|'px'|'py'|'pt'|'pb'|'pl'|'pr', scale) */
 
 @import '@molecule/app-ui-tailwind/base.css';
-
-/*
- * Mobile collapse for the shared SidebarLayout (template-local shell).
- *
- * The shared `SidebarLayout` renders its 240px `<aside>` at every width —
- * below 768px that leaves ~150px for content, crushing every page. Rather
- * than fork the shared component, WavelengthLayout renders its own mobile
- * chrome (sticky top bar + horizontally scrollable chip nav, `md:hidden`)
- * and these unlayered rules relax the desktop shell at <768px:
- *
- *   - the `<aside>` is hidden (the chip nav replaces it),
- *   - the shell's `h-screen` + internal-scroll (`pageShell`/`pageShellContent`
- *     utilities) give way to normal document flow so the top bar can be
- *     `sticky` and the whole page scrolls natively on touch.
- *
- * Unlayered author rules beat Tailwind's layered utilities regardless of
- * order, so no `!important` is needed.
- */
-@media (max-width: 767px) {
-  .wvl-shell {
-    height: auto;
-    overflow: visible;
-  }
-  .wvl-shell aside {
-    display: none;
-  }
-  .wvl-shell main {
-    height: auto;
-    overflow: visible;
-  }
-}
