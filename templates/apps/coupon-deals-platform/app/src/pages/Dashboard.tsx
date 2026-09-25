@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import type { TranslateFunction } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { DealCard, type DealCardDeal } from '../components/DealCard.js'
 import { HotDealsRow } from '../components/HotDealsRow.js'
@@ -81,27 +82,11 @@ export function Dashboard() {
     )
   if (error || !stats)
     return (
-      <div
-        className={cm.cn(
-          cm.sp('p', 8),
-          cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
-          'text-error',
-        )}
-      >
-        <p role="alert">{error ?? t('dashboard.empty', {}, { defaultValue: 'No data.' })}</p>
-        <button
-          type="button"
-          onClick={() => setReloadTick((n) => n + 1)}
-          className={cm.cn(
-            cm.sp('px', 5),
-            cm.sp('py', 2),
-            cm.textSize('sm'),
-            cm.fontWeight('bold'),
-            'rounded-full border border-outline-variant text-on-surface hover:bg-surface-container transition-colors',
-          )}
-        >
-          {t('common.retry', {}, { defaultValue: 'Retry' })}
-        </button>
+      <div className={cm.cn(cm.sp('p', 8))}>
+        <LoadErrorBanner
+          message={error ?? t('dashboard.empty', {}, { defaultValue: 'No data.' })}
+          onRetry={() => setReloadTick((n) => n + 1)}
+        />
       </div>
     )
 
