@@ -7,8 +7,7 @@ import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
-import { MobileNav } from '../components/MobileNav.js'
+import { AppShell } from '../components/AppShell.js'
 import { UserMenu } from '../components/UserMenu.js'
 import { getRealtimeConnection } from '../lib/realtime.js'
 
@@ -328,109 +327,33 @@ function Board({ projectId: projectIdProp }: BoardPageProps = {}) {
     }
   }, [http, newTaskTitle, newTaskPriority, newTaskDueDate, projectId, addTaskColumn, t])
 
-  const navItem = (to: string, icon: string, label: string, active = false) => (
-    <Link
-      to={to}
-      className={cm.cn(
-        'flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors',
-        active
-          ? 'bg-primary/10 text-primary'
-          : 'text-on-surface-variant hover:bg-surface-container-high/40 hover:text-on-surface',
-      )}
-    >
-      <span className="material-symbols-outlined text-[20px]">{icon}</span>
-      <span>{label}</span>
-    </Link>
-  )
-
   return (
-    <div
-      className={cm.cn(
-        cm.flex({}),
-        cm.minH('screen'),
-        'flex-col md:flex-row bg-surface text-on-surface antialiased',
-      )}
-      data-testid="board-page"
-    >
-      <MobileNav />
-      <aside
-        aria-label={t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })}
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          cm.h('screen'),
-          // Desktop rail only — MobileNav takes over below md.
-          'hidden md:flex w-[260px] sticky top-0 left-0 bg-surface-container-low/60',
-        )}
-      >
-        <div
-          className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('px', 6), cm.sp('py', 8))}
+    <AppShell
+      footer={
+        <button
+          type="button"
+          data-testid="board-back-to-dashboard"
+          onClick={() => navigate('/dashboard')}
+          className={cm.cn(
+            cm.w('full'),
+            cm.sp('py', 2.5),
+            'rounded-lg text-sm font-semibold text-on-surface-variant hover:bg-surface-container-high/40 transition-colors',
+          )}
         >
-          <div
-            className={cm.cn(
-              cm.w(8),
-              cm.h(8),
-              cm.flex({ align: 'center', justify: 'center' }),
-              'bg-gradient-to-br from-primary to-primary-container rounded-lg text-on-primary shadow-lg',
-            )}
-          >
-            <span className="material-symbols-outlined text-[20px]">architecture</span>
-          </div>
-          <div>
-            <h1 className={cm.cn(cm.textSize('lg'), 'font-bold tracking-tight')}>
-              {t('brand.name', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
-            </h1>
-            <p className="text-[10px] uppercase tracking-widest text-on-surface-variant">
-              {t('brand.tagline', {}, { defaultValue: 'Project Manager' })}
-            </p>
-          </div>
-        </div>
-        <nav className={cm.cn(cm.flex1, cm.sp('px', 3), cm.stack(1))}>
-          {navItem(
-            '/dashboard',
-            'dashboard',
-            t('nav.dashboard', {}, { defaultValue: 'Dashboard' }),
-          )}
-          {navItem(
-            `/projects/${projectId}/board`,
-            'folder_open',
-            t('nav.projects', {}, { defaultValue: 'Projects' }),
-            true,
-          )}
-          {navItem(
-            '/my-tasks',
-            'assignment_turned_in',
-            t('nav.myTasks', {}, { defaultValue: 'My Tasks' }),
-          )}
-          {navItem(
-            '/calendar',
-            'calendar_today',
-            t('nav.calendar', {}, { defaultValue: 'Calendar' }),
-          )}
-          {navItem('/settings', 'settings', t('nav.settings', {}, { defaultValue: 'Settings' }))}
-        </nav>
-        <div className={cm.cn(cm.sp('p', 4), 'mt-auto')}>
-          <button
-            type="button"
-            data-testid="board-back-to-dashboard"
-            onClick={() => navigate('/dashboard')}
-            className={cm.cn(
-              cm.w('full'),
-              cm.sp('py', 2.5),
-              'rounded-lg text-sm font-semibold text-on-surface-variant hover:bg-surface-container-high/40 transition-colors',
-            )}
-          >
-            {t('board.backToDashboard', {}, { defaultValue: '← Back to dashboard' })}
-          </button>
-        </div>
-      </aside>
-
-      <main className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }), 'min-w-0')}>
+          {t('board.backToDashboard', {}, { defaultValue: '← Back to dashboard' })}
+        </button>
+      }
+    >
+      <div
+        className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }), 'min-w-0')}
+        data-testid="board-page"
+      >
         <header
           className={cm.cn(
             cm.flex({ justify: 'between', align: 'center' }),
             cm.sp('px', 8),
             cm.sp('py', 5),
-            'sticky top-0 z-30 bg-surface/80 backdrop-blur-xl shadow-sm',
+            'sticky top-14 md:top-0 z-30 bg-surface/80 backdrop-blur-xl shadow-sm',
           )}
         >
           <div className={cm.cn(cm.flex({ direction: 'col' }))}>
@@ -734,7 +657,7 @@ function Board({ projectId: projectIdProp }: BoardPageProps = {}) {
             </div>
           )}
         </div>
-      </main>
+      </div>
 
       {showAddTaskModal && (
         <div
@@ -848,7 +771,7 @@ function Board({ projectId: projectIdProp }: BoardPageProps = {}) {
           </div>
         </div>
       )}
-    </div>
+    </AppShell>
   )
 }
 

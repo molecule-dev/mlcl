@@ -7,12 +7,11 @@ import { getClassMap } from '@molecule/app-ui'
 
 import AccountSettingsSection from '../components/AccountSettingsSection.js'
 import AppearanceSettingsSection from '../components/AppearanceSettingsSection.js'
+import { AppShell } from '../components/AppShell.js'
 import DeviceSettingsSection from '../components/DeviceSettingsSection.js'
-import MobileNav from '../components/MobileNav.js'
 import NotificationsSettingsSection from '../components/NotificationsSettingsSection.js'
 import ProfileSettingsSection from '../components/ProfileSettingsSection.js'
 import SettingsTopAppBar from '../components/SettingsTopAppBar.js'
-import SideNavBar from '../components/SideNavBar.js'
 function Settings() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -23,32 +22,29 @@ function Settings() {
   }, [pageTitle])
 
   return (
-    <div
-      aria-label={pageTitle}
-      className={cm.cn(cm.surface, 'text-on-surface antialiased selection:bg-primary-fixed')}
-    >
-      <MobileNav />
-      {/* SideNavBar (The Anchor) — desktop rail only, MobileNav takes over below md */}
-      <SideNavBar />
-      <SettingsTopAppBar />
-      {/* Main Content Canvas */}
-      <main
-        className={cm.cn(cm.sp('px', 5), 'md:px-16 max-w-6xl md:ml-[280px] pt-6 md:pt-24 pb-20')}
+    <AppShell>
+      <div
+        aria-label={pageTitle}
+        className={cm.cn(cm.surface, 'text-on-surface antialiased selection:bg-primary-fixed')}
       >
-        <div className={cm.stack(12)}>
-          {/* Profile Section */}
-          <ProfileSettingsSection />
-          {/* Notifications Section */}
-          <NotificationsSettingsSection />
-          {/* Appearance Section */}
-          <AppearanceSettingsSection />
-          {/* Account Section */}
-          <AccountSettingsSection />
-          {/* Devices Section */}
-          <DeviceSettingsSection />
+        <SettingsTopAppBar />
+        {/* Main Content Canvas */}
+        <div className={cm.cn(cm.sp('px', 5), 'md:px-16 max-w-6xl pt-6 pb-20')}>
+          <div className={cm.stack(12)}>
+            {/* Profile Section */}
+            <ProfileSettingsSection />
+            {/* Notifications Section */}
+            <NotificationsSettingsSection />
+            {/* Appearance Section */}
+            <AppearanceSettingsSection />
+            {/* Account Section */}
+            <AccountSettingsSection />
+            {/* Devices Section */}
+            <DeviceSettingsSection />
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </AppShell>
   )
 }
 

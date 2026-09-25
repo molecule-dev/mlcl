@@ -5,18 +5,11 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import MobileNav from '../components/MobileNav.js'
-import TimelineSideNav from '../components/TimelineSideNav.js'
+import { AppShell } from '../components/AppShell.js'
 import { UserMenu } from '../components/UserMenu.js'
 
 function TimelineChrome({ children }: { children: ReactNode }) {
-  return (
-    <div style={{ minHeight: '100%' }}>
-      <MobileNav />
-      <TimelineSideNav />
-      <div className="md:ml-[18rem]">{children}</div>
-    </div>
-  )
+  return <AppShell>{children}</AppShell>
 }
 
 interface Milestone {
@@ -315,13 +308,15 @@ export function TimelinePage({ projectId }: { projectId: string }) {
           fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
         }}
       >
-        {/* Header Controls */}
+        {/* Header Controls — sticks BELOW the shell's mobile top bar (h-14);
+            top-0 from md up, where the mobileOnly top bar does not render. */}
         <header
           data-mol-id="header"
-          className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-y-2')}
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'between' }),
+            'sticky top-14 md:top-0 z-40 flex-wrap gap-y-2',
+          )}
           style={{
-            position: 'sticky',
-            top: 0,
             minHeight: 64,
             paddingLeft: 16,
             paddingRight: 16,
@@ -329,7 +324,6 @@ export function TimelinePage({ projectId }: { projectId: string }) {
             paddingBottom: 8,
             background: 'rgba(255, 255, 255, 0.8)',
             backdropFilter: 'blur(12px)',
-            zIndex: 40,
           }}
         >
           <div className={cm.flex({ align: 'center', gap: 'lg' })}>
@@ -474,8 +468,9 @@ export function TimelinePage({ projectId }: { projectId: string }) {
           </div>
         </header>
 
-        {/* Content Area */}
-        <main
+        {/* Content Area — a div: the shell's `.Content` is the page's <main>
+            landmark; a second nested main would duplicate it. */}
+        <div
           data-mol-id="main-content"
           className={cm.flex()}
           style={{ flex: 1, overflow: 'hidden' }}
@@ -994,7 +989,7 @@ export function TimelinePage({ projectId }: { projectId: string }) {
               </div>
             </div>
           </section>
-        </main>
+        </div>
 
         {showAddMilestone && (
           <div

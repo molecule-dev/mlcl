@@ -6,8 +6,7 @@ import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
-import { APP_NAME } from '../branding.js'
-import { MobileNav } from '../components/MobileNav.js'
+import { AppShell } from '../components/AppShell.js'
 import { UserMenu } from '../components/UserMenu.js'
 
 interface Project {
@@ -244,127 +243,39 @@ export function Dashboard() {
     t('dashboard.fallbackName', {}, { defaultValue: 'there' })
 
   return (
-    <div
-      className={cm.cn(
-        cm.flex({}),
-        cm.minH('screen'),
-        'flex-col md:flex-row bg-surface text-on-surface antialiased',
-      )}
+    <AppShell
+      footer={
+        <button
+          type="button"
+          data-testid="dashboard-new-project"
+          className={cm.cn(
+            cm.flex({ align: 'center', justify: 'center' }),
+            cm.w('full'),
+            cm.sp('py', 3),
+            cm.fontWeight('bold'),
+            'bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-xl gap-2 shadow-lg active:scale-[0.98] transition-transform',
+          )}
+          onClick={() => setShowNewProject(true)}
+        >
+          <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>add</span>
+          {t('common.newProject', {}, { defaultValue: 'New Project' })}
+        </button>
+      }
     >
-      <MobileNav />
-      <aside
-        aria-label={t('nav.primaryNavigation', {}, { defaultValue: 'Primary navigation' })}
+      <div
         className={cm.cn(
+          cm.flex1,
           cm.flex({ direction: 'col' }),
-          cm.textSize('sm'),
-          cm.fontWeight('medium'),
-          cm.h('screen'),
-          // Desktop rail only — MobileNav takes over below md.
-          "hidden md:flex w-[240px] sticky top-0 left-0 bg-surface-secondary border-r-0 font-['Inter'] antialiased",
+          'bg-surface text-on-surface antialiased',
         )}
       >
-        <div
-          className={cm.cn(cm.flex({ align: 'center' }), cm.sp('px', 6), cm.sp('py', 8), 'gap-3')}
-        >
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w(8),
-              cm.h(8),
-              'bg-gradient-to-br from-primary to-primary-container rounded-lg text-on-primary shadow-lg',
-            )}
-          >
-            <span
-              className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')}
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              architecture
-            </span>
-          </div>
-          <div className={cm.flex({ direction: 'col' })}>
-            <span
-              className={cm.cn(
-                cm.textSize('xl'),
-                cm.fontWeight('bold'),
-                'tracking-tight text-foreground',
-              )}
-            >
-              {t('brand.name', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
-            </span>
-            <span
-              className={cm.cn('text-[10px] uppercase tracking-widest text-on-surface-variant')}
-            >
-              {t('brand.tagline', {}, { defaultValue: 'Project Manager' })}
-            </span>
-          </div>
-        </div>
-        <nav className={cm.cn(cm.flex1, cm.sp('px', 3), cm.stack(1))}>
-          <Link
-            to="/dashboard"
-            className={cm.cn(
-              'flex items-center gap-3 px-4 py-3 bg-warning-light/50 text-amber-800 dark:text-warning border-l-4 border-amber-500 transition-colors duration-200',
-            )}
-          >
-            <span className={cm.cn('material-symbols-outlined text-[20px]')}>dashboard</span>
-            <span>{t('nav.dashboard', {}, { defaultValue: 'Dashboard' })}</span>
-          </Link>
-          <Link
-            to="/my-tasks"
-            className={cm.cn(
-              'flex items-center gap-3 px-4 py-3 text-foreground-secondary hover:bg-border/50 transition-colors duration-200',
-            )}
-          >
-            <span className={cm.cn('material-symbols-outlined text-[20px]')}>
-              assignment_turned_in
-            </span>
-            <span>{t('nav.myTasks', {}, { defaultValue: 'My Tasks' })}</span>
-          </Link>
-          <Link
-            to="/calendar"
-            className={cm.cn(
-              'flex items-center gap-3 px-4 py-3 text-foreground-secondary hover:bg-border/50 transition-colors duration-200',
-            )}
-          >
-            <span className={cm.cn('material-symbols-outlined text-[20px]')}>calendar_today</span>
-            <span>{t('nav.calendar', {}, { defaultValue: 'Calendar' })}</span>
-          </Link>
-          <Link
-            to="/settings"
-            className={cm.cn(
-              'flex items-center gap-3 px-4 py-3 text-foreground-secondary hover:bg-border/50 transition-colors duration-200',
-            )}
-          >
-            <span className={cm.cn('material-symbols-outlined text-[20px]')}>settings</span>
-            <span>{t('nav.settings', {}, { defaultValue: 'Settings' })}</span>
-          </Link>
-        </nav>
-        <div className={cm.cn(cm.sp('p', 4), 'mt-auto')}>
-          <button
-            type="button"
-            data-testid="dashboard-new-project"
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              cm.w('full'),
-              cm.sp('py', 3),
-              cm.fontWeight('bold'),
-              'bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-xl gap-2 shadow-lg active:scale-[0.98] transition-transform',
-            )}
-            onClick={() => setShowNewProject(true)}
-          >
-            <span className={cm.cn(cm.textSize('sm'), 'material-symbols-outlined')}>add</span>
-            {t('common.newProject', {}, { defaultValue: 'New Project' })}
-          </button>
-        </div>
-      </aside>
-
-      <main className={cm.cn(cm.flex1, cm.flex({ direction: 'col' }))}>
         <header
           className={cm.cn(
             cm.flex({ justify: 'between', align: 'center' }),
             cm.sp('px', 8),
             cm.sp('py', 4),
             cm.w('full'),
-            "sticky top-0 z-40 bg-surface/80 backdrop-blur-xl shadow-sm dark:shadow-none font-['Inter']",
+            "sticky top-14 md:top-0 z-40 bg-surface/80 backdrop-blur-xl shadow-sm dark:shadow-none font-['Inter']",
           )}
         >
           <div className={cm.cn(cm.flex({ align: 'center' }), cm.flex1, cm.maxW('xl'))}>
@@ -863,7 +774,7 @@ export function Dashboard() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
 
       {showNewProject && (
         <div
@@ -967,7 +878,7 @@ export function Dashboard() {
           </div>
         </div>
       )}
-    </div>
+    </AppShell>
   )
 }
 

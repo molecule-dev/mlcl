@@ -4,8 +4,6 @@ import { Link } from 'react-router'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import { UserMenu } from './UserMenu.js'
-
 function SettingsTopAppBar() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -24,14 +22,14 @@ function SettingsTopAppBar() {
 
   return (
     <>
-      {/* TopAppBar */}
+      {/* TopAppBar — in-flow page header under the shared shell (the shell
+          carries the user menu; the user-menu link in the account panel and
+          the sidebar nav cover the rest of what the fixed bar used to do). */}
       <header
         className={cm.cn(
           cm.flex({ justify: 'between', align: 'center' }),
-          cm.sp('px', 16),
-          cm.h(16),
-          // Anchored to the desktop rail — hidden below md where MobileNav renders.
-          'hidden md:flex fixed top-0 right-0 left-[280px] bg-background/80 backdrop-blur-md z-40',
+          cm.sp('px', 5),
+          'md:px-16 h-16',
         )}
       >
         <h2
@@ -81,7 +79,6 @@ function SettingsTopAppBar() {
               help_outline
             </Link>
           </div>
-          <UserMenu />
         </div>
       </header>
     </>

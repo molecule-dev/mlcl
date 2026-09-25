@@ -1,17 +1,19 @@
 import { useCallback, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router'
+import { Link, useNavigate, useParams } from 'react-router'
 
+import { useLegalModals } from '@molecule/app-legal-pages-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { APP_NAME } from '../branding.js'
 import AddTaskFab from '../components/AddTaskFab.js'
-import MobileNav from '../components/MobileNav.js'
+import { AppShell } from '../components/AppShell.js'
 import TaskFilterBar from '../components/TaskFilterBar.js'
 import TaskInProgressSection from '../components/TaskInProgressSection.js'
 import TaskListHeader from '../components/TaskListHeader.js'
-import TaskListSideNavBar from '../components/TaskListSideNavBar.js'
 import TaskReviewSection from '../components/TaskReviewSection.js'
 import TodoTaskSection from '../components/TodoTaskSection.js'
+import { loadContent } from '../config.js'
 
 interface Task {
   id: string
@@ -127,10 +129,8 @@ export default function TaskList({ projectId: projectIdProp }: TaskListPageProps
 
   if (loading) {
     return (
-      <div className={cm.cn(cm.surface, 'antialiased')}>
-        <MobileNav />
-        <TaskListSideNavBar />
-        <main className={cm.cn(cm.surface, cm.minH('screen'), 'md:ml-72')}>
+      <AppShell footer={<TaskListNavFooter />}>
+        <div className={cm.cn(cm.surface, cm.minH('screen'))}>
           <div
             className={cm.cn(
               cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
@@ -139,17 +139,15 @@ export default function TaskList({ projectId: projectIdProp }: TaskListPageProps
           >
             <div className={cm.spinner({ size: 'lg' })} />
           </div>
-        </main>
-      </div>
+        </div>
+      </AppShell>
     )
   }
 
   if (error) {
     return (
-      <div className={cm.cn(cm.surface, 'antialiased')}>
-        <MobileNav />
-        <TaskListSideNavBar />
-        <main className={cm.cn(cm.surface, cm.minH('screen'), 'md:ml-72')}>
+      <AppShell footer={<TaskListNavFooter />}>
+        <div className={cm.cn(cm.surface, cm.minH('screen'))}>
           <div
             className={cm.cn(
               cm.flex({ direction: 'col', align: 'center', justify: 'center', gap: 'md' }),
@@ -161,16 +159,14 @@ export default function TaskList({ projectId: projectIdProp }: TaskListPageProps
               {t('common.retry', {}, { defaultValue: 'Retry' })}
             </button>
           </div>
-        </main>
-      </div>
+        </div>
+      </AppShell>
     )
   }
 
   return (
-    <div className={cm.cn(cm.surface, 'antialiased')}>
-      <MobileNav />
-      <TaskListSideNavBar />
-      <main className={cm.cn(cm.surface, cm.minH('screen'), 'md:ml-72')}>
+    <AppShell footer={<TaskListNavFooter />}>
+      <div className={cm.cn(cm.surface, cm.minH('screen'))}>
         <TaskFilterBar
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
@@ -192,9 +188,53 @@ export default function TaskList({ projectId: projectIdProp }: TaskListPageProps
             <TaskReviewSection tasks={reviewTasks} />
           </div>
         </div>
-      </main>
+      </div>
       {projectId ? <AddTaskFab onClick={handleAddTask} /> : null}
-    </div>
+    </AppShell>
+  )
+}
+
+/**
+ * Below-nav legal links for the shell footer — the Help route plus the
+ * Privacy modal (moved here from the deleted TaskListSideNavBar rail).
+ */
+function TaskListNavFooter() {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const { openPrivacy, modals } = useLegalModals({ appName: APP_NAME, loadContent })
+  return (
+    <>
+      <Link
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'sm' }),
+          cm.sp('py', 2),
+          'pl-4.5 text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors',
+        )}
+        data-mol-id="nav-help"
+        to="/help"
+      >
+        <span className={cm.cn(cm.textSize('xl'), 'material-symbols-outlined')} data-icon="help">
+          help
+        </span>
+        {t('common.help', {}, { defaultValue: 'Help' })}
+      </Link>
+      <button
+        type="button"
+        className={cm.cn(
+          cm.flex({ align: 'center', gap: 'sm' }),
+          cm.sp('py', 2),
+          'pl-4.5 text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors',
+        )}
+        data-mol-id="nav-privacy"
+        onClick={openPrivacy}
+      >
+        <span className={cm.cn(cm.textSize('lg'), 'material-symbols-outlined')} data-icon="shield">
+          shield
+        </span>
+        {t('nav.privacy', {}, { defaultValue: 'Privacy' })}
+      </button>
+      {modals}
+    </>
   )
 }
 export { TaskList, TaskList as TaskListPage }

@@ -48,8 +48,10 @@ export default function TaskFilterBar({
         'md:px-8',
         cm.flex({ justify: 'between', gap: 'lg' }),
         // Row from md up, but allow wrapping so the search + filter cluster
-        // never forces a horizontal overflow inside the md:ml-72 content area.
-        'sticky top-0 z-30 bg-surface/80 backdrop-blur-xl flex-col md:flex-row md:items-center md:flex-wrap gap-y-3 border-b border-transparent',
+        // never forces a horizontal overflow inside the shell content area.
+        // Sticks BELOW the shell's mobile top bar (h-14); top-0 from md up,
+        // where the mobileOnly top bar does not render.
+        'sticky top-14 md:top-0 z-30 bg-surface/80 backdrop-blur-xl flex-col md:flex-row md:items-center md:flex-wrap gap-y-3 border-b border-transparent',
       )}
     >
       <div
