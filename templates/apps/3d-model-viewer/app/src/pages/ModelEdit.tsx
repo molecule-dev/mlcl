@@ -5,13 +5,11 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import MobileBottomNav from '../components/MobileBottomNav.js'
 import ModelEditActionBar from '../components/ModelEditActionBar.js'
 import ModelEditMetadataPanel from '../components/ModelEditMetadataPanel.js'
 import ModelEditPreviewPanel from '../components/ModelEditPreviewPanel.js'
 import ModelEditRenderSettingsCard from '../components/ModelEditRenderSettingsCard.js'
 import ModelEditSharingCard from '../components/ModelEditSharingCard.js'
-import ModelEditSideNavBar from '../components/ModelEditSideNavBar.js'
 import ModelEditTopBar from '../components/ModelEditTopBar.js'
 
 export type ViewMode = 'Solid' | 'Wireframe' | 'Textured' | 'Matcap'
@@ -166,22 +164,16 @@ function ModelEdit() {
   return (
     <div
       className={cm.cn(
-        cm.flex({}),
-        cm.minH('screen'),
+        cm.flex({ direction: 'col' }),
+        cm.h('screen'),
         'bg-background text-on-background overflow-hidden',
       )}
     >
-      <ModelEditSideNavBar />
-      <div
-        className={cm.cn(
-          cm.flex({ direction: 'col' }),
-          cm.flex1,
-          cm.h('screen'),
-          'md:ml-[260px] overflow-hidden',
-        )}
-      >
-        <ModelEditTopBar modelName={name} />
-        <main
+      {/* Page top bar — md+ chrome riding inside the shell's Content (the
+          shell's mobile TopBar replaces it below the breakpoint). */}
+      <ModelEditTopBar modelName={name} />
+      <div className={cm.cn(cm.flex({ direction: 'col' }), cm.flex1, 'min-h-0 overflow-hidden')}>
+        <div
           className={cm.cn(cm.flex1, cm.sp('p', 8), 'overflow-y-auto pb-32')}
           data-mol-id="model-edit-main"
         >
@@ -231,20 +223,18 @@ function ModelEdit() {
               </>
             ) : null}
           </div>
-        </main>
-        {hydrated ? (
-          <ModelEditActionBar
-            onSave={handleSave}
-            onCancel={() => navigate('/models')}
-            onDelete={handleDelete}
-            saving={saving}
-            savedAt={savedAt}
-            error={error}
-          />
-        ) : null}
+        </div>
       </div>
-      {/* Mobile chrome: bottom tab bar below md */}
-      <MobileBottomNav />
+      {hydrated ? (
+        <ModelEditActionBar
+          onSave={handleSave}
+          onCancel={() => navigate('/models')}
+          onDelete={handleDelete}
+          saving={saving}
+          savedAt={savedAt}
+          error={error}
+        />
+      ) : null}
     </div>
   )
 }

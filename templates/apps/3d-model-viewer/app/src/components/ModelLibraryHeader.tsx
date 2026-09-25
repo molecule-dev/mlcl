@@ -17,10 +17,12 @@ function ModelLibraryHeader({ search, onSearch }: HeaderProps) {
         cm.h(20),
         'px-4 md:px-8',
         cm.flex({ align: 'center', justify: 'between' }),
-        'z-30 sticky top-0 bg-surface/90 backdrop-blur-md min-w-0',
+        // md+ page chrome inside the shell's Content — the shell's mobile
+        // TopBar replaces it below the breakpoint.
+        'hidden md:flex z-30 sticky top-0 bg-surface/90 backdrop-blur-md min-w-0',
       )}
     >
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }), 'hidden sm:flex min-w-0')}>
+      <div className={cm.cn(cm.flex({ align: 'center', gap: 4 }), 'min-w-0')}>
         <span
           className={cm.cn(
             cm.textSize('lg'),
@@ -45,16 +47,6 @@ function ModelLibraryHeader({ search, onSearch }: HeaderProps) {
           {t('header.allModels', {}, { defaultValue: 'All Models' })}
         </span>
       </div>
-      {/* Mobile-only compact title (the breadcrumb group above is sm+ only) */}
-      <span
-        className={cm.cn(
-          cm.textSize('lg'),
-          cm.fontWeight('semibold'),
-          'text-on-surface tracking-tight sm:hidden',
-        )}
-      >
-        {t('header.allModels', {}, { defaultValue: 'All Models' })}
-      </span>
       <div className={cm.cn(cm.flex({ align: 'center', gap: 6 }), 'min-w-0 shrink')}>
         {/* Search Pill */}
         <div className={cm.cn(cm.w(80), 'relative hidden lg:block')}>

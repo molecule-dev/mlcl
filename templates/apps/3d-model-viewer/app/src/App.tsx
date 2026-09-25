@@ -7,6 +7,7 @@ import { RootErrorBoundary } from '@molecule/app-root-error-boundary-react'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
+import AppShell from './components/AppShell.js'
 import { AuthGuard } from './components/AuthGuard.js'
 import { About } from './pages/About.js'
 import { Annotations } from './pages/Annotations.js'
@@ -45,15 +46,25 @@ export function App() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route element={<AuthGuard />}>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/models" element={<ModelLibrary />} />
+              {/*
+                Shell pages — one `<ResponsiveAppShell>` layout route wraps
+                them all, so pages stop mounting nav chrome individually.
+              */}
+              <Route element={<AppShell />}>
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/models" element={<ModelLibrary />} />
+                <Route path="/upload" element={<Upload />} />
+                <Route path="/models/:id/embed" element={<Embed />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/models/:id/edit" element={<ModelEdit />} />
+                <Route path="/notifications" element={<Notifications />} />
+              </Route>
+              {/*
+                Canvas surfaces — full-viewport viewers that carry their own
+                HUD chrome, not the shell (their bars are page content).
+              */}
               <Route path="/models/:id" element={<ModelViewer />} />
-              <Route path="/upload" element={<Upload />} />
-              <Route path="/models/:id/embed" element={<Embed />} />
-              <Route path="/settings" element={<Settings />} />
               <Route path="/models/:id/annotations" element={<Annotations />} />
-              <Route path="/models/:id/edit" element={<ModelEdit />} />
-              <Route path="/notifications" element={<Notifications />} />
               <Route path="/plan-updated" element={<PlanUpdated />} />
             </Route>
             <Route path="/terms" element={<Terms />} />

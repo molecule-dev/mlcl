@@ -4,14 +4,12 @@ import { Link } from 'react-router'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import MobileBottomNav from '../components/MobileBottomNav.js'
 import NotificationFilterBar, {
   type NotificationFilter,
 } from '../components/NotificationFilterBar.js'
 import NotificationsEndMarker from '../components/NotificationsEndMarker.js'
 import NotificationsPageHeader from '../components/NotificationsPageHeader.js'
 import NotificationsTopBar from '../components/NotificationsTopBar.js'
-import SideNavBar from '../components/SideNavBar.js'
 
 interface NotificationRow {
   id: string
@@ -174,9 +172,10 @@ function Notifications() {
       className={cm.cn(cm.minH('screen'), 'bg-surface text-foreground antialiased')}
       aria-label={t('settings.notifications', {}, { defaultValue: 'Notifications' })}
     >
-      <SideNavBar />
+      {/* Page top bar — md+ chrome riding inside the shell's Content (the
+          shell's mobile TopBar replaces it below the breakpoint). */}
       <NotificationsTopBar search={search} onSearch={setSearch} />
-      <main className={cm.cn(cm.sp('pt', 16), cm.minH('screen'), 'md:pl-[260px] pb-24 md:pb-16')}>
+      <div className={cm.cn('pb-24 md:pb-16')}>
         <div className={cm.cn(cm.mxAuto, cm.sp('px', 6), cm.sp('py', 8), 'max-w-[880px]')}>
           <NotificationsPageHeader
             unreadCount={items.filter((n) => n.unread).length}
@@ -249,9 +248,7 @@ function Notifications() {
             <NotificationsEndMarker />
           </div>
         </div>
-      </main>
-      {/* Mobile chrome: bottom tab bar below md */}
-      <MobileBottomNav />
+      </div>
     </div>
   )
 }

@@ -14,7 +14,9 @@ function ModelEditTopBar({ modelName }: { modelName?: string } = {}) {
         cm.sp('px', 8),
         cm.sp('py', 4),
         cm.w('full'),
-        'docked full-width top-0 sticky z-40 bg-background/70 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(26,26,46,0.06)]',
+        // md+ page chrome inside the shell's Content — sticky within the
+        // scroll; the shell's mobile TopBar replaces it below the breakpoint.
+        'hidden md:flex sticky top-0 z-20 bg-background/70 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(26,26,46,0.06)]',
       )}
     >
       <div

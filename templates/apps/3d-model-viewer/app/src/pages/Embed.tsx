@@ -10,7 +10,6 @@ import EmbedDimensionsPanel from '../components/EmbedDimensionsPanel.js'
 import EmbedInteractionPanel from '../components/EmbedInteractionPanel.js'
 import EmbedPageHeader from '../components/EmbedPageHeader.js'
 import EmbedPreviewPanel from '../components/EmbedPreviewPanel.js'
-import EmbedSideNavBar from '../components/EmbedSideNavBar.js'
 import EmbedThemePanel from '../components/EmbedThemePanel.js'
 import EmbedTopBar from '../components/EmbedTopBar.js'
 
@@ -121,105 +120,97 @@ function Embed() {
   return (
     <div
       className={cm.cn(
-        cm.flex({}),
+        cm.flex({ direction: 'col' }),
         cm.h('screen'),
         'bg-surface text-on-surface overflow-hidden antialiased',
       )}
       aria-label={t('embed.title', {}, { defaultValue: 'Embed model' })}
     >
-      <EmbedSideNavBar />
+      {/* Page top bar — md+ chrome riding inside the shell's Content (the
+          shell's mobile TopBar replaces it below the breakpoint). */}
+      <EmbedTopBar modelName={modelName} modelId={id ?? ''} />
+      {/* The shell's Content owns the <main> landmark — page regions are divs. */}
       <div
         className={cm.cn(
           cm.flex({ direction: 'col' }),
           cm.flex1,
-          'min-w-0 overflow-hidden relative bg-surface',
+          'min-h-0 overflow-y-auto',
+          cm.sp('p', 8),
         )}
       >
-        <EmbedTopBar modelName={modelName} modelId={id ?? ''} />
-        <main
-          className={cm.cn(
-            cm.flex({ direction: 'col' }),
-            cm.flex1,
-            cm.sp('p', 8),
-            'overflow-y-auto',
-          )}
-        >
-          <div
-            className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-4')}
-          >
-            <EmbedPageHeader />
-            <button
-              type="button"
-              data-mol-id="embed-save"
-              onClick={handleSave}
-              disabled={saving || !id}
-              className={cm.cn(
-                cm.sp('px', 5),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                cm.fontWeight('semibold'),
-                'rounded-xl bg-primary text-on-primary hover:shadow-lg hover:shadow-primary/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed',
-              )}
-            >
-              {saving
-                ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
-                : embedId
-                  ? t('common.saveChanges', {}, { defaultValue: 'Save changes' })
-                  : t('embed.publish', {}, { defaultValue: 'Publish embed' })}
-            </button>
-          </div>
-          {savedAt ? (
-            <p
-              data-mol-id="embed-saved"
-              className={cm.cn(cm.textSize('xs'), cm.sp('mt', 2), 'text-primary')}
-            >
-              {t('common.savedPeriod', {}, { defaultValue: 'Saved.' })}
-            </p>
-          ) : null}
-          {error ? (
-            <p
-              data-mol-id="embed-error"
-              role="alert"
-              className={cm.cn(cm.textSize('xs'), cm.sp('mt', 2), 'text-error')}
-            >
-              {error}
-            </p>
-          ) : null}
-          <div
+        <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'flex-wrap gap-4')}>
+          <EmbedPageHeader />
+          <button
+            type="button"
+            data-mol-id="embed-save"
+            onClick={handleSave}
+            disabled={saving || !id}
             className={cm.cn(
-              cm.flex({ direction: 'col', gap: 8 }),
-              cm.flex1,
-              cm.sp('mb', 8),
-              cm.minH('[0]'),
-              'lg:flex-row',
+              cm.sp('px', 5),
+              cm.sp('py', 2),
+              cm.textSize('sm'),
+              cm.fontWeight('semibold'),
+              'rounded-xl bg-primary text-on-primary hover:shadow-lg hover:shadow-primary/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed',
             )}
           >
-            <EmbedPreviewPanel />
-            <div
-              className={cm.cn(
-                cm.flex({ direction: 'col', gap: 6 }),
-                cm.w('full'),
-                cm.sp('pl', 0),
-                'lg:w-2/5 lg:pl-4',
-              )}
-            >
-              <EmbedDimensionsPanel
-                width={width}
-                height={height}
-                setWidth={setWidth}
-                setHeight={setHeight}
-              />
-              <EmbedInteractionPanel
-                autoRotate={autoRotate}
-                showAnnotations={showAnnotations}
-                setAutoRotate={setAutoRotate}
-                setShowAnnotations={setShowAnnotations}
-              />
-              <EmbedThemePanel theme={theme} setTheme={setTheme} />
-            </div>
+            {saving
+              ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
+              : embedId
+                ? t('common.saveChanges', {}, { defaultValue: 'Save changes' })
+                : t('embed.publish', {}, { defaultValue: 'Publish embed' })}
+          </button>
+        </div>
+        {savedAt ? (
+          <p
+            data-mol-id="embed-saved"
+            className={cm.cn(cm.textSize('xs'), cm.sp('mt', 2), 'text-primary')}
+          >
+            {t('common.savedPeriod', {}, { defaultValue: 'Saved.' })}
+          </p>
+        ) : null}
+        {error ? (
+          <p
+            data-mol-id="embed-error"
+            role="alert"
+            className={cm.cn(cm.textSize('xs'), cm.sp('mt', 2), 'text-error')}
+          >
+            {error}
+          </p>
+        ) : null}
+        <div
+          className={cm.cn(
+            cm.flex({ direction: 'col', gap: 8 }),
+            cm.flex1,
+            cm.sp('mb', 8),
+            cm.minH('[0]'),
+            'lg:flex-row',
+          )}
+        >
+          <EmbedPreviewPanel />
+          <div
+            className={cm.cn(
+              cm.flex({ direction: 'col', gap: 6 }),
+              cm.w('full'),
+              cm.sp('pl', 0),
+              'lg:w-2/5 lg:pl-4',
+            )}
+          >
+            <EmbedDimensionsPanel
+              width={width}
+              height={height}
+              setWidth={setWidth}
+              setHeight={setHeight}
+            />
+            <EmbedInteractionPanel
+              autoRotate={autoRotate}
+              showAnnotations={showAnnotations}
+              setAutoRotate={setAutoRotate}
+              setShowAnnotations={setShowAnnotations}
+            />
+            <EmbedThemePanel theme={theme} setTheme={setTheme} />
           </div>
-          <EmbedCodeSnippet width={width} height={height} embedId={embedId} modelId={id ?? ''} />
-        </main>
+        </div>
+        <EmbedCodeSnippet width={width} height={height} embedId={embedId} modelId={id ?? ''} />
       </div>
     </div>
   )

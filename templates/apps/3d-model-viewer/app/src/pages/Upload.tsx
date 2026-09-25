@@ -5,11 +5,9 @@ import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-import MobileBottomNav from '../components/MobileBottomNav.js'
 import UploadDropzone from '../components/UploadDropzone.js'
 import UploadPageHeader from '../components/UploadPageHeader.js'
 import UploadQueueList, { type QueueItem } from '../components/UploadQueueList.js'
-import UploadSideNavBar from '../components/UploadSideNavBar.js'
 import UploadTopBar from '../components/UploadTopBar.js'
 
 const ACCEPTED_FORMATS = new Set(['glb', 'gltf', 'obj', 'fbx', 'stl'])
@@ -126,39 +124,34 @@ function Upload() {
 
   return (
     <div
-      className={cm.cn(cm.flex({}), cm.minH('screen'), 'bg-surface text-on-surface font-body')}
+      className={cm.cn(
+        cm.flex({ direction: 'col' }),
+        cm.minH('screen'),
+        'bg-surface text-on-surface font-body',
+      )}
       aria-label={t('upload.title', {}, { defaultValue: 'Upload a model' })}
     >
-      <UploadSideNavBar />
-      <main
+      {/* Page top bar — md+ chrome riding inside the shell's Content (the
+          shell's mobile TopBar replaces it below the breakpoint). */}
+      <UploadTopBar />
+      <div
         className={cm.cn(
           cm.flex({ direction: 'col' }),
           cm.flex1,
-          cm.minH('screen'),
-          'md:ml-[260px] bg-surface',
+          cm.sp('p', 8),
+          cm.maxW('5xl'),
+          cm.mxAuto,
+          cm.w('full'),
         )}
       >
-        <UploadTopBar />
-        <div
-          className={cm.cn(
-            cm.flex({ direction: 'col' }),
-            cm.flex1,
-            cm.sp('p', 8),
-            cm.maxW('5xl'),
-            cm.mxAuto,
-            cm.w('full'),
-          )}
-        >
-          <UploadPageHeader
-            queueCount={queue.length}
-            onClear={clearQueue}
-            onViewLibrary={goToLibrary}
-          />
-          <UploadDropzone onFilesAdded={onFilesAdded} />
-          <UploadQueueList items={queue} onRemove={removeItem} />
-        </div>
-      </main>
-      <MobileBottomNav />
+        <UploadPageHeader
+          queueCount={queue.length}
+          onClear={clearQueue}
+          onViewLibrary={goToLibrary}
+        />
+        <UploadDropzone onFilesAdded={onFilesAdded} />
+        <UploadQueueList items={queue} onRemove={removeItem} />
+      </div>
     </div>
   )
 }

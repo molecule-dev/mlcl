@@ -11,9 +11,7 @@ import ActivityFeed from '../components/ActivityFeed.js'
 import DashboardStatsRow from '../components/DashboardStatsRow.js'
 import DashboardTopBar from '../components/DashboardTopBar.js'
 import FloatingUploadButton from '../components/FloatingUploadButton.js'
-import MobileBottomNav from '../components/MobileBottomNav.js'
 import ModelCard from '../components/ModelCard.js'
-import SideNavBar from '../components/SideNavBar.js'
 import StorageBreakdown from '../components/StorageBreakdown.js'
 import WelcomeHeader from '../components/WelcomeHeader.js'
 
@@ -66,81 +64,73 @@ function Dashboard() {
   const userName = user?.name ?? user?.email?.split('@')[0] ?? 'Alex'
 
   return (
-    <div className={cm.cn(cm.minH('screen'), 'bg-surface text-on-surface font-body antialiased')}>
-      {/* SideNavBar (Shared Component) — md+ only; mobile uses MobileBottomNav */}
-      <SideNavBar />
-      {/* Main Content Wrapper */}
-      <main className={cm.cn(cm.minH('screen'), 'md:ml-[260px] relative')}>
-        <DashboardTopBar />
-        {/* Canvas */}
-        <div
-          className={cm.cn(
-            cm.sp('px', 8),
-            cm.maxW('7xl'),
-            cm.mxAuto,
-            cm.stack(12),
-            'pt-[88px] pb-24 md:pb-24',
-          )}
-        >
-          {/* Welcome Header */}
-          <WelcomeHeader name={userName} />
-          {/* Stats Row */}
-          <DashboardStatsRow />
-          {/* Recent Models */}
-          <section>
-            <div
-              className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 6))}
-            >
-              <h3 className={cm.cn(cm.textSize('xl'), 'font-headline text-on-surface')}>
-                {t('dashboard.recentModels', {}, { defaultValue: 'Recent Models' })}
-              </h3>
-              <Link
-                className={cm.cn(
-                  'text-sm font-medium text-primary hover:text-primary-container transition-colors',
-                )}
-                to="/models"
-              >
-                {t('common.viewAll', {}, { defaultValue: 'View All' })}
-              </Link>
-            </div>
-            <div
+    <div className={cm.cn('bg-surface text-on-surface font-body antialiased')}>
+      {/* Page top bar — md+ chrome riding inside the shell's Content (the
+          shell's mobile TopBar replaces it below the breakpoint). */}
+      <DashboardTopBar />
+      <div
+        className={cm.cn(
+          cm.sp('px', 8),
+          cm.maxW('7xl'),
+          cm.mxAuto,
+          cm.stack(12),
+          'pt-6 pb-24 md:pb-24',
+        )}
+      >
+        {/* Welcome Header */}
+        <WelcomeHeader name={userName} />
+        {/* Stats Row */}
+        <DashboardStatsRow />
+        {/* Recent Models */}
+        <section>
+          <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.sp('mb', 6))}>
+            <h3 className={cm.cn(cm.textSize('xl'), 'font-headline text-on-surface')}>
+              {t('dashboard.recentModels', {}, { defaultValue: 'Recent Models' })}
+            </h3>
+            <Link
               className={cm.cn(
-                cm.flex({ gap: 6 }),
-                cm.sp('pb', 8),
-                'overflow-x-auto hide-scrollbar -mb-8 snap-x',
+                'text-sm font-medium text-primary hover:text-primary-container transition-colors',
               )}
+              to="/models"
             >
-              {modelsLoading
-                ? Array.from({ length: 3 }).map((_, i) => (
-                    <div
-                      key={i}
-                      className={cm.cn(
-                        'min-w-[320px] snap-start bg-surface-container-lowest rounded-xl animate-pulse',
-                      )}
-                      style={{ minHeight: 200 }}
-                      aria-hidden="true"
-                    />
-                  ))
-                : recentModels.map((model) => (
-                    <Link key={model.id} to={`/models/${model.id}`} className="contents">
-                      <ModelCard model={model} />
-                    </Link>
-                  ))}
-            </div>
-          </section>
-          {/* Bottom Section: Activity & Storage */}
-          <section className={cm.cn(cm.grid({ cols: 1, gap: 8 }), 'lg:grid-cols-3')}>
-            {/* Activity Feed */}
-            <ActivityFeed />
-            {/* Storage Breakdown */}
-            <StorageBreakdown />
-          </section>
-        </div>
-        {/* Floating Upload Button (Glass & Gradient Rule) */}
-        <FloatingUploadButton />
-      </main>
-      {/* Mobile chrome: bottom tab bar below md (fleet mobile-shell pattern) */}
-      <MobileBottomNav />
+              {t('common.viewAll', {}, { defaultValue: 'View All' })}
+            </Link>
+          </div>
+          <div
+            className={cm.cn(
+              cm.flex({ gap: 6 }),
+              cm.sp('pb', 8),
+              'overflow-x-auto hide-scrollbar -mb-8 snap-x',
+            )}
+          >
+            {modelsLoading
+              ? Array.from({ length: 3 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className={cm.cn(
+                      'min-w-[320px] snap-start bg-surface-container-lowest rounded-xl animate-pulse',
+                    )}
+                    style={{ minHeight: 200 }}
+                    aria-hidden="true"
+                  />
+                ))
+              : recentModels.map((model) => (
+                  <Link key={model.id} to={`/models/${model.id}`} className="contents">
+                    <ModelCard model={model} />
+                  </Link>
+                ))}
+          </div>
+        </section>
+        {/* Bottom Section: Activity & Storage */}
+        <section className={cm.cn(cm.grid({ cols: 1, gap: 8 }), 'lg:grid-cols-3')}>
+          {/* Activity Feed */}
+          <ActivityFeed />
+          {/* Storage Breakdown */}
+          <StorageBreakdown />
+        </section>
+      </div>
+      {/* Floating Upload Button (Glass & Gradient Rule) */}
+      <FloatingUploadButton />
     </div>
   )
 }

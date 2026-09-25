@@ -13,7 +13,9 @@ function UploadTopBar() {
         cm.h(16),
         cm.sp('px', 8),
         cm.flex({ align: 'center', justify: 'between' }),
-        'border-b border-border bg-surface sticky top-0 z-30',
+        // md+ page chrome inside the shell's Content — sticky within the
+        // scroll; the shell's mobile TopBar replaces it below the breakpoint.
+        'hidden md:flex border-b border-border bg-surface sticky top-0 z-20',
       )}
     >
       <div

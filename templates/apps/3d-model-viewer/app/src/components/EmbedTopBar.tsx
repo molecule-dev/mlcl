@@ -18,7 +18,9 @@ function EmbedTopBar({ modelName, modelId }: EmbedTopBarProps) {
         cm.h(16),
         cm.flex({ align: 'center', justify: 'between' }),
         cm.sp('px', 6),
-        'bg-surface-container-highest/60 backdrop-blur-xl z-10 sticky top-0 border-b border-surface-container-low',
+        // md+ page chrome inside the shell's Content — sticky within the
+        // scroll; the shell's mobile TopBar replaces it below the breakpoint.
+        'hidden md:flex bg-surface-container-highest/60 backdrop-blur-xl z-10 sticky top-0 border-b border-surface-container-low',
       )}
     >
       <div

@@ -18,7 +18,9 @@ function DashboardTopBar() {
         cm.flex({ align: 'center', justify: 'between' }),
         cm.sp('px', 8),
         cm.w('full'),
-        'fixed top-0 right-0 left-0 md:left-[260px] h-[56px] z-40 bg-surface/80 dark:bg-surface-container-lowest/80 backdrop-blur-xl',
+        // md+ page chrome inside the shell's Content — sticky within the
+        // scroll; the shell's mobile TopBar replaces it below the breakpoint.
+        'hidden md:flex sticky top-0 h-[56px] z-20 bg-surface/80 dark:bg-surface-container-lowest/80 backdrop-blur-xl',
       )}
     >
       {/* Search Bar Area (on_left) */}

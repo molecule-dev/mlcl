@@ -18,7 +18,9 @@ function NotificationsTopBar({ search = '', onSearch }: NotificationsTopBarProps
         cm.sp('px', 8),
         cm.h(16),
         cm.w('full'),
-        'bg-surface/80 backdrop-blur-md dark:bg-surface-container-lowest/80 fixed top-0 right-0 left-0 md:left-[260px] z-40 border-b border-outline-variant/50',
+        // md+ page chrome inside the shell's Content — sticky within the
+        // scroll; the shell's mobile TopBar replaces it below the breakpoint.
+        'hidden md:flex bg-surface/80 backdrop-blur-md dark:bg-surface-container-lowest/80 sticky top-0 z-20 border-b border-outline-variant/50',
       )}
     >
       <div className={cm.flex({ align: 'center', gap: 4 })}>
