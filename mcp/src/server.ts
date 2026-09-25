@@ -487,5 +487,50 @@ server.registerTool(
   ),
 )
 
+server.registerTool(
+  'translate',
+  {
+    title: 'Translate text with molecule.dev',
+    description:
+      'Translate UI strings or other text into another language on molecule.dev (no translation-vendor account needed; metered per character to the project whose MOLECULE_API_KEY is used). Pass placeholders such as {{count}} in "protect" so they come back unchanged — then still check each result contains them. Up to 200 texts / 50,000 characters per call. The same service backs @molecule/api-ai-translation-molecule in app code.',
+    inputSchema: {
+      text: z.union([z.string(), z.array(z.string())]).describe('Text or list of texts'),
+      target_lang: z.string().describe('Target language code, e.g. "de", "pt-BR", "zh-TW"'),
+      source_lang: z.string().optional().describe('Source language code; omit to auto-detect'),
+      protect: z
+        .array(z.string())
+        .optional()
+        .describe('Exact substrings to keep unchanged, e.g. ["{{count}}", "Acme"]'),
+      context: z
+        .string()
+        .optional()
+        .describe(
+          'What the texts are, e.g. "button labels in a banking app" — improves short strings',
+        ),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('translate', async ({ text, target_lang, source_lang, protect, context, directory }) =>
+    serviceResult(async () => {
+      const result = await callHostedService(
+        'translation',
+        'translate',
+        {
+          text,
+          targetLang: target_lang,
+          ...(source_lang ? { sourceLang: source_lang } : {}),
+          ...(protect?.length ? { protect } : {}),
+          ...(context ? { context } : {}),
+        },
+        directory,
+      )
+      return JSON.stringify(result)
+    }),
+  ),
+)
+
 /** The configured server — exported so tests can link an in-memory client to it. */
 export { server as moleculeServer }
