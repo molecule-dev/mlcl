@@ -231,37 +231,3 @@ select:focus {
   box-shadow: 0 0 0 1px rgba(0, 110, 5, 0.4);
 }
 /* polish-v2:stitch-styles:end */
-
-/*
- * ResponsiveAppShell grid composition.
- *
- * The shared shell root is a flex ROW whose children are the TopBar header,
- * the Sidebar aside and the Content main. Left as-is, the header — which has
- * no width of its own — renders as a narrow squeezed column BESIDE the
- * sidebar instead of spanning the top. Lay the root out as a grid instead:
- * the top bar spans the full first row, the sidebar takes the first column
- * of the second row, and the content fills the rest. On mobile the sidebar
- * is unmounted, its auto column collapses to 0, and the content goes
- * full-width. Un-layered author CSS wins over the Tailwind utilities layer,
- * so this overrides the shell's flex classes deterministically. App-local
- * fix (the geometry lives in the shared package); revisit if the shell
- * grows a layout token for this.
- */
-[data-mol-id='shell-root'] {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto 1fr;
-}
-
-[data-mol-id='shell-root'] > [data-mol-id='shell-topbar'] {
-  grid-column: 1 / -1;
-}
-
-[data-mol-id='shell-root'] > aside {
-  grid-row: 2;
-}
-
-[data-mol-id='shell-root'] > main {
-  grid-column: 2;
-  grid-row: 2;
-}
