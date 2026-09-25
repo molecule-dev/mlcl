@@ -5,6 +5,7 @@ import type { UserProfile } from '@molecule/app-auth'
 import type { TranslateFunction } from '@molecule/app-i18n'
 import { useAuth, useGet, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import type { ObjectiveCardData } from '../components/ObjectiveCard.js'
 import { ObjectiveCard } from '../components/ObjectiveCard.js'
@@ -209,27 +210,17 @@ export function Profile() {
           </div>
           <div className={cm.cn(cm.stack(3))} data-testid="profile-objective-list">
             {error ? (
-              <div
-                role="alert"
-                className={cm.cn(
-                  cm.sp('p', 4),
-                  cm.stack(2),
-                  'rounded-2xl border border-error/30 bg-error-light text-error',
+              <LoadErrorBanner
+                message={t(
+                  'profile.loadError',
+                  {},
+                  { defaultValue: 'Could not load your objectives.' },
                 )}
-              >
-                <p className={cm.cn(cm.textSize('sm'), cm.fontWeight('semibold'))}>
-                  {t('profile.loadError', {}, { defaultValue: 'Could not load your objectives.' })}
-                </p>
-                <button
-                  type="button"
-                  onClick={() => void execute()}
-                  className={cm.cn(
-                    'self-start rounded-lg px-3 py-2 text-xs font-bold text-error hover:bg-error/10 transition-colors',
-                  )}
-                >
-                  {t('common.retry', {}, { defaultValue: 'Retry' })}
-                </button>
-              </div>
+                onRetry={async () => {
+                  await execute()
+                }}
+                retryLabel={t('common.retry', {}, { defaultValue: 'Retry' })}
+              />
             ) : loading ? (
               <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                 {t('profile.loading', {}, { defaultValue: 'Loading objectives…' })}
