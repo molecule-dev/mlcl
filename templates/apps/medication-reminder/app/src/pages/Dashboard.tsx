@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+import { LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { AdherenceTriad } from '../components/AdherenceTriad.js'
 import { DoseRow, type DoseStatus, type PillColor } from '../components/DoseRow.js'
@@ -134,27 +135,11 @@ export function Dashboard() {
 
   if (error)
     return (
-      <div
-        className={cm.cn(
-          cm.sp('py', 16),
-          cm.flex({ direction: 'col', align: 'center', gap: 'md' }),
-        )}
-      >
-        <p className="text-error">{error}</p>
-        <button
-          type="button"
-          onClick={() => setReloadKey((k) => k + 1)}
-          className={cm.cn(
-            cm.sp('px', 5),
-            cm.sp('py', 2),
-            cm.textSize('sm'),
-            cm.fontWeight('semibold'),
-            'border border-outline-variant rounded-md hover:bg-surface-container min-h-[44px]',
-          )}
-        >
-          {t('common.retry', {}, { defaultValue: 'Try again' })}
-        </button>
-      </div>
+      <LoadErrorBanner
+        message={error}
+        retryLabel={t('common.retry', {}, { defaultValue: 'Try again' })}
+        onRetry={() => setReloadKey((k) => k + 1)}
+      />
     )
   if (loading)
     return (
